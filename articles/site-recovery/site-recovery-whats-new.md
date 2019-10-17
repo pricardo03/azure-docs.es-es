@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: raynew
-ms.openlocfilehash: c54273e0ca8c88a6fe47d5611950acd38f50b4c0
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8e034153a2e98a101527f411c78ace6e46b01b29
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212799"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937525"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -73,7 +73,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 
 **Característica** | **Detalles**
 --- | ---
-Cuenta de almacenamiento | Site Recovery admite ahora el uso de cuentas de almacenamiento con el firewall habilitado para la recuperación ante desastres de Hyper-V en Azure.  Puede seleccionar cuentas de almacenamiento con firewall habilitado como una cuenta de destino o para almacenamiento en caché. Si usa la cuenta de almacenamiento con firewall habilitado, asegúrese de habilitar la opción de permitir servicios de Microsoft de confianza.
+Cuenta de almacenamiento | Site Recovery admite ahora el uso de cuentas de almacenamiento con el firewall habilitado para la recuperación ante desastres de Hyper-V en Azure.  Puede seleccionar cuentas de almacenamiento con firewall habilitado como una cuenta de destino o para almacenamiento en caché. Si usa la cuenta de almacenamiento con firewall habilitado, asegúrese de habilitar la opción de permitir servicios de Microsoft de confianza.<br/><br/> Esto se admite para las máquinas virtuales de Hyper-V con o sin System Center VMM.
 
 
 ## <a name="updates-august-2019"></a>Actualizaciones (agosto de 2019)

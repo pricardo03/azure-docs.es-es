@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: a47dc1032115f8bcae0c7bdc37c84ab3b68ec4a8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 298fd336e87d07f9e65221d5e5f539e255c94993
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432310"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72246033"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Solución de problemas de inicio de máquinas virtuales Linux debido a errores del sistema de archivos
 
@@ -71,7 +71,7 @@ Checking all file systems.
 
 Este problema puede producirse si el sistema de archivos no se apagó correctamente o debido a problemas relacionados con el almacenamiento. Entre los problemas se incluyen errores de hardware o software, problemas con controladores o programas, errores de escritura, etc. Es importante tener siempre una copia de seguridad de los datos críticos. Las herramientas que se describen en este artículo pueden ayudar a recuperar sistemas de archivos, pero es posible que se produzca una pérdida de datos.
 
-Linux cuenta con varios comprobadores de sistemas de archivos. Las más comunes para las distribuciones de Azure son: [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific) y [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
+Linux cuenta con varios comprobadores de sistemas de archivos. Las más comunes para las distribuciones de Azure son: [FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific) y [Xfs_repair](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
 
 ## <a name="resolution"></a>Resolución
 

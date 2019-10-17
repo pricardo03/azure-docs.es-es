@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51d21dca1d8a5223e67cb7ea8489800989cff55c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802168"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026019"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solución de problemas para QnA Maker
 
@@ -99,7 +99,7 @@ Para más información, consulte [Ubicaciones de orígenes de datos](./Concepts/
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>Las actualizaciones que realizo en mi knowledge base no se publican. ¿Por qué no?
 
-Cada edición, ya sea para actualizar la tabla, hacer pruebas o cambiar la configuración, debe guardarse para poder publicarla. Asegúrese de hacer clic en el botón  **Save and train** (Guardar y entrenar) después de cada edición que haga.
+Cada edición, ya sea para actualizar la tabla, hacer pruebas o cambiar la configuración, debe guardarse para poder publicarla. Asegúrese de hacer clic en el botón **Save and train** (Guardar y entrenar) después de cada edición que realice.
 
 ### <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>¿La knowledge base admite datos enriquecidos o multimedia?
 

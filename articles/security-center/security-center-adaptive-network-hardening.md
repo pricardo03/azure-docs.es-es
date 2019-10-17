@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 28761b78b49ad0774594b45db4587c710fc7d810
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255251"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996722"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protección de red adaptable en Azure Security Center
 Obtenga información sobre cómo configurar la protección de red adaptable en Azure Security Center.
@@ -49,7 +49,7 @@ Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico de
 
 2. En la pestaña **Recursos con estado incorrecto**, seleccione una VM para ver sus alertas y las reglas de protección recomendadas que se deben aplicar.
 
-    ![Alertas de protección](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
+    ![Alertas de protección](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
 
 ## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Revisión y aplicación de las reglas recomendadas de protección de red adaptable
