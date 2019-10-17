@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cacd9206eb0213d410a11ee3a2dcf5c0e28989c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082201"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372830"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Incorporación de soluciones de actualización y control de cambios a Azure Automation
 
@@ -130,6 +130,13 @@ Para iniciar este runbook, debe haber incorporado soluciones de actualización o
 
 1. Seleccione **Aceptar** para iniciar el trabajo del runbook.
 1. Supervise el progreso y los errores en la página de trabajos de runbook.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Para quitar una VM de Update Management:
+
+* En el área de trabajo de Log Analytics, quite la VM de la búsqueda guardada con la configuración de ámbito `MicrosoftDefaultScopeConfig-Updates`. Las búsquedas guardadas se pueden encontrar en la sección **General** del área de trabajo.
+* Quite [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o el [agente de Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

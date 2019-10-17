@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 66394600963cf154b3cb1fe661968f4ded2ec225
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 0607c2b848a486e24654081bd7937cb734394e58
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992259"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331839"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Acceso a los datos de Azure Data Lake Storage Gen2 con Azure Databricks mediante Spark
 
@@ -97,15 +97,13 @@ En esta sección, va a crear un servicio de Azure Databricks con Azure Portal.
 
     ![Creación de un clúster de Databricks Spark en Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Creación de un clúster de Databricks Spark en Azure")
 
-4. Rellene los valores para los campos siguientes y acepte los valores predeterminados para el resto de campos:
+    Rellene los valores para los campos siguientes y acepte los valores predeterminados para el resto de campos:
 
-    * Escriba un nombre para el clúster.
+    - Escriba un nombre para el clúster.
+     
+    - Asegúrese de que selecciona la casilla **Terminate after 120 minutes of inactivity** (Terminar después de 120 minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
 
-    * Para este artículo, cree un clúster con el entorno de ejecución **5.1**.
-
-    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de \_\_ minutos de inactividad). Si no se usa el clúster, proporcione una duración (en minutos) para terminar el clúster.
-
-    * Seleccione **Create cluster** (Crear clúster). Después de ejecutar el clúster, puede asociarle cuadernos y ejecutar trabajos de Spark.
+4. Seleccione **Create cluster** (Crear clúster). Después de ejecutar el clúster, puede asociarle cuadernos y ejecutar trabajos de Spark.
 
 ## <a name="ingest-data"></a>Introducción de datos
 
