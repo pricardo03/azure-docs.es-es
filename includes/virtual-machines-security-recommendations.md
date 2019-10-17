@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: 795b9beedabd119df98487a0bc00160bcf21507f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d43860d71b14bdac275df51695c9206539529171
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174163"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72511519"
 ---
-En este artículo se incluyen recomendaciones de seguridad para Azure Virtual Machines. Estas recomendaciones le ayudarán a cumplir las obligaciones de seguridad descritas en nuestro modelo de responsabilidad compartida. También le ayudarán a mejorar la seguridad general de las soluciones de aplicaciones web. Para más información acerca de lo que hace Microsoft para cumplir sus responsabilidades como proveedor de servicios, consulte [Responsabilidades compartidas de la informática en la nube](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf).
+En este artículo se incluyen recomendaciones de seguridad para Azure Virtual Machines. Estas recomendaciones le ayudarán a cumplir las obligaciones de seguridad descritas en nuestro modelo de responsabilidad compartida. También le ayudarán a mejorar la seguridad general de las soluciones de aplicaciones web. Para más información acerca de lo que hace Microsoft para cumplir sus responsabilidades como proveedor de servicios, consulte [Responsabilidades compartidas de la informática en la nube](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf).
 
 Algunas de las recomendaciones de este artículo se pueden seguir automáticamente mediante Azure Security Center. Azure Security Center es la primera línea de defensa de los recursos de Azure. Se encarga de analizar el estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de seguridad. Y luego ofrece recomendaciones para solucionar los puntos vulnerables. Para más información, consulte [Recomendaciones de seguridad de Azure Security Center](../articles/security-center/security-center-recommendations.md).
 

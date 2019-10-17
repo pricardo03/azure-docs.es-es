@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 810ecbd4421eec8e8e809b429270601a0c94d623
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 9c5fb38e66cb783b02d314d55cf0d0510523b6a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840897"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375976"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Administración del área de trabajo de Log Analytics mediante las plantillas de Azure Resource Manager
 
@@ -243,7 +243,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
     "customlogName": {
     "type": "string",
     "metadata": {
-      "description": "custom log name"
+      "description": "The custom log name"
       }
     },
     "variables": {
@@ -419,7 +419,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
           "type": "dataSources",
           "name": "[concat(parameters('workspaceName'), parameters('customlogName'))]",
           "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
           ],
           "kind": "CustomLog",
           "properties": {
@@ -462,7 +462,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
               }
             ]
           }
-        }
+        },
         {
           "apiVersion": "2015-11-01-preview",
           "type": "datasources",
@@ -592,6 +592,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
 }
 
 ```
+
 ### <a name="deploying-the-sample-template"></a>Implementación de la plantilla de ejemplo
 
 Para implementar la plantilla, realice estos pasos:

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: df24f846f1600685803fdd485f1810d66e32ae37
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028677"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330668"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configuración de un laboratorio para impartir una clase de piratería ética 
 En este artículo se muestra cómo configurar una clase que se centra en la parte referida al análisis forense de la piratería ética. Las pruebas de penetración son una práctica que usa la comunidad de piratería ética y que se producen cuando alguien intenta obtener acceso al sistema o a la red para mostrar los puntos vulnerables que un atacante malintencionado podría aprovechar. 
@@ -141,7 +141,7 @@ En este artículo se explican los pasos necesarios para crear un laboratorio par
 Los pasos siguientes son comunes a la configuración de cualquier laboratorio:
 
 - [Incorporación de usuarios](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Establecimiento de la cuota](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [Establecimiento de la cuota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Establecimiento de la programación](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Vínculos de registro por correo electrónico para los alumnos](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link) 
+- [Vínculos de registro por correo electrónico para los alumnos](how-to-configure-student-usage.md#send-invitations-to-users) 
 

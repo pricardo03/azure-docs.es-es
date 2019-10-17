@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 69fe370029cef391b8ee483ffdee5c588df41d58
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 147d3dba2e2dc271d5b7422d7ba2b28c04f583af
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030660"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330635"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configuración de un laboratorio para enseñar el scripting de shell en Linux
 En este artículo se muestra cómo configurar un laboratorio para enseñar el scripting de shell en Linux. El scripting es una parte útil de la administración del sistema que permite a los administradores evitar tareas repetitivas. En este escenario de ejemplo, la clase cubre scripts bash tradicionales y scripts mejorados. Los scripts mejorados son scripts que combinan comandos bash y Ruby. Este enfoque permite a Ruby pasar datos y comandos bash para interactuar con el shell. 
@@ -40,7 +40,7 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para crear un laboratorio 
 | ------------ | ------------------ |
 | Tamaño de la máquina virtual | Pequeña  |
 | Imagen de la máquina virtual | [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer1804LTS) |
-| Habilitar la conexión a Escritorio remoto | Enable (Habilitar). <p>La habilitación de esta configuración permitirá a los profesores y alumnos conectarse a sus máquinas virtuales mediante el escritorio remoto (RDP). Para más información, consulte [Habilitación del Escritorio remoto para máquinas virtuales Linux en un laboratorio de Azure Lab Services](how-to-enable-remote-desktop-linux.md#teachers-connecting-to-the-template-vm-using-rdp). </p>|
+| Habilitar la conexión a Escritorio remoto | Enable (Habilitar). <p>La habilitación de esta configuración permitirá a los profesores y alumnos conectarse a sus máquinas virtuales mediante el escritorio remoto (RDP). Para más información, consulte [Habilitación del Escritorio remoto para máquinas virtuales Linux en un laboratorio de Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## <a name="install-desktop-and-xrdp"></a>Instalación del escritorio y xrdp
@@ -96,9 +96,9 @@ En este artículo se explican los pasos necesarios para crear un laboratorio par
 Los pasos siguientes son comunes a la configuración de cualquier laboratorio:
 
 - [Incorporación de usuarios](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Establecimiento de la cuota](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [Establecimiento de la cuota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Establecimiento de la programación](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Vínculos de registro por correo electrónico para los alumnos](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link) 
+- [Vínculos de registro por correo electrónico para los alumnos](how-to-configure-student-usage.md#send-invitations-to-users) 
 
 
 
