@@ -3,15 +3,15 @@ title: 'Notas del producto y casos prácticos: Avere vFXT for Azure'
 description: Vínculos a notas del producto descargables, casos prácticos y otros artículos que ilustran Avere vFXT for Azure y cómo se puede utilizar.
 ms.service: avere-vfxt
 author: ekpgh
-ms.author: v-erkell
+ms.author: rohogue
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 257164a7417d4356c83cd1804939973b7029a4f1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409199"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255330"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Notas del producto y otros recursos de Avere vFXT for Azure 
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c75ec0ec212c99e474d13892178acbdc14e5f386
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: c34f59c3e9f679adf8ae410f648cb7de6dba6447
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075287"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430040"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Adopción del acceso condicional de Azure AD
 
@@ -69,7 +69,6 @@ Siga los vínculos siguientes para obtener información general sobre cómo func
 
 Además, consulte los siguientes vínculos para obtener instrucciones para proteger el acceso a todos los servicios que se integran con Azure Active Directory.
 
-* [¿Qué es la protección de base de referencia (versión preliminar)?](baseline-protection.md) La protección de base de referencia garantiza que al menos tiene el nivel de base de referencia de seguridad habilitado en el entorno de Azure Active Directory.
 * [Configuraciones de acceso de dispositivos e identidades](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations) Describe cómo configurar el acceso seguro a los servicios en la nube con los productos Enterprise Mobility + Security mediante la implementación de un entorno y una configuración recomendados, incluidos un conjunto recomendado de directivas de acceso condicional y las funcionalidades relacionadas.
 * [Referencia de configuración del acceso condicional de Azure Active Directory](technical-reference.md). Obtenga información sobre:
    * ¿Qué aplicaciones usan el acceso condicional?

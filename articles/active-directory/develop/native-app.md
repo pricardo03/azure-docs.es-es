@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0034668231d97e64602bdbdd0836bded97bb733d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545838"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373866"
 ---
 # <a name="native-apps"></a>Aplicaciones nativas
 
@@ -64,4 +64,4 @@ Cuando la aplicación nativa usa su código de autorización para obtener un tok
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre otros [tipos y escenarios de aplicaciones](app-types.md).
-- Más información sobre los [conceptos básicos de autenticación](authentication-scenarios.md) de Azure AD.
+- Más información sobre los [conceptos básicos de autenticación](v1-authentication-scenarios.md) de Azure AD.

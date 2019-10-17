@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
-ms.openlocfilehash: b53bb0f04bf6a739b588b14febd622f6bf7a6a63
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7f7e957502419b766f7da63048e8168192ea20da
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354899"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286644"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicación con el centro de IoT mediante el protocolo AMQP
 
@@ -262,7 +262,7 @@ Se admiten las siguientes rutas de acceso de vínculo como operaciones de dispos
 | Creado por | Tipo de vínculo | Ruta de acceso del vínculo | DESCRIPCIÓN |
 |------------|-----------|-----------|-------------|
 | Dispositivos | Vínculo de receptor | `/devices/<deviceID>/messages/devicebound` | Cada dispositivo de destino recibe en este vínculo los mensajes de la nube al dispositivo destinados a dispositivos. |
-| Dispositivos | Vínculo de emisor | `/devices/<deviceID>messages/events` | Los mensajes del dispositivo a la nube que se envían desde un dispositivo se envían mediante este vínculo. |
+| Dispositivos | Vínculo de emisor | `/devices/<deviceID>/messages/events` | Los mensajes del dispositivo a la nube que se envían desde un dispositivo se envían mediante este vínculo. |
 | Dispositivos | Vínculo de emisor | `/messages/serviceBound/feedback` | Comentarios de mensajes de la nube al dispositivo enviados al servicio mediante este vínculo por los dispositivos. |
 
 ### <a name="receive-cloud-to-device-commands-device-client"></a>Recepción de comandos de la nube al dispositivo (cliente del dispositivo)

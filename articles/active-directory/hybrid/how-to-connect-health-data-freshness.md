@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c5bc2ea76c558e47eaa5f297ebe36a629aa5754
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 41c1c102e88e1712d561874aef87a6f22ed250a9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702639"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430220"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Alerta sobre que los datos del servicio de mantenimiento no están actualizados
 
@@ -52,7 +52,7 @@ La tabla siguiente asigna los tipos de servicio a los tipos de datos requeridos 
 
 ## <a name="troubleshooting-steps"></a>Pasos para solucionar problemas 
 
-A continuación se indican los pasos necesarios para diagnosticar el problema. El primero es un conjunto de comprobaciones básicas que son comunes a todos los tipos de servicios. En la tabla siguiente se enumeran los pasos específicos para cada tipo de servicio y tipo de datos. 
+A continuación se indican los pasos necesarios para diagnosticar el problema. El primero es un conjunto de comprobaciones básicas que son comunes a todos los tipos de servicios. 
 
 > [!IMPORTANT] 
 > Esta alerta sigue la [directiva de retención de datos](reference-connect-health-user-privacy.md#data-retention-policy) de Connect Health

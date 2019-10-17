@@ -2,18 +2,17 @@
 title: Autenticación y permisos de usuario en Azure Analysis Services | Microsoft Docs
 description: Obtenga información sobre la autenticación y los permisos de usuario en Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7673b115a3ad2e6ca7aec34b1cfabfb38d2a16f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc66b34492b34a6e0f239d19ee10fbd79b683a14
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859216"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294929"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticación y permisos de usuario
 

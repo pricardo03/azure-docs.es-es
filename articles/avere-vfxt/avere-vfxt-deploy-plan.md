@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 1317e900fd4448ded046ffea481313f8ea9f68e3
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409892"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256243"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear un sistema de Avere vFXT
 
@@ -32,22 +32,22 @@ Siga estas instrucciones cuando planifique la infraestructura de red de su siste
 * Todos los elementos se deben administrar con una nueva suscripción creada para la implementación de Avere vFXT. Dicha integración aporta las siguientes ventajas: 
   * Seguimiento del costo más sencillo: puede ver y auditar todos los costos de los recursos, la infraestructura y los ciclos de proceso en una única suscripción.
   * Limpieza más sencilla: puede eliminar la suscripción completa una vez finalizado el proyecto.
-  * Creación de particiones adecuada de las cuotas de recursos: proteja otras cargas de trabajo críticas de posibles limitaciones de recursos mediante el aislamiento del clúster y los clientes de Avere vFXT en una suscripción única. Esto evita conflictos al incorporar un gran número de clientes para un flujo de trabajo informático de alto rendimiento.
+  * Creación de particiones adecuada de las cuotas de recursos: proteja otras cargas de trabajo críticas de posibles limitaciones de recursos mediante el aislamiento del clúster y los clientes de Avere vFXT en una suscripción única. Esto evita conflictos al incorporar un gran número de clientes para un flujo de trabajo informática de alto rendimiento.
 
 * Busque sus sistemas de procesamiento de clientes cerca del clúster de vFXT. El almacenamiento de back-end puede ser aún más remoto.  
 
-* El clúster de vFXT y la máquina virtual del controlador de clúster deben estar en la misma red virtual (vnet), dentro del mismo grupo de recursos, y usar la misma cuenta de almacenamiento. En la mayoría de las situaciones, la plantilla de creación de clústeres automatizada se encarga de ello.
+* El clúster de vFXT y la máquina virtual del controlador de clúster deben estar en la misma red virtual (vnet), en el mismo grupo de recursos, y usar la misma cuenta de almacenamiento. En la mayoría de las situaciones, la plantilla de creación de clústeres automatizada se encarga de ello.
 
 * El clúster debe estar ubicado en su propia subred para evitar conflictos de direcciones IP con los clientes o con los recursos del proceso. 
 
-* La plantilla de creación de clústeres puede crear la mayoría de los recursos de infraestructura necesarios para el clúster, incluidos los grupos de recursos, las redes virtuales, las subredes y las cuentas de almacenamiento. Si desea usar recursos que ya existen, asegúrese de que cumplen los requisitos de esta tabla. 
+* La plantilla de creación del clúster puede crear la mayoría de los recursos de infraestructura necesarios para el clúster, incluidos los grupos de recursos, las redes virtuales, las subredes y las cuentas de almacenamiento. Si desea usar recursos que ya existen, asegúrese de que cumplen los requisitos de esta tabla. 
 
-  | Recurso | ¿Usar existente? | Requisitos |
+  | Resource | ¿Usar existente? | Requisitos |
   |----------|-----------|----------|
-  | Grupos de recursos | Sí, si está vacío | Debe estar vacío| 
+  | Resource group | Sí, si está vacío | Debe estar vacío| 
   | Cuenta de almacenamiento | Sí, si se conecta un contenedor de blobs existente después de la creación del clúster <br/>  No, si crea un nuevo contenedor de blobs durante la creación del clúster | El contenedor de blobs existente debe estar vacío <br/> &nbsp; |
   | Virtual network | Sí | Debe incluir un punto de conexión de servicio de almacenamiento si va a crear un nuevo contenedor de blobs de Azure. | 
-  | Subred | Sí |   |
+  | Subnet | Sí |   |
 
 ## <a name="ip-address-requirements"></a>Requisitos de las direcciones IP 
 
@@ -133,12 +133,12 @@ Al crear el clúster, puede elegir si desea crear o no una dirección IP públic
 
 ## <a name="vm-access-roles"></a>Roles de acceso a máquinas virtuales 
 
-Azure usa el [control de acceso basado en rol](../role-based-access-control/index.yml) (RBAC) para autorizar que las máquinas virtuales del clúster realicen determinadas tareas. Por ejemplo, el controlador de clúster necesita autorización para crear y configurar las máquinas virtuales del nodo de clúster. Los nodos de clúster deben ser capaces de asignar o reasignar direcciones IP a otros nodos de clúster.
+Azure usa el [control de acceso basado en rol](../role-based-access-control/index.yml) (RBAC) para autorizar que las máquinas virtuales del clúster realicen determinadas tareas. Por ejemplo, el controlador del clúster necesita autorización para crear y configurar las máquinas virtuales del nodo de clúster. Los nodos de clúster deben ser capaces de asignar o reasignar direcciones IP a otros nodos de clúster.
 
 Se utilizan dos roles de Azure integrados para las máquinas de virtuales de Avere vFXT: 
 
-* El controlador de clúster utiliza el rol integrado [Colaborador de Avere](../role-based-access-control/built-in-roles.md#avere-contributor). 
-* Los nodos de clúster utilizan el rol integrado [Operador de Avere](../role-based-access-control/built-in-roles.md#avere-operator).
+* El controlador del clúster utiliza el rol integrado [Colaborador de Avere](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Los nodos de clúster utiliza el rol integrado [Operador de Avere](../role-based-access-control/built-in-roles.md#avere-operator).
 
 Si necesita personalizar los roles de acceso para los componentes de vFXT Avere, debe definir su propio rol y asignarlo a las máquinas virtuales al crearlos. No se puede usar la plantilla de implementación en Azure Marketplace. Consulte al servicio de Soporte técnico y Atención al cliente de Microsoft. abriendo una incidencia en Azure Portal, como se describe en [Obtener ayuda con su sistema](avere-vfxt-open-ticket.md). 
 

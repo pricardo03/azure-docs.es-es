@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2019
-ms.openlocfilehash: 467a8b1de3f6c234d9dfdfaf6132025688757997
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.date: 10/11/2019
+ms.openlocfilehash: 4f81b23378427faa522071f4a20e07485f5c3387
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327131"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296418"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: un solo servidor
 PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones agrupan varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones funcionan como características integradas.
@@ -44,7 +44,7 @@ Las extensiones siguientes están disponibles en los servidores de Azure Databa
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | Tipos de datos para los estándares internacionales de numeración de productos|
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | Tipo de datos para las estructuras de árbol jerárquicas|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funciones y operadores que emulan un subconjunto de funciones y paquetes desde un RDBMS comercial|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | Proporciona funcionalidad de auditoría|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | Proporciona funcionalidad de auditoría|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | Funciones de cifrado|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | Extensión pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Muestra información de bloqueo de nivel de fila|
@@ -90,7 +90,7 @@ Las extensiones siguientes están disponibles en los servidores de Azure Databa
 > |[isn](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | Tipos de datos para los estándares internacionales de numeración de productos|
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | Tipo de datos para las estructuras de árbol jerárquicas|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funciones y operadores que emulan un subconjunto de funciones y paquetes desde un RDBMS comercial|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | Proporciona funcionalidad de auditoría|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.2             | Proporciona funcionalidad de auditoría|
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | Funciones de cifrado|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | Extensión pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | Muestra información de bloqueo de nivel de fila|
@@ -136,7 +136,7 @@ Las extensiones siguientes están disponibles en los servidores de Azure Databa
 > |[isn](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | Tipos de datos para los estándares internacionales de numeración de productos|
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | Tipo de datos para las estructuras de árbol jerárquicas|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funciones y operadores que emulan un subconjunto de funciones y paquetes desde un RDBMS comercial|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | Proporciona funcionalidad de auditoría|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.1.2             | Proporciona funcionalidad de auditoría|
 > |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | Funciones de cifrado|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | Extensión pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | Muestra información de bloqueo de nivel de fila|
@@ -182,7 +182,7 @@ Las extensiones siguientes están disponibles en los servidores de Azure Databa
 > |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | Tipos de datos para los estándares internacionales de numeración de productos|
 > |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | Tipo de datos para las estructuras de árbol jerárquicas|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funciones y operadores que emulan un subconjunto de funciones y paquetes desde un RDBMS comercial|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | Proporciona funcionalidad de auditoría|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.0.7             | Proporciona funcionalidad de auditoría|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | Funciones de cifrado|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | Extensión pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | Muestra información de bloqueo de nivel de fila|

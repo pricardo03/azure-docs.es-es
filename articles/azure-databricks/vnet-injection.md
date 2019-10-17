@@ -1,5 +1,5 @@
 ---
-title: Implementación de Azure Databricks en la red virtual (versión preliminar)
+title: Implementación de Azure Databricks en la red virtual
 description: En este artículo se describe cómo implementar Azure Databricks en la red virtual, también conocido como inserción de red virtual.
 services: azure-databricks
 author: mamccrea
@@ -7,15 +7,15 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/10/2019
+ms.openlocfilehash: 0bb3221c201e6dd4dd17cca8ef7e3ed3331de228
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126688"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432666"
 ---
-# <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Implementación de Azure Databricks en la red virtual (versión preliminar)
+# <a name="deploy-azure-databricks-in-your-virtual-network"></a>Implementación de Azure Databricks en la red virtual
 
 La implementación predeterminada de Azure Databricks es un servicio totalmente administrado en Azure: todos los recursos del plano de datos, incluida una red virtual (VNet), se implementan en un grupo de recursos bloqueados. Sin embargo, si necesita personalizar la red, puede implementar los recursos de Azure Databricks en su propia red virtual (también llamado inyección VNet), cuando le permite lo siguiente:
 
@@ -37,7 +37,7 @@ Puede usar la interfaz de implementación del área de trabajo de Azure Databric
 
 La red virtual que se implementa en el área de trabajo de Azure Databricks debe cumplir los siguientes requisitos:
 
-### <a name="location"></a>Ubicación
+### <a name="location"></a>Location
 
 La red virtual debe residir en la misma ubicación que el área de trabajo de Azure Databricks.
 
@@ -101,7 +101,7 @@ Cuando use esta plantilla, no es necesario crear manualmente ninguna lista blanc
 
 ### <a name="network-security-groups"></a>Grupos de seguridad de red
 
-Para crear grupos de seguridad de red con las reglas necesarias para una red virtual existente, use la plantilla disponible en [Network Security Group Template for Databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection) (Plantilla de grupo de seguridad de red para la inyección de red virtual de Azure Databricks).
+Para crear grupos de seguridad de red con las reglas necesarias para una red virtual existente, use la plantilla disponible en [Network Security Group Template for Databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/) (Plantilla de grupo de seguridad de red para la inyección de red virtual de Azure Databricks).
 
 Cuando use esta plantilla, no es necesario crear manualmente ninguna lista blanca de tráfico de subred.
 
@@ -121,7 +121,7 @@ Si usa esta plantilla sin también usar la plantilla de grupos de seguridad de r
 
 Si no usa [Azure Portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) o las [plantillas de Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para crear grupos de seguridad de red, debe colocar manualmente en la lista blanca el siguiente tráfico en las subredes.
 
-|Dirección|Protocolo|Origen|Puerto de origen|Destino|Puerto de destino|
+|Dirección|Protocolo|Source|Puerto de origen|Destino|Puerto de destino|
 |---------|--------|------|-----------|-----------|----------------|
 |Entrada|\*|VirtualNetwork|\*|\*|\*|
 |Entrada|\*|Dirección IP de NAT de plano de control|\*|\*|22|
@@ -135,7 +135,7 @@ Colocar en la lista blanca el tráfico de subred con las siguientes direcciones 
 
 |Región de Azure Databricks|Servicio|Dirección IP pública|
 |-----------------------|-------|---------|
-|Este de EE. UU|NAT del plano de control </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|East US|NAT del plano de control </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Este de EE. UU. 2|NAT del plano de control </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Centro-Norte de EE. UU|NAT del plano de control </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Centro de EE. UU.|NAT del plano de control </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|

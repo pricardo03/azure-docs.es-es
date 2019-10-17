@@ -1,19 +1,19 @@
 ---
 title: Cláusula ORDER BY en Azure Cosmos DB
-description: Obtenga información sobre la cláusula ORDER BY de SQL para Azure Cosmos DB. Use SQL como lenguaje de consulta de JSON para Azure Cosmos DB.
+description: Obtenga información sobre la cláusula ORDER BY de SQL para Azure Cosmos DB. Use SQL como lenguaje de consulta de JSON para Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: d0a1ed33d5848c3ed8d5f83af8b320d77fe0dc65
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 14f61d14b59dca4bcf2e0f4b93e918f101a61833
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343167"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326851"
 ---
-# <a name="order-by-clause"></a>Cláusula ORDER BY
+# <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY en Azure Cosmos DB
 
 La cláusula opcional ORDER BY especifica el criterio de ordenación para los resultados que devuelve la consulta.
 
@@ -76,7 +76,7 @@ Los resultados son:
     ]
 ```
 
-La consulta siguiente recupera los `id` de familia en el orden de la fecha de creación del elemento. El elemento `creationDate` es un número que representa el *tiempo de época*, o el tiempo transcurrido desde el 1 de enero de 1970, en segundos.
+La consulta siguiente recupera los `id` de familia en el orden de la fecha de creación del elemento. El elemento `creationDate` es un número que representa la *hora de época* o el tiempo transcurrido desde el 1 de enero de 1970, en segundos.
 
 ```sql
     SELECT f.id, f.creationDate

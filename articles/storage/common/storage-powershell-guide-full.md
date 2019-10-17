@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac210a03f8b1a0a5f7fff07cbc68b4cd6bc98632
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 40fb44857126c3562e01585c3131afec87f01e42
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016343"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430069"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Azure Storage
 
@@ -252,4 +252,4 @@ En este artículo también se proporcionan referencias a otros artículos como, 
 
 * [Cmdlets de PowerShell para el plano de control de Azure Storage](/powershell/module/az.storage/)
 * [Cmdlets de PowerShell para el plano de datos de Azure Storage](/powershell/module/azure.storage/)
-* [Referencia de Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
+* [Referencia de Windows PowerShell](/powershell/scripting/developer/windows-powershell)

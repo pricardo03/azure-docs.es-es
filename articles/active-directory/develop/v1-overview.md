@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91f406198418571ec0d2c4d488909d3baaa494b1
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e790728cbc7415532754d10773d466e9a0280422
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834671"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373905"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Introducción a Azure Active Directory para desarrolladores (v1.0)
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) es un servicio de identidad en la nube que per
 
 | | |
 | --- | --- |
-|[Conceptos básicos sobre autenticación](authentication-scenarios.md) | Una introducción a la autenticación con Azure AD. |
+|[Conceptos básicos sobre autenticación](v1-authentication-scenarios.md) | Una introducción a la autenticación con Azure AD. |
 |[Tipos de aplicaciones](app-types.md) | Una introducción a los escenarios de autenticación que se admiten en Azure AD. |
 | | |
 

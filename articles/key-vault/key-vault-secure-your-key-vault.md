@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 4857cda7c3387e72be8837422469888adc5504d1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 04f4a71e6b54100e5a133958845cf732c2286b32
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883097"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301070"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Protección del acceso a un almacén de claves
 
@@ -37,7 +37,7 @@ Cuando se crea un almacén de claves en una suscripción de Azure, se asocia aut
 - **Acceso de usuario y aplicación**: la aplicación accede a Key Vault en nombre de un usuario que ha iniciado sesión. Los ejemplos de este tipo de acceso incluyen Azure PowerShell y Azure Portal. Se concede acceso de usuario de dos maneras. Los usuarios pueden acceder a Key Vault desde cualquier aplicación o deben usar una aplicación específica (que se conoce como _identidad compuesta_).
 - **Acceso de la aplicación solamente**: la aplicación se ejecuta como un servicio de demonio o un trabajo en segundo plano. A la identidad de la aplicación se le concede acceso al almacén de claves.
 
-Para ambos tipos de acceso, la aplicación se autentica con Azure AD. La aplicación utiliza cualquiera [método de autenticación compatible](../active-directory/develop/authentication-scenarios.md) según el tipo de aplicación. La aplicación adquiere un token para un recurso del plano para conceder acceso. El recurso es un punto de conexión en el plano de administración o de datos, según el entorno de Azure. La aplicación usa el token y envía la solicitud de una API de REST a Key Vault. Para más información, revise [todo el flujo de autenticación](../active-directory/develop/v1-protocols-oauth-code.md).
+Para ambos tipos de acceso, la aplicación se autentica con Azure AD. La aplicación utiliza cualquiera [método de autenticación compatible](../active-directory/develop/authentication-scenarios.md) según el tipo de aplicación. La aplicación adquiere un token para un recurso del plano para conceder acceso. El recurso es un punto de conexión en el plano de administración o de datos, según el entorno de Azure. La aplicación usa el token y envía la solicitud de una API de REST a Key Vault. Para más información, revise [todo el flujo de autenticación](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 El modelo de un único mecanismo de autenticación para ambos planos tiene varias ventajas:
 
@@ -208,7 +208,7 @@ Se recomienda configurar una protección de acceso adicional al almacén de clav
 
     En este vídeo de la conferencia Microsoft Ignite de 2015 se tratan las funcionalidades de administración del acceso y la generación de informes en Azure. También se exploran los procedimientos recomendados para proteger el acceso a suscripciones de Azure con Azure AD.
 
-* [Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure AD](../active-directory/develop/v1-protocols-oauth-code.md)
+* [Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure AD](../active-directory/develop/v2-oauth2-auth-code-flow.md)
 
 * [API de REST de administración de Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 

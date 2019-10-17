@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
-ms.openlocfilehash: 1f468cac29579d8748f61a47b548a67d36ff8279
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9e9258fb7ace93d0866463563d328456cbd1daa
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695947"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311679"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>SDK de REST de Apache Phoenix Query Server
 
-[Apache Phoenix](https://phoenix.apache.org/) es una capa de base de datos relacional de código abierto y masivamente paralela que se utiliza sobre [Apache HBase](apache-hbase-overview.md). Phoenix le permite usar consultas de tipo SQL con HBase mediante herramientas SSH como [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix también proporciona un servidor HTTP, denominado Phoenix Query Server (PQS). Se trata de un cliente ligero que admite dos mecanismos de transporte para la comunicación de cliente: JSON y búferes de protocolo. Los búferes de protocolo son el mecanismo predeterminado y ofrecen una comunicación más eficaz que JSON.
+[Apache Phoenix](https://phoenix.apache.org/) es una capa de base de datos relacional de código abierto y masivamente paralela que se utiliza sobre [Apache HBase](apache-hbase-overview.md). Phoenix le permite usar consultas de tipo SQL con HBase mediante herramientas SSH como [SQLLine](apache-hbase-query-with-phoenix.md). Phoenix también proporciona un servidor HTTP, denominado Phoenix Query Server (PQS). Se trata de un cliente ligero que admite dos mecanismos de transporte para la comunicación de cliente: JSON y búferes de protocolo. Los búferes de protocolo son el mecanismo predeterminado y ofrecen una comunicación más eficaz que JSON.
 
 En este artículo se describe cómo usar PQS REST SDK para crear tablas, realizar operaciones upsert individualmente y de forma masiva, y seleccionar datos con instrucciones SQL. En los ejemplos se usa el [controlador de Microsoft .NET para Apache Phoenix Query Server](https://www.nuget.org/packages/Microsoft.Phoenix.Client). Este SDK se basa en API de [Avatica de Apache Calcite](https://calcite.apache.org/avatica/), que usa exclusivamente los búferes de protocolo para el formato de serialización.
 

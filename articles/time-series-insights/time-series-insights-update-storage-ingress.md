@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98baa8d3f951a8922bcd1f40449fa26840f3a3c4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9af53728ee038a6511c434aeedfdb9afdab6d04b
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051478"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273875"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights
 
@@ -34,7 +34,7 @@ La versión preliminar de Time Series Insights admite los mismos orígenes de ev
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
   
-Azure Time Series Insights admite JSON enviado a través de Azure IoT Hub o Azure Event Hubs. Para optimizar los datos JSON de IoT, aprenda a [dar forma a JSON](./time-series-insights-send-events.md#json).
+Azure Time Series Insights admite JSON enviado a través de Azure IoT Hub o Azure Event Hubs. Para optimizar los datos JSON de IoT, aprenda a [dar forma a JSON](./time-series-insights-send-events.md#supported-json-shapes).
 
 ### <a name="data-storage"></a>Almacenamiento de datos
 

@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: overview
 ms.date: 06/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 0679bce8eae515aa6b90e34fcfd15ee9b4e56b31
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: 90d56ad0cec3d187d4c7307f8c004b14c3860390
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542888"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254711"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Especificaciones de Azure FXT Edge Filer
 
@@ -160,7 +160,7 @@ En esta sección se proporcionan especificaciones del entorno ambiente del hardw
 
 Azure FXT Edge Filer cumple con los reglamentos indicados. 
 
-| Categoría       | Especificación normativa | 
+| Category       | Especificación normativa | 
 |----------------|--------------------------|
 | Seguridad general | EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 <br>EN 62311:2008 | 
 | CEM            | FCC A, ICES-003  <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 +A1:2015/CISPR 24:2010 +A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (Clase D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013 |

@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 10/10/2019
 ms.author: danlep
-ms.openlocfilehash: 4e41bcaff8faef2c4eaec9ae852955d4b7ce354b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b544820a0c496e0814de44790ea9c28878031a7d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839896"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293905"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Compilación e inserción de una imagen desde una aplicación mediante una instancia de Cloud Native Buildpacks
 
@@ -31,20 +31,20 @@ Como mínimo, especifique lo siguiente cuando ejecute `az acr pack build`:
 
 * Un registro de contenedor de Azure en el que ejecutar el comando
 * Un nombre de imagen y una etiqueta para la imagen resultante
-* Una de las [ubicaciones de contexto compatibles](container-registry-tasks-overview.md#quick-task) con ACR Tasks, como un directorio local, un repositorio de GitHub o un tarball remoto
-* El nombre de una imagen del compilador de Buildpack, como `cloudfoundry/cnb:bionic`.  
+* Una de las [ubicaciones de contexto compatibles](container-registry-tasks-overview.md#context-locations) con ACR Tasks, como un directorio local, un repositorio de GitHub o un tarball remoto
+* El nombre de una imagen del compilador de Buildpack, como `cloudfoundry/cnb:0.0.12-bionic`.  
 
 El comando `az acr pack build` admite otras características de los comandos de ACR Tasks, incluidas las [variables de ejecución](container-registry-tasks-reference-yaml.md#run-variables) y los [registros de ejecución de tareas](container-registry-tasks-overview.md#view-task-logs) que se transmiten y también se guardan para poderse recuperar posteriormente.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Ejemplo: Compilación de la imagen de Node.js con el compilador de Cloud Foundry
 
-En el ejemplo siguiente se crea una imagen de contenedor de la aplicación de Node.js en el repositorio [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world), mediante el compilador `cloudfoundry/cnb:bionic`:
+En el ejemplo siguiente se crea una imagen de contenedor de la aplicación de Node.js en el repositorio [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world), mediante el compilador `cloudfoundry/cnb:0.0.12-bionic`:
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --pull --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:0.0.12-bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 

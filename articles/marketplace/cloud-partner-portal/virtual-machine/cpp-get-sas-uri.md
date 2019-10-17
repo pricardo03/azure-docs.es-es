@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 4da82b2f6aaa3fc664d2e91b80722329533b0cd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c242fbcd19187abb608ca80a49d04dae195bd7c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938660"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374369"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtención del URI de firma de acceso compartido para la imagen de máquina virtual
 
@@ -33,7 +33,7 @@ La dirección URL de SAS se puede generar de dos maneras comunes con las herrami
 -   CLI de Microsoft Azure: recomendada para los sistemas operativos que no sean Windows y los entornos automatizados o de integración continua
 
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 Siga estos pasos para generar un URI de SAS con la CLI de Azure.
 
@@ -44,7 +44,7 @@ Siga estos pasos para generar un URI de SAS con la CLI de Azure.
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
     
-3. Modifique el archivo para proporcionar los valores de parámetro siguientes.  Las fechas se deben proporcionar en formato de fecha y hora UTC, por ejemplo `10-25-2016T00:00:00Z`.
+3. Modifique el archivo para proporcionar los valores de parámetro siguientes.  Las fechas se deben proporcionar en formato de fecha y hora UTC, por ejemplo `2016-10-25T00:00:00Z`.
    - `<account-name>`: nombre de la cuenta de Azure Storage.
    - `<account-key>`: clave de la cuenta de Azure Storage.
    - `<vhd-name>`: nombre del disco duro virtual.

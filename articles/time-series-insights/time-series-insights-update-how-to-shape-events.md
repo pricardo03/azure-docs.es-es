@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1eb0d7450e1a7f263f29b8d4657547dd85d4276
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ed0594373c8702ab01b50facaf0ef5ece2d6c7e1
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883298"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274276"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Dar forma a los eventos con la versión preliminar de Azure Time Series Insights
 
@@ -108,7 +108,7 @@ En el ejemplo siguiente, hay un único mensaje de Azure IoT Hub donde la matriz 
   },
 ```
 
-La versión preliminar de Time Series Insights une una tabla (después del acoplamiento) durante el tiempo de consulta. La tabla incluye columnas adicionales, como **Type**. En el ejemplo siguiente se demuestra cómo puede [dar forma](./time-series-insights-send-events.md#json) a los datos de telemetría.
+La versión preliminar de Time Series Insights une una tabla (después del acoplamiento) durante el tiempo de consulta. La tabla incluye columnas adicionales, como **Type**. En el ejemplo siguiente se demuestra cómo puede [dar forma](./time-series-insights-send-events.md#supported-json-shapes) a los datos de telemetría.
 
 | deviceId  | type | L1 | L2 | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -130,4 +130,4 @@ En el ejemplo anterior, tenga en cuenta lo siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para poner en práctica estas pautas, consulte [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md) (Sintaxis de consultas de la versión preliminar de Azure Time Series Insights). Obtendrá más información sobre la sintaxis de consultas para la API REST de acceso a datos de la versión preliminar de Time Series Insights.
-- Para obtener información sobre las formas JSON admitidas, consulte [Supported JSON shapes](./time-series-insights-send-events.md#json) (Formas JSON admitidas).
+- Para obtener información sobre las formas JSON admitidas, consulte [Supported JSON shapes](./time-series-insights-send-events.md#supported-json-shapes) (Formas JSON admitidas).

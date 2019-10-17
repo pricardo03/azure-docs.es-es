@@ -1,5 +1,5 @@
 ---
-title: Azure Lighthouse y el programa Proveedor de soluciones en la nube
+title: Consideraciones del programa de proveedor de soluciones en la nube
 description: Al usar la administración de recursos delegados de Azure, es importante tener en cuenta la seguridad y el control de acceso.
 author: JnHs
 ms.service: lighthouse
@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.date: 08/22/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 399d2cb829c0425e3c9ee70a61cafde8568f903b
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 76df2942b176fd7d0e785213e44655ffd11da410
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012109"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286204"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse y el programa Proveedor de soluciones en la nube
 

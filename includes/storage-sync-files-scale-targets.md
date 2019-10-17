@@ -2,20 +2,20 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 05/05/2019
-ms.author: wgries
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e7aa2b4389fe60eed80b15aff04d6f7fcbc7b013
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: c04875f92ee58c24567fbb4d73d8d01697810f99
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68968935"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391779"
 ---
-| Recurso | Destino | Límite máximo |
+| Resource | Destino | Límite máximo |
 |----------|--------------|------------|
 | Servicios de sincronización de almacenamiento por región | 20 servicios de sincronización de almacenamiento | Sí |
 | Grupos de sincronización por servicio de sincronización de almacenamiento | 100 grupos de sincronización | Sí |

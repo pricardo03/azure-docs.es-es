@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 34997c130094b7e8b209b3ad3030038670d0a254
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 19f17aff4f915f8a16ccf9d69b12a845d9493e96
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702991"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299288"
 ---
 # <a name="action-rules-preview"></a>Reglas de acción (versión preliminar)
 
@@ -198,22 +198,22 @@ La supresión siempre tiene prioridad en el mismo ámbito.
 
 ### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>¿Qué ocurre si tengo un recurso supervisado en dos reglas de acción independientes? ¿Puedo obtener una o dos notificaciones? Por ejemplo, **VM2** en el escenario siguiente:
 
-      "action rule AR1 defined for VM1 and VM2 with action group AG1
-      action rule AR2 defined for VM2 and VM3 with action group AG1"
+      action rule AR1 defined for VM1 and VM2 with action group AG1
+      action rule AR2 defined for VM2 and VM3 with action group AG1
 
 Para cada alerta en VM1 y VM3, el grupo de acciones AG1 se desencadenaría una vez. Para cada alerta en **VM2**, el grupo de acciones AG1 se desencadenaría dos veces, ya que las reglas de acción no desduplican las acciones. 
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>¿Qué ocurre si tengo un recurso supervisado en dos reglas de acción independientes y una llama a la acción mientras la otra lo hace a la supresión? Por ejemplo, **VM2** en el escenario siguiente:
 
-      "action rule AR1 defined for VM1 and VM2 with action group AG1 
-      action rule AR2 defined for VM2 and VM3 with suppression"
+      action rule AR1 defined for VM1 and VM2 with action group AG1 
+      action rule AR2 defined for VM2 and VM3 with suppression
 
 Para cada alerta en VM1, el grupo de acciones AG1 se desencadenaría una vez. Se suprimirán las acciones y las notificaciones para todas las alertas en VM2 y VM3. 
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>¿Qué ocurre si tengo una regla de alerta y una regla de acción definidas para el mismo recurso que llama a grupos de acciones diferentes? Por ejemplo, **VM1** en el escenario siguiente:
 
-      "alert rule rule1 on VM1 with action group AG2
-      action rule AR1 defined for VM1 with action group AG1" 
+      alert rule rule1 on VM1 with action group AG2
+      action rule AR1 defined for VM1 with action group AG1 
  
 Para cada alerta en VM1, el grupo de acciones AG1 se desencadenaría una vez. Cada vez que se desencadene la regla de alerta "rule1", también se desencadenará además AG2. Los grupos de acciones definidos dentro de las reglas de acción y las reglas de alertas funcionan de forma independiente, sin desduplicación. 
 

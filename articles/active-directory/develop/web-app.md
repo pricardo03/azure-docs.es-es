@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d41cd23d551e4834bf6b94f513e36ff46c1cd45
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544726"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373655"
 ---
 # <a name="web-apps"></a>Aplicaciones web
 
@@ -57,4 +57,4 @@ La sesión del usuario expira cuando expira la duración del token emitido por A
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre otros [tipos y escenarios de aplicaciones](app-types.md).
-* Más información sobre los [conceptos básicos de autenticación](authentication-scenarios.md) de Azure AD.
+* Más información sobre los [conceptos básicos de autenticación](v1-authentication-scenarios.md) de Azure AD.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b7c7bfffb5ddf947dc9bd25e6828e2816a7325cd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4f5163ba448e4cc7e18b0e794a44003ce5ab1dce
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559732"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516766"
 ---
 # <a name="speech-services-for-telephony-data"></a>Servicios de voz para datos de telefonía
 
@@ -110,7 +110,7 @@ Los servicios de voz se pueden integrar fácilmente en cualquier solución media
 
 Varios productos de servicios de IVR o telefonía (como Genesys o AudioCodes) ofrecen funcionalidades de integración que pueden aprovecharse para permitir el paso de audio entrante y saliente a un servicio de Azure. Básicamente, un servicio personalizado de Azure puede proporcionar una interfaz específica para definir sesiones de llamadas telefónicas (tales como el inicio de llamada o el fin de llamada) y exponer una WebSocket API para recibir el flujo de audio entrante que se utiliza con los servicios de voz. Las respuestas salientes, como la transcripción de conversaciones o las conexiones con Bot Framework, pueden sintetizarse con el servicio de texto a voz de Microsoft y devolverse al sistema IVR para su reproducción.
 
-Otro escenario es la integración directa con SIP. Un servicio de Azure se conecta a un servidor SIP y obtiene así un flujo de entrada y un flujo de salida, que se utiliza para las fases de conversión de voz a texto y de texto a voz. Para conectarse a un servidor SIP, hay ofertas de software comercial, como Ozeki SDK, o [the Teams calling and meetings API](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (actualmente en versión beta), que están diseñados para admitir este tipo de escenario para llamadas de audio.
+Otro escenario es la integración directa con SIP. Un servicio de Azure se conecta a un servidor SIP y obtiene así un flujo de entrada y un flujo de salida, que se utiliza para las fases de conversión de voz a texto y de texto a voz. Para conectarse a un servidor SIP, hay ofertas de software comercial, como Ozeki SDK, o [the Teams calling and meetings API](/graph/api/resources/communications-api-overview) (actualmente en versión beta), que están diseñados para admitir este tipo de escenario para llamadas de audio.
 
 ## <a name="customize-existing-experiences"></a>Personalización de la experiencias existentes
 

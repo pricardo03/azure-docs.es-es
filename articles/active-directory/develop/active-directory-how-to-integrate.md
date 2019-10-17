@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da694dd77186ce22bd7080540bd3b08e14f205b0
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 48be16827da21643af485d1fb94b9a7b76728325
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835372"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374048"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integración con Azure Active Directory
 
@@ -37,7 +37,7 @@ Hay varias maneras de integrar la aplicación con Azure AD. Aprovechar muchos o 
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Compatibilidad con Azure AD como una forma de inicio de sesión para la aplicación
 
-**Reduzca la fricción de inicio de sesión y reduzca los costes de soporte técnico.** Mediante el uso de Azure AD para iniciar sesión en la aplicación, los usuarios no tendrán un nombre y una contraseña más que recordar. Como desarrollador, tendrá una contraseña menos que almacenar y proteger. No tener que administrar restablecimientos de contraseñas olvidadas puede considerarse en sí un ahorro notable. Azure AD acciona el inicio de sesión para algunas aplicaciones en la nube más populares del mundo, incluido Office 365 y Microsoft Azure. Con cientos de millones de usuarios de millones de organizaciones, lo más probable es que el usuario ya haya iniciado sesión en Azure AD. Más información sobre la [adición de compatibilidad para el inicio de sesión de Azure AD](authentication-scenarios.md).
+**Reduzca la fricción de inicio de sesión y reduzca los costes de soporte técnico.** Mediante el uso de Azure AD para iniciar sesión en la aplicación, los usuarios no tendrán un nombre y una contraseña más que recordar. Como desarrollador, tendrá una contraseña menos que almacenar y proteger. No tener que administrar restablecimientos de contraseñas olvidadas puede considerarse en sí un ahorro notable. Azure AD acciona el inicio de sesión para algunas aplicaciones en la nube más populares del mundo, incluido Office 365 y Microsoft Azure. Con cientos de millones de usuarios de millones de organizaciones, lo más probable es que el usuario ya haya iniciado sesión en Azure AD. Más información sobre la [adición de compatibilidad para el inicio de sesión de Azure AD](v1-authentication-scenarios.md).
 
 **Simplifique el registro de la aplicación.**  Durante el registro de la aplicación, Azure AD puede enviar información esencial acerca de un usuario para que pueda rellenar previamente el formulario de registro o eliminarlo completamente. Los usuarios pueden registrarse en la aplicación con su cuenta de Azure AD a través de una experiencia familiar de consentimiento familiar similar a las que se encuentran en las redes sociales y en las aplicaciones móviles. Cualquier usuario puede registrarse e iniciar sesión en una aplicación que se integra con Azure AD sin necesidad de la participación de TI. Más información sobre el [registro de la aplicación para el inicio de sesión con la cuenta de Azure AD](../../app-service/configure-authentication-provider-aad.md).
 
@@ -97,5 +97,5 @@ La integración con Azure AD conlleva beneficios que no requieren que escriba c�
 
 [Inicio de escritura de código](v2-overview.md#getting-started).
 
-[Inicio de sesión de usuarios con la Plataforma de identidad de Microsoft](authentication-scenarios.md)
+[Inicio de sesión de usuarios con la Plataforma de identidad de Microsoft](v1-authentication-scenarios.md)
 

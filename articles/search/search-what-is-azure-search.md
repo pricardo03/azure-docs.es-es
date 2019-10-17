@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: overview
 ms.date: 09/03/2019
 ms.author: heidist
-ms.openlocfilehash: 3b0647c3a71e6ce242e7cbd0eedcca3d0fa30ded
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: b92838f7c43a11cd8bd4e1e19f906d33758bf495
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274048"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331165"
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Azure Search?
 
@@ -62,7 +62,7 @@ Azure Search es adecuado en los siguientes escenarios de aplicación:
 | Nivel&nbsp;de plataforma&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Características |
 |-------------------|----------|
 | Herramientas para la creación de prototipos y la inspección | En el portal, puede usar el [**Asistente para importación de datos**](search-import-data-portal.md) para configurar los indexadores, el diseñador de índices para crear un índice y el [**Explorador de búsqueda**](search-explorer.md) para probar consultas y perfeccionar los perfiles de puntuación. También puede abrir cualquier índice para ver su esquema. |
-| Supervisión y diagnóstico | [**Habilite las características de supervisión**](search-monitor-usage.md) para ir más allá de las "métricas de un vistazo" que están siempre disponibles en el portal. Las métricas sobre consultas por segundo, latencia y limitación se capturan y notifican en páginas del portal sin que sea necesaria ninguna configuración adicional. <br/><br/>El [**análisis de tráfico de búsqueda**](search-traffic-analytics.md) es otra alternativa de supervisión, en la que los datos tanto del servidor como del cliente se recopilan y analizan para descubrir información acerca de lo que los usuarios están escribiendo en el cuadro de búsqueda. |
+| Supervisión y diagnóstico | [**Habilite las características de supervisión**](search-monitor-usage.md) para ir más allá de las "métricas de un vistazo" que están siempre disponibles en el portal. Las métricas sobre consultas por segundo, latencia y limitación se capturan y notifican en páginas del portal sin que sea necesaria ninguna configuración adicional.|
 | Cifrado del servidor | El [**cifrado en reposo administrado por Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) está integrado en la capa de almacenamiento interno y es irrevocable. Si lo desea, puede complementar el cifrado predeterminado con [ **claves de cifrado administradas por el cliente (versión preliminar)** ](search-security-manage-encryption-keys.md). Las claves que se crean y administran en Azure Key Vault se usan para cifrar los índices y asignaciones de sinónimos en Azure Search. |
 | Infraestructura | La **plataforma de alta disponibilidad** garantiza una experiencia de servicio de búsqueda muy confiable. Cuando se escala correctamente, [Azure Search ofrece un contrato de nivel de servicio del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Totalmente administrada y escalable** como cualquier solución completa, Azure Search no requiere ninguna administración de la infraestructura en absoluto. El servicio se puede adaptar a sus necesidades mediante el escalado en dos dimensiones para controlar un mayor almacenamiento de documentos, mayores cargas de consultas o ambos.<br/><br/>|
 

@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 40f0a667ffa23010ef00ed105454ab305171cc19
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11924b44a51767df68372cd94c581b2feaa8ac25
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812514"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72247111"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Número de dominios de error por región
 
 | Region              | Número máximo de dominios de error  |
 |---------------------|-------------------------|
-| Este de EE. UU             | 3                       |
+| East US             | 3                       |
 | Este de EE. UU. 2           | 3                       |
 | Oeste de EE. UU.             | 3                       |
 | Oeste de EE. UU. 2           | 2                       |
@@ -23,7 +23,7 @@ ms.locfileid: "67812514"
 | Centro-Norte de EE. UU    | 3                       |
 | Centro-Sur de EE. UU    | 3                       |
 | Centro occidental de EE.UU.     | 2                       |
-| Centro de Canadá      | 3                      |
+| Centro de Canadá      | 3                       |
 | Este de Canadá         | 2                       |
 |                     |                         |
 | Europa del Norte        | 3                       |
@@ -42,6 +42,11 @@ ms.locfileid: "67812514"
 | Corea del Sur         | 2                       |
 | Norte de Emiratos Árabes Unidos           | 2                       |
 |                     |                         |
+| Este de China          | 2                       |
+| Este de China 2        | 2                       |
+| Norte de China         | 2                       |
+| Norte de China 2       | 2                       |
+|
 | Este de Australia      | 2                       |
 | Sudeste de Australia | 2                       |
 | Centro de Australia   | 2                       |

@@ -6,16 +6,16 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fcb65e75de730178901742dc36c72776e39b044b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0be6afc2d4d7f97717200b86d5e5b3bc2194afee
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977968"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376182"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Cómo crear una directiva de configuración de invitados
 
-La configuración de invitados usa un módulo de recursos llamado [Desired State Configuration](/powershell/dsc) (DSC) para crear la configuración para la auditoría de las máquinas de Azure. La configuración de DSC define la condición en la que debe estar la máquina. Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
+La configuración de invitados usa un módulo de recursos llamado [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear la configuración para la auditoría de las máquinas de Azure. La configuración de DSC define la condición en la que debe estar la máquina. Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
 
 Solo se puede usar la [configuración de invitados de Azure Policy](/azure/governance/policy/concepts/guest-configuration) para auditar la configuración dentro de las máquinas. Todavía no está disponible la opción para corregir la configuración dentro de las máquinas.
 
@@ -55,7 +55,7 @@ La configuración de invitados usa el módulo de recursos **GuestConfiguration**
 
 ## <a name="create-custom-guest-configuration-configuration-and-resources"></a>Creación de recursos y opciones personalizados para la configuración de invitados
 
-El primer paso para crear una directiva personalizada para la configuración de invitados es crear la configuración de DSC. Para obtener información general sobre los conceptos y la terminología consulte [Información general de DSC de PowerShell](/powershell/dsc/overview/overview).
+El primer paso para crear una directiva personalizada para la configuración de invitados es crear la configuración de DSC. Para obtener información general sobre los conceptos y la terminología consulte [Información general de DSC de PowerShell](/powershell/scripting/dsc/overview/overview).
 
 Si la configuración solo requiere recursos integrados con la instalación del agente de configuración de invitados, solo tiene que crear un archivo MOF de configuración. Si necesita ejecutar scripts adicionales, deberá crear un módulo de recursos personalizado.
 
@@ -115,7 +115,7 @@ Configuration baseline
 baseline
 ```
 
-Para obtener más información, consulte [Escribir, compilar y aplicar una configuración](/powershell/dsc/configurations/write-compile-apply-configuration).
+Para obtener más información, consulte [Escribir, compilar y aplicar una configuración](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
 ### <a name="custom-guest-configuration-configuration-on-windows"></a>Opciones personalizadas de la configuración de invitados en Windows
 
@@ -141,7 +141,7 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-Para obtener más información, consulte [Escribir, compilar y aplicar una configuración](/powershell/dsc/configurations/write-compile-apply-configuration).
+Para obtener más información, consulte [Escribir, compilar y aplicar una configuración](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
 ## <a name="create-guest-configuration-custom-policy-package"></a>Crear un paquete de directivas personalizado de configuración de invitados
 
@@ -190,7 +190,7 @@ En la configuración de invitados de Azure Policy, la manera óptima de administ
 
 1. Por último, en el recurso personalizado, use el id. de cliente generado anteriormente para obtener acceso a Key Vault mediante el token disponible en la máquina.
 
-   El valor de `client_id` y la dirección URL a la instancia de Key Vault se pueden llevar al recurso como [propiedades](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema) para que no sea necesario actualizar el recurso en varios entornos o si es necesario cambiar los valores.
+   El valor de `client_id` y la dirección URL a la instancia de Key Vault se pueden llevar al recurso como [propiedades](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) para que no sea necesario actualizar el recurso en varios entornos o si es necesario cambiar los valores.
 
 El siguiente ejemplo de código se puede usar en un recurso personalizado para recuperar los secretos de Key Vault mediante una identidad que haya asignado el usuario. El valor devuelto de la solicitud a Key Vault es texto sin formato. Como procedimiento recomendado, almacénelo en un objeto de tipo Credential.
 
@@ -226,7 +226,7 @@ El cmdlet también admite la entrada de la canalización de PowerShell. Canaliza
 New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
 ```
 
-Para obtener más información sobre cómo realizar pruebas con parámetros, consulte la sección [Uso de parámetros en directivas de configuración de invitados personalizadas](/azure/governance/policy/how-to/guest-configuration-create#using-parameters-in-custom-guest-configuration-policies).
+Para obtener más información sobre cómo realizar pruebas con parámetros, consulte la sección [Uso de parámetros en directivas de configuración de invitados personalizadas](#using-parameters-in-custom-guest-configuration-policies).
 
 ## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>Crear los archivos de implementación de la definición y la iniciativa de Azure Policy
 
@@ -367,7 +367,7 @@ La manera más fácil de publicar un paquete actualizado es repetir el proceso q
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversión del contenido de la directiva de grupo de Windows a la configuración de invitado de Azure Policy
 
-La configuración de invitado, al auditar máquinas Windows, es una implementación de la sintaxis de PowerShell Desired State Configuration. La comunidad de DSC ha publicado herramientas para convertir las plantillas exportadas de la directiva de grupo al formato DSC. Mediante el uso de esta herramienta junto con los cmdlets de configuración de invitado descritos anteriormente, puede convertir el contenido de la directiva de grupo de Windows y empaquetarlo o publicarlo para que Azure Policy lo audite. Para obtener más información sobre el uso de la herramienta, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+La configuración de invitado, al auditar máquinas Windows, es una implementación de la sintaxis de PowerShell Desired State Configuration. La comunidad de DSC ha publicado herramientas para convertir las plantillas exportadas de la directiva de grupo al formato DSC. Mediante el uso de esta herramienta junto con los cmdlets de configuración de invitado descritos anteriormente, puede convertir el contenido de la directiva de grupo de Windows y empaquetarlo o publicarlo para que Azure Policy lo audite. Para obtener más información sobre el uso de la herramienta, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 Una vez convertido el contenido, los pasos anteriores para crear un paquete y publicarlo como Azure Policy serán los mismos que para cualquier contenido de DSC.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>OPCIONAL: Firma de paquetes de configuración de invitados

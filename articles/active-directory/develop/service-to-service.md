@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 683664b3172cb12ba6adf6c8006e9685a6d1ec35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8f95dfd6410ae22a4596ac7d5d72add57e8029d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540324"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373894"
 ---
 # <a name="service-to-service-apps"></a>Aplicaciones de se servicio a servicio
 
@@ -73,4 +73,4 @@ Cuando la primera aplicación usa su código de autorización para obtener un to
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre otros [tipos y escenarios de aplicaciones](app-types.md).
-- Más información sobre los [conceptos básicos de autenticación](authentication-scenarios.md) de Azure AD.
+- Más información sobre los [conceptos básicos de autenticación](v1-authentication-scenarios.md) de Azure AD.

@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: ba9cda5aeebaf0764068a463cdb55f3ef5542ea3
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "69997815"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory 
@@ -66,9 +66,6 @@ El sistema de autenticación puede proporcionar requisitos adicionales de autent
 En la siguiente sección encontrará un árbol de decisión que le ayudará a decidir qué método de autenticación es más adecuado en su caso. Gracias a este árbol podrá determinar si debe implementar la autenticación en la nube o la autenticación federada para la solución híbrida de Azure AD.
 
 ## <a name="decision-tree"></a>Árbol de decisión
-
-> [!NOTE]
-> La autenticación de paso a través solo funciona con el identificador alternativo cuando se elige UserPrincipalName como tal. Solo entonces el valor de UserPrincipalName local se sincronizará desde AD a AAD. Para más información, consulte [¿Admite la autenticación de paso a través "Alternate ID" como nombre de usuario, en lugar de "userPrincipalName"?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)
 
 ![Árbol de decisión de autenticación de Azure AD](./media/choose-ad-authn/azure-ad-authn-image1.png)
 

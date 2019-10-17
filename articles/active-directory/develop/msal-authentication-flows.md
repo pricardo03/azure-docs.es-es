@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 10/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd932d2b11c61c380638a1a95f8da357d0c62e3
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: d41e011fd58c20cbe6d2dc8d9029e645f8851bd9
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533004"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513032"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 
@@ -37,9 +37,26 @@ En este artículo se describen los distintos flujos de autenticación que propor
 | [Credenciales de cliente](#client-credentials) | Permite acceder a los recursos hospedados en la Web mediante la identidad de una aplicación. Se usa principalmente para las interacciones entre servidores que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. | [Aplicaciones de demonio](scenario-daemon-overview.md) |
 | [Código del dispositivo](#device-code) | Permite a los usuarios iniciar sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, dispositivo IoT o impresora. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
 | [Autenticación integrada de Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Permite a los equipos de aplicaciones en equipos unidos a un dominio o a Azure Active Directory (Azure AD) adquirir un token de manera silenciosa (sin ninguna interacción de la interfaz de usuario del usuario).| [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [Nombre de usuario y contraseña](scenario-desktop-acquire-token.md#username--password) | Permite a una aplicación iniciar la sesión del usuario al controlar directamente la contraseña. Este flujo no es recomendable. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#username--password) | 
+| [Nombre de usuario y contraseña](scenario-desktop-acquire-token.md#username--password) | Permite a una aplicación iniciar la sesión del usuario al controlar directamente la contraseña. Este flujo no es recomendable. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#username--password) |
+
+## <a name="how-each-flow-emits-tokens-and-codes"></a>Cómo emite cada flujo los tokens y los códigos
+ 
+En función de cómo se compile el cliente, puede usar uno o varios de los flujos de autenticación admitidos por la Plataforma de identidad de Microsoft.  Estos flujos pueden generar diversos tokens (id_tokens, tokens de actualización, tokens de acceso) además de códigos de autorización, y requieren distintos tokens para que funcionen. En este gráfico se ofrece una información general:
+ 
+|Flujo | Requiere | ID_token | de la aplicación Twitter | Token de actualización | código de autorización | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Flujo de código de autorización](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flujo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Flujo de OIDC híbrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Redención de token de actualización](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | Token de actualización | x | x | x| |
+|[Flujo en nombre de](v2-oauth2-on-behalf-of-flow.md) | de la aplicación Twitter| x| x| x| |
+|[Flujo de código de dispositivo](v2-oauth2-device-code.md) | | x| x| x| |
+|[Credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (solo aplicación)| | |
+ 
+Los tokens emitidos a través del modo implícito tienen una limitación de longitud debido a que se pasan al explorador a través de la dirección URL (donde `response_mode` es `query` o `fragment`).  Algunos exploradores tienen un límite en el tamaño de la dirección URL que se puede colocar en la barra del explorador y producen un error cuando es demasiado larga.  Por lo tanto, estos tokens no tienen notificaciones `groups` ni `wids`.
 
 ## <a name="interactive"></a>Interactive
+
 MSAL admite la capacidad de pedir interactivamente al usuario sus credenciales para iniciar sesión y obtener un token mediante esas credenciales.
 
 ![Diagrama del flujo interactivo](media/msal-authentication-flows/interactive.png)
@@ -62,6 +79,7 @@ Muchas aplicaciones web modernas se crean como aplicaciones cliente, aplicacione
 Este flujo de autenticación no incluye escenarios de aplicaciones que usan marcos de JavaScript multiplataforma, como Electron y React-Native, ya que requieren más funcionalidades para la interacción con las plataformas nativas.
 
 ## <a name="authorization-code"></a>Código de autorización
+
 MSAL admite la [concesión de código de autorización de OAuth 2](v2-oauth2-auth-code-flow.md). Esta concesión se puede usar en aplicaciones que están instaladas en un dispositivo para obtener acceso a recursos protegidos, como las API web. Esto permite agregar acceso de inicio de sesión y API a las aplicaciones de escritorio y móviles. 
 
 Cuando los usuarios inician sesión en aplicaciones web (sitios web), la aplicación web recibe un código de autorización.  El código de autorización se canjea para adquirir un token para llamar a las API web. En aplicaciones web ASP.NET y ASP.NET Core, el único objetivo del objeto `AcquireTokenByAuthorizationCode` es agregar un token a la memoria caché de tokens. La aplicación luego puede usar el token (normalmente en los controladores, que simplemente obtienen un token de una API mediante `AcquireTokenSilent`).
@@ -74,6 +92,7 @@ En el diagrama anterior, la aplicación hace lo siguiente:
 2. Usa el token de acceso para llamar a una API web.
 
 ### <a name="considerations"></a>Consideraciones
+
 - Puede usar el código de autorización una sola vez para canjear un token. No intente adquirir un token varias veces con el mismo código de autorización (la especificación del protocolo estándar lo prohíbe explícitamente). Si canjea el código varias veces de manera intencionada o porque no es consciente de que un marco también lo hace, obtendrá el siguiente error: `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 
 - Si está escribiendo una aplicación ASP.NET o ASP.NET Core, esto puede ocurrir si no indica al marco que ya ha canjeado el código de autorización. Para ello, debe llamar al método `context.HandleCodeRedemption()` del controlador de eventos `AuthorizationCodeReceived`.
@@ -104,7 +123,7 @@ El flujo de concesión de credenciales de cliente permite que un servicio web (c
 
 MSAL.NET admite dos tipos de credenciales de cliente. Estas credenciales de cliente deben registrarse en Azure AD. Las credenciales se pasan a los constructores de la aplicación cliente confidencial en el código.
 
-### <a name="application-secrets"></a>Secretos de aplicación 
+### <a name="application-secrets"></a>Secretos de aplicación
 
 ![Diagrama de cliente confidencial con contraseña](media/msal-authentication-flows/confidential-client-password.png)
 
@@ -113,7 +132,7 @@ En el diagrama anterior, la aplicación hace lo siguiente:
 1. Adquiere un token al usar un secreto de aplicación o credenciales de contraseña.
 2. Usa el token para hacer solicitudes al recurso.
 
-### <a name="certificates"></a>Certificados 
+### <a name="certificates"></a>Certificados
 
 ![Diagrama de cliente confidencial con certificado](media/msal-authentication-flows/confidential-client-certificate.png)
 
@@ -126,8 +145,8 @@ Estas credenciales de cliente deben:
 - Registrarse en Azure AD.
 - Pasarse en la construcción de la aplicación de cliente confidencial en el código.
 
-
 ## <a name="device-code"></a>Código del dispositivo
+
 MSAL admite el [flujo de código de dispositivo de OAuth 2](v2-oauth2-device-code.md), lo que permite que los usuarios inicien sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, un dispositivo IoT o una impresora. La autenticación interactiva con Azure AD requiere un explorador web. El flujo de código de dispositivo permite al usuario usar otro dispositivo (por ejemplo, otro equipo o un teléfono móvil) para iniciar sesión de forma interactiva, donde el dispositivo o sistema operativo no proporciona un explorador web.
 
 Al usar flujo de código de dispositivo, la aplicación obtiene los tokens a través de un proceso de dos pasos diseñado especialmente para estos dispositivos o sistemas operativos. Entre algunos ejemplos de estas aplicaciones se incluye aquellas que se ejecutan en dispositivos de IoT o herramientas de línea de comandos (CLI). 
@@ -149,6 +168,7 @@ En el diagrama anterior:
 - El punto de conexión de Azure AD v2.0 aún no admite cuentas de Microsoft personales v2.0 de Azure AD (no se pueden usar los inquilinos `/common` ni `/consumers`).
 
 ## <a name="integrated-windows-authentication"></a>Autenticación integrada de Windows
+
 MSAL admite la autenticación integrada de Windows (IWA) para aplicaciones de escritorio o aplicaciones móviles que se ejecutan en un equipo Windows unido a un dominio o a Azure AD. Mediante IWA, estas aplicaciones pueden adquirir un token de forma silenciosa (sin ninguna interacción de la interfaz de usuario del usuario). 
 
 ![Diagrama de la autenticación integrada de Windows](media/msal-authentication-flows/integrated-windows-authentication.png)
@@ -186,7 +206,8 @@ El flujo de IWA está habilitado para el escritorio. NET, .NET Core y aplicacion
   
 Para más información sobre el consentimiento, consulte [Permiso y consentimiento de v2.0](v2-permissions-and-consent.md).
 
-## <a name="usernamepassword"></a>Nombre de usuario/contraseña 
+## <a name="usernamepassword"></a>Nombre de usuario/contraseña
+
 MSAL admite la [concesión de credenciales de contraseña de propietario de recurso OAuth 2](v2-oauth-ropc.md), que permite que una aplicación inicie la sesión del usuario al controlar directamente la contraseña. En la aplicación de escritorio, puede usar el flujo de usuario y contraseña para adquirir un token de forma silenciosa. No se requiere ninguna interfaz de usuario cuando se usa la aplicación.
 
 ![Diagrama del flujo de usuario y contraseña](media/msal-authentication-flows/username-password.png)

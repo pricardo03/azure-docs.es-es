@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb1cd062384bf75e6f83380c172f43244e737db0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 53db2ba94167168b8bcb2da6c9ee4299a7e784e8
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853490"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374171"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de autenticación de Azure Active Directory
 
@@ -85,5 +85,5 @@ En este escenario, un desarrollador tiene una aplicación web en ejecución en u
 ## <a name="see-also"></a>Otras referencias
 
 - [Guía del desarrollador de Azure Active Directory](v1-overview.md)
-- [Escenarios de autenticación para Azure Active Directory](authentication-scenarios.md)
+- [Escenarios de autenticación para Azure Active Directory](v1-authentication-scenarios.md)
 - [Ejemplos de código de Azure Active Directory](sample-v1-code.md)

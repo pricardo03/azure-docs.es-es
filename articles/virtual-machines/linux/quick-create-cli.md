@@ -14,17 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 0208e72263991daceed52073bcce8b3e01f8e8c2
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.custom:
+- mvc
+- seo-javascript-september2019
+- seo-javascript-october2019
+- seo-python-october2019
+ms.openlocfilehash: 7732320e987e6397dde2aff0f6c4328d551d99b1
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174298"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72427923"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Inicio rápido: Creación de una máquina virtual Linux con la CLI de Azure
 
-En esta guía de inicio rápido se muestra como usar la interfaz de la línea de comandos (CLI) de Azure para implementar una máquina virtual (VM) Linux en Azure. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En este tutorial, se instalará Ubuntu 16.04 LTS. Para mostrar la máquina virtual en acción, se conectará a ella mediante SSH e instalará al servidor web de NGINX.
+En esta guía de inicio rápido se muestra como usar la interfaz de la línea de comandos (CLI) de Azure para implementar una máquina virtual (VM) Linux en Azure. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts.
+
+En este tutorial, se instalará Ubuntu 16.04 LTS. Para mostrar la máquina virtual en acción, se conectará a ella mediante SSH e instalará al servidor web de NGINX.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -107,7 +113,7 @@ Cuando haya terminado, escriba `exit` para salir de la sesión de SSH.
 
 Use un explorador web de su elección para ver la página de bienvenida predeterminada de NGINX. Use la dirección IP pública de la máquina virtual como dirección web. En el ejemplo siguiente se muestra el sitio web de NGINX predeterminado:
 
-![Sitio NGINX predeterminado](./media/quick-create-cli/nginx.png)
+![Visualización de la página de bienvenida de NGINX](./media/quick-create-cli/view-the-nginx-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

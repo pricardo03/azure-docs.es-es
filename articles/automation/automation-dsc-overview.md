@@ -10,16 +10,16 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: b0b5e02009ddbb72bb062d341e7d233acfb0ceb3
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061389"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429406"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Introducción a Azure Automation State Configuration
 
-Azure Automation State Configuration es un servicio de Azure que le permite escribir, administrar y compilar [configuraciones](/powershell/dsc/configurations) de PowerShell Desired State Configuration (DSC), importar [recursos de DSC](/powershell/dsc/resources) y asignar configuraciones a nodos de destino, todo en la nube.
+Azure Automation State Configuration es un servicio de Azure que le permite escribir, administrar y compilar [configuraciones](/powershell/scripting/dsc/configurations/configurations) de PowerShell Desired State Configuration (DSC), importar [recursos de DSC](/powershell/scripting/dsc/resources/resources) y asignar configuraciones a nodos de destino, todo en la nube.
 
 ## <a name="why-use-azure-automation-state-configuration"></a>Razones para usar Azure Automation State Configuration
 
@@ -27,11 +27,11 @@ Azure Automation State Configuration proporciona varias ventajas con respecto a 
 
 ### <a name="built-in-pull-server"></a>Servidor de extracción integrado
 
-Azure Automation State Configuration proporciona un servidor de extracción de DSC similar a la [característica de Windows DSC-Service](/powershell/dsc/pullserver) para que los nodos de destino reciban automáticamente las configuraciones, se ajusten al estado deseado y devuelvan la información de cumplimiento. El servidor de extracción integrado en Azure Automation elimina la necesidad de configurar y mantener su propio servidor de extracción. Azure Automation puede tener como destino máquinas físicas o virtuales Windows o Linux, en la nube o en un entorno local.
+Azure Automation State Configuration proporciona un servidor de extracción de DSC similar a la [característica de Windows DSC-Service](/powershell/scripting/dsc/pull-server/pullserver) para que los nodos de destino reciban automáticamente las configuraciones, se ajusten al estado deseado y devuelvan la información de cumplimiento. El servidor de extracción integrado en Azure Automation elimina la necesidad de configurar y mantener su propio servidor de extracción. Azure Automation puede tener como destino máquinas físicas o virtuales Windows o Linux, en la nube o en un entorno local.
 
 ### <a name="management-of-all-your-dsc-artifacts"></a>Administración de todos los artefactos de DSC
 
-Azure Automation State Configuration proporciona la misma capa de administración a [PowerShell Desired State Configuration](/powershell/dsc/overview) que ofrece en la actualidad Azure Automation para el scripting de PowerShell.
+Azure Automation State Configuration proporciona la misma capa de administración a [PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) que ofrece en la actualidad Azure Automation para el scripting de PowerShell.
 
 Desde Azure Portal o desde PowerShell, puede administrar todas las configuraciones, recursos y nodos de destino de DSC.
 

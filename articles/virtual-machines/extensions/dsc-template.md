@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 59f8035aa69f21196a2134bf6bc1b12f3e5b34c4
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: ef781653332984a7fb6d71ef91d53cbf77e6c91c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815705"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437954"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
 
@@ -193,7 +193,7 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 
 ## <a name="default-configuration-script"></a>Script de configuración predeterminada
 
-Para más información sobre los valores siguientes, consulte [Configuración básica del administración de configuración local](/powershell/dsc/metaconfig#basic-settings).
+Para más información sobre los valores siguientes, consulte [Configuración básica del administración de configuración local](/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings).
 Puede usar el script de configuración predeterminada de la extensión DSC para configurar solo las propiedades de LCM que aparecen en la tabla siguiente.
 
 | Nombre de propiedad | type | DESCRIPCIÓN |
@@ -430,4 +430,4 @@ Siga el formato proporcionado en los ejemplos anteriores. Esté atento a las com
 - Obtenga información sobre el [uso de los conjuntos de escalado de máquinas virtuales con la extensión DSC de Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 - Encuentre más detalles sobre la [administración segura de credenciales de DSC](dsc-credentials.md).
 - Obtenga una [introducción al controlador de la extensión DSC de Azure](dsc-overview.md).
-- Para obtener más información sobre DSC de PowerShell, vaya al [centro de documentación de PowerShell](/powershell/dsc/overview).
+- Para obtener más información sobre DSC de PowerShell, vaya al [centro de documentación de PowerShell](/powershell/scripting/dsc/overview/overview).

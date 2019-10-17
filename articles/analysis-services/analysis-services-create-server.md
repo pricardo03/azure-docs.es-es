@@ -2,18 +2,17 @@
 title: 'Inicio rápido: Creación de un servidor de Analysis Services mediante PowerShell | Microsoft Docs'
 description: Aprenda a crear una instancia de servidor de Analysis Services en Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aae5b87e49b6d64e4c9ee854b65821d65969e66b
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: e6973ee311f1d3f5ba19714695f67bd321d953b7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536803"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295035"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Inicio rápido: Creación de un servidor: Portal
 

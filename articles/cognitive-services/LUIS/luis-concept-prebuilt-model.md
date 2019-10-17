@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: b072e265204bba3caa1388576008d5e41adcc33d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: b88801ded3dea7c7514ff117361feba3e95444ed
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619714"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264391"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>Dominio, intención y modelos de entidad creados previamente
 
@@ -28,7 +28,7 @@ LUIS proporciona 3 tipos de modelos creados previamente. Cada modelo se puede ag
 
 |Tipo de modelo|Incluye|
 |--|--|
-|Dominio|Intenciones, expresiones, entidades|
+|Domain|Intenciones, expresiones, entidades|
 |Intenciones|Intenciones, expresiones|
 |Entidades|Solo entidades| 
 
@@ -58,7 +58,7 @@ LUIS proporciona intenciones creadas previamente y sus expresiones. Las intencio
 
 LUIS incluye un conjunto de entidades precompiladas para reconocer tipos comunes de información, como fechas, horas, números, medidas y moneda. La compatibilidad de entidades precompiladas varía según la referencia cultural de la aplicación LUIS. Para ver una lista completa de las entidades precompiladas que LUIS admite, incluso la compatibilidad por referencia cultural, consulte la [referencia de entidades precompiladas](./luis-reference-prebuilt-entities.md).
 
-Cuando una entidad precompilada se incluye en la aplicación, sus predicciones se incluyen en la aplicación publicada. El comportamiento de las entidades precompiladas ya está entrenado y **no** se puede modificar. Siga estos pasos para ver cómo funciona una entidad precompilada:
+Cuando una entidad precompilada se incluye en la aplicación, sus predicciones se incluyen en la aplicación publicada. El comportamiento de las entidades precompiladas ya está entrenado y **no** se puede modificar. 
 
 > [!NOTE]
 > **builtin.datetime** está en desuso. Se sustituye por [**builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), que permite reconocer los intervalos de fechas y horas, así como mejorar el reconocimiento de las fechas y horas ambiguas.

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a160f78f69ed559c576147e9758c837d5ae9b77e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235332"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429984"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opciones de ayuda y soporte técnico para desarrolladores
 
@@ -95,9 +95,3 @@ Si necesita hablar con alguien, puede abrir una solicitud de soporte técnico. S
 * Si no es un cliente de Azure, también puede abrir una solicitud de soporte técnico con Microsoft a través de [nuestro soporte comercial](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
 
 También puede intentar un [agente virtual](https://support.microsoft.com/contactus/?ws=support) para obtener soporte técnico o formular alguna pregunta.
-
-### <a name="free-chat-support-for-a-limited-time"></a>Soporte técnico por chat gratuito disponible durante un tiempo limitado
-
-También puede utilizar nuestro soporte técnico por chat que es gratuito para los asociados de Microsoft durante un tiempo limitado. Si su empresa no es un Partner de Microsoft, puede inscribirla de forma gratuita y obtener otros beneficios [aquí](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx).
-
-Tras inscribir a su empresa, puede iniciar la solicitud de chat [aquí](https://aka.ms/devchat).

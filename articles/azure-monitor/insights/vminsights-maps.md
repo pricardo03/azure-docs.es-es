@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: f6273e9b6c7ed0c4685479976343497f01201b0b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 456ed0a48db015d3c95827942a576e6916095131
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206759"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515452"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Use la característica de asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación
 En Azure Monitor para VM, puede ver los componentes de la aplicación detectados en las máquinas virtuales (VM) de Windows y Linux que se ejecutan en Azure o en su entorno. Puede observar las VM de dos maneras. Ver una asignación directamente desde una VM o ver un asignación desde Azure Monitor para ver los componentes de los grupos de VM. En este artículo le ayudamos a comprender estos dos métodos de visualización y a usar la característica de asignación. 
@@ -124,6 +124,7 @@ De forma predeterminada, la asignación muestra los últimos 30 minutos. Si quie
 >También puede acceder a una asignación de una instancia específica desde la vista **Instancias** de su conjunto de escalado de máquinas virtuales. En la sección **Configuración**, vaya a **Instancias** > **Insights (versión preliminar)** .
 
 ## <a name="view-a-map-from-azure-monitor"></a>Visualización de una asignación desde Azure Monitor
+
 Desde Azure Monitor, la característica de asignación proporciona una visión global de las VM y sus dependencias. Para obtener acceso a la característica de asignación en Azure Monitor:
 
 1. En Azure Portal, seleccione **Monitor**. 
@@ -139,5 +140,5 @@ El selector de **grupos** devuelve las suscripciones, los grupos de recursos, lo
 De forma predeterminada, la asignación muestra los últimos 30 minutos. Si quiere ver el aspecto de las dependencias en el pasado, puede consultar los intervalos de tiempo históricos de hasta hace una hora. Para ejecutar la consulta, use el selector **TimeRange**. Puede ejecutar una consulta, por ejemplo, durante un incidente o para ver el estado antes de un cambio.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para obtener información sobre cómo usar la característica de mantenimiento, consulte [Ver el mantenimiento de la máquina virtual de Azure](vminsights-health.md). 
-- Para identificar los cuellos de botella, comprobar el rendimiento y comprender el uso general de las VM, consulte [View performance status for Azure Monitor for VMs](vminsights-performance.md) (Ver el estado del rendimiento de Azure Monitor para VM). 
+
+Para identificar los cuellos de botella, comprobar el rendimiento y comprender el uso general de las VM, consulte [View performance status for Azure Monitor for VMs](vminsights-performance.md) (Ver el estado del rendimiento de Azure Monitor para VM). 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0f6a74308f1bc4a7b77576fb9f39f965de0a4f8
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: ddfea07989f52c463816318276fd5b6643cb2041
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561024"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255064"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Conclusiones y uso de los métodos de autenticación (versión preliminar)
 
@@ -58,8 +58,6 @@ El gráfico **Registros** de la pestaña **Registro** muestra el número de regi
 Al hacer clic en cualquiera de los gráficos se le llevará a una lista de los eventos de registro o restablecimiento filtrada previamente.
 
 Mediante el control de la esquina superior derecha puede cambiar el intervalo de fechas para los datos de auditoría que se muestran en los gráficos Registros y Restablecimientos a 24 horas, 7 días o 30 días.
-
-Datos de registro desde el 
 
 ### <a name="registration-details"></a>Detalles de registro
 

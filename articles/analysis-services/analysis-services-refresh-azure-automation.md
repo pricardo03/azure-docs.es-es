@@ -2,17 +2,16 @@
 title: Actualización de los modelos de Azure Analysis Services con Azure Automation | Microsoft Docs
 description: Obtenga información sobre cómo codificar las actualizaciones del modelo mediante el uso de Azure Automation.
 author: chrislound
-manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 4cae93cff594ad561973f8029ea7335dc4c60263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed1634ef1009149dc2937174b20248eab9cd335f
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356997"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294782"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualización con Azure Automation
 

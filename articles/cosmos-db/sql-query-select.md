@@ -1,19 +1,19 @@
 ---
 title: Cláusula SELECT en Azure Cosmos DB
-description: Obtenga información sobre la cláusula SELECT de SQL para Azure Cosmos DB. Use SQL como lenguaje de consulta de JSON para Azure Cosmos DB.
+description: Obtenga información sobre la cláusula SELECT de SQL para Azure Cosmos DB. Use SQL como lenguaje de consulta de JSON para Azure Cosmos DB.
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003524"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326786"
 ---
-# <a name="select-clause"></a>Cláusula SELECT
+# <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT en Azure Cosmos DB
 
 Todas las consultas constan de una cláusula SELECT y cláusulas [FROM](sql-query-from.md) y [WHERE](sql-query-where.md) opcionales, según los estándares SQL ANSI. Normalmente, se enumera el origen en la cláusula FROM, y la cláusula WHERE aplica un filtro en el origen para recuperar un subconjunto de elementos JSON. La cláusula SELECT luego proyecta los valores JSON solicitados en la lista seleccionada.
 

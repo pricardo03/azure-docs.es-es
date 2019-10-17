@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc93a7de824aeaf173e7179de0b0233b73488feb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 91947c243b521e970a89152f76abe9a99142b89d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321150"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374001"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -35,7 +35,7 @@ Para más información sobre las funcionalidades completas del acceso condiciona
 
 Para desarrolladores que compilan aplicaciones para Azure AD, este artículo muestra cómo se puede usar el acceso condicional y también proporciona información sobre el impacto de acceder a los recursos sobre los que no se tiene control, y que pueden tener directivas de acceso condicional aplicadas. Este artículo explora además las implicaciones del acceso condicional en el flujo en el nombre de otra persona, aplicaciones web, el acceso a Microsoft Graph y las llamadas a las API.
 
-En él se supone que tiene conocimientos sobre aplicaciones de inquilino [único](quickstart-v1-integrate-apps-with-azure-ad.md) y [multiinquilino](howto-convert-app-to-be-multi-tenant.md), además de sobre los [patrones comunes de autenticación](authentication-scenarios.md).
+En él se supone que tiene conocimientos sobre aplicaciones de inquilino [único](quickstart-v1-integrate-apps-with-azure-ad.md) y [multiinquilino](howto-convert-app-to-be-multi-tenant.md), además de sobre los [patrones comunes de autenticación](v1-authentication-scenarios.md).
 
 ## <a name="how-does-conditional-access-impact-an-app"></a>¿Cómo el acceso condicional afecta a una aplicación?
 

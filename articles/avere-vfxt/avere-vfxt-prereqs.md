@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: dce359d1567ee763cd988e778b1e0e44475388cc
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409263"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255357"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparación para la creación de Avere vFXT
 
@@ -30,14 +30,14 @@ Para crear una nueva suscripción de Azure en Azure Portal:
 
 ## <a name="configure-subscription-owner-permissions"></a>Configurar los permisos de propietario de la suscripción
 
-Un usuario con permisos de propietario de la suscripción debe encargarse de crear el clúster de vFXT. Los permisos del propietario de la suscripción son necesarios para aceptar los términos de servicio del software y realizar otras acciones. 
+Un usuario con permisos de propietario de la suscripción debe encargarse de crear el clúster de vFXT. Los permisos del propietario de la suscripción son necesarios para aceptar los términos del servicio del software y realizar otras acciones. 
 
 Hay algunos escenarios con soluciones alternativas que permiten a un no-propietario crear una instancia de Avere vFXT para el clúster de Azure. Estos escenarios implican restringir los recursos y asignar roles adicionales al creador. En ambos casos, un propietario de la suscripción también debe [aceptar los términos de Avere vFXT](#accept-software-terms) con antelación. 
 
 | Escenario | Restricciones | Roles de acceso necesarios para crear el clúster de vFXT Avere | 
 |----------|--------|-------|
 | Administrador del grupo de recursos | La red virtual, el controlador de clúster y los nodos de clúster deben crearse en el grupo de recursos. | Roles [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) y [Colaborador](../role-based-access-control/built-in-roles.md#contributor), ambos con ámbito en el grupo de recursos de destino. | 
-| Red virtual externa | El controlador de clúster y los nodos de clúster se crean dentro del grupo de recursos, pero se usa una red virtual existente en otro grupo de recursos. | (1) Roles [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) y [Colaborador](../role-based-access-control/built-in-roles.md#contributor) con ámbito en el grupo de recursos de vFXT; y (2) Roles [Colaborador de la máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) y [Colaborador de Avere](../role-based-access-control/built-in-roles.md#avere-contributor) con ámbito en el grupo de recursos de la red virtual. |
+| Red virtual externa | El controlador de clúster y los nodos de clúster se crean dentro del grupo de recursos, pero se usa una red virtual existente en otro grupo de recursos. | (1) Roles [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) y [Colaborador](../role-based-access-control/built-in-roles.md#contributor) con ámbito en el grupo de recursos de vFXT; y (2) Roles [Colaborador de la máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator), y [Colaborador de Avere](../role-based-access-control/built-in-roles.md#avere-contributor) con ámbito en el grupo de recursos de la red virtual. |
  
 Una alternativa es crear un rol de control de acceso basado en rol (RBAC) personalizado con antelación y asignar privilegios al usuario, como se explica en [este artículo](avere-vfxt-non-owner.md). Este método proporciona permisos significativos a estos usuarios. 
 

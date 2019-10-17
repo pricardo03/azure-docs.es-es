@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 7b9d4099734af3a04f43d35d89f07f8b005c90f9
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 9a2d25aba03156d6d14fe5ef9aa58b3748033b85
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802511"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296390"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Excepciones de Service Bus que expone Resource Manager
 
@@ -57,9 +57,9 @@ Al igual que en HTTP, el "código de error 429" indica "demasiadas solicitudes".
 | 429 | 50004 | SubCode=50004. The request was terminated because the namespace *your namespace* is being throttled (La solicitud finalizó porque se está limitando el espacio de nombres "su espacio de nombres"). | Esta condición de error se produce si el número de solicitudes entrantes supera la limitación del recurso. | Espere unos segundos y vuelva a intentarlo. <br/> <br/> Conozca más información sobre las [cuotas](service-bus-quotas.md) y [límites de solicitudes de Azure Resource Manager](../azure-resource-manager/resource-manager-request-limits.md)|
 | 429 | 40901 | SubCode=40901. Another conflicting operation is in progress (Hay otra operación en conflicto en curso). | Hay otra operación en conflicto en curso en el mismo recurso o entidad | Espere a que se complete la operación en curso actual antes de volver a intentarlo. |
 | 429 | 40900 | SubCode=40900. Conflicto. Se solicita una operación no permitida con el estado actual del recurso. | Esta condición se puede alcanzar cuando se realizan varias solicitudes para realizar las operaciones en la misma entidad (cola, tema, suscripción o regla) al mismo tiempo. | Espere unos segundos y vuelva a intentarlo. |
+| 429 | 40901 | Request on entity *'entity name'* conflicted with another request (La solicitud para la entidad "nombre de entidad" ha entrado en conflicto con otra solicitud). | Hay otra operación en conflicto en curso en el mismo recurso o entidad | Espere a que se complete la operación anterior antes de volver a intentarlo. |
+| 429 | 40901 | Another update request is in progress for the entity *'entity name'* (Hay otra solicitud de actualización en curso para la entidad "nombre de entidad"). | Hay otra operación en conflicto en curso en el mismo recurso o entidad | Espere a que se complete la operación anterior antes de volver a intentarlo. |
 | 429 | None | Resource Conflict Occurred. Another conflicting operation may be in progress. If this is a retry for failed operation, background cleanup is still pending (Se ha producido un conflicto de recursos. Puede que haya otra operación en conflicto en curso. Si se trata de un reintento de una operación con error, la limpieza en segundo plano está todavía pendiente). Inténtelo de nuevo más tarde. | Esta condición se puede producir si hay una operación pendiente en la misma entidad. | Espere a que se complete la operación anterior antes de volver a intentarlo. |
-| 429 | None | Request on entity *'entity name'* conflicted with another request (La solicitud para la entidad "nombre de entidad" ha entrado en conflicto con otra solicitud). | Hay otra operación en conflicto en curso en el mismo recurso o entidad | Espere a que se complete la operación anterior antes de volver a intentarlo. |
-| 429 | None | Another update request is in progress for the entity *'entity name'* (Hay otra solicitud de actualización en curso para la entidad "nombre de entidad"). | Hay otra operación en conflicto en curso en el mismo recurso o entidad | Espere a que se complete la operación anterior antes de volver a intentarlo. |
 
 
 ## <a name="error-code-not-found"></a>Código de error: No encontrado

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 97628535deb79733e9d286977534a6ea97ba60e6
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 566c208ef415f6fc9f3ada419e2f9e9244bc066d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182291"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333161"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Estrategias de implementación y procedimientos recomendados para la optimización del rendimiento en Azure Search
 
@@ -94,11 +94,6 @@ Si usa la API REST de Azure Search para [insertar contenido en el índice de Azu
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) permite enrutar solicitudes a diversos sitios web con ubicación geográfica atendidos por distintos servicios Azure Search. Una ventaja de Traffic Manager es que puede sondear Azure Search para asegurarse de que está disponible y enrutar los usuarios a servicios de búsqueda alternativos en caso de tiempo de inactividad. Además, si va a enrutar solicitudes de búsqueda a través de Azure Websites, Azure Traffic Manager permite equilibrar la carga de aquellos casos en los que el sitio web está activo pero Azure Search no. Este es un ejemplo de una arquitectura que utiliza el Administrador de tráfico.
 
    ![Tablas de referencias cruzadas de servicios por región con Administrador de tráfico central][3]
-
-## <a name="monitor-performance"></a>Supervisión del rendimiento
-Azure Search ofrece la capacidad de analizar y supervisar el rendimiento del servicio mediante [análisis de tráfico de búsqueda](search-traffic-analytics.md). Al habilitar esta funcionalidad y agregar instrumentación a la aplicación cliente, también puede registrar las operaciones de búsqueda individuales, así como las métricas agregadas en una cuenta de Azure Storage que después puede procesarse para su análisis o visualizarse en Power BI. De esta forma, las capturas de métricas proporcionan estadísticas de rendimiento tales como el número promedio de consultas o los tiempos de respuesta de las consultas. Además, el registro de operaciones permite profundizar en los detalles de operaciones de búsqueda específicas.
-
-El análisis de tráfico es útil para comprender las tasas de latencia desde esa perspectiva de Azure Search. Como las métricas de rendimiento de las consultas registradas se basan en el tiempo que una consulta tarda en procesarse por completo en Azure Search (desde el momento en que se solicita hasta que se envía), puede usarlas para determinar si los problemas de latencia se producen en el lado del servicio Azure Search o fuera de servicio, por ejemplo, la latencia de la red.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de los planes de tarifa y los límites de los servicios de cada uno de ellos, consulte [Límites de servicio en Azure Search](search-limits-quotas-capacity.md).

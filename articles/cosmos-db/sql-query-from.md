@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: tisande
-ms.openlocfilehash: 6bc93569dc9a0405ec3a8dfd719c89ede01df84d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 79bb17277a041f71c095ed724737012f9501f16f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343129"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326995"
 ---
-# <a name="from-clause"></a>Cláusula FROM
+# <a name="from-clause-in-azure-cosmos-db"></a>Cláusula FROM en Azure Cosmos DB
 
 La cláusula FROM (`FROM <from_specification>`) es opcional, a menos que el origen se filtre o se proyecte posteriormente en la consulta. Una consulta como `SELECT * FROM Families` se enumera en todo el contenedor `Families`. También puede usar el identificador especial ROOT para el contenedor en lugar de usar el nombre del contenedor.
 
@@ -23,7 +23,7 @@ La cláusula FROM exige las reglas siguientes por consulta:
 
 * Una vez establecido un alias, el nombre de origen original no puede enlazarse. Por ejemplo, `SELECT Families.id FROM Families f` no es válido sintácticamente porque no puede establecerse el alias del identificador `Families` y ya no puede resolverse.  
 
-* Todas las propiedades a las que se hace referencia deben ser completas para evitar todo enlace ambiguo en ausencia de cumplimiento estricto del esquema. Por ejemplo, `SELECT id FROM Families f` no es válido sintácticamente porque la propiedad `id` no está enlazada.
+* Todas las propiedades a las que se hace referencia deben ser completas para evitar todo enlace ambiguo si no se aplica un cumplimiento estricto del esquema. Por ejemplo, `SELECT id FROM Families f` no es válido sintácticamente porque la propiedad `id` no está enlazada.
 
 ## <a name="syntax"></a>Sintaxis
   
@@ -107,7 +107,7 @@ El ámbito de las expresiones de contenedor puede ser de contenedor o de documen
 
 ### <a name="get-subitems-by-using-the-from-clause"></a>Obtener subelementos mediante la cláusula FROM
 
-La cláusula FROM puede reducir el origen a un subconjunto más pequeño. Para enumerar únicamente un subárbol en cada elemento, la subraíz puede convertirse en el origen, como se muestra en el ejemplo siguiente:
+La cláusula FROM puede reducir el origen a un subconjunto menor. Para enumerar únicamente un subárbol en cada elemento, la subraíz puede convertirse en el origen, como se muestra en el ejemplo siguiente:
 
 ```sql
     SELECT *
@@ -147,7 +147,7 @@ Los resultados son:
     ]
 ```
 
-La consulta anterior usa una matriz como origen, pero también puede usar un objeto como origen. La consulta se considera cualquier valor JSON definido válido en el origen para su inclusión en el resultado. En el ejemplo siguiente, se excluirían `Families` que no tienen un valor `address.state`.
+La consulta anterior usaba una matriz como origen, pero también puede usar un objeto. La consulta se considera cualquier valor JSON definido válido en el origen para incluirlo en el resultado. En el ejemplo siguiente, se excluirían `Families` que no tienen un valor `address.state`.
 
 ```sql
     SELECT *

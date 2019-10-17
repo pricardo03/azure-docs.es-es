@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 5c2041984ffa2c455ea4d60a756fcb4142219d91
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 53c171df47dde58b264b354eea5ff1ccca9f5256
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981453"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374731"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migración desde la API de Contrato Enterprise a la API de contrato de cliente de Microsoft
 
-Este artículo lo ayudará a entender la estructura de datos, la API y otras diferencias de integración de sistemas entre las cuentas de Contrato Enterprise (EA) y de contrato de cliente de Microsoft (MCA). Azure Cost Management es compatible con las API de ambos tipos de cuenta. Revise el artículo [Configurar la cuenta de facturación para](../billing/billing-mca-setup-account.md) un contrato de cliente de Microsoft antes de continuar.
+Este artículo lo ayudará a entender la estructura de datos, la API y otras diferencias de integración de sistemas entre las cuentas de Contrato Enterprise (EA) y de contrato de cliente de Microsoft (MCA). Azure Cost Management es compatible con las API de ambos tipos de cuenta. Revise el artículo [Configurar la cuenta de facturación para](../billing/mca-setup-account.md) un contrato de cliente de Microsoft antes de continuar.
 
 Las organizaciones con una cuenta existente de EA deben revisar este artículo junto con la configuración de una cuenta de MCA. Anteriormente, la renovación de una cuenta de EA requería cierto esfuerzo mínimo para migrar desde una inscripción anterior a una nueva. Sin embargo, la migración a una cuenta de MCA requiere un esfuerzo adicional. Este esfuerzo resulta necesario debido a los cambios en el subsistema de facturación subyacente, que afecta a todas las API relacionadas con los costos y a las ofertas de servicio.
 

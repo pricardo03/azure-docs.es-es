@@ -3,15 +3,15 @@ title: Ejecución de la primera consulta con Azure Resource Graph Explorer
 description: Este artículo le guía por los pasos para ejecutar la primera consulta desde Azure Portal mediante Azure Resource Graph Explorer.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/29/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: d533d24f9bfe133955c0f503e2458c8fcb0bf1de
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981243"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387614"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph mediante Azure Resource Graph Explorer
 
@@ -27,19 +27,19 @@ Abra [Azure Portal](https://portal.azure.com) para buscar y usar Azure Resource 
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Resource Graph Explorer**.
 
-1. En la parte **Consulta 1** de la ventana, escriba la consulta `project name, type | limit 5` y seleccione **Ejecutar consulta**.
+1. En la parte **Consulta 1** de la ventana, escriba la consulta `Resources | project name, type | limit 5` y seleccione **Ejecutar consulta**.
 
    > [!NOTE]
    > Como esta consulta de ejemplo no proporciona un modificador de ordenación como `order by`, es probable que al ejecutar esta consulta varias veces se produzca un conjunto diferente de recursos por solicitud.
 
 1. Revise la respuesta de la consulta en la pestaña **Resultados**. Seleccione la pestaña **Mensajes** para ver los detalles de la consulta, incluido el número de resultados y la duración. Los errores, si los hay, se muestran en esta pestaña.
 
-1. Actualice la consulta para que se aplique `order by` a la propiedad **Nombre**: `project name, type | limit 5 | order by name asc`. Luego, seleccione **Ejecutar consulta**.
+1. Actualice la consulta para que se aplique `order by` a la propiedad **Nombre**: `Resources | project name, type | limit 5 | order by name asc`. Luego, seleccione **Ejecutar consulta**.
 
    > [!NOTE]
    > Al igual que con la primera consulta, es probable que al ejecutar esta consulta varias veces se produzca un conjunto diferente de recursos por solicitud. El orden de los comandos de consulta es importante. En este ejemplo, el `order by` viene después del `limit`. Esto primero limitará los resultados de la consulta y después los ordenará.
 
-1. Actualice la consulta para que primero se aplique `order by` a la propiedad **Nombre** y, después, `limit` a los cinco primeros resultados: `project name, type | order by name asc | limit 5`. Luego, seleccione **Ejecutar consulta**.
+1. Actualice la consulta para que primero se aplique `order by` a la propiedad **Nombre** y, después, `limit` a los cinco primeros resultados: `Resources | project name, type | order by name asc | limit 5`. Luego, seleccione **Ejecutar consulta**.
 
 Cuando la consulta final se ejecuta varias veces, suponiendo que nada cambie en su entorno, los resultados devueltos serán coherentes y los que se esperan, ordenados por la propiedad **Nombre**, pero todavía limitados a los cinco primeros resultados.
 
@@ -54,7 +54,8 @@ Después de ejecutar la última consulta anterior, si selecciona la pestaña **G
 1. En la parte **Consulta 1** de la ventana, escriba la siguiente consulta y seleccione **Ejecutar consulta**.
 
    ```kusto
-   where type =~ 'Microsoft.Compute/virtualMachines'
+   Resources
+   | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 

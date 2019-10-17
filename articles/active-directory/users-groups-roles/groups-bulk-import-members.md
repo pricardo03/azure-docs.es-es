@@ -13,19 +13,16 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4412bc9ce8d78b5810b25b60724575af66774127
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 8ff4234d9fd28e655e868108e37b09c5afe2767c
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146238"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517132"
 ---
 # <a name="bulk-import-group-members-preview-in-azure-active-directory"></a>Importación masiva de los miembros del grupo (versión preliminar) en Azure Active Directory
 
 Mediante el portal de Azure Active Directory (Azure AD), puede agregar una gran cantidad de miembros a un grupo mediante el uso de un archivo de valores separados por comas (CSV) para importar dichos miembros de forma masiva.
-
-> [!NOTE]
-> Las operaciones masivas de Azure AD son una característica en vista previa (GB) pública de Azure AD y están disponibles con cualquier plan de licencias de Azure AD de pago. Para obtener más información sobre los términos de uso de las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="to-bulk-import-group-members"></a>Para importar de forma masiva miembros de grupo
 
