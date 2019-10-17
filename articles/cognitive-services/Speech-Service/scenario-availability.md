@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 94fd415909e86a43916ee2f510732a6a6d9c5ed3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: af5bb7126af65a755cb1d58788d39cb8bdcbbb3b
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552950"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959022"
 ---
 # <a name="scenario-availability"></a>Disponibilidad de escenarios
 
@@ -26,6 +26,10 @@ El SDK del servicio Voz presenta muchos escenarios en una amplia variedad de len
 - **Texto a voz (TTS)**
   - C++/Windows y Linux
   - C#/Windows, UWP y Unity
+  - Java (JRE y Android)
+  - Python
+  - Swift
+  - Objective-C
   - La API REST de TTS puede usarse en todas las demás situaciones.
 - **Palabra de reactivación (observador de palabras clave/KWS)**
   - C++/Windows y Linux
@@ -46,4 +50,4 @@ El SDK del servicio Voz presenta muchos escenarios en una amplia variedad de len
 - **Entrada de audio comprimido con códec**
   - C++/Linux
   - C#/Linux
-  - Java/Linux y Android
+  - Java/Linux, Android e iOS

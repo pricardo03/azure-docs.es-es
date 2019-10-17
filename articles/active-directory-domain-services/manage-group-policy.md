@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c6d7b3403209710c9086b90abcb0e2ce61a0e8a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612729"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958559"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administración de directivas de grupo en un dominio administrado con Azure AD Domain Services
 
@@ -31,13 +31,16 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 
 * Una suscripción de Azure activa.
     * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio local o con un directorio solo en la nube.
+* Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
-* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
+* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, complete el tutorial para [crear y configurar una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Una máquina virtual de administración de Windows Server que esté unida al dominio administrado con Azure AD DS.
     * Si es necesario, complete el tutorial para [crear una máquina virtual de Windows Server y unirla a un dominio administrado][create-join-windows-vm].
 * Una cuenta de usuario que sea miembro del grupo de *administradores de Azure AD DC* en el inquilino de Azure AD.
+
+> [!NOTE]
+> Como [no hay acceso a los controladores de dominio en Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop), no se puede crear ni usar un almacén central para las plantillas administrativas de directiva de grupo en un dominio administrado. [Sysvol no se incluye en la sincronización de Azure AD Connect local](synchronization.md#what-isnt-synchronized-to-azure-ad-ds), por lo que tampoco se puede crear un almacén central local y sincronizarlo con Azure AD DS a través de Azure AD.
 
 ## <a name="install-group-policy-management-tools"></a>Instalación de las herramientas de Administración de directivas de grupo
 
@@ -45,10 +48,10 @@ Para crear y configurar objetos de directiva de grupo (GPO), debe instalar las h
 
 1. Inicie sesión en la máquina virtual de administración. Si quiere conocer los pasos para conectarse mediante Azure Portal, consulte [Conexión a una máquina virtual de Windows Server][connect-windows-server-vm].
 1. El **Administrador del servidor** debería abrirse de forma predeterminada al iniciar sesión en la máquina virtual. Si no es así, en el menú **Inicio**, seleccione **Administrador del servidor**.
-1. En el *Panel* de la ventana **Administrador del servidor**, seleccione **Agregar roles y características**.
+1. En el *Panel de información* de la ventana **Administrador del servidor**, seleccione **Agregar roles y características**.
 1. En la página **Antes de comenzar** del *Asistente para agregar roles y características*, seleccione **Siguiente**.
 1. En *Tipo de instalación*, deje activada la opción **Instalación basada en características o en roles** y seleccione **Siguiente**.
-1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, como *myvm.contoso.com*, y seleccione **Siguiente**.
+1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, por ejemplo *mivm.contoso.com*, y seleccione **Siguiente**.
 1. En la página **Roles de servidor**, haga clic en **Siguiente**.
 1. En la página **Características**, seleccione la **Administración de directivas de grupo**.
 

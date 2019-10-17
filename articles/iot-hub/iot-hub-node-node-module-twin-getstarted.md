@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 3796017af643c993871757482ed17d1765cd6494
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 0fc676fd32c585324bac0024655765ebd628385a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802404"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165911"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Introducción a la identidad de módulo y a los módulos gemelos de IoT Hub (Node.js)
 
@@ -54,9 +54,9 @@ En esta sección se crea una aplicación de Node.js que crea una identidad de di
 
 1. Cree un directorio para almacenar el código.
 
-2. Dentro de ese directorio, ejecute primero  **npm init -y**  para crear un archivo package.json vacío con los valores predeterminados. Este es el archivo de proyecto para su código.
+2. Dentro de ese directorio, ejecute primero **npm init -y** para crear un archivo package.json vacío con los valores predeterminados. Este es el archivo de proyecto para su código.
 
-3. Ejecute  **npm install -S azure-iothub\@modules-preview** para instalar el SDK del servicio dentro del subdirectorio  **node_modules** .
+3. Ejecute **npm install -S azure-iothub\@modules-preview** para instalar el SDK del servicio dentro del subdirectorio **node_modules**.
 
     > [!NOTE]
     > El nombre de subdirectorio node_modules utiliza la palabra module para indicar "una biblioteca de nodos". En este caso, el término no tiene nada que ver con los módulos de IoT Hub.
@@ -192,7 +192,7 @@ En esta sección se crea una aplicación de Node.js en el dispositivo simulado q
     });
     ```
 
-4. Ahora, ejecútelo con el comando  **node twin.js**.
+4. Ahora, ejecútelo con el comando **node twin.js**.
 
    ```cmd/sh
    F:\temp\module_twin>node twin.js

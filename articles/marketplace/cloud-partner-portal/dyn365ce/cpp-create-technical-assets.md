@@ -1,34 +1,21 @@
 ---
 title: Creación de recursos técnicos de Dynamics 365 for Customer Engagement | Azure Marketplace
-description: Cree los recursos técnicos para una oferta de aplicación de Dynamics 365 for Customer Engagement.
+description: Este artículo de CPP está en desuso, vinculado al artículo de PC. Anteriormente era "Cree los recursos técnicos para una oferta de aplicación de Dynamics 365 for Customer Engagement".
 services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: article
-ms.date: 12/29/2018
-ms.author: pabutler
-ms.openlocfilehash: eff175264677d6b8ffb885229b5e68b306424335
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 378dc7d4b267a27088616cbe46b1a4309471af6b
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943103"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033829"
 ---
 # <a name="create-technical-assets-for-azure-application-offer"></a>Creación de recursos técnicos para una oferta de aplicación de Azure
 
-Normalmente, se desarrollan soluciones mediante el [SDK para aplicaciones de Dynamics 365 for Customer Engagement](https://docs.microsoft.com/dynamics365/customer-engagement/developer/get-started-sdk).  Las soluciones adoptan una variedad de formas, como se describe en [Modelos de programación de Dynamics 365 for Customer Engagement](https://docs.microsoft.com/dynamics365/customer-engagement/developer/programming-models).  Elija el formato que mejor se ajusta a sus requisitos de la solución.  Al desarrollar una solución, hay una serie de problemas que debe afrontar como, por ejemplo, las opciones de extensibilidad, los componentes de la solución y la compatibilidad entre versiones.  Para más información, consulte [Introducción a soluciones](https://docs.microsoft.com/dynamics365/customer-engagement/developer/introduction-solutions).
+[Cloud Partner Portal](https://cloudpartner.azure.com/) ya no admite la creación y administración de ofertas de Dynamics 365 Customer Engagement. En su lugar, esta funcionalidad se ha movido al [portal del Centro de partners](https://partner.microsoft.com/) de Microsoft. Para más información, consulte [Creación de una nueva oferta de Dynamics 365 for Customer Engagement y PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-La mayoría de las soluciones de Dynamics 365 publicadas en AppSource son aplicaciones administradas que se distribuyen como archivos de paquete.
-
-
-## <a name="creating-and-storing-the-package"></a>Creación y almacenamiento del paquete
-
-La documentación paralela sobre creación de ofertas de Dynamics 365 for Customer Engagement se encuentra en la sección [Publicación de la aplicación en AppSource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).  Los siguientes temas contenidos detallan cómo crear el archivo de paquete de la solución y cómo cargarlo en el almacenamiento de Azure:
-
-- [Paso 4: Creación de un paquete de AppSource para la aplicación](https://docs.microsoft.com/dynamics365/customer-engagement/developer/create-package-app-appsource): explica cómo crear un archivo comprimido (zip) que representa la aplicación administrada y que contiene una carpeta de recursos de la solución, código DLL personalizado, archivo de información tipo MIME, icono del paquete de AppSource y el archivo de contenido (XML).
-- [Paso 5: Almacenamiento del paquete de AppSource en Azure Storage y generación de una dirección URL con una clave SAS](https://docs.microsoft.com/dynamics365/customer-engagement/developer/store-appsource-package-azure-storage): explica cómo almacenar un archivo de paquete de AppSource en una cuenta de Microsoft Azure Blob Storage y cómo usar una clave de firma de acceso compartido (SAS) para compartir el archivo de paquete. El archivo de paquete se recupera desde su ubicación de Azure Storage para la certificación y, posteriormente, para las evaluaciones gratuitas y la publicación en AppSource.
-
-
-## <a name="next-steps"></a>Pasos siguientes
-
-Si aún no lo ha hecho, [cree su oferta de Dynamics 365 for Customer Engagement](./cpp-create-offer.md).  Después, estará listo para [publicar su oferta](./cpp-publish-offer.md).
+Antes de crear una nueva oferta de Dynamics 365 for Customer Engagement, debe leer [Creación de una cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) y después abrir el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/directory) con la página **Información general** seleccionada. Siga las instrucciones de [Creación de una nueva oferta de Dynamics 365 for Customer Engagement y PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para crear la oferta.

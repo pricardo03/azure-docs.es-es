@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b71146f0c2aff51a0c2498705b047e9fa4632c8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202902"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178133"
 ---
 # <a name="dependency-visualization"></a>Visualización de dependencia
 
@@ -51,7 +51,7 @@ Azure Migrate utiliza la solución [Service Map](../operations-management-suite/
   > Una vez asociada el área de trabajo a un proyecto, no podrá cambiarla más adelante.
 
   > [!NOTE]
-  > Actualmente, Azure Migrate admite la creación de un área de trabajo de OMS en las regiones Este de EE. UU., Sudeste Asiático y Oeste de Europa. Si el área de trabajo se crea fuera de Azure Migrate en cualquier otra región, actualmente no se puede asociar a un proyecto de Azure Migrate. 
+  > Actualmente, Azure Migrate admite la creación o asociación de áreas de trabajo de Log Analytics que están en las regiones Este de EE. UU., Sudeste Asiático y Oeste de Europa. Si el área de trabajo se crea fuera de Azure Migrate en cualquier otra región no admitida, actualmente no se puede asociar a un proyecto de Azure Migrate. 
 
 - El área de trabajo asociada se etiqueta con la clave **Proyecto de migración** y el valor **Nombre del proyecto**, que se puede usar para buscar en Azure Portal.
 - Para navegar al área de trabajo asociada al proyecto, puede ir a la sección **Essentials** de la página **Introducción** del proyecto y acceder al área de trabajo.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9d85b5a72c2e37719348d61250d167eb9a5688a1
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: e7dc1e6c1bb1ca81ada59cb3dae8fecbc6452b7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240032"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029775"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Conectar datos del firewall de aplicaciones web de Microsoft
 
@@ -41,9 +41,9 @@ Cuando el firewall de aplicaciones web de Microsoft esté implementado y obtenie
 1. En el portal de Azure Sentinel, seleccione **Data connectors** (Conectores de datos).
 1. En la página Data connectors (Conectores de datos), seleccione el icono de **WAF**.
 1. Vaya a [Application Gateway resource](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways)  (Recurso de Application Gateway) y elija el WAF.
-    1. Seleccione  **Diagnostic settings** (Configuración de diagnóstico).
-    1. Seleccione  **+ Add diagnostic setting** (+ Agregar configuración de diagnóstico) debajo de la tabla.
-    1. En la página  **Diagnostic settings** (Configuración de diagnóstico), indique un nombre en  **Name** y seleccione  **Send to Log Analytics** (Enviar a Log Analytics).
+    1. Seleccione **Configuración de diagnóstico**.
+    1. Seleccione **+ Add diagnostic setting** (+ Agregar configuración de diagnóstico) debajo de la tabla.
+    1. En la página **Diagnostic settings** (Configuración de diagnóstico), indique un nombre en **Name** y seleccione **Send to Log Analytics** (Enviar a Log Analytics).
     1. En **Log Analytics Workspace** (Área de trabajo de Log Analytics), seleccione el área de trabajo Azure Sentinel.
     1. Seleccione los tipos de registro que quiere analizar. Nuestra recomendación: ApplicationGatewayAccessLog y ApplicationGatewayFirewallLog.
 1. Para usar el esquema correspondiente de Log Analytics para las alertas de firewall de aplicaciones de web de Microsoft, busque **AzureDiagnostics**.

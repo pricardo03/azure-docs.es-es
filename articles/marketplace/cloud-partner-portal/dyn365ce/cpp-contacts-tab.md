@@ -1,47 +1,21 @@
 ---
 title: Pestaña Contactos de la oferta de Dynamics 365 for Customer Engagement| Azure Marketplace
-description: Configure la información de contacto para la oferta de Dynamics 365 for Customer Engagement en AppSource Marketplace.
+description: Este artículo de CPP está en desuso, vinculado al artículo de PC. Anteriormente era "Configure la información de contacto para la oferta de Dynamics 365 for Customer Engagement en AppSource Marketplace".
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 8a04d7d6f5913a100ab6c4187a42a4d6c470cbda
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942510"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033909"
 ---
 # <a name="azure-application-contacts-tab"></a>Pestaña Contactos de una aplicación de Azure
 
-Use la pestaña **Contactos** para proporcionar información de ingeniería y de asistencia al cliente para la oferta de Dynamics 365 for Customer Engagement.
+[Cloud Partner Portal](https://cloudpartner.azure.com/) ya no admite la creación y administración de ofertas de Dynamics 365 Customer Engagement. En su lugar, esta funcionalidad se ha movido al [portal del Centro de partners](https://partner.microsoft.com/) de Microsoft. Para más información, consulte [Creación de una nueva oferta de Dynamics 365 for Customer Engagement y PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-![Pestaña Contactos de la oferta](./media/dynce-contacts-tab.png)
-
-
-## <a name="specify-customer-and-engineering-contacts"></a>Especificar contactos de asistencia al cliente y de ingeniería
-
-Proporcione los valores siguientes para definir el **contacto de ingeniería** principal de su oferta. Los campos obligatorios se indican con un asterisco (*).
-
-|    Campo        |  DESCRIPCIÓN                    |
-|    ---------    |  ---------------                |
-|  **Nombre\***       |  Nombre del contacto de ingeniería de la aplicación. Este contacto recibirá comunicaciones técnicas de Microsoft.   |
-|  **Correo electrónico\***      |  Dirección de correo electrónico del contacto de ingeniería.  |
-|  **Teléfono\***      |  Número de teléfono del contacto de ingeniería.  |
-|  |  |
-
-Proporcione los valores siguientes para definir el **contacto de soporte** principal de su oferta.
-
-|    Campo        |   DESCRIPCIÓN                   |
-|    ---------    |  ---------------                |
-|  **Nombre\***       |  Nombre del contacto de asistencia al cliente de la aplicación. Este contacto recibirá comunicaciones relacionadas con el soporte técnico de Microsoft.   |
-|  **Correo electrónico\***      |  Dirección de correo electrónico de contacto de asistencia al cliente  |
-|  **Teléfono\***      |  Teléfono de contacto de asistencia al cliente  |
-|  |  |
-
-
-## <a name="next-steps"></a>Pasos siguientes
-
-Después de comprobar que tiene los [recursos técnicos](./cpp-create-technical-assets.md) necesarios para su oferta, está listo para [publicar la oferta de Dynamics 365 for Customer Engagement](./cpp-publish-offer.md).
+Antes de crear una nueva oferta de Dynamics 365 for Customer Engagement, debe leer [Creación de una cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) y después abrir el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/directory) con la página **Información general** seleccionada. Siga las instrucciones de [Creación de una nueva oferta de Dynamics 365 for Customer Engagement y PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para crear la oferta.

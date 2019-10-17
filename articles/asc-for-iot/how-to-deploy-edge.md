@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: bb6a975d2a2fc2cc3e65fa8969f8b005be8b1417
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 128265cd3e69cd27bab6538c9eb376410439824d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299716"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176672"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementación de un módulo de seguridad en el dispositivo IoT Edge
 
@@ -70,7 +70,7 @@ Hay tres pasos para crear una implementación de IoT Edge de Azure Security Cent
 
 #### <a name="step-1-add-modules"></a>Paso 1: Adición de módulos
 
-1. En la pestaña **Agregar módulos**, área **Módulos de implementación**, haga clic en **AzureSecurityCenterforIoT**. 
+1. En la pestaña **Agregar módulos**, en el área **Módulos de implementación**, haga clic en la opción **Configurar** para **AzureSecurityCenterforIoT**. 
    
 1. Cambiar el **nombre** a **azureiotsecurity**.
 1. Cambie el **URI de la imagen** a **mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
@@ -95,10 +95,13 @@ Hay tres pasos para crear una implementación de IoT Edge de Azure Security Cent
 1. Compruebe que la opción **Establecer propiedades deseadas de gemelo del módulo**  está seleccionada y cambie el objeto de configuración a:
       
     ``` json
-    "desired": {
-        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-          } 
-        }
+    { 
+       "properties.desired":{ 
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
+
+          }
+       }
+    }
     ```
 
 1. Haga clic en **Save**(Guardar).
@@ -110,13 +113,25 @@ Hay tres pasos para crear una implementación de IoT Edge de Azure Security Cent
          
     ``` json
     { 
-    "HostConfig":{
-                    "PortBindings":{
-                    "8883/tcp": [{"HostPort": "8883"}],
-                    "443/tcp": [{"HostPort": "443"}],
-                    "5671/tcp": [{"HostPort": "5671"}]
-                    }
-        }
+       "HostConfig":{ 
+          "PortBindings":{ 
+             "8883/tcp":[ 
+                { 
+                   "HostPort":"8883"
+                }
+             ],
+             "443/tcp":[ 
+                { 
+                   "HostPort":"443"
+                }
+             ],
+             "5671/tcp":[ 
+                { 
+                   "HostPort":"5671"
+                }
+             ]
+          }
+       }
     }
     ```
 1. Haga clic en **Save**(Guardar).
@@ -125,16 +140,15 @@ Hay tres pasos para crear una implementación de IoT Edge de Azure Security Cent
 
 #### <a name="step-2-specify-routes"></a>Paso 2: Especificación de rutas 
 
-1. En la pestaña **Especificar rutas**, asegúrese de que tiene una ruta (explícita o implícita) que reenviará los mensajes del módulo **azureiotsecurity** a **$upstream**. 
-1. Haga clic en **Next**.
+1. En la pestaña **Especificar rutas**, asegúrese de tener una ruta (explícita o implícita) que reenviará los mensajes del módulo **azureiotsecurity** a **$upstream** de acuerdo con los ejemplos siguientes; solo entonces, haga clic en **Siguiente**. 
 
-    ~~~Default implicit route
-    "route": "FROM /messages/* INTO $upstream" 
-    ~~~
+~~~Default implicit route
+"route": "FROM /messages/* INTO $upstream" 
+~~~
 
-    ~~~Explicit route
-    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-    ~~~
+~~~Explicit route
+"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+~~~
 
 #### <a name="step-3-review-deployment"></a>Paso 3: Revisión de la implementación
 

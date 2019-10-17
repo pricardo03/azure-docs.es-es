@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: e1cf67abcc44a3ca134e5435137869d4fff1a7eb
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: de8782edcc8b9c64621f1ca67d4bb810c926afaf
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162364"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973384"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -157,7 +157,9 @@ La invalidación de los servicios proporcionados por el host no se admite.  Si h
 
 Los valores definidos en la [configuración de la aplicación](./functions-how-to-use-azure-function-app-settings.md#settings) están disponibles en una instancia de `IConfiguration`, lo que permite leer los valores de la configuración de la aplicación en la clase de inicio.
 
-Puede extraer valores de la instancia de `IConfiguration` a un tipo personalizado. Copiar los valores de configuración de la aplicación en un tipo personalizado facilita la prueba de los servicios, ya que permite que estos valores se inserten. Considere la clase siguiente que incluye una propiedad con nombre coherente con una configuración de aplicación.
+Puede extraer valores de la instancia de `IConfiguration` a un tipo personalizado. Copiar los valores de configuración de la aplicación en un tipo personalizado facilita la prueba de los servicios, ya que permite que estos valores se inserten. Los valores leídos en la instancia de configuración deben ser pares de clave/valor simples.
+
+Considere la clase siguiente que incluye una propiedad con nombre coherente con una configuración de aplicación.
 
 ```csharp
 public class MyOptions

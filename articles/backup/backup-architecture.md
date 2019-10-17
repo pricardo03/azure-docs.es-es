@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9e67e063ed37c706ba172703f0a5483d8d4f68ca
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 24e90ebd2994c5fffc1252167c06783421f2ac33
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881867"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035253"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
-Puede usar el [servicio Azure Backup](backup-overview.md) para realizar una copia de seguridad de los datos en la plataforma de nube de Microsoft Azure. En este artículo se resume la arquitectura, los componentes y los procesos de Azure Backup. 
+Puede usar el [servicio Azure Backup](backup-overview.md) para realizar una copia de seguridad de los datos en la plataforma de nube de Microsoft Azure. En este artículo se resume la arquitectura, los componentes y los procesos de Azure Backup.
 
 ## <a name="what-does-azure-backup-do"></a>¿Qué hace Azure Backup?
 
@@ -27,13 +27,13 @@ Azure Backup realiza copias de seguridad de los datos, del estado de la máquin
 Puede realizar copias de seguridad de máquinas y datos mediante una serie de métodos:
 
 - **Copia de seguridad de máquinas locales**:
-    - Puede hacer una copia de seguridad de máquinas Windows locales directamente en Azure mediante el agente Microsoft Azure Recovery Services (MARS) de Azure Backup. No se admiten máquinas Linux.
-    - Puede realizar copias de seguridad de máquinas locales en un servidor de copia de seguridad (System Center Data Protection Manager [DPM] o Microsoft Azure Backup Server [MABS]). Luego, puede hacer la copia de seguridad del servidor de copia de seguridad en un almacén de Recovery Services en Azure.
+  - Puede hacer una copia de seguridad de máquinas Windows locales directamente en Azure mediante el agente Microsoft Azure Recovery Services (MARS) de Azure Backup. No se admiten máquinas Linux.
+  - Puede realizar copias de seguridad de máquinas locales en un servidor de copia de seguridad (System Center Data Protection Manager [DPM] o Microsoft Azure Backup Server [MABS]). Luego, puede hacer la copia de seguridad del servidor de copia de seguridad en un almacén de Recovery Services en Azure.
 
 - **Copia de seguridad de máquinas virtuales de Azure**:
-    - Puede hacer una copia de seguridad de las máquinas virtuales de Azure directamente. Azure Backup instala una extensión de copia de seguridad en el agente de máquina virtual de Azure que se ejecuta en la máquina virtual. Esta extensión realiza una copia de seguridad de toda la máquina virtual.
-    - Puede hacer una copia de seguridad de determinados archivos y carpetas en la máquina virtual de Azure mediante la ejecución del agente de MARS.
-    - Puede hacer una copia de seguridad de las máquinas virtuales de Azure en un servidor MABS que se ejecuta en Azure y, a continuación, puede hacer una copia de seguridad de MABS en un almacén de Recovery Services.
+  - Puede hacer una copia de seguridad de las máquinas virtuales de Azure directamente. Azure Backup instala una extensión de copia de seguridad en el agente de máquina virtual de Azure que se ejecuta en la máquina virtual. Esta extensión realiza una copia de seguridad de toda la máquina virtual.
+  - Puede hacer una copia de seguridad de determinados archivos y carpetas en la máquina virtual de Azure mediante la ejecución del agente de MARS.
+  - Puede hacer una copia de seguridad de las máquinas virtuales de Azure en un servidor MABS que se ejecuta en Azure y, a continuación, puede hacer una copia de seguridad de MABS en un almacén de Recovery Services.
 
 Obtenga información sobre los [elementos de lo que puede hacer una copia de seguridad](backup-overview.md) y los [escenarios de copia de seguridad admitidos](backup-support-matrix.md).
 
@@ -48,17 +48,17 @@ Los almacenes de Recovery Services tienen las siguientes características:
 - Puede supervisar elementos de copia de seguridad de un almacén, como las máquinas virtuales de Azure y las máquinas locales.
 - Puede administrar el acceso del almacén con [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) de Azure.
 - Especificará cómo se replican los datos en el almacén para la redundancia:
-    - **Almacenamiento con redundancia local (LRS)** : Para protegerse frente a los errores de un centro de datos, puede usar LRS. LRS replica los datos en una unidad de escalado de almacenamiento. [Más información](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-    - **Almacenamiento con redundancia geográfica (GRS)** : Para protegerse contra las interrupciones de toda la región, puede usar GRS. GRS replica los datos en una región secundaria. [Más información](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
-    - De forma predeterminada, los almacenes de Recovery Services usan GRS. 
+  - **Almacenamiento con redundancia local (LRS)** : Para protegerse frente a los errores de un centro de datos, puede usar LRS. LRS replica los datos en una unidad de escalado de almacenamiento. [Más información](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+  - **Almacenamiento con redundancia geográfica (GRS)** : Para protegerse contra las interrupciones de toda la región, puede usar GRS. GRS replica los datos en una región secundaria. [Más información](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - De forma predeterminada, los almacenes de Recovery Services usan GRS.
 
 ## <a name="backup-agents"></a>Agentes de copia de seguridad
 
 Azure Backup proporciona diferentes agentes de copia de seguridad, según el tipo de máquina de la que se esté haciendo una copia de seguridad:
 
-**Agent** | **Detalles** 
---- | --- 
-**Agente de MARS** | <ul><li>Se ejecuta en servidores Windows locales individuales para hacer una copia de seguridad de archivos, carpetas y del estado del sistema.</li> <li>Se ejecuta en máquinas virtuales de Azure para hacer una copia de seguridad de archivos, carpetas y del estado del sistema.</li> <li>Se ejecuta en servidores DPM o MABS para hacer una copia de seguridad del disco de almacenamiento local de DPM o MABS en Azure.</li></ul> 
+**Agent** | **Detalles**
+--- | ---
+**Agente de MARS** | <ul><li>Se ejecuta en servidores Windows locales individuales para hacer una copia de seguridad de archivos, carpetas y del estado del sistema.</li> <li>Se ejecuta en máquinas virtuales de Azure para hacer una copia de seguridad de archivos, carpetas y del estado del sistema.</li> <li>Se ejecuta en servidores DPM o MABS para hacer una copia de seguridad del disco de almacenamiento local de DPM o MABS en Azure.</li></ul>
 **Extensión de máquina virtual de Azure** | Se ejecuta en máquinas virtuales de Azure para copiarlas en un almacén.
 
 ## <a name="backup-types"></a>Tipos de copia de seguridad
@@ -69,7 +69,7 @@ La siguiente tabla explica los distintos tipos de copias de seguridad y cuando s
 --- | --- | ---
 **Completa** | Una copia de seguridad completa contiene todo el origen de los datos. Requiere más ancho de banda de red que las copias de seguridad incrementales o diferenciales. | Se usa para la copia de seguridad inicial.
 **Diferencial** |  Una copia de seguridad diferencial almacena los bloques que cambiaron desde la copia de seguridad completa inicial. Usa una menor cantidad de almacenamiento y red y no conserva copias redundantes de datos sin modificar.<br/><br/> Ineficaz porque los bloques de datos sin modificar entre las copias de seguridad posteriores se transfieren y almacenan. | Azure Backup no usa este tipo.
-**Incremental** | Una copia de seguridad incremental almacena solo los bloques de datos que cambiaron desde la copia de seguridad anterior. Alta eficacia de almacenamiento y red. <br/><br/> Con una copia de seguridad incremental, no es necesario complementar con copias de seguridad completas. | Se usa en DPM o MABS para copias de seguridad de disco y se emplea en todas las copias de seguridad en Azure.
+**Incremental** | Una copia de seguridad incremental almacena solo los bloques de datos que cambiaron desde la copia de seguridad anterior. Alta eficacia de almacenamiento y red. <br/><br/> Con una copia de seguridad incremental, no es necesario complementar con copias de seguridad completas. | Se usa en DPM o MABS para copias de seguridad de disco y se emplea en todas las copias de seguridad en Azure. No se utiliza para la copia de seguridad de SQL Server.
 
 ## <a name="sql-server-backup-types"></a>Tipos de copia de seguridad de SQL Server
 
@@ -88,7 +88,7 @@ El consumo de almacenamiento, el objetivo de tiempo de recuperación (RTO) y el 
 - El origen de datos A se compone de 10 bloques de almacenamiento A1-A10, y todos los meses se hace una copia de seguridad de ellos.
 - Los bloques A2, A3, A4 y A9 cambian en el primer mes y el bloque A5 cambia en el siguiente mes.
 - Para las copias de seguridad diferenciales, en el segundo mes, se realiza una copia de seguridad de los bloques modificados A2, A3, A4 y A9. En el tercer mes, se vuelve a hacer una copia de seguridad de estos mismos bloques, junto con el bloque A5 modificado. Los bloques modificados se siguen copiando hasta que tiene lugar la siguiente copia de seguridad completa.
-- Para las copias de seguridad incrementales, en el segundo mes, los bloques A2, A3, A4 y A9 se marcan como modificados y se transfieren. En el tercer mes, solo el bloque A5 modificado se marca y se transfiere. 
+- Para las copias de seguridad incrementales, en el segundo mes, los bloques A2, A3, A4 y A9 se marcan como modificados y se transfieren. En el tercer mes, solo el bloque A5 modificado se marca y se transfiere.
 
 ![Imagen que muestra las comparaciones de métodos de copia de seguridad](./media/backup-architecture/backup-method-comparison.png)
 
@@ -98,11 +98,11 @@ En la tabla siguiente se resumen las características compatibles de los distint
 
 **Característica** | **Máquinas Windows Server locales (directa)** | **Máquinas virtuales de Azure** | **Máquinas o aplicaciones con DPM o MABS**
 --- | --- | --- | ---
-Copia de seguridad en almacén | ![Sí][green] | ![Sí][green] | ![Sí][green] 
-Copia de seguridad en disco DPM o MABS y, luego, en Azure | | | ![Sí][green] 
-Compresión de los datos enviados para copia de seguridad | ![Sí][green] | No se usa compresión al transferir los datos. El almacenamiento aumenta ligeramente, pero la restauración es más rápida.  | ![Sí][green] 
-Ejecución de copia de seguridad incremental |![Sí][green] |![Sí][green] |![Sí][green] 
-Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br/> Solo para servidores DPM o MABS implementados en el entorno local. 
+Copia de seguridad en almacén | ![Sí][green] | ![Sí][green] | ![Sí][green]
+Copia de seguridad en disco DPM o MABS y, luego, en Azure | | | ![Sí][green]
+Compresión de los datos enviados para copia de seguridad | ![Sí][green] | No se usa compresión al transferir los datos. El almacenamiento aumenta ligeramente, pero la restauración es más rápida.  | ![Sí][green]
+Ejecución de copia de seguridad incremental |![Sí][green] |![Sí][green] |![Sí][green]
+Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br/> Solo para servidores DPM o MABS implementados en el entorno local.
 
 ![Clave de tabla](./media/backup-architecture/table-key.png)
 
@@ -112,17 +112,17 @@ Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br
 1. Durante la primera copia de seguridad, se instala una extensión de copia de seguridad en la máquina virtual si se está ejecutando.
     - En máquinas virtuales Windows, se instala la extensión VMSnapshot.
     - En máquinas virtuales Linux, se instala la extensión VMSnapshot para Linux.
-1. La extensión toma una instantánea de nivel de almacenamiento. 
+1. La extensión toma una instantánea de nivel de almacenamiento.
     - En el caso de las máquinas virtuales Windows en ejecución, el servicio Backup se coordina con el Servicio de instantáneas de volumen (VSS) de Windows para obtener una instantánea coherente con la aplicación de la máquina virtual. De forma predeterminada, Backup realiza copias de seguridad de VSS completas. Si Azure Backup no puede tomar una instantánea coherente con la aplicación, toma una instantánea coherente con el archivo.
     - En máquinas virtuales Linux, Azure Backup toma una instantánea coherente con el archivo. Para obtener instantáneas coherentes con la aplicación, debe personalizar manualmente los scripts previos y posteriores.
-    - Azure Backup se optimiza mediante la copia de seguridad de cada disco de máquina virtual en paralelo. Este servicio lee los bloques de cada disco que se va a copiar y solo almacena los datos cambiados. 
-1. Después de tomar la instantánea, los datos se transfieren al almacén. 
+    - Azure Backup se optimiza mediante la copia de seguridad de cada disco de máquina virtual en paralelo. Este servicio lee los bloques de cada disco que se va a copiar y solo almacena los datos cambiados.
+1. Después de tomar la instantánea, los datos se transfieren al almacén.
     - Solo se copian los bloques de datos que han cambiado desde la última copia de seguridad.
     - Los datos no se cifran. Azure Backup puede hacer una copia de seguridad de las máquinas virtuales de Azure que se cifraron mediante Azure Disk Encryption.
     - Es posible que los datos de las instantáneas no se copien inmediatamente en el almacén. En momentos de máxima actividad, la copia de seguridad podría durar horas. El tiempo total de copia de seguridad de una VM será inferior a 24 horas para las directivas de copia de seguridad diarias.
 1. Una vez enviados los datos al almacén, se crea un punto de recuperación. De manera predeterminada, las instantáneas se conservan durante dos días antes de ser eliminadas. Esta característica permite la operación de restauración a partir de estas instantáneas, lo cual reduce los tiempos de restauración. Reduce el tiempo necesario para transformar y copiar datos desde el almacén. Consulte [Funcionalidad de restauración instantánea de Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
 
-Las máquinas virtuales de Azure necesitan acceso a Internet para usar los comandos de control. Si va a realizar la copia de seguridad de las cargas de trabajo que contiene la máquina virtual (por ejemplo, la copia de seguridad de la base de datos de SQL Server), los datos del back-end también necesitan acceso a Internet. 
+Las máquinas virtuales de Azure necesitan acceso a Internet para usar los comandos de control. Si va a realizar la copia de seguridad de las cargas de trabajo que contiene la máquina virtual (por ejemplo, la copia de seguridad de la base de datos de SQL Server), los datos del back-end también necesitan acceso a Internet.
 
 ![Copia de seguridad de máquinas virtuales de Azure](./media/backup-architecture/architecture-azure-vm.png)
 
@@ -157,15 +157,15 @@ Las máquinas virtuales de Azure necesitan acceso a Internet para usar los coman
 Las máquinas virtuales de Azure usan discos para almacenar su sistema operativo, sus aplicaciones y sus datos. Cada máquina virtual de Azure tiene al menos dos discos: un disco de sistema operativo y un disco temporal. Las máquinas virtuales de Azure pueden tener discos de datos para datos de aplicación. Los discos se almacenan como discos duros virtuales.
 
 - Los discos duros virtuales se almacenan como blobs en páginas en cuentas de almacenamiento estándar o premium en Azure:
-    - **Almacenamiento estándar**: compatibilidad confiable y de bajo costo con máquinas virtuales que ejecutan cargas de trabajo que no son sensibles a la latencia. El almacenamiento estándar puede usar discos de unidades de estado sólido (SSD) estándar o unidades de disco duro (HDD) estándar.
-    - **Almacenamiento premium:** compatibilidad con discos de alto rendimiento. Usa discos SSD premium.
+  - **Almacenamiento estándar**: compatibilidad confiable y de bajo costo con máquinas virtuales que ejecutan cargas de trabajo que no son sensibles a la latencia. El almacenamiento estándar puede usar discos de unidades de estado sólido (SSD) estándar o unidades de disco duro (HDD) estándar.
+  - **Almacenamiento premium:** compatibilidad con discos de alto rendimiento. Usa discos SSD premium.
 - Existen distintos niveles de rendimiento para los discos:
-    - **Disco HDD estándar:** están respaldado por HDD y se usan cuando se busca un almacenamiento rentable.
-    - **Disco SSD estándar:** Combina elementos de discos SSD premium y HDD estándar. Ofrece rendimiento y fiabilidad más coherentes que los discos HDD, y siguen siendo rentables.
-    - **Disco SSD premium:** respaldado por SSD, y proporciona alto rendimiento y baja latencia para máquinas virtuales que ejecutan cargas de trabajo que consumen elevada E/S.
+  - **Disco HDD estándar:** están respaldado por HDD y se usan cuando se busca un almacenamiento rentable.
+  - **Disco SSD estándar:** Combina elementos de discos SSD premium y HDD estándar. Ofrece rendimiento y fiabilidad más coherentes que los discos HDD, y siguen siendo rentables.
+  - **Disco SSD premium:** respaldado por SSD, y proporciona alto rendimiento y baja latencia para máquinas virtuales que ejecutan cargas de trabajo que consumen elevada E/S.
 - Los discos pueden ser administrados o no administrados:
-    - **Discos no administrados:** tipo tradicional de discos usado por las máquinas virtuales. Con estos discos, creará la propia cuenta de almacenamiento y especificará esa cuenta al crear el disco. Tiene que averiguar cómo maximizar los recursos de almacenamiento de las máquinas virtuales.
-    - **Discos administrados:** Azure crea y administra las cuentas de almacenamiento en su nombre. Usted especifica el tamaño de disco y el nivel de rendimiento y Azure crea discos administrados en su nombre. A medida que agrega discos y escala máquinas virtuales, Azure se ocupa de administrar las cuentas de almacenamiento.
+  - **Discos no administrados:** tipo tradicional de discos usado por las máquinas virtuales. Con estos discos, creará la propia cuenta de almacenamiento y especificará esa cuenta al crear el disco. Tiene que averiguar cómo maximizar los recursos de almacenamiento de las máquinas virtuales.
+  - **Discos administrados:** Azure crea y administra las cuentas de almacenamiento en su nombre. Usted especifica el tamaño de disco y el nivel de rendimiento y Azure crea discos administrados en su nombre. A medida que agrega discos y escala máquinas virtuales, Azure se ocupa de administrar las cuentas de almacenamiento.
 
 Para obtener más información sobre el almacenamiento en discos y los tipos de discos disponibles para las máquinas virtuales, consulte estos artículos:
 
@@ -173,7 +173,7 @@ Para obtener más información sobre el almacenamiento en discos y los tipos de 
 - [Introducción a los discos administrados de Azure](../virtual-machines/linux/managed-disks-overview.md)
 - [¿Qué tipos de disco están disponibles en Azure?](../virtual-machines/windows/disks-types.md)
 
-### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Copia de seguridad y restauración de máquinas virtuales de Azure con Premium Storage 
+### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Copia de seguridad y restauración de máquinas virtuales de Azure con Premium Storage
 
 Puede realizar una copia de seguridad de máquinas virtuales de Azure mediante Premium Storage con Azure Backup:
 
@@ -201,13 +201,11 @@ Al restaurar máquinas virtuales con discos administrados, puede restaurarlas en
 
 - Revise la matriz de compatibilidad para [conocer las características admitidas y las limitaciones en escenarios de copia de seguridad](backup-support-matrix.md).
 - Configure la copia de seguridad para uno de los siguientes escenarios:
-    - [Copia de seguridad de máquinas virtuales de Azure](backup-azure-arm-vms-prepare.md).
-    - [Copia de seguridad directa de máquinas Windows](tutorial-backup-windows-server-to-azure.md), sin un servidor de copia de seguridad.
-    - [Configuración de MABS](backup-azure-microsoft-azure-backup.md) para la copia de seguridad en Azure y, luego, copia de seguridad de las cargas de trabajo en MABS.
-    - [Configuración de DPM](backup-azure-dpm-introduction.md) para la copia de seguridad en Azure y, luego, copia de seguridad de las cargas de trabajo en DPM.
-
+  - [Copia de seguridad de máquinas virtuales de Azure](backup-azure-arm-vms-prepare.md).
+  - [Copia de seguridad directa de máquinas Windows](tutorial-backup-windows-server-to-azure.md), sin un servidor de copia de seguridad.
+  - [Configuración de MABS](backup-azure-microsoft-azure-backup.md) para la copia de seguridad en Azure y, luego, copia de seguridad de las cargas de trabajo en MABS.
+  - [Configuración de DPM](backup-azure-dpm-introduction.md) para la copia de seguridad en Azure y, luego, copia de seguridad de las cargas de trabajo en DPM.
 
 [green]: ./media/backup-architecture/green.png
 [yellow]: ./media/backup-architecture/yellow.png
 [red]: ./media/backup-architecture/red.png
-

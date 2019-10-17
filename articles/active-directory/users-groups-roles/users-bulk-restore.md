@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f53ade09c5e2e7db0499122526a1de482af9378f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d392ae97a8325dd4a56acd807ebfb2b951216eae
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901352"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174244"
 ---
 # <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>Restauración masiva de usuarios (versión preliminar) en Azure Active Directory
 
@@ -26,18 +26,22 @@ Azure Active Directory (Azure AD) admite operaciones de creación y eliminación
 
 ## <a name="to-bulk-restore-users"></a>Para restaurar usuarios en masa
 
-1. [Inicie sesión en la organización de Azure AD](https://aad.portal.azure.com) con una cuenta que sea la del administrador de usuarios de la organización.
+1. [Inicie sesión en la organización de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador de usuarios de esta organización.
 1. En Azure AD, seleccione **Usuarios** > **Usuarios eliminados**.
 1. En la página **Usuarios eliminados**, seleccione **Restauración masiva** para cargar un archivo .csv válido de las propiedades de los usuarios que se van a restaurar.
 
    ![Selección del comando de restauración masiva en la página Usuarios eliminados](./media/users-bulk-restore/bulk-restore.png)
 
-1. Cuando termine de editar el archivo .csv o si tiene uno propio listo para cargar, seleccione el archivo en **Cargue el archivo .csv** para validarlo.
+1. Abra el archivo CSV y agregue una línea por cada usuario que desee restaurar. El único valor necesario es **ObjectID**. A continuación, guarde el archivo.
 
    ![Selección de un archivo .csv local en el que se indican los usuarios que quiere agregar](./media/users-bulk-restore/upload-button.png)
 
-1. Cuando se valide el contenido del archivo, corrija la información del archivo y vuelva a enviarlo si hay errores. El envío de un archivo válido inicia el trabajo de carga de datos automáticamente.
-1. Después de que el archivo pase la validación, seleccione **Enviar** para iniciar el trabajo por lotes de Azure que restaura los usuarios. Si hay errores, puede descargar y ver el archivo de resultados en la página de resultados de la operación masiva. El archivo contiene el motivo de cada error.
+1. En la página **Bulk restore (Preview)** (Restauración masiva [versión preliminar]), en **Cargue el archivo csv**, vaya al archivo. Al seleccionar el archivo y hacer clic en **Enviar**, comienza su validación.
+1. Cuando finalice la validación del contenido del archivo, aparecerá el mensaje **Archivo cargado correctamente**. Si hay errores, debe corregirlos para poder enviar el trabajo.
+1. Cuando el archivo supere la validación, seleccione **Enviar** para iniciar la operación masiva de Azure que restaura los usuarios.
+1. Cuando la operación de restauración finalice, verá una notificación que indicará que la operación masiva se realizó correctamente.
+
+Si hay errores, puede descargar y ver el archivo de resultados en la página **Resultados de la operación masiva**. El archivo contiene el motivo de cada error.
 
 ## <a name="check-status"></a>Comprobar estado
 

@@ -1,20 +1,19 @@
 ---
-title: Ejemplos de Azure PowerShell para Azure Data Share | Microsoft Docs
-description: 'Ejemplos de Azure PowerShell: scripts para ayudarle a crear y administrar recursos compartidos de datos.'
-services: data-share
+title: Ejemplos de Azure PowerShell para Azure Data Share
+description: Obtenga información sobre scripts de ejemplo de Azure PowerShell para ayudarle a crear y administrar recursos compartidos de datos en la versión preliminar de Azure Data Share.
 ms.service: data-share
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/6/2019
+ms.devlang: powershell
 author: joannapea
 ms.author: joanpo
-ms.openlocfilehash: 90b23da3ae911038c67dc1d99c5b98d04b935281
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.date: 07/6/2019
+ms.openlocfilehash: a694ced2697cba8cc50e3c7b5b14f712527e1cd9
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242857"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166325"
 ---
 # <a name="azure-powershell-samples-for-azure-data-share"></a>Ejemplos de Azure PowerShell para Azure Data Share
 
@@ -33,9 +32,3 @@ En la tabla siguiente se incluyen vínculos a scripts de ejemplo de Azure PowerS
 |[Visualización de detalles de recursos compartidos de datos](scripts/powershell/view-share-details-powershell.md)| Este script de PowerShell de ejemplo muestra y recupera detalles de recursos compartidos de datos. |
 |[Supervisión del uso de datos compartidos](scripts/powershell/monitor-usage-powershell.md)| Este script de PowerShell de ejemplo supervisa el uso de los datos compartidos enviados. |
 |[Creación y visualización de desencadenadores de instantáneas](scripts/powershell/create-view-trigger-powershell.md)| Este script de PowerShell de ejemplo crea los desencadenadores de instantáneas de un recurso compartido.
-
-
-
-
-
-

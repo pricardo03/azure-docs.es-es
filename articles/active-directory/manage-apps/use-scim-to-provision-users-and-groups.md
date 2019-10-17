@@ -1,6 +1,6 @@
 ---
-title: Automatización del aprovisionamiento de aplicaciones con SCIM en Azure Active Directory | Microsoft Docs
-description: Azure Active Directory puede aprovisionar automáticamente los usuarios y grupos a cualquier aplicación o almacén de identidades proporcionado por un servicio web con la interfaz definida en la especificación del protocolo SCIM
+title: Aprovisionamiento de usuarios de SCIM con Azure Active Directory | Microsoft Docs
+description: Aprenda a crear un punto de conexión de SCIM, integre la API de SCIM con Azure Active Directory y comience a automatizar el aprovisionamiento de usuarios y grupos en las aplicaciones.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 922e5a2d5c639d7df380f686ddf7843ab59fca59
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: b5c24a2340775712f1105448b2aacfdc9a75f1a6
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802371"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001726"
 ---
-# <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management (SCIM) para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
+# <a name="scim-user-provisioning-with-azure-active-directory"></a>Aprovisionamiento de usuarios de SCIM con Azure Active Directory
 
-SCIM es un protocolo y esquema estandarizado que tiene como objetivo conseguir una mayor coherencia en la forma en la que se administran las identidades entre los sistemas. Cuando una aplicación es compatible con un punto de conexión SCIM para la administración de usuarios, el servicio de aprovisionamiento de usuario de Azure AD puede enviar solicitudes para crear, modificar o eliminar usuarios y grupos asignados a este punto de conexión.
+El sistema de administración de identidades entre dominios ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)) es un protocolo y esquema estandarizado que tiene como objetivo conseguir una mayor coherencia en la forma en la que se administran las identidades entre los sistemas. Cuando una aplicación es compatible con un punto de conexión SCIM para la administración de usuarios, el servicio de aprovisionamiento de usuario de Azure AD puede enviar solicitudes para crear, modificar o eliminar usuarios y grupos asignados a este punto de conexión.
 
 Muchas de las aplicaciones para las que Azure AD admite [aprovisionamiento automático de usuarios preintegrado](../saas-apps/tutorial-list.md), implementan SCIM como la forma de recibir notificaciones de cambio del usuario.  Además, los clientes pueden conectar las aplicaciones que admiten un perfil específico de la [especificación del protocolo SCIM 2.0](https://tools.ietf.org/html/rfc7644) con la opción de integración genérica "fuera de la galería" en Azure Portal.
 

@@ -7,27 +7,25 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 03/15/2019
+ms.date: 10/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 0a92c032027e772020eda0b626a6dc6db024bf57
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 73bb5b75a440755e088a4d9a294b5b97b0b7199e
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595572"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035134"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Límites de memoria y simultaneidad para Azure SQL Data Warehouse
 Vea los límites de simultaneidad y memoria asignados a los distintos niveles de rendimiento y las clases de recursos en Azure SQL Data Warehouse. Para obtener más información y para aplicar estas capacidades a un plan de administración de cargas de trabajo, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md). 
 
-Actualmente hay disponibles dos generaciones con SQL Data Warehouse: Gen1 y Gen2. Le recomendamos que aproveche Gen2 de SQL Data Warehouse para obtener el mejor rendimiento para la carga de trabajo de almacenamiento de datos. Gen2 presenta una nueva caché de disco de estado sólido de NVMe que mantiene los datos a los que se accede con más frecuencia cerca de las CPU. Esto quita la E/S remota de las cargas de trabajo más intensivas y exigentes. Además de rendimiento, Gen2 ofrece el mayor nivel de escala, lo que le permite escalar verticalmente hasta 30 000 unidades de almacenamiento de datos y proporcionar almacenamiento en columnas ilimitado. Aunque seguiremos admitiendo la generación anterior (Gen1) de SQL Data Warehouse y conservaremos las mismas características, le recomendamos que [actualice a Gen2](upgrade-to-latest-generation.md) lo antes posible. 
-
 ## <a name="data-warehouse-capacity-settings"></a>Configuración de la capacidad del almacenamiento de datos
 Las siguientes tablas muestran la capacidad máxima para el almacenamiento de datos en diferentes niveles de rendimiento. Para cambiar el nivel de rendimiento, consulte [Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse en Azure Portal](quickstart-scale-compute-portal.md).
 
-### <a name="gen2"></a>Gen2
+### <a name="service-levels"></a>Niveles de servicio
 
-Gen2 proporciona 2,5 veces más memoria por consulta que Gen1. Esta memoria adicional ayuda a Gen2 a ofrecer un rendimiento rápido.  Los niveles de rendimiento de Gen2 oscilan entre DW100c y DW30000c. 
+Los niveles de servicio van de DW100c a DW30000c.
 
 | Nivel de rendimiento | Nodos de proceso | Distribuciones por nodo de proceso | Memoria por almacenamiento de datos (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
@@ -48,32 +46,11 @@ Gen2 proporciona 2,5 veces más memoria por consulta que Gen1. Esta memoria adic
 | DW15000c          | 30            | 2                              |  9000                          |
 | DW30000c          | 60            | 1                              | 18000                          |
 
-El valor máximo de DWU de Gen2 es DW30000c, que tiene 60 nodos de proceso y una distribución por nodo de proceso. Por ejemplo, un almacenamiento de datos de 600 TB con DW30000c procesa, aproximadamente, 10 TB por nodo de proceso.
-
-### <a name="gen1"></a>Gen1
-
-Los niveles de servicio de Gen1 oscilan entre DW100 y DW6000. 
-
-| Nivel de rendimiento | Nodos de proceso | Distribuciones por nodo de proceso | Memoria por almacenamiento de datos (GB) |
-|:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
-| DW100             | 1             | 60                             |  24                            |
-| DW200             | 2             | 30                             |  48                            |
-| DW300             | 3             | 20                             |  72                            |
-| DW400             | 4             | 15                             |  96                            |
-| DW500             | 5             | 12                             | 120                            |
-| DW600             | 6             | 10                             | 144                            |
-| DW1000            | 10            | 6                              | 240                            |
-| DW1200            | 12            | 5                              | 288                            |
-| DW1500            | 15            | 4                              | 360                            |
-| DW2000            | 20            | 3                              | 480                            |
-| DW3000            | 30            | 2                              | 720                            |
-| DW6000            | 60            | 1                              | 1440                           |
+El nivel de servicio máximo es DW30000c, que tiene 60 nodos de proceso y una distribución por nodo de proceso. Por ejemplo, un almacenamiento de datos de 600 TB con DW30000c procesa, aproximadamente, 10 TB por nodo de proceso.
 
 ## <a name="concurrency-maximums"></a>Valores máximos de simultaneidad
 Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse de forma eficaz, SQL Data Warehouse realiza un seguimiento del uso de los recursos. Para ello, asigna espacios de simultaneidad a cada consulta. El sistema coloca las consultas en una cola en función de la importancia y las ranuras de simultaneidad. Las consultas esperan en la cola hasta que haya suficientes ranuras de simultaneidad disponibles. La [importancia](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) y las ranuras de simultaneidad determinan la asignación de prioridades de CPU. Para obtener más información, consulte [Analyze your workload](analyze-your-workload.md) (Análisis de la carga de trabajo).
 
-### <a name="gen2"></a>Gen2
- 
 **Clases de recursos estáticos**
 
 En la tabla siguiente se muestra el número máximo de consultas simultáneas y espacios de simultaneidad para cada [clase de recurso estático](resource-classes-for-workload-management.md).  
@@ -99,12 +76,7 @@ En la tabla siguiente se muestra el número máximo de consultas simultáneas y 
 
 **Clases de recursos dinámicos**
 
-> [!NOTE]
-> La clase de recurso smallrc en Gen2 agrega memoria de forma dinámica conforme aumenta el nivel de servicio y solo admite un máximo de 32 consultas simultáneas en DW1000c y 4 en DW100c.  Una vez que la instancia escala más allá de DW1500c, los espacios de simultaneidad y la memoria que usa smallrc incrementan conforme aumenta el nivel de servicio. 
->
->
-
-En la tabla siguiente se muestra el número máximo de consultas simultáneas y espacios de simultaneidad para cada [clase de recurso dinámico](resource-classes-for-workload-management.md). A diferencia de Gen1, las clases de recursos dinámicos en Gen2 son realmente dinámicas.  Gen2 usa una asignación de porcentaje de memoria de 3-10-22-70 para las clases de recursos small-medium-large-xlarge en todos los niveles de servicio.
+En la tabla siguiente se muestra el número máximo de consultas simultáneas y espacios de simultaneidad para cada [clase de recurso dinámico](resource-classes-for-workload-management.md). Las clases de recurso dinámico usan una asignación de porcentaje de memoria de 3-10-22-70 para las clases de recursos small-medium-large-xlarge en todos los niveles de servicio.
 
 | Nivel de servicios | N.º máximo de consultas simultáneas | Espacios de simultaneidad disponibles | Ranuras utilizadas por smallrc | Ranuras utilizadas por mediumrc | Ranuras utilizadas por largerc | Ranuras utilizadas por xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
@@ -126,57 +98,10 @@ En la tabla siguiente se muestra el número máximo de consultas simultáneas y 
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
 
-
-#### <a name="gen1"></a>Gen1
-
-Clases de recursos estáticos
-
-En la tabla siguiente, se muestra el número máximo de consultas simultáneas y espacios de simultaneidad para cada [clase de recurso estático](resource-classes-for-workload-management.md) en **Gen1**.
-
-| Nivel de servicio | N.º máximo de consultas simultáneas | Espacios de simultaneidad máximos | Ranuras utilizadas por staticrc10 | Ranuras utilizadas por staticrc20 | Ranuras utilizadas por staticrc30 | Ranuras utilizadas por staticrc40 | Ranuras utilizadas por staticrc50 | Ranuras utilizadas por staticrc60 | Ranuras utilizadas por staticrc70 | Ranuras utilizadas por staticrc80 |
-|:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
-| DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
-| DW300         | 12                         |  12                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
-| DW400         | 16                         |  16                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
-| DW500         | 20                         |  20                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
-| DW600         | 24                         |  24                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
-| DW1000        | 32                         |  40                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW1200        | 32                         |  48                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW1500        | 32                         |  60                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW2000        | 48                         |  80                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW3000        | 64                         | 120                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW6000        | 128                        | 240                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-
-Clases de recursos dinámicos
-> [!NOTE]
-> La clase de recurso smallrc en Gen1 asigna una cantidad fija de memoria por consulta, de forma similar a la clase de recurso estático staticrc10.  Dado que smallrc es estático, tiene la capacidad de escalar hasta 128 consultas simultáneas. 
->
->
-
-En la tabla siguiente, se muestra el número máximo de consultas simultáneas y espacios de simultaneidad para cada [clase de recurso dinámico](resource-classes-for-workload-management.md) en **Gen1**.
-
-| Nivel de servicio | N.º máximo de consultas simultáneas | Espacios de simultaneidad disponibles | Ranuras utilizadas por smallrc | Ranuras utilizadas por mediumrc | Ranuras utilizadas por largerc | Ranuras utilizadas por xlargerc |
-|:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
-| DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
-| DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |
-| DW300         | 12                         |  12                         | 1       |  2       |  4      |   8      |
-| DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |
-| DW500         | 20                         |  20                         | 1       |  4       |  8      |  16      |
-| DW600         | 24                         |  24                         | 1       |  4       |  8      |  16      |
-| DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
-| DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
-| DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
-| DW2000        | 48                         |  80                         | 1       | 16       | 32      |  64      |
-| DW3000        | 64                         | 120                         | 1       | 16       | 32      |  64      |
-| DW6000        | 128                        | 240                         | 1       | 32       | 64      | 128      |
-
-
-Cuando se alcanza alguno de estos umbrales, se ponen a la cola nuevas consultas y se ejecutan según la regla "primero en entrar, primero en salir".  A medida que las consultas finalizan y el número de consultas y espacios desciende por debajo de los límites, SQL Data Warehouse libera las consultas en cola. 
+Cuando no hay suficientes espacios de simultaneidad libres para iniciar la ejecución de consulta, las consultas se ponen en cola y se ejecutan en función de su importancia.  En caso de una importancia equivalente, las consultas se ejecutan según el criterio primero en entrar, primero en salir.  A medida que las consultas finalizan y el número de consultas y espacios desciende por debajo de los límites, SQL Data Warehouse libera las consultas en cola. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre cómo aprovechar las clases de recursos para optimizar aún más la carga de trabajo, revise los artículos siguientes:
 * [Resource classes for workload management](resource-classes-for-workload-management.md) (Clases de recursos para la administración de cargas de trabajo)
 * [Analyzing your workload](analyze-your-workload.md) (Análisis de la carga de trabajo)
-

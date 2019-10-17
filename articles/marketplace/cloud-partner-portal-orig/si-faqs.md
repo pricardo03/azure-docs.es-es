@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 059ec175a48cdcdec6214a6581452ec0536bf566
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943074"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030437"
 ---
 <a name="seller-insights-faq"></a>Preguntas más frecuentes sobre Seller Insights
 ===================
@@ -41,7 +41,7 @@ Después de descargar las transacciones desde el módulo de pago, busque la colu
 <a name="calculate-revenue-by-customer-usage-period"></a>Cálculo de los ingresos por período de uso del cliente
 ------------------------------------------
 
-Después de descargar las transacciones desde el módulo de pago, busque la columna con la etiqueta  **Transaction Status** (Estado de la transacción) y aplique el filtro para que aparezcan solo aquellas con el valor "Paid" (Pagado).   Para cada transacción de la lista, la columna con la etiqueta **Payout Amount (PC)**  (Importe del pago) representa la cantidad que le han pagado.  Para calcular el período de uso asociado con la transacción, use la columna **Charge Date** (Fecha del cargo), la cual resulta una buena aproximación al último día de uso del período al que se aplica la transacción.
+Después de descargar las transacciones desde el módulo de pago, busque la columna con la etiqueta **Transaction Status** (Estado de la transacción) y aplique el filtro para que aparezcan solo aquellas con el valor "Paid" (Pagado).   Para cada transacción de la lista, la columna con la etiqueta **Payout Amount (PC)** (Importe del pago) representa la cantidad que le han pagado.  Para calcular el período de uso asociado con la transacción, use la columna **Charge Date** (Fecha del cargo), la cual resulta una buena aproximación al último día de uso del período al que se aplica la transacción.
 
 
 <a name="calculate-your-bad-debt"></a>Cálculo de la deuda incobrable

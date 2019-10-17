@@ -6,37 +6,37 @@ ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 90aa6261aebb9d1f7da89c101854bad8061dd6ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/07/2019
+ms.openlocfilehash: 41b4b7cd911bad40055fcf527c186f8de9466cdc
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61269042"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030258"
 ---
 # <a name="monitor-data-flows"></a>Supervisión de flujos de datos
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Después de haber completado la compilación y depuración del flujo de datos, desea programarlo para ejecutarse según una programación en el contexto de una canalización. Puede programar la canalización de Azure Data Factory mediante desencadenadores. También puede usar la opción Desencadenar ahora desde el generador de canalización de Azure Data Factory para ejecutar una sola ejecución con el fin de probar el flujo de datos dentro del contexto de canalización.
 
 Cuando se ejecuta la canalización, podrá supervisar la canalización y todas las actividades contenidas en la canalización, incluida la actividad de Data Flow. Haga clic en el icono de supervisión en el panel izquierdo de la interfaz de usuario de Azure Data Factory. Se muestra una pantalla similar a la siguiente. Los iconos resaltados permitirán profundizar en las actividades de la canalización, incluidas las actividades de Data Flow.
 
-<img src="media/data-flow/mon001.png" width="800">
+![Supervisión de flujos de datos](media/data-flow/mon001.png "Data Flow Monitoring")
 
 Verá estadísticas en este nivel, así como los tiempos de ejecución y estado. El identificador de ejecución en el nivel de actividad es diferente al del nivel de canalización. El identificador de ejecución en el nivel anterior es para la canalización. Al hacer clic en icono de las gafas, verá detalles de la ejecución del flujo de datos.
 
-<img src="media/data-flow/mon002.png" width="800">
+![Supervisión de flujos de datos](media/data-flow/mon002.png "Data Flow Monitoring")
 
 En la vista de supervisión del nodo gráfico, verá una versión simplificada de solo lectura del gráfico de flujo de datos.
 
-<img src="media/data-flow/mon003.png" width="800">
+![Supervisión de flujos de datos](media/data-flow/mon003.png "Data Flow Monitoring")
 
 ## <a name="view-data-flow-execution-plans"></a>Visualización de planes de ejecución de Data Flow
 
-Cuando se ejecuta el flujo de datos en Databricks, Azure Data Factory determina las rutas de acceso de código óptimo según la integridad del flujo de datos. Además, las rutas de ejecución pueden producirse en distintos nodos de escalabilidad horizontal y particiones de datos. Por lo tanto, el gráfico de supervisión representa el diseño del flujo, teniendo en cuenta la ruta de acceso de ejecución de las transformaciones. Al hacer clic en los nodos individuales, verá "agrupaciones" que representan el código que se ejecutó juntos en el clúster. Los intervalos y recuentos que ve representan esos grupos en lugar de los pasos individuales del diseño.
+Cuando se ejecuta Data Flow en Spark, Azure Data Factory determina las rutas de acceso de código óptimo según la integridad del flujo de datos. Además, las rutas de ejecución pueden producirse en distintos nodos de escalabilidad horizontal y particiones de datos. Por lo tanto, el gráfico de supervisión representa el diseño del flujo, teniendo en cuenta la ruta de acceso de ejecución de las transformaciones. Al hacer clic en los nodos individuales, verá "agrupaciones" que representan el código que se ejecutó juntos en el clúster. Los intervalos y recuentos que ve representan esos grupos en lugar de los pasos individuales del diseño.
 
-<img src="media/data-flow/mon004.png" width="800"> 
+![Supervisión de flujos de datos](media/data-flow/mon004.png "Data Flow Monitoring")
 
 * Al hacer clic en el espacio abierto de la ventana de supervisión, las estadísticas del panel inferior mostrarán los recuentos de filas y el tiempo de cada receptor y las transformaciones que dieron lugar a los datos de receptor de linaje de transformación.
 
@@ -52,6 +52,6 @@ Cuando se ejecuta el flujo de datos en Databricks, Azure Data Factory determina 
 
 Este icono significa que los datos de transformación se almacenaron en caché en el clúster, por lo que los intervalos y la ruta de acceso de ejecución se han tenido en cuenta:
 
-<img src="media/data-flow/mon005.png" width="800"> 
+![Supervisión de flujos de datos](media/data-flow/mon004.png "Data Flow Monitoring")
 
 También verá los iconos de círculo verde en la transformación. Representan un recuento del número de receptores en los que fluyen los datos.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/29/2019
-ms.openlocfilehash: cb7d55db978cb8eb7944ffe3f3f51d025d5fb891
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: ae7baf09df42a5824e5f59e7ebb372f4d9f6350c
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164300"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72032873"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra basado en núcleo virtual
 
@@ -291,27 +291,32 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está en versión
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|2|4|8|16|24|32|40|80|
 |Memoria (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|
+|Tamaño de [RBPEX](sql-database-service-tier-hyperscale.md#compute)|Memoria x3|Memoria x3|Memoria x3|Memoria x3|Memoria x3|Memoria x3|Memoria x3|Memoria x3|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Tamaño máximo de registro (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |Tamaño máximo de datos de TempDB (GB)|64|128|256|384|384|384|384|384|
-|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|IOPS de datos máx. (64 KB)| [Nota 1](#note-1) |[Nota 1](#note-1)|[Nota 1](#note-1) |[Nota 1](#note-1) |[Nota 1](#note-1) |[Nota 1](#note-1) |[Nota 1](#note-1) | [Nota 1](#note-1) |
-|Latencia de E/S (aproximada)|Por determinar|Por determinar|Por determinar|Por determinar|Por determinar|Por determinar|Por determinar|Por determinar|
+|Tipo de almacenamiento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) | [Nota 1](#notes) |
+|IOPS de datos máx. (64 KB)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Latencia de E/S (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|2400|3200|4000|8000|
 |N.º máximo de sesiones simultáneas|30000|30000|30000|30000|30000|30000|30000|30000|
 |Réplicas secundarias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento de copia de seguridad incluido |7|7|7|7|7|7|7|7|
+|Retención de almacenamiento de copia de seguridad|7 días|7 días|7 días|7 días|7 días|7 días|7 días|7 días|
 |||
 
-### <a name="note-1"></a>Nota 1
+#### <a name="notes"></a>Notas
 
-Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo.
+**Nota 1**: La hiperescala es una arquitectura de varios niveles con componentes de proceso y almacenamiento independientes: [Arquitectura de nivel de servicio Hiperescala](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
 
-### <a name="next-steps"></a>Pasos siguientes
+**Nota 2**: Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo.
+
+**Nota 3**: La latencia es de 1-2 ms para los datos de la caché basada en SSD de RBPEX en las réplicas de proceso, que almacena en la memoria caché las páginas de datos más usadas. Mayor latencia de los datos recuperados de los servidores de páginas.
+
+## <a name="next-steps"></a>Pasos siguientes
 
 - Para conocer los límites de recursos de DTU para una base de datos única, consulte los [límites de recursos para bases de datos únicas con el modelo de compra basado en DTU](sql-database-dtu-resource-limits-single-databases.md).
 - Para conocer los límites de recursos de núcleos virtuales para grupos elásticos, consulte los [límites de recursos para grupos elásticos con el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md).

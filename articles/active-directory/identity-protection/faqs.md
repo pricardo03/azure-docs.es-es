@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e30f8264870272fc12dcb7e15b37e5fd30688bcb
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8d36b513b6835088b5120072906667cd30af505d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126522"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025732"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Preguntas frecuentes sobre Azure Active Directory Identity Protection
 
@@ -41,6 +41,6 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 ## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>¿Cómo se pueden clasificar usuarios como "Usuarios marcados en riesgo"?
 
-**R:** Descargue los usuarios marcados para informes de riesgo haciendo clic en **Descargar** en la parte superior de la página **Usuarios marcados en riesgo**. A continuación, puede ordenar los datos descargados en función de los campos disponibles, incluida la última actualización (UTC).
+**R:** Descargue los usuarios marcados para informes de riesgo haciendo clic en **Descargar** en la parte superior de la página **Usuarios marcados en riesgo**. A continuación, puede ordenar los datos descargados en función de los campos disponibles, incluida la última actualización (UTC).
 
 ---

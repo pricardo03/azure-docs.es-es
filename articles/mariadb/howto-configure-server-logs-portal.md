@@ -1,25 +1,24 @@
 ---
-title: Configuración de los registros de servidor y acceso a ellos en Azure Database for MariaDB en Azure Portal
+title: Configuración de los registros de servidor y acceso a ellos en Azure Database for MariaDB desde Azure Portal
 description: En este artículo se describe cómo configurar los registros de servidor de Azure Database for MariaDB, y acceder a ellos, mediante Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: c8be9519d3393330b3022fadd2de6a49e58ecdcf
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: c7e95521e503ad2d92bf13ae7e410b71ed6dfcd3
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703513"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844675"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de servidor en Azure Portal
+# <a name="configure-and-access-server-logs-from-the-azure-portal"></a>Configuración y acceso a los registros de servidor desde Azure Portal
 
 Se pueden configurar, enumerar y descargar [registros de consulta lentos de Azure Database for MariaDB](concepts-server-logs.md) desde Azure Portal.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para seguir esta guía, necesitará:
-- [Servidor de Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
+Los pasos descritos en este artículo requieren que tenga un [servidor de Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 ## <a name="configure-logging"></a>registro
 Configure el acceso al registro de consultas lentas. 
@@ -29,53 +28,53 @@ Configure el acceso al registro de consultas lentas.
 2. Seleccione un servidor de Azure Database for MariaDB.
 
 3. En la sección **Supervisión** de la barra lateral, seleccione **Registros de servidor**. 
-   ![Seleccione Registros de servidor y haga clic para configurarlos](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
+   ![Captura de pantalla de las opciones de registros de servidor](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
-4. Seleccione el título **Haga clic aquí para habilitar los registros y configurar los parámetros** para ver los parámetros del servidor.
+4. Seleccione **Haga clic aquí para habilitar los registros y configurar los parámetros** para ver los parámetros del servidor.
 
-5. Cambie los parámetros que quiera ajustar, y cambie el estado de "slow_query_log" a "ON". Todos los cambios que realice en esta sesión se resaltan en color púrpura. 
+5. Cambie los parámetros que quiera ajustar, y cambie el estado de **slow_query_log** a **ON**. Todos los cambios que realice en esta sesión se resaltan en color púrpura. 
 
-   Cuando haya cambiado los parámetros, haga clic en **Guardar**. O bien puede **descartar** los cambios.
+   Después de cambiar los parámetros, seleccione **Guardar**. O bien puede descartar los cambios.
 
-   ![Haga clic en Guardar o en Descartar](./media/howto-configure-server-logs-portal/3-save-discard.png)
+   ![Captura de pantalla de las opciones de los parámetros del servidor](./media/howto-configure-server-logs-portal/3-save-discard.png)
 
-6. Para volver a la lista de registros, haga clic en el **botón Cerrar** (icono de X) de la página **Parámetros de servidor**.
+Desde la página **Parámetros de servidor**, puede volver a la lista de los registros cerrando la página.
 
 ## <a name="view-list-and-download-logs"></a>Visualización de lista y descarga de registros
-Una vez que comience el registro, puede ver una lista de registros de consultas lentas disponibles y descargar archivos de registro individuales en el panel Registros de servidor. 
+Una vez que comienza el registro, puede ver una lista de los registros de consultas lentas disponibles y descargar archivos de registro individuales. 
 
 1. Abra Azure Portal.
 
 2. Seleccione un servidor de Azure Database for MariaDB.
 
-3. En la sección **Supervisión** de la barra lateral, seleccione **Registros de servidor**. En la página se muestra una lista de los archivos de registro de esta forma:
+3. En la sección **Supervisión** de la barra lateral, seleccione **Registros de servidor**. La página muestra una lista de los archivos de registro.
 
-   ![Lista de registros](./media/howto-configure-server-logs-portal/4-server-logs-list.png)
+   ![Captura de pantalla de la página Registros de servidor con una lista de registros resaltados](./media/howto-configure-server-logs-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > La convención de nomenclatura del registro es **mysql-slow-< nombre de su servidor>-yyyymmddhh.log**. La fecha y hora que se utilizan en el nombre de archivo es el momento en que se emitió el registro. Los archivos de registros se rotan cada 24 horas o 7;5 GB,;lo que ocurra primero.
+   > La convención de nomenclatura del registro es **mysql-slow-< nombre de su servidor>-yyyymmddhh.log**. La fecha y hora que se utilizan en el nombre de archivo indican el momento en que se emitió el registro. Los archivos de registro se rotan cada 24 horas o 7,5 GB, lo que ocurra primero.
 
-4. Si es necesario, utilice el **cuadro de búsqueda** para reducir rápidamente a un registro específico en función de la fecha y hora. La búsqueda se encuentra en el nombre del registro.
+4. Si es necesario, utilice el cuadro de búsqueda para encontrar rápidamente un registro específico en función de la fecha y hora. La búsqueda se encuentra en el nombre del registro.
 
-5. Descargue los archivos de registro individuales con el botón de **descarga** (icono de flecha hacia abajo) que hay junto a cada archivo de registro en la fila de tabla, como se muestra:
+5. Para descargar los archivos de registro individuales, seleccione el icono de flecha hacia abajo que hay junto a cada archivo de registro en la fila de tabla.
 
-   ![Haga clic en el icono de descarga](./media/howto-configure-server-logs-portal/5-download.png)
+   ![Captura de pantalla de la página Registros de servidor, con el icono de flecha hacia abajo resaltado](./media/howto-configure-server-logs-portal/5-download.png)
 
 ## <a name="set-up-diagnostic-logs"></a>Configuración de registros de diagnósticos
 
-1. En la sección **Supervisión** de la barra lateral, seleccione **Configuración de diagnóstico**.
+1. En la sección **Supervisión** de la barra lateral, seleccione **Configuración de diagnóstico** > **Add diagnostic settings** (Agregar configuración de diagnóstico).
 
-1. Haga clic en "+ Agregar configuración de diagnóstico" ![Agregar configuración de diagnóstico](./media/howto-configure-server-logs-portal/add-diagnostic-setting.png)
+   ![Captura de pantalla de las opciones de diagnóstico](./media/howto-configure-server-logs-portal/add-diagnostic-setting.png)
 
 1. Proporcione un nombre de configuración de diagnóstico.
 
-1. Especifique a qué receptores de datos se enviarán los registros de consultas lentas (cuenta de almacenamiento, centro de eventos y área de trabajo de Log Analytics).
+1. Especifique a qué receptores de datos se enviarán los registros de consultas lentas (cuenta de almacenamiento, centro de eventos o área de trabajo de Log Analytics).
 
-1. Seleccione "MySqlSlowLogs" como tipo de registro.
-![Configurar las opciones de diagnóstico](./media/howto-configure-server-logs-portal/configure-diagnostic-setting.png)
+1. Seleccione **MySqlSlowLogs** como tipo de registro.
+![Captura de pantalla de las opciones de configuración de diagnóstico](./media/howto-configure-server-logs-portal/configure-diagnostic-setting.png)
 
-1. Una vez que haya configurado los receptores de datos a los que canalizar los registros de consultas lentas, puede hacer clic en **Guardar**.
-![Guardar la configuración de diagnóstico](./media/howto-configure-server-logs-portal/save-diagnostic-setting.png)
+1. Una vez que haya configurado los receptores de datos a los que canalizar los registros de consultas lentas, seleccione **Guardar**.
+![Captura de pantalla de las opciones de configuración de diagnóstico, con la opción Guardar resaltada](./media/howto-configure-server-logs-portal/save-diagnostic-setting.png)
 
 1. Acceda a los registros de consultas lentas explorándolos en los receptores de datos que configuró. Los registros pueden tardar hasta 10 minutos en aparecer.
 

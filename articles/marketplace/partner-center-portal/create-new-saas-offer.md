@@ -6,19 +6,22 @@ manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 7dd57e41144ec33aec6eb716716d0794d92071f5
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 10/04/2019
+ms.openlocfilehash: 578904d40b1354dde99644cb2fc73e0a56223b34
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013084"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376284"
 ---
 # <a name="create-a-new-saas-offer"></a>Creación de una oferta de SaaS
 
 Para empezar a crear ofertas de software como servicio (SaaS), asegúrese de que primero [crea una cuenta del Centro de partners](./create-account.md) y después abre el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la pestaña **Información general** seleccionada.
 
 ![Panel de Marketplace comercial en el Centro de partners](./media/new-offer-overview.png)
+
+>[!Note]
+> Una vez publicada una oferta, las modificaciones de esta realizadas en el Centro de partners solo se actualizarán en el sistema y en los escaparates después de volver a publicarla. Asegúrese de enviar la oferta para su publicación después de realizar los cambios.
 
 Seleccione + **Nueva oferta…** y luego seleccione el elemento de menú **Software como servicio**. 
 
@@ -157,18 +160,7 @@ Al habilitar una versión de prueba, se le pedirá que configure un entorno de d
 
 ## <a name="connect-lead-management"></a>Conexión de administración de clientes potenciales
 
-Conecte directamente con los clientes mediante el anuncio de la oferta en los catálogos de soluciones y el enlace de su sistema de Administración de relaciones con los clientes (CRM) para que pueda recibir información de contacto de cualquier cliente en cuanto este exprese interés por su producto o lo implemente.
-
-- **Elija un destino de clientes potenciales** (menú desplegable): Proporcione detalles de la conexión al sistema CRM al que desea que le enviemos clientes potenciales. 
-
-El Centro de partners admite los siguientes sistemas CRM para la administración de clientes potenciales. Seleccione el vínculo de las instrucciones de configuración.
-
-- Azure Blob: especifique el correo electrónico del contacto, el nombre del contenedor y la cadena de conexión de la cuenta de almacenamiento. 
-- [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table): especifique el correo electrónico del contacto y la cadena de conexión de la cuenta de almacenamiento. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics): especifique el correo electrónico de contacto, la dirección URL y el modo de autenticación (Office 365 o Azure Active Directory).
-- [Punto de conexión HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https): especifique el correo electrónico de contacto y la dirección URL del punto de conexión HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo): especifique el correo electrónico de contacto, el identificador del formulario, el identificador de la cuenta de Munchkin y el identificador del servidor.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce): especifique el correo electrónico de contacto y el identificador de la organización. 
+[!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### <a name="additional-lead-management-resources"></a>Recursos adicionales de la administración de clientes potenciales
 - [Preguntas frecuentes de la administración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
@@ -182,7 +174,7 @@ La pestaña **Propiedades** le pide que defina las categorías y los sectores qu
 
 Después de completar estos campos seleccione **Guardar**. 
 
-### <a name="category"></a>Categoría
+### <a name="category"></a>Category
 Seleccione un mínimo de una (1) y un máximo de tres (3) categorías utilizadas para agrupar la oferta en las áreas de búsqueda de Marketplace adecuadas. Indique la forma en que la oferta da soporte a estas categorías en la descripción de la oferta. 
 
 ### <a name="industry"></a>Sector
@@ -220,7 +212,7 @@ La pestaña Descripción de la oferta muestra los idiomas (y los mercados) en lo
 
 Especifique los detalles que se muestran en Marketplace, lo que incluye descripciones de la oferta y los recursos de marketing.
 
-- **Nombre** (obligatorio): El nombre que se define aquí aparecerá como título de la descripción de la oferta en los Marketplace que ha elegido. El nombre se rellena previamente en función de lo que se haya escrito en **Nueva oferta**.  Dicho nombre puede ser una marca comercial.  No debe contener espacios en blanco, emojis (a menos que sean una marca comercial y símbolos de copyright) y no puede tener más de 50 caracteres.
+- **Nombre** (obligatorio): El nombre que se define aquí aparecerá como título de la descripción de la oferta en los Marketplace que ha elegido. El nombre se rellena previamente en función de lo que se haya escrito en **Nueva oferta**.  Dicho nombre puede ser una marca comercial.  No debe contener emojis (a menos que sean una marca comercial y símbolos de copyright) y no puede tener más de 50 caracteres.
 - **Resumen** (se requiere): especifique una descripción breve de la oferta que se va a usar en los resultados de búsqueda en las descripciones de Marketplace. En este campo se puede escribir hasta 100 caracteres de texto.
 - **Descripción** (se requiere): especifique una descripción de la oferta que se va a mostrar en la información general de las descripciones de Marketplace. Considere la posibilidad de incluir una propuesta de valor, los beneficios clave, todas las asociaciones de la categoría o sector, las oportunidades de compra en la aplicación, todas las divulgaciones necesarias y un vínculo para obtener más información.
 En este campo se puede escribir hasta 3000 caracteres de texto. En el artículo [Escribir una excelente descripción de la aplicación](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description) encontrará más sugerencias.
@@ -410,6 +402,9 @@ La capacidad de configurar una evaluación gratuita está disponible para cada p
 
 ![Casilla de evaluación gratuita de un mes](./media/free-trial-enable.png)
 
+>[!Note]
+>Una vez que se haya publicado la oferta de la instrucción que permite transacciones con una evaluación gratuita, no se puede deshabilitar para ese plan. Asegúrese de que esta configuración sea correcta para la primera publicación para evitar tener que volver a crear el plan.
+
 Para obtener información sobre las suscripciones de clientes que actualmente participan en una evaluación gratuita, use la nueva propiedad de API `isFreeTrial`, que se marcará como true o false. Para más información, consulte [API para obtener suscripción de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
 >[!Note]
@@ -441,7 +436,7 @@ Seleccione la frecuencia con que los clientes deben pagar el precio de la lista.
 - **Precio**: USD al mes o USD al año
 
 Los precios establecidos en la moneda local (USD = dólares de Estados Unidos) se convierten en la moneda local de todos los mercados seleccionados con los tipos de cambio actuales disponibles durante la instalación. Valide estos precios antes de realizar la publicación. Para ello, debe exportar la hoja de cálculo de precios y examinar el precio de cada mercado. Si desea establecer precios personalizados en un mercado individual, modifique e importe la hoja de cálculo de precios. Usted es responsable de validar estos precios y posee estos valores.
-**Primero debe guardar los cambios de precios para habilitar la exportación de los datos de precios.*
+*\*Primero debe guardar los cambios de precios para habilitar la exportación de los datos de precios.*
 
 Revise los precios cuidadosamente antes de la publicación, ya que hay algunas restricciones en lo que se puede cambiar una vez publicado un plan:
 

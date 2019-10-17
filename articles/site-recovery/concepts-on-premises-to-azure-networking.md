@@ -1,87 +1,159 @@
 ---
-title: Configuración del direccionamiento IP para la conexión tras la recuperación ante desastres y la conmutación por error en Azure con Azure Site Recovery | Microsoft Docs
-description: Se describe cómo configurar el direccionamiento IP para la conexión a máquinas virtuales de Azure tras la recuperación ante desastres y la conmutación por error desde el entorno local con Azure Site Recovery.
-services: site-recovery
+title: Conexión en Azure a las máquinas virtuales de Azure después de la conmutación por error desde un entorno local con Azure Site Recovery
+description: Se describe cómo conectarse en Azure a las máquinas virtuales de Azure tras la conmutación por error desde un entorno local con Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 10/03/2019
 ms.author: mayg
-ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 182c93ea0b887242d142eda5aeb44b2749c7ac66
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772270"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937553"
 ---
-# <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configuración del direccionamiento IP para la conexión a máquinas virtuales de Azure tras la conmutación por error
+# <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Conexión a las máquinas virtuales de Azure tras la conmutación por error desde un entorno local 
 
-En este artículo se explican los requisitos de redes para conectarse a máquinas virtuales de Azure después de usar el servicio [Azure Site Recovery](site-recovery-overview.md) para replicación y conmutación por error en Azure.
 
-En este artículo, aprenderá sobre:
+En este artículo se describe cómo configurar la conectividad para que pueda conectarse correctamente a las máquinas virtuales de Azure después de la conmutación por error.
+
+Al configurar la recuperación ante desastres de las máquinas virtuales locales y los servidores físicos en Azure, [Azure Site Recovery](site-recovery-overview.md) comienza a replicarlas en Azure. Después, cuando se produzcan interrupciones, puede conmutar por error a Azure desde el sitio local. Cuando se produce la conmutación por error, Site Recovery crea máquinas virtuales de Azure con los datos locales replicados. Como parte del planeamiento de la recuperación ante desastres, debe averiguar cómo conectarse a las aplicaciones que se ejecutan en estas máquinas virtuales de Azure después de la conmutación por error.
+
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
-> * Los métodos de conexión que puede usar
-> * Cómo usar una dirección IP distinta para máquinas virtuales de Azure replicadas
-> * Cómo conservar las direcciones IP de las máquinas virtuales de Azure después de la conmutación por error
+> * Preparar las máquinas locales antes de la conmutación por error.
+> * Preparar las máquinas virtuales de Azure después de la conmutación por error. 
+> * Conservar las direcciones IP en las máquinas virtuales de Azure después de la conmutación por error.
+> * Asignar direcciones IP nuevas a las máquinas virtuales de Azure después de la conmutación por error.
 
-## <a name="connecting-to-replica-vms"></a>Conexión a máquinas virtuales de réplica
+## <a name="prepare-on-premises-machines"></a>Preparación de las máquinas locales
 
-Al planear su estrategia de conmutación por error y replicación, una de las preguntas claves es cómo conectarse a la máquina virtual de Azure después de la conmutación por error. Hay un par de opciones al diseñar la estrategia de red para máquinas virtuales de réplica de Azure:
+Para garantizar la conectividad a las máquinas virtuales de Azure, prepare las máquinas locales antes de la conmutación por error.
 
-- **Usar una dirección IP distinta**: puede seleccionar la opción de usar un intervalo de direcciones IP diferente para la red de máquina virtual de Azure replicada. En este escenario, la máquina virtual obtiene una nueva dirección IP después de la conmutación por error y se requiere una actualización DNS.
-- **Conservar la misma dirección IP**: tal vez prefiera usar el mismo intervalo de direcciones IP que en el sitio local principal para la red de Azure después de la conmutación por error. La conservación de las mismas direcciones IP simplifica la recuperación al reducir los problemas relacionados con la red después de la conmutación por error. Pero, cuando replique en Azure, tendrá que actualizar las rutas con la nueva ubicación de las direcciones IP después de la conmutación por error.
+### <a name="prepare-windows-machines"></a>Preparación de las máquinas Windows
 
-## <a name="retaining-ip-addresses"></a>Conservación de direcciones IP
+En las máquinas Windows locales, realice lo siguiente:
 
-Site Recovery ofrece la posibilidad de conservar las direcciones IP fijas al conmutar por error a Azure, con una conmutación por error de subredes.
+1. Configure Windows. Esto incluye la eliminación de cualquier ruta estática o proxy WinHTTP persistente y la configuración de la directiva SAN de disco en **OnlineAll**. [Siga](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) estas instrucciones.
 
-- Con la conmutación por error de subredes, una subred específica está presente en el sitio 1 o en el sitio 2, pero nunca en ambos sitios simultáneamente.
-- Para mantener el espacio de direcciones IP en el caso de una conmutación por error, puede organizar mediante programación que la infraestructura de enrutador mueva las subredes de un sitio a otro.
-- Durante la conmutación por error, las subredes se mueven con las máquinas virtuales protegidas asociadas. El principal inconveniente es que si se produce un error, tiene que mover la subred completa.
+2. Asegúrese de que se están ejecutando [estos servicios](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services).
 
+3. Habilite el protocolo de escritorio remoto (RDP) para permitir las conexiones remotas a la máquina local. [Aprenda](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) a habilitar el protocolo de escritorio remoto con PowerShell.
+
+4. Para acceder a una máquina virtual de Azure a través de Internet tras la conmutación por error, en el firewall de Windows de la máquina local, permita TCP y UDP en el perfil público y establezca el protocolo de escritorio remoto como aplicación permitida para todos los perfiles.
+
+5. Si quiere acceder a una máquina virtual de Azure mediante una conexión VPN de sitio a sitio tras la conmutación por error, en el firewall de Windows de la máquina local, permita el protocolo de escritorio remoto para los perfiles de dominio y privado. [Aprenda](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) cómo permitir el tráfico RDP.
+6. Asegúrese de que no haya actualizaciones de Windows pendientes en la máquina virtual local al desencadenar una conmutación por error. Si es el caso, las actualizaciones podrían empezar a instalarse en la máquina virtual de Azure después de la conmutación por error y no podrá iniciar sesión en ella hasta que finalicen.
+
+### <a name="prepare-linux-machines"></a>Preparación de las máquinas Linux
+
+En las máquinas Linux locales, haga lo siguiente:
+
+1. Asegúrese de que el servicio de Secure Shell está configurado para iniciarse automáticamente al arrancar el sistema.
+2. Compruebe que las reglas de firewall permiten una conexión SSH.
+
+
+## <a name="configure-azure-vms-after-failover"></a>Configuración de las máquinas virtuales de Azure después de la conmutación por error
+
+Después de la conmutación por error, haga lo siguiente en las máquinas virtuales de Azure que se han creado.
+
+1. Para conectarse a la máquina virtual desde Internet, asígnele una dirección IP pública. No puede usar la misma dirección IP pública para la máquina virtual de Azure que usó para la máquina local. [Más información](../virtual-network/virtual-network-public-ip-address.md)
+2. Compruebe que las reglas del grupo de seguridad de red (NSG) en la máquina virtual permiten las conexiones entrantes al puerto RDP o SSH.
+3. Haga clic en [Diagnósticos de arranque](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para ver la máquina virtual.
+
+
+> [!NOTE]
+> El servicio Azure Bastion ofrece acceso de RDP y SSH privado a las máquinas virtuales de Azure. [Más información](../bastion/bastion-overview.md) sobre este servicio.
+
+## <a name="set-a-public-ip-address"></a>Establecimiento de una dirección IP pública
+
+Como alternativa a la asignación manual de una dirección IP pública a una máquina virtual de Azure, puede asignar la dirección durante la conmutación por error mediante un script o un runbook de Azure Automation en un [plan de recuperación](site-recovery-create-recovery-plans.md) de Site Recovery, o bien, puede configurar el enrutamiento de nivel de DNS mediante Azure Traffic Manager. [Más información](concepts-public-ip-address-with-site-recovery.md) sobre la configuración de una dirección pública.
+
+
+## <a name="assign-an-internal-address"></a>Asignación de una dirección interna
+
+Para establecer la dirección IP interna de una máquina virtual de Azure después de la conmutación por error, tiene un par de opciones:
+
+- **Conservar la misma dirección IP**: puede usar la misma dirección IP en la máquina virtual de Azure que la asignada a la máquina local.
+- **Usar una dirección IP distinta**: puede usar una dirección IP distinta para la máquina virtual de Azure.
+
+
+## <a name="retain-ip-addresses"></a>Conservación de las direcciones IP
+
+Site Recovery permite conservar las mismas direcciones IP al conmutar por error a Azure. Conservar la misma dirección IP evita posibles problemas de red después de la conmutación por error, pero presenta cierta complejidad.
+
+- Si la máquina virtual de Azure de destino usa la misma dirección IP o subred que el sitio local, no se puede conectarlas entre sí mediante una conexión VPN de sitio a sitio o ExpressRoute a causa de la superposición de las direcciones. Las subredes deben ser únicas.
+- Se necesita una conexión desde el entorno local a Azure después de la conmutación por error, de modo que las aplicaciones estén disponibles en las máquinas virtuales de Azure. Azure no admite las redes VLAN extendidas, por lo que si desea conservar las direcciones IP, debe tomar el espacio de IP en Azure mediante la conmutación por error de toda la subred, además conmutar por error la máquina local.
+- La conmutación por error de la subred garantiza que una subred específica no esté disponible simultáneamente en el entorno local y en Azure.
+
+La conservación de las direcciones IP requiere los pasos siguientes:
+
+- En las propiedades de la máquina local, configure la red y el direccionamiento IP de la máquina virtual de Azure de destino para que reflejen la configuración local.
+- Las subredes deben administrarse como parte del proceso de recuperación ante desastres. Necesita una red virtual de Azure que coincida con la red local y, después de la conmutación por error, las rutas de red deben modificarse para que reflejen que la subred se ha migrado a Azure y la nueva ubicación de las direcciones IP.  
 
 ### <a name="failover-example"></a>Ejemplo de conmutación por error
 
-Veamos un ejemplo para una conmutación por error en Azure con una empresa ficticia, Woodgrove Bank.
+Veamos un ejemplo.
 
-- Woodgrove Bank hospeda las aplicaciones empresariales en un sitio local. y las aplicaciones móviles, en Azure.
-- Hay conectividad de sitio a sitio de VPN entre la red perimetral local y la red virtual de Azure. Debido a la conexión VPN, la red virtual de Azure aparece como extensión de la red local.
-- Woodgrave quiere replicar las cargas de trabajo locales en Azure con Site Recovery.
-  - Woodgrove tiene aplicaciones que dependen de direcciones IP codificadas de forma rígida, por lo que necesitan conservar las direcciones IP para las aplicaciones después de la conmutación por error en Azure.
-  - Los recursos que se ejecutan en Azure usan este intervalo de direcciones IP 172.16.1.0/24, 172.16.2.0/24.
+- La empresa ficticia Woodgrove Bank hospeda sus aplicaciones empresariales en un entorno local y sus aplicaciones móviles en Azure.
+- Se conectan desde el entorno local a Azure mediante VPN de sitio a sitio. 
+- Woodgrove usa Site Recovery para replicar las máquinas locales en Azure.
+- Sus aplicaciones locales usan direcciones IP codificadas de forma rígida, por lo que quieren conservar las mismas direcciones IP en Azure.
+- En el entorno local, las máquinas que ejecutan las aplicaciones se ejecutan en tres subredes:
+    - 192.168.1.0/24
+    - 192.168.2.0/24
+    - 192.168.3.0/24
+- Sus aplicaciones que se ejecutan en Azure se encuentran en la red virtual de Azure **Azure Network** en dos subredes:
+- 172.16.1.0/24
+- 172.16.2.0/24
 
-![Antes de la conmutación por error de la subred](./media/site-recovery-network-design/network-design7.png)
+Para conservar las direcciones, esto es lo que hacen.
+
+1. Cuando habilitan la replicación, especifican que las máquinas se deben replicar en la red **Azure Network**.
+2. Crean **Recovery Network** en Azure. Esta red virtual refleja la subred 192.168.1.0/24 en su red local.
+3. Woodgrove configura una [conexión de red virtual a red virtual](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre las dos redes virtuales. 
+
+    > [!NOTE]
+    > En función de los requisitos de la aplicación, se puede configurar una conexión de red virtual a red virtual antes de la conmutación por error, o como paso manual, con scripts o con un runbook de Azure Automation en un [plan de recuperación](site-recovery-create-recovery-plans.md) de Site Recovery, o después de que se complete la conmutación por error.
+
+4. Antes de la conmutación por error, en las propiedades de la máquina en Site Recovery, se establece la dirección IP de destino en la dirección de la máquina local, tal y como se describe en el procedimiento siguiente.
+5. Después de la conmutación por error, las máquinas virtuales de Azure se crean con la misma dirección IP. Woodgrove se conecta desde **Azure Network** a la red virtual **Recovery Network** con un emparejamiento de red virtual (con la conectividad de tránsito habilitada). 
+6. En el entorno local, Woodgrove debe realizar cambios en la red, incluida la modificación de las rutas para que reflejen que 192.168.1.0/24 se ha migrado a Azure.  
 
 **Infraestructura antes de la conmutación por error**
 
-
-Para que Woodgrove pueda replicar sus máquinas virtuales en Azure y conservar las direcciones IP, la empresa debe hacer lo siguiente:
-
-
-1. Cree una red virtual de Azure en la cual se crearán las máquinas virtuales de Azure después de la conmutación por error de las máquinas locales. Debe ser una extensión de la red local, para que las aplicaciones puedan conmutar por error sin problemas.
-2. Antes de la conmutación por error, en Site Recovery se asigna la misma dirección IP en las propiedades de la máquina. Después de la conmutación por error, Site Recovery asigna esta dirección a la máquina virtual de Azure.
-3. Una vez que se ejecuta la conmutación por error y que se crean las máquinas virtuales de Azure con la misma dirección IP, se conectan a la red mediante una [conexión de red virtual a red virtual](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Esta acción puede ejecutarse mediante scripts.
-4. Se necesitan modificar rutas para reflejar que 192.168.1.0/24 ahora se movió a Azure.
+![Antes de la conmutación por error de la subred](./media/site-recovery-network-design/network-design7.png)
 
 
 **Infraestructura después de la conmutación por error**
 
 ![Después de la conmutación por error de la subred](./media/site-recovery-network-design/network-design9.png)
 
-#### <a name="site-to-site-connection"></a>Conexión de sitio a sitio
 
-Además de la conexión de red virtual a red virtual, después de la conmutación por error, Woodgrove puede configurar la conectividad VPN de sitio a sitio:
-- Cuando configura una conexión de sitio a sitio, en la red de Azure solo se puede enrutar el tráfico a la ubicación local (red local) si el intervalo de direcciones IP es distinto del intervalo de direcciones IP local. Esto se debe a que Azure no admite subredes estiradas. Por tanto, si tiene la subred 192.168.1.0/24 en el entorno local, no puede agregar una subred 192.168.1.0/24 de red local en la red de Azure. Esto es normal, ya que Azure no sabe que no hay ninguna máquina virtual activa en la subred y que se está creando la subred solo para fines de recuperación ante desastres.
-- Para poder distribuir correctamente el tráfico de red de una red Azure, las subredes de la red y la red local no deben estar en conflicto.
+### <a name="set-target-network-settings"></a>Configuración de la red de destino
+
+Antes de la conmutación por error, especifique la configuración de red y la dirección IP de la máquina virtual de Azure de destino.
+
+1.  En el almacén de Recovery Services ->**Elementos replicados**, seleccione la máquina local.
+2. En la página **Proceso y red** de la máquina, haga clic en **Editar** para configurar las opciones de la red y del adaptador de la máquina virtual de Azure de destino.
+3. En **Propiedades de red**, seleccione la red de destino en la que se ubicarán las máquinas virtuales de Azure replicadas tras la creación después de la conmutación por error.
+4. En **Interfaces de red**, configure los adaptadores de red en la red de destino. De forma predeterminada Site Recovery muestra todas las NIC detectadas en la máquina local.
+    - En **Tipo de interfaz de red de destino** puede establecer cada NIC como **Principal**, **Secundaria** o **No crear**, si no necesita esa NIC específica en la red de destino. Un adaptador de red debe establecerse como principal para la conmutación por error. Tenga en cuenta que la modificación de la red de destino afecta a todas las NIC de la máquina virtual de Azure.
+    - Haga clic en el nombre de la NIC para especificar la subred en la que se implementará la máquina virtual de Azure.
+    - Sobrescriba **Dinámico** con la dirección IP privada que quiere asignar a la máquina virtual de Azure de destino. Si no se especifica una dirección IP, Site Recovery asignará la siguiente dirección IP disponible de la subred a la NIC en la conmutación por error.
+    - [Más información](site-recovery-manage-network-interfaces-on-premises-to-azure.md) sobre la administración de las NIC para la conmutación por error de máquinas locales a Azure.
 
 
+## <a name="get-new-ip-addresses"></a>Obtención de direcciones IP nuevas
+
+En este escenario, la máquina virtual de Azure obtiene una nueva dirección IP después de la conmutación por error. Una actualización de DNS para actualizar los registros de las máquinas que conmutaron por error para que apunten a la dirección IP de la máquina virtual de Azure.
 
 
-## <a name="assigning-new-ip-addresses"></a>Asignación de direcciones IP nuevas
-
-En esta [entrada de blog](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) se explica cómo configurar la infraestructura de red de Azure cuando no hay que conservar las direcciones IP después de la conmutación por error. Comienza con una descripción de la aplicación, se examina cómo configurar redes en local y en Azure y se concluye con información sobre la ejecución de las conmutaciones por error.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Ejecución de una conmutación por error](site-recovery-failover.md)
+[Información](site-recovery-active-directory.md) acerca de la replicación de las instancias locales de Active Directory y DNS en Azure.
+
+

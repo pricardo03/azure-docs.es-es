@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6e90b164fac4ea1123f5f9a43eea1169d93d9a04
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154038"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028799"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>El firewall de SO invitado de máquina virtual de Azure está bloqueando el tráfico entrante
 
@@ -102,7 +102,7 @@ Conéctese a la [consola serie y abra una instancia de PowerShell](serial-consol
 
 #### <a name="mitigation-2"></a>Mitigación 2
 
-1.  Consulte los perfiles de firewall para determinar si la directiva de firewall de entrada está establecida en *BlockInboundAlways*:
+1.  Consulte los perfiles de firewall para determinar si la directiva de firewall de entrada está establecida en *BlockInboundAlways*:
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -115,7 +115,7 @@ Conéctese a la [consola serie y abra una instancia de PowerShell](serial-consol
     >    * *BlockInbound*: se bloqueará todo el tráfico entrante, a menos que tenga una regla en vigor para permitir ese tráfico.
     >    * *BlockInboundAlways*: se omitirán todas las reglas del firewall y se bloqueará todo el tráfico.
 
-2.  Edite  *DefaultInboundAction* para establecer estos perfiles para  **permitir**  el tráfico. Para ello, ejecute el siguiente comando:
+2.  Edite *DefaultInboundAction* para establecer estos perfiles en **Permitir** el tráfico. Para ello, ejecute el siguiente comando:
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -138,7 +138,7 @@ Conéctese a la [consola serie y abra una instancia de PowerShell](serial-consol
 
 2.  Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
 
-3.  Asegúrese de que el disco aparece marcado como  **En línea**  en la consola de administración de discos. Anote la letra de unidad que se asigna al disco del sistema conectado.
+3.  Asegúrese de que el disco aparece marcado como **En línea** en la consola de Administración de discos. Anote la letra de unidad asignada al disco del sistema conectado.
 
 #### <a name="mitigation-1"></a>Mitigación 1
 
@@ -150,7 +150,7 @@ Consulte  [Habilitar o deshabilitar una regla del firewall en un sistema operat
 
 2.  Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
 
-3.  Después de que el disco del sistema se conecte a una máquina virtual de recuperación, asegúrese de que el disco aparece marcado como  **En línea**  en la consola de administración de discos. Anote la letra de unidad que se asigna al disco del sistema operativo conectado.
+3.  Después de que el disco del sistema operativo esté asociado a una máquina virtual de recuperación, asegúrese de que se marca como **En línea** en la consola de administración de discos. Anote la letra de unidad que se asigna al disco del sistema operativo conectado.
 
 4.  Abra una instancia de CMD con privilegios elevados y ejecute el siguiente script:
 

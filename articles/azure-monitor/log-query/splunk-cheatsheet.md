@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03a0d755cf6d099f07a7c6d853e1d747908eec05
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61425141"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177632"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Consulta de registro de Splunk en Azure Monitor
 
@@ -32,7 +32,7 @@ En la tabla siguiente se comparan los conceptos y las estructuras de datos en lo
  | --- | --- | --- | ---
  | Unidad de implementación  | cluster |  cluster |  Azure Monitor permite consultas arbitrarias entre clústeres. Splunk no lo permite. |
  | Memorias caché de datos |  cubos  |  Directivas de retención y almacenamiento en caché |  Controla el período y el nivel de almacenamiento en caché de los datos. Este valor afecta directamente al rendimiento de las consultas y al costo de la implementación. |
- | Partición lógica de los datos  |  index  |  Base de datos  |  Permite la separación lógica de los datos. Ambas implementaciones permiten uniones y la combinación de estas particiones. |
+ | Partición lógica de los datos  |  index  |  database  |  Permite la separación lógica de los datos. Ambas implementaciones permiten uniones y la combinación de estas particiones. |
  | Metadatos de eventos estructurados | N/D | table |  Splunk no tiene el concepto que se expone al lenguaje de búsqueda de metadatos de eventos. Los registros de Azure Monitor siguen el concepto de tabla, con columnas. Cada instancia de un evento se asigna a una fila. |
  | Registro de datos | event | fila |  Solo cambio de terminología. |
  | Atributo de registro de datos | campo |  columna |  En Azure Monitor, se predefine como parte de la estructura de la tabla. En Splunk, cada evento tiene su propio conjunto de campos. |
@@ -125,12 +125,12 @@ Splunk también tiene una función `eval`, que no se debe comparar con el operad
 
 
 ### <a name="rename"></a>Cambiar nombre 
-Azure Monitor usa el mismo operador para crear un campo y volver a asignarle nombre. Splunk tiene dos operadores distintos, `eval` y `rename`.
+Azure Monitor usa el operador `project-rename` para cambiar el nombre de un campo. `project-rename` permite a la consulta aprovechar los índices pregenerados para un campo. Splunk tiene el operador `rename` para hacer lo mismo.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Azure Monitor | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend exception = Date_Exception</code> |
+| Azure Monitor | **project-rename** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
 | | |
 
 

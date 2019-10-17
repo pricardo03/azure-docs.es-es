@@ -1,222 +1,100 @@
 ---
 title: Tareas para el líder del proyecto en el proceso de ciencia de datos en equipo
-description: Un esquema de las tareas que se espera que el líder de un proyecto complete en un proyecto de equipo de ciencia de datos.
+description: Un tutorial detallado de las tareas de un responsable de proyecto en un equipo de proceso de ciencia de datos en equipo
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 00b1b58a39724951f2d5e4e688df8eb178654bbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a94a2ae5298bbee8bb1c9c0fa044eb3189147be
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952844"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244356"
 ---
-# <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Tareas para el líder del proyecto en el proceso de ciencia de datos en equipo
+# <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tareas para el líder del proyecto en el proceso de ciencia de datos en equipo
 
-Este tutorial describe las tareas que el responsable de proyecto debe completar para su equipo de proyecto. El objetivo es establecer el entorno de colaboración de equipo que se estandariza en el [proceso de ciencia de datos en equipo](overview.md) (TDSP). El proceso de ciencia de datos en equipo es una plataforma desarrollada por Microsoft que proporciona una secuencia estructurada de actividades para ejecutar de forma eficaz soluciones de análisis predictivos y basadas en la nube. Puede encontrar un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso en [Roles y tareas del Proceso de ciencia de datos en equipo](roles-tasks.md).
+En este artículo se describen las tareas que un *responsable de proyecto* debe realizar para configurar un repositorio para su equipo de proyecto en el [proceso de ciencia de datos en equipo](overview.md) (TDSP). El proceso de ciencia de datos en equipo es una plataforma desarrollada por Microsoft que proporciona una secuencia estructurada de actividades para ejecutar de forma eficaz soluciones de análisis predictivos y basadas en la nube. Este proceso está diseñado para ayudar a mejorar la colaboración y el aprendizaje en equipo. Para ver un esquema de los roles del personal y las tareas asociadas de las que se ocupa un equipo de ciencia de datos que sigue este proceso como estándar, consulte [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md).
 
-Un **responsable de proyecto** administra las actividades diarias de los científicos de datos en un proyecto de ciencia de datos específico. El flujo de trabajo de las tareas que van a realizar los responsables de equipo para configurar este entorno se representa en la figura siguiente:
+Un responsable de proyecto administra las actividades diarias de los científicos de datos en un proyecto de ciencia de datos de este proceso. En el diagrama siguiente se muestra el flujo de trabajo de las tareas del responsable de proyecto:
 
-![1](./media/project-lead-tasks/project-leads-1-tdsp-creating-projects.png)
+![Flujo de trabajo de las tareas del responsable del proyecto](./media/project-lead-tasks/project-leads-1-tdsp-creating-projects.png)
 
-En este tema se tratan las tareas 1,2 y 6 de este flujo de trabajo para los responsables de proyecto.
+Esta tutorial abarca lo siguiente: Paso 1: Creación de un repositorio del proyecto, y Paso 2: Inicialización del repositorio de proyectos desde el repositorio ProjectTemplate del equipo. 
 
-> [!NOTE]
-> En las instrucciones siguientes se detallan los pasos necesarios para configurar un entorno de equipo de proceso de ciencia de datos en equipo (TDSP) para un proyecto mediante Azure DevOps. Se especifica cómo llevar a cabo estas tareas con Azure DevOps ya que es así cómo se implementa el proceso de ciencia de datos en equipo (TDSP) en Microsoft. Si se usa otra plataforma de hospedaje de código para el grupo, las tareas que debe realizar el responsable de equipo seguirán siendo las mismas. Pero la forma de completar estas tareas va a ser diferente.
+Para el Paso 3: Creación del elemento de trabajo Feature para el proyecto, y el Paso 4: Incorporación de casos a las fases del proyecto, consulte [Desarrollo de Agile de proyectos de ciencia de datos](agile-development.md).
 
+Para el paso 5: Creación y personalización de los recursos de almacenamiento y análisis, y uso compartido de estos, consulte, si es necesario, [Creación de datos de equipo y recursos de análisis](team-lead-tasks.md#create-team-data-and-analytics-resources).
 
-## <a name="repositories-and-directories"></a>Repositorios y directorios
+Para el Paso 6: Configuración del control de seguridad del repositorio del proyecto, consulte [Adición de miembros de equipo y configuración de permisos](team-lead-tasks.md#add-team-members-and-configure-permissions).
 
-En este tutorial se usan abreviaturas de nombres de los repositorios y directorios. Estos nombres facilitan el seguimiento de las operaciones entre los repositorios y los directorios. Esta notación (R para repositorios Git y D para directorios locales de su DSVM) se usa en las siguientes secciones:
+> [!NOTE] 
+> En este artículo se utiliza Azure Repos para configurar un proyecto de TDSP, ya que se explica cómo implementar TDSP en Microsoft. Si el equipo usa otras plataformas de hospedaje de código, las tareas del responsable de proyecto son las mismas, pero la manera de realizarlas puede ser diferente.
 
-- **R3**: el repositorio **ProjectTemplate** del equipo de Git que ha configurado el responsable de equipo.
-- **R5**: el repositorio de proyecto de Git que ha configurado para el proyecto.
-- **D3**: el directorio local se clona de R3.
-- **D5**: el directorio local clonado de R5.
+## <a name="prerequisites"></a>Requisitos previos
 
+En este tutorial se da por supuesto que el [administrador del grupo](group-manager-tasks.md) y el [responsable de equipo](team-lead-tasks.md) han configurado los siguientes recursos y permisos:
 
-## <a name="0-prerequisites"></a>0. Requisitos previos
+- La **organización** de Azure DevOps para la unidad de datos
+- Un **proyecto** de equipo para el equipo de ciencia de datos
+- Plantillas de equipo y **repositorios** de utilidades
+- **Permisos** en la cuenta de la organización para que pueda crear y editar repositorios para el proyecto
 
-Para cumplir los requisitos previos, es necesario realizar las tareas asignadas al administrador de grupo que se describen en [Tareas del administrador de grupo en un equipo de ciencia de datos](group-manager-tasks.md) y al responsable de equipo descrito en [Tareas del responsable de equipo para un equipo de ciencia de datos](team-lead-tasks.md). 
+Para clonar los repositorios y modificar el contenido en la máquina local o en Data Science Virtual Machine (DSVM), o configurar el almacenamiento de Azure File Storage y montarlo en la DSVM, también necesita lo siguiente:
 
-Para resumir aquí, se deben cumplir los siguientes requisitos antes de comenzar las tareas del responsable de equipo: 
+- Una suscripción de Azure.
+- Git instalado en la máquina. Si usa una DSVM, GIT está preinstalado. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).
+- Si desea usar la DSVM, la DSVM de Windows o Linux creada y configurada en Azure. Para más información e instrucciones, consulte la [documentación de Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
+- Para una DSVM de Windows, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en la máquina. En el archivo *README.md*, desplácese a la sección **Descargar e instalar** y haga clic en el **instalador más reciente**. Descargue el instalador *.exe* desde la página del instalador y ejecútelo. 
+- En el caso de una DSVM de Linux, se configura una clave pública SSH en la DSVM y se agrega en Azure DevOps. Para más información e instrucciones, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
 
-- El administrador del grupo debe haber configurado la instancia de **Azure DevOps Services del grupo** o la cuenta de grupo en otras plataformas de hospedaje de código.
-- El responsable de equipo debe haber configurado el **repositorio TeamProjectTemplate** (R3) en la cuenta de grupo en la plataforma de hospedaje de código que planee usar.
-- El responsable de equipo le ha **autorizado** para crear repositorios en su cuenta de grupo para su equipo.
-- Git debe estar instalado en la máquina. Si usa una instancia de Data Science Virtual Machine (DSVM), Git se ha instalado previamente y está listo para continuar. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).  
-- Si usa una **DSVM de Windows**, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en su máquina. En el archivo README.md, desplácese a la sección **Descargar e instalar** y haga clic en el *instalador más reciente*. Este paso le lleva a la página más reciente del instalador. Descargue al instalador .exe desde aquí y ejecútelo. 
-- Si usa una instancia de **DSVM de Linux**, cree una clave pública SSH en su DSVM y agréguela a la instancia de Azure DevOps Services del grupo. Para más información acerca de SSH, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
+## <a name="create-a-project-repository-in-your-team-project"></a>Creación de un repositorio de proyecto en el proyecto de equipo
 
+Para crear un repositorio de proyecto en el proyecto **MyTeam** del equipo:
 
-## <a name="1-create-a-project-repository-r5"></a>1. Creación de un repositorio del proyecto (R5)
+1. Vaya a la página **Resumen** del proyecto de equipo en *https:\//\<NombreDelServidor>/\<NombreDeOrganización>/\<NombreDelEquipo>* , por ejemplo, **https:\//dev.azure.com/DataScienceUnit/MyTeam** y seleccione **Repos** en el panel de navegación izquierdo. 
+   
+1. Seleccione el nombre del repositorio en la parte superior de la página y, a continuación, seleccione **Nuevo repositorio** en la lista desplegable.
+   
+   ![Seleccionar Nuevo repositorio](./media/project-lead-tasks/project-leads-9-select-repos.png)
+   
+1. En el cuadro de diálogo **Crear un nuevo repositorio**, asegúrese de que **Git** esté seleccionado en **Tipo**. Escriba *DSProject1* en **Nombre del repositorio** y, a continuación, seleccione **Crear**.
+   
+   ![Crear repositorio](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
+   
+1. Confirme que puede ver el nuevo repositorio **DSProject1** en la página de configuración del proyecto. 
+   
+   ![Repositorio del proyecto en la configuración del proyecto](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
 
-- Inicie sesión en la instancia de Azure DevOps Services del grupo en *https://\<Nombre de Azure DevOps Services\>.visualstudio.com*. 
-- En **Proyectos y equipos recientes**, haga clic en **Examinar**. Una ventana emergente muestra todos los proyectos de Azure DevOps Services. 
+## <a name="import-the-team-template-into-your-project-repository"></a>Importación de la plantilla de equipo en el repositorio del proyecto
 
-    ![2](./media/project-lead-tasks/project-leads-2-create-project-repo.png)
+Si desea rellenar el repositorio del proyecto con el contenido del repositorio de plantillas del equipo:
 
-- Haga clic en el nombre del proyecto en el que va a crear el repositorio del proyecto. En este ejemplo, haga clic en **MyTeam**. 
-- Después, haga clic en **Navegar** para acceder a la página principal del proyecto **MyTeam**:
+1. En la página **Resumen** del proyecto de equipo, seleccione **Repositorios** en el panel de navegación de la izquierda. 
+   
+1. Seleccione el nombre del repositorio en la parte superior de la página y seleccione **DSProject1** en la lista desplegable.
+   
+1. En la página **DSProject1 está vacío**, seleccione **Importar**. 
+   
+   ![Seleccionar Importar](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
+   
+1. En el cuadro de diálogo **Importar un repositorio GIT**, seleccione **Git** como **Tipo de origen** y escriba la dirección URL del repositorio **TeamTemplate** en **Dirección URL de clonación**. La dirección URL es *https:\//\<nombreDeServidor>/\<nombreDeOrganización>/\<nombreDeEquipo>/_git/\<nombreDeRepositorioDePlantillasDeEquipo>* . Por ejemplo: **https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
+   
+1. Seleccione **Import** (Importar). El contenido del repositorio de plantillas del equipo se importa en el repositorio de proyectos. 
+   
+   ![Importación del repositorio de plantillas del equipo](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 
-    ![3](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
-
-- Haga clic en **Colaborar en el código** para acceder a la página principal de GIT del proyecto.  
-
-    ![4](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
-
-- Haga clic en la flecha hacia abajo en la esquina superior izquierda y seleccione **+ Nuevo repositorio**. 
-    
-    ![5](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
-
-- En la ventana **Crear un nuevo repositorio**, indique un nombre para el repositorio de git del proyecto. Asegúrese de que selecciona **Git** como tipo de repositorio. En este ejemplo, se utiliza el nombre *DSProject1*. 
-
-    ![6](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
-
-- Para crear el repositorio de Git del proyecto ***DSProject1***, haga clic en **Crear**.
-
-
-## <a name="2-seed-the-dsproject1-project-repository"></a>2. Propagación del repositorio del proyecto DSProject1
-
-La tarea aquí es propagar el repositorio del proyecto **DSProject1** (R5) desde el repositorio de plantillas de proyecto (R3). El procedimiento de propagación usa los directorios D3 y D5 de instancia de DSVM como sitios de almacenamiento provisional intermedios. En resumen, la ruta de acceso de propagación es: R3 -> D3 -> D5 -> R5.
-
-Si necesita personalizar el repositorios del proyecto **DSProject1** para satisfacer algunas necesidades específicas, lo hará en el penúltimo paso del procedimiento siguiente. Este es un resumen de los pasos que se usan para propagar el contenido del repositorio del proyecto **DSProject1**. Los pasos individuales corresponden a las subsecciones del procedimiento de propagación:
-
-- Clone el repositorio de plantillas de proyecto en el directorio local: equipo R3 - clonado en -> D3 local.
-- Clone el repositorio de DSProject1 en un directorio local: R5 de equipo - clonado a -> D5 local.
-- Copie el contenido de la plantilla de proyecto clonado en el clon local del repositorio DSProject1:  D3 - contenido copiado en -> D5.
-- (Opcional) Personalización de D5 local
-- Inserción de contenido de DSProject1 local en los repositorios de equipo: D5 - contenido agregado en -> R5 de equipo.
-
-
-### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Clone el repositorio de plantillas de proyecto (R3) en un directorio (D3) en la máquina local.
-
-En la máquina local, cree un directorio:
-
-- *C:\GitRepos\MyTeamCommon* para Windows 
-- *$home/GitRepos/MyTeamCommon* para Linux
-
-Cambie a ese directorio. Después, ejecute el comando siguiente para clonar el repositorio de plantillas de proyecto en la máquina local. 
-
-**Windows**
-            
-    git clone <the HTTPS URL of the TeamProjectTemplate repository>
-    
-Si se utiliza Azure DevOps como plataforma de hospedaje de código, por lo general, la *dirección URL HTTPS del repositorio de plantillas de proyecto* es la siguiente:
-
- ***https://\<Nombre de Azure DevOps Services\>.visualstudio.com/\<Nombre del proyecto\>/_git/\<Nombre del repositorio de plantillas de proyecto\>***. 
-
-En este ejemplo, tenemos:
-
-***https://mysamplegroup.visualstudio.com/MyTeam/_git/MyTeamProjectTemplate***. 
-
-![7](./media/project-lead-tasks/project-leads-7-clone-team-project-template.png)
-            
-**Linux**
-
-    git clone <the SSH URL of the TeamProjectTemplate repository>
-        
-![8](./media/project-lead-tasks/project-leads-8-clone-team-project-template-linux.png)
-
-Si se utiliza Azure DevOps como plataforma de hospedaje de código, por lo general, la *dirección URL SSH del repositorio de plantillas de proyecto* es la siguiente:
-
-***ssh://\<Nombre de Azure DevOps Services\>\@\<Nombre de Azure DevOps Services\>.visualstudio.com:22/\<Nombre del proyecto>/_git/\<Nombre del repositorio de plantillas de proyecto\>.*** 
-
-En este ejemplo, tenemos:
-
-***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***. 
-
-### <a name="clone-dsproject1-repository-r5-to-a-directory-d5-on-your-local-machine"></a>Clonación del repositorio de DSProject1 (R5) en un directorio (D5) en el equipo local
-
-Cambie el directorio a **GitRepos** y ejecute el comando siguiente para clonar el repositorio del proyecto en la máquina local. 
-
-**Windows**
-            
-    git clone <the HTTPS URL of the Project repository>
-
-![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
-
-Si se utiliza Azure DevOps como plataforma de hospedaje de código, por lo general, la _dirección URL HTTPS del repositorio del proyecto_ es ***https://\<Nombre de Azure DevOps Services\>.visualstudio.com/\<Nombre del proyecto>/_git/<Nombre de repositorio del proyecto\>***. En este ejemplo, tenemos ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
-
-**Linux**
-
-    git clone <the SSH URL of the Project repository>
-
-![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
-
-Si se utiliza Azure DevOps como plataforma de hospedaje de código, por lo general, la _dirección URL SSH del repositorio del proyecto_ es _ssh://<Nombre de Azure DevOps Services\>@<Nombre de Azure DevOps Services\>.visualstudio.com:22/<Your Project Name\>/\_git/<Nombre del repositorio del proyecto\>. En este ejemplo, tenemos ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
-
-### <a name="copy-contents-of-d3-to-d5"></a>Copia del contenido de D3 a D5 
-
-Ahora en el equipo local, tiene que copiar el contenido de _D3_ a _D5_, excepto los metadatos de git en el directorio .git. Los siguientes scripts realizarán el trabajo. Asegúrese de escribir las rutas de acceso correctas y completas para los directorios. La carpeta de origen es para el equipo (_D3_); la carpeta de destino es para el proyecto (_D5_).    
-
-**Windows**
-    
-    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
-    .\tdsp_local_copy_win.ps1 -role 3
-    
-![11](./media/project-lead-tasks/project-leads-11-local-copy-project-lead-new.png)
-
-Ahora puede ver que en la carpeta _DSProject1_ se copian todos los archivos (excepto .git) en _MyTeamProjectTemplate_.
-
-![12](./media/project-lead-tasks/project-leads-12-teamprojectTemplate_copied_to_local.png)
-
-**Linux**
-            
-    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
-    bash tdsp_local_copy_linux.sh 3
-        
-![13](./media/project-lead-tasks/project-leads-13-local_copy_project_lead_linux_new.png)
-
-Ahora puede ver que en la carpeta _DSProject1_ se copian todos los archivos (excepto los metadatos de .git) en _MyTeamProjectTemplate_.
-
-![14](./media/project-lead-tasks/project-leads-14-teamprojectTemplate_copied_to_local_linux_new.png)
-
-
-### <a name="customize-d5-if-you-need-to-optional"></a>Personalización de D5 si se necesita (opcional)
-
-Si el proyecto necesita algunos directorios o documentos específicos distintos de los que se obtienen de la plantilla de proyecto (que se ha copiado al directorio D5 en el paso anterior), puede personalizar ahora el contenido de D5. 
-
-### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-azure-devops-services"></a>Adición de contenido de DSProject1 de D5 a R5 en la instancia de Azure DevOps Services del grupo
-
-Ahora tiene que insertar contenido de **_DSProject1_** al repositorio _R5_ en el proyecto en la instancia de Azure DevOps Services del grupo. 
-
-
-- Cambie al directorio **D5**. 
-- Use los siguientes comandos de git para agregar el contenido de **D5** a **R5**. Los comandos son los mismos para los sistemas Windows y Linux. 
-    
-    git status git add .
-    inserción de GIT confirmación -m "inserción de win DSVM" git
-    
-- Confirme el cambio y la inserción. 
-
-> [!NOTE]
-> Si se trata de la primera vez que confirma un repositorio Git, debe configurar los parámetros globales *user.name* y *user.email* para poder ejecutar el comando `git commit`. Ejecute los dos comandos siguientes:
-        
-    git config --global user.name <your name>
-    git config --global user.email <your email address>
- 
-> Si están confirmando varios repositorios de Git, use el mismo nombre y la misma dirección de correo electrónico en todos ellos. Usar el mismo nombre y la misma dirección de correo electrónico resulta muy cómodo más adelante al crear paneles de Power BI y realizar el seguimiento de las actividades de Git en varias bases de datos.
-
-![15](./media/project-lead-tasks/project-leads-15-git-config-name.png)
-
-
-## <a name="6-create-and-mount-azure-file-storage-as-project-resources-optional"></a>6. Creación y montaje del almacenamiento de archivos de Azure como recursos del proyecto (opcional)
-
-Si desea crear el almacenamiento de archivos de Azure para compartir datos, como los datos sin formato del proyecto o las características que se generan para el proyecto, para que todos los miembros del proyecto tengan acceso a los mismos conjuntos de datos desde varias DSVM, siga las instrucciones de las secciones 3 y 4 de [Tareas del responsable de equipo en un equipo de ciencia de datos](team-lead-tasks.md). 
-
+Si tiene que personalizar el contenido del repositorio de proyectos para satisfacer las necesidades específicas de su proyecto, puede agregar, eliminar o modificar archivos y carpetas del repositorio. Puede trabajar directamente en Azure Repos, o clonar el repositorio en la máquina local o en DSVM, realizar cambios y confirmar e instalar las actualizaciones en el repositorio del proyecto compartido. Siga las instrucciones que se encuentran en [Personalización del contenido de los repositorios del equipo](team-lead-tasks.md#customize-the-contents-of-the-team-repositories).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Estos son vínculos a descripciones más detalladas de los roles y tareas definidas por el proceso de ciencia de datos en equipo:
+Estos son vínculos a descripciones detalladas de los roles y tareas definidas por el proceso de ciencia de datos en equipo:
 
 - [Tareas del administrador de grupo en un equipo de ciencia de datos](group-manager-tasks.md)
 - [Tareas del responsable de equipo en un equipo de ciencia de datos](team-lead-tasks.md)
-- [Tareas del responsable de proyecto en un equipo de ciencia de datos](project-lead-tasks.md)
-- [Colaboradores individuales del proyecto en un equipo de ciencia de datos](project-ic-tasks.md)
+- [Tareas de colaboradores individuales en un equipo de ciencia de datos](project-ic-tasks.md)

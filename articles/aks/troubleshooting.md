@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 6ff273236f9f8465de9ec0cda89ed3ff8996ecec
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d2561b1882ea612f29c0ff0eeb4bd6614403c9ff
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932659"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025489"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -105,9 +105,9 @@ Puede recibir errores que indiquen que el clúster de AKS no se encuentra en un 
 
 **El grupo de agentes "agentpool" definió el escalado automático como habilitado, pero no se encuentra en Virtual Machine Scale Sets**
 
-Para usar características como el escalador automático de clústeres o varios grupos de nodos, se deben crear clústeres de AKS que usen conjuntos de escalado de máquinas virtuales. Se devuelven errores si intenta usar características que dependen de conjuntos de escalado de máquinas virtuales y el usuario se dirige a un clúster de AKS no en un conjunto de escalado de máquinas virtuales normal. La compatibilidad del conjunto de escalado de máquinas virtuales actualmente está en versión preliminar en AKS.
+Para usar características como el escalador automático de clústeres o varios grupos de nodos, se deben crear clústeres de AKS que usen conjuntos de escalado de máquinas virtuales. Se devuelven errores si intenta usar características que dependen de conjuntos de escalado de máquinas virtuales y el usuario se dirige a un clúster de AKS no en un conjunto de escalado de máquinas virtuales normal.
 
-Siga los pasos de *Antes de empezar* que aparecen en el documento adecuado para registrarse correctamente para obtener la versión preliminar de la característica de conjunto de escalado de máquinas virtuales y crear un clúster de AKS:
+Siga los pasos de *Antes de empezar* del documento adecuado para crear correctamente un clúster de AKS:
 
 * [Uso del escalador automático del clúster](cluster-autoscaler.md).
 * [Creación y uso de varios grupos de nodos](use-multiple-node-pools.md).

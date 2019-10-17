@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: a9de9924b851024dd36c848203cc3ada2cde208c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71328726"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176612"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Comprobaciones personalizadas y línea de base de Azure Security Center para IoT
 
@@ -32,7 +32,7 @@ Una línea de base establece el comportamiento estándar para cada dispositivo y
 
 ## <a name="baseline-custom-checks"></a>Comprobaciones personalizadas de línea de base
 
-Las comprobaciones personalizadas de línea de base establecen una lista de comprobaciones personalizada para cada línea de base del dispositivo mediante la identidad de módulo gemela del dispositivo. 
+Las comprobaciones personalizadas de base de referencia establecen una lista de comprobaciones personalizada para cada base de referencia del dispositivo mediante **Identidad de módulo gemela** del dispositivo. 
 
 ## <a name="setting-baseline-properties"></a>Establecimiento de propiedades de línea de base
 
@@ -55,7 +55,7 @@ Para configurar las comprobaciones personalizadas de línea de base:
         "baselineCustomChecksFilePath": {
           "value" : "/home/user/full_path.xml"
         },
-        "baselineCustomChecksFilePath": {
+        "baselineCustomChecksFileHash": {
           "value" : "#hashexample!"
         }
       }
@@ -67,8 +67,8 @@ Para configurar las comprobaciones personalizadas de línea de base:
 | NOMBRE| Status | Valores válidos| Valores predeterminados| DESCRIPCIÓN |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|Obligatorio: true |Valores válidos:  **Boolean** |Valor predeterminado: **false** |Intervalo de tiempo máximo antes de que los mensajes de prioridad alta se envíen.|
-|baselineCustomChecksFilePath |Obligatorio: true|Valores válidos:  **String**, **NULL** |Valor predeterminado: **PT5H** |Ruta de acceso completa de la configuración de XML de línea de base|
-|baselineCustomChecksFileHash |Obligatorio: true|Valores válidos:  **String**, **NULL** |Valor predeterminado: **PT5H** |`sha256sum` del archivo de configuración XML. Use la [referencia sha256sum](https://linux.die.net/man/1/sha256sum) para obtener información adicional. |
+|baselineCustomChecksFilePath |Obligatorio: true|Valores válidos:  **String**, **NULL** |Valor predeterminado: **null** |Ruta de acceso completa de la configuración de XML de línea de base|
+|baselineCustomChecksFileHash |Obligatorio: true|Valores válidos:  **String**, **NULL** |Valor predeterminado: **null** |`sha256sum` del archivo de configuración XML. Use la [referencia sha256sum](https://linux.die.net/man/1/sha256sum) para obtener información adicional. |
 
 Para revisar ejemplos de línea de base adicionales, consulte el [ejemplo de línea de base personalizado 1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) y el [ejemplo de línea de base personalizado 2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
 

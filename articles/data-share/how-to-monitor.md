@@ -1,17 +1,17 @@
 ---
 title: Supervisión de Azure Data Share (versión preliminar)
-description: Supervisión de Azure Data Share (versión preliminar)
+description: Aprenda a supervisar el estado de las invitaciones, las suscripciones de recursos compartidos y el historial de instantáneas en la versión preliminar de Azure Data Share.
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: fbc6847dd86b7687d477b2bae0deab1389dc8491
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 22c95f1ac541e1288494ed85cc9654d42780ea60
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827062"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169121"
 ---
 # <a name="monitor-azure-data-share-preview"></a>Supervisión de Azure Data Share (versión preliminar) 
 

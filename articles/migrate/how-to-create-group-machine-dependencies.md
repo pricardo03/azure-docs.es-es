@@ -4,14 +4,14 @@ description: En este artículo se describe cómo crear una evaluación con depen
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 10/01/2019
 ms.author: hamusa
-ms.openlocfilehash: 8e793891ea646ae8c91077ead36be9b84c1b08c8
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1cd1ff83fd706e3474426f6cc2ac99d39e74dc22
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200205"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177946"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Configuración de la visualización de dependencias para la evaluación
 
@@ -38,7 +38,7 @@ La asignación de dependencias le permite visualizar las dependencias en las má
 --- | ---
 Disponibilidad | La visualización de dependencias no está disponible en Azure Government.
 Mapa de servicio | La visualización de dependencias usa la solución Service Map en Azure Monitor. [Service Map](../azure-monitor/insights/service-map.md) detecta y muestra automáticamente las conexiones entre los servidores.
-Agentes | Para usar la visualización de dependencias, instale los agentes siguientes en las máquinas que quiera asignar:<br/> - [Agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md) (conocido anteriormente como Microsoft Monitoring Agent [MMA]).<br/> - [Agente de dependencias de Service Map](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Para automatizar la instalación de agentes, puede usar una herramienta de implementación, como System Center Configuration Manager, o bien una herramienta de asociado como [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que cuenta con una solución de implementación de agentes para Azure Migrate.
+Agentes | Para usar la visualización de dependencias, instale los agentes siguientes en las máquinas que quiera asignar:<br/> - [Agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md) (conocido anteriormente como Microsoft Monitoring Agent [MMA]).<br/> - [Agente de dependencias de Service Map](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Para automatizar la instalación de agentes, puede usar una herramienta de implementación, como System Center Configuration Manager, que cuenta con una solución de implementación de agentes para Azure Migrate.
 Dependency Agent | Revise la [compatibilidad del agente de dependencias](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) con Windows y Linux.<br/><br/> [Obtenga más información](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) acerca de cómo puede utilizar scripts para instalar el agente de dependencias.
 Agente de Log Analytics (MMA) | [Obtenga más información](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) sobre los métodos de instalación de MMA.<br/><br/> En el caso de las máquinas que supervisa System Center Operations Manager 2012 R2 o las versiones posteriores, no hay necesidad de instalar el agente MMA. Service Map se integra con Operations Manager. Puede habilitar la integración con las instrucciones que encontrará [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Sin embargo, tenga en cuenta que será necesario instalar el agente de dependencia en estas máquinas.<br/><br/> [Revise](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) los sistemas operativos Linux compatibles con el agente de Log Analytics.
 Grupos de evaluación | Los grupos de los que desea visualizar las dependencias no deben contener más de diez máquinas. Si tiene más de 10 máquinas, divídalas en grupos más pequeños para visualizar las dependencias.
@@ -88,6 +88,10 @@ Para instalar al agente en una máquina Windows, siga estos pasos:
 4. En **Opciones de instalación del agente**, seleccione **Azure Log Analytics** > **Siguiente**.
 5. Haga clic en **Agregar** para agregar un área de trabajo de Log Analytics nueva. Pegue la clave y el identificador de área de trabajo que ha copiado desde el portal. Haga clic en **Next**.
 
+Puede instalar al agente desde la línea de comandos o mediante un método automatizado, como System Center Configuration Manager o [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196). [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre el uso de estos métodos para instalar el agente MMA. También se puede instalar el agente de MMA mediante este [script](https://go.microsoft.com/fwlink/?linkid=2104394).
+
+[Más información](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) sobre la compatibilidad de MMA con sistemas operativos Windows.
+
 #### <a name="install-the-agent-on-a-linux-machine"></a>Instalación del agente en una máquina Linux
 
 Para instalar al agente en una máquina Linux, siga estos pasos:
@@ -97,11 +101,18 @@ Para instalar al agente en una máquina Linux, siga estos pasos:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+[Más información](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-linux-operating-systems) sobre la lista de compatibilidad de MMA con sistemas operativos Linux. 
+
 ### <a name="install-the-dependency-agent"></a>Instalación del agente de dependencia
 1. Para instalar al agente de dependencia en una máquina Windows, haga doble clic en el archivo de instalación y siga los pasos del asistente.
 2. Para instalar el agente de dependencia en una máquina Linux, instale como raíz mediante el siguiente comando:
 
     ```sh InstallDependencyAgent-Linux64.bin```
+
+[Más información](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#installation-script-examples) acerca de cómo puede utilizar scripts para instalar el agente de dependencia.
+
+[Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#supported-operating-systems) sobre los sistemas operativos que admite el agente de dependencia.
+
 
 ## <a name="create-a-group-using-dependency-visualization"></a>Creación de un grupo mediante la visualización de dependencias
 

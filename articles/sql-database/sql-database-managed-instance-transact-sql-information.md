@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9796a4efdacef04390705607defb7b5cdd462886
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 9a043d07004870c00c656b655d56a1526f8993d8
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828741"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000502"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferencias, limitaciones y problemas conocidos de T-SQL en la instancia administrada
 
@@ -110,7 +110,7 @@ Una instancia administrada no puede acceder a los recursos compartidos de archiv
 
 Consulte [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) y [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Solución alternativa**: aplique el script al certificado o la clave privada, guarde como archivo .sql y cree a partir del archivo binario:
+**Solución alternativa**: En lugar de crear una copia de seguridad del certificado y restaurar la copia de seguridad, [obtenga el contenido binario del certificado y la clave privada, almacénelo como archivo .sql y cree a partir del binario](https://docs.microsoft.com/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -329,6 +329,7 @@ Una instancia administrada no puede acceder a los recursos compartidos de archiv
 
 - `DATASOURCE` es necesario en el comando `BULK INSERT` durante la importación de archivos desde Azure Blob Storage. Consulte [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
 - `DATASOURCE` se necesita en la función `OPENROWSET` cuando se lee el contenido de un archivo desde Azure Blob Storage. Consulte [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `OPENROWSET` se puede usar para leer datos de otras bases de datos únicas de Azure SQL, instancias administradas o instancias de SQL Server. No se admiten otros orígenes, como bases de datos de Oracle o archivos de Excel.
 
 ### <a name="clr"></a>CLR
 

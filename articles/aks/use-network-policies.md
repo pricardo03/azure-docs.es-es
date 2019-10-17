@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 1339fe66a4925104d459c0491caccdd7db5998a7
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 6c7cf82381dfb895fdaa0f130e33b2dc9a6e7403
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114457"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169753"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)
 
@@ -50,17 +50,12 @@ Azure ofrece dos maneras de implementar la directiva de red. Debe elegir una opc
 
 Ambas implementaciones usan *IPTables* de Linux para aplicar las directivas especificadas. Las directivas se traducen en conjuntos de pares de IP permitidas y no permitidas. Después, estos pares se programan como reglas de filtro de IPTable.
 
-La directiva de red solo funciona con la opción de CNI de Azure (avanzada). La implementación es diferente para ambas opciones:
-
-* *Directivas de red de Azure*: la opción de CNI de Azure configura un puente en el host de la máquina virtual para las redes entre nodos. Las reglas de filtrado se aplican cuando los paquetes pasan a través del puente.
-* *Directivas de red de Calico*: la opción de CNI de Azure establece rutas de kernel locales para el tráfico entre nodos. Las directivas se aplican en la interfaz de red del pod.
-
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferencias entre las directivas de Azure y Calico y sus funcionalidades
 
 | Capacidad                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plataformas compatibles                      | Linux                      | Linux                       |
-| Opciones de redes admitidas             | CNI de Azure                  | CNI de Azure                   |
+| Opciones de redes admitidas             | CNI de Azure                  | CNI de Azure y kubenet       |
 | Compatibilidad con la especificación de Kubernetes | Se admiten todos los tipos de directiva. |  Se admiten todos los tipos de directiva. |
 | Características adicionales                      | None                       | Modelo de directiva extendida que consta de una directiva de red global, un conjunto de red global y un punto de conexión de host. Para más información sobre el uso de la CLI de `calicoctl` para administrar estas características extendidas, consulte la [referencia de usuario de calicoctl][calicoctl]. |
 | Soporte técnico                                  | Compatible con el soporte técnico de Azure y el equipo de ingeniería | Soporte técnico de la comunidad de Calico. Para más información sobre el soporte técnico de pago adicional, consulte las [opciones de soporte técnico del proyecto Calico][calico-support]. |
@@ -76,7 +71,7 @@ Para ver las directivas de red en acción, vamos a crear y luego expandir una di
 
 En primer lugar, crearemos un clúster de AKS que admite la directiva de red. La característica de directiva de red solo se puede habilitar cuando se crea el clúster. No se puede habilitar la directiva de red en un clúster de AKS existente.
 
-Para usar la directiva de red con un clúster de AKS, debe usar el [complemento CNI de Azure][azure-cni] y definir su propia red virtual y subredes. Para más información sobre cómo planear los rangos de subred requeridos, consulte la sección sobre cómo [configurar redes avanzadas][use-advanced-networking].
+Para usar la directiva de red de Azure, debe usar el [complemento CNI de Azure][azure-cni] y definir su propia red virtual y subredes. Para más información sobre cómo planear los rangos de subred requeridos, consulte la sección sobre cómo [configurar redes avanzadas][use-advanced-networking]. La directiva de red de Calico se puede usar con este mismo complemento CNI de Azure o con el complemento CNI de Kubenet.
 
 En el ejemplo siguiente se invoca el script:
 
@@ -84,7 +79,7 @@ En el ejemplo siguiente se invoca el script:
 * Crea una entidad de servicio de Azure Active Directory (Azure AD) para usarse con el clúster de AKS.
 * Asigna permisos de *colaborador* para la entidad de servicio de clúster de AKS en la red virtual.
 * Crea un clúster de AKS en la red virtual definida y habilita la directiva de red.
-    * Se usa la opción de directiva de red de *Azure*. Para usar Calico como opción de directiva de red, use el parámetro `--network-policy calico`.
+    * Se usa la opción de directiva de red de *Azure*. Para usar Calico como opción de directiva de red, use el parámetro `--network-policy calico`. Nota: Calico se puede usar con `--network-plugin azure` o `--network-plugin kubenet`.
 
 Proporcione su propia variable segura *SP_PASSWORD*. Puede reemplazar las variables *RESOURCE_GROUP_NAME* y *CLUSTER_NAME*:
 
@@ -468,9 +463,9 @@ Para más información sobre las directivas, consulte las [directivas de red de 
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
-[calico-support]: https://www.projectcalico.org/support
-[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
+[calico-support]: https://www.tigera.io/tigera-products/calico/
+[calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->

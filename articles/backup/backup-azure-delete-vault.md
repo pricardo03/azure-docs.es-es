@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5f10bb2062d7c805b485d5cfbfe8989a6aee0995
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ae8421ca9e3705d697e9638e80fc61f853ff9d28
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162197"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028282"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
@@ -84,7 +84,7 @@ En primer lugar, lea la sección **[Antes de comenzar](#before-you-start)** para
 
         ![Para MARS, seleccione el almacén para abrir su panel.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-      - Para MABS o DPM, seleccione  **Servidores de administración de copias de seguridad**. A continuación, seleccione el servidor que quiere eliminar. 
+      - Para MABS o DPM, seleccione **Servidores de administración de copias de seguridad**. A continuación, seleccione el servidor que quiere eliminar. 
 
 
           ![Para MABS, seleccione el almacén para abrir su panel.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)

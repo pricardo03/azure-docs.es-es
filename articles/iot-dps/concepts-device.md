@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2904da863707c5f653d774b0a480cc48c95c8d1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ea1be02dee0e0ef00010e8ac7a4dfb75eadbe96
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745985"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173386"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceptos de dispositivos del servicio IoT Hub Device Provisioning
 
@@ -44,7 +44,7 @@ Los secretos de dispositivo también pueden almacenarse con software (en memoria
 
 ## <a name="registration-id"></a>Identificador de registro
 
-El identificador de registro se usa para identificar de forma única un dispositivo en el servicio Device Provisioning. El identificador de dispositivo debe ser único en el [ámbito del identificador](#id-scope) del servicio de aprovisionamiento. Cada dispositivo debe tener un identificador de registro. El identificador de registro está formado por caracteres alfanuméricos y en minúscula, y puede contener guiones.
+El identificador de registro se usa para identificar de forma única un dispositivo en el servicio Device Provisioning. El identificador de registro debe ser único en el [ámbito del identificador](#id-scope) del servicio de aprovisionamiento. Cada dispositivo debe tener un identificador de registro. El identificador de registro está formado por caracteres alfanuméricos y en minúscula, y puede contener guiones.
 
 * En el caso del módulo de plataforma segura, el propio módulo proporciona el identificador de registro.
 * En el caso de la atestación basada en X.509, el identificador de registro se proporciona como el nombre del sujeto del certificado.

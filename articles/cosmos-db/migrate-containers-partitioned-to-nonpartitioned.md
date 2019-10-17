@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 77d70aaa9c1ae5a111a47e08f259c0ce95fd7c92
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 3a13f8928ba243195c30200dae0525e72c1c161b
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300117"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844400"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contenedores sin particiones a contenedores con particiones
 
@@ -99,7 +99,7 @@ Mientras que la definición del contenedor se mejora con una propiedad de clave 
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>Acceso a los documentos que no tienen una clave de partición
 
-Las aplicaciones pueden tener acceso a los documentos existentes que no tienen una clave de partición mediante el uso de la propiedad del sistema especial denominada "CosmosContainerSettings.NonePartitionKeyValue", este es el valor de los documentos no migrados. Puede usar esta propiedad en todas las operaciones CRUD y de consulta. En el ejemplo siguiente se muestra un ejemplo para leer un documento único desde NonePartitionKey. 
+Las aplicaciones pueden acceder a los documentos existentes que no tienen una clave de partición mediante el uso de la propiedad del sistema especial llamada "PartitionKey.None"; este es el valor de los documentos no migrados. Puede usar esta propiedad en todas las operaciones CRUD y de consulta. En el ejemplo siguiente se muestra un ejemplo para leer un documento único desde NonePartitionKey. 
 
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 

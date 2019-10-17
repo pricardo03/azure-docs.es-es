@@ -69,8 +69,9 @@
   href: performance-diagnostics.md
 - name: Solución de problemas de rendimiento genérico para una máquina virtual de Azure con Linux o Windows
   href: troubleshoot-performance-virtual-machine-linux-windows.md
-- name: Compatibilidad con sistemas operativos de 32 bits en máquinas virtuales de Azure
+- name: Soporte técnico para sistemas operativos de 32 bits
   href: support-32-bit-operating-systems-virtual-machines.md
+- name: PerfInsights
   items:
     - name: Windows
       items:

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: bf60ba7d940ab3ea3f4d30fc9fb1d76f9304ec1b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1db929e3ec4b400113d04cb7dd1cd4b8d2e86a9a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086595"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176591"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -360,7 +360,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Este enlace requiere los siguientes permisos de Azure AD:
 
-|Recurso|Permiso|
+|Resource|Permiso|
 |--------|--------|
 |Microsoft Graph|Leer los archivos de usuario|
 
@@ -523,7 +523,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Este enlace requiere los siguientes permisos de Azure AD:
 
-|Recurso|Permiso|
+|Resource|Permiso|
 |--------|--------|
 |Microsoft Graph|Tener acceso completo a los archivos del usuario|
 
@@ -666,7 +666,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Este enlace requiere los siguientes permisos de Azure AD:
 
-|Recurso|Permiso|
+|Resource|Permiso|
 |--------|--------|
 |Microsoft Graph|Leer los archivos de usuario|
 
@@ -814,7 +814,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Este enlace requiere los siguientes permisos de Azure AD:
 
-|Recurso|Permiso|
+|Resource|Permiso|
 |--------|--------|
 |Microsoft Graph|Tener acceso completo a los archivos del usuario|
 
@@ -964,7 +964,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Este enlace requiere los siguientes permisos de Azure AD:
 
-|Recurso|Permiso|
+|Resource|Permiso|
 |--------|--------|
 |Microsoft Graph|Enviar correo como usuario|
 
@@ -1087,11 +1087,11 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Desencadenador de webhook: atributos
 
-En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebhookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookTriggerAttribute.cs).
 
 ### <a name="webhook-trigger---configuration"></a>Desencadenador de webhook: configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `GraphWebHookTrigger`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `GraphWebhookTrigger`.
 
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
@@ -1239,11 +1239,11 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Entrada de webhook: atributos
 
-En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs).
 
 ### <a name="webhook-input---configuration"></a>Entrada de webhook: configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `GraphWebHookSubscription`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `GraphWebhookSubscription`.
 
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
@@ -1380,11 +1380,11 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Salida de webhook: atributos
 
-En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
+En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs).
 
 ### <a name="webhook-output---configuration"></a>Salida de webhook: configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `GraphWebHookSubscription`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `GraphWebhookSubscription`.
 
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|

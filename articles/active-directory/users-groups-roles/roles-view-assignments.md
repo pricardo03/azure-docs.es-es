@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923c828a3d7e9e10d79fcf079839b84c2f0e0f77
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: dbe3b0218b73649d40f27d17ee2c7de2853c6b7c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772383"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025557"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visualización de asignación de roles personalizados en Azure Active Directory
 
@@ -32,7 +32,7 @@ En este artículo se describe cómo ver los roles personalizados que ha asignado
 En este procedimiento se describe cómo ver las asignaciones de un rol con ámbito de toda la organización.
 
 1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
-1. Seleccione **Azure Active Directory**, elija  **Roles y administradores** y, luego, seleccione un rol para abrirlo y ver sus propiedades.
+1. Seleccione**Azure Active Directory**, elija **Roles y administradores** y, luego, seleccione un rol para abrirlo y ver sus propiedades.
 1. Seleccione **Asignaciones** para ver las asignaciones del rol.
 
     ![Visualización de asignaciones de roles y permisos al abrir un rol de la lista](./media/roles-view-assignments/role-assignments.png)
@@ -109,7 +109,7 @@ En esta sección se describe cómo ver las asignaciones de un rol con un ámbito
 
     ![Creación o edición de registros de aplicaciones desde la página Registros de aplicaciones](./media/roles-create-custom/appreg-all-apps.png)
 
-1. En el registro de la aplicación, seleccione  **Roles y administradores** y elija un rol para ver sus propiedades.
+1. En el registro de la aplicación, seleccione **Roles y administradores** y después elija un rol para ver sus propiedades.
 
     ![Visualización de las asignaciones de roles de registro de aplicaciones desde la página Registros de aplicaciones](./media/roles-view-assignments/appreg-assignments.png)
 

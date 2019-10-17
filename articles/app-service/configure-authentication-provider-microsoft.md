@@ -14,61 +14,53 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 0832c1e5f10cdb8e1d7a2edbb88162230ab13401
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 70af534e6bcd0039dbc602a5ebc3fc35fb145e79
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233085"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176932"
 ---
-# <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de la cuenta Microsoft
+# <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configuración de la aplicación App Service para usar el inicio de sesión de la cuenta de Microsoft
+
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 En este tema se muestra cómo configurar Azure App Service para usar la cuenta Microsoft como proveedor de autenticación. 
 
 ## <a name="register-microsoft-account"></a>Registro de la aplicación con la cuenta de Microsoft
-1. Inicie sesión en [Azure Portal] y vaya a la aplicación. 
 
-<!-- Copy your **URL**, which you will use later to configure your app with Microsoft Account. -->
-1. Vaya a [**App Registrations**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (Registros de aplicaciones) e inicie sesión con las credenciales de su cuenta Microsoft, si se le solicita.
+1. Vaya a [**Registros de aplicaciones**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) en Azure Portal. Si es necesario, inicie sesión con la cuenta de Microsoft.
+1. Seleccione **Nuevo registro** y escriba el nombre de la aplicación.
+1. En **URI de redirección**, seleccione **Web** y escriba `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`. Reemplace *\<app-domain-name>* con el nombre de dominio de su aplicación.  Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Asegúrese de usar el esquema HTTPS en la dirección URL.
 
-1. Haga clic en **New registration** (Nuevo registro) y escriba el nombre de la aplicación.
-
-1. En **Redirect URIs** (Redirigir los URI), seleccione **Web** y escriba `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`. Reemplace *\<app-domain-name>* con el nombre de dominio de su aplicación.  Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. 
-
-   > [!NOTE]
-   > Use el esquema HTTPS en la URL.
-
-1. Seleccione **Register** (Registrar). 
-
-1. Copie el **id. de la aplicación (cliente)** . Lo necesitará más adelante. 
-   
-7. En el panel de navegación izquierdo del nuevo registro de aplicaciones, seleccione **Certificates & secrets (Certificados y secretos)**  > **New client secret (Nuevo secreto del cliente)** . Proporcione una descripción, seleccione la duración de validez y seleccione **Add** (Agregar).
-
-1. Copie el valor que aparece en la página **Certificates & secrets** (Certificados y secretos). Una vez que salga de esta página, la contraseña no se volverá a mostrar.
+1. Seleccione **Registrar**.
+1. Copie el **id. de la aplicación (cliente)** . Lo necesitará más adelante.
+1. En el panel izquierdo, seleccione **Certificados y secretos** > **Nuevo secreto de cliente**. Escriba una descripción, seleccione la duración de validez y después seleccione **Agregar**.
+1. Copie el valor que aparece en la página **Certificados y secretos**. Una vez que salga de esta página, ya no se volverá a mostrar.
 
     > [!IMPORTANT]
     > La contraseña es una credencial de seguridad importante. No la comparta con nadie ni la distribuya en una aplicación cliente.
 
 ## <a name="secrets"></a>Incorporación de información de la cuenta de Microsoft a la aplicación de App Service
-1. En el [Azure Portal], vaya a la aplicación. En el panel de navegación izquierdo, haga clic en **Authentication / Authorization** (Autenticación/Autorización).
 
-2. Si la característica Authentication / Authorization (Autenticación/Autorización) no está habilitada, **actívela**.
+1. Vaya a la aplicación en [Azure Portal].
+1. Haga clic en **Configuración** > **Autenticación/autorización** y asegúrese de que la opción **Autenticación de App Service** está **Activada**.
+1. En **Authentication Providers** (Proveedores de autenticación), seleccione **Microsoft Account** (Cuenta de Microsoft). Pegue el identificador de la aplicación (cliente) y el secreto de cliente que obtuvo anteriormente. Habilite los ámbitos que necesite la aplicación.
+1. Seleccione **Aceptar**.
 
-3. En **Authentication Providers** (Proveedores de autenticación), seleccione **Microsoft Account** (Cuenta de Microsoft). Pegue el id. de la aplicación (cliente) y el secreto del cliente que obtuvo anteriormente y, opcionalmente, habilite los ámbitos que su aplicación requiera. A continuación, haga clic en **Aceptar**.
+   App Service ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio ni a las API. Debe autorizar a los usuarios en el código de la aplicación.
 
-    De forma predeterminada, App Service ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
+1. (Opcional) Para restringir el acceso de los usuarios a la cuenta de Microsoft, configure la **acción necesaria cuando la solicitud no esté autenticada** en **Log in with Microsoft Account** (Iniciar sesión con la cuenta Microsoft). Al establecer esta funcionalidad, la aplicación requiere que se autentiquen todas las solicitudes. También redirige todas las solicitudes no autenticadas a la cuenta de Microsoft para la autenticación.
 
-4. (Opcional) Para restringir el acceso de los usuarios a la cuenta de Microsoft, configure la **acción necesaria cuando la solicitud no esté autenticada** en **Log in with Microsoft Account** (Iniciar sesión con la cuenta Microsoft). Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a la cuenta Microsoft para la autenticación.
+   > [!CAUTION]
+   > Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no interesar en las aplicaciones que tienen una página principal disponible públicamente así como en muchas aplicaciones de página única. Para tales aplicaciones, puede ser preferible **Permitir solicitudes anónimas (ninguna acción)** y que la aplicación inicie manualmente la autenticación. Para más información, consulte [Flujo de autenticación](overview-authentication-authorization.md#authentication-flow).
 
-> [!NOTE]
-> Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no ser deseable para las aplicaciones que necesitan una página de inicio disponible públicamente, como muchas aplicaciones de una sola página. Para tales aplicaciones, puede ser preferible **permitir las solicitudes anónimas (sin acción)** y que la aplicación inicie manualmente el inicio de sesión, tal como se describe [aquí](overview-authentication-authorization.md#authentication-flow).
-
-5. Haga clic en **Save**(Guardar).
+1. Seleccione **Guardar**.
 
 De este modo ya estará listo para usar la cuenta Microsoft para realizar la autenticación en la aplicación.
 
-## <a name="related-content"></a>Contenido relacionado
+## <a name="related-content"> </a>Pasos siguientes
+
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- URLs. -->

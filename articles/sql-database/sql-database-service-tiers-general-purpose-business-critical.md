@@ -10,21 +10,21 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 02/23/2019
-ms.openlocfilehash: 41acef4ebe13ac6152d795db4adfae5a6ae1ad91
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 10/01/2019
+ms.openlocfilehash: 7b5fd9800fdd2ee3b46087308f81f506e3e09e03
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995432"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034962"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Niveles de servicio de Azure SQL Database
 
 Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL Server que se ajusta al entorno en la nube para garantizar una disponibilidad del 99,99 %, incluso en los casos de error de la infraestructura. En Azure SQL Database se usan tres niveles de servicio, cada uno con un modelo de arquitectura diferente. Estos niveles de servicio son:
 
-- [Uso general](sql-database-service-tier-general-purpose.md), que está diseñado para la mayoría de cargas de trabajo genéricas.
-- [Crítico para la empresa](sql-database-service-tier-business-critical.md), que está diseñado para cargas de trabajo de baja latencia con una réplica legible.
-- [Hiperescala](sql-database-service-tier-hyperscale.md), que está diseñado para bases de datos de gran tamaño (hasta 100 TB) con varias réplicas legibles.
+- [De uso general](sql-database-service-tier-general-purpose.md), diseñado para la mayoría de cargas de trabajo guiadas por el presupuesto.
+- [Hiperscala](sql-database-service-tier-hyperscale.md), diseñado para la mayoría de las cargas de trabajo empresariales; proporciona almacenamiento altamente escalable, escalado horizontal de lectura y capacidades rápidas de restauración de las bases de datos.
+- [Crítico para la empresa](sql-database-service-tier-business-critical.md), diseñado para cargas de trabajo de baja latencia con alta resistencia a errores y conmutaciones por error rápidas.
 
 Este artículo se analizan las diferencias entre los niveles de servicio, las consideraciones de almacenamiento y copia de seguridad de uso general y los niveles de servicio críticos para el negocio en el modelo de compra basado en núcleo virtual.
 
@@ -34,7 +34,7 @@ En la tabla siguiente se describen las diferencias principales entre los niveles
 
 | | Tipo de recurso | Uso general |  Hiperescala | Crítico para la empresa |
 |:---:|:---:|:---:|:---:|:---:|
-| **Más adecuado para** | |  La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado. | Aplicaciones de datos con requisitos de gran capacidad de datos y la posibilidad de escalar automáticamente el almacenamiento hasta 100 TB, así como de escalar los procesos con fluidez. | Aplicaciones de OLTP con una alta tasa de transacciones y la latencia de E/S más baja. Ofrece la máxima resistencia a errores mediante varias réplicas aisladas.|
+| **Más adecuado para** | |  Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado. | La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal fluido, restauración rápida de bases de datos. | Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|
 |  **Disponible en estos tipos de recurso:** ||Base de datos única / grupo elástico / instancia administrada | Base de datos única | Base de datos única / grupo elástico / instancia administrada |
 | **Tamaño de proceso**|Base de datos única / grupo elástico | 1 a 80 núcleos virtuales | 1 a 80 núcleos virtuales | 1 a 80 núcleos virtuales |
 | | Instancia administrada | 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales | N/D | 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales |
@@ -52,7 +52,7 @@ En la tabla siguiente se describen las diferencias principales entre los niveles
 |**Copias de seguridad**|Todo|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)| RA-GRS, 7 días, recuperación a un momento dado (PITR) en un tiempo constante | RA-GRS, de 7 a 35 días (7 días de forma predeterminada) |
 |**OLTP en memoria** | | N/D | N/D | Disponible |
 |**Réplicas de solo lectura**| | 0  | 0 - 4 | 1 (integrada, incluida en el precio) |
-|**Precios y facturación** | Base de datos única | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/single/) se cobran. <br/>Las IOPS no se cobran. | Se cobran los [núcleos virtuales de cada réplica y el almacenamiento usado](https://azure.microsoft.com/pricing/details/sql-database/single/). <br/>Las IOPS no se cobran.<br/>Todavía no se ha cobrado el almacenamiento de copia de seguridad. | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/single/) se cobran. <br/>Las IOPS no se cobran. |
+|**Precios y facturación** | Base de datos única | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/single/) se cobran. <br/>Las IOPS no se cobran. | Se cobran los [núcleos virtuales de cada réplica y el almacenamiento usado](https://azure.microsoft.com/pricing/details/sql-database/single/). <br/>IOPS todavía no se ha cargado. | [El núcleo virtual, el almacenamiento reservado y el almacenamiento de copia de seguridad](https://azure.microsoft.com/pricing/details/sql-database/single/) se cobran. <br/>Las IOPS no se cobran. |
 || Instancia administrada | [El núcleo virtual y el almacenamiento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) se cobran. <br/>Las IOPS no se cobran.<br/>Todavía no se ha cobrado el almacenamiento de copia de seguridad. | N/D | [El núcleo virtual y el almacenamiento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) se cobran. <br/>Las IOPS no se cobran.<br/>Todavía no se ha cobrado el almacenamiento de copia de seguridad. | 
 |**Modelos de descuento**| | [Instancias reservadas](sql-database-reserved-capacity.md)<br/>[Ventaja híbrida de Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Ventaja híbrida de Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instancias reservadas](sql-database-reserved-capacity.md)<br/>[Ventaja híbrida de Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (no disponible en suscripciones de desarrollo y pruebas)<br/>Suscripciones de Desarrollo/pruebas de [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) y [de pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)|
 
@@ -63,7 +63,7 @@ Para más información, consulte las diferencias detalladas entre los niveles de
 
 ## <a name="data-and-log-storage"></a>Almacenamiento de datos y de registro
 
-Los siguientes factores afectan a la cantidad de almacenamiento que se usa para los archivos de datos y registro:
+Los siguientes factores afectan a la cantidad de almacenamiento utilizado para los datos y los archivos de registro, y se aplica a De uso general y Crítico para la empresa. Para información detallada sobre el almacenamiento de datos y registros en Hiperescala, consulte [Nivel de servicio Hiperescala](sql-database-service-tier-hyperscale.md).
 
 - El almacenamiento asignado lo usan los archivos de datos (MDF) y los archivos de registro (LDF).
 - Cada tamaño de proceso de una base de datos única admite un tamaño máximo de base de datos, con un tamaño máximo predeterminado de 32 GB.

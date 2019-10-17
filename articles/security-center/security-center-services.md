@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: ad662cdeb0a87e57eb9e3e7480d120be1c6c729e
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d756f9dfbd0012f884bb0c4a1e27efc76d613234
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218261"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982841"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Características compatibles disponibles en Azure Security Center
 
@@ -39,20 +39,21 @@ En las secciones siguientes se muestran las características disponibles en Secu
 |----|----|----|----|----|----|----|----|
 |**Entorno**|**Las tablas de Azure**||**No de Azure**|**Las tablas de Azure**||**No de Azure**||
 ||**Máquina virtual**|**Conjunto de escalado de máquinas virtuales**||**Máquina virtual**|**Conjunto de escalado de máquinas virtuales**|
-|Alertas de detección de amenazas de VMBA|✔|✔|✔|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|Detección de amenazas de recomendaciones (gratis) (Estándar)|
+|Alertas de detección de amenazas de análisis de comportamiento de máquinas virtuales|✔|✔|✔|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|Detección de amenazas de recomendaciones (gratis) (Estándar)|
 |Alertas de detección de amenazas basadas en red|✔|✔|X|✔|✔|X|Estándar|
 |Integración de Microsoft Defender ATP|✔ (en versiones compatibles)|✔ (en versiones compatibles)|✔|X|X|X|Estándar|
 |Revisiones que faltan|✔|✔|✔|✔|✔|✔|Gratuito|
 |Configuraciones de seguridad|✔|✔|✔|✔|✔|✔|Gratuito|
 |Evaluación de EndPoint Protection|✔|✔|✔|X|X|X|Gratuito|
-|Acceso a VM JIT|✔|X|X|✔|X|X|Estándar|
+|Acceso de máquina virtual Just-In-Time|✔|X|X|✔|X|X|Estándar|
 |Controles de aplicación adaptables|✔|X|✔|✔|X|✔|Estándar|
-|FIM|✔|✔|✔|✔|✔|✔|Estándar|
+|Supervisión de la integridad de los archivos|✔|✔|✔|✔|✔|✔|Estándar|
 |Evaluación de Disk Encryption|✔|✔|X|✔|✔|X|Gratuito|
 |Implementación de aplicaciones de terceros|✔|X|X|✔|X|X|Gratuito|
 |Evaluación de NSG|✔|✔|X|✔|✔|X|Gratuito|
 |Detección de amenazas sin archivo|✔|✔|✔|X|X|X|Estándar|
 |Mapa de red|✔|✔|X|✔|✔|X|Estándar|
+|Protección de red adaptable|✔|X|X|✔|X|X|Estándar|
 |Controles de red adaptables|✔|✔|X|✔|✔|X|Estándar|
 |Panel e informes de cumplimiento normativo|✔|✔|✔|✔|✔|✔|Estándar|
 |Recomendaciones y detección de amenazas en contenedores IaaS hospedados en Docker|X|X|X|✔|✔|✔|Estándar|

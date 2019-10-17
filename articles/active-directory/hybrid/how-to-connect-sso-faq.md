@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96d0253e1e656f4bdb5180af0d57824aceb4f0dd
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 7241c8dfbedb24f95c29ea9e1c3f763218a5668d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71176660"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025681"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Preguntas más frecuentes
 
@@ -83,70 +83,73 @@ Es importante implementar con frecuencia la clave de descifrado de Kerberos de l
 
 Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 
-    **Step 1. Get list of AD forests where Seamless SSO has been enabled**
+   **Paso 1. Obtención de la lista de bosques de AD en los que se habilitó SSO de conexión directa**
 
-    1. Primero, descargue e instale [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
-    2. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
-    3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
-    4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
-    5. Llame a `Get-AzureADSSOStatus | ConvertFrom-Json`. Aparecerá la lista de bosques de AD (examine la lista "Dominios") en la que se ha habilitado esta característica.
+   1. Primero, descargue e instale [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   2. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
+   3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
+   4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
+   5. Llame a `Get-AzureADSSOStatus | ConvertFrom-Json`. Aparecerá la lista de bosques de AD (examine la lista "Dominios") en la que se ha habilitado esta característica.
 
-    **Paso 2. Actualización de la clave de descifrado de Kerberos en cada bosque de AD en el que se haya configurado**
+   **Paso 2. Actualización de la clave de descifrado de Kerberos en cada bosque de AD en el que se haya configurado**
 
-    1. Llame a `$creds = Get-Credential`. Cuando se le pida, escriba las credenciales del administrador de dominio para el bosque de AD deseado.
+   1. Llame a `$creds = Get-Credential`. Cuando se le pida, escriba las credenciales del administrador de dominio para el bosque de AD deseado.
 
-    > [!NOTE]
-    > Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
+   > [!NOTE]
+   >El nombre de usuario de las credenciales de administrador de dominio debe especificarse con el formato de nombre de cuenta SAM (contoso\johndoe o contoso.com\johndoe). La parte de dominio del nombre de usuario se usa para localizar el controlador de dominio del administrador de dominio con DNS.
 
-    2. Llame a `Update-AzureADSSOForest -OnPremCredentials $creds`. Este comando actualiza la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACC` en este bosque de AD concreto y la actualiza en Azure AD.
-    3. Repita los pasos anteriores para cada bosque de AD en el que haya configurado la característica.
+   >[!NOTE]
+   >La cuenta de administrador de dominio usada no puede ser miembro del grupo Usuarios protegidos. De lo contrario, la operación presentará un error.
 
-    >[!IMPORTANT]
-    >Asegúrese de _no_ ejecutar el comando `Update-AzureADSSOForest` más de una vez. De lo contrario, la característica deja de funcionar hasta que expira la hora de los vales Kerberos de los usuarios y se vuelven a emitir por parte de la instancia local de Active Directory.
+   2. Llame a `Update-AzureADSSOForest -OnPremCredentials $creds`. Este comando actualiza la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACC` en este bosque de AD concreto y la actualiza en Azure AD.
+   3. Repita los pasos anteriores para cada bosque de AD en el que haya configurado la característica.
+
+   >[!IMPORTANT]
+   >Asegúrese de _no_ ejecutar el comando `Update-AzureADSSOForest` más de una vez. De lo contrario, la característica deja de funcionar hasta que expira la hora de los vales Kerberos de los usuarios y se vuelven a emitir por parte de la instancia local de Active Directory.
 
 **P: ¿Cómo se deshabilita el inicio de sesión único de conexión directa?**
 
-    **Step 1. Disable the feature on your tenant**
+   **Paso 1. Deshabilitación de la función en el inquilino**
 
-        **Option A: Disable using Azure AD Connect**
+   **Opción A: deshabilitación mediante Azure AD Connect**
+    
+   1. Ejecute Azure AD Connect, elija **Change user sign-in page** (Cambiar página de inicio de sesión de usuario) y haga clic en **Siguiente**.
+   2. Desactive la opción **Enable single sign on** (Habilitar el inicio de sesión único). Continúe con el asistente.
 
-        1. Run Azure AD Connect, choose **Change user sign-in page** and click **Next**.
-        2. Uncheck the **Enable single sign on** option. Continue through the wizard.
+   Cuando haya finalizado con el asistente, el SSO de conexión directa estará deshabilitado en su inquilino. Sin embargo, verá un mensaje en pantalla en el que se anuncia lo siguiente:
 
-        After completing the wizard, Seamless SSO will be disabled on your tenant. However, you will see a message on screen that reads as follows:
+   "El inicio de sesión único ya está deshabilitado, pero es necesario completar otros pasos manualmente para finalizar el proceso. Más información".
 
-        "Single sign-on is now disabled, but there are additional manual steps to perform in order to complete clean-up. Learn more"
+   Para completar el proceso de limpieza, siga los pasos 2 y 3 en el servidor local donde se ejecuta Azure AD Connect.
 
-        To complete the clean-up process, follow steps 2 and 3 on the on-premises server where you are running Azure AD Connect.
+   **Opción B: deshabilitación mediante PowerShell**
 
-        **Option B: Disable using PowerShell**
+   Ejecute los pasos siguientes en el servidor local donde se ejecuta Azure AD Connect:
 
-        Run the following steps on the on-premises server where you are running Azure AD Connect:
+   1. Primero, descargue e instale [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   2. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
+   3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
+   4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
+   5. Llame a `Enable-AzureADSSO -Enable $false`.
 
-        1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
-        2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
-        3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-        4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
-        5. Call `Enable-AzureADSSO -Enable $false`.
+   >[!IMPORTANT]
+   >Si deshabilita SSO de conexión directa con PowerShell, no cambiará el estado en Azure AD Connect. SSO de conexión directa se mostrará como habilitado en la página **Change user sign-in** (Cambiar inicio de sesión de usuario).
 
-        >[!IMPORTANT]
-        >Disabling Seamless SSO using PowerShell will not change the state in Azure AD Connect. Seamless SSO will show as enabled in the **Change user sign-in** page.
+   **Paso 2. Obtención de la lista de bosques de AD en los que se habilitó SSO de conexión directa**
 
-    **Step 2. Get list of AD forests where Seamless SSO has been enabled**
+   Realice las tareas 1 a 4 a continuación si ha deshabilitado el inicio de sesión único de conexión directa con Azure AD Connect. Si, en cambio, ha deshabilitado el inicio de sesión único de conexión directa con PowerShell, avance a la tarea 5 a continuación.
 
-    Follow tasks 1 through 4 below if you have disabled Seamless SSO using Azure AD Connect. If you have disabled Seamless SSO using PowerShell instead, jump ahead to task 5 below.
+   1. Primero, descargue e instale [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   2. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
+   3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
+   4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
+   5. Llame a `Get-AzureADSSOStatus | ConvertFrom-Json`. Aparecerá la lista de bosques de AD (examine la lista "Dominios") en la que se ha habilitado esta característica.
 
-    1. Primero, descargue e instale [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
-    2. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
-    3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
-    4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
-    5. Llame a `Get-AzureADSSOStatus | ConvertFrom-Json`. Aparecerá la lista de bosques de AD (examine la lista "Dominios") en la que se ha habilitado esta característica.
-
-    **Paso 3. Elimine manualmente la cuenta de equipo `AZUREADSSOACCT` de cada bosque de AD que encuentre en la lista.**
+   **Paso 3. Elimine manualmente la cuenta de equipo `AZUREADSSOACCT` de cada bosque de AD que encuentre en la lista.**
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [**Inicio rápido**](how-to-connect-sso-quick-start.md): desarrollo y ejecución de SSO de conexión directa de Azure AD.
+- [**Inicio rápido**](how-to-connect-sso-quick-start.md): desarrollo y ejecución de SSO de conexión directa de Azure AD.
 - [**Profundización técnica**](how-to-connect-sso-how-it-works.md): descripción del funcionamiento de esta característica.
 - [**Solución de problemas**](tshoot-connect-sso.md): información para resolver problemas habituales de esta característica.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.

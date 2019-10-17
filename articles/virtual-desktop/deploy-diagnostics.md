@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 07a45f54eb7c00e20abcfb05979e24493e5b9604
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676653"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177764"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos
 
@@ -51,14 +51,22 @@ En esta sección se muestra cómo usar PowerShell para crear la aplicación de A
 >Los permisos de API son de Windows Virtual Desktop, los permisos de Log Analytics y Microsoft Graph API se agregan a la aplicación de Azure Active Directory.
 
 1. Abra PowerShell como administrador.
-2. Vaya al [repositorio de GitHub de plantillas de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) y ejecute el script **Create AD App Registration for Diagnostics.ps1** en PowerShell.
-3.  Cuando el script le pida que asigne un nombre a la aplicación, escriba un nombre de aplicación único.
-4.  El script le pedirá que inicie sesión con una cuenta administrativa. Escriba las credenciales de un usuario con [acceso de administrador delegado](delegated-access-virtual-desktop.md). El administrador debe tener derechos de propietario o colaborador de RDS.
+2. Inicie sesión en Azure con una cuenta que tenga permisos de propietario o de colaborador en la suscripción de Azure que desea utilizar para la herramienta de diagnóstico:
+   ```powershell
+   Login-AzAccount
+   ```
+3. Inicie sesión en Azure AD con la misma cuenta:
+   ```powershell
+   Connect-AzureAD
+   ```
+4. Vaya al [repositorio de GitHub de plantillas de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) y ejecute el script **CreateADAppRegistrationforDiagnostics.ps1** en PowerShell.
+5.  Cuando el script le pida que asigne un nombre a la aplicación, escriba un nombre de aplicación único.
+
 
 Cuando el script se ejecuta correctamente, debería mostrar lo siguiente en la salida:
 
 -  Un mensaje que confirma que la aplicación ahora tiene asignado un rol de entidad de servicio.
--  El identificador de cliente de impresión y la clave secreta de cliente que necesitará al implementar la herramienta de diagnóstico.
+-  El identificador de cliente y la clave secreta de cliente que necesitará al implementar la herramienta de diagnóstico.
 
 Ahora que ha registrado la aplicación, es el momento de configurar el área de trabajo de Log Analytics.
 
@@ -76,7 +84,7 @@ Puede ejecutar un script de PowerShell para crear un área de trabajo de Log Ana
 Para ejecutar el script de PowerShell:
 
 1.  Abra PowerShell como administrador.
-2.  Vaya al [repositorio de GitHub de plantillas de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) y ejecute el script **Create LogAnalyticsWorkspace for Diagnostics.ps1** en PowerShell.
+2.  Vaya al [repositorio de GitHub de plantillas de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) y ejecute el script **CreateLogAnalyticsWorkspaceforDiagnostics.ps1** en PowerShell.
 3. Escriba los siguientes valores para los parámetros:
 
     - En **ResourceGroupName**, escriba el nombre del grupo de recursos.
@@ -189,7 +197,7 @@ Para establecer el URI de redirección:
 
 Antes de que la herramienta de diagnóstico esté disponible para los usuarios, asegúrese de que tienen los siguientes permisos:
 
-- Los usuarios necesitan acceso de lectura para Log Analytics. Para más información, consulte [Introducción a roles, permisos y seguridad con Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Los usuarios necesitan acceso de lectura para Log Analytics. Para más información, consulte [Introducción a roles, permisos y seguridad con Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
 -  Los usuarios también necesitan acceso de lectura para el inquilino de Windows Virtual Desktop (rol de lector de RDS). Para más información, consulte [Acceso delegado en Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
 También debe proporcionar a los usuarios la siguiente información:
@@ -203,7 +211,7 @@ Cuando haya iniciado sesión en la cuenta con la información que ha recibido de
 
 ### <a name="how-to-read-activity-search-results"></a>Procedimiento para leer los resultados de la búsqueda de actividades
 
-Las actividades se ordenan por marca de tiempo, con la actividad más reciente en primer lugar. Si los resultados devuelven un error, primero compruebe si se trata de un error de servicio. Para los errores de servicio, cree una incidencia de soporte técnico con la información de la actividad para ayudarnos a depurar el problema. Normalmente, el usuario o el administrador pueden resolver el resto de tipos de errores. Para obtener una lista de los escenarios de error más comunes y cómo resolverlos, consulte [Identificación de problemas con la característica de diagnóstico](diagnostics-role-service.md#common-error-scenarios).
+Las actividades se ordenan por marca de tiempo, con la actividad más reciente en primer lugar. Si los resultados devuelven un error, primero compruebe si se trata de un error de servicio. Para los errores de servicio, cree una incidencia de soporte técnico con la información de la actividad para ayudarnos a depurar el problema. Normalmente, el usuario o el administrador pueden resolver el resto de tipos de errores. Para obtener una lista de los escenarios de error más comunes y cómo resolverlos, consulte [Identificación y diagnóstico de problemas](diagnostics-role-service.md#common-error-scenarios).
 
 >[!NOTE]
 >Los errores de servicio se denominan "errores externos" en la documentación vinculada. Se cambiará cuando se actualice la referencia de PowerShell.

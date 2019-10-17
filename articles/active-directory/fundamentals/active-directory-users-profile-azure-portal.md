@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4002c14ed6340a0e1a89ee295d47c98436515775
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0c416d7279dd558b8a793064e295b7654925b1c8
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561781"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034894"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adición o actualización de la información de perfil de un usuario mediante Azure Active Directory
 Agregue información de perfil de usuario, como la imagen de perfil, información específica del trabajo y algunos valores de configuración mediante Azure Active Directory (Azure AD). Para obtener más información acerca de la adición de nuevos usuarios, consulte [cómo agregar o eliminar usuarios en Azure Active Directory](add-users-azure-active-directory.md).
@@ -46,7 +46,7 @@ Como verá, hay más información disponible en un perfil de usuario que la que 
 
     - **Configuración.** Establezca si el usuario puede iniciar sesión en el inquilino de Azure Active Directory. También puede especificar la ubicación global del usuario.
 
-    - **Información de contacto.** Agregue cualquier información de contacto pertinente para el usuario. Por ejemplo, una dirección o un número de celular.
+    - **Información de contacto.** Agregue cualquier información de contacto pertinente para el usuario excepto, en algunos usuarios, el teléfono o la información de contacto móvil (solo un administrador global puede actualizar los usuarios con roles de administrador).
 
     - **Información de contacto para la autenticación.** Compruebe esta información para asegurarse de que hay una dirección de correo electrónico y un número de teléfono activos para el usuario. Azure Active Directory usa esta información para comprobar la identidad del usuario durante el inicio de sesión. Solo un administrador global puede actualizar la información de contacto para la autenticación.
 

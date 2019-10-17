@@ -4,17 +4,17 @@ description: Se describe cómo configurar dispositivos de bajada o dispositivos 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/07/2019
+ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: c37c3ed2031746d7c476850749bb3dc613252654
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266116"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176808"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -183,17 +183,23 @@ Esta sección presenta una aplicación de ejemplo para conectar un cliente de di
 Esta sección presenta una aplicación de ejemplo para conectar un cliente de dispositivo de Python de Azure IoT a una puerta de enlace IoT Edge. 
 
 1. El ejemplo de **send_message** se obtiene de los [Ejemplos del SDK de dispositivo IoT de Azure para Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
-2. Asegúrese de que la ejecución se realiza en un contenedor de Edge o en un escenario de depuración y de que las variables de entorno `EdgeHubConnectionString` y `EdgeModuleCACertificateFile` se hayan establecido.
+2. Asegúrese de que la ejecución se realiza en un contenedor de IoT Edge o en un escenario de depuración, y de que las variables de entorno `EdgeHubConnectionString` y `EdgeModuleCACertificateFile` se hayan establecido.
 3. Consulte la documentación del SDK para obtener instrucciones sobre cómo ejecutar el ejemplo en el dispositivo. 
 
 
 ## <a name="test-the-gateway-connection"></a>Prueba de la conexión de puerta de enlace
 
-Este es un comando de ejemplo que comprueba que todo se ha configurado correctamente. Verá un mensaje que indica que la verificación es correcta.
+Use este comando de ejemplo para probar que el dispositivo de nivel inferior puede conectarse al dispositivo de puerta de enlace: 
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+Este comando prueba las conexiones a través de MQTTS (puerto 8883). Si utiliza un protocolo diferente, ajuste el comando según sea necesario para AMQPS (5671) o HTTPS (433).
+
+La salida de este comando puede ser larga, incluida la información sobre todos los certificados de la cadena. Si la conexión se realiza correctamente, verá una línea como `Verification: OK` o `Verify return code: 0 (ok)`.
+
+![Comprobación de una conexión de puerta de enlace](./media/how-to-connect-downstream-device/verification-ok.png)
 
 ## <a name="troubleshoot-the-gateway-connection"></a>Solución de problemas de la conexión de puerta de enlace
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 2056970a91a90fc14528b13650472722a235c354
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4d4d83e12d284ce760b8a7e87fd42e6c8ebb4850
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350486"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001213"
 ---
 # <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Cree y administre entornos reutilizables para aprendizaje e implementación con Azure Machine Learning.
 
@@ -207,7 +207,7 @@ Cuando se usa por primera vez el entorno, en el entrenamiento o la implementaci�
 
 ### <a name="get-existing-environments"></a>Obtención de los entornos existentes
 
-La clase Environment ofrece métodos que permiten recuperar los entornos existentes en el área de trabajo por nombre, en forma de lista o mediante una ejecución de entrenamiento específica. Con fines de solución de problemas o auditoría, reproducibilidad
+La clase Environment ofrece métodos que permiten recuperar los entornos existentes en el área de trabajo por nombre, en forma de lista o mediante una ejecución de entrenamiento específica con fines de solución de problemas o auditoría y de reproducibilidad.
 
 #### <a name="view-list-of-environments"></a>Visualización de la lista de entornos
 
@@ -243,7 +243,7 @@ En este ejemplo se usa el método [build()](https://docs.microsoft.com/python/ap
 
 ```python
 from azureml.core import Image
-build = env.build()
+build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
@@ -258,7 +258,7 @@ Cuando se usa el comando `enable` para habilitar Docker, el servicio compila una
 myenv.docker.enabled = True
 ```
 
-Una vez creada, la imagen de Docker aparece en la instancia de Azure Container Registry que está asociada de forma predeterminada al área de trabajo.  El nombre del repositorio tiene el formato *azureml/azureml_\<uuid\>* . La parte del identificador único (*uuuid*) corresponde a un hash calculado a partir de la configuración del entorno. Esto permite que el servicio determine si ya existe una imagen correspondiente al entorno dado para reutilizar.
+Una vez creada, la imagen de Docker aparece en la instancia de Azure Container Registry que está asociada de forma predeterminada al área de trabajo.  El nombre del repositorio tiene el formato *azureml/azureml_\<uuid\>* . La parte del identificador único (*uuid*) corresponde a un hash calculado a partir de la configuración del entorno. Esto permite que el servicio determine si ya existe una imagen correspondiente al entorno dado para reutilizar.
 
 Además, el servicio usa automáticamente una de las [imágenes base](https://github.com/Azure/AzureML-Containers) basadas en Ubuntu Linux e instala los paquetes de Python especificados. La imagen base tiene versiones de CPU y GPU. Azure Machine Learning Service detecta automáticamente qué versión se va a usar.
 

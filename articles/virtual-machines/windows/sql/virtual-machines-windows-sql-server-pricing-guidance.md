@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70280169"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028631"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientación de precios de SQL Server para máquinas virtuales de Azure
 
@@ -64,7 +64,7 @@ Tiene dos opciones para pagar licencias de SQL Server para estas ediciones: *pag
 
 ## <a name="pay-per-usage"></a>Pago por uso
 
-**Pago por uso de la licencia de SQL Server**: el costo por segundo de ejecución de la máquina virtual de Azure incluye el costo de la licencia de SQL Server. Puede ver el precio de las diferentes ediciones de SQL Server (Web, Standard y Enterprise) en la página de precios de Azure VM para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
+**Pago en función del uso de la licencia de SQL Server** (también conocido como **pago por uso**): el costo por segundo de ejecución de la máquina virtual de Azure incluye el costo de la licencia de SQL Server. Puede ver el precio de las diferentes ediciones de SQL Server (Web, Standard y Enterprise) en la página de precios de Azure VM para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
 El costo es el mismo para todas las versiones de SQL Server (2012 SP3 a 2017). Los costos de licencia por segundo dependen del número de vCPU de máquina virtual.
 
@@ -74,7 +74,7 @@ Se recomienda pagar las licencias por uso de SQL Server en los siguientes casos:
 
 - **Cargas de trabajo con una duración o escala desconocidas**. Por ejemplo, una aplicación que puede no ser necesaria en unos meses, o que puede requerir más o menos capacidad de proceso, según la demanda.
 
-Para crear una máquina virtual de Azure de SQL Server 2017 con alguna de estas imágenes de pago por uso, vea los siguientes vínculos:
+Para crear una máquina virtual de Azure con SQL Server 2017 con alguna de estas imágenes de pago por uso, vea los siguientes vínculos:
 
 | Plataforma | Imágenes con licencia |
 |---|---|

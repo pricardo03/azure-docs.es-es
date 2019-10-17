@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/06/2019
-ms.openlocfilehash: 24bd2cca2e4ed053d51f618d90274e8988a09c26
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/02/2019
+ms.openlocfilehash: 19febc5a0a6e4a72cfebfaecd917185538130152
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568895"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035026"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de error de SQL para aplicaciones cliente de SQL Database: Errores de conexión de base de datos y otros problemas
 
@@ -55,13 +55,35 @@ Los siguientes errores son transitorios y se deben volver a probar en la lógica
 | Código de error | severity | DESCRIPCIÓN |
 | ---:| ---:|:--- |
 | 4060 |16 |No se puede abrir la base de datos "%.&#x2a;ls" solicitada por el inicio de sesión. Error de inicio de sesión. Para obtener más información, consulte [los errores de 4000 a 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999).|
-| 40197 |17 |Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de SQL Database se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a SQL Database hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo. Para obtener más información, vea [Errores transitorios](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
+| 40197 |17 |Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) [insertado en el mensaje de error 40197](sql-database-develop-error-messages.md#embedded-error-codes) proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de SQL Database se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a SQL Database hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo. Para obtener más información, vea [Errores transitorios](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d. Para más información, consulte: <br/>&bull; &nbsp;[Límites de recursos de SQL Database para un servidor de Azure SQL Database](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Niveles de servicio en el modelo de compra basado en DTU](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para las bases de datos únicas mediante el modelo de compra basado en núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos de instancia administrada](sql-database-managed-instance-resource-limits.md)|
 | 40613 |17 |La base de datos '%.&#x2a;ls' en el servidor '%.&#x2a;ls' no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de '%.&#x2a;ls'.<br/><br/> Este error puede producirse si ya existe una conexión de administrador dedicada (DAC) establecida en la base de datos. Para obtener más información, vea [Errores transitorios](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
 | 49918 |16 |No se puede procesar la solicitud. No hay suficientes recursos para procesar la solicitud.<br/><br/>El servicio está ocupado actualmente. Vuelva a intentar realizar la solicitud más tarde. Para más información, consulte: <br/>&bull; &nbsp;[Límites de recursos de SQL Database para un servidor de Azure SQL Database](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Niveles de servicio en el modelo de compra basado en DTU](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para las bases de datos únicas mediante el modelo de compra basado en núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos de instancia administrada](sql-database-managed-instance-resource-limits.md) |
 | 49919 |16 |No se procesar, crear ni actualizar la solicitud. Hay demasiadas operaciones de creación o actualización en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes de creación o actualización para su suscripción o servidor. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulte [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para ver las operaciones pendientes. Espere a que se completen las solicitudes de creación o actualización pendientes o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. Para más información, consulte: <br/>&bull; &nbsp;[Límites de recursos de SQL Database para un servidor de Azure SQL Database](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Niveles de servicio en el modelo de compra basado en DTU](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para las bases de datos únicas mediante el modelo de compra basado en núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos de instancia administrada](sql-database-managed-instance-resource-limits.md) |
 | 49920 |16 |No se puede procesar la solicitud. Hay demasiadas operaciones en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes para esta suscripción. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para el estado de la operación. Espere a que las solicitudes pendientes se hayan completado o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. Para más información, consulte: <br/>&bull; &nbsp;[Límites de recursos de SQL Database para un servidor de Azure SQL Database](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Niveles de servicio en el modelo de compra basado en DTU](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos para las bases de datos únicas mediante el modelo de compra basado en núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Límites de recursos de instancia administrada](sql-database-managed-instance-resource-limits.md) |
 | 4221 |16 |No se pudo iniciar sesión en el secundario de lectura debido a una espera prolongada en HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING. La réplica no está disponible para el inicio de sesión porque faltan las versiones de las filas de transacciones que estaban en proceso cuando se recicló la réplica. Se puede resolver el problema al revertir o asignar las transacciones activas en la réplica principal. Se pueden minimizar las repeticiones de esta condición al evitar escribir transacciones en la principal. |
+
+## <a name="embedded-error-codes"></a>Códigos de error insertados
+
+Los errores siguientes se insertan en el código de error más general 40197:
+
+```
+The service has encountered an error processing your request. Please try again. Error code %d.
+```
+
+| Código de error | severity | DESCRIPCIÓN | 
+| ---:| ---:|:---|
+|  1104 |17 |TEMPDB se quedó sin espacio durante el desbordamiento. Cree espacio quitando objetos o vuelva a escribir la consulta y que consuma menos filas. Si el problema persiste, considere la posibilidad de actualizar a un objetivo de nivel de servicio superior.|
+| 40020 |16 |La base de datos está en transición y las transacciones se están terminando.|
+| 40143 |16 |La réplica que el nodo de datos hospeda de la partición solicitada no es la principal.|
+| 40166 |16 |Se está realizando una reconfiguración de CloudDB y se anulan todas las transacciones de usuario nuevas.|
+| 40540 |16 |Se anuló la transacción porque la base de datos ha pasado al modo de solo lectura. Se trata de una situación temporal; vuelva a intentar la operación.|
+
+Consulte `sys.messages` para información sobre otros errores insertados:
+
+```sql
+SELECT * FROM sys.[messages] WHERE [message_id] = <error_code>
+```
 
 ## <a name="database-copy-errors"></a>Errores de copia de base de datos
 

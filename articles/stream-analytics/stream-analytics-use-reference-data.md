@@ -7,13 +7,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: ed50dfd7e3c423c1c26a7dc19ae60dcb319f1850
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 10/8/2019
+ms.openlocfilehash: d058fdd48b8a271c8a2db7d327267de053c02c44
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621610"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244854"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
 
@@ -60,7 +60,7 @@ Azure Stream Analytics examina automáticamente los blobs de datos de referencia
 > 
 > Una excepción se produce cuando el trabajo debe volver a procesar datos anteriores en el tiempo o cuando se inicia por primera vez. En momento de iniciarse, el trabajo busca el blob más reciente generado antes de la hora de inicio del trabajo especificada. Esto se hace para garantizar que haya un conjunto de datos de referencia **no vacío** al iniciarse el trabajo. Si no se encuentra ninguno, el trabajo muestra el diagnóstico siguiente: `Initializing input without a valid reference data blob for UTC time <start time>`.
 
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) puede usarse para organizar la tarea de crear los blobs actualizados requeridos por Stream Analytics para actualizar las definiciones de datos de referencia. Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Factoría de datos admite la [conexión a un gran número de almacenes de datos locales y en la nube](../data-factory/copy-activity-overview.md) y el desplazamiento sencillo de los datos con la regularidad que se especifique. Para obtener más información e instrucciones paso a paso sobre cómo configurar una canalización de Factoría de datos para generar datos de referencia para Stream Analytics que se actualiza según una programación predefinida, consulte este [ejemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) puede usarse para organizar la tarea de crear los blobs actualizados requeridos por Stream Analytics para actualizar las definiciones de datos de referencia. Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Factoría de datos admite la [conexión a un gran número de almacenes de datos locales y en la nube](../data-factory/copy-activity-overview.md) y el desplazamiento sencillo de los datos con la regularidad que se especifique. Para obtener más información e instrucciones paso a paso sobre cómo configurar una canalización de Factoría de datos para generar datos de referencia para Stream Analytics que se actualiza según una programación predefinida, consulte este [ejemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
 
 ### <a name="tips-on-refreshing-blob-reference-data"></a>Sugerencias sobre cómo actualizar los datos de referencia de blob
 
@@ -86,11 +86,13 @@ Con la opción de consulta delta, Stream Analytics ejecuta la consulta de instan
 
 Para configurar los datos de referencia de SQL Database, tiene que crear primero una entrada **Datos de referencia**. En la siguiente tabla se explica cada propiedad que tendrá que proporcionar al crear la entrada de los datos de referencia, junto con su descripción. Para más información, consulte [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md) (Uso de datos de referencia de una instancia de SQL Database para un trabajo de Azure Stream Analytics).
 
+Puede usar [Instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como entrada de datos de referencia. Debe [configurar un punto de conexión público en Instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) y, a continuación, configurar manualmente las siguientes opciones en Azure Stream Analytics. También es posible configurar manualmente los valores siguientes para una máquina virtual de Azure que ejecute SQL Server con una base de datos adjunta.
+
 |**Nombre de la propiedad**|**Descripción**  |
 |---------|---------|
 |Alias de entrada|Nombre descriptivo que se usará en la consulta de trabajo para hacer referencia a esta entrada.|
 |Subscription|Elija una suscripción|
-|Base de datos|La base de datos de Azure SQL que contiene los datos de referencia.|
+|Base de datos|La base de datos de Azure SQL que contiene los datos de referencia. Para Instancia administrada de Azure SQL Database, es necesario especificar el puerto 3342. Por ejemplo, *sampleserver.public.database.windows.net,3342*.|
 |Nombre de usuario|El nombre de usuario asociado a su base de datos de Azure SQL.|
 |Contraseña|La contraseña asociada a su base de datos de Azure SQL.|
 |Actualizar periódicamente|Esta opción le permite elegir una frecuencia de actualización. Si elige "Activado", podrá especificar la frecuencia de actualización en DD:HH:MM.|

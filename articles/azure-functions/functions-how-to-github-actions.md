@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 8e9e1189c3eb9de273926645ad0d4cfde5ba1c49
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 483ac9380fa8d58f294112cb6c80e0393fa01589
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260040"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028966"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega continua con Acciones de GitHub
 
@@ -29,9 +29,9 @@ Para un flujo de trabajo de Azure Functions, el archivo tiene tres secciones:
 
 | Sección | Tareas |
 | ------- | ----- |
-| **Autenticación** | <ol><li>Defina una entidad de servicio.</li><li>Cree un secreto de GitHub.</li></ol>|  
+| **Autenticación** | <ol><li>Defina una entidad de servicio.</li><li>Descargue un perfil de publicación.</li><li>Cree un secreto de GitHub.</li></ol>|
 | **Compilar** | <ol><li>Configure el entorno.</li><li>Compile la aplicación de función.</li></ol> |
-| **Implementación** | <ol><li>Implemente la aplicación de función.</li></ol>| 
+| **Implementación** | <ol><li>Implemente la aplicación de función.</li></ol>|
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
@@ -43,16 +43,27 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 En este ejemplo, reemplace los marcadores de posición del recurso por su identificador de suscripción, grupo de recursos y nombre de la aplicación de función. La salida son las credenciales de asignación de roles que proporcionan acceso a su aplicación de funciones. Copie este objeto JSON, el cual puede usar para autenticarse desde GitHub.
 
+> [!NOTE]
+> No es necesario crear una entidad de servicio si decide usar el perfil de publicación para la autenticación.
+
 > [!IMPORTANT]
 > Siempre es recomendable conceder acceso mínimo. Es por ello que el ámbito del ejemplo anterior se limita a la aplicación de funciones específica y no a todo el grupo de recursos.
+
+## <a name="download-the-publishing-profile"></a>Descarga del perfil de publicación
+
+Puede descargar el perfil de publicación de su functionapp. Para ello, vaya a la página **Información general** de la aplicación y haga clic en **Obtener perfil de publicación**.
+
+   ![Descargar perfil de publicación](media/functions-how-to-github-actions/get-publish-profile.png)
+
+Copie el contenido del archivo.
 
 ## <a name="configure-the-github-secret"></a>Configuración del secreto de GitHub
 
 1. En [GitHub](https://github.com), examine su repositorio, seleccione **Configuración** > **Secretos** > **Agregar un nuevo secreto**.
 
-    ![Agregar secreto](media/functions-how-to-github-actions/add-secret.png)
+   ![Agregar secreto](media/functions-how-to-github-actions/add-secret.png)
 
-1. Use `AZURE_CREDENTIALS` para el **Nombre** y la salida del comando copiada para **Valor** y, a continuación, seleccione **Agregar secreto**. 
+1. Use `AZURE_CREDENTIALS` para **Nombre** y la salida del comando copiada para **Valor** y, a continuación, seleccione **Add secret** (Agregar secreto). Si usa el perfil de publicación, utilice `SCM_CREDENTIALS` para **Nombre** y el contenido del archivo para **Valor**.
 
 Ahora GitHub puede autenticarse en su aplicación de funciones de Azure.
 

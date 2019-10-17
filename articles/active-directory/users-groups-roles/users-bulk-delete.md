@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb01b46d61b6ba99c3ec9c537dccc350074f5e05
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: d7c47887c12c8bf9be7a0c5b11dfb3f099965cb7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146428"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174374"
 ---
 # <a name="bulk-delete-users-preview-in-azure-active-directory"></a>Eliminación masiva de usuarios (versión preliminar) en Azure Active Directory
 
@@ -26,18 +26,22 @@ Mediante el portal de Azure Active Directory (Azure AD), puede quitar una gra
 
 ## <a name="to-bulk-delete-users"></a>Para eliminar usuarios en masa
 
-1. Inicie sesión en la organización de Azure AD con una cuenta que sea la del administrador de usuarios de la organización.
+1. [Inicie sesión en la organización de Azure AD](https://aad.portal.azure.com) con una cuenta que sea la del administrador de usuarios de la organización.
 1. En Azure AD, seleccione **Usuarios** > **Eliminación masiva**.
-1. En la página **Eliminación masiva de usuarios**, seleccione **Descargar** para recibir un archivo .csv válido de propiedades de usuario y, a continuación, agregue los usuarios que quiere eliminar.
-
-   ![El archivo CSV contiene los nombres y los identificadores de los usuarios que se eliminarán.](./media/users-bulk-delete/delete-csv-file.png)
-
-1. Cuando termine de editar el archivo .csv, seleccione el archivo en **Cargue el archivo .csv** para validarlo.
+1. En la página **Eliminación masiva de usuarios**, seleccione **Descargar** para recibir un archivo CSV válido de propiedades de usuario.
 
    ![Selección de un archivo .csv local en el que se indican los usuarios que quiere eliminar](./media/users-bulk-delete/bulk-delete.png)
 
-1. Cuando se valida el contenido del archivo, debe corregir los errores para poder enviar el trabajo.
-1. Cuando el archivo pase la validación, seleccione **Enviar** para iniciar el trabajo por lotes de Azure que elimina los usuarios. Si hay errores, puede descargar y ver el archivo de resultados en la página de resultados de la operación masiva. El archivo contiene el motivo de cada error.
+1. Abra el archivo CSV y agregue una línea por cada usuario que desee eliminar. El único valor necesario es **Nombre principal del usuario**. A continuación, guarde el archivo.
+
+   ![El archivo CSV contiene los nombres y los identificadores de los usuarios que se eliminarán.](./media/users-bulk-delete/delete-csv-file.png)
+
+1. En la página **Bulk delete user (Preview)** (Eliminación masiva de usuarios [versión preliminar]), en **Cargue el archivo csv**, vaya al archivo. Al seleccionar el archivo y hacer clic en Enviar, comienza su validación.
+1. Cuando finalice la validación del contenido del archivo, aparecerá el mensaje **Archivo cargado correctamente**. Si hay errores, debe corregirlos para poder enviar el trabajo.
+1. Cuando el archivo supere la validación, seleccione **Enviar** para iniciar la operación masiva de Azure que elimina los usuarios.
+1. Cuando la operación de eliminación finalice, verá una notificación que indicará que la operación masiva se realizó correctamente.
+
+Si hay errores, puede descargar y ver el archivo de resultados en la página **Resultados de la operación masiva**. El archivo contiene el motivo de cada error.
 
 ## <a name="check-status"></a>Comprobar estado
 

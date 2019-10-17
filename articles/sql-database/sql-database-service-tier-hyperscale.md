@@ -3,22 +3,22 @@ title: Información general de Hiperescala de Azure SQL Database | Microsoft Doc
 description: En este artículo se describe el nivel de servicio Hiperescala en el modelo de compra basado en núcleo virtual en Azure SQL Database, y se explica la diferencia entre los niveles de servicio Uso general y Crítico para la empresa.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/06/2019
-ms.openlocfilehash: 1d70c5d86221213ae3f9a2d31fdf40857cb516be
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 10/01/2019
+ms.openlocfilehash: dc9acd4fc45de2599ac71427ec2676506071894b
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845643"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035069"
 ---
-# <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Nivel de servicio Hiperescala para un máximo de 100 TB
+# <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
 Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL Server que se ajusta al entorno en la nube, con el fin de garantizar una disponibilidad del 99,99 % incluso en los casos de error de la infraestructura. Hay tres modelos de arquitectura que se usan en Azure SQL Database:
 - De uso general/Estándar 
@@ -51,9 +51,13 @@ Para más información sobre los tamaños de proceso para el nivel de servicio H
 
 ## <a name="who-should-consider-the-hyperscale-service-tier"></a>Quién debe tener en cuenta el nivel de servicio Hiperescala
 
-El nivel de servicio Hiperescala sirve principalmente para los clientes que tienen grandes bases de datos ya sea de forma local y quieren modernizar sus aplicaciones al moverlas a la nube, o para los clientes que ya están en la nube y están limitados por restricciones en el tamaño máximo de la base de datos (de 1 a 4 TB). También sirve para los clientes que buscan alto rendimiento y alta escalabilidad para el almacenamiento y los procesos.
+El nivel de servicio Hiperescala está pensado para la mayoría de las cargas de trabajo empresariales, ya que proporciona una gran flexibilidad y un alto rendimiento con recursos de proceso y almacenamiento escalables de forma independiente. Con la capacidad de almacenamiento con escalado automático hasta 100 TB, es una excelente opción para los clientes que:
 
-El nivel de servicio Hiperescala es compatible con todas las cargas de trabajo de SQL Server, pero está optimizado principalmente para OLTP. El nivel de servicio Hiperescala también admite cargas de trabajo híbridas y analíticas (data mart).
+- Tienen bases de datos de gran tamaño en el entorno local y desean modernizar sus aplicaciones pasándose a la nube
+- Ya están en la nube y están limitados por las restricciones de tamaño máximo de base de datos de otros niveles de servicio (1-4 TB)
+- Tienen bases de datos más pequeñas, pero requieren un escalado de proceso vertical y horizontal rápido, alto rendimiento, copia de seguridad instantánea y una rápida restauración de bases de datos.
+
+El nivel de servicio Hiperescala admite una amplia gama de cargas de trabajo de SQL Server, desde OLTP puro hasta análisis puro, pero está optimizado principalmente para cargas de trabajo OLTP y de procesamiento híbrido transaccional y analítico (HTAP).
 
 > [!IMPORTANT]
 > Los grupos elásticos no admiten el nivel de servicio Hiperescala.
@@ -80,27 +84,27 @@ El siguiente diagrama ilustra los diferentes tipos de nodos en una base de datos
 
 ![arquitectura](./media/sql-database-hyperscale/hyperscale-architecture.png)
 
-Una base de datos de hiperescala contiene los distintos tipos de nodo siguientes:
+Una base de datos de Hiperescala contiene los distintos tipos de componentes siguientes:
 
-### <a name="compute-node"></a>Nodo de ejecución
+### <a name="compute"></a>Proceso
 
 El nodo de ejecución es donde reside el motor relacional, donde ocurren todos los elementos de lenguaje, el procesamiento de consultas, etc. Todas las interacciones de usuario con una base de datos de hiperescala se producen a través de estos nodos de ejecución. Los nodos de ejecución tienen memorias caché basadas en SSD (con la etiqueta RBPEX, extensión del grupo de búferes resistentes, en el diagrama anterior) para minimizar el número de recorridos de ida y vuelta de red necesarios para capturar una página de datos. Hay un nodo de ejecución principal donde se procesan todas las transacciones y las cargas de trabajo de lectura y escritura. Hay uno o varios nodos de ejecución secundarios que actúan como nodos en espera activa para fines de conmutación por error, además de actuar como nodos de ejecución de solo lectura para la descarga de cargas de trabajo de lectura (si se desea esta funcionalidad).
 
-### <a name="page-server-node"></a>Nodo de servidor de páginas
+### <a name="page-server"></a>Servidor de páginas
 
 Los servidores de páginas son sistemas que representan un motor de almacenamiento escalado horizontalmente.  Cada servidor de páginas es responsable de un subconjunto de las páginas en la base de datos.  Nominalmente, cada servidor de páginas controla entre 128 GB y 1 TB de datos. No se comparte ningún dato en más de un servidor de páginas (fuera de las réplicas que se mantienen para ofrecer redundancia y disponibilidad). El trabajo de un servidor de páginas es servir las páginas de la base de datos a los nodos de ejecución a petición, y conservar las páginas actualizadas a medida que las transacciones actualizan los datos. Los servidores de páginas se mantienen actualizados mediante la reproducción de entradas del registro del servicio de registro. Los servidores de páginas también mantienen memorias caché basadas en SSD para mejorar el rendimiento. El almacenamiento a largo plazo de las páginas de datos se mantiene en Azure Storage para aumentar la confiabilidad.
 
-### <a name="log-service-node"></a>Nodo de servicio de registros
+### <a name="log-service"></a>Servicio de registros
 
-El nodo de servicio de registros acepta entradas de registro desde el nodo de ejecución principal, los conserva en una memoria caché duradera y reenvía las entradas del registro al resto de los nodos de ejecución (para que puedan actualizar sus memorias caché), así como los servidores de páginas pertinentes, para que los datos puedan actualizarse allí. De este modo, todos los cambios en los datos desde el nodo de ejecución principal se propagan a través del servicio de registro a todos los nodos de ejecución secundarios y los servidores de páginas. Por último, las entradas de registro se insertan en el almacenamiento a largo plazo en Azure Storage, que es un repositorio de almacenamiento infinito. Este mecanismo elimina la necesidad de truncamiento frecuente del registro. El servicio de registro también tiene memoria caché local para acelerar el acceso.
+El servicio de registros acepta entradas de registro desde la réplica de proceso principal, las conserva en una memoria caché duradera y reenvía las entradas del registro al resto de las réplicas de proceso (para que puedan actualizar sus memorias caché), así como los servidores de páginas pertinentes, para que los datos puedan actualizarse allí. De este modo, todos los cambios en los datos desde la réplica de proceso principal se propagan mediante el servicio de registros a todas las réplicas de proceso secundarias y los servidores de página. Por último, las entradas de registro se insertan en el almacenamiento a largo plazo en Azure Storage, que es un repositorio de almacenamiento casi infinito. Este mecanismo elimina la necesidad de truncamiento frecuente del registro. El servicio de registros también tiene memoria caché local para acelerar el acceso a las entradas de registro.
 
-### <a name="azure-storage-node"></a>Nodo de almacenamiento de Azure
+### <a name="azure-storage"></a>Almacenamiento de Azure
 
-El nodo de almacenamiento de Azure es el destino final de los datos a partir de servidores de páginas. Este almacenamiento se usa con fines de copia de seguridad, así como para la replicación entre regiones de Azure. Las copias de seguridad constan de instantáneas de archivos de datos. La operación de restauración es rápido a partir de estas instantáneas, y los datos se pueden restaurar en cualquier momento.
+Azure Storage contiene todos los archivos de datos de una base de datos. Los servidores de página mantienen los archivos de datos en Azure Storage actualizados. Este almacenamiento se usa con fines de copia de seguridad, así como para la replicación entre regiones de Azure. Las copias de seguridad se implementan mediante instantáneas de almacenamiento de archivos de datos. Las operaciones de restauración mediante instantáneas son rápidas independientemente del tamaño de los datos. Los datos se pueden restaurar a cualquier punto en el tiempo dentro del período de retención de copia de seguridad de la base de datos.
 
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
-Las copias de seguridad son la base de instantáneas de archivos y, por tanto, son casi instantáneas. La separación del almacenamiento y los procesos permiten insertar la operación de copia de seguridad y restauración en la capa de almacenamiento para reducir la carga de procesamiento en el nodo de ejecución principal. Como resultado, la copia de seguridad de una base de datos de gran tamaño no afecta al rendimiento del nodo de ejecución principal. De forma similar, las restauraciones se realizan mediante la copia de la instantánea de archivos y, por tanto, no dependen de la operación de datos. Para restauraciones en la misma cuenta de almacenamiento, la operación de restauración es rápida.
+Las copias de seguridad están basadas en instantáneas de archivos y, por tanto, se realizan de forma prácticamente instantánea. La separación del almacenamiento y los procesos permite insertar la operación de copia de seguridad y restauración en la capa de almacenamiento para reducir la carga de procesamiento en replica de proceso principal. Como resultado, la copia de seguridad de base de datos no afecta al rendimiento del nodo de proceso principal. del mismo modo, las restauraciones se realizan revirtiendo a instantáneas de archivos y, por tanto, no tienen el tamaño de una operación de datos. La restauración es una operación de tiempo constante, e incluso las bases de datos de varios terabytes se pueden restaurar en minutos en lugar de horas o días. La creación de bases de datos nuevas mediante la restauración de una copia de seguridad existente también aprovecha esta característica: la creación de copias de base de datos para fines de desarrollo o pruebas, incluso cuando se trata de bases de datos con un tamaño de terabytes, es factible en cuestión de minutos.
 
 ## <a name="scale-and-performance-advantages"></a>Ventajas de escala y rendimiento
 
@@ -121,7 +125,7 @@ Esto creará una base de datos Hiperescala en el hardware de Gen5 con 4 núcleos
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Migración de una base de datos de Azure SQL existente al nivel de servicio Hiperescala
 
-Puede mover las bases de datos de Azure SQL existentes a Hiperescala con [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Actualmente, esta migración es unidireccional. No puede trasladar las bases de datos del nivel de servicio Hiperescala a ningún otro. Es recomendable que haga una copia de las bases de datos de producción y migre a Hiperescala para realizar las pruebas de concepto.
+Puede mover las bases de datos de Azure SQL existentes a Hiperescala con [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Actualmente, esta migración es unidireccional. No se pueden trasladar bases de datos de Hiperescala a otro nivel de servicio, excepto mediante la exportación e importación de datos. Para las pruebas de concepto (POC), se recomienda que haga una copia de las bases de datos de producción y la migre a Hiperescala. La migración de una base de datos de Azure SQL existente al nivel Hiperescala tiene el tamaño de una operación de datos.
 
 El siguiente comando de T-SQL traslada una base de datos al nivel de servicio Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `ALTER DATABASE`.
 
@@ -139,7 +143,17 @@ En las bases de datos de Hiperescala, el argumento `ApplicationIntent` de la cad
 -- Connection string with application intent
 Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
+
+Las réplicas secundarias de Hiperescala son todas idénticas, y utilizan el mismo objetivo de nivel de servicio que la réplica principal. Si hay más de una réplica secundaria, la carga de trabajo se distribuye entre todas las replicas secundarias disponibles. Cada réplica secundaria se actualiza de forma independiente, por lo que las distintas réplicas podrían tener una latencia de datos diferente en relación con la réplica principal.
+
+## <a name="database-high-availability-in-hyperscale"></a>Alta disponibilidad de la base de datos en Hiperscala
+
+Como en todos los demás niveles de servicio, Hiperescala garantiza la durabilidad de los datos para las transacciones confirmadas, independientemente de la disponibilidad de la réplica de proceso. El grado de tiempo de inactividad debido a que la réplica principal no esté disponible, depende del tipo de conmutación por error (planeada frente a no planeada) y de la presencia de al menos una réplica secundaria. En una conmutación por error planeada (es decir, un evento de mantenimiento), el sistema crea la nueva réplica principal antes de iniciar la conmutación por error, o bien usa una réplica secundaria existente como destino de la conmutación por error. En una conmutación por error no planeada (es decir, un error de hardware en la réplica principal), el sistema usa una réplica secundaria como destino de la conmutación por error, si existe, o crea una nueva réplica principal a partir del grupo de capacidad de proceso disponible. En el último caso, la duración del tiempo de inactividad es mayor debido a pasos adicionales necesarios para crear la nueva réplica principal.
+
+Para el contrato de nivel de servicio de Hiperescala, consulte [Contrato de nivel de servicio para Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/).
+
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>Recuperación ante desastres para bases de datos Hiperescala
+
 ### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Restaurar una base de datos Hiperescala en una ubicación geográfica diferente
 Si necesita restaurar una base de datos Hiperescala de Azure SQL Database en una región distinta a donde se hospeda actualmente —como parte de una operación de recuperación ante desastres, una exploración en profundidad, una reubicación o cualquier otro motivo—, el método principal es realizar una restauración geográfica de la base de datos.  Esto implica exactamente los mismos pasos que seguiría para restaurar cualquier otra base de datos de Azure SQL en una región diferente:
 1. Cree un servidor de SQL Database en la región de destino si ahí todavía no tiene un servidor adecuado.  Este servidor debe pertenecer a la misma suscripción que el servidor original (origen).
@@ -227,17 +241,15 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 | El panel Administrar copias de seguridad para un servidor lógico no muestra las bases de datos Hiperescala que se van a filtrar desde SQL Server  | Hiperescala tiene un método independiente para administrar las copias de seguridad y, por tanto, la configuración de la retención de copias de seguridad correspondiente a la retención a largo plazo y a un momento dado no se aplican o se invalidan. En consecuencia, las bases de datos de Hiperescala no aparecen en el panel Administración de copias de seguridad. |
 | Restauración a un momento dado | Una vez que se migra una base de datos al nivel de servicio Hiperescala, no se puede restaurar a un momento dado anterior a la migración.|
 | Restauración de una base de datos que no sea Hiperescala en una base de datos Hiperescala y viceversa | No se puede restaurar una base de datos Hiperescala en una base de datos que no sea Hiperescala, ni se puede restaurar una base de datos que no sea Hiperescala en una base de datos Hiperescala.|
-| Si un archivo de base de datos crece durante la migración debido a una carga de trabajo activa y cruza el límite de 1 TB por archivo, se produce un error en la migración. | Mitigaciones: <br> - Si es posible, debe migrar la base de datos cuando no haya ninguna carga de trabajo de actualización en ejecución.<br> - Vuelva a intentar la migración; se realizará correctamente siempre y cuando no se traspase el límite de 1 TB durante la migración.|
+| Si una base de datos tiene uno o más archivos de datos de más de 1 TB, se produce un error en la migración | En algunos casos, es posible que se pueda solucionar este problema si se reducen los archivos de gran tamaño para que tengan menos de 1 TB. Si va a migrar una base de datos que se utiliza durante el proceso de migración, asegúrese de que ningún archivo tenga un tamaño superior a 1 TB. Utilice la siguiente consulta para determinar el tamaño de los archivos de base de datos. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instancia administrada | Instancia administrada de Azure SQL Database no es compatible actualmente con las bases de datos Hiperescala. |
 | Grupos elásticos |  Los grupos elásticos no admiten actualmente con SQL Database Hiperescala.|
-| La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En este momento, la única forma de migrar una base de datos de hiperescala a otro nivel de servicio es con la exportación e importación mediante un archivo BACPAC.|
+| La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En la actualidad, la única manera de migrar una base de datos de Hiperescala a un recursos que no sea de Hiperescala es exportar o importar mediante un archivo BACPAC u otras tecnologías de movimiento de datos (copia masiva, Azure Data Factory, Azure Databricks, SSIS, etc.)|
 | Migración de bases de datos con objetos en memoria persistentes | Hiperescala solo admite objetos en memoria no persistentes (tipos de tabla, SP nativos y funciones).  Las tablas en memoria persistentes y otros objetos deben quitarse y volver a crearse como objetos que no sean en memoria antes de migrar una base de datos al nivel de servicio Hiperescala.|
 | Seguimiento de cambios | No podrá usar Change Tracking con bases de datos de Hiperescala. |
 | Replicación geográfica  | Todavía no se puede configurar la replicación geográfica activa para Azure SQL Database Hiperescala.  Puede realizar restauraciones geográficas (restaurar la base de datos en una ubicación geográfica diferente, para recuperación ante desastres u otros fines). |
 | Integración de TDE/AKV | Cifrado de base de datos transparente con Azure Key Vault (conocido comúnmente como Bring-Your-Own-Key o BYOK) todavía no es compatible con Hiperescalado de Azure SQL Database, pero es totalmente compatible con Claves administradas de servicio. |
-|Características de bases de datos inteligentes | 1. Los modelos asesores Crear índice y Colocar índice no están entrenados para las bases de datos Hiperescala. <br/>2. Los asesores recientemente agregados Incidencia de esquema y Parametrización de base de datos no son compatibles con la base de datos Hiperescala.|
-
-
+|Características de bases de datos inteligentes | Con la excepción de la opción "Forzar plan",todas las demás opciones de ajuste automático no se admiten aún en Hiperescala: puede parecer que las opciones están habilitadas, pero no se realizarán recomendaciones ni acciones. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

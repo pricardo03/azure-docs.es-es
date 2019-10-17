@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: b97dab0f41915ac6193c35cad9a6af812b16fd4a
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f58ac4448f50e8e02f2838fef02c9f884f69266b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104882"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177447"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -35,7 +35,7 @@ La nueva SKU v2 incluye las siguientes mejoras:
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-La SKU Standard_v2 y WAF_v2 está disponible en las siguientes regiones: Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Norte de Europa, Europa Occidental, Sudeste Asiático, Centro de Francia, Oeste de Reino Unido, Japón Oriental, Japón Occidental, Este de Australia, Sudeste de Australia, Centro de Canadá, Este de Canadá, Asia Oriental, Centro de Corea del Sur, Sur de Corea del Sur, India del Sur, Sur de Reino Unido, Centro de la India, Oeste de la India, India del Sur.
+La SKU Standard_v2 y WAF_v2 está disponible en las siguientes regiones: Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Norte de Europa, Europa Occidental, Sudeste Asiático, Centro de Francia, Oeste de Reino Unido, Japón Oriental, Japón Occidental, Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Asia Oriental, Centro de Corea del Sur, Sur de Corea del Sur, India del Sur, Sur de Reino Unido, Centro de la India, Oeste de la India, India del Sur.
 
 ## <a name="pricing"></a>Precios
 

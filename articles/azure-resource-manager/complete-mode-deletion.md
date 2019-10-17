@@ -4,14 +4,14 @@ description: Muestra cómo los tipos de recursos controlan la eliminación en mo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: d8238dddee041573d9b122e62cec66118c681ef6
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: cdc00ccc61e20865e993a18c72b930d9570896f2
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995260"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937048"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminación de recursos de Azure en implementaciones en modo completo
 
@@ -43,7 +43,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
@@ -126,6 +125,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
@@ -396,6 +396,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | billingAccounts/customers | Sin |
 > | billingAccounts/customers/billingSubscriptions | Sin |
 > | billingAccounts/customers/initiateTransfer | Sin |
+> | billingAccounts/customers/policies | Sin |
 > | billingAccounts/customers/products | Sin |
 > | billingAccounts/customers/transactions | Sin |
 > | billingAccounts/customers/transfers | Sin |
@@ -443,13 +444,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | mapApis | Sí |
 > | updateCommunicationPreference | Sin |
-
-## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Eliminación del modo completo |
-> | ------------- | ----------- |
-> | BizTalk | Sí |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
@@ -637,10 +631,10 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | diskEncryptionSets | Sí |
 > | disks | Sí |
 > | galleries | Sí |
-> | galleries/applications | Sí |
-> | galleries/applications/versions | Sí |
-> | galleries/images | Sí |
-> | galleries/images/versions | Sí |
+> | galleries/applications | Sin |
+> | galleries/applications/versions | Sin |
+> | galleries/images | Sin |
+> | galleries/images/versions | Sin |
 > | hostGroups | Sí |
 > | hostGroups/hosts | Sí |
 > | images | Sí |
@@ -648,13 +642,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | restorePointCollections | Sí |
 > | restorePointCollections/restorePoints | Sin |
 > | sharedVMImages | Sí |
-> | sharedVMImages/versions | Sí |
+> | sharedVMImages/versions | Sin |
 > | snapshots | Sí |
 > | virtualMachines | Sí |
 > | virtualMachines/extensions | Sí |
 > | virtualMachines/metricDefinitions | Sin |
-> | virtualMachines/scriptJobs | Sin |
-> | virtualMachines/softwareUpdateDeployments | Sin |
 > | virtualMachineScaleSets | Sí |
 > | virtualMachineScaleSets/extensions | Sin |
 > | virtualMachineScaleSets/networkInterfaces | Sin |
@@ -871,7 +863,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | services | Sí |
 > | services/projects | Sí |
-> | slots | Sí |
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
 
@@ -923,6 +914,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | serverGroups | Sí |
 > | servers | Sí |
 > | servers/advisors | Sin |
+> | servers/privateEndpointConnectionProxies | Sin |
+> | servers/privateEndpointConnections | Sin |
+> | servers/privateLinkResources | Sin |
 > | servers/queryTexts | Sin |
 > | servers/recoverableServers | Sin |
 > | servers/topQueryStatistics | Sin |
@@ -1203,6 +1197,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | clusters/databases | Sin |
 > | clusters/databases/dataconnections | Sin |
 > | clusters/databases/eventhubconnections | Sin |
+> | clusters/sharedidentities | Sin |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
@@ -1367,11 +1362,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | netAppAccounts | Sí |
+> | netAppAccounts/backupPolicies | Sí |
 > | netAppAccounts/capacityPools | Sí |
 > | netAppAccounts/capacityPools/volumes | Sí |
+> | netAppAccounts/capacityPools/volumes/backups | Sin |
 > | netAppAccounts/capacityPools/volumes/mountTargets | Sí |
 > | netAppAccounts/capacityPools/volumes/snapshots | Sí |
-
+> | netAppAccounts/vaults | Sin |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1464,6 +1461,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | namespaces | Sí |
 > | namespaces/notificationHubs | Sí |
+
+## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Eliminación del modo completo |
+> | ------------- | ----------- |
+> | osNamespaces | Sí |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -1618,7 +1622,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | subscriptions/resources | Sin |
 > | subscriptions/tagnames | Sin |
 > | subscriptions/tagNames/tagValues | Sin |
-> | etiquetas | Sin |
 > | tenants | Sin |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1682,6 +1685,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | securityStatusesSummaries | Sin |
 > | serverVulnerabilityAssessments | Sin |
 > | configuración | Sin |
+> | subAssessments | Sin |
 > | tareas | Sin |
 > | topologies | Sin |
 > | workspaceSettings | Sin |

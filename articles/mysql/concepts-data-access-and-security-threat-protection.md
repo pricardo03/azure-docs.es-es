@@ -1,17 +1,17 @@
 ---
-title: 'Advanced Threat Protection: Azure Database for MySQL | Microsoft Docs'
-description: Advanced Threat Protection detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad.
+title: Conceptos de Advanced Threat Protection para Azure Database for MySQL
+description: Conozca los conceptos básicos de Advanced Threat Protection, que permite detectar actividades anómalas en la base de datos que indican posibles amenazas de seguridad para la base de datos.
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 10fa2a409437c8cc48bcd1a674cc3832f086dcf2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 23f8679a2ae7d9dc299db42e45b5b06d42f94536
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525971"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970465"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Advanced Threat Protection para Azure Database for MySQL
 

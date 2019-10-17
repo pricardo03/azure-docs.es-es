@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 026689b68244052c3ad7cb50cd90d7319b6760ef
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fbab3eff3d7f742c2542e4264ef1b2124c5f15e5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229418"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024611"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigación de incidentes con Azure Sentinel
 
@@ -44,7 +44,7 @@ Solo podrá investigar el incidente si ha usado los campos de asignación de ent
 
 ## <a name="how-to-investigate-incidents"></a>Investigación de incidentes
 
-1. Seleccione  **Incidentes**. La página  **Incidentes**  le permite saber cuántos incidentes tiene, cuántos están abiertos, cuántos están establecidos en  **En curso** y cuántos se han cerrado. De cada incidente puede ver la hora a la que tuvo lugar y su estado. Valore la gravedad para decidir qué incidentes abordar primero.
+1. Seleccione **Incidentes**. La página **Incidentes** le permite saber cuántos incidentes tiene, cuántos están abiertos, cuántos están establecidos en **En curso** y cuántos se han cerrado. De cada incidente puede ver la hora a la que tuvo lugar y su estado. Valore la gravedad para decidir qué incidentes abordar primero.
 
     ![Ver gravedad del incidente](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -78,14 +78,14 @@ El gráfico de investigación le proporciona:
 
 Para usar el gráfico de investigación:
 
-1. Seleccione un incidente y, a continuación, seleccione  **Investigar**. Esto le llevará al gráfico de investigación. El gráfico proporciona un mapa ilustrativo de las entidades conectadas directamente a la alerta y de cada recurso conectado más allá.
+1. Seleccione un incidente y, a continuación, seleccione **Investigar**. Esto le llevará al gráfico de investigación. El gráfico proporciona un mapa ilustrativo de las entidades conectadas directamente a la alerta y de cada recurso conectado más allá.
 
    > [!IMPORTANT] 
    > Solo podrá investigar el incidente si ha usado los campos de asignación de entidades al configurar la regla de análisis. El gráfico de investigación requiere que el incidente original incluya entidades.
 
    ![Visualización de mapas](media/tutorial-investigate-cases/map1.png)
 
-1. Seleccione una entidad para abrir el panel **Entidades** para que pueda revisar la información de esa entidad.
+1. Seleccione una entidad para abrir el panel**Entidades** para que pueda revisar la información de esa entidad.
 
     ![Ver entidades en el mapa](media/tutorial-investigate-cases/map-entities.png)
   

@@ -1,5 +1,5 @@
 ---
-title: 'Creación y administración de un catálogo en la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
+title: 'Creación y administración de un catálogo de recursos en la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
 description: Obtenga información sobre cómo crear un contenedor de recursos y paquetes de acceso en la administración de derechos de Azure Active Directory (versión preliminar).
 services: active-directory
 documentationCenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1654e0a8cd11ac1c7a2f4ef0667d0e99187c2374
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: a1a6d7901368d19cf5ca8221bc00f426980e6f48
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618319"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169923"
 ---
-# <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Creación y administración de un catálogo en la administración de derechos de Azure AD (versión preliminar)
+# <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management-preview"></a>Creación y administración de un catálogo de recursos en la administración de derechos de Azure AD (versión preliminar)
 
 > [!IMPORTANT]
 > La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
@@ -34,11 +34,9 @@ ms.locfileid: "68618319"
 
 Un catálogo es un contenedor de recursos y paquetes de acceso. Creará un catálogo cuando quiera agrupar recursos relacionados y paquetes de acceso. Quien cree el catálogo se convertirá en su primer propietario. El propietario de un catálogo puede agregar otros propietarios.
 
-**Rol necesario:** Administrador global, administrador de usuarios o creador de catálogos.
+**Rol necesario:** administrador global, administrador de usuarios o creador de catálogos.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-
-1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobernanza de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
 1. En el menú izquierdo, haga clic en **Catálogos**.
 
@@ -72,11 +70,13 @@ Para incluir recursos en un paquete de acceso, deben estar en un catálogo. Los 
 
 1. Haga clic en **Agregar recursos**.
 
-1. Haga clic en un tipo de recurso: **Grupos**, **Aplicaciones** o **Sitios de SharePoint**.
+1. Haga clic en un tipo de recurso: **Grupos y equipos**, **Aplicaciones** o **Sitios de SharePoint**.
 
     Si no ve un recurso que quiere agregar o no puede agregar un recurso, asegúrese de que tiene los roles de administración de derechos y de directorio de Azure AD que se requieren. Es posible que alguien que tenga los roles necesarios tenga que agregar el recurso al catálogo. Para obtener más información, vea [Roles necesarios para agregar recursos a un catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Seleccione uno o varios recursos del tipo que quiera agregar al catálogo.
+
+    ![Adición de recursos a un catálogo](./media/entitlement-management-catalog-create/catalog-add-resources.png)
 
 1. Cuando haya finalizado, haga clic en **Agregar**.
 
@@ -98,11 +98,31 @@ Puede quitar recursos de un catálogo. Solo se puede quitar un recurso de un cat
 
 1. Haga clic en **Quitar** (o haga clic en el botón de puntos suspensivos ( **...** ) y, luego, en **Quitar recurso**).
 
+## <a name="add-additional-catalog-owners"></a>Incorporación de otros propietarios del catálogo
+
+El usuario que crea un catálogo se convierte en su primer propietario. Para delegar la administración de un catálogo, se agregan usuarios al rol de propietario del catálogo. Esto ayuda a compartir las responsabilidades de administración de los catálogos. 
+
+Siga estos pasos para asignar un usuario al rol de propietario del catálogo:
+
+**Rol necesario:** administrador global, administrador de usuarios o propietario del catálogo.
+
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
+
+1. En el menú izquierdo, haga clic en **Catálogos** y abra el catálogo al que quiere agregar administradores.
+
+1. En el menú izquierdo, haga clic en **Roles y administradores**.
+
+    ![Roles y administradores de catálogos](./media/entitlement-management-shared/catalog-roles-administrators.png)
+
+1. Haga clic en **Agregar propietarios** para seleccionar miembros para estos roles.
+
+1. Haga clic en **Seleccionar** para agregar estos miembros.
+
 ## <a name="edit-a-catalog"></a>Edición de un catálogo
 
 Puede editar el nombre y la descripción de un catálogo. Los usuarios ven esta información en los detalles de un paquete de acceso.
 
-**Rol necesario:** Administrador global, administrador de usuarios o propietario del catálogo.
+**Rol necesario:** administrador global, administrador de usuarios o propietario del catálogo.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
@@ -118,7 +138,7 @@ Puede editar el nombre y la descripción de un catálogo. Los usuarios ven esta 
 
 Puede eliminar un catálogo, pero solo si no tiene ningún paquete de acceso.
 
-**Rol necesario:** Administrador global, administrador de usuarios o propietario del catálogo.
+**Rol necesario:** administrador global, administrador de usuarios o propietario del catálogo.
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
@@ -130,5 +150,4 @@ Puede eliminar un catálogo, pero solo si no tiene ningún paquete de acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Adición de un creador de catálogos](entitlement-management-delegate.md#add-a-catalog-creator)
-- [Creación y administración de un paquete de acceso](entitlement-management-access-package-create.md)
+- [Delegación de la gobernanza del acceso en administradores de paquetes de acceso](entitlement-management-delegate-managers.md)

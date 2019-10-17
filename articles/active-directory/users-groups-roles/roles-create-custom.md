@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f008cdf80e15e2737fea19f72ec6703932cf301f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: b1a5aee1be7580956c32947e9bda7e2928a006c3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382818"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026404"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Creación y asignación de un rol personalizado en Azure Active Directory
 
@@ -31,7 +31,7 @@ Los roles personalizados se pueden crear en la pestaña [Roles y administradores
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Creación de un rol personalizado para conceder acceso para administrar los registros de aplicaciones
 
 1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
-1. Seleccione  **Azure Active Directory** > **Roles y administradores** > **Nuevo rol personalizado**.
+1. Seleccione **Azure Active Directory** > **Roles y administradores** > **Nuevo rol personalizado**.
 
    ![Creación o edición de roles en la página Roles y administradores](./media/roles-create-custom/new-custom-role.png)
 

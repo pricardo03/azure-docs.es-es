@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a52f9fca172e42aa39a4507347185026451a8ff2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123260"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029043"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -215,14 +215,16 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 
 | **Servicio** | **Valor de comunidad de BGP** |
 | --- | --- |
-| Exchange Online | 12076:5010 |
-| SharePoint Online | 12076:5020 |
-| Skype Empresarial Online | 12076:5030 |
+| Exchange Online** | 12076:5010 |
+| SharePoint Online** | 12076:5020 |
+| Skype For Business Online** | 12076:5030 |
+| CRM en línea |12076:5040 |
 | Servicios globales de Azure* | 12076:5050 |
-| Otros servicios en línea de Office 365 | 12076:5100 |
+| Azure Active Directory |12076:5060 |
+| Otros servicios de Office 365 Online** | 12076:5100 |
 
 *Por ahora, los servicios globales de Azure solo incluyen Azure DevOps.
-
+** Se requiere autorización de Microsoft, consulte [Configuración de filtros de ruta para el emparejamiento de Microsoft: PowerShell](how-to-routefilter-portal.md) 
 
 > [!NOTE]
 > Microsoft no admite los valores de las comunidades de BGP que defina en las rutas anunciadas a Microsoft.

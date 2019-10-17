@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 06/09/2019
+ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 897b72dd7b292492e45cdc7401fe1acc5c86ca20
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 3ce2f4304787107d0d6875333e4630dae8d7d1dd
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877451"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973770"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualización y análisis de los datos de Azure IoT Central en un panel de Power BI
 
@@ -31,12 +31,19 @@ Use la solución de Power BI para Azure IoT Central a fin de crear un panel efic
 
 Esta solución configura la canalización que toma los datos de la cuenta de Azure Blob Storage de la [exportación continua de datos](howto-export-data.md). Estos datos fluyen a través de Azure Functions, Azure Data Factory y Azure SQL Database para su procesamiento y transformación. La salida se puede visualizar y analizar en un informe de Power BI que puede descargar como archivo PBIX. Todos estos recursos se crean en la suscripción de Azure, para que pueda personalizar cada componente de acuerdo con sus necesidades.
 
+> [!Note] 
+> La solución de Power BI para Azure IoT Central funciona con aplicaciones de IoT Central que no admiten IoT Plug and Play (hoy en día, versiones preliminares)
+
 ## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Obtenga la [solución de Power BI para Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate) en Microsoft AppSource.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para configurar la solución, es necesario lo siguiente:
 - Acceso a una suscripción de Azure
-- Datos exportados mediante la [exportación continua de datos](howto-export-data.md) desde la aplicación IoT Central. Se recomienda activar los flujos de medidas, dispositivos y plantillas de dispositivos para aprovechar al máximo el panel de Power BI.
+- Aplicación de IoT Central que no admite IoT Plug and Play (hoy en día, versiones preliminares)
+- Configuración de la exportación de datos continua a Azure Blob Storage desde la aplicación de IoT Central
+    - Asegúrese de que el formato de datos es Avro
+    - Se recomienda activar los flujos de medidas, dispositivos y plantillas de dispositivos para aprovechar al máximo el panel de Power BI.
+    - Aprenda a [configurar la exportación de datos continua](howto-export-data-blob-storage.md).
 - Power BI Desktop (versión más reciente)
 - Power BI Pro (si quiere compartir el panel con otros usuarios)
 

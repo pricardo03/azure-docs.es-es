@@ -4,14 +4,14 @@ description: Muestra los tipos de recursos de Azure que admiten etiquetas. Propo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7b8d3de3eaa9cdbb945879f2acc283d74c8b4e82
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 06028224379bd42e1e0ea21b684ce443abd5992a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996824"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937015"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](resource-group-using-tags.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos.
@@ -40,7 +40,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
@@ -123,6 +122,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
@@ -393,6 +393,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | billingAccounts/customers | Sin |Sin |
 > | billingAccounts/customers/billingSubscriptions | Sin |Sin |
 > | billingAccounts/customers/initiateTransfer | Sin |Sin |
+> | billingAccounts/customers/policies | Sin |Sin |
 > | billingAccounts/customers/products | Sin |Sin |
 > | billingAccounts/customers/transactions | Sin |Sin |
 > | billingAccounts/customers/transfers | Sin |Sin |
@@ -440,13 +441,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | mapApis | Sí |Sí |
 > | updateCommunicationPreference | Sin |Sin |
-
-## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
-> | ------------- | ----------- | ----------- |
-> | BizTalk | Sí |Sí |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
@@ -542,7 +536,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | capabilities | Sin |Sin |
-> | domainNames | Sí |Sí |
+> | domainNames | Sin |Sin |
 > | domainNames/capabilities | Sin |Sin |
 > | domainNames/internalLoadBalancers | Sin |Sin |
 > | domainNames/serviceCertificates | Sin |Sin |
@@ -556,7 +550,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | quotas | Sin |Sin |
 > | resourceTypes | Sin |Sin |
 > | validateSubscriptionMoveAvailability | Sin |Sin |
-> | virtualMachines | Sí |Sí |
+> | virtualMachines | Sin |Sin |
 > | virtualMachines/diagnosticSettings | Sin |Sin |
 > | virtualMachines/metricDefinitions | Sin |Sin |
 > | virtualMachines/metrics | Sin |Sin |
@@ -577,10 +571,10 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | expressRouteCrossConnections | Sin |Sin |
 > | expressRouteCrossConnections/peerings | Sin |Sin |
 > | gatewaySupportedDevices | Sin |Sin |
-> | networkSecurityGroups | Sí |Sí |
+> | networkSecurityGroups | Sin |Sin |
 > | quotas | Sin |Sin |
-> | reservedIps | Sí |Sí |
-> | virtualNetworks | Sí |Sí |
+> | reservedIps | Sin |Sin |
+> | virtualNetworks | Sin |Sin |
 > | virtualNetworks/remoteVirtualNetworkPeeringProxies | Sin |Sin |
 > | virtualNetworks/virtualNetworkPeerings | Sin |Sin |
 
@@ -596,9 +590,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | osPlatformImages | Sin |Sin |
 > | publicImages | Sin |Sin |
 > | quotas | Sin |Sin |
-> | storageAccounts | Sí |Sí |
+> | storageAccounts | Sin |Sin |
 > | storageAccounts/blobServices | Sin |Sin |
-> | storageAccounts/fileServices | Sin |No |
+> | storageAccounts/fileServices | Sin |Sin |
 > | storageAccounts/metricDefinitions | Sin |Sin |
 > | storageAccounts/metrics | Sin |Sin |
 > | storageAccounts/queueServices | Sin |Sin |
@@ -634,10 +628,10 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | diskEncryptionSets | Sí |Sí |
 > | disks | Sí |Sí |
 > | galleries | Sí |Sí |
-> | galleries/applications | Sí |Sí |
-> | galleries/applications/versions | Sí |Sí |
-> | galleries/images | Sí |Sí |
-> | galleries/images/versions | Sí |Sí |
+> | galleries/applications | Sin |Sin |
+> | galleries/applications/versions | Sin |Sin |
+> | galleries/images | Sin |Sin |
+> | galleries/images/versions | Sin |Sin |
 > | hostGroups | Sí |Sí |
 > | hostGroups/hosts | Sí |Sí |
 > | images | Sí |Sí |
@@ -645,13 +639,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | restorePointCollections | Sí |Sí |
 > | restorePointCollections/restorePoints | Sin |Sin |
 > | sharedVMImages | Sí |Sí |
-> | sharedVMImages/versions | Sí |Sí |
+> | sharedVMImages/versions | Sin |Sin |
 > | snapshots | Sí |Sí |
 > | virtualMachines | Sí |Sí |
 > | virtualMachines/extensions | Sí |Sí |
 > | virtualMachines/metricDefinitions | Sin |Sin |
-> | virtualMachines/scriptJobs | Sin |Sin |
-> | virtualMachines/softwareUpdateDeployments | Sin |Sin |
 > | virtualMachineScaleSets | Sí |Sí |
 > | virtualMachineScaleSets/extensions | Sin |Sin |
 > | virtualMachineScaleSets/networkInterfaces | Sin |Sin |
@@ -849,7 +841,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | accounts | Sí |Sí |
 > | accounts/dataLakeStoreAccounts | Sin |Sin |
 > | accounts/storageAccounts | Sin |Sin |
-> | accounts/storageAccounts/containers | Sin |No |
+> | accounts/storageAccounts/containers | Sin |Sin |
 > | accounts/transferAnalyticsUnits | Sin |Sin |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
@@ -919,6 +911,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | serverGroups | Sí |Sí |
 > | servers | Sí |Sí |
 > | servers/advisors | Sin |Sin |
+> | servers/privateEndpointConnectionProxies | Sin |Sin |
+> | servers/privateEndpointConnections | Sin |Sin |
+> | servers/privateLinkResources | Sin |Sin |
 > | servers/queryTexts | Sin |Sin |
 > | servers/recoverableServers | Sin |Sin |
 > | servers/topQueryStatistics | Sin |Sin |
@@ -1199,6 +1194,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | clusters/databases | Sin |Sin |
 > | clusters/databases/dataconnections | Sin |Sin |
 > | clusters/databases/eventhubconnections | Sin |Sin |
+> | clusters/sharedidentities | Sin |Sin |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
@@ -1363,11 +1359,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts | Sí |Sí |
+> | netAppAccounts/backupPolicies | Sí |Sí |
 > | netAppAccounts/capacityPools | Sí |Sí |
 > | netAppAccounts/capacityPools/volumes | Sí |Sí |
+> | netAppAccounts/capacityPools/volumes/backups | Sin |Sin |
 > | netAppAccounts/capacityPools/volumes/mountTargets | Sí |Sí |
 > | netAppAccounts/capacityPools/volumes/snapshots | Sí |Sí |
-
+> | netAppAccounts/vaults | Sin |Sin |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1422,7 +1420,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | p2sVpnGateways | Sí |Sí |
 > | privateDnsOperationStatuses | Sin |Sin |
 > | privateDnsZones | Sí |Sí |
-> | privateDnsZones/A | Sin |Sin |
+> | privateDnsZones/A | Sin |No |
 > | privateDnsZones/AAAA | Sin |Sin |
 > | privateDnsZones/all | Sin |Sin |
 > | privateDnsZones/CNAME | Sin |Sin |
@@ -1458,6 +1456,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!NOTE]
 > Para Azure Front Door Service, puede aplicar etiquetas al crear el recurso, pero no se admite actualmente la actualización o la adición de etiquetas.
 
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1465,6 +1464,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | namespaces | Sí |Sin |
 > | namespaces/notificationHubs | Sí |Sin |
+
+## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
+> | ------------- | ----------- | ----------- |
+> | osNamespaces | Sí |Sí |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -1614,6 +1620,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | resources | Sin |Sin |
 > | subscriptions | Sin |Sin |
 > | subscriptions/providers | Sin |Sin |
+> | subscriptions/resourceGroups | Sin |Sin |
+> | subscriptions/resourcegroups/resources | Sin |Sin |
 > | subscriptions/resources | Sin |Sin |
 > | subscriptions/tagnames | Sin |Sin |
 > | subscriptions/tagNames/tagValues | Sin |Sin |
@@ -1678,8 +1686,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | securitySolutionsReferenceData | Sin |Sin |
 > | securityStatuses | Sin |Sin |
 > | securityStatusesSummaries | Sin |Sin |
-> | serverVulnerabilityAssessments | Sin |Sin |
+> | serverVulnerabilityAssessments | Sin |No |
 > | configuración | Sin |Sin |
+> | subAssessments | Sin |Sin |
 > | tareas | Sin |Sin |
 > | topologies | Sin |Sin |
 > | workspaceSettings | Sin |Sin |

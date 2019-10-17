@@ -42,6 +42,8 @@
           items:
             - name: Delegación en los creadores de catálogos
               href: entitlement-management-delegate-catalog.md
+            - name: Gobierno del acceso para usuarios externos
+              href: entitlement-management-external-users.md
             - name: Ver informes y registros
               href: entitlement-management-reports.md
             - name: Solución de problemas
@@ -56,7 +58,19 @@
           items:
             - name: Creación de un nuevo paquete de acceso
               href: entitlement-management-access-package-create.md
-            - name: Edición de un paquete de acceso
+            - name: Uso compartido del vínculo del paquete de acceso
+              href: entitlement-management-access-package-settings.md
+            - name: Cambio de roles de recursos
+              href: entitlement-management-access-package-resources.md
+            - name: Cambio de configuración de solicitudes y aprobaciones
+              href: entitlement-management-access-package-request-policy.md
+            - name: Cambio de la configuración del ciclo de vida
+              href: entitlement-management-access-package-lifecycle-policy.md
+            - name: Visualización y administración de solicitudes
+              href: entitlement-management-access-package-requests.md
+            - name: 'Visualización, adición y eliminación de asignaciones'
+              href: entitlement-management-access-package-assignments.md
+            - name: Ocultación o eliminación
               href: entitlement-management-access-package-edit.md
         - name: Aprobadores
           items:

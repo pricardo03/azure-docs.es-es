@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 7de0d7bacdf2194b3e1a303842c56a6a017d8d62
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202770"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255251"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protección de red adaptable en Azure Security Center
 Obtenga información sobre cómo configurar la protección de red adaptable en Azure Security Center.
@@ -49,7 +49,7 @@ Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico de
 
 2. En la pestaña **Recursos con estado incorrecto**, seleccione una VM para ver sus alertas y las reglas de protección recomendadas que se deben aplicar.
 
-    ![Alertas de protección](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+    ![Alertas de protección](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
 
 ## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Revisión y aplicación de las reglas recomendadas de protección de red adaptable
@@ -131,9 +131,9 @@ Puede agregar una regla tipo "permitir" que no sea recomienda por Security Cente
 
 ### Eliminación de una regla <a name ="delete-rule"> </a>
 
-Cuando sea necesario, puede eliminar una regla recomendada. Por ejemplo, puede determinar que aplicar una regla sugerida podría bloquear tráfico legítimo.
+Cuando sea necesario, puede eliminar una regla recomendada de la sesión actual. Por ejemplo, puede determinar que aplicar una regla sugerida podría bloquear tráfico legítimo.
 
-*Para eliminar una regla de protección de red adaptable:*
+*Para eliminar una regla de protección de red adaptable de la sesión actual:*
 
 1. En la pestaña **Reglas**, haga clic en los puntos suspensivos (...) al final de la fila de la regla y seleccione **Eliminar**.  
 

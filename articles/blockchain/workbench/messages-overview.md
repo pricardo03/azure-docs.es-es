@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: f0a9e90f1208d690c2423196be7f59dce71eb78b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 9f1580a9a43781996afadde5487adcafec860e26
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844071"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029705"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integración de los mensajes de Azure Blockchain Workbench
 
@@ -65,7 +65,7 @@ Blockchain Workbench devuelve una respuesta con los siguientes campos:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | GUID del cliente proporcionado |
 | userId                | Identificador del usuario que se ha creado |
-| userChainIdentifier   | Dirección del usuario que se ha creado en la red de la cadena de bloques. En Ethereum, esta es la dirección del usuario  **en la cadena** . |
+| userChainIdentifier   | Dirección del usuario que se ha creado en la red de la cadena de bloques. En Ethereum, es la dirección del usuario **en la cadena**. |
 | connectionId          | Identificador único de la conexión de cadena de bloques|
 | messageSchemaVersion  | Versión del esquema de mensajería |
 | messageName           | **CreateUserUpdate** |

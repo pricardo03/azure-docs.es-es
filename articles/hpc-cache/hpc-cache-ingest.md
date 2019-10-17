@@ -4,14 +4,14 @@ description: Cómo rellenar Azure Blob Storage para usarlo con Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: c18e1c9afab211a8ac076307eefc9074ae7c99d6
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/07/2019
+ms.author: rohogue
+ms.openlocfilehash: 6c505e6918071b61a4152b0b421ed7cee3282206
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300005"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024504"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Traslado de datos a Azure Blob Storage
 
@@ -27,7 +27,7 @@ Tenga en cuenta estos factores:
 
 Existe una utilidad basada en Python para cargar contenido en un contenedor de Blob Storage. Para más información, lea [Carga previa de datos en Blob Storage](#pre-load-data-in-blob-storage-with-clfsload).
 
-Si no quiere usar la utilidad de carga o si quiere agregar contenido a un destino de almacenamiento existente, siga las sugerencias de ingesta de datos en paralelo en [Copia de datos mediante Azure HPC Cache](#copy-data-through-the-azure-hpc-cache). 
+Si no quiere usar la utilidad de carga o si quiere agregar contenido a un destino de almacenamiento existente, siga las sugerencias de ingesta de datos en paralelo en [Copia de datos mediante Azure HPC Cache](#copy-data-through-the-azure-hpc-cache).
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Carga previa de datos en Blob Storage con CLFSLoad
 
@@ -58,7 +58,7 @@ La utilidad Avere CLFSLoad necesita la siguiente información:
 
 Si no quiere usar la utilidad Avere CLFSLoad o si quiere agregar una gran cantidad de datos a un destino existente de Blob Storage, puede copiarlos mediante la caché. Azure HPC Cache está diseñado para atender a varios clientes a la vez, así que para copiar datos mediante la caché, debe usar escrituras en paralelo desde varios clientes.
 
-![Diagrama que muestra el movimiento de datos de varios clientes de múltiples subprocesos: en la parte superior izquierda, hay un icono para el almacenamiento de hardware local que tiene varias flechas que salen de él. Las flechas apuntan a cuatro equipos cliente diferentes. De cada máquina cliente tres flechas apuntan a Azure HPC Cache. De Azure HPC Cache, varias flechas apuntan a Blob Storage.](media/hpc-cache-parallel-ingest.png) 
+![Diagrama que muestra el movimiento de datos de varios clientes de múltiples subprocesos: en la parte superior izquierda, hay un icono para el almacenamiento de hardware local que tiene varias flechas que salen de él. Las flechas apuntan a cuatro equipos cliente diferentes. De cada máquina cliente tres flechas apuntan a Azure HPC Cache. De Azure HPC Cache, varias flechas apuntan a Blob Storage.](media/hpc-cache-parallel-ingest.png)
 
 Los comandos ``cp`` o ``copy`` que se usan habitualmente para transferir datos de un sistema de almacenamiento a otro son comandos de subproceso único que copian solo un archivo a la vez. Esto significa que el servidor de archivos solo puede ingerir un archivo a la vez, lo que es un desperdicio de los recursos de la caché.
 
@@ -77,7 +77,7 @@ Cada proceso de copia tiene una tasa de rendimiento y una tasa de transferencia 
 
 Las estrategias para la ingesta de datos en paralelo con Azure HPC Cache son las siguientes:
 
-* Copia manual: puede crear manualmente una copia de varios subprocesos en un cliente mediante la ejecución de más de un comando de copia a la vez en segundo plano con los conjuntos predefinidos de archivos o rutas. Para más información, lea [Ingesta de datos de Azure HPC Cloud: método de copia manual](hpc-cache-ingest-manual.md).
+* Copia manual: puede crear manualmente una copia de varios subprocesos en un cliente mediante la ejecución de más de un comando de copia a la vez en segundo plano con los conjuntos predefinidos de archivos o rutas. Para más información, lea [Ingesta de datos de Azure HPC Cache: método de copia manual](hpc-cache-ingest-manual.md).
 
 * Copia automatizada parcial con ``msrsync``:  - ``msrsync`` es una utilidad de contenedor que ejecuta varios procesos ``rsync`` en paralelo. Para más información, lea [Ingesta de datos de Azure HPC Cache: método msrsync](hpc-cache-ingest-msrsync.md).
 

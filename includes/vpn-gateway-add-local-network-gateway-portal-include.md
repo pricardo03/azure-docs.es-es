@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 08/02/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dbfa7ff6e30b64fe1025114590c1b1a8824e6cdf
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 6c59513c2c84b5f280e8200411b53848768eaf29
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780273"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970827"
 ---
 1. En el portal, haga clic en **+Crear un recurso**.
 2. En el cuadro de búsqueda, escriba **puerta de enlace de red local**, a continuación, presione **Entrar** para buscar. Se devolverá una lista de resultados. Haga clic en **Puerta de enlace de red local** y haga clic en el botón **Crear** para abrir la página **Crear puerta de enlace de red local**.
@@ -28,6 +28,6 @@ ms.locfileid: "68780273"
    - **Configurar BGP:** usar solo al configurar BGP. En caso contrario, no seleccione esta opción.
    - **Subscription** (Suscripción): compruebe que se muestra la suscripción correcta.
    - **Grupos de recursos:** seleccione el grupo de recursos que quiere usar. Puede crear un grupo de recursos nuevo o seleccionar uno ya creado.
-   - **Ubicación:** seleccione la ubicación en la que se creará este objeto. Puede seleccionar la misma ubicación en la que reside la red, pero no es obligatorio.
+   - **Ubicación:** La ubicación es la misma que **Región** en otros valores. seleccione la ubicación en la que se creará este objeto. Puede seleccionar la misma ubicación en la que reside la red, pero no es obligatorio.
 
 4. Cuando haya terminado de especificar los valores, haga clic en el botón **Crear** en la parte inferior de la página para crear la puerta de enlace de red local.

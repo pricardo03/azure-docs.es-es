@@ -1,19 +1,19 @@
 ---
 title: Configuración de Postman para Azure Digital Twins | Microsoft Docs
 description: Configuración de Postman para Azure Digital Twins
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-adgera
-ms.openlocfilehash: f33e5be2408d2ebacd215c5f0601d712197254a7
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 14e6a52f86586eaae019d9658c2f813a15fc3474
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803411"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949210"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Configuración de Postman para Azure Digital Twins
 
@@ -46,7 +46,7 @@ Configure la aplicación Azure Active Directory para usar el flujo de concesión
         [![Search API de Azure Smart Spaces](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
     > [!IMPORTANT]
-    > El nombre y el identificador de la API de Azure AD que aparezcan dependerán del inquilino:
+    > El nombre e identificador de la API de Azure AD que se muestran dependerán de su inquilino:
     > * Las cuentas de cliente y los inquilinos de prueba deben buscar `Azure Digital Twins`.
     > * Otras cuentas de Microsoft deben buscar `Azure Smart Spaces Service`.
 
@@ -122,7 +122,8 @@ Después de completar los pasos anteriores, configure Postman para realizar una 
    [![Tipo de contenido de varias partes o mixto](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serialice los datos no textuales en archivos. Los datos JSON se guardarían como archivo JSON.
-1. En la pestaña **Cuerpo**, agregue cada archivo asignando un nombre **clave** seleccionando `file` o `text`.
+1. En la pestaña **Cuerpo**, seleccione `form-data`. 
+1. Agregue cada archivo; para ello, asigne un nombre de **clave`file` y seleccione** .
 1. A continuación, seleccione cada archivo con el botón **Elegir archivo**.
 
    [![Ejemplo de cliente de Postman](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)

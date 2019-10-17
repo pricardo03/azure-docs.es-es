@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 36d24e798e73ef336324eedadee1ba3fec4c0e1d
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 9163f2b7943a8022b88b2ed514f4a466e61a8d98
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773043"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029022"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de PowerShell para Azure Functions
 
@@ -426,6 +426,17 @@ requirements.psd1
     SqlServer = '21.1.18147'
 }
 ```
+
+Están disponibles las siguientes opciones para cambiar el modo en que se descargan e instalan las dependencias administradas. La actualización de la aplicación se iniciará dentro de MDMaxBackgroundUpgradePeriod y el proceso de actualización se completará dentro de aproximadamente MDNewSnapshotCheckPeriod.
+
+| Configuración de la aplicación de funciones              | Valor predeterminado             | DESCRIPCIÓN                                         |
+|   -----------------------------   |   -------------------     |  -----------------------------------------------    |
+| MDMaxBackgroundUpgradePeriod      | “7.00:00:00” (7 días)     | Cada trabajo de PS inicia la comprobación de las actualizaciones de los módulos en la Galería de PS al inicio del proceso de trabajo y en cada MDMaxBackgroundUpgradePeriod posterior. Si hay nuevas versiones de módulos disponibles en la Galería de PS, se instalarán en el sistema de archivos disponible para los trabajos de PS. Si se reduce este valor, la aplicación de funciones obtendrá versiones más recientes de los módulos, pero también aumentará el uso de recursos de la aplicación (E/S de red, CPU, almacenamiento). Al aumentar este valor, se reducirá el uso de recursos de la aplicación, pero también se puede retrasar la entrega de nuevas versiones de módulos a la aplicación.      | 
+| MDNewSnapshotCheckPeriod          | “01:00:00” (1 hora)       | Una vez instaladas las nuevas versiones de los módulos en el sistema de archivos, se debe reiniciar cada trabajo de PS. El reinicio de los trabajos de PS puede afectar a la disponibilidad de la aplicación, ya que puede interrumpir las invocaciones de la función actual. Hasta que se reinicien todos los trabajos de PS, las invocaciones de función pueden usar las versiones de módulos anteriores o nuevas. El reinicio de todos los trabajos de PS se completará dentro del período MDNewSnapshotCheckPeriod. Si se aumenta este valor, se reducirá la frecuencia de las interrupciones, pero también puede aumentar el período de tiempo en que las invocaciones de función usen las versiones de módulos anteriores o nuevas de forma no determinista. |
+| MDMinBackgroundUpgradePeriod      | “1.00:00:00” (1 día)     | Para evitar que se actualicen excesivamente los módulos en los reinicios frecuentes de los trabajos, no se realizará la comprobación de las actualizaciones de los módulos si ya se inició algún trabajo en el último MDMinBackgroundUpgradePeriod. |
+
+> [!NOTE]
+> Las dependencias administradas se basan en el acceso a www.powershellgallery.com para descargar los módulos. Debe asegurarse de que el tiempo de ejecución de la función tenga acceso a esta dirección URL. Para ello, agregue las reglas de firewall necesarias.
 
 Aprovechar los propios módulos personalizados es algo diferente a como lo haría normalmente.
 

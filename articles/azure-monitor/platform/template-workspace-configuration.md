@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ac5d5d31bb54ce87859a6eec52dbe5948864d4c
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 9c5fb38e66cb783b02d314d55cf0d0510523b6a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147323"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375976"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Administración del área de trabajo de Log Analytics mediante las plantillas de Azure Resource Manager
 
@@ -44,7 +44,7 @@ Este artículo contiene ejemplos de plantilla que ilustran algunas de las funcio
 
 En la tabla siguiente se muestra la versión de API de los recursos usados en este ejemplo.
 
-| Recurso | Tipo de recurso | Versión de API |
+| Resource | Tipo de recurso | Versión de API |
 |:---|:---|:---|
 | Área de trabajo   | workspaces    | 2017-03-15-preview |
 | Search      | savedSearches | 2015-03-20 |
@@ -121,7 +121,7 @@ En el ejemplo siguiente se crea un área de trabajo mediante una plantilla desde
 
 2. Edite la plantilla para adecuarla a sus requisitos. Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber qué propiedades y valores son compatibles. 
 3. Guarde este archivo como **deploylaworkspacetemplate.json** en una carpeta local.
-4. Está listo para implementar esta plantilla. Puede usar PowerShell o la línea de comandos para crear el área de trabajo, especificando el nombre y la ubicación de dicha área como parte del comando.
+4. Está listo para implementar esta plantilla. Puede usar PowerShell o la línea de comandos para crear el área de trabajo, especificando el nombre y la ubicación de dicha área como parte del comando. El nombre del área de trabajo debe ser único globalmente en todas las suscripciones de Azure.
 
    * En PowerShell, use los siguientes comandos desde la carpeta que contenga la plantilla:
    
@@ -243,7 +243,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
     "customlogName": {
     "type": "string",
     "metadata": {
-      "description": "custom log name"
+      "description": "The custom log name"
       }
     },
     "variables": {
@@ -419,7 +419,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
           "type": "dataSources",
           "name": "[concat(parameters('workspaceName'), parameters('customlogName'))]",
           "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
           ],
           "kind": "CustomLog",
           "properties": {
@@ -462,7 +462,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
               }
             ]
           }
-        }
+        },
         {
           "apiVersion": "2015-11-01-preview",
           "type": "datasources",
@@ -592,6 +592,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
 }
 
 ```
+
 ### <a name="deploying-the-sample-template"></a>Implementación de la plantilla de ejemplo
 
 Para implementar la plantilla, realice estos pasos:

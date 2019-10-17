@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9fb62d74025869c3442308f9e4ac9fb8fc02669b
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 96a8b8d33f713faf96e7a96b32e9e41ca669e6cb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266553"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970834"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creación de una conexión de sitio a sitio mediante Azure Portal
 
@@ -46,14 +46,13 @@ Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos
 * **Espacio de direcciones:** 10.1.0.0/16
 * **Subscription** (Suscripción): Suscripción que desea usar.
 * **Grupo de recursos:** TestRG1
-* **Ubicación:** East US
+* **Región:** East US
 * **Subred:** front-end: 10.1.0.0/24, back-end: 10.1.1.0/24 (opcional para este ejercicio)
-* **Nombre de la subred de puerta de enlace:** GatewaySubnet (se rellenará de forma automática en el portal)
 * **Intervalo de direcciones de subred de puerta de enlace:** 10.1.255.0/27
 * **Nombre de la puerta de enlace de red virtual:** VNet1GW
-* **Dirección IP pública:** VNet1GWIP
+* **Nombre de dirección IP pública:** VNet1GWIP
 * **Tipo de VPN:** basada en rutas
-* **Tipo de conexión:** de sitio a sitio (IPsec)
+* **Tipo de conexión**: de sitio a sitio (IPsec)
 * **Tipo de puerta de enlace:** VPN
 * **Nombre de la puerta de enlace de red local:** Site1
 * **Nombre de la conexión:** VNet1toSite1
@@ -69,6 +68,16 @@ En este paso, se crea la puerta de enlace para la red virtual. La creación de u
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
+### <a name="example-settings"></a>Configuración de ejemplo
+
+* **Detalles de instancia > Región:** East US
+* **Red virtual > Red virtual:** VNet1
+* **Detalles de instancia > Nombre:** VNet1GW
+* **Detalles de instancia > Tipo de puerta de enlace:** VPN
+* **Detalles de instancia > Tipo de VPN:** basada en rutas
+* **Red virtual > Intervalo de direcciones de subred de la puerta de enlace:** 10.1.255.0/27
+* **Dirección IP pública > Nombre de dirección IP pública:** VNet1GWIP
+
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
@@ -77,6 +86,13 @@ En este paso, se crea la puerta de enlace para la red virtual. La creación de u
 ## <a name="LocalNetworkGateway"></a>3. Creación de la puerta de enlace de red local
 
 La puerta de enlace de red local suele hacer referencia a la ubicación local. Asigne al sitio un nombre al que Azure pueda hacer referencia y, luego, especifique la dirección IP del dispositivo VPN local con la que creará una conexión. Especifique también los prefijos de dirección IP que se enrutarán a través de la puerta de enlace VPN al dispositivo VPN. Los prefijos de dirección que especifique son los prefijos que se encuentran en la red local. Si la red local cambia o necesita cambiar la dirección IP pública del dispositivo VPN, puede actualizar fácilmente los valores más adelante.
+
+**Valores de ejemplo**
+
+* **Nombre:** Site1
+* **Grupos de recursos:** TestRG1
+* **Ubicación:** East US
+
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 

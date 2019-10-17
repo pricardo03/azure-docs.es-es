@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: dfc0cd6686ac4ea1af2beb34edeadd17e4c952e1
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: e2e051db00c9b8de5268e64be70ab99752bf7a55
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71328734"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001418"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Creación de un clúster y una base de datos de Azure Data Explorer mediante una plantilla de Azure Resource Manager
 
@@ -67,11 +67,11 @@ En este inicio rápido se usa una [plantilla de inicio rápido existente](https:
           "name": "[parameters('clusters_kustocluster_name')]",
           "type": "Microsoft.Kusto/clusters",
           "sku": {
-              "name": "D13_v2",
+              "name": "Standard_D13_v2",
               "tier": "Standard",
               "capacity": 2
           },
-          "apiVersion": "2019-09-07-preview",
+          "apiVersion": "2019-05-15",
           "location": "[parameters('location')]",
           "tags": {
             "Created By": "GitHub quickstart template"
@@ -80,7 +80,7 @@ En este inicio rápido se usa una [plantilla de inicio rápido existente](https:
       {
           "name": "[concat(parameters('clusters_kustocluster_name'), '/', parameters('databases_kustodb_name'))]",
           "type": "Microsoft.Kusto/clusters/databases",
-          "apiVersion": "2019-09-07-preview",
+          "apiVersion": "2019-05-15",
           "location": "[parameters('location')]",
           "dependsOn": [
               "[resourceId('Microsoft.Kusto/clusters', parameters('clusters_kustocluster_name'))]"
@@ -110,7 +110,7 @@ Puede implementar la plantilla de Azure Resource Manager [mediante Azure Portal]
 
     ![Implementar en Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
-Puede [editar e implementar la plantilla en Azure Portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) mediante el formulario.
+    Puede [editar e implementar la plantilla en Azure Portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) mediante el formulario.
 
 1. Complete las secciones **ASPECTOS BÁSICOS** y **CONFIGURACIÓN**. Seleccione nombres de base de datos y clúster únicos.
 La creación de un clúster y una base de datos de Azure Data Explorer tarda unos minutos.
@@ -142,7 +142,7 @@ La creación de un clúster y una base de datos de Azure Data Explorer tarda uno
 
 #### <a name="verify-the-deployment-using-powershell"></a>Comprobación de la implementación mediante PowerShell
 
-Para comprobar la implementación, use el siguiente script de Azure PowerShell.  Si Cloud Shell sigue abierto, no es necesario copiar ni ejecutar la primera línea (Read-Host). Para obtener más información sobre la administración de recursos de Azure Data Explorer en PowerShell, lea [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). Realización de cambios pertinentes
+Para comprobar la implementación, use el siguiente script de Azure PowerShell.  Si Cloud Shell sigue abierto, no es necesario copiar ni ejecutar la primera línea (Read-Host). Para obtener más información sobre la administración de recursos de Azure Data Explorer en PowerShell, lea [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). 
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"

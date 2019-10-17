@@ -1,17 +1,17 @@
 ---
 title: Roles y requisitos de Azure Data Share (versión preliminar)
-description: Roles y requisitos de Azure Data Share (versión preliminar)
+description: Obtenga información sobre los roles de control de acceso y los requisitos de los proveedores de datos y los consumidores de datos para compartir datos en la versión preliminar de Azure Data Share.
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 7bf98f8774551292574d4f1951eba44657fa7de0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c0841f6386440776c6ea719f9932a53cada9d9c4
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307357"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166372"
 ---
 # <a name="roles-and-requirements-for-azure-data-share-preview"></a>Roles y requisitos de Azure Data Share (versión preliminar)
 

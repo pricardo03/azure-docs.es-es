@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 65cf71140d1706b8607e721ac323b1a97ae272fa
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: f69348f1a56845716d8d862f2926774cbc537cf0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898445"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177437"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -61,7 +61,7 @@ Los grupos de seguridad se admiten en Application Gateway. Sin embargo, hay vari
 
 En este escenario, puede usar grupos de seguridad de red en la subred de Application Gateway. Ponga las restricciones siguientes en la subred en este orden de prioridad:
 
-1. Permitir el tráfico entrante de una IP o intervalo IP de origen.
+1. Permita el tráfico entrante desde una IP o un intervalo IP de origen a toda la subred de Application Gateway o a la dirección IP de front-end privada específica configurada. El grupo de seguridad de red no funciona en una dirección IP pública.
 2. Permita las solicitudes entrantes de todos los orígenes a los puertos 65503-65534 para la SKU de Application Gateway v1 y a los puertos 65200-65535 para la SKU v2 para la [comunicación de mantenimiento de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados adecuados en vigor, las entidades externas no podrán iniciar cambios en esos puntos de conexión.
 3. Permitir sondeos entrantes de Azure Load Balancer (con la etiqueta *AzureLoadBalancer*) y el tráfico de red virtual entrante (con la etiqueta *VirtualNetwork*) en el [grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquear todo el tráfico entrante restante mediante una regla Denegar todo.

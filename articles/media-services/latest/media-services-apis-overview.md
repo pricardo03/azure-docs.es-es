@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5558eeb4012ac563388ad47df61114534e9859ed
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308335"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025637"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desarrollo con API de Media Services v3
 
@@ -32,7 +32,7 @@ Para ser autorizado a acceder a recursos de Media Services y a Media Services AP
 * La **Autenticación de entidad de servicio**: se usa para autenticar un servicio (por ejemplo: aplicaciones web, aplicaciones de funciones, aplicaciones lógicas, API y microservicios). Las aplicaciones que normalmente utilizan este método de autenticación son las que ejecutan servicios de demonio, servicios de nivel intermedio o trabajos programados. Por ejemplo, para las aplicaciones web, siempre debe haber un nivel intermedio que se conecte a Media Services con una entidad de servicio.
 * **Autenticación de usuario**: se usa para autenticar a una persona que está usando la aplicación para interactuar con los recursos de Azure Media Services. La aplicación interactiva, en primer lugar, debe solicitar al usuario las credenciales. Un ejemplo es una aplicación de consola de administración que usan los usuarios autorizados para supervisar trabajos de codificación o streaming en vivo.
 
-La API de Media Services requiere que el usuario o la aplicación que realiza las solicitudes de la API de REST tenga acceso al recurso de la cuenta de Media Services y use una función de **Colaborador** o **Propietario**. Se puede acceder a la API con la función **Lector** pero solo estarán disponibles las operaciones **Obtener** o **Enumerar** . Para obtener más información, consulte [Role-based access control for Media Services accounts](rbac-overview.md) (Control de acceso basado en roles para las cuentas de Media Services).
+La API de Media Services requiere que el usuario o la aplicación que realiza las solicitudes de la API de REST tenga acceso al recurso de la cuenta de Media Services y use una función de **Colaborador** o **Propietario**. Se puede acceder a la API con la función **Lector** pero solo estarán disponibles las operaciones **Obtener** o **Enumerar**. Para obtener más información, consulte [Role-based access control for Media Services accounts](rbac-overview.md) (Control de acceso basado en roles para las cuentas de Media Services).
 
 En lugar de crear una entidad de servicio, use las identidades administradas de los recursos de Azure para acceder a la API de Media Services a través de Azure Resource Manager. Para obtener más información sobre las identidades administradas para los recursos de Azure, consulte [¿Qué es Managed Identities for Azure Resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 

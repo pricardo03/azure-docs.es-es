@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/8/2019
+ms.openlocfilehash: 20da8abff943e71deb5d5ec8b7bd6411c176e2e3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173587"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244549"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 
@@ -52,21 +52,20 @@ En la siguiente tabla se muestra una lista de nombres de propiedades y su descri
 
 Puede usar [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) como salida de datos que son relacionales por naturaleza o de aplicaciones que dependen del contenido hospedado en una base de datos relacional. Los trabajos de Stream Analytics se escriben en una tabla existente en SQL Database. El esquema de tabla debe coincidir exactamente con los campos y los tipos en la salida del trabajo. También puede especificar [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) como salida mediante la opción de salida de SQL Database. Para obtener más información sobre cómo mejorar el rendimiento de escritura, consulte el artículo [Stream Analytics con Azure SQL Database como salida](stream-analytics-sql-output-perf.md).
 
+También puede usar [Instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como salida. Debe [configurar un punto de conexión público en Instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) y, a continuación, configurar manualmente las siguientes opciones en Azure Stream Analytics. También es posible configurar manualmente los valores siguientes para una máquina virtual de Azure que ejecute SQL Server con una base de datos adjunta.
+
 En la siguiente tabla se enumeran los nombres de propiedad y su descripción para crear una salida de SQL Database.
 
 | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Alias de salida |Un nombre descriptivo usado en las consultas para dirigir la salida de la consulta a esta base de datos. |
 | Base de datos | Nombre de la base de datos adonde envía la salida. |
-| Nombre de servidor | El nombre del servidor de SQL Database. |
+| Nombre de servidor | El nombre del servidor de SQL Database. Para Instancia administrada de Azure SQL Database, es necesario especificar el puerto 3342. Por ejemplo, *sampleserver.public.database.windows.net,3342*. |
 | Nombre de usuario | Nombre de usuario que tiene acceso de escritura a la base de datos. Stream Analytics admite solo la autenticación de SQL. |
 | Contraseña | La contraseña para conectarse a la base de datos. |
 | Tabla | El nombre de la tabla donde se escribe la salida. El nombre de la tabla distingue mayúsculas de minúsculas. El esquema de esta tabla debe coincidir exactamente con el número y tipo de los campos que genera la salida del trabajo. |
 |Heredación del esquema de partición| Opción para heredar el esquema de partición del paso de consulta anterior a fin de habilitar la topología completamente paralela con múltiples escritores en la tabla. Para obtener más información, vea [Salida de Azure Stream Analytics a Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Número máximo de lotes| Número máximo de registros recomendado para enviarse con cada transacción de inserción masiva.|
-
-> [!NOTE]
-> La oferta de Azure SQL Database es compatible con una salida de trabajo de Stream Analytics, pero aún no es compatible una máquina virtual de Azure que ejecuta SQL Server con una base de datos conectada o en una instancia administrada de SQL de Azure. Esto está sujeto a cambios en versiones futuras.
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Blob Storage y Azure Data Lake Gen2
 
@@ -105,7 +104,7 @@ Cuando usa el almacenamiento de blobs como salida, se crea un nuevo archivo en e
 
 ## <a name="event-hubs"></a>Event Hubs
 
-El servicio [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) es un agente de ingesta de eventos de publicación-suscripción altamente escalable. Puede recopilar millones de eventos por segundo. Un uso del centro de eventos como salida es cuando la salida de un trabajo de Stream Analytics se convierte en la entrada de otro trabajo de streaming.
+El servicio [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) es un agente de ingesta de eventos de publicación-suscripción altamente escalable. Puede recopilar millones de eventos por segundo. Un uso del centro de eventos como salida es cuando la salida de un trabajo de Stream Analytics se convierte en la entrada de otro trabajo de streaming. Para obtener información sobre el tamaño máximo del mensaje y la optimización del tamaño del lote, consulte la sección [Tamaño de lote de salida](#output-batch-size).
 
 Necesita unos cuantos parámetros para configurar los flujos de datos de centros de eventos como salida.
 
@@ -120,7 +119,7 @@ Necesita unos cuantos parámetros para configurar los flujos de datos de centros
 | Formato de serialización de eventos | Formato de serialización para los datos de salida. Se admiten JSON, CSV y Avro. |
 | Encoding | Por el momento, UTF-8 es el único formato de codificación compatible para CSV y JSON. |
 | Delimitador | Solo se aplica para la serialización de CSV. Stream Analytics admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
-| Formato | Solo se aplica para la serialización de JSON. La opción **Separado por líneas** especifica que en el formato de la salida cada objeto JSON está separado por una línea nueva. La opción **Matriz** especifica que el formato de la salida es una matriz de objetos JSON. Esta matriz se cierra cuando el trabajo se detenga o Stream Analytics haya pasado a la siguiente ventana de tiempo. En general, es preferible utilizar JSON separado por líneas, ya que no requiere ningún control especial mientras todavía se esté escribiendo en el archivo de salida. |
+| Formato | Solo se aplica para la serialización de JSON. La opción **Separado por líneas** especifica que en el formato de la salida cada objeto JSON está separado por una línea nueva. La opción **Matriz** especifica que el formato de la salida es una matriz de objetos JSON.  |
 | Columnas de propiedades | Opcional. Columnas separadas por comas que necesitan agregarse como propiedades de usuario del mensaje saliente, en lugar de la carga útil. Puede obtener más información sobre esta característica en la sección [Propiedades de metadatos personalizadas para la salida](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI

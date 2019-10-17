@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: dab4b4c6f41a95623a40e5d3fd859f9613afac27
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624567"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949606"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Características de lista de frases en la aplicación de LUIS
 
@@ -46,14 +46,7 @@ Las listas de frases no están vinculadas a una entidad ni a una intención espe
 
 Una vez que haya escrito algunas palabras o frases, use la función **Recomendar** para buscar valores relacionados. Revise los valores relacionados antes de agregarlos a su lista de frases.
 
-|Tipo de lista|Propósito|
-|--|--|
-|Intercambiable|Sinónimos o palabras que cuando se cambian por otra palabra en la lista, tienen la misma intención y extracción de entidades.|
-|No intercambiables|Vocabulario de aplicación, específico de la aplicación, más que de generalmente otras palabras en ese idioma.|
-
-### <a name="interchangeable-lists"></a>Listas intercambiables
-
-Una lista de frases *intercambiable* contiene los valores que son sinónimos. Por ejemplo, si quiere obtener todos los cuerpos de agua encontrados y tiene expresiones de ejemplo tales como: 
+Una lista de frases contiene los valores que son sinónimos. Por ejemplo, si quiere obtener todos los cuerpos de agua encontrados y tiene expresiones de ejemplo tales como: 
 
 * ¿Qué ciudades están cerca de los Grandes Lagos? 
 * ¿Qué carretera pasa por Lake Havasu?
@@ -65,17 +58,7 @@ Cada expresión se debe determinar según la intención y las entidades, indepen
 * ¿Qué carretera pasa por [cuerpoDeAgua]?
 * ¿Dónde empieza y termina [cuerpoDeAgua]? 
 
-Dado que las palabras o frases del cuerpo de agua son sinónimos y se pueden utilizar indistintamente en las expresiones, utilice la configuración **intercambiable** en la lista de frases. 
-
-### <a name="non-interchangeable-lists"></a>Listas no intercambiables
-
-Una lista de frases no intercambiables es una señal que aumenta la detección de LUIS. La lista de frases indica palabras o frases que son más importantes que otras palabras, de forma que se mejora el proceso para determinar la intención y para detectar las entidades. Por ejemplo, supongamos que tiene un dominio de temas (como los viajes) que es global (es decir, lo es en distintas referencias culturales, pero está en un mismo idioma). Hay palabras y frases que son importantes para la aplicación, pero no son sinónimos. 
-
-Como ejemplo adicional, utilice una lista de frases no intercambiables para palabras poco frecuentes, exclusivas y extranjeras. Es posible que LUIS no pueda reconocer las palabras poco frecuente y exclusivas, así como las palabras extranjeras (ajenas a la referencia cultural de la aplicación). La configuración no intercambiable indica que el conjunto de palabras poco frecuentes constituye una clase que LUIS debe aprender a reconocer, pero que no son sinónimos ni intercambiables entre sí.
-
-No agregue todas las palabras o frases posibles a una lista de frases. En su lugar, agregue unas cuantas cada vez, vuelva a entrenar el modelo y publíquelo. 
-
-Conforme vaya creciendo la lista de frases, es posible que algunos de los términos presenten varias formas (sinónimos). Divida estos en otra lista de frases que sea intercambiable. 
+Porque las palabras o frases del cuerpo de agua son sinónimas y se pueden utilizar indistintamente en las expresiones. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

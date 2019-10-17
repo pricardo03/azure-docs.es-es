@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.author: trbye
 author: trevorbye
-ms.date: 10/01/2019
-ms.openlocfilehash: 50593741e185a146c5a376c34da959063198e7d0
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 10/03/2019
+ms.openlocfilehash: 3df95f88c057fa564078dbf05d5dfa4b26150f6a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71817359"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959656"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depuración y solución de problemas de canalizaciones de aprendizaje automático
 
@@ -27,7 +27,7 @@ En la siguientes secciones se da una información general sobre los errores comu
 
 Uno de los errores más comunes en una canalización es que uno de los script adjuntos (script de limpieza de datos, script de puntuación, etc.) no se ejecute según lo previsto, o que contenga errores en tiempo de ejecución en el contexto de proceso remoto que son difíciles de depurar en el área de trabajo en Azure Portal. 
 
-Las canalizaciones no se pueden ejecutar localmente, pero las pruebas unitarias de los scripts subyacentes son una manera sencilla de asegurarse de que los scripts están haciendo lo que se espera de forma individual, sin tener que esperar todo el tiempo que dura la ejecución de la canalización. Para ello, se necesita realizar algo de trabajo de desarrollo:
+Las canalizaciones no se pueden ejecutar localmente, pero la ejecución de los scripts de forma aislada en la máquina local le permite depurar más rápido ya que no tiene que esperar al proceso de compilación de proceso y de entorno. Para ello, se necesita realizar algo de trabajo de desarrollo:
 
 * Si los datos están en un almacén de datos en la nube, tendrá que descargarlos y ponerlos a disposición del script. El uso de una pequeña muestra de los datos es una buena forma de reducir el tiempo de ejecución y obtener rápidamente comentarios sobre el comportamiento del script
 * Si intenta simular un paso de canalización intermedio, es posible que tenga que compilar manualmente los tipos de objeto que el script específico espera del paso anterior
@@ -38,6 +38,9 @@ Una vez que tenga una configuración de script que se ejecute en su entorno loca
 * Incorporación de una configuración de depuración personalizada
 * Pausa de la ejecución e inspección del estado del objeto
 * Detección de errores lógicos o de tipo que no se expondrían hasta el tiempo de ejecución
+
+> [!TIP] 
+> Una vez que pueda comprobar que el script se ejecuta según lo previsto, un buen paso posterior es ejecutar el script en una canalización de un solo paso antes de intentar ejecutarlo en una canalización con varios pasos.
 
 ## <a name="debugging-scripts-from-remote-context"></a>Depuración de scripts desde un contexto remoto
 

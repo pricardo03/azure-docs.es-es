@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 90007a82acce0010504bc06e96801869aea4a87a
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673019"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937499"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integraciones de partners de Windows Virtual Desktop
 
@@ -33,9 +33,9 @@ Citrix amplía el valor de Windows Virtual Desktop con sólidas herramientas emp
 
 ![Logotipo de VMware](./media/partners/vmware.png)
 
-VMware Horizon Cloud en Microsoft Azure ofrece a las organizaciones la posibilidad de conectar su propia instancia de Microsoft Azure al sencillo e intuitivo plano de control de Horizon Cloud, con lo que se crea una solución hospedada en la nube segura y completa para ofrecer aplicaciones y escritorios de Windows virtuales. Con el lanzamiento de Windows Virtual Desktop, VMware se ha asociado con Microsoft para ampliar la funcionalidad de Windows Virtual Desktop a los clientes que usan Horizon Cloud en Microsoft Azure.
-
-Como proveedores aprobados, los clientes de VMware Horizon Cloud en Microsoft Azure obtienen todas las ventajas de Windows Virtual Desktop, como Windows 10 Enterprise para sesiones múltiples, Windows 7 con actualizaciones de seguridad extendidas gratuitas durante un máximo de tres años y las funcionalidades de FSLogix, además de todas las modernas características de clase empresarial de Horizon Cloud, como la compatibilidad con puntos de conexión amplios; agentes globales y optimizados para la nube, opciones y configuraciones de escritorio flexibles, administración del entorno de usuario y soporte técnico para entornos híbridos. 
+VMware Horizon Cloud en Microsoft Azure ofrece a las organizaciones la posibilidad de conectar su propia instancia de Microsoft Azure al sencillo e intuitivo plano de control de Horizon Cloud, con lo que se crea una solución hospedada en la nube segura y completa para ofrecer aplicaciones y escritorios de Windows virtuales. Con el lanzamiento de Windows Virtual Desktop, VMware se ha asociado con Microsoft para ampliar la funcionalidad de Windows Virtual Desktop a los clientes que usan Horizon Cloud en Microsoft Azure. Esta funcionalidad estará disponible como versión preliminar técnica a finales de 2019.
+ 
+Como proveedores aprobados, las ventajas de Windows Virtual Desktop se extienden a los clientes de VMware Horizon Cloud en Microsoft Azure, como Windows 10 Enterprise para sesiones múltiples, Windows 7 con actualizaciones de seguridad extendidas gratuitas durante un máximo de tres años y las funcionalidades de FSLogix. Además, los clientes disfrutarán de las características de clase empresarial de Horizon Cloud, como la compatibilidad con puntos de conexión amplios, agentes globales y optimizados para la nube, opciones y configuraciones de escritorio flexibles, administración del entorno de usuario y soporte para entornos híbridos.
 
 - [Regístrese para la Tech Preview de Horizon Cloud en Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Ir al sitio web del asociado](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
@@ -59,7 +59,7 @@ ControlUp es un proveedor de servicios de valor añadido de Windows Virtual Desk
 
 Si se usa con Windows Virtual Desktop, ControlUp proporciona funcionalidades adicionales para optimizar los entornos de Windows Virtual Desktop y la experiencia del usuario final. En la consola de ControlUp, el personal de TI obtiene visibilidad del entorno del usuario final para supervisar y solucionar problemas de rendimiento de forma eficaz. Un panel intuitivo proporciona información y análisis para las implementaciones de escritorios virtuales, así como opciones para la generación de informes automatizada que se han enriquecido con los bancos de pruebas de la comunidad. ControlUp puede administrar varios orígenes y tipos de datos, organizarlos en conjuntos de datos de alto rendimiento agregados a través de la infraestructura de proceso, almacenamiento y Windows Virtual Desktop, lo que permite una visibilidad detallada desde un único panel.
 
-- [Consultar el resumen de la solución conjunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
+- [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Ir al sitio web del asociado](https://www.controlup.com/solutions/ms_wvd/).
 
 ## <a name="lakeside-software"></a>Lakeside Software
@@ -93,7 +93,7 @@ Nerdio es una plataforma de automatización de TI de Azure que facilita la imple
 Nerdio amplía el valor de Windows Virtual Desktop al facilitar el aprovisionamiento de los recursos de Azure y la simplificación de la implementación. Con Nerdio para Azure, TI puede implementar y administrar automáticamente un entorno completo de Azure, incluido Windows Virtual Desktop, en menos de dos horas.
 
 - [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
-- [Ir al sitio web del asociado](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/).
+- [Ir al sitio web del asociado](https://getnerdio.com/windows-virtual-desktop/).
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -104,7 +104,7 @@ ThinPrint es un proveedor de servicios de valor añadido de Windows Virtual Desk
 La solución ezeep de ThinPrint amplía el valor de Windows Virtual Desktop al permitir la conexión a la infraestructura de impresión empresarial existente. ezeep ofrece a los usuarios el control sobre la impresión en la empresa, independientemente de dónde se encuentren. Con ezeep, los usuarios pueden salvar la brecha entre Windows Virtual Desktop y el hardware de impresión.
 
 - [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas).
-- [Ir al sitio web del asociado.](https://www.ezeep.com/wvd-printing).
+- [Ir al sitio web del asociado](https://www.ezeep.com/wvd-printing).
 
 ## <a name="workspot"></a>Workspot
 
@@ -115,7 +115,7 @@ Workspot es un proveedor de servicios de valor añadido de Windows Virtual Deskt
 Workspot amplía el valor de Windows Virtual Desktop al simplificar el proceso de aprovisionamiento de la infraestructura de escritorio en la nube. Con Workspot, los recursos se pueden escalar y reducir verticalmente de forma sencilla para satisfacer las necesidades de los distintos usuarios y casos de uso. Workspot puede optimizar las implementaciones para las estaciones de trabajo de GPU de alto rendimiento necesarias para los usuarios de CAD y de ingeniería, así como para las aplicaciones de Windows y los equipos de escritorio de Windows 10 para todos los usuarios empresariales.
 
 - [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
-- [Ir al sitio web del asociado.](https://www.workspot.com/wvd).
+- [Ir al sitio web del asociado](https://www.workspot.com/wvd).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

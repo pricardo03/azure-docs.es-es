@@ -21,6 +21,8 @@
   items:
     - name: Directivas de acceso condicional habituales
       href: concept-conditional-access-policy-common.md
+    - name: Valores predeterminados de seguridad
+      href: concept-conditional-access-security-defaults.md
     - name: Componentes de la directiva de acceso condicional
       href: concept-conditional-access-policies.md
     - name: Condiciones
@@ -76,16 +78,6 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Migración de directivas clásicas
       href: policy-migration.md
-    - name: Directivas de base de referencia
-      items:
-        - name: Requerir MFA para administradores
-          href: howto-baseline-protect-administrators.md
-        - name: Protección del usuario final
-          href: howto-baseline-protect-end-users.md
-        - name: Bloquear la autenticación heredada
-          href: howto-baseline-protect-legacy-auth.md
-        - name: Requerir MFA para la administración de servicios
-          href: howto-baseline-protect-azure.md
     - name: Adopción del acceso condicional
       href: howto-conditional-access-adoption-kit.md
     - name: solución de problemas

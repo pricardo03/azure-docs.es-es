@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 4318c4b4d8f1b1f0974d0fae0a2ae5bd6e94b593
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 3a5517c31cdac0bf6f5ea386a8614d15521d4479
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076532"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035539"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integración con identidades administradas de Azure
 
 Las [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) de Azure Active Directory ayudan a simplificar la administración de secretos de su aplicación de nube. Con una identidad administrada, puede configurar el código para usar la entidad de servicio que se creó para el servicio de proceso de Azure en que se ejecuta. Usar una identidad administrada en lugar de una credencial diferente que se almacenan en Azure Key Vault o una cadena de conexión local. 
 
-Azure App Configuration y sus bibliotecas cliente .NET Core, .NET y Java Spring incluyen compatibilidad integrada con Managed Service Identity (MSI). Aunque su uso no es necesario, MSI elimina la necesidad de un token de acceso que contenga los secretos. Para acceder al almacén de configuración de la aplicación, el código tiene que conocer únicamente su punto de conexión de servicio. Puede insertar esta dirección URL en el código directamente sin preocuparse de exponer ningún secreto.
+Azure App Configuration y sus bibliotecas cliente .NET Core, .NET y Java Spring incluyen compatibilidad integrada con Managed Service Identity (MSI). Aunque su uso no es necesario, MSI elimina la necesidad de un token de acceso que contenga los secretos. El código puede acceder al almacén de configuración de la aplicación solo mediante el punto de conexión de servicio. Puede insertar esta dirección URL en el código directamente sin preocuparse de exponer ningún secreto.
 
 En este tutorial se muestra cómo puede aprovechar MSI para acceder a App Configuration. Se basa en la aplicación web que se introdujo en los inicios rápidos. Antes de continuar, finalice primero el tutorial [Creación de una aplicación ASP.NET Core con Azure App Configuration](./quickstart-aspnet-core-app.md).
+
+Además, este tutorial muestra también cómo puede usar MSI junto con las referencias de Key Vault de App Configuration. Esto le permite acceder sin problemas a los secretos almacenados en Key Vault, así como a los valores de configuración de App Configuration. Si desea explorar esta funcionalidad, termine primero [Uso de referencias de Key Vault con ASP.NET Core](./use-key-vault-references-dotnet-core.md).
 
 Para realizar los pasos de este tutorial, puede usar cualquier editor de código. [Visual Studio Code](https://code.visualstudio.com/) es una excelente opción disponible en las plataformas Windows, macOS y Linux.
 
@@ -35,6 +37,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Conceder a una identidad administrada acceso a App Configuration.
 > * Configurar la aplicación para usar una identidad administrada al conectarse a App Configuration.
+> * También puede configurar la aplicación para que use una identidad administrada cuando se conecte a Key Vault mediante una referencia de Key Vault de App Configuration.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -63,23 +66,25 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
 
-2. Seleccione **Access Control (IAM)** .
+1. Seleccione **Access Control (IAM)** .
 
-3. En la pestaña **Comprobar el acceso**, seleccione **Agregar** en la interfaz de usuario de la tarjeta **Agregar una asignación de roles**.
+1. En la pestaña **Comprobar el acceso**, seleccione **Agregar** en la interfaz de usuario de la tarjeta **Agregar una asignación de roles**.
 
-4. En **Rol**, seleccione **Colaborador**. En **Asignar acceso**, seleccione **App Service** en **Identidad administrada asignada por el sistema**.
+1. En **Rol**, seleccione **Colaborador**. En **Asignar acceso**, seleccione **App Service** en **Identidad administrada asignada por el sistema**.
 
-5. En **Suscripción**, seleccione su suscripción de Azure. Seleccione el recurso de App Service para la aplicación.
+1. En **Suscripción**, seleccione su suscripción de Azure. Seleccione el recurso de App Service para la aplicación.
 
-6. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
     ![Agregar una identidad administrada](./media/add-managed-identity.png)
+
+1. Opcional: Si también desea conceder acceso a Key Vault, siga las instrucciones de [Autenticación de Key Vault con una identidad administrada](https://docs.microsoft.com/azure/key-vault/managed-identity).
 
 ## <a name="use-a-managed-identity"></a>Uso de una identidad administrada
 
 1. Busque la dirección URL del almacén de configuración de la aplicación. Para ello, vaya a su pantalla de configuración en Azure Portal y haga clic en la pestaña **Claves de acceso**.
 
-2. Abra *appsettings.json*y agregue el siguiente script. Reemplace *\<service_endpoint>* , incluidos los corchetes, por la dirección URL del almacén de configuración de aplicaciones. 
+1. Abra *appsettings.json*y agregue el siguiente script. Reemplace *\<service_endpoint>* , incluidos los corchetes, por la dirección URL del almacén de configuración de aplicaciones. 
 
     ```json
     "AppConfig": {
@@ -87,7 +92,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
     }
     ```
 
-3. Abra *Program.cs* y actualice el método `CreateWebHostBuilder`; para ello, reemplace el método `config.AddAzureAppConfiguration()`.
+1. Si desea acceder solo a los valores almacenados directamente en App Configuration, abra *Program.cs* y actualice el método `CreateWebHostBuilder` reemplazando el método `config.AddAzureAppConfiguration()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -100,6 +105,24 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
             })
             .UseStartup<Startup>();
     ```
+
+1. Si desea usar los valores de configuración de App Configuration, así como las referencias de Key Vault, abra *Program.cs* y actualice el método `CreateWebHostBuilder` tal como se muestra a continuación. Esto crea un nuevo objeto `KeyVaultClient` mediante `AzureServiceTokenProvider` y pasa esta referencia a una llamada al método `UseAzureKeyVault`.
+
+    ```csharp
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+                    KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+                    
+                    config.AddAzureAppConfiguration(options => options.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"])).UseAzureKeyVault(kvClient));
+                })
+                .UseStartup<Startup>();
+    ```
+
+    Ya puede acceder a las referencias de Key Vault de igual forma que a cualquier otra clave de App Configuration. El proveedor de configuración usará el objeto `KeyVaultClient` que configuró para autenticarse en Key Vault y recuperará el valor.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -114,7 +137,7 @@ La manera más fácil de habilitar la implementación de Git local para la aplic
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="enable-local-git-with-kudu"></a>Habilitación de GIT local con Kudu
-Si aún no tiene un repositorio de Git local para la aplicación, deberá inicializar uno mediante la ejecución de los siguientes comandos desde el directorio de proyectos de la aplicación:
+Si no tiene un repositorio de Git local para la aplicación, deberá inicializar uno. Para ello, ejecute los comandos siguientes desde el directorio del proyecto de la aplicación:
 
 ```cmd
 git init

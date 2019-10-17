@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 10/2/2019
+ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1c6e381f5f05bc285b50521c9a57e8b5189a7478
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827982"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969576"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>P+F de Marketplace comercial de Microsoft
 
@@ -171,7 +171,7 @@ Sí, para clientes con contrato Enterprise, el administrador de inscripciones pu
 
 **¿Qué métodos de pago se admiten para las compras de Marketplace comercial?**
 
-Los clientes pueden comprar ofertas de Azure Marketplace y AppSource con tarjetas de crédito. Si tiene una suscripción de Azure existente, las compras de Azure Marketplace usarán el método de pago configurado en la cuenta y aparecerán en la misma factura como un elemento de línea independiente. Algunas ofertas consumen el compromiso monetario de Azure, pero la mayoría de las compras de Marketplace comercial no imponen compromisos de Contrato Enterprise, aunque el consumo de la infraestructura de Azure lo hará.
+Los clientes pueden comprar ofertas de Azure Marketplace y AppSource con tarjetas de crédito. Si tiene una suscripción de Azure existente, las compras de Azure Marketplace usarán el método de pago configurado en la cuenta y aparecerán en la misma factura como un elemento de línea independiente. Algunas ofertas consumen el compromiso monetario de Azure, pero la mayoría de las compras de Marketplace comercial no imponen compromisos de Contrato Enterprise, aunque el consumo de la infraestructura de Azure sí lo hará.
 
 **¿Puedo utilizar créditos de una suscripción de Azure o fondos de compromisos monetarios de mi cuenta para adquirir ofertas de Azure Marketplace?**
 
@@ -381,9 +381,9 @@ Para más información, consulte la sección sobre la [eliminación de una ofert
     > [!NOTE]
     > Las aplicaciones desaparecerán de una oferta existente después de 90 días.
 
-*Aplicaciones de Power BI:*
+**¿Por qué los cambios no se reflejan en la oferta?**
 
-Contacto: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
+Los cambios realizados en el centro de Partners solo se actualizan en el sistema y en los escaparates una vez que se ha vuelto a publicar la oferta. Asegúrese de que ha enviado la oferta para su publicación después de cualquier modificación.
 
 ### <a name="benefits-and-go-to-market-gtm-resources"></a>Ventajas y recursos de comercialización
 
@@ -463,6 +463,16 @@ Se pueden llevar a cabo transacciones en las 17 divisas siguientes: AUD, BRL, CA
 **¿Qué diferencia hay entre el nivel gratuito y la evaluación de software gratuita?**
 
 Una oferta de suscripción de nivel gratuito es gratis para siempre.  Una oferta de evaluación de software gratuita (Pruébelo ahora) es una suscripción de pago, solo gratis durante un período de tiempo limitado.
+
+**¿Cuál es el proceso para validar el flujo de compra y de aprovisionamiento en su totalidad?**
+
+Durante el proceso de publicación, se le proporcionará acceso a una vista previa de la oferta. El acceso está restringido a los usuarios que especificó en la pestaña Vista previa y es una oferta dinámica que no es visible para nadie más. Puede adquirirlo y probar el proceso; sin embargo, se le cobrará la cantidad total según la configuración de su oferta.
+
+Para completar una compra a un precio muy bajo, Microsoft sugiere publicar un plan privado para usted mismo y establecer un precio que pueda aceptar como costo por las pruebas. Se admite cero, pero esto no reflejará la experiencia completa como si se tratara de una suscripción de pago.
+
+**¿Proporcionará Microsoft un reembolso fuera de las directivas estándar?**
+
+Sí, tras su solicitud mediante una incidencia de soporte técnico, Microsoft procesará créditos para el cliente si lo considera adecuado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: cf985f08f13198a9041b1d50f2c6c7f0fec70911
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 16ce90d3db1091fa759d940f4bbf91a3ef924e42
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945034"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025527"
 ---
 # <a name="archived-release-notes"></a>Archivado de notas de la versión
 
@@ -822,73 +822,73 @@ Esta sección abarca todas las vulnerabilidades y exposiciones (CVE) comunes que
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **Resumen:**   La evaluación de directivas de Apache Ranger omite los caracteres después del carácter comodín "\*". |
+| **Resumen:** la evaluación de directivas de Apache Ranger omite los caracteres después del carácter comodín "\*". |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravedad:**  crítica                                                                           |
-| **Proveedor:**  Hortonworks                                                                          |
-| **Versiones afectadas:**   versiones de HDInsight 3.6, incluidas Apache Ranger versiones 0.5.x/0.6.x/0.7.0     |
-| **Usuarios afectados:**   entornos que usan directivas de Ranger con caracteres después del carácter comodín "\*", como my\*test, test\*.txt |
-| **Impacto:**   el buscador de coincidencias de recursos de directiva omite los caracteres después del carácter comodín "\*", lo que puede provocar un comportamiento imprevisto.      |
-| **Detalle de la corrección:**   el buscador de coincidencias de recursos de directiva de Ranger se actualizó para controlar correctamente las coincidencias con caracteres comodín.           |
-| **Acción recomendada:**   actualizar a HDI 3.6 (con Apache Ranger 0.7.1 o superior).                                |
+| **Gravedad:** Crítico                                                                           |
+| **Proveedor:** Hortonworks                                                                          |
+| **Versiones afectadas:** versiones de HDInsight 3.6, incluidas las versiones 0.5.x/0.6.x/0.7.0 de Apache Ranger     |
+| **Usuarios afectados:** entornos que usan directivas de Ranger con caracteres después del carácter comodín "\*", como my\*prueba, prueba\*.txt |
+| **Impacto:** el buscador de coincidencias de recursos de directiva omite los caracteres después del carácter comodín "\*", lo que puede provocar un comportamiento imprevisto.      |
+| **Detalle de la corrección:** el buscador de coincidencias de recursos de directiva de Ranger se actualizó para controlar correctamente las coincidencias con caracteres comodín.           |
+| **Acción recomendada:** actualizar a HDI 3.6 (con Apache Ranger 0.7.1 o posterior).                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **Resumen:**   el autorizador de Apache Ranger Hive debe comprobar el permiso de RWX cuando se especifica una ubicación externa. |
+| **Resumen:** el autorizador de Apache Ranger Hive debe comprobar el permiso RWX cuando se especifica una ubicación externa |
 |--------------------------------------------------------------------------------------------------|
-| **Gravedad:**  crítica                                                                           |
-| **Proveedor:**  Hortonworks                                                                          |
-| **Versiones afectadas:**   versiones de HDInsight 3.6, incluidas Apache Ranger versiones 0.5.x/0.6.x/0.7.0 |
-| **Usuarios afectados:**   entornos que usan una ubicación externa para las tablas de Hive |
-| **Impacto:**   en entornos que usan una ubicación externa para las tablas de Hive, el autorizador de Apache Ranger Hive debe comprobar el permiso de RWX para la ubicación externa especificada para crear una tabla. |
-| **Detalle de la corrección:**   el autorizador de Hive de Ranger se actualizó para controlar correctamente la comprobación de permisos para la ubicación externa. |
-| **Acción recomendada:**   los usuarios deben actualizar a HDI 3.6 (con Apache Ranger 0.7.1 o superior). |
+| **Gravedad:** Crítico                                                                           |
+| **Proveedor:** Hortonworks                                                                          |
+| **Versiones afectadas:** versiones de HDInsight 3.6, incluidas las versiones 0.5.x/0.6.x/0.7.0 de Apache Ranger |
+| **Usuarios afectados:** entornos que usan una ubicación externa para las tablas de Hive |
+| **Impacto:** en entornos que usan una ubicación externa para las tablas de Hive, el autorizador de Apache Ranger Hive debe comprobar el permiso RWX para la ubicación externa especificada para crear una tabla. |
+| **Detalle de la corrección:** el autorizador de Hive de Ranger se actualizó para controlar correctamente la comprobación de permisos para la ubicación externa. |
+| **Acción recomendada:** los usuarios deben actualizar a HDI 3.6 (con Apache Ranger 0.7.1 o posterior). |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **Resumen:**   posible ejecución de código como usuario incorrecto en Apache Storm |
+| **Resumen:** posible ejecución de código como usuario incorrecto en Apache Storm |
 |--------------------------------------------------------------------------------------------------|
-|**Gravedad:**  importante |
-| **Proveedor:**  Hortonworks |
-| **Versiones afectadas:**   HDP 2.4.0, HDP-2.5.0 HDP-2.6.0 |
-| **Usuarios afectados:**   usuarios que usan Storm en modo seguro y usan BlobStore para distribuir topología en función de los artefactos o usan BlobStore para distribuir recursos de topología. |
-| **Impacto:**   en algunas situaciones y configuraciones de Storm es teóricamente posible que el propietario de una topología engañe al supervisor para iniciar un trabajo como otro usuario no raíz. En el peor de los casos, esto podría provocar que las credenciales seguras del otro usuario se vieran comprometidas. Esta vulnerabilidad solo se aplica a las instalaciones de Apache Storm con seguridad habilitada. |
-| **Mitigación:**   actualizar a HDP-2.6.2.1 ya que actualmente no hay soluciones alternativas.  |
+|**Gravedad:** Importante |
+| **Proveedor:** Hortonworks |
+| **Versiones afectadas:** HDP 2.4.0, HDP-2.5.0, HDP-2.6.0 |
+| **Usuarios afectados:** usuarios que usan Storm en modo seguro y BlobStore para distribuir topología en función de los artefactos o usan BlobStore para distribuir recursos de topología. |
+| **Impacto:** en algunas situaciones y configuraciones de Storm es teóricamente posible que el propietario de una topología engañe al supervisor para iniciar un trabajo como otro usuario no raíz. En el peor de los casos, esto podría provocar que las credenciales seguras del otro usuario se vieran comprometidas. Esta vulnerabilidad solo se aplica a las instalaciones de Apache Storm con seguridad habilitada. |
+| **Mitigación:** actualizar a HDP-2.6.2.1 ya que actualmente no hay soluciones alternativas.  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **Resumen:**   handler/ssl/OpenSslEngine.java en Netty 4.0 antes de 4.0.37.Final y 4.1.x antes de 4.1.1.Final permite a los atacantes remotos provocar una denegación de servicio (bucle infinito) |
+| **Resumen:** handler/ssl/OpenSslEngine.java en Netty 4.0 antes de 4.0.37.Final y 4.1.x antes de 4.1.1.Final permite a los atacantes remotos provocar una denegación de servicio (bucle infinito) |
 |--------------------------------------------------------------------------------------------------|
 | **Gravedad:** Moderado  |
-| **Proveedor:**  Hortonworks  |
-| **Versiones afectadas:**   HDP 2.x.x a partir de 2.3.x  |
-| **Usuarios afectados:**   todos los usuarios que usan HDFS. |
-| **Impacto:**   el impacto es bajo ya que Hortonworks no usa OpenSslEngine.java directamente en el código base de Hadoop.     |
-| **Acción recomendada:**   actualizar a HDP 2.6.3.   |
+| **Proveedor:** Hortonworks  |
+| **Versiones afectadas:** HDP 2.x.x desde 2.3.x  |
+| **Usuarios afectados:** todos los usuarios que usan HDFS. |
+| **Impacto:** el impacto es bajo ya que Hortonworks no usa OpenSslEngine.java directamente en el código base de Hadoop.     |
+| **Acción recomendada:** actualizar a HDP 2.6.3.   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **Resumen:**   problema al buscar coincidencias de rutas de acceso de Apache Ranger en la evaluación de directivas                                                                    |
+| **Resumen:** problema al buscar coincidencias de rutas de acceso de Apache Ranger en la evaluación de directivas                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravedad:**  normal                                                                                                                   |
+| **Gravedad:** Normal                                                                                                                   |
 | **Proveedor:** Hortonworks                                                                                                                |
-| **Versiones afectadas:**   todas las versiones de HDP 2.5, incluidas Apache Ranger versiones 0.6.0/0.6.1/0.6.2                                         |
-| **Usuarios afectados:**   todos los usuarios de la herramienta de administración de directivas de Ranger.                                                                         |
-| **Impacto:**   el motor de directivas de Ranger encuentra coincidencias incorrectas de las rutas de acceso en determinadas condiciones cuando una directiva contiene comodines y marcas recursivas. |
+| **Versiones afectadas:** todas las versiones de HDP 2.5, incluidas las versiones 0.6.0/0.6.1/0.6.2 de Apache Ranger                                         |
+| **Usuarios afectados:** todos los usuarios de la herramienta de administración de directivas de Ranger.                                                                         |
+| **Impacto:** el motor de directivas de Ranger encuentra coincidencias incorrectas de las rutas de acceso en determinadas condiciones cuando una directiva contiene comodines y marcas recursivas. |
 | **Detalle de la corrección:** se ha corregido la lógica de evaluación de directivas                                                                                          |
-| **Acción recomendada:**   los usuarios deben actualizar a HDP 2.5.4 o superior (con Apache Ranger 0.6.3 o superior) o HDP 2.6 o superior (con Apache Ranger 0.7.0 o superior).         |
+| **Acción recomendada:** los usuarios deben actualizar a HDP 2.5.4 o posterior (con Apache Ranger 0.6.3 o posterior ) o HDP 2.6 o posterior (con Apache Ranger 0.7.0 o posterior )         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **Resumen:**   problema de scripting almacenado entre sitios de Apache Ranger  |
+| **Resumen:** problema de scripting almacenado entre sitios de Apache Ranger  |
 |--------------------------------------------------------------------------------------------------|
-| **Gravedad:**  normal |
-| **Proveedor:**  Hortonworks |
-| **Versiones afectadas:**   todas las versiones de HDP 2.3/2.4/2.5, incluidas Apache Ranger versiones 0.5.x/0.6.0/0.6.1/0.6.2  |
-| **Usuarios afectados:**   todos los usuarios de la herramienta de administración de directivas de Ranger. |
-| **Impacto:**   Apache Ranger es vulnerable a scripting almacenado entre sitios al escribir condiciones de directivas personalizadas. Los usuarios administradores pueden almacenar parte de código javascript arbitrario que se ejecuta cuando los usuarios habituales inician sesión y las directivas de acceso. |
-| **Detalle de la corrección:**   se ha agregado lógica para sanear la entrada del usuario.  |
-| **Acción recomendada:**   los usuarios deben actualizar a HDP 2.5.4 o superior (con Apache Ranger 0.6.3 o superior) o HDP 2.6 o superior (con Apache Ranger 0.7.0 o superior).  |
+| **Gravedad:** Normal |
+| **Proveedor:** Hortonworks |
+| **Versiones afectadas:** todas las versiones 2.3/2.4/2.5 de HDP, incluidas las versiones 0.5.x/0.6.0/0.6.1/0.6.2 de Apache Ranger  |
+| **Usuarios afectados:** todos los usuarios de la herramienta de administración de directivas de Ranger. |
+| **Impacto:** Apache Ranger es vulnerable a scripting almacenado entre sitios al escribir condiciones de directivas personalizadas. Los usuarios administradores pueden almacenar parte de código javascript arbitrario que se ejecuta cuando los usuarios habituales inician sesión y las directivas de acceso. |
+| **Detalle de la corrección:** se ha agregado lógica para sanear la entrada del usuario.  |
+| **Acción recomendada:** los usuarios deben actualizar a HDP 2.5.4 o posterior (con Apache Ranger 0.6.3 o posterior ) o HDP 2.6 o posterior (con Apache Ranger 0.7.0 o posterior )  |
 
 ## <a name="fixed-issues-for-support"></a>Se han corregido problemas de soporte técnico
 

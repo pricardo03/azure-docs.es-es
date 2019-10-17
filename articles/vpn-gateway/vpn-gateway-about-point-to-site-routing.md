@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 10/08/2019
 ms.author: anzaman
-ms.openlocfilehash: 486a910226db5dc7b36aaf873e7bb8115eb78805
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cb5969ccb4ee9780b597326a3811395c3b7d9971
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653619"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168476"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Información sobre el enrutamiento de VPN de punto a sitio
 
@@ -30,7 +30,7 @@ Hay varios diagramas distintos en este artículo. Cada sección muestra una conf
 
 ## <a name="isolatedvnet"></a>Una red virtual aislada
 
-La conexión de puerta de enlace de VPN de punto a sitio en este ejemplo es para una red virtual que no está conectada ni emparejada con ninguna otra red virtual (VNet1). En este ejemplo, los clientes que usan el protocolo SSTP o IKEv2 puede acceder a VNet1.
+La conexión de puerta de enlace de VPN de punto a sitio en este ejemplo es para una red virtual que no está conectada ni emparejada con ninguna otra red virtual (VNet1). En este ejemplo, los clientes pueden acceder a VNet1.
 
 ![enrutamiento de red virtual aislada](./media/vpn-gateway-about-point-to-site-routing/1.jpg "enrutamiento de red virtual aislada")
 

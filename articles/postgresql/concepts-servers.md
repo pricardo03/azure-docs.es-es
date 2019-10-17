@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd7c24489e8ac7b26cb703923ddf9cbb741cfd68
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067153"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029967"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL: Un solo servidor
 En este artículo se incluyen consideraciones e instrucciones para trabajar con Azure Database for PostgreSQL con un único servidor.
@@ -64,6 +64,6 @@ Como servicio administrado para Postgres, los parámetros configurables en Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para obtener una visión general del servicio, consulte la  [introducción a Azure Database for PostgreSQL](overview.md).
-- Para obtener información sobre las cuotas y las limitaciones aplicables a recursos específicos en función de su  **nivel de servicio**, vea  [Niveles de servicio](concepts-pricing-tiers.md).
+- Para más información sobre las cuotas y las limitaciones aplicables a recursos específicos en función de su **nivel de servicio**, consulte  [Niveles de servicio](concepts-pricing-tiers.md).
 - Para obtener información sobre cómo conectarse al servicio, vea la información sobre  [bibliotecas de conexión de Azure Database for PostgreSQL](concepts-connection-libraries.md).
 - Vea y edite los parámetros del servidor a través de [Azure Portal](howto-configure-server-parameters-using-portal.md) o la [CLI de Azure](howto-configure-server-parameters-using-cli.md).

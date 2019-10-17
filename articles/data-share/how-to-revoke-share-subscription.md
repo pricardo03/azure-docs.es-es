@@ -1,17 +1,17 @@
 ---
 title: Revocación de una suscripción a un recurso compartido en la versión preliminar de Azure Data Share
-description: Revocación de una suscripción a un recurso compartido
+description: Obtenga información sobre cómo revocar una suscripción de recurso compartido de un destinatario mediante la versión preliminar de Azure Data Share.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 08a48202c26df1c24216572b1a52ac45506c6229
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: bd8ef23ead500acb9e403b38fd52a2d980d12bf4
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326532"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169055"
 ---
 # <a name="how-to-revoke-a-consumers-share-subscription-in-azure-data-share-preview"></a>Revocación de una suscripción a un recurso compartido de un consumidor en la versión preliminar de Azure Data Share
 

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 9c9d02eeead4ccbed372e9a55d9b551da83caa39
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7af40404550fb78af891563d8256f23620781b24
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641593"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841529"
 ---
 # <a name="understanding-the-ip-address-of-your-iot-hub"></a>Uso de la dirección IP de IoT Hub
 
@@ -34,3 +34,6 @@ Esta dirección IP puede cambiar sin previo aviso. En un escenario de conmutaci�
 
 Pruebe a crear reglas de firewall y filtre por el dominio o el nombre de host de IoT Hub. Si solo puede permitir el tráfico saliente a direcciones específicas, sondee la dirección IP de IoT Hub periódicamente y actualice las reglas de firewall.
 
+## <a name="support-for-ipv6"></a>Compatibilidad con IPv6 
+
+Actualmente, IPv6 no se admite en IoT Hub.

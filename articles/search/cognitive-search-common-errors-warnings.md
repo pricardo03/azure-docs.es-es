@@ -9,20 +9,26 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: abmotley
-ms.subservice: cognitive-search
-ms.openlocfilehash: 62dd3440deaf31f3739ad5d8fde1d8b54a20197e
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b5a161e570489e6382f2226ab5dc9a1c34dc67df
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828258"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028319"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Errores y advertencias comunes de la canalización de enriquecimiento de IA en Azure Search
 
 En este artículo se proporciona información y soluciones a errores y advertencias comunes que pueden surgir durante el enriquecimiento de IA en Azure Search.
 
 ## <a name="errors"></a>Errors
-La indexación se detiene cuando el recuento de errores supera ["maxfaileditems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). Las secciones siguientes pueden ayudarle a resolver errores, de forma que la indexación continúe.
+La indexación se detiene cuando el recuento de errores supera ["maxfaileditems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
+
+Si desea que los indexadores omitan estos errores (y omitan los "documentos con errores"), considere la posibilidad de actualizar `maxFailedItems` y `maxFailedItemsPerBatch` como se describe [aquí](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+
+> [!NOTE]
+> Cada documento con error junto con su clave de documento (si está disponible) se mostrará como un error en el estado de ejecución del indexador. Puede utilizar la [API de índice](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para cargar manualmente los documentos en un momento posterior si ha configurado el indexador para tolerar errores.
+
+Las secciones siguientes pueden ayudarle a resolver errores, de forma que la indexación continúe.
 
 ### <a name="could-not-read-document"></a>No se pudo leer el documento
 El indexador no pudo leer el documento del origen de datos. Estos pueden ser los motivos:
@@ -52,6 +58,14 @@ El indexador leyó el documento desde el origen de datos, pero hubo un problema 
 | La clave del documento no es válida | La clave del documento no puede tener más de 1024 caracteres | Modifique la clave del documento para que cumpla los requisitos de validación. |
 | No se pudo aplicar la asignación de campos a un campo | No se pudo aplicar la función de asignación `'functionName'` al campo `'fieldName'`. La matriz no puede ser NULL. Nombre de parámetro: bytes | Compruebe las [asignaciones de campos](search-indexer-field-mappings.md) definidas en el indexador y compárelas con los datos del campo especificado del documento con errores. Puede que sea necesario modificar las asignaciones de campos o los datos del documento. |
 | No se pudo leer el valor del campo | No se pudo leer el valor de la columna `'fieldName'` en el índice `'fieldIndex'`. Error en el nivel del transporte al recibir los resultados del servidor. (proveedor: Proveedor TCP, error: 0: El host remoto forzó el cierre de la conexión existente). | Normalmente, estos errores se deben a problemas de conectividad inesperados con el servicio subyacente del origen de datos. Intente volver a ejecutar el documento mediante el indexador más adelante. |
+
+### <a name="could-not-index-document"></a>No se pudo indexar el documento
+El documento se leyó y se procesó, pero el indexador no pudo agregarlo al índice de búsqueda. Estos pueden ser los motivos:
+
+| Motivo | Ejemplo | . |
+| --- | --- | --- |
+| Un campo contiene un término demasiado grande | Un término del documento es mayor que el [límite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Para evitar esta restricción, asegúrese de que el campo no está configurado como filtrable, con facetas o que se puede ordenar.
+| El documento es demasiado grande para indexarlo | Un documento es mayor que el [tamaño de solicitud de API máximo](search-limits-quotas-capacity.md#api-request-limits) | [Indexación de grandes conjuntos de datos](search-howto-large-index.md)
 
 ### <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>La entrada de aptitud "languageCode" tiene los siguientes códigos de idioma "X,Y,Z", uno de los cuales es al menos válido.
 Uno o varios de los valores que pasan a la entrada `languageCode` opcional de una aptitud de nivel inferior no se admiten. Esta situación puede darse si se pasa la salida de [LanguageDetectionSkil](cognitive-search-skill-language-detection.md) a aptitudes posteriores y la salida consta de más idiomas de los que se admiten en esas aptitudes de nivel inferior.
@@ -110,6 +124,18 @@ Si se produce un error de tiempo de espera con una aptitud personalizada que hay
 ```
 
 El valor máximo que puede establecer para el parámetro `timeout` es de 230 segundos.  Si su aptitud personalizada no se puede ejecutar de forma coherente en 230 segundos, considere la posibilidad de reducir el valor de `batchSize` de su aptitud personalizada para que tenga menos documentos que procesar en una sola ejecución.  Si ya ha establecido `batchSize` en 1, tendrá que volver a escribir la aptitud para que se pueda ejecutar en menos de 230 segundos; o también puede dividirla en varias aptitudes personalizadas para que el tiempo de ejecución de una de ellas sea como máximo 230 segundos. Para más información, revise la [documentación de las aptitudes personalizadas](cognitive-search-custom-skill-web-api.md).
+
+### <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>No se pudo "`MergeOrUpload`" | "`Delete`" al índice de búsqueda
+
+El documento se leyó y se procesó, pero el indexador no pudo agregarlo al índice de búsqueda. Estos pueden ser los motivos:
+
+| Motivo | Ejemplo | . |
+| --- | --- | --- |
+| Un término del documento es mayor que el [límite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Un campo contiene un término demasiado grande | Para evitar esta restricción, asegúrese de que el campo no está configurado como filtrable, con facetas o que se puede ordenar.
+| Un documento es mayor que el [tamaño de solicitud de API máximo](search-limits-quotas-capacity.md#api-request-limits) | El documento es demasiado grande para indexarlo | [Indexación de grandes conjuntos de datos](search-howto-large-index.md)
+| Problemas de conexión con el índice de destino (que persiste después de varios reintentos) porque el servicio está bajo otra carga, como consulta o indexación. | No se puede establecer la conexión para actualizar el índice. El servicio de búsqueda está sometido a mucha carga. | [Escalar verticalmente el servicio de búsqueda](search-capacity-planning.md)
+| El servicio de búsqueda se está revisando para la actualización del servicio o está en medio de una reconfiguración de la topología. | No se puede establecer la conexión para actualizar el índice. El servicio de búsqueda está inactivo o está experimentando una transición. | Configure el servicio con al menos 3 réplicas para una disponibilidad del 99,9 % según se indica en la [documentación del Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+| Error en el recurso de proceso o de red subyacente (poco frecuente) | No se puede establecer la conexión para actualizar el índice. Se produjo un error desconocido. | Establezca los indexadores en [Ejecutar según una programación](search-howto-schedule-indexers.md) para que se recuperen de un estado de error.
 
 ##  <a name="warnings"></a>Advertencias
 Las advertencias no detienen la indexación, sino que indican las condiciones que podrían dar lugar a resultados inesperados. Que realice o no una acción depende de los datos y del escenario.

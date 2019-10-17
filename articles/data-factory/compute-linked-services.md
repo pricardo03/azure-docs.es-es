@@ -11,19 +11,19 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d0fd26da81c4f59f16b5f0364cf165ec36a6ea39
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 2daae1637c568b72d548330abbcb73da21b12683
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516332"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176852"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
 
 En la tabla siguiente se proporciona una lista de entornos de proceso compatibles con Data Factory y las actividades que se pueden ejecutar en ellos. 
 
-| Entorno de procesos                                          | actividades                                                   |
+| Entorno de procesos                                          | activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Clúster de HDInsight a petición](#azure-hdinsight-on-demand-linked-service) o [clúster HDInsight propio](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Personalizada](transform-data-using-dotnet-custom-activity.md)     |
@@ -98,7 +98,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 ### <a name="properties"></a>properties (Propiedades)
 | Propiedad                     | DESCRIPCIÓN                              | Obligatorio |
 | ---------------------------- | ---------------------------------------- | -------- |
-| Tipo                         | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí      |
+| type                         | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí      |
 | clusterSize                  | Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con 4 núcleos, por lo que un clúster de nodos de 4 trabajos necesitará 24 núcleos (4\*4 = 16 para nodos de trabajo, más 2\*4 = 8 para nodos principales). Consulte [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para detalles. | Sí      |
 | linkedServiceName            | El servicio vinculado de Azure Storage que usará el clúster a petición para almacenar y procesar datos. El clúster de HDInsight se crea en la misma región que esta cuenta de Azure Storage. Azure HDInsight tiene limitaciones en el número total de núcleos que se pueden utilizar en cada región de Azure que admite. Asegúrese de que dispone de suficientes cuotas de núcleo en esa región de Azure para cumplir la propiedad clusterSize necesaria. Para detalles, consulte [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).<p>Actualmente, no se puede crear un clúster de HDInsight a petición que utilice una instancia de Azure Data Lake Store como almacenamiento. Si desea almacenar los datos de resultados del procesamiento de HDInsight en una instancia de Azure Data Lake Store, utilice una actividad de copia para copiar los datos desde Azure Blob Storage a Azure Data Lake Store. </p> | Sí      |
 | clusterResourceGroup         | El clúster de HDInsight se crea en este grupo de recursos. | Sí      |
@@ -286,7 +286,7 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
 ### <a name="properties"></a>properties (Propiedades)
 | Propiedad          | DESCRIPCIÓN                                                  | Obligatorio |
 | ----------------- | ------------------------------------------------------------ | -------- |
-| Tipo              | La propiedad type se debe establecer en **HDInsight**.            | Sí      |
+| type              | La propiedad type se debe establecer en **HDInsight**.            | Sí      |
 | clusterUri        | El URI del clúster de HDInsight.                            | Sí      |
 | username          | Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
 | password          | Especifique la contraseña para la cuenta de usuario.                       | Sí      |
@@ -346,7 +346,7 @@ Consulte los temas siguientes si no está familiarizado con el servicio Azure Ba
 ### <a name="properties"></a>properties (Propiedades)
 | Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
-| Tipo              | La propiedad type se debe establecer en **AzureBatch**. | Sí      |
+| type              | La propiedad type se debe establecer en **AzureBatch**. | Sí      |
 | accountName       | Nombre de la cuenta de Azure Batch.         | Sí      |
 | accessKey         | Clave de acceso de la cuenta de Azure Batch.  | Sí      |
 | batchUri          | Dirección URL a la cuenta de Azure Batch, con el formato https://*nombrecuentabatch.región*.batch.azure.com. | Sí      |
@@ -438,7 +438,9 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 
 
 ## <a name="azure-databricks-linked-service"></a>Servicio vinculado de Azure Databricks
-Puede crear un **servicio vinculado de Azure Databricks** para registrar el área de trabajo de Databricks que va a utilizar para ejecutar el las cargas de trabajo (notebooks) de Databricks.
+Puede crear un **servicio vinculado de Azure Databricks** para registrar el área de trabajo de Databricks que va a utilizar para ejecutar el las cargas de trabajo (cuadernos, jar, python) de Databricks. 
+> [!IMPORTANT]
+> Los servicios vinculados de Databricks admiten los [grupos de instancias](https://aka.ms/instance-pools). 
 
 ### <a name="example---using-new-job-cluster-in-databricks"></a>Ejemplo: uso de un clúster de trabajo nuevo en Databricks
 
@@ -490,6 +492,7 @@ Puede crear un **servicio vinculado de Azure Databricks** para registrar el áre
 | dominio               | Especifica la región de Azure según corresponda en función de la región del área de trabajo de Databricks. Ejemplo: https://eastus.azuredatabricks.net | Sí                                 |
 | accessToken          | El token de acceso es necesario para que Data Factory se autentique en Azure Databricks. El token de acceso debe generarse a partir del área de trabajo de Databricks. [Aquí](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token) encontrará más pasos detallados para encontrar el token de acceso.  | Sí                                       |
 | existingClusterId    | Identificador de un clúster existente para ejecutar todos los trabajos en él. Debe tratarse de un clúster interactivo que ya se haya creado. Debe reiniciar manualmente el clúster si deja de responder. Databricks sugiere la ejecución de trabajos en clústeres nuevos para mayor confiabilidad. Encontrará el identificador del clúster interactivo en el área de trabajo de Databricks -> Clusters -> Interactive Cluster Name -> Configuration -> Tags (Clústeres -> Nombre del clúster interactivo -> Configuración -> Etiquetas). [Más detalles](https://docs.databricks.com/user-guide/clusters/tags.html) | Sin 
+| instancePoolId    | Identificador del grupo de instancias de un grupo existente en el área de trabajo de Databricks.  | Sin  |
 | newClusterVersion    | Versión de Spark del clúster. Creará de un clúster de trabajo en Databricks. | Sin  |
 | newClusterNumOfWorker| Número de nodos de trabajo que debería tener este clúster. Los clústeres tienen un controlador de Spark y num_workers ejecutores para un total de num_workers + 1 nodos de Spark. Una cadena con formato Int32, como "1" significa que numOfWorker es 1 o que "1:10" significa que la escala automática va de 1 como mínimo a 10 como máximo.  | Sin                |
 | newClusterNodeType   | Este campo codifica, mediante un solo valor, los recursos disponibles para cada uno de los nodos de Spark de este clúster. Por ejemplo, los nodos de Spark se pueden aprovisionar y optimizar para cargas de trabajo intensivas de memoria o proceso. Este campo es obligatorio para el nuevo clúster                | Sin               |

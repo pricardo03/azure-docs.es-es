@@ -10,12 +10,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: conceptual
 ms.date: 10/1/2019
-ms.openlocfilehash: fd38bf1f7741c4d610ef43a12d90533d4ac7b703
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: db95788b0f2c041157bdc16000d0328c042e86d5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802407"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973689"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Marcos de aprendizaje profundo e inteligencia artificial para Azure Data Science VM
 La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
@@ -83,6 +83,33 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 | Ediciones de DSVM admitidas      | Windows y Linux   |
 | ¿Cómo se configura/instala en DSVM?  | CNTK se instala en Python 3.6 en [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition), y en Python 3.5 en [Linux](./dsvm-languages.md#python-linux-edition) |
 | Cómo ejecutarlo      | Terminal: active el entorno correcto y ejecute Python. <br/>Jupyter: conéctese a [Jupyter](provision-vm.md) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine) y abra el directorio CNTK para acceder a los ejemplos. |
+
+## <a name="mxnethttpsmxnetapacheorg"></a>[MXNet](https://mxnet.apache.org/)
+|    |           |
+| ------------- | ------------- |
+| Versiones compatibles | 1.3.0 |
+| Ediciones de DSVM admitidas      | Windows y Linux   |
+| ¿Cómo se configura/instala en DSVM?  | MXNet se instala en `C:\dsvm\tools\mxnet` en Windows y en `/dsvm/tools/mxnet` en Ubuntu. Los enlaces de Python se instalan en Python 3.6 en [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) y en Python 3.5 en [Linux](./dsvm-languages.md#python-linux-edition)). Los enlaces de R también se incluyen en Ubuntu DSVM. |
+| Cómo ejecutarlo      | Terminal: active el entorno conda correcto y ejecute `import mxnet`. <br/>Jupyter: conéctese a [Jupyter](provision-vm.md#access-the-dsvm) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine) y abra el directorio `mxnet` para acceder a los ejemplos. |
+
+## <a name="mxnet-model-serverhttpsgithubcomawslabsmxnet-model-serverquick-start"></a>[Servidor de modelo de MXNet](https://github.com/awslabs/mxnet-model-server#quick-start)
+
+|    |           |
+| ------------- | ------------- |
+| Versiones compatibles | 1.0.1 |
+| Ediciones de DSVM admitidas      | Windows y Linux   |
+| ¿Cómo se configura/instala en DSVM?  | MXNet Model Server se instala en Python 3.6 en [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition), y en Python 3.5 en [Linux](./dsvm-languages.md#python-linux-edition)) |
+| Cómo ejecutarlo      | Terminal: Ejecute `sudo systemctl stop jupyterhub` para detener el servicio JupyterHub en primer lugar, ya que ambos escuchan en el mismo puerto. Después, active el entorno conda correcto y ejecute `mxnet-model-server --start --models squeezenet=https://s3.amazonaws.com/model-server/model_archive_1.0/squeezenet_v1.1.mar`. |
+
+## <a name="nvidia-system-management-interface-nvidia-smihttpsdevelopernvidiacomnvidia-system-management-interface"></a>[NVidia System Management Interface (nvidia-smi)](https://developer.nvidia.com/nvidia-system-management-interface)
+
+|    |           |
+| ------------- | ------------- |
+| Versiones compatibles |  |
+| Ediciones de DSVM admitidas      | Windows y Linux   |
+| ¿Para qué sirven? | Herramienta NVIDIA para consultar la actividad GPU |
+| ¿Cómo se configura/instala en DSVM?  | `nvidia-smi` está en la ruta de acceso del sistema. |
+| Cómo ejecutarlo      | En una máquina virtual **con GPU**, abra un símbolo del sistema (en Windows) o un terminal (en Linux), y ejecute `nvidia-smi`. |
 
 ## <a name="pytorchhttpspytorchorg"></a>[PyTorch](https://pytorch.org/)
 

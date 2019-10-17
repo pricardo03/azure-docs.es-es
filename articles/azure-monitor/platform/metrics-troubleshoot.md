@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 73ef5cc00b5154dbdbc92911d17740c7d13038ec
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d31b046bf02893affff84069ee92b3bd7735b904
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341972"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243221"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solución de problemas de gráficos de métricas
 
@@ -95,19 +95,21 @@ En muchos casos, la caída percibida en los valores de métrica es una falta de 
 
 ## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>No se pueden elegir las métricas y el espacio de nombres del SO invitado
 
-Las máquinas virtuales y los conjunto de escalado de máquinas virtuales tienen dos categorías de métricas: Métricas del **host de máquina virtual** recopiladas por el entorno de hospedaje de Azure, y métricas del **SO invitado** recopiladas por el [agente de supervisión](agents-overview.md) que se ejecuta en las máquinas virtuales. El agente de supervisión se instala al habilitar la [extensión de Azure Diagnostics](diagnostics-extension-overview.md).
+Las máquinas virtuales y los conjunto de escalado de máquinas virtuales tienen dos categorías de métricas: Métricas del **host de máquina virtual** recopiladas por el entorno de hospedaje de Azure y métricas del **sistema operativo invitado (clásico)** recopiladas por el [agente de supervisión](agents-overview.md) que se ejecuta en las máquinas virtuales. El agente de supervisión se instala al habilitar la [extensión de Azure Diagnostics](diagnostics-extension-overview.md).
 
 De forma predeterminada, las métricas del SO invitado se almacenan en la cuenta de Azure Storage, que elige en la pestaña **Configuración de diagnóstico** del recurso. Si no se recopilan métricas del SO invitado o el explorador de métricas no puede acceder a ellas, solo verá el espacio de nombres de las métricas del **host de máquina virtual**:
 
 ![imagen de métrica](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**Solución:** Si no ve el espacio de nombres y las métricas del **SO invitado** en el explorador de métricas:
+**Solución:** Si no ve el espacio de nombres y las métricas del **SO invitado (clásico)** en el explorador de métricas:
 
 1. Confirme que la [extensión de Azure Diagnostics](diagnostics-extension-overview.md) esté habilitada y configurada para recopilar métricas.
     > [!WARNING]
     > No puede usar el [agente de Log Analytics](agents-overview.md#log-analytics-agent) (también denominado Microsoft Monitoring Agent, o "MMA") para enviar el **SO invitado** a una cuenta de almacenamiento.
 
-1. Verifique que la cuenta de almacenamiento no esté protegida por el firewall.
+1. Asegúrese de que el proveedor de recursos **Microsoft.Insights** se ha [registrado para la suscripción](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+
+1. Verifique que la cuenta de almacenamiento no esté protegida por el firewall. Azure Portal necesita acceder a la cuenta de almacenamiento para recuperar los datos de métricas y trazar los gráficos.
 
 1. Use el [explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para validar que las métricas fluyan hacia la cuenta de almacenamiento. Si no se recopilan métricas, siga la [guía de solución de problemas de la extensión de Azure Diagnostics](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 

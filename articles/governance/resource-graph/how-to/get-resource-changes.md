@@ -4,24 +4,24 @@ description: Comprenda cómo saber cuándo un recurso se cambió y obtener una l
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/10/2019
+ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13e2a848f9d178fc6554062c324c951102e1343b
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236505"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244107"
 ---
 # <a name="get-resource-changes"></a>Obtención de los cambios del recurso
 
 Los recursos se modifican a través del uso diario, la reconfiguración e incluso la reimplementación.
 Los cambios pueden proceder de un usuario individual o un proceso automatizado. La mayoría de los cambios son así por diseño, pero a veces no lo son. Con los últimos 14 días de historial de cambios,Azure Resource Graph le permite hacer lo siguiente:
 
-- Buscar cuándo se detectaron cambios en una propiedad de Azure Resource Manager.
-- Ver qué propiedades cambiaron como parte de ese evento de cambio.
+- Buscar cuándo se detectaron cambios en una propiedad de Azure Resource Manager
+- Para cada cambio de recurso, consultar los detalles del cambio de propiedad
+- Ver una comparación completa del recurso antes y después del cambio detectado
 
 La detección y los detalles de cambios son de utilidad para los siguientes escenarios de ejemplo:
 
@@ -37,14 +37,15 @@ En este artículo se muestra cómo recopilar esta información a través del SDK
 > [!IMPORTANT]
 > El historial de cambios en Azure Resource Graph está disponible como versión preliminar pública.
 
-## <a name="find-when-changes-were-detected"></a>Búsqueda de la detección de cambios
+## <a name="find-detected-change-events-and-view-change-details"></a>Buscar eventos de cambio detectados y ver detalles de los cambios
 
-El primer paso para ver qué cambió en un recurso es buscar los eventos de cambio relacionados con ese recurso dentro de una ventana de tiempo. Este paso se realiza a través del punto de conexión REST **resourceChanges**.
+El primer paso para ver qué cambió en un recurso es buscar los eventos de cambio relacionados con ese recurso dentro de una ventana de tiempo. Cada evento de cambio también incluye detalles sobre lo que ha cambiado en el recurso. Este paso se realiza a través del punto de conexión REST **resourceChanges**.
 
-El punto de conexión **resourceChanges** requiere dos parámetros en el cuerpo de solicitud:
+El punto de conexión **resourceChanges** acepta los siguientes parámetros en el cuerpo de solicitud:
 
-- **resourceId**: el recurso de Azure para el que se buscan cambios.
-- **interval**: una propiedad con fecha de _inicio_ y _finalización_ durante las que se buscará evento de cambio mediante la **zona horaria Zulu (Z)** .
+- **resourceId** \[obligatorio\]: el recurso de Azure para el que se buscan cambios.
+- **interval** \[obligatorio\]: una propiedad con fecha de _inicio_ y _finalización_ durante las que se buscará evento de cambio mediante la **zona horaria Zulu (Z)** .
+- **fetchPropertyChanges** (opcional): una propiedad booleana que establece si el objeto de respuesta incluye los cambios de propiedad.
 
 Ejemplo del cuerpo de solicitud:
 
@@ -52,9 +53,10 @@ Ejemplo del cuerpo de solicitud:
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
     "interval": {
-        "start": "2019-03-28T00:00:00.000Z",
-        "end": "2019-03-31T00:00:00.000Z"
-    }
+        "start": "2019-09-28T00:00:00.000Z",
+        "end": "2019-09-29T00:00:00.000Z"
+    },
+    "fetchPropertyChanges": true
 }
 ```
 
@@ -68,38 +70,100 @@ La respuesta será similar a la siguiente:
 
 ```json
 {
-    "changes": [{
-            "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}",
+    "changes": [
+        {
+            "changeId": "{\"beforeId\":\"3262e382-9f73-4866-a2e9-9d9dbee6a796\",\"beforeTime\":\"2019-09-28T00:45:35.012Z\",\"afterId\":\"6178968e-981e-4dac-ac37-340ee73eb577\",\"afterTime\":\"2019-09-28T00:52:53.371Z\"}",
             "beforeSnapshot": {
-                "timestamp": "2019-03-29T01:32:05.993Z"
+                "snapshotId": "3262e382-9f73-4866-a2e9-9d9dbee6a796",
+                "timestamp": "2019-09-28T00:45:35.012Z"
             },
             "afterSnapshot": {
-                "timestamp": "2019-03-29T01:54:24.42Z"
-            }
+                "snapshotId": "6178968e-981e-4dac-ac37-340ee73eb577",
+                "timestamp": "2019-09-28T00:52:53.371Z"
+            },
+            "changeType": "Create"
         },
         {
-            "changeId": "9dc352cb-b7c1-4198-9eda-e5e3ed66aec8",
+            "changeId": "{\"beforeId\":\"a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c\",\"beforeTime\":\"2019-09-28T00:43:38.366Z\",\"afterId\":\"3262e382-9f73-4866-a2e9-9d9dbee6a796\",\"afterTime\":\"2019-09-28T00:45:35.012Z\"}",
             "beforeSnapshot": {
-                "timestamp": "2019-03-28T10:30:19.68Z"
+                "snapshotId": "a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c",
+                "timestamp": "2019-09-28T00:43:38.366Z"
             },
             "afterSnapshot": {
-                "timestamp": "2019-03-28T21:12:31.337Z"
-            }
+                "snapshotId": "3262e382-9f73-4866-a2e9-9d9dbee6a796",
+                "timestamp": "2019-09-28T00:45:35.012Z"
+            },
+            "changeType": "Delete"
+        },
+        {
+            "changeId": "{\"beforeId\":\"b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c\",\"beforeTime\":\"2019-09-28T00:43:15.518Z\",\"afterId\":\"a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c\",\"afterTime\":\"2019-09-28T00:43:38.366Z\"}",
+            "beforeSnapshot": {
+                "snapshotId": "b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c",
+                "timestamp": "2019-09-28T00:43:15.518Z"
+            },
+            "afterSnapshot": {
+                "snapshotId": "a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c",
+                "timestamp": "2019-09-28T00:43:38.366Z"
+            },
+            "propertyChanges": [
+                {
+                    "propertyName": "tags.org",
+                    "afterValue": "compute",
+                    "changeCategory": "User",
+                    "changeType": "Insert"
+                },
+                {
+                    "propertyName": "tags.team",
+                    "afterValue": "ARG",
+                    "changeCategory": "User",
+                    "changeType": "Insert"
+                }
+            ],
+            "changeType": "Update"
+        },
+        {
+            "changeId": "{\"beforeId\":\"19d12ab1-6ac6-4cd7-a2fe-d453a8e5b268\",\"beforeTime\":\"2019-09-28T00:42:46.839Z\",\"afterId\":\"b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c\",\"afterTime\":\"2019-09-28T00:43:15.518Z\"}",
+            "beforeSnapshot": {
+                "snapshotId": "19d12ab1-6ac6-4cd7-a2fe-d453a8e5b268",
+                "timestamp": "2019-09-28T00:42:46.839Z"
+            },
+            "afterSnapshot": {
+                "snapshotId": "b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c",
+                "timestamp": "2019-09-28T00:43:15.518Z"
+            },
+            "propertyChanges": [{
+                "propertyName": "tags.cgtest",
+                "afterValue": "hello",
+                "changeCategory": "User",
+                "changeType": "Insert"
+            }],
+            "changeType": "Update"
         }
     ]
 }
 ```
 
-Cada evento de cambio detectado para **resourceId** tiene un elemento **changeId** que es único para ese recurso. Si bien la cadena **changeId** a veces puede contener otras propiedades, solo se garantiza que sea única. El registro de cambios incluye las horas en las que se capturaron las instantáneas antes y después.
-El evento de cambio se produjo en algún momento en esta ventana de tiempo.
+Cada evento de cambio detectado para el **resourceId** tiene las siguientes propiedades:
 
-## <a name="see-what-properties-changed"></a>Visualización de las propiedades que cambiaron
+- **changeId**: este valor es único para ese recurso. Si bien la cadena **changeId** a veces puede contener otras propiedades, solo se garantiza que sea única.
+- **beforeSnapshot**: contiene el valor de **snapshotId** y de **timestamp** de la instantánea de recursos que se tomó antes de que se detectara un cambio.
+- **afterSnapshot**: contiene el valor de **snapshotId** y de **timestamp** de la instantánea de recursos que se tomó después de que se detectara un cambio.
+- **changeType**: describe el tipo de cambio detectado para el registro de cambios completo entre **beforeSnapshot** y **afterSnapshot**. Los valores son: _Create_ (Crear), _Update_ (Actualizar) y _Delete_ (Eliminar). La matriz de propiedades **propertyChanges** solo se incluye cuando **changeType** es _Update_.
+- **propertyChanges**: esta matriz de propiedades detalla todas las propiedades de los recursos que se actualizaron entre **beforeSnapshot** y **afterSnapshot**:
+  - **propertyName**: el nombre de la propiedad de recurso que se modificó.
+  - **changeCategory**: describe lo que hizo el cambio. Los valores son: _System_ (Sistema) y _User_ (Usuario).
+  - **changeType**: describe el tipo de cambio detectado para la propiedad de recurso individual.
+    Los valores son: _Insert_ (Insertar), _Update_ (Actualizar), _Remove_ (Eliminar).
+  - **beforeValue**: el valor de la propiedad de recurso en el **beforeSnapshot**. No se muestra cuando **changeType** es _Insert_.
+  - **afterValue**: el valor de la propiedad de recurso en el **afterSnapshot**. No se muestra cuando **changeType** es _Remove_.
 
-Con el objeto **changeId** del punto de conexión **resourceChanges**, el punto de conexión REST **resourceChangeDetails** luego se usar para obtener los detalles del evento de cambio.
+## <a name="compare-resource-changes"></a>Comparación de los cambios del recurso
+
+Con el objeto **changeId** del punto de conexión **resourceChanges**, el punto de conexión REST **resourceChangeDetails** luego se usa para obtener las instantáneas de antes y de después del recurso que cambió.
 
 El punto de conexión **resourceChangeDetails** requiere dos parámetros en el cuerpo de solicitud:
 
-- **resourceId**: el recurso de Azure para el que se buscan cambios.
+- **resourceId**: el recurso de Azure con el que comparar los cambios.
 - **changeId**: el evento de cambio único para el objeto **resourceId** recopilado desde **resourceChanges**.
 
 Ejemplo del cuerpo de solicitud:
@@ -221,7 +285,7 @@ La respuesta será similar a la siguiente:
 
 Los objetos **beforeSnapshot** y **afterSnapshot** proporcionan cada uno la hora en que se capturó la instantánea y las propiedades en ese momento. El cambio se produjo en algún momento entre estas instantáneas. Al examinar el ejemplo anterior, podemos ver que la propiedad que cambió fue **supportsHttpsTrafficOnly**.
 
-Para comparar los resultados mediante programación, compare la parte **content** de cada instantánea para determinar la diferencia. Si compara toda la instantánea, el objeto **timestamp** siempre se muestra como una diferencia, a pesar de que sea esperado.
+Para comparar los resultados, use la propiedad **changes** en **resourceChanges** o bien evalúe la parte **content** de cada instantánea en **resourceChangeDetails** para determinar la diferencia. Si compara las instantáneas, el objeto **timestamp** siempre se muestra como una diferencia, a pesar de que sea esperado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b51d984726cfd178189e7fe1a994c35c7efaed36
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a48c1352e4628d8e1776a9479aceac7c294a2ea1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124103"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72023073"
 ---
 En la tabla siguiente se describen los límites predeterminados para las cuentas de Blob Storage y Azure v1 y v2 de uso general. El *límite de entrada* hace referencia a todos los datos de las solicitudes que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos de las respuestas que se reciben desde una cuenta de almacenamiento.
 
@@ -31,7 +31,8 @@ En la tabla siguiente se describen los límites predeterminados para las cuentas
 
 <sup>1</sup>Las cuentas de Azure Standard Storage admiten límites más altos de capacidad y límites más altos de entrada por solicitud. Para solicitar un aumento en los límites de cuenta para entrada, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/faq/). Para más información, consulte [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Anuncio de cuentas de almacenamiento más grandes y con mayor escala).
 
-<sup>2</sup> Si tiene habilitado el acceso de lectura (RA-GRS/RA-GZRS), los destinos de salida de la ubicación secundaria son idénticos a los de la ubicación primaria. Las opciones de [replicación de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) incluyen: [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
+<sup>2</sup> Si tiene habilitado el acceso de lectura (RA-GRS/RA-GZRS), los destinos de salida de la ubicación secundaria son idénticos a los de la ubicación primaria. Las opciones de [Replicación de Azure Storage ](https://docs.microsoft.com/azure/storage/common/storage-redundancy) incluyen:  
+[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
 > [!NOTE]
 > Recomendamos usar cuentas de almacenamiento de uso general v2 en la mayoría de los escenarios. Puede actualizar fácilmente una cuenta de Azure Blob Storage o de uso general v1 a una cuenta de uso general v2 sin tiempo de inactividad y sin la necesidad de copiar datos.

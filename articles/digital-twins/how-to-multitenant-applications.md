@@ -1,19 +1,19 @@
 ---
 title: Habilitar aplicaciones multiinquilino con Azure Digital Twins | Microsoft Docs
 description: Cómo configurar aplicaciones multiinquilino de Azure Active Directory para Azure Digital Twins.
-author: mavoge
+ms.author: alinast
+author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: mavoge
-ms.openlocfilehash: 2ee3681640f68839c32e2963b34d5547abb6943b
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 10/02/2019
+ms.openlocfilehash: 070b04b27982b84f101ee4d6f85f4e5b82760092
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976889"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958764"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Habilitar aplicaciones multiinquilino con Azure Digital Twins
 
@@ -57,20 +57,16 @@ Para resolver el problema del escenario anterior, debe realizar las siguientes a
   1. Abra la página de **Suscripciones**.
   1. Seleccione la suscripción correspondiente al inquilino de Azure Active Directory que se usará en la aplicación del **DESARROLLADOR**.
 
-     ![Suscripciones de Azure Active Directory][1]
+     [![Suscripciones de Azure Active Directory](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. Seleccione **Proveedores de recursos**.
   1. Busque **Microsoft.IoTSpaces**.
   1. Seleccione **Registrar**.
 
-     ![Proveedores de recursos de Azure Active Directory][2]
+     [![Proveedores de recursos de Azure Active Directory](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre cómo usar funciones definidas por el usuario con Azure Digital Twins, lea [Creación de funciones definidas por el usuario en Azure Digital Twins](./how-to-user-defined-functions.md).
 
 - Para información sobre cómo usar el control de acceso basado en rol para proteger aún más la aplicación con las asignaciones de roles, lea [Crear y administrar el control de acceso basado en rol de Azure Digital Twins](./security-create-manage-role-assignments.md).
-
-<!-- Images -->
-[1]: media/multitenant/ad-subscriptions.png
-[2]: media/multitenant/ad-resource-providers.png

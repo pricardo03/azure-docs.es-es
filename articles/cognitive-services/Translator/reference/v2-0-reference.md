@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: c18c062d5537603284acb37081ac0a4eb8d2fd20
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f111169558118a80602bcb2136bc63ce54c9e0d9
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797808"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242497"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -30,7 +30,7 @@ Para acceder a Translator Text API, debe [suscribirse a Microsoft Azure](../tran
 ## <a name="authentication"></a>Authentication 
 Todas las llamadas a Translator Text API requieren una clave de suscripción para la autenticación. La API admite tres métodos de autenticación:
 
-- Un token de acceso. Use la clave de suscripción a la que se hace referencia en el paso 9 para crear un token de acceso mediante la realización de una solicitud POST en el servicio de autenticación. Consulte la documentación de servicio de token para obtener más información. Pase el token de acceso al servicio de Translator con el encabezado de `Authorization` o el parámetro de consulta `access_token`. Cada token de acceso tiene una validez de 10 minutos. Obtenga un nuevo token de acceso cada 10 minutos y siga usando el mismo para solicitudes repetidas durante esos 10 minutos.
+- Un token de acceso. Use la clave de suscripción para crear un token de acceso mediante la realización de una solicitud POST al servicio de autenticación. Consulte la documentación de servicio de token para obtener más información. Pase el token de acceso al servicio de Translator con el encabezado de `Authorization` o el parámetro de consulta `access_token`. Cada token de acceso tiene una validez de 10 minutos. Obtenga un nuevo token de acceso cada 10 minutos y siga usando el mismo para solicitudes repetidas durante esos 10 minutos.
 - Una clave de suscripción usada directamente. Pase la clave de suscripción como valor en el encabezado de `Ocp-Apim-Subscription-Key` junto con la solicitud a Translator Text API. Al usar la clave de suscripción directamente, no es necesario llamar al servicio de autenticación de token para crear un token de acceso.
 - Una [suscripción a varios servicios de Azure Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Este método le permite usar una única clave secreta para autenticar las solicitudes de varios servicios.
 Si usa una clave secreta para varios servicios, debe incluir dos encabezados de autenticación con la solicitud. El primer encabezado pasa la clave secreta. El segundo encabezado especifica la región asociada con la suscripción:
@@ -133,7 +133,7 @@ Este es el formato del cuerpo de la solicitud:
 </TranslateArrayRequest>
 ```
 
-Estos elementos se encuentran en `TranslateArrayRequest`:
+Estos elementos están en `TranslateArrayRequest`:
 
 
 * `AppId`: Necesario. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje vacío el campo `AppId`. De lo contrario, incluya una cadena que contenga `"Bearer" + " " + "access_token"`.

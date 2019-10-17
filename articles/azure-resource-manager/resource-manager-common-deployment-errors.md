@@ -6,20 +6,20 @@ author: tfitzmac
 keywords: error de implementación, implementación de Azure, implementar en Azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 08/30/2019
+ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e03cd3747fe6770be7dddaf36d634547ed75b39
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718935"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001642"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
 En este artículo se describen algunos errores comunes de implementación de Azure y se proporciona información sobre cómo resolverlos. Si no encuentra el código del error de implementación, consulte [Búsqueda de códigos de error](#find-error-code).
 
-Si busca información sobre un código de error y esa información no se proporciona en este artículo, háganoslo saber. En la parte inferior de esta página, puede dejar comentarios. Se realiza un seguimiento de los comentarios con problemas de GitHub. 
+Si busca información sobre un código de error y esa información no se proporciona en este artículo, háganoslo saber. En la parte inferior de esta página, puede dejar comentarios. Se realiza un seguimiento de los comentarios con problemas de GitHub.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -34,7 +34,9 @@ Si busca información sobre un código de error y esa información no se proporc
 | AuthorizationFailed | La cuenta o entidad de servicio no dispone de acceso suficiente para completar la implementación. Compruebe el rol al que la cuenta pertenece y su acceso para el ámbito de implementación.<br><br>Puede recibir este error cuando un proveedor de recursos necesario no está registrado. | [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolución de registros](resource-manager-register-provider-errors.md) |
 | BadRequest | Envió valores de implementación que no coinciden con los que Resource Manager esperaba. Compruebe el mensaje de estado interno para obtener ayuda para solucionar el problema. | [Referencia de plantillas](/azure/templates/) y [ubicaciones admitidas](resource-location.md) |
 | Conflicto | Se solicita una operación no permitida con el estado actual del recurso. Por ejemplo, solo se permite el cambio de tamaño del disco al crear una VM o al desasignar la VM. | |
-| DeploymentActive | Espere a que la implementación simultánea de este grupo de recursos finalice. | |
+| DeploymentActiveAndUneditable | Espere a que la implementación simultánea de este grupo de recursos finalice. | |
+| DeploymentNameInvalidCharacters | El nombre de la implementación solo puede contener letras, dígitos, "-", "." o "_". | |
+| DeploymentNameLengthLimitExceeded | Los nombres de implementación se limitan a 64 caracteres.  | |
 | DeploymentFailed | El error DeploymentFailed es un error general que no proporciona la información necesaria para resolverlo. Mire en los detalles del error si hay un código de error que proporcione más información. | [Búsqueda de códigos de error](#find-error-code) |
 | DeploymentQuotaExceeded | Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. | [Resolución de error cuando el recuento de implementaciones es superior a 800](deployment-quota-exceeded.md) |
 | DnsRecordInUse | El nombre del registro de DNS debe ser único. Escribe otro nombre. | |
@@ -42,6 +44,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | InUseSubnetCannotBeDeleted | Este error puede aparecer al intentar actualizar un recurso y la solicitud se procesa mediante la eliminación y creación del recurso. Asegúrese de especificar todos los valores sin cambios. | [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Obtenga el token de acceso para el inquilino adecuado. Solo puede obtener el token del inquilino al que pertenece su cuenta. | |
 | InvalidContentLink | Probablemente ha tratado de agregar un vínculo a una plantilla anidada que no está disponible. Compruebe el URI proporcionado para la plantilla anidada. Si la plantilla se encuentra en una cuenta de almacenamiento, asegúrese de que puede accederse al URI. Debe pasar un token de SAS. Actualmente, no se puede agregar un vínculo a una plantilla que se encuentre en una cuenta de almacenamiento detrás de un [firewall de Azure Storage](../storage/common/storage-network-security.md). De todos modos, tiene la posibilidad de mover la plantilla a otro repositorio, como GitHub. | [Plantillas vinculadas](resource-group-linked-templates.md) |
+| InvalidDeploymentLocation | Al realizar la implementación en el nivel de suscripción, ha proporcionado una ubicación diferente para un nombre de implementación usado previamente. | [Implementaciones de nivel de suscripción](deploy-to-subscription.md) |
 | InvalidParameter | Uno de los valores proporcionados para un recurso no coincide con el valor esperado. Este error puede deberse a muchas condiciones diferentes. Por ejemplo, una contraseña puede ser insuficiente o un nombre de blob puede ser incorrecto. El mensaje de error debe indicar qué valor debe corregirse. | |
 | InvalidRequestContent | Los valores de implementación incluyen valores que no se reconocen o valores requeridos que faltan. Confirme los valores para el tipo de recurso. | [Referencia de plantilla](/azure/templates/) |
 | InvalidRequestFormat | Habilite el registro de depuración cuando se ejecute la implementación y compruebe el contenido de la solicitud. | [Registro de depuración](#enable-debug-logging) |
@@ -124,13 +127,13 @@ Verá más detalles acerca de la implementación. Seleccione la opción para má
 
 ![error de implementación](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-Verá el mensaje de error y los códigos de error. Observe que hay dos códigos de error. El primero (**DeploymentFailed**) es un error general que no proporciona la información que necesita para resolverlo. El segundo código de error (**StorageAccountNotFound**) proporciona los detalles que necesita. 
+Verá el mensaje de error y los códigos de error. Observe que hay dos códigos de error. El primero (**DeploymentFailed**) es un error general que no proporciona la información que necesita para resolverlo. El segundo código de error (**StorageAccountNotFound**) proporciona los detalles que necesita.
 
 ![detalles del error](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## <a name="enable-debug-logging"></a>Habilitación del registro de depuración
 
-En ocasiones necesitará más información sobre la solicitud y respuesta para descubrir qué ha salido mal. Durante la implementación, puede solicitar que la información adicional se registre durante una implementación. 
+En ocasiones necesitará más información sobre la solicitud y respuesta para descubrir qué ha salido mal. Durante la implementación, puede solicitar que la información adicional se registre durante una implementación.
 
 ### <a name="powershell"></a>PowerShell
 

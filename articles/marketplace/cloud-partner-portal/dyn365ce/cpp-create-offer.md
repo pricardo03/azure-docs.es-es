@@ -1,39 +1,21 @@
 ---
 title: Creación de una oferta de aplicación de Dynamics 365 for Customer Engagement | Azure Marketplace
-description: Creación de una nueva oferta de la aplicación Dynamics 365 for Customer Engagement en AppSource Marketplace.
+description: Este artículo de CPP está en desuso, vinculado al artículo de PC. Anteriormente era "Creación de una nueva oferta de la aplicación Dynamics 365 for Customer Engagement en AppSource Marketplace".
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/21/2018
-ms.author: pabutler
-ms.openlocfilehash: ebfef673102878e50f744081ec9b46fd4cd1796b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 1682abd3983d3e090b59e6452c4761913e29da3d
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942689"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034355"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Creación de una oferta de aplicación de Dynamics 365 for Customer Engagement
 
-En esta sección se describe la creación y publicación de una oferta de la aplicación Dynamics 365 for Customer Engagement en AppSource Marketplace. Cada oferta aparece como una entidad propia en Marketplace y se compone de los siguientes grupos de recursos y servicios de soporte técnico: detalles de la oferta, información técnica del paquete, artefactos de marketing, información de soporte técnico y especificaciones opcionales de la versión de prueba. 
+[Cloud Partner Portal](https://cloudpartner.azure.com/) ya no admite la creación y administración de ofertas de Dynamics 365 Customer Engagement. En su lugar, esta funcionalidad se ha movido al [portal del Centro de partners](https://partner.microsoft.com/) de Microsoft. Para más información, consulte [Creación de una nueva oferta de Dynamics 365 for Customer Engagement y PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-
-## <a name="new-offer-form"></a>Formulario Nueva oferta
-
-Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/) y seleccione **+ New offer** (+ Nueva oferta) en la barra de menús de la izquierda. En el menú Nueva oferta, seleccione **Dynamics 365 for Customer Engagement**:
-
-![Elemento de menú Nueva oferta para una aplicación de Dynamics 365 for Customer Engagement](./media/new-dyn365ce-menu-item.png)
-
-Aparece el formulario **Nueva oferta** que muestra la pestaña [**Configuración de oferta** inicial](./cpp-offer-settings-tab.md).
-
-
-## <a name="next-steps"></a>Pasos siguientes
-
-La página **Nueva oferta** proporciona un conjunto de pestañas y campos de formulario que se usarán para crear una oferta. En los siguientes artículos se explica cómo definir los grupos de recursos y la información de soporte de la nueva oferta.
-
-* [Pestaña Configuración de la oferta](./cpp-offer-settings-tab.md)
-* [Pestaña Información técnica](./cpp-technical-info-tab.md)
-* [Pestaña Versión de prueba](./cpp-testdrive-tab.md)
-* [Pestaña Detalles del escaparate](./cpp-storefront-details-tab.md)
-* [Pestaña Contactos](./cpp-contacts-tab.md)
+Antes de crear una nueva oferta de Dynamics 365 for Customer Engagement, debe leer [Creación de una cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) y después abrir el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/directory) con la página **Información general** seleccionada. Siga las instrucciones de [Creación de una nueva oferta de Dynamics 365 for Customer Engagement y PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para crear la oferta.

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5a4bc05e0a0b0b6a2c1b859caea2aadc12b8e0e0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3ae75dc988ad70871efa45eb8c61db15804922ee
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096397"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176576"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referencia de host.json para Azure Functions 2.x  
 
@@ -117,6 +117,9 @@ Controla la [característica de muestreo de Application Insights](./functions-mo
 |---------|---------|---------| 
 |isEnabled|true|Habilita o deshabilita el muestreo.| 
 |maxTelemetryItemsPerSecond|5|Umbral donde comienza el muestreo.| 
+|EnableLiveMetrics |true|Habilita la colección de Live Metrics.|
+|EnableDependencyTracking|true|Habilita el seguimiento de dependencias.|
+|EnablePerformanceCountersCollection|true|Habilita la colección de contadores de rendimiento Kudu.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 

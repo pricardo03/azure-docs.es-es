@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: abee645f8929c10856f662b1504b163b58d953a5
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ca7136f6e1c24d32ff5d6e3e53878c11fb5f1edb
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036024"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71975341"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores del rendimiento de las aplicaciones
 
@@ -135,7 +135,7 @@ Para obtener más información sobre los tamaños de máquina virtual y la IOPS,
 
 ## <a name="nature-of-io-requests"></a>Naturaleza de las solicitudes de E/S
 
-Una solicitud de E/S es una unidad de operación de entrada y salida que la aplicación va a realizar. La identificación de la naturaleza de las solicitudes de E/S, aleatorias o secuenciales, lectura o escritura, pequeñas o grandes, ayudará a determinar los requisitos de rendimiento de la aplicación. Es importante comprender la naturaleza de las solicitudes de E/S para tomar las decisiones correctas al diseñar la infraestructura de las aplicaciones.
+Una solicitud de E/S es una unidad de operación de entrada y salida que la aplicación va a realizar. La identificación de la naturaleza de las solicitudes de E/S, aleatorias o secuenciales, lectura o escritura, pequeñas o grandes, ayudará a determinar los requisitos de rendimiento de la aplicación. Es importante comprender la naturaleza de las solicitudes de E/S para tomar las decisiones correctas al diseñar la infraestructura de las aplicaciones. IOs se debe distribuir uniformemente para lograr el mejor rendimiento posible.
 
 El tamaño de E/S es uno de los factores más importantes. El tamaño de E/S es el tamaño de la solicitud de operación de entrada/salida generada por la aplicación. El tamaño de E/S tiene una repercusión considerable en el rendimiento, especialmente en la IOPS y el ancho de banda que la aplicación es capaz de lograr. La fórmula siguiente muestra la relación entre IOPS, tamaño de E/S y ancho de banda y rendimiento.  
     ![](media/premium-storage-performance/image1.png)
@@ -152,7 +152,7 @@ Si usa una aplicación que le permite cambiar el tamaño de E/S, use esta regla 
 * Un tamaño de E/S menor para obtener una mayor IOPS. Por ejemplo, 8 KB para una aplicación OLTP.  
 * Un tamaño de E/S mayor para obtener un mayor ancho de banda y rendimiento. Por ejemplo, 1024 KB para una aplicación de Almacenamiento de datos.
 
-Este es un ejemplo de cómo calcular la IOPS y el ancho de banda y el rendimiento de la aplicación. Considere una aplicación con un disco P30. El máximo rendimiento/ancho de banda e IOPS que un disco P30 puede lograr es 200 MB por segundo y 5000 IOPS respectivamente. Ahora, si la aplicación requiere la IOPS máxima en el disco P30 y usa un tamaño de E/S más pequeño, como 8 KB, el ancho de banda resultante que podrá obtener es de 40 MB por segundo. Sin embargo, si la aplicación requiere el máximo rendimiento/ancho de banda del disco P30 y usa un tamaño de E/S mayor, como 1024 KB, el número de IOPS resultante será menor, 200 IOPS. Por consiguiente, ajuste el tamaño de E/S para que cumpla los requisitos de IOPS y ancho de banda y rendimiento de la aplicación. En la tabla siguiente se resumen los distintos tamaños de E/S y la IOPS y el rendimiento correspondientes para un disco P30.
+Este es un ejemplo de cómo calcular la IOPS y el ancho de banda y el rendimiento de la aplicación. Considere una aplicación con un disco P30. El máximo rendimiento/ancho de banda e IOPS que un disco P30 puede lograr es 200 MB por segundo y 5000 IOPS respectivamente. Ahora, si la aplicación requiere la IOPS máxima en el disco P30 y usa un tamaño de E/S más pequeño, como 8 KB, el ancho de banda resultante que podrá obtener es de 40 MB por segundo. Sin embargo, si la aplicación requiere el máximo rendimiento/ancho de banda del disco P30 y usa un tamaño de E/S mayor, como 1024 KB, el número de IOPS resultante será menor, 200 IOPS. Por consiguiente, ajuste el tamaño de E/S para que cumpla los requisitos de IOPS y ancho de banda y rendimiento de la aplicación. En la siguiente tabla se resumen los distintos tamaños de E/S, así como sus IOPS y rendimiento correspondientes para un disco P30.
 
 | Requisito de la aplicación | Tamaño de E/S | E/S | Rendimiento/ancho de banda |
 | --- | --- | --- | --- |
@@ -209,13 +209,9 @@ Cuando ejecute Linux con Premium Storage, compruebe las actualizaciones más rec
 
 ## <a name="premium-storage-disk-sizes"></a>Tamaños de disco de Premium Storage
 
-Actualmente, Azure Premium Storage ofrece ocho tamaños de disco de GA y tres tamaños de disco que están en versión preliminar. Cada tamaño de disco tiene un límite de escala diferente de IOPS, ancho de banda y almacenamiento. Elija el tamaño de disco de Premium Storage adecuado según los requisitos de la aplicación y el tamaño de la máquina virtual a gran escala. En la tabla siguiente se muestran los 11 tamaños de disco y sus capacidades. Los tamaños de disco P4, P6, P15, P60, P70 y P80 solo se admiten actualmente para Managed Disks.
+Azure Premium Storage ofrece varios tamaños, con el fin de que elija el que mejor se adapte a sus necesidades. Cada tamaño de disco tiene un límite de escala diferente de IOPS, ancho de banda y almacenamiento. Elija el tamaño de disco de Premium Storage adecuado según los requisitos de la aplicación y el tamaño de la máquina virtual a gran escala. En la tabla siguiente se muestran los tamaños de disco y sus capacidades. Los tamaños de disco P4, P6, P15, P60, P70 y P80 solo se admiten actualmente para Managed Disks.
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamaño del disco           | 32 GiB | 64 GiB | 128 GB| 256 GiB| 512 GB            | 1024 GiB (1 TiB)    | 2048 GiB (2 TiB)    | 4095 GiB (4 TiB)    | 8192 GiB (8 TiB)    | 16 384 GiB (16 TiB)    | 32 767 GiB (32 TiB)    |
-| IOPS por disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20.000              |
-| Rendimiento de disco. | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |125 MiB por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
+[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 El número de discos que elija depende del tamaño de disco elegido. Puede usar un único disco P50 o varios discos P10 para cubrir los requisitos de la aplicación. Tenga en cuenta las consideraciones enumeradas a continuación al realizar su elección.
 

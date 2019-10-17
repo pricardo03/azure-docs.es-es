@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
-ms.openlocfilehash: 7c425ee8c9fd99420bbcbba31c7a74c360938aef
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: e51b5640163546c673a1b0f61da47ccd992f27ad
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338248"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030040"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Ejecutar U-SQL y depurar localmente en Visual Studio Code
 En este artículo se describe cómo ejecutar trabajos de U-SQL en un equipo de desarrollo local para acelerar la primeras fases de codificación o depurar código localmente en Visual Studio Code. Para consultar instrucciones sobre las Herramientas de Azure Data Lake para Visual Studio Code, vea [Uso de Herramientas de Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -45,7 +45,7 @@ En este artículo se describe cómo ejecutar trabajos de U-SQL en un equipo de d
 
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>Inicio del servicio de ejecución local y envío del trabajo de U-SQL a la cuenta local 
-Para los usuarios nuevos, use **ADL: descargar paquete de ejecución local** para descargar los paquetes de ejecución locales, si no ha [configurado el entorno de ejecución local de U-SQL](#set-up-the-u-sql-local-run-environment).
+Para los usuarios nuevos, use **ADL: descargar paquete de ejecución local** para descargar los paquetes de ejecución locales, si no ha  [configurado el entorno de ejecución local de U-SQL](#set-up-the-u-sql-local-run-environment).
 
 1. Seleccione Ctrl+Mayús+P para abrir la paleta de comandos y luego escriba **ADL: iniciar servicio de ejecución local**.   
 2. Seleccione **Aceptar** para aceptar los Términos de licencia del software de Microsoft por primera vez. 
@@ -66,11 +66,11 @@ Para los usuarios nuevos, use **ADL: descargar paquete de ejecución local** p
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>Inicio de una depuración local para el trabajo de U-SQL  
 Para los usuarios nuevos:
 
-1. Use **ADL: descargar paquete de ejecución local** para descargar los paquetes de ejecución locales, si no ha [configurado el entorno de ejecución local de U-SQL](#set-up-the-u-sql-local-run-environment).
+1. Use **ADL: descargar paquete de ejecución local** para descargar los paquetes de ejecución locales, si no ha  [configurado el entorno de ejecución local de U-SQL](#set-up-the-u-sql-local-run-environment).
 2. Instale SDK de .NET Core 2.0 como se sugiere en el cuadro de mensaje, si no está instalado.
  
   ![recordatorio de instalación de Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
-3. Instale C# para Visual Studio Code como se sugiere en el cuadro de mensaje, si no está instalado. Haga clic en  **Instalar** para continuar y después reinicie VSCode.
+3. Instale C# para Visual Studio Code como se sugiere en el cuadro de mensaje, si no está instalado. Haga clic en **Instalar** para continuar y después reinicie VSCode.
 
     ![Recordatorio de instalación de C#](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
 

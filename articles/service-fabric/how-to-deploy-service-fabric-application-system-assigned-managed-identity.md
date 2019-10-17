@@ -7,19 +7,19 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: cf04efd8dac3ba4d252701d79c65b1bf56619fe0
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: cf971d71c2566d91bc5a2490d47521725c62b17d
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968240"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973422"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el sistema (versión preliminar)
 
 Para acceder a la característica de identidad administrada para las aplicaciones de Azure Service Fabric, primero debe habilitar el servicio de token de identidad administrada en el clúster. Este servicio es responsable de la autenticación de aplicaciones de Service Fabric que usan sus identidades administradas y de la obtención de los tokens de acceso en su nombre. Una vez habilitado el servicio, puede verlo en Service Fabric Explorer, bajo la sección **Sistema** del panel izquierdo. Se ejecuta con el nombre **fabric:/System/ManagedIdentityTokenService** junto a otros servicios del sistema.
 
 > [!NOTE] 
-> La implementación de aplicaciones de Service Fabric con identidades administradas se admite a partir de la versión de API `"2019-06-01-preview"`. También puede usar la misma versión de API para el tipo de aplicación, la versión del tipo de aplicación y los recursos de servicio. La versión mínima admitida del runtime de Service Fabric es 6.5 CU2.
+> La implementación de aplicaciones de Service Fabric con identidades administradas se admite a partir de la versión de API `"2019-06-01-preview"`. También puede usar la misma versión de API para el tipo de aplicación, la versión del tipo de aplicación y los recursos de servicio. La versión mínima admitida del runtime de Service Fabric es 6.5 CU2. Además, el entorno o paquete de compilación también debe tener el SDK de .NET para SF en CU2 o superior.
 
 ## <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema
 

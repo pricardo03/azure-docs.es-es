@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4e23a440f46b52633a88d0212e08c7b584f61a38
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932470"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960571"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalación y uso de Azure IoT Explorer
 
@@ -65,29 +65,27 @@ Cambie las prioridades de origen:
 
 Puede arrastrar y colocar uno de los orígenes de la definición de modelo en otra clasificación de la lista. Si hay un conflicto, los orígenes de definición con clasificaciones superiores reemplazan los orígenes con clasificaciones inferiores.
 
-### <a name="overview-page"></a>Página de información general
+### <a name="view-devices"></a>Vista de dispositivos
 
-#### <a name="device-overview"></a>Información general del dispositivo
+Cuando la herramienta se conecta al centro de IoT, muestra la página de lista **Dispositivos** que contiene todas las identidades de dispositivo registradas en ese centro de IoT. Puede expandir cualquier entrada de la lista para ver más información.
 
-Cuando la herramienta se conecta al centro de IoT, muestra una página de información general que contiene todas las identidades de dispositivo registradas con Azure IoT Hub. Seleccione un dispositivo para ver más detalles.
+En la página de lista **Dispositivos** puede:
 
-#### <a name="device-management"></a>Administración de dispositivos
-
-- Para registrar un nuevo dispositivo en el centro, seleccione **Add** (Agregar). Especifique un identificador de dispositivo. Use la configuración predeterminada para la generación automática de claves de autenticación y permitir la conexión con el centro.
-- Para eliminar una identidad de dispositivo, seleccione **Delete** (Eliminar). Revise los detalles del dispositivo antes de completar esta acción para asegurarse de que está eliminando la identidad de dispositivo correcta.
-- La herramienta admite la consulta mediante `capabilityID` y `interfaceID`. Agregue `capabilityID` o `interfaceID` como un parámetro para consultar los dispositivos.
+- Seleccionar **Agregar** para registrar un nuevo dispositivo con el centro. A continuación, especifique un identificador de dispositivo. Use la configuración predeterminada para la generación automática de claves de autenticación y permita la conexión con el centro.
+- Seleccionar un dispositivo y, a continuación, seleccionar **Eliminar** para eliminar una identidad de dispositivo. Revise los detalles del dispositivo antes de completar esta acción para asegurarse de que está eliminando la identidad de dispositivo correcta.
+- Consultar mediante `capabilityID` y `interfaceID`. Agregue `capabilityID` o `interfaceID` como un parámetro para consultar los dispositivos.
 
 ## <a name="interact-with-a-device"></a>Interactuación con un dispositivo
 
-Haga doble clic en un dispositivo en la página de información general para ver el siguiente nivel de detalle. Hay dos secciones: **Dispositivo** y **gemelo digital**.
+En la página de lista **Dispositivos**, seleccione un valor en la columna **ID de dispositivo** para ver la página de detalles del dispositivo registrado. Para los dispositivos, hay dos secciones: **Dispositivo** y **gemelo digital**.
 
 ### <a name="device"></a>Dispositivo
 
-Esta sección incluye las pestañas **Device Identity** (Identidad del dispositivo), **Telemetry** (Telemetría) y **Device Twin** (Dispositivo gemelo).
+Esta sección incluye las pestañas **Id. de dispositivo**, **Telemetría** y **Dispositivo gemelo**.
 
-- Puede ver y actualizar la información de la identidad del dispositivo en la pestaña **Device identity** (Identidad del dispositivo).
-- Si un dispositivo está conectado y envía datos de forma activa, puede ver la telemetría en la pestaña **Telemetry** (Telemetría).
-- Puede acceder a la información del dispositivo gemelo en la pestaña **Device Twin** (Dispositivo gemelo).
+- Puede ver y actualizar la información de la [identidad del dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) en la pestaña **Id. de dispositivo**.
+- Puede acceder a la información del [dispositivo gemelo](../iot-hub/iot-hub-devguide-device-twins.md) en la pestaña **Dispositivo gemelo**.
+- Si un dispositivo está conectado y envía datos de forma activa, puede ver la [telemetría](../iot-hub/iot-hub-devguide-messages-read-builtin.md) en la pestaña **Telemetría**.
 
 ### <a name="digital-twin"></a>Gemelo digital
 

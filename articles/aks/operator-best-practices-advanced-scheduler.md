@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 4caa4219d2bf7558dbdf71e92e4993722c6e8f6a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a31f839b4bad79a52f5cab386d17e3084314784b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614872"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026109"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -87,7 +87,7 @@ Al actualizar un grupo de nodos en AKS, taints y tolerations siguen un patrón d
   - Se crea otro nuevo nodo (llamado *node1*, ya que el anterior *node1* se ha eliminado) y los valores taints de *node2* se aplican al nuevo *node1*. Luego, *node2* se elimina.
   - Básicamente, *node1* se convierte en *node3* y *node2* se convierte en *node1*.
 
-- **Clústeres que usan conjuntos de escalado de máquinas virtuales** (actualmente en versión preliminar en AKS)
+- **Clústeres que utilizan conjuntos de escalado de máquinas virtuales**
   - Supongamos de nuevo que tiene un clúster de dos nodos: *node1* y *node2*. Actualice el grupo de nodos.
   - Se crean dos nodos adicionales, *node3* y *node4*, y se pasan los valores taints respectivamente.
   - Las versiones originales de *node1* y *node2* se eliminan.

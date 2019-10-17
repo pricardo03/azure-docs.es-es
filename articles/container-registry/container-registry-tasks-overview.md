@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: c62987031a73aa4840c1d036689a3c52fb4dc4a0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e2686dcd5615c42abf78cbf4575bab6008024718
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914661"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001405"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -53,7 +53,7 @@ ACR Tasks está diseñado como un primitivo de ciclo de vida de contenedor. Por 
 Aprenda a usar tareas rápidas en el primer tutorial de ACR Tasks: [Compilación de imágenes de contenedor en la nube con Azure Container Registry Tasks](container-registry-tutorial-quick-task.md).
 
 > [!TIP]
-> Si quiere compilar e insertar una imagen directamente desde el código fuente, sin ningún archivo Dockerfile, Azure Container Registry proporciona el comando [az acr pack build][az-acr-pack-build] (versión preliminar). Esta herramienta compila e inserta una imagen del código fuente de la aplicación mediante Cloud Native Buildpacks.
+> Si quiere compilar e insertar una imagen directamente desde el código fuente, sin ningún archivo Dockerfile, Azure Container Registry proporciona el comando [az acr pack build][az-acr-pack-build] (versión preliminar). Esta herramienta compila e inserta una imagen del código fuente de la aplicación mediante [Cloud Native Buildpacks](https://buildpacks.io/).
 
 ## <a name="trigger-task-on-source-code-update"></a>Desencadenamiento de una tarea al actualizar el código fuente
 
@@ -124,6 +124,7 @@ En la tabla siguiente se muestran algunos ejemplos de ubicaciones de contexto ad
 | Rama maestra de GitHub | Archivos dentro de la rama maestra (u otra predeterminada) de un repositorio de GitHub.  | `https://github.com/gituser/myapp-repo.git` |
 | Rama de GitHub | Rama específica de un repositorio de GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Subcarpeta de GitHub | Archivos en una subcarpeta en un repositorio de GitHub. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Subcarpeta de Azure DevOps | Archivos en una subcarpeta en un repositorio de Azure. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Tarball remoto | Archivos en un archivo comprimido en un servidor web remoto. | `http://remoteserver/myapp.tar.gz` |
 
 ## <a name="image-platforms"></a>Plataformas de imagen

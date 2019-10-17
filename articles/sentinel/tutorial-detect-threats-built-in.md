@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: fdb34173e0ca52f57a004e3a5b4a076e423ff5bd
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 6d61b94a50716966ac0b3c75551ddd9d8e291965
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241200"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024466"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detección de amenazas integrada
 
@@ -39,7 +39,7 @@ Este tutorial ayuda a detectar amenazas con Azure Sentinel:
 
 ## <a name="about-out-of-the-box-detections"></a>Acerca de las detecciones integradas
 
-Para ver todas las detecciones integradas, vaya a **Análisis** y, después,  **Rule templates** (Plantillas de reglas). Esta pestaña contiene todas las reglas integradas de Azure Sentinel.
+Para ver todas las detecciones estándar, vaya a **Análisis** y, después, a **Rule templates** (Plantillas de reglas). Esta pestaña contiene todas las reglas integradas de Azure Sentinel.
 
    ![Usar las detecciones integradas para encontrar amenazas con Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 

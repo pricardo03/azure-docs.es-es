@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 9c04f805cf410d2306eda76c84a201a67b022b84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 154317e558c2c9a22f569f569684cced467900d5
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716616"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937480"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2"></a>Reglas personalizadas para el firewall de aplicaciones web v2
 
@@ -96,8 +96,8 @@ Es el nombre de la regla. Este nombre aparece en los registros.
 
 ### <a name="priority-required"></a>Prioridad [obligatorio]
 
-- Determina el orden de evaluación de las reglas. Cuanto menor sea el valor, antes se evalúa la regla.
--Debe ser único entre todas las reglas personalizadas. Una regla con prioridad de 100 se evalúa antes que una regla con prioridad de 200.
+- Determina el orden de evaluación de las reglas. Cuanto menor sea el valor, antes se evalúa la regla. El intervalo permitido es de 1 a 100. 
+- Debe ser única entre todas las reglas personalizadas. Una regla con prioridad de 40 se evalúa antes que una regla con prioridad de 80.
 
 ### <a name="rule-type-required"></a>Tipo de regla [obligatorio]
 

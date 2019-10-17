@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873192"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177988"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Enriquecimiento de mensajes para mensajes de IoT Hub del dispositivo a la nube (versión preliminar)
 
@@ -90,7 +90,7 @@ Esta funcionalidad está en versión preliminar pública y está disponible en t
 
 Consulte estos artículos para obtener más información sobre el enrutamiento de mensajes en una instancia de IoT Hub:
 
-* [Tutorial de mejoras de mensajes](tutorial-message-enrichments.md)
+* [Tutorial sobre enriquecimientos de mensajes](tutorial-message-enrichments.md)
 
 * [Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión](iot-hub-devguide-messages-d2c.md)
 

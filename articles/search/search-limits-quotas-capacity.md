@@ -6,14 +6,14 @@ manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/03/2019
 ms.author: heidist
-ms.openlocfilehash: fd65bb134d9057246a1b8c5cc2986e979713d20b
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327161"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947778"
 ---
 # <a name="service-limits-in-azure-search"></a>Límites de servicio en Azure Search
 Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si [aprovisiona Azure Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico**, **Estándar** o **Almacenamiento optimizado**.
@@ -147,6 +147,18 @@ En el caso de los niveles de Almacenamiento optimizado, debe esperar un rendimie
 ## <a name="data-limits-cognitive-search"></a>Límites de datos (búsqueda cognitiva)
 
 Una [canalización de búsqueda cognitiva](cognitive-search-concept-intro.md) que realiza llamadas a un recurso de Text Analytics para el [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), la [extracción de frases clave](cognitive-search-skill-keyphrases.md), el [análisis de sentimiento ](cognitive-search-skill-sentiment.md) y la [detección de idioma](cognitive-search-skill-language-detection.md) está sujeta a los límites de datos. El tamaño máximo de un registro debe ser de 50 000 caracteres, medidos por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al analizador de opiniones, use la [aptitud División de texto](cognitive-search-skill-textsplit.md).
+
+## <a name="throttling-limits"></a>Limitaciones
+
+Las solicitudes de indexación y de consultas de búsqueda se limitan a medida que el sistema se aproxima a la capacidad máxima. La limitación se comporta de forma diferente para las distintas API. Las API de consulta (Search/Suggest/Autocomplete) y las de indexación se limitan dinámicamente en función de la carga del servicio. Las API de indexación tienen límites estáticos de frecuencia de solicitudes. 
+
+Límites estáticos de frecuencia de solicitudes para las operaciones relacionadas con un índice:
+
++ Enumerar índices (GET /indexes): 5 por segundo por unidad de búsqueda
++ Obtener índice (GET /indexes/myindex): 10 por segundo por unidad de búsqueda
++ Crear índice (POST /indexes): 12 por minuto por unidad de búsqueda
++ Crear o actualizar índice (PUT /indexes/myindex): 6 por segundo por unidad de búsqueda
++ Eliminar índice (DELETE /indexes/myindex): 12 por minuto por unidad de búsqueda 
 
 ## <a name="api-request-limits"></a>Límites de solicitud de API
 * Máximo de 16 MB por solicitud <sup>1</sup>

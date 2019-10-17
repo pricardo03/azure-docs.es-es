@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 80f2e8a8fd41fbafbaf6d30bc1001b86c5dcdd50
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1fff9c076349d98d7a72c4bf69edb0a2795ac88f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266368"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937377"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -124,8 +124,9 @@ En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar
 |Las reglas del grupo de seguridad de red (NSG) no se aplican al punto de conexión privado.    |El grupo de seguridad de red no se admite en los puntos de conexión privados. Si bien las subredes que contienen el punto de conexión privado pueden tener un grupo de seguridad de red asociado, las reglas no serán efectivas en el tráfico procesado por el punto de conexión privado. Debe tener la [aplicación de directivas de red deshabilitada](disable-private-endpoint-network-policy.md) para implementar puntos de conexión privados en una subred. El grupo de seguridad de red se sigue aplicando en otras cargas de trabajo hospedadas en la misma subred.   | Controle el tráfico mediante el uso de reglas del grupo de seguridad de red para el tráfico saliente en los clientes de origen.        |
 |No se pueden crear puntos de conexión privados en subredes habilitadas para el punto de conexión de servicio o cargas de trabajo especializadas.    |No se pueden implementar puntos de conexión privados en subredes habilitadas para puntos de conexión de servicio o subredes delegadas en cargas de trabajo especializadas.|  Cree una subred independiente para implementar los puntos de conexión privados.        |
 |El punto de conexión privado solo se puede asignar a un servicio de vínculo privado (propiedad del cliente) en la misma región.    |   No se admite la conexión a un servicio de vínculo privado (de su propiedad) desde una región diferente.       |  Durante la versión preliminar, debe implementar el servicio Private Link en la misma región.        |
+|  No se admiten las redes virtuales emparejadas solo con puntos de conexión privados   |   No se admite la conexión a puntos de conexión privados en una red virtual emparejada sin ninguna otra carga de trabajo.       | Implemente una única máquina virtual en la red virtual emparejada para habilitar la conectividad. |
 |Las cargas de trabajo especializadas no pueden acceder a los puntos de conexión privados.    |   Los siguientes servicios implementados en la red virtual no pueden tener acceso a ningún recurso de vínculo privado mediante puntos de conexión privados:<br>Plan de servicio de aplicación</br>Azure Container Instances</br>Azure NetApp Files</br>Azure Dedicated HSM<br>       |   No hay mitigación durante la versión preliminar.       |
-|  El portal no admite la creación de puntos de conexión privados mediante el alias.  |   El portal solo permite crear puntos de conexión privados mediante el URI de recurso.      | Use el URI de recurso para solicitar conexiones de puntos de conexión privados.        |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de un punto de conexión privado para el servidor de SQL Database mediante el portal](create-private-endpoint-portal.md)

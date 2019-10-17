@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: c566dc28338a47c1bf24066436c21544eb7c5c7d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072445"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958531"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -218,7 +218,7 @@ La restauración es una operación de larga duración que puede tardar 30 minuto
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> También se pueden realizar operaciones de copia de seguridad y restauración con los comandos _Backup-AzApiManagement_ y _Restore-AzApiManagement_ de PowerShell, respectivamente.
+> También se pueden realizar operaciones de copia de seguridad y restauración con los comandos [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) y [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) de PowerShell, respectivamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

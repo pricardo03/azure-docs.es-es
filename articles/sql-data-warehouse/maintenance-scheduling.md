@@ -10,30 +10,32 @@ ms.subservice: design
 ms.date: 07/16/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3875106e8c6301c95bc8d0fbce6a1c0400d07f78
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 0e5df583112bbb6db9651004e5deaceb6b5b9d12
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278125"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958888"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Uso de programaciones de mantenimiento para administrar las actualizaciones del servicio y el mantenimiento
 
-Los programas de mantenimiento están ahora disponibles en todas las regiones de Azure SQL Data Warehouse. Esta característica integra las notificaciones de mantenimiento planeado de Service Health, el monitor de comprobación de Resource Health y el servicio de programación de mantenimiento de Azure SQL Data Warehouse.
+Los programas de mantenimiento están ahora disponibles en todas las regiones de Azure SQL Data Warehouse. La característica de programas de mantenimiento integra las notificaciones de mantenimiento planeado de Service Health, el monitor de comprobación de Resource Health y el servicio de programación de mantenimiento de Azure SQL Data Warehouse.
 
-Use programación de mantenimiento para elegir un período de tiempo en el que sea conveniente recibir las nuevas características, actualizaciones y revisiones. Elija una ventana de mantenimiento principal y una secundaria en un período de siete días. Un ejemplo es una ventana principal de sábado a las 22:00 a domingo a la 01:00, y una ventana secundaria el miércoles de 19:00 a 22:00. Si SQL Data Warehouse no puede realizar el mantenimiento durante la ventana de mantenimiento principal, se intentará nuevamente durante la ventana de mantenimiento secundaria. El mantenimiento del servicio puede producirse durante la ventana principal o la secundaria. Para garantizar una finalización rápida de las operaciones de mantenimiento, DW400(c) y los niveles más bajos de almacenamiento de datos pueden completar el mantenimiento fuera de una ventana de mantenimiento designada.
+Use programación de mantenimiento para elegir un período de tiempo en el que sea conveniente recibir las nuevas características, actualizaciones y revisiones. Elija una ventana de mantenimiento principal y una secundaria en un período de siete días. Para utilizar esta característica, deberá identificar una ventana principal y una secundaria dentro de intervalos de días separados.
+
+Por ejemplo, puede programar una ventana principal de sábado a las 22:00 a domingo a la 01:00, y luego una ventana secundaria el miércoles de 19:00 a 22:00. Si SQL Data Warehouse no puede realizar el mantenimiento durante la ventana de mantenimiento principal, se intentará nuevamente durante la ventana de mantenimiento secundaria. El mantenimiento del servicio puede producirse durante la ventana principal o la secundaria. Para garantizar una finalización rápida de las operaciones de mantenimiento, DW400(c) y los niveles más bajos de almacenamiento de datos pueden completar el mantenimiento fuera de una ventana de mantenimiento designada.
 
 Todos las instancias de Azure SQL Data Warehouse recién creadas tendrán una programación de mantenimiento definida por el sistema aplicada durante la implementación. La programación se podrá editar tan pronto como se complete la implementación.
 
 Cada ventana de mantenimiento puede ser de tres a ocho horas. El mantenimiento puede producirse en cualquier momento dentro de la ventana. Cuando se inicie el mantenimiento, se cancelarán todas las sesiones activas y se revertirán las transacciones no confirmadas. Experimentará varias pérdidas breves de conectividad a medida que el servicio implementa el nuevo código en el almacenamiento de datos. Se le notificará inmediatamente después de que se haya completado el mantenimiento en el almacenamiento de datos.
 
-Para utilizar esta característica, deberá identificar una ventana principal y una secundaria dentro de intervalos de días separados. Todas las operaciones de mantenimiento deben finalizar dentro de las ventanas de mantenimiento programadas. Sin notificación previa, no se llevará a cabo mantenimiento fuera de las ventanas de mantenimiento especificadas. Si el almacenamiento de datos se pausa durante un período de mantenimiento programado, se actualizará durante la operación de reanudación.  
+ Todas las operaciones de mantenimiento deben finalizar dentro de las ventanas de mantenimiento programadas. Sin notificación previa, no se llevará a cabo mantenimiento fuera de las ventanas de mantenimiento especificadas. Si el almacenamiento de datos se pausa durante un período de mantenimiento programado, se actualizará durante la operación de reanudación. 
 
 ## <a name="alerts-and-monitoring"></a>Supervisión y alertas
 
 Una integración con las notificaciones de Service Health y el monitor de comprobación de Resource Health permite a los clientes mantenerse informados de la actividad de mantenimiento inminente. La automatización nueva aprovecha las ventajas de Azure Monitor. Puede decidir cómo recibir notificaciones de eventos de mantenimiento inminentes. Asimismo, puede decidir qué flujos automatizados pueden ayudarle a administrar el tiempo de inactividad y minimizar el impacto en sus operaciones.
 
-A todos los eventos de mantenimiento les precede una notificación con 24 horas de adelanto, con la excepción actual de DW400c y los niveles más bajos. Para minimizar el tiempo de inactividad de la instancia, debe asegurarse de que no hay transacciones de larga ejecución en el almacenamiento de datos antes del comienzo del período de mantenimiento seleccionado.
+A todos los eventos de mantenimiento, con la excepción de DWC400c y los niveles más bajos, les precede una notificación con 24 horas de adelanto. Para minimizar el tiempo de inactividad de la instancia, debe asegurarse de que no hay transacciones de larga ejecución en el almacenamiento de datos antes del comienzo del período de mantenimiento seleccionado.
 
 > [!NOTE]
 > En caso de que sea necesario implementar una actualización donde el tiempo es fundamental, los tiempos de las notificaciones avanzadas pueden reducirse significativamente.
@@ -46,10 +48,54 @@ Todos los eventos de mantenimiento activos se muestran en la sección **Service 
 
 Aunque Programación de mantenimiento no esté aún disponible en la región seleccionada, puede ver y editar la programación de mantenimiento en cualquier momento. Cuando Programación de mantenimiento esté disponible en su región, la programación identificada pasará a estar activa inmediatamente en el almacenamiento de datos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="view-a-maintenance-schedule"></a>Vista de una programación de mantenimiento 
 
-- [Obtenga más información](viewing-maintenance-schedule.md) sobre cómo ver una programación de mantenimiento.
-- [Obtenga más información](changing-maintenance-schedule.md) sobre cómo cambiar una programación de mantenimiento.
+### <a name="portal"></a>Portal
+
+De forma predeterminada, todas las instancias de Azure SQL Data Warehouse recién creadas tendrán una ventana de mantenimiento principal y secundaria de 8 horas aplicada durante la implementación. Como se ha indicado anteriormente, puede cambiar las ventanas tan pronto como se complete la implementación. Sin notificación previa, no se llevará a cabo mantenimiento fuera de las ventanas de mantenimiento especificadas.
+
+Para ver la programación de mantenimiento que se ha aplicado al almacenamiento de datos, complete los siguientes pasos:
+
+1.  Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+2.  Seleccione el almacenamiento de datos que quiere ver. 
+3.  El almacenamiento de datos seleccionado se abre en la hoja de información general. La programación de mantenimiento que se aplica al almacén de datos se mostrará debajo de **Programación de mantenimiento**.
+
+![Hoja Información general](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
+
+## <a name="change-a-maintenance-schedule"></a>Cambiar una programación de mantenimiento 
+
+### <a name="portal"></a>Portal
+Una programación de mantenimiento puede actualizarse o cambiarse en cualquier momento. Si la instancia seleccionada está en un ciclo de mantenimiento activo, se guardará la configuración. Se activará durante el siguiente período de mantenimiento identificado. [Obtenga más información](https://docs.microsoft.com/azure/service-health/resource-health-overview) sobre cómo supervisar el almacenamiento de datos durante un evento de mantenimiento activo. 
+
+### <a name="identifying-the-primary-and-secondary-windows"></a>Identificar las ventanas principales y secundarias
+
+Las ventanas principales y secundarias deben tener intervalos de días independientes. Un ejemplo es una ventana principal de martes a jueves, y otra secundaria de sábado a domingo.
+
+Para cambiar la programación de mantenimiento del almacenamiento de datos, complete los siguientes pasos:
+1.  Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+2.  Seleccione el almacenamiento de datos que quiere actualizar. La página se abre en la hoja de información general. 
+3.  Abra la página de configuración de la programación de mantenimiento seleccionando el vínculo de **resumen de la Programación de mantenimiento (versión preliminar)** en la hoja de información general. O bien, seleccione la opción **Programación de mantenimiento** en el menú de recursos del lado izquierdo.  
+
+    ![Opciones de la hoja Información general](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
+
+4. Puede identificar el intervalo de día preferido para la ventana de mantenimiento principal con las opciones situadas en la parte superior de la página. Esta selección determina si la ventana principal se producirá en un día laborable o durante el fin de semana. La selección actualizará los siguientes valores de la lista desplegable. Durante la versión preliminar es posible que algunas regiones no admitan el conjunto completo de opciones de **día** disponibles.
+
+   ![Hoja Configuración de mantenimiento](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
+
+5. Elija las ventanas de mantenimiento principales y secundarias que prefiera con el cuadro de lista desplegable:
+   - **Día**: día preferido para realizar el mantenimiento durante el período seleccionado.
+   - **Hora de inicio:** hora de inicio preferida de la ventana de mantenimiento.
+   - **Período de tiempo**: duración preferida del período de tiempo.
+
+   El área **Resumen de la programación** de la parte inferior de la hoja se actualiza según los valores que seleccione. 
+  
+6. Seleccione **Guardar**. Aparece un mensaje que confirma que la nueva programación está activa. 
+
+   Si va a guardar una programación en una región que aún no admite la programación de mantenimiento, aparecerá el siguiente mensaje. La configuración se guarda y se activa cuando la característica esté disponible en la región seleccionada.    
+
+   ![Mensaje sobre la disponibilidad de la región](media/sql-data-warehouse-maintenance-scheduling/maintenance-notactive-toast.png)
+
+## <a name="next-steps"></a>Pasos siguientes
 - [Obtenga más información](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) sobre cómo crear, ver y administrar alertas mediante Azure Monitor.
 - [Obtenga más información](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sobre las acciones del webhook para las reglas de alerta de registro.
 - [Obtenga más información](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) sobre la creación y administración de grupos de acciones.

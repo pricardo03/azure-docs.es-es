@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/8/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b79ed7ea3113f097f767ad7ff8bdc47b4e4916eb
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 338977c236ebb8f1b800eb6c28747a010e708300
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883570"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244207"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -58,7 +58,7 @@ En este momento, Azure Dedicated HSM solo proporciona módulos HSM con autentica
 
 Microsoft solo ofrece el módulo SafeNet Luna Network HSM de Gemalto mediante el servicio Dedicated HSM y no puede hospedar ningún servicio proporcionado por el cliente.
 
-### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>P: ¿Admite Azure Dedicated HSM características de pago (PIN o ETF)?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pineft-features"></a>P: ¿Admite Azure Dedicated HSM características de pago (PIN o ETF)?
 
 El servicio Azure Dedicated HSM usa dispositivos SafeNet Luna Network HSM 7 (modelo A790). Estos dispositivos no admiten la funcionalidad específica de HSM de pago (por ejemplo, PIN o ETF) ni certificaciones. Si quiere que el servicio Azure Dedicated HSM admita módulos HSM de pago en el futuro, envíe sus comentarios a su representante de cuenta Microsoft.
 

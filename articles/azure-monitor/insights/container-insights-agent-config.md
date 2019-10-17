@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 10/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 7cd915c47fa0661a9da66d7ca3315480ce7d6b98
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ada573cc919d775af52abc5a75004866aebbeddb
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709424"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033938"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configuración de la recopilación de datos del agente para Azure Monitor para contenedores
 
@@ -49,7 +49,7 @@ A continuación figura la configuración que puede definir para controlar la rec
 |`[log_collection_settings.stdout] exclude_namespaces =`|Cadena | Matriz separada por comas |Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stdout. Esta configuración es efectiva únicamente si `log_collection_settings.stdout.enabled` se establece en `true`. Si no se especifica en ConfigMap, el valor predeterminado es `exclude_namespaces = ["kube-system"]`.|
 |`[log_collection_settings.stderr] enabled =` |Boolean | true o false |Controla si está habilitada la recopilación de registros de contenedor de stderr. Cuando se establece en `true` y los espacios de nombres no se excluyen de la recopilación de registros de stdout (configuración `log_collection_settings.stderr.exclude_namespaces`), los registros de stderr se recopilarán a partir de todos los contenedores en todos los pods o nodos del clúster. Si no se especifica en ConfigMaps, el valor predeterminado es `enabled = true`. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |Cadena |Matriz separada por comas |Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stderr. Esta configuración es efectiva únicamente si `log_collection_settings.stdout.enabled` se establece en `true`. Si no se especifica en ConfigMap, el valor predeterminado es `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true o false | Controla si se habilita la recopilación de variables de entorno. Cuando se establece en `false`, no se recopilan variables de entorno para ningún contenedor que se ejecuta en todos los pods o nodos del clúster. Si no se especifica en ConfigMap, el valor predeterminado es `enabled = true`. |
+| `[log_collection_settings.env_var] enabled =` |Boolean | true o false | Esta configuración controla la colección de variables de entorno en todos los pods/nodos del clúster y el valor predeterminado es `enabled = true` cuando no se especifica en ConfigMaps. Si la colección de variables de entorno está habilitada globalmente, puede deshabilitarla para un contenedor específico al establecer la variable de entorno `AZMON_COLLECT_ENV` en **False** con un valor de Dockerfile o en el [archivo de configuración para el Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) en la sección **env:** . Si la colección de variables de entorno está deshabilitada globalmente, no puede habilitar la colección para un contenedor específico (es decir, la única invalidación que se puede aplicar en el nivel de contenedor es deshabilitar la colección si ya está habilitada globalmente). |
 
 ### <a name="prometheus-scraping-settings"></a>Configuración de la recopilación de datos en Prometheus
 
@@ -84,7 +84,7 @@ Cuando se especifica una dirección URL, Azure Monitor para contenedores solo e
 | En todo el nodo o en todo el clúster | `interval` | Cadena | 60 s | El valor predeterminado del intervalo de recopilación es de un minuto (60 segundos). Puede modificar la recopilación de *[prometheus_data_collection_settings. node]* y/o *[prometheus_data_collection_settings. cluster]* a unidades de tiempo como ns, us (o Âµs), ms, s, m, h. |
 | En todo el nodo o en todo el clúster | `fieldpass`<br> `fielddrop`| Cadena | Matriz separada por comas | Puede especificar determinadas métricas para que se recopilen o no desde el punto de conexión estableciendo la lista de permitir (`fieldpass`) y no permitir (`fielddrop`). Tiene que establecer primero la lista de permitir. |
 
-ConfigMap es una lista global y solo puede haber una instancia de ConfigMap aplicada al agente. No se puede tener otra instancia de ConfigMap que anule las recopilaciones.
+ConfigMaps es una lista global y solo puede haber una instancia de ConfigMap aplicada al agente. No puede tener otra instancia de ConfigMaps que anule las colecciones.
 
 ## <a name="configure-and-deploy-configmaps"></a>Configuración e implementación de ConfigMaps
 

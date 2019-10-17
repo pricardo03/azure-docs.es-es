@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: f4eb1b69a1464cacaf666e49f4aff7422d63611d
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 906cff017c3f80cb1bdd369453b18564d19eb492
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264513"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981173"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casos de uso de la versión preliminar de Azure Time Series Insights
 
@@ -56,7 +56,7 @@ Existen tres formas principales de interactuar con los datos almacenados en Time
 
 - La segunda forma de comenzar es usar el SDK de JavaScript para insertar rápidamente eficaces tablas y gráficos en su aplicación web. Con solo unas pocas líneas de código, puede crear consultas realmente eficaces. Úselas para rellenar gráficos de líneas, gráficos circulares, gráficos de barras, mapas térmicos, cuadrículas de datos y muchos más. Si usa el SDK, tiene todos estos elementos listos para usar. El SDK también sintetiza las API de consulta de Time Series Insights. Puede usarlas para crear predicados similares a SQL para consultar los datos que quiera mostrar en un panel. En cuanto a las soluciones de la capa de presentación híbridas, Time Series Insights le ofrece direcciones URL con parámetros. Estas le proporcionan puntos de conexión sencillos con el explorador de versión preliminar de Time Series Insights para que pueda profundizar en los datos.
 
-    * Para obtener más información sobre el SDK de JavaScript, lea la [biblioteca de cliente de JS de Time Series Insights](tutorial-explore-js-client-lib.md) y la documentación del [cliente de Time Series Insights](https://github.com/Microsoft/tsiclient).
+    * Para más información sobre el SDK de JavaScript, lea la [biblioteca de cliente de JS de Time Series Insights](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) y la documentación del [cliente de Time Series Insights](https://github.com/Microsoft/tsiclient).
 
     * Para obtener más información acerca del uso compartido de URL y la nueva IU, consulte [Visualize data in the Azure Time Series Insights Preview explorer](time-series-insights-update-explorer.md) (Visualizar datos en el explorador de la versión preliminar de Azure Time Series Insights).
 

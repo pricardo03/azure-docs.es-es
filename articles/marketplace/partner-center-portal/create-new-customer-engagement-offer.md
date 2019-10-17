@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 58dd9ade749458facd6f11682af0b730258a7584
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 10/04/2019
+ms.openlocfilehash: 703b8b5732109faed1523c678af612e7fc8dab6d
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033231"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244099"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creación de una nueva oferta de Dynamics 365 for Customer Engagement y PowerApps
 
@@ -21,6 +21,9 @@ En este tema se explica cómo crear una nueva oferta de Dynamics 365 for Custome
 Para empezar a crear ofertas de Dynamics 365 for Customer Engagement y PowerApps, asegúrese de que primero [crea una cuenta del Centro de partners](./create-account.md) y después abre el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la pestaña **Información general** seleccionada.
 
 ![Panel de Marketplace comercial en el Centro de partners](./media/new-offer-overview.png)
+
+>[!Note]
+> Una vez publicada una oferta, las modificaciones de esta realizadas en el Centro de partners solo se actualizarán en el sistema y en los escaparates después de volver a publicarla. Asegúrese de enviar la oferta para su publicación después de realizar los cambios.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
@@ -82,7 +85,7 @@ Seleccione entre las siguientes opciones:
 
 ## <a name="connect-lead-management"></a>Conexión de administración de clientes potenciales
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
 Consulte [Introducción a la administración de clientes potenciales](./commercial-marketplace-get-customer-leads.md) para obtener más información.
 
@@ -92,7 +95,7 @@ No olvide **guardar** antes de pasar a la siguiente sección.
 
 La página de **Propiedades** le permite definir las categorías y los sectores que se usan para agrupar su oferta en Marketplace, la versión de la aplicación y los contratos legales que dan soporte a su oferta. Después de completar esta página, seleccione **Guardar**. 
 
-### <a name="category"></a>Categoría
+### <a name="category"></a>Category
 
 Seleccione un mínimo de una y un máximo de tres categorías. Se usarán para colocar la oferta en las áreas de búsqueda adecuadas de Marketplace. Asegúrese de indicar la forma en que la oferta da soporte a estas categorías en la descripción de la oferta. 
 

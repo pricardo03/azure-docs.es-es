@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 16bc4c2651d5571bce823aa9c69f823d7fede8af
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c3c24e9dc674ac29c8ca4d0d445cc3f572cda71e
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801628"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029210"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformación de origen de asignación de Data Flow 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Una transformación de origen configura el origen de datos para el flujo de datos. Al diseñar flujos de datos, el primer paso será siempre configurar una transformación de origen. Para agregar un origen, haga clic en el cuadro **Agregar origen** en el lienzo de Data Flow.
 
@@ -167,7 +167,7 @@ En la tabla de origen, seleccione una columna en la que crear una partición. Ta
 
 Puede elegir crear una partición de las conexiones según una consulta. Escriba el contenido de un predicado WHERE. Por ejemplo, escriba año > 1980.
 
-Para más información sobre la optimización en Mapping Data Flow, consulte la [pestaña Optimización](concepts-data-flow-optimize-tab.md).
+Para más información sobre la optimización en Mapping Data Flow, consulte la [pestaña Optimización](concepts-data-flow-overview.md#optimize).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

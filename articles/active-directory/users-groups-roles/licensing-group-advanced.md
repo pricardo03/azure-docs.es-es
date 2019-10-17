@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 09/27/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6cfdb8b979d20b77bcbf2f6b0d17855dfa0ac817
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60471903"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034158"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -28,16 +28,16 @@ Use la información y los ejemplos siguientes para obtener una descripción más
 
 ## <a name="usage-location"></a>Ubicación de uso
 
-Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un usuario, el administrador tiene que especificar la propiedad **Ubicación de uso** en el usuario. En [Azure Portal](https://portal.azure.com), puede especificar los datos de **Usuario** &gt; **Perfil** &gt; **Configuración**.
+Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un usuario, el administrador tiene que especificar la propiedad **Ubicación de uso** en el usuario. En [Azure Portal](https://portal.azure.com), puede especificar la ubicación de uso en **Usuario**&gt;**Perfil**&gt;**Configuración**.
 
-En el caso de la asignación de licencias de grupo, cualquier usuario sin una ubicación de uso especificada heredará la ubicación del directorio. Si hay usuarios en varias ubicaciones, asegúrese de reflejarlo correctamente en los objetos de usuario antes de agregar usuarios a grupos con licencias.
+En el caso de la asignación de licencias de grupo, cualquier usuario sin una ubicación de uso especificada heredará la ubicación del directorio. Si hay usuarios en varias ubicaciones, asegúrese de reflejarlo correctamente en los recursos de usuario antes de agregar usuarios a grupos con licencias.
 
 > [!NOTE]
 > La asignación de licencias de grupo no modificará nunca un valor de ubicación de uso existente para un usuario. Se recomienda establecer la ubicación de uso siempre como parte del flujo de creación de usuarios en Azure AD (por ejemplo, mediante la configuración de AAD Connect), que garantizará que el resultado de la asignación de licencias siempre sea correcto y que los usuarios no reciban los servicios en ubicaciones que no están permitidas.
 
 ## <a name="use-group-based-licensing-with-dynamic-groups"></a>Uso de licencias basadas en grupos con grupos dinámicos
 
-Puede usar licencias basadas en grupos con cualquier grupo de seguridad, lo que significa que se pueden combinar con grupos dinámicos de Azure AD. Los grupos dinámicos ejecutan reglas en los atributos de objeto de usuario para agregar y quitar usuarios de grupos automáticamente.
+Puede usar licencias basadas en grupos con cualquier grupo de seguridad, lo que significa que se pueden combinar con grupos dinámicos de Azure AD. Los grupos dinámicos ejecutan reglas en los atributos de recurso de usuario para agregar y quitar usuarios automáticamente de los grupos.
 
 Por ejemplo, puede crear un grupo dinámico para un conjunto de productos que desee asignar a los usuarios. Cada grupo se rellena con una regla agregando los usuarios con sus atributos, y a cada grupo se le asignan las licencias que se desea que reciban. Puede asignar el atributo en el entorno local y sincronizarlo con Azure AD, o bien puede administrar el atributo directamente en la nube.
 
@@ -76,9 +76,7 @@ Un usuario puede ser miembro de varios grupos con licencias. Estos son algunos a
 
   Como resultado, el usuario tiene habilitados 7 de los 12 servicios del producto, mientras que solo usa una licencia para este producto.
 
-- Al seleccionar la licencia *E3* se muestran más detalles, incluida la información acerca de qué grupos hicieron que se habilitaran determinados servicios para el usuario.
-
-  ![Captura de pantalla de los servicios habilitados por grupo](./media/licensing-group-advanced/view-enabled-service-by-group.png)
+- Al seleccionar la licencia *E3* se muestran más detalles, incluida la información sobre qué servicios se habilitaron para el usuario con la asignación de licencias de grupo.
 
 ## <a name="direct-licenses-coexist-with-group-licenses"></a>Coexistencia de licencias directas con licencias de grupo
 
@@ -88,28 +86,21 @@ Sin embargo, es posible asignar la misma licencia de producto directamente al us
 
 Las licencias asignadas directamente se pueden quitar sin que afecten a las licencias heredadas. Considere un usuario que hereda una licencia de Office 365 Enterprise E3 de un grupo.
 
-1. Inicialmente, el usuario hereda la licencia solo del grupo *E3: servicios básicos*, lo que habilita los siguientes cuatro planes de servicio:
+Inicialmente, el usuario hereda la licencia solo del grupo *E3: servicios básicos*, lo que habilita cuatro planes de servicio.
 
-   ![Captura de pantalla de los servicios de E3 habilitados por grupo](./media/licensing-group-advanced/e3-group-enabled-services.png)
+1. Seleccione **Asignar** para asignar directamente una licencia E3 al usuario. En este caso, deshabilitará todos los planes de servicio, excepto Yammer Enterprise.
 
-2. Puede seleccionar **Asignar** para asignar directamente una licencia E3 al usuario. En este caso, deshabilitará todos los planes de servicio, excepto Yammer Enterprise:
+    Como resultado, el usuario sigue usando una sola licencia del producto E3, pero la asignación directa habilita el servicio de Yammer Enterprise solo para ese usuario. Puede ver qué servicios se habilitan por la pertenencia al grupo frente a la asignación directa.
 
-   ![Captura de pantalla sobre cómo asignar una licencia directamente a un usuario](./media/licensing-group-advanced/assign-license-to-user.png)
+1. Cuando usa la asignación directa se permiten las siguientes operaciones:
 
-3. Como resultado, el usuario sigue usando una sola licencia del producto E3, pero la asignación directa habilita el servicio de Yammer Enterprise solo para ese usuario. Puede ver qué servicios se habilitan por la pertenencia al grupo frente a la asignación directa:
-
-   ![Captura de pantalla de la asignación heredada frente a la asignación directa](./media/licensing-group-advanced/direct-vs-inherited-assignment.png)
-
-4. Cuando usa la asignación directa se permiten las siguientes operaciones:
-
-   - Yammer Enterprise se puede desactivar directamente en el objeto de usuario. El botón de alternancia **Activado/Desactivado** de la ilustración se habilitó en este servicio, al revés de lo que ocurre con los botones de alternancia de otros servicios. Dado que el servicio se habilitó directamente en el usuario, se puede modificar.
+   - Yammer Enterprise puede desactivarse en el recurso de usuario directamente. El botón de alternancia **Activado/Desactivado** de la ilustración se habilitó en este servicio, al revés de lo que ocurre con los botones de alternancia de otros servicios. Dado que el servicio se habilitó directamente en el usuario, se puede modificar.
    - Otros servicios pueden estar habilitados también, como parte de la licencia asignada directamente.
    - El botón **Quitar** puede utilizarse para quitar la licencia directa del usuario. Puede ver que el usuario ahora solo tiene la licencia de grupo heredada y solo los servicios originales permanecen habilitados:
 
-     ![Captura de pantalla que muestra cómo quitar la asignación directa](./media/licensing-group-advanced/remove-direct-license.png)
-
 ## <a name="managing-new-services-added-to-products"></a>Administración de servicios nuevos agregados a productos
-Cuando Microsoft agrega un servicio nuevo a un producto, se habilitará de forma predeterminada en todos los grupos a los que se haya asignado la licencia del producto. Los usuarios de su inquilino que se suscriban a las notificaciones sobre cambios en el producto recibirán con antelación mensajes de correo electrónico que les informan sobre las próximas adiciones en los servicios.
+
+Cuando Microsoft agrega un nuevo servicio al plan de licencia de un producto, se habilita de forma predeterminada en todos los grupos a los que se haya asignado la licencia del producto. Los usuarios de su inquilino que se suscriban a las notificaciones sobre cambios en el producto recibirán con antelación mensajes de correo electrónico que les informan sobre las próximas adiciones en los servicios.
 
 Como administrador, puede revisar todos los grupos afectados por el cambio y realizar acciones como deshabilitar el nuevo servicio en cada grupo. Por ejemplo, si creó grupos destinados solo a servicios específicos para la implementación, puede volver a visitar esos grupos y asegurarse de que cualquier servicio recién agregado está deshabilitado.
 
@@ -162,7 +153,7 @@ Puede usar los [registros de auditoría de Azure AD](../reports-monitoring/conce
    >[!TIP]
    > También puede escribir el nombre del grupo en el filtro *Destino* para definir el ámbito de los resultados.
 
-3. Haga clic en un elemento en la vista de lista para ver los detalles de lo que ha cambiado. En *Propiedades modificadas* se muestran los valores antiguos y nuevos para la asignación de licencias.
+3. Seleccione un elemento de la lista para ver los detalles de lo que ha cambiado. En *Propiedades modificadas* se muestran los valores antiguos y nuevos para la asignación de licencias.
 
 Este es un ejemplo de cambios recientes de la licencia de grupo, con detalles:
 
@@ -220,7 +211,7 @@ Si usa licencias basadas en grupo, se recomienda que se familiarice con la sigui
 
 - Cuando se asignan o modifican licencias para un grupo grande (por ejemplo, con más de 100 000 usuarios), podría afectar el rendimiento. En concreto, el volumen de cambios generado por la automatización de Azure AD podría afectar negativamente el rendimiento de la sincronización de directorios entre Azure AD y los sistemas locales.
 
-- Si usa grupos dinámicos para administrar la pertenencia de los usuarios, compruebe que el usuario forma parte del grupo, lo cual es necesario para la asignación de licencias. De lo contrario, [compruebe el estado de procesamiento de la regla de pertenencia](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) del grupo dinámico. 
+- Si usa grupos dinámicos para administrar la pertenencia de los usuarios, compruebe que el usuario forma parte del grupo, lo cual es necesario para la asignación de licencias. De lo contrario, [compruebe el estado de procesamiento de la regla de pertenencia](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) del grupo dinámico.
 
 - En determinadas situaciones de carga elevada, los cambios en los grupos o en la pertenencia a grupos con las licencias existentes pueden tardar mucho tiempo en procesarse. Si observa que los cambios tardan más de 24 horas en procesar un tamaño de grupo de 60 000 usuarios o menos, [abra una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) para que podamos investigar lo que ocurre. 
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ebf4a0f892e65bf96e07e333cf5446d3036108a0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: aacedeb2c047d1abfc5affdcf94404abbb2c7b62
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099795"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168612"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Instalación y configuración de SAP HANA (instancias grandes) en Azure
 
@@ -45,7 +45,7 @@ Antes de comenzar la instalación de HANA valide lo siguiente:
 
 Después de recibir la unidad de HANA (instancias grandes) de Microsoft, valide la siguiente configuración y haga los ajustes que sean necesarios.
 
-El **primer paso** después de recibir HANA (instancias grandes) y establecer el acceso y la conectividad a las instancias, es comprobar en Azure Portal si las instancias se muestran con las SKU y el sistema operativo correctos en Azure Portal. Lea [Control de instancias grandes de HANA en Azure mediante Azure Portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) para conocer los pasos necesarios para realizar las comprobaciones.
+El **primer paso** después de recibir HANA (instancias grandes) y establecer el acceso y la conectividad a las instancias, es comprobar en Azure Portal si las instancias se muestran con las SKU y el sistema operativo correctos. Lea [Control de instancias grandes de HANA en Azure mediante Azure Portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) para conocer los pasos necesarios para realizar las comprobaciones.
 
 El **segundo paso** después de recibir HANA (instancias grandes) y establecer el acceso y la conectividad a las instancias es registrar el sistema operativo de la instancia con el proveedor de este. Este paso incluye registrar el sistema operativo SUSE Linux en una instancia de SUSE SMT que se implementó en una máquina virtual de Azure. 
 

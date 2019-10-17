@@ -1,7 +1,7 @@
 ---
-title: Integración de Unreal y Wwise de Project Acoustics
+title: Integración de Project Acoustics en Unreal y Wwise
 titlesuffix: Azure Cognitive Services
-description: Se describe la integración de los complementos Unreal y Wwise de Project Acoustics en el proyecto.
+description: En este artículo se describe la integración de los complementos de Unreal y Wwise para Project Acoustics en un proyecto.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -11,173 +11,183 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 47f39e8dcd96ea3bdba564df348e9b89a6b036ba
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e57212a3002390754aaebc5f2aa9ffb10af230a2
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933185"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243060"
 ---
-# <a name="project-acoustics-unreal-and-wwise-integration"></a>Integración de Unreal y Wwise de Project Acoustics
-Este procedimiento proporciona pasos de integración detallados del paquete de complementos Project Acoustics en el proyecto de juegos existente de Unreal y Wwise. 
+# <a name="project-acoustics-unreal-and-wwise-integration"></a>Integración de Project Acoustics en Unreal y Wwise
+En este artículo se describe cómo integrar el paquete de complementos de Project Acoustics en el proyecto de juegos de Unreal y Wwise existente.
 
 Requisitos de software:
 * [Unreal Engine](https://www.unrealengine.com/) 4.20+
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.\*
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/)2018.1
 * [Complemento de Wwise para Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
-  * Si va a usar una integración directa del SDK de Wwise en lugar de los complementos de Unreal para Wwise, consulte el complemento Unreal de Project Acoustics y ajuste las llamadas API de Wwise.
+  
+  Si va a usar una integración directa del SDK de Wwise en lugar del complemento de Wwise para Unreal, consulte el complemento Unreal de Project Acoustics y ajuste las llamadas API de Wwise.
 
-Si quiere usar Project Acoustics con un motor de audio distinto de Wwise, envíe una solicitud de mejora en el [foro de discusión de Project Acoustics](https://github.com/microsoft/ProjectAcoustics/issues). Puede usar el complemento Unreal de Project Acoustics para consultar datos acústicos y, luego, realizar llamadas API a su motor.
+Para usar Project Acoustics con un motor de audio que no sea Wwise, envíe una solicitud de mejora al [foro de discusión de Project Acoustics](https://github.com/microsoft/ProjectAcoustics/issues). Puede usar el complemento Unreal para Project Acoustics para consultar datos relativos a la acústica y realizar llamadas API a su motor.
 
 ## <a name="download-project-acoustics"></a>Descarga de Project Acoustics
-Si no lo ha hecho ya, descargue el [paquete de complementos Unreal y Wwise de Project Acoustics](https://www.microsoft.com/download/details.aspx?id=58090)). 
+Si aún no lo ha hecho, descargue el [paquete de complementos Unreal y Wwise para Project Acoustics](https://www.microsoft.com/download/details.aspx?id=58090).
 
-Hemos incluido un complemento Unreal Engine y un complemento mezclador Wwise en el paquete. El complemento Unreal proporciona integración del editor y el tiempo de ejecución. Durante el juego, el complemento Unreal de Project Acoustics calcula parámetros como oclusión para cada objeto de juego de cada fotograma. Estos parámetros se convierten en llamadas API de Wwise.
+Este paquete incluye un complemento Unreal Engine y un complemento de mezclador de Wwise. El complemento de Unreal proporciona integración del editor y del entorno de ejecución. Durante el juego, el complemento de Unreal para Project Acoustics calcula parámetros como la oclusión de cada uno de los objetos del juego en cada fotograma. Estos parámetros se convierten en llamadas API de Wwise.
 
-## <a name="review-integration-steps"></a>Revisión de los pasos de integración
+## <a name="integration-steps"></a>Pasos de integración
 
-Existen estos pasos principales para instalar el paquete e implementarlo en el juego.
-1. Instalar el complemento mezclador de Wwise de Project Acoustics
-2. (Re)implementar Wwise en el juego Este paso propaga el complemento mezclador al proyecto del juego.
-3. Agregar el complemento Unreal de Project Acoustics al juego
-4. Ampliación de la funcionalidad del complemento Unreal de Wwise
-5. Compilar el juego y comprobar que Python está habilitado
-6. Configurar el proyecto Wwise para usar Project Acoustics
-7. Configuración del audio en Unreal
+Siga estos pasos para instalar el paquete e implementarlo en el juego.
 
-## <a name="1-install-the-project-acoustics-mixer-plugin"></a>1. Instalar el complemento mezclador de Project Acoustics
-* Abra Wwise Launcher y, en la pestaña **Plugins** (Complementos), en **Install New Plugins** (Instalar nuevos complementos), seleccione **Add From Directory** (Agregar del directorio). 
+### <a name="install-the-project-acoustics-mixer-plug-in"></a>Instalación del complemento de mezclador de Project Acoustics
+1. Abra el programa de inicio de Wwise. En la pestaña **Plug-ins** (Complementos), en **Install New Plugins** (Instalar nuevos complementos), seleccione **Add from Directory** (Agregar desde directorio).
 
-    ![Captura de pantalla de la instalación de un complemento en el iniciador de Wwise](media/wwise-install-new-plugin.png)
+    ![Instalación de un complemento en el programa de inicio de Wwise](media/wwise-install-new-plugin.png)
 
-* Elija el directorio `AcousticsWwisePlugin\ProjectAcoustics` que se incluyó en el paquete descargado. Contiene el paquete del complemento mezclador de Wwise.
+1. Seleccione el directorio *AcousticsWwisePlugin\ProjectAcoustics* del paquete que ha descargado. Contiene el conjunto del complemento de mezclador de Wwise.
 
-* Wwise instalará el complemento. Project Acoustics debería aparecer ahora en la lista de complementos instalados en Wwise.  
-![Captura de pantalla de la lista de complementos instalados de Wwise después de la instalación de Project Acoustics](media/unreal-integration-post-mixer-plugin-install.png)
+   Wwise instalará el complemento. Project Acoustics aparecerá en la lista de complementos de Wwise instalados.  
+![Lista de complementos de Wwise instalados después de instalar Project Acoustics](media/unreal-integration-post-mixer-plugin-install.png)
 
-## <a name="2-redeploy-wwise-into-your-game"></a>2. (Re)implementar Wwise en el juego
-Vuelva a implementar Wwise en su juego, aunque ya haya integrado Wwise. Esta acción selecciona el complemento Wwise de Project Acoustics.
+### <a name="dedeploy-wwise-into-your-game"></a>Reimplementación de Wwise en el juego
+Vuelva a implementar Wwise en el juego aunque ya lo haya integrado. En este paso se integra el complemento de Wwise para Project Acoustics.
 
-* **Complemento de motor:** si tiene Wwise instalado como un complemento de juego en un proyecto de Unreal en C++, omita este paso. Si, por el contrario, está instalado como un complemento de motor, por ejemplo, porque el proyecto de Unreal es solo un proyecto, la implementación de Wwise con el complemento mezclador es más compleja. Cree un proyecto ficticio de Unreal en C++ que esté vacío, ciérrelo si se abre el editor de Unreal y siga el resto del procedimiento para implementar Wwise en este proyecto ficticio. A continuación, copie el complemento Wwise implementado.
+   > [!NOTE]
+   > **Complemento del motor:** Si tiene Wwise instalado como un complemento de juego en un proyecto de Unreal en C++, omita este paso. Si, por el contrario, está instalado como un complemento del motor, por ejemplo, porque el proyecto de Unreal es solo un plano técnico, la implementación de Wwise con el complemento de mezclador es más compleja. Cree un proyecto en blanco de Unreal en C++ ficticio. Cierre el editor de Unreal si se abre y siga el procedimiento restante para implementar Wwise en el proyecto ficticio. Luego, copie el complemento de Wwise implementado.
  
-* En Wwise Launcher, haga clic en la pestaña **Unreal Engine**, haga clic en el menú lateral junto a **Recent Unreal Engine Projects** (Proyectos de Unreal Engine recientes) y seleccione **Browse for project** (Examinar proyecto). Abra el archivo `.uproject` del proyecto de Unreal del juego.
+1. En el programa de inicio de Wwise, seleccione la pestaña **Unreal Engine**. Seleccione el menú de tres barras (icono) situado junto a **Recent Unreal Engine Projects** (Proyectos de Unreal Engine recientes) y, después, seleccione **Browse for project** (Buscar proyecto). Abra el archivo *.project* del proyecto de juego de Unreal.
 
-    ![Captura de pantalla de la pestaña Unreal del iniciador de Wwise](media/wwise-unreal-tab.png)
+    ![Pestaña Unreal en el programa de inicio de Wwise](media/wwise-unreal-tab.png)
 
-* A continuación, haga clic en **Integrate Wwise in Project** (Integrar Wwise en el proyecto) o **Modify Wwise in Project** (Modificar Wwise en el proyecto). Este paso (re)integra los archivos binarios de Wwise en el proyecto e incluye ahora el complemento mezclador de Project Acoustics.
+1. Seleccione **Integrate Wwise in Project** (Integrar Wwise en proyecto) o **Modify Wwise in Project** (Modificar Wwise en proyecto). Este paso integra los archivos binarios de Wwise en el proyecto, lo que incluye el complemento de mezclador de Project Acoustics.
 
-* **Complemento de motor:** si usa Wwise como complemento de motor y creó el proyecto ficticio como se ha indicado anteriormente, copie la carpeta de Wwise implementada: `[DummyUProject]\Plugins\Wwise` y péguela sobre `[UESource]\Engine\Plugins\Wwise`. `[DummyUProject]` es la ruta de acceso al proyecto de Unreal en C++ vacío, y `[UESource]` es donde tiene instalados los orígenes de Unreal Engine. Cuando haya terminado la copia, puede eliminar el proyecto ficticio.
+   > [!NOTE]
+   > **Complemento del motor:** Si usa Wwise como complemento del motor y creó el proyecto ficticio tal y como se describió anteriormente, copie la carpeta que Wwise implementó:  *[DummyUProject] \Plugins\Wwise*. Péguela en  *[UESource] \Engine\Plugins\Wwise*. *[DummyUProject]* es la ruta de acceso al proyecto en blanco de Unreal en C++ y *[UESource]* es donde están instalados los archivos de origen de Unreal Engine. Después de copiar la carpeta puede eliminar el proyecto ficticio.
 
-## <a name="3-add-the-project-acoustics-unreal-plugin-to-your-game"></a>3. Agregar el complemento Unreal de Project Acoustics al juego
+### <a name="add-the-project-acoustics-unreal-plug-in-to-your-game"></a>Incorporación del complemento de Unreal para Project Acoustics en el juego
  
-* Copie la carpeta `Unreal\ProjectAcoustics` en el paquete de complementos y cree una carpeta `[UProjectDir]\Plugins\ProjectAcoustics`, donde `UProjectDir` es la carpeta del proyecto del juego que contiene el archivo `.uproject`.
-  * **Complemento de motor**: si usa Wwise como complemento de motor, debe usar también Project Acoustics como complemento de motor de Unreal. En lugar del directorio de destino anterior, use: `[UESource]\Engine\Plugins\ProjectAcoustics`.
+1. Copie la carpeta *Unreal\ProjectAcoustics* en el paquete del complemento. Cree la carpeta *[UProjectDir]\Plugins\ProjectAcoustics*, donde *[UProjectDir]* es la carpeta del proyecto del juego que contiene el archivo *.uproject*.
 
-* Confirme que aparece una carpeta `Wwise` junto con la carpeta `ProjectAcoustics`. Esta carpeta contiene el complemento Wwise junto con los archivos binarios del complemento mezclador que (re)implementó en el paso 2 anterior.
+   > [!NOTE]
+   > **Complemento del motor**: Si usa Wwise como complemento de motor, debe usar también Project Acoustics como un complemento de motor de Unreal. En lugar del directorio de destino que se ha indicado anteriormente, use *[UESource]\Engine\Plugins\ProjectAcoustics*.
 
-## <a name="4-extend-wwises-unreal-plugin-functionality"></a>4. Ampliación de la funcionalidad del complemento Unreal de Wwise
-* El complemento Unreal de Project Acoustics requiere la exposición de comportamiento adicional de la API del complemento Unreal de Wwise según [estas instrucciones](https://www.audiokinetic.com/library/?source=UE4&id=using__initialsetup.html). Hemos incluido un archivo por lotes para automatizar el procedimiento de la aplicación de revisiones. 
-* Dentro de `Plugins\ProjectAcoustics\Resources`, ejecute `PatchWwise.bat`. En la imagen de ejemplo siguiente se usa nuestro proyecto de ejemplo AcousticsGame.
+1. Confirme que ve la carpeta *Wwise* junto con la carpeta *ProjectAcoustics*. Contiene el complemento Wwise, junto con los archivos binarios del complemento de mezclador que ha implementado anteriormente.
 
-    ![Captura de pantalla de una ventana del Explorador de Windows que resalta el script proporcionado para revisión de Wwise](media/patch-wwise-script.png)
+### <a name="extend-wwise-unreal-plug-in-functionality"></a>Ampliación de la funcionalidad del complemento de Wwise para Unreal
+El complemento de Unreal para Project Acoustics requiere la exposición de un comportamiento adicional de la API del complemento de Wwise para Unreal que siga [estas directrices](https://www.audiokinetic.com/library/?source=UE4&id=using__initialsetup.html). Hemos incluido un archivo por lotes para automatizar el procedimiento de la aplicación de revisiones.
 
-* Si no tiene instalado el SDK de DirectX, dependiendo de la versión de Wwise que utilice, es posible que tenga que convertir en comentario la línea que contiene `DXSDK_DIR` en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
+* En *Plugins\ProjectAcoustics\Resources*, ejecute *PatchWwise.bat*. En la imagen de ejemplo siguiente se usa nuestro proyecto de ejemplo AcousticsGame.
 
-    ![Captura de pantalla del editor de código que muestra DXSDK convertido en comentario](media/directx-sdk-comment.png)
+    ![Ventana del Explorador de Windows en la que aparece resaltado el script para aplicar el parche a Wwise](media/patch-wwise-script.png)
 
-* Si compila con Visual Studio 2019, para solucionar un error de vinculación con Wwise, cambie manualmente el valor `VSVersion` predeterminado en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` por `vc150`:
+* Si no tiene instalado el SDK de DirectX: En función de la versión de Wwise que use, es posible que tenga que convertir en comentario la línea que contiene `DXSDK_DIR` en *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs*:
 
-    ![Captura de pantalla del editor de código que muestra el cambio de VSVersion a vc150](media/vsversion-comment.png)
+    ![El editor de código muestra "DXSDK" convertido en comentario](media/directx-sdk-comment.png)
 
-## <a name="5-build-game-and-check-python-is-enabled"></a>5. Compilar el juego y comprobar que Python está habilitado
+* Si realiza la compilación con Visual Studio 2019: Para solucionar un error en la vinculación con Wwise, cambie manualmente el valor predeterminado `VSVersion` en  *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs* a **vc150**:
 
-* Compile su juego y asegúrese de que se compila correctamente. En caso contrario, compruebe los pasos anteriores con cuidado antes de continuar. 
-* Abra el proyecto en Unreal Editor. 
-* **Complemento de motor:** Si usa ProjectAcoustics como complemento de motor, asegúrese también de que está habilitado, es decir, aparece en la lista de complementos "integrados".
-* Verá un nuevo modo, que indica que se ha integrado Project Acoustics.
+    ![El editor de código que muestra "VSVersion" ha cambiado a "vc150"](media/vsversion-comment.png)
 
-    ![Captura de pantalla de Unreal que muestra el modo de Acoustics completo](media/acoustics-mode-full.png)
+### <a name="build-the-game-and-check-that-python-is-enabled"></a>Compilación del juego y comprobación de que Python está habilitado
 
-* Confirme que tiene habilitado el complemento de Python para Unreal. Es necesario para que la integración del editor funcione correctamente.
+1. Compile el juego y asegúrese de que se crea correctamente. Si no se crea, compruebe los pasos anteriores detenidamente antes de continuar.
 
-    ![Captura de pantalla de habilitación de las extensiones de Python en Unreal Editor](media/ensure-python.png)
+1. Abra el proyecto en Unreal Editor.
 
-## <a name="6-wwise-project-setup"></a>6. Configuración del proyecto de Wwise
+    > [!NOTE]
+    > **Complemento del motor:** Si usa ProjectAcoustics como complemento de motor, asegúrese también de que está habilitado en la lista de complementos "integrados".
 
-Con la descarga de ejemplos se incluye un proyecto de ejemplo de Wwise. Se recomienda examinar juntas estas instrucciones. Las capturas de pantalla siguientes están tomadas de este proyecto.
+    Verá un nuevo modo que indica que Project Acoustics se ha integrado.
 
-### <a name="bus-setup"></a>Configuración del bus
-* El complemento Unreal de Project Acoustics buscará el complemento mezclador asociado en un bus con este nombre ***exacto***: `Project Acoustics Bus`. Cree un bus de audio con este nombre. El complemento mezclador puede funcionar en diversas configuraciones, pero por ahora, se supone que se usará solo para el procesamiento de la reverberación. Este bus transmitirá la señal de reverberación mezclada de todos los orígenes que usan Acoustics. Puede mezclar de forma ascendente hasta formar cualquier estructura de mezcla de bus; a continuación se muestra un ejemplo tomado de nuestro proyecto de ejemplo de Wwise incluido en la descarga de ejemplo.
+    ![Modo completo de Acoustics en Unreal](media/acoustics-mode-full.png)
 
-    ![Captura de pantalla de buses de Wwise que muestran el bus de Project Acoustics](media/acoustics-bus.png)
+1. Confirme que el complemento Python para Unreal está habilitado para que la integración del editor funcione correctamente.
 
-* La configuración del canal en el bus debe establecerse en uno de: `1.0, 2.0, 4.0, 5.1 or 7.1`. Otras configuraciones no generarán ningún resultado en este bus.
+    ![Extensiones de Python en el editor de Unreal habilitadas](media/ensure-python.png)
 
-    ![Captura de pantalla de las opciones de configuración del canal para el bus de Project Acoustics](media/acoustics-bus-channel-config.png)
+### <a name="set-up-your-wwise-project-to-use-project-acoustics"></a>Configurar el proyecto Wwise para usar Project Acoustics
 
-* Ahora, vaya a los detalles del bus de Project Acoustics y asegúrese de que puede ver la pestaña del complemento mezclador.
+En la descarga de los ejemplos se incluye un proyecto de ejemplo de Wwise. Se recomienda verlo junto con estas instrucciones. Las siguientes capturas de pantalla de este artículo proceden de este proyecto.
 
-    ![Captura de pantalla de Wwise que muestra cómo habilitar la pestaña del complemento mezclador para el bus de Project Acoustics](media/mixer-tab-enable.png)
+#### <a name="bus-setup"></a>Configuración del bus
+El complemento de Unreal para Project Acoustics buscará el complemento de mezclador asociado en un bus que tenga el nombre exacto `Project Acoustics Bus`. Cree un bus de audio que tenga este mismo nombre. El complemento de mezclador puede funcionar con diversas configuraciones. Por ahora, damos por hecho que se usará solo para el procesamiento de la reverberación. Este bus transmitirá la señal de reverberación mezclada de todos los orígenes que usan Acoustics. La mezcla se puede realizar de forma ascendente en cualquier estructura que mezcle buses. Aquí se muestra un ejemplo del proyecto de ejemplo de Wwise que se incluye en la descarga de ejemplo.
 
-* A continuación, vaya a la pestaña del complemento mezclador y agregue el de Project Acoustics al bus.
+![Buses de Wwise que muestran el bus de Project Acoustics](media/acoustics-bus.png)
 
-    ![Captura de pantalla del bus de Wwise que muestra cómo agregar el complemento mezclador de Project Acoustics](media/add-mixer-plugin.png)
+1. Establezca la configuración del canal en el bus en *1.0*, *2.0*, *4.0*, *5.1* o *7.1*. Cualquier otro valor no generará ninguna salida en el bus.
 
-### <a name="actor-mixer-hierarchy-setup"></a>Configuración de la jerarquía actor-mezclador
-* Por motivos de rendimiento, Project Acoustics aplica DSP de audio a todos los orígenes al mismo tiempo. Para ello, es necesario que el complemento funcione como un complemento mezclador. Wwise requiere que los complementos mezcladores estén en el bus de salida, aunque este suele transportar normalmente la señal de salida sin efectos. Project Acoustics requiere que la señal sin efectos se enrute a través de buses auxiliares, mientras que la señal con efectos se transporta en `Project Acoustics Bus`. El siguiente proceso admite la migración gradual a este flujo de señal.
+    ![Opciones de configuración del canal para el bus de Project Acoustics](media/acoustics-bus-channel-config.png)
 
-* Supongamos que tiene un proyecto con una jerarquía actor-mezclador que contiene pisadas, armas y demás en el nivel superior. Cada uno tiene el bus de salida correspondientes para su mezcla sin efectos. Supongamos que quiere migrar las pisadas para usar la acústica. En primer lugar, creará un bus auxiliar correspondiente para que transporte su submezcla sin efectos que es un elemento secundario del bus de salida de pisadas. En la siguiente imagen de ejemplo hemos usado el prefijo "dry" para organizarlos, aunque el nombre exacto no es importante. Los medidores o efectos que tenía en el bus de pisadas seguirán funcionando como antes.
+1. Vaya a los detalles del bus de Project Acoustics y asegúrese de que puede ver la pestaña **Mixer Plug-in** (Complemento de mezclador).
 
-    ![Captura de pantalla de la configuración de mezcla sin efectos recomendada de Wwise](media/wwise-dry-mix-setup.png)
+    ![Wwise con la pestaña Mixer Plug-in (Complemento de mezclador) del bus de Project Acoustics habilitada](media/mixer-tab-enable.png)
 
-* A continuación, modifique la estructura de salida del bus para el actor-mezclador de pisadas de la manera siguiente: el bus de Project Acoustics debe estar establecido como el bus de salida y Dry_Footsteps como el bus auxiliar definido por el usuario.
+1. Vaya a la pestaña **Mixer Plug-in** (Complemento de mezclador) y agregue el mezclador de Project Acoustics al bus.
 
-    ![Captura de pantalla de configuración recomendada del bus actor-mezclador de Wwise](media/actor-mixer-bus-settings.png)
+    ![Diagrama en el que se muestra cómo agregar el complemento de mezclador de Project Acoustics al bus de Wwise](media/add-mixer-plugin.png)
 
-* Ahora todas las pisadas reciben tratamiento acústico y generan su reverberación en el bus de Project Acoustics. La señal sin efectos se enruta a través de Dry_Footsteps y se espacializa como de costumbre.
+#### <a name="actor-mixer-hierarchy-setup"></a>Configuración de la jerarquía actor-mezclador
+Para lograr el mejor rendimiento posible, Project Acoustics aplica el procesamiento de la señal digital a todos los orígenes al mismo tiempo. Por consiguiente, el complemento debe funcionar como un complemento de mezclador. Wwise requiere que los complementos de mezclador estén en el bus de salida, aunque este suele transportar normalmente la señal de salida sin modificar. Project Acoustics requiere que la señal sin modificar se enrute mediante buses auxiliares, mientras que la señal modificada se transporta en `Project Acoustics Bus`. El siguiente proceso admite la migración gradual a este flujo de señal.
 
-* Project Acoustics solo se aplica a los sonidos que tengan una ubicación 3D en el mundo. Según la [documentación de Wwise](https://blog.audiokinetic.com/out-with-the-old-in-with-the-new-positioning-revamped-in-wwise-2018.1/), las propiedades de posición deben establecerse como se muestra. El valor "3D Spatialization" (Espacialización 3D) puede ser "Position" (Posición) o "Position + Orientation" (Posición+Orientación), según sea necesario.
+Supongamos que tiene un proyecto con una jerarquía actor-mezclador que contiene *pisadas*, *armas* y demás en el nivel superior. Cada uno tiene un bus de salida correspondiente para su mezcla sin modificar. Supongamos que quiere migrar las pisadas para usar Acoustics. En primer lugar, cree el bus auxiliar correspondiente para que transporte la submezcla sin modificar, que es un elemento secundario del bus de salida de pisadas. Por ejemplo, hemos usado el prefijo "Dry" en la siguiente imagen para organizar los buses, aunque el nombre exacto no es importante. Los medidores o efectos que tenía en el bus de pisadas seguirán funcionando como antes.
 
-    ![Captura de pantalla de la configuración recomendada de posicionamiento de actor de Wwise](media/wwise-positioning.png)
+![Configuración de mezcla sin modificar recomendada de Wwise](media/wwise-dry-mix-setup.png)
 
-* Establecer el bus de salida en algún otro bus que mezcla de forma ascendente para formar el **bus de Project Acoustics** no funcionará. Wwise impone este requisito sobre los complementos mezcladores.
+A continuación, modifique la estructura de salida del bus del actor-mezclador de pisadas de la manera siguiente: *Project Acoustics Bus* (Bus de Project Acoustics) se establece en **Output Bus** (Bus de salida) y *Dry_Footsteps* se establece en un bus auxiliar definido por el usuario.
 
-* Si quiere que un elemento secundario de la jerarquía actor-mezclador de pisadas no use acústica, puede usar siempre la opción para invalidar principal para excluirlo.
+![Configuración recomendada del bus de actor-mezclador de Wwise](media/actor-mixer-bus-settings.png)
 
-* Si va a usar envíos definidos por el usuario o el juego para la reverberación en cualquier actor-mezclador del juego, desactívelos en este actor-mezclador para evitar aplicar la reverberación dos veces.
+Ahora todas las pisadas reciben tratamiento acústico y generan su reverberación en el bus de Project Acoustics. La señal sin efectos se enruta a través de Dry_Footsteps y se espacializa como de costumbre.
 
-### <a name="spatialization"></a>Espacialización
-De forma predeterminada, el complemento mezclador Wwise de Project Acoustics aplica reverberación por convolución, lo que deja que Wwise realice la espacialización de panoramización. Cuando se usa Project Acoustics en esta configuración predeterminada de solo reverberación, se puede usar libremente cualquier configuración de canal y método de espacialización en la mezcla sin efectos, lo que le permite mezclar y combinar casi cualquier espacializador con la reverberación de Project Acoustics. Las opciones incluyen [espacializadores binaurales basados en Ambisonics](https://www.audiokinetic.com/products/ambisonics-in-wwise/) y [Windows Sonic](https://docs.microsoft.com/windows/desktop/CoreAudio/spatial-sound).
+Project Acoustics solo se aplica a los sonidos que tengan una ubicación 3D en el mundo. Según la [documentación de Wwise](https://blog.audiokinetic.com/out-with-the-old-in-with-the-new-positioning-revamped-in-wwise-2018.1/), las propiedades de posición deben establecerse como se muestra. El valor de **3D Spatialization** (Espacialización 3D) puede ser *Position* (Posición) o *Position + Orientation* (Posición+Orientación), lo que sea necesario.
+
+![Configuración recomendada de posicionamiento del actor de Wwise](media/wwise-positioning.png)
+
+**Output Bus** (Bus de salida) no se puede establecer en otro bus que realice la mezcla de forma ascendente hacia *Project Acoustics Bus* (Bus de Project Acoustics). Wwise impone este requisito a los complementos de mezclador.
+
+Si quiere que alguno de los elementos secundarios de la jerarquía actor-mezclador de pisadas no use Acoustics, puede utilizar la opción de "invalidar el elemento principal" para excluirlo.
+
+Si va a usar envíos definidos por el usuario o definidos por el juego para la reverberación en cualquier actor-mezclador del juego, desactívelos en dicho actor-mezclador para que no se aplique la reverberación dos veces.
+
+#### <a name="spatialization"></a>Espacialización
+De forma predeterminada, el complemento de mezclador de Wwise para Project Acoustics aplica reverberación por convolución y deja que Wwise realice la espacialización panorámica. Si usa Project Acoustics en esta configuración de solo reverberación predeterminada, puede utilizar cualquier método de configuración de canal y de espacialización en la mezcla sin modificar. Por tanto, puede combinar y usar casi cualquier espacializador con la reverberación de Project Acoustics. Las opciones incluyen [espacializadores binaurales basados en Ambisonics](https://www.audiokinetic.com/products/ambisonics-in-wwise/) y [Windows Sonic](https://docs.microsoft.com/windows/desktop/CoreAudio/spatial-sound).
  
-Project Acoustics incluye un espacializador opcional que admite tanto la panoramización como la representación HRTF de alta resolución basada en objetos. Active la casilla "Perform Spatialization" (Realizar espacialización) en la configuración del complemento mezclador, elija entre HRTF o panoramización y deshabilite los envíos auxiliares definidos por el usuario anteriores para todos los buses sin efectos con el fin de evitar la espacialización dos veces: con el complemento mezclador de Project Acoustics y con Wwise. El modo de espacialización no se puede cambiar en tiempo real, ya que requiere la regeneración del banco de sonido. Debe reiniciar Unreal y luego volver a generar bancos de sonido antes de pulsar el botón de reproducción para seleccionar los cambios de configuración del complemento mezclador, como la casilla "Perform Spatialization" (Realizar espacialización).
+Project Acoustics incluye un espacializador opcional que admite tanto la panoramización como la representación de HRTF de alta resolución basadas en objetos. Active la casilla **Perform Spatialization** (Realizar espacialización) en la configuración del complemento de mezclador y elija entre *HRTF* o *Panning* (Panorámica). Además, deshabilite los envíos auxiliares definidos por el usuario a todos los buses sin modificar para que el complemento de mezclador de Project Acoustics y Wwise no realicen la espacialización dos veces. El modo de espacialización no se puede cambiar en tiempo real, ya que requiere una regeneración de los bancos de sonido. Reinicie Unreal y vuelva a generar los bancos de sonido antes de seleccionar reproducir para integrar los cambios en la configuración del complemento de mezclador, como la casilla **Perform Spatialization** (Realizar espacialización).
 
-![Captura de pantalla de configuración de la espacialización del complemento mezclador de Wwise](media/mixer-spatial-settings.png)
+![Configuración de la espacialización del complemento de mezclador de Wwise](media/mixer-spatial-settings.png)
 
-Lamentablemente, en este momento no se admiten otros complementos espacializadores basados en objetos dado que se implementan como complementos mezcladores, y Wwise no permite actualmente la asignación de varios complementos mezcladores a un único actor-mezclador.  
+Desafortunadamente, en la actualidad no se admiten otros complementos de espacializador basados en objetos. Se implementan como complementos de mezclador y Wwise no permite que se asignen varios complementos de mezclador a un solo actor-mezclador.  
 
-## <a name="7-audio-setup-in-unreal"></a>7. Configuración del audio en Unreal
-* En primer lugar, deberá simular mediante "bake" el nivel de juego para producir un recurso acústico, que se colocará en `Content\Acoustics`. Consulte el [Tutorial de simulación mediante "bake" de Project Acoustics con Unreal](unreal-baking.md) y prosiga desde aquí. Algunos niveles previamente simulados mediante "bake" se incluyen en el paquete de ejemplos.
-* Cree un actor de espacio acústico en la escena. Cree solo uno de estos actores en un nivel que represente la acústica del nivel entero. 
+### <a name="audio-setup-in-unreal"></a>Configuración del audio en Unreal
+1. En primer lugar, debe simular mediante "bake" el nivel de juego para producir un recurso acústico, que se colocará en *Content\Acoustics*. Consulte el [Tutorial de simulación mediante "bake" de Unreal](unreal-baking.md). Algunos niveles previamente simulados mediante "bake" se incluyen en el paquete de ejemplos.
 
-    ![Captura de pantalla de Unreal Editor que muestra la creación del actor de espacio acústico](media/create-acoustics-space.png)
+1. Cree un actor de espacio de Acoustics en su escena. No cree más de uno de estos actores por nivel, ya que cada uno de ellos representa la acústica de todo el nivel.
 
-* Ahora, asigne el recurso de datos acústicos simulados mediante "bake" a la ranura de datos acústicos del actor de espacio acústico. ¡La escena tiene ahora acústica!
+    ![Creación de un actor de espacio de Acoustics en el editor de Unreal](media/create-acoustics-space.png)
 
-    ![Captura de pantalla de Unreal Editor que muestra la asignación de recursos acústicos](media/acoustics-asset-assign.png)
+1. Asigne el recurso de datos simulado de Acoustics mediante "bake" a la ranura de datos de Acoustics del actor de espacio de Acoustics. ¡La escena tiene ahora acústica!
 
-* Ahora, agregue un actor vacío y haga lo siguiente:
+    ![Asignación de recursos de Acoustics en el editor de Unreal](media/acoustics-asset-assign.png)
 
-    ![Captura de pantalla de Unreal Editor que muestra el uso del componente acústico en un actor vacío](media/acoustics-component-usage.png)
+1. Agregue un actor vacío. Configúrelo como se indica a continuación.
 
-1. Agregue un componente de audio acústico al actor. Este componente amplía el componente de audio de Wwise con funcionalidad de Project Acoustics.
-2. El cuadro Play on Start (Reproducir al inicio) está activado de forma predeterminada, lo que desencadenará el evento de Wwise asociado al inicio del nivel.
-3. Use la casilla Show Acoustics Parameters (Mostrar parámetros de acústica) para imprimir la información de depuración en pantalla sobre la fuente.  
-    ![Captura de pantalla del panel de acústica de Unreal Editor en la fuente de sonido con los valores de depuración habilitados](media/debug-values.png)
-4. Asignación de un evento de Wwise por el flujo de trabajo habitual de Wwise
-5. Asegúrese de que está activada la opción "Use Spatial Audio" (Usar audio espacial). En este momento, si usa Project Acoustics para un componente de audio en particular, no puede usar simultáneamente el motor de audio espacial de Wwise para la acústica.
+    ![El editor de Unreal muestra el uso de los componentes de Acoustics en un actor vacío](media/acoustics-component-usage.png)
 
+       
+    <sup>1</sup> Agregue un componente de audio de Acoustics al actor. Este componente agrega una funcionalidad de Project Acoustics al componente de audio de Wwise.
+        
+    <sup>2</sup> El cuadro **Play on Start** (Reproducir al iniciar) está seleccionado de forma predeterminada. Este valor desencadena un evento de Wwise asociado al iniciar el nivel.</li>
+         
+    <sup>3</sup> Use la casilla **Show Acoustics Parameters** (Mostrar parámetros de Acoustics) para imprimir la información de depuración en pantalla acerca de la fuente.
+
+    ![El panel Acoustics del editor de Unreal en la fuente de sonido con los valores de depuración habilitados](media/debug-values.png)
+
+    <sup>4</sup> Asigne un evento de Wwise por flujo de trabajo habitual de Wwise.
+       
+    <sup>5</sup> Asegúrese de que la opción **Use Spatial Audio** (Usar audio espacial) está desactivada. Si usa Project Acoustics para un componente de audio concreto, no puede usar simultáneamente el motor de audio espacial de Wwise para la acústica.</li>
+       
 Está listo. ¡Muévase por la escena y explore los efectos acústicos!
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Tutorial de [diseño](unreal-workflow.md) para Project Acoustics en Unreal y Wwise
-* [Aprender a simular mediante "bake"](unreal-baking.md) las escenas de un juego 
+* Pruebe el [Tutorial de diseño de Unreal y Wwise en Project Acoustics](unreal-workflow.md).
+* Aprenda a [realizar simulaciones mediante "bake"](unreal-baking.md) en las escenas de un juego.

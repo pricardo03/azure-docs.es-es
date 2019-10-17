@@ -271,6 +271,8 @@
                   href: sql-database-xevent-code-event-file.md
                 - name: 'Eventos extendidos: Búfer en anillo'
                   href: sql-database-xevent-code-ring-buffer.md
+        - name: Diagnóstico de rendimiento de Hiperescala
+          href: sql-database-hyperscale-performance-diagnostics.md
     - name: Escalabilidad
       items:
         - name: Documentación de escalabilidad

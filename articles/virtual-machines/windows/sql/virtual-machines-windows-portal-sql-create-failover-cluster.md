@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3e954a6c714e525e5bbefe8f62c798cf8ac9a517
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036384"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170267"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
@@ -81,7 +81,7 @@ Además, debe tener conocimientos generales de las siguientes tecnologías:
 - [Grupos de recursos de Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> En este momento, la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md) no es compatible con FCI de SQL Server en Azure. Se recomienda que desinstale la extensión de las máquinas virtuales que participan en el FCI. Esta extensión admite características, como la copia de seguridad y la aplicación de revisiones automatizadas y algunas características del portal de SQL. Estas características no funcionarán para las máquinas virtuales de SQL después de desinstalar el agente.
+> Actualmente, las instancias del clúster de conmutación por error de SQL Server de las máquinas virtuales de Azure solo se admiten con el modo de administración [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) de la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Desinstale la extensión completa de las máquinas virtuales que participen en el clúster de conmutación por error y, después, regístrelas en el proveedor de recursos de la máquina virtual de SQL en modo `lightweight`. La extensión completa admite características como la copia de seguridad automatizada, y la aplicación de revisiones y la administración avanzada del portal. Estas características no funcionarán para las máquinas virtuales de SQL si se vuelve a instalar el agente en modo de administración lightweight.
 
 ### <a name="what-to-have"></a>Lo que debe tener
 

@@ -1,75 +1,21 @@
 ---
 title: Pestaña Versión de prueba de una oferta de aplicación de Dynamics 365 for Customer Engagement | Azure Marketplace
-description: Configuración de una versión de prueba para una oferta de la aplicación Dynamics 365 for Customer Engagement en AppSource Marketplace.
+description: Este artículo de CPP está en desuso, vinculado al artículo de PC. Anteriormente era "Configuración de una versión de prueba para una oferta de la aplicación Dynamics 365 for Customer Engagement en AppSource Marketplace".
 services: Azure, Marketplace, AppSource, Cloud Partner Portal, Dynamics 365 for Customer Engagement
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 5bb5f39ef5f5bce09a8639ba9eedc6d042e60c1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: fdf99d1d38a39ee3bebc04ab08ed27233a30ad0d
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942331"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034083"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Pestaña Versión de prueba de la aplicación Dynamics 365 for Customer Engagement
 
-Use la pestaña **Versión de prueba** para crear una experiencia de evaluación para sus clientes.  Proporciona a los clientes una versión de prueba práctica y autodidacta con las principales características y ventajas de la oferta, y una demostración en un escenario de implementación del mundo real.  De las opciones de prueba disponibles, Versión de prueba es la más eficaz a la hora de generar clientes potenciales de alta calidad y lograr un aumento en la conversión de estos.  Para más información, consulte [¿Qué es la versión de prueba?](../test-drive/what-is-test-drive.md)
+[Cloud Partner Portal](https://cloudpartner.azure.com/) ya no admite la creación y administración de ofertas de Dynamics 365 Customer Engagement. En su lugar, esta funcionalidad se ha movido al [portal del Centro de partners](https://partner.microsoft.com/) de Microsoft. Para más información, consulte [Creación de una nueva oferta de Dynamics 365 for Customer Engagement y PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-La experiencia de versión de prueba para aplicaciones de Dynamics 365 se ejecuta automáticamente como una solución hospedada por Microsoft.  Para más información, consulte [Versión de prueba hospedada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive).
-
-La pestaña Versión de prueba tiene tres secciones posibles: **Versión de prueba**, **Detalles** y **Configuración técnica**.  Las dos últimas secciones solo aparecen después de habilitar la funcionalidad Versión de prueba.  Un asterisco (*) junto al nombre del campo indica que es obligatorio. 
-
-
-## <a name="test-drive-section"></a>Sección Versión de prueba
-
-Para habilitar esta funcionalidad, seleccione **Sí** para **habilitar una versión de prueba**.
-
-
-## <a name="details-section"></a>Sección Detalles
-
-En la sección **Detalles** proporcionará la información básica de Versión de prueba.   
-
-![Sección Detalles de la versión de prueba](./media/test-drive-tab-details.png)
-
-En la tabla siguiente se describen los campos obligatorios para configurar la versión de prueba de la aplicación de Dynamics 365. Los campos obligatorios se indican con un asterisco (*).
-
-|      Campo                    |    DESCRIPCIÓN                  |
-|    ---------                  |  ---------------                |
-|      Descripción\*            |   Describe lo que puede realizarse en la versión de prueba. Puede usar etiquetas HTML básicas para dar formato a esta descripción. Por ejemplo, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; y títulos.  |
-|  Manual del usuario\*                |   Cargue un manual del usuario que los clientes puedan usar para completar la experiencia de versión de prueba. Este documento debe ser un archivo PDF. |
-|  Vídeo de demostración de la versión de prueba (opcional) |  Puede proporcionar un tutorial en vídeo de la versión de prueba. Un cliente puede ver este vídeo antes de realizar una prueba. Proporcione una dirección URL de YouTube o Vimeo para el vídeo. Si selecciona **+ Agregar vídeo**, se le solicitará que proporcione la siguiente información:<ul><li>NOMBRE</li><li>URL</li><li>Miniatura (formato PNG, 533 x 324 píxeles)</li></ul>  |
-|   |   |
-
-
-## <a name="technical-configuration-section"></a>Sección Configuración técnica
-
-En esta sección, proporcionará detalles técnicos sobre la versión de prueba.
-
-![Sección Detalles de la versión de prueba](./media/test-drive-tab-tech-config.png)
-
-Los campos tienen las siguientes funciones.  Los campos obligatorios se indican con un asterisco (*).
-
-|      Campo                    |    DESCRIPCIÓN                  |
-|    ---------                  |  ---------------                |
-| Tipo de versión de prueba\*            | Elija **Hospedada por Microsoft (Dynamics 365 for Customer Engagement)** .  |
-| Número máximo de versiones de prueba simultáneas\*    | Número de instancias simultáneas de una versión de prueba activa en cualquier momento determinado de tiempo. Cada usuario consumirá una licencia de Dynamics mientras que esté activa su versión de prueba, por lo que tendrá que garantizar este número de licencias de Dynamics para que estén disponibles para los usuarios de la versión de prueba. Se recomienda un valor entre 3 y 5.  |
-| Duración de la versión de prueba (horas)\*   | Número máximo de horas que estará activa la instancia de la versión de prueba del usuario. Una vez que se supera este tiempo, la instancia se desaprovisionará del inquilino. Se recomienda un valor entre 2 y 24 horas dependiendo de la complejidad de la aplicación. El usuario siempre puede solicitar otra versión de prueba si se agota el tiempo y desea volver a realizar una evaluación.  |
-| Dirección URL de la instancia\*                  | Dirección URL a la que irá inicialmente la versión de prueba. Esta suele ser la dirección URL de la instancia de Dynamics 365 que contiene la aplicación y los datos de ejemplo.  |
-| Identificador de inquilino de Azure AD\*            | El identificador único del inquilino de Azure para la instancia de Dynamics 365. Para recuperar este valor, inicie sesión en Azure Portal y vaya a **Azure Active Directory** >  **Seleccionar propiedades** > **Copiar el identificador de directorio**.  |
-| Identificador de aplicación de Azure AD\*               | Identificador único de la aplicación de Azure AD  |
-| Clave de aplicación de Azure AD\*              | El secreto de la aplicación de Azure AD, por ejemplo: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` |
-| Nombre del inquilino de Azure AD\*          | El nombre del inquilino de Azure para la instancia de Dynamics 365. Use el formato <nombreinquilino.>onmicrosoft.com. Por ejemplo: `testdrive.onmicrosoft.com`  |
-| Dirección URL de API web de la instancia\*          | Dirección URL de API web para la instancia de Dynamics 365. Para recuperar este valor, inicie sesión en la instancia de Microsoft Dynamics 365 y vaya a **Configuración** > **Personalización** > **Recursos de desarrollador** > **API web de la instancia (copie esta dirección URL)** . Valor de ejemplo: `https://testdrive.crm.dynamics.com/api/data/v9.0`  |
-| Nombre de rol\*                     | Nombre del rol de seguridad personalizado de Dynamics 365 que ha creado para la versión de prueba y que se asignará a los usuarios cuando la ejecuten, por ejemplo `testdriveuser`. |
-|  |  |
-
-Una vez que haya dado toda la información necesaria, seleccione **Guardar**.
-
-
-## <a name="next-steps"></a>Pasos siguientes
-
-A continuación, proporcionará información de marketing y ventas en la [pestaña Detalles del escaparate electrónico](./cpp-storefront-details-tab.md).
-
+Antes de crear una nueva oferta de Dynamics 365 for Customer Engagement, debe leer [Creación de una cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) y después abrir el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/directory) con la página **Información general** seleccionada. Siga las instrucciones de [Creación de una nueva oferta de Dynamics 365 for Customer Engagement y PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para crear la oferta.

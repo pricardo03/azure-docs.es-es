@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30fd1ebf8a59c80764335be47c986ea77f5d1438
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c4f236f2f2fdbf2736f87f754f48387f9f41850d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879168"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024623"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solución de problemas del autoservicio de restablecimiento de contraseñas
 
@@ -173,6 +173,9 @@ En el caso de Azure AD Connect, versiones 1.1.443.0 y posteriores, se necesita a
 Para mayor granularidad, consulte la lista actualizada de [intervalos IP de centro de datos de Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653), que se actualiza todos los miércoles y que entra en vigor los lunes siguientes.
 
 Para más información, revise los requisitos previos de conectividad en el artículo [Requisitos previos para Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
+
+> [!NOTE]
+> También se puede producir un error en SSPR si la cuenta tiene la configuración "La contraseña nunca expira" o "El usuario no puede cambiar la contraseña" definida en la cuenta en AD DS local. 
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Reinicio del servicio Azure AD Connect Sync
 

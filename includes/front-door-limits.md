@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 37ebe2f0c5cbbaca712e69ab4484379ecf0f4830
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67333392"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72237454"
 ---
-| Recurso | Límite predeterminado/máximo |
+| Resource | Límite predeterminado/máximo |
 | --- | --- |
 | Recursos de Azure Front Door Service por suscripción | 100 |
 | Hosts de front-end, que incluye los dominios personalizados por recurso | 100 |
@@ -24,7 +24,7 @@ ms.locfileid: "67333392"
 | Servidores back-end por grupo de servidores back-end | 100 |
 | Patrones de ruta de acceso para coincidir con una regla de enrutamiento | 25 |
 | Reglas de firewall de aplicación web personalizadas por directiva | 10 |
-| Directiva del firewall de aplicaciones web por recurso | 100 |
+| Directiva del firewall de aplicaciones web por suscripción | 100 |
 | Condiciones de coincidencia del firewall de aplicaciones web por regla personalizada | 10 |
 | Intervalos de direcciones IP del firewall de aplicaciones web por condición de coincidencia | 600 |
 | Valores de coincidencia de la cadena del firewall de aplicaciones web por condición de coincidencia | 10 |
@@ -53,4 +53,5 @@ ms.locfileid: "67333392"
 | **Cargar** |  No hay ningún límite siempre y cuando cada carga de CTE sea inferior a 2 GB. | El tamaño no puede ser superior a 2 GB. |
 
 ### <a name="other-limits"></a>Otros límites
-- Tamaño máximo de la dirección URL - 8192 bytes - Especifica la longitud máxima de la dirección URL sin procesar (esquema + nombre de host + puerto + ruta de acceso + cadena de consulta de la dirección URL) - Tamaño máximo de la cadena de consulta - 4096 bytes - Especifica la longitud máxima de la cadena de consulta, en bytes.
+- Tamaño máximo de la dirección URL: 8192 bytes: especifica la longitud máxima de la dirección URL sin procesar (esquema + nombre de host + puerto + ruta de acceso + cadena de consulta de la dirección URL)
+- Tamaño máximo de la cadena de consulta: 4096 bytes: especifica la longitud máxima de la cadena de consulta, en bytes.

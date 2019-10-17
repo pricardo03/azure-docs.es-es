@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 08/29/2019
-ms.openlocfilehash: 4af269faab21207e1a754e309cac16e5e0a94b69
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.date: 10/01/2019
+ms.openlocfilehash: af2e8826c40fb0d16844b6c67f151b0affbf3efd
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164337"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034987"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Elija entre los niveles de servicio de núcleo virtual y migre desde los niveles de servicio DTU
 
@@ -42,7 +42,7 @@ La tabla siguiente explica las diferencias entre los tres niveles:
 
 ||**Uso general**|**Crítico para la empresa**|**Hiperescala**|
 |---|---|---|---|
-|Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables pensando en el presupuesto.|Aplicaciones empresariales con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante el uso de varias réplicas aisladas.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos altamente escalables de almacenamiento y escalado de lectura.|
+|Más adecuado para|Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado.|Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal fluido, restauración rápida de bases de datos.|
 |Proceso|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales<br/>**Proceso sin servidor**:<br/>Gen5: 0,5 - 16 núcleos virtuales|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales|
 |Memoria|**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual<br/>**Proceso sin servidor**:<br/>Gen5: Hasta 24 GB por núcleo virtual|**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual |**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual|
 |Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado de base de datos única y de grupo elástico**:<br/>5 GB – 4 TB<br/>**Proceso sin servidor**:<br/>5 GB - 3 TB<br/>**Instancia administrada**: 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado de base de datos única y de grupo elástico**:<br/>5 GB – 4 TB<br/>**Instancia administrada**:<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |

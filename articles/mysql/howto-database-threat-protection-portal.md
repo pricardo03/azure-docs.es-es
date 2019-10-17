@@ -1,17 +1,17 @@
 ---
-title: 'Advanced Threat Protection: Azure Database for MySQL | Microsoft Docs'
-description: Protección contra amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad.
+title: Advanced Threat Protection para Azure Database for MySQL
+description: Aprenda a configurar Advanced Threat Protection para detectar actividades anómalas en la base de datos que indican posibles amenazas de seguridad para la base de datos en una instancia administrada.
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 76f6c15fc1e186e254c4edbb53a2a0ccf7050b3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe058433cfe4c6c9f89f14d2c74e33ff1b8372ac
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61458983"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970498"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Advanced Threat Protection para Azure Database for MySQL
 
@@ -54,7 +54,7 @@ Cuando se detecten actividades anómalas en las bases de datos, recibirá una no
 
 ## <a name="explore-threat-detection-alerts"></a>Explorar alertas de detección de amenazas
 
-Detección de amenazas de SQL Database integra la alerta con [Azure Security Center](https://azure.microsoft.com/services/security-center/). Un icono de detección de amenazas de SQL dinámico dentro de las hojas de SQL ATP y de la base de datos en Azure Portal realiza un seguimiento del estado de las amenazas activas.
+Detección de amenazas de SQL Database integra la alerta con [Azure Security Center](https://azure.microsoft.com/services/security-center/). Un icono de detección de amenazas de SQL dinámico realiza un seguimiento del estado de las amenazas activas de las páginas de SQL ATP y de la base de datos en Azure Portal.
 
 Haga clic en la **alerta de detección de amenazas** para iniciar la página de alertas de Azure Security Center y obtener información general de las amenazas de SQL activas detectadas en la base de datos.
 

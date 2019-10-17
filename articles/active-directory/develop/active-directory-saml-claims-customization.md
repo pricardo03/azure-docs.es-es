@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 10/01/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c0625a233b3b4a949feff2e289361a26fc8dc5a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f4f26c82d4cda6ce3d8bf01c7fd52fa579e86dcf
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835347"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240228"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -65,9 +65,8 @@ En el menú desplegable **Elija el formato del identificador de nombre**, puede 
 | **Persistent** | Azure AD usará Persistent como el formato de NameID. |
 | **EmailAddress** | Azure AD usará EmailAddress como el formato de NameID. |
 | **Unspecified** | Azure AD usará Unspecified como el formato de NameID. |
-| **Transient** | Azure AD usará Transient como el formato de NameID. |
 
-Para obtener más información sobre el atributo NameIDPolicy, consulte [Protocolo SAML de inicio de sesión único](single-sign-on-saml-protocol.md).
+También se admite NameID transitorio, pero no está disponible en la lista desplegable y no se puede configurar en Azure. Para obtener más información sobre el atributo NameIDPolicy, consulte [Protocolo SAML de inicio de sesión único](single-sign-on-saml-protocol.md).
 
 ### <a name="attributes"></a>Atributos
 
@@ -84,6 +83,20 @@ Seleccione el origen que desee para la notificación `NameIdentifier` (o NameID)
 | Atributos de extensión 1-15 | Los atributos de extensión locales usados para extender el esquema de AD Azure. |
 
 Para obtener más información, consulte [Tabla 3: Valores de Id. válidos por origen](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
+
+También puede asignar cualquier valor constante (estático) a cualquier notificación que defina en Azure AD. Siga los pasos que se indican a continuación para asignar un valor constante:
+
+1. En [Azure Portal](https://portal.azure.com/), en la sección **Atributos y notificaciones de usuario**, haga clic en el icono de **edición** para modificar las notificaciones.
+
+1. Haga clic en la notificación que desea modificar.
+
+1. Escriba el valor constante en el **atributo de origen** según su organización y haga clic en **Guardar**.
+
+    ![Apertura de la sección Atributos y notificaciones de usuario en Azure Portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
+
+1. El valor constante se mostrará a continuación.
+
+    ![Apertura de la sección Atributos y notificaciones de usuario en Azure Portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>Notificaciones especiales: transformaciones
 

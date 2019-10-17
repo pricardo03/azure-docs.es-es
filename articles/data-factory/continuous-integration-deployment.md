@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ff1d34852890a8d5005153ebdfa2fa0f9749d129
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265985"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030609"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integración y entrega continuas (CI/CD) en Azure Data Factory
 
@@ -328,7 +328,7 @@ Si está en modo GIT, puede reemplazar las propiedades predeterminadas en la pla
 * Se usa CI/CD automatizada y se quieren cambiar algunas propiedades durante la implementación de Resource Manager, pero las propiedades no están parametrizadas de forma predeterminada.
 * La fábrica es tan grande que la plantilla de Resource Manager predeterminada no es válida porque contiene más parámetros que el número máximo permitido (256).
 
-En estas condiciones, para reemplazar la plantilla predeterminada de parametrización, cree un archivo denominado *arm-template-parameters-definition.json* en la carpeta raíz del repositorio. El nombre de archivo debe coincidir exactamente. Data Factory intenta leer el archivo de la rama en la que está actualmente en el portal de Azure Data Factory, no solo de la rama de colaboración. Puede crear o editar el archivo desde una rama privada, donde pueda probar los cambios usando la **plantilla de exportación de ARM** en la interfaz de usuario. A continuación, puede combinar el archivo en la rama de colaboración. Si no se encuentra ningún archivo, se usa la plantilla predeterminada.
+En estas condiciones, para reemplazar la plantilla predeterminada de parametrización, cree un archivo denominado *arm-template-parameters-definition.json* en la carpeta raíz del repositorio. El nombre de archivo debe coincidir exactamente. Data Factory intenta leer el archivo de la rama en la que está actualmente en el portal de Azure Data Factory, no solo de la rama de colaboración. Puede crear o editar el archivo desde una rama privada, donde pueda probar los cambios usando la **plantilla de exportación de ARM** en la interfaz de usuario. A continuación, puede combinar el archivo en la rama de colaboración. Si no se encuentra ningún archivo, se usa la plantilla predeterminada.
 
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintaxis de un archivo de parámetros personalizados

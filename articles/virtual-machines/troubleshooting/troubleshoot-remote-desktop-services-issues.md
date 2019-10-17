@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 9f7957fb0e6e888367c1f8ded1abfb3828697cbb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7949bedec2d304cd87fb512b44cd61d6f0894638
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087094"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168953"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Los Servicios de Escritorio remoto no se inician en la máquina virtual de Azure
 
@@ -141,14 +141,14 @@ Para solucionar este problema, utilice la consola serie. O bien, [repare la máq
    procmon /Terminate 
    ```
 
-5. Recopile el archivo **c:\temp\ProcMonTrace.PML**:
+5. Recopile el archivo **c:\temp\ProcMonTrace.PML**:
 
     1. [Conecte un disco de datos a la máquina virtual](../windows/attach-managed-disk-portal.md
 ).
     2. Use la consola serie para copiar el archivo a la nueva unidad. Por ejemplo, `copy C:\temp\ProcMonTrace.PML F:\`. En este comando, F es la letra de unidad del disco de datos conectado.
     3. Desconecte la unidad de datos y conéctela en una máquina virtual en funcionamiento que tenga instalado el Monitor de procesos.
 
-6. Abra **ProcMonTrace.PML** con el Monitor de procesos de la máquina virtual en funcionamiento. A continuación, filtre por  **El resultado es Acceso denegado**, tal y como se muestra en la captura de pantalla siguiente:
+6. Abra **ProcMonTrace.PML** con el Monitor de procesos de la máquina virtual en funcionamiento. A continuación, filtre por **El resultado es Acceso denegado**, tal y como se muestra en la captura de pantalla siguiente:
 
     ![Filtro por resultado en el Monitor de procesos](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 

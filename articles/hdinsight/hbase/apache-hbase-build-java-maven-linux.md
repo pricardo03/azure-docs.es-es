@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.openlocfilehash: 1ec4e9cbfd1d70c128f530bd996793a49c8a7d00
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: aad601a48b2b420a809a385e336f103612d2e378
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484133"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167093"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicaciones Java para Apache HBase
 
@@ -36,7 +36,7 @@ En los pasos descritos en este documento se usa [Apache Maven](https://maven.apa
 * Un editor de texto. En este artículo se usa el Bloc de notas de Microsoft.
 
 ## <a name="test-environment"></a>Entorno de prueba
-El entorno usado en este artículo fue un equipo donde se ejecuta Windows 10.  Los comandos se ejecutaron en un símbolo del sistema, y los distintos archivos se editaron con el Bloc de notas. Realice las modificaciones según corresponda en su entorno.
+El entorno usado en este artículo fue un equipo donde se ejecuta Windows 10.  Los comandos se ejecutaron en un símbolo del sistema, y los distintos archivos se editaron con el Bloc de notas. Realice las modificaciones según corresponda en su entorno.
 
 Desde un símbolo del sistema, escriba los siguientes comandos para crear un entorno de trabajo:
 
@@ -704,4 +704,4 @@ Use el parámetro `-showErr` para ver el error estándar (STDERR) producido mien
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Aprender a usar SQuirreL SQL con Apache HBase](apache-hbase-phoenix-squirrel-linux.md)
+[Aprenda a usar SQLLine con Apache HBase](apache-hbase-phoenix-squirrel-linux.md)

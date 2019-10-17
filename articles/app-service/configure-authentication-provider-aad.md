@@ -14,63 +14,89 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: cephalin
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8de464a00867dd397f28de1dc35cf264244f6905
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: ac73b549546c353dce4c40005b7742577e03d26c
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743249"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176994"
 ---
-# <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configuración de una aplicación de App Service para usar la información de inicio de sesión de Azure Active Directory
+# <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Azure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
+En este artículo se muestra cómo configurar Azure App Service para usar Azure Active Directory (Azure AD) como proveedor de autenticación.
+
 > [!NOTE]
-> En este momento, AAD V2 (incluido MSAL) no se admite para Azure App Service y Azure Functions.
->
+> En este momento, Azure App Service y Azure Functions solo se admiten en Azure AD v1.0. No son compatibles con la [Plataforma de identidad de Microsoft v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview), que incluye bibliotecas de autenticación de Microsoft (MSAL).
 
-En este artículo se muestra cómo configurar Azure App Service para usar Azure Active Directory como proveedor de autenticación.
+Siga estos procedimientos recomendados para configurar la aplicación y la autenticación:
 
-Se recomienda que configure cada aplicación de App Service con su propio registro, para que tenga sus propios permisos y consentimiento. Considere también la posibilidad de usar registros de aplicaciones para ranuras de implementación independientes. Esta opción evita el uso compartido de permisos entre entornos, de modo que un problema en el código nuevo que esté probando no afectará a la producción.
+- Asigne a cada aplicación de App Service sus propios permisos y consentimiento.
+- Configure cada aplicación de App Service con su propio registro.
+- Evite el uso compartido de permisos entre entornos mediante registros de aplicación independientes para ranuras de implementación independientes. Al probar nuevo código, esta práctica puede ayudar a evitar que los problemas afecten a la aplicación de producción.
 
 ## <a name="express"> </a>Configuración rápida
 
-1. En [Azure Portal], vaya a su aplicación de App Service. En el panel de navegación izquierdo, seleccione **Autenticación / Autorización**.
-2. Si **Autenticación / Autorización** no está habilitado, seleccione **Activar**.
-3. Seleccione **Azure Active Directory** y luego **Rápida**, en **Modo de administración**.
-4. Seleccione **Aceptar** para registrar la aplicación de App Service en Azure Active Directory. Se crea un nuevo registro de aplicaciones. Si, por el contrario, desea elegir un registro de aplicación existente, haga clic en **Seleccionar una aplicación existente** y busque el nombre de un registro creado de aplicación anteriormente en el inquilino. Haga clic en el registro de aplicación para seleccionarlo y en **Aceptar**. A continuación, haga clic en **Aceptar** en la página de configuración de Azure Active Directory.
-De forma predeterminada, App Service ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
-5. (Opcional) Para restringir el acceso a la aplicación y que solo obtengan acceso los usuarios autenticados mediante Azure Active Directory, configure la **acción necesaria cuando la solicitud no está autenticada** en **Log in with Azure Active Directory** (Iniciar sesión con Azure Active Directory). Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
+1. En [Azure Portal], vaya a la aplicación de App Service.
+1. Seleccione **Configuración** > **Autenticación/autorización** en el panel izquierdo y asegúrese de que la opción **Autenticación de App Service** está **Activada**.
+1. Seleccione **Azure Active Directory** y luego **Rápida**, en **Modo de administración**.
+1. Seleccione **Aceptar** para registrar la aplicación de App Service en Azure Active Directory. Se crea un nuevo registro de la aplicación.
 
-    > [!NOTE]
-    > Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no ser deseable para las aplicaciones que necesitan una página de inicio disponible públicamente, como muchas aplicaciones de una sola página. Para tales aplicaciones, puede ser preferible **permitir las solicitudes anónimas (sin acción)** y que la aplicación inicie manualmente el inicio de sesión, tal como se describe [aquí](overview-authentication-authorization.md#authentication-flow).
-6. Haga clic en **Save**(Guardar).
+   Si prefiere elegir un registro de aplicación existente:
+
+   1. Elija **Seleccionar una aplicación existente** y busque el nombre de un registro de aplicación creado anteriormente en el inquilino.
+   1. Seleccione el registro de aplicación y después **Aceptar**.
+   1. A continuación, seleccione **Aceptar** en la página de configuración de Azure Active Directory.
+
+   De forma predeterminada, App Service ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio ni a las API. Debe autorizar a los usuarios en el código de la aplicación.
+1. (Opcional) Para restringir el acceso a la aplicación solo a los usuarios autenticados mediante Azure Active Directory, configure **Acción necesaria cuando la solicitud no está autenticada** en **Iniciar sesión con Azure Active Directory**. Al establecer esta funcionalidad, la aplicación requiere que se autentiquen todas las solicitudes. También redirige todo lo que no está autenticado a Azure Active Directory para la autenticación.
+
+    > [!CAUTION]
+    > Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no interesar en las aplicaciones que tienen una página principal disponible públicamente así como en muchas aplicaciones de página única. Para tales aplicaciones, puede ser preferible **Permitir solicitudes anónimas (ninguna acción)** y que la aplicación inicie manualmente el inicio de sesión. Para más información, consulte [Flujo de autenticación](overview-authentication-authorization.md#authentication-flow).
+1. Seleccione **Guardar**.
 
 ## <a name="advanced"> </a>Configuración avanzada
 
-También puede proporcionar opciones de configuración de forma manual, si el inquilino de Azure Active Directory que quiere usar es diferente del inquilino con el que inicia sesión en Azure. Para completar la configuración, primero debe crear un registro en Azure Active Directory y luego proporcionar algunos de los detalles de registro a App Service.
+Si quiere usar un inquilino de Azure AD diferente del que usa para iniciar sesión en Azure, puede configurar las opciones de la aplicación manualmente. Para completar esta configuración personalizada, necesitará realizar lo siguiente:
+
+1. Crear un registro en Azure AD.
+1. Proporcionar algunos detalles de registro a App Service.
 
 ### <a name="register"> </a>Creación de un registro de aplicaciones en Azure AD para la aplicación App Service
 
-Al crear manualmente un registro de aplicaciones, tenga en cuenta tres fragmentos de información que necesitará más adelante al configurar la aplicación App Service: el identificador de cliente, el identificador de inquilino y, opcionalmente, el secreto de cliente y el URI del identificador de aplicación.
+Para configurar la aplicación de App Service, necesitará la siguiente información:
 
-1. En [Azure Portal], vaya a la aplicación App Service y anote la **dirección URL** de la aplicación. La usará para configurar el registro de la aplicación de Azure Active Directory.
-1. En [Azure Portal], en el menú de la izquierda, seleccione **Active Directory** > **App registrations (Registros de aplicaciones)**  > **New registration** (Nuevo registro). 
+- Id. de cliente
+- Id. de inquilino
+- Secreto de cliente (opcional)
+- URI de Id. de aplicación
+
+Lleve a cabo los siguiente pasos:
+
+1. Inicie sesión en [Azure Portal] y vaya a la aplicación de App Service. Anote la **Dirección URL** de la aplicación. La usará para configurar el registro de la aplicación de Azure Active Directory.
+1. Haga clic en **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
 1. En la página **Register an application** (Registrar una aplicación), escriba el **nombre** del registro de aplicaciones.
-1. En **Redirect URI** (Redirección de URI), seleccione **Web** y escriba la dirección URL de la aplicación de App Service y agregue la ruta `/.auth/login/aad/callback`. Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Seleccione **Crear**.
-1. Una vez creado el registro de la aplicación, copie el **identificador de la aplicación (cliente)** y el **identificador de directorio (inquilino)** para usarlos más adelante.
-1. Seleccione la **personalización de marca**. En la **dirección URL de la página principal**, escriba la dirección URL de la aplicación App Service y seleccione **Save** (Guardar).
+1. En **URI de redirección**, seleccione **Web** y escriba la dirección URL de la aplicación de App Service, anexando la ruta de acceso `/.auth/login/aad/callback`. Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
+1. Seleccione **Crear**.
+1. Una vez creado el registro de la aplicación, copie el **Id. de aplicación (cliente)** y el **Id. de directorio (inquilino)** para usarlos más adelante.
+1. Seleccione la **personalización de marca**. En **URL de página principal**, escriba la dirección URL de la aplicación de App Service y seleccione **Guardar**.
 1. Seleccione **Expose an API (Exponer una API)**  > **Set (Conjunto)** . Cópiela en la dirección URL de la aplicación de App Service y seleccione **Save** (Guardar).
 
-    > [!NOTE]
-    > Este valor es el **URI del identificador de la aplicación** del registro de aplicaciones. Si por ejemplo quiere tener una aplicación web de front-end para obtener acceso a una API de back-end y quiere que el back-end conceda explícitamente el acceso al front-end, necesitará el **URI del identificador de aplicación** del *front-end* cuando configure el recurso de aplicación de App Service del *back-end*.
-1. Seleccione **Agregar un ámbito**. En el **nombre del ámbito**, escriba *user_impersonation*. En los cuadros de texto, escriba el nombre del ámbito de consentimiento y la descripción que quiere que vean los usuarios en la página de consentimiento, como *Access my app* (Acceder a mi aplicación). Cuando haya finalizado, haga clic en **Add scope** (Agregar ámbito).
-1. (Opcional) Para crear un secreto de cliente, seleccione **Certificates & secrets (Certificados y secretos)**  > **New client secret (Nuevo secreto de cliente)**  > **Add (Agregar)** . Copie el valor del secreto del cliente que se muestra en la página. Una vez que salga de la misma, no se volverá a mostrar.
-1. (Opcional) Para agregar varias **direcciones URL de respuesta**, seleccione la opción de **autenticación** en el menú.
+   > [!NOTE]
+   > Este valor es el **URI del identificador de la aplicación** del registro de aplicaciones. Si la aplicación web requiere acceso a una API en la nube, al configurar el recurso de App Service en la nube necesitará el valor de **URI de Id. de aplicación** de la aplicación web. Puede utilizarlo, por ejemplo, si desea que el servicio en la nube conceda acceso explícitamente a la aplicación web.
+
+1. Seleccione **Agregar un ámbito**.
+   1. En **Nombre de ámbito**, escriba *user_impersonation*.
+   1. En los cuadros de texto, escriba el nombre y la descripción del ámbito de consentimiento que quiere que vean los usuarios en la página de consentimiento. Por ejemplo, escriba *Access my app* (Acceder a mi aplicación). 
+   1. Seleccione la opción **Agregar un ámbito**.
+1. (Opcional) Para crear un secreto de cliente, seleccione **Certificates & secrets (Certificados y secretos)**  > **New client secret (Nuevo secreto de cliente)**  > **Add (Agregar)** . Copie el valor del secreto del cliente que se muestra en la página. No se volverá a mostrar.
+1. (Opcional) Para agregar varios valores en **Direcciones URL de respuesta**, seleccione **Autenticación**.
 
 ### <a name="secrets"> </a>Incorporación de información de Azure Active Directory a la aplicación de App Service
 
-1. En [Azure Portal], vaya a su aplicación de App Service. En el menú izquierdo, seleccione **Authentication / Authorization** (Autenticación / Autorización). Si la característica Authentication / Authorization (Autenticación/Autorización) no está habilitada, **actívela**. 
+1. En [Azure Portal], vaya a la aplicación de App Service. 
+1. Seleccione **Configuración > Autenticación/autorización** en el panel izquierdo y asegúrese de que la opción **Autenticación de App Service** está **Activada**.
 1. (Opcional) De forma predeterminada, la autenticación de App Service permite el acceso no autenticado a la aplicación. Para aplicar la autenticación de usuario, establezca la **acción necesaria cuando la solicitud no está autenticada**, en **Log in with Azure Active Directory** (Iniciar sesión con Azure Active Directory).
 1. En la opción de proveedores de autenticación, seleccione **Azure Active Directory**.
 1. En el **modo de administración**, seleccione **Advanced** (Avanzada) y configure la autenticación de App Service de acuerdo con la tabla siguiente:
@@ -80,31 +106,33 @@ Al crear manualmente un registro de aplicaciones, tenga en cuenta tres fragmento
     |Id. de cliente| Use el **identificador de la aplicación (cliente)** del registro de aplicaciones. |
     |Id. del emisor| Use `https://login.microsoftonline.com/<tenant-id>` y reemplace *\<tenant-id>* con el **identificador de directorio (inquilino)** del registro de aplicaciones. |
     |Secreto de cliente (opcional)| Use el secreto de cliente que generó en el registro de la aplicación.|
-    |Audiencias de token permitidas| Si se trata de una aplicación de *back-end* y quiere permitir los tokens de autenticación desde una aplicación front-end, agregue aquí el **URI del identificador de aplicación** del *front-end*. |
+    |Audiencias de token permitidas| Si se trata de una aplicación en la nube o una aplicación de servidor y quiere permitir tokens de autenticación desde una aplicación web, agregue aquí el valor de **URI de Id. de aplicación** de la aplicación web. |
 
     > [!NOTE]
     > De forma implícita, se considera que el identificador de **Id. de cliente** es *siempre* un público permitido, independientemente de cómo se haya configurado la opción **Audiencias de token permitidas**.
-1. Seleccione **OK** (Aceptar) y después **Save** (Guardar).
+1. Seleccione **Aceptar** y después **Guardar**.
 
-Ahora está preparado para usar Azure Active Directory para realizar la autenticación en la aplicación de App Service.
+Ahora está preparado para usar Azure Active Directory para realizar la autenticación en la aplicación de App Service.
 
 ## <a name="configure-a-native-client-application"></a>Configuración de una aplicación de cliente nativo
-Puede registrar clientes nativos si quiere realizar inicios de sesión con una biblioteca de cliente como la **biblioteca de autenticación de Active Directory**.
 
-1. En [Azure Portal], en el menú de la izquierda, seleccione **Active Directory** > **App registrations (Registros de aplicaciones)**  > **New registration** (Nuevo registro). 
+Puede registrar clientes nativos para permitir la autenticación con una biblioteca cliente como la **Biblioteca de autenticación de Active Directory**.
+
+1. En [Azure Portal], seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
 1. En la página **Register an application** (Registrar una aplicación), escriba el **nombre** del registro de aplicaciones.
-1. En **Redirect URI** (Redirección de URI), seleccione **Public client (mobile & desktop)** (Cliente público [dispositivos móviles y PC]) y escriba la dirección URL de la aplicación de App Service; a continuación, agregue la ruta `/.auth/login/aad/callback`. Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Seleccione **Crear**.
+1. En **URI de redirección**, seleccione **Cliente público (móvil y escritorio)** y escriba la dirección URL de la aplicación de App Service, anexando la ruta de acceso `/.auth/login/aad/callback`. Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. Seleccione **Crear**.
 
     > [!NOTE]
     > Para una aplicación de Windows, use el valor de [SID del paquete](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como URI en su lugar.
-1. Una vez creado el registro de aplicaciones, copie el valor del **identificador de la aplicación (cliente)** .
-1. En el menú de la izquierda, seleccione **API permissions (Permisos de API)**  > **Add a permission (Agregar un permiso)**  > **My APIs (Mis API)** .
-1. Seleccione el registro de aplicaciones que creó anteriormente para la aplicación de App Service. Si no ve el registro de aplicaciones, compruebe que agregó el ámbito **user_impersonation** en la [creación de un registro de aplicaciones en Azure AD para la aplicación de App Service](#register).
-1. Seleccione **user_impersonation** y haga clic en **Add permissions** (Agregar permisos).
+1. Una vez creado el registro de aplicación, copie el valor de **Id. de aplicación (cliente)** .
+1. Seleccione **Permisos de API** > **Agregar permiso** > **Mis API**.
+1. Seleccione el registro de aplicaciones que creó anteriormente para la aplicación de App Service. Si no ve el registro de aplicación, compruebe que agregó el ámbito **user_impersonation** en [Creación de un registro de aplicaciones en Azure AD para la aplicación App Service](#register).
+1. Seleccione **user_impersonation** y después **Agregar permisos**.
 
 Ahora ha configurado una aplicación cliente nativa que puede acceder a la aplicación de App Service.
 
-## <a name="related-content"></a>Contenido relacionado
+## <a name="related-content"> </a>Pasos siguientes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

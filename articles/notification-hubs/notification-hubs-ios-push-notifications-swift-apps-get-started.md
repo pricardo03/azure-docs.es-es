@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: miparker
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: b830538f81d1696c34db3e4f66a07346c17bcdcc
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8dae5bcc082ba5dd0953e3e97f609e4031547a35
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211960"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030644"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Tutorial: Enviar notificaciones push a aplicaciones iOS basadas en Swift que usan la API de REST de Notification Hubs
 
@@ -297,7 +297,7 @@ A los efectos de este ejemplo de Swift, va a usar la biblioteca de código abier
 
 Para agregar y configurar el encabezado puente:
 
-1. En Xcode, seleccione **File** > **New** > **File** > **Header File** (Archivo>Nuevo>Archivo>Archivo de encabezado). Asigne al archivo de encabezado el nombre **BridgingHeader.h**.
+1. En Xcode, seleccione **File** > **New** > **File** > **Header File** (Archivo>Nuevo>Archivo>Archivo de encabezado). Asigne al archivo de encabezado el nombre **BridgingHeader.h**.
 
 1. Edite el archivo para importar **CommonHMAC.h**:
 
@@ -313,11 +313,11 @@ Para agregar y configurar el encabezado puente:
 
 1. Actualice **Build Settings** (Configuración de compilación) del destino para que haga referencia al encabezado puente:
 
-   1. Abra la pestaña  **Building Settings**  (Configuración de compilaciones) y desplácese hacia abajo hasta la sección **Swift Compiler** (Compilador de Swift).
+   1. Abra la pestaña **Building Settings** (Configuración de compilación) y desplácese hacia abajo hasta la sección **Swift Compiler** (Compilador de Swift).
 
-   1. Asegúrese de que la opción **Install Objective-C Compatibility Header** (Instalar encabezado de compatibilidad de Objective-C) está establecida en **Yes** (Sí).
+   1. Asegúrese de que la opción**Install Objective-C Compatibility Header** (Instalar encabezado de compatibilidad de Objective-C) está establecida en **Yes** (Sí).
 
-   1. Escriba la ruta de acceso de archivo `'<ProjectName>/BridgingHeader.h'` en la opción **Objective-C bridging Header** (Encabezado puente de Objective-C). Esta es la ruta de acceso de archivo al encabezado puente.
+   1. Escriba la ruta de acceso de archivo `'<ProjectName>/BridgingHeader.h'` en la opción **Objective-C bridging Header** (Encabezado puente de Objective-C). Esta es la ruta de acceso de archivo al encabezado puente.
 
    Si no encuentra estas opciones, asegúrese de tener seleccionada la vista **All** (Todos) en lugar de **Basic** (Básica) o **Customized** (Personalizada).
 

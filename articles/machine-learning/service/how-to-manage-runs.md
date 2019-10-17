@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: 6615b5c277577ee2238434591c61362885f2fec6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 7ebbc7575ad52bbf7a399babb048113bc505a7f8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002745"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174539"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
 
@@ -189,7 +189,7 @@ print(local_script_run.get_status())
 Para cancelar una ejecución con la CLI, use el siguiente comando. Reemplace `runid` por el identificador de la ejecución.
 
 ```azurecli-interactive
-az ml run cancel -r runid
+az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
 Para obtener más información, consulte [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
@@ -226,7 +226,7 @@ Para crear muchas ejecuciones secundarias de forma eficaz, use el método [`crea
 
 Las ejecuciones secundarias también se pueden enviar desde una ejecución principal. Esto permite crear jerarquías de ejecuciones principales y secundarias, cada una de las cuales se ejecuta en distintos destinos de proceso, conectadas por un identificador de ejecución principal común.
 
-Use el método ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) para enviar una ejecución secundaria desde una ejecución principal. Para hacerlo en el script de la ejecución principal, obtenga el contexto de ejecución y envíe la ejecución secundaria con el método 'submit_child' de la instancia de contexto.
+Use el método ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) para enviar una ejecución secundaria desde una ejecución principal. Para hacerlo en el script de la ejecución principal, obtenga el contexto de ejecución y envíe la ejecución secundaria con el método ``submit_child`` de la instancia de contexto.
 
 ```python
 ## In parent run script
@@ -245,7 +245,7 @@ child_run.parent.id
 
 ### <a name="query-child-runs"></a>Consulta de ejecuciones secundarias
 
-Para consultar las ejecuciones secundarias de un elemento primario específico, use el método [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-). El argumento 'recursive = True' permite consultar un árbol anidado de elementos secundarios y descendientes.
+Para consultar las ejecuciones secundarias de un elemento primario específico, use el método [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-). El argumento ``recursive = True`` permite consultar un árbol anidado de elementos secundarios y descendientes.
 
 ```python
 print(parent_run.get_children())
@@ -335,9 +335,9 @@ Para obtener más información sobre la consulta de resultados de la CLI de Azur
 
 Los siguientes cuadernos muestran los conceptos de este artículo:
 
-* Para obtener más información sobre las API de registro, vea el [cuaderno de API de registro](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api/logging-api.ipynb).
+* Para obtener más información sobre las API de registro, vea el [cuaderno de API de registro](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb).
 
-* Para obtener más información sobre cómo administrar ejecuciones con el SDK de Azure Machine Learning, consulte el [cuaderno de administración de ejecuciones](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/manage-runs).
+* Para obtener más información sobre cómo administrar ejecuciones con el SDK de Azure Machine Learning, consulte el [cuaderno de administración de ejecuciones](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

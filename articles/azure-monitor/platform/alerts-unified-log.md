@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: f78f7c37fafd7f0b29f76220206b9adfb62f52c9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: d0314e94e627a42ab55f9e91017acac0cdc8b541
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677748"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001622"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
@@ -127,16 +127,25 @@ Puesto que la alerta está configurada para desencadenarse si las infracciones s
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Regla de alertas de búsqueda de registros: desencadenamiento y estado
 
-La regla de alertas de búsqueda de registros funciona con la lógica dictada por el usuario según la configuración y la consulta personalizada de análisis que se use. Ya que la lógica de la supervisión, incluida la condición o razón exactas por las que la regla de alertas se debería desencadenar, se encapsula en una consulta de Analytics, puede ser diferente en cada regla de alertas de registro. Alertas de Azure cuenta con escasa información sobre la causa subyacente o escenario que se evalúa cuando se cumple o se supera la condición de umbral de la regla de alertas de búsqueda de registros. Por lo tanto, las alertas del registro se conocen como sin estado. Y las reglas de alertas de registro se seguirán activando periódicamente, siempre que el resultado de la consulta de análisis proporcionada cumpla la condición de la alerta. Sin la alerta, no se resuelve, ya que la lógica de la causa exacta del error de supervisión se enmascara dentro de la consulta de análisis proporcionada por el usuario. No existe en este momento ningún mecanismo para que Alertas de Azure Monitor deduzca de forma concluyente la causa raíz que se resuelve.
+Las reglas de alertas de búsqueda de registros solo funcionan en la lógica que se crea en la consulta. El sistema de alertas no tiene ningún otro contexto del estado del sistema, su intención o la causa principal implícita de la consulta. Por lo tanto, las alertas del registro se conocen como sin estado. Las condiciones se evalúan como "TRUE" o "FALSE" cada vez que se ejecutan.  Se activará una alerta cada vez que la evaluación de la condición de alerta sea "TRUE", independientemente de que se desencadene previamente.    
 
-Veamos lo mismo con un ejemplo práctico. Supongamos que tenemos una regla de alerta de registro denominada *Contoso-Log-Alert*, según la configuración en el [ejemplo proporcionado para la alerta de registro de tipo Número de resultados](#example-of-number-of-records-type-log-alert), en el que se designa una consulta de alerta personalizada para buscar el código de resultado 500 en los registros.
+Veamos este comportamiento en acción con un ejemplo práctico. Supongamos que tenemos una regla de alerta de registro llamada *Contoso-Log-Alert*, configurada como se muestra en el [ejemplo proporcionado para la alerta de registro de tipo Número de resultados](#example-of-number-of-records-type-log-alert). La condición es una consulta de alertas personalizada diseñada para buscar el código de resultado 500 en los registros. Si se encuentran uno o más códigos de resultado 500 en los registros, se cumple la condición de la alerta. 
 
-- A la 1:05 p. m., cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros no produjo ningún registro con el código de resultado 500. Puesto que cero está por debajo del umbral, la alerta no se desencadena.
-- En la siguiente iteración a las 1:10 p. m., cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros no produjo ningún registro con el código de resultado 500. Dado que el valor cinco supera el umbral, la alerta se desencadena con las acciones asociadas.
-- A la 1:15 p. m., cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros produjo dos registros con el código de resultado 500. Dado que el valor dos supera el umbral, la alerta se desencadena con las acciones asociadas.
-- Ahora, en la siguiente iteración a la 1:20 p. m., cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros de nuevo no produjo ningún registro con el código de resultado 500. Puesto que cero está por debajo del umbral, la alerta no se desencadena.
+En cada intervalo de los que se muestran a continuación, el sistema de alertas de Azure evalúa la condición de *Contoso-Log-Alert*.
 
-Pero en el caso enumerado anteriormente, a la 1:15 p. m., las alertas de Azure no pueden determinar que los problemas subyacentes de la 1:10 p. m. persisten y si hay nuevos errores. Como la consulta proporcionada por el usuario puede estar teniendo en cuenta los registros anteriores, las alertas de Azure pueden ser seguras. Puesto que la lógica de la alerta está encapsulada en la consulta de alerta, los dos registros con el código de resultado 500 visto a la 1:15 p. m. pueden o no haberse visto ya a la 1:10 p. m. Por tanto, para estar totalmente seguros, cuando Contoso-Log-Alert se ejecutó a la 1:15 p. m., la acción configurada se volvió a activar. Ahora a la 1:20 p. m., cuando no se ve ningún registro con el código de resultado 500, las alertas de Azure no pueden estar seguras de que la causa del código de resultado 500 visto a la 1:10 p. m. y a la 1:15 p. m. estén ahora resueltas, y las alertas de Azure Monitor pueden deducir con seguridad que los problemas de un error 500 no se repetirán por la misma razón de nuevo. Por lo tanto, el valor de Contoso-Log-Alert no cambiará a Resuelto en el panel de alertas de Azure ni en las notificaciones enviadas para afirmar que la alerta se resolvió. En su lugar, el usuario que comprenda la condición o el motivo exactos de la lógica incrustada en la consulta de análisis puede [marcar la alerta como cerrada](alerts-managing-alert-states.md) según sea necesario.
+
+| Hora    | Número de registros devueltos por la consulta de búsqueda de registros | Evaluación de la condición de registro | Resultado 
+| ------- | ----------| ----------| ------- 
+| 1:05 p. m. | 0 registros | 0 no es > 0, de modo que es FALSE |  La alerta no se desencadena. No se llamó a ninguna acción.
+| 1:10 p. m. | 2 registros | 2 > 0, de modo que es TRUE  | La alerta se desencadena y se llama a los grupos de acciones. Estado de alerta ACTIVA.
+| 1:15 p. m. | 5 registros | 5 > 0, de modo que es TRUE  | La alerta se desencadena y se llama a los grupos de acciones. Estado de alerta ACTIVA.
+| 1:20 p. m. | 0 registros | 0 no es > 0, de modo que es FALSE |  La alerta no se desencadena. No se llamó a ninguna acción. El estado de la alerta queda en ACTIVA.
+
+Si se usa el caso anterior como ejemplo:
+
+A las 1:15 p. m., las alertas de Azure no pueden determinar si los problemas subyacentes que se han detectado a las 1:10 se mantienen y si los registros son errores netos nuevos o se repiten los errores anteriores a las 1:10 p. m. Es posible que la consulta proporcionada por el usuario tenga en cuenta o no los registros anteriores y que el sistema no lo sepa. El sistema de alertas de Azure se ha creado para que se produzca un error por precaución y activa la alerta y las acciones asociadas de nuevo a las 1:15 p. m. 
+
+A las 1:20 p. m. cuando se ven cero registros con el código de resultado 500, las alertas de Azure no pueden estar seguras de que la causa del código de resultado 500 que se ha detectado a las 1:10 p. m. y 1:15 p. m. esté ya resuelta. No sabe si se producirán los problemas de error 500 por las mismas razones. Por lo tanto, el valor de *Contoso-Log-Alert* no cambiará a **Resolved** (Resuelto) en el panel de alertas de Azure ni se envían notificaciones para indicar que la alerta se resolvió. Solo usted, que comprende la condición o el motivo exactos de la lógica insertada en la consulta de análisis, puede [marcar la alerta como cerrada](alerts-managing-alert-states.md), según sea necesario.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Precios y facturación de las alertas de registro
 

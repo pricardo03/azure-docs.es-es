@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051836"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177647"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 
@@ -83,7 +83,7 @@ Después de instalar la solución, puede crear una conexión.
 
 Para crear una conexión, debe preparar la herramienta de ITSM para permitir la conexión a la solución del conector de ITSM.  
 
-Dependiendo del producto ITSM que se vaya a conectar, siga estos pasos:
+Según el producto de ITSM al que se conecte, siga estos pasos:
 
 - [System Center Service Manager (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -195,7 +195,7 @@ ServiceDeskWorkItemType_s="Incidente"
 - Cerrado por
 - Source
 - Asignado a
-- Categoría
+- Category
 - Título
 - DESCRIPCIÓN
 - Fecha de creación
@@ -218,7 +218,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Asignado a
 - Título
 - type
-- Categoría
+- Category
 - Estado
 - Escalado
 - Estado del conflicto
@@ -252,7 +252,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | Cerrado por |
 | Source_s| Tipo de contacto |
 | AssignedTo_s | Asignado a  |
-| Category_s | Categoría |
+| Category_s | Category |
 | Title_s|  Descripción breve |
 | Description_s|  Notas |
 | CreatedDate_t|  Abierto |
@@ -270,7 +270,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Asignado a  |
 | Title_s|  Descripción breve |
 | Type_s|  type |
-| Category_s|  Categoría |
+| Category_s|  Category |
 | CRState_s|  State|
 | Urgency_s|  Urgencia |
 | Priority_s| Priority|

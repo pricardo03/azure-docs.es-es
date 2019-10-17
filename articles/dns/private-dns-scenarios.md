@@ -5,19 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: 409595febded7b242eae876ebb2cb35ae4999e5e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 747fe891bf4d6bd042e689107cd87680795eb82b
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60686863"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959330"
 ---
-# <a name="azure-dns-private-zones-scenarios"></a>Escenarios de Azure DNS Private Zones
-Azure DNS Private Zones proporcionan la resolución de nombres dentro de una red virtual, así como entre redes virtuales. En este artículo, echaremos un vistazo a algunos escenarios comunes que se pueden poner en funcionamiento con esta característica. 
+# <a name="azure-dns-private-zones-scenarios"></a>Escenarios de zonas privadas de Azure DNS
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+Azure DNS Private Zones proporcionan la resolución de nombres dentro de una red virtual, así como entre redes virtuales. En este artículo, echaremos un vistazo a algunos escenarios comunes que se pueden poner en funcionamiento con esta característica.
 
 ## <a name="scenario-name-resolution-scoped-to-a-single-virtual-network"></a>Escenario: resolución de nombres con ámbito de una única red virtual
 En este escenario, tiene una red virtual en Azure que contiene una serie de recursos, entre ellos máquinas virtuales (VM). Quiere resolver los recursos desde dentro de la red virtual mediante un nombre de dominio específico (zona DNS) y necesita que la resolución del nombre sea privada y no accesible desde Internet. Además, para las máquinas virtuales que se encuentran dentro la red virtual, necesita que Azure las registre automáticamente en la zona DNS. 

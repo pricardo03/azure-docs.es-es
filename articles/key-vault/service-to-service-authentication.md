@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 201f35e7b3ccf7c113ae30a6d007ad3a1f9adb98
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 6996a5965454dfd5997f0c0404e0c348c68b626f
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087682"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177465"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticación entre servicios en Azure Key Vault mediante .NET
 
@@ -87,7 +87,7 @@ Para usar la CLI de Azure:
 
 1. Inicie sesión en Azure Portal: *az login* para iniciar sesión en Azure.
 
-1. Escriba *az account get-access-token* para comprobar el acceso. Si recibe un error, compruebe que se ha instalado correctamente la versión adecuada de la CLI de Azure.
+1. Escriba *az account get-access-token --resource https://vault.azure.net* para comprobar el acceso. Si recibe un error, compruebe que se ha instalado correctamente la versión adecuada de la CLI de Azure.
 
    Si la CLI de Azure no está instalada en el directorio predeterminado, recibirá un error que le notificará que `AzureServiceTokenProvider` no encuentra la ruta de acceso para la CLI de Azure. Use la variable de entorno **AzureCLIPath** para definir la carpeta de instalación de la CLI de Azure. `AzureServiceTokenProvider` agrega el directorio especificado en la variable de entorno **AzureCLIPath** a la variable de entorno **Path** cuando sea necesario.
 
@@ -171,7 +171,11 @@ Hay tres métodos principales para usar una entidad de servicio para ejecutar la
 
 ### <a name="use-a-shared-secret-credential-to-sign-into-azure-ad"></a>Uso de una credencial compartida secreta para iniciar sesión en Azure AD
 
-1. Cree un certificado de entidad de servicio con una contraseña mediante el comando [az ad sp create-for-rbac --password](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac).
+1. Cree un certificado de entidad de servicio con una contraseña mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) de la CLI de Azure con el parámetro --sdk-auth.
+
+    ```azurecli
+    az ad sp create-for-rbac --sdk-auth
+    ```
 
 1. Establezca una variable de entorno denominada **AzureServicesAuthConnectionString** para el siguiente valor:
 

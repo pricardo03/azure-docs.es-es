@@ -6,20 +6,23 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 09/30/2019
 ms.author: danlep
-ms.openlocfilehash: 7a313353ee1c7afae10fd7af84570565037e40ab
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 1ef6d5366e5db07a7f03bac251c24b1ff76a13e9
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310643"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949516"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloqueo de una imagen de contenedor en una instancia de Azure Container Registry
 
 En Azure Container Registry, puede bloquear una versión de la imagen o un repositorio para que no pueda eliminarse o actualizarse. Para bloquear una imagen o un repositorio, actualice sus atributos mediante el comando [az acr repository update][az-acr-repository-update] de la CLI de Azure. 
 
 En este artículo se requiere que ejecute la CLI de Azure en Azure Cloud Shell o localmente (se recomienda la versión 2.0.55 o posterior). Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli].
+
+> [!IMPORTANT]
+> Este artículo no se aplica al bloqueo de un registro completo, por ejemplo, mediante el uso de **Configuración > Bloqueos** en Azure Portal o los comandos `az lock` de la CLI de Azure. El bloqueo de un recurso de registro no impide la creación, actualización o eliminación de datos en los repositorios. El bloqueo de un registro solo afecta a las operaciones de administración, como agregar o eliminar replicaciones o eliminar el propio registro. Para más información, consulte [Bloqueo de recursos para impedir cambios inesperados](../azure-resource-manager/resource-group-lock-resources.md).
 
 ## <a name="scenarios"></a>Escenarios
 

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 12d3f06ca349413231d69fc9de7b9d2f36645b23
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: ed828a09843648b129b701c9afd22aac9e2fa9b0
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273775"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970817"
 ---
 1. En el portal, a la izquierda, haga clic en **+ Crear un recurso** y escriba "Virtual Network Gateway" en el cuadro de búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y haga clic en la entrada. En la página **Puerta de enlace de red virtual**, haga clic en **Crear**. Se abre la página **Crear puerta de enlace de red virtual**.
 
@@ -37,7 +37,7 @@ ms.locfileid: "71273775"
 
       **Red virtual**: Elija la red virtual a la que quiera agregar esta puerta de enlace.
 
-      **Intervalo de direcciones de subred de puerta de enlace**: Este campo solo aparece si la red virtual seleccionada no tiene una subred de puerta de enlace. Rellene el intervalo si aún no tiene una subred de puerta de enlace. Si es posible, convierta el intervalo /27 o mayor (/26, /25, etc.).
+      **Intervalo de direcciones de subred de puerta de enlace**: Este campo solo aparece si la red virtual no tiene una subred de puerta de enlace. Si es posible, intente que el intervalo sea /27, o incluso mayor (/26, /25, etc.). No se recomienda crear un intervalo inferior a /28. Si ya tiene una subred de puerta de enlace y desea ver los detalles de GatewaySubnet, vaya a la red virtual. Haga clic en **Subnets** (Subredes) para ver el intervalo. Si desea cambiar el intervalo, puede eliminar y volver a crear GatewaySubnet.
 
    **Dirección IP pública**: esta configuración especifica el objeto de dirección IP pública que se asocia a la puerta de enlace de VPN. La dirección IP pública se asigna dinámicamente a este objeto cuando se crea la puerta de enlace de VPN. La única vez que la dirección IP pública cambia es cuando la puerta de enlace se elimina y se vuelve a crear. No cambia cuando se cambia el tamaño, se restablece o se realizan actualizaciones u otras operaciones de mantenimiento interno de una puerta de enlace VPN.
 

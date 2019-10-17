@@ -4,14 +4,14 @@ description: En este artículo se describe cómo resolver el error de tener más
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 755383c9d40c104d50ad9bb7a31b3a00f8348313
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: cb8a8238c4daac6370d47bb9e99b3503ebb68783
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827007"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176561"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolución de error cuando el recuento de implementaciones es superior a 800
 
@@ -31,6 +31,18 @@ Utilice el comando [az group deployment delete](/cli/azure/group/deployment#az-g
 az group deployment delete --resource-group exampleGroup --name deploymentName
 ```
 
+Para eliminar todas las implementaciones de más de cinco días, use:
+
+```azurecli-interactive
+startdate=$(date +%F -d "-5days")
+deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp>'$startdate'].name" --output tsv)
+
+for deployment in $deployments
+do
+  az group deployment delete --resource-group exampleGroup --name $deployment
+done
+```
+
 Puede obtener el recuento actual del historial de implementaciones con el siguiente comando:
 
 ```azurecli-interactive
@@ -43,6 +55,16 @@ Utilice el comando [Remove-AzResourceGroupDeployment](/powershell/module/az.reso
 
 ```azurepowershell-interactive
 Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name deploymentName
+```
+
+Para eliminar todas las implementaciones de más de cinco días, use:
+
+```azurepowershell-interactive
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup | Where-Object Timestamp -lt ((Get-Date).AddDays(-5))
+
+foreach ($deployment in $deployments) {
+  Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name $deployment.DeploymentName
+}
 ```
 
 Puede obtener el recuento actual del historial de implementaciones con el siguiente comando:

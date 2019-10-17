@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827573"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034715"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 En este documento, se describe la característica Integración con red virtual de Azure App Service y se explica cómo configurarla con aplicaciones en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (redes virtuales) le permite colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet.  
@@ -63,6 +63,10 @@ Hay algunos aspectos que Integración con red virtual no admite, como:
 * NetBios;
 
 ## <a name="regional-vnet-integration"></a>Integración con red virtual regional 
+
+> [!NOTE]
+> El emparejamiento todavía no está disponible para App Service basado en Linux.
+>
 
 Cuando Integración con red virtual se usa con redes virtuales de la misma región que la aplicación, requiere el uso de una subred delegada con al menos 32 direcciones en ella. La subred no se puede usar para nada más. Las llamadas salientes realizadas desde la aplicación se harán desde las direcciones de la subred delegada. Cuando se usa esta versión de Integración con red virtual, las llamadas se realizan desde direcciones de la red virtual. Usar direcciones de la red virtual permite a la aplicación hacer lo siguiente:
 

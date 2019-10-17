@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e535d8cce4e2aa56305283651b9cc21dfc301a4
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: ef3d6a47986056925f9964638c9c7192341ca5f9
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807621"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240991"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios
 
@@ -142,6 +142,7 @@ Al seleccionar esta opción se fuerza la resincronización de todos los usuarios
 - Es un procedimiento recomendado mantener el número mínimo de cambios consecutivos de las asignaciones de atributos.
 - Actualmente no se puede agregar un atributo de foto para su aprovisionamiento en una aplicación, ya que no se permite especificar el formato para sincronizar la foto. Puede solicitar la característica en [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
 - El atributo IsSoftDeleted suele formar parte de las asignaciones predeterminadas para una aplicación. IsSoftdeleted puede ser true en uno de los cuatro escenarios siguientes: el usuario está fuera del ámbito debido a que se ha desasignado de la aplicación; el usuario está fuera del ámbito debido a que no cumple un filtro de ámbito; el usuario se ha eliminado temporalmente en Azure AD; o la propiedad AccountEnabled está establecida en false en el usuario. 
+- El servicio de aprovisionamiento de Azure AD no admite el aprovisionamiento de valores NULL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

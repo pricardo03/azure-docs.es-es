@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: danlep
-ms.openlocfilehash: ad7f93bb3934ca01b7f45c0bd4b5cc8be81ea54b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 05f1bcd5e80d7c06fbaca1abe89c84f6743a5979
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325520"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034978"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementación de instancias de contenedor en una red virtual de Azure
 
@@ -29,6 +29,7 @@ Los grupos de contenedores implementados en una red virtual de Azure permiten es
 
 > [!IMPORTANT]
 > Esta funcionalidad actualmente está en su versión preliminar y se [aplican algunas limitaciones](#preview-limitations). Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+
 
 ## <a name="virtual-network-deployment-limitations"></a>Limitaciones de la implementación de redes virtuales
 
@@ -263,6 +264,10 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>Eliminación de recursos de red
+
+
+> [!NOTE]
+> Si recibe un error al intentar eliminar el perfil de red, espere de 2 a 3 días para que la plataforma mitigue automáticamente el problema y vuelva a intentar la eliminación. Si todavía tiene problemas para eliminar el perfil de red, [abra una solicitud de soporte técnico](https://azure.microsoft.com/support/create-ticket/).
 
 La versión preliminar inicial de esta característica requiere varios comandos adicionales para eliminar los recursos de red que creó anteriormente. Si ha usado los comandos de ejemplo en las secciones anteriores de este artículo para crear la red virtual y la subred, puede usar el siguiente script para eliminar esos recursos de red.
 

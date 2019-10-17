@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 8c24352fdbc6b81e7d263ac8c511b7c61792e6ae
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 6249a3c1c8ea3be02ca802d6be7e720bd900f675
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907882"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178091"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configuración de la asignación de red y el direccionamiento IP para redes virtuales
 
@@ -33,7 +33,7 @@ Asigne las redes de la siguiente manera:
 3. En **Agregar asignación de red**, seleccione las ubicaciones de origen y destino. En nuestro ejemplo, la máquina virtual de origen se ejecuta en la región Asia Oriental y se replica en la región Sudeste Asiático.
 
     ![Seleccionar origen y destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
-3. Ahora puede crear una asignación de red en el directorio opuesto. En nuestro ejemplo, el origen será ahora Sudeste Asiático y el destino será Asia Oriental.
+3. Ahora puede crear una asignación de red en la dirección opuesta. En nuestro ejemplo, el origen será ahora Sudeste Asiático y el destino será Asia Oriental.
 
     ![Panel para agregar asignaciones de red: selección de las ubicaciones de origen y destino de la red de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 

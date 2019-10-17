@@ -1,26 +1,26 @@
 ---
-title: Administración de restricciones del contexto de seguridad en Red Hat OpenShift en Azure | Microsoft Docs
-description: 'Administrador de clústeres de Red Hat OpenShift en Azure: administración de restricciones del contexto de seguridad'
+title: Administración de restricciones del contexto de seguridad en Azure Red Hat OpenShift | Microsoft Docs
+description: Restricciones del contexto de seguridad para administradores de clústeres de Azure Red Hat OpenShift
 services: container-service
 author: troy0820
 ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 8e85ac98683487c6b18be7f502f28cad9a0c2251
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: f98f55dca8b3dbbfbe03cb8c79691cedb63335a0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71712843"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168992"
 ---
-# <a name="overview"></a>Información general 
+# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Administración de restricciones del contexto de seguridad en Azure Red Hat OpenShift 
 
-Las restricciones del contexto de seguridad permiten a los administradores controlar los permisos para los pods. Para más información sobre este tipo de API, consulte la documentación sobre la arquitectura de las [restricciones del contexto de seguridad](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html) (SCC). Puede administrar las SCC en su instancia como objetos de API normales mediante la CLI.
+Las restricciones del contexto de seguridad (SCC) permiten a los administradores de clústeres controlar los permisos para los pods. Para más información sobre este tipo de API, consulte la [documentación sobre la arquitectura de las SCC](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Puede administrar las SCC en su instancia como objetos de API normales mediante la CLI.
 
-## <a name="listing-security-context-constraints"></a>Enumeración de restricciones del contexto de seguridad
+## <a name="list-security-context-constraints"></a>Enumeración de restricciones del contexto de seguridad
 
-Para obtener una lista actual de SCC: 
+Para obtener una lista actual de SCC, use este comando: 
 
 ```bash
 $ oc get scc
@@ -35,9 +35,9 @@ privileged         true      [*]       RunAsAny    RunAsAny           RunAsAny  
 restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs   RunAsAny    <none>     false            [configMap downwardAPI emptyDir persistentVolumeClaim secret]
 ```
 
-## <a name="examining-a-security-context-constraints-object"></a>Examen de un objeto de restricciones del contexto de seguridad
+## <a name="examine-an-object-for-security-context-constraints"></a>Examen de un objeto de restricciones del contexto de seguridad
 
-Para examinar un SCC determinado, use `oc get`, `oc describe` o `oc edit`.  Por ejemplo, para examinar el SCC **restricted**:
+Para examinar un SCC determinado, use `oc get`, `oc describe` o `oc edit`.  Por ejemplo, para examinar el SCC **restricted**, use este comando:
 ```bash
 $ oc describe scc restricted
 Name:                   restricted
@@ -72,6 +72,5 @@ Settings:
     Ranges:             <none>
 ```
 ## <a name="next-steps"></a>Pasos siguientes
-Configuración del rol osa-customer-admin:
 > [!div class="nextstepaction"]
-> [Integración de Azure Active Directory con Red Hat OpenShift en Azure](howto-aad-app-configuration.md) 
+> [Creación de un clúster de Red Hat OpenShift en Azure](tutorial-create-cluster.md) 

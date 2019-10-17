@@ -1,21 +1,21 @@
 ---
 title: Almacén de consultas en Azure Database for MySQL
-description: En este artículo se describe la característica Almacén de consultas en Azure Database for MySQL.
+description: Más información sobre la característica Almacén de consultas de Azure Database for MySQL que le ayuda a realizar un seguimiento del rendimiento a lo largo del tiempo.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 884824b6f6fd8bf5b4c7730813c4363fae018375
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: bac270dc0d49c0eaa8c01b030256aa9bb597db80
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950576"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029867"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MySQL con el Almacén de consultas
 
-**Se aplica a:**  Azure Database for MySQL 5.7
+**Se aplica a:** Azure Database for MySQL 5.7
 
 > [!IMPORTANT]
 > El Almacén de consultas está en versión preliminar.
@@ -37,14 +37,14 @@ El Almacén de consultas es una característica opcional, por lo que no está ac
 ### <a name="enable-query-store-using-the-azure-portal"></a>Habilitación del Almacén de consultas mediante Azure Portal
 
 1. Inicie sesión en Azure Portal y seleccione el servidor de Azure Database for MySQL.
-1. Seleccione **Parámetros del servidor** en la sección  **Configuración**  del menú.
+1. Seleccione **Parámetros del servidor** en la sección **Configuración** del menú.
 1. Busque el parámetro query_store_capture_mode.
-1. Establezca el valor en ALL y seleccione  **Guardar**.
+1. Establezca el valor en ALL y seleccione **Guardar**.
 
 Para habilitar las estadísticas de espera en el Almacén de consultas:
 
 1. Busque el parámetro query_store_wait_sampling_capture_mode.
-1. Establezca el valor en ALL y seleccione  **Guardar**.
+1. Establezca el valor en ALL y seleccione **Guardar**.
 
 Espere hasta 20 minutos para que el primer lote de datos se conserve en la base de datos mysql.
 
@@ -78,8 +78,8 @@ Estos son algunos ejemplos de cómo puede obtener más información sobre la car
 | **Observación** | **Acción** |
 |---|---|
 |Largas esperas de bloqueo | Compruebe los textos de consulta para las consultas afectadas e identifique las entidades de destino. Busque en el Almacén de consultas otras consultas que modifiquen la misma entidad, que se ejecuta con frecuencia o tiene una gran duración. Tras identificar estas consultas, considere la posibilidad de cambiar la lógica de aplicación para mejorar la simultaneidad o usar un nivel de aislamiento menos restrictivo. |
-|Largas esperas de E/S de búfer | Encuentre las consultas con un gran número de lecturas físicas en el Almacén de consultas. Si coinciden con las consultas con largas esperas de E/S, considere la posibilidad de introducir un índice en la entidad subyacente para llevar a cabo búsquedas en lugar de exámenes. Esto podría minimizar la sobrecarga de E/S de las consultas. Revise las  **Recomendaciones de rendimiento** para el servidor en el portal a fin de comprobar si hay recomendaciones de índices para este servidor que optimizarían las consultas. |
-|Largas esperas de memoria | Encuentre las consultas que más memoria consumen en el Almacén de consultas. Estas consultas probablemente retrasan el progreso de las consultas afectadas. Revise las  **Recomendaciones de rendimiento** para el servidor en el portal a fin de comprobar si hay recomendaciones de índices que optimizarían estas consultas.|
+|Largas esperas de E/S de búfer | Encuentre las consultas con un gran número de lecturas físicas en el Almacén de consultas. Si coinciden con las consultas con largas esperas de E/S, considere la posibilidad de introducir un índice en la entidad subyacente para llevar a cabo búsquedas en lugar de exámenes. Esto podría minimizar la sobrecarga de E/S de las consultas. Compruebe las **Recomendaciones de rendimiento** para el servidor en el portal para ver si hay recomendaciones de índices para este servidor que optimizarían las consultas. |
+|Largas esperas de memoria | Encuentre las consultas que más memoria consumen en el Almacén de consultas. Estas consultas probablemente retrasan el progreso de las consultas afectadas. Compruebe las **Recomendaciones de rendimiento** para el servidor en el portal para ver si hay recomendaciones de índices que optimizarían estas consultas.|
 
 ## <a name="configuration-options"></a>Opciones de configuración
 
@@ -108,7 +108,7 @@ Use  [Azure Portal](howto-server-parameters.md) o la [CLI de Azure](howto-con
 
 ## <a name="views-and-functions"></a>Funciones y vistas
 
-Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario en el [rol público con privilegios seleccionado](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) puede usar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **mysql**. 
+Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario en el [rol público con privilegios seleccionado](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) puede usar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **mysql**.
 
 Las consultas se normalizan examinando su estructura después de quitar los literales y constantes. Si dos consultas son idénticas salvo por los valores literales, tienen el mismo hash.
 

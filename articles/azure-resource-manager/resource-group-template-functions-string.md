@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: c30bb47f3f35663a6ffcfc0126758eb82c9dec4e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 93f17ea9d2ffa33d1dca9da3eb60f75165e8ed61
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194775"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973334"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
 
@@ -1097,7 +1097,7 @@ Solo puede usar esta función dentro de una expresión para el valor predetermin
 
 La función newGuid difiere de la función [guid](#guid) en que no toma ningún parámetro. Cuando se llama a guid con el mismo parámetro, devuelve el mismo identificador cada vez. Use guid cuando necesite generar de forma confiable el mismo GUID para un entorno específico. Use newGuid cuando necesite un identificador diferente cada vez, como en la implementación de recursos en un entorno de prueba.
 
-Si usa la [opción de volver a implementar una implementación que se completó correctamente en un momento anterior](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails) y esa implementación anterior incluye un parámetro que usa newGuid, el parámetro no se vuelve a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
+Si usa la [opción de volver a implementar una implementación que se completó correctamente en un momento anterior](rollback-on-error.md) y esa implementación anterior incluye un parámetro que usa newGuid, el parámetro no se vuelve a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
 
 En un entorno de prueba, es posible que deba implementar repetidamente recursos que solo duran un corto tiempo. En lugar de construir nombres únicos, puede usar newGuid con [uniqueString](#uniquestring) para crear nombres únicos.
 
@@ -1914,10 +1914,26 @@ Crea un URI absoluto mediante la combinación de la cadena de relativeUri y base
 
 | Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sí |string |La cadena de uri base. |
+| baseUri |Sí |string |La cadena de uri base. Preste atención para observar el comportamiento relacionado con el control de la barra diagonal final ("/"), tal y como se describe a continuación en esta tabla.  |
 | relativeUri |Sí |string |La cadena de uri relativo que se agregará a la cadena de uri base. |
 
-El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar `http://contoso.com/resources/azuredeploy.json` como parámetro baseUri, se obtiene como resultado un identificador URI base de `http://contoso.com/resources/`.
+* Si **baseUri** termina en una barra diagonal final, el resultado es simplemente **baseUri** seguido de **relativeUri**.
+
+* Si **baseUri** no termina en una barra diagonal final, se produce una de estas dos opciones.  
+
+   * Si **baseUri** no tiene barras diagonales (aparte de "//" al principio), el resultado es simplemente **baseUri** seguido de **relativeUri**.
+
+   * Si **baseUri** tiene algunas barras diagonales, pero no termina con una barra diagonal, se elimina todo lo que hay a partir de la última barra diagonal de **baseUri** y el resultado es **baseUri** seguido de **relativeUri**.
+     
+Estos son algunos ejemplos:
+
+```
+uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
+uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
+```
+Para obtener detalles completos, los parámetros **baseUri** y **relativeUri** se resuelven como se especifica en [la sección 5 de la especificación RFC 3986](https://tools.ietf.org/html/rfc3986#section-5).
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -2094,7 +2110,7 @@ Devuelve el valor de fecha y hora (UTC) actual en el formato especificado. Si no
 
 Solo puede usar esta función dentro de una expresión para el valor predeterminado de un parámetro. El uso de esta función en cualquier otro lugar de una plantilla genera un error. La función no se permite en otras partes de la plantilla porque devuelve un valor diferente cada vez que se le llama. La implementación de la misma plantilla con los mismos parámetros no produciría de forma confiable los mismos resultados.
 
-Si usa la [opción de volver a implementar una implementación que se completó correctamente en un momento anterior](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails) y esa implementación anterior incluye un parámetro que usa utcNow, el parámetro no se vuelve a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
+Si usa la [opción de volver a implementar una implementación que se completó correctamente en un momento anterior](rollback-on-error.md) y esa implementación anterior incluye un parámetro que usa utcNow, el parámetro no se vuelve a evaluar. En su lugar, el valor del parámetro de la implementación anterior se reutiliza automáticamente en la implementación de reversión.
 
 Tenga cuidado al volver a implementar una plantilla que se base en la función utcNow para un valor predeterminado. Si vuelve a implementar y no proporciona un valor para el parámetro, la función se vuelve a evaluar. Si desea actualizar un recurso existente en lugar de crear uno nuevo, pase el valor de parámetro de la implementación anterior.
 

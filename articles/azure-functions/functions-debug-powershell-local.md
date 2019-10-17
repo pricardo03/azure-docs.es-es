@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: fc30a2efb21d5b7f3168d9229ec5baf9a7f05eb1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5b396ef6b00d53a313ed4fb426685c12e2c1549d
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706426"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981848"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Depuración local de Azure Functions de PowerShell
 
@@ -134,6 +134,9 @@ La operación de inicio de la depuración realiza las siguientes tareas:
 * Ejecuta `func extensions install` en el terminal para instalar las extensiones de Azure Functions que requiere la aplicación de funciones.
 * Ejecuta `func host start` en el terminal para iniciar la aplicación de funciones en el host de Functions.
 * Asocia el depurador de PowerShell con espacio de ejecución de PowerShell del entorno de ejecución de Functions.
+
+>[!NOTE]
+> Debe asegurarse de que PSWorkerInProcConcurrencyUpperBound esté establecido en 1 para garantizar una experiencia de depuración correcta en Visual Studio Code. Este es el valor predeterminado.
 
 Con la aplicación de funciones en ejecución, necesita una consola de PowerShell independiente para llamar a la función desencadenada por HTTP.
 

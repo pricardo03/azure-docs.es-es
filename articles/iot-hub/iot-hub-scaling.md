@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 8d7bb201a9d01725f933105a4a0beb85c82ca105
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: d1de29124825a7f398b9722bb2455d1105e9c9f7
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203701"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023649"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
@@ -39,7 +39,7 @@ Solo se puede elegir un tipo de [edición](https://azure.microsoft.com/pricing/d
 | ---------- | ---------- | ------------- |
 | [Telemetría del dispositivo a la nube](iot-hub-devguide-messaging.md) | Sí | Sí |
 | [Identidad por dispositivo](iot-hub-devguide-identity-registry.md) | Sí | Sí |
-| [Enrutamiento de mensajes](iot-hub-devguide-messages-read-custom.md) e [integración con Event Grid](iot-hub-event-grid.md) | Sí | Sí |
+| [Enrutamiento de mensajes](iot-hub-devguide-messages-read-custom.md), [enriquecimientos de mensajes](iot-hub-message-enrichments-overview.md) e [integración con Event Grid](iot-hub-event-grid.md) | Sí | Sí |
 | [Protocolos HTTP, AMQP y MQTT](iot-hub-devguide-protocols.md) | Sí | Sí |
 | [Servicio Device Provisioning](../iot-dps/about-iot-dps.md) | Sí | Sí |
 | [Supervisión y diagnóstico](iot-hub-monitor-resource-health.md) | Sí | Sí |

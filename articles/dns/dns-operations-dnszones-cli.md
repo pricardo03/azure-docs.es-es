@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
-ms.openlocfilehash: df741b34e1268c547723af87401760197d395780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14d0512a10329f36872d111825261ebc5ef71976
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61293836"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959383"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Cómo administrar zonas DNS en Azure DNS con la CLI de Azure
 
@@ -68,8 +68,8 @@ Elección de la suscripción de Azure que se va a usar.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Opcional: Para instalar o usar la característica Azure DNS Private Zones (versión preliminar pública)
-La característica Azure DNS Private Zones se publica en versión preliminar pública a través de una extensión de la CLI de Azure. Instale la extensión de la CLI de Azure de "dns" 
+### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Opcional: Para instalar o usar la característica Azure DNS Private Zones
+La característica Azure DNS Private Zones está disponible en una extensión de la CLI de Azure. Instale la extensión de la CLI de Azure de "dns" 
 ```
 az extension add --name dns
 ``` 

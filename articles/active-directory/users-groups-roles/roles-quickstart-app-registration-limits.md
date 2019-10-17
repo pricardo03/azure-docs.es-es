@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f883741577de22f66cd7a9bfaf733aa3c59b879b
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c91de3de743d168bea207f27fb162486ea625a63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707473"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026288"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Inicio rápido: Concesión de permisos para crear registros de aplicaciones ilimitados
 
@@ -33,7 +33,7 @@ El rol con menos privilegios necesario para crear y asignar roles personalizados
 ## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Creación de un nuevo rol personalizado mediante el portal de Azure AD
 
 1. Inicie sesión en el  [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
-1. Seleccione **Azure Active Directory**, elija  **Roles y administradores** y, luego, seleccione  **Nuevo rol personalizado**.
+1. Seleccione**Azure Active Directory**, elija **Roles y administradores** y, luego, seleccione **Nuevo rol personalizado**.
 
     ![Creación o edición de roles en la página Roles y administradores](./media/roles-create-custom/new-custom-role.png)
 
@@ -50,7 +50,7 @@ El rol con menos privilegios necesario para crear y asignar roles personalizados
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Asignación del rol a un usuario mediante Azure AD portal
 
 1. Inicie sesión en el  [centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios o de administrador global en la organización de Azure AD.
-1. Seleccione **Azure Active Directory** y elija  **Roles y administradores**.
+1. Seleccione**Azure Active Directory** y elija **Roles y administradores**.
 1. Seleccione el rol Creador del registro de aplicaciones y elija **Agregar asignación**.
 1. Seleccione el usuario que desee y haga clic en **Seleccionar** para agregar el usuario al rol.
 

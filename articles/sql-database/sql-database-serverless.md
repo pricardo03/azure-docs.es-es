@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828229"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173398"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database sin servidor (versión preliminar)
 
@@ -326,7 +326,7 @@ Suponga que el precio de la unidad de proceso es 0,000073 $/núcleo virtual/seg
 
 ## <a name="available-regions"></a>Regiones disponibles
 
-El nivel de proceso sin servidor está disponible en todas las regiones excepto las siguientes: Centro de Australia, Este de China, Norte de China, Sur de Francia, Centro de Alemania, Nordeste de Alemania, India occidental, Sur de Corea del Sur, Oeste de Sudáfrica, Norte de Reino Unido, Sur de Reino Unido, Oeste de Reino Unido y Centro-oeste de EE. UU.
+El nivel de proceso sin servidor está disponible en todas las regiones excepto las siguientes: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Norte de Reino Unido, Sur de Reino Unido 2, Centro-oeste de EE. UU.y US Gov Central (Iowa).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

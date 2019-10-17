@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1a9f3eb0ea79a0cd79850e721d081b00dc582a31
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4bd1386c68f3173c19b282c1e01ecff545c4bcd7
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695276"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972065"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Orígenes de datos para el contenido de QnA Maker
 
@@ -34,9 +34,9 @@ En la tabla siguiente se resumen los tipos de contenido y los formatos de archiv
 |*Excel|Archivo de preguntas y respuestas estructurado<br> (incluye compatibilidad con RTF y HTML)|[Preguntas más frecuentes de preguntas y respuestas de ejemplo.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |*TXT/TSV|Archivo de preguntas y respuestas estructurado|[Charla de ejemplo.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
-**Los archivos TSV y XLS**, de las bases de conocimiento exportadas, solo se pueden usar importando los archivos de la página **Configuración** en el portal QnA Maker. No se pueden usar como fuentes de datos durante la creación de la base de conocimiento o desde la función de agregar archivo o URL en la página **Configuración**. 
+### <a name="import-and-export-knowledge-base"></a>Importación y exportación de la base de conocimiento
 
-Obtenga más información sobre el uso de [documentos multiturno](). 
+**Los archivos TSV y XLS**, de las bases de conocimiento exportadas, solo se pueden usar importando los archivos de la página **Configuración** en el portal QnA Maker. No se pueden usar como orígenes de datos durante la creación de la base de conocimiento ni desde las funciones **+ Agregar archivo** o **+ Agregar URL** de la página **Configuración**. 
 
 ## <a name="data-source-locations"></a>Ubicaciones de orígenes de datos
 

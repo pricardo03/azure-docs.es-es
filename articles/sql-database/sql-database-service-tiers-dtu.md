@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e735d8832912f5b512b7cfe015ca47efbe641da7
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773207"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000435"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 
@@ -35,7 +35,7 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 | :-- | --: |--:| --:|
 |Carga de trabajo de destino|Desarrollo y producción|Desarrollo y producción|Desarrollo y producción|
 |Acuerdo de Nivel de Servicio de tiempo de actividad|99,99%|99,99%|99,99%|
-|Retención de copias de seguridad|7 días|35 días|35 días|
+|Retención de copia de seguridad máxima|7 días|35 días|35 días|
 |CPU|Bajo|Bajo, medio, alto|Medio, alto|
 |Rendimiento de E/S (aproximado) |1 a 5 IOPS por DTU| 1 a 5 IOPS por DTU | 25 IOPS por DTU|
 |Latencia de E/S (aproximada)|5 ms (lectura), 10 ms (escritura)|5 ms (lectura), 10 ms (escritura)|2 ms (lectura/escritura)|
