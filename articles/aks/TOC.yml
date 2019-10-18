@@ -304,19 +304,33 @@
           href: spark-job.md
         - name: Uso de GPU
           href: gpu-cluster.md
-        - name: Uso de Istio
-          items:
-            - name: Instalación y configuración
-              href: istio-install.md
-            - name: Enrutamiento inteligente y lanzamientos controlados
-              href: istio-scenario-routing.md
-        - name: Uso de Hashicorp Consul Connect
-          items:
-            - name: Instalación y configuración
-              href: consul-install.md
         - name: Uso de Azure Database para PostgreSQL
           href: ../postgresql/concepts-aks.md
           maintainContext: true
+    - name: Selección e implementación de una malla de servicio
+      items:
+        - name: Acerca de las mallas de servicio
+          href: servicemesh-about.md
+        - name: Uso de Istio
+          items:
+            - name: Acerca de Istio
+              href: servicemesh-istio-about.md
+            - name: Instalación y configuración
+              href: servicemesh-istio-install.md
+            - name: 'Escenario: enrutamiento inteligente y versiones controladas'
+              href: servicemesh-istio-scenario-routing.md
+        - name: Uso de Linkerd
+          items:
+            - name: Acerca de Linkerd
+              href: servicemesh-linkerd-about.md
+            - name: Instalación y configuración
+              href: servicemesh-linkerd-install.md
+        - name: Uso de Consul
+          items:
+            - name: Acerca de Consul
+              href: servicemesh-consul-about.md
+            - name: Instalación y configuración
+              href: servicemesh-consul-install.md
     - name: DevOps
       items:
         - name: Uso de Ansible para crear clústeres de AKS
