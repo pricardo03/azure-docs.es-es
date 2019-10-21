@@ -248,6 +248,16 @@
               href: storage-blob-containers-list.md
             - name: Administración de propiedades y metadatos (.NET)
               href: storage-blob-container-properties-metadata.md
+        - name: Creación y administración de blobs
+          items:
+            - name: Enumeración de blobs (.NET)
+              href: storage-blobs-list.md
+            - name: Administración de propiedades y metadatos de blobs (.NET)
+              href: storage-blob-properties-metadata.md
+            - name: Copia de un BLOB (.NET)
+              href: storage-blob-copy.md
+            - name: Creación y administración de instantáneas de blobs (.NET)
+              href: storage-blob-snapshots.md
         - name: Protección de los datos de blob
           items:
             - name: Autorización del acceso a datos de blob

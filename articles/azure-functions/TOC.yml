@@ -75,9 +75,9 @@
       href: functions-cli-samples.md
 - name: Conceptos
   items:
-    - name: Comparación entre las versiones 1.x y 2.x
+    - name: Comparación de versiones del runtime
       href: functions-versions.md
-      displayName: 'migrate, migration'
+      displayName: 'migrate, migration, v3'
     - name: Plan Premium
       href: functions-premium-plan.md
     - name: Implementaciones

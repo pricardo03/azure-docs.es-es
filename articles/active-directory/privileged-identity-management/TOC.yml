@@ -83,6 +83,8 @@
           href: azure-pim-resource-rbac.md
         - name: Uso de roles personalizados
           href: pim-resource-roles-custom-role-policy.md
+    - name: Solución de problemas de Privileged Identity Management
+      href: pim-troubleshoot.md
     - name: Revisiones de acceso
       items:
         - name: Roles de Azure AD
