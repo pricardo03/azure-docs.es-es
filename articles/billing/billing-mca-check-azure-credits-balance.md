@@ -11,22 +11,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ea3fc21891f1e4d4e744449032a4b2cfcdfbb2f0
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4eae7299ab696b01c57a27fd46cbf903c9395152
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177530"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375534"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Seguimiento del saldo del crédito de Azure para el contrato de cliente de Microsoft
 
-Puede consultar el saldo del crédito de Azure para el contrato de cliente de Microsoft en Azure Portal. Los créditos se utilizan para pagar cargos que están cubiertos por el importe de los créditos.
+Puede consultar el saldo del crédito de Azure para la cuenta de facturación de un contrato de cliente de Microsoft en Azure Portal. 
 
-Se le cobrará cuando utilice productos que no estén cubiertos por los créditos o cuando su uso exceda el saldo del crédito. Para más información, consulte [Productos que no están cubiertos por los créditos de Azure.](#products-that-arent-covered-by-azure-credits).
+Los créditos se utilizan para pagar cargos que sean aptos para los créditos. Se le cobrará cuando utilice productos que no sean aptos para los créditos o cuando su uso exceda el saldo del crédito. Para más información, consulte [Productos que no están cubiertos por los créditos de Azure](#products-that-arent-covered-by-azure-credits).
+
+En la cuenta de facturación de un contrato de cliente de Microsoft, los créditos se asignan a un perfil de facturación. Cada perfil de facturación cuenta con sus propios créditos. Debe tener un rol de propietario, colaborador, lector o administrador de facturación en el perfil de facturación o el rol de propietario, colaborador o lector en la cuenta de facturación para ver el saldo del crédito de Azure para un perfil de facturación. Para más información sobre los roles, consulte [Descripción de los roles administrativos del contrato de cliente de Microsoft en Azure](billing-understand-mca-roles.md).
 
 Este artículo se aplica a una cuenta de facturación para un contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="check-your-credit-balance"></a>Comprobación del saldo del crédito
+## <a name="check-your-credit-balance-in-the-azure-portal"></a>Comprobación del saldo del crédito en Azure Portal
 
 1. Inicie sesión en el [Azure Portal]( https://portal.azure.com).
 
@@ -44,9 +46,9 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
    |--------------------|--------------------------------------------------------|
    | Saldo estimado  | Es la cantidad estimada de crédito del que dispone teniendo en cuenta todas las transacciones pendientes y no liquidadas. |
    | Saldo actual    | Es la cantidad de créditos desde la última factura. No incluye las transacciones pendientes. |
-   | Transacciones       | Todas las transacciones de facturación que han afectado al saldo del crédito de Azure |
+   | Transacciones       | Transacciones de facturación que han afectado al saldo del crédito de Azure |
 
-   Cuando su saldo estimado desciende a 0, se le cobrará por todo su uso, incluidos los productos que están cubiertos por créditos.
+   Cuando su saldo estimado desciende a 0, se le cobrará por todo su uso, incluidos los productos que son aptos para los créditos.
 
 6. Seleccione **Lista de crédito** para ver la lista de créditos para el perfil de facturación. La lista de créditos proporciona la siguiente información:
 
@@ -54,20 +56,280 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
 
    | Término | Definición |
    |---|---|
-   | Saldo estimado | Importe del crédito de Azure que queda después de restarle al saldo actual los cargos elegibles de crédito no facturados|
-   | Saldo actual | Importe del crédito de Azure que tiene antes de considerar los cargos elegibles de crédito no facturados. Se calcula mediante la suma de los créditos de Azure nuevos que recibió y el saldo del crédito en el momento de la última factura|
    | Source | El origen de la adquisición del crédito |
    | Fecha de inicio | La fecha en la que se adquirió el crédito |
    | Fecha de expiración | Cuando expira el crédito |
-   | Saldo | El saldo desde la última factura |
+   | Saldo actual | El saldo desde la última factura |
    | Importe original | El importe original del crédito |
    | Status | El estado actual del crédito. El estado puede ser activo, usado, expirado o en proceso de expiración |
+
+## <a name="check-your-credit-balance-programmatically"></a>Comprobación del saldo del crédito mediante programación
+
+Puede usar las API de [facturación de Azure](https://docs.microsoft.com/rest/api/billing/) y de [consumo](https://docs.microsoft.com/rest/api/consumption/) para obtener mediante programación el saldo del crédito de la cuenta de facturación.
+
+Los ejemplos que se muestran a continuación usan las API de REST. Actualmente, no están admitidos PowerShell ni la CLI de Azure.
+
+### <a name="find-billing-profiles-you-have-access-to"></a>Búsqueda de perfiles de facturación a los que se tiene acceso
+
+```json
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?$expand=billingProfiles&api-version=2019-10-01-preview
+```
+La respuesta de la API devuelve una lista de cuentas de facturación y sus perfiles de facturación.
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx",
+      "name": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx",
+      "properties": {
+        "accountId": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "accountStatus": "Active",
+        "accountType": "Enterprise",
+        "agreementType": "MicrosoftCustomerAgreement",
+        "billingProfiles": [
+          {
+            "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx",
+            "name": "PBFV-xxxx-xxx-xxx",
+            "properties": {
+              "address": {
+                "addressLine1": "AddressLine1",
+                "city": "City",
+                "companyName": "CompanyName",
+                "country": "Country",
+                "postalCode": "xxxxx",
+                "region": "Region"
+              },
+              "currency": "USD",
+              "displayName": "Development",
+              "hasReadAccess": true,
+              "invoiceDay": 5,
+              "invoiceEmailOptIn": true
+            },
+            "type": "Microsoft.Billing/billingAccounts/billingProfiles"
+          }
+        ],
+        "displayName": "Contoso",
+        "hasReadAccess": true,
+      },
+      "type": "Microsoft.Billing/billingAccounts"
+    }
+  ]
+}
+```
+
+Use la propiedad `displayName` del perfil de facturación para identificar el perfil de facturación para el que desea comprobar el saldo del crédito. Copie `id` del perfil de facturación. Por ejemplo, si desea comprobar el saldo del crédito del perfil de facturación **Development**, debe copiar ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
+
+### <a name="get-azure-credit-balance"></a>Obtención del saldo del crédito de Azure 
+
+Realice la siguiente solicitud; para ello, reemplace `<billingProfileId>` por el elemento `id` copiado en el primer paso (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
+
+```json
+GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
+```
+
+La respuesta de la API devuelve el saldo estimado y actual para el perfil de facturación.
+
+```json
+{
+  "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx/providers/Microsoft.Consumption/credits/balanceSummary/57c2e8df-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "57c2e8df-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "type": "Microsoft.Consumption/credits/balanceSummary",
+  "eTag": null,
+  "properties": {
+    "balanceSummary": {
+      "estimatedBalance": {
+        "currency": "USD",
+        "value": 996.13
+      },
+      "currentBalance": {
+        "currency": "USD",
+        "value": 997.87
+      }
+    },
+    "pendingCreditAdjustments": {
+      "currency": "USD",
+      "value": 0.0
+    },
+    "expiredCredit": {
+      "currency": "USD",
+      "value": 0.0
+    },
+    "pendingEligibleCharges": {
+      "currency": "USD",
+      "value": -1.74
+    }
+  }
+}
+```
+
+| Nombre del elemento  | DESCRIPCIÓN                                                                           |
+|---------------|---------------------------------------------------------------------------------------|
+| `estimatedBalance` | La cantidad estimada de créditos de la que dispone teniendo en cuenta todas las transacciones facturadas y pendientes. |
+| `currentBalance`   | La cantidad de créditos desde la última factura. No incluye las transacciones pendientes.    |
+| `pendingCreditAdjustments`      | Los ajustes, como reembolsos, que aún no se han facturado.  |
+| `expiredCredit`      |  El crédito que expiró desde la última factura.  |
+| `pendingEligibleCharges`  | Los cargos aptos para el crédito que aún no se han facturado.   |
+
+### <a name="get-list-of-credits"></a>Obtención de listas de créditos
+
+Realice la siguiente solicitud; para ello, reemplace `<billingProfileId>` por el elemento `id` copiado en el primer paso (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
+
+```json
+GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2019-10-01
+```
+La respuesta de la API devuelve listas de créditos de Azure para un perfil de facturación.
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx/providers/Microsoft.Consumption/lots/f2ecfd94-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "f2ecfd94-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Consumption/lots",
+      "eTag": null,
+      "properties": {
+        "originalAmount": {
+          "currency": "USD",
+          "value": 500.0
+        },
+        "closedBalance": {
+          "currency": "USD",
+          "value": 500.0
+        },
+        "source": "Azure Promotional Credit",
+        "startDate": "09/18/2019 21:47:31",
+        "expirationDate": "09/18/2020 21:47:30",
+        "poNumber": ""
+      }
+    },
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/xxxx-xxxx-xxx-xxx/providers/Microsoft.Consumption/lots/4ea40eb5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4ea40eb5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Consumption/lots",
+      "eTag": null,
+      "properties": {
+        "originalAmount": {
+          "currency": "USD",
+          "value": 500.0
+        },
+        "closedBalance": {
+          "currency": "USD",
+          "value": 497.87
+        },
+        "source": "Azure Promotional Credit",
+        "startDate": "09/18/2019 21:47:31",
+        "expirationDate": "09/18/2020 21:47:30",
+        "poNumber": ""
+      }
+    }
+  ]
+}
+```
+| Nombre del elemento  | DESCRIPCIÓN                                                                                               |
+|---------------|-----------------------------------------------------------------------------------------------------------|
+| `originalAmount` | El importe original del crédito. |
+| `closedBalance`   | El saldo desde la última factura.    |
+| `source`      | El origen que define quién ha adquirido el crédito. |
+| `startDate`      |  La fecha en la que se ha activado el crédito.  |
+| `expirationDate`  | La fecha en la que expira el crédito.   |
+| `poNumber`  | El número de pedido de compra de la factura en la que se ha facturado el crédito.   |
+
+### <a name="get-transactions-that-affected-credit-balance"></a>Obtención de transacciones que afectan al saldo del crédito
+
+Realice la siguiente solicitud; para ello, reemplace `<billingProfileId>` por el elemento `id` copiado en el primer paso (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). Deberá pasar **startDate** y **endDate** a fin de obtener las transacciones para la duración que necesita.
+
+```json
+GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/events?api-version=2019-10-01&startDate=2018-10-01T00:00:00.000Z&endDate=2019-10-11T12:00:00.000Z?api-version=2019-10-01
+```
+La respuesta de la API devuelve todas las transacciones que afectan al saldo del crédito de su perfil de facturación.
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx`/providers/Microsoft.Consumption/events/e2032eb5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "e2032eb5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Consumption/events",
+      "eTag": null,
+      "properties": {
+        "transactionDate": "10/11/2019",
+        "description": "Credit eligible charges as of 10/11/2019",
+        "newCredit": {
+          "currency": "USD",
+          "value": 0.0
+        },
+        "adjustments": {
+          "currency": "USD",
+          "value": 0.0
+        },
+        "creditExpired": {
+          "currency": "USD",
+          "value": 0.0
+        },
+        "charges": {
+          "currency": "USD",
+          "value": -1.74
+        },
+        "closedBalance": {
+          "currency": "USD",
+          "value": 998.26
+        },
+        "eventType": "PendingCharges",
+        "invoiceNumber": ""
+      }
+    },
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx/providers/Microsoft.Consumption/events/381efd80-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "381efd80-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Consumption/events",
+      "eTag": null,
+      "properties": {
+        "transactionDate": "09/18/2019",
+        "description": "New credit added on 09/18/2019",
+        "newCredit": {
+          "currency": "USD",
+          "value": 500.0
+        },
+        "adjustments": {
+          "currency": "USD",
+          "value": 0.0
+        },
+        "creditExpired": {
+          "currency": "USD",
+          "value": 0.0
+        },
+        "charges": {
+          "currency": "USD",
+          "value": 0.0
+        },
+        "closedBalance": {
+          "currency": "USD",
+          "value": 1000.0
+        },
+        "eventType": "PendingNewCredit",
+        "invoiceNumber": ""
+      }
+    }
+  ]
+}
+```
+| Nombre del elemento  | DESCRIPCIÓN                                                                                               |
+|---------------|-----------------------------------------------------------------------------------------------------------|
+| `transactionDate` | La fecha en la que ha tenido lugar la transacción. |
+| `description` | La descripción de la transacción. |
+| `adjustments`   | Los ajustes de crédito de la transacción.    |
+| `creditExpired`      | El importe del crédito que ha expirado. |
+| `charges`      |  Los cargos de la transacción.  |
+| `closedBalance`  | El saldo después de la transacción.   |
+| `eventType`  | El tipo de transacción.   |
+| `invoiceNumber`  | El número de la factura en que se factura la transacción. Estará vacío para las transacciones pendientes.   |
 
 ## <a name="how-credits-are-used"></a>Uso de los créditos
 
 En una cuenta de facturación para un contrato de cliente de Microsoft, utilizará perfiles de facturación que le permiten administrar las facturas y los métodos de pago. Se crea una factura mensual para cada perfil de facturación y utilizará los métodos de pago para pagar la factura.
 
-Los créditos de Azure son uno de los métodos de pago. Obtiene crédito de Microsoft como crédito promocional y crédito de nivel de servicio. Estos créditos se asignan a un perfil de facturación. Cuando se genera una factura para el perfil de facturación, los créditos se aplican automáticamente a la cantidad total facturada para calcular la cantidad que tiene que pagar. Paga el importe restante con otro método de pago, como cheque o transferencia bancaria.
+Asigna créditos que adquiere para un perfil de facturación. Cuando se genera una factura para el perfil de facturación, los créditos se aplican automáticamente a los cargos totales para calcular la cantidad que tiene que pagar. Paga el importe restante con sus métodos de pago, como cheque, transferencia bancaria o tarjeta de crédito.
 
 ## <a name="products-that-arent-covered-by-azure-credits"></a>Productos que no están cubiertos por los créditos de Azure
 

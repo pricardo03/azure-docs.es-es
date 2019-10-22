@@ -1,17 +1,17 @@
 ---
-title: Creación de una directiva para los recursos no compatibles mediante Azure PowerShell
+title: Creación de una directiva para auditar recursos con PowerShell
 description: Use Azure PowerShell para crear una asignación de Azure Policy para identificar recursos no compatibles.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
-ms.openlocfilehash: 7e86436b1b87ab4eec3a971ec19e7dc0ffb106b3
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 55b7d8509fcf681438b377aa43f5f8aa9bac158d
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978125"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255920"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante Azure PowerShell
 
