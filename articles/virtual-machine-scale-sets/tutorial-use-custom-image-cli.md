@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aafec48f86ee032b112e9bb1100f82fbb3b363ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6368a36eaa2e6832f22a13f20bc35d66c4425b4b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170511"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311582"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
@@ -98,6 +98,8 @@ az vm generalize --resource-group myResourceGroup --name myVM
 La desasignación y generalización de la máquina virtual puede tardar unos minutos.
 
 Ahora cree una imagen de la máquina virtual con [az image create](/cli//azure/image). En el ejemplo siguiente se crea una imagen llamada *myImage* a partir de la máquina virtual:
+
+> [NOTA] Si la ubicación del grupo de recursos y de la máquina virtual son diferentes, puede agregar el parámetro `--location` a los siguientes comandos para especificar la ubicación de la máquina virtual de origen que se usó para crear la imagen. 
 
 ```azurecli-interactive
 az image create \

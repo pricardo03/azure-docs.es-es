@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Implementación de contenedor de Docker en Azure Container Instances - CLI'
+title: 'Inicio rápido: Implementación de contenedor de Docker en Azure Container Instances: CLI de Azure'
 description: En este inicio rápido, usará la CLI de Azure para implementar rápidamente una aplicación web en contenedores que se ejecuta en una instancia de contenedor aislada de Azure
 services: container-instances
 author: dlepow
@@ -8,13 +8,16 @@ ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
-ms.custom: seodec18, mvc
-ms.openlocfilehash: b344e5fefdef6cd25dcafc0577b9fbbd7f0e398d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.custom:
+- seo-python-october2019
+- seodec18
+- mvc
+ms.openlocfilehash: 65c067792499017a7e00fdbb6199e591981683f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050630"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429199"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Inicio rápido: Implementación de una instancia de contenedor en Azure mediante la CLI de Azure
 
@@ -22,7 +25,7 @@ Use Azure Container Instances para ejecutar contenedores de Docker sin servidor 
 
 En esta guía de inicio rápido, va a usar la CLI de Azure para implementar un contenedor de Docker aislado y hacer que su aplicación esté disponible con un nombre de dominio completo (FQDN). Unos pocos segundos después de ejecutar un comando de implementación único, puede ir a la aplicación que se ejecuta en el contenedor:
 
-![Aplicación implementada en Azure Container Instances vista en el explorador][aci-app-browser]
+![Visualización de una aplicación implementada en Azure Container Instances en el explorador][aci-app-browser]
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita][azure-account] antes de empezar.
 
@@ -69,7 +72,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 
 Si el estado `ProvisioningState` del contenedor es **Correcto**, vaya a su FQDN en el explorador. Si ve una página web parecida a la siguiente, enhorabuena. Ha implementado correctamente una aplicación que se ejecuta en un contenedor de Docker en Azure.
 
-![Captura de pantalla del explorador que muestra una aplicación en ejecución en una instancia de contenedor de Azure][aci-app-browser]
+![Visualización de una aplicación implementada en Azure Container Instances en el explorador][aci-app-browser]
 
 Si al principio no aparece la aplicación, espere unos segundos mientras se propaga el DNS y, a continuación, pruebe a actualizar el explorador.
 
@@ -155,7 +158,7 @@ En este inicio rápido, ha creado una instancia de contenedor de Azure a partir 
 Para probar opciones de ejecución de contenedores en un sistema de orquestación en Azure, consulte los inicios rápidos de [Azure Kubernetes Service (AKS)][container-service].
 
 <!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[aci-app-browser]: ./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

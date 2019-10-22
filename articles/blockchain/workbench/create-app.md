@@ -1,21 +1,21 @@
 ---
-title: Creación de una aplicación de cadena de bloques en Azure Blockchain Workbench
+title: 'Creación de una aplicación de cadena de bloques: Azure Blockchain Workbench'
 description: Tutorial sobre cómo crear una aplicación de cadena de bloques en Azure Blockchain Workbench (versión preliminar).
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: adc47ecb06c0e2dbfcae7b85aeec284027315e5b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: a7d7c68840999772461655090d0213ada0997a7a
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845162"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329101"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Tutorial: Creación de una aplicación de cadena de bloques en Azure Blockchain Workbench
 

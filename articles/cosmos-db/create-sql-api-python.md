@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Compilación de una aplicación con Python y SQL API'
+title: 'Inicio rápido: Compilación de una aplicación de Python con una cuenta de SQL API de Azure Cosmos DB'
 description: En este tema se presenta un código de ejemplo de Python que se puede usar para conectarse a SQL API de Azure Cosmos DB y realizar consultas.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,18 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: f085ca6de2c04caa90c34bc1293da1210d2883eb
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.custom:
+- seodec18
+- seo-javascript-september2019
+- seo-python-october2019
+ms.openlocfilehash: 3e328d242bccd9f2ab037131d3fcce585bc6b8da
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020152"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432802"
 ---
-# <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Compilación de una aplicación Python mediante una cuenta de SQL API de Azure Cosmos DB
+# <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Compilación de una aplicación de Python mediante una cuenta de SQL API de Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -25,9 +29,11 @@ ms.locfileid: "70020152"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
+En esta guía de inicio rápido se muestra cómo crear una cuenta de [SQL API](sql-api-introduction.md) de Azure Cosmos DB, una base de datos de documentos y un contenedor mediante Azure Portal. Luego se compila y se ejecuta una aplicación de consola compilada con el SDK de Python para [SQL API](sql-api-sdk-python.md).
+
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear y consultar documentos, claves y valores, columnas anchas y bases de datos de grafos rápidamente. Todas estas operaciones se benefician de la distribución y la escalabilidad de Azure Cosmos DB.
 
-En esta guía de inicio rápido se muestra cómo crear una cuenta de [SQL API](sql-api-introduction.md) de Azure Cosmos DB, una base de datos de documentos y un contenedor mediante Azure Portal. Luego se compila y se ejecuta una aplicación de consola compilada con el SDK de Python para [SQL API](sql-api-sdk-python.md). Este inicio rápido usa la versión 3.0 del [SDK de Python](https://pypi.org/project/azure-cosmos).
+Este inicio rápido usa la versión 3.0 del [SDK de Python](https://pypi.org/project/azure-cosmos).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)][!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -86,7 +92,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En [Azure Portal](https://portal.azure.com/), en la cuenta de Azure Cosmos, en el panel de navegación izquierdo, haga clic en **Claves**. Tiene que usar los botones de copia del lado derecho de la pantalla para copiar los valores de **URI** y **Clave principal** en el archivo `CosmosGetStarted.py` en el paso siguiente.
 
-    ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-sql-api-dotnet/keys.png)
+    ![Obtención de una clave de acceso y un URI en la configuración de claves de Azure Portal](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
 
 2. Abra el archivo `CosmosGetStarted.py` en \git-samples\azure-cosmos-db-python-getting-started en Visual Studio Code.
 

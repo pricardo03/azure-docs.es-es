@@ -9,73 +9,95 @@ ms.service: azure-functions
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 864a641968268c439c65996998cbb822746b96f9
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: e3a83730e47686e9d4757f057d2e8da4629fdd7a
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838997"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72312143"
 ---
 # <a name="entity-functions-preview"></a>Funciones de entidad (versión preliminar)
 
-Las funciones de entidad definen las operaciones de lectura y actualización de pequeños fragmentos de estado, denominados *entidades duraderas*. Al igual que las funciones de orquestador, las de entidad son funciones con un tipo especial de desencadenador, el *desencadenador de entidad*. A diferencia de las funciones de orquestador, las funciones de entidad no tienen restricciones de código específicas. Las funciones de entidad también administran el estado de forma explícita, en lugar de representarlo de forma implícita a través del flujo de control.
+Las funciones de entidad definen las operaciones de lectura y actualización de pequeños fragmentos de estado, denominados *entidades duraderas*. Al igual que las funciones de orquestador, las de entidad son funciones con un tipo especial de desencadenador, el *desencadenador de entidad*. A diferencia de las funciones de orquestador, las de entidad administran el estado de una entidad de forma explícita, en lugar de representarlo de forma implícita a través del flujo de control.
+Las entidades proporcionan un medio para el escalado horizontal de aplicaciones mediante la distribución del trabajo entre muchas entidades, cada una de ellas con un estado de tamaño modesto.
 
 > [!NOTE]
 > Las funciones de entidad y la funcionalidad relacionada solo están disponibles en Durable Functions 2.0 y versiones superiores. Las funciones de entidad están actualmente en versión preliminar pública.
 
-## <a name="entity-identity"></a>Identidad de la entidad
+## <a name="general-concepts"></a>Conceptos generales
 
-A las entidades (a veces llamadas *instancias* de entidad) se accede mediante un identificador único, el *identificador de entidad*. Un identificador de entidad es simplemente un par de cadenas que identifica de forma exclusiva una instancia de entidad. Consta de:
+Las entidades se comportan de forma algo parecida a pequeños servicios que se comunican mediante mensajes. Cada entidad tiene una identidad única y un estado interno (si existe). Al igual que los servicios u objetos, las entidades realizan operaciones cuando se les pide que lo hagan. Cuando se ejecuta, una operación puede actualizar el estado interno de la entidad. También puede llamar a servicios externos y esperar una respuesta. Las entidades se comunican con otras entidades, orquestaciones y clientes mediante mensajes que se envían implícitamente a través de colas de confianza. 
 
-* Un **nombre de entidad**: nombre que identifica el tipo de la entidad (por ejemplo, "Counter").
+Para evitar conflictos, se garantiza la ejecución en serie de todas las operaciones de una sola entidad, es decir, una después de otra. 
+
+### <a name="entity-id"></a>El identificador de entidad
+A las entidades se accede a través de un identificador único, el *identificador de entidad*. Un identificador de entidad es simplemente un par de cadenas que identifica de forma exclusiva una instancia de entidad. Consta de:
+
+* Un **nombre de entidad**: nombre que identifica el tipo de la entidad (por ejemplo, "Counter"). Este nombre debe coincidir con el nombre de la función que implementa la entidad correspondiente. No distingue entre mayúsculas y minúsculas.
 * Una **clave de entidad**: cadena que identifica de forma exclusiva la entidad entre todas las demás entidades del mismo nombre (por ejemplo, un GUID).
 
 Por ejemplo, se podría usar una función de entidad de *contador* para mantener la puntuación en un juego en línea. Cada instancia del juego tendrá un identificador de entidad único, como `@Counter@Game1`, `@Counter@Game2` y así sucesivamente. Todas las operaciones que tienen como destino una entidad determinada requieren la especificación de un identificador de entidad como parámetro.
 
-## <a name="programming-models"></a>Modelos de programación
+### <a name="entity-operations"></a>Operaciones de entidad ###
 
-Las entidades duraderas admiten dos modelos de programación diferentes. El primer modelo es un modelo "funcional" dinámico en el que la entidad se define mediante una sola función. El segundo modelo es un modelo orientado a objetos en el que la entidad se define mediante una clase y métodos. Estos modelos y los modelos de programación para interactuar con entidades se describen en las secciones siguientes.
+Para invocar una operación en una entidad, hay que especificar
 
-### <a name="defining-entities"></a>Definición de entidades
+* El *identificador de entidad* de la entidad de destino.
+* El *nombre de la operación*, una cadena que especifica la operación que se va a realizar. Por ejemplo, la entidad "Counter" podría admitir las operaciones "add" (agregar), "get" (obtener) o "reset" (restablecer).
+* La *entrada de operación*, que es un parámetro de entrada opcional de la operación. Por ejemplo, la operación "add" (agregar) puede tomar una cantidad entera como entrada.
 
-Hay dos modelos de programación opcionales para crear entidades duraderas. El código siguiente es un ejemplo de una entidad *Counter* simple implementada como una función estándar. Esta función define tres *operaciones* (`add`, `reset` y `get`), cada una de las cuales opera en un valor de estado entero, `currentValue`.
+Las operaciones pueden devolver un valor de resultado o un resultado de error (como un error de JavaScript o una excepción de .NET). Las orquestaciones que llamaron a la operación pueden observar este resultado o error.
+
+Una operación de entidad también puede crear, leer, actualizar y eliminar el estado de la entidad. El estado de la entidad se conserva siempre de forma duradera en el almacenamiento.
+
+## <a name="defining-entities"></a>Definición de entidades
+
+Actualmente se ofrecen dos API diferentes para definir las entidades.
+
+Una **sintaxis basada en funciones** en la que las entidades se representan como funciones y la aplicación envía explícitamente las operaciones. Esta sintaxis funciona bien para las entidades con un estado simple, pocas operaciones o un conjunto dinámico de estas (por ejemplo, en los marcos de trabajo de las aplicaciones). Sin embargo, su mantenimiento puede resultar laborioso, ya que no detecta errores de tipo en tiempo de compilación.
+
+Una **sintaxis basada en clases** en la que las entidades y operaciones se representan como clases y métodos. Esta sintaxis genera código más fácilmente legible y permite invocar operaciones con seguridad de tipos. La sintaxis basada en clases es simplemente una fina capa encima de la sintaxis basada en funciones, por lo que ambas variantes se pueden usar indistintamente en la misma aplicación.
+
+### <a name="example-function-based-syntax"></a>Ejemplo: Sintaxis basada en funciones
+
+El código siguiente es un ejemplo de una entidad *Counter* simple implementada como una función duradera. Esta función define tres operaciones (`add`, `reset` y `get`), cada una de las cuales opera en un valor de estado entero.
 
 ```csharp
 [FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
-    int currentValue = ctx.GetState<int>();
-
     switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
-            int amount = ctx.GetInput<int>();
-            currentValue += amount;
+            ctx.SetState(ctx.GetState<int>() + ctx.GetInput<int>());
             break;
         case "reset":
-            currentValue = 0;
+            ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(currentValue);
+            ctx.Return(ctx.GetState<int>()));
             break;
     }
-
-    ctx.SetState(currentValue);
 }
 ```
 
-Este modelo funciona mejor para implementaciones de entidades simples o para implementaciones que tienen un conjunto dinámico de operaciones. Aun así, también puede usar un modelo de programación basado en clases que resulta útil para las entidades que son estáticas, pero que tienen implementaciones más complejas. El ejemplo siguiente es una implementación equivalente de la entidad `Counter` que usa clases y métodos.
+Para más información sobre la sintaxis basada en funciones y cómo utilizarla, consulte [Sintaxis basada en funciones](durable-functions-dotnet-entities.md#function-based-syntax).
+
+### <a name="example-class-based-syntax"></a>Ejemplo: Sintaxis basada en clases
+
+El ejemplo siguiente es una implementación equivalente de la entidad `Counter` que usa clases y métodos.
 
 ```csharp
+[JsonObject(MemberSerialization.OptIn)]
 public class Counter
 {
     [JsonProperty("value")]
     public int CurrentValue { get; set; }
 
     public void Add(int amount) => this.CurrentValue += amount;
-    
+
     public void Reset() => this.CurrentValue = 0;
-    
+
     public int Get() => this.CurrentValue;
 
     [FunctionName(nameof(Counter))]
@@ -84,19 +106,31 @@ public class Counter
 }
 ```
 
+El estado de esta entidad es un objeto de tipo `Counter`, que contiene un campo que almacena el valor actual del contador. Para conservar este objeto en el almacenamiento, la biblioteca [Json.NET](https://www.newtonsoft.com/json) lo serializa y deserializa. 
+
+Para más información sobre la sintaxis basada en clases y cómo utilizarla, consulte [Definición de las clases de entidad](durable-functions-dotnet-entities.md#defining-entity-classes).
+
+## <a name="accessing-entities"></a>Acceso a las entidades
+
+Se puede acceder a las entidades mediante una comunicación unidireccional o bidireccional. Se usa la siguiente terminología para distinguir: 
+
+* **Llamar** a una entidad significa que usamos una comunicación bidireccional (de ida y vuelta): se envía un mensaje de operación a la entidad y, a continuación, se espera el mensaje de respuesta antes de continuar. El mensaje de respuesta puede proporcionar un valor de resultado o un resultado de error (como un error de JavaScript o una excepción de .NET). El autor de la llamada observa este resultado o error.
+* **Señalar** una entidad significa que usamos una comunicación unidireccional (desencadenar y olvidar): se envía un mensaje de operación, pero no se espera una respuesta para continuar. Aunque se garantiza la entrega del mensaje, el emisor no sabe cuándo se realizará esta y no puede observar ningún valor de resultado ni errores.
+
+Se puede acceder a las entidades desde las funciones de cliente, desde las de orquestador o desde las de entidad. No todos los contextos admiten todas las formas de comunicación:
+
+* Desde los clientes, puede *señalar* entidades y puede *leer* el estado de la entidad.
+* Desde las orquestaciones, puede *señalar* entidades y puede *llamar* a estas.
+* Desde las entidades, puede *señalar* entidades.
+
+A continuación, se muestran algunos ejemplos que muestran estas diversas formas de acceder a las entidades.
+
 > [!NOTE]
-> El método de punto de entrada de la función con el atributo `[FunctionName]` se *debe* declarar `static` cuando se usan clases de entidad. Los métodos de punto de entrada no estáticos pueden dar lugar a la inicialización de varios objetos y, potencialmente, a otros comportamientos no definidos.
+> Para simplificar, los ejemplos siguientes muestran una sintaxis débilmente tipada para acceder a las entidades. En general, se recomienda [acceder a las entidades mediante interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces), ya que así se proporciona una comprobación de más tipos.
 
-En el modelo de programación basado en clases, el objeto `IDurableEntityContext` está disponible en la propiedad estática `Entity.Current`.
+### <a name="example-client-signals-an-entity"></a>Ejemplo: el cliente señala una entidad
 
-El modelo basado en clases es similar al modelo de programación popularizado por [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). En este modelo, un tipo de entidad se define como una clase .NET. Cada método de la clase es una operación que se puede invocar a través de un cliente externo. Pero, a diferencia de Orleans, las interfaces .NET son opcionales. En el ejemplo de *Counter* anterior no se usaba una interfaz, pero aun así se puede invocar a través de otras funciones o de llamadas a la API HTTP.
-
-> [!NOTE]
-> Las funciones de desencadenador de entidad están disponibles en Durable Functions 2.0 y versiones posteriores. Actualmente, las funciones de desencadenador de entidad solo están disponibles para las aplicaciones de funciones de .NET.
-
-### <a name="accessing-entities-from-clients"></a>Acceso a entidades desde clientes
-
-Las entidades duraderas se pueden invocar o consultar desde funciones ordinarias, también conocidas como *funciones cliente*, mediante el [enlace de salida de cliente de la entidad](durable-functions-bindings.md#entity-client). En el ejemplo siguiente se muestra una función desencadenada por una cola que *señaliza* una entidad mediante este enlace.
+Para acceder a las entidades desde una función de Azure normal, también conocida como *función de cliente*, use el [enlace de salida del cliente de entidad](durable-functions-bindings.md#entity-client). En el ejemplo siguiente se muestra una función desencadenada por una cola que *señaliza* una entidad mediante este enlace.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -111,12 +145,11 @@ public static Task Run(
 }
 ```
 
-> [!NOTE]
-> Las funciones de .NET admiten métodos débilmente tipados y métodos con seguridad de tipos para señalizar las entidades. Consulte la documentación de referencia del [enlace de cliente de la entidad](durable-functions-bindings.md#entity-client-usage) para más información.
+El término *señal* significa que la invocación de la API de entidad es unidireccional y asincrónica. Una *función de cliente* no puede saber cuándo la entidad ha procesado la operación. La función de cliente tampoco puede observar valores de resultado ni excepciones. 
 
-El término *señal* significa que la invocación de la API de entidad es unidireccional y asincrónica. No es posible que una *función cliente* sepa cuándo la entidad ha procesado la operación, ni tampoco es posible que una función de entidad devuelva un valor a una función cliente. La mensajería unidireccional basada en colas era una opción de diseño intencionada para que las entidades duraderas dieran prioridad a la durabilidad sobre el rendimiento. Esta opción de diseño es uno de los inconvenientes de las entidades duraderas en comparación con otras tecnologías similares. Actualmente, solo las orquestaciones son capaces de controlar los valores devueltos por las entidades, como se describe en la sección siguiente.
+### <a name="example-client-reads-an-entity-state"></a>Ejemplo: El cliente lee el estado de una entidad
 
-Las funciones cliente también pueden consultar el estado de las entidades, tal y como se muestra en el ejemplo siguiente:
+Las funciones de cliente también pueden consultar el estado de una entidad, tal y como se muestra en el ejemplo siguiente:
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -130,11 +163,11 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-Las consultas de estado de la entidad se envían al almacén de seguimiento duradero y devuelven el estado *guardado* más recientemente de la entidad. Es posible que el estado devuelto esté obsoleto en comparación con el estado en memoria de la entidad. Solo las orquestaciones pueden leer el estado en memoria de una entidad, tal y como se describe en la sección siguiente.
+Las consultas de estado de la entidad se envían al almacén de seguimiento duradero y devuelven el estado *guardado* más recientemente de la entidad. Este estado es siempre un estado "confirmado", es decir, nunca es un estado temporal intermedio que se presupone en medio de la ejecución de una operación. No obstante, es posible que este estado esté obsoleto en comparación con el estado en memoria de la entidad. Solo las orquestaciones pueden leer el estado en memoria de una entidad, tal y como se describe en la sección siguiente.
 
-### <a name="accessing-entities-from-orchestrations"></a>Acceso a entidades desde orquestaciones
+### <a name="example-orchestration-signals-and-calls-an-entity"></a>Ejemplo: La orquestación señala y llama a una entidad
 
-Las funciones de orquestador pueden acceder a las entidades mediante API en el [enlace del desencadenador de orquestación](durable-functions-bindings.md#orchestration-trigger). Las funciones de orquestador pueden elegir entre la comunicación unidireccional (desencadenar y olvidar, lo que también se conoce como *señalización*) y la comunicación bidireccional (solicitud y respuesta, también denominada *llamada*). En el ejemplo de código siguiente se muestra una función de orquestador que *llama* y *señaliza* una entidad *Counter*.
+Las funciones de orquestador pueden acceder a las entidades mediante API en el [enlace del desencadenador de orquestación](durable-functions-bindings.md#orchestration-trigger). En el ejemplo de código siguiente se muestra una función de orquestador que *llama* y *señaliza* una entidad *Counter*.
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -143,11 +176,11 @@ public static async Task Run(
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
 
-    // Synchronous call to the entity which returns a value - will await a response
+   // Two-way call to the entity which returns a value - awaits the response
     int currentValue = await context.CallEntityAsync<int>(entityId, "Get");
     if (currentValue < 10)
     {
-        // Asynchronous call which updates the value - will not await a response
+        // One-way signal to the entity which updates the value - does not await a response
         context.SignalEntity(entityId, "Add", 1);
     }
 }
@@ -158,23 +191,20 @@ Solo las orquestaciones son capaces de llamar a las entidades y obtener una resp
 > [!NOTE]
 > Llamar a una entidad desde una función de orquestador es similar a llamar a una [función de actividad](durable-functions-types-features-overview.md#activity-functions) desde una función de orquestador. La principal diferencia es que las funciones de entidad son objetos duraderos con una dirección (el *identificador de entidad*) y admiten la especificación de un nombre de operación. Por otro lado, las funciones de actividad no tienen estado y no tienen el concepto de operaciones.
 
-### <a name="dependency-injection-in-entity-classes-net"></a>Inserción de dependencias en clases de entidad (.NET)
+### <a name="example-entity-signals-an-entity"></a>Ejemplo: la entidad señala una entidad
 
-Las clases de entidad admiten la [inserción de dependencias de Azure Functions](../functions-dotnet-dependency-injection.md). En el ejemplo siguiente se muestra cómo registrar un servicio `IHttpClientFactory` en una entidad basada en clases.
+Una función de entidad puede enviar señales a otras entidades (o incluso a sí misma) mientras ejecuta una operación.
+Por ejemplo, podemos modificar el ejemplo de la entidad Counter anterior para que envíe una señal de "hito alcanzado" a alguna entidad de supervisión cuando el contador alcance el valor 100:
 
 ```csharp
-[assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
-
-namespace MyNamespace
-{
-    public class Startup : FunctionsStartup
-    {
-        public override void Configure(IFunctionsHostBuilder builder)
+   case "add":
+        var amount = ctx.GetInput<int>();
+        if (currentValue < 100 && currentValue + amount >= 100)
         {
-            builder.Services.AddHttpClient();
+            ctx.SignalEntity(new EntityId("MonitorEntity", ""), "milestone-reached", ctx.EntityKey);
         }
-    }
-}
+        currentValue += amount;
+        break;
 ```
 
 En el fragmento de código siguiente se muestra cómo incorporar el servicio insertado en la clase de la entidad.
@@ -184,12 +214,12 @@ public class HttpEntity
 {
     private readonly HttpClient client;
 
-    public class HttpEntity(IHttpClientFactory factory)
+    public HttpEntity(IHttpClientFactory factory)
     {
         this.client = factory.CreateClient();
     }
 
-    public Task<int> GetAsync(string url)
+    public async Task<int> GetAsync(string url)
     {
         using (var response = await this.client.GetAsync(url))
         {
@@ -243,7 +273,7 @@ Para más información sobre los enlaces en Azure Functions, consulte la documen
 
 Puede haber ocasiones en las que necesite coordinar las operaciones entre varias entidades. Por ejemplo, en una aplicación de banca, puede tener entidades que representan cuentas bancarias individuales. Al transferir fondos de una cuenta a otra, debe asegurarse de que la cuenta de _origen_ tiene fondos suficientes y de que las actualizaciones tanto en la cuenta de _origen_ como en la de _destino_ se realizan de manera transaccional y coherente.
 
-### <a name="transfer-funds-example-in-c"></a>Ejemplo de transferencia de fondos en C#
+### <a name="example-transfer-funds"></a>Ejemplo: Transferencia de fondos
 
 En el siguiente código de ejemplo se transfieren fondos entre dos entidades de tipo _cuenta_ mediante una función de orquestador. La coordinación de las actualizaciones de las entidades requiere el uso del método `LockAsync` para crear una _sección crítica_ en la orquestación:
 
@@ -294,6 +324,9 @@ En .NET, `LockAsync` devuelve un elemento `IDisposable` que finaliza la sección
 
 En el ejemplo anterior, una función de orquestador transfirió fondos de una entidad de _origen_ a una entidad de _destino_. El método `LockAsync` bloqueó las entidades de la cuenta de _origen_ y de _destino_. Este bloqueo garantiza que ningún otro cliente podría consultar o modificar el estado de ninguna de las cuentas hasta que la lógica de orquestación salga de la _sección crítica_ al final de la instrucción `using`. Esto evita de manera eficaz la posibilidad de que se produzca un descubierto en la cuenta de _origen_.
 
+> [!NOTE] 
+> Cuando una orquestación termina (ya sea de forma normal o con un error), todas las secciones críticas en curso se terminan implícitamente y se liberan todos los bloqueos.
+
 ### <a name="critical-section-behavior"></a>Comportamiento de la sección crítica
 
 El método `LockAsync` crea una _sección crítica_ en una orquestación. Estas _secciones críticas_ impiden que otras orquestaciones realicen cambios superpuestos en un conjunto especificado de entidades. Internamente, la API `LockAsync` envía operaciones de "bloqueo" a las entidades y vuelve cuando recibe un mensaje de respuesta "bloqueo adquirido" de cada una de estas mismas entidades. *Bloquear* y *desbloquear* son operaciones integradas admitidas por todas las entidades.
@@ -305,9 +338,11 @@ No se permiten operaciones de otros clientes en una entidad mientras está en es
 
 Los bloqueos en entidades son duraderos, por lo que se conservarán incluso si se recicla el proceso de ejecución. Los bloqueos se conservan internamente como parte del estado duradero de una entidad.
 
-### <a name="critical-section-restrictions"></a>Restricciones de la sección crítica
+A diferencia de las transacciones, las secciones críticas no revierten automáticamente los cambios en caso de que se produzcan errores. En su lugar, es necesario codificar explícitamente cualquier control de errores (reversión, reintento u otros); por ejemplo, detectando errores o excepciones. Esta opción de diseño es intencionada. La reversión automática de todos los efectos de una orquestación es difícil o imposible por lo general, ya que las orquestaciones pueden ejecutar actividades y realizar llamadas a servicios externos que no se pueden revertir. Además, los intentos de reversión pueden producir errores ellos mismos y requieren un mayor control de errores.
 
-Se imponen varias restricciones a la forma de usar las secciones críticas. Estas restricciones sirven para evitar interbloqueos y reentradas.
+### <a name="critical-section-rules"></a>Reglas de secciones críticas
+
+A diferencia de las primitivas de bloqueo de bajo nivel de la mayoría de los lenguajes de programación, se **garantiza que las secciones críticas no tendrán interbloqueos**. Para evitar los interbloqueos, se aplican las siguientes restricciones: 
 
 * Las secciones críticas no se pueden anidar.
 * Las secciones críticas no pueden crear suborquestaciones.
@@ -315,23 +350,31 @@ Se imponen varias restricciones a la forma de usar las secciones críticas. Esta
 * Las secciones críticas no pueden llamar a la misma entidad mediante varias llamadas paralelas.
 * Las secciones críticas solo pueden señalar a las entidades que no hayan bloqueado.
 
+Las infracciones de estas reglas provocan un error de tiempo de ejecución (por ejemplo, un `LockingRulesViolationException` en .NET) que incluye un mensaje que explica qué regla se ha infringido.
+
 ## <a name="comparison-with-virtual-actors"></a>Comparación con actores virtuales
 
-Muchas de las características de las entidades duraderas están inspiradas en el [modelo de actor](https://en.wikipedia.org/wiki/Actor_model). Si ya está familiarizado con los actores, puede que reconozca muchos de los conceptos que se describen en este artículo. En concreto, las entidades duraderas son similares a los [actores virtuales](https://research.microsoft.com/projects/orleans/) en muchos aspectos:
+Muchas de las características de las entidades duraderas están inspiradas en el [modelo de actor](https://en.wikipedia.org/wiki/Actor_model). Si ya está familiarizado con los actores, puede que reconozca muchos de los conceptos que se describen en este artículo. Las entidades duraderas se parecen especialmente a [actores virtuales](https://research.microsoft.com/projects/orleans/) o *granos*, tal y como se ha popularizado con el [proyecto Orleans](http://dotnet.github.io/orleans/). Por ejemplo:
 
 * Las entidades duraderas son direccionables a través de un *id. de entidad*.
 * Las operaciones de las entidades duraderas se ejecutan en serie, una cada vez, para evitar condiciones de carrera.
-* Las entidades duraderas se crean de forma automática cuando se las llama o se señalan.
+* Las entidades duraderas se crean de forma implícita cuando se las llama o se señalan.
 * Cuando no ejecutan operaciones, las entidades duraderas se descargan en modo silencioso de la memoria.
 
 Pero hay algunas diferencias importantes que conviene destacar:
 
 * Las entidades duraderas priorizan la *durabilidad* sobre la *latencia* y, por tanto, es posible que no sean adecuadas para aplicaciones con requisitos estrictos de latencia.
-* Los mensajes enviados entre las entidades se entregan en orden y de forma confiable.
-* Las entidades duraderas se pueden usar junto con las orquestaciones duraderas y admiten mecanismos de bloqueo distribuidos.
-* Los patrones de solicitud y respuesta en las entidades se limitan a las orquestaciones. Para la comunicación *cliente-entidad* y *entidad-entidad*, solo se permiten mensajes unidireccionales (lo que también se conoce como "señalización"), como en el modelo de actor original. Este comportamiento evita los interbloqueos distribuidos.
+* Las entidades duraderas no tienen tiempos de espera integrados para los mensajes. En Orleans, se agota el tiempo de espera de todos los mensajes después de un tiempo configurable (30 segundos como valor predeterminado).
+* Los mensajes enviados entre las entidades se entregan en orden y de forma confiable. En Orleans, la entrega confiable u ordenada es compatible con el contenido que se envía mediante secuencias, pero no está garantizada para todos los mensajes entre granos.
+* Los patrones de solicitud y respuesta en las entidades se limitan a las orquestaciones. Desde las entidades, solo se permite la mensajería unidireccional (conocida también como "señalización"), como en el modelo de actor original, y a diferencia del modelo de granos de Orleans. 
+* Las entidades duraderas no se interbloquean. En Orleans, se pueden producir interbloqueos (y no se resolverán hasta que se agote el tiempo de espera de los mensajes).
+* Las entidades duraderas se pueden usar junto con las orquestaciones duraderas y admiten mecanismos de bloqueo distribuidos. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [Leer la Guía del desarrollador de entidades duraderas en .NET](durable-functions-dotnet-entities.md)
 
 > [!div class="nextstepaction"]
 > [Más información acerca de las centrales de tareas](durable-functions-task-hubs.md)

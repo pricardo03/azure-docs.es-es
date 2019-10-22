@@ -11,10 +11,10 @@ ms.topic: overview
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 08/01/2019
 ms.openlocfilehash: 54d665d6a4fd9aa0216d9eccf821f5af539a3636
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71087584"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Soluciones de integración empresarial B2B con Azure Logic Apps y Enterprise Integration Pack
@@ -42,7 +42,7 @@ Para poder empezar a crear flujos de trabajo de aplicaciones lógicas B2B con la
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) con los artefactos que desea usar
 
-* Para crear mapas y esquemas, puede usar <bpt id="p1">[</bpt>Herramientas de integración empresarial para Visual Studio 2015 2.0 de Microsoft Azure Logic Apps<ept id="p1">]</ept>(https://aka.ms/vsmapsandschemas) y Visual Studio 2015.
+* Para crear mapas y esquemas, puede usar [Herramientas de integración empresarial para Visual Studio 2015 2.0 de Microsoft Azure Logic Apps](https://aka.ms/vsmapsandschemas) y Visual Studio 2015.
 
 Después de crear una cuenta de integración y agregar los artefactos, puede empezar a crear flujos de trabajo B2B con estos artefactos mediante la creación de una aplicación lógica en Azure Portal. Si no conoce las aplicaciones lógicas, pruebe a [crear una aplicación lógica básica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para trabajar con estos artefactos, asegúrese de que vincular antes la cuenta de integración a la aplicación lógica. Después, la aplicación lógica podrá acceder a la cuenta de integración. También puede crear, administrar e implementar aplicaciones lógica mediante Visual Studio o [PowerShell.](https://docs.microsoft.com/powershell/module/az.logicapp)
 

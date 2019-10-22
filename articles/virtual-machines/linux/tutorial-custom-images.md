@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 58d751628bf667949487832c9352aeb6a972faf8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ee88eee7c4618306f86b4338a94f81c1403e3120
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348817"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299365"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con la CLI de Azure
 
@@ -33,7 +33,7 @@ Las imágenes personalizadas son como las imágenes de Marketplace, pero las pue
 > * Enumerar todas las imágenes en su suscripción
 > * Eliminar una imagen
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+En este tutorial se usa la CLI dentro de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que se actualiza constantemente a la versión más reciente. Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior de cualquier bloque de código.
 
 Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 

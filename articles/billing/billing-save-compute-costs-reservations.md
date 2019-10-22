@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806349"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390156"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
@@ -40,11 +40,11 @@ Para las máquinas virtuales de Windows y SQL Database, puede cubrir los costos 
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>¿Quién puede comprar una reserva?
 
-Para comprar un plan, debe tener un rol de propietario de la suscripción en una suscripción Enterprise (MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (MS-AZR-0003P o MS-AZR-0023P). Los proveedores de soluciones en la nube pueden usar Azure Portal o el  [Centro de partners](/partner-center/azure-reservations) para comprar reservas de Azure.
+Para comprar un plan, debe tener un rol de propietario de la suscripción en una suscripción Enterprise (MS-AZR-0017P o MS-AZR-0148P) o de pago por uso (MS-AZR-0003P o MS-AZR-0023P), o bien una suscripción de Microsoft Customer Agreement. Los proveedores de soluciones en la nube pueden usar Azure Portal o el  [Centro de partners](/partner-center/azure-reservations) para comprar reservas de Azure.
 
 Los clientes de Contrato Enterprise (EA) pueden limitar sus compras a los administradores de EA mediante la desactivación de la opción **Add Reserved Instances** (Agregar instancias reservadas) en EA Portal. Para poder comprar una reserva, los administradores de Contrato Enterprise deben ser propietarios de la suscripción para al menos una suscripción de Contrato Enterprise. La opción es útil para empresas que requieren un equipo centralizado para comprar reservas para distintos centros de coste. Después de la compra, los equipos centralizados pueden agregar propietarios de centros de coste a las reservas. Los propietarios pueden entonces ampliar la reserva a sus suscripciones. El equipo central no necesita tener acceso al propietario de la suscripción donde se compra la reserva.
 
-Un descuento por reserva se aplica solo a los recursos asociados con las suscripciones compradas a través de Enterprise, Proveedor de soluciones en la nube (CSP) y planes individuales con tarifas de pago por uso.
+Los descuentos por reserva se aplican solo a los recursos asociados con las suscripciones compradas a través de un contrato Enterprise, Proveedor de soluciones en la nube (CSP), Microsoft Customer Agreement y de planes individuales con tarifas de pago por uso.
 
 ## <a name="scope-reservations"></a>Ámbito de las reservas
 
@@ -56,7 +56,7 @@ Con la limitación del ámbito del grupo de recursos tiene tres opciones para li
 
 - **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
 - **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
-- **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.
+- **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de los clientes con contrato Microsoft Customer Agreement, el ámbito de facturación es el perfil de facturación. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.
 
 Al aplicar los descuentos por reserva sobre su uso, Azure procesa la reserva en el orden siguiente:
 
@@ -84,7 +84,7 @@ También puede actualizar el ámbito después de comprar una reserva. Para ello,
 
 Puede supervisar el uso de la reserva de varias maneras: mediante Azure Portal, las API o los datos de uso. Para ver todas las reservas a las que tiene acceso, vaya a **Reservas** en Azure Portal. La cuadrícula de reservas muestra el último porcentaje de uso registrado para la reserva. Haga clic en la reserva para ver su uso a largo plazo.
 
-También puede conocer el uso de la reserva mediante las [API](billing-reservation-apis.md#see-reservation-usage) y a partir de los [datos de uso](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) si es un cliente con contrato Enterprise.
+También puede obtener el uso de la reserva mediante las [API](billing-reservation-apis.md#see-reservation-usage) y a partir de los [datos de uso](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) si es un cliente con contrato Enterprise o con contrato Microsoft Customer Agreement.
 
 Si observa que el uso de la reserva con ámbito de grupo de recursos es bajo, puede actualizar el ámbito de la reserva a una suscripción única o compartirlo en el contexto de facturación. También puede dividir la reserva y aplicar las reservas resultantes a distintos grupos de recursos.
 
@@ -99,6 +99,7 @@ Un ámbito de reserva no se actualiza automáticamente si se mueve el grupo de r
 Los descuentos por reserva se aplican a las siguientes suscripciones aptas y tipos de ofertas.
 
 - Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P)
+- Suscripciones del contrato Microsoft Customer Agreement.
 - Planes individuales con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P)
 - Suscripciones de CSP
 
@@ -106,7 +107,7 @@ Los recursos que se ejecutan en una suscripción con otros tipos de oferta no re
 
 ## <a name="how-is-a-reservation-billed"></a>¿Cómo se factura una reserva?
 
-La reserva se cobra en el método de pago vinculado a la suscripción. Si tiene una suscripción Enterprise, el costo de la reserva se deducirá del saldo del compromiso monetario. Cuando este no sea suficiente para cubrir el costo de la reserva, se le cobrará el monto restante. Si tiene una suscripción de un plan individual con tarifas de pago por uso, se factura inmediatamente en la tarjeta de crédito que tiene en su cuenta por las compras por adelantado. Los pagos mensuales aparecen en la factura y la tarjeta de crédito se cobra mensualmente. Cuando se le facture por factura, verá los cargos la próxima vez que reciba una.
+La reserva se cobra en el método de pago vinculado a la suscripción. El costo de la reserva se deducirá del saldo del compromiso monetario, si está disponible. Cuando este no sea suficiente para cubrir el costo de la reserva, se le cobrará el monto restante. Si tiene una suscripción de un plan individual con tarifas de pago por uso, se factura inmediatamente en la tarjeta de crédito que tiene en su cuenta por las compras por adelantado. Los pagos mensuales aparecen en la factura y la tarjeta de crédito se cobra mensualmente. Cuando se le facture por factura, verá los cargos la próxima vez que reciba una.
 
 ## <a name="how-reservation-discount-is-applied"></a>Aplicación del descuento por reserva
 
@@ -120,7 +121,7 @@ Por ejemplo, más adelante podría crear un recurso y tener una reserva que coin
 
 Si, por el contrario, sus máquinas virtuales se ejecutan en diferentes suscripciones dentro de su cuenta o inscripción, seleccione el ámbito compartido. El ámbito compartido le permite aplicar el descuento de la reserva en varias suscripciones. También puede cambiar el ámbito después de la compra de la reserva. Para más información, consulte [Administración de Azure Reservations](billing-manage-reserved-vm-instance.md).
 
-Un descuento por reserva solo se aplica a los recursos asociados con Enterprise, CSP o suscripciones con tarifas de pago por uso. Los recursos que se ejecutan en una suscripción con otros tipos de oferta no recibirán el descuento por la reserva.
+Los descuentos por reserva solo se aplican a los recursos asociados con Enterprise, Microsoft Customer Agreement, CSP o a las suscripciones con tarifas de pago por uso. Los recursos que se ejecutan en una suscripción con otros tipos de oferta no recibirán el descuento por la reserva.
 
 ## <a name="when-the-reservation-term-expires"></a>Cuando expira el plazo de reserva
 

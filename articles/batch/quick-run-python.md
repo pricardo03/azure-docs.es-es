@@ -1,5 +1,5 @@
 ---
-title: Inicio rápido de Azure - Ejecución de un trabajo de Batch - Python
+title: 'Inicio rápido: Ejecución de un trabajo de Azure Batch: Python API'
 description: Ejecute rápidamente un trabajo y tareas de Batch mediante la biblioteca cliente de Python de Batch.
 services: batch
 author: laurenhughes
@@ -9,19 +9,23 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
-ms.custom: mvc
-ms.openlocfilehash: 77ccfc1a67fabca7fde47edac9094c6a68191f0f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.custom:
+- seo-python-october2019
+- mvc
+ms.openlocfilehash: 6c9690a74e8dff9978fa4e07883738d062238121
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090762"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437373"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Inicio rápido: Ejecute su primer trabajo de Batch con Python API
 
-En esta guía de inicio rápido se ejecuta un trabajo de Azure Batch desde una aplicación compilada en la API de Python de Azure Batch. La aplicación carga varios archivos de datos de entrada en Azure Storage y, después, crea un *grupo* de nodos de proceso de Batch (máquinas virtuales). A continuación, crea un *trabajo* de ejemplo que ejecuta *tareas* para procesar todos los archivo de entrada del grupo mediante un comando básico. Tras completar esta guía de inicio rápido, entenderá los conceptos clave del servicio Batch y estará listo para probar dicho servicio con cargas de trabajo más realistas y a mayor escala.
+En esta guía de inicio rápido se ejecuta un trabajo de Azure Batch desde una aplicación compilada en la API de Python de Azure Batch.  Tras completar esta guía de inicio rápido, entenderá los conceptos clave del servicio Batch y estará listo para probar dicho servicio con cargas de trabajo más realistas y a mayor escala.
+
+La aplicación carga varios archivos de datos de entrada en Azure Storage y, después, crea un *grupo* de nodos de proceso de Batch (máquinas virtuales). A continuación, crea un *trabajo* de ejemplo que ejecuta *tareas* para procesar todos los archivo de entrada del grupo mediante un comando básico.
  
-![Flujo de trabajo de la aplicación de la guía de inicio rápido](./media/quick-run-python/sampleapp.png)
+![Introducción al flujo de trabajo de Azure Batch](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 

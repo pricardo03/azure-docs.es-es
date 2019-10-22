@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: afbb3ed022f0a4d0e59e7c3eca4da24737c4d0a6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3887e32aba625e6aaca01f1a8f743e50ff580d9e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695409"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300841"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutorial: Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Linux con la CLI de Azure
 
@@ -35,7 +35,7 @@ El conjunto de escalado de máquinas virtuales le permite implementar y administ
 > * Ver la información de conexión de las instancias del conjunto de escalado
 > * Usar discos de datos con conjuntos de escalado
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+En este tutorial se usa la CLI dentro de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que se actualiza constantemente a la versión más reciente. Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior de cualquier bloque de código.
 
 Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 

@@ -1,18 +1,18 @@
 ---
 title: Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage | Microsoft Docs
-description: Información acerca de cómo usar el SDK de Azure para cargar grandes cantidades de datos aleatorios en paralelo en una cuenta de Azure Storage
+description: Aprenda a usar la biblioteca cliente de Azure Storage para cargar grandes cantidades de datos aleatorios en paralelo en una cuenta de Azure Storage
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: e5c1a78bf2f482e99d8ff13590a8bb81f9601991
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5b20686399db9537e5db8622a433b5e506939d19
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698965"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302983"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage
 
@@ -28,7 +28,7 @@ En la segunda parte de la serie, se aprende a:
 
 Azure Blob Storage proporciona un servicio escalable para almacenar los datos. Para asegurarse de que la aplicación tenga el máximo rendimiento posible, se recomienda comprender el funcionamiento de Blob Storage. Conocer los límites de los blobs de Azure es importante. Para obtener más información acerca de estos límites, visite: [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-La [nomenclatura de las particiones](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) es otro factor posiblemente importante al diseñar una aplicación de alto rendimiento con blobs. En el caso de tamaños de bloques mayores o iguales que 4 MiB, se usan los [blobs en bloques de alto rendimiento](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) y la nomenclatura de las particiones no afectará el rendimiento. En el caso de tamaños de bloques menores de 4 MiB, Azure Storage usa un esquema de partición basado en intervalo para escalar y equilibrar la carga. Esta configuración significa que los archivos con prefijos o convenciones de nomenclatura similares van a la misma partición. Esta lógica incluye el nombre del contenedor donde se cargan los archivos. En este tutorial, usará archivos que tienen GUID de nombres, así como contenido generado de manera aleatoria. Estos se cargan posteriormente en cinco contenedores diferentes con nombres aleatorios.
+La [nomenclatura de las particiones](../blobs/storage-performance-checklist.md#partitioning) es otro factor posiblemente importante al diseñar una aplicación de alto rendimiento con blobs. En el caso de tamaños de bloques mayores o iguales que 4 MiB, se usan los [blobs en bloques de alto rendimiento](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) y la nomenclatura de las particiones no afecta al rendimiento. En el caso de tamaños de bloques menores de 4 MiB, Azure Storage usa un esquema de partición basado en intervalo para escalar y equilibrar la carga. Esta configuración significa que los archivos con prefijos o convenciones de nomenclatura similares van a la misma partición. Esta lógica incluye el nombre del contenedor donde se cargan los archivos. En este tutorial, usará archivos que tienen GUID de nombres, así como contenido generado de manera aleatoria. Estos se cargan posteriormente en cinco contenedores diferentes con nombres aleatorios.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

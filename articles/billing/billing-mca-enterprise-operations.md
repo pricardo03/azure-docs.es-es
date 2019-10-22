@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b6d1de1ee24ce9ca67d3bd8fa514ec9ea7a5c771
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca0f83628edeef9e55ebc81798d0229791b80a7a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709554"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375494"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Finalización de tareas del Contrato Enterprise en la cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -27,7 +27,7 @@ Si la organización ha firmado un contrato de cliente de Microsoft para renovar 
 
 En el diagrama siguiente se describe cómo se organiza la facturación en la nueva cuenta de facturación.
 
-![Imagen de ea-mca-post-transition-hierarchy](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
+![Imagen de ea-mca-post-transition-hierarchy](./media/mca-setup-account/mca-post-transition-hierarchy.png)
 
 | Contrato Enterprise   | Contrato de cliente de Microsoft    |
 |------------------------|--------------------------------------------------------|
@@ -72,9 +72,9 @@ Para ver el costo total de las suscripciones que pertenecían a una cuenta, debe
 
 Se genera una factura mensual por cada perfil de facturación de la cuenta de facturación. Para cada factura, puede descargar los archivos csv de cargos y de uso de Azure, la hoja de precios y el documento fiscal (si procede). También puede descargar los archivos csv de cargos y de uso de Azure para los cargos del mes actual.
 
-Para obtener información sobre cómo descargar archivos de csv de cargos y de uso de Azure, consulte [Descarga de uso para el contrato de cliente de Microsoft](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement).
+Para obtener información sobre cómo descargar archivos de csv de cargos y de uso de Azure, consulte [Descarga de uso para el contrato de cliente de Microsoft](billing-download-azure-daily-usage.md).
 
-Para saber cómo descargar la hoja de precios, consulte [Descarga de precios para el contrato de cliente de Microsoft](billing-ea-pricing.md#microsoft-customer-agreement-pricing).
+Para saber cómo descargar la hoja de precios, consulte [Descarga de precios para el contrato de cliente de Microsoft](billing-ea-pricing.md).
 
 Para saber cómo descargar los documentos fiscales, consulte [Visualización de los documentos fiscales para el contrato de cliente de Microsoft](billing-mca-download-tax-document.md#view-and-download-tax-documents).
 
@@ -90,7 +90,7 @@ Cree una sección de factura para organizar los costos según sus necesidades, a
 
 ### <a name="create-a-new-account"></a>Creación de una nueva cuenta
 
-Asigne a los usuarios el rol de creador de suscripciones a Azure en las secciones de factura para darles permiso para crear suscripciones a Azure, como las cuentas que se crearon en la inscripción del Contrato Enterprise. Para más información, consulte [Asignación de permisos a otros usuarios para crear suscripciones a Azure](billing-mca-create-subscription.md#give-others-permission).
+Asigne a los usuarios el rol de creador de suscripciones a Azure en las secciones de factura para darles permiso para crear suscripciones a Azure, como las cuentas que se crearon en la inscripción del Contrato Enterprise. Para más información sobre la asignación de roles, consulte [Administración de roles de facturación en Azure Portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ## <a name="changes-for-department-administrators"></a>Cambios en los administradores de departamento
 
@@ -116,7 +116,7 @@ Para más información sobre cómo proporcionar el acceso a la sección de factu
 
 ### <a name="create-a-new-account-in-your-department"></a>Creación de una nueva cuenta del departamento
 
-Asigne a los usuarios el rol de creador de la suscripción a Azure en la sección de facturas que se ha creado para el departamento. Para más información, consulte [Asignación de permisos a otros usuarios para crear suscripciones a Azure](billing-mca-create-subscription.md#give-others-permission).
+Asigne a los usuarios el rol de creador de la suscripción a Azure en la sección de facturas que se ha creado para el departamento. Para más información sobre la asignación de roles, consulte [Administración de roles de facturación en Azure Portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>Visualización de los cargos para las cuentas de los departamentos
 

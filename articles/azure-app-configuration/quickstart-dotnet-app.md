@@ -3,8 +3,8 @@ title: Inicio rápido de Azure App Configuration con .NET Framework | Microsoft 
 description: Un inicio rápido para el uso de Azure App Configuration con aplicaciones de .NET Framework
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 02/24/2019
-ms.author: yegu
-ms.openlocfilehash: 8aa8c8132220965d55097c4fed8ba1b2e9501301
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 10/09/2019
+ms.author: lcozzens
+ms.openlocfilehash: 17b2e7272d499ce99d40d2ee52de1c7a5a1d0d04
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326528"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329809"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación de .NET Framework con Azure App Configuration
 
@@ -29,7 +29,7 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download)
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Creación de un almacén de configuración de aplicaciones
 
@@ -47,7 +47,9 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 
 1. Inicie Visual Studio y seleccione **Archivo** > **Nuevo** > **Proyecto**.
 
-2. En **Nuevo proyecto**, seleccione **Instalado** > **Visual C#**  > **Escritorio clásico de Windows**. Seleccione **Aplicación de consola (.NET Framework)** y escriba un nombre para el proyecto. Seleccione **.NET Framework 4.7.1** u otra versión posterior y seleccione **Aceptar**.
+1. En **Crear un proyecto**, filtre por el tipo de proyecto **Consola** y haga clic en **Aplicación de consola (.NET Framework)** . Haga clic en **Next**.
+
+1. En **Configurar el nuevo proyecto**, asígnele al proyecto un nombre. En **Marco**, seleccione **.NET Framework 4.7.1** o una versión posterior. Haga clic en **Create**(Crear).
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de configuración de aplicaciones
 
@@ -56,9 +58,10 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
+    System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 
-2. Actualice el archivo *App.config* del proyecto como sigue:
+1. Actualice el archivo *App.config* del proyecto como sigue:
 
     ```xml
     <configSections>
@@ -80,12 +83,12 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 
    La cadena de conexión del almacén de configuración de la aplicación se lee en la variable de entorno `ConnectionString`. Agregue el generador de configuración `Environment` antes de `MyConfigStore` en la propiedad `configBuilders` de la sección `appSettings`.
 
-3. Abra *Program.cs* y actualice el método `Main` para usar App Configuration mediante una llamada a `ConfigurationManager`.
+1. Abra *Program.cs* y actualice el método `Main` para usar App Configuration mediante una llamada a `ConfigurationManager`.
 
     ```csharp
     static void Main(string[] args)
     {
-        string message = ConfigurationManager.AppSettings["TestApp:Settings:Message"];
+        string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
     }
@@ -101,7 +104,7 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-2. Reinicie Visual Studio para permitir que el cambio surta efecto. Presione Ctrl + F5 para compilar y ejecutar la aplicación de consola.
+1. Reinicie Visual Studio para permitir que el cambio surta efecto. Presione Ctrl + F5 para compilar y ejecutar la aplicación de consola.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

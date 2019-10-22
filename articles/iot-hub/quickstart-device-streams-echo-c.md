@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: a5c4ffde886735e096c4c4a96a648c997d1e7dec
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 7187bc7a42971a86b31d663f0a3754a061a2421a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050182"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515061"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en C mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -122,10 +122,10 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta sec
 
    > [!NOTE]
    > * Reemplace el marcador de posición *YourIoTHubName* por el nombre que eligió para su centro de IoT.
-   > * Use *MyDevice* tal como se muestra. Es el nombre que se da al dispositivo registrado. Si elige otro nombre para el dispositivo, úselo en todo el artículo y actualice el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   > * Para el nombre del dispositivo que va a registrar se recomienda usar *MyDevice* , tal como se muestra. Si elige otro nombre para el dispositivo, úselo en todo el artículo y actualice el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. Ejecute el siguiente comando en Cloud Shell para obtener la *cadena de conexión del dispositivo* que acaba de registrar:
@@ -134,10 +134,10 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta sec
    > Reemplace el marcador de posición *YourIoTHubName* por el nombre que eligió para su centro de IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    Anote la cadena de conexión del dispositivo para usarla más adelante en este inicio rápido. Debe ser similar al ejemplo siguiente:
+    Anote la cadena de conexión del dispositivo devuelta para usarla más adelante en este inicio rápido. Debe ser similar al ejemplo siguiente:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -149,14 +149,14 @@ En esta sección, ejecuta la aplicación del lado del dispositivo y la aplicaci�
 
 Para ejecutar la aplicación del lado del dispositivo, siga los pasos a continuación:
 
-1. Proporcione las credenciales del dispositivo editando el archivo de origen *iothub_client_c2d_streaming_sample.c* en la carpeta *iothub_client/samples/iothub_client_c2d_streaming_sample* y, a continuación, proporcione la cadena de conexión del dispositivo.
+1. Especifique las credenciales del dispositivo, para lo que debe editar el archivo de origen **iothub_client_c2d_streaming_sample.c** de la carpeta `iothub_client/samples/iothub_client_c2d_streaming_sample` y agregar la cadena de conexión del dispositivo.
 
    ```C
    /* Paste in your iothub connection string  */
-   static const char* connectionString = "[device connection string]";
+   static const char* connectionString = "{DeviceConnectionString}";
    ```
 
-1. Compile el código de la forma siguiente:
+1. Compile el código con los siguientes comandos:
 
    ```bash
    # In Linux
@@ -186,7 +186,7 @@ Para ejecutar la aplicación del lado del dispositivo, siga los pasos a continua
 
 ### <a name="run-the-service-side-application"></a>Ejecución de la aplicación del lado del servicio
 
-Como ya se ha mencionado, el SDK de IoT Hub para C solo admite flujos de dispositivos en el lado del dispositivo. Para compilar y ejecutar la aplicación del lado del servicio, siga las instrucciones de uno de los siguientes inicios rápidos:
+Como ya se ha mencionado, el SDK de IoT Hub para C solo admite flujos de dispositivos en el lado del dispositivo. Para compilar y ejecutar la aplicación del servicio complementaria, siga las instrucciones de uno de los siguientes inicios rápidos:
 
 * [Comunicación con aplicaciones de dispositivo en C# mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-csharp.md)
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: helohr
-ms.openlocfilehash: f07403d8d0b2c6d0dd7a6b851a87b47b0c32501a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679488"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300904"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implementación de una herramienta de administración
 
@@ -26,6 +26,12 @@ La herramienta de administración proporciona una interfaz de usuario para admin
 Puesto que la aplicación requiere de su consentimiento para interactuar con Windows Virtual Desktop, esta herramienta no es compatible con escenarios de negocio a negocio (B2B). La suscripción de cada inquilino de Azure Active Directory (AAD) necesitará su propia implementación independiente de la herramienta de administración.
 
 Esta herramienta de administración es un ejemplo. Microsoft proporcionará actualizaciones de calidad y seguridad importantes. El [código fuente está disponible en GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Se aconseja que los clientes y partners personalicen la herramienta para que se ajuste a sus necesidades empresariales.
+
+Los siguientes exploradores son compatibles con la herramienta de administración:
+- Google Chrome 68 o una versión posterior
+- Microsoft Edge 40.15063 o una versión posterior
+- Mozilla Firefox 52.0 o una versión posterior
+- Safari 10 o una versión posterior (solo macOS)
 
 ## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>¿Qué se necesita para ejecutar la plantilla de Azure Resource Manager?
 

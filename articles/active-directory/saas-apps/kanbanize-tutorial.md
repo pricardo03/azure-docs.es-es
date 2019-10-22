@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Kanbanize | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Kanbanize | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Kanbanize.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 10/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69103ea0e6088b4a823df34ebd982c67e2502cb3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7c5a3a096c5a44f681d23587837ae31fd1af33b2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879458"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373224"
 ---
-# <a name="tutorial-integrate-kanbanize-with-azure-active-directory"></a>Tutorial: Integración de Kanbanize con Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Kanbanize
 
 En este tutorial, aprenderá a integrar Kanbanize con Azure Active Directory (Azure AD). Al integrar Kanbanize con Azure AD, puede hacer lo siguiente:
 
@@ -58,32 +58,32 @@ Para configurar la integración de Kanbanize en Azure AD, deberá agregar Kanban
 1. En la sección **Agregar desde la galería**, escriba **Kanbanize** en el cuadro de búsqueda.
 1. Seleccione **Kanbanize** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on-for-kanbanize"></a>Configuración y prueba del inicio de sesión único de Azure AD para Kanbanize
 
 Configure y pruebe el inicio de sesión único de Azure AD con Kanbanize mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Kanbanize.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Kanbanize, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-2. **[Configuración del inicio de sesión único de Kanbanize](#configure-kanbanize-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Kanbanize](#create-kanbanize-test-user)** , para tener un homólogo de B.Simon en Kanbanize que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único de Kanbanize](#configure-kanbanize-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Kanbanize](#create-kanbanize-test-user)** , para tener un homólogo de B.Simon en Kanbanize que esté vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Kanbanize**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<subdomain>.kanbanize.com/`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<subdomain>.kanbanize.com/`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.kanbanize.com/saml/acs`
 
@@ -109,47 +109,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configurar Kanbanize**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
-
-### <a name="configure-kanbanize-sso"></a>Configuración del inicio de sesión único de Kanbanize
-
-1. En otra ventana del explorador web, inicie sesión en Kanbanize como administrador de seguridad.
-
-2. Vaya a la parte superior derecha de la página y haga clic en el logotipo de **configuración**.
-
-    ![Configuración de Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
-
-3. En la página del panel de administración del lado izquierdo del menú, haga clic en **Integrations** (Integraciones) y, a continuación, habilite **Single Sign-On** (Inicio de sesión único).
-
-    ![Integraciones de Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
-
-4. En la sección de integraciones, haga clic en **CONFIGURE** (CONFIGURAR) para abrir la página **Single Sign-On Integration** (Integración de inicio de sesión único).
-
-    ![Configuración de Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
-
-5. En la página **Single Sign-On Integration** (Integración de inicio de sesión único), en **Configurations** (Configuraciones), realice los siguientes pasos:
-
-    ![Integraciones de Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
-
-    a. En el cuadro de texto **Idp Entity ID** (Identificador de la entidad de IdP), pegue el valor de **Azure AD Identifier** (Identificador de Azure AD) que copió de Azure Portal.
-
-    b. En el cuadro de texto **Idp Login Endpoint** (Punto de conexión de inicio de sesión de Idp), pegue el valor de **Login URL** (Dirección URL de inicio de sesión) que copió de Azure Portal.
-
-    c. En el cuadro de texto **Idp Logout Endpoint** (Punto de conexión de cierre de sesión de Idp), pegue el valor de **Logout URL** (Dirección URL de cierre de sesión) que copió de Azure Portal.
-
-    d. En **Attribute name for Email** (Nombre de atributo de correo electrónico), escriba este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-
-    e. En el cuadro de texto **Attribute name for First Name** (Nombre de atributo para nombre), escriba este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
-
-    f. En el cuadro de texto **Attribute name for Last Name** (Nombre de atributo para apellido), escriba este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
-
-    > [!Note]
-    > Puede obtener estos valores mediante la combinación de valores de espacio de nombres y nombre del atributo correspondiente de la sección Atributos de usuario de Azure Portal.
-
-    g. En el Bloc de notas, abra el certificado codificado en base 64 que descargó de Azure Portal, copie su contenido (sin los marcadores de inicio y fin) y, luego, péguelo en el cuadro de texto **Idp X.509 Certificate** (Certificado X.509 de IdP).
-
-    h. Marque **Enable login with both SSO and Kanbanize** (Habilitar el inicio de sesión con SSO y Kanbanize).
-
-    i. Haga clic en **Guardar configuración**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -181,11 +140,60 @@ En esta sección, va a permitir que B.Simon acceda a Kanbanize mediante el inici
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
+## <a name="configure-kanbanize-sso"></a>Configuración del inicio de sesión único de Kanbanize
+
+1. Para automatizar la configuración en Kanbanize, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+2. Después de agregar la extensión al explorador, haga clic en **Configurar Kanbanize** para ir a la aplicación del mismo nombre. En ella, escriba las credenciales de administrador para iniciar sesión en Kanbanize. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 7.
+
+    ![Configuración](common/setup-sso.png)
+
+3. Si quiere configurar Kanbanize manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Kanbanize como administrador y lleve a cabo los siguientes pasos:
+
+4. Vaya a la parte superior derecha de la página y haga clic en el logotipo de **configuración**.
+
+    ![Configuración de Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
+
+5. En la página del panel de administración del lado izquierdo del menú, haga clic en **Integrations** (Integraciones) y, a continuación, habilite **Single Sign-On** (Inicio de sesión único).
+
+    ![Integraciones de Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+
+6. En la sección de integraciones, haga clic en **CONFIGURE** (CONFIGURAR) para abrir la página **Single Sign-On Integration** (Integración de inicio de sesión único).
+
+    ![Configuración de Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
+
+7. En la página **Single Sign-On Integration** (Integración de inicio de sesión único), en **Configurations** (Configuraciones), realice los siguientes pasos:
+
+    ![Integraciones de Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+
+    a. En el cuadro de texto **Idp Entity ID** (Identificador de la entidad de IdP), pegue el valor de **Azure AD Identifier** (Identificador de Azure AD) que copió de Azure Portal.
+
+    b. En el cuadro de texto **Idp Login Endpoint** (Punto de conexión de inicio de sesión de Idp), pegue el valor de **Login URL** (Dirección URL de inicio de sesión) que copió de Azure Portal.
+
+    c. En el cuadro de texto **Idp Logout Endpoint** (Punto de conexión de cierre de sesión de Idp), pegue el valor de **Logout URL** (Dirección URL de cierre de sesión) que copió de Azure Portal.
+
+    d. En **Attribute name for Email** (Nombre de atributo de correo electrónico), escriba este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+
+    e. En el cuadro de texto **Attribute name for First Name** (Nombre de atributo para nombre), escriba este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+
+    f. En el cuadro de texto **Attribute name for Last Name** (Nombre de atributo para apellido), escriba este valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+
+    > [!Note]
+    > Puede obtener estos valores mediante la combinación de valores de espacio de nombres y nombre del atributo correspondiente de la sección Atributos de usuario de Azure Portal.
+
+    g. En el Bloc de notas, abra el certificado codificado en base 64 que descargó de Azure Portal, copie su contenido (sin los marcadores de inicio y fin) y, luego, péguelo en el cuadro de texto **Idp X.509 Certificate** (Certificado X.509 de IdP).
+
+    h. Marque **Enable login with both SSO and Kanbanize** (Habilitar el inicio de sesión con SSO y Kanbanize).
+
+    i. Haga clic en **Guardar configuración**.
+
 ### <a name="create-kanbanize-test-user"></a>Creación de un usuario de prueba de Kanbanize
 
-En esta sección, se crea un usuario llamado Britta Simon en Kanbanize. Kanbanize admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si aún no existe un usuario en Kanbanize, se crea uno después de la autenticación. Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Kanbanize](mailto:support@ms.kanbanize.com).
+En esta sección, se crea un usuario llamado B.Simon en Kanbanize. Kanbanize admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si aún no existe un usuario en Kanbanize, se crea uno después de la autenticación. Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Kanbanize](mailto:support@ms.kanbanize.com).
 
-### <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
@@ -198,4 +206,6 @@ Al hacer clic en el icono de Kanbanize en el Panel de acceso, debería iniciar s
 - [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Pruebe Kanbanize con Azure AD](https://aad.portal.azure.com/)
 

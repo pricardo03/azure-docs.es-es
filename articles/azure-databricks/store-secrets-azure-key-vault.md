@@ -1,5 +1,5 @@
 ---
-title: Tutorial de acceso a Azure Blob Storage desde Azure Databricks mediante Azure Key Vault
+title: 'Acceso a Blob Storage mediante el almacén de claves: Azure Databricks'
 description: En este tutorial se describe cómo acceder a Azure Blob Storage desde Azure Databricks mediante secretos almacenados en un almacén de claves.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 45c5be8b203daf21697f3cb6dad4ecadb6449339
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 1e44a1f1be6dcadac937d641e00c99994af0c651
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976528"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274075"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: Acceso a Azure Blob Storage desde Azure Databricks mediante el tutorial de Azure Key Vault
 

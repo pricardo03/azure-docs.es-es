@@ -14,13 +14,13 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
-ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: f46a4771f1db5e4040cb23b1a9236c91699b6ad5
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: bd31cf066b7844eeae02c24cb39ece686630b5ff
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057863"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329851"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Inicio rápido: Uso de Azure Redis Cache con Node.js
 
@@ -113,7 +113,7 @@ node redistest.js
 
 En el ejemplo siguiente, puede ver que la clave `Message` tenía anteriormente un valor almacenado en caché, que se estableció mediante la Consola de Redis en Azure Portal. La aplicación actualizó ese valor almacenado en caché. La aplicación también ejecutó los comandos `PING` y `CLIENT LIST`.
 
-![Aplicación de caché finalizada](./media/cache-nodejs-get-started/cache-app-complete.png)
+![Aplicación de Redis Cache finalizada](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -129,7 +129,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione
 
 En el cuadro de texto **Filtrar por nombre**, escriba el nombre del grupo de recursos. En las instrucciones de este artículo se usa un grupo de recursos llamado *TestResources*. En el grupo de recursos de la lista de resultados, seleccione **...** y, después, **Eliminar grupo de recursos**.
 
-![Eliminar](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
+![Eliminación de un grupo de recursos de Azure](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
 Se le pedirá que confirme la eliminación del grupo de recursos. Escriba el nombre del grupo de recursos para confirmar y seleccione **Eliminar**.
 

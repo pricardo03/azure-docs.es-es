@@ -1,5 +1,5 @@
 ---
-title: Creación de una instancia de Azure Data Factory con Python | Microsoft Docs
+title: 'Inicio rápido: Creación de una instancia de Azure Data Factory con Python'
 description: Cree una factoría de datos de Azure para copiar los datos de una ubicación de Azure Blob Storage a otra.
 services: data-factory
 documentationcenter: ''
@@ -12,22 +12,23 @@ ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
-ms.openlocfilehash: 4d3b7ce56863d82ed8322b937a290c52774677d2
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.custom: seo-python-october2019
+ms.openlocfilehash: afe6ae001712db6d2a0dfa676daf847a2c4cf86e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272281"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438687"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Inicio rápido: Creación de una factoría de datos y una canalización con Python
+# <a name="quickstart-create-an-azure-data-factory-and-pipeline-using-python"></a>Inicio rápido: Creación de una instancia de Azure Data Factory y una canalización con Python
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](quickstart-create-data-factory-python.md)
 
-Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI).
-
 En esta guía de inicio rápido se describe cómo usar Python para crear una instancia de Azure Data Factory. La canalización de esta factoría de datos copia datos de una carpeta a otra en Azure Blob Storage.
+
+Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI).
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

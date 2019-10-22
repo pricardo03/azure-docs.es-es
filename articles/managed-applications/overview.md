@@ -1,17 +1,17 @@
 ---
 title: Introducción a las aplicaciones administradas de Azure | Microsoft Docs
-description: Describe los conceptos de las aplicaciones administradas de Azure
+description: Describe los conceptos de Azure Managed Applications, que proporciona soluciones en la nube que los consumidores pueden implementar y utilizar fácilmente.
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 97d6a229651f1c3fbcdbb79c7ae7d1c1f855882b
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: fa37536b800203e981a841d049dc385640733f92
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234757"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332683"
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 

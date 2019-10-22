@@ -1,17 +1,17 @@
 ---
-title: Creación de una asignación de directiva con una plantilla de Resource Manager
+title: Creación de una asignación con una plantilla de Resource Manager
 description: Este artículo le guiará por los pasos para usar una plantilla de Resource Manager para crear una asignación de directiva para identificar recursos no compatibles.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
-ms.openlocfilehash: 72d8fab39e8dd11cf46eb2977a9b9fe288ca2de1
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 842b29160e3abaea5edc4bfb4f2e1c345e3ffc85
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980813"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254806"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante una plantilla de Resource Manager
 

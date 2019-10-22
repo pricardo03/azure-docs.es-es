@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b3210b97fe6fb0cd16499d5c33538c8e2babe612
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5e9b94f0c67b4b4630d554f4dde22502c90e777c
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173646"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376370"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: Creación de una aplicación con un servicio front-end de la API de Java y un servicio back-end con estado en Service Azure Fabric
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>Adición del archivo HTTPCommunicationListener.java
 
-El agente de escucha de la comunicación HTTP actúa como el controlador que configura el servidor HTTP y expone las API que definen las acciones de votación. Haga clic con el botón derecho en el paquete *statelessservice* de la carpeta *VotingWeb/src/statelessservice* y seleccione **New****File** (Nuevo****Archivo).  Asigne al archivo el nombre *HttpCommunicationListener.java* y seleccione **Finish** (Finalizar).
+El agente de escucha de la comunicación HTTP actúa como el controlador que configura el servidor HTTP y expone las API que definen las acciones de votación. Haga clic con el botón derecho en el paquete *statelessservice* de la carpeta *VotingWeb/src/statelessservice* y seleccione **Nuevo** > **Archivo**.  Asigne al archivo el nombre *HttpCommunicationListener.java* y seleccione **Finish** (Finalizar).
 
 Reemplace el contenido del archivo por el siguiente y guarde los cambios.  Más adelante, en Actualización del archivo HttpCommunicationListener.java, este archivo se modifica para que represente, lea y escriba los datos de votación del servicio back-end.  Por ahora, el agente de escucha simplemente devuelve el código HTML estático para la aplicación Voting.
 

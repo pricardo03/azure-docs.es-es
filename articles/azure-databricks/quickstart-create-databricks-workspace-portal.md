@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Ejecución de un trabajo de Spark en Azure Databricks con Azure Portal'
+title: Ejecución de un trabajo de Spark en Azure Databricks con Azure Portal
 description: La guía de inicio rápido muestra cómo usar Azure Portal para crear un área de trabajo de Azure Databricks y un clúster de Apache Spark, además de ejecutar un trabajo de Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 3570325880b4c8d8eb311f00477262126a2b18ad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 21a3e8541441e6139c1c84138870b3ffaf3cacc1
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932566"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515807"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guía de inicio rápido: Ejecución de un trabajo de Spark en Azure Databricks con Azure Portal
 
@@ -39,7 +39,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
 1. En Azure Portal, seleccione **Crear un recurso** > **Análisis** > **Azure Databricks**.
 
-    ![Databricks en Azure Portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks en Azure Portal")
+    ![Databricks en Azure Portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks de Azure Portal")
 
 2. En **Azure Databricks Service**, proporcione los valores para crear un área de trabajo de Databricks.
 
@@ -54,12 +54,13 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
     |**Grupos de recursos**     | Especifique si desea crear un nuevo grupo de recursos o utilizar uno existente. Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. Para más información, consulte [Información general del grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md). |
     |**Ubicación**     | Seleccione **Oeste de EE. UU. 2**. Para otras regiones disponibles, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/).        |
     |**Plan de tarifa**     |  Elija entre **Estándar**, **Premium** o **Evaluación gratuita**. Para más información sobre estos planes, consulte la [página de precios de Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Virtual Network**     |  Elija implementar un área de trabajo de Azure Databricks en su red virtual propia. Para más información, consulte [Implementación de Azure Databricks en la red virtual de Azure (inyección de red virtual)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).        |
 
-    Seleccione **Anclar al panel** y luego haga clic en **Crear**.
+    Seleccione **Crear**.
 
 4. Se tarda unos minutos en crear el área de trabajo. Durante la creación del área de trabajo, puede ver el estado de implementación en **Notificaciones**.
 
-    ![Icono de implementación de Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks deployment tile")
+    ![Icono de implementación de Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Icono de implementación de Databricks")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Creación de un clúster de Spark en Databricks
 
@@ -74,12 +75,12 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
 3. En la página **Nuevo clúster**, proporcione los valores para crear un clúster.
 
-    ![Creación de un clúster de Databricks Spark en Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Creación de un clúster de Databricks Spark en Azure")
+    ![Creación de clústeres de Spark para Databricks en Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Creación de clústeres de Spark para Databricks en Azure")
 
     Acepte los demás valores predeterminados, salvo los siguientes:
 
    * Escriba un nombre para el clúster.
-   * Para este artículo, cree un clúster con el entorno de ejecución **5.2**.
+   * Para este artículo, cree un clúster con el entorno de ejecución **5.3**.
    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de \_\_ minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
     
      Seleccione **Create cluster** (Crear clúster). Una vez que el clúster se está ejecutando, puede asociarle notebooks y ejecutar trabajos de Spark.
@@ -92,11 +93,11 @@ Realice las tareas siguientes para crear un cuaderno en Databricks, configúrelo
 
 1. En el panel izquierdo, seleccione **Azure Databricks**. En **Common Tasks** (Tareas comunes), seleccione **New Notebook** (Nuevo cuaderno).
 
-    ![Creación de notebooks en Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Creación de notebooks en Databricks")
+    ![Creación de un cuaderno en Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Creación de un cuaderno en Databricks")
 
 2. En el cuadro de diálogo **Create Notebook** (Crear cuaderno), seleccione **Python** como lenguaje y seleccione el clúster de Spark que creó anteriormente.
 
-    ![Creación de notebooks en Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Creación de notebooks en Databricks")
+    ![Creación de un cuaderno en Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Creación de un cuaderno en Databricks")
 
     Seleccione **Crear**.
 
@@ -140,11 +141,11 @@ Realice las tareas siguientes para crear un cuaderno en Databricks, configúrelo
 
 6. Ahora, creará una representación visual de estos datos para mostrar cuántos eventos de seguridad se generan mediante Citizens Connect App y City Worker App en lugar de otros orígenes. En la parte inferior de la salida tabular, haga clic en el icono **Bar chart** (Gráfico de barras) y, luego, en **Plot Options** (Opciones de trazado).
 
-    ![Creación del gráfico de barras](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Creación del gráfico de barras")
+    ![Creación de un gráfico de barras](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Creación de un gráfico de barras")
 
 8. En **Personalizar trazado**, arrastre y coloque los valores como se muestra en la captura de pantalla.
 
-    ![Personalización del gráfico de barras](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Customize bar chart")
+    ![Personalización del gráfico circular](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personalización del gráfico de barras")
 
    * Establezca **Keys** (Claves) en **source**.
    * Establezca **Values** (Valores) en **<\id>** .
@@ -157,7 +158,7 @@ Realice las tareas siguientes para crear un cuaderno en Databricks, configúrelo
 
 Cuando haya terminado el artículo, puede finalizar el clúster. Para ello, desde el área de trabajo de Azure Databricks, en el panel izquierdo, seleccione **Clusters** (Clústeres). En el clúster que desea finalizar, mueva el cursor sobre el botón de puntos suspensivos en la columna **Actions** (Acciones) y seleccione el icono **Terminate** (Finalizar).
 
-![Detener un clúster de Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stop a Databricks cluster")
+![Detención de un clúster de Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Detención de un clúster de Databricks")
 
 Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de \_\_ minutos de inactividad) al crear el clúster. En tal caso, el clúster se detiene automáticamente si ha estado inactivo durante el tiempo especificado.
 

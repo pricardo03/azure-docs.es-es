@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 82fbaa35d8d06cdb1999a76a36fb4a1dade017e9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 1d0c6edf250e49fe966388253617181ed2b3dff1
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883887"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329655"
 ---
-# <a name="create-your-first-function-from-the-command-line"></a>Creación de su primera función desde la línea de comandos
+# <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Inicio rápido: Creación de su primera función desde la línea de comandos mediante la CLI de Azure
 
 Este tema de inicio rápido lo guía a través de la creación de la primera función desde la línea de comandos o el terminal. Use la CLI de Azure para crear una aplicación de función, que será la infraestructura [sin servidor](https://azure.microsoft.com/solutions/serverless/) que hospedará la función. El proyecto de código de función se genera a partir de una plantilla mediante el uso de [Azure Functions Core Tools](functions-run-local.md), que también se usa para implementar el proyecto de aplicación de función en Azure.
 
@@ -28,7 +28,7 @@ Antes de ejecutar este ejemplo, debe tener lo siguiente:
 
 + Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versión 2.6.666 u otra posterior.
 
-+ Instale la [CLI de Azure]( /cli/azure/install-azure-cli). En este artículo se necesita la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión que tiene. También puede usar [Azure Cloud Shell](https://shell.azure.com/bash).
++ Instale la [CLI de Azure](/cli/azure/install-azure-cli). En este artículo se necesita la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión que tiene. También puede usar [Azure Cloud Shell](https://shell.azure.com/bash).
 
 + Una suscripción de Azure activa.
 

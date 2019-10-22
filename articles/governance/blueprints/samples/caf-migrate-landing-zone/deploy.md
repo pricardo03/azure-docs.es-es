@@ -1,18 +1,18 @@
 ---
-title: 'Ejemplo: Plano técnico de la zona de aterrizaje de migración de CAF: Pasos de implementación'
-description: Pasos de implementación del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF.
+title: Pasos de implementación del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF
+description: Pasos de implementación del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF, incluidos los detalles de los parámetros del artefacto de plano técnico.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: cec8d224e52de25fe026a17d57144da3cd53fc5b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: cb41d363b208400598c8afb06dfdb4acaeb02d2b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981684"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298026"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implementación del ejemplo de plano técnico de la zona de aterrizaje de migración de Microsoft Cloud Adoption Framework para Azure
 
@@ -36,7 +36,7 @@ En primer lugar, implemente el ejemplo de plano técnico mediante la creación d
 
 1. En la página **Introducción** de la izquierda, seleccione el botón **Crear** en _Crear un plano técnico_.
 
-1. Busque el ejemplo de plano técnico de la **zona de aterrizaje de migración de CAF** en _Otros ejemplos_ y seleccione **Usar este ejemplo**.
+1. Busque el ejemplo de plano técnico de la **zona de aterrizaje de migración de CAF** en _Otras muestras_ y seleccione **Usar esta muestra**.
 
 1. Escriba los _Aspectos básicos_ del ejemplo de plano técnico:
    - **Nombre del plano técnico**: proporcione un nombre para su copia del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF.
@@ -118,7 +118,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 Ahora que ha revisado los pasos para implementar el ejemplo de plano técnico de la zona de aterrizaje de migración de CAF, visite los siguientes artículos para obtener información sobre la arquitectura:
 
 > [!div class="nextstepaction"]
-> [Plano técnico de la zona de aterrizaje de migración de CAF: Introducción](./index.md)
+> [Introducción al plano técnico de la zona de aterrizaje de migración de CAF](./index.md)
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 

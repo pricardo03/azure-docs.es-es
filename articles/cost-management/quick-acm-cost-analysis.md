@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2019
+ms.date: 10/14/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 2ca0c0741ea543b30695303d473389979f2e1045
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f2e1d19f69b426cee870d2ede489b7c458404704
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855047"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374768"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Inicio rápido: Explore y analice los costos con Análisis de costos
 
@@ -34,16 +34,7 @@ En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 
 El análisis de costos es compatible con varios tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para ver los datos de costos, se necesita al menos acceso de lectura en la cuenta de Azure.
 
-Los clientes con [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) deben tener, al menos, acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos.
-
-- Cuenta de facturación
-- department
-- Cuenta de inscripción
-- Grupo de administración
-- Subscription
-- Resource group
-
-Para más información acerca de cómo asignar acceso a los datos de Azure Cost Management, consulte [Assign access to data](assign-access-acm-data.md) (Asignación del acceso a los datos).
+Para más información acerca de cómo asignar acceso a los datos de Azure Cost Management, consulte [Asignación de acceso a los datos](assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -116,7 +107,7 @@ Esta es una vista de los costos de los servicios de Azure del mes en curso.
 
 ![Vista acumulada diaria agrupada que muestra los costos de servicio de Azure de ejemplo correspondientes al último mes](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-De manera predeterminada, el análisis de costos muestra todos los costos de compra y de uso cuando se acumulan y se mostrarán en su factura, también conocido como **Costo real**. Ver el costo real es ideal para la conciliación de la factura. Sin embargo, los picos de compras en el costo pueden ser alarmantes cuando se observan anomalías en los gastos y otros cambios en el costo. Para eliminar los picos causados por los costos de compra de reservas, cambie a **Costo amortizado**. 
+De manera predeterminada, el análisis de costos muestra todos los costos de compra y de uso cuando se acumulan y se mostrarán en su factura, también conocido como **Costo real**. Ver el costo real es ideal para la conciliación de la factura. Sin embargo, los picos de compras en el costo pueden ser alarmantes cuando se observan anomalías en los gastos y otros cambios en el costo. Para eliminar los picos causados por los costos de compra de reservas, cambie a **Costo amortizado**.
 
 ![Cambiar entre el costo real y el amortizado para ver las compras de reservas diseminadas por el plazo y asignadas a los recursos que usaron la reserva](./media/quick-acm-cost-analysis/metric-picker.png)
 
@@ -169,11 +160,11 @@ Para más información acerca de los términos, consulte [Información acerca de
 
 ## <a name="saving-and-sharing-customized-views"></a>Almacenamiento y uso compartido de vistas personalizadas
 
-Para guardar y compartir vistas personalizadas con otros usuarios, ancle el análisis de costos al panel de Azure Portal o copie un vínculo al análisis de costos. 
+Para guardar y compartir vistas personalizadas con otros usuarios, ancle el análisis de costos al panel de Azure Portal o copie un vínculo al análisis de costos.
 
 Para anclar un análisis de costos, seleccione el icono de anclaje en la esquina superior derecha. El anclaje de un análisis de costos solo guardará el gráfico principal o la vista de tabla. Comparta el panel para dar a otros usuarios acceso al icono. Tenga en cuenta que así solo se comparte la configuración del panel y no se concede a otros usuarios acceso a los datos subyacentes. Si no tiene acceso a los costos, pero tiene acceso a un panel compartido, verá un mensaje de acceso denegado.
 
-Para compartir un vínculo al análisis de costos, seleccione **Compartir** en la parte superior de la hoja. Se mostrará una dirección URL personalizada, que abre esta vista específica para este ámbito concreto. Si no tiene acceso de costo y obtiene esta dirección URL, verá el mensaje "acceso denegado". 
+Para compartir un vínculo al análisis de costos, seleccione **Compartir** en la parte superior de la hoja. Se mostrará una dirección URL personalizada, que abre esta vista específica para este ámbito concreto. Si no tiene acceso de costo y obtiene esta dirección URL, verá el mensaje "acceso denegado".
 
 Para más información acerca de cómo conceder acceso a los costos para cada ámbito compatible, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
@@ -183,14 +174,14 @@ Hay ocasiones en que es necesario descargar los datos para analizarlos en mayor 
 
 Si necesita el conjunto de datos completo sin agregar, descárguelo de la cuenta de facturación. A continuación, en la lista de servicios del panel de navegación izquierdo del portal, vaya a **Administración de costos + facturación**. Seleccione su cuenta de facturación, si procede. Vaya a **Uso y cargos** y, a continuación, seleccione el icono de **descarga** para el período de facturación deseado.
 
-Adopte un enfoque similar para automatizar la recepción de datos de costo. Use la [API de consulta](/rest/api/cost-management/query) para mejorar el análisis con filtrado dinámico, agrupación y agregación, o bien use la [API UsageDetails](/rest/api/consumption/usageDetails) para obtener un conjunto de datos completo sin agregar. La versión de disponibilidad general (GA) de estas API es 2019-01-01. Use **2019-04-01-preview** para obtener acceso a la versión preliminar de las compras de reservas y de Marketplace dentro de estas API. 
+Adopte un enfoque similar para automatizar la recepción de datos de costo. Use la [API de consulta](/rest/api/cost-management/query) para mejorar el análisis con filtrado dinámico, agrupación y agregación, o bien use la [API UsageDetails](/rest/api/consumption/usageDetails) para obtener un conjunto de datos completo sin agregar. La versión de disponibilidad general (GA) de estas API es 2019-01-01. Use **2019-04-01-preview** para obtener acceso a la versión preliminar de las compras de reservas y de Marketplace dentro de estas API.
 
 Por ejemplo, a continuación se muestra una vista agregada de costos amortizados desglosados por tipo de cargo (uso, compra o reembolso), tipo de anunciante (Azure o Marketplace), grupo de recursos (vacío para las compras) y reserva (vacío si no es aplicable).
 
 ```
 POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/query?api-version=2019-04-01-preview
 Content-Type: application/json
- 
+
 {
   "type": "AmortizedCost",
   "timeframe": "Custom",
@@ -221,7 +212,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 ```
 
 Si necesita los costos reales para mostrar las compras a medida que se acumulan, cambie **type**/**metric** por **ActualCost**. Para más información acerca de estas API, consulte la documentación de [Query API](/rest/api/cost-management/query) y [UsageDetails API](/rest/api/consumption/usageDetails). Tenga en cuenta que los documentos publicados son para la versión de GA. Sin embargo, ambos son válidos para la versión de la API *2019-04-01-preview* fuera de los nombres de propiedad cambiados y el nuevo atributo type/metric. (A continuación encontrará más información acerca de los nombres de propiedad).
- 
+
 Las API de Cost Management funcionan en todos los ámbitos superiores a los recursos: grupo de recursos, suscripción y grupo de administración a través del acceso a Azure RBAC, cuentas de facturación de EA (inscripciones), departamentos y cuentas de inscripciones a través del acceso al portal de EA. Para más información acerca de los ámbitos; por ejemplo, cómo determinar el identificador de ámbito o administrar el acceso, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 ## <a name="next-steps"></a>Pasos siguientes

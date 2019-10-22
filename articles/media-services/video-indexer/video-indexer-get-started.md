@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 10/10/2019
 ms.author: juliako
-ms.openlocfilehash: fca8dc31a0f909a1602819a2830d9bebbbda0c88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9d89247740852b7bfc185fbcf864947efe30ef0f
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799313"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372343"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Inicio rápido: Suscripción y carga del primer vídeo
 
@@ -28,6 +28,9 @@ Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gra
 Para empezar a desarrollar con Video Indexer, vaya al sitio web de [Video Indexer](https://www.videoindexer.com) y suscríbase.
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Carga de un vídeo mediante el sitio web de Video Indexer
+
+> [!NOTE]
+> El nombre del vídeo no debe superar los 80 caracteres.
 
 1. Inicie sesión en el sitio web de [Video Indexer](https://www.videoindexer.ai/).
 2. Para cargar un vídeo, presione el botón **Upload** (Cargar) o el vínculo.

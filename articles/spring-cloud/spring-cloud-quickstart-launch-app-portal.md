@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/04/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 74a47bc5fc6dbcadef5e1a0da88eb93056334703
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 59770bccec57220560eeb5a5204e574ce172fc80
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244876"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296500"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Inicio rápido: Inicio de una aplicación de Azure Spring Cloud desde Azure Portal
 
@@ -42,7 +42,7 @@ En este inicio rápido aprenderá a:
 Para completar esta guía de inicio rápido:
 
 1. [Instalación de Git](https://git-scm.com/)
-2. [Instalación de JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+2. [Instalación de JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Instalación de Maven 3.0, o cualquier versión superior](https://maven.apache.org/download.cgi)
 4. [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Registro para obtener una suscripción a Azure](https://azure.microsoft.com/free/)
@@ -57,9 +57,11 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Aprovisionamiento de una instancia de servicio en Azure Portal
 
-1. En un explorador web, abra [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension) e inicie sesión en su cuenta.
+1. En un explorador web, abra [este vínculo a Azure Spring Cloud en Azure Portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud).
 
-1. Busque **Azure Spring Cloud** y selecciónelo para ir a la página de información general. Seleccione el botón **Crear** para empezar a usarlo.
+    ![Captura de pantalla del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
+
+1. Seleccione **Azure Spring Cloud**  para ir a la página de información general. Luego, seleccione el botón **Crear** para empezar a usarlo.
 
 1. Rellene el formulario teniendo en cuenta las siguientes directrices:
     - Nombre del servicio: especifique el nombre de la instancia de servicio.  El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones.  El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
@@ -74,6 +76,8 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
 1. Vaya a la página **Información general** del servicio y seleccione **Config Server**.
 
 1. En la sección **Default repository** (Repositorio predeterminado ), establezca **URI** en "https://github.com/Azure-Samples/piggymetrics", establezca **LABEL** (ETIQUETA) en "config" y seleccione **Aplicar** para guardar los cambios.
+
+    ![Captura de pantalla del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Compilación e implementación de aplicaciones de microservicios
 
@@ -130,10 +134,15 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
 
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Asignación de un punto de conexión público a una puerta de enlace
 
-1. Abra la página **Panel de la aplicación**.
-2. Seleccione la aplicación `gateway` y se mostrará la página **Detalles de la aplicación**.
-3. Seleccione **Asignar dominio** para asignar un punto de conexión público a la puerta de enlace. Esta operación puede tardar unos minutos. 
-4. Escriba la dirección IP pública asignada en el explorador para ver la aplicación en ejecución.
+1. Abra la pestaña **Aplicaciones** en el menú de la izquierda.
+2. Seleccione la aplicación `gateway` para mostrar la página **Información general**.
+3. Seleccione **Asignar dominio** para asignar un punto de conexión público a la puerta de enlace. Esta operación puede tardar unos minutos.
+
+    ![Captura de pantalla del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+
+1. Escriba el punto de conexión público asignado (con la etiqueta **URL**) en el explorador para ver la aplicación en ejecución.
+
+    ![Captura de pantalla del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

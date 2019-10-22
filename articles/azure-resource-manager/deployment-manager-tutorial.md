@@ -5,15 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.date: 05/23/2019
+ms.date: 10/10/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 97d9aa1ed9440011fdaab3aa8eb9d3942b5a8acf
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3f10093b1d3087e87279258d04d86fc3d47ba313
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170364"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285878"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager (versión preliminar pública)
 
@@ -61,8 +61,6 @@ Para completar este artículo, necesitará lo siguiente:
     ```powershell
     Install-Module -Name Az.DeploymentManager
     ```
-
-* [Explorador de Microsoft Azure Storage](https://azure.microsoft.com/features/storage-explorer/). El Explorador de Azure Storage no es necesario, pero facilita las cosas.
 
 ## <a name="understand-the-scenario"></a>Descripción del escenario
 
@@ -135,16 +133,55 @@ Las dos versiones (1.0.0.0 y 1.0.0.1) son para la [implementación de revisiones
 
 Los artefactos de plantilla se usan en la plantilla de topología del servicio y los artefactos binarios se usan en la plantilla de lanzamiento. La plantilla de topología y la plantilla de lanzamiento definen un recurso de Azure de origen del artefacto, que es un recurso usado para que Resource Manager apunte a los artefactos binarios y de plantilla que se usan en la implementación. Para simplificar el tutorial, se usa una cuenta de almacenamiento para almacenar los artefactos de plantilla y los artefactos binarios. Ambos orígenes de artefacto apuntan a la misma cuenta de almacenamiento.
 
-1. Cree una cuenta de Azure Storage. Para ver las instrucciones, consulte [Inicio rápido: Carga, descarga y enumeración de blobs mediante Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
-2. Cree un contenedor de blobs en la cuenta de almacenamiento.
-3. Copie las dos carpetas (archivos binarios y plantillas) y el contenido de las dos carpetas en el contenedor de blobs. El [Explorador de Microsoft Azure Storage](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409) admite la característica de arrastrar y colocar.
-4. Obtenga la ubicación de SAS del contenedor mediante las siguientes instrucciones:
+Ejecute el siguiente script de PowerShell para crear un grupo de recursos, cree un contenedor de almacenamiento, cree un contenedor de blobs, cargue los archivos descargados y cree un token de SAS.
 
-    1. Desde el Explorador de Azure Storage, vaya al contenedor de blobs.
-    2. Haga clic con el botón derecho en el contenedor de blobs del panel de la izquierda y, luego, seleccione **Get Shared Access Signature** (Obtener firma de acceso compartido).
-    3. Configure **Start time** (Hora de inicio) y **Expiry time** (Hora de expiración).
-    4. Seleccione **Crear**.
-    5. Realice una copia de la dirección URL. Esta dirección URL es necesaria para rellenar un campo en los dos archivos de parámetros, [archivo de parámetros de topología](#topology-parameters-file) y [archivo de parámetros de lanzamiento](#rollout-parameters-file).
+> [!IMPORTANT]
+> En el script de PowerShell, **projectName** se utiliza para generar nombres para los servicios de Azure que se implementan en este tutorial. Los distintos servicios de Azure tienen diferentes requisitos con respecto a los nombres. Para asegurarse de que la implementación se realice correctamente, elija un nombre con menos de 12 caracteres con solo letras minúsculas y números.
+> Guarde una copia del nombre del proyecto. Use el mismo projectName en todo el tutorial.
+
+```azurepowershell
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$filePath = Read-Host -Prompt "Enter the folder that contains the downloaded files"
+
+
+$resourceGroupName = "${projectName}rg"
+$storageAccountName = "${projectName}store"
+$containerName = "admfiles"
+$filePathArtifacts = "${filePath}\ArtifactStore"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
+  -Name $storageAccountName `
+  -Location $location `
+  -SkuName Standard_RAGRS `
+  -Kind StorageV2
+
+$storageContext = $storageAccount.Context
+
+$storageContainer = New-AzStorageContainer -Name $containerName -Context $storageContext -Permission Off
+
+
+$filesToUpload = Get-ChildItem $filePathArtifacts -Recurse -File
+
+foreach ($x in $filesToUpload) {
+    $targetPath = ($x.fullname.Substring($filePathArtifacts.Length + 1)).Replace("\", "/")
+
+    Write-Verbose "Uploading $("\" + $x.fullname.Substring($filePathArtifacts.Length + 1)) to $($storageContainer.CloudBlobContainer.Uri.AbsoluteUri + "/" + $targetPath)"
+    Set-AzStorageBlobContent -File $x.fullname -Container $storageContainer.Name -Blob $targetPath -Context $storageContext | Out-Null
+}
+
+$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)  -Protocol HttpsOrHttp
+
+$url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
+
+Write-Host $url
+```
+
+Copie la dirección URL con el token de SAS. Esta dirección URL es necesaria para rellenar un campo en los dos archivos de parámetros, el archivo de parámetros de topología y el archivo de parámetros de lanzamiento.
+
+Abra el contenedor desde Azure Portal y compruebe que se cargan las carpetas **binaries** y **templates**, así como los archivos.
 
 ## <a name="create-the-user-assigned-managed-identity"></a>Creación de la identidad administrada asignada por el usuario
 
@@ -176,9 +213,7 @@ Abra **\ADMTemplates\CreateADMServiceTopology.json**.
 
 La plantilla contiene los parámetros siguientes:
 
-![Tutorial de Azure Deployment Manager: parámetros de plantilla de topología](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-parameters.png)
-
-* **namePrefix**: este prefijo se usa para crear los nombres de los recursos de Deployment Manager. Por ejemplo, con el prefijo "jdoe", el nombre de la topología del servicio es **jdoe**ServiceTopology.  Los nombres de recursos se definen en la sección de variables de esta plantilla.
+* **projectName**: este nombre se usa para crear los nombres de los recursos del Administrador de implementaciones. Por ejemplo, con el prefijo "jdoe", el nombre de la topología del servicio es **jdoe**ServiceTopology.  Los nombres de recursos se definen en la sección de variables de esta plantilla.
 * **azureResourcelocation**: para simplificar el tutorial, todos los recursos comparten esta ubicación, a menos que se especifique lo contrario. Actualmente, los recursos de Azure Deployment Manager solo se pueden crear en **Centro de EE. UU.** o **Este de EE. UU. 2**.
 * **artifactSourceSASLocation**: el URI de SAS del contenedor de blobs donde se almacenan los archivos de plantilla y parámetros de la unidad de servicio para la implementación.  Consulte [Preparación de los artefactos](#prepare-the-artifacts).
 * **templateArtifactRoot**: la ruta de desplazamiento del contenedor de blobs donde se almacenan las plantillas y los parámetros. El valor predeterminado es **templates/1.0.0.0**. No cambie este valor a menos que quiera cambiar la estructura de carpetas que se explica en [Preparación de los artefactos](#prepare-the-artifacts). En este tutorial, se usan rutas de acceso relativas.  La ruta de acceso completa se construye mediante la concatenación de **artifactSourceSASLocation**, **templateArtifactRoot** y **templateArtifactSourceRelativePath** (o **parametersArtifactSourceRelativePath**).
@@ -215,14 +250,13 @@ Creará un archivo de parámetros que se usa con la plantilla de la topología.
 1. Abra **\ADMTemplates\CreateADMServiceTopology.Parameters** en Visual Studio Code o cualquier editor de texto.
 2. Rellene los valores de parámetros:
 
-    * **namePrefix**: escriba una cadena con cuatro o cinco caracteres. Este prefijo se usa para crear nombres de recursos de Azure únicos.
+    * **projectName**: escriba una cadena con cuatro o cinco caracteres. este nombre se usa para crear nombres de recursos de Azure únicos.
     * **azureResourceLocation**: si no está familiarizado con las ubicaciones de Azure, use **centralus** en este tutorial.
     * **artifactSourceSASLocation**: el URI de SAS del directorio raíz (el contenedor de blobs) donde se almacenan los archivos de plantilla y parámetros de la unidad de servicio para la implementación.  Consulte [Preparación de los artefactos](#prepare-the-artifacts).
     * **templateArtifactRoot**: a menos que cambie la estructura de carpetas de los artefactos, use **templates/1.0.0.0** en este tutorial.
-    * **targetScriptionID**: Especifique el identificador de su suscripción a Azure.
 
 > [!IMPORTANT]
-> La plantilla de topología y la plantilla de lanzamiento comparten algunos parámetros comunes. Estos parámetros deben tener los mismos valores. Los parámetros son: **namePrefix**, **azureResourceLocation** y **artifactSourceSASLocation** (ambos orígenes de artefacto comparten la misma cuenta de almacenamiento en este tutorial).
+> La plantilla de topología y la plantilla de lanzamiento comparten algunos parámetros comunes. Estos parámetros deben tener los mismos valores. Los parámetros son: **projectName**, **azureResourceLocation** y **artifactSourceSASLocation** (ambos orígenes de artefacto comparten la misma cuenta de almacenamiento en este tutorial).
 
 ## <a name="create-the-rollout-template"></a>Creación de la plantilla de lanzamiento
 
@@ -234,7 +268,7 @@ La plantilla contiene los parámetros siguientes:
 
 ![Tutorial de Azure Deployment Manager: parámetros de plantilla de lanzamiento](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
-* **namePrefix**: este prefijo se usa para crear los nombres de los recursos de Deployment Manager. Por ejemplo, con el prefijo "jdoe", el nombre del lanzamiento es **jdoe**Rollout.  Los nombres se definen en la sección de variables de la plantilla.
+* **projectName**: este nombre se usa para crear los nombres de los recursos del Administrador de implementaciones. Por ejemplo, con "jdoe", el nombre del lanzamiento es **jdoe**Rollout.  Los nombres se definen en la sección de variables de la plantilla.
 * **azureResourcelocation**: para simplificar el tutorial, todos los recursos de Deployment Manager comparten esta ubicación, a menos que se especifique lo contrario. Actualmente, los recursos de Azure Deployment Manager solo se pueden crear en **Centro de EE. UU.** o **Este de EE. UU. 2**.
 * **artifactSourceSASLocation**: el URI de SAS del directorio raíz (el contenedor de blobs) donde se almacenan los archivos de plantilla y parámetros de la unidad de servicio para la implementación.  Consulte [Preparación de los artefactos](#prepare-the-artifacts).
 * **binaryArtifactRoot**:  el valor predeterminado es **binaries/1.0.0.0**. No cambie este valor a menos que quiera cambiar la estructura de carpetas que se explica en [Preparación de los artefactos](#prepare-the-artifacts). En este tutorial, se usan rutas de acceso relativas.  La ruta de acceso completa se construye mediante la concatenación de **artifactSourceSASLocation**, **binaryArtifactRoot** y el valor de **deployPackageUri** especificado en el archivo CreateWebApplicationParameters.json.  Consulte [Preparación de los artefactos](#prepare-the-artifacts).
@@ -276,7 +310,7 @@ Creará un archivo de parámetros que se usa con la plantilla de lanzamiento.
 1. Abra **\ADMTemplates\CreateADMRollout.Parameters** en Visual Studio Code o en cualquier editor de texto.
 2. Rellene los valores de parámetros:
 
-    * **namePrefix**: escriba una cadena con cuatro o cinco caracteres. Este prefijo se usa para crear nombres de recursos de Azure únicos.
+    * **projectName**: escriba una cadena con cuatro o cinco caracteres. este nombre se usa para crear nombres de recursos de Azure únicos.
     * **azureResourceLocation**: Actualmente, los recursos de Azure Deployment Manager solo se pueden crear en **Centro de EE. UU.** o **Este de EE. UU. 2**.
     * **artifactSourceSASLocation**: el URI de SAS del directorio raíz (el contenedor de blobs) donde se almacenan los archivos de plantilla y parámetros de la unidad de servicio para la implementación.  Consulte [Preparación de los artefactos](#prepare-the-artifacts).
     * **binaryArtifactRoot**: a menos que cambie la estructura de carpetas de los artefactos, use **binaries/1.0.0.0** en este tutorial.
@@ -287,7 +321,7 @@ Creará un archivo de parámetros que se usa con la plantilla de lanzamiento.
         ```
 
 > [!IMPORTANT]
-> La plantilla de topología y la plantilla de lanzamiento comparten algunos parámetros comunes. Estos parámetros deben tener los mismos valores. Los parámetros son: **namePrefix**, **azureResourceLocation** y **artifactSourceSASLocation** (ambos orígenes de artefacto comparten la misma cuenta de almacenamiento en este tutorial).
+> La plantilla de topología y la plantilla de lanzamiento comparten algunos parámetros comunes. Estos parámetros deben tener los mismos valores. Los parámetros son: **projectName**, **azureResourceLocation** y **artifactSourceSASLocation** (ambos orígenes de artefacto comparten la misma cuenta de almacenamiento en este tutorial).
 
 ## <a name="deploy-the-templates"></a>Implementación de las plantillas
 
@@ -296,19 +330,14 @@ Azure PowerShell puede usarse para implementar las plantillas.
 1. Ejecute el script para implementar la topología del servicio.
 
     ```azurepowershell
-    $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"
-    $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
-
-    # Create a resource group
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-
     # Create the service topology
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
     ```
+
+    Si ejecuta este script desde una sesión de PowerShell diferente de la que usó para ejecutar el script de [Preparación de los artefactos](#prepare-the-artifacts), debe volver a rellenar primero las variables, que incluyen **$resourceGroupName** y **$filePath**.
 
     > [!NOTE]
     > `New-AzResourceGroupDeployment` es una llamada asincrónica. El mensaje de operación correcta solo significa que la implementación ha comenzado correctamente. Para comprobar la implementación, consulte los pasos 2 y 4 de este procedimiento.
@@ -333,7 +362,7 @@ Azure PowerShell puede usarse para implementar las plantillas.
 
     ```azurepowershell
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
+    $rolloutname = "${projectName}Rollout" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName `
@@ -424,9 +453,9 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
 2. Use el campo **Filtrar por nombre** para limitar los grupos de recursos creados en este tutorial. Habrá 3 o 4:
 
-    * **&lt;namePrefix>rg**: contiene los recursos de Deployment Manager.
-    * **&lt;namePrefix>ServiceWUSrg**: contiene los recursos definidos por ServiceWUS.
-    * **&lt;namePrefix>ServiceEUSrg**: contiene los recursos definidos por ServiceEUS.
+    * **&lt;projectName>rg**: contiene los recursos del Administrador de implementaciones.
+    * **&lt;projectName>ServiceWUSrg**: contiene los recursos definidos por ServiceWUS.
+    * **&lt;projectName>ServiceEUSrg**: contiene los recursos definidos por ServiceEUS.
     * El grupo de recursos de la identidad administrada definida por el usuario.
 3. Seleccione el nombre del grupo de recursos.
 4. Seleccione **Eliminar grupo de recursos** del menú superior.

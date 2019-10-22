@@ -10,18 +10,18 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 6a3be3733c5041576d5db49256056ac4f0c03a7f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 13652b287da94adff5bdf2235900734e5908c56f
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003006"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516656"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Inicio rápido: Control de un dispositivo conectado a un centro de IoT (Python)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub es un servicio de Azure que le permite ingerir grandes volúmenes de datos de telemetría desde los dispositivos IoT en la nube y administrar dispositivos desde la nube. En este inicio rápido, usa un *método directo* para controlar un dispositivo simulado conectado a IoT Hub. Puede usar métodos directos para cambiar el comportamiento de un dispositivo conectado a IoT Hub de manera remota.
+IoT Hub es un servicio de Azure que permite administrar dispositivos IoT desde la nube e ingerir grandes volúmenes de datos de telemetría desde los dispositivos en la nube para su almacenamiento o procesamiento. En este inicio rápido, usa un *método directo* para controlar un dispositivo simulado conectado a IoT Hub. Puede usar métodos directos para cambiar el comportamiento de un dispositivo conectado a IoT Hub de manera remota.
 
 El inicio rápido usa dos aplicaciones Python escritas anteriormente:
 
@@ -59,10 +59,10 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
     **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
-    **MyPythonDevice**: nombre que se da al dispositivo registrado. Use MyPythonDevice como se muestra. Si elige otro nombre para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+    **MyPythonDevice**: es el nombre del dispositivo que se va a registrar. Se recomienda usar **MyPythonDevice** como se muestra. Si elige otro nombre distinto para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
 
 2. Ejecute los siguientes comandos en Azure Cloud Shell para obtener la _cadena de conexión del dispositivo_ que acaba de registrar:
@@ -70,7 +70,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
     **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
     Anote la cadena de conexión del dispositivo, que se parecerá a esta:
@@ -85,8 +85,8 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --name YourIoTHubName \
       --policy-name service \
+      --name {YourIoTHubName} \
       --output table
     ```
 
@@ -94,7 +94,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
    `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-    Usará este valor más adelante en este inicio rápido. La cadena de conexión de servicio es diferente de la cadena de conexión de dispositivo.
+    Usará este valor más adelante en este inicio rápido. Esta cadena de conexión del servicio no es la que anotó en el paso anterior.
 
 ## <a name="listen-for-direct-method-calls"></a>Escuchas para llamadas de método directo
 
@@ -104,7 +104,7 @@ La aplicación del dispositivo simulado se conecta a un punto de conexión espec
 
 1. Abra el archivo **SimulatedDevice.py** en el editor de texto de su elección.
 
-    Reemplace el valor de la variable `CONNECTION_STRING` por la cadena de conexión de dispositivo que anotó anteriormente. A continuación, guarde los cambios realizados en el archivo **SimulatedDevice.py**.
+    Reemplace el valor de la variable `CONNECTION_STRING` por la cadena de conexión del dispositivo que anotó anteriormente. Luego, guarde los cambios realizados en **SimulatedDevice.py**.
 
 1. En la ventana de terminal local, ejecute los comandos siguientes para instalar las bibliotecas necesarias para la aplicación de dispositivo simulado:
 
@@ -130,7 +130,7 @@ La aplicación back-end se conecta a un punto de conexión de servicio en IoT Hu
 
 1. Abra el archivo **BackEndApplication.py** en el editor de texto de su elección.
 
-    Reemplace el valor de la variable `CONNECTION_STRING` por la cadena de conexión de servicio que anotó anteriormente. A continuación, guarde los cambios realizados en el archivo **BackEndApplication.py**.
+    Reemplace el valor de la variable `CONNECTION_STRING` por la cadena de conexión del servicio que anotó anteriormente. Luego, guarde los cambios en el archivo **BackEndApplication.py**.
 
 1. En la ventana de terminal local, ejecute los comandos siguientes para instalar las bibliotecas necesarias para la aplicación de dispositivo simulado:
 

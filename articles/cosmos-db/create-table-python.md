@@ -8,12 +8,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 358f55594037f4a468d31265f4e65a6ec4d7ef28
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.custom: seo-python-october2019
+ms.openlocfilehash: d4cfba26192eb097d06f82e18acb41c1f9640e66
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020132"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437328"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Table API con Python y Azure Cosmos DB
 
@@ -84,7 +85,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En [Azure Portal](https://portal.azure.com/) seleccione **Cadena de conexión**. 
 
-    ![Visualización y copia de la cadena de conexión en el panel Cadena de conexión](./media/create-table-python/connection-string.png)
+    ![Visualización y copia de la cadena de conexión en el cuadro de configuración Cadena de conexión](./media/create-table-python/view-and-copy-connection-string-in-connection-string-settings.png)
 
 2. Copie el valor de ACCOUNT NAME mediante el botón que encontrará en el lado derecho.
 
@@ -94,7 +95,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 5. Copie el valor de PRIMARY KEY del portal en el valor de STORAGE_ACCOUNT_KEY en la línea 20.
 
-3. Guarde el archivo config.py.
+6. Guarde el archivo config.py.
 
 ## <a name="run-the-app"></a>Ejecución de la aplicación
 

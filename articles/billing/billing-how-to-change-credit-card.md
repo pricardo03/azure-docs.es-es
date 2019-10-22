@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: banders
-ms.openlocfilehash: f89f9a08feb2ea2bcb7a9e8180002557df1d2b56
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e652237e6faa705aa3ea09e7cf80c4eb692acc98
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300305"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375590"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Agregar, actualizar o quitar una tarjeta de crédito para Azure
 
@@ -131,7 +131,7 @@ Si desea cambiar el método de pago predeterminado a cheque o transferencia banc
 1. Seleccione una tarjeta existente o agregue una nueva.
 
 ## <a name="troubleshooting"></a>solución de problemas
-Si aparecen errores al agregar o actualizar la tarjeta de crédito, pruebe a abrir el explorador en modo privado.
+No se admiten tarjetas virtuales ni prepago. Si aparecen errores al agregar o actualizar una tarjeta de crédito válida, pruebe a abrir el explorador en modo privado.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 Las siguientes secciones responden a las preguntas más frecuentes sobre cómo cambiar la información de la tarjeta de crédito.

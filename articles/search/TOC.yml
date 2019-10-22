@@ -237,6 +237,8 @@
               href: cognitive-search-custom-skill-interface.md
             - name: 'Ejemplo: Azure Functions'
               href: cognitive-search-create-custom-skill-example.md
+            - name: 'Ejemplos: Aptitudes avanzadas'
+              href: 'https://aka.ms/powerskills'
             - name: 'Ejemplo: contenedores'
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Sugerencias de solución de problemas

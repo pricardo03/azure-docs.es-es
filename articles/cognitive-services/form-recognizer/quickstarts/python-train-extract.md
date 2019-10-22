@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: e7a63d09c3116c7504e9d409b32a44be140d8fe4
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 5739827f1f6cf65cfe5c4aa8303c9f37eb569854
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074137"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264405"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de datos del formulario mediante la API de REST con Python
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 - Tener acceso a la versión preliminar de acceso limitado de Form Recognizer. Para acceder a la versión preliminar, rellene y envíe el formulario [Solicitud de acceso de Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
 - [Python](https://www.python.org/downloads/) instalado (si desea ejecutar el ejemplo localmente).
-- Un conjunto de al menos cinco formularios del mismo tipo. Estos datos se usarán para entrenar el modelo. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los datos en la raíz de un contenedor de almacenamiento de blobs en una cuenta de Azure Storage.
+- Un conjunto de al menos cinco formularios del mismo tipo. Estos datos se usarán para entrenar el modelo. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
@@ -115,7 +115,7 @@ Tome nota del valor de `"modelId"`. Lo necesitará en los pasos siguientes.
 A continuación, analizará un documento y extraerá de él tanto los pares clave-valor como las tablas. Llame a la API **Model - Analyze** mediante la ejecución del siguiente script de Python. Antes de ejecutar el comando, realice estos cambios:
 
 1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo con la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
-1. Reemplace `<path to your form>` por la ruta de acceso de archivo del formulario (por ejemplo, C:\temp\file.pdf).
+1. Reemplace `<path to your form>` por la ruta de acceso de archivo del formulario (por ejemplo, C:\temp\file.pdf). En este inicio rápido puede usar los archivos de la carpeta **Prueba** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Reemplace `<modelID>` por el identificador de modelo que recibió en la sección anterior.
 1. Reemplace `<file type>` por el tipo de archivo. Tipos admitidos: `application/pdf`, `image/jpeg`, `image/png`.
 1. Reemplace `<subscription key>` por la clave de suscripción.

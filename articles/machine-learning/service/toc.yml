@@ -297,7 +297,15 @@
         - name: Entrada y salida de datos
           items:
             - name: Importar datos
-              href: ../algorithm-module-reference/import-data.md
+              items:
+                - name: Importar datos
+                  href: ../algorithm-module-reference/import-data.md
+                - name: Importar desde dirección web mediante HTTP
+                  href: ../algorithm-module-reference/import-from-web-url-via-http.md
+                - name: Módulo Import from Azure Blob Storage
+                  href: ../algorithm-module-reference/import-from-azure-blob-storage.md
+                - name: Importar desde Azure SQL Database
+                  href: ../algorithm-module-reference/import-from-azure-sql-database.md
             - name: Exportación de datos
               href: ../algorithm-module-reference/export-data.md
             - name: Introducción manual de datos
@@ -330,6 +338,10 @@
               href: ../algorithm-module-reference/normalize-data.md
             - name: Partición y ejemplo
               href: ../algorithm-module-reference/partition-and-sample.md
+            - name: Recorte de valores
+              href: ../algorithm-module-reference/clip-values.md
+            - name: Aplicación de transformaciones de SQL
+              href: ../algorithm-module-reference/apply-sql-transformation.md
         - name: Machine Learning
           items:
             - name: Puntuación de modelo
@@ -382,6 +394,12 @@
               href: ../algorithm-module-reference/create-python-model.md
             - name: Ejecución script de R
               href: ../algorithm-module-reference/execute-r-script.md
+        - name: Funciones estadísticas
+          items:
+            - name: Aplicación de operación matemática
+              href: ../algorithm-module-reference/apply-math-operation.md
+            - name: Resumen de datos
+              href: ../algorithm-module-reference/summarize-data.md
         - name: Códigos y mensajes de error
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Recursos

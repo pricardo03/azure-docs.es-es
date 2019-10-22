@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Ejecución de un flujo de trabajo mediante Microsoft Genomics'
+title: 'Inicio rápido: Ejecución de un flujo de trabajo'
 description: La guía de inicio rápido muestra cómo cargar datos de entrada en Azure Blob Storage y cómo ejecutar un flujo de trabajo mediante el servicio Microsoft Genomics.
 services: genomics
 author: grhuynh
@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: b2d68f878aed5ce400214b6bdf6e1c0d713043bb
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: e7c90cc0ce85f2a90cc2ddc2cd086fd2626f4d96
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670750"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248541"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Inicio rápido: Ejecución de un flujo de trabajo mediante el servicio Microsoft Genomics
 
@@ -112,7 +112,7 @@ Si ya tiene los datos en una cuenta de almacenamiento de Azure, solo tiene que a
 
 ![Hoja de creación de almacenamiento](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Storage create blade")
 
-Configure la cuenta de Storage con la siguiente información, como se muestra en la imagen anterior. Utilice la mayoría de las opciones estándar para una cuenta de almacenamiento, especificando únicamente que la cuenta es de almacenamiento de blobs, no de uso general. El almacenamiento de blobs puede ser de dos a cinco veces más rápido para cargas y descargas.  El modelo de implementación predeterminado, el de Resource Manager, es el modelo recomendado.  
+Configure la cuenta de Storage con la siguiente información, como se muestra en la imagen anterior. Utilice la mayoría de las opciones estándar para una cuenta de almacenamiento, especificando únicamente que la cuenta es de almacenamiento de blobs, no de uso general. El almacenamiento de blobs puede ser de dos a cinco veces más rápido para cargas y descargas.  El modelo de implementación predeterminado, el de Azure Resource Manager, es el recomendado.  
 
 
  |**Configuración**          |  **Valor sugerido**  | **Descripción del campo** |
@@ -139,7 +139,7 @@ El servicio Microsoft Genomics espera lecturas de extremos emparejados como arch
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
 
-Dentro de la cuenta de almacenamiento, necesita crear un contenedor de blobs para los datos de entrada y un segundo contenedor de blobs para los datos de salida.  Cargue los datos de entrada en el contenedor de blobs de entrada. Se pueden utilizar varias herramientas para ello, como [Explorador de Microsoft Azure Storage](https://azure.microsoft.com/features/storage-explorer/), [blobporter](https://github.com/Azure/blobporter) o [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
+Dentro de la cuenta de almacenamiento, necesita crear un contenedor de blobs para los datos de entrada y un segundo contenedor de blobs para los datos de salida.  Cargue los datos de entrada en el contenedor de blobs de entrada. Se pueden utilizar varias herramientas para ello, como [Explorador de Microsoft Azure Storage](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter) o [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 
 

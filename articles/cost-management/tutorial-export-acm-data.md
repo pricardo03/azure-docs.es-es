@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Creación y administración de datos exportados desde Azure Cost Management | Microsoft Docs'
+title: 'Tutorial: Creación y administración de datos exportados desde Azure Cost Management'
 description: En este artículo se muestra cómo crear y administrar datos de Azure Cost Management para utilizarlos en sistemas externos.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 10/12/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 070844cbf8f6a550b92d764ddb8a31afec12f437
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792885"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374609"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -50,8 +50,8 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 Para crear o ver una exportación de datos o programar una exportación, abra el ámbito deseado en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y **Análisis de costos**, en el menú. En la parte superior de la página Análisis de costos, haga clic en **Exportar** y elija una opción de exportación. Por ejemplo, haga clic en **Programar exportación**.  
 
 > [!NOTE]
-> Además de las suscripciones, puede crear exportaciones en grupo de recursos, cuentas, departamentos e inscripciones. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
->
+> - Además de las suscripciones, puede crear exportaciones en grupo de recursos, cuentas, departamentos e inscripciones. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
+>- Cuando haya iniciado sesión como asociado en el ámbito de la cuenta de facturación o en el inquilino de un cliente, podrá exportar los datos a una cuenta de Azure Storage vinculada a su cuenta de almacenamiento de asociados. Sin embargo, debe tener una suscripción activa en el inquilino de CSP.
 >
 
 

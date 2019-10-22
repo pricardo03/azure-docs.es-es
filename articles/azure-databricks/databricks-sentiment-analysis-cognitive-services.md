@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Análisis de opiniones sobre los datos de streaming con Azure Databricks'
+title: Uso de Azure Databricks para el análisis de sentimiento
 description: Aprenda a usar Azure Databricks con Event Hubs y Cognitive Services API para ejecutar un análisis de sentimiento en los datos de streaming casi en tiempo real.
 services: azure-databricks
 author: lenadroid
@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 9718a6e394c7628cdf7bb62b2dafea2f3d59a3ca
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 1d8b3aad3104f07f8f6499c88f00328c95047816
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68619468"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274223"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análisis de opiniones sobre los datos de streaming con Azure Databricks
 

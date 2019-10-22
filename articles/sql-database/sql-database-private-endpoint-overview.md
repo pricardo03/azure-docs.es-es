@@ -8,10 +8,10 @@ ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
 ms.openlocfilehash: 3adcccde89823f865535c9e1350ac4c3e541eef6
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71066250"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Private Link para Azure SQL Database y Data Warehouse (versión preliminar)
@@ -31,7 +31,7 @@ Piense en un escenario en el que un usuario ejecuta SQL Server Management Studio
 1. Solo se permite el tráfico a SQL Database mediante la dirección IP privada de la máquina virtual. Para más información, consulte los artículos acerca del [punto de conexión de servicio](sql-database-vnet-service-endpoint-rule-overview.md) y de las [reglas de firewall de la red virtual](sql-database-firewall-configure.md).
 1. En la máquina virtual de Azure, restrinja el ámbito de la conexión saliente mediante el uso de [grupos de seguridad de red (NSG)](../virtual-network/manage-network-security-group.md) y etiquetas de servicio, como se indica a continuación
     - Especifique una regla de NSG para permitir el tráfico en Service Tag = SQL.WestUs (solo se permite la conexión a una base de datos SQL en Oeste de EE. UU.)
-    - Especifique una regla de NSG (con una <bpt id="p1">**</bpt>prioridad mayor<ept id="p1">**</ept>) para denegar el tráfico a Service Tag = SQL (se deniegan las conexiones a una base de datos SQL en todas las regiones)
+    - Especifique una regla de NSG (con una **prioridad mayor**) para denegar el tráfico a Service Tag = SQL (se deniegan las conexiones a una base de datos SQL en todas las regiones)
 
 Al final de esta configuración, la máquina virtual de Azure solo puede conectarse a las bases de datos SQL de la región Oeste de EE. UU. Sin embargo, la conectividad no está restringida a una sola base de datos SQL. La máquina virtual puede conectarse a todas las bases de datos SQL de la región Oeste de EE. UU., incluidas las bases de datos que no forman parte de la suscripción. Aunque en el escenario anterior se ha reducido el ámbito de la filtración de datos a una región concreta, no se ha eliminado por completo.
 

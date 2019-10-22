@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: ee4ed818364d04f03caedc8b876ea29c41cb59b7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: aa4837ec1fd8ef19eb6d0c77f946ef358becd542
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273444"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428228"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configuración del enrutamiento de puerto en Azure Load Balancer mediante Azure Portal
 
@@ -235,6 +235,7 @@ Cree una regla de traducción de direcciones de red (NAT) de entrada del equilib
    - **Nombre**: escriba *MyNATRuleVM1*.
    - **Puerto**: escriba *4221*.
    - **Máquina virtual de destino**: seleccione **MyVM1** en la lista desplegable.
+   - **Configuración de IP de red**: seleccione **ipconfig1** en la lista desplegable.
    - **Asignación de puertos**: seleccione **Personalizada**.
    - **Puerto de destino**: escriba *3389*.
    

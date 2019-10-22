@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
 ms.openlocfilehash: be21b809272a132ee6e63582036c36ad5dcdf4ad
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71266206"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Tutorial: Procesamiento de tweets con Azure Event Hubs y Apache Spark en HDInsight
@@ -252,7 +252,7 @@ Con HDInsight, los datos se almacenan en Azure Storage o Azure Data Lake Storage
 
 Abra el clúster en Azure Portal y seleccione **Eliminar**.
 
-![![![![![![![![
+![Eliminación de un clúster de HDInsight en Azure Portal](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Eliminación de un clúster de HDInsight")
 
 También puede seleccionar el nombre del grupo de recursos para abrir la página del grupo de recursos y, a continuación, seleccionar **Eliminar grupo de recursos**. Al eliminar el grupo de recursos, se eliminan tanto el clúster de HDInsight Spark como la cuenta de almacenamiento predeterminada.
 

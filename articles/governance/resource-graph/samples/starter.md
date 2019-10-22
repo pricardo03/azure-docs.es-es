@@ -3,15 +3,15 @@ title: Ejemplos de consultas de inicio
 description: Use Azure Resource Graph para ejecutar consultas de inicio, como el recuento de recursos, el pedido de recursos o las consultas por una etiqueta específica.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/23/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 14bac2299505214b8b087946222c5560a9d90efd
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 431c2d5066421efdfa4725d39fc40169b80d9cb2
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976863"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72431514"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de inicio de Resource Graph
 
@@ -21,6 +21,7 @@ Le guiaremos por las siguientes consultas de inicio:
 
 > [!div class="checklist"]
 > - [Count Azure resources](#count-resources)
+> - [Recuento de recursos de Key Vault](#count-keyvaults)
 > - [List resources sorted by name](#list-resources)
 > - [Show all virtual machines ordered by name in descending order](#show-vms)
 > - [Show first five virtual machines by name and their OS type](#show-sorted)
@@ -32,6 +33,7 @@ Le guiaremos por las siguientes consultas de inicio:
 > - [List all storage accounts with specific tag value](#list-specific-tag)
 > - [Show aliases for a virtual machine resource](#show-aliases)
 > - [Show distinct values for a specific alias](#distinct-alias-values)
+> - [Mostrar grupos de seguridad de red no asociados](#unassociated-nsgs)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
@@ -44,15 +46,34 @@ La CLI de Azure (mediante una extensión) y Azure PowerShell (mediante un módul
 Esta consulta devuelve el número de recursos de Azure que existen en las suscripciones a las que tiene acceso. También es una buena consulta para validar que el shell elegido tiene los componentes apropiados de Azure Resource Graph instalados y en funcionamiento.
 
 ```kusto
-summarize count()
+Resources
+| summarize count()
 ```
 
 ```azurecli-interactive
-az graph query -q "summarize count()"
+az graph query -q "Resources | summarize count()"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "summarize count()"
+Search-AzGraph -Query "Resources | summarize count()"
+```
+
+## <a name="a-namecount-keyvaultscount-key-vault-resources"></a><a name="count-keyvaults">Recuento de recursos de Key Vault
+
+Esta consulta utiliza `count` en lugar de `summarize` para contar el número de registros devueltos. Solo se incluyen los almacenes de claves en el recuento.
+
+```kusto
+Resources
+| where type =~ 'microsoft.compute/virtualmachines'
+| count
+```
+
+```azurecli-interactive
+az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' | count"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachines' | count"
 ```
 
 ## <a name="a-namelist-resourceslist-resources-sorted-by-name"></a><a name="list-resources"/>List resources sorted by name
@@ -60,16 +81,17 @@ Search-AzGraph -Query "summarize count()"
 Esta consulta devuelve cualquier tipo de recurso, pero solo las propiedades **name** (nombre), **type** (tipo) y **location** (ubicación). Usa `order by` para ordenar las propiedades por la propiedad **name** en orden ascendente (`asc`).
 
 ```kusto
-project name, type, location
+Resources
+| project name, type, location
 | order by name asc
 ```
 
 ```azurecli-interactive
-az graph query -q "project name, type, location | order by name asc"
+az graph query -q "Resources | project name, type, location | order by name asc"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name, type, location | order by name asc"
+Search-AzGraph -Query "Resources | project name, type, location | order by name asc"
 ```
 
 ## <a name="a-nameshow-vmsshow-all-virtual-machines-ordered-by-name-in-descending-order"></a><a name="show-vms"/>Show all virtual machines ordered by name in descending order
@@ -77,17 +99,18 @@ Search-AzGraph -Query "project name, type, location | order by name asc"
 Para enumerar solo las máquinas virtuales (que son de tipo `Microsoft.Compute/virtualMachines`), podemos hacer coincidir la propiedad **type** en los resultados. De forma similar a la consulta anterior, `desc` cambia el `order by` a descendente. `=~` en el tipo de coincidencia indica a Resource Graph que distinga mayúsculas de minúsculas.
 
 ```kusto
-project name, location, type
+Resources
+| project name, location, type
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | order by name desc
 ```
 
 ```azurecli-interactive
-az graph query -q "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
+az graph query -q "Resources | project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
+Search-AzGraph -Query "Resources | project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
 ## <a name="a-nameshow-sortedshow-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted"/>Show first five virtual machines by name and their OS type
@@ -95,17 +118,18 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 Esta consulta utilizará `top` para recuperar únicamente cinco registros coincidentes que se ordenan por nombre. El tipo de recurso de Azure es `Microsoft.Compute/virtualMachines`. `project` indica a Azure Resource Graph qué propiedades se incluirán.
 
 ```kusto
-where type =~ 'Microsoft.Compute/virtualMachines'
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
 | project name, properties.storageProfile.osDisk.osType
 | top 5 by name desc
 ```
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
+az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
+Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
 ## <a name="a-namecount-oscount-virtual-machines-by-os-type"></a><a name="count-os"/>Count virtual machines by OS type
@@ -114,32 +138,34 @@ Basado en la consulta anterior, todavía se limita por los recursos de Azure de 
 En su lugar, hemos usado `summarize` y `count()` para definir cómo agrupar y agregar los valores por propiedad, que en este ejemplo es `properties.storageProfile.osDisk.osType`. Para un ejemplo del aspecto de esta cadena en el objeto completo, vea [explorar recursos: detección de máquinas virtuales](../concepts/explore-resources.md#virtual-machine-discovery).
 
 ```kusto
-where type =~ 'Microsoft.Compute/virtualMachines'
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
 | summarize count() by tostring(properties.storageProfile.osDisk.osType)
 ```
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
+az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
+Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
 Otra forma de escribir la misma consulta es `extend` una propiedad y asignarle un nombre temporal para su uso dentro de la consulta, en este caso **os**. A continuación, `summarize` y `count()` usan **os** como en el ejemplo anterior.
 
 ```kusto
-where type =~ 'Microsoft.Compute/virtualMachines'
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
 | extend os = properties.storageProfile.osDisk.osType
 | summarize count() by tostring(os)
 ```
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
+az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
+Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
 > [!NOTE]
@@ -150,15 +176,16 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | exten
 En lugar de definir explícitamente el tipo de coincidencia, esta consulta de ejemplo encontrará cualquier recurso de Azure que `contains` la palabra **storage**.
 
 ```kusto
-where type contains 'storage' | distinct type
+Resources
+| where type contains 'storage' | distinct type
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'storage' | distinct type"
+az graph query -q "Resources | where type contains 'storage' | distinct type"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'storage' | distinct type"
+Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type"
 ```
 
 ## <a name="a-namelist-publiciplist-all-public-ip-addresses"></a><a name="list-publicip"/>List all public IP addresses
@@ -169,17 +196,18 @@ Esta consulta se expande en ese patrón para incluir solo los resultados donde *
 100. Es posible que sea necesario escapar las comillas según su shell elegido.
 
 ```kusto
-where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
+Resources
+| where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | project properties.ipAddress
 | limit 100
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
+az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
+Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ## <a name="a-namecount-resources-by-ipcount-resources-that-have-ip-addresses-configured-by-subscription"></a><a name="count-resources-by-ip"/>Count resources that have IP addresses configured by subscription
@@ -187,16 +215,17 @@ Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(pr
 Con la consulta de ejemplo anterior y agregando `summarize` y `count()`, podemos obtener una lista por suscripción de recursos con direcciones IP configuradas.
 
 ```kusto
-where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
+Resources
+| where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | summarize count () by subscriptionId
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
+az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
+Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ## <a name="a-namelist-taglist-resources-with-a-specific-tag-value"></a><a name="list-tag"/>List resources with a specific tag value
@@ -204,31 +233,33 @@ Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(pr
 Podemos limitar los resultados por propiedades que no sean del tipo de recurso de Azure, como una etiqueta. En este ejemplo, se filtran los recursos de Azure con el nombre de etiqueta **Environment** que tienen un valor de **Internal**.
 
 ```kusto
-where tags.environment=~'internal'
+Resources
+| where tags.environment=~'internal'
 | project name
 ```
 
 ```azurecli-interactive
-az graph query -q "where tags.environment=~'internal' | project name"
+az graph query -q "Resources | where tags.environment=~'internal' | project name"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where tags.environment=~'internal' | project name"
+Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project name"
 ```
 
 Para proporcionar también las etiquetas del recurso y sus valores, agregue la propiedad **tags** a la palabra clave `project`.
 
 ```kusto
-where tags.environment=~'internal'
+Resources
+| where tags.environment=~'internal'
 | project name, tags
 ```
 
 ```azurecli-interactive
-az graph query -q "where tags.environment=~'internal' | project name, tags"
+az graph query -q "Resources | where tags.environment=~'internal' | project name, tags"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where tags.environment=~'internal' | project name, tags"
+Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project name, tags"
 ```
 
 ## <a name="a-namelist-specific-taglist-all-storage-accounts-with-specific-tag-value"></a><a name="list-specific-tag"/>List all storage accounts with specific tag value
@@ -236,16 +267,17 @@ Search-AzGraph -Query "where tags.environment=~'internal' | project name, tags"
 Combina la funcionalidad de filtro del ejemplo anterior y filtra el tipo de recurso de Azure por la propiedad **type**. Esta consulta también limita la búsqueda para determinados tipos de recursos de Azure con un valor y nombre de etiqueta específicos.
 
 ```kusto
-where type =~ 'Microsoft.Storage/storageAccounts'
+Resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
 | where tags['tag with a space']=='Custom value'
 ```
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
+az graph query -q "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
+Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
 > [!NOTE]
@@ -256,17 +288,18 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where
 Los [alias de Azure Policy](../../policy/concepts/definition-structure.md#aliases) los usa Azure Policy para administrar el cumplimiento de los recursos. Azure Resource Graph puede devolver los _alias_ de un tipo de recurso. Estos valores son útiles para comparar el valor actual de los alias al crear una definición de directiva personalizada. La matriz de _alias_ no se proporciona de forma predeterminada en los resultados de una consulta. Use `project aliases` para agregarla explícitamente a los resultados.
 
 ```kusto
-where type =~ 'Microsoft.Compute/virtualMachines'
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
 | limit 1
 | project aliases
 ```
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
+az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
+Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
 ```
 
 ## <a name="a-namedistinct-alias-valuesshow-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values"/>Show distinct values for a specific alias
@@ -274,17 +307,37 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit
 Ver el valor de los alias en un único recurso es útil, pero no muestra el verdadero valor del uso de Azure Resource Graph para consultar entre las suscripciones. Este ejemplo busca todos los valores de un alias específico y devuelve los valores distintos.
 
 ```kusto
-where type=~'Microsoft.Compute/virtualMachines'
+Resources
+| where type=~'Microsoft.Compute/virtualMachines'
 | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType']
 | distinct tostring(alias)"
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
+az graph query -q "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
+Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
+```
+
+## <a name="a-nameunassociated-nsgsshow-unassociated-network-security-groups"></a><a name="unassociated-nsgs"/>Mostrar grupos de seguridad de red no asociados
+
+Esta consulta devuelve los grupos de seguridad de red que no están asociados a una interfaz de red o subred.
+
+```kusto
+Resources
+| where type =~ "microsoft.network/networksecuritygroups" and isnull(properties.networkInterfaces) and isnull(properties.subnets)
+| project name, resourceGroup
+| sort by name asc
+```
+
+```azurecli-interactive
+az graph query -q "Resources | where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

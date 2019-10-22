@@ -4,16 +4,16 @@ description: En este artículo se explican las tareas comunes que un administrad
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f344436b1e1f1a97b981c1ead469d965b06a12ce
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035210"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329350"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -62,7 +62,7 @@ Tenga en cuenta los puntos siguientes cuando transfiera una cuenta de empresa a 
 
 La fecha de transferencia efectiva puede ser la fecha de inicio o una fecha posterior de la inscripción a la que desea realizar la transferencia. La inscripción a la que está transfiriendo es la _inscripción de destino_. Después de la transferencia de la cuenta, toda la información de uso de la cuenta antes de la fecha de transferencia efectiva permanece en la inscripción desde la que se está realizando la transferencia. La inscripción desde la que está transfiriendo es la _inscripción de origen_.  El uso de la inscripción de origen se cobra en el compromiso monetario o como uso por encima del límite. El uso que se produce después de la fecha de transferencia efectiva se transfiere a la nueva inscripción y se cobra en consecuencia.
 
-Puede atrasar la transferencia de una cuenta a la fecha de inicio de la inscripción de destino. También puede atrasarla a la fecha de inicio efectiva de la inscripción de origen.
+Puede atrasar la transferencia de una inscripción a la fecha de inicio de la inscripción de destino. También puede atrasarla a la fecha de inicio efectiva de la inscripción de origen.
 
 ### <a name="monetary-commitment"></a>Compromiso monetario
 
@@ -212,12 +212,11 @@ Si un usuario no recibe una notificación, compruebe que la configuración de no
 ![Ejemplo que muestra el cuadro Agregar contacto ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Oferta Patrocinio de Azure
+
 La oferta Patrocinio de Azure es una cuenta de Microsoft Azure patrocinada limitada. Está disponible solo mediante invitación por correo electrónico a clientes limitados seleccionados por Microsoft. Si es apto para la oferta Patrocinio de Microsoft Azure, recibirá una invitación por correo electrónico a su identificador de cuenta.
+
 Para más información, consulte:
 
-- Introducción de la oferta de patrocinio: https://azure.microsoft.com/en-us/offers/ms-azr-0143p/
-- Portal de saldo de patrocinio: https://www.microsoftazuresponsorships.com/balance  
-- Preguntas más frecuentes sobre patrocinio: https://azuresponsorships-staging.azurewebsites.net/faq
 - Solicitud de soporte técnico para la activación de patrocinio: http://aka.ms/azrsponsorship
 
 ## <a name="next-steps"></a>Pasos siguientes

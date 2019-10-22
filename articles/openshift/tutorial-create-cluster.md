@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/14/2019
-ms.openlocfilehash: 4c186787af08a565dc100dfbd79d166688d89d8f
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 01319de8fd72875ca35bb7a869a6eaedee62f2a7
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013433"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285522"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: Creación de un clúster de Red Hat OpenShift en Azure
 
@@ -126,6 +126,9 @@ Por ejemplo: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGr
 ### <a name="create-the-cluster"></a>Creación de clústeres
 
 Ya está listo para crear un clúster. A continuación se creará el clúster en el inquilino de Azure AD especificado y se determinará el objeto de aplicación de Azure AD y el secreto para usar como entidad de seguridad; también se definirá el grupo de seguridad que contiene los miembros con acceso administrativo al clúster.
+
+> [!IMPORTANT]
+> Asegúrese de que ha agregado correctamente los permisos adecuados para la aplicación de Azure AD como [se detalla aquí](howto-aad-app-configuration.md#add-api-permissions) antes de crear el clúster
 
 Si **no** va a emparejar el clúster a una red virtual, use el siguiente comando:
 

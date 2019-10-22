@@ -2,18 +2,17 @@
 title: Qué es Azure Analysis Services | Microsoft Docs
 description: Obtenga una visión general de Analysis Services en Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1f3552fe574291bf696e3b4418924c7e005d713e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4369f1ce7d6ef90e8489dbec5daa181406c0fecf
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259552"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512598"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -139,7 +138,7 @@ Azure Analysis Services es compatible con muchas de las estupendas característi
 
 Se admiten los modelos tabulares en los modos en memoria como DirectQuery. Los modelos tabulares del modo en memoria (predeterminado) admiten varios orígenes de datos. Dado que los datos del modelo están muy comprimidos y almacenados en la memoria caché, este modo proporciona la respuesta más rápida a las consultas en grandes cantidades de datos. También proporciona la máxima flexibilidad a las consultas y conjuntos de datos complejos. La creación de particiones permite las cargas incrementales, aumenta la paralelización y reduce el consumo de memoria. Se admiten otras características de modelado de datos avanzadas, como las tablas calculadas, y todas las funciones de DAX. Los modelos en memoria se deben actualizar (procesar) para actualizar los datos almacenados en caché de orígenes de datos. Gracias a la compatibilidad con la entidad de servicio de Azure, las operaciones de actualización desatendidas que usan PowerShell, TOM, TMSL y REST ofrecen flexibilidad a la hora de asegurar que los datos del modelo están siempre actualizados. 
 
-El modo de DirectQuery * aprovecha la base de datos relacional de back-end para el almacenamiento y la ejecución de consultas. Se admiten conjuntos de datos extremadamente grandes en orígenes de datos de SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle y Teradata individuales. Los conjuntos de datos de back-end pueden superar la memoria disponible de los recursos del servidor. No se necesitan escenarios de actualización de modelos de datos complejos. También hay algunas restricciones, como los tipos de orígenes de datos limitado, limitaciones en las fórmulas de DAX y algunas características de modelado de datos avanzadas no se admiten. Antes de determinar el modo más apropiado para usted, consulte [Modo DirectQuery](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+El modo de DirectQuery * aprovecha la base de datos relacional de back-end para el almacenamiento y la ejecución de consultas. Se admiten conjuntos de datos extremadamente grandes en orígenes de datos de SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle y Teradata individuales. Los conjuntos de datos de back-end pueden superar la memoria disponible de los recursos del servidor. No se necesitan escenarios de actualización de modelos de datos complejos. También hay algunas restricciones, como la limitación en los tipos de orígenes de datos o en las fórmulas de DAX y que no se admiten algunas características de modelado de datos avanzadas. Antes de determinar el modo más apropiado para usted, consulte [Modo DirectQuery](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* La disponibilidad de las características depende de la capa.
 
@@ -149,7 +148,7 @@ Los modelos tabulares de Azure Analysis Services admiten una amplia variedad de 
 
 ## <a name="compatibility-level"></a>Nivel de compatibilidad
 
-Nivel de compatibilidad hace referencia a los comportamientos específicos de la versión del motor de Analysis Services. Azure Analysis Services admite modelos tabulares tanto en el nivel de compatibilidad 1200 como en los superiores. Para más información, consulte [Nivel de compatibilidad para los modelos tabulares de Analysis Services](analysis-services-compat-level.md).
+Nivel de compatibilidad hace referencia a los comportamientos específicos de la versión del motor de Analysis Services. Azure Analysis Services admite modelos tabulares tanto en el nivel de compatibilidad 1200 como en los superiores. Para más información, consulte [Nivel de compatibilidad para modelos tabulares](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
 
 ## <a name="your-data-is-secure"></a>Los datos están seguros

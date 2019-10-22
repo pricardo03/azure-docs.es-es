@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ecbd0cfed262b928e6a821406e80f5a4456c6c9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 93dd7b13ca9e1a3f078994e76610c45447cfa41c
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988066"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264075"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Transmisión de registros de Azure Active Directory a un centro de eventos de Azure
 
@@ -41,7 +41,7 @@ Para usar esta característica, necesita:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 
-2. Seleccione **Azure Active Directory** > **Actividad** > **Registros de auditoría**. 
+2. Seleccione **Azure Active Directory** > **Supervisión** > **Registros de auditoría**. 
 
 3. Seleccione **Exportar configuración**.  
     

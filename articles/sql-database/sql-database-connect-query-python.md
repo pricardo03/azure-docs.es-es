@@ -1,26 +1,26 @@
 ---
-title: Uso de Python para consultar Azure SQL Database | Microsoft Docs
+title: 'Inicio rápido: Uso de Python para consultar Azure SQL Database'
 description: En este tema se explica cómo usar Python para crear un programa que se conecta a una base de datos de Azure SQL y realiza consultas mediante instrucciones Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
+ms.custom: seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 659f6333d16f84cc35be45c45b7a7119e53fd0d0
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 32861fa8f8756c4e8d30c055582789d41a92fe7c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764293"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331856"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de Python para consultar una base de datos de Azure SQL
 
- Esta guía de inicio rápido muestra cómo utilizar [Python](https://python.org) para conectarse a una base de datos de Azure SQL y utilizar instrucciones Transact-SQL para consultar los datos. Para obtener más detalles del SDK, consulte la documentación de [referencia](https://docs.microsoft.com/python/api/overview/azure/sql), el [repositorio de GitHub pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) y un [ejemplo de pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
+ Este artículo muestra cómo se usa [Python](https://python.org) para conectarse a una base de datos de Azure SQL y usar instrucciones Transact-SQL para consultar los datos. Para obtener más detalles del SDK, consulte la documentación de [referencia](https://docs.microsoft.com/python/api/overview/azure/sql), el [repositorio de GitHub pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) y un [ejemplo de pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

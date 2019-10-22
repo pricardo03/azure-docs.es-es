@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/10/2019
+ms.date: 10/03/2019
 ms.author: juliako
-ms.openlocfilehash: 152a767ad1aa2494579f15dd8051c6bc1f718a92
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910246"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383529"
 ---
 # <a name="dynamic-packaging"></a>Empaquetado dinámico
 
@@ -236,11 +236,30 @@ El reproductor puede usar el elemento `Label` para mostrar en su interfaz de usu
 
 ### <a name="signaling-audio-description-tracks"></a>Señalización de pistas de descripción de audio
 
-Un cliente podría anotar una pista de audio como descripción de audio en el manifiesto. Para ello, agregaría los parámetros "accessibility" y "role" al archivo .ism. Media Services reconocerá la descripción de audio si una pista de audio tiene el parámetro "accessibility" con el valor "description" y el parámetro "role" con el valor "alternate". Si Media Services detecta la descripción de audio en el archivo .ism, su información se pasa al manifiesto de cliente como los atributos `Accessibility="description"` y `Role="alternate"` del elemento `StreamIndex`.
+Puede agregar una pista de narración al vídeo que ayude a los clientes con problemas visuales a seguir la grabación de vídeo escuchando la narración. Es preciso anotar las pistas de audio como descripciones de audio en el manifiesto. Para ello, agregue los parámetros "accessibility" y "role" al archivo .ism. Es responsabilidad suya establecer estos parámetros correctamente para marcar las pistas de audio como descripciones de audio. Por ejemplo, agregue `<param name="accessibility" value="description" />` y `<param name="role" value="alternate"` al archivo .ism para una pista de audio concreta. 
 
-Si la combinación de "accessibility" = "description" y "role" = "alternate" está establecida en el archivo .ism, los manifiestos DASH y Smooth llevan los valores establecidos en los parámetros "accessibility" y "role". Es responsabilidad del cliente establecer estos dos valores correctamente y marcar una pista de audio como descripción de audio. Según la especificación de DASH, "accessibility" = "description" y "role" = "alternate" juntos significan que una pista de audio es una descripción de audio.
+Para más información, consulte el ejemplo de [Señalización de una pista de audio descriptiva ](signal-descriptive-audio-howto.md).
 
-Para HLS v7 y versiones posteriores (`format=m3u8-cmaf`), su lista de reproducción lleva `CHARACTERISTICS="public.accessibility.describes-video"` solo cuando la combinación de "accessibility" = "description" y "role" = "alternate" está establecida en el archivo .ism. 
+#### <a name="smooth-streaming-manifest"></a>Manifiesto de Smooth Streaming
+
+Si está reproduciendo un flujo de Smooth Streaming, el manifiesto llevaría valores en los atributos `Accessibility` y `Role` para esa pista de audio. Por ejemplo, `Role="alternate" Accessibility="description"` se agregaría en el elemento `StreamIndex` para indicar que es una descripción de audio.
+
+#### <a name="dash-manifest"></a>Manifiesto DASH
+
+En el caso del manifiesto DASH, se agregarían los dos elementos siguientes para indicar la descripción del audio:
+
+```xml
+<Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="description"/>
+<Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate"/>
+```
+
+#### <a name="hls-playlist"></a>Lista de reproducción de HLS
+
+En el caso de HLS v7, y las versiones superiores`(format=m3u8-cmaf)`, su lista de reproducción llevaría `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"` cuando se señale la pista de la descripción de audio.
+
+#### <a name="example"></a>Ejemplo
+
+Para más información, consulte [Señalización de pistas de descripción de audio](signal-descriptive-audio-howto.md).
 
 ## <a name="dynamic-manifest"></a>Manifiesto dinámico
 

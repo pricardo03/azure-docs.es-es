@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 monikerRange: vsts
-ms.openlocfilehash: 9fc276626d2a863f7f2e53cd7312ab8b3be513dd
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 11edeb35119e2c598fd83fd89c65ba4dc4679650
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815782"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256100"
 ---
 #  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Inicio rápido: Creación de una canalización de CI/CD en Azure Pipelines para Node.js con Azure DevOps Projects
 
@@ -37,7 +37,7 @@ DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear 
 
 1. En el panel izquierdo, seleccione **Crear un recurso** y, después, busque **DevOps Projects**. 
 
-    ![Inicio de la configuración de entrega continua](_img/azure-devops-project-nodejs/fullbrowser.png)
+    ![Creación de un recurso de configuración de entrega continua](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Seleccione una aplicación de ejemplo y el servicio de Azure
 
@@ -60,7 +60,7 @@ DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear 
      
 3. Seleccione **Examinar** para ver la aplicación en ejecución.
 
-    ![Vista de panel](_img/azure-devops-project-nodejs/dashboardnopreview.png) 
+    ![Vista de panel de la canalización de CI/CD](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
     
 DevOps Projects ha configurado automáticamente una compilación de integración continua y un desencadenador de versión.  Ahora ya puede colaborar con un equipo en una aplicación de Node.js con un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
 

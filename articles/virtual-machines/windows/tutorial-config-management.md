@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 013938f37258b5aa8c4e9751bdc8cf1e7b826ef1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 96e73b228604db519beb5284ee5a8fb8dc4c4f66
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678386"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376115"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de cambios y actualización de una máquina virtual Windows en Azure
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 
-Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. 
+Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta.
 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede ir a [https://shell.azure.com/powershell](https://shell.azure.com/powershell) para iniciar Cloud Shell en una pestaña independiente del explorador. Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, luego, presione Entrar para ejecutarlos.
 
@@ -60,7 +60,8 @@ Los recursos y la máquina virtual tardan unos minutos en crearse.
 
 ## <a name="manage-windows-updates"></a>Administrar actualizaciones de Windows
 
-Update Management permite administrar las actualizaciones y revisiones de las máquinas virtuales Windows de Azure. Directamente desde la máquina virtual, puede evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar si las actualizaciones se aplicaron correctamente en la máquina virtual.
+Update Management permite administrar las actualizaciones y revisiones de las máquinas virtuales Windows de Azure.
+Directamente desde la máquina virtual, puede evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar si las actualizaciones se aplicaron correctamente en la máquina virtual.
 
 Para más información acerca de los precios, consulte [Precios de automatización de la administración de actualizaciones](https://azure.microsoft.com/pricing/details/automation/).
 
@@ -114,10 +115,10 @@ Para crear una nueva implementación de actualizaciones, seleccione **Programar 
 | --- | --- |
 | NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
 |Sistema operativo| Linux o Windows|
-| Grupos que se deben actualizar |Para las máquinas de Azure, defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de máquinas virtuales de Azure e incluirlo en la implementación. </br></br>Para las máquinas que no son de Azure, seleccione una búsqueda guardada ya existente para seleccionar un grupo de esas máquinas e incluirlo en la implementación. </br></br>Para más información, consulte los [grupos dinámicos](../../automation/automation-update-management.md#using-dynamic-groups).|
+| Grupos que se deben actualizar |Para las máquinas de Azure, defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de máquinas virtuales de Azure e incluirlo en la implementación. </br></br>Para las máquinas que no son de Azure, seleccione una búsqueda guardada ya existente para seleccionar un grupo de esas máquinas e incluirlo en la implementación. </br></br>Para más información, consulte los [grupos dinámicos](../../automation/automation-update-management-groups.md).|
 | Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../../azure-monitor/platform/computer-groups.md) |
 |Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite|
-|Incluir o excluir actualizaciones|Se abrirá la página **Incluir/Excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte la sección [Comportamiento de inclusión](../../automation/automation-update-management.md#inclusion-behavior). |
+|Incluir o excluir actualizaciones|Se abrirá la página **Incluir/Excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte [Programación de una implementación de actualizaciones](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment) |
 |Configuración de programación|Seleccione la hora de inicio y seleccione Una vez o de manera periódica para la periodicidad|
 | Scripts previos + scripts posteriores|Seleccione los scripts que se ejecutarán antes y después de la implementación.|
 | Ventana de mantenimiento |Número de minutos establecido para las actualizaciones. El valor no puede ser inferior a 30 minutos ni más de 6 horas |

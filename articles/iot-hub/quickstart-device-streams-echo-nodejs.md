@@ -1,6 +1,6 @@
 ---
 title: Comunicación con una aplicación de dispositivo en Node.js mediante flujos de dispositivo de IoT Hub (versión preliminar) | Microsoft Docs
-description: En este inicio rápido, ejecutará una aplicación del lado del servicio de Node.js que se comunica con un dispositivo IoT mediante un flujo de dispositivo.
+description: En este inicio rápido, ejecutará una aplicación del servicio de Node.js que se comunica con un dispositivo IoT mediante un flujo de dispositivo.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: e85f2ea849aca9deeb92da7d7b2381d6c2b1b725
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c7257ec35f9a53f84edebd5e15b7144c49daf682
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802445"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514944"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en Node.js mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -48,7 +48,7 @@ La versión preliminar de los flujos de dispositivos solo se admite en este mome
 
 *  **EUAP de centro de EE. UU.**
 
-Para ejecutar la aplicación del lado del servicio en este inicio rápido se necesita la versión 10.x.x de Node.js o posterior en la máquina de desarrollo.
+Para ejecutar la aplicación del servicio en este inicio rápido, es preciso que la máquina de desarrollo tenga la versión 10.x.x de Node.js, o cualquier versión posterior.
 
 Puede descargar Node.js para varias plataformas desde [nodejs.org](https://nodejs.org).
 
@@ -58,7 +58,7 @@ Puede verificar la versión actual de Node.js en el equipo de desarrollo con el 
 node --version
 ```
 
-Ejecute el siguiente comando para agregar la extensión IoT de Microsoft Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
+Ejecute el siguiente comando para agregar la extensión IoT de Microsoft Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IOT agrega comandos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -82,10 +82,10 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
-   **MyDevice**: nombre que se da al dispositivo registrado. Use MyCDevice tal como se muestra. Si elige otro nombre para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   **MyDevice**: es el nombre del dispositivo que va a registrar. Se recomienda usar **MyDevice** como se muestra. Si elige otro nombre distinto para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 2. También necesita una *cadena de conexión de servicio* para permitir que la aplicación back-end se conecte a IoT Hub y recupere los mensajes. El comando siguiente recupera la cadena de conexión del servicio de su instancia de IoT Hub:
@@ -93,10 +93,10 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
     **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    Tome nota del valor devuelto, que es similar a este:
+    Anote la cadena de conexión del servicio devuelta para usarla más adelante en este inicio rápido. Debe ser similar al ejemplo siguiente:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -106,7 +106,7 @@ En esta sección, ejecuta la aplicación del lado del dispositivo y la aplicaci�
 
 ### <a name="run-the-device-side-application"></a>Ejecución de la aplicación del lado del dispositivo
 
-Como ya se ha mencionado, el SDK de IoT Hub para Node.js solo admite flujos de dispositivo en el lado del servicio. Para la aplicación del lado del dispositivo, use los programas de dispositivo complementarios disponibles en uno de estos inicios rápidos:
+Como ya se ha mencionado, el SDK de IoT Hub para Node.js solo admite flujos de dispositivo en el lado del servicio. Para la aplicación del dispositivo, use los programas de dispositivo complementarios disponibles en estos inicios rápidos:
 
    * [Comunicación con una aplicación de dispositivo en C mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-c.md)
 
@@ -116,21 +116,21 @@ Asegúrese de que la aplicación del lado del dispositivo se está ejecutando an
 
 ### <a name="run-the-service-side-application"></a>Ejecución de la aplicación del lado del servicio
 
-Si se da por hecho que la aplicación del lado del dispositivo está en ejecución, realice los siguientes pasos para ejecutar la aplicación del lado del servicio escrito en Node.js:
+Si se da por hecho que la aplicación del dispositivo está en ejecución, realice los siguientes pasos en una ventana de terminal local para ejecutar la aplicación del servicio escrita en Node.js:
 
 * Especifique las credenciales del servicio y el identificador del dispositivo como variables de entorno.
  
    ```cmd/sh
    # In Linux
-   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export IOTHUB_CONNECTION_STRING="{ServiceConnectionString}"
    export STREAMING_TARGET_DEVICE="MyDevice"
 
    # In Windows
-   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET IOTHUB_CONNECTION_STRING={ServiceConnectionString}
    SET STREAMING_TARGET_DEVICE=MyDevice
    ```
   
-   Cambie `MyDevice` por el identificador que haya elegido para el dispositivo.
+   Cambie el marcador de posición ServiceConnectionString para que coincida con la cadena de conexión del servicio y **MyDevice**  para que coincida con el identificador del dispositivo, si ha asignado otro nombre al suyo.
 
 * Vaya a `Quickstarts/device-streams-service` en la carpeta del proyecto descomprimida y ejecute el ejemplo que usa el nodo.
 
@@ -156,7 +156,7 @@ Luego, para terminar el programa vuelva a presionar Entrar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha configurado un centro de IoT, ha registrado un dispositivo, ha establecido un flujo de dispositivo entre las aplicaciones del dispositivo y el lado del servicio, y ha usado el flujo para enviar datos entre las aplicaciones.
+En este inicio rápido, ha configurado un centro de IoT, registrado un dispositivo, establecido un flujo de dispositivo entre las aplicaciones del dispositivo y del servicio, y usado dicho flujo para enviar datos entre las aplicaciones.
 
 Use los siguientes vínculos para más información sobre los flujos de dispositivo:
 

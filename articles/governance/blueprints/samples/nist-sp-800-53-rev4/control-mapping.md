@@ -1,17 +1,17 @@
 ---
-title: Asignación de control de muestra del proyecto de NIST SP 800-53 R4
-description: Asignación de control de muestra del plano técnico de NIST SP 800-53 R4 para Azure Policy.
+title: Asignación de controles del ejemplo de plano técnico NIST SP 800-53 R4
+description: Asignación de controles del ejemplo de plano técnico NIST SP 800-53 R4. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: c4d8cd7996e45aafca37e68974d6250578ba9502
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 1fab1ebee03f48434fd0fb8ccb1bf1be708370e5
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980959"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299066"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Asignación de control de muestra del proyecto de NIST SP 800-53 R4
 

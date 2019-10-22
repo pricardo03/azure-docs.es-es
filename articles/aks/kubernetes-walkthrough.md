@@ -7,21 +7,27 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: mlearned
-ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 3a07186856fd05c65f583a94f324df05e348d24f
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.custom:
+- H1Hack27Feb2017
+- mvc
+- devcenter
+- seo-javascript-september2019
+- seo-javascript-october2019
+- seo-python-october2019
+ms.openlocfilehash: f98950a73c74537fb0d3762d08810646c9ecb875
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960010"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435594"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
+# <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service mediante la CLI de Azure
 
 En este inicio rápido, implementará un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure. AKS es un servicio de Kubernetes administrado que permite implementar y administrar clústeres rápidamente. En el clúster se ejecuta una aplicación de varios contenedores que incluye un front-end web y una instancia de Redis. A continuación, verá cómo supervisar el mantenimiento del clúster y los pods que ejecutan la aplicación.
 
 Si quiere usar contenedores de Windows Server (actualmente en versión preliminar en AKS), consulte [Creación de un clúster de AKS compatible con los contenedores de Windows Server][windows-container-cli].
 
-![Imagen de la exploración hasta Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Aplicación de votación implementada en Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
 En esta guía rápida se presupone un conocimiento básico de los conceptos de Kubernetes. Para más información, consulte [Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
@@ -222,7 +228,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Cuando la dirección *EXTERNAL-IP* cambie de *pendiente* a una dirección IP pública real, use `CTRL-C` pata detener el proceso de inspección de `kubectl`. En la salida del ejemplo siguiente se muestra una dirección IP pública válida asignada al servicio:
+Cuando la dirección *EXTERNAL-IP* cambie de *pendiente* a una dirección IP pública real, use `CTRL-C` para detener el proceso de inspección de `kubectl`. En la salida del ejemplo siguiente se muestra una dirección IP pública válida asignada al servicio:
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -230,7 +236,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Para ver la aplicación Azure Vote en acción, abra un explorador web en la dirección IP externa del servicio.
 
-![Imagen de la exploración hasta Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Aplicación de votación implementada en Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
 Cuando se creó el clúster de AKS, se habilitó [Azure Monitor para contenedores](../azure-monitor/insights/container-insights-overview.md) para capturar métricas de mantenimiento tanto para los nodos de clúster como para los pods. Estas métricas de mantenimiento están disponibles en Azure Portal.
 

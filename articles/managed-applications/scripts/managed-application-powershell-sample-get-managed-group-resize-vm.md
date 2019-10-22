@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de script de Azure PowerShell: obtención de un grupo de recursos administrados y cambio de tamaño de las máquinas virtuales | Microsoft Docs'
-description: 'Ejemplo de script de Azure PowerShell: obtención de un grupo de recursos administrados y cambio de tamaño de las máquinas virtuales'
+description: Proporciona un script de ejemplo de Azure PowerShell que obtiene un grupo de recursos administrado para una aplicación administrada de Azure. El script cambia el tamaño de las máquinas virtuales.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9e8930c95495673c0082a82757ed6d8137900b6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f36ed42e0b7f8e4d1e5b092d2a14fd0cd8178ee0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171496"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330118"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>Obtención de recursos de un grupo de recursos administrados y cambio de tamaño de las máquinas virtuales con PowerShell
 

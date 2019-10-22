@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b889be6f881894b2666ed47304f6b61e7c776474
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0b357a36afc44ceac8ed2c951e0f25901be9d93d
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073707"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264365"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de los datos del formulario mediante la API de REST con cURL
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 - Tener acceso a la versión preliminar de acceso limitado de Form Recognizer. Para acceder a la versión preliminar, rellene y envíe el formulario [Solicitud de acceso de Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
 - [cURL](https://curl.haxx.se/windows/) instalado.
-- Un conjunto de al menos cinco formularios del mismo tipo. Estos datos se usarán para entrenar el modelo. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los datos en la raíz de un contenedor de almacenamiento de blobs en una cuenta de Azure Storage.
+- Un conjunto de al menos cinco formularios del mismo tipo. Estos datos se usarán para entrenar el modelo. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
@@ -95,7 +95,7 @@ A continuación, analizará un documento y extraerá de él tanto los pares clav
 
 1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo de la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
 1. Reemplace `<modelID>` por el identificador de modelo que recibió en la sección anterior.
-1. Reemplace `<path to your form>` por la ruta de acceso de archivo del formulario (por ejemplo, C:\temp\file.pdf).
+1. Reemplace `<path to your form>` por la ruta de acceso de archivo del formulario (por ejemplo, C:\temp\file.pdf). En este inicio rápido puede usar los archivos de la carpeta **Prueba** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Reemplace `<file type>` por el tipo de archivo. Tipos admitidos: `application/pdf`, `image/jpeg`, `image/png`.
 1. Reemplace `<subscription key>` por la clave de suscripción.
 

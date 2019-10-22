@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1d69cb80b105c85640420575f709d8a47629eea0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 88d028f48b75238e2123d939a832e3fa70fc0056
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082287"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300867"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Inicio rápido: Creación de una máquina virtual Linux en Azure con PowerShell
 
@@ -56,7 +56,7 @@ Cree un grupo de recursos de Azure con [New-AzResourceGroup](https://docs.micros
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
-## <a name="create-virtual-network-resources"></a>Creación de recursos de red virtual
+## <a name="create-virtual-network-resources"></a>Creación de recursos de virtual
 
 Cree una red virtual, una subred, una dirección IP pública. Estos recursos se utilizan para proporcionar conectividad de red con la máquina virtual y conectarla a Internet:
 
@@ -210,7 +210,7 @@ Cuando haya terminado, escriba `exit` para salir de la sesión de SSH.
 
 Use un explorador web de su elección para ver la página de bienvenida predeterminada de NGINX. Escriba la dirección IP pública de la máquina virtual como dirección web. La dirección IP pública se encuentra en la página de introducción de la máquina virtual o como parte de la cadena de conexión de SSH que usó anteriormente.
 
-![Sitio NGINX predeterminado](./media/quick-create-cli/nginx.png)
+![Página de principal predeterminada de NGINX](./media/quick-create-cli/nginix-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

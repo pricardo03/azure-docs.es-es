@@ -1,5 +1,5 @@
 ---
-title: Implementación en Azure Kubernetes Service (AKS) con Jenkins y el patrón de implementación azul/verde
+title: Implementación en Azure Kubernetes Service con Jenkins y el patrón de implementación blue/green
 description: Aprenda a implementar en Azure Kubernetes Service (AKS) con Jenkins y el patrón de implementación azul/verde.
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, entrega continua, cd
@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/11/2018
-ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 10/09/2019
+ms.openlocfilehash: de9088333f69a22246fe5873d6e09ddb7ba3044a
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092300"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249410"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implementación en Azure Kubernetes Service (AKS) con Jenkins y el patrón de implementación azul/verde
 
@@ -147,7 +147,7 @@ Puede configurar una implementación azul/verde en AKS de forma manual o con un 
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. Actualice el nombre DNS para los puntos de conexión público y de prueba. Al crear un clúster de Kubernetes, también se crea un [grupo de recursos adicional](https://github.com/Azure/AKS/issues/3) con el patrón de nomenclatura de **MC_&lt;your-resource-group-name>_&lt;your-kubernetes-cluster-name>_&lt;your-location>**.
+1. Actualice el nombre DNS para los puntos de conexión público y de prueba. Al crear un clúster de Kubernetes, también se crea un [grupo de recursos adicional](https://github.com/Azure/AKS/issues/3) con el patrón de nomenclatura de **MC_&lt;your-resource-group-name> _&lt;your-kubernetes-cluster-name>_ &lt;your-location>** .
 
     Busque las direcciones IP públicas del grupo de recursos.
 

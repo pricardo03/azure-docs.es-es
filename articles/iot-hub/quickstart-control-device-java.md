@@ -10,18 +10,18 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: f59a3409d508c63f232294d8d66ade5669815b3c
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: eee8a3b17a23d34610951db8b881397a0649b53a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843345"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516736"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Inicio rápido: Control de un dispositivo conectado a una instancia de Azure IoT Hub con Java
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-En este inicio rápido, usa un *método directo* para controlar un dispositivo simulado conectado a la instancia de Azure IoT Hub con una aplicación Java. Puede usar métodos directos para cambiar el comportamiento de un dispositivo conectado a IoT Hub de manera remota. IoT Hub es un servicio de Azure que le permite ingerir grandes volúmenes de datos de telemetría desde los dispositivos IoT en la nube y administrar dispositivos desde la nube. 
+IoT Hub es un servicio de Azure que permite administrar dispositivos IoT desde la nube e ingerir grandes volúmenes de datos de telemetría desde los dispositivos en la nube para su almacenamiento o procesamiento. En este inicio rápido, usa un *método directo* para controlar un dispositivo simulado conectado a la instancia de Azure IoT Hub con una aplicación Java. Puede usar métodos directos para cambiar el comportamiento de un dispositivo conectado a IoT Hub de manera remota. 
 
 El inicio rápido usa dos aplicaciones Java escritas anteriormente:
 
@@ -77,11 +77,11 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
-   **MyJavaDevice**: nombre del dispositivo que se va a registrar. Use **MyJavaDevice** tal como se muestra. Si elige otro nombre para el dispositivo, puede que tenga que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   **MyJavaDevice**: es el nombre del dispositivo que se va a registrar. Se recomienda usar **MyJavaDevice** como se muestra. Si elige otro nombre distinto para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
     az iot hub device-identity create \
-      --hub-name YourIoTHubName --device-id MyJavaDevice
+      --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
 
 2. Ejecute los siguientes comandos en Azure Cloud Shell para obtener la _cadena de conexión del dispositivo_ que acaba de registrar:
@@ -90,7 +90,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      --hub-name YourIoTHubName \
+      --hub-name {YourIoTHubName} \
       --device-id MyJavaDevice \
       --output table
     ```
@@ -108,14 +108,14 @@ También necesita una _cadena de conexión de servicio_ para permitir que la apl
 **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
+az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
 ```
 
 Anote la cadena de conexión del servicio, que se parecerá a esta:
 
 `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-Usará este valor más adelante en este inicio rápido. La cadena de conexión de servicio es diferente de la cadena de conexión de dispositivo.
+Usará este valor más adelante en este inicio rápido. Esta cadena de conexión del servicio no es la que anotó en el paso anterior.
 
 ## <a name="listen-for-direct-method-calls"></a>Escuchas para llamadas de método directo
 
@@ -125,7 +125,7 @@ La aplicación del dispositivo simulado se conecta a un punto de conexión espec
 
 2. Abra el archivo **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** en el editor de texto de su elección.
 
-    Reemplace el valor de la variable `connString` por la cadena de conexión de dispositivo que anotó anteriormente. A continuación, guarde los cambios realizados en el archivo **SimulatedDevice.java**.
+    Reemplace el valor de la variable `connString` por la cadena de conexión del dispositivo que anotó anteriormente. A continuación, guarde los cambios realizados en **SimulatedDevice.java**.
 
 3. En la ventana de terminal local, ejecute los comandos siguientes para instalar las bibliotecas necesarias y compile la aplicación de dispositivo simulado:
 
@@ -151,7 +151,7 @@ La aplicación back-end se conecta a un punto de conexión de servicio en IoT Hu
 
 2. Abra el archivo **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** en el editor de texto que prefiera.
 
-    Reemplace el valor de la variable `iotHubConnectionString` por la cadena de conexión de servicio que anotó anteriormente. A continuación, guarde los cambios realizados en el archivo **BackEndApplication.java**.
+    Reemplace el valor de la variable `iotHubConnectionString` por la cadena de conexión del servicio que anotó anteriormente. Luego, guarde los cambios en el archivo **BackEndApplication.java**.
 
 3. En la ventana de terminal local, ejecute los comandos siguientes para instalar las bibliotecas necesarias y compile la aplicación back-end:
 

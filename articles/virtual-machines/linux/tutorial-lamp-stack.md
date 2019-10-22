@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 66b7d7692d9143c8db813ad135b0b9c70b8869d2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 893fba20af12bbbeeab2f0393177cd6f0daa6452
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708586"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299425"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalación de un servidor web LAMP en una máquina virtual Linux en Azure
 
@@ -35,7 +35,7 @@ En este artículo se ofrecen instrucciones paso a paso para implementar un servi
 
 Esta configuración es para pruebas rápidas o prueba de concepto. Para más información sobre la pila LAMP, incluyendo recomendaciones para un entorno de producción, consulte la [documentación de Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+En este tutorial se usa la CLI dentro de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que se actualiza constantemente a la versión más reciente. Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior de cualquier bloque de código.
 
 Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 

@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 95dbe2b9ccfdc0a900ba53668869e3872b6e51d5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d8d7c0232110d3d5b040debc3a24941988d4ee29
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030313"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372237"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Creación de un punto de conexión privado mediante Azure Portal
 
-Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. En este inicio rápido, obtendrá información sobre cómo crear una máquina virtual en una instancia de Azure Virtual Network, un servidor de SQL Database con un punto de conexión privado de Azure mediante Azure PowerShell. Después, puede acceder de forma segura al servidor de SQL Database desde la máquina virtual.
+Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. En este inicio rápido, aprenderá a crear una máquina virtual en una instancia de Azure Virtual Network, un servidor de SQL Database con un punto de conexión privado de Azure mediante Azure Portal. Después, puede acceder de forma segura al servidor de SQL Database desde la máquina virtual.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -115,8 +115,8 @@ En esta sección, va a crear un servidor de SQL Database en Azure.
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la base de datos  | Escriba *miBaseDeDatos*. Si el nombre ya existe, cree uno único. |
     |||
-5. En  **Servidor**, seleccione **Crear nuevo**. 
-6. En  **Nuevo servidor**, escriba o seleccione esta información:
+5. En **Servidor**, seleccione **Crear nuevo**. 
+6. En **Nuevo servidor**, escriba o seleccione esta información:
 
     | Configuración | Valor |
     | ------- | ----- |
@@ -125,9 +125,9 @@ En esta sección, va a crear un servidor de SQL Database en Azure.
     | Contraseña | Escriba una contraseña de su elección. La contraseña debe tener al menos ocho caracteres y cumplir con los requisitos definidos. |
     | Location | Seleccione la región de Azure en la que desea que se encuentre la instancia de SQL Server. |
     
-7. Seleccione **Aceptar**. 
-8. Seleccione  **Revisar y crear**. Se le remite a la página **Revisar y crear** , donde Azure valida la configuración. 
-9. Cuando reciba el mensaje Validación superada, seleccione  **Crear**. 
+7. Seleccione **Aceptar**. 
+8. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
+9. Cuando reciba el mensaje Validación superada, seleccione **Crear**. 
 10. Cuando reciba el mensaje Validación superada, seleccione Crear. 
 
 ## <a name="create-a-private-endpoint"></a>Creación de un punto de conexión privado
@@ -147,18 +147,18 @@ En esta sección, creará un servidor SQL Server y le agregará un punto de cone
     | NOMBRE | Escriba * miPuntoDeConexiónPrivado*. Si el nombre ya existe, cree uno único. |
     |Region|Seleccione **WestCentralUS**.|
     |||
-5. Seleccione **Next: Resource** (Siguiente: Recurso).
-6. En **Create a private endpoint - Resource** (Crear un punto de conexión privado: Recurso), escriba o seleccione esta información:
+5. Seleccione **Siguiente: Resource** (Siguiente: Recurso).
+6. En **Create a private endpoint - Resource** (Crear un punto de conexión privado: recurso), escriba o seleccione esta información:
 
     | Configuración | Valor |
     | ------- | ----- |
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
     | Subscription| Seleccione su suscripción. |
-    | Tipo de recurso | Seleccione **Microsoft.Sql/servers**. |
+    | Tipo de recurso | Seleccione **Microsoft.Sql/servers**. |
     | Resource |Seleccione *miServidor*.|
     |Recurso secundario de destino |Seleccione *sqlServer*.|
     |||
-7. Seleccione **Next: Configuration** (Siguiente: Configuración).
+7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
 8. En **Create a private endpoint (Preview) - Configuración** (Crear un punto de conexión privado [versión preliminar]: Configuración), escriba o seleccione esta información:
 
     | Configuración | Valor |
@@ -167,12 +167,12 @@ En esta sección, creará un servidor SQL Server y le agregará un punto de cone
     | Virtual network| Seleccione *MyVirtualNetwork*. |
     | Subnet | Seleccione  *mySubnet*. |
     |**INTEGRACIÓN DE DNS PRIVADO**||
-    |Integración con una zona DNS privada |Seleccione **Sí**. |
+    |Integración con una zona DNS privada |Seleccione **Sí**. |
     |Zona DNS privada |Seleccione *(New)privatelink.database.windows.net* |
     |||
 
-1. Seleccione **Revisar y crear**. Se le remite a la página  **Revisar y crear** , donde Azure valida la configuración. 
-2. Cuando reciba el mensaje **Validación superada** , seleccione  **Crear**. 
+1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
+2. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**. 
  
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conéctese a una máquina virtual mediante Escritorio remoto (RDP)
 
@@ -217,26 +217,26 @@ Después de crear **myVm*, conéctese a ella desde Internet como se indica a con
     ```
 3. Instale [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-4. En  **Conectar con el servidor**, escriba o seleccione esta información:
+4. En **Conectar con el servidor**, escriba o seleccione esta información:
 
     | Configuración | Valor |
     | ------- | ----- |
     | Tipo de servidor| Seleccione **Motor de base de datos**.|
     | Nombre de servidor| Seleccione *myserver.database.windows.net*. |
-    | Nombre de usuario | Escriba una contraseña proporcionada durante la creación del servidor SQL Server. |
+    | Nombre de usuario | Escriba el nombre de usuario como username@servername, que se proporciona durante la creación del servidor SQL Server. |
     |Contraseña |Escriba una contraseña proporcionada durante la creación del servidor SQL Server. |
     |Recordar contraseña|Seleccione **Sí**.|
     |||
-1. Seleccione  **Conectar**.
+1. Seleccione **Conectar**.
 2. Examine las bases de datos en el menú izquierdo.
 3. (Opcionalmente) Cree o consulte la información de mydatabase.
 4. Cierre la conexión de Escritorio remoto a  *myVm*. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 Cuando haya terminado mediante el punto de conexión privado, el servidor SQL y la máquina virtual, elimine el grupo de recursos y todos los recursos que contiene: 
-1. Escriba *myResourceGroup* en el cuadro  **Buscar**  de la parte superior del portal y seleccione  *myResourceGroup* en los resultados de búsqueda. 
-2. Seleccione  **Eliminar grupo de recursos**. 
-3. Escriba myResourceGroup para  **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**.
+1. Escriba *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione *myResourceGroup* en los resultados de la búsqueda. 
+2. Seleccione **Eliminar grupo de recursos**. 
+3. Escriba myResourceGroup en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

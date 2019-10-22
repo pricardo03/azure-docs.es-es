@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de script de la CLI de Azure: obtención de un grupo de recursos administrados y cambio de tamaño de las máquinas virtuales | Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: obtención de un grupo de recursos administrados y cambio de tamaño de las máquinas virtuales'
+description: Proporciona un script de ejemplo de la CLI de Azure que obtiene un grupo de recursos administrado en una aplicación administrada de Azure. El script cambia el tamaño de las máquinas virtuales.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: bbf03a0d53769c93a8aab304d3128ae0cc875a8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7218e2fd033614b5e9f77cca34a5db82e3571094
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61365901"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330143"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Obtención de recursos de un grupo de recursos administrados y cambio de tamaño de las máquinas virtuales con la CLI de Azure
 

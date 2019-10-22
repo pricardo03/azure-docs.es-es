@@ -1,18 +1,18 @@
 ---
-title: Experiencias de administración entre inquilinos con Azure Lighthouse
+title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 09/25/2019
+ms.date: 10/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 17a32d50e2e0330218ff51b849cb4f3aeadb3d13
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0c6fed9cd83f18df0fe0a77d57a76c60cd570c21
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309649"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300990"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -58,6 +58,7 @@ Actualmente, la experiencia de administración entre inquilinos admite los sigui
 - consulte las alertas de las suscripciones delegadas en Azure Portal o mediante programación a través de llamadas a la API REST con la posibilidad de ver alertas en todas las suscripciones
 - Ver los detalles del registro de actividad para las suscripciones delegadas
 - Log analytics: consulte datos de áreas de trabajo de clientes remotos en varios inquilinos
+- Cree alertas en inquilinos de cliente que desencadenen la automatización, como los runbooks de Azure Automation o Azure Functions, en el inquilino de proveedor de servicios a través de webhooks
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
 
@@ -65,7 +66,7 @@ Actualmente, la experiencia de administración entre inquilinos admite los sigui
 - Crear y editar definiciones de directivas en una suscripción delegada
 - Asignar definiciones de directivas definidas por el cliente en una suscripción delegada
 - Los clientes ven las directivas creadas por el proveedor de servicios junto con las directivas que hayan creado ellos mismos.
-- Se pueden corregir las asignaciones deployIfNotExists dentro de los inquilinos de cliente si el cliente ha configurado la identidad administrada y *roleDefinitionIds* para esa asignación de directiva.
+- Puede [corregir deployIfNotExists o modificar asignaciones en el inquilino del cliente](../how-to/deploy-policy-remediation.md)
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/)
 

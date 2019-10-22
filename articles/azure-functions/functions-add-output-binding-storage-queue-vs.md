@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 6ef6f4ae86f0f732164603bd8b38dc1bbef95dd9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 383401c1486bcbebc39b64d5794f8bdc660d2778
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600152"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329624"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conexión de las funciones a Azure Storage mediante Visual Studio
 
-Azure Functions permite conectar funciones a servicios de Azure y otros recursos sin tener que escribir su propio código de integración. Estas conexiones predefinidas se denominan *enlaces*. Los enlaces permiten a una función usar los servicios de Azure y otros recursos como entrada y salida para una función.
-
-Un único *desencadenador* inicia la ejecución de la función. Un desencadenador es un tipo especial de enlace de entrada. Si bien una función tiene un único desencadenador, puede tener varios enlaces de entrada y salida. Para más información, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 En este artículo se muestra cómo conectar la función que creó en el [artículo de inicio rápido anterior] a Azure Storage mediante Visual Studio. El enlace de salida que se agrega a esta función escribe datos de la solicitud HTTP en un mensaje de la cola de Azure Queue Storage. 
 
@@ -31,7 +29,7 @@ Antes de empezar este artículo, debe realizar lo siguiente:
 
  - Completar [la parte 1 del inicio rápido de Visual Studio][./functions-create-first-function-vs-code.md]. 
 
-- Iniciar sesión en la suscripción de Azure desde Visual Studio.
+- Inicio de sesión en la suscripción de Azure desde Visual Studio.
 
 ## <a name="download-the-function-app-settings"></a>Descarga de la configuración de la aplicación de función
 

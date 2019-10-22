@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 85471323a7f8918d80b7c0944fe5c255e9fa836a
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: cc01b12e493f3e0d3cd63786c27819d4704f97f4
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "69018916"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263878"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Ejecución de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -115,7 +115,7 @@ Para ver la aplicación en acción, abra un explorador web en la dirección IP e
 
 ![Imagen del clúster de Kubernetes en Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Si no se cargó la aplicación, esto se puede deber a un problema de autorización con el registro de la imagen. Para ver el estado de los contenedores, use el comando `kubectl get pods`. Si no se pueden extraer las imágenes del contenedor, consulte cómo [permitir el acceso a Container Registry con un secreto de Kubernetes](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+Si no se cargó la aplicación, esto se puede deber a un problema de autorización con el registro de la imagen. Para ver el estado de los contenedores, use el comando `kubectl get pods`. Si las imágenes del contenedor no se pueden extraer, consulte [Autenticación con Azure Container Registry desde Azure Kubernetes Service](cluster-container-registry-integration.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,5 +1,5 @@
 ---
-title: Administración de actualizaciones y revisiones para las máquinas virtuales Windows de Azure
+title: Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
 description: En este artículo se proporciona una introducción al uso de Azure Automation y Update Management para administrar las actualizaciones y revisiones de las máquinas virtuales Windows de Azure.
 services: automation
 author: zjalexander
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: fbca620fca1aeb53acc9bd70561e783b49ff1a60
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a2d13833b60076caa371a7fa8a696ab5964a28e3
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822363"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376078"
 ---
-# <a name="manage-windows-updates-by-using-azure-automation"></a>Administración de las actualizaciones de Windows con Azure Automation
+# <a name="manage-updates-and-patches-for-your-azure-vms"></a>Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
 
 Puede usar la solución Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. En este tutorial aprenderá a evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias, revisar los resultados de la implementación y crear una alerta para verificar que las actualizaciones se aplican correctamente.
 
@@ -95,9 +95,9 @@ Haga clic en **Agregar condición** para seleccionar la señal adecuada para su 
 |Nombre de señal|Dimensiones|DESCRIPCIÓN|
 |---|---|---|
 |**Ejecuciones de implementación de actualizaciones totales**|- Nombre de implementación de actualizaciones</br>- Estado|Esta señal se usa para alertar sobre el estado general de una implementación de actualizaciones.|
-|**Ejecuciones de máquina de implementación de actualizaciones totales**|- Nombre de implementación de actualizaciones</br>- Estado</br>- Equipo de destino</br>- Id. de ejecución de implementación de actualizaciones|Esta señal se usa para alertar sobre el estado de una implementación de actualizaciones dirigida a máquinas específicas|
+|**Ejecuciones de máquina de implementación de actualizaciones totales**|- Nombre de implementación de actualizaciones</br>- Estado</br>- Equipo de destino</br>- Identificador de ejecución de implementación de actualizaciones|Esta señal se usa para alertar sobre el estado de una implementación de actualizaciones dirigida a máquinas específicas|
 
-Para los valores de dimensión, seleccione un valor válido de la lista. Si el valor que busca no está en la lista, haga clic en el signo **\+** situado junto a la dimensión y escriba el nombre personalizado. A continuación, puede seleccionar el valor que desea buscar. Si desea seleccionar todos los valores de una dimensión, haga clic en el botón **Seleccionar \***. Si no elige un valor para una dimensión, dicha dimensión se omitirá durante la evaluación.
+Para los valores de dimensión, seleccione un valor válido de la lista. Si el valor que busca no está en la lista, haga clic en el signo **\+** situado junto a la dimensión y escriba el nombre personalizado. A continuación, puede seleccionar el valor que desea buscar. Si desea seleccionar todos los valores de una dimensión, haga clic en el botón **Seleccionar \*** . Si no elige un valor para una dimensión, dicha dimensión se omitirá durante la evaluación.
 
 ![Configuración de la lógica de señal](./media/automation-tutorial-update-management/signal-logic.png)
 
@@ -135,7 +135,7 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
 * **Sistema operativo**: seleccione el sistema operativo que es el destino de la implementación de actualizaciones.
 
-* **Grupos que se deben actualizar (versión preliminar)**: Defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de VM de Azure e incluirlo en la implementación. Para más información, consulte los [grupos dinámicos](automation-update-management.md#using-dynamic-groups).
+* **Grupos que se deben actualizar (versión preliminar)** : Defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de VM de Azure e incluirlo en la implementación. Para más información, consulte los [grupos dinámicos](automation-update-management-groups.md).
 
 * **Máquinas para actualizar**: Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
@@ -143,27 +143,42 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
   Los tipos de clasificación son:
 
-   |SO  |Type  |
+   |OS  |type  |
    |---------|---------|
-   | Windows     | Actualizaciones críticas</br>Actualizaciones de seguridad</br>Paquetes acumulativos de actualizaciones</br>Feature Packs</br>Service Packs</br>Actualizaciones de definiciones</br>Herramientas</br>Actualizaciones        |
+   |Windows     | Actualizaciones críticas</br>Actualizaciones de seguridad</br>Paquetes acumulativos de actualizaciones</br>Feature Packs</br>Service Packs</br>Actualizaciones de definiciones</br>Herramientas</br>Actualizaciones        |
    |Linux     | Actualizaciones críticas y de seguridad</br>Otras actualizaciones       |
 
-   Para ver una descripción de los tipos de clasificación, consulte [Actualización de clasificaciones](automation-update-management.md#update-classifications).
+   Para ver una descripción de los tipos de clasificación, consulte [Actualización de clasificaciones](automation-view-update-assessments.md#update-classifications).
 
-* **Actualizaciones para incluir/excluir**: abre la página para **incluir/excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte la sección [Comportamiento de inclusión](automation-update-management.md#inclusion-behavior).
+* **Actualizaciones para incluir/excluir**: abre la página para **incluir/excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes.
 
-* **Configuración de programación**: se abre el panel de **configuración de la programación**. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
+> [!NOTE]
+> Es importante saber que las exclusiones invalidan las inclusiones. Por ejemplo, si define una regla de exclusión de `*`, no se instalan revisiones ni paquetes, ya que se excluyen todas. Las revisiones excluidas aparecen todavía como que faltan en la máquina. Para las máquinas Linux, si se incluye un paquete, pero tiene un paquete dependiente que se ha excluido, el paquete no se instala.
+
+* **Configuración de la programación**: se abre el panel de **configuración de la programación**. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
 
    También puede especificar si la implementación se produce una vez o configurar una programación periódica. Seleccione **Una vez** en **Periodicidad**. Deje el valor predeterminado de 1 día y seleccione **Aceptar**. Esta acción configura una programación periódica.
 
 * **Scripts previos + scripts posteriores**: seleccione los scripts que se ejecutarán antes y después de la implementación. Para obtener más información, consulte [Administración de scripts previos y posteriores](pre-post-scripts.md).
-* **Ventana de mantenimiento (minutos)**: Deje el valor predeterminado. Puede establecer la ventana de tiempo en la que desea que se produzca la implementación de actualizaciones. Esta configuración ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
+
+* **Ventana de mantenimiento (minutos)** : Deje el valor predeterminado. Las de ventanas de mantenimiento controlan la cantidad de tiempo permitido para que se instalen las actualizaciones. Tenga en cuenta los siguientes detalles al especificar una ventana de mantenimiento.
+
+  * Las ventanas de mantenimiento controlan el número de actualizaciones que se intentan instalar.
+  * Update Management no detiene la instalación de nuevas actualizaciones si se está aproximando el final de una ventana de mantenimiento.
+  * Update Management no finaliza las actualizaciones en curso si se supera la ventana de mantenimiento.
+  * Si la ventana de mantenimiento se supera en Windows, suele deberse a que una actualización de Service Pack tarda mucho tiempo en instalarse.
+
+  > [!NOTE]
+  > A propósito, la información que no es crítica para una tarea evita que las actualizaciones se apliquen fuera de una ventana de mantenimiento en Ubuntu; vuelva a configurar el paquete de actualizaciones desatendidas para deshabilitar las actualizaciones automáticas. Para más información sobre cómo configurar el paquete, consulte el tema [Actualizaciones automáticas](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) en la Guía de Ubuntu Server.
 
 * **Opciones de reinicio**: este valor determina cómo deben controlarse los reinicios. Las opciones disponibles son la siguientes:
   * Reboot if required (Default) [Reiniciar si es necesario (predeterminada)]
   * Always reboot (Reiniciar siempre)
   * Never reboot (No reiniciar nunca)
   * Only reboot (solo reiniciar), no se instalarán las actualizaciones
+
+> [!NOTE]
+> Las claves del Registro mostradas en la sección sobre las [claves del Registro usadas para administrar el reinicio](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) pueden provocar un evento de reinicio si **Control de reinicio** se establece en **No reiniciar nunca**.
 
 Cuando haya terminado de configurar la programación, seleccione **Crear**.
 
@@ -172,7 +187,9 @@ Cuando haya terminado de configurar la programación, seleccione **Crear**.
 Volverá al panel de estado. Seleccione **Implementaciones de actualizaciones programadas** para mostrar la programación de implementación que creó.
 
 > [!NOTE]
-> Update Management admite la implementación de actualizaciones de origen y la descarga previa de revisiones. Esto requiere cambios en los sistemas a los que se aplican revisiones. Para aprender a configurar estos valores en sus sistemas, consulte [soporte técnico para propios y para descargas previas](automation-update-management.md#firstparty-predownload).
+> Update Management admite la implementación de actualizaciones de origen y la descarga previa de revisiones. Esto requiere cambios en los sistemas a los que se aplican revisiones. Para aprender a configurar estos valores en sus sistemas, consulte [soporte técnico para propios y para descargas previas](automation-configure-windows-update.md).
+
+Las **implementaciones de actualizaciones** también se pueden crear mediante programación. Para información sobre cómo crear una **implementación de actualizaciones** con la API REST, consulte [Creación de configuraciones de actualización de software](/rest/api/automation/softwareupdateconfigurations/create). También hay un runbook de ejemplo que puede usarse para crear una **implementación de actualizaciones** semanal. Para más información acerca de este runbook, consulte [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1) (Crear una implementación de actualización semanal para una o más VM en un grupo de recursos).
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualización de los resultados de una implementación de actualizaciones
 

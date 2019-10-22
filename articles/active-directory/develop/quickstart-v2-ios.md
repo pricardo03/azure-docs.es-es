@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdb1ae92b17bef281e3b82a8c1a21344fa37f0da
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dce3fea1427632f37d826b79016e3aa3e22dad5f
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345539"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264161"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Inicio rápido: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de iOS o macOS
 
@@ -266,7 +266,7 @@ self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error
 > |Donde: ||
 > |---------|---------|
 > | `scopes` | Contiene los ámbitos que se solicitan (es decir, `[ "user.read" ]` para Microsoft Graph o `[ "<Application ID URL>/scope" ]` para las API web personalizadas `api://<Application ID>/access_as_user`) |
-> | `account` | La cuenta para la que se solicita un token. Este inicio rápido es una aplicación de una cuenta única. Si quiere compilar una aplicación de varias cuentas, deberá definir una lógica para identificar qué cuenta usar para las solicitudes de token `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
+> | `account` | La cuenta para la que se solicita un token. Este inicio rápido trata de una aplicación de una sola cuenta. Si quiere compilar una aplicación de varias cuentas, deberá definir una lógica para identificar qué cuenta usar para las solicitudes de token que usen `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

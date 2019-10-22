@@ -2,18 +2,17 @@
 title: 'Tutorial: Incorporación de un modelo de ejemplo a un servidor de Azure Analysis Services | Microsoft Docs'
 description: En este tutorial, aprenderá a agregar un modelo de ejemplo a Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 32c46f0a488d775275b3a367aa2913f034569041
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c6679e8075afd2f25e4baf73c79c35907ded4e2b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903936"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512875"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Incorporación de un modelo de ejemplo desde el portal
 
@@ -44,7 +43,7 @@ Inicie sesión en el [portal](https://portal.azure.com/).
 
     ![Creación de un modelo de ejemplo](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. En **Nuevo modelo** > **Choose a datasource (Elegir un origen de datos)**, compruebe que la opción **Datos de ejemplo** está seleccionada y, a continuación, haga clic en **Agregar**.
+2. En **Nuevo modelo** > **Choose a datasource** (Elegir un origen de datos), compruebe que la opción **Datos de ejemplo** está seleccionada y, a continuación, haga clic en **Agregar**.
 
     ![Seleccionar datos de ejemplo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 

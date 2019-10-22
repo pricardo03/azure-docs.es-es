@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 03/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f933cf54b354475146c1291b486173e0b57dbb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9dddd9f6904aa5ef7840850792aeabf04666dddc
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026724"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373406"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Concur Travel and Expense
 
@@ -38,16 +38,18 @@ Para más información sobre la integración de aplicaciones SaaS con Azure AD,
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Concur Travel and Expense.
+* Una suscripción a Concur Travel and Expense.
+* Un rol de "administrador de empresa" en su cuenta de usuario de Concur. Puede probar si tiene el acceso correcto; para ello, vaya a [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin), la herramienta de autoservicio de inicio de sesión único de Concur. Si no tiene acceso, póngase en contacto con el servicio de soporte técnico de Concur o con el administrador de proyectos de implementación. 
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD.
 
-* Concur Travel and Expense admite SSO iniciado por **IDP**
+* Concur Travel and Expense admite el inicio de sesión único iniciado por **IDP** y **SP**
+* Concur Travel and Expense permite la prueba del inicio de sesión único tanto en entornos de producción como de implementación 
 
 > [!NOTE]
-> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+> El identificador de esta aplicación es un valor de cadena fijo para cada una de las tres regiones: Estados Unidos, EMEA y China. Por lo tanto, solo se puede configurar una instancia para cada región de un inquilino. 
 
 ## <a name="adding-concur-travel-and-expense-from-the-gallery"></a>Incorporación de Concur Travel and Expense desde la galería
 
@@ -85,13 +87,16 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada en el modo iniciado por **IDP** y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+    > [!NOTE]
+    > El identificador (Id. de entidad) y la dirección URL de respuesta (	URL del Servicio de consumidor de aserciones) son específicos de la región. Seleccione lo que corresponda en función del centro de datos de la entidad Concur. Si no conoce el centro de datos de la entidad Concur, póngase en contacto con el soporte técnico de Concur. 
+
+5. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Atributo de usuario** y modificar la configuración. El identificador de usuario único debe coincidir con el valor de login_id del usuario de Concur. Normalmente, debe cambiar **user.userPrincipalName** a **user.mail**.
+
+    ![Editar atributo de usuario](common/edit-attribute.png)
+
+6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el archivo de metadatos y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
-
-1. En la sección **Configurar Concur Travel and Expense**, copie las direcciones URL adecuadas según sus necesidades.
-
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -125,11 +130,31 @@ En esta sección, va a permitir que B. Simon use el inicio de sesión único de
 
 ## <a name="configure-concur-travel-and-expense-sso"></a>Configuración del inicio de sesión único en Concur Travel and Expense
 
-Para configurar el inicio de sesión único en **Concur Travel and Expense**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Concur Travel and Expense](https://www.concur.com/support). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para configurar el inicio de sesión único en **Concur Travel and Expense**, debe cargar el **XML de metadatos de federación** cargado en [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin), la herramienta de autoservicio de SSO de Concur, e iniciar sesión con una cuenta que tenga el rol de administrador de la empresa. 
+
+1. Haga clic en **Agregar**.
+1. Escriba un nombre personalizado para el IdP, por ejemplo "Azure AD (EE. UU.)". 
+1. Haga clic en **Cargar archivo XML** y adjunte el **XML de metadatos de federación** que descargó anteriormente.
+1. Haga clic en **Agregar metadatos** para guardar el cambio.
+
+    ![Captura de pantalla de la herramienta de autoservicio de SSO de Concur](./media/concur-travel-and-expense-tutorial/add-metadata-concur-self-service-tool.png)
 
 ### <a name="create-concur-travel-and-expense-test-user"></a>Creación de un usuario de prueba en Concur Travel and Expense
 
-En esta sección creará un usuario llamado B. Simon en Concur Travel and Expense. En colaboración con el  [equipo de soporte técnico de Concur Travel and Expense](https://www.concur.com/support), agregará los usuarios a la plataforma de Concur Travel and Expense. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección creará un usuario llamado B. Simon en Concur Travel and Expense. En colaboración con el equipo de soporte técnico de Concur, agregará los usuarios a la plataforma de Concur Travel and Expense. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+
+> [!NOTE]
+> El identificador de inicio de sesión de Concur de B.Simon debe coincidir con el identificador único de B. Simon en Azure AD. Por ejemplo, si el identificador único de Azure AD de B.Simon es `B.Simon@contoso.com`. El identificador de inicio de sesión de Concur de B.Simon tiene que ser `B.Simon@contoso.com` también. 
+
+## <a name="configure-concur-mobile-sso"></a>Configuración del inicio de sesión único para dispositivos móviles en Concur
+Para habilitar el inicio de sesión único para dispositivos móviles en Concur, debe proporcionar al equipo de soporte técnico de Concur la **dirección URL de acceso del usuario**. Siga los pasos que se indican a continuación para obtener la **dirección URL de acceso del usuario** desde Azure AD:
+1. Vaya a **Aplicaciones empresariales**.
+1. Haga clic en **Concur Travel and Expense**.
+1. Haga clic en **Propiedades**.
+1. Copie la **dirección URL de acceso del usuario** y proporcione esta dirección URL al soporte técnico de Concur.
+
+> [!NOTE]
+> La opción de autoservicio para configurar el inicio de sesión único no está disponible, por lo que debe trabajar con el equipo de soporte técnico de Concur si desea habilitar el inicio de sesión único para dispositivos móviles. 
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

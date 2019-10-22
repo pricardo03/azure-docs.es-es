@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1df278c67c8f84648d2fc7ab3818656cfb9de74a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 11c12058229a2eadfdc3834d311c085c2365b17d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100701"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300794"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure
 
@@ -31,9 +31,9 @@ Las máquinas virtuales de Azure proporcionan un entorno informático completame
 > * Seleccionar y usar imágenes de máquinas virtuales
 > * Ver y usar tamaños de una máquina virtual específicos
 > * Cambiar el tamaño de una máquina virtual
-> * Ver y entender el estado de las máquinas virtuales
+> * Ver y entender el estado de las máquinas virtuales.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+En este tutorial se usa la CLI dentro de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que se actualiza constantemente a la versión más reciente. Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior de cualquier bloque de código.
 
 Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
@@ -160,7 +160,7 @@ En la tabla siguiente se clasifican los tamaños en casos de uso.
 | [Proceso optimizado](sizes-compute.md)   | Fsv2          | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
 | [Memoria optimizada](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Uso elevado de memoria respecto al núcleo. Excelente para bases de datos relacionales, memorias caché de capacidad de mediana a grande y análisis en memoria.                 |
 | [Almacenamiento optimizado](sizes-storage.md)      | Lsv2, Ls              | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Máquinas virtuales especializadas específicas para actividades intensas de representación de gráficos y edición de vídeo.       |
+| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Máquinas virtuales especializadas para actividades intensas de representación de gráficos y edición de vídeo.       |
 | [Alto rendimiento](sizes-hpc.md) | H        | Nuestras máquinas virtuales con CPU más eficaces e interfaces de red de alto rendimiento (RDMA) opcionales. |
 
 
@@ -256,7 +256,7 @@ Una máquina virtual de Azure puede tener uno de muchos estados de energía. Est
 | Iniciando | Indica que se está iniciando la máquina virtual. |
 | Ejecución | Indica que la máquina virtual se está ejecutando. |
 | Deteniéndose | Indica que se está deteniendo la máquina virtual. | 
-| Stopped | Indica que se ha detenido la máquina virtual. Las máquinas virtuales en el estado detenido siguen acumulando cargos por procesos.  |
+| Detenido | Indica que se ha detenido la máquina virtual. Las máquinas virtuales en el estado detenido siguen acumulando cargos por procesos.  |
 | Desasignando | Indica que se está desasignando la máquina virtual. |
 | Desasignado | Indica que la máquina virtual se quitó del hipervisor pero sigue estando disponible en el plano de control. Las máquinas virtuales en el estado Desasignado no incurren cargos por procesos. |
 | - | Indica que se desconoce el estado de la máquina virtual. |
@@ -323,7 +323,7 @@ En este tutorial, ha aprendido conceptos básicos sobre la creación y administr
 > * Cambiar el tamaño de una máquina virtual
 > * Ver y entender el estado de las máquinas virtuales.
 
-Prosiga con el siguiente tutorial para aprender sobre los discos en máquinas virtuales de Azure.  
+Prosiga con el siguiente tutorial para aprender sobre los discos en máquinas virtuales.  
 
 > [!div class="nextstepaction"]
 > [Creación y administración de discos de máquinas virtuales](./tutorial-manage-disks.md)

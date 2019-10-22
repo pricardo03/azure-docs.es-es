@@ -1,26 +1,22 @@
 ---
 title: Adición de un enlace de cola de Azure Storage a la función de Python
-description: Aprenda a agregar un enlace de salida de cola de Azure Storage a la función de Python mediante la CLI de Azure y Functions Core Tools.
-services: functions
-keywords: ''
+description: Aprenda a agregar un enlace de salida de cola de Azure Storage a la función de Python.
 author: ggailey777
 ms.author: glenga
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
-ms.devlang: python
-manager: jeconnoc
-ms.openlocfilehash: 92ee9b0a8a0906bca31d7dcb1730c3464d0d6cbc
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+manager: gwallace
+ms.openlocfilehash: 2307a296453247a5deee082aadb474f3641cce88
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839190"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329731"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adición de un enlace de cola de Azure Storage a la función de Python
 
-Azure Functions le permite conectar servicios de Azure y otros recursos a funciones sin tener que escribir su propio código de integración. Estos *enlaces*, que representan la entrada y la salida, se declaran dentro de la definición de función. Los datos de los enlaces se proporcionan a la función como parámetros. Un *desencadenador* es un tipo especial de enlace de entrada. Si bien una función tiene un único desencadenador, puede tener varios enlaces de entrada y salida. Para más información, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 En este artículo se muestra cómo integrar la función que creó en el [artículo de inicio rápido anterior](functions-create-first-function-python.md) con una cola de Azure Storage. El enlace de salida que se agrega a esta función escribe datos de una solicitud HTTP en un mensaje de la cola.
 
@@ -34,7 +30,7 @@ Antes de empezar este artículo, realice los pasos de la [parte 1 del inicio rá
 
 ## <a name="download-the-function-app-settings"></a>Descarga de la configuración de la aplicación de función
 
-[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
+[!INCLUDE [functions-app-settings-download-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
 ## <a name="enable-extension-bundles"></a>Habilitación de conjuntos de extensiones
 
@@ -63,7 +59,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Como en el artículo de inicio rápido anterior habilitó las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de almacenamiento](functions-bindings-storage-blob.md#packages---functions-2x) se descargó e instaló automáticamente durante el inicio junto con el resto de extensiones de enlace de Microsoft.
+> Como ya habilitó las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de Storage](functions-bindings-storage-blob.md#packages---functions-2x) se descargó e instaló automáticamente durante el inicio junto con el resto de extensiones de enlace de Microsoft.
 
 Copie la dirección URL de la función `HttpTrigger` que aparece en la salida en entorno de ejecución y péguela en la barra de direcciones del explorador. Agregue la cadena de consulta `?name=<yourname>` a esta dirección URL y ejecute la solicitud. Verá la misma respuesta en el explorador que en el artículo anterior.
 
@@ -71,17 +67,17 @@ Esta vez, el enlace de salida también crea una cola denominada `outqueue` en la
 
 A continuación, se usa la CLI de Azure para ver la nueva cola y comprobar que se ha agregado un mensaje. También puede ver la cola mediante el [Explorador de Microsoft Azure Storage][Azure Storage Explorer] o en [Azure Portal](https://portal.azure.com).
 
-### <a name="set-the-storage-account-connection"></a>Establecimiento de la conexión de la cuenta de almacenamiento
-
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
-
-### <a name="query-the-storage-queue"></a>Consulta de la cola de almacenamiento
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
-Ahora es el momento de volver a publicar la aplicación de funciones actualizada en Azure.
+### <a name="redeploy-the-project"></a>Reimplementación del proyecto 
 
-[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
+Para actualizar la aplicación publicada, use el comando [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) de Core Tools para implementar el código del proyecto en Azure. En este ejemplo, reemplace `<APP_NAME>` por el nombre de la aplicación.
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
 
 De nuevo, puede usar cURL o un explorador para probar la función implementada. Como antes, anexe la cadena de consulta `&name=<yourname>` a la dirección URL, como en este ejemplo:
 
@@ -89,7 +85,7 @@ De nuevo, puede usar cURL o un explorador para probar la función implementada. 
 curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
 ```
 
-Puede [examinar el mensaje de la cola de almacenamiento](#query-the-storage-queue) para comprobar que el enlace de salida genera otra vez un nuevo mensaje en la cola.
+Puede [examinar el mensaje de la cola de almacenamiento](#query-the-storage-queue) otra vez para comprobar que el enlace de salida genera un nuevo mensaje en la cola según lo previsto.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 18a2063c2ee2ae734e481cf663573ab5543e5edf
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 22cdfaf1d48c4e93e57f46482eacb66742a6c9d6
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065792"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515700"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión en una aplicación de una sola página mediante Azure Active Directory B2C
 
@@ -25,10 +25,12 @@ Azure Active Directory B2C (Azure AD B2C) proporciona administración de id
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
-- Instalar [Node.js](https://nodejs.org/en/download/)
-- Una cuenta de redes sociales de Facebook, Google o Microsoft.
-- [Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clone la aplicación web de ejemplo desde GitHub.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**
+- [Node.js](https://nodejs.org/en/download/)
+- Cuenta de redes sociales de Facebook, Google o Microsoft
+- Código de ejemplo de GitHub: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+    
+    Puede [descargar el archivo .zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clonar el repositorio:
 
     ```
     git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git

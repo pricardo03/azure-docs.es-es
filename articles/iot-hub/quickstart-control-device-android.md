@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: d125328d903b419aa81c54ffecf1f549d4cb4fe2
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: d607608167e1287c7df35157ccb9870f40f22943
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330785"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516714"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Guía de inicio rápido: Control de un dispositivo conectado a IoT Hub (Android)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub es un servicio de Azure que le permite ingerir grandes volúmenes de datos de telemetría desde los dispositivos IoT en la nube y administrar dispositivos desde la nube. En este inicio rápido, usa un *método directo* para controlar un dispositivo simulado conectado a IoT Hub. Puede usar métodos directos para cambiar el comportamiento de un dispositivo conectado a IoT Hub de manera remota.
+IoT Hub es un servicio de Azure que permite administrar dispositivos IoT desde la nube e ingerir grandes volúmenes de datos de telemetría desde los dispositivos en la nube para su almacenamiento o procesamiento. En este inicio rápido, usa un *método directo* para controlar un dispositivo simulado conectado a IoT Hub. Puede usar métodos directos para cambiar el comportamiento de un dispositivo conectado a IoT Hub de manera remota.
 
 El inicio rápido usa dos aplicaciones Java escritas anteriormente:
 
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Android Studio desde https://developer.android.com/studio/. Para más información relativa a la instalación de Android Studio, consulte [android-installation](https://developer.android.com/studio/install).
+* Android Studio desde https://developer.android.com/studio/. Para más información acerca de la instalación de Android Studio, consulte [android-installation](https://developer.android.com/studio/install).
 
 * En el ejemplo de este artículo se usa Android SDK 27.
 
@@ -63,11 +63,11 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
-   **MyAndroidDevice**: este valor es el nombre que se da al dispositivo registrado. Use MyAndroidDevice como se muestra a continuación. Si elige otro nombre para el dispositivo, puede que tenga que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   **MyAndroidDevice**: es el nombre del dispositivo que se va a registrar. Se recomienda usar **MyAndroidDevice** como se muestra. Si elige otro nombre distinto para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
     az iot hub device-identity create \
-      --hub-name YourIoTHubName --device-id MyAndroidDevice
+      --hub-name {YourIoTHubName} --device-id MyAndroidDevice
     ```
 
 2. Ejecute los siguientes comandos en Azure Cloud Shell para obtener la _cadena de conexión del dispositivo_ que acaba de registrar:
@@ -76,7 +76,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      --hub-name YourIoTHubName \
+      --hub-name {YourIoTHubName} \
       --device-id MyAndroidDevice \
       --output table
     ```
@@ -94,24 +94,24 @@ También necesitará una _cadena de conexión del servicio_ para permitir que la
 **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
+az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
 ```
 
 Anote la cadena de conexión del servicio, que se parecerá a esta:
 
 `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-Usará este valor más adelante en este inicio rápido. La cadena de conexión de servicio es diferente de la cadena de conexión de dispositivo.
+Usará este valor más adelante en este inicio rápido. Esta cadena de conexión del servicio no es la que anotó en el paso anterior.
 
 ## <a name="listen-for-direct-method-calls"></a>Escuchas para llamadas de método directo
 
-La aplicación de ejemplo SDK de dispositivo se puede ejecutar en un dispositivo Android físico o en un emulador de Android. El ejemplo se conecta a un punto de conexión específico del dispositivo en IoT Hub, envía los datos de telemetría simulados y escucha llamadas de método directo desde el centro. En este inicio rápido, la llamada de método directo desde el centro indica al dispositivo que debe cambiar el intervalo en el que envía los datos de telemetría. El dispositivo simulado envía una confirmación al centro después de que ejecute el método directo.
+La aplicación de ejemplo SDK de dispositivo se puede ejecutar en un dispositivo Android físico o en un emulador de Android. El ejemplo se conecta a un punto de conexión específico del dispositivo en IoT Hub, envía los datos de telemetría simulados y escucha llamadas de método directo desde el centro. En este inicio rápido, la llamada de método directo desde el centro indica al dispositivo que debe cambiar el intervalo en el que envía los datos de telemetría. El dispositivo simulado envía una confirmación al centro después de que ejecuta el método directo.
 
 1. En Android Studio, abra el proyecto de Android de ejemplo de GitHub. El proyecto se encuentra en el siguiente directorio de la copia que ha clonado o descargado del repositorio [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
-2. En Android Studio, abra *gradle.properties* para el proyecto de ejemplo y reemplace el marcador de posición **Device_Connection_String** por la cadena de conexión de dispositivo que anotó anteriormente.
+2. En Android Studio, abra *gradle.properties* para el proyecto de ejemplo y reemplace el marcador de posición **Device_Connection_String** por la cadena de conexión de dispositivo que anotó anteriormente.
 
     ```
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
@@ -131,18 +131,18 @@ La aplicación de ejemplo SDK de dispositivo se puede ejecutar en un dispositivo
 
     ![Captura de pantalla de ejemplo de la aplicación Android del dispositivo cliente](media/quickstart-control-device-android/sample-screenshot.png)
 
-Esta aplicación debe dejarse en ejecución en un dispositivo físico o en un emulador mientras ejecuta la aplicación de ejemplo SDK de servicio para actualizar el intervalo de telemetría durante el tiempo de ejecución.
+Esta aplicación debe dejarse en ejecución en un dispositivo físico o en un emulador mientras ejecuta el ejemplo de SDK de servicio para actualizar el intervalo de telemetría durante el tiempo de ejecución.
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lectura de los datos de telemetría procedentes de su instancia de IoT Hub
 
-En esta sección, usará Azure Cloud Shell con la [extensión de IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) para supervisar los mensajes de dispositivo que envía el dispositivo Android.
+En esta sección, usará Azure Cloud Shell con la [extensión de IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) para supervisar los mensajes que envía el dispositivo Android.
 
 1. Mediante Azure Cloud Shell, ejecute el siguiente comando para conectarse y leer mensajes desde el centro de IoT:
 
    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     ```azurecli-interactive
-    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
     ```
 
     La siguiente captura de pantalla muestra la salida en la que IoT Hub recibe los datos de telemetría que el dispositivo Android ha enviado:
@@ -153,17 +153,17 @@ De forma predeterminada la aplicación de telemetría envía datos de telemetrí
 
 ## <a name="call-the-direct-method"></a>Llamar al método directo
 
-La aplicación de servicio se conecta a un punto de conexión de servicio en IoT Hub. La aplicación realiza llamadas de método directo a un dispositivo con IoT Hub y realiza escuchas para confirmaciones.
+La aplicación de servicio se conecta a un punto de conexión de servicio en IoT Hub. La aplicación realiza llamadas de método directo a un dispositivo con IoT Hub y escucha las confirmaciones.
 
 Ejecute esta aplicación en un dispositivo Android físico independiente o en un emulador de Android.
 
-Una aplicación de servicio de back-end de IoT Hub normalmente se ejecuta en la nube donde es más fácil mitigar los riesgos asociados a la cadena de conexión confidencial que controla todos los dispositivos de IoT Hub. En este ejemplo, la vamos a ejecutar como una aplicación de Android solo con fines de demostración. Las versiones de esta guía de inicio rápido en otros idiomas proporcionan otros ejemplos que se adaptan mejor a una aplicación de servicio de back-end.
+Habitualmente, se ejecuta una aplicación de servicio de back-end de IoT Hub en la nube, donde es más fácil mitigar los riesgos asociados a la cadena de conexión confidencial que controla todos los dispositivos de IoT Hub. En este ejemplo, la vamos a ejecutar como una aplicación de Android solo con fines de demostración. Las versiones de este inicio rápido en otros idiomas proporcionan ejemplos que se alinean más con una aplicación de servicio de back-end típica.
 
 1. En Android Studio, abra el proyecto de Android de ejemplo de servicio de GitHub. El proyecto se encuentra en el siguiente directorio de la copia que ha clonado o descargado del repositorio [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
         \azure-iot-samples-java\iot-hub\Samples\service\AndroidSample
 
-2. En Android Studio, abra *gradle.properties* para el proyecto de ejemplo y actualice el valor de las propiedades **ConnectionString** y **DeviceId** con la cadena de conexión de servicio que anotó anteriormente y el identificador de dispositivo Android que registró.
+2. En Android Studio, abra *gradle.properties*  para el proyecto de ejemplo. Actualice los valores de las propiedades **ConnectionString** y **DeviceId** con la cadena de conexión de servicio que anotó anteriormente y el identificador del dispositivo Android que registró.
 
     ```
     ConnectionString=HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}

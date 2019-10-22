@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 172921dcb082f511d16394b7693f40edf8394821
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 228b0fff7231af811206d5c477b63ed70706939b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826048"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329772"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks
 
@@ -49,7 +49,7 @@ Complete estas tareas antes de comenzar este tutorial:
 
 * Cree una instancia de Azure SQL Data Warehouse y una regla de firewall de nivel de servidor y conéctese al servidor como administrador. Consulte [Quickstart: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](../sql-data-warehouse/create-data-warehouse-portal.md)
 
-* Cree una clave maestra de base de datos para la instancia de Azure SQL Data Warehouse. Consulte [Crear la clave maestra de una base de datos](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
+* Cree una clave maestra para la instancia de Azure SQL Data Warehouse. Consulte [Crear la clave maestra de una base de datos](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
 * Ha creado una cuenta de Azure Blob Storage y, dentro de ella, un contenedor. Además, ha recuperado la clave de acceso para acceder a la cuenta de almacenamiento. Consulte [Quickstart: Carga, descarga y enumeración de blobs con Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md)
 

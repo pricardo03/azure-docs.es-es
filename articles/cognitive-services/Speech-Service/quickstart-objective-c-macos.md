@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Reconocimiento de voz en Objective-C (Servicios de voz)'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a reconocer la voz en Objective-C para macOS mediante el SDK de Voz.
+description: Aprenda a reconocer la voz en Objective-C para macOS mediante el SDK de Voz
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,80 +10,86 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: f843636b0c4f604af4984c6d75bb6c3cae75d275
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 6955fc5dd98b65d2eb94914ea39685f1f69a46ac
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803295"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327795"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Objective-C para macOS mediante el SDK de Voz
+# <a name="quickstart-recognize-speech-in-objective-c-on-macos-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Objective-C para macOS mediante el SDK de Voz
 
 También hay inicios rápidos disponibles para la [síntesis de voz](quickstart-text-to-speech-objectivec-macos.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-En este artículo, aprenderá a crear una aplicación macOS en Objective-C mediante el SDK de Voz de Cognitive Services para transcribir a texto la voz grabada con un micrófono.
+En este artículo aprenderá a crear una aplicación macOS en Objective-C mediante el SDK de Voz de Azure Cognitive Services para transcribir a texto la voz grabada con un micrófono.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, presentamos una lista de requisitos previos:
+Antes de comenzar, necesitará lo siguiente:
 
-* Una [clave de suscripción](get-started.md) para Speech Service
-* Una máquina macOS con [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) o posterior y macOS 10.13 o posterior
+* Una [clave de suscripción](get-started.md) para el servicio Voz.
+* Una máquina macOS con [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) o una versión posterior y macOS 10.13 o posterior.
 
 ## <a name="get-the-speech-sdk-for-macos"></a>Obtención del SDK de Voz para macOS
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-El SDK de Voz de Cognitive Services para Mac se distribuye como un paquete de marcos.
-Se puede usar en proyectos de Xcode como un administrador de dependencias [CocoaPod](https://cocoapods.org/), o se puede descargar desde https://aka.ms/csspeech/macosbinary y vincularse manualmente. En esta guía se usa CocoaPod.
+El SDK de Voz de Cognitive Services para Mac se distribuye como un paquete de marcos. Se puede usar en proyectos de Xcode como administrador de dependencias de [CocoaPods](https://cocoapods.org/) o se puede descargar desde https://aka.ms/csspeech/macosbinary y vincular manualmente. En este artículo se usa CocoaPods.
 
 ## <a name="create-an-xcode-project"></a>Creación de un proyecto de Xcode
 
-Inicie Xcode y haga clic en **Archivo** > **Nuevo** > **Proyecto** para iniciar un proyecto nuevo.
-En el cuadro de diálogo de selección de plantilla, elija la plantilla "Aplicación de Cocoa".
+Inicie Xcode y seleccione **Archivo** > **Nuevo** > **Proyecto** para iniciar un proyecto nuevo. En el cuadro de diálogo de selección de plantilla, seleccione la plantilla **Aplicación de Cocoa**.
 
-En los cuadros de diálogo que aparecen después, realice las selecciones siguientes:
+En los cuadros de diálogo que aparecen después, realice las selecciones siguientes.
 
-1. Cuadro de diálogo Opciones del proyecto
-    1. Escriba un nombre para la aplicación de inicio rápido, por ejemplo `helloworld`.
-    1. Si ya tiene una cuenta de desarrollador de Apple, escriba un nombre y un identificador de organización adecuados. Con fines de prueba, puede elegir cualquier nombre, como `testorg`. Para firmar la aplicación, necesita un perfil de aprovisionamiento adecuado. Consulte el [sitio para desarrolladores de Apple](https://developer.apple.com/) para más información.
-    1. Asegúrese de elegir Objective-C como lenguaje para el proyecto.
-    1. Desactive las casillas para usar guiones gráficos y para crear una aplicación basada en documentos. La interfaz de usuario sencilla para la aplicación de ejemplo se creará mediante programación.
-    1. Desactive todas las casillas de las pruebas y los datos principales.
+1. En **Opciones del proyecto**:
+    1. Escriba un nombre para la aplicación de inicio rápido, por ejemplo, *helloworld*.
+    1. Si ya tiene una cuenta de desarrollador de Apple, escriba un nombre y un identificador de organización adecuados. Para fines de prueba, use un nombre como *testorg*. Para firmar la aplicación, necesita un perfil de aprovisionamiento adecuado. Para más información, consulte el [centro para desarrolladores de Apple](https://developer.apple.com/).
+    1. Asegúrese de seleccionar **Objective-C** como lenguaje para el proyecto.
+    1. Desactive las casillas para usar guiones gráficos y para crear una aplicación basada en documentos. La interfaz de usuario sencilla para la aplicación de ejemplo se crea mediante programación.
+    1. Desactive todas las casillas de pruebas y datos principales.
+
     ![Configuración del proyecto](media/sdk/qs-objectivec-macos-project-settings.png)
-1. Selección del directorio del proyecto
-    1. Elija un directorio en el que colocar el proyecto. Se crea un directorio `helloworld` en el directorio principal que contiene todos los archivos del proyecto de Xcode.
+
+1. Seleccione un directorio de proyecto:
+    1. Elija un directorio en el que colocar el proyecto. En este paso se crea un directorio helloworld en el directorio principal que contiene todos los archivos del proyecto de Xcode.
     1. Deshabilite la creación de un repositorio de Git para este proyecto de ejemplo.
-1. Establezca los derechos de acceso a la red y al micrófono. Haga clic en el nombre de la aplicación en la primera línea de la información general a la izquierda para obtener la configuración de aplicación y, a continuación, elija la pestaña "Funcionalidades".
-    1. Habilite la opción "App Sandbox" para la aplicación.
-    1. Habilite las casillas de acceso a "Conexiones salientes" y "Micrófono".
-    ![Configuración de espacio aislado](media/sdk/qs-objectivec-macos-sandbox.png)
-1. La aplicación también debe declarar el uso del micrófono en el archivo `Info.plist`. Haga clic en el archivo en la información general y agregue la clave "Privacidad: descripción de uso del micrófono", con un valor como "Microphone is needed for speech recognition" (Se necesita el micrófono para el reconocimiento de voz).
+1. Establezca los derechos de acceso a la red y al micrófono. Seleccione el nombre de la aplicación en la primera línea de la información general a la izquierda para obtener la configuración de aplicación. Después, seleccione la pestaña **Funcionalidades**.
+    1. Habilite la configuración **App Sandbox** para la aplicación.
+    1. Habilite las casillas de acceso **Conexiones salientes** y **Micrófono**.
+
+    ![Configuración del espacio aislado](media/sdk/qs-objectivec-macos-sandbox.png)
+
+1. La aplicación también debe declarar el uso del micrófono en el archivo `Info.plist`. Seleccione el archivo en la información general y agregue la clave **Privacidad: descripción de uso del micrófono**, con un valor como *Microphone is needed for speech recognition* (Se necesita el micrófono para el reconocimiento de voz).
+
     ![Configuración de Info.plist](media/sdk/qs-objectivec-macos-info-plist.png)
-1. Cierre el proyecto de Xcode. Más tarde, usará una instancia diferente de él después de configurar CocoaPods.
+
+1. Cierre el proyecto de Xcode. Después de configurar CocoaPods usará una instancia suya diferente.
 
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Instalación del SDK como CocoaPod
 
 1. Instale el administrador de dependencias de CocoaPod como se describe en sus [instrucciones de instalación](https://guides.cocoapods.org/using/getting-started.html).
-1. Vaya al directorio de la aplicación de ejemplo (`helloworld`). Coloque un archivo de texto con el nombre `Podfile` y el siguiente contenido en ese directorio:  
-   [!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
-1. Vaya al directorio `helloworld` en un terminal y ejecute el comando `pod install`. Se genera un área de trabajo de Xcode `helloworld.xcworkspace` que contiene la aplicación de ejemplo y el SDK de Voz como dependencia. Este área de trabajo se usa en las secciones siguientes.
+1. Vaya al directorio de la aplicación de ejemplo, helloworld. Coloque un archivo de texto con el nombre *Podfile* y el siguiente contenido en ese directorio:
+
+   [!code-ruby[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
+1. Vaya al directorio helloworld en un terminal y ejecute el comando `pod install`. Este comando genera un área de trabajo de Xcode `helloworld.xcworkspace` que contiene la aplicación de ejemplo y el SDK de Voz como dependencia. Este área de trabajo se usa en los pasos siguientes.
 
 ## <a name="add-the-sample-code"></a>Incorporación del código de ejemplo
 
 1. Abra el área de trabajo `helloworld.xcworkspace` en Xcode.
-1. Reemplace el contenido del archivo `AppDelegate.m` generado automáticamente por lo siguiente:  
-   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]
+1. Reemplace el contenido del archivo `AppDelegate.m` generado automáticamente por el código siguiente:
+
+   [!code-objectivec[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]
 1. Reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
-1. Reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a su suscripción. Por ejemplo, use `westus` para la suscripción de prueba gratuita.
 
 ## <a name="build-and-run-the-sample"></a>Compilación y ejecución del ejemplo
 
-1. Haga visible la salida de depuración (**Ver** > **Área de depuración** > **Activar consola**).
-1. Para compilar y ejecutar el código de ejemplo, seleccione **Producto** > **Ejecutar** en el menú o haga clic en el botón **Reproducir**.
-1. Después de hacer clic en el botón y decir algunas palabras, debería ver el texto que ha dicho en la parte inferior de la pantalla. Al ejecutar la aplicación por primera vez, se le solicitará que proporcione a la aplicación acceso al micrófono del equipo.
+1. Haga visible la salida de depuración; para ello, seleccione **View** > **Debug Area** > **Activate Console** (Ver > Área de depuración > Activar consola).
+1. Para compilar y ejecutar el código de ejemplo, seleccione **Producto** > **Ejecutar** en el menú. También puede seleccionar **Reproducir**.
+1. Después de seleccionar el botón y decir algunas palabras, debería ver el texto que ha dicho en la parte inferior de la pantalla. Al ejecutar la aplicación por primera vez, se le solicitará que proporcione a la aplicación acceso al micrófono del equipo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

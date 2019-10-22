@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 486a6b46b6c4590b7f49cd8aba449204cd8f4fac
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: c38cd7f4b2fb1ae88b65031d3c93b153500b96ac
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709697"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375776"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visualización y descarga de los precios de Azure de la organización
 
-Los clientes de Azure que tienen un Contrato Enterprise (EA) de Azure o un [Contrato de cliente de Microsoft](#check-your-access-to-a-microsoft-customer-agreement) pueden ver y descargar los precios en Azure Portal.
+Los clientes de Azure que tienen un Contrato Enterprise (EA) de Azure, un Contrato de cliente de Microsoft (MCA) o un contrato Microsoft Partner Agreement (MPA) pueden ver y descargar los precios en Azure Portal. [Aprenda a comprobar el tipo de cuenta de facturación](#check-your-billing-account-type).
 
-## <a name="ea-pricing"></a>Precios de EA
+## <a name="download-pricing-for-an-enterprise-agreement"></a>Descarga de los precios de un Contrato Enterprise
 
 Según las directivas que haya establecido el administrador de empresa para la organización, solo determinados roles administrativos proporcionan acceso a la información de precios de EA de la organización. Para más información, consulte [Roles administrativos del Contrato Enterprise de Azure en Azure](billing-understand-ea-roles.md).
 
@@ -42,18 +42,9 @@ Según las directivas que haya establecido el administrador de empresa para la o
 
    ![Captura de pantalla que muestra el botón Descargar CSV de la hoja de precios](./media/billing-ea-pricing/download-ea-price-sheet.png)
 
-## <a name="microsoft-customer-agreement-pricing"></a>Precios de Contrato de cliente de Microsoft
+## <a name="download-pricing-for-an-mca-or-mpa-account"></a>Descarga de los precios de una cuenta MCA o MPA
 
-Debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación para ver y descargar los precios. Para obtener más información acerca de los roles de facturación para los contratos de cliente de Microsoft, consulte [Tareas y roles del perfil de facturación](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-### <a name="download-price-sheets-for-the-current-billing-period"></a>Descarga de las hojas de precios para el período de facturación actual
-
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-1. Busque *Administración de costos + facturación*.
-1. Seleccione un perfil de facturación. En función de su acceso, es posible que tenga que seleccionar primero una cuenta de facturación.
-1. En el área **Información general**, busque los vínculos de descarga debajo de los cargos del mes hasta la fecha.
-1. Seleccione **Hoja de precios de Azure**.
-![Captura de pantalla que muestra la descarga desde Información general](./media/billing-ea-pricing/open-pricing.png).
+Si tiene una cuenta MCA, debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturas para ver y descargar los precios. Si tiene una cuenta MPA, debe tener el rol de administrador global y agente de administración en la organización del asociado para ver y descargar los precios.
 
 ### <a name="download-price-sheets-for-billed-charges"></a>Descarga de las hojas de precios para los cargos facturados
 
@@ -69,6 +60,17 @@ Debe ser el propietario del perfil de facturación, colaborador, lector o admini
 1. Si quiere ver los precios de todos los servicios de Azure para el período de facturación determinado, seleccione **Hoja de precios de Azure**.
 
 ![Captura de pantalla que muestra el menú contextual con las hojas de precios.](./media/billing-ea-pricing/contextmenu-pricesheet.png)
+
+### <a name="download-price-sheets-for-the-current-billing-period"></a>Descarga de las hojas de precios para el período de facturación actual
+
+Si tiene una cuenta MCA, puede descargar los precios del período de facturación actual.
+
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Busque *Administración de costos + facturación*.
+1. Seleccione un perfil de facturación. En función de su acceso, es posible que tenga que seleccionar primero una cuenta de facturación.
+1. En el área **Información general**, busque los vínculos de descarga debajo de los cargos del mes hasta la fecha.
+1. Seleccione **Hoja de precios de Azure**.
+![Captura de pantalla que muestra la descarga desde Información general](./media/billing-ea-pricing/open-pricing.png).
 
 ## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Estimación de costos con la calculadora de precios de Azure
 
@@ -86,8 +88,8 @@ También puede usar los precios de la organización para estimar los costos con 
 1. Busque y, a continuación, agregue productos a su estimación.
 1. Los precios estimados mostrados se basan en los precios de la organización que ha seleccionado.
 
-## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-your-billing-account-type"></a>Comprobación del tipo de cuenta de facturación
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

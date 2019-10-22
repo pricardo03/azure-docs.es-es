@@ -1,5 +1,5 @@
 ---
-title: Ver y administrar clientes y recursos delegados en Azure Portal
+title: Ver y administrar clientes y recursos delegados
 description: Como proveedor de servicios con la administración de recursos delegados de Azure, puede ver todos los recursos y suscripciones de clientes delegados desde la sección Mis clientes de Azure Portal.
 author: JnHs
 ms.author: jenhayes
@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: acc90afa258fa7140cd7dfa8711dd64b554df45d
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 53aabc4dc6c0d3fcef28aab16ea598cbbf6dbd55
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810849"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302746"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Ver y administrar clientes y recursos delegados
 
@@ -37,7 +37,7 @@ Puede ver la siguiente información desde esta página:
 
 - Para ver todas las suscripciones, ofertas y delegaciones asociadas con un cliente, seleccione el nombre del cliente.
 - Para ver más detalles sobre una oferta y sus delegaciones, seleccione el nombre de la oferta.
-- Para ver más detalles acerca de las asignaciones de acceso para las suscripciones o los grupos de recursos delegados, seleccione la entrada de la columna **Delegaciones**.
+- Para ver más detalles acerca de las asignaciones de roles en las suscripciones o grupos de recursos delegados, seleccione la entrada de la columna **Delegaciones**.
 
 ## <a name="view-delegations"></a>Ver delegaciones
 
