@@ -17,10 +17,10 @@ ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28f3fca731c9ceb28f66ecd1c178e5c025f80ede
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70163541"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Envoy
@@ -152,7 +152,7 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
 5. Haga clic en **Compañía**.
 
-    ![Compañía](./media/envoy-tutorial/ic776783.png "Compañía")
+    ![Company](./media/envoy-tutorial/ic776783.png "Compañía")
 
 6. Haga clic en **SAML**.
 
@@ -160,7 +160,7 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
 7. En la sección de configuración de **SAML Authentication** (Autenticación de SAML), realice los pasos siguientes:
 
-    ![Autenticación de SAML](./media/envoy-tutorial/ic776785.png "Autenticación de SAML")
+    ![Autenticación SAML](./media/envoy-tutorial/ic776785.png "Autenticación SAML")
     
     >[!NOTE]
     >La aplicación genera automáticamente el valor del identificador de ubicación de la sede central.

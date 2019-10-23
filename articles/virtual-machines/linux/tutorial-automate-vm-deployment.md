@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9f053cc7646a2a4f41c57010f7e43a3fe3255b7e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 8bc396611f2e6f611de5a41de9525ba71287b363
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931791"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595118"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial: Uso de cloud-init para personalizar una máquina virtual Linux en Azure durante el primer arranque
 
@@ -44,11 +44,11 @@ Trabajamos con nuestros asociados para que cloud-init se incluya y funcione en l
 
 | Publicador | Oferta | SKU | Versión | Preparado para cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |más reciente |Sí | 
-|Canonical |UbuntuServer |16.04-LTS |más reciente |Sí | 
-|Canonical |UbuntuServer |14.04.5-LTS |más reciente |Sí |
-|CoreOS |CoreOS |Stable |más reciente |Sí |
-|OpenLogic 7.6 |CentOS |7-CI |más reciente |Vista previa |
+|Canonical |UbuntuServer |18.04-LTS |latest |Sí | 
+|Canonical |UbuntuServer |16.04-LTS |latest |Sí | 
+|Canonical |UbuntuServer |14.04.5-LTS |latest |Sí |
+|CoreOS |CoreOS |Stable |latest |Sí |
+|OpenLogic 7.6 |CentOS |7-CI |latest |Vista previa |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Sí |
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |Vista previa |
 
@@ -126,7 +126,7 @@ Transcurren unos minutos hasta que la máquina virtual se crea, los paquetes se 
 Para permitir que el tráfico web llegue a la máquina virtual, abra el puerto 80 desde Internet con el comando [az vm open-port](/cli/azure/vm#az-vm-open-port):
 
 ```azurecli-interactive
-az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
+az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAutomatedVM
 ```
 
 ## <a name="test-web-app"></a>Prueba de la aplicación web
@@ -165,7 +165,7 @@ Para usarlo en producción, debe importar un certificado válido firmado por un 
 az keyvault certificate create \
     --vault-name $keyvault_name \
     --name mycert \
-    --policy "$(az keyvault certificate get-default-policy)"
+    --policy "$(az keyvault certificate get-default-policy --output json)"
 ```
 
 
@@ -177,7 +177,7 @@ secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
           --query "[?attributes.enabled].id" --output tsv)
-vm_secret=$(az vm secret format --secret "$secret")
+vm_secret=$(az vm secret format --secret "$secret" --output json)
 ```
 
 
@@ -256,7 +256,7 @@ Para permitir que el tráfico web llegue a la máquina virtual, abra el puerto 4
 ```azurecli-interactive
 az vm open-port \
     --resource-group myResourceGroupAutomate \
-    --name myVMSecured \
+    --name myVMWithCerts \
     --port 443
 ```
 

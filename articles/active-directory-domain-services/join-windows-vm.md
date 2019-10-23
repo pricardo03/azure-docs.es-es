@@ -1,5 +1,5 @@
 ---
-title: Unión de una máquina virtual Windows Server a un dominio administrado | Microsoft Docs
+title: Unir una máquina virtual Windows Server a un dominio administrado | Microsoft Docs
 description: En este tutorial, aprenderá a unir una máquina virtual Windows a un dominio administrado de Azure Active Directory Domain Services.
 author: iainfoulds
 manager: daveba
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: 3fd2a50946f0857d527c34b62687b2dbdd71298e
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 00e717202116cf9a48c2c2d889374d451b8e4d45
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172039"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754369"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Unión de una máquina virtual de Windows Server a un dominio administrado
 
