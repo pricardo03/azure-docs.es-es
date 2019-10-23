@@ -3,19 +3,19 @@ title: 'Inicio rápido: Comprobación de contenido de texto en C# con Content Mo
 titleSuffix: Azure Cognitive Services
 description: Cómo analizar el contenido de texto de diverso material ofensivo mediante el SDK de Content Moderator para .NET
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: 69c190b9ce9e5a99d39a46c147f7159ace47e4f7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.author: pafarley
+ms.openlocfilehash: 40f73a6aabd3631bf2a2f8f1406d2ec9abd55e51
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001427"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757228"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Inicio rápido: Análisis de contenido de textos para detectar material inapropiado en C#
 
@@ -87,7 +87,7 @@ Si desea más información sobre lo que hacen estas operaciones, siga el víncul
 El programa escribirá los datos de cadena de JSON en el archivo _TextModerationOutput.txt_. El texto de ejemplo utilizado en esta guía de inicio rápido provoca la siguiente salida:
 
 ```json
-Autocorrect typos, check for matching terms, PII, and classify.
+Autocorrect typos, check for matching terms, check for personal data, and classify.
 {
 "OriginalText": "\"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).\"",
 "NormalizedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",

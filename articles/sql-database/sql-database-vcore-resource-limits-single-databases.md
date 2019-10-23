@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 08/29/2019
-ms.openlocfilehash: ae7baf09df42a5824e5f59e7ebb372f4d9f6350c
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 10/21/2019
+ms.openlocfilehash: 108e31ebff5910c139bcaf83675cc8161c2a96f6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72032873"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693365"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra basado en núcleo virtual
 
@@ -46,8 +46,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Memoria (GB)|7|14|21|28|35|42|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamaño máximo de datos (GB)|1024|1024|1024|1536|1536|1536|
-|Tamaño máximo de registro (GB)|307|307|307|461|461|461|
+|Tamaño máximo de datos (GB)|1024|1024|1536|1536|1536|3072|
+|Tamaño máximo de registro (GB)|307|307|461|461|461|922|
 |Tamaño máximo de datos de TempDB (GB)|32|64|96|128|160|192|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
@@ -69,8 +69,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Memoria (GB)|49|56|63|70|112|168|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamaño máximo de datos (GB)|1536|3072|3072|3072|4096|4096|
-|Tamaño máximo de registro (GB)|461|922|922|922|1229|1229|
+|Tamaño máximo de datos (GB)|3072|3072|3072|3072|4096|4096|
+|Tamaño máximo de registro (GB)|922|922|922|922|1229|1229|
 |Tamaño máximo de datos de TempDB (GB)|224|256|288|320|384|384|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)
@@ -93,7 +93,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1024|1024|1536|1536|1536|3072|3072|
-|Tamaño máximo de registro (GB)|307|307|307|461|461|461|461|
+|Tamaño máximo de registro (GB)|307|307|461|461|461|922|922|
 |Tamaño máximo de datos de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
@@ -196,8 +196,8 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está en versión
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|1|2|3|4|5|6|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamaño máximo de datos (GB)|650|650|650|650|650|650|
-|Tamaño máximo de registro (GB)|195|195|195|195|195|195|
+|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|1024|
+|Tamaño máximo de registro (GB)|307|307|307|307|307|307|
 |Tamaño máximo de datos de TempDB (GB)|32|64|96|128|160|192|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de datos máx. (64 KB)|5000|10000|15000|20000|25000|30000|
@@ -220,8 +220,8 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está en versión
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|7|8|9.5|11|20|36|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamaño máximo de datos (GB)|650|650|650|650|1024|1024|
-|Tamaño máximo de registro (GB)|195|195|195|195|307|307|
+|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|1024|
+|Tamaño máximo de registro (GB)|307|307|307|307|307|307|
 |Tamaño máximo de datos de TempDB (GB)|224|256|288|320|384|384|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de datos máx. (64 KB)|35000|40000|45000|50000|80000|120000|
@@ -244,7 +244,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está en versión
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|1571|3142|4.713|6284|8.655|11.026|13.397|
 |Tamaño máximo de datos (GB)|1024|1024|1536|1536|1536|3072|3072|
-|Tamaño máximo de registro (GB)|307|307|307|461|461|922|922|
+|Tamaño máximo de registro (GB)|307|307|461|461|461|922|922|
 |Tamaño máximo de datos de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|

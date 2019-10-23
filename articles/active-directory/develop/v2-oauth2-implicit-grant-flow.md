@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 10/16/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab5ba4fde7469854954ed19d2e643f2b8a23f34f
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 375fe839c31062474994d329379b066049272f55
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193260"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527048"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidad de Microsoft y concesión implícita de flujo
 
@@ -129,20 +129,6 @@ error=access_denied
 | --- | --- |
 | `error` |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | `error_description` |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
-
-## <a name="validate-the-id_token"></a>Validar el id_token
-
-Recibir solo un valor id_token no es suficiente para autenticar al usuario; también se tiene que validar la firma del id_token y comprobar las notificaciones en el token según los requisitos de la aplicación. El punto de conexión de la plataforma de identidad de Microsoft usa los [JSON Web Token (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
-
-Puede elegir validar el `id_token` en el código de cliente, pero lo habitual es enviar el `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma de id_token, se le solicitará que compruebe algunas notificaciones. Para obtener más información, vea la [Referencia de `id_token`](id-tokens.md), incluido [Validación de los tokens](id-tokens.md#validating-an-id_token) y [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md). Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
-
-Se recomienda que valide notificaciones adicionales según su escenario. Algunas validaciones comunes incluyen:
-
-* Asegurarse de que la organización/el usuario se ha registrado en la aplicación.
-* Asegurarse de que el usuario tiene la autorización y los privilegios adecuados.
-* Asegurarse de que se haya producido un determinado nivel de autenticación, como la autenticación multifactor.
-
-Una vez haya validado completamente el valor id_token, puede iniciar una sesión con el usuario y utilizar las notificaciones de id_token para obtener información sobre el usuario en la aplicación. Esta información puede usarse para visualización, registros, personalización, etc.
 
 ## <a name="get-access-tokens"></a>Obtención de tokens de acceso
 

@@ -1,24 +1,20 @@
 ---
 title: 'Azure Monitor: reemplazo de los puntos de conexión de SDK predeterminados con Azure Application Insights | Microsoft Docs'
 description: Modifique los puntos de conexión de SDK predeterminados de Azure Application Insights para regiones como Azure Government.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/26/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 25087c5b3a078b740764f51a7780a24277d5c642
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 07/26/2019
+ms.openlocfilehash: e1db9782fe923f7a5759f4e001cd0db970606fed
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639561"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677494"
 ---
- # <a name="application-insights-overriding-default-endpoints"></a>Reemplazo de puntos de conexión predeterminados de Application Insights
+# <a name="application-insights-overriding-default-endpoints"></a>Reemplazo de puntos de conexión predeterminados de Application Insights
 
 Para enviar datos de Application Insights en determinadas regiones, deberá reemplazar las direcciones de los puntos de conexión predeterminados. Cada SDK requiere modificaciones ligeramente distintas, las cuales se describen en este artículo. Dichos cambios requieren ajustar el código de ejemplo y reemplazar los valores de marcador de posición de `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address` y `Profile_Query_Endpoint_address` con las direcciones de punto de conexión reales para la región específica. Al final de este artículo se incluyen vínculos a las direcciones de punto de conexión para las regiones en las que se requiere esta configuración.
 

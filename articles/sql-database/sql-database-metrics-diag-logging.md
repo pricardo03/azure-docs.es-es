@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 208ebaa2e22f4cd0ee2138f3e49f78c1e56860cf
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 235cdff1297b840bfd1a522e265633b47094c855
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260332"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597965"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -574,7 +574,7 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 |query_hash_s|Hash de consulta de la consulta errónea, si está disponible |
 |query_plan_hash_s|Hash de plan de consulta de la consulta errónea, si está disponible |
 
-Obtenga más información sobre [mensajes de error de SQL Server](https://msdn.microsoft.com/library/cc645603.aspx).
+Obtenga más información sobre [mensajes de error de SQL Server](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15).
 
 ### <a name="database-wait-statistics-dataset"></a>Conjunto de datos de estadísticas de espera de base de datos
 

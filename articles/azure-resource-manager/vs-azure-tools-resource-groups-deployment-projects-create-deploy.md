@@ -4,14 +4,14 @@ description: Use Visual Studio para crear un proyecto del grupo de recursos de A
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.date: 06/20/2019
+ms.date: 10/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: c7f71dbadf24244756cf65f68ceea24547190737
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ae7ff9370bd289dfdec578e6daeb471bbd53a072
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170250"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597623"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 
@@ -23,7 +23,8 @@ En este artículo se muestra cómo usar [Visual Studio 2019 o posterior con el
 
 En esta sección, va a crear un proyecto de Grupo de recursos de Azure con una plantilla **Aplicación web**.
 
-1. En Visual Studio, elija **Archivo**, **Nuevo** y **Proyecto**. Seleccione la plantilla del proyecto **Grupo de recursos de Azure**  y **Siguiente**.
+1. En Visual Studio, seleccione **Archivo**>**Nuevo**>**Proyecto**.
+1. Seleccione la plantilla del proyecto **Grupo de recursos de Azure**  y **Siguiente**.
 
     ![Crear proyecto](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 

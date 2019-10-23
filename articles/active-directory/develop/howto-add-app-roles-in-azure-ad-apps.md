@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24e933399454942f4ee50440cffd791599679074
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e8c0e761c7a03efda470aba83bfa02a30b22a21
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299141"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754320"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedimientos para: Agregar roles de aplicación en la aplicación y recibirlos en el token
 
@@ -129,7 +129,7 @@ Una vez que haya agregado los roles de aplicación en la aplicación, puede asig
 
 ## <a name="more-information"></a>Más información
 
-- [Autorización en una aplicación web con roles de aplicación de Azure AD &amp; notificaciones de rol (ejemplo)](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-roleclaims/)
+- [Autorización en una aplicación web con roles de aplicación de Azure AD &amp; notificaciones de rol (ejemplo)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
 - [Uso de grupos de seguridad y roles de aplicación en las aplicaciones (vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, ahora con notificaciones de grupo y roles de aplicación](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
 - [Manifiesto de la aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

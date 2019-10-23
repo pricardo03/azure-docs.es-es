@@ -1,18 +1,18 @@
 ---
 title: Compilación de una aplicación de consola mediante la API de Azure Cosmos DB para MongoDB y el SDK de Golang
 description: Se presenta un ejemplo de código de Golang que se puede usar para conectarse a la API de Azure Cosmos DB para MongoDB y realizar consultas.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: 5b60ac28cd8f65d464e659f328872524be59b3ed
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586887"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755109"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Inicio rápido: Compilación de una aplicación de consola mediante la API de Azure Cosmos DB para MongoDB y el SDK de Golang
 
@@ -129,9 +129,9 @@ defer session.Close()
 session.SetSafe(&mgo.Safe{})
 ```
 
-El método **mgo. Dial()** se utiliza cuando no hay conexión SSL. Para establecer una conexión SSL, se necesita el método **mgo.DialWithInfo()**.
+El método **mgo. Dial()** se utiliza cuando no hay conexión SSL. Para establecer una conexión SSL, se necesita el método **mgo.DialWithInfo()** .
 
-Para crear el objeto de sesión, se utiliza una instancia del objeto **DialWIthInfo{}**. Cuando se establezca la sesión, puede acceder a la colección mediante el siguiente fragmento de código:
+Para crear el objeto de sesión, se utiliza una instancia del objeto **DialWIthInfo{}** . Cuando se establezca la sesión, puede acceder a la colección mediante el siguiente fragmento de código:
 
 ```go
 collection := session.DB("database").C("package")
@@ -216,7 +216,7 @@ if err != nil {
 
 1. En Golang, asegúrese de que su GOPATH (disponible en **Archivo**, **Configuración**, **Go**, **GOPATH**) incluye la ubicación en la que se instaló el gopkg, que es USERPROFILE\go de forma predeterminada. 
 2. Convierta en comentario las líneas que eliminan el documento, de la 103 a la 107, para que pueda ver el documento después de ejecutar la aplicación.
-3. En Golang, haga clic en **Ejecutar**y, a continuación, haga clic en **Ejecutar "Build main.go and run"**.
+3. En Golang, haga clic en **Ejecutar**y, a continuación, haga clic en **Ejecutar "Build main.go and run"** .
 
     La aplicación finaliza y muestra la descripción del documento creado en [Crear un documento](#create-document).
     
