@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: b8d3a26d015c129a04e54ba9633aa5d1ccfcacf8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f241ac3e1369e32a1f2a4b9ac80492094105ff8c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "69016102"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598344"
 ---
 # <a name="azure-media-services-community"></a>Comunidad de Azure Media Services  
 
@@ -45,10 +45,6 @@ Actualmente, MSDN es el foro principal de la comunidad del equipo de Media Servi
 El equipo también supervisa las preguntas etiquetadas con "azure-media-services" en Stack Overflow.
 
 [![Stackoverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
-
-## <a name="contact-the-team"></a>Póngase en contacto con el equipo
-
-El correo principal del soporte técnico de Azure Media Services es: **amshelp\@microsoft.com**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

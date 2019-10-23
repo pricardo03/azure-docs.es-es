@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a0b9166d24bea28bb3271d719e8ffe0b24d71381
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f254ebe599e64f4c48a839d9defd57e0899138a5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826930"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755778"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para Azure Active Directory multiinquilino mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -83,19 +83,19 @@ Para definir Azure AD como proveedor de notificaciones, agregue el elemento **Cl
           <Description>Login with your Contoso account</Description>
           <Protocol Name="OpenIdConnect"/>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/common/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the Application ID -->
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="response_types">code</Item>
-            <Item Key="scope">openid</Item>
+            <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
             <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
-            <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
+            <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000,https://login.microsoftonline.com/11111111-1111-1111-1111-111111111111</Item>
             <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
-            <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+            <!-- <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/</Item> -->
           </Metadata>
           <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_AADAppSecret"/>
@@ -129,17 +129,17 @@ Para definir Azure AD como proveedor de notificaciones, agregue el elemento **Cl
 ### <a name="restrict-access"></a>Restricción del acceso
 
 > [!NOTE]
-> Al usar `https://sts.windows.net` como valor para **ValidTokenIssuerPrefixes**, se permite a todos los usuarios de Azure AD iniciar sesión en la aplicación.
+> Al usar `https://login.microsoftonline.com/` como valor para **ValidTokenIssuerPrefixes**, se permite a todos los usuarios de Azure AD iniciar sesión en la aplicación.
 
 Tiene que actualizar la lista de emisores de tokens válidos y restringir el acceso a la lista específica de usuarios inquilinos de Azure AD que pueden iniciar sesión.
 
-Para obtener los valores, examine los metadatos de descubrimiento de OpenID Connect de cada uno de los inquilinos específicos de Azure AD desde los que le gustaría que los usuarios iniciaran sesión. El formato de la dirección URL de metadatos es similar a `https://login.windows.net/your-tenant/.well-known/openid-configuration`, donde `your-tenant` es el nombre del inquilino de Azure AD. Por ejemplo:
+Para obtener los valores, examine los metadatos de descubrimiento de OpenID Connect de cada uno de los inquilinos específicos de Azure AD desde los que le gustaría que los usuarios iniciaran sesión. El formato de la dirección URL de metadatos es similar a `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, donde `your-tenant` es el nombre del inquilino de Azure AD. Por ejemplo:
 
-`https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
+`https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 
 Siga estos pasos para cada inquilino de Azure AD que se deba usar para iniciar sesión:
 
-1. Abra el explorador y vaya a la dirección URL de metadatos de OpenID Connect para el inquilino. Busque el objeto **issuer** y anote su valor. Debe tener un aspecto similar a `https://sts.windows.net/00000000-0000-0000-0000-000000000000/`.
+1. Abra el explorador y vaya a la dirección URL de metadatos de OpenID Connect para el inquilino. Busque el objeto **issuer** y anote su valor. Debe tener un aspecto similar a `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`.
 1. Copie y pegue el valor en la clave **ValidTokenIssuerPrefixes**. Separe varios emisores con una coma. Un ejemplo con dos emisores aparece en el ejemplo de código XML `ClaimsProvider` anterior.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Carga del archivo de extensión para su comprobación

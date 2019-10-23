@@ -1,19 +1,19 @@
 ---
 title: ¿Cómo realizar consultas con SQL en Azure Cosmos DB?
 description: Aprenda cómo realizar consultas con SQL en Azure Cosmos DB
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7e57abcc3df17dadd2e607895a8de011761ed68c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ffebdb0a46fdae981ca73a4569344365459dd7b8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932796"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756815"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Consulta de Azure Cosmos DB mediante la API de SQL
 
@@ -65,7 +65,7 @@ Para obtener más información sobre las consultas SQL, vea:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial se da por supuesto que tiene una colección y una cuenta de Azure Cosmos DB. ¿No tiene nada de lo anterior? Complete el [inicio rápido de 5 minutos](create-mongodb-nodejs.md).
+En este tutorial se da por supuesto que tiene una colección y una cuenta de Azure Cosmos DB. ¿No tiene nada de lo anterior? Complete el [inicio rápido de 5 minutos](create-cosmosdb-resources-portal.md).
 
 ## <a name="example-query-1"></a>Consulta 1 de ejemplo
 

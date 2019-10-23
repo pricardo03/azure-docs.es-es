@@ -4,8 +4,8 @@ description: Aprenda a utilizar varios contenedores en Azure con Docker Compose,
 keywords: servicio de aplicación de azure, aplicación web, linux, docker, compose, multicontenedor, varios contenedores, aplicación web para contenedores, contenedor, wordpress, azure db for mysql, base de datos de producción con contenedores
 services: app-service
 documentationcenter: ''
-author: msangapu
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: b83edae698ed62deea189c979478c2170a034fc8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f4a366809bd5c6267ef76632e8990309f100c393
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070864"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554930"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Creación de una aplicación de varios contenedores (versión preliminar) en Web App for Containers
 
@@ -42,11 +42,9 @@ Para completar este tutorial, se necesita experiencia con [Docker Compose](https
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 
-Para este tutorial, utilice el archivo de Compose de [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), pero tendrá que modificarlo incluyendo Azure Database for MySQL, el almacenamiento persistente y Redis. El archivo de configuración se pueden encontrar en los [ejemplos de Azure](https://github.com/Azure-Samples/multicontainerwordpress).
+Para este tutorial, utilice el archivo de Compose de [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), pero tendrá que modificarlo incluyendo Azure Database for MySQL, el almacenamiento persistente y Redis. El archivo de configuración se pueden encontrar en los [ejemplos de Azure](https://github.com/Azure-Samples/multicontainerwordpress). Para ver las opciones de configuración que se admiten, consulte [Opciones de Docker Compose](configure-custom-container.md#docker-compose-options).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
-
-Para ver las opciones de configuración que se admiten, consulte [Opciones de Docker Compose](configure-custom-container.md#docker-compose-options).
 
 En Cloud Shell, cree un directorio de tutorial y luego cambie a él.
 

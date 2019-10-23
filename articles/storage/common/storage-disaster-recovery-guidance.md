@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4a621f8976efe395014c073a6bd7c5d09d19d915
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671079"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595198"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar) en Azure Storage
 
@@ -119,8 +119,14 @@ Puede iniciar la conmutación por error de una cuenta desde Azure Portal, PowerS
 
 La conmutación por error de una cuenta está disponible en versión preliminar para todos los clientes que usan GRS o RA-GRS con implementaciones de Azure Resource Manager. Se admiten los tipos de cuenta de Uso general v1, Uso general v2 y Cuenta de Blob Storage. La conmutación por error de una cuenta está disponible actualmente en estas regiones:
 
-- Oeste de EE. UU. 2
+- Este de Asia
+- Sudeste de Asia
+- Este de Australia
+- Sudeste de Australia
+- Centro de EE. UU.
+- Este de EE. UU. - 2
 - Centro-oeste de EE. UU.
+- Oeste de EE. UU. 2
 
 La versión preliminar está pensada para usos distintos del de producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
 

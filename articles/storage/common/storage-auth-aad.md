@@ -9,12 +9,12 @@ ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: caf72d4af390956391fdab133cf0897abbee4633
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: aed61e5cf32ed0148e8b9eee6edf44daa03acd17
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673151"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598107"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorización del acceso a blobs y colas de Azure con Azure Active Directory
 
@@ -34,7 +34,7 @@ El paso de autorización exige que se asignen uno o varios roles RBAC a la entid
 
 Las aplicaciones nativas y las aplicaciones web que realizan solicitudes a Azure Blob Service o Queue service también se pueden autorizar con Azure AD. Para información sobre cómo solicitar un token de acceso y usarlo para autorizar solicitudes de datos de blobs o colas, vea [Autenticar con Azure Active Directory desde una aplicación para el acceso a los blobs y colas](storage-auth-aad-app.md).
 
-## <a name="assigning-rbac-roles-for-access-rights"></a>Asignación de roles RBAC para derechos de acceso
+## <a name="assign-rbac-roles-for-access-rights"></a>Asignación de roles RBAC para derechos de acceso
 
 Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles RBAC integrados que abarcan conjuntos comunes de permisos que se emplean para acceder a los datos de blobs o colas. También puede definir roles personalizados para el acceso a datos de blobs y colas.
 

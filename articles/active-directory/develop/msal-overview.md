@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a53de919960902fcc89a53293f31a07baa88cf32
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: bec22381d1961c47ce257666177b5faf918cea56
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268547"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554414"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Introducción a la Biblioteca de autenticación de Microsoft (MSAL)
 La Biblioteca de autenticación de Microsoft (MSAL) permite que los desarrolladores adquieran [tokens](developer-glossary.md#security-token) desde el punto de conexión de la Plataforma de identidad de Microsoft para acceder a API web protegidas. Estas API web pueden ser Microsoft Graph, otras API de Microsoft, API web de terceros o su propia API web. MSAL está disponible para .NET, JavaScript, Android e iOS, que admiten muchas plataformas y arquitecturas de aplicación distintas.
@@ -56,7 +56,7 @@ MSAL se puede usar en muchos escenarios de aplicación, incluidos:
 | --- | --- | 
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Plataforma universal de Windows|
 | [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Marcos de JavaScript/TypeScript como AngularJS, Ember.js o Durandal.js|
-| [MSAL para Android (versión preliminar)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
+| [MSAL para Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [MSAL para iOS y macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS y macOS|
 | [Versión preliminar de MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
 

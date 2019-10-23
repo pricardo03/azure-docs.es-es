@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9eacb574f20abeb63a9d0ab8caf534eb7abb9784
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a7a67e98d87850e2fc90df3ce7ba15e5e60da517
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056359"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596754"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Aplicación de demonio que llama a las API web: llamada a una API web desde la aplicación
 
@@ -72,5 +72,19 @@ Para las aplicaciones de demonio, las API web a las que llame deben estar aproba
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [Aplicación de demonio: paso a producción](./scenario-daemon-production.md)
+> [Aplicación de demonio: paso a producción](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=dotnet)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Aplicación de demonio: paso a producción](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=python)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Aplicación de demonio: paso a producción](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=java)
+
+---
