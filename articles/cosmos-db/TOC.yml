@@ -599,8 +599,10 @@
       items:
         - name: Introducción
           href: mongodb-introduction.md
-        - name: Compatibilidad con protocolo de transferencia
+        - name: Compatibilidad con protocolo de transferencia (3.2)
           href: mongodb-feature-support.md
+        - name: Compatibilidad con protocolo de transferencia (3.6)
+          href: mongodb-feature-support-36.md
         - name: Guías de inicio rápido
           items:
             - name: .NET

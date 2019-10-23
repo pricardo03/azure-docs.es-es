@@ -9,8 +9,10 @@
 - name: Tutoriales
   expanded: true
   items:
-    - name: Creación de un dominio administrado
+    - name: Creación de un dominio administrado básico
       href: tutorial-create-instance.md
+    - name: Configuración de la red virtual para aplicaciones
+      href: tutorial-configure-networking.md
     - name: Unión a dominio de una máquina virtual de Windows Server
       href: join-windows-vm.md
     - name: Instalación de herramientas de administración
@@ -19,6 +21,8 @@
       href: tutorial-configure-ldaps.md
     - name: Configuración de la sincronización de hash de contraseñas
       href: tutorial-configure-password-hash-sync.md
+    - name: Creación de un dominio administrado avanzado
+      href: tutorial-create-instance-advanced.md
 - name: Ejemplos
   items:
     - name: Creación de un dominio administrado mediante Azure PowerShell

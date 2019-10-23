@@ -68,6 +68,8 @@
               href: end-user-experiences.md
     - name: Aprovisionamiento automático de usuarios
       items:
+        - name: Planeación de una implementación del aprovisionamiento automático de usuarios
+          href: plan-auto-user-provisioning.md
         - name: Aprovisionamiento automático de aplicaciones habilitadas con SCIM
           href: use-scim-to-provision-users-and-groups.md
     - name: Application Proxy para aplicaciones locales
