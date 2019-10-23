@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f65e3c4f9582fcc5c28412d44e513fa6bcb9e870
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262971"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597285"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager
 Los [registros de plataforma](platform-logs-overview.md) en Azure proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo se proporcionan detalles sobre el uso de una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para la configuración de diagnóstico para la recopilación de los registros de plataforma en distintos destinos. Esto permite empezar a recopilar automáticamente los registros de plataforma cuando se crea un recurso.
@@ -53,7 +53,7 @@ Según el [destino](diagnostic-settings.md#destinations) de la configuración de
 "workspaceId":{
   "type": "string",
   "metadata": {
-    "description": "Azure Resource ID of the Log Analytics workspace for the Log Analytics workspace to which logs will be sent."
+    "description": "Azure Resource ID of the Log Analytics workspace to which logs will be sent."
   }
 }
 ```

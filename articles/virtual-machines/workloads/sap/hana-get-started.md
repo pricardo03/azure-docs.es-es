@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 8d4e7b7056f4d5e53785366818fad05e24cfc605
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 630f094ffc6c57a0137d1abc46476f5abe64f616
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100045"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750380"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Inicio rápido: Instalación manual de una única instancia de SAP HANA en Azure Virtual Machines
 ## <a name="introduction"></a>Introducción
@@ -69,7 +69,7 @@ Para más información sobre los sistemas operativos compatibles con SAP HANA, c
 Para obtener documentación de SAP adicional sobre SAP HANA y sistemas operativos Linux diferentes, consulte:
 
 * [SAP Note 171356: SAP Software on Linux: General information](https://launchpad.support.sap.com/#/notes/1984787) (Nota de 171356: Software de SAP en Linux: información general).
-* [SAP Note 1944799: SAP HANA guidelines for SLES operating system installation](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html) (Nota de SAP 1944799: Instrucciones de SAP HANA para la instalación del sistema operativo SLES).
+* [SAP Note 1944799: SAP HANA guidelines for SLES operating system installation](http://service.sap.com/sap/support/notes/1944799) (Nota de SAP 1944799: Instrucciones de SAP HANA para la instalación del sistema operativo SLES).
 * [SAP Note 2205917: SAP HANA DB recommended OS settings for SLES 12 for SAP applications](https://launchpad.support.sap.com/#/notes/2205917/E) (Nota de SAP 2205917: Configuración recomendada del sistema operativo de SAP HANA DB para SLES 12 en aplicaciones SAP).
 * [SAP Note 1391070: Linux UUID solutions](https://launchpad.support.sap.com/#/notes/1391070) (Nota SAP 1391070: Soluciones UUID de Linux).
 * [SAP Note 2009879: SAP HANA guidelines for Red Hat Enterprise Linux (RHEL) operating system](https://launchpad.support.sap.com/#/notes/2009879) (Nota de SAP 2009879: Directrices de SAP HANA para el sistema operativo Red Hat Enterprise Linux [RHEL]).

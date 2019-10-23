@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f021ac0a7c9c46592f7969dd0df10f76aec88cb7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 7364bc41a67d8651c91745a8763fff62fee722fe
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773218"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784809"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opción de venta conjunta en el Centro de partners
 
@@ -72,10 +72,10 @@ También puede exportar su lista de contactos existente de una oferta y, a conti
 
     | **Rol**    | **Descripción**  |
     | :------------------- | :-------------------|
-    | *Marketing de asociados* | Este rol se centra en comercializar su solución y colaborar en los esfuerzos de marketing con los equipos de ventas de Microsoft y los revendedores del canal. El punto de contacto principal de los compromisos de marketing y el contenido de la descripción de la oferta, como vídeos, imágenes y descripciones del producto. |
-    | *Ventas de asociados* | Este rol se centra en vender su solución y colaborar en las ventas con los equipos de ventas de Microsoft y los revendedores del canal. En el caso de las soluciones de venta conjunta, indique al menos un contacto de ventas de asociados por región en la que desea ser Co-sell Ready. El mismo contacto de ventas de asociados puede cubrir varias regiones. |
-    | *Ventas técnicas de asociados* | Admite consideraciones de implementación y arquitectura técnicas durante el ciclo de ventas, la integración posventa y los períodos de implementación. |
-    | *Administrador de éxitos de clientes asociados* | Suele admitir la posimplementación de los clientes para ayudarles a sacar el máximo partido a su solución y aumentar su superficie dentro de la organización del cliente. |
+    | *:::no-loc text="Partner marketing":::* | Este rol se centra en comercializar su solución y colaborar en los esfuerzos de marketing con los equipos de ventas de Microsoft y los revendedores del canal. El punto de contacto principal de los compromisos de marketing y el contenido de la descripción de la oferta, como vídeos, imágenes y descripciones del producto. |
+    | *:::no-loc text="Partner sales":::* | Este rol se centra en vender su solución y colaborar en las ventas con los equipos de ventas de Microsoft y los revendedores del canal. En el caso de las soluciones de venta conjunta, indique al menos un contacto de ventas de asociados por región en la que desea ser Co-sell Ready. El mismo contacto de ventas de asociados puede cubrir varias regiones. |
+    | *:::no-loc text="Partner technical sales":::* | Admite consideraciones de implementación y arquitectura técnicas durante el ciclo de ventas, la integración posventa y los períodos de implementación. |
+    | *:::no-loc text="Partner customer success manager":::* | Suele admitir la posimplementación de los clientes para ayudarles a sacar el máximo partido a su solución y aumentar su superficie dentro de la organización del cliente. |
 
 * *Países o regiones (obligatorio):*  al rellenar la plantilla, use los [códigos de país o región de dos letras según se indica](./commercial-marketplace-co-sell-countries.md). Si el contacto cubre todos los países o regiones, use el código de tres letras "OOO". Si un contacto cubre más de un país o región, escriba cada uno de los códigos de dos letras separados por una coma (por ejemplo, escriba "US, CA, FR" sin comillas en la plantilla).
 

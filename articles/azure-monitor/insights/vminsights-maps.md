@@ -1,24 +1,18 @@
 ---
 title: Cómo ver las dependencias de aplicación con Azure Monitor para VM (versión preliminar) | Microsoft Docs
 description: Asignación es una característica de Azure Monitor para VM. Detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. En este artículo se proporciona información sobre cómo usar la característica de asignación en diferentes escenarios.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 456ed0a48db015d3c95827942a576e6916095131
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.date: 10/15/2019
+ms.openlocfilehash: f886ce4ed1b9396cf90bf98626e0cfd2424b2eac
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515452"
+ms.locfileid: "72553783"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Use la característica de asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación
 En Azure Monitor para VM, puede ver los componentes de la aplicación detectados en las máquinas virtuales (VM) de Windows y Linux que se ejecutan en Azure o en su entorno. Puede observar las VM de dos maneras. Ver una asignación directamente desde una VM o ver un asignación desde Azure Monitor para ver los componentes de los grupos de VM. En este artículo le ayudamos a comprender estos dos métodos de visualización y a usar la característica de asignación. 

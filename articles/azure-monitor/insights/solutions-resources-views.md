@@ -1,24 +1,18 @@
 ---
 title: Vistas de soluciones de administración | Microsoft Docs
 description: 'Las soluciones de administración incluirán normalmente una o varias vistas para visualizar los datos.  En este artículo se describe cómo exportar una vista creada por el Diseñador de vistas e incluirla en una solución de administración. '
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/16/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cefb83d5336bb99fd09001b5ea369a0b8fc4b942
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/16/2018
+ms.openlocfilehash: 473d10bbec6ca056554f7223800a32e9ca93578e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596630"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553904"
 ---
 # <a name="views-in-management-solutions-preview"></a>Vistas de soluciones de administración (versión preliminar)
 > [!NOTE]

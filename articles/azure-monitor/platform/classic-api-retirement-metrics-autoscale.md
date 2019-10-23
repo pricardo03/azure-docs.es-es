@@ -1,18 +1,18 @@
 ---
 title: Retirada de Azure Monitor de las API del modelo de implementación clásica para métricas y escalabilidad automática
 description: Las API de métricas y escalabilidad automática, también llamadas Azure Service Management (ASM) o modelo de implementación RDFE se van a retirar
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 11/19/2018
+author: rboucher
 ms.author: robb
-ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/19/2018
+ms.openlocfilehash: 7a93419ee84e6a50ce07cefa941a8df9f85b7b6e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60709990"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552202"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Retirada de Azure Monitor de las API del modelo de implementación clásica para métricas y escalabilidad automática
 

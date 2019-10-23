@@ -1,19 +1,18 @@
 ---
 title: Administración de instancias de alertas en Azure Monitor
 description: Administración de instancias de alertas en Azure
-author: anantr
-services: monitoring
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 91a770b522011f3955ae0956e289886eb204cf47
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 09/24/2018
+ms.openlocfilehash: 955ed75f8253798e6970c02b0abf5794298ae6da
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702906"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555627"
 ---
 # <a name="manage-alert-instances-with-unified-alerts"></a>Administrar instancias de alerta con alertas unificadas
 Gracias a la [experiencia de alertas unificadas](https://aka.ms/azure-alerts-overview) en Azure Monitor, puede ver todos los tipos de alertas en Azure. Aquí se abarcan varias suscripciones en un solo panel. En este artículo se explica cómo puede ver sus instancias de alerta y cómo buscar instancias de alerta específicas para la solución de problemas.

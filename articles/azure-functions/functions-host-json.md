@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b714559c6c009139da97c7d90425011fb3130ef8
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263312"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596872"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referencia de host.json para Azure Functions 2.x  
 
@@ -69,7 +69,7 @@ El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opcion
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 5
+              "maxTelemetryItemsPerSecond" : 20
             }
         }
     },
@@ -104,7 +104,7 @@ Controla la [característica de muestreo de Application Insights](./functions-mo
     "applicationInsights": {
         "samplingSettings": {
           "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 5
+          "maxTelemetryItemsPerSecond" : 20
         }
     }
 }
@@ -116,7 +116,7 @@ Controla la [característica de muestreo de Application Insights](./functions-mo
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
 |isEnabled|true|Habilita o deshabilita el muestreo.| 
-|maxTelemetryItemsPerSecond|5|Umbral donde comienza el muestreo.| 
+|maxTelemetryItemsPerSecond|20|Umbral donde comienza el muestreo.| 
 |EnableLiveMetrics |true|Habilita la colección de Live Metrics.|
 |EnableDependencyTracking|true|Habilita el seguimiento de dependencias.|
 |EnablePerformanceCountersCollection|true|Habilita la colección de contadores de rendimiento Kudu.|

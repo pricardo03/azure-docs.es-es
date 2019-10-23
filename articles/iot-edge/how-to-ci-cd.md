@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e14025a5a7a3e81404498638d6f6f9c5ff18ed58
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1dc4065540256c8af0856b0e156053f7c2097c1f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650789"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755846"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integración continua e implementación continua en Azure IoT Edge
 
@@ -48,7 +48,7 @@ En esta sección, creará una nueva canalización de compilación. Configure la 
 >1. En Azure DevOps, seleccione el icono del perfil y seleccione **Características de vista previa**.
 >2. Desactive **Nueva experiencia de creación de canalizaciones de YAML**. 
 >
->Para más información, consulte [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline) (Creación de una canalización de compilación).
+>Para más información, consulte [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline) (Creación de una canalización de compilación).
 
 1. Inicie sesión en la organización de Azure DevOps (**https:\//dev.azure.com/{su organización}/** ) y abra el proyecto que contiene el repositorio de soluciones de IoT Edge.
 

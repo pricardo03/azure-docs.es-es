@@ -1,18 +1,18 @@
 ---
 title: Hacer que expiren datos en Azure Cosmos DB con período de vida
 description: Con TTL, Microsoft Azure Cosmos DB ofrece la posibilidad de que los documentos se purguen automáticamente del sistema tras un período de tiempo.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: c3e1c4f56c641bf5bfa189836a4bcdf99672a3c1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f66508a4794b8009523cc2820efe0156b4a9e2f6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597487"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756851"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Período de vida (TTL) en Azure Cosmos DB 
 

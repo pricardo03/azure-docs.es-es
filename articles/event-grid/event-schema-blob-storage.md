@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fa638a00e0d35e1d48bc3205ce2a77e7faf5d22e
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 0ab81d3c1d4c68827cf1569bf4a22c3311fe355d
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718380"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555825"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos de Azure Event Grid para Blob Storage
 
@@ -36,17 +36,14 @@ Estos eventos se desencadenan cuando un cliente crea, reemplaza o elimina un blo
 
 Estos eventos se desencadenan si habilita un espacio de nombres jerárquico en la cuenta de almacenamiento y los clientes llaman a la API REST de Azure Data Lake Storage Gen2.
 
-> [!NOTE]
-> Estos eventos se encuentran en versión preliminar pública y solo están disponibles para las regiones **Oeste de EE.UU. 2** y **Centro-oeste de EE. UU.** .
-
- |Nombre del evento|DESCRIPCIÓN|
- |----------|-----------|
- |**Microsoft.Storage.BlobCreated** | Se desencadena cuando se crea o se sustituye un blob. <br>En concreto, este evento se desencadena cuando los clientes usan las operaciones `CreateFile` y `FlushWithClose` que están disponibles en la API REST de Azure Data Lake Storage Gen2. |
- |**Microsoft.Storage.BlobDeleted** |Se desencadena cuando se elimina un blob. <br>En concreto, este evento también se desencadena cuando los clientes llaman a la operación `DeleteFile` que está disponible en la API REST de Azure Data Lake Storage Gen2. |
- |**Microsoft.Storage.BlobRenamed**|Se desencadena cuando se cambia el nombre de un blob. <br>En concreto, este evento se desencadena cuando los clientes usan la operación `RenameFile` que está disponible en la API REST de Azure Data Lake Storage Gen2.|
- |**Microsoft.Storage.DirectoryCreated**|Se desencadena cuando se crea un directorio. <br>En concreto, este evento se desencadena cuando los clientes usan la operación `CreateDirectory` que está disponible en la API REST de Azure Data Lake Storage Gen2.|
- |**Microsoft.Storage.DirectoryRenamed**|Se desencadena cuando se cambia el nombre de un directorio. <br>En concreto, este evento se desencadena cuando los clientes usan la operación `RenameDirectory` que está disponible en la API REST de Azure Data Lake Storage Gen2.|
- |**Microsoft.Storage.DirectoryDeleted**|Se desencadena cuando se elimina un directorio. <br>En concreto, este evento se desencadena cuando los clientes usan la operación `DeleteDirectory` que está disponible en la API REST de Azure Data Lake Storage Gen2.|
+|Nombre del evento|DESCRIPCIÓN|
+|----------|-----------|
+|**Microsoft.Storage.BlobCreated** | Se desencadena cuando se crea o se sustituye un blob. <br>En concreto, este evento se desencadena cuando los clientes usan las operaciones `CreateFile` y `FlushWithClose` que están disponibles en la API REST de Azure Data Lake Storage Gen2. |
+|**Microsoft.Storage.BlobDeleted** |Se desencadena cuando se elimina un blob. <br>En concreto, este evento también se desencadena cuando los clientes llaman a la operación `DeleteFile` que está disponible en la API REST de Azure Data Lake Storage Gen2. |
+|**Microsoft.Storage.BlobRenamed**|Se desencadena cuando se cambia el nombre de un blob. <br>En concreto, este evento se desencadena cuando los clientes usan la operación `RenameFile` que está disponible en la API REST de Azure Data Lake Storage Gen2.|
+|**Microsoft.Storage.DirectoryCreated**|Se desencadena cuando se crea un directorio. <br>En concreto, este evento se desencadena cuando los clientes usan la operación `CreateDirectory` que está disponible en la API REST de Azure Data Lake Storage Gen2.|
+|**Microsoft.Storage.DirectoryRenamed**|Se desencadena cuando se cambia el nombre de un directorio. <br>En concreto, este evento se desencadena cuando los clientes usan la operación `RenameDirectory` que está disponible en la API REST de Azure Data Lake Storage Gen2.|
+|**Microsoft.Storage.DirectoryDeleted**|Se desencadena cuando se elimina un directorio. <br>En concreto, este evento se desencadena cuando los clientes usan la operación `DeleteDirectory` que está disponible en la API REST de Azure Data Lake Storage Gen2.|
 
 > [!NOTE]
 > Si quiere asegurarse de que el evento **Microsoft.Storage.BlobCreated** se desencadena únicamente cuando un blob en bloques está completamente confirmado, filtre el evento para la llamada de API REST `FlushWithClose`. Esta llamada API desencadena el evento **Microsoft.Storage.BlobCreated** únicamente después de que los datos se hayan confirmado en un blob en bloques. Para obtener más información sobre cómo crear un filtro, consulte [Filtrado de eventos para Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).

@@ -1,19 +1,18 @@
 ---
 title: Alertas de registro de actividad en Azure Monitor
 description: Reciba notificaciones por SMS, webhook y correo electrónico, entre otros, cuando se produzcan determinados eventos en el registro de actividad.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/17/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: b24f24edf2a3a0df8cb8ef9687f205a4a8868537
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 09/17/2018
+ms.openlocfilehash: d3cb075d5ec0607453ca21f2574df7def02a4453
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675237"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553709"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad 
 

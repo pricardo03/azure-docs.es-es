@@ -1,19 +1,18 @@
 ---
 title: Grupos inteligentes
 description: Los grupos inteligentes son agregaciones de las alertas que le ayudan a reducir el ruido de las alertas
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/15/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 08657163eb170b8d3185ce15bd724f1f55bbe2bd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 05/15/2018
+ms.openlocfilehash: 83ea68ad92a6c78ccf56483e1f0c2cbcbcd7d22a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702874"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552349"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
 Un desafío común al gestionar las alertas consiste en cribar el ruido para averiguar lo que realmente importa: los grupos inteligentes están diseñados para ser la solución a ese problema.  

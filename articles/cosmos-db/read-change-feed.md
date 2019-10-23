@@ -1,17 +1,17 @@
 ---
 title: Obtención de acceso a la fuente de cambios en Azure Cosmos DB
 description: En este artículo se describen las diferentes opciones disponibles para leer y obtener acceso a la fuente de cambios de Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.openlocfilehash: 3d52ba1abc22aae6121ea6a36f943851dfcca7a0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3d30c9f946f97f06c1a3ba1cd2e77e1ab151a572
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467665"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754887"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lectura de la fuente de cambios de Azure Cosmos DB
 

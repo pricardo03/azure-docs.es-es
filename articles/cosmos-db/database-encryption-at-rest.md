@@ -1,18 +1,18 @@
 ---
 title: Cifrado de Azure Cosmos DB en reposo
 description: Obtenga información acerca de cómo Azure Cosmos DB proporciona cifrado de datos en reposo y cómo se implementa.
-author: rimman
+author: markjbrown
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f406f008e2c377b39deb8d151855ce7315616701
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: a9e89336973b0b13544c5bc0bccec41652c6952e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616868"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755099"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Cifrado de datos de Azure Cosmos DB 
 

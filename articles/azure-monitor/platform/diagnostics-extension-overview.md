@@ -1,18 +1,18 @@
 ---
 title: Introducción a la extensión Azure Diagnostics
 description: Use Diagnósticos de Azure para realizar tareas de depuración, medición de rendimiento, supervisión y análisis de tráfico en servicios en la nube, en máquinas virtuales y en Service Fabric
-author: rboucher
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 02/13/2019
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: e0325a3bda912c95d8d27646bc1e80fff5ce10a8
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 02/13/2019
+ms.openlocfilehash: d1721411b57fc3542af48fc5f48eca7e4a2d06c8
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639426"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552147"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Qué es la extensión Azure Diagnostics
 La extensión Azure Diagnostics es un agente dentro de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde un número de orígenes diferentes. Actualmente se admiten los roles de trabajo y web de Azure Cloud Services (clásico), las máquinas virtuales, los conjuntos de escalado de máquinas virtuales y Service Fabric. Otros servicios de Azure tienen métodos de diagnóstico diferentes. Consulte [Introducción a la supervisión en Azure](../../azure-monitor/overview.md).

@@ -1,18 +1,18 @@
 ---
 title: Crear, ver y administrar las alertas del registro de actividad en Azure Monitor
 description: Crear alertas del registro de actividad mediante Azure Portal, una plantilla de Azure Resource Manager y Azure PowerShell.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 06/25/2019
+author: rboucher
 ms.author: robb
-ms.openlocfilehash: e93b6f9c74bb44cb7341f5763261ecb699432ae2
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 06/25/2019
+ms.openlocfilehash: 6c133f99ce31d4994753aba11cee90cfc1b5afc9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675270"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552819"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 

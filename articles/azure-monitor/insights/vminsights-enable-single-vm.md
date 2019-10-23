@@ -1,24 +1,18 @@
 ---
 title: Habilitación de Azure Monitor para VM (versión preliminar) con fines de evaluación | Microsoft Docs
 description: Aprenda a evaluar Azure Monitor para VM en una sola máquina virtual de Azure o en un conjunto de escalado de máquinas virtuales.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: ec909bcd16f923bbd7036f6a69df2bbb07e561b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/09/2019
+ms.openlocfilehash: 1182f48d2d05c90cc90b1832f9305001dd2d1211
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122491"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553820"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>Habilitación de Azure Monitor para VM (versión preliminar) con fines de evaluación
 

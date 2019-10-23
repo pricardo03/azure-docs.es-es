@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 794a99481d9394229e77168e75c48f4110735578
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 55ef15bd1fe922aa44227d2fea3d882d4320146f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536929"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786725"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -38,10 +38,6 @@ Las siguientes preguntas se pueden responder mediante informes existentes en [Az
 * ¿Cuáles son los problemas comunes que encuentran los usuarios o administradores al intentar usar el restablecimiento de contraseña?
 * ¿Qué administradores restablecen sus propias contraseñas con frecuencia?
 * ¿Hay alguna actividad sospechosa en relación con el restablecimiento de contraseña?
-
-## <a name="power-bi-content-pack"></a>Paquete de contenido de Power BI
-
-Si es usuario de Power BI, hay un paquete de contenido para Azure AD que incluye informes fáciles de usar con SSPR. Para obtener más información sobre cómo usar e implementar el paquete de contenido, vea [Uso del paquete de contenido de Power BI de Azure Active Directory](../reports-monitoring/howto-power-bi-content-pack.md). Con el paquete de contenido, puede crear sus propios paneles y compartirlos con otras personas de la organización.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Visualización de los informes de administración de contraseñas en Azure Portal
 

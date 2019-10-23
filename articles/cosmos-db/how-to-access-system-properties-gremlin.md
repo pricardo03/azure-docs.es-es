@@ -1,18 +1,18 @@
 ---
 title: Acceso a las propiedades de documentos del sistema mediante Azure Cosmos DB Graph
 description: Obtenga información sobre cómo leer y escribir propiedades de documentos del sistema de Cosmos DB mediante la API de Gremlin.
-author: olignat
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/10/2019
-ms.author: olignat
-ms.openlocfilehash: 4354d37a32bde006a9bee70c39df1fee9b269365
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+author: luisbosquez
+ms.author: lbosq
+ms.openlocfilehash: e762674936ab2fbdf198ca67f79acfa545127f02
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70911308"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755071"
 ---
 # <a name="system-document-properties"></a>Propiedades de documentos del sistema
 

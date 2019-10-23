@@ -3,15 +3,15 @@ title: Ejecución de la primera consulta con Azure Resource Graph Explorer
 description: Este artículo le guía por los pasos para ejecutar la primera consulta desde Azure Portal mediante Azure Resource Graph Explorer.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387614"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752146"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph mediante Azure Resource Graph Explorer
 
@@ -45,7 +45,10 @@ Cuando la consulta final se ejecuta varias veces, suponiendo que nada cambie en 
 
 ### <a name="schema-browser"></a>Explorador de esquema
 
-El explorador de esquema se encuentra en el panel izquierdo de Resource Graph Explorer. En esta lista de recursos se muestran todos los _tipos de recursos_ de Azure que son compatibles con Azure Resource Graph y que existen en un inquilino al que tiene acceso. Al expandir un tipo de recurso o las subpropiedades, se muestran las propiedades secundarias que se pueden usar para crear una consulta de Resource Graph. La selección del tipo de recurso coloca `where type =="<resource type>"` en el cuadro de consulta. La selección de una de las propiedades secundarias agrega `where <propertyName> == "INSERT_VALUE_HERE"` al cuadro de consulta. El explorador de esquema es una excelente manera de detectar las propiedades que se usan en las consultas. Asegúrese de reemplazar _INSERTAR\_VALOR\_AQUÍ_ por su propio valor y ajuste la consulta con condiciones, operadores y funciones para conseguir los resultados esperados.
+El explorador de esquema se encuentra en el panel izquierdo de Resource Graph Explorer. En esta lista de recursos se muestran todos los _tipos de recursos_ de Azure que son compatibles con Azure Resource Graph y que existen en un inquilino al que tiene acceso. Al expandir un tipo de recurso o las subpropiedades, se muestran las propiedades secundarias que se pueden usar para crear una consulta de Resource Graph.
+
+La selección del tipo de recurso coloca `where type =="<resource type>"` en el cuadro de consulta. La selección de una de las propiedades secundarias agrega `where <propertyName> == "INSERT_VALUE_HERE"` al cuadro de consulta.
+El explorador de esquema es una excelente manera de detectar las propiedades que se usan en las consultas. Asegúrese de reemplazar _INSERTAR\_VALOR\_AQUÍ_ por su propio valor y ajuste la consulta con condiciones, operadores y funciones para conseguir los resultados esperados.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Creación de un gráfico a partir de la consulta de Resource Graph
 

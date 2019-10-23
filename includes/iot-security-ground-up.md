@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 128a2e8b200f1323b88aad635f27c1b686ecbed2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186429"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789718"
 ---
-# <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Seguridad de Internet de las cosas (IoT) desde el principio
-
 Internet de las cosas (IoT) plantea desafíos únicos para la seguridad, la privacidad y el cumplimiento a empresas de todo el mundo. A diferencia de la tecnología cibernética tradicional donde estos problemas giran en torno al software y cómo se implementa, a IoT le preocupa lo que sucede cuando los mundos cibernético y físico convergen. Proteger las soluciones IoT requiere garantizar el aprovisionamiento seguro de los dispositivos, proteger la conectividad entre estos dispositivos y la nube y garantizar la protección de los datos en la nube durante su procesamiento y almacenamiento. Sin embargo, trabajar con esta funcionalidad tiene sus inconvenientes: la limitación de recursos de los dispositivos, la distribución geográfica de las implementaciones y la existencia de un gran número de dispositivos dentro de una solución.
 
 En este artículo se indica la manera en que los aceleradores de soluciones de IoT proporcionan una solución de nube de Internet de las cosas privada y segura. Los aceleradores de soluciones ofrecen una solución completa, donde la seguridad es una parte integral de cada etapa desde el principio. En Microsoft, desarrollar software seguro forma parte de la práctica de ingeniería de software, arraigada en décadas de experiencia de Microsoft en el desarrollo de software seguro. Para garantizar esto, la metodología de desarrollo fundamental es el Ciclo de vida de desarrollo de seguridad (SDL), junto con un conjunto de servicios de seguridad de nivel de infraestructura, como Garantía de la seguridad operacional (OSA), la unidad de delitos digitales de Microsoft, el Centro de respuestas de seguridad de Microsoft y el Centro de protección contra malware de Microsoft.

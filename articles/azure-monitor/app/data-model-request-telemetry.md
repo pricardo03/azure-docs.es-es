@@ -1,23 +1,19 @@
 ---
 title: 'Modelo de datos de Telemetría de Azure Application Insights: telemetría de solicitudes | Microsoft Docs'
 description: Modelo de datos de Application Insights para la telemetría de solicitudes
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff7b52cbd88e4927db275dee4d7fbc4691ad076b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900526"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677324"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetría de solicitudes: Modelo de datos de Application Insights
 
@@ -33,7 +29,7 @@ SDK web de Application Insights envía el nombre de la solicitud tal cual en cua
 
 Longitud máxima: 1024 caracteres
 
-## <a name="id"></a>ID
+## <a name="id"></a>id
 
 Identificador de una instancia de llamada de solicitud. Se utiliza para la correlación entre la solicitud y otros elementos de telemetría. El identificador debe ser único en todo el mundo. Para obtener más información, vea la página de [correlación](../../azure-monitor/app/correlation.md).
 
@@ -45,7 +41,7 @@ URL de solicitud con todos los parámetros de la cadena de consulta.
 
 Longitud máxima: 2048 caracteres
 
-## <a name="source"></a>Origen
+## <a name="source"></a>Source
 
 Origen de la solicitud. Algunos ejemplos son la clave de instrumentación del autor de la llamada o la dirección IP del autor de la llamada. Para obtener más información, vea la página de [correlación](../../azure-monitor/app/correlation.md).
 

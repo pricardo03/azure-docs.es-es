@@ -1,20 +1,18 @@
 ---
 title: Azure Monitor para las asignaciones de región de contenedores
 description: En este artículo se describen las asignaciones de región compatibles entre Azure Monitor para contenedores, el área de trabajo de Log Analytics y las métricas personalizadas.
-services: azure-monitor
 ms.service: azure-monitor
-ms.workload: infrastructure-services
+ms.subservice: ''
+ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/26/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ca77277c8d8d405b8fe81f612a8d7600d3c937ab
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f22c62dddf2e38fa2c9471ce98b49a8aa32390b3
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388179"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554026"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Asignaciones de región compatibles con Azure Monitor para contenedores
 

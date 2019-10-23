@@ -1,25 +1,19 @@
 ---
 title: Creación de un archivo de solución de administración en Azure | Microsoft Docs
 description: Las soluciones de administración ofrecen escenarios de administración empaquetados que los clientes pueden agregar a su entorno de Azure.  En este artículo se proporciona información sobre cómo crear soluciones de administración que se pueden usar en su propio entorno o ponerse a disposición de sus clientes.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47ee691186da7f915ca8fcf87415784ab12ef1e0
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595764"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553849"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creación de un archivo de solución de administración en Azure (versión preliminar)
 > [!NOTE]
@@ -83,7 +77,7 @@ En la tabla siguiente se enumeran los parámetros estándar de todas las solucio
 >
 >
 
-| Parámetro | Type | DESCRIPCIÓN |
+| Parámetro | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | accountName |string |Nombre de la cuenta de Azure Automation. |
 | pricingTier |string |Plan de tarifa del área de trabajo de Log Analytics y de la cuenta de Azure Automation. |
@@ -208,7 +202,7 @@ Cada solución requiere una entrada de recursos en el elemento **resources** que
 ### <a name="dependencies"></a>Dependencias
 El recurso de la solución debe tener un [dependencia](../../azure-resource-manager/resource-group-define-dependencies.md) en todos los recursos de la solución, ya que estos deben existir antes de que se cree la solución.  Para ello, agregue una entrada para cada recurso en el elemento **dependsOn**.
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 Este recurso de la solución tiene las propiedades de la tabla siguiente.  Esto incluye los recursos a los que hace referencia la solución y contenidos en ella, que define cómo se administra el recurso después de instalar la solución.  Cada recurso de la solución debe aparecer en una de las propiedades **referencedResources** o **containedResources**.
 
 | Propiedad | DESCRIPCIÓN |
