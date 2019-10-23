@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 86fa817128dc89eb97bee18f4f8a6de1f650c265
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d83b99ea540d6232f4c0786d3a743f97332e1c9f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814306"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792315"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Requisitos del servidor de configuración para la recuperación ante desastres de VMware en Azure
 
@@ -31,57 +31,7 @@ Para la recuperación ante desastres de máquinas virtuales de VMware en Azure, 
 - Se recomienda que use la plantilla OVA para configurar el servidor de configuración. Sin embargo, si está configurando la recuperación ante desastres para máquinas virtuales de VMware y no puede usar la plantilla OVA, puede implementar el servidor de configuración con [las instrucciones que se proporcionan](physical-azure-set-up-source.md).
 - Si va a implementar el servidor de configuración para la recuperación ante desastres de máquinas físicas locales en Azure, siga las instrucciones que se incluyen [en este artículo](physical-azure-set-up-source.md). 
 
-
-## <a name="hardware-requirements"></a>Requisitos de hardware
-
-**Componente** | **Requisito** 
---- | ---
-Núcleos de CPU | 8 
-RAM | 16 GB
-Número de discos | 3, incluidos el disco del sistema operativo, el disco de memoria caché del servidor de procesos, la unidad de retención para la conmutación por recuperación 
-Espacio libre en el disco (caché del servidor de procesos) | 600 GB
-Espacio libre en el disco (disco de retención) | 600 GB
-
-## <a name="software-requirements"></a>Requisitos de software
-
-**Componente** | **Requisito** 
---- | ---
-Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
-Configuración regional del sistema operativo | Español (es-es)
-Roles de Windows Server | No habilite estos roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
-Directivas de grupo | No habilite estas directivas de grupo: <br> - Impedir el acceso al símbolo del sistema. <br> - Impedir el acceso a herramientas de edición del Registro. <br> - Confiar en la lógica de datos adjuntos de archivos. <br> - Activar la ejecución de scripts. <br> [Más información](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - Ningún sitio web predeterminado debe existir previamente <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente <br>- Habilitar la [autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
-
-## <a name="network-requirements"></a>Requisitos de red
-
-**Componente** | **Requisito** 
---- | --- 
-Tipo de dirección IP | estática 
-Acceso a Internet | El servidor necesita acceder a estas direcciones URL (directamente o mediante proxy): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https:\//management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF también necesita acceder a las siguientes direcciones URL: <br> - https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
-Puertos | 443 (orquestación del canal de control)<br>9443 (Transporte de datos) 
-Tipo de NIC | VMXNET3 (si el servidor de configuración es una máquina virtual de VMware)
-
-## <a name="required-software"></a>Requisitos de software
-
-**Componente** | **Requisito** 
---- | ---
-VMware vSphere PowerCLI | Se debe instalar [PowerCLI versión 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) si el servidor de configuración se ejecuta en una máquina virtual de VMware.
-MYSQL | Se debe instalar MySQL. Lo puede instalar manualmente o Site Recovery puede instalarlo.
-
-## <a name="sizing-and-capacity-requirements"></a>Requisitos de capacidad y tamaño
-
-En la tabla siguiente se resumen los requisitos de capacidad del servidor de configuración. Si va a replicar varias máquinas virtuales de VMware, consulte las [consideraciones de planeamiento de capacidad](site-recovery-plan-capacity-vmware.md) y ejecute la herramienta [Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md) para la replicación de VMWare. 
-
-**Componente** | **Requisito** 
---- | ---
-
-| **CPU** | **Memoria** | **Disco de caché** | **Frecuencia de cambio de datos** | **Máquinas replicadas** |
-| --- | --- | --- | --- | --- |
-| 8 vCPU<br/><br/> 2 sockets * 4 núcleos \@ 2,5 GHz | 16 GB | < 300 GB | 500 GB o menos | Menos de 100 máquinas |
-| 12 vCPU<br/><br/> 2 socks * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | De 100 a 150 máquinas |
-| 16 vCPU<br/><br/> 2 socks * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1 - 2 TB | De 150 a 200 máquinas | 
-
-
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 Configure la recuperación ante desastres en Azure para [máquinas virtuales VMware](vmware-azure-tutorial.md).

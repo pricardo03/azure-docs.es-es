@@ -1,20 +1,18 @@
 ---
 title: Historial de versiones del esquema de configuración de la extensión Azure Diagnostics
 description: Se utiliza para recopilar contadores de rendimiento en Azure Virtual Machines, VM Scale Sets, Service Fabric y Cloud Services.
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: reference
-ms.date: 09/04/2019
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: e8ea8ea749243821e5382fc285e3c38f05d4c6b5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.topic: reference
+author: rboucher
+ms.author: robb
+ms.date: 09/04/2019
+ms.openlocfilehash: fe07c93ada2e8635d0f64caf8451ccdf530f6a22
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735084"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552138"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Historial y versiones del esquema de configuración de la extensión Azure Diagnostics
 Esta página es un índice de las versiones del esquema de la extensión Azure Diagnostics que se incluyen como parte de Microsoft Azure SDK.  

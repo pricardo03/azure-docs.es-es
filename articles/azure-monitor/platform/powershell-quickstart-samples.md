@@ -1,19 +1,18 @@
 ---
 title: Ejemplos de inicio rápido de PowerShell de Azure Monitor
 description: Use PowerShell para acceder a las características de Azure Monitor, como el escalado automático, alertas, webhooks y buscar registros de actividad.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 2/14/2018
-ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 886eb8578e004eba3b6fabc1deb42db0fb7fac70
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 2/14/2018
+ms.openlocfilehash: d1aa4b4e2d72f10ca73616bc7e69b0d02f13a501
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350247"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551841"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Ejemplos de inicio rápido de PowerShell de Azure Monitor
 En este artículo se muestran comandos de PowerShell de ejemplo para ayudarle a acceder a las características de Azure Monitor.

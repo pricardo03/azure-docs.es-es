@@ -1,20 +1,20 @@
 ---
-title: 'Comparación de mensajería de Azure: Event Grid, Event Hubs, Service Bus'
+title: Comparación de los servicios de mensajería de Azure
 description: 'Describe los tres servicios de mensajería de Azure: Azure Event Grid, Event Hubs y Service Bus. Recomienda qué servicio usar para escenarios diferentes.'
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/30/2019
+ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b68bd69c6d00ac177466f8fdaabd89649c910287
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540812"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790288"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Elija entre los servicios de mensajería de Azure: Event Grid, Event Hubs y Service Bus
 
@@ -44,7 +44,7 @@ Un mensaje son datos sin procesar producidos por un servicio que se consumen o a
 
 ## <a name="comparison-of-services"></a>Comparación de servicios
 
-| Servicio | Propósito | Type | Cuándo se deben usar |
+| Servicio | Propósito | type | Cuándo se deben usar |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programación reactiva | Distribución de eventos (discretos) | Reacción ante los cambios de estado |
 | Event Hubs | Canalización de macrodatos | Streaming de eventos (serie) | Streaming de datos distribuidos y telemetría |

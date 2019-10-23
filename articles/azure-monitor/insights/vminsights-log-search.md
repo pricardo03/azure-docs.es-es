@@ -1,24 +1,18 @@
 ---
 title: Cómo consultar registros de Azure Monitor para VM (versión preliminar) | Microsoft Docs
 description: La solución Azure Monitor para VM recopila datos de registro y métricas. En este artículo se describen los registros y se incluyen consultas de ejemplo.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/10/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/10/2019
+ms.openlocfilehash: 7363f1ec11974dab3e0c0149c18ac4f0bf1c86ee
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472577"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555195"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Cómo consultar registros de Azure Monitor para VM (versión preliminar)
 Azure Monitor para VM recopila métricas de rendimiento y conexión, datos de inventario de proceso y equipo, e información sobre el estado, y reenvía estos datos al área de trabajo de Log Analytics en Azure Monitor.  Estos datos están disponibles para [consulta](../../azure-monitor/log-query/log-query-overview.md) en Azure Monitor. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
@@ -115,7 +109,7 @@ Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un 
 |DESCRIPCIÓN |Descripción de la amenaza observada. |
 |TLPLevel |Nivel de protocolo de semáforo (TLP) es uno de los valores definidos: *blanco*, *verde*, *ámbar*, *rojo*. |
 |Confianza |Los valores válidos se encuentran entre *0 y 100*. |
-|Gravedad |Los valores se encuentran entre *0 y 5*, donde *5* es el más grave y *0* no es grave en absoluto. El valor predeterminado es *3*.  |
+|severity |Los valores se encuentran entre *0 y 5*, donde *5* es el más grave y *0* no es grave en absoluto. El valor predeterminado es *3*.  |
 |FirstReportedDateTime |La primera vez que el proveedor informó sobre el indicador. |
 |LastReportedDateTime |La última vez que Interflow ha visto el indicador. |
 |IsActive |Indica que los indicadores se desactivan con el valor *True* o *False*. |
@@ -150,12 +144,12 @@ A continuación se incluyen puntos importantes que debe tener en cuenta:
 - Para reducir el nivel de detalle y el volumen de datos, los registros con dirección IP de carácter comodín se omitirán cuando haya un registro coincidente (para el mismo proceso, puerto y protocolo) con una dirección IP específica. Si un registro de dirección IP comodín se omite, la propiedad *IsWildcardBind* del registro con la dirección IP específica se establecerá en *True*.  Esto indica que el puerto se expone a través de todas las interfaces de la máquina del informe. 
 - Los puertos que están enlazados solo en una interfaz específica tienen IsWildcardBind definido como *False*. 
 
-### <a name="servicemapcomputercl-records"></a>Registros de ServiceMapComputer_CL
+### <a name="servicemapcomputer_cl-records"></a>Registros de ServiceMapComputer_CL
 Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario para servidores con Dependency Agent. Estos registros tienen las propiedades de la tabla siguiente:
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
+| type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificador único de una máquina en el área de trabajo |
 | ResourceName_s | Identificador único de una máquina en el área de trabajo |
@@ -175,12 +169,12 @@ Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario 
 | VirtualMachineName_s | Nombre de la máquina virtual |
 | BootTime_t | Tiempo de arranque |
 
-### <a name="servicemapprocesscl-type-records"></a>Registros con un tipo ServiceMapProcess_CL
+### <a name="servicemapprocess_cl-type-records"></a>Registros con un tipo ServiceMapProcess_CL
 Los registros con un tipo *ServiceMapProcess_CL* tienen datos de inventario para procesos con conexión TCP en servidores con Dependency Agent. Estos registros tienen las propiedades de la tabla siguiente:
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
+| type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificador único de un proceso en el área de trabajo |
 | ResourceName_s | Identificador único de un proceso en el equipo en el que se está ejecutando|

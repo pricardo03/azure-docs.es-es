@@ -1,19 +1,18 @@
 ---
 title: Administración de grupos inteligentes
 description: Administración de grupos inteligentes creados en sus instancias de alerta
-author: anantr
-services: monitoring
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 42b4bd7427191bcec531ff883efa0d3297a9fd1f
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 09/24/2018
+ms.openlocfilehash: cf972c350a5bcad31dfae5bf393ef968ed1ba209
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702855"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552409"
 ---
 # <a name="manage-smart-groups"></a>Administración de grupos inteligentes
 Los [grupos inteligentes](https://aka.ms/smart-groups) usan algoritmos de aprendizaje automático para agrupar las alertas en función de su concurrencia o similitud, a fin de que el usuario ahora pueda administrar grupos inteligentes en lugar de tener que administrar individualmente cada alerta. En este artículo le guiaremos por el proceso de obtener acceso a grupos inteligentes y de usarlos en Azure Monitor.

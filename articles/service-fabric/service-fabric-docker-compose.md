@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: 726d04cdfbc21c21a52945f11d3b5097978c5d1d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d9d135136efea72017399b5888bc6591582ffe67
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168829"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553564"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Compatibilidad con la implementación de Docker Compose en Azure Service Fabric (versión preliminar)
 
 Docker usa el archivo [docker compose.yml](https://docs.docker.com/compose) para definir aplicaciones de varios contenedores. Para que a los clientes familiarizados con Docker les sea más fácil organizar las aplicaciones de contenedores existentes en Azure Service Fabric, se ha incluido compatibilidad de versión preliminar con la implementación de Docker Compose de forma nativa en la plataforma. Service Fabric puede aceptar la versión 3 y posterior de los archivos `docker-compose.yml`. 
 
-Dado que esta compatibilidad está en versión preliminar, solo se admite un subconjunto de directivas de Compose. Por ejemplo, no se admiten las actualizaciones de aplicaciones. Sin embargo, siempre puede quitar e implementar aplicaciones en lugar de actualizarlas.
+Dado que esta compatibilidad está en versión preliminar, solo se admite un subconjunto de directivas de Compose.
 
 Para usar esta versión preliminar, cree el clúster con la versión 5.7 o superior del entorno en tiempo de ejecución de Service Fabric a través de Azure Portal junto con el SDK correspondiente. 
 

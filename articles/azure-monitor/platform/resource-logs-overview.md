@@ -1,19 +1,18 @@
 ---
 title: Introducción a los registros de recurso de Azure | Microsoft Docs
 description: Conozca el esquema de los eventos y servicios admitidos para los registros de recurso de Azure.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: reference
-ms.date: 09/20/2019
-ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: bfcd2ded96c2679ba9177a760a8b11dc7d2c9a77
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.topic: reference
+author: rboucher
+ms.author: robb
+ms.date: 09/20/2019
+ms.openlocfilehash: a418e3d1a59379284422d1d24c1457ab61d84a4c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71263035"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551756"
 ---
 # <a name="azure-resource-logs-overview"></a>Introducción a los registros de recurso de Azure
 Los registros de recurso de Azure son [registros de plataforma](platform-logs-overview.md) emitidos por los recursos de Azure que describen su funcionamiento interno. Todos los registros de recurso comparten un esquema general común, con flexibilidad para que cada servicio emita propiedades únicas para sus propios eventos.
@@ -24,7 +23,7 @@ Los registros de recurso de Azure son [registros de plataforma](platform-logs-ov
 ## <a name="collecting-resource-logs"></a>Recopilación de registros de recurso
 Los registros de recurso los generan los recursos de Azure compatibles automáticamente, pero no se recopilan a menos que establezca una [configuración de diagnóstico](diagnostic-settings.md). Cree una configuración de diagnóstico para cada recurso de Azure para reenviar los registros a los destinos siguientes:
 
-| Destino | Escenario |
+| Destination | Escenario |
 |:---|:---|:---|
 | [Área de trabajo de Log Analytics](resource-logs-collect-storage.md) | Analice los registros con otros datos de supervisión y aproveche las características de Azure Monitor, como las consultas de registro y las alertas de registro. |
 | [Almacenamiento de Azure](archive-diagnostic-logs.md) | Archive los registros para la auditoría o la copia de seguridad. |

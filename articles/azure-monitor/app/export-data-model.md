@@ -1,23 +1,18 @@
 ---
 title: Modelo de datos de Azure Application Insights | Microsoft Docs
 description: Describe las propiedades exportadas con la exportación continua de JSON y usadas como filtros.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/08/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 4f8fd0b317c17f142664d22291c23442dd49f970
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/08/2019
+ms.openlocfilehash: 8f84e3179a6f949e4a322a2218736fc9ebe60442
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053296"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677906"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de exportación de datos de Application Insights
 En esta tabla se enumeran las propiedades de telemetría enviadas desde los SDK de [Application Insights](../../azure-monitor/app/app-insights-overview.md) al portal.
@@ -114,14 +109,14 @@ Puntos a tener en cuenta:
 ## <a name="context"></a>Context
 Una sección de contexto acompaña a todos los tipos de telemetría. No todos estos campos se transmiten con cada punto de datos.
 
-| Ruta de acceso | Type | Notas |
+| Path | type | Notas |
 | --- | --- | --- |
 | context.custom.dimensions [0] |objeto [ ] |Pares de cadenas de clave-valor establecidos por el parámetro de propiedades personalizadas. Longitud máxima de clave: 100, longitud máxima de valores: 1024. Más de 100 valores únicos, se pueden realizar búsquedas en la propiedad, pero no se puede usar para la segmentación. Máximo de 200 claves por ikey. |
 | context.custom.metrics [0] |objeto [ ] |Los pares de clave-valor se establecen mediante el parámetro de medidas personalizado y mediante TrackMetrics. Longitud máxima de clave: 100, los valores pueden ser numéricos. |
 | context.data.eventTime |string |UTC |
 | context.data.isSynthetic |boolean |La solicitud parece proceder de un bot o una prueba web. |
 | context.data.samplingRate |número |Porcentaje de telemetría generado por el SDK que se envía al portal. Intervalo 0,0 a 100,0. |
-| context.device |objeto |Dispositivo de cliente |
+| context.device |object |Dispositivo de cliente |
 | context.device.browser |string |IE, Chrome,… |
 | context.device.browserVersion |string |Chrome 48.0,… |
 | context.device.deviceModel |string | |
@@ -136,7 +131,7 @@ Una sección de contexto acompaña a todos los tipos de telemetría. No todos es
 | context.device.roleName |string | |
 | context.device.screenResolution |string | |
 | context.device.type |string |PC, explorador,… |
-| context.location |objeto |Derivado de clientip. |
+| context.location |object |Derivado de clientip. |
 | context.location.city |string |Derivado de clientip, si se conoce. |
 | context.location.clientip |string |El último octágono se hace anónimo en 0. |
 | context.location.continent |string | |
@@ -161,7 +156,7 @@ Una sección de contexto acompaña a todos los tipos de telemetría. No todos es
 ## <a name="events"></a>Eventos
 Eventos personalizados generados por [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
-| Ruta de acceso | Type | Notas |
+| Path | type | Notas |
 | --- | --- | --- |
 | event [0] count |integer |100/(frecuencia de[muestreo](../../azure-monitor/app/sampling.md) ). Por ejemplo, 4 =&gt; 25 %. |
 | event [0] name |string |Nombre del evento.  Longitud máxima: 250. |
@@ -172,7 +167,7 @@ Eventos personalizados generados por [TrackEvent()](../../azure-monitor/app/api-
 ## <a name="exceptions"></a>Excepciones
 Notifica sobre [excepciones](../../azure-monitor/app/asp-net-exceptions.md) en el servidor y en el explorador.
 
-| Ruta de acceso | Type | Notas |
+| Path | type | Notas |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
 | basicException [0] count |integer |100/(frecuencia de[muestreo](../../azure-monitor/app/sampling.md) ). Por ejemplo, 4 =&gt; 25 %. |
@@ -201,7 +196,7 @@ Notifica sobre [excepciones](../../azure-monitor/app/asp-net-exceptions.md) en e
 ## <a name="trace-messages"></a>Mensajes de seguimiento
 Enviados por [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) y por los [adaptadores de registro](../../azure-monitor/app/asp-net-trace-logs.md).
 
-| Ruta de acceso | Type | Notas |
+| Path | type | Notas |
 | --- | --- | --- |
 | message [0] loggerName |string | |
 | message [0] parameters |string | |
@@ -211,7 +206,7 @@ Enviados por [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#t
 ## <a name="remote-dependency"></a>Dependencia remota
 Enviado por TrackDependency. Se usa para notificar el rendimiento y el uso de las [llamadas a dependencias](../../azure-monitor/app/asp-net-dependencies.md) en el servidor y de las llamadas AJAX en el explorador.
 
-| Ruta de acceso | Type | Notas |
+| Path | type | Notas |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |string | |
@@ -232,7 +227,7 @@ Enviado por TrackDependency. Se usa para notificar el rendimiento y el uso de la
 ## <a name="requests"></a>Requests
 Enviado por [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Los módulos estándar usan esto para informar sobre el tiempo de respuesta del servidor, medido en el propio servidor.
 
-| Ruta de acceso | Type | Notas |
+| Ruta de acceso | type | Notas |
 | --- | --- | --- |
 | request [0] count |integer |100/(frecuencia de[muestreo](../../azure-monitor/app/sampling.md) ). Por ejemplo:  4 =&gt; 25 %. |
 | request [0] durationMetric.value |número |Tiempo desde que llega la solicitud hasta la respuesta. 1e7 = 1 s |
@@ -250,7 +245,7 @@ Enviado por el explorador. Mide el tiempo que se tarda en procesar una página d
 
 Los valores de contexto muestran el sistema operativo del cliente y la versión del explorador.
 
-| Ruta de acceso | Type | Notas |
+| Path | type | Notas |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |integer |Tiempo transcurrido desde el fin de la recepción del código HTML hasta que se muestra la página. |
 | clientPerformance [0] name |string | |
@@ -267,7 +262,7 @@ Los valores de contexto muestran el sistema operativo del cliente y la versión 
 ## <a name="page-views"></a>Vistas de página
 Enviado por trackPageView() o [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
 
-| Ruta de acceso | Type | Notas |
+| Path | type | Notas |
 | --- | --- | --- |
 | view [0] count |integer |100/(frecuencia de[muestreo](../../azure-monitor/app/sampling.md) ). Por ejemplo, 4 =&gt; 25 %. |
 | view [0] durationMetric.value |integer |Valor establecido opcionalmente en trackPageView() o mediante startTrackPage() - stopTrackPage(). No es igual que los valores de clientPerformance. |
@@ -280,7 +275,7 @@ Enviado por trackPageView() o [stopTrackPage](../../azure-monitor/app/api-custom
 ## <a name="availability"></a>Disponibilidad
 Notifica sobre [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md).
 
-| Ruta de acceso | Type | Notas |
+| Path | type | Notas |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |Disponibilidad |
 | availability [0] availabilityMetric.value |número |1,0 o 0,0 |

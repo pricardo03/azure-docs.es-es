@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6bc4b69122df7d29a611571a750229f47337015c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60554700"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756797"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuración de Azure Cache for Redis
 En este tema se describe la configuración disponible para las instancias de Azure Cache for Redis. En este tema también se describe la configuración predeterminada del servidor Redis para las instancias de Azure Cache for Redis.
@@ -286,7 +286,7 @@ Puede especificar las reglas de firewall con un intervalo de direcciones IP de i
 > 
 > 
 
-### <a name="properties"></a>Properties (Propiedades)
+### <a name="properties"></a>properties (Propiedades)
 Haga clic en **Propiedades** para ver información sobre la memoria caché, incluidos los puertos y el extremo de la caché.
 
 ![Propiedades de Azure Cache for Redis](./media/cache-configure/redis-cache-properties.png)
@@ -429,7 +429,7 @@ Las nuevas instancias de Azure Cache for Redis se configuran con los siguientes 
 Para obtener más información sobre las bases de datos, consulte el artículo [¿Cuáles son las bases de datos de Redis?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> Los ajustes `databases` solo se puede configurar al crear la memoria caché y solo mediante PowerShell, la CLI u otros clientes de administración. Para ver un ejemplo de configuración de `databases` al crear la memoria caché mediante PowerShell, consulte [New-AzRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> Los ajustes `databases` solo se puede configurar al crear la memoria caché y solo mediante PowerShell, la CLI u otros clientes de administración. Para ver un ejemplo de configuración de `databases` al crear la memoria caché mediante PowerShell, consulte [New-AzRmRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
 > 
 > 
 

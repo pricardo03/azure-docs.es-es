@@ -3,19 +3,19 @@ title: 'Definición de flujos de trabajo de moderación con la consola de API de
 titleSuffix: Azure Cognitive Services
 description: Puede usar las API de revisión de Azure Content Moderator para definir flujos de trabajo y umbrales personalizados en función de las directivas de contenido.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: sajagtap
-ms.openlocfilehash: cb93cf1b7a5338058c6f2d93b4bb27f60286882e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881206"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754182"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Definición y uso de los flujos de trabajo de moderación (REST)
 

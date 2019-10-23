@@ -3,19 +3,19 @@ title: 'Uso de Apache Flink para Apache Kafka: Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo conectar Apache Flink a un centro de eventos de Azure habilitado para Apache Kafka.
 services: event-hubs
 documentationcenter: ''
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: dc4a982dde62f62eb8f2d91a61fd70ba79fa13d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: shvija
+ms.openlocfilehash: 881546a97b01bef993cc24c6b868ec97ddf5ac36
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821429"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555717"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Uso de Apache Flink con Azure Event Hubs para Apache Kafka
 En este tutorial se muestra cómo conectar instancias de Event Hubs habilitadas para Apache Flink sin cambiar los clientes del protocolo o ejecutar sus propios clústeres. Azure Event Hubs admite [Apache Kafka versión 1.0.](https://kafka.apache.org/10/documentation.html).

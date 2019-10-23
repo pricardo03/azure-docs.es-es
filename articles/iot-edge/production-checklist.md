@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 599b5b075f32294f9e68c776c4a7744283e9c269
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d227a0b43a641ae8f5333a62d4c55f4bbb6c781c
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244044"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529030"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -93,7 +93,7 @@ Un ejemplo de este proceso se muestra en [Configuración de un dispositivo de Io
 
 Los módulos del agente y del centro de IoT Edge usan almacenamiento local para mantener el estado y permiten la mensajería entre módulos, dispositivos y la nube. Para mejorar la confiabilidad y el rendimiento, configure los módulos del sistema para usar el almacenamiento en el sistema de archivos del host.
 
-Para obtener más información, vea [Almacenamiento de host para módulos del sistema](offline-capabilities.md#host-storage-for-system-modules).
+Para obtener más información, vea [Almacenamiento de host para módulos del sistema](how-to-access-host-storage-from-module.md).
 
 ### <a name="reduce-memory-space-used-by-iot-edge-hub"></a>Reducir el espacio de memoria utilizado por el centro de IoT Edge
 

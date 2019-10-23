@@ -1,19 +1,18 @@
 ---
 title: Información general de la funcionalidad de escalado automático de Virtual Machines, Cloud Services y Web Apps
 description: Escalado automático en Microsoft Azure. Se aplica a Virtual Machines, Virtual Machine Scale Sets, Cloud Services y Web Apps.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 3c70d11b83a116a9ce29ce202edeac6fe9464674
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 09/24/2018
+ms.openlocfilehash: 2aeb0bc174eb5a94d485f4eafe000ecb3f693e5f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959043"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552285"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Información general de la funcionalidad de escalado automático de Microsoft Azure Virtual Machines, Cloud Services y Web Apps
 En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  

@@ -1,20 +1,20 @@
 ---
-title: 'Publicar y suscribirse a eventos de aplicación: Azure Event Grid'
+title: ¿Qué es Azure Event Grid?
 description: Envíe datos de eventos desde un origen a los controladores con Azure Event Grid. Cree aplicaciones basadas en eventos e intégrelas con servicios de Azure.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 05/25/2019
+ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: c00c1ecf001162964b01a3e858534fa502b7484c
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 117c74eac1e234f84af6be2d275637d7b8f4e2a7
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285850"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794026"
 ---
 # <a name="what-is-azure-event-grid"></a>¿Qué es Azure Event Grid?
 
