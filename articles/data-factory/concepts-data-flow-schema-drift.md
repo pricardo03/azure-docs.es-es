@@ -1,5 +1,5 @@
 ---
-title: Desfase de esquema en Mapping Data Flow | Azure Data Factory
+title: Desfase de esquema en el flujo de datos de asignación | Azure Data Factory
 description: Creación de flujos de datos resistentes en Azure Data Factory con desfase de esquema
 author: kromerm
 ms.author: makromer
@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 5eff92352251febca1d4e7033618372dc929d987
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1d6560613294584c77f002e2380065d64ea143f7
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029415"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387964"
 ---
-# <a name="schema-drift-in-mapping-data-flow"></a>Desfase de esquema en Mapping Data Flow
+# <a name="schema-drift-in-mapping-data-flow"></a>Desfase de esquema en el flujo de datos de asignación
 
 
 
@@ -34,7 +34,7 @@ Deberá tomar una decisión de arquitectura en el flujo de datos para aceptar el
 
 En una transformación de origen, el desfase de esquema se define como columnas de lectura que no están definidas en el esquema del conjunto de los mismos. Para habilitar el desfase de esquema, elija **Allow Schema Drift** (Permitir desfase de esquema) en la transformación de origen.
 
-![Origen del desfase de esquema](media/data-flow/schemadrift001.png "Schema drift source")
+![Origen de desfase de esquema](media/data-flow/schemadrift001.png "Origen de desfase de esquema")
 
 Cuando se habilita el desfase de esquema, todos los campos de entrada se leen desde el origen durante la ejecución y se pasan a través del flujo completo al receptor. De forma predeterminada, todas las columnas que se acaban de detectar (llamadas *columnas desfasadas*) llegan como un tipo de datos String. Si desea que el flujo de datos infiera automáticamente los tipos de datos de las columnas desfasadas, active **Infer drifted column type** (Inferir tipos de columnas desfasadas) en la configuración de origen.
 
@@ -42,11 +42,11 @@ Cuando se habilita el desfase de esquema, todos los campos de entrada se leen de
 
 En una transformación del receptor, el desfase de esquema se produce cuando escribe columnas adicionales sobre lo que se define en el esquema de datos del receptor. Para habilitar el desfase de esquema, active **Allow Schema Drift** (Permitir desfase de esquema) en la transformación del receptor.
 
-![Receptor de desfase de esquema](media/data-flow/schemadrift002.png "Schema drift sink")
+![Receptor de desfase de esquema](media/data-flow/schemadrift002.png "Receptor de desfase de esquema")
 
 Si está habilitado el desfase de esquema, asegúrese de que el control deslizante **Auto-mapping** (Asignación automática) de la pestaña Asignación está activado. Con este control deslizante activado, todas las columnas de entrada se escriben en el destino. De lo contrario, debe usar la asignación basada en reglas para escribir columnas desfasadas.
 
-![Asignación automática del receptor](media/data-flow/automap.png "Sink auto mapping")
+![Asignación automática del receptor](media/data-flow/automap.png "Asignación automática del receptor")
 
 ## <a name="transforming-drifted-columns"></a>Transformación de columnas desfasadas
 
@@ -56,17 +56,17 @@ Cuando el flujo de datos tiene columnas desfasadas, puede acceder a ellas en las
 * Agregue un patrón de columna en una transformación Agregar o Columna derivada para que coincida con cualquier combinación de nombre, flujo, posición o tipo.
 * Agregue una asignación basada en reglas en una transformación Selección o Receptor para asociar columnas desfasadas con alias de columnas mediante un patrón.
 
-Para más información sobre cómo implementar patrones de columnas, consulte [Patrones de columnas en Mapping Data Flow](concepts-data-flow-column-pattern.md).
+Para más información sobre cómo implementar patrones de columna, consulte [Patrones de columna en flujos de datos de asignación](concepts-data-flow-column-pattern.md).
 
 ### <a name="map-drifted-columns-quick-action"></a>Acción rápida de asignación de columnas desfasadas
 
 Para hacer referencia explícita a columnas desfasadas, puede generar rápidamente asignaciones para estas columnas mediante una acción rápida de vista previa de datos. Una vez activado el [modo de depuración](concepts-data-flow-debug-mode.md), vaya a la pestaña Vista previa de datos y haga clic en **Actualizar** para obtener una vista previa de los datos. Si Data Factory detecta que existen columnas desfasadas, puede hacer clic en **Map Drifted** (Asignar desfasadas) y generar una columna derivada que le permita hacer referencia a todas las columnas desfasadas en las vistas de esquema de nivel inferior.
 
-![Asignar desfasadas](media/data-flow/mapdrifted1.png "Map drifted")
+![Map drifted (Asignar desfasadas)](media/data-flow/mapdrifted1.png "Map drifted (Asignar desfasadas)")
 
 En la transformación Columna derivada generada, cada columna desfasada se asigna a su nombre y tipo de datos detectados. En la vista previa de datos anterior, la columna "movieId" se detecta como un entero. Tras hacer clic en **Map Drifted** (Asignar desfasadas), movieId se define en la columna derivada como `toInteger(byName('movieId'))` y se incluye en las vistas de esquema en las transformaciones de nivel inferior.
 
-![Asignar desfasadas](media/data-flow/mapdrifted2.png "Map drifted")
+![Map drifted (Asignar desfasadas)](media/data-flow/mapdrifted2.png "Map drifted (Asignar desfasadas)")
 
 ## <a name="next-steps"></a>Pasos siguientes
 En el [lenguaje de expresiones de Data Flow](data-flow-expression-functions.md) encontrará características adicionales para patrones de columnas y desfase de esquema, incluidas las funciones "byName" y "byPosition".

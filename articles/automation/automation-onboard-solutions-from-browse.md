@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 3e56b44988dc6dbfed99f339795fee6d15c7dd57
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534691"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372784"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitación de las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales
 
@@ -147,12 +147,19 @@ Al incorporar varias máquinas, puede haber algunas en las que aparezca **No se 
 
 **Solución**: para incorporar una máquina virtual a una solución debe estar en ejecución. Haga clic en el vínculo insertado **Iniciar VM** para iniciar la máquina virtual sin salir de la página.
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Para quitar una VM de Update Management:
+
+* En el área de trabajo de Log Analytics, quite la VM de la búsqueda guardada con la configuración de ámbito `MicrosoftDefaultScopeConfig-Updates`. Las búsquedas guardadas se pueden encontrar en la sección **General** del área de trabajo.
+* Quite [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) o el [agente de Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que está habilitada la solución para las máquinas virtuales, visite el artículo de información general de Update Management para aprender a ver la evaluación de la actualización de las máquinas.
+Ahora que está habilitada la solución para las máquinas virtuales, visite el artículo de información general de Update Management para crear una **implementación de actualizaciones** para las máquinas.
 
 > [!div class="nextstepaction"]
-> [Update Management: ver evaluación de actualización](./automation-update-management.md#viewing-update-assessments)
+> [Update Management: administración de actualizaciones y revisiones para las máquinas virtuales de Azure](./automation-tutorial-update-management.md)
 
 Tutoriales acerca de las soluciones y cómo utilizarlas:
 

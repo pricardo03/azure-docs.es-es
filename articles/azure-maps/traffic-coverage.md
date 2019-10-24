@@ -93,7 +93,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 |Polonia     |✓         |✓         |
 |Portugal     |✓         |✓         |
 |+Azores y Madeira     |✓         |✓         |
-|Rumania     |✓         |✓         |
+|Rumanía     |✓         |✓         |
 |Federación Rusa     |✓         |✓         |
 |San Marino    |✓         |✓         |
 |Serbia   |✓         |✓         |

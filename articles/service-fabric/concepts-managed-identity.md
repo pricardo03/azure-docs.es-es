@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: d63fd3d1b778c691d053f13fbf0fbb2ed5ccb3e3
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968277"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333135"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identidad administrada para la aplicación de Service Fabric (versión preliminar)
 
@@ -45,7 +45,7 @@ Los siguientes términos se usan en la identidad administrada para el conjunto d
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Escenarios admitidos para las aplicaciones de Service Fabric
 
-Las identidades administradas para Service Fabric solo se admiten en los clústeres de Service Fabric implementados de Azure y únicamente para las aplicaciones implementadas como recursos de Azure. No se puede asignar una identidad a las aplicaciones que no se implementen como recursos de Azure. En términos conceptuales, la compatibilidad con identidades administradas en el clúster de Azure Service Fabric consta de dos fases:
+Las identidades administradas para Service Fabric solo se admiten en los clústeres de Service Fabric implementados de Azure y únicamente para las aplicaciones implementadas como recursos de Azure; no se puede asignar una identidad a una aplicación que no se implemente como recurso de Azure. En términos conceptuales, la compatibilidad con identidades administradas en el clúster de Azure Service Fabric consta de dos fases:
 
 1. Asigne una o más identidades administradas al recurso de la aplicación; una aplicación puede tener asignada una única identidad asignada por el sistema y hasta 32 identidades asignadas por el usuario, respectivamente.
 
@@ -63,6 +63,8 @@ A continuación se muestra la lista de los escenarios admitidos para la versión
 Los escenarios siguientes no se admiten o no se recomiendan. Tenga en cuenta que es posible que estas acciones no se bloqueen, pero podrían provocar interrupciones en las aplicaciones:
 
    - Eliminación o cambio de las identidades asignadas a una aplicación. Si debe realizar cambios, envíe implementaciones independientes para agregar primero una nueva asignación de identidad y, después, quitar una ya asignada. La eliminación de una identidad de una aplicación existente puede tener efectos no deseados, como dejar la aplicación en un estado que no se puede actualizar. Es seguro eliminar la aplicación por completo si es necesario quitar una identidad. Tenga en cuenta que de este modo se eliminará la identidad asignada por el sistema (si se ha definido) asociada a la aplicación y se quitarán todas las asociaciones con las identidades asignadas por el usuario que se han asignado a la aplicación.
+
+   - En este momento, la compatibilidad de SF con las identidades administradas no se integra en [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md); la integración se logrará al final del período de versión preliminar de la característica de identidad administrada.
 
 >
 > [!NOTE]

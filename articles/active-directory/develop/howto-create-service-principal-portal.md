@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2019
+ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a28354f54978e8ba776d8b0da294652ff462a05f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a9f8163a3695260234107ad41cc7be125adc9091
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853451"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72324717"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos para: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -62,7 +62,7 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 
 1. Seleccione **Access Control (IAM)** .
 1. Seleccione **Agregar asignación de roles**.
-1. Seleccione el rol que quiere asignar a la aplicación. Para permitir que la aplicación pueda ejecutar acciones como **reiniciar**, **iniciar** y **detener** instancias, debe seleccionar el rol **Colaborador**. De manera predeterminada, las aplicaciones de Azure AD no se muestran en las opciones disponibles. Para encontrar la aplicación, busque el nombre y selecciónelo.
+1. Seleccione el rol que quiere asignar a la aplicación. Por ejemplo, para que la aplicación ejecute acciones como **reiniciar**, **iniciar** y **detener** instancias, seleccione **Colaborador**.  Más información sobre los [roles disponibles](../../role-based-access-control/built-in-roles.md). De manera predeterminada, las aplicaciones de Azure AD no se muestran en las opciones disponibles. Para encontrar la aplicación, busque el nombre y selecciónelo.
 
    ![Seleccione el rol que se asignará a la aplicación](./media/howto-create-service-principal-portal/select-role.png)
 
@@ -89,7 +89,13 @@ Las aplicaciones de demonio pueden usar dos tipos de credenciales para realizar 
 
 ### <a name="upload-a-certificate"></a>Carga de un certificado
 
-Puede usar un certificado existente si lo tiene.  Si quiere, puede crear un certificado autofirmado con fines de prueba. Abra PowerShell y ejecute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con los parámetros siguientes para crear un certificado autofirmado en el almacén de certificados del usuario en su equipo: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Exporte este certificado con el complemento MMC [Administrar certificado de usuario](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) accesible desde el Panel de control de Windows.
+Puede usar un certificado existente si lo tiene.  Si quiere, puede crear un certificado autofirmado con fines de prueba. Abra PowerShell y ejecute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con los parámetros siguientes para crear un certificado autofirmado en el almacén de certificados del usuario en su equipo: 
+
+```powershell
+$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
+```
+
+Exporte este certificado a un archivo con el complemento MMC [Administrar certificado de usuario](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) accesible desde el Panel de control de Windows.
 
 Para cargar el certificado:
 
@@ -114,6 +120,14 @@ Si decide no usar un certificado, puede crear un secreto de aplicación nuevo.
 
    ![Copie el valor del secreto porque no podrá recuperarlo más adelante](./media/howto-create-service-principal-portal/copy-secret.png)
 
+## <a name="configure-access-policies-on-resources"></a>Configuración de directivas de acceso sobre los recursos
+Tenga en cuenta que es posible que deba configurar permisos adicionales sobre los recursos a los que la aplicación necesita acceso. Por ejemplo, también debe [actualizar las directivas de acceso de un almacén de claves](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) para proporcionar a la aplicación acceso a las claves, los secretos o los certificados.  
+
+1. En [Azure Portal](https://portal.azure.com), vaya al almacén de claves y seleccione **Directivas de acceso**.  
+1. Seleccione **Agregar directiva de acceso** y, luego, seleccione la clave, el secreto y los permisos de certificado que quiere conceder a la aplicación.  Seleccione la entidad de servicio que creó anteriormente.
+1. Seleccione **Agregar** para agregar la directiva de acceso y, luego, **Guardar** para confirmar los cambios.
+    ![Agregar directiva de acceso](./media/howto-create-service-principal-portal/add-access-policy.png)
+
 ## <a name="required-permissions"></a>Permisos necesarios
 
 Debe tener permisos suficientes para registrar una aplicación en su inquilino de Azure AD y asignar la aplicación a un rol en su suscripción de Azure.
@@ -125,7 +139,7 @@ Debe tener permisos suficientes para registrar una aplicación en su inquilino d
 
    ![Busque su rol. Si es usuario, asegúrese de que quienes no son administradores pueden registrar aplicaciones](./media/howto-create-service-principal-portal/view-user-info.png)
 
-1. Seleccione **Configuración de usuario**.
+1. En el panel izquierdo, seleccione **Configuración de usuario**.
 1. Compruebe la configuración de **App registrations** (Registros de aplicaciones). Este valor solo puede configurarlo un administrador. Si se configura en **Sí**, cualquier usuario en el inquilino de Azure Active Directory puede registrar una aplicación.
 
 Si la configuración de registro de aplicaciones se establece en **No**, solo los usuarios con un rol de administrador pueden registrar este tipo de aplicaciones. Consulte los [roles disponibles](../users-groups-roles/directory-assign-admin-roles.md#available-roles) y los [permisos de roles](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) para conocer los roles de administrador disponibles y los permisos específicos en Azure AD que se otorgan a cada rol. Si la cuenta está asignada al rol Usuario, pero la opción Registros de aplicaciones está limitada a los administradores, pida al administrador que le asigne un rol de administrador para poder crear y administrar todos los aspectos de los registros de aplicaciones, o que permita a los usuarios registrar las aplicaciones.
@@ -150,6 +164,5 @@ Para comprobar los permisos de su suscripción:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para configurar una aplicación multiinquilino, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](../../azure-resource-manager/resource-manager-api-authentication.md).
 * Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](../../role-based-access-control/role-assignments-portal.md).  
 * Para obtener una lista de las acciones que puede conceder o denegar a los usuarios, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md).

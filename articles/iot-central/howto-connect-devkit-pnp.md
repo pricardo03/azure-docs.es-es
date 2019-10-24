@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: f3cfb892fc116640df5dd30abf857bde6e196224
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b7d2e1b08653cb8023ef6a5190ab53ecc3d568a6
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879096"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297055"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central
 
@@ -34,7 +34,7 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
 ## <a name="get-device-connection-details"></a>Obtención de los detalles de conexión del dispositivo
 
-Desde la aplicación de Azure IoT Central, seleccione la pestaña **Administración** y, después, **Conexión de dispositivos**. Anote el **Id. de ámbito** y la **Clave principal**.
+Desde la aplicación de Azure IoT Central, seleccione la pestaña **Administración** y, después, **Conexión de dispositivos**. Anote los valores de **ID Scope** (Ámbito de id.) y **Primary key** (Clave principal).
 
 ![Detalles de conexión del grupo de dispositivos](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
@@ -61,7 +61,7 @@ Desde la aplicación de Azure IoT Central, seleccione la pestaña **Administraci
 
     - El nombre de la red Wi-Fi (SSID).
     - La contraseña de la red Wi-Fi.
-    - Los detalles de la conexión: el **identificador de dispositivo** que puede elegir y el **Id. de ámbito** y la **clave principal de SAS del grupo** que anotó anteriormente.
+    - Los detalles de la conexión: el **identificador de dispositivo**, que puede elegir usted mismo, y el **ámbito de id.** y la **clave principal de SAS del grupo** que anotó anteriormente.
 
     > [!NOTE]
     > Actualmente, el dispositivo DevKit de IoT solo puede conectarse a una red Wi-Fi de 2,4 GHz; 5 GHz no se admite debido a las restricciones de hardware.
@@ -86,7 +86,7 @@ En la aplicación de IoT Central, seleccione la pestaña **Dispositivos** y sele
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Para revisar el código o modificarlo y compilarlo, vaya al [repositorio de GitHub de código de ejemplo de MXChip IoT DevKit](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
+Para revisar el código, modificarlo y compilarlo, vaya a [Ejemplos de código](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 991cfb54dc511c284c5f5d0cf1807d5dd42b34ea
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 78a5b180d6e1531ca3ea15fbd6ec040a90d75e5c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978072"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330764"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -44,6 +44,9 @@ Actualmente, no hay ningún orden de evaluación para el efecto **EnforceRegoPol
 ## <a name="disabled"></a>Disabled
 
 Este efecto es útil para probar situaciones o cuando la definición de directiva ha parametrizado el efecto. Esta flexibilidad permite deshabilitar una única asignación en lugar de deshabilitar todas las asignaciones de la directiva.
+
+Una alternativa al efecto Disabled es **enforcementMode** que se establece en la asignación de directiva.
+Cuando **enforcementMode**  es _Disabled_, los recursos se siguen evaluando. El registro, como los registros de actividad, y el efecto de la directiva no se producen. Para más información, consulte [Asignación de directivas: modo de cumplimiento](./assignment-structure.md#enforcement-mode).
 
 ## <a name="append"></a>Append
 
@@ -96,8 +99,7 @@ Ejemplo 2: un único par **campo/valor** que usa un [alias](definition-structure
 
 ## <a name="modify"></a>Modificar
 
-Modify se usa para agregar, actualizar o quitar etiquetas de un recurso durante la creación o actualización. Un ejemplo habitual es la actualización de etiquetas en recursos como costCenter. Una directiva Modify siempre debe tener `mode` establecido en _Indexed_. Los recursos no conformes existentes se pueden solucionar con una [tarea de corrección](../how-to/remediate-resources.md).
-Una sola regla de Modify puede tener cualquier número de operaciones.
+Modify se usa para agregar, actualizar o quitar etiquetas de un recurso durante la creación o actualización. Un ejemplo habitual es la actualización de etiquetas en recursos como costCenter. Una directiva de modificación siempre debe tener `mode` establecido en _Indexed_ a menos que el recurso de destino sea un grupo de recursos. Los recursos no conformes existentes se pueden solucionar con una [tarea de corrección](../how-to/remediate-resources.md). Una sola regla de Modify puede tener cualquier número de operaciones.
 
 > [!IMPORTANT]
 > Actualmente, Modify solo se usa con etiquetas. Si está administrando etiquetas, se recomienda usar Modify en lugar de Append, ya que Modify proporciona tipos de operación adicionales y la capacidad de corregir los recursos existentes. Sin embargo, se recomienda Append si no se puede crear una identidad administrada.

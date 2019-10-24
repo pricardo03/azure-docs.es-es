@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: f607ba68563aa92797f45cf77db0575ae6802fee
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385602"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330500"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creación y administración de programaciones para laboratorios educativos en Azure Lab Services 
 Las programaciones le permiten configurar un laboratorio educativo de forma que las máquinas virtuales que contiene se inicien y apaguen automáticamente a una hora determinada. Puede definir una programación puntual o periódica. Los procedimientos siguientes le proporcionan los pasos para crear y administrar programaciones para un laboratorio educativo: 
@@ -26,61 +26,52 @@ Las programaciones le permiten configurar un laboratorio educativo de forma que 
 > [!IMPORTANT]
 > La hora de ejecución programada de las máquinas virtuales no cuentan en la [cuota asignada a un usuario](how-to-configure-student-usage.md#set-quotas-for-users). La cuota es el tiempo fuera del horario programado que un alumno pasa en las máquinas virtuales. 
 
-## <a name="add-a-schedule-once"></a>Agregar una programación (una vez)
+## <a name="set-a-schedule-for-the-lab"></a>Configuración de una programación para el laboratorio
+Cree un evento programado para el laboratorio de modo que las máquinas virtuales que este contiene se inicien o se detengan automáticamente en momentos concretos. La cuota de usuarios que especificó anteriormente es el tiempo adicional asignado a cada usuario fuera de esta hora programada. 
 
-1. Cambie a la página **Schedules** (Programaciones) y seleccione **Add schedule** (Agregar programación) en la barra de herramientas. 
-
-    ![Botón Add schedule (Agregar programación) en la página Schedules (Programaciones)](../media/how-to-create-schedules/add-schedule-button.png)
-2. En la página **Add schedule** (Agregar programación), confirme que está seleccionada la opción **Once** (Una vez) que se encuentra en la parte superior. Si no es así, **selecciónela**. 
-3. En **Schedule date (required)** (Fecha de programación [obligatorio]), escriba la fecha o seleccione el icono de calendario para especificarla. 
-4. En **Start time** (Hora de inicio), seleccione la hora a la que quiere que se inicie la máquina virtual. La hora de inicio es obligatoria si no se establece la hora de finalización. Seleccione **Remove start event** (Quitar evento de inicio) si solo quiere especificar la hora de finalización. Si **Start time** (Hora de inicio) está deshabilitada, seleccione **Add start event** (Agregar evento de inicio) junto a la lista desplegable para habilitarla. 
-5. En **Stop time** (Hora de finalización), seleccione la hora a la que quiere que se apaguen las máquinas virtuales. La hora de finalización es obligatoria si no se establece la hora de inicio. Seleccione **Remove stop event** (Quitar evento de finalización) si solo quiere especificar la hora de inicio. Si **Stop time** (Hora de finalización) está deshabilitada, seleccione **Add stop event** (Agregar evento de finalización) junto a la lista desplegable para habilitarla.
-6. En **Time zone (required)** (Zona horaria [obligatorio]), seleccione la zona horaria de las horas de inicio y finalización que ha especificado. 
-7. En **Notes** (Notas), escriba alguna descripción o nota para la programación. 
-8. Seleccione **Guardar**. 
-
-    ![Programación puntual](../media/how-to-create-schedules/add-schedule-page.png)
-
-## <a name="add-a-recurring-schedule-weekly"></a>Agregar una programación periódica (semanal)
-
-1. Cambie a la página **Schedules** (Programaciones) y seleccione **Add schedule** (Agregar programación) en la barra de herramientas. 
+1. Cambie a la página **Schedules** (Programaciones) y seleccione **Add scheduled event** (Agregar evento programado) en la barra de herramientas. 
 
     ![Botón Add schedule (Agregar programación) en la página Schedules (Programaciones)](../media/how-to-create-schedules/add-schedule-button.png)
-2. En la página **Add schedule** (Agregar programación), cambie a **Weekly** (Semanal) en la parte superior. 
-3. En **Schedule days (required)** (Días de programación [obligatorio]), seleccione los días en los que quiere que se aplique la programación. En el ejemplo siguiente, está seleccionado Monday-Friday (Lunes a viernes). 
-4. En el campo **From** (De), escriba la **fecha de inicio de la programación** o use el botón de **calendario** para seleccionar una fecha. Este campo es obligatorio. 
-5. En **Schedule end date** (Fecha de finalización de programación), escriba o seleccione una fecha de finalización en la que se apagarán las máquinas virtuales. 
-6. En **Start time** (Hora de inicio), seleccione la hora a la que se iniciarán las máquinas virtuales. La hora de inicio es obligatoria si no se establece la hora de finalización. Seleccione **Remove start event** (Quitar evento de inicio) si solo quiere especificar la hora de finalización. Si **Start time** (Hora de inicio) está deshabilitada, seleccione **Add start event** (Agregar evento de inicio) junto a la lista desplegable para habilitarla. 
-7. En **Stop time** (Hora de finalización), seleccione la hora a la que se apagarán las máquinas virtuales. La hora de finalización es obligatoria si no se establece la hora de inicio. Seleccione **Remove stop event** (Quitar evento de finalización) si solo quiere especificar la hora de inicio. Si **Stop time** (Hora de finalización) está deshabilitada, seleccione **Add stop event** (Agregar evento de finalización) junto a la lista desplegable para habilitarla.
-8. En **Time zone (required)** (Zona horaria [obligatorio]), seleccione la zona horaria de las horas de inicio y finalización que ha especificado.  
-9. En **Notes** (Notas), escriba alguna descripción o nota para la programación. 
-10. Seleccione **Guardar**. 
+2. Confirme que esté seleccionado **Standard** (Estándar) como **Event type** (Tipo de evento). Seleccione **Start only** (Solo inicio) para especificar solo la hora de inicio de las máquinas virtuales. Seleccione **Stop only** (Solo detención) para especificar solo la hora de detención de las máquinas virtuales. 
+7. En la sección **Repeat** (Repetir), seleccione la programación actual. 
+
+    ![Botón Add schedule (Agregar programación) en la página Schedules (Programaciones)](../media/how-to-create-schedules/select-current-schedule.png)
+5. En el cuadro de diálogo **Repeat** (Repetir), haga lo siguiente:
+    1. Confirme que se ha establecido **Every week** (Cada semana) para el campo **Repeat** (Repetir). 
+    3. Especifique el valor de **start date** (fecha de inicio).
+    4. Especifique el valor de **start time** (hora de inicio) a la que quiere que se inicien las máquinas virtuales.
+    5. Especifique el valor de **stop time** (hora de detención) a la que se apagarán las máquinas virtuales. 
+    6. Especifique el valor de **time zone** (zona horaria) de las horas de inicio y detención que ha indicado. 
+    2. Seleccione los días en los que quiere que se aplique la programación. En el ejemplo siguiente, está seleccionado de lunes a viernes. 
+    8. Seleccione **Guardar**. 
+
+        ![Establecimiento de la programación de repetición](../media/how-to-create-schedules/set-repeat-schedule.png)
+
+3. Ahora, en la página **Add scheduled event** (Agregar evento programado), en **Notes (optional)** (Notas [opcional]), escriba la descripción o las notas de la programación. 
+4. En la página **Add scheduled event** (Agregar evento programado), seleccione **Save** (Guardar). 
 
     ![Programación semanal](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## <a name="view-schedules-in-calendar"></a>Visualización de las programaciones en el calendario
 Puede ver las fechas y horas programadas resaltadas en la vista de calendario, como se muestra en la imagen siguiente:
 
-![Programaciones en la vista de calendario](../media/how-to-create-schedules/schedules-in-calendar.png)
+![Programaciones en la vista de calendario](../media/how-to-create-schedules/schedules-calendar.png)
 
 Seleccione el botón **Today** (Hoy) en la esquina superior derecha para cambiar a la fecha actual en el calendario. Seleccione la **flecha izquierda** para cambiar a la semana anterior y la **flecha derecha** para cambiar a la semana siguiente en el calendario. 
 
 ## <a name="edit-a-schedule"></a>Edición de una programación
-Al hacer doble clic en una programación resaltada en el calendario o seleccionar el **lápiz** situado en la barra de herramientas, verá la página **Edit schedule** (Editar programación). Actualizar la configuración de esta página es lo mismo que actualizar la configuración de la página **Add schedule** (Agregar programación), como se describe en la sección [Agregar una programación periódica](#add-a-recurring-schedule-weekly). 
+Al seleccionar una programación resaltada en el calendario, verá botones para **editar** o **eliminar** la programación. 
 
-![Página Edit schedule (Editar programación)](../media/how-to-create-schedules/edit-schedule-page.png)
+![Página Edit schedule (Editar programación)](../media/how-to-create-schedules/schedule-edit-button.png)
+
+En la página **Edit scheduled event** (Editar evento programado), puede actualizar la programación y seleccionar **Save** (Guardar). 
 
 ## <a name="delete-a-schedule"></a>Eliminación de una programación
 
-1. Para eliminar una programación, seleccione el botón de papelera (eliminar) en la barra de herramientas, como se muestra en la siguiente imagen:
+1. Para eliminar una programación, seleccione una programación resaltada en el calendario y seleccione el botón con el icono de la papelera (eliminar):
 
-    ![Botón de eliminación en la barra de herramientas](../media/how-to-create-schedules/delete-schedule-button.png)
-
-    Puede usar **el botón de eliminación** con cualquiera de las fechas y horas programadas en el calendario. 
-2. En la página **Delete schedules** (Eliminar programaciones), seleccione **Yes** (Sí).
-
-    ![Eliminar confirmación de programaciones](../media/how-to-create-schedules/delete-schedules-confirmation.png)
-
+    ![Botón de eliminación en la barra de herramientas](../media/how-to-create-schedules/schedule-delete-button.png)
+2. En el cuadro de diálogo **Delete scheduled event** (Eliminar evento programado), seleccione **Yes** (Sí) para confirmar la eliminación. 
 
 
 

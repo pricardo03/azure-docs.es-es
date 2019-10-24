@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 138894f10a4865a5ea251caff6683ed70721c000
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c33619ba52246128526bb132dfe94416c7c4de8c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172918"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299601"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creación de un conjunto de datos de referencia para el entorno de Time Series Insights mediante Azure Portal
 
@@ -36,13 +36,13 @@ Los datos de referencia no se combinan de manera retroactiva. Por lo tanto, solo
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-1. Busque su entorno de Time Series Insights existente. Seleccione **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Time Series Insights.
+1. Busque su entorno de Azure Time Series Insights existente. Seleccione **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Time Series Insights.
 
 1. Seleccione la página **Información general**. Busque la **URL del explorador de Time Series Insights** y abra el vínculo.  
 
-   Consulte el explorador para ver el entorno de TSI.
+   Vea el explorador del entorno de Time Series Insights.
 
-1. Expanda el selector de entorno en el explorador de TSI. Elija el entorno activo. Seleccione el icono de los datos de referencia en la esquina superior derecha de la página del explorador.
+1. Expanda el selector de entornos en el explorador de Time Series Insights. Elija el entorno activo. Seleccione el icono de los datos de referencia en la esquina superior derecha de la página del explorador.
 
    [![Agregar datos de referencia](media/add-reference-data-set/add-reference-data.png)](media/add-reference-data-set/add-reference-data.png#lightbox)
 
@@ -51,12 +51,14 @@ Los datos de referencia no se combinan de manera retroactiva. Por lo tanto, solo
    [![Agregar conjunto de datos](media/add-reference-data-set/add-data-set.png)](media/add-reference-data-set/add-data-set.png#lightbox)
 
 1. En la página **Nuevo conjunto de datos de referencia**, elija el formato de los datos:
+
    - Elija **CSV** para los datos delimitados por coma. La primera fila se considera como una fila de encabezado.
    - Elija **Matriz JSON** para los datos con formato de notación de objetos JavaScript (JSON).
 
    [![Elija el formato de los datos.](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
 
 1. Proporcione los datos con uno de estos dos métodos:
+
    - Pegue los datos en el editor de texto. Luego, seleccione el botón **Analizar datos de referencia**.
    - Seleccione el botón **Elegir archivo** para agregar datos desde un archivo de texto local.
 

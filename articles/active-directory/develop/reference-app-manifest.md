@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a665f2ffe3ac2d27fb4e4403922c72520dfb37e8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e44c3e607f3d5a5ea8269b9885a4fec54000bb5f
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834879"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389578"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifiesto de aplicación de Azure Active Directory
 
@@ -80,7 +80,7 @@ Para configurar el manifiesto de la aplicación:
 | `publicClient` | Boolean | Especifica si esta aplicación es un cliente público (como una aplicación instalada que se ejecuta en un dispositivo móvil). <br><br> _Nota: Esto solo está disponible en la experiencia de registros de aplicaciones (heredados). Reemplazado por `allowPublicClient` en la experiencia [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908)._ | |
 | `publisherDomain` | Cadena | El dominio del publicador comprobado para la aplicación. Solo lectura. | https://www.contoso.com |
 | `replyUrls` | Matriz de cadena | Esta propiedad multivalor contiene la lista de valores de redirect_uri registrados que Azure AD aceptará como destinos cuando se devuelvan tokens. <br><br> _Nota: Esto solo está disponible en la experiencia de registros de aplicaciones (heredados). Reemplazado por `replyUrlsWithType` en la experiencia [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908)._ | |
-| `replyUrlsWithType` | Colección | Esta propiedad multivalor contiene la lista de valores de redirect_uri registrados que Azure AD aceptará como destinos cuando se devuelvan tokens. Cada valor de URI debe contener un valor de tipo de aplicación asociado. Los valores de tipo admitidos son: `Web`, `InstalledClient`. | <code>"replyUrlsWithType":&nbsp;[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url":&nbsp;"https://localhost:4400/services/office365/redirectTarget.html",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"InstalledClient"&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;}<br>]</code> |
+| `replyUrlsWithType` | Colección | Esta propiedad multivalor contiene la lista de valores de redirect_uri registrados que Azure AD aceptará como destinos cuando se devuelvan tokens. Cada valor del identificador URI debe contener un valor de tipo de aplicación asociado. Los valores de tipo admitidos son: <ul><li>`Web`</li><li>`InstalledClient`</li></ul><br> Más información sobre las [limitaciones y restricciones de los URI de respuesta](https://docs.microsoft.com/azure/active-directory/develop/reply-url). | <code>"replyUrlsWithType":&nbsp;[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url":&nbsp;"https://localhost:4400/services/office365/redirectTarget.html",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"InstalledClient"&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;}<br>]</code> |
 | `requiredResourceAccess` | Colección | Con el consentimiento dinámico, `requiredResourceAccess` controla la experiencia de consentimiento del administrador y la experiencia de consentimiento del usuario para usuarios que usan consentimiento estático. Sin embargo, no se controla la experiencia de consentimiento del usuario para el caso general.<br>`resourceAppId` es el único identificador del recurso al que la aplicación necesita acceso. Este valor debe ser igual que el valor de appId declarado en la aplicación del recurso de destino.<br>`resourceAccess` es una matriz que enumera los ámbitos de permiso de OAuth 2.0 y los roles de aplicación que necesita la aplicación del recurso especificado. Contiene los valores `id` y `type` de los recursos especificados. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>]</code> |
 | `samlMetadataUrl` | Cadena | La dirección URL de los metadatos de SAML de la aplicación. | `https://MyRegisteredAppSAMLMetadata` |
 | `signInUrl` | Cadena | Especifica la dirección URL a la página principal de la aplicación. | `https://MyRegisteredApp` |

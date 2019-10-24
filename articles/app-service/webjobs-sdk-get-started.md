@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8f33e36568171ab7b37f536a3c7883b004cb71c0
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2b2b8fe383ff4ee3d4b23c2c6e555b44e0cc088c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68838034"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390069"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -44,16 +44,12 @@ En este artículo se muestra cómo implementar WebJobs como una aplicación de c
 
 ## <a name="webjobs-nuget-packages"></a>Paquetes NuGet de WebJobs
 
-1. Instale las últimas versiones 3.x estables de los siguientes paquetes NuGet:
+1. Instale la versión 3.x estable más reciente del paquete NuGet `Microsoft.Azure.WebJobs.Extensions`, que incluye `Microsoft.Azure.WebJobs`.
 
-   * `Microsoft.Azure.WebJobs`
-   * `Microsoft.Azure.WebJobs.Extensions`
-
-     Estos son los comandos de la **Consola del Administrador de paquetes** de la versión 3.0.4:
+     Este es el comando de la **Consola del Administrador de paquetes** para la versión 3.0.2:
 
      ```powershell
-     Install-Package Microsoft.Azure.WebJobs -version 3.0.4
-     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.2
      ```
 
 ## <a name="create-the-host"></a>Creación del host
@@ -90,16 +86,9 @@ En ASP.NET Core, las configuraciones de host se establecen mediante la llamada a
 
 En esta sección, se configura el registro de la consola que usa la [plataforma de registro de ASP.NET Core](/aspnet/core/fundamentals/logging).
 
-1. Instale la última versión estable de los siguientes paquetes NuGet:
+1. Instale la versión estable más reciente del paquete NuGet `Microsoft.Extensions.Logging.Console`, que incluye `Microsoft.Extensions.Logging`.
 
-   * `Microsoft.Extensions.Logging` - La plataforma de registro.
-   * `Microsoft.Extensions.Logging.Console` -El proveedor de consola, que envía los registros a la consola.
-
-   Estos son los comandos de la **Consola del Administrador de paquetes** para la versión 2.2.0:
-
-   ```powershell
-   Install-Package Microsoft.Extensions.Logging -version 2.2.0
-   ```
+   En **Consola del Administrador de paquetes**, escriba el comando para la versión 2.2.0:
 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version 2.2.0
@@ -155,10 +144,10 @@ A partir de la versión 3.x, es necesario instalar explícitamente la extensión
 
 1. Instale la versión estable más reciente del paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), versión 3.x. 
 
-    Este es el comando de la **Consola del Administrador de paquetes** para la versión 3.0.3:
+    Este es el comando de la **Consola del Administrador de paquetes** para la versión 3.0.4:
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.3
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
     ```
 
 2. En el método de extensión `ConfigureWebJobs`, llame al método `AddAzureStorage` en la instancia [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) para inicializar la extensión Storage. En este momento, el método `ConfigureWebJobs` es similar al ejemplo siguiente:

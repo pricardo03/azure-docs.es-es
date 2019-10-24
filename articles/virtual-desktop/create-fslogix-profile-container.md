@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: dd3b68d600edcbbae73fff542e677d3ebc6b16ee
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 4e714b872ae43eb313efe549c77f5610342f430c
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390814"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311623"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creación de un contenedor de perfiles de FSLogix para un grupo host mediante Azure NetApp Files
 
@@ -28,6 +28,9 @@ Las instrucciones de esta guía son específicas para los usuarios de Windows Vi
 
 >[!NOTE]
 >En este artículo no se tratan los procedimientos recomendados para proteger el acceso al recurso compartido de Azure NetApp Files.
+
+>[!NOTE]
+>Si está buscando material de comparación sobre las diferentes opciones de almacenamiento del contenedor de perfiles de FSLogix en Azure, consulte [Opciones de almacenamiento para contenedores de perfiles de FSLogix](store-fslogix-profile.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

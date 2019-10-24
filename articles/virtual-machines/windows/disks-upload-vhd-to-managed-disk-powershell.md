@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 88b5cacf432e467c893dac6fc5839c468b2eafbd
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: d193dcd0c0539c2daa7220d915fdc3e02c8ea798
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828653"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512431"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Carga de un disco duro virtual en Azure mediante Azure PowerShell
 
@@ -128,4 +128,4 @@ Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
 
 Ahora que ha cargado correctamente un disco duro virtual en un disco administrado, puede conectar el disco a una máquina virtual y empezar a usarlo.
 
-Para aprender a conectar un disco a una máquina virtual, consulte nuestro artículo al respecto: [Conexión de un disco a una VM Windows con PowerShell](attach-disk-ps.md).
+Para aprender a conectar un disco de datos a una máquina virtual, consulte nuestro artículo al respecto: [Conexión de un disco a una VM Windows con PowerShell](attach-disk-ps.md). Para usar el disco como disco del sistema operativo, consulte [Creación de una máquina virtual Windows desde un disco especializado](create-vm-specialized.md#create-the-new-vm).

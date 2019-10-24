@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 275eff59c56229f45a131e107668b8fefab24536
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 389e1472e1e1fcbed6dd3b6c1d155199246d877f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123775"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332976"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Supervisión y reducción de la limitación para reducir la latencia en Azure Time Series Insights
 
@@ -74,11 +74,11 @@ Las alertas pueden ayudarle a diagnosticar y mitigar los problemas de latencia c
 
 ## <a name="throttling-and-ingress-management"></a>Limitación y administración de entrada
 
-* Si experimenta alguna limitación, verá un valor en *Ingress Received Message Time Lag* (Tiempo de retardo de los mensajes de entrada recibidos) que indica cuántos segundos de retraso tiene TSI respecto al momento real en el que el mensaje llega al origen del evento (sin contar el tiempo de indexación, unos 30-60 segundos).  
+* Si experimenta alguna limitación, verá un valor en *Ingress Received Message Time Lag* (Tiempo de retardo de los mensajes de entrada recibidos) que indica cuántos segundos de retraso tiene el entorno de Time Series Insights respecto al momento real en el que el mensaje llega al origen del evento (sin contar el tiempo de indexación, unos 30-60 segundos).  
 
   *Ingress Received Message Count Lag* (Retardo de recuento de los mensajes de entrada recibidos) también debe tener un valor para que pueda determinar los mensajes que tiene detrás.  La manera más fácil de mantenerse al día es aumentar la capacidad del entorno a un tamaño que le permita compensar la diferencia.  
 
-  Por ejemplo, si tiene un entorno único S1 de unidad y comprueba que hay un retraso de 5 millones de mensajes, puede aumentar el tamaño del entorno a seis unidades durante un día aproximadamente para la actualización.  Podría aumentarlo más para ponerse al día más rápidamente. Este período para ponerse al día es común al aprovisionar inicialmente un entorno, en particular al conectarlo a un origen de eventos que no esté vacío o con la carga masiva de numerosos datos históricos.
+  Por ejemplo, si el entorno S1 muestra un retraso de 5 millones de mensajes, puede aumentar el tamaño del entorno a seis unidades durante un día aproximadamente para la actualización.  Podría aumentarlo más para ponerse al día más rápidamente. Este período para ponerse al día es común al aprovisionar inicialmente un entorno, en particular al conectarlo a un origen de eventos que no esté vacío o con la carga masiva de numerosos datos históricos.
 
 * Otra de estas técnicas consiste en establecer una alerta de **eventos de entrada almacenados** >= un umbral ligeramente por debajo de la capacidad total del entorno durante un período de 2 horas.  Esta alerta le ayudará a conocer si se encuentra continuamente en el límite de la capacidad, lo cual indica una alta probabilidad de latencia. 
 
@@ -94,6 +94,6 @@ Para evitarlo, configure correctamente el entorno para la cantidad de datos que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para conocer pasos de solución de problemas adicionales, consulte [Diagnóstico y solución de problemas de su entorno Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
+- Más información en [Diagnóstico y solución de problemas de su entorno Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
 
-- Para obtener ayuda adicional, inicie una conversación en el [Foro de MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) o en [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). También puede ponerse en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para opciones de soporte técnico asistido.
+- Aprenda a [escalar el entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

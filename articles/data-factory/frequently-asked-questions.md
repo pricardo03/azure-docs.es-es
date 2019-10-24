@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: c4836d519556e5a031f81279fef4891ba8d47c05
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ee57d943016c2d166f3c8469b403b56b1009385c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141577"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387058"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  
@@ -203,7 +203,7 @@ Cuando Microsoft proporciona ayuda o soluciona problemas con los flujos de datos
 
 ### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>¿Cómo accedo a los datos con los otros 80 tipos de conjunto de datos en Data Factory?
 
-Actualmente, la característica Mapping Data Flow permite los archivos de texto delimitados, Azure SQL Database, Azure SQL Data Warehouse desde Azure Blob Storage o Azure Data Lake Storage Gen2 y los archivos Parquet desde Blob Storage o Data Lake Storage Gen2 de forma nativa para el origen y el receptor. 
+Actualmente, la característica de flujo de datos de asignación permite los archivos de texto delimitados, Azure SQL Database, Azure SQL Data Warehouse desde Azure Blob Storage o Azure Data Lake Storage Gen2 y los archivos Parquet desde Blob Storage o Data Lake Storage Gen2 de forma nativa para el origen y el receptor. 
 
 Utilice la actividad de copia para almacenar provisionalmente los datos desde cualquiera de los demás conectores y, a continuación, ejecutar una actividad de Data Flow para transformar los datos después de haberlos almacenado provisionalmente. Por ejemplo, la canalización se copiará en primer lugar al almacenamiento de blobs y, a continuación, una actividad de Data Flow utilizará un conjunto de datos del origen para transformar los datos.
 

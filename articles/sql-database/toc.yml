@@ -719,6 +719,8 @@
           href: sql-database-managed-instance-aad-security-tutorial.md
         - name: Adición de una instancia administrada a un grupo de conmutación por error
           href: sql-database-managed-instance-failover-group-tutorial.md
+        - name: Migración de usuarios y grupos locales
+          href: tutorial-managed-instance-azure-active-directory-migration.md
     - name: Conceptos
       items:
         - name: Referencia de Management API

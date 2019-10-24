@@ -4,14 +4,14 @@ description: Se describe cómo Azure Resource Manager gestiona las solicitudes d
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 625a17156eaf199af0d51151c6fd37769b8f7b4a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b85ed32ac333402caeca4901e4d91bbe4d1d112c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848764"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300352"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Autenticación de solicitudes entre inquilinos
 
@@ -37,5 +37,6 @@ Cuando la aplicación envía una solicitud a Resource Manager, la solicitud se e
 Cuando la solicitud hace referencia a un recurso de otro inquilino, Resource Manager comprueba los tokens auxiliares para determinar si se puede procesar la solicitud. Todos los tokens auxiliares del encabezado deben ser válidos y no deben haber expirado. Si alguno de los tokens ha expirado, Resource Manager devuelve un código de respuesta 401. La respuesta incluye el identificador de cliente y el identificador de inquilino del token que no es válido. Si el encabezado auxiliar contiene un token válido para el inquilino, se procesa la solicitud entre inquilinos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para aprender a enviar solicitudes de autenticación con las API de Azure Resource Manager, consulte [Uso de la API de autenticación de Resource Manager para acceder a suscripciones](resource-manager-api-authentication.md).
-* Para más información sobre los tokens, consulte [Tokens de acceso de Azure Active Directory](/azure/active-directory/develop/access-tokens).
+
+* Para más información sobre las solicitudes de autenticación, consulte [Flujos de autenticación y escenarios de aplicaciones](../active-directory/develop/authentication-flows-app-scenarios.md).
+* Para más información sobre los tokens, consulte [Tokens de acceso de Azure Active Directory](../active-directory/develop/access-tokens.md).

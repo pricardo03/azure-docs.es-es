@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 9df389b6e6a73530c9bbf5a2187d6735946e309f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 96f020f24e27ff799f9bfbc08d899e8375b86094
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249773"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72431823"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Procedimientos para solucionar problemas relacionados con el agente de Log Analytics para Windows 
 
@@ -36,7 +36,7 @@ Si ninguno de estos pasos funciona, también están disponibles los siguientes c
 
 ## <a name="connectivity-issues"></a>Problemas de conectividad
 
-Si el agente se comunica a través de un servidor proxy o un firewall, es posible que haya restricciones vigentes que impidan la comunicación desde el equipo de origen y el servicio Azure Monitor. Si se bloquea la comunicación, se puede producir un error en el registro con un área de trabajo al intentar instalar al agente, configúrelo después de la instalación para que notifique a un área de trabajo adicional, o se produce un error de comunicación del agente después del registro correcto. En esta sección se describen los métodos para solucionar este tipo de problema con el agente de Windows. 
+Si el agente se comunica a través de un servidor proxy o un firewall, es posible que haya restricciones vigentes que impidan la comunicación desde el equipo de origen y el servicio Azure Monitor. En caso de que se bloquee la comunicación, debido a un error de configuración, se puede producir un error en el registro con un área de trabajo al intentar instalar el agente o configurarlo después de la instalación para que notifique a un área de trabajo adicional. Se puede producir un error de comunicación del agente después de un registro correcto. En esta sección se describen los métodos para solucionar este tipo de problema con el agente de Windows.
 
 Compruebe que el firewall o proxy está configurado para permitir los puertos y las direcciones URL descritas en la tabla siguiente. Confirme también que la inspección de HTTP no está habilitada para el tráfico web, ya que puede evitar un canal TLS seguro entre el agente y Azure Monitor.  
 
@@ -69,7 +69,7 @@ Hay varias formas de comprobar si el agente se comunica de forma correcta con Az
 
 - Filtre el registro de eventos de *Operations Manager* por **Orígenes de eventos** - *Módulos de servicio de mantenimiento*, *HealthService* y *Conector de servicio*, y filtre por **Nivel de evento** *Advertencia* y *Error* para confirmar si se han escrito eventos de la tabla siguiente. Si se han escrito, revise los pasos de resolución incluidos para cada evento posible.
 
-    |Id. de evento |Origen |DESCRIPCIÓN |Resolución |
+    |Id. de evento |Source |DESCRIPCIÓN |Resolución |
     |---------|-------|------------|-----------|
     |2133 y 2129 |Servicio de mantenimiento |Error de conexión con el servicio desde el agente |Este error se puede producir cuando el agente no se puede comunicar directamente o a través de un servidor proxy o firewall con el servicio Azure Monitor. Compruebe la configuración de proxy de agente o que el firewall o proxy de red permite el tráfico TCP desde el equipo al servicio.|
     |2138 |Módulos de servicio de mantenimiento |Se requiere autenticación del proxy |Configure las opciones del proxy de agente y especifique el nombre de usuario y la contraseña necesarios para autenticarse con el servidor proxy. |
@@ -107,7 +107,7 @@ Si la consulta devuelve resultados, tendrá que determinar si no se ha recopilad
 
 3. Si después de unos minutos no ve los datos esperados en los resultados de la consulta o la visualización, en función de si los ve desde una solución o Insight, desde el registro de eventos de *Operations Manager*, busque **Orígenes de eventos** *HealthService* y *Módulos de servicio de mantenimiento*, y filtre por **Nivel de evento** *Advertencia* y *Error* para confirmar si se han escrito eventos de la tabla siguiente.
 
-    |Id. de evento |Origen |DESCRIPCIÓN |Resolución |
+    |Id. de evento |Source |DESCRIPCIÓN |Resolución |
     |---------|-------|------------|
     |8000 |HealthService |Este evento especificará si un flujo de trabajo relacionado con el rendimiento, los eventos u otro tipo de datos recopilado no puede reenviar al servicio para la ingesta en el área de trabajo. | El id. de evento 2136 de la instancia de HealthService de origen se escribe junto con este evento y puede indicar que el agente no se puede comunicar con el servicio, posiblemente debido a una configuración incorrecta de las opciones de proxy y autenticación, a la interrupción de la red, o bien a que el firewall de red o el proxy no permite el tráfico TCP desde el equipo al servicio.| 
     |10102 y 10103 |Módulos de servicio de mantenimiento |El flujo de trabajo no ha podido resolver el origen de datos. |Esto puede ocurrir si el contador de rendimiento especificado o la instancia no existen en el equipo o se han definido incorrectamente en la configuración de datos del área de trabajo. Si se trata de un [contador de rendimiento](data-sources-performance-counters.md#configuring-performance-counters) especificado por el usuario, compruebe que la información especificada sigue el formato correcto y que existe en los equipos de destino. |

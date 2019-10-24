@@ -1,17 +1,17 @@
 ---
-title: Transformación Selección de Azure Data Factory Mapping Data Flow
-description: Transformación Selección de Azure Data Factory Mapping Data Flow
+title: Transformación Selección de flujo de datos de asignación de Azure Data Factory
+description: Transformación Selección de flujo de datos de asignación de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 289f98fdc2f39449cdeede9ee46fb39847ae2cb5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6ef9712dd2fd6b8d53fd4ad2c3e07e1d6c8f1aec
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029273"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72387200"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Transformación Selección de Mapping Data Flow
 
@@ -21,20 +21,20 @@ Use esta transformación para la selección de columnas (reducir el número de c
 ## <a name="how-to-use-select-transformation"></a>Uso de la transformación Selección
 La transformación Selección permite crear un alias de una secuencia completa, o de las columnas de esa secuencia, asignarles nombres diferentes (alias) y, después, hacer referencia a esos nuevos nombres en el flujo de datos. Esta transformación resulta útil en escenarios de autocombinación. Para implementar una autocombinación en ADF Data Flow, se toma una secuencia, se crea una la rama con "Nueva rama" e, inmediatamente después, se agrega una transformación "Selección". Ahora, la secuencia tiene un nuevo nombre que puede usar para combinarla con la secuencia original y crear una autocombinación:
 
-![Autocombinación](media/data-flow/selfjoin.png "Self-join")
+![Autocombinación](media/data-flow/selfjoin.png "Autocombinación")
 
 En el diagrama anterior, la transformación Selección se encuentra en la parte superior. Lo que está haciendo es asignar a la secuencia original el alias "OrigSourceBatting". En la transformación Combinación resaltada a continuación, puede ver que usamos esta secuencia de alias de selección como combinación de la derecha, lo que nos permite hacer referencia a la misma clave tanto en el lado derecho como el izquierdo de la combinación interna.
 
 También puede usar Selección como una manera de anular la selección de columnas del flujo de datos. Por ejemplo, si tiene 6 columnas definidas en el receptor, pero solo desea elegir tres específicas para transformarlas y enviarlas al receptor, puede seleccionar solo esas tres con la transformación Selección.
 
-![Transformación Selección](media/data-flow/newselect1.png "Select Alias")
+![Transformación Selección](media/data-flow/newselect1.png "Seleccionar alias")
 
 ## <a name="options"></a>Opciones
 * El valor predeterminado de "Selección" es incluir todas las columnas de entrada y mantener los nombres originales. Para crear un alias de la secuencia, puede establecer el nombre de la transformación Selección.
 * Para crear alias de columnas individuales, desactive la opción "Seleccionar todo" y use la asignación de columnas en la parte inferior.
 * Elija Skip Duplicates (Omitir duplicados) para eliminar las columnas duplicadas de los metadatos de entrada o salida.
 
-![Omisión de duplicados](media/data-flow/select-skip-dup.png "Skip Duplicates")
+![Omitir duplicados](media/data-flow/select-skip-dup.png "Omitir duplicados")
 
 * Si elige omitir duplicados, los resultados estarán visibles en la pestaña Inspect (Inspeccionar). ADF mantendrá la primera repetición de la columna y verá que se han quitado de su flujo todas las repeticiones posteriores de la misma columna.
 
@@ -44,7 +44,7 @@ También puede usar Selección como una manera de anular la selección de column
 ## <a name="mapping"></a>Asignación
 De forma predeterminada, la transformación Selección asignará automáticamente todas las columnas, lo que pasará a través de todas las columnas entrantes con el mismo nombre de la salida. El nombre del flujo de salida que se establece en Configuración de Selección definirá un nuevo nombre de alias para el flujo. Si mantiene Selección establecido en mapa automático, puede asignar un alias a todo el flujo con todas las columnas iguales.
 
-![Reglas de transformación de Selección](media/data-flow/rule2.png "Asignación basada en reglas")
+![Reglas de la transformación Selección](media/data-flow/rule2.png "Asignación basada en reglas")
 
 Si desea asignar un alias, quitar, cambiar el nombre o reordenar las columnas, antes debe desactivar "mapa automático". De forma predeterminada, verá una regla predeterminada que se ha especificado como "Todas las columnas de entrada". Puede dejar esta regla en vigor si tiene intención de permitir siempre que todas las columnas entrantes se asignen al mismo nombre en la salida.
 

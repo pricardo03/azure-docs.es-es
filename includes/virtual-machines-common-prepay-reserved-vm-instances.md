@@ -4,12 +4,12 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08/29/2019
-ms.openlocfilehash: 99263b7c7efee54381c9a7f624429b343dba49d0
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 75eebdf1e7628bc9c38305b7f11d4fc69af031b9
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806069"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391791"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Ahorro de costos con Azure Reserved VM Instances
 
@@ -26,7 +26,7 @@ Puede consultar las recomendaciones de reserva para averiguar las reservas que d
 - Se mostrarán recomendaciones de compra y la cantidad recomendada al adquirir una instancia reservada de máquina virtual en Azure Portal.
 - Azure Advisor proporciona recomendaciones de compra de suscripciones individuales.  
 - Puede usar las API para obtener recomendaciones de compra relativas tanto a los ámbitos de suscripción tanto compartida como única. Para más información, vea [Recommendations API de compra de instancia reservada para clientes empresariales](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
-- En el caso de los clientes de Contrato Enterprise (EA), las recomendaciones de compra de los ámbitos de suscripción tanto única como compartida solo están disponibles con el [paquete de contenido de Power BI de Azure Consumption Insights](/power-bi/service-connect-to-azure-consumption-insights).
+- En el caso de los clientes de Contrato Enterprise (EA) y del Contrato de cliente de Microsoft (MCA), las recomendaciones de compra de los ámbitos de suscripción tanto única como compartida solo están disponibles con el [paquete de contenido de Power BI de Azure Consumption Insights](/power-bi/service-connect-to-azure-consumption-insights).
 
 ### <a name="services-that-get-vm-reservation-discounts"></a>Servicios que obtienen descuentos de reserva de máquina virtual
 
@@ -97,7 +97,7 @@ Para comprar una instancia:
 
 | Campo      | DESCRIPCIÓN|
 |------------|--------------|
-|Subscription|Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se cobran con el método de pago de factura o la tarjeta de crédito de la suscripción.|    
+|Subscription|Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Los cargos se deducen del saldo de compromiso monetario, si está disponible, o se cobran como uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se cobran con el método de pago de factura o la tarjeta de crédito de la suscripción.|    
 |Ámbito       |El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>**Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.</li><li>**Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.</li><li>**Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li></ul>|
 |Region    |Región de Azure que está cubierta por la reserva.|    
 |Tamaño de VM     |Tamaño de las instancias de máquina virtual.|

@@ -1,5 +1,5 @@
 ---
-title: Consulta de un contenedor de Docker de Linux para SQL Server en una red virtual mediante un cuaderno de Azure Databricks
+title: Consulta de un contenedor de Docker de Linux para SQL Server con Azure Databricks
 description: En este artículo se describe cómo implementar Azure Databricks en la red virtual, también conocido como inserción de red virtual.
 services: azure-databricks
 author: mamccrea
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 773ffe264446e6a4d9ef2e88634e4f2c9b8aeb45
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60770830"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273983"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Tutorial: Consulta de un contenedor de Docker de Linux para SQL Server en una red virtual mediante un cuaderno de Azure Databricks
 
@@ -64,13 +64,13 @@ En este tutorial, aprenderá a:
     
     |Configuración|Valor sugerido|DESCRIPCIÓN|
     |-------|---------------|-----------|
-    |Origen|Direcciones IP|Direcciones IP especifica que el tráfico entrante desde una dirección IP de origen específica se permitirá o denegará por esta regla.|
+    |Source|Direcciones IP|Direcciones IP especifica que el tráfico entrante desde una dirección IP de origen específica se permitirá o denegará por esta regla.|
     |Direcciones IP de origen|<su dirección IP pública\>|Escriba la dirección IP pública. Para conocer la dirección IP pública, visite [bing.com](https://www.bing.com/) y busque **"Mi IP"** .|
-    |Intervalos de puertos de origen|*|Permitir el tráfico de cualquier puerto.|
-    |Destino|Direcciones IP|Direcciones IP especifica que el tráfico saliente para una dirección IP de origen específica se permitirá o denegará por esta regla.|
+    |Source port ranges|*|Permitir el tráfico de cualquier puerto.|
+    |Destination|Direcciones IP|Direcciones IP especifica que el tráfico saliente para una dirección IP de origen específica se permitirá o denegará por esta regla.|
     |Direcciones IP de destino|<la dirección IP pública de la máquina virtual\>|Escriba la dirección IP pública de la máquina virtual. Puede encontrarla en la página **Información general** de la máquina virtual.|
     |Intervalos de puertos de destino|22|Abra el puerto 22 para SSH.|
-    |Prioridad|290|Asigne a la regla una prioridad.|
+    |Priority|290|Asigne a la regla una prioridad.|
     |NOMBRE|ssh-databricks-tutorial-vm|Asigne un nombre a la regla.|
 
 
@@ -80,13 +80,13 @@ En este tutorial, aprenderá a:
 
     |Configuración|Valor sugerido|DESCRIPCIÓN|
     |-------|---------------|-----------|
-    |Origen|Direcciones IP|Direcciones IP especifica que el tráfico entrante desde una dirección IP de origen específica se permitirá o denegará por esta regla.|
+    |Source|Direcciones IP|Direcciones IP especifica que el tráfico entrante desde una dirección IP de origen específica se permitirá o denegará por esta regla.|
     |Direcciones IP de origen|10.179.0.0/16|Escriba el intervalo de direcciones para la red virtual.|
-    |Intervalos de puertos de origen|*|Permitir el tráfico de cualquier puerto.|
-    |Destino|Direcciones IP|Direcciones IP especifica que el tráfico saliente para una dirección IP de origen específica se permitirá o denegará por esta regla.|
+    |Source port ranges|*|Permitir el tráfico de cualquier puerto.|
+    |Destination|Direcciones IP|Direcciones IP especifica que el tráfico saliente para una dirección IP de origen específica se permitirá o denegará por esta regla.|
     |Direcciones IP de destino|<la dirección IP pública de la máquina virtual\>|Escriba la dirección IP pública de la máquina virtual. Puede encontrarla en la página **Información general** de la máquina virtual.|
     |Intervalos de puertos de destino|1433|Abra el puerto 22 para SQL Server.|
-    |Prioridad|300|Asigne a la regla una prioridad.|
+    |Priority|300|Asigne a la regla una prioridad.|
     |NOMBRE|sql-databricks-tutorial-vm|Asigne un nombre a la regla.|
 
     ![Adición de regla de seguridad de entrada para el puerto 1433](./media/vnet-injection-sql-server/open-port2.png)

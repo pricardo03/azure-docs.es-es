@@ -1,6 +1,6 @@
 ---
-title: Instrucciones detalladas de Monitor de estado de Azure v2 | Microsoft Docs
-description: Instrucciones detalladas para empezar con el Monitor de estado v2. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas de forma local, en máquinas virtuales o en Azure.
+title: Instrucciones detalladas de Azure Application Insights Agent | Microsoft Docs
+description: Instrucciones detalladas para empezar con Application Insights Agent. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 791db3de897231667d184f08ee152705c59a1e35
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: d7a6db65b92ec2d3a3fdcf55aea0523f57012be1
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057849"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388244"
 ---
-# <a name="status-monitor-v2-detailed-instructions"></a>Monitor de estado v2: Instrucciones detalladas
+# <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (antes Monitor de estado v2): Instrucciones detalladas
 
 En este artículo se describe cómo incorporarse a la Galería de PowerShell y descargar el módulo ApplicationMonitor.
 Se incluyen los parámetros más comunes que necesitará para empezar.
@@ -245,6 +245,6 @@ Consulte la [referencia de la API](status-monitor-v2-api-enable-monitoring.md) p
 - [Agregue telemetría de cliente web](../../azure-monitor/app/javascript.md) para ver las excepciones de código de la página web y para habilitar las llamadas de seguimiento.
 - [Agregue el SDK de Application Insights al código](../../azure-monitor/app/asp-net.md) para que pueda insertar llamadas de seguimiento y registro.
 
-Hacer más con el Monitor de estado v2:
+Haga mucho más con Application Insights Agent:
 
-- Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) del Monitor de estado v2.
+- Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) de Application Insights Agent.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 5dde098277b16c7ec5339aa6b963b04dd608c8ac
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6adeae69a4ef9e6f2d77588f8071498fd25beb3e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079666"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390605"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creación de una VM de Windows desde un disco especializado mediante PowerShell
 
@@ -36,7 +36,7 @@ También puede usar Azure Portal para [crear una nueva VM a partir de un VHD esp
 
 En este artículo se muestra cómo usar los discos administrados. Si tiene una implementación heredada que requiere el uso de una cuenta de almacenamiento, vea [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md) (Creación de una máquina virtual a partir de un VHD especializado en una cuenta de almacenamiento).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+Se recomienda limitar el número de implementaciones simultáneas a 20 máquinas virtuales desde una sola instantánea o VHD. 
 
 ## <a name="option-1-use-an-existing-disk"></a>Opción 1: Uso de un disco existente
 

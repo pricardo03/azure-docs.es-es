@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: e82ce8f5c97aed7e2cb832d8e808ff84691f7c9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2785d85db47ed3b214044e673566a2837b83e984
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401209"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285496"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Mensajes y conexiones de Azure SignalR Service
 
@@ -42,13 +42,15 @@ El recuento de mensajes que se muestra en Azure Portal seguirá siendo 0 hasta q
 
 ## <a name="how-connections-are-counted"></a>Cómo se cuentan las conexiones
 
-Existen conexiones de servidores y conexiones de cliente. De manera predeterminada, cada servidor de aplicaciones tiene cinco conexiones por centro con Azure SignalR Service y cada cliente tiene una conexión de cliente con Azure SignalR Service.
+Existen conexiones de servidores y conexiones de cliente con Azure SignalR Service. De manera predeterminada, cada servidor de aplicaciones comienza con cinco conexiones iniciales por centro de conectividad y cada cliente tiene una conexión de cliente.
 
 El recuento de conexiones que se muestra en Azure Portal incluye conexiones de servidor y conexiones de cliente.
 
 Por ejemplo, suponga que tiene dos servidores de aplicaciones y define cinco centros en el código. El número de conexiones del servidor será 50: 2 servidores de aplicaciones * 5 centros * 5 conexiones por centro.
 
-ASP.NET SignalR calcula las conexiones de los servidores de otra forma. Incluye un centro predeterminado además de los centros que defina. De forma predeterminada, cada servidor de aplicaciones necesita cinco conexiones de servidores más. El número de conexiones del centro predeterminado se mantiene igual que el de los restantes centros.
+ASP.NET SignalR calcula las conexiones de los servidores de otra forma. Incluye un centro predeterminado además de los centros que defina. De forma predeterminada, cada servidor de aplicaciones necesita cinco conexiones de los servidores. El número de conexiones iniciales del centro predeterminado se mantiene igual que el de los restantes centros.
+
+Durante la vigencia del servidor de aplicaciones, tanto el servicio como el servidor de aplicaciones mantienen el estado de la conexión de sincronización y realizan el ajuste en las conexiones del servidor para mejorar el rendimiento y la estabilidad del servicio. Por lo tanto, puede ver que el número de conexiones con el servidor cambia de vez en cuando.
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Cómo se cuenta el tráfico entrante y saliente
 

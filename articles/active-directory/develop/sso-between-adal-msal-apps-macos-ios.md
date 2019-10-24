@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 218e659452779b6372541c3abec908878493f5d2
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 2a554602b9648190926168e4886d4f0773692225
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269346"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264151"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Procedimientos para: Inicio de sesión único entre aplicaciones de ADAL y de MSAL en macOS e iOS
 
@@ -110,7 +110,7 @@ ADAL 2.7. x devuelve el `homeAccountId` del objeto `ADUserInformation` en el res
 
 Si `homeAccountId` no está disponible o solo tiene el identificador que se puede mostrar, puede usar el `userId` de ADAL para buscar la cuenta en MSAL.
 
-En MSAL, primero debe buscar una cuenta mediante `username` o `identifier`. Use siempre `identifier` para realizar consultas (si lo tiene) y use `username` como reserva. Si encuentra la cuenta, úsela en las llamadas a acquireTokenSilent.
+En MSAL, primero debe buscar una cuenta mediante `username` o `identifier`. Use siempre `identifier` para realizar consultas, si lo tiene, y use `username` como reserva. Si encuentra la cuenta, úsela en las llamadas a `acquireTokenSilent`.
 
 Objective-C:
 
@@ -289,4 +289,4 @@ do {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre los [flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md).
+Más información sobre [flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md).

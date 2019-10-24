@@ -1,17 +1,17 @@
 ---
 title: Errores de recurso primario de Azure | Microsoft Docs
-description: Describe cómo resolver errores cuando se trabaja con un recurso primario.
+description: Describe cómo resolver errores cuando se trabaja con un recurso primario en una plantilla de Resource Manager.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6111f9128c56fed97414734275a21612544cccb8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 197554e16e28b4928cab351838f00e1631c269fd
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205387"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390248"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Resolución de errores para recursos primarios
 

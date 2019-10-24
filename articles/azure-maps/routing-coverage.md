@@ -179,7 +179,7 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 | Georgia                        |        ✓       |                      |             |
 | Alemania                        |        ✓       |         ✓            |     ✓      | 
 | Grecia                         |        ✓       |         ✓            |     ✓      |  
-| Guernesey                       |        ✓       |                      |             |
+| Guernsey                       |        ✓       |                      |             |
 | Hungría                        |        ✓       |         ✓            |     ✓      | 
 | Islandia                        |        ✓       |         ✓            |             |
 | Irlanda                        |        ✓       |         ✓            |     ✓      | 
@@ -202,7 +202,7 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 | Noruega                         |        ✓       |         ✓            |     ✓      | 
 | Polonia                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
-| Rumania                        |        ✓       |         ✓            |     ✓      | 
+| Rumanía                        |        ✓       |         ✓            |     ✓      | 
 | Federación Rusa             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
 | +Sint Maarten                  |        ✓       |                      |             |

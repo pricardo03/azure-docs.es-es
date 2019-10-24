@@ -5,18 +5,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 895ce98f290ce23580bb70023e2539ab4272f8b8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 843cac8c7a5e6c80b7663df2a48079dd307b7d5a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350269"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383506"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de compatibilidad para replicar máquinas virtuales de Azure de una región a otra
 
-En este artículo se resumen los requisitos previos y la compatibilidad al definir la recuperación ante desastres de máquinas virtuales de Azure de una región de Azure a otra mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
+En este artículo se resumen los requisitos previos y la compatibilidad para la recuperación ante desastres de máquinas virtuales de Azure de una región de Azure a otra mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="deployment-method-support"></a>Compatibilidad de método de implementación
@@ -32,7 +32,7 @@ En este artículo se resumen los requisitos previos y la compatibilidad al defin
 ## <a name="resource-support"></a>Compatibilidad de recursos
 
 **Acción de recursos** | **Detalles**
---- | --- | ---
+--- | --- 
 **Mover almacenes entre grupos de recursos** | No compatible
 **Mover recursos de proceso, almacenamiento y red entre grupos de recursos** | No compatible.<br/><br/> Si mueve una máquina virtual o los componentes asociados, como el almacenamiento o la red, después de la replicación de esta, tendrá que deshabilitar la replicación y volver a habilitarla para la máquina virtual.
 **Replicar máquinas virtuales de Azure de una suscripción a otra para la recuperación ante desastres** | Se admite en el mismo inquilino de Azure Active Directory.
@@ -58,7 +58,7 @@ Regiones restringidas reservadas para la recuperación ante desastres dentro de 
 >[!NOTE]
 >
 > - En la región **Sur de Brasil**, puede replicar y conmutar por error en las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU.
-> - La región Sur de Brasil solo puede utilizarse como la región de origen desde la que las máquinas virtuales replican mediante Site Recovery. No puede ser una región de destino. Esto se debe a problemas de latencia provocados por las distancias geográficas.
+> - La región Sur de Brasil solo puede utilizarse como la región de origen desde la que las máquinas virtuales replican mediante Site Recovery. No puede ser una región de destino. Esto se debe a problemas de latencia provocados por las distancias geográficas. Tenga en cuenta que si realiza la conmutación por error desde Sur de Brasil como región de origen a un destino, se admite la conmutación por recuperación a Sur de Brasil desde la región de destino.
 > - Puede trabajar dentro de las regiones para las que tenga un acceso adecuado.
 > - Si la región donde quiere crear un almacén no aparece, asegúrese de que su suscripción tiene acceso para crear recursos en esa región.
 > - Si no ve una región dentro de un clúster geográfico al habilitar la replicación, asegúrese de que su suscripción tiene permisos para crear máquinas virtuales en dicha región.
@@ -82,17 +82,21 @@ Site Recovery admite la replicación de máquinas virtuales de Azure que ejecuta
 
 ### <a name="windows"></a>Windows
 
+
 **Sistema operativo** | **Detalles**
 --- | ---
-Windows Server 2019 | Server Core y Server con Experiencia de escritorio
-Windows Server 2016  | Server Core y Server con Experiencia de escritorio
-Windows Server 2012 R2 |
-Windows Server 2012 |
-Windows Server 2008 R2 | Con ejecución de SP1 o posterior
-Windows 10 (x64) |
-Windows 8.1 (x64) |
-Windows 8 (x64) |
-Windows 7 (x64) | Con SP1 o posterior (no se admite Windows 7 RTM)
+Windows Server 2019 | Se admite para Server Core y Server con Experiencia de escritorio
+Windows Server 2016  | Se admite para Server Core y Server con Experiencia de escritorio
+Windows Server 2012 R2 | Se admite.
+Windows Server 2012 | Se admite.
+Windows Server 2008 R2 con SP1/SP2 | Se admite.<br/><br/> Desde la versión 9.30.x.x (lanzamiento esperado a partir de noviembre de 2019) de la extensión de servicio de Mobility Service para máquinas virtuales de Azure, necesita instalar la [actualización de la pila de servicio (SSU)](https://support.microsoft.com/help/4490628) de Windows y la [actualización de SHA-2](https://support.microsoft.com/help/4474419) en las máquinas que ejecutan Windows Server 2008 R2 SP1/SP2.  SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto. Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 con SP2 | Desde la versión 9.30.x.x (lanzamiento esperado a partir de noviembre de 2019) de la extensión de servicio de Mobility Service para máquinas virtuales de Azure, necesita instalar la [actualización de la pila de servicio (SSU)](https://support.microsoft.com/help/4493730) de Windows y la [actualización de SHA-2](https://support.microsoft.com/help/4474419) en las máquinas que ejecutan Windows Server 2008 con SP2.  SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto. Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
+Windows 10 (x64) | Se admite.
+Windows 8.1 (x64) | Se admite.
+Windows 8 (x64) | Se admite.
+Windows 7 (x64) con SP1 en adelante | Desde la versión 9.30.x.x (lanzamiento esperado a partir de noviembre de 2019) de la extensión de servicio de Mobility Service para máquinas virtuales de Azure, necesita instalar la [actualización de la pila de servicio (SSU)](https://support.microsoft.com/help/4490628) de Windows y la [actualización de SHA-2](https://support.microsoft.com/help/4474419) en las máquinas que ejecutan Windows 7 con SP1.  SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto. Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
+
+
 
 #### <a name="linux"></a>Linux
 

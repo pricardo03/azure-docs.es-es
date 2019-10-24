@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 5d21d3800655cc0be78a2b63d13a3616b1d0f2f8
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147356"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372718"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -114,6 +114,12 @@ Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes
 ## <a name="testing-routes"></a>Prueba de las rutas
 
 Al crear una ruta nueva o al modificar una ruta existente, debe probar la consulta de ruta con un mensaje de ejemplo. Puede probar rutas individuales o probar todas las rutas a la vez y no se enruta ningún mensaje a los puntos de conexión durante la prueba. Puede usar Azure Portal, Azure Resource Manager, Azure PowerShell y la CLI de Azure para realizar las pruebas. Los resultados ayudan a identificar si el mensaje de ejemplo coincide con la consulta, el mensaje no coincide con la consulta o no se pudo ejecutar la prueba porque la sintaxis del mensaje de ejemplo o de la consulta son incorrectas. Para más información, consulte [Prueba de una ruta](/rest/api/iothub/iothubresource/testroute) y [Prueba de todas las rutas](/rest/api/iothub/iothubresource/testallroutes).
+
+## <a name="ordering-guarantees-with-at-least-once-delivery"></a>Garantías de orden con al menos una entrega
+
+El enrutamiento de mensajes de IoT Hub garantiza al menos una entrega ordenada de mensajes a los puntos de conexión. De este modo, puede haber mensajes duplicados y puede retransmitirse una serie de mensajes que respete el orden de mensajes original. Por ejemplo, si el orden de los mensajes original es [1,2,3,4], podría recibir una secuencia de mensajes como [1,2,1,2,3,1,2,3,4]. La garantía de ordenación consiste en que, si alguna vez recibe el mensaje [1], siempre irá seguido de [2,3,4].
+
+Para controlar mensajes duplicados, se recomienda marcar un identificador único en las propiedades de aplicación del mensaje en el punto de origen, que suele ser un dispositivo o un módulo. El servicio que consume los mensajes puede controlar los mensajes duplicados con este identificador.
 
 ## <a name="latency"></a>Latencia
 

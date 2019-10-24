@@ -10,18 +10,18 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 13fa2b892013cf4a3fb96220c901030c6b0aee0b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: a899de22137decc1eb1578369a2751710c17abda
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129108"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332868"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Escalado de su entorno de Time Series Insights
 
-En este artículo se describe cómo cambiar la capacidad de su entorno en el entorno de Azure Time Series Insights a través de Azure Portal. La capacidad es el multiplicador que se aplica a la tasa de entrada, la capacidad de almacenamiento y el costo asociado a la SKU seleccionada.
+En este artículo se describe cómo cambiar la capacidad de su entorno de Azure Time Series Insights mediante [Azure Portal](https://portal.azure.com). La capacidad es el multiplicador que se aplica a la tasa de entrada, la capacidad de almacenamiento y el costo asociado a la SKU seleccionada.
 
 Puede usar Azure Portal para aumentar o disminuir la capacidad en una SKU de precios determinada.
 
@@ -59,6 +59,12 @@ Las capacidades se escalan linealmente, por lo que una SKU de S1 con capacidad 2
 
 1. Seleccione **Guardar** para escalar el entorno. El indicador de progreso se muestra hasta que el cambio se confirma, un tiempo breve.
 
+1. Compruebe que la nueva capacidad sea [suficiente para evitar la limitación](time-series-insights-diagnose-and-solve-problems.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Compruebe que la nueva capacidad sea [suficiente para evitar la limitación](time-series-insights-diagnose-and-solve-problems.md).
+- Para obtener más información, consulte [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md) (Información sobre la retención en Time Series Insights).
+
+- Aprenda a [configurar la retención de datos en Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+- Aprenda sobre el [planeamiento de su entorno](time-series-insights-environment-planning.md).

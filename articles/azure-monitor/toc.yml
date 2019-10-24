@@ -639,6 +639,8 @@
                   href: insights/vminsights-workbooks.md
                 - name: Análisis de datos con consultas de registros
                   href: insights/vminsights-log-search.md
+                - name: Actualización de Dependency Agent
+                  href: insights/vminsights-dependency-agent-maintenance.md
                 - name: Deshabilitar la supervisión
                   href: insights/vminsights-optout.md
             - name: Solución Capacidad y rendimiento

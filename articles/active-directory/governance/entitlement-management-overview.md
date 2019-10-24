@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07a51b9f21d32fb3efdfef7c7f74cb3a1088115a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a467856550bf2deaab931b3fe2f54b7986f12f8a
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827157"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430301"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>¿Qué es la administración de derechos de Azure AD? (versión preliminar)
 
@@ -73,11 +73,11 @@ Para obtener información general de la gobernanza de identidades y de la admini
 Estos son los tipos de recursos a los que puede administrar el acceso con la administración de derechos:
 
 - Grupos de seguridad de Azure AD
-- Grupos de Office 365
+- Office 365 Groups
 - Aplicaciones empresariales Azure AD, incluidas las aplicaciones SaaS y aplicaciones integradas personalizadas que admiten la federación o el aprovisionamiento.
 - Sitios y colecciones de sitios de SharePoint Online
 
-También puede controlar el acceso a otros recursos que dependen de los grupos de seguridad de Azure AD o de Office 365.  Por ejemplo:
+También puede controlar el acceso a otros recursos que dependen de los grupos de seguridad de Azure AD o de los grupos de Office 365.  Por ejemplo:
 
 - Puede conceder licencias a los usuarios para Microsoft Office 365 mediante un grupo de seguridad de Azure AD en un paquete de acceso y la configuración de [licencias basadas en grupos](../users-groups-roles/licensing-groups-assign.md) para ese grupo.
 - Puede dar acceso a los usuarios para administrar los recursos de Azure mediante un grupo de seguridad de Azure AD en un paquete de acceso y la creación de una [asignación de roles de Azure](../../role-based-access-control/role-assignments-portal.md) para ese grupo.
@@ -104,16 +104,6 @@ El siguiente diagrama muestra un ejemplo de los diferentes elementos de la admin
 - El **paquete de acceso 2** incluye un grupo, una aplicación y un sitio de SharePoint Online como recursos. El acceso se define con dos directivas diferentes. La primera directiva permite a un conjunto de usuarios del directorio solicitar acceso. La segunda directiva permite a los usuarios de un directorio externo solicitar acceso.
 
 ![Introducción a la administración de derechos](./media/entitlement-management-overview/elm-overview.png)
-
-## <a name="external-users"></a>Usuarios externos
-
-Cuando utilice la experiencia de invitación de [Azure AD de empresa a empresa (B2B)](../b2b/what-is-b2b.md), ya debe conocer las direcciones de correo electrónico de los usuarios invitados externos que desea incorporar al directorio de recursos y con los que desea trabajar. Esto funciona muy bien cuando está trabajando en un proyecto más pequeño o a corto plazo y ya conoce a todos los participantes, pero es más difícil de administrar si tiene muchos usuarios con los que quiere trabajar o si los participantes cambian con el tiempo.  Por ejemplo, puede estar trabajando con otra organización y tener un punto de contacto con ella, pero con el tiempo otros usuarios de esa organización también necesitarán acceso.
-
-Con la administración de derechos, puede definir una directiva que permita a los usuarios de las organizaciones que especifique, que también estén usando Azure AD, poder solicitar un paquete de acceso. Puede especificar si se requiere aprobación y una fecha de expiración para el acceso. Si se requiere autorización, también puede designar como aprobador a uno o varios usuarios de la empresa externa a la que ha invitado previamente, ya que es probable que sepan qué usuarios externos de su empresa necesitan acceso. Una vez configurado el paquete de acceso, puede enviar un vínculo al paquete de acceso a la persona de contacto de la organización externa. Ese contacto puede compartirlo con otros usuarios de la organización externa y pueden usar este vínculo para solicitar el paquete de acceso.  Los usuarios de esa organización que ya han recibido la invitación a su directorio también pueden usar ese vínculo.
-
-Cuando se aprueba una solicitud, la administración de derechos proporciona al usuario el acceso necesario, que puede incluir invitar al usuario si aún no está en el directorio. Azure AD creará automáticamente una cuenta de B2B para ellos.  Tenga en cuenta que un administrador puede haber limitado previamente qué organizaciones están permitidas para la colaboración, mediante el establecimiento de una [lista de permitidos y denegados de B2B](../b2b/allow-deny-list.md) para permitir o bloquear las invitaciones a otras organizaciones.  Si el usuario no está autorizado por la lista de permitidos o bloqueados, no se le invitará.
-
-Puesto que no desea que el acceso del usuario externo dure para siempre, especifique una fecha de expiración en la directiva, por ejemplo 180 días. Después de 180 días, si no se renueva el acceso, la administración de derechos eliminará todo el acceso asociado con ese paquete de acceso.  Si el usuario invitado a través de la administración de derechos no tiene ninguna otra asignación de paquetes de acceso, cuando pierda la última asignación, la cuenta de B2B se bloqueará durante 30 días y posteriormente se eliminará.  Esto evita la proliferación de cuentas innecesarias.  
 
 ## <a name="terminology"></a>Terminología
 

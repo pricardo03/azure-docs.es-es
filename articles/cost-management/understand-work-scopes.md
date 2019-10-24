@@ -1,21 +1,21 @@
 ---
-title: Descripción y uso de ámbitos de Azure Cost Management | Microsoft Docs
+title: Descripción y uso de ámbitos de Azure Cost Management
 description: Este artículo le ayudará a comprender los ámbitos de administración de facturación y recursos disponibles en Azure y cómo usarlos en Cost Management y las API.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 41d83d4a6c5aad4c3b575513c6b3e2e25a425829
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338636"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374480"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -128,7 +128,10 @@ Las cuentas de facturación de los contratos de cliente de Microsoft tienen los 
 
     Tipo de recurso: `Microsoft.Billing/billingAccounts/invoiceSections`
 
+- **Cliente**: representa un grupo de suscripciones asociadas a un cliente específico que un asociado incorpora a un contrato de cliente de Microsoft. Este ámbito es específico de CSP.
+
 A diferencia de los ámbitos de facturación de EA, las cuentas de facturación de los contratos de cliente _están_ enlazadas a un único directorio y no pueden tener suscripciones en varios directorios de Azure AD.
+
 
 Los ámbitos de facturación de los contratos de cliente admiten los siguientes roles:
 
@@ -149,7 +152,7 @@ Una vez completada la integración de AWS, consulte [Instalación y configuraci�
 - **Cuenta de facturación externa**: representa un contrato de cliente con un proveedor de terceros. Es similar a la cuenta de facturación del Contrato Enterprise.
 
     Tipo de recurso: `Microsoft.CostManagement/externalBillingAccounts`
-    
+
 - **Suscripción externa**: representa una cuenta operativa del cliente con un proveedor de terceros. Es similar a una suscripción de Azure.
 
     Tipo de recurso: `Microsoft.CostManagement/externalSubscriptions`

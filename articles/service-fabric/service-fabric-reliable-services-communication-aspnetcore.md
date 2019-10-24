@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 9648307bb7278f36686d8a53be90c2d9ef7159e1
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 39e6273382133493a77321deed2baec4718bc912
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016712"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383661"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core en Reliable Services de Azure Service Fabric
 
@@ -200,7 +200,7 @@ Un puerto dinámico asignado por una configuración de `Endpoint` proporciona so
 ## <a name="kestrel-in-reliable-services"></a>Kestrel en Reliable Services
 Puede usar Kestrel en Reliable Services si importa el paquete NuGet **Microsoft.ServiceFabric.AspNetCore.Kestrel**. Este paquete contiene `KestrelCommunicationListener`, una implementación de `ICommunicationListener`. `KestrelCommunicationListener` le permite crear un elemento WebHost de ASP.NET Core dentro de una instancia de Reliable Services con Kestrel como servidor web.
 
-Kestrel es un servidor web multiplataforma para ASP.NET Core basado en libuv, una biblioteca de E/S asincrónica multiplataforma. A diferencia de HTTP.sys, Kestrel no usa un administrador centralizado de puntos de conexión. También a diferencia de HTTP.sys, Kestrel no admite que varios procesos compartan puertos. Cada instancia de Kestrel debe usar un puerto único.
+Kestrel es un servidor web multiplataforma para ASP.NET Core. A diferencia de HTTP.sys, Kestrel no usa un administrador centralizado de puntos de conexión. También a diferencia de HTTP.sys, Kestrel no admite que varios procesos compartan puertos. Cada instancia de Kestrel debe usar un puerto único. Para más información sobre Kestrel, consulte los [detalles de implementación](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
 
 ![Diagrama de Kestrel][4]
 

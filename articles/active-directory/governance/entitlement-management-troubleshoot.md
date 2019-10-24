@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 420a7079a7961868277a2d78ffbac4adba240d9f
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: ea979731c27a8d332102c3215e80510994f2ab3f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678085"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430241"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management-preview"></a>Solución de problemas de la administración de derechos de Azure AD (versión preliminar)
 
@@ -45,7 +45,7 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 
 * Las bibliotecas de documentos de SharePoint Online y los documentos individuales no se pueden agregar como recursos.  En su lugar, cree un grupo de seguridad de Azure AD, incluya ese grupo y un rol de sitio en el paquete de acceso y, en SharePoint Online, use ese grupo para controlar el acceso a la biblioteca de documentos o al documento.
 
-* Si hay usuarios que ya se han asignado a un recurso que desee administrar con un paquete de acceso, asegúrese de que los usuarios están asignados al paquete de acceso con una directiva adecuada. Por ejemplo, puede incluir un grupo en un paquete de acceso que ya tenga usuarios en el grupo. Si esos usuarios del grupo requieren acceso continuado, deben tener una directiva adecuada para los paquetes de acceso, de manera que no se queden sin acceso de grupo. Para asignar el paquete de acceso, puede pedir a los usuarios que soliciten el paquete de acceso que contiene el recurso o asignárselo directamente. Para más información, consulte [Edición y administración de un paquete de acceso existente](entitlement-management-access-package-edit.md).
+* Si hay usuarios que ya se han asignado a un recurso que desee administrar con un paquete de acceso, asegúrese de que los usuarios están asignados al paquete de acceso con una directiva adecuada. Por ejemplo, puede incluir un grupo en un paquete de acceso que ya tenga usuarios en el grupo. Si esos usuarios del grupo requieren acceso continuado, deben tener una directiva adecuada para los paquetes de acceso, de manera que no se queden sin acceso de grupo. Para asignar el paquete de acceso, puede pedir a los usuarios que soliciten el paquete de acceso que contiene el recurso o asignárselo directamente. Para más información, consulte [Modificación de la configuración de solicitudes y aprobación de un paquete de acceso](entitlement-management-access-package-request-policy.md).
 
 ## <a name="checklist-for-providing-external-users-access"></a>Lista de comprobación para proporcionar acceso a usuarios externos
 
@@ -55,16 +55,17 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 
 ## <a name="checklist-for-request-issues"></a>Lista de comprobación para problemas de solicitud
 
-* Cuando un usuario desee solicitar acceso a un paquete de acceso, asegúrese de que está utilizando el **vínculo del portal Mi acceso** para el paquete de acceso. Para más información, consulte [Copie el vínculo del portal Mi acceso](entitlement-management-access-package-edit.md#copy-my-access-portal-link).  Si un usuario externo visita **myaccess.microsoft.com**, verá los paquetes de acceso disponibles para él en su propia organización.
+* Cuando un usuario desee solicitar acceso a un paquete de acceso, asegúrese de que está utilizando el **vínculo del portal Mi acceso** para el paquete de acceso. Para más información, consulte [Uso compartido de un vínculo para solicitar un paquete de acceso](entitlement-management-access-package-settings.md).  Si un usuario externo visita **myaccess.microsoft.com**, verá los paquetes de acceso disponibles para él en su propia organización.
 
 * Cuando un usuario que aún no está en el directorio inicia sesión en el portal Mi acceso para solicitar un paquete de acceso, asegúrese de que se autentique con su cuenta profesional. La cuenta profesional puede ser una cuenta del directorio de recursos o de un directorio incluido en una de las directivas del paquete de acceso. Si la cuenta de usuario no es una cuenta profesional o si el directorio donde se autentica no está incluido en la directiva, el usuario no verá el paquete de acceso. Para más información, consulte [Solicitud de acceso a un paquete acceso](entitlement-management-request-access.md).
 
 * Si un usuario tiene un bloqueo de inicio de sesión al directorio de recursos, no podrá acceder a la solicitud de acceso del portal Mi acceso. Para que pueda solicitar el acceso, debe eliminar el bloqueo de inicio de sesión de su perfil. Para quitar el bloqueo de inicio de sesión en Azure Portal, haga clic en **Azure Active Directory**, en **Usuarios**, en el usuario y, finalmente, en **Perfil**. Edite la sección **Configuración** y cambie **Bloquear inicio de sesión** a **No**. Para más información, consulte [Incorporación o actualización de la información de perfil de un usuario mediante Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  También puede comprobar si el usuario se bloqueó debido a una [directiva de protección de identidad](../identity-protection/howto-unblock-user.md).
 
-* En el portal Mi acceso, si un usuario es tanto solicitante como aprobador, no verá su solicitud para un paquete de acceso en la página **Aprobaciones**. Este comportamiento es deliberado: un usuario no puede aprobar sus propias solicitudes. Asegúrese de que el paquete de acceso que solicita tiene otros aprobadores configurados en la directiva. Para más información, vea [Editar una directiva existente](entitlement-management-access-package-edit.md#edit-an-existing-policy).
+* En el portal Mi acceso, si un usuario es tanto solicitante como aprobador, no verá su solicitud para un paquete de acceso en la página **Aprobaciones**. Este comportamiento es deliberado: un usuario no puede aprobar sus propias solicitudes. Asegúrese de que el paquete de acceso que solicita tiene otros aprobadores configurados en la directiva. Para más información, consulte [Modificación de la configuración de solicitudes y aprobación de un paquete de acceso](entitlement-management-access-package-request-policy.md).
 
 * Si un nuevo usuario externo que no ha iniciado sesión en el directorio antes recibe un paquete de acceso que incluya un sitio de SharePoint Online, este se mostrará como que no se ha entregado totalmente hasta que la cuenta esté aprovisionada en SharePoint Online.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Visualización de los informes sobre el acceso de los usuarios en la administración de derechos](entitlement-management-reports.md)
+- [Administración del acceso para usuarios externos](entitlement-management-external-users.md)

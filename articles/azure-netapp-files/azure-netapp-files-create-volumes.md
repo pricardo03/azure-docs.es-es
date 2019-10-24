@@ -12,24 +12,46 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 7/9/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: 45164acd89fc9634d6929bafb35e64a5dc9f2b86
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 1a479b4928631f27d5453d462a59fe7fed09a88c
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178226"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302764"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creación de un volumen de NFS para Azure NetApp Files
 
-Azure NetApp Files admite volúmenes NFS y SMBv3. El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo. En este artículo se muestra cómo crear un volumen NFS. Si desea crear un volumen SMB, consulte [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) (Creación de un volumen SMB para Azure NetApp Files). 
+Azure NetApp Files admite volúmenes NFS (NFSv3 y NFSv4.1) y SMBv3. El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo. En este artículo se muestra cómo crear un volumen NFS. Si desea crear un volumen SMB, consulte [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) (Creación de un volumen SMB para Azure NetApp Files). 
 
 ## <a name="before-you-begin"></a>Antes de empezar 
 Debe haber configurado un grupo de capacidad.   
 [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)   
 Debe haber una subred delegada en Azure NetApp Files.  
 [Delegación de una subred en Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+
+## <a name="considerations"></a>Consideraciones 
+
+> [!IMPORTANT] 
+> El acceso a la característica NFSv4.1 requiere la inclusión en una lista de permitidos.  Para solicitar la inclusión en la lista de permitidos, envíe una solicitud a <anffeedback@microsoft.com>. 
+
+* Elección de la versión de NFS que desea usar  
+  NFSv3 puede administrar una amplia variedad de casos de uso y se implementa normalmente en la mayoría de las aplicaciones empresariales. Debe validar qué versión (NFSv3 o NFSv4.1) requiere la aplicación y crear el volumen mediante la versión adecuada. Por ejemplo, si usa [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave), se recomienda el bloqueo de archivos con NFSv4.1 en lugar de con NFSv3. 
+
+* Seguridad  
+  La compatibilidad con los bits de modo UNIX (lectura, escritura y ejecución) está disponible para NFSv3 y NFSv4.1. Se necesita acceso de nivel de raíz en el cliente NFS para montar volúmenes NFS.
+
+* Usuario o grupo local y compatibilidad con LDAP para NFSv4.1  
+  Actualmente, NFSv4.1 solo admite el acceso raíz a volúmenes. 
+
+## <a name="best-practice"></a>Procedimiento recomendado
+
+* Debe asegurarse de que está usando las instrucciones de montaje adecuadas para el volumen.  Consulte [Montaje o desmontaje de un volumen para máquinas virtuales Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
+
+* El cliente NFS debe estar en la misma red virtual o red virtual emparejada que el volumen de Azure NetApp Files. Se admite la conexión desde fuera de la red virtual; sin embargo, esto agregará latencia adicional y disminuirá el rendimiento general.
+
+* Debe asegurarse de que el cliente NFS esté actualizado y ejecutando las actualizaciones más recientes del sistema operativo.
 
 ## <a name="create-an-nfs-volume"></a>Creación de un volumen NFS
 
@@ -71,14 +93,16 @@ Debe haber una subred delegada en Azure NetApp Files.
     
         ![Creación de una subred](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. Haga clic en **Protocolo** y seleccione **NFS** como el tipo de protocolo del volumen.   
+4. Haga clic en **Protocolo** y realice las siguientes acciones:  
+    * Seleccione **NFS** como tipo de protocolo para el volumen.   
     * Especifique la **ruta de acceso de archivo** que se usará para crear la ruta de acceso de exportación para el nuevo volumen. La ruta de acceso de exportación se usa para montar el volumen y tener acceso a él.
 
         El nombre de la ruta de acceso de archivo solo puede contener letras, números y guiones ("-"). El nombre debe tener entre 16 y 40 caracteres. 
 
         La ruta de acceso del archivo debe ser única dentro de cada suscripción y cada región. 
 
-    * Si lo desea, [configure la directiva de exportación para un volumen NFS](azure-netapp-files-configure-export-policy.md)
+    * Seleccione la versión de NFS (**NFSv3** o **NFSv4.1**) del volumen.  
+    * Si lo desea, [configure la directiva de exportación para un volumen NFS](azure-netapp-files-configure-export-policy.md).
 
     ![Especificación del protocolo NFS](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 

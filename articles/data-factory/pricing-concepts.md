@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.openlocfilehash: f08dea90e7700082b6eeb708b576451060f81255
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 168d977b9dc0ea6117796cf98a8562f168258d28
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140939"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387453"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Descripción de los precios de Data Factory a través de ejemplos
 
@@ -128,13 +128,13 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Uso de la depuración de Mapping Data Flow para un día laboral normal (precios de la versión preliminar)
 
-Como ingeniero de datos, es responsable de diseñar, compilar y probar Mapping Data Flow cada día. Pongamos por caso que inicia sesión en la interfaz de usuario de ADF por la mañana y habilita el modo de depuración de Data Flow. El TTL predeterminado para las sesiones de depuración es de 60 minutos. Trabaja a lo largo del día durante 10 horas, por lo que la sesión de depuración no expira nunca. Por lo tanto, el precio del día será:
+Como ingeniero de datos, es responsable de diseñar, compilar y probar flujos de datos de asignación cada día. Pongamos por caso que inicia sesión en la interfaz de usuario de ADF por la mañana y habilita el modo de depuración de Data Flow. El TTL predeterminado para las sesiones de depuración es de 60 minutos. Trabaja a lo largo del día durante 10 horas, por lo que la sesión de depuración no expira nunca. Por lo tanto, el precio del día será:
 
 **10 (horas) x 8 (núcleos) x 0,112 USD = 8,96 USD**
 
 ## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Transformación de datos del almacén de blobs con Mapping Data Flow (precios de la versión preliminar)
 
-En este escenario, le interesa transformar los datos del almacén de blobs visualmente en Mapping Data Flow de ADF según una programación por hora.
+En este escenario, le interesa transformar los datos del almacén de blobs visualmente en flujos de datos de asignación de ADF según una programación por hora.
 
 Para lograr el escenario, es preciso crear una canalización con los siguientes elementos:
 

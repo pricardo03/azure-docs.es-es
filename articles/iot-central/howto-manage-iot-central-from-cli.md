@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1ec83541c62d93eee91348531797ecdeb8c9fc6e
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 42a2b2d7962f3efd71639f65e9e6f6f5d6783afb
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873481"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286424"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Administración de IoT Central desde la CLI de Azure
 
@@ -53,7 +53,7 @@ Estos comandos crean en primer lugar un grupo de recursos en la región Este de 
 | Parámetro         | DESCRIPCIÓN |
 | ----------------- | ----------- |
 | resource-group    | Grupo de recursos que contiene a la aplicación. Este grupo de recursos ya debe existir en la suscripción. |
-| location          | Este comando usa de forma predeterminada la ubicación del grupo de recursos. Actualmente, puede crear una aplicación de IoT Central en las regiones **Este de EE. UU.** , **Oeste de EE. UU.** , **Norte de Europa** u **Oeste de Europa**, o incluso en la región geográfica de **Australia**. |
+| location          | Este comando usa de forma predeterminada la ubicación del grupo de recursos. Actualmente, se pueden crear aplicaciones de IoT Central en **Este de EE. UU.** , **Oeste de EE. UU.** , **Norte de Europa** u **Oeste de Europa**, o incluso en las regiones geográficas de **Australia** o **Asia Oriental**. |
 | Nombre              | Nombre de la aplicación en Azure Portal. |
 | subdomain         | Subdominio en la dirección URL de la aplicación. En el ejemplo, la dirección URL de la aplicación es https://mysubdomain.azureiotcentral.com. |
 | sku               | Actualmente, el único valor es **S1** (nivel estándar). Consulte [Precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |

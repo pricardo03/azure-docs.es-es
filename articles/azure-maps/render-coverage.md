@@ -262,7 +262,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Alemania                   | ✓ | ✓ |
 | Gibraltar                 | ✓ | ✓ |
 | Grecia                    | ✓ | ✓ |
-| Guernesey                  | ✓ | ✓ |
+| Guernsey                  | ✓ | ✓ |
 | Hungría                   | ✓ | ✓ |
 | Islandia                   | ✓ | ✓ |
 | Irlanda                   | ✓ | ✓ |
@@ -283,7 +283,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Noruega                    | ✓ | ✓ |
 | Polonia                    | ✓ | ✓ |
 | Portugal                  | ✓ | ✓ |
-| Rumania                   | ✓ | ✓ |
+| Rumanía                   | ✓ | ✓ |
 | Federación Rusa        | ✓ | ✓ |
 | San Marino                | ✓ | ✓ |
 | Serbia                    | ✓ | ✓ |

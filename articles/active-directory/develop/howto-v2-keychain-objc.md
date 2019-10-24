@@ -17,16 +17,16 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e85fc5e6e907e32c0ad67af339c48cf84ef4764
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 46dc3a44041acd90dbab449215138eeecbda7105
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269382"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264185"
 ---
 # <a name="configure-keychain"></a>Configuración del llavero
 
-Cuando la [biblioteca de autenticación de Microsoft para iOS y macOS (MSAL)](msal-overview.md) inicia la sesión de un usuario o actualiza un token, intenta almacenar en caché los tokens en el llavero. Al almacenar en caché los tokens en el llavero, MSAL puede proporcionar un inicio de sesión único (SSO) silencioso entre varias aplicaciones distribuidas por el mismo desarrollador de Apple. SSO se consigue mediante la funcionalidad de grupos de acceso al llavero (consulte la [documentación de Apple](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc)).
+Cuando la [biblioteca de autenticación de Microsoft para iOS y macOS (MSAL)](msal-overview.md) inicia la sesión de un usuario o actualiza un token, intenta almacenar en caché los tokens en el llavero. Al almacenar en caché los tokens en el llavero, permite a MSAL proporcionar un inicio de sesión único (SSO) silencioso entre varias aplicaciones distribuidas por el mismo desarrollador de Apple. SSO se consigue mediante la funcionalidad de grupos de acceso al llavero. Para más información, consulte la [documentación de los elementos del llavero](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) de Apple.
 
 En este artículo se explica cómo configurar los derechos de la aplicación para que MSAL pueda escribir tokens en caché en el llavero de iOS y macOS.
 

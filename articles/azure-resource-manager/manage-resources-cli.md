@@ -1,6 +1,6 @@
 ---
 title: Administración de recursos de Azure con la CLI de Azure | Microsoft Docs
-description: Uso de la CLI de Azure y de Azure Resource Manager para implementar los recursos.
+description: Uso de la CLI de Azure y de Azure Resource Manager para administrar los recursos. Muestra cómo implementar y eliminar los recursos.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 78dd51c023bc46ed09219acc3df7e4ee7006ac2b
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: d3c3ca4a95cff8b9a81be8e75b011ca83799dcaa
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001549"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390380"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Administración de recursos de Azure mediante la CLI de Azure
 
@@ -26,7 +26,7 @@ Otros artículos sobre la administración de recursos:
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>Implementación de recursos en un grupo de recursos existente
 
-Puede implementar los recursos de Azure mediante Azure PowerShell directamente o implementar una plantilla de Resource Manager para crear recursos de Azure.
+Puede implementar los recursos de Azure mediante la CLI de Azure directamente o implementar una plantilla de Resource Manager para crear recursos de Azure.
 
 ### <a name="deploy-a-resource"></a>Implementación de un recurso
 

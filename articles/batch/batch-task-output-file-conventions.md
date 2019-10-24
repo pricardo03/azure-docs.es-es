@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4446b92a8998f05aae47a3bab6a2cea4785fddf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a2970c46c7cbc978bf6d7491c9258dcccc5404bd
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094561"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302677"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET
 
@@ -63,12 +63,12 @@ Para guardar los datos de salida en Azure Storage mediante la biblioteca de conv
 
 ## <a name="persist-output-data"></a>Guardar datos de salida
 
-Para guardar los datos de salida de trabajos y tareas con la biblioteca de convenciones de archivo, cree un contenedor en Azure Storage y, a continuación, guarde la salida en el contenedor. Use la [biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) en el código de tarea para cargar la salida de la tarea en el contenedor. 
+Para guardar los datos de salida de trabajos y tareas con la biblioteca de convenciones de archivo, cree un contenedor en Azure Storage y, a continuación, guarde la salida en el contenedor. Use la [biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) en el código de tarea para cargar la salida de la tarea en el contenedor.
 
 Para más información sobre el trabajo con contenedores y blobs en Azure Storage, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Todas las salidas de trabajos y tareas guardados con la biblioteca de convenciones de archivo se almacenan en el mismo contenedor. Si un gran número de tareas intenta guardar archivos al mismo tiempo, se pueden aplicar [límites de almacenamiento](../storage/common/storage-performance-checklist.md#blobs).
+> Todas las salidas de trabajos y tareas guardados con la biblioteca de convenciones de archivo se almacenan en el mismo contenedor. Si un gran número de tareas intenta guardar archivos al mismo tiempo, se pueden aplicar los límites de almacenamiento de Azure Storage. Para más información sobre las limitaciones, consulte [Lista de comprobación de escalabilidad y rendimiento para Blob Storage](../storage/blobs/storage-performance-checklist.md).
 
 ### <a name="create-storage-container"></a>Creación de contenedores de almacenamiento
 

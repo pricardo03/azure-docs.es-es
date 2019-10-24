@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
+author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 06/10/2019
-ms.openlocfilehash: 226b0c1cb11fc872cb7759e0d0e49275b9c2d9bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/14/2019
+ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568142"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390696"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidad y Azure SQL Database
 
@@ -39,7 +39,7 @@ Estos niveles de servicio aprovechan la arquitectura de disponibilidad estándar
 
 El modelo de disponibilidad estándar incluye dos capas:
 
-- Una capa de proceso sin estado que ejecuta el proceso `sqlserver.exe` y que solo contiene datos transitorios y almacenado en caché en la unidad SSD asociada, como TempDB, base de datos modelo, caché de planes, grupo de búferes y grupo de almacén de columnas. Este nodo sin estado lo opera Azure Service Fabric, que inicializa `sqlserver.exe`, controla el estado del nodo y realiza la conmutación por error a otro nodo si es necesario.
+- Una capa de proceso sin estado que ejecuta el proceso `sqlservr.exe` y que solo contiene datos transitorios y almacenados en caché, como las bases de datos modelo y TempDB en la memoria SSD conectada, y la memoria caché de planes, el grupo de búferes y el grupo de almacén de columnas en la memoria. Este nodo sin estado lo opera Azure Service Fabric, que inicializa `sqlservr.exe`, controla el estado del nodo y realiza la conmutación por error a otro nodo si es necesario.
 - Una capa de datos con estado con archivos de base de datos (.mdf o .ldf) que se almacenan en Azure Blob Storage. Azure Blob Storage presenta características integradas de redundancia y disponibilidad de los datos. Garantiza que todos los registros del archivo de registro o de la página del archivo de datos se conservarán incluso si se bloquea el proceso de SQL Server.
 
 Siempre que se actualice el motor de base de datos o el sistema operativo, o se detecte un error, Azure Service Fabric moverá el proceso sin estado de SQL Server a otro nodo de proceso sin estado son capacidad suficiente disponible. Los datos de Azure Blob Storage no resultan afectados por esta operación y los archivos de registro o de datos se asocian al proceso de SQL Server recién inicializado. Aunque este proceso garantiza el 99,99 % de disponibilidad, una carga de trabajo pesada podría experimentar una degradación del rendimiento durante la transición dado que la nueva instancia de SQL Server se inicia con la caché inactiva.
@@ -54,14 +54,32 @@ Los archivos de base de datos subyacentes (.mdf o .ldf) se colocan en el almacen
 
 Como ventaja adicional, el modelo de disponibilidad premium incluye la posibilidad de redirigir las conexiones SQL de solo lectura a una de las réplicas secundarias. Esta característica se denomina [escalado horizontal de lectura](sql-database-read-scale-out.md) y proporciona el 100 % de capacidad de proceso adicional al mismo costo para descargar operaciones de solo lectura, como cargas de trabajo de análisis, desde la réplica principal.
 
+## <a name="hyperscale-service-tier-availability"></a>Disponibilidad del nivel de servicio Hiperescala
+
+La arquitectura del nivel de servicio Hiperescala se describe en [Arquitectura de funciones distribuidas](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture). 
+
+![Arquitectura funcional de Hiperescala](./media/sql-database-hyperscale/hyperscale-architecture.png)
+
+El modelo de disponibilidad de Hiperescala incluye cuatro capas:
+
+- Una capa de proceso sin estado que ejecuta los procesos `sqlservr.exe` y que solo contiene datos transitorios y almacenados en caché, como la memoria caché RBPEX sin cobertura, TempDB, la base de datos modelo, etc. en la memoria SSD conectada, la memoria caché de planes, el grupo de búferes y el grupo de almacén de columnas en memoria. Esta capa sin estado incluye la réplica de proceso principal y, opcionalmente, un número de réplicas de proceso secundarias que pueden servir como destinos de conmutación por error.
+- Una capa de almacenamiento sin estado formada por servidores de páginas. Esta capa es el motor de almacenamiento distribuido para los procesos `sqlservr.exe` que se ejecutan en las réplicas de proceso. Cada servidor de páginas solo contiene datos transitorios y almacenados en caché, como la memoria caché de RBPEX de cobertura en la SSD conectada y las páginas de datos almacenadas en memoria caché. Cada servidor de páginas tiene un servidor de páginas emparejadas en una configuración activa-activa para proporcionar equilibrio de carga, redundancia y una alta disponibilidad.
+- Una capa de almacenamiento de registro de transacciones con estado formada por el nodo de proceso que ejecuta el proceso de servicio de registro, la zona de entrada del registro de transacciones y el almacenamiento a largo plazo del registro de transacciones. La zona de aterrizaje y el almacenamiento a largo plazo usan Azure Storage, que proporciona disponibilidad y [redundancia](https://docs.microsoft.com/azure/storage/common/storage-redundancy) para el registro de transacciones, lo que garantiza la durabilidad de los datos para las transacciones confirmadas.
+- Una capa de almacenamiento de datos con estado con los archivos de base de datos (.mdf/.ndf) que se almacenan en Azure Storage y que los servidores de páginas actualizan. Esta capa utiliza las características de disponibilidad de datos y [redundancia](https://docs.microsoft.com/azure/storage/common/storage-redundancy) de Azure Storage. Garantiza que todas las páginas de un archivo de datos se conserven aunque se bloqueen los procesos de otras capas de la arquitectura de Hiperescala o si se produzca un error en los nodos de proceso.
+
+Los nodos de proceso de todas las capas de Hiperescala se ejecutan en Azure Service Fabric, que controla el estado de cada nodo y realiza conmutaciones por error en los nodos correctos disponibles según sea necesario.
+
+Para más información sobre la alta disponibilidad en Hiperescala, consulte [Alta disponibilidad de base de datos en Hiperescala](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
+
 ## <a name="zone-redundant-configuration"></a>Configuración de redundancia de zona
 
-De forma predeterminada, el clúster de nodos del modelo de disponibilidad premium se crea en el mismo centro de datos. Con la incorporación de [Azure Availability Zones](../availability-zones/az-overview.md), SQL Database puede colocar diferentes réplicas del clúster en diferentes zonas de disponibilidad de la misma región. Para eliminar un punto de error único, también se duplica el anillo de control en varias zonas como tres anillos de puerta de enlace. El enrutamiento a un anillo de puerta de enlace específico se controla mediante [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Como la configuración de redundancia de zona de los niveles de servicio premium y crítico para la empresa no crean redundancia adicional de base de datos, puede habilitarla sin costo adicional. Si selecciona una configuración de redundancia de zona, puede hacer que las bases de datos de los niveles premium o crítico para la empresa sean resistentes a un número mucho mayor de errores, como interrupciones catastróficas de los centros de datos, sin necesidad de cambiar la lógica de la aplicación. También puede aplicar la configuración de redundancia de zona a cualquier grupo o base de datos existente del nivel Premium o Crítico para la empresa.
+De forma predeterminada, el clúster de nodos del modelo de disponibilidad premium se crea en el mismo centro de datos. Con la incorporación de [Azure Availability Zones](../availability-zones/az-overview.md), SQL Database puede colocar diferentes réplicas de la base de datos Crítico para la empresa en diferentes zonas de disponibilidad de la misma región. Para eliminar un punto de error único, también se duplica el anillo de control en varias zonas como tres anillos de puerta de enlace. El enrutamiento a un anillo de puerta de enlace específico se controla mediante [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Como la configuración de redundancia de zona de los niveles de servicio premium y crítico para la empresa no crean redundancia adicional de base de datos, puede habilitarla sin costo adicional. Si selecciona una configuración de redundancia de zona, puede hacer que las bases de datos de los niveles premium o crítico para la empresa sean resistentes a un número mucho mayor de errores, como interrupciones catastróficas de los centros de datos, sin necesidad de cambiar la lógica de la aplicación. También puede aplicar la configuración de redundancia de zona a cualquier grupo o base de datos existente del nivel Premium o Crítico para la empresa.
 
 Como las bases de datos con redundancia de zona tienen réplicas en distintos centros de datos situados a cierta distancia entre ellos, la mayor latencia de red puede aumentar el tiempo de confirmación y, por lo tanto, afectar al rendimiento de algunas cargas de trabajo OLTP. Siempre puede volver a la configuración de zona única; para ello, deshabilite la configuración de redundancia de zona. Este proceso es una operación en línea similar a la actualización normal del nivel de servicio. Al final del proceso, la base de datos o el grupo se migra desde un anillo con redundancia de zona a un anillo de zona única, o viceversa.
 
 > [!IMPORTANT]
 > Los grupos elásticos y las bases de datos con redundancia de zona solo se admiten actualmente en los niveles de servicio premium y crítico para la empresa de algunas regiones. Cuando se usa el nivel crítico para la empresa, la configuración de redundancia de zona solo está disponible cuando se selecciona el hardware de proceso Gen5. Para información actualizada sobre las regiones que admiten bases de datos con redundancia de zona, consulte [Soporte técnico de servicios por región](../availability-zones/az-overview.md#services-support-by-region).  
+> Esta característica no está disponible en Instancia administrada.
 
 En el diagrama siguiente se ilustra la versión con redundancia de zona de la arquitectura de alta disponibilidad:
 
@@ -70,6 +88,13 @@ En el diagrama siguiente se ilustra la versión con redundancia de zona de la ar
 ## <a name="accelerated-database-recovery-adr"></a>Recuperación de base de datos acelerada (ADR)
 
 [Recuperación de base de datos acelerada (ADR)](sql-database-accelerated-database-recovery.md) es una nueva característica del motor de base de datos SQL que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de larga duración. ADR está actualmente disponible para bases de datos únicas, grupos elásticos y Azure SQL Data Warehouse.
+
+## <a name="testing-database-fault-resiliency"></a>Prueba de la resistencia a errores de base de datos
+
+La alta disponibilidad es una parte fundamental de la plataforma Azure SQL Database y funciona de modo transparente para la aplicación de base de datos. Sin embargo, podría ser conveniente probar el modo en que las operaciones de conmutación por error automáticas iniciadas durante los eventos planeados o no planeados afectarían a la aplicación antes de implementarla para producción. Puede llamar a una API especial para reiniciar la base de datos o el grupo elástico, que a su vez activará la conmutación por error. En el caso de una base de datos con redundancia de zona o un grupo elástico, la llamada a la API daría lugar a la redirección de las conexiones de cliente al nuevo elemento principal en otra zona de disponibilidad. Por lo tanto, además de probar cómo afecta la conmutación por error a las sesiones de base de datos existentes, también puede comprobar si afecta al rendimiento de un extremo a otro. Dado que la operación de reinicio es intrusiva y un gran número de ellas podría agotar la plataforma, solo se permite una llamada de conmutación por error cada 30 minutos para cada base de datos o grupo elástico. Para más información, consulte [Conmutación por error de la base de datos](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) y [Conmutación por error del grupo elástico](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover).       
+
+> [!IMPORTANT]
+> El comando de conmutación por error no está disponible actualmente para las instancias de administradas y las bases de datos Hiperescala.  
 
 ## <a name="conclusion"></a>Conclusión
 

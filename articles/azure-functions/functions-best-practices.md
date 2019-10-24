@@ -1,23 +1,20 @@
 ---
 title: Procedimientos recomendados de Azure Functions | Microsoft Docs
 description: Información acerca de los procedimientos recomendados y los patrones de Azure Functions.
-services: functions
-documentationcenter: na
-author: wesmc7777
-manager: jeconnoc
-keywords: azure functions, patrones, procedimientos recomendados, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
+author: ggailey777
+manager: gwallace
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ad2f56388b49692d799202d06ed3dc0123f272e5
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933049"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294359"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
 
@@ -29,7 +26,9 @@ En este artículo se proporcionan instrucciones para mejorar el rendimiento y la
 
 ### <a name="avoid-long-running-functions"></a>Evitar funciones de ejecución prolongada
 
-Las funciones grandes de ejecución prolongada pueden causar problemas de tiempo de espera inesperados. Una función puede ser grande debido a numerosas dependencias de Node.js. La importación de las dependencias también puede provocar mayores tiempos de carga que dan lugar a tiempos de expiración inesperados. Las dependencias se cargan explícita e implícitamente. Un módulo único cargado por el código puede cargar sus propios módulos adicionales.  
+Las funciones grandes de ejecución prolongada pueden causar problemas de tiempo de espera inesperados. Para más información sobre los tiempos de expiración de un plan de hospedaje determinado, consulte [Duración del tiempo de tiempo de expiración de una aplicación de funciones](functions-scale.md#timeout). 
+
+Una función puede ser grande debido a numerosas dependencias de Node.js. La importación de las dependencias también puede provocar mayores tiempos de carga que dan lugar a tiempos de expiración inesperados. Las dependencias se cargan explícita e implícitamente. Un módulo único cargado por el código puede cargar sus propios módulos adicionales. 
 
 Siempre que sea posible, refactorice funciones grandes en conjuntos más pequeños de funciones que trabajen juntos y devuelvan respuestas rápidas. Por ejemplo, un webhook o una función de desencadenador HTTP podría requerir una respuesta de confirmación en un determinado período de tiempo. Es habitual que los webhooks requieran una respuesta inmediata. Puede pasar la carga útil de desencadenador HTTP a una cola para ser procesada por una función de desencadenador de cola. Este enfoque permite aplazar el trabajo real y devolver una respuesta inmediata.
 

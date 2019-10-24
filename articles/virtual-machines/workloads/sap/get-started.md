@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/01/2019
+ms.date: 10/16/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab6139e1f87938edaa0a8a94453faa213d39e23f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 99e3cbc157817321e41a273b2bcf31128d71db18
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719005"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72431033"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -120,6 +120,9 @@ Para obtener información sobre la integración de servicios de Azure en los com
 
 
 ## <a name="change-log"></a>Registro de cambios
+- 16/10/2019: Corrección de vínculos rotos en [Copia de seguridad y restauración](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-backup-restore)
+- 16/10/2019: Cambio en el sistema operativo mínimo recomendado de SLES 12 SP3 a SLES 12 SP4 en [Alta disponibilidad de IBM Db2 LUW en máquinas virtuales de Azure en SUSE Linux Enterprise Server con Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm)
+- 11/10/2019: Cambios en las configuraciones de almacenamiento de disco Ultra e introducción de ANF en [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 01/10/2019: Cambio en los gráficos de [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) para conseguir mayor claridad.
 - 01/10/2019: Cambio en [Configuraciones y operaciones de infraestructura de SAP HANA en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) para corregir instrucciones relacionadas con el recurso compartido NFS de alta disponibilidad para /hana/shared. 
 - 28/09/2019: Cambio en [Configuración de Pacemaker en Red Hat Enterprise Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) para acarar que no se admite SBD como mecanismo de barrera en los clústeres RHEL.  

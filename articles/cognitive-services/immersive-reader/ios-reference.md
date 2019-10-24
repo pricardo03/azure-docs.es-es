@@ -9,14 +9,14 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: 615c09dd8a7287918bb009ce11854278b21554c1
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 1f85740c358bd0949fed9c954537f0926538995d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899408"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388115"
 ---
-# <a name="immersive-reader-sdk-reference"></a>Referencia del SDK del Lector inmersivo
+# <a name="immersive-reader-sdk-reference-for-ios"></a>Referencia del SDK del Lector inmersivo para iOS
 
 El SDK de iOS del Lector inmersivo es un CocoaPod de Swift que permite integrar dicho lector en una aplicación iOS.
 

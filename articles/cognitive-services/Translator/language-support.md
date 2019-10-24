@@ -44,7 +44,7 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 |:-----|:-----:|:-----|:-----|
 |Afrikáans| `af`    |Solo estadísticas|  Neuronal|
 |Árabe|    `ar`    |Traducción neuronal disponible|  Neuronal|
-|Bangla|    `bn`    |Traducción neuronal disponible|  Neuronal|
+|Bengalí|    `bn`    |Traducción neuronal disponible|  Neuronal|
 |Bosnio (latino)|   `bs`    |Traducción neuronal disponible|  Neuronal|
 |Búlgaro| `bg`    |Traducción neuronal disponible|  Neuronal|
 |Cantonés (tradicional)|   `yue`   |Solo estadísticas|  Estadística|
@@ -114,7 +114,7 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 | Idioma    | Código de idioma | Script | Hacia/Desde | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latino `Latn` |
-|Bangla  | `bn` | Bengalí `Beng` | <--> | Latino `Latn` |
+|Bengalí  | `bn` | Bengalí `Beng` | <--> | Latino `Latn` |
 | Chino (simplificado) | `zh-Hans` | Chino simplificado `Hans`| <--> | Latino `Latn` |
 | Chino (simplificado) | `zh-Hans` | Chino simplificado `Hans`| <--> | Chino tradicional `Hant`|
 | Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Latino `Latn` |
@@ -142,7 +142,7 @@ El diccionario admite los siguientes idiomas desde o hacia el inglés con los m�
 |:----------- |:-------------:|
 | Afrikáans      | `af`          |
 | Árabe       | `ar`          |
-| Bangla      | `bn`          |
+| Bengalí      | `bn`          |
 | Bosnio (latino)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Catalán      | `ca`          |
@@ -209,7 +209,7 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Idioma    | Código de idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
-| Bangla      | `bn`          |
+| Bengalí      | `bn`          |
 | Bosnio (latino)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Chino simplificado      | `zh-Hans`          |

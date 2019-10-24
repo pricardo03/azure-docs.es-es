@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 930e482ab85113ac802932929fdbea358ee26035
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 880b31702cf1c0a92ab7ee536cd88e8e6957f6f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619481"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430853"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Copia de seguridad de máquinas virtuales de carga de trabajo en la nube privada de CloudSimple con Veeam B&R
 
@@ -170,7 +170,7 @@ Conecte la red virtual a la nube privada siguiendo las instrucciones de [Conexi�
 3. Configure un grupo de seguridad de red para la máquina virtual. Compruebe que la máquina virtual no tiene una dirección IP pública y que no es accesible desde la red pública de Internet.
 4. Cree una cuenta de usuario basada en un nombre de usuario y una contraseña para la nueva máquina virtual. Para obtener instrucciones, consulte [Creación de una máquina virtual Linux en Azure Portal](../virtual-machines/linux/quick-create-portal.md).
 5. Cree una unidad de disco duro de 512 GiB estándar y conéctela a la máquina virtual del repositorio.  Para obtener más instrucciones, consulte [Conexión de un disco de datos administrado a una máquina virtual Windows en Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md).
-6. [Cree un volumen de XFS en el disco administrado](https://www.digitalocean.com/docs/volumes/how-to/format-and-mount). Inicie sesión en la máquina virtual con las credenciales mencionadas anteriormente. Ejecute el siguiente script para crear un volumen lógico, agréguele el disco a este, cree una partición del sistema de archivos XFS y monte la partición en la ruta de acceso /backup1.
+6. [Cree un volumen de XFS en el disco administrado](https://www.digitalocean.com/docs/volumes/how-to/). Inicie sesión en la máquina virtual con las credenciales mencionadas anteriormente. Ejecute el siguiente script para crear un volumen lógico, agréguele el disco, cree una [partición](https://www.digitalocean.com/docs/volumes/how-to/partition/) del sistema de archivos XFS y [monte](https://www.digitalocean.com/docs/volumes/how-to/mount/) la partición en la ruta de acceso /backup1.
 
     Script de ejemplo:
 

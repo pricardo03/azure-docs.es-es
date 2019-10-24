@@ -80,7 +80,7 @@ Los dispositivos físicos StorSimple 8100 o 8600 están disponibles en los país
 | 7  | Chile                 | 22 | Israel             | 37 | Portugal            | 52 | Taiwán                     |
 | 8  | Colombia              | 23 | Italia              | 38 | Puerto Rico         | 53 | Tailandia                   |
 | 9  | República Checa        | 24 | Japón              | 39 | Qatar               | 54 | Turquía                     |
-| 10 | Dinamarca               | 25 | Kenia              | 40 | Rumania             | 55 | Ucrania                    |
+| 10 | Dinamarca               | 25 | Kenia              | 40 | Rumanía             | 55 | Ucrania                    |
 | 11 | Egipto                 | 26 | Kuwait             | 41 | Rusia              | 56 | Emiratos Árabes Unidos       |
 | 12 | Finlandia               | 27 | RAE de Macao          | 42 | Arabia Saudí        | 57 | Reino Unido             |
 | 13 | Francia                | 28 | Malasia           | 43 | Singapur           | 58 | Estados Unidos              |

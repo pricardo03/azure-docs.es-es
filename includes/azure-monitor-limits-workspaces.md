@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 017c02a10137579e6e3497775e9e4a3ac0a5d72d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 0f55f3ce4856e7b6eccf665faaa1b1fa45b84b58
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350864"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72302348"
 ---
 **Volumen de colección de datos y retención** 
 
@@ -62,7 +62,7 @@ ms.locfileid: "71350864"
 |:---|:---|:---|
 | Número máximo de columnas en una tabla         | 500 | |
 | Número máximo de caracteres para el nombre de columna | 500 | |
-| Regiones a capacidad | Centro occidental de EE.UU. | Actualmente, no se puede crear una nueva área de trabajo en esta región, ya que está al límite de la capacidad temporal. Se espera que se solucione este límite a finales de octubre de 2019. |
+| Regiones a capacidad | Centro occidental de EE.UU. | Actualmente, no se puede crear una nueva área de trabajo en esta región, ya que está al límite de la capacidad temporal. Se espera que se solucione este límite a finales de noviembre de 2019. |
 | Exportación de datos | No está disponible actualmente | Use Azure Function o Logic App para agregar y exportar datos. | 
 
 **Velocidad de volumen de ingesta de datos**

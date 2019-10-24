@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 12/18/2018
-ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/10/2019
+ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568601"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264238"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)
 
@@ -33,7 +33,7 @@ Descargue [Introducción al ejemplo de herramientas de Elastic Database](sql-dat
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creación de un administrador de mapas de particiones con la aplicación de ejemplo
 Aquí se creará un administrador de mapas de particiones junto con varias particiones, seguido de la inserción de datos en las particiones. Si resulta que ya dispone de la configuración de particiones con almacenes de datos en ellas, puede omitir los pasos siguientes y pasar a la sección siguiente.
 
-1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de Elastic Database**. Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Al final del paso 7, verá la siguiente línea de comandos:
+1. Compile y ejecute la aplicación de ejemplo **Introducción a las herramientas de Elastic Database** siguiendo los pasos descritos en la sección del artículo [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Una vez finalizados todos los pasos, verá el siguiente símbolo del sistema:
 
     ![símbolo del sistema][1]
 2. En la ventana de comandos, escriba "1" y pulse **Entrar**. De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar**; repita la acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
@@ -62,13 +62,13 @@ Se usan para conectarse al administrador de mapas de particiones y particiones:
 1. Abra SQL Server Management Studio o SQL Server Data Tools en Visual Studio.
 2. Conéctese a la base de datos ElasticDBQuery y ejecute los siguientes comandos de T-SQL:
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
 
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    El nombre de usuario y la contraseña deben coincidir con la información de inicio de sesión del paso 6 de [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) en [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
+    El nombre de usuario y la contraseña deben coincidir con la información de inicio de sesión del paso 3 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) en el artículo **Introducción a las herramientas de base de datos elástica**.
 
 ### <a name="external-data-sources"></a>Orígenes de datos externos
 Para crear un origen de datos externo, ejecute el siguiente comando en la base de datos ElasticDBQuery:

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25bce613ab45f20f7060447bcfc47f452f4d70f2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606547"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329438"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualización de registros de actividad para supervisar acciones sobre recursos
 
@@ -55,7 +55,7 @@ Puede recuperar información de los registros de actividad mediante el portal, P
 
     ![Ver filtros](./media/resource-group-audit/view-filters.png)
 
-1. Para centrarse en operaciones específicas, cambie los filtros o aplique otros nuevos. Por ejemplo, la siguiente imagen muestra que se estableció un nuevo valor para **Timespan** y **Resource type** en cuentas de almacenamiento. 
+1. Para centrarse en operaciones específicas, cambie los filtros o aplique otros nuevos. Por ejemplo, la siguiente imagen muestra que se estableció un nuevo valor para **Timespan** y **Resource type** en cuentas de almacenamiento.
 
     ![Establecer opciones de filtro](./media/resource-group-audit/set-filter.png)
 
@@ -139,7 +139,7 @@ Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq
 
 Puede usar Resource Graph para ver el historial de cambios de un recurso. Para más información, vea [Obtención de los cambios del recurso](../governance/resource-graph/how-to/get-resource-changes.md).
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 
 Para recuperar las entradas del registro, ejecute el comando [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) con un desplazamiento para indicar el intervalo de tiempo.
 
@@ -193,6 +193,7 @@ Las operaciones REST para trabajar con el registro de actividad forman parte de 
 
 * Los registros de actividad de Azure se pueden usar con Power BI para obtener mayor información sobre las acciones en su suscripción. Consulte [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)(Consulta y análisis de registros de auditoría de Azure en Power BI y más).
 * Para obtener información sobre cómo establecer directivas de seguridad, vea [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md).
+* Para ver más detalles sobre los cambios en las aplicaciones desde el nivel de infraestructura hasta la implementación de aplicaciones, consulte el artículo sobre el [Uso de Application Change Analysis en Azure Monitor](../azure-monitor/app/change-analysis.md).
 * Para aprender sobre los comandos para ver operaciones de implementación, consulte [Visualización de operaciones de implementación](resource-manager-deployment-operations.md).
 * Para aprender a evitar eliminaciones en un recurso para todos los usuarios, consulte [Bloqueo de recursos con Azure Resource Manager](resource-group-lock-resources.md).
 * Para ver la lista de operaciones disponibles para cada proveedor de Microsoft Azure Resource Manager, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](../role-based-access-control/resource-provider-operations.md)

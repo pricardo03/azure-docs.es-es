@@ -171,7 +171,7 @@ Las directivas de filtrado geográfico para Front Door se pueden configurar medi
 | PY | Paraguay|
 | QA | Qatar|
 | RE | Reunión|
-| RO | Rumania|
+| RO | Rumanía|
 | RS | Serbia|
 | RU | Federación Rusa|
 | RW | Ruanda|

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 35c8841220c116cc34ba670eaa9ac7b36dc4cd7a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 3c77cc1baa07b0ee0e9f0141d81c623259ea57c4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615514"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387523"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Cumplimiento de Azure Cosmos DB 
 
@@ -36,7 +36,7 @@ Azure Cosmos DB está ampliando continuamente su cobertura de certificaciones. A
 
 | **Aplicable globalmente** | **Gobierno de Estados Unidos** | **Específica del sector** | **Específica del país o región** |
 | --- | --- | --- | --- |
-| Certificación de CSA STAR | SRG del DoD nivel 2 | HIPAA BAA | Australia IRAP Unclassified |
+| Certificación de CSA STAR | SRG del DoD nivel 2 | HIPAA BAA | IRAP en Australia |
 | Atestación de CSA STAR | FedRAMP Moderate | HITRUST | C5 de Alemania|
 | ISO 20000-1:2011 | GxP (21 CFR Parte 11 de la FDA) | PCI DSS | Norma MTCS nivel 3 en Singapur |
 | ISO 22301:2012 | | | Categoría Alta del ENS|

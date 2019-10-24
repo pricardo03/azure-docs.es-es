@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 30530f445941747c659f584d279261148b08825e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 15e4fc3ce412807908c75fe25acecac0fe86d261
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240798"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72262803"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -124,6 +124,10 @@ El aprovisionamiento del rendimiento de nivel de base de datos y de contenedor s
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>¿Azure Cosmos DB admite el análisis de series temporales?
 
 Sí, Azure Cosmos DB admite el análisis de series temporales, este es un ejemplo de un [patrón de serie temporal](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). En este ejemplo se muestra cómo usar la fuente de cambios para generar vistas agregadas con los datos de las series temporales. Puede ampliar este enfoque mediante el uso de streaming de Spark u otro procesador de datos de streaming.
+
+## <a name="what-are-the-azure-cosmos-db-service-quotas-and-throughput-limits"></a>¿Cuáles son las cuotas de servicio de Azure Cosmos DB y los límites de rendimiento?
+
+Consulte los artículos de Azure Cosmos DB sobre [cuotas de servicio](concepts-limits.md) y [límites de rendimiento por contenedor y base de datos](set-throughput.md#comparison-of-models) para más información.
 
 ## <a name="sql-api"></a>API DE SQL
 

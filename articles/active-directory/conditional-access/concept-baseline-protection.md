@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: ecd46b8cb734355a8394b7480c6def341cf9700d
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533059"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430336"
 ---
 # <a name="what-are-baseline-policies"></a>¿Qué son las directivas de base de referencia?
 
@@ -28,12 +28,12 @@ Para administrar las directivas personalizadas de acceso condicional, se necesit
 
 ![Directivas de base de referencia de acceso condicional en Azure Portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
-Hay cuatro directivas de base de referencia que las organizaciones pueden habilitar:
+Hay cuatro directivas de base de referencia:
 
-* [Requerir MFA para administradores (versión preliminar)](howto-baseline-protect-administrators.md)
-* [Protección del usuario final (versión preliminar)](howto-baseline-protect-end-users.md)
-* [Bloquear la autenticación heredada (versión preliminar)](howto-baseline-protect-legacy-auth.md)
-* [Requerir MFA para la administración de servicios (versión preliminar)](howto-baseline-protect-azure.md)
+* Requerir MFA para administradores (versión preliminar)
+* Protección del usuario final (versión preliminar)
+* bloqueo de la autenticación heredada (versión preliminar)
+* Requerir MFA para la administración de servicios (versión preliminar)
 
 Estas cuatro directivas de base de referencia afectarán a los flujos de autenticación heredados, como POP, IMAP y clientes de escritorio de Office anteriores.
 
@@ -41,7 +41,7 @@ Estas cuatro directivas de base de referencia afectarán a los flujos de autenti
 
 Dadas las facultades y el acceso de las cuentas de administrador, debe tratarlas con un cuidado especial. Un método común para mejorar la protección de las cuentas con privilegios es exigir una forma de verificación de la cuenta más estricta cuando se emplean para iniciar sesión. En Azure Active Directory, puede exigir a los administradores que se registren y usen Azure Multi-Factor Authentication para conseguir una verificación de cuentas más estricta.
 
-[Requerir MFA para los administradores (versión preliminar)](howto-baseline-protect-administrators.md) es una directiva de base de referencia que requiere autenticación multifactor (MFA) para los siguientes roles de directorio, considerados los roles de Azure AD con más privilegios:
+"Requerir MFA para los administradores (versión preliminar)" es una directiva de base de referencia que requiere autenticación multifactor (MFA) para los siguientes roles de directorio, que se consideran los roles de Azure AD con más privilegios:
 
 * Administrador global
 * Administrador de SharePoint
@@ -83,23 +83,10 @@ Usar cualquiera de estas herramientas para la administración de recursos es una
 
 Para proteger las acciones con privilegios, esta directiva **Requerir MFA para la administración de servicios (versión preliminar)** exigirá la autenticación multifactor para cualquier usuario que acceda a Azure Portal, Azure PowerShell o la CLI de Azure.
 
-## <a name="enable-a-baseline-policy"></a>Habilitar una directiva de base de referencia
-
-Para habilitar una directiva de base de referencia:
-
-1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de Acceso condicional.
-1. Vaya a **Azure Active Directory** > **Acceso condicional**.
-1. En la lista de directivas, seleccione una directiva de base de referencia que te gustaría habilitar.
-1. Establezca **Habilitar directiva** en **Activado**.
-1. Haga clic en Guardar.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte:
 
+* [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)
 * [Cinco pasos para asegurar su infraestructura de identidad](../../security/fundamentals/steps-secure-identity.md)
-* [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)
-* [Requerir MFA para administradores (versión preliminar)](howto-baseline-protect-administrators.md)
-* [Protección del usuario final (versión preliminar)](howto-baseline-protect-end-users.md)
-* [Bloquear la autenticación heredada (versión preliminar)](howto-baseline-protect-legacy-auth.md)
-* [Requerir MFA para la administración de servicios (versión preliminar)](howto-baseline-protect-azure.md)
+* [¿Qué es el acceso condicional en Azure Active Directory?](overview.md)

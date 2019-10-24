@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca04539049766e1f053d74b3a8536f154c3fd830
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209716"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383587"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Opciones de configuración de un clúster de Windows independiente
 En este artículo se describen las opciones de configuración de un clúster de Azure Service Fabric independiente que puede configurarse en el archivo *ClusterConfig.json*. Usará este archivo para especificar la información acerca de los nodos del clúster y las configuraciones de seguridad, así como la topología de red en cuanto a dominios de error y actualización.  Después de cambiar o agregar valores de configuración, puede [crear un clúster independiente](service-fabric-cluster-creation-for-windows-server.md) o [actualizar la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -202,6 +202,7 @@ Para configurar características complementarias, el valor de apiVersion debe co
     ]
 }
 ```
+Todas las características complementarias disponibles pueden verse en la [referencia de la API REST de Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### <a name="container-support"></a>Compatibilidad con los contenedores
 Para habilitar la compatibilidad con un contenedor de Windows Server o Hyper-V para clústeres independientes, debe habilitarse la característica complementaria DnsService.

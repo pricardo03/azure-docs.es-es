@@ -178,7 +178,7 @@ En la tabla siguiente se muestran las distintas regiones que se pueden especific
 | PT         | Portugal             | EUR               |
 | PR         | Puerto Rico          | USD               |
 | QA         | Qatar                | QAR               |
-| RO         | Rumania              | RON               |
+| RO         | Rumanía              | RON               |
 | RU         | Rusia               | RUB               |
 | SA         | Arabia Saudí         | SAR               |
 | RS         | Serbia               | RSD               |

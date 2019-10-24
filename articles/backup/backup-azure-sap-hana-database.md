@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9f16a00bd8bc8e61aecbf6d6bd7f31e90f50140a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 50fbd0a2169fb120424d76e786a6269243eeb3e1
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067099"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273952"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Hacer una copia de seguridad de una base de datos de SAP HANA en Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "71067099"
 --- | ---
 **Zonas geográficas admitidas** | Sudeste de Australia y Australia Oriental <br> Sur de Brasil <br> Centro de Canadá y Este de Canadá <br> Sudeste Asiático y Asia Oriental <br> Este de EE. UU., Este de EE. UU. 2, Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-norte de EE. UU., Centro de EE. UU. y Centro-sur de EE. UU.<br> India central e India meridional <br> Este de Japón, Oeste de Japón<br> Corea Central, Corea del Sur <br> Norte de Europa y Oeste de Europa <br> Sur de Reino Unido y Oeste de Reino Unido
 **Sistemas operativos de máquina virtual admitidos** | SLES 12 con SP2, SP3 o SP4.
-**Versiones de HANA admitidas** | SDC en HANA 1.x, MDC en HANA 2.x <= SPS04 Rev 42
+**Versiones de HANA admitidas** | SDC en HANA 1.x, MDC en HANA 2.x <= SPS04 Rev 43
 
 ### <a name="current-limitations"></a>Limitaciones actuales
 

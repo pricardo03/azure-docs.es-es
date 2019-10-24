@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fbb09ecf09008c25c84a11c7b43dfb26450e30a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338753"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286553"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conocidos y soluciones de Azure Machine Learning
 
@@ -185,7 +185,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Actualización de componentes de Azure Machine Learning en el clúster de AKS
 
-Las actualizaciones a componentes de Azure Machine Learning instalados en un clúster de Azure Kubernetes Service se deben aplicar manualmente. Para aplicar estas actualizaciones, puede desasociar el clúster del área de trabajo de Azure Machine Learning y, luego, volver a asociarlo al área de trabajo. Si SSL está habilitado en el clúster, tendrá que proporcionar el certificado SSL y la clave privada al volver a asociar el clúster. 
+Las actualizaciones a componentes de Azure Machine Learning instalados en un clúster de Azure Kubernetes Service se deben aplicar manualmente. 
+
+> [!WARNING]
+> Antes de realizar las siguientes acciones, compruebe la versión del clúster de Azure Kubernetes Service. Si es la 1.14, o cualquier versión superior, no podrá volver a adjuntar el clúster al área de trabajo de Azure Machine Learning.
+
+Para aplicar estas actualizaciones, puede desasociar el clúster del área de trabajo de Azure Machine Learning y, luego, volver a asociarlo al área de trabajo. Si SSL está habilitado en el clúster, tendrá que proporcionar el certificado SSL y la clave privada al volver a asociar el clúster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)

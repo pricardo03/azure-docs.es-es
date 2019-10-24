@@ -1,18 +1,18 @@
 ---
-title: 'Ejemplos: planos técnicos de UK OFFICIAL y UK NHS (asignación de controles)'
-description: Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS.
+title: Ejemplos de planos técnicos de UK OFFICIAL y UK NHS (Asignación de controles)
+description: Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 823b890f1898de5006b965ffa19520016aceb121
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 72b7b370158f228d725e9c6970dfcffb09e7986b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980876"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297121"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS.
 

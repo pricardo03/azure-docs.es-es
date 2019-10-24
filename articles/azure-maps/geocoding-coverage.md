@@ -98,7 +98,7 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Camboya                                            |                 |                |              |      ✓     |          ✓         |
 | China                                               |                 |                |              |      ✓     |          ✓         |
-| Isla Christmas                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Isla de Navidad                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Islas Cocos (Keeling)                             |                 |                |              |      ✓     |          ✓         |
 | Comores                                             |                 |                |              |      ✓     |          ✓         |
 | Islas Cook                                        |                 |                |              |      ✓     |          ✓         |
@@ -173,7 +173,7 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Gibraltar                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Grecia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Groenlandia                                           |                 |                |              |      ✓     |          ✓         |
-| Guernesey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Hungría                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Islandia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Irlanda                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -198,7 +198,7 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Polonia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Portugal                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | +Azores y Madeira                                 |                 |                |       ✓      |      ✓     |          ✓         |
-| Rumania                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Rumanía                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Federación Rusa                                  |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | San Marino                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Serbia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

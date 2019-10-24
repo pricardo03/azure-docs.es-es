@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1702a0c7ab2d2a76e6ec0e8b217539804a683ff7
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c9cc6ab0342682bce7befdfe412221ec581312be
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834824"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389592"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitaciones y restricciones de URI de redireccionamiento o URL de respuesta
 
@@ -24,7 +24,7 @@ Un URI de redireccionamiento, o URL de respuesta, es la ubicación a la que el s
 
 ## <a name="maximum-number-of-redirect-uris"></a>Número máximo de URI de redireccionamiento
 
-En la tabla siguiente se muestra el número máximo de URI de redireccionamiento que se pueden agregar al registrar la aplicación. 
+En la tabla siguiente se muestra el número máximo de URI de redireccionamiento que se pueden agregar al registrar la aplicación.
 
 | Cuentas en las que se inicia sesión | Número máximo de URI de redireccionamiento | DESCRIPCIÓN |
 |--------------------------|---------------------------------|-------------|
@@ -34,6 +34,12 @@ En la tabla siguiente se muestra el número máximo de URI de redireccionamiento
 ## <a name="maximum-uri-length"></a>Longitud máxima de URI
 
 Puede usar un máximo de 256 caracteres para cada URI de redireccionamiento que agregue a un registro de aplicación.
+
+## <a name="supported-schemes"></a>Esquemas admitidos
+En la actualidad, el modelo de aplicación de Azure AD admite esquemas HTTP y HTTPS para las aplicaciones que inician sesión en cuentas profesionales o educativas de Microsoft en el inquilino de Azure Active Directory (Azure AD) de cualquier organización. El campo `signInAudience` del manifiesto de aplicación está establecido en *AzureADMyOrg* o *AzureADMultipleOrgs*. En el caso de las aplicaciones que inician sesión en cuentas personales de Microsoft y en cuentas profesionales y educativas (que establecen `signInAudience`en *AzureADandPersonalMicrosoftAccount* ), solo se permite el esquema HTTPS.
+
+> [!NOTE]
+> La nueva experiencia de [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) no permite a los programadores agregar URI con esquema HTTP comodín en la interfaz de usuario. La adición de un URI HTTP para las aplicaciones que inician sesión en cuentas profesionales o educativas solo está permitida a través del editor de manifiestos de la aplicación. A partir de ahora, las nuevas aplicaciones no podrán usar esquemas HTTP en el URI de redireccionamiento. Aun así, las aplicaciones antiguas que contengan esquemas HTTP en los URI de redireccionamiento seguirán funcionando. Los programadores deben usar esquemas HTTPS en los URI de redirección.
 
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>Restricciones en el uso de un carácter comodín en los URI
 

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/15/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 616a637df20e43c20faadaf3db9243c28f94de34
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 096c5f06c53f1e93a0c661f856ab112236c0ec60
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174733"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373544"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -40,6 +40,16 @@ Esta página se actualiza mensualmente, por lo que se recomienda visitarla con f
 ---
 
 ## <a name="september-2019"></a>Septiembre de 2019
+
+### <a name="deprecation-of-the-power-bi-content-packs"></a>Desuso de los paquetes de contenido de Power BI
+
+**Tipo:** En desuso  
+**Categoría del servicio:** Informes  
+**Funcionalidad del producto:** Supervisión e informes
+
+Power BI está abandonando el uso de paquetes de contenido de su almacén y, a partir del **1 de octubre de 2019** , ya no se admite el paquete de contenido de Power BI de Azure AD. Los clientes que usan actualmente el paquete de contenido pueden seguir utilizándolo aunque las API subyacentes sean versiones anteriores. Como alternativa a este paquete de contenido, puede usar libros de Azure AD (integrados en Log Analytics) para obtener información sobre los servicios relacionados con Azure AD.
+
+Para obtener más información acerca de los libros, consulte [Cómo usar los libros de Azure Monitor en informes de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). Para obtener más información sobre el desuso de los paquetes de contenido, consulte la publicación de blog [Anuncio de disponibilidad general de aplicaciones de plantilla de Power BI](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/).
 
 ### <a name="my-profile-is-re-naming-and-integrating-with-the-microsoft-office-account-page"></a>"Mi perfil" cambia de nombre y se integra con la página de la cuenta de Microsoft Office
 

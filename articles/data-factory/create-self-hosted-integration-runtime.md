@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: be59f5fd34c52397b54146a8aeaf51f4d594452f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8ea6a365b0c7bc6c254c1313445bb54231e161ae
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383352"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285644"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -267,19 +267,15 @@ Hay dos firewalls que deben tenerse en cuenta: el *firewall corporativo*, que se
 
 A nivel de *firewall corporativo*, es preciso configurar los siguientes dominios y puertos de salida:
 
-Nombres de dominio | Puertos | DESCRIPCIÓN
------------- | ----- | ------------
-*.servicebus.windows.net | 443 | Se usa para la comunicación con el servicio de movimiento de datos del back-end
-*.core.windows.net | 443 | Usado para la copia almacenada provisionalmente a través de Azure Blob Storage (si está configurado)
-*.frontend.clouddatahub.net | 443 | Se usa para la comunicación con el servicio de movimiento de datos del back-end
-download.Microsoft.com | 443 | Usado para descargar las actualizaciones
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+
 
 En el nivel del *firewall de Windows* (nivel de máquina), normalmente estos puertos de salida están habilitados. Si no lo están, puede configurar los puertos y los dominios según corresponda en el equipo del entorno de ejecución de integración autohospedado.
 
 > [!NOTE]
-> En función del origen y los receptores, es posible que tenga que agregar a la lista blanca más dominios y puertos salientes al firewall corporativo o firewall de Windows.
+> En función del origen y de los receptores, es posible que tenga que permitir más dominios y puertos de salida al firewall corporativo o al firewall de Windows.
 >
-> Para algunas bases de datos en la nube (por ejemplo: Azure SQL Database y Azure Data Lake), es posible que necesite agregar a la lista blanca las direcciones IP de los equipos del entorno de ejecución de integración autohospedado en la configuración de su firewall.
+> En algunas bases de datos en la nube (por ejemplo, Azure SQL Database y Azure Data Lake), es posible que necesite permitir las direcciones IP de las máquinas del entorno de ejecución de integración autohospedado en la configuración de su firewall.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Copia de datos desde un origen a un receptor
 Asegúrese de que las reglas del firewall se han habilitado correctamente en el firewall corporativo, en el firewall de Windows de la equipo del entorno de ejecución de integración autohospedado y en el propio almacén de datos. De este modo, el entorno de ejecución de integración autohospedado podrá conectarse al origen y al receptor correctamente. Habilite las reglas de cada almacén de datos que participe en la operación de copia.
@@ -360,7 +356,7 @@ Si selecciona el valor **Use system proxy** (Usar proxy del sistema) para el pro
 > [!IMPORTANT]
 > No olvide actualizar tanto diahost.exe.config como diawp.exe.config.
 
-También tiene que asegurarse de que Microsoft Azure se encuentra en la lista blanca de su compañía. La lista de direcciones IP válidas de Microsoft Azure se puede descargar del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+También tiene que asegurarse de que Microsoft Azure se encuentra en la lista de permitidos de su empresa. La lista de direcciones IP válidas de Microsoft Azure se puede descargar del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Posibles síntomas de problemas relacionados con el firewall y el servidor proxy
 Si se producen errores como los siguientes, es probable que se deban a una configuración incorrecta del servidor proxy o del firewall, lo que impide que el entorno de ejecución de integración autohospedado se conecte a Data Factory para autenticarse. Para asegurarse de que tanto el firewall como el servidor proxy están configurados correctamente, consulte la sección anterior.

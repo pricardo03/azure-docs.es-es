@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/09/2019
+ms.date: 10/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 1025041ae69f2048a6c5396aaebb50b5fa884f86
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 78fe9eec757274e4262857ac0441af61c47a992b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444163"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515545"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Habilitar Azure Monitor para VM (versión preliminar) mediante Azure PowerShell o plantillas de Resource Manager
 
@@ -36,7 +36,8 @@ Si el área de trabajo de Log Analytics a la que la solución hace referencia no
 * Manualmente, según se describe en [Orígenes de datos de rendimiento de Windows y Linux en Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * Descargando y ejecutando un script de PowerShell que está disponible en la [Galería de Azure PowerShell](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
-### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>Instalación de las soluciones ServiceMap e InfrastructureInsights
+### <a name="install-the-servicemap-solution"></a>Instalación de la solución Service Map
+
 Este método incluye una plantilla JSON que especifica la configuración para habilitar los componentes de la solución en el área de trabajo de Log Analytics.
 
 Si no sabe cómo implementar los recursos mediante una plantilla, consulte:
@@ -84,24 +85,6 @@ Para usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe 
                             "product": "[Concat('OMSGallery/', 'ServiceMap')]",
                             "promotionCode": ""
                         }
-                    },
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
-                        "plan": {
-                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                            "promotionCode": ""
-                        }
                     }
                 ]
             }
@@ -142,6 +125,7 @@ Para usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe 
         ```
 
 ## <a name="enable-with-azure-resource-manager-templates"></a>Habilitar las plantillas de Azure Resource Manager
+
 Hemos creado plantillas de Azure Resource Manager de ejemplo para incorporar sus máquinas virtuales y conjuntos de escalado de máquinas virtuales. Estas plantillas incluyen escenarios que puede usar para habilitar la supervisión de un recurso existente y para crear un nuevo recurso que tenga la supervisión habilitada.
 
 >[!NOTE]
@@ -163,7 +147,7 @@ El archivo de descarga contiene las siguientes plantillas para distintos escenar
 - La plantilla **NewVmOnboarding** crea una máquina virtual y habilita Azure Monitor para VM para que la supervise.
 - La plantilla **ExistingVmssOnboarding** habilita Azure Monitor para VM si el conjunto de escalado de máquinas virtuales ya existe.
 - La plantilla **NewVmssOnboarding** crea conjuntos de escalado de máquinas virtuales y habilita Azure Monitor para VM para que lo supervise.
-- La plantilla **ConfigureWorksapce** configura su área de trabajo de Log Analytics para que admita Azure Monitor para VM habilitando las soluciones y la colección de contadores de rendimiento de los sistemas operativos Linux y Windows.
+- La plantilla **ConfigureWorkspace** configura el área de trabajo de Log Analytics para que admita Azure Monitor para VM habilitando las soluciones y la colección de contadores de rendimiento de los sistemas operativos Linux y Windows.
 
 >[!NOTE]
 >Si ya había conjuntos de escalado de máquinas virtuales y la directiva de actualización está establecida en **Manual**, Azure Monitor para VM no se habilitará para las instancias de manera predeterminada tras ejecutar la plantilla de Azure Resource Manager **ExistingVmssOnboarding**. Tendrá que actualizar manualmente las instancias.
@@ -180,6 +164,7 @@ El cambio de configuración puede tardar unos minutos en finalizar. Cuando final
 ```powershell
 provisioningState       : Succeeded
 ```
+
 ### <a name="deploy-by-using-the-azure-cli"></a>Implementación mediante la CLI de Azure
 
 El paso siguiente habilita la supervisión mediante la CLI de Azure.
@@ -363,7 +348,6 @@ Failed: (0)
 
 Ahora que la supervisión está habilitada para las máquinas virtuales, esta información está disponible para analizarse con Azure Monitor para VM.
  
-- Para obtener información sobre cómo usar la característica de mantenimiento, consulte [Descripción del estado de las máquinas virtuales de Azure con Azure Monitor para VM (versión preliminar)](vminsights-health.md). 
 - Para ver las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](vminsights-maps.md). 
+
 - Para identificar los cuellos de botella y el uso general con el rendimiento de la máquina virtual, vea [Cómo representar el rendimiento en gráficos con Azure Monitor para VM (versión preliminar)](vminsights-performance.md). 
-- Para ver las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](vminsights-maps.md).

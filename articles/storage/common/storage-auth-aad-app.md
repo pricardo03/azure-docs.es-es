@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0ff2d9b8c0ca891b25dfcd6bf1f19d1541fd1541
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: ca6b055b5d3702cea4ca1986ad1c81b59f76cee3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673236"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299642"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>Autorizar el acceso a blobs y colas con Azure Active Directory desde una aplicación cliente
 
@@ -76,7 +76,7 @@ La aplicación necesita un secreto de cliente para demostrar su identidad al sol
 
 Una vez que haya registrado su aplicación y le haya concedido permisos para obtener acceso a los datos en Azure Blob Storage o Queue Storage, podrá agregar código a su aplicación para autenticar una entidad de seguridad y adquirir un token de OAuth 2.0. Para autenticar y adquirir el token, puede usar una de las [bibliotecas de autenticación de la Plataforma de identidad de Microsoft](../../active-directory/develop/reference-v2-libraries.md) u otra biblioteca de código abierto que admita OpenID Connect 1.0. A continuación, su aplicación puede usar el token de acceso para autorizar una solicitud en Azure Blob Storage o Queue Storage.
 
-Para ver una lista de escenarios en los que se admite la adquisición de tokens, consulte la sección [Escenarios](https://aka.ms/msal-net-scenarios) del repositorio de GitHub [Biblioteca de autenticación de Microsoft (MSAL) para .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
+Para ver una lista de escenarios en los que se admite la adquisición de tokens, consulte la sección [Flujos de autenticación](/en-us/azure/active-directory/develop/msal-authentication-flows) del [contenido de la biblioteca de autenticación de Microsoft](/azure/active-directory/develop/msal-overview).
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>Valores conocidos para la autenticación con Azure AD
 

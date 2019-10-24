@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0c1bbbdf9b42dfe2b507f533ad1806e06991f33
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e7008a5909d8f530920628125fec1b826be3f984
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835416"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374199"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Prácticas recomendadas de control de errores para los clientes de la Biblioteca de autenticación de Azure Active Directory (ADAL)
 
@@ -200,7 +200,7 @@ El control de errores en las aplicaciones nativas puede definirse mediante dos c
 
 |  |  |
 |------|-------------|
-| **Caso 1**:<br>Error que no se puede volver a intentar (la mayoría de los casos) | 1. No realice ningún reintento inmediato. Muestre la interfaz de usuario final basada en el error específico que invoque un reintento ("Intente volver a iniciar sesión", "Descargue la aplicación del agente de Azure AD", etc.). |
+| **Caso 1**:<br>Error que no se puede volver a intentar (la mayoría de los casos) | 1. No realice ningún reintento inmediato. Muestre la interfaz de usuario final basada en el error específico que invoque un reintento (por ejemplo, "Intente volver a iniciar sesión" o "Descargue la aplicación del agente de Azure AD"). |
 | **Caso 2**:<br>Error que se puede volver a intentar | 1. Realice un reintento único, ya que es posible que el usuario se encuentre en un estado que resulte en un estado correcto.<br><br>2. Si no se puede llevar a cabo el reintento, muestre la interfaz de usuario final basada en el error específico que invoque un reintento ("Intente volver a iniciar sesión", "Descargue la aplicación del agente de Azure AD", etc.). |
 
 > [!IMPORTANT]
@@ -212,9 +212,9 @@ El control de errores en las aplicaciones nativas puede definirse mediante dos c
 La guía siguiente proporciona ejemplos para el control de errores junto con todos los métodos ADAL de AcquireToken(…) no silenciosos, *con excepción de*: 
 
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
-- AcquireTokenAsync(…,ClientCredential, …)
-- AcquireTokenAsync(…,ClientAssertion, …)
-- AcquireTokenAsync(…,UserAssertion,…)   
+- AcquireTokenAsync(…, ClientCredential, …)
+- AcquireTokenAsync(…, ClientAssertion, …)
+- AcquireTokenAsync(…, UserAssertion,…)   
 
 El código debería implementarse así:
 
@@ -482,8 +482,8 @@ Hemos creado un [ejemplo completo](https://github.com/Azure-Samples/active-direc
 
 ## <a name="error-and-logging-reference"></a>Referencia de errores y registro
 
-### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Registro de información de identificación personal (PII) e información de identificación organizativa (OII)
-De forma predeterminada, el registro de ADAL no captura ni registrar información de identificación personal (PII) ni información de identificación organizativa (OII). La biblioteca permite a los desarrolladores de aplicaciones activar esto mediante un establecedor en la clase de registrador. Al activar PII o OII, la aplicación tiene la responsabilidad de controlar los datos confidenciales y cumplir con los requisitos normativos de forma segura.
+### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Registro de información de identificación personal e información de identificación organizativa 
+De forma predeterminada, el registro de ADAL no capturará ni registrará ninguna información de identificación personal ni información de identificación de la organización. La biblioteca permite a los desarrolladores de aplicaciones activar esto mediante un establecedor en la clase de registrador. Al registrar información de identificación personal o información de identificación de la organización, la aplicación asume la responsabilidad de administrar de forma segura datos altamente confidenciales y de cumplir los requisitos normativos.
 
 ### <a name="net"></a>.NET
 
@@ -590,7 +590,7 @@ Use la siguiente sección de comentarios para proporcionar sus opiniones y ayuda
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AZURE-portal]: https://portal.azure.com

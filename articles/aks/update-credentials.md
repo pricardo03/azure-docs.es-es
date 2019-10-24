@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 5aac941133296d2040d5dd670155b80f5807e1e9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: bda0ab50b829fa2e6d58e73b51e3a0a0f6c9e2af
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614123"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432920"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Actualizar o rotar las credenciales de una entidad de servicio en Azure Kubernetes Service (AKS)
 
@@ -29,9 +29,7 @@ Cuando quiera actualizar las credenciales de un clúster de AKS, puede hacer lo 
 * actualizar las credenciales de la entidad de servicio existente que usa el clúster, o
 * crear a una entidad de servicio y actualizar el clúster para usar estas nuevas credenciales.
 
-Si quiere crear una entidad de servicio y actualizar el clúster de AKS, omita el resto de los pasos descritos en esta sección y vaya a la sección para [crear una entidad de servicio](#create-a-service-principal). Si quiere actualizar las credenciales de la entidad de servicio existente que usa el clúster de AKS, consulte los pasos descritos en esta sección.
-
-### <a name="get-the-service-principal-id"></a>Obtener el id. de la entidad de servicio
+### <a name="update-existing-service-principal-expiration"></a>Actualización de una expiración de entidad de servicio existente
 
 Para actualizar las credenciales de la entidad de servicio existente, obtenga el identificador de entidad de servicio del clúster mediante el comando [az aks show][az-aks-show]. En el ejemplo siguiente se obtiene el id. del clúster denominado *myAKSCluster* en el grupo de recursos *myResourceGroup*. El identificador de la entidad de servicio se establece como una variable denominada *SP_ID* para usarlo en un comando adicional.
 
@@ -40,17 +38,15 @@ SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
 ```
 
-### <a name="update-the-service-principal-credentials"></a>Actualizar las credenciales de la entidad de servicio
-
 Con un conjunto de variables que contiene el id. de entidad de servicio, debe restablecer las credenciales mediante [az ad sp credential reset][az-ad-sp-credential-reset]. En el ejemplo siguiente se permite a la plataforma Azure generar un nuevo secreto seguro para la entidad de servicio. Este nuevo secreto seguro también se almacena como una variable.
 
 ```azurecli-interactive
 SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
-A continuación, vaya a la sección [Actualizar el clúster de AKS con nuevas credenciales](#update-aks-cluster-with-new-credentials).
+A continuación, vaya a la sección [Actualizar el clúster de AKS con nuevas credenciales](#update-aks-cluster-with-new-credentials). Este paso es necesario para que los cambios de la entidad de servicio se reflejen en el clúster de AKS.
 
-## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
+### <a name="create-a-new-service-principal"></a>Creación de una nueva entidad de servicio
 
 Si decidió actualizar las credenciales de la entidad de servicio existente en la sección anterior, omita este paso. Vaya a la sección [Actualizar el clúster de AKS con nuevas credenciales](#update-aks-cluster-with-new-credentials).
 
@@ -77,6 +73,8 @@ A continuación, defina las variables del identificador de la entidad de servici
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```
+
+A continuación, vaya a la sección [Actualizar el clúster de AKS con nuevas credenciales](#update-aks-cluster-with-new-credentials). Este paso es necesario para que los cambios de la entidad de servicio se reflejen en el clúster de AKS.
 
 ## <a name="update-aks-cluster-with-new-credentials"></a>Actualizar el clúster de AKS con nuevas credenciales
 

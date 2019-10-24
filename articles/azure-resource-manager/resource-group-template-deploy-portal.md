@@ -1,17 +1,17 @@
 ---
 title: Uso de Azure Portal para implementar los recursos de Azure | Microsoft Docs
-description: Utilice el Portal de Azure y Azure Resource Manager para implementar los recursos.
+description: Utilice Azure Portal y Azure Resource Manager para implementar los recursos en un grupo de recursos de su suscripción.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: a171d9b4f054c942eebb08e7e11dd1164545f408
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 249afcaad85d9031e0972d4fcfc185b5ff890f65
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460306"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390344"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure
 

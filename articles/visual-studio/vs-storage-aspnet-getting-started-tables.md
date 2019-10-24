@@ -1,5 +1,5 @@
 ---
-title: Introducción a Azure Table Storage y a Servicios conectados de Visual Studio (ASP.NET) | Microsoft Docs
+title: Introducción al almacenamiento de tablas de Azure mediante Visual Studio (ASP.NET)
 description: Introducción al uso de Azure Table Storage en un proyecto ASP.NET en Visual Studio después de conectarse a una cuenta de almacenamiento mediante Servicios conectados de Visual Studio
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 6f0858d3c2e3f79dda58710031c105e83418058e
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ec391db0e18128ad85d3bacb79fa51770aa70ea1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511175"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298880"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Table Storage y a Servicios conectados de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]

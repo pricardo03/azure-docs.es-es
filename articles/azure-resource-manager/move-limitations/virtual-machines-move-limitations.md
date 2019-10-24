@@ -4,14 +4,14 @@ description: Use Azure Resource Manager para trasladar máquinas virtuales a un 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7b9cce7ac367f42329e3198c75a7640a205d01fe
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 443d6f2bcbb61d9106b079a4e63c48bb433d19c6
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035538"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286739"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Guía del traslado de máquinas virtuales
 
@@ -24,8 +24,9 @@ Todavía no se admiten los siguientes escenarios:
 * Las instancias de Managed Disks en Availability Zones no se pueden trasladar a una suscripción diferente.
 * No es posible trasladar Virtual Machine Scale Sets con equilibrador de carga o IP pública de SKU estándar.
 * Las máquinas virtuales creadas a partir de recursos de Marketplace con planes adjuntos no se pueden mover entre suscripciones o grupos de recursos. Desaprovisione el recurso en la suscripción activa y vuelva a implementarlo en la nueva suscripción.
-* Las máquinas virtuales de una red virtual existente, pero no tiene intención de trasladar todos los recursos en la red virtual.
+* Las máquinas virtuales de una red virtual existente no se pueden mover a una suscripción nueva si no se van a mover todos los recursos de la red virtual.
 * Las máquinas virtuales de prioridad baja y los conjuntos de escalado de máquinas virtuales de prioridad baja no pueden moverse entre grupos de recursos o suscripciones.
+* Las máquinas virtuales de un conjunto de disponibilidad no se pueden mover individualmente.
 
 ## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuales con Azure Backup
 

@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 3d828e6e365864c2c23e1d9f178a556ff3c07515
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68517237"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430185"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
 
@@ -179,9 +179,9 @@ Estos son los tipos generales de desencadenadores que proporciona Azure Logic Ap
 
 Los desencadenadores y las acciones de cada conector proporcionan sus propias propiedades que se pueden configurar. Muchos conectores también requieren que primero se cree una *conexión* al servicio o sistema de destino, y que proporcione credenciales de autenticación u otros detalles de configuración antes de poder usar un desencadenador o una acción en la aplicación lógica. Por ejemplo, tendrá que autorizar una conexión a una cuenta de Twitter para acceder a los datos o para que publique en su nombre. 
 
-Para los conectores que usan OAuth, crear una conexión significa iniciar sesión en el servicio (por ejemplo, Office 365, Salesforce o GitHub) donde el token de acceso se cifra y almacena de forma segura en un almacén de secretos de Azure. Otros conectores (como FTP y SQL) requieren una conexión con detalles de configuración como la dirección del servidor, el nombre de usuario y la contraseña. Estos detalles sobre la configuración de la conexión también se cifran y se almacenan de forma segura. 
+En el caso de los conectores que usan Azure Active Directory (Azure AD) OAuth, crear una conexión significa iniciar sesión en el servicio (por ejemplo, Office 365, Salesforce o GitHub), donde el token de acceso [se cifra](../security/fundamentals/encryption-overview.md) y se almacena de forma segura en un almacén de secretos de Azure. Otros conectores (como FTP y SQL) requieren una conexión con detalles de configuración como la dirección del servidor, el nombre de usuario y la contraseña. Estos detalles sobre la configuración de la conexión también se cifran y se almacenan de forma segura. Más información sobre el [cifrado en Azure ](../security/fundamentals/encryption-overview.md).
 
-Las conexiones pueden acceder al servicio o sistema de destino siempre que ese servicio o sistema lo permita. Para los servicios que usan conexiones OAuth de Azure Active Directory (AD), como Office 365 y Dynamics, Azure Logic Apps actualiza los tokens de acceso de forma indefinida. Es posible que otros servicios tengan límites con respecto a cuánto tiempo puede usar Azure Logic Apps un token sin actualizar. Por lo general, algunas acciones invalidarán todos los tokens de acceso, por ejemplo, el cambio de la contraseña.
+Las conexiones pueden acceder al servicio o sistema de destino siempre que ese servicio o sistema lo permita. En el caso de los servicios que usan conexiones de Azure AD OAuth, como Office 365 y Dynamics, Azure Logic Apps actualiza los tokens de acceso de forma indefinida. Es posible que otros servicios tengan límites con respecto a cuánto tiempo puede usar Azure Logic Apps un token sin actualizar. Por lo general, algunas acciones invalidarán todos los tokens de acceso, por ejemplo, el cambio de la contraseña.
 
 <a name="custom"></a>
 

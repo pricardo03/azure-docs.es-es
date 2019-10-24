@@ -1,24 +1,18 @@
 ---
 title: Habilitar Azure Monitor para VM mediante Azure Policy | Microsoft Docs
 description: En este artículo se describe cómo habilitar Azure Monitor para VM para varias máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure mediante Azure Policy.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/07/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: cbb471d337bd386b6c5f2c7a960565ef29855c9c
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 10/15/2019
+ms.openlocfilehash: 068d320c85a1e10027c92b92c1b3c205a999bed7
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338233"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553837"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Habilitar Azure Monitor para VM (vista preliminar) mediante Azure Policy
 
@@ -46,7 +40,7 @@ Esta información es útil para ayudarle a planear y ejecutar el escenario de go
 
 Desde esta página, también puede configurar el área de trabajo de Log Analytics de Azure Monitor para VM, el cual:
 
-- Instala las soluciones Service Map e Infrastructure Insights.
+- Instala la solución Service Map.
 - Habilita los contadores de rendimiento del sistema operativo utilizados por los gráficos de rendimiento, los libros y las alertas y consultas del registro personalizado.
 
 ![Configuración del área de trabajo de Azure Monitor para VM](./media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
@@ -54,6 +48,7 @@ Desde esta página, también puede configurar el área de trabajo de Log Analyti
 Esta opción no está relacionada con las acciones de directiva. Está disponible para proporcionar una manera fácil de satisfacer los [requisitos previos](vminsights-enable-overview.md) necesarios para habilitar Azure Monitor para VM.  
 
 ### <a name="what-information-is-available-on-this-page"></a>¿Qué información está disponible en esta página?
+
 En la tabla siguiente se proporciona un desglose de la información que se presenta en la página de cobertura de la directiva y cómo interpretarla.
 
 | Función | DESCRIPCIÓN | 
@@ -113,6 +108,7 @@ La directiva independiente (no se incluye con la iniciativa) se describe a conti
 |\[Versión preliminar\]: Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe |Se notifica que las máquinas virtuales no son compatibles si no se registran en el área de trabajo de Log Analytics especificada en la asignación de la directiva o iniciativa. |Directiva |
 
 ### <a name="assign-the-azure-monitor-initiative"></a>Asignar la iniciativa de Azure Monitor
+
 Para crear la asignación de directiva desde la página **Cobertura de directiva de Azure Monitor para VM**, siga estos pasos. Para saber cómo completar estos pasos, consulte  [Create a policy assignment from the Azure portal](../../governance/policy/assign-policy-portal.md) (Creación de una asignación de directiva desde Azure Portal).
 
 Al asignar la directiva o iniciativa, el ámbito seleccionado en la asignación podría ser el ámbito que se muestra aquí o un subconjunto del mismo. Por ejemplo, es posible que haya creado una asignación para la suscripción (ámbito de la directiva) y no el grupo de administración (ámbito de la cobertura). En este caso, el porcentaje de cobertura indicaría el número de VM del ámbito de la directiva o iniciativa dividido entre las VM del ámbito de la cobertura. En otro caso, es posible que haya excluido algunas VM, grupos de recursos o una suscripción del ámbito de la directiva. Si está en blanco, indica que la directiva o la iniciativa no existe o no tiene permiso. Se proporciona información en **Estado de asignación**.
@@ -208,7 +204,6 @@ En cualquier momento después de asignar una iniciativa a un grupo de administra
 
 Ahora que la supervisión está habilitada para las máquinas virtuales, esta información está disponible para analizarse con Azure Monitor para VM. 
 
-- Para obtener información sobre cómo usar la característica de mantenimiento, consulte [Descripción del estado de las máquinas virtuales de Azure con Azure Monitor para VM (versión preliminar)](vminsights-health.md). 
 - Para ver las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](vminsights-maps.md). 
+
 - Para identificar los cuellos de botella y el uso general con el rendimiento de la máquina virtual, vea [Cómo representar el rendimiento en gráficos con Azure Monitor para VM (versión preliminar)](vminsights-performance.md). 
-- Para ver las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](vminsights-maps.md).

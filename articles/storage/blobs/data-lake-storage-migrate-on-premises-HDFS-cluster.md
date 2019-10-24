@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: ff23b27b73918734e10a481cbe9b1f77519b8764
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 508c67f73bc0e11330b5772b1c1ba3f9bee5e231
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847258"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255669"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Uso de Azure Data Box para migrar datos de un almacén HDFS local a Azure Storage
 
@@ -210,7 +210,7 @@ Para crear una entidad de servicio, consulte [Procedimientos para el uso del por
 
 * Al realizar los pasos que se describen en la sección [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), asegúrese de asignar el rol de **Colaborador de datos de blobs de almacenamiento** a la entidad de servicio.
 
-* Al realizar los pasos de la sección [Obtención de valores para iniciar sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, pegue los valores del identificador de aplicación y el secreto de cliente en un archivo de texto, ya que los necesitará pronto.
+* Al realizar los pasos de la sección [Obtención de valores para iniciar sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, guarde los valores del identificador de aplicación y el secreto de cliente en un archivo de texto. ya que los necesitará pronto.
 
 ### <a name="generate-a-list-of-copied-files-with-their-permissions"></a>Generación de una lista de los archivos copiados con sus permisos
 

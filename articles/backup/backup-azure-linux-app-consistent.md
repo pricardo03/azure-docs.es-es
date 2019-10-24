@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.author: dacurwin
-ms.openlocfilehash: dc7745c7c1110bf3635b1621cecfd5e61488b9f9
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1835c6968bfdfcc3f3ce4d8a624e8f6bd62e224c
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210393"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375942"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure
 
@@ -42,7 +42,7 @@ Los scripts anteriores invocan las API nativas de la aplicación, que ponen en m
 
    - **Script posterior**: permiso "700". Por ejemplo, solo el usuario "raíz" debe tener permisos de "lectura", "escritura" y "ejecución" para este archivo.
 
-   > [!Important]
+   > [!IMPORTANT]
    > El marco de trabajo proporciona a los usuarios una gran ayuda. Proteja el marco y asegúrese de que solo el usuario "raíz" tenga acceso a los archivos JSON y de script importantes.
    > Si no se cumplen los requisitos, el script no se ejecuta, lo que da lugar a un bloqueo del sistema de archivos y a una copia de seguridad incoherente.
    >
@@ -68,6 +68,8 @@ Los scripts anteriores invocan las API nativas de la aplicación, que ponen en m
 
     - **fsFreezeEnabled**: especifique si se debe llamar a fsfreeze de Linux al realizar la instantánea de la máquina virtual para garantizar la coherencia del sistema de archivos. Es recomendable mantener este valor en **true** a menos que la aplicación tenga una dependencia al deshabilitar fsfreeze.
 
+    - **ScriptsExecutionPollTimeSeconds**: establece el tiempo durante el cual la extensión tiene que entrar en suspensión entre cada sondeo a la ejecución del script. Por ejemplo, si el valor es 2, la extensión comprueba si la ejecución del script anterior o posterior se ha completado cada 2 segundos. Los valores mínimo y máximo que puede tomar son 1 y 5, respectivamente. El valor debe ser estrictamente un número entero.
+
 6. Ahora ya está configurado el marco de trabajo del script. Si ya está configurada la copia de seguridad de la máquina virtual, la copia de seguridad siguiente invoca los scripts y desencadena la copia de seguridad coherente con la aplicación. Si la copia de seguridad de la máquina virtual no está configurada, hágalo siguiendo las instrucciones descritas en [Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
 ## <a name="troubleshooting"></a>solución de problemas
@@ -76,11 +78,11 @@ Asegúrese de que agrega el registro adecuado al escribir el script anterior y e
 
 | Error | Mensaje de error | Acción recomendada |
 | ------------------------ | -------------- | ------------------ |
-| Pre-ScriptExecutionFailed |El script anterior devolvió un error por lo que puede que la copia de seguridad no sea coherente con la aplicación.   | Examine los registros de error del script para corregir el problema.|  
-|   Post-ScriptExecutionFailed |    El script posterior devolvió un error que podría afectar al estado de la aplicación. |    Examine los registros de error del script para corregir el problema y compruebe el estado de la aplicación. |
-| Pre-ScriptNotFound |  No se encontró el script anterior en la ubicación especificada en el archivo de configuración **VMSnapshotScriptPluginConfig.json**. |   Asegúrese de que el script anterior está en la ruta de acceso especificada en el archivo de configuración para garantizar la realización de copias de seguridad coherentes con la aplicación.|
-| Post-ScriptNotFound | No se encontró el script posterior en la ubicación especificada en el archivo de configuración **VMSnapshotScriptPluginConfig.json**. |   Asegúrese de que el script posterior está en la ruta de acceso especificada en el archivo de configuración para garantizar la realización de copias de seguridad coherentes con la aplicación.|
-| IncorrectPluginhostFile | El archivo de **Pluginhost** que se incluye con la extensión VmSnapshotLinux está dañado por lo que no se puede ejecutar el script anterior ni el posterior y la copia de seguridad no será coherente con la aplicación. | Desinstale la extensión **VmSnapshotLinux**. Esta se volverá a instalar automáticamente con la siguiente copia de seguridad para solucionar el problema. |
+| Pre-ScriptExecutionFailed |El script anterior devolvió un error por lo que puede que la copia de seguridad no sea coherente con la aplicación.| Examine los registros de error del script para corregir el problema.|  
+|Post-ScriptExecutionFailed |El script posterior devolvió un error que podría afectar al estado de la aplicación. |Examine los registros de error del script para corregir el problema y compruebe el estado de la aplicación. |
+| Pre-ScriptNotFound |No se encontró el script anterior en la ubicación especificada en el archivo de configuración **VMSnapshotScriptPluginConfig.json**. |Asegúrese de que el script anterior está en la ruta de acceso especificada en el archivo de configuración para garantizar la realización de copias de seguridad coherentes con la aplicación.|
+| Post-ScriptNotFound |No se encontró el script posterior en la ubicación especificada en el archivo de configuración **VMSnapshotScriptPluginConfig.json**. |Asegúrese de que el script posterior está en la ruta de acceso especificada en el archivo de configuración para garantizar la realización de copias de seguridad coherentes con la aplicación.|
+| IncorrectPluginhostFile |El archivo de **Pluginhost** que se incluye con la extensión VmSnapshotLinux está dañado por lo que no se puede ejecutar el script anterior ni el posterior y la copia de seguridad no será coherente con la aplicación.| Desinstale la extensión **VmSnapshotLinux**. Esta se volverá a instalar automáticamente con la siguiente copia de seguridad para solucionar el problema. |
 | IncorrectJSONConfigFile | El archivo **VMSnapshotScriptPluginConfig.json** es incorrecto por lo que no se puede ejecutar el script anterior ni el posterior y la copia de seguridad no será coherente con la aplicación. | Descargue la copia de [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) y configúrela de nuevo. |
 | InsufficientPermissionforPre-Script | Para ejecutar scripts, el usuario "raíz" debe ser el propietario del archivo y este debe tener permisos "700", es decir, solo el propietario tiene permisos de "lectura", "escritura" y "ejecución". | Asegúrese de que el usuario "raíz" es el "propietario" del archivo de script y que solo el "propietario" tiene permisos de "lectura", "escritura" y "ejecución". |
 | InsufficientPermissionforPost-Script | Para ejecutar scripts, el usuario "raíz" debe ser el propietario del archivo y este debe tener permisos "700", es decir, solo el "propietario" tiene permisos de "lectura", "escritura" y "ejecución". | Asegúrese de que el usuario "raíz" es el "propietario" del archivo de script y que solo el "propietario" tiene permisos de "lectura", "escritura" y "ejecución". |
@@ -88,4 +90,5 @@ Asegúrese de que agrega el registro adecuado al escribir el script anterior y e
 | Post-ScriptTimeout | La ejecución del script posterior de la copia de seguridad coherente con la aplicación ha superado el tiempo de espera. | Compruebe el script y aumente el tiempo de espera en el archivo **VMSnapshotScriptPluginConfig.json** situado en **/etc/azure**. |
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 [Configuración de la copia de seguridad en un almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

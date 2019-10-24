@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: 49c82339e5a3774cd286d700d709371d46cf0571
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d090fb52beb266f006e69688c09f66412f1fe8c2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051844"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376198"
 ---
 # <a name="monitoring-scheduled-events"></a>Supervisión de Scheduled Events
 
@@ -164,7 +164,7 @@ Una vez que los eventos se insertan en Log Analytics, puede ejecutar la [consult
 1. En **Acciones**, seleccione **Crear grupo de acciones**. Se abrirá la página **Agregar grupo de acciones**.
 1. En **Nombre del grupo de acciones**, escriba *myActionGroup*.
 1. En **Nombre corto**, escriba **myActionGroup**.
-1. En **Grupo de recursos**, seleccione *myResourceGroupAvailability* *.
+1. En **Grupo de recursos**, seleccione **myResourceGroupAvailability**.
 1. En Acciones, en **NOMBRE DE ACCIÓN** escriba **Correo electrónico** y, a continuación, seleccione **Email/SMS/Push/Voice** (Correo electrónico/SMS/Push/Voz). Se abre la página **Email/SMS/Push/Voice** (Correo electrónico/SMS/Push/Voz).
 1. Seleccione **Correo electrónico**, escriba su dirección de correo electrónico y después haga clic en **Aceptar**.
 1. En la página **Agregar grupo de acciones**, seleccione **Aceptar**. 

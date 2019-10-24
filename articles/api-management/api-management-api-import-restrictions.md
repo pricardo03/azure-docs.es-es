@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: d1c80e2ab9ae6a893b1adea6bd68e9b585288d8b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074953"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294345"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restricciones de importación de API y problemas conocidos
 
@@ -39,6 +39,7 @@ Si recibe errores al importar el documento de OpenAPI, asegúrese de haberlo val
 -   **Recursión**: API Management no es compatible con definiciones establecidas de forma recursiva (por ejemplo, esquemas que hacen referencia a sí mismos).
 -   La dirección URL (si está disponible) del archivo de origen se aplica a direcciones URL del servidor relativas.
 -   Se omiten las definiciones de seguridad.
+-   No se admiten las definiciones de esquema insertadas para las operaciones de API. Las definiciones de esquema se definen en el ámbito de la API y se puede hacer referencia a ellas en los ámbitos de solicitud o respuesta de operaciones de API.
 
 ### <a name="open-api-v2"> </a>OpenAPI versión 2
 

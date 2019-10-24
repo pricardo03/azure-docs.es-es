@@ -1,6 +1,6 @@
 ---
 title: Errores de cuota de Azure | Microsoft Docs
-description: Se describe cómo resolver los errores de cuota de recursos.
+description: Describe cómo resolver errores de cuota de recursos al implementar recursos con Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7938f2c47e4af8d8804191fbb9e55b379f9554ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 201ddf69f9c28b5b3a4197f91768f749152094de
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390228"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390303"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolución de errores de cuotas de recursos
 
@@ -52,7 +52,7 @@ Para obtener información completa de las cuotas, consulte [Límites, cuotas y r
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 Para la CLI de Azure, use el comando `az vm list-usage` para encontrar las cuotas de máquina virtual.
 

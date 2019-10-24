@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/22/2019
-ms.openlocfilehash: 2034701008396f524e5b058ddb726ddce89e4e32
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/10/2019
+ms.openlocfilehash: 54f8a1248688a6d62192e4f34cf6b98a94086da8
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300612"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274765"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Creación de conjuntos de datos y acceso a ellos (versión preliminar) en Azure Machine Learning
 
@@ -55,11 +55,13 @@ Para obtener más información sobre los próximos cambios en la API, consulte [
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
 
-Mediante la creación de un conjunto de datos, puede crear una referencia a la ubicación del origen de datos, junto con una copia de sus metadatos. Los datos se mantienen en la ubicación existente, por lo que no se genera ningún costo de almacenamiento adicional.
+Mediante la creación de un conjunto de datos, puede crear una referencia a la ubicación del origen de datos, junto con una copia de sus metadatos. Los datos se mantienen en la ubicación existente, por lo que no se genera ningún costo de almacenamiento adicional. Es posible crear TabularDatasets y FileDatasets mediante el SDK de Python o mediante la página de aterrizaje del área de trabajo (versión preliminar). 
 
 Para que Azure Machine Learning pueda acceder a los datos, hay que crear los conjuntos de datos a partir de las rutas de acceso de los [almacenes de datos de Azure](how-to-access-data.md) o las direcciones URL web públicas.
 
-Para crear conjuntos de datos desde un [almacén de datos de Azure](how-to-access-data.md):
+### <a name="using-the-sdk"></a>Uso del SDK
+
+Para crear conjuntos de datos desde un [almacén de datos de Azure](how-to-access-data.md) mediante el SDK de Python:
 
 * Compruebe que dispone de acceso `contributor` o `owner` para el almacén de datos de Azure registrado.
 
@@ -78,12 +80,7 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
-
-### <a name="create-tabulardatasets"></a>Creación de TabularDatasets
-
-Es posible crear TabularDatasets a través del SDK o mediante la página de aterrizaje del área de trabajo (versión preliminar). Se puede especificar una marca de tiempo desde una columna de los datos o el patrón de la ruta de acceso donde se almacenan los datos para habilitar un rasgo de serie temporal, lo que permite un filtrado por tiempo sencillo y eficaz.
-
-#### <a name="using-the-sdk"></a>Uso del SDK
+#### <a name="create-tabulardatasets"></a>Creación de TabularDatasets
 
 Use el método [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) en la clase `TabularDatasetFactory` para leer archivos en formato csv o tsv y cree una clase TabularDataset sin registrar. Si está leyendo de varios archivos, los resultados se agregarán en una representación tabular.
 
@@ -120,10 +117,13 @@ from azureml.core import Dataset, Datastore
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
-Use el método [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) en la clase `TabularDataset` para permitir el filtrado por tiempo sencillo y eficaz. Puede encontrar más ejemplos y detalles [aquí](https://aka.ms/azureml-tsd-notebook).
+
+En TabularDatasets, se puede especificar una marca de tiempo desde una columna de los datos o el patrón de la ruta de acceso donde se almacenan los datos para habilitar un rasgo de serie temporal, lo que permite un filtrado por tiempo sencillo y eficaz.
+
+Use el método [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) en la clase `TabularDataset` para especificar la columna de marca de tiempo y habilitar el filtrado por tiempo. Puede encontrar más ejemplos y detalles [aquí](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
-# create a TabularDataset with timeseries trait
+# create a TabularDataset with time series trait
 datastore_paths = [(datastore, 'weather/*/*/*/data.parquet')]
 
 # get a coarse timestamp column from the path pattern
@@ -132,24 +132,14 @@ dataset = Dataset.Tabular.from_parquet_files(path=datastore_path, partition_form
 # set coarse timestamp to the virtual column created, and fine grain timestamp from a column in the data
 dataset = dataset.with_timestamp_columns(fine_grain_timestamp='datetime', coarse_grain_timestamp='coarse_time')
 
-# filter with timeseries trait specific methods
+# filter with time-series-trait-specific methods
 data_slice = dataset.time_before(datetime(2019, 1, 1))
 data_slice = dataset.time_after(datetime(2019, 1, 1))
 data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### <a name="using-the-workspace-landing-page"></a>Uso de la página de aterrizaje del área de trabajo
-
-Inicie sesión en la [página de aterrizaje del área de trabajo](https://ml.azure.com) para crear un conjunto de datos a través de la experiencia web. Actualmente, la página de aterrizaje del área de trabajo solo admite la creación de TabularDatasets.
-
-En la animación siguiente se muestra cómo crear un conjunto de datos en la página de aterrizaje del área de trabajo.
-
-En primer lugar, seleccione **Conjuntos de datos** en la sección **Recursos** del panel de la izquierda. Después, seleccione **+ Crear conjunto de datos** para elegir el origen del conjunto de datos, que puede ser desde archivos locales, almacenes de datos o direcciones URL web públicas. Los formularios **Configuración y vista previa** y **Esquema** se rellenan de manera inteligente en función del tipo de archivo. Seleccione **Siguiente** para revisarlos o para seguir configurando el conjunto de datos antes de su creación. Seleccione **Hecho** para completar la creación del conjunto de datos.
-
-![Creación de un conjunto de datos con la interfaz de usuario](media/how-to-create-register-datasets/create-dataset-ui.gif)
-
-### <a name="create-filedatasets"></a>Crear FileDatasets
+#### <a name="create-filedatasets"></a>Crear FileDatasets
 
 Use el método [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) en la clase `FileDatasetFactory` para cargar archivos en cualquier formato y crear un elemento FileDataset sin registrar.
 
@@ -169,6 +159,16 @@ web_paths = [
            ]
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
+
+### <a name="using-the-workspace-landing-page"></a>Uso de la página de aterrizaje del área de trabajo
+
+Inicie sesión en la [página de aterrizaje del área de trabajo](https://ml.azure.com) para crear un conjunto de datos a través de la experiencia web. La página de aterrizaje del área de trabajo admite la creación tanto de TabularDatasets como de FileDatasets.
+
+En la animación siguiente se muestra cómo crear un conjunto de datos en la página de aterrizaje del área de trabajo.
+
+En primer lugar, seleccione **Conjuntos de datos** en la sección **Recursos** del panel de la izquierda. Después, seleccione **+ Crear conjunto de datos** para elegir el origen del conjunto de datos, que puede ser desde archivos locales, almacenes de datos o direcciones URL web públicas. Seleccione el **tipo de conjunto de datos**: *tabular o archivo. Los formularios **Configuración y vista previa** y **Esquema** se rellenan de manera inteligente en función del tipo de archivo. Seleccione **Siguiente** para revisarlos o para seguir configurando el conjunto de datos antes de su creación. Seleccione **Hecho** para completar la creación del conjunto de datos.
+
+![Creación de un conjunto de datos con la interfaz de usuario](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
 ## <a name="register-datasets"></a>Registro de conjuntos de datos
 

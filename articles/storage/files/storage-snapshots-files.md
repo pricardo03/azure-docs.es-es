@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f3cbf740016a4c162c63343be4cb9cd577f85935
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699353"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333178"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Información general de las instantáneas de recurso compartido de Azure Files 
 Azure Files proporciona la funcionalidad de tomar instantáneas de recurso compartido de recursos compartidos de archivos. Las instantáneas de recursos compartidos capturan el estado del recurso compartido en ese momento dado. En este artículo se describen las funcionalidades que proporcionan las instantáneas de recurso compartido y cómo se puede sacar provecho de ellas en el caso de uso personalizado.
@@ -71,7 +71,7 @@ Puede copiar archivos individuales en una instantánea de recurso compartido de 
 
 La instantánea de recurso compartido se mantiene intacta después de la operación de copia, pero el recurso compartido de archivos base se sobrescribe con una copia de los datos que estaban disponibles en la instantánea de recurso compartido. Todos los archivos restaurados se tienen en cuenta como "contenido cambiado".
 
-Puede copiar un archivo en una instantánea de recurso compartido en un destino con un nombre distinto. El archivo de destino resultante es un archivo en el que se puede escribir y no una instantánea de recurso compartido.
+Puede copiar un archivo en una instantánea de recurso compartido en un destino diferente con un nombre distinto. El archivo de destino resultante es un archivo en el que se puede escribir y no una instantánea de recurso compartido. En este caso, el recurso compartido de archivos de base permanecerá intacto.
 
 Cuando un archivo de destino se sobrescribe con una copia, las instantáneas de recurso compartido asociadas al archivo de destino original no se modifican.
 

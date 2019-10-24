@@ -34,8 +34,8 @@ ms.locfileid: "72755318"
 | Buhid | Armenio | Danés                     | Finés |
 | Cario | Asamés | Neerlandés                     | Francés |
 | Chino (simplificado) | Azerbaiyano | English  | Griego (moderno) |
-| Chino (tradicional) | Bangla (Bangladesh) | Finés  | Italiano |
-| Eslavo (eclesiástico) | Bangla (India) | Francés     | Coreano |
+| Chino (tradicional) | Bengalí (Bangladesh) | Finés  | Italiano |
+| Eslavo (eclesiástico) | Bengalí (India) | Francés     | Coreano |
 | Copto | Vasco | Alemán                      | Noruego |
 | Checo |  Bielorruso | Griego (moderno)         | Polaco |
 | Divehi | Bosnio (cirílico) | Húngaro      | Portugués |
@@ -65,7 +65,7 @@ ms.locfileid: "72755318"
 | Noruego (bokmal) | Gujarati | | |
 | Noruego (nynorsk) |  Hausa | | |
 | Persa (antiguo) | Hebreo | | |
-| Pashto | Hindi | | |
+| Pastún | Hindi | | |
 | Polaco | Húngaro | | |
 | Portugués | Islandés | | |
 | Punjabi | Igbo | | |
@@ -76,7 +76,7 @@ ms.locfileid: "72755318"
 | Saurashtra | isiZulu | | |
 | Serbio (cirílico) | Italiano | | |
 | Serbio (latino) | Japonés | | |
-| Sinhala | Canarés | | |
+| Cingalés | Canarés | | |
 | Esloveno | Kazajo | | |
 | Español | Khmer | | |
 | Sueco | Quiché | | |
@@ -100,7 +100,7 @@ ms.locfileid: "72755318"
 | | Noruego (bokmal) | | |
 | | Noruego (nynorsk) | | |
 | | Odia | | |
-| | Pashto | | |
+| | Pastún | | |
 | | Persa | | |
 | | Polaco | | |
 | | Portugués (Brasil) | | |
@@ -119,7 +119,7 @@ ms.locfileid: "72755318"
 | | Sotho septentrional | | |
 | | Setsuana | | |
 | | Sindhi | | |
-| | Sinhala | | |
+| | Cingalés | | |
 | | Eslovaco | | |
 | | Esloveno | | |
 | | Español | | |

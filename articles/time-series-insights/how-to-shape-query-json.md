@@ -6,15 +6,15 @@ author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 10/09/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 48e09a64812f7552bd79c529138db693df283790
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947147"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274406"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Dar forma a JSON para maximizar el rendimiento de las consultas 
 
@@ -27,6 +27,7 @@ En este artículo se proporciona orientación sobre cómo dar forma a JSON para 
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## <a name="best-practices"></a>Procedimientos recomendados
+
 Piense en cómo envía eventos a Time Series Insights. Concretamente, siempre hace lo siguiente:
 
 1. Enviar los datos a través de la red de la forma más eficaz posible.
@@ -57,9 +58,10 @@ Los ejemplos se basan en un escenario donde varios dispositivos envían señales
 
 En el ejemplo siguiente, hay un único mensaje de Azure IoT Hub donde la matriz externa contiene una sección compartida de valores de dimensión comunes. La matriz externa usa datos de referencia para aumentar la eficacia del mensaje. Los datos de referencia contienen metadatos del dispositivo que no cambian con cada evento, pero proporcionan propiedades útiles para el análisis de datos. Los valores de dimensión común de procesamiento por lotes y el uso de datos de referencia ahorran bytes enviados a través de la conexión, lo que hace que el mensaje sea más eficaz.
 
-Carga JSON de ejemplo:
+Considere la siguiente carga de JSON que se envía al entorno de disponibilidad general de Time Series Insights mediante un [objeto de mensaje de dispositivo IoT](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) que se serializa en JSON cuando se envía a la nube de Azure:
 
-```json
+
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -103,13 +105,12 @@ Carga JSON de ejemplo:
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
    | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
-Notas sobre estas dos tablas:
-
-- La columna **deviceId** actúa como el encabezado de columna para los distintos dispositivos en una línea. Al establecerse el valor de deviceId como su propio nombre de propiedad, se limita el número total de dispositivos a 595 (para entornos S1) o 795 (para entornos S2) con las otras cinco columnas.
-- Se evitan las propiedades innecesarias, por ejemplo, la información de marca y modelo. Puesto que las propiedades no se consultarán en el futuro, al eliminarlas se permite que la eficacia de red y almacenamiento sea mejor.
-- Los datos de referencia se utilizan para reducir el número de bytes transferidos a través de la red. Se combinan los dos atributos, **messageId** y **deviceLocation**, mediante la propiedad de clave **deviceId**. Estos datos se combinan con los datos de telemetría en el momento de entrada y posteriormente se almacenan en Time Series Insights para las consultas.
-- Se utilizan dos niveles de anidamiento, que es la cantidad máxima de anidamiento admitido en Time Series Insights. Es fundamental para evitar matrices profundamente anidadas.
-- Las medidas se envían como propiedades independientes en el mismo objeto al haber pocas medidas. En este caso, **series.Flow Rate psi** y **series.Engine Oil Pressure ft3/s** son columnas únicas.
+> [!NOTE]
+> - La columna **deviceId** actúa como el encabezado de columna para los distintos dispositivos en una línea. Al establecerse el valor de **deviceId** como su propio nombre de propiedad, se limita el número total de dispositivos a 595 (para entornos S1) o 795 (para entornos S2) con las otras cinco columnas.
+> - Se evitan las propiedades innecesarias (por ejemplo, la información de marca y modelo). Puesto que las propiedades no se consultarán en el futuro, al eliminarlas se permite que la eficacia de red y almacenamiento sea mejor.
+> - Los datos de referencia se utilizan para reducir el número de bytes transferidos a través de la red. Se combinan los dos atributos, **messageId** y **deviceLocation**, mediante la propiedad de clave **deviceId**. Estos datos se combinan con los datos de telemetría en el momento de entrada y posteriormente se almacenan en Time Series Insights para las consultas.
+> - Se utilizan dos niveles de anidamiento, que es la cantidad máxima de anidamiento admitido en Time Series Insights. Es fundamental para evitar matrices profundamente anidadas.
+> - Las medidas se envían como propiedades independientes en el mismo objeto al haber pocas medidas. En este caso, **series.Flow Rate psi** y **series.Engine Oil Pressure ft3/s** son columnas únicas.
 
 ## <a name="scenario-two-several-measures-exist"></a>Escenario dos: existen varias medidas
 
@@ -118,7 +119,7 @@ Notas sobre estas dos tablas:
 
 Carga JSON de ejemplo:
 
-```json
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -179,12 +180,11 @@ Carga JSON de ejemplo:
    | FYYY | pumpRate | LINE\_DATA | US | Caudal | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | oilPressure | LINE\_DATA | US | Presión de aceite del motor | psi | 2018-01-17T01:18:00Z | 22.2 |
 
-Notas sobre estas dos tablas:
-
-- Las columnas **deviceId** y **series.tagId** actúan como encabezados de columna para los distintos dispositivos y etiquetas en una línea. Al usar cada una como su propio atributo, se limita la consulta a 594 (para entornos S1) o 794 (para entornos S2) dispositivos en total, con las otras seis columnas.
-- Se han evitado las propiedades innecesarias, por la razón indicada en el primer ejemplo.
-- Los datos de referencia se utilizan para reducir el número de bytes transferidos a través de la red mediante la introducción de **deviceId**, que se usa para el par único de **messageId** y **deviceLocation**. Se utiliza la clave compuesta **series.tagId** para el par único de **type** y **unit**. La clave compuesta permite usar el par **deviceId** y **series.tagId** para hacer referencia a cuatro valores: **messageId, deviceLocation, tipo** y **unidad**. Estos datos se unen con los datos de telemetría en el momento de la entrada. A continuación, se almacenan en Time Series Insights para realizar consultas.
-- Se utilizan dos niveles de anidamiento, por la razón indicada en el primer ejemplo.
+> [!NOTE]
+> - Las columnas **deviceId** y **series.tagId** actúan como encabezados de columna para los distintos dispositivos y etiquetas en una línea. Al usar cada una como su propio atributo, se limita la consulta a 594 (para entornos S1) o 794 (para entornos S2) dispositivos en total, con las otras seis columnas.
+> - Se han evitado las propiedades innecesarias, por la razón indicada en el primer ejemplo.
+> - Los datos de referencia se utilizan para reducir el número de bytes transferidos a través de la red mediante la introducción de **deviceId**, que se usa para el par único de **messageId** y **deviceLocation**. Se utiliza la clave compuesta **series.tagId** para el par único de **type** y **unit**. La clave compuesta permite usar el par **deviceId** y **series.tagId** para hacer referencia a cuatro valores: **messageId, deviceLocation, tipo** y **unidad**. Estos datos se unen con los datos de telemetría en el momento de la entrada. A continuación, se almacenan en Time Series Insights para realizar consultas.
+> - Se utilizan dos niveles de anidamiento, por la razón indicada en el primer ejemplo.
 
 ### <a name="for-both-scenarios"></a>Para ambos escenarios
 
@@ -195,5 +195,8 @@ Para una propiedad con un gran número de valores posibles, es mejor enviarlos c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Obtenga más información sobre el envío de [mensajes de dispositivo de IoT Hub a la nube](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+
 - Lea [Azure Time Series Insights query syntax](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) (Sintaxis de consulta de Azure Time Series Insights) para obtener más información sobre la sintaxis de consulta para la API de REST de acceso a datos de Time Series Insights.
+
 - Aprenda a [dar forma a eventos](./time-series-insights-send-events.md).

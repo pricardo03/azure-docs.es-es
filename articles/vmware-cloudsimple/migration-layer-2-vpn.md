@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9e0afd26b46fc6249b697c38983b9c219c42b1a0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 34b26dd1b9b8990da9e84c8d7cfc993d8bbe85a7
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845475"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72376300"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migración de cargas de trabajo mediante redes extendidas de Capa 2
 
@@ -137,7 +137,7 @@ En los pasos siguientes se muestra cómo capturar el identificador del enrutador
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Captura del identificador del conmutador lógico necesario para L2VPN
 
 1. Inicie sesión en el [administrador de NSX-T](https://nsx-t-manager-ip-address).
-2. Seleccione **Redes** > **Conmutación** > **Conmutadores** > **<\Conmutador lógico>\ ** > **Información general**.
+2. Seleccione **Redes** > **Conmutación** > **Conmutadores** > **<\Conmutador lógico\> ** > **Información general**.
 3. Anote el UUID del conmutador lógico de extensión, que es necesario al configurar L2VPN.
 
     ![obtención de la salida del enrutador lógico](media/l2vpn-fetch-switch01.png)

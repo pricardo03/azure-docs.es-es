@@ -17,16 +17,16 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1b7417de8de6fb063de18fe670ef474a3b486d0
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 0dd5be3944bdff459f6d920b358ae08efedcc431
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269394"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264201"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procedimientos para: Personalizar exploradores y vistas web para iOS/macOS
 
-Se requiere un explorador web para la autenticación no interactiva. En iOS, la biblioteca de autenticación de Microsoft (MSAL) usa un explorador web de sistema de forma predeterminada (que puede aparecer en la parte superior de la aplicación) para realizar la autenticación interactiva cuando los usuarios inician sesión. El uso del explorador del sistema tiene la ventaja significativa de compartir el estado de inicio de sesión único con otras aplicaciones y con aplicaciones web.
+Se requiere un explorador web para la autenticación no interactiva. En iOS, la biblioteca de autenticación de Microsoft (MSAL) usa un explorador web de sistema de forma predeterminada (que puede aparecer en la parte superior de la aplicación) para realizar la autenticación interactiva cuando los usuarios inician sesión. El uso del explorador del sistema tiene la ventaja de compartir el estado de inicio de sesión único con otras aplicaciones y con aplicaciones web.
 
 Puede cambiar la experiencia personalizando la configuración de otras opciones para mostrar el contenido web, como:
 

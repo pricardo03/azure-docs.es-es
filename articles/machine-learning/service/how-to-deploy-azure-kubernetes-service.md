@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: c32560f7bb182ac347e9e5a71b53b57cf80fac38
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: dfaa39b33839406ffdf484299cb520aebf011c7d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034623"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299689"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 
@@ -114,7 +114,7 @@ Para más información, consulte la referencia de [az ml computetarget create as
 
 **Tiempo estimado:** Aproximadamente 5 minutos.
 
-Si ya tiene un clúster de AKS en su suscripción a Azure y es de la versión 1.12.## puede usarlo para implementar la imagen.
+Si ya tiene un clúster de AKS en su suscripción a Azure y es de una versión anterior a la 1.14, puede usarlo para implementar la imagen.
 
 > [!TIP]
 > El clúster de AKS existente puede estar en la misma región de Azure que su área de trabajo de Azure Machine Learning.
@@ -133,7 +133,7 @@ Para más información acerca de cómo crear un clúster de AKS mediante la CLI 
 * [Creación de un clúster de AKS (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Creación de un clúster de AKS: Portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
-En los ejemplos siguientes se muestra cómo asociar un clúster de AKS 1.12.## existente a un área de trabajo:
+En los ejemplos siguientes se muestra cómo asociar un clúster de AKS existente a un área de trabajo:
 
 **Uso del SDK**
 

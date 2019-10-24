@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 10/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 892cbe66222626a6847ad7a5b6c990d23991c182
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 74ca6f15baeeb9fe8adad4bda80e313a4b4cf03a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002264"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376238"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Configuración de las claves administradas del cliente para el cifrado de Azure Storage desde Azure Portal
 
@@ -22,9 +22,8 @@ ms.locfileid: "71002264"
 
 En este artículo se muestra cómo configurar un almacén de claves con claves administradas del cliente mediante [Azure Portal](https://portal.azure.com/). Para obtener información sobre cómo crear un almacén de claves mediante Azure Portal, consulte [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal](../../key-vault/quick-create-portal.md). 
 
-
 > [!IMPORTANT]
-> El uso de claves administradas del cliente con el cifrado de Azure Storage requiere que el almacén de claves tenga configuradas dos propiedades obligatorias, **Eliminación temporal** y **No purgar**. Estas propiedades están habilitadas de manera predeterminada cuando crea un nuevo almacén de claves en Azure Portal. Sin embargo, si tiene que habilitar estas propiedades en un almacén de claves existente, deberá usar PowerShell o la CLI de Azure.
+> El uso de claves administradas del cliente con el cifrado de Azure Storage requiere el establecimiento de dos propiedades en el almacén de claves, **Eliminación temporal** y **Do Not Purge** (No purgar). Estas propiedades no están habilitadas de forma predeterminada. Para habilitarlas, use PowerShell o la CLI de Azure.
 > Solo se admiten claves RSA y el tamaño de clave 2048.
 
 ## <a name="enable-customer-managed-keys"></a>Habilitar claves administradas del cliente

@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39ba577580424bf8283d64198bb3068b82869c51
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 15036b33e637953de7dc12100468d3dd8570f775
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476868"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376093"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
-La solución Start/Stop VMs during off-hours inicia y detiene las máquinas virtuales de Azure según las programaciones definidas por el usuario, proporciona información detallada mediante registros de Azure Monitor y envía mensajes de correo electrónico opcionales mediante [grupos de acciones](../azure-monitor/platform/action-groups.md). Admite tanto máquinas virtuales clásicas como Azure Resource Manager para la mayoría de los escenarios.
+La solución Start/Stop VMs during off-hours inicia y detiene las máquinas virtuales de Azure según las programaciones definidas por el usuario, proporciona información detallada mediante registros de Azure Monitor y envía mensajes de correo electrónico opcionales mediante [grupos de acciones](../azure-monitor/platform/action-groups.md). Admite tanto máquinas virtuales clásicas como Azure Resource Manager para la mayoría de los escenarios. Para usar esta solución con máquinas virtuales clásicas, necesita una cuenta de ejecución clásica, que no se crea de forma predeterminada. Para obtener instrucciones sobre cómo crear una cuenta de ejecución clásica, consulte [Cuentas de ejecución clásicas](automation-create-standalone-account.md#classic-run-as-accounts).
 
 > [!NOTE]
 > La solución Start/Stop VMs during off-hours se ha probado con los módulos de Azure que se importan en su cuenta de Automation al implementar la solución. La solución no funciona actualmente con las versiones más recientes del módulo de Azure. Esto solo afecta a la cuenta de Automation que use para ejecutar la solución Start/Stop VMs during off-hours. Puede seguir usando las versiones más recientes del módulo de Azure en sus otras cuentas de Automation, tal como se describe en [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
@@ -80,7 +80,7 @@ Para implementar la solución Start/Stop VMs during off-hours en una cuenta de A
 
 Para implementar la solución Start/Stop VMs during off-hours en una nueva cuenta de Automation y área de trabajo de Log Analytics, el usuario que implementa la solución necesita los permisos que se han definido en la sección anterior, así como los siguientes permisos:
 
-- Coadministrador de la suscripción: solo es necesario para crear la cuenta de ejecución clásica.
+- Coadministrador de la suscripción: solo es necesario para crear la cuenta de ejecución clásica si va a administrar máquinas virtuales clásicas. Las [cuentas de ejecución clásicas](automation-create-standalone-account.md#classic-run-as-accounts) ya no se crean de forma predeterminada.
 - Formar parte del rol **Desarrollador de aplicaciones** de [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Para obtener más información sobre cómo configurar las cuentas de ejecución, consulte [Permisos para configurar cuentas de ejecución](manage-runas-account.md#permissions).
 - Colaborador de la suscripción o los siguientes permisos.
 
@@ -270,7 +270,7 @@ En la tabla siguiente se enumeran las variables creadas en su cuenta de Automati
 |External_AutoStop_Threshold | Umbral para la regla de alertas de Azure especificada en la variable _External_AutoStop_MetricName_. Los valores de porcentaje pueden oscilar entre 1 y 100.|
 |External_AutoStop_TimeAggregationOperator | El operador de agregación de tiempo, que se aplica al tamaño de la ventana seleccionada para evaluar la condición. Los valores que se aceptan son **Promedio**, **Mínimo**, **Máximo**, **Total** y **Último**.|
 |External_AutoStop_TimeWindow | El tamaño de la ventana en la que Azure analiza la métrica seleccionada para desencadenar una alerta. Este parámetro acepta la entrada en formato timespan. Los valores posibles son de 5 minutos a 6 horas.|
-|External_EnableClassicVMs| Especifica si la solución se centra en las máquinas virtuales clásicas. El valor predeterminado es True. Este debe establecerse en False para las suscripciones de CSP.|
+|External_EnableClassicVMs| Especifica si la solución se centra en las máquinas virtuales clásicas. El valor predeterminado es True. Este debe establecerse en False para las suscripciones de CSP. Las máquinas virtuales clásicas requieren una [cuenta de ejecución clásica](automation-create-standalone-account.md#classic-run-as-accounts).|
 |External_ExcludeVMNames | Escriba los nombres de máquina virtual que se van a excluir y sepárelos con una coma sin espacios en blanco. Esto se limita a 140 VM. Si agrega más de 140 VM a esta lista separada por comas, las VM establecidas para excluirse pueden iniciarse o cerrarse accidentalmente.|
 |External_Start_ResourceGroupNames | Especifica uno o varios grupos de recursos y separa los valores con una coma, destinados a las acciones de inicio.|
 |External_Stop_ResourceGroupNames | Especifica uno o varios grupos de recursos y separa los valores con una coma, destinados a las acciones de detención.|
@@ -304,7 +304,7 @@ Automation crea dos tipos de registros en el área de trabajo de Log Analytics: 
 |Propiedad | DESCRIPCIÓN|
 |----------|----------|
 |Autor de llamada |  La persona que inicia la operación. Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados.|
-|Categoría | Clasificación del tipo de datos. Para Automation, el valor será JobLogs.|
+|Category | Clasificación del tipo de datos. Para Automation, el valor será JobLogs.|
 |CorrelationId | GUID que es el identificador de correlación del trabajo de Runbook.|
 |JobId | GUID que es el identificador del trabajo de Runbook.|
 |operationName | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job.|
@@ -325,7 +325,7 @@ Automation crea dos tipos de registros en el área de trabajo de Log Analytics: 
 |Propiedad | DESCRIPCIÓN|
 |----------|----------|
 |Autor de llamada |  La persona que inicia la operación. Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados.|
-|Categoría | Clasificación del tipo de datos. Para Automation, el valor es JobStreams.|
+|Category | Clasificación del tipo de datos. Para Automation, el valor es JobStreams.|
 |JobId | GUID que es el identificador del trabajo de Runbook.|
 |operationName | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job.|
 |ResourceGroup | Especifica el nombre del grupo de recursos del trabajo de Runbook.|

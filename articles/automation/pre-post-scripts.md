@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f13851dd43c80a63ec628e04b98271894c15afc0
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 84cd5db812d995f1160a02917eac5857ee076c7f
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542865"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374455"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Administración de scripts previos y posteriores
 
@@ -26,7 +26,7 @@ Para que un runbook se utilice como script previo o posterior, el runbook debe i
 
 ## <a name="using-a-prepost-script"></a>Uso de script previo o posterior
 
-Para usar un script previo o posterior en una implementación de actualización, solo tiene que empezar por crear una de estas implementaciones de actualización. Seleccione **Pre-scripts + Post Scripts** (Scripts previos + scripts posteriores). Se abrirá la página **Seleccionar scripts previos + scripts posteriores**.  
+Para usar un script previo o posterior en una implementación de actualización, solo tiene que empezar por crear una de estas implementaciones de actualización. Seleccione **Pre-scripts + Post Scripts** (Scripts previos + scripts posteriores). Se abrirá la página **Seleccionar scripts previos + scripts posteriores**.
 
 ![Selección de scripts](./media/pre-post-scripts/select-scripts.png)
 
@@ -104,7 +104,7 @@ En el ejemplo siguiente se muestra una cadena JSON que se pasa al parámetro **S
             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
-         ], 
+         ],
          "nonAzureComputerNames":[
             "box1.contoso.com",
             "box2.contoso.com"
@@ -121,7 +121,7 @@ Se puede encontrar un ejemplo completo con todas las propiedades en: [Software U
 
 ## <a name="stopping-a-deployment"></a>Detención de una implementación
 
-Si quiere detener una implementación basada en un script previo, debe [generar](automation-runbook-execution.md#throw) una excepción. Si no genera una excepción, la implementación y el script posterior se seguirán ejecutando. El [runbook de ejemplo](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) de la galería muestra cómo puede hacerlo. Este es un fragmento de código de ese runbook.
+Si quiere detener una implementación basada en un script previo, debe [generar](automation-runbook-execution.md#throw) una excepción. Si no genera una excepción, la implementación y el script posterior se seguirán ejecutando. El siguiente fragmento de código muestra cómo generar una excepción.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -130,16 +130,15 @@ foreach($summary in $finalStatus)
 {
     if ($summary.Type -eq "Error")
     {
-        #We must throw in order to fail the patch deployment.  
+        #We must throw in order to fail the patch deployment.
         throw $summary.Summary
     }
 }
 ```
 
-
 ## <a name="samples"></a>Ejemplos
 
-Se pueden encontrar ejemplos de scripts previos y posteriores la [galería del centro de scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell), o importarse mediante Azure Portal. Para importarlos mediante el portal, en su la cuenta de Automation, en **Automatización de procesos**, seleccione **Galería de runbooks**. Utilice **Update Management** para el filtro.
+Se pueden encontrar ejemplos de scripts previos y posteriores en la [galería del centro de scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell), en la [Galería de PowerShell](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22) o importarse mediante Azure Portal. Para importarlos mediante el portal, en su la cuenta de Automation, en **Automatización de procesos**, seleccione **Galería de runbooks**. Utilice **Update Management** para el filtro.
 
 ![Lista de la galería](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -157,54 +156,54 @@ O puede buscarlos por su nombre de script, tal y como se muestra en la siguiente
 Todos los ejemplos se basan en la plantilla básica que se define en el ejemplo siguiente. Esta plantilla se puede usar para crear el propio runbook para usarlo con los scripts previos y posteriores. Se incluye la lógica necesaria para realizar una autenticación con Azure así como para manejar el parámetro `SoftwareUpdateConfigurationRunContext`.
 
 ```powershell
-<# 
-.SYNOPSIS 
- Barebones script for Update Management Pre/Post 
- 
-.DESCRIPTION 
-  This script is intended to be run as a part of Update Management Pre/Post scripts.  
-  It requires a RunAs account. 
- 
-.PARAMETER SoftwareUpdateConfigurationRunContext 
-  This is a system variable which is automatically passed in by Update Management during a deployment. 
-#> 
- 
-param( 
-    [string]$SoftwareUpdateConfigurationRunContext 
-) 
-#region BoilerplateAuthentication 
-#This requires a RunAs account 
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection' 
- 
-Add-AzureRmAccount ` 
-    -ServicePrincipal ` 
-    -TenantId $ServicePrincipalConnection.TenantId ` 
-    -ApplicationId $ServicePrincipalConnection.ApplicationId ` 
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint 
- 
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID 
-#endregion BoilerplateAuthentication 
- 
-#If you wish to use the run context, it must be converted from JSON 
-$context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext 
-#Access the properties of the SoftwareUpdateConfigurationRunContext 
+<#
+.SYNOPSIS
+ Barebones script for Update Management Pre/Post
+
+.DESCRIPTION
+  This script is intended to be run as a part of Update Management Pre/Post scripts.
+  It requires a RunAs account.
+
+.PARAMETER SoftwareUpdateConfigurationRunContext
+  This is a system variable which is automatically passed in by Update Management during a deployment.
+#>
+
+param(
+    [string]$SoftwareUpdateConfigurationRunContext
+)
+#region BoilerplateAuthentication
+#This requires a RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+#endregion BoilerplateAuthentication
+
+#If you wish to use the run context, it must be converted from JSON
+$context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext
+#Access the properties of the SoftwareUpdateConfigurationRunContext
 $vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
-$runId = $context.SoftwareUpdateConfigurationRunId 
- 
-Write-Output $context 
- 
-#Example: How to create and write to a variable using the pre-script: 
-<# 
-#Create variable named after this run so it can be retrieved 
-New-AzureRmAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false 
-#Set value of variable  
-Set-AutomationVariable –Name $runId -Value $vmIds 
-#> 
- 
-#Example: How to retrieve information from a variable set during the pre-script 
-<# 
-$variable = Get-AutomationVariable -Name $runId 
-#>      
+$runId = $context.SoftwareUpdateConfigurationRunId
+
+Write-Output $context
+
+#Example: How to create and write to a variable using the pre-script:
+<#
+#Create variable named after this run so it can be retrieved
+New-AzureRmAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
+#Set value of variable
+Set-AutomationVariable –Name $runId -Value $vmIds
+#>
+
+#Example: How to retrieve information from a variable set during the pre-script
+<#
+$variable = Get-AutomationVariable -Name $runId
+#>
 ```
 
 ## <a name="interacting-with-machines"></a>Interacción con las máquinas
@@ -229,7 +228,7 @@ Las tareas previas y posteriores se ejecutan en el contexto de Azure y no tienen
 * Un runbook que desea ejecutar localmente
 * Runbook principal
 
-Para interactuar con máquinas que no sean de Azure, se ejecuta un runbook principal en el contexto de Azure. Este runbook llama a un runbook secundario con el cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Debe especificar el parámetro `-RunOn` y proporcionar el nombre de la instancia de Hybrid Runbook Worker para que el script se ejecute. Para un ejemplo de cómo hacerlo, consulte el ejemplo de runbook [Update Management - Run Script Locally](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44) (Update Management: ejecución de scripts de forma local).
+Para interactuar con máquinas que no sean de Azure, se ejecuta un runbook principal en el contexto de Azure. Este runbook llama a un runbook secundario con el cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Debe especificar el parámetro `-RunOn` y proporcionar el nombre de la instancia de Hybrid Runbook Worker para que el script se ejecute. Para ver un ejemplo, consulte el ejemplo de runbook [Update Management - Run Script Locally](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44) (Update Management: ejecución de scripts de forma local).
 
 ## <a name="abort-patch-deployment"></a>Acerca de la implementación de revisiones
 
@@ -238,7 +237,7 @@ Si el script previo devuelve un error, es posible que quiera anular la implement
 ```powershell
 if (<My custom error logic>)
 {
-    #Throw an error to fail the patch deployment.  
+    #Throw an error to fail the patch deployment.
     throw "There was an error, abort deployment"
 }
 ```

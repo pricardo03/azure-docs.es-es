@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 10/13/2019
 ms.author: spelluru
-ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311375"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302803"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Agregar etiquetas a un laboratorio de Azure DevTest Labs
 
@@ -51,6 +51,9 @@ Cada etiqueta se compone de un par **nombre**/**valor**. Por ejemplo, se podría
 1. Para crear una etiqueta para este laboratorio, escriba un par **nombre**/**valor** y haga clic en **Guardar**. También puede seleccionar una etiqueta existente de la lista para ver o administrar los recursos asociados a dicha etiqueta.
 
     ![Administrar etiquetas](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
+
+> [!NOTE]
+> Etiquetas creadas en el flujo de nivel de laboratorio a través de todos los recursos facturables que el laboratorio pone en marcha en su suscripción. Por ejemplo, las etiquetas de nivel de laboratorio fluyen a las máquinas virtuales de proceso subyacentes de las máquinas virtuales de laboratorio. Puede utilizar etiquetas en el contexto de administración de costos. Las etiquetas de nivel de laboratorio aparecen en el filtro de etiquetas de Cost Management.
 
 ## <a name="understanding-limitations-to-tags"></a>Descripción de las limitaciones de las etiquetas
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: cdbb545e981e50e23bbbb011dc54577acf7974f7
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 71f2b111c0291bc9563b12a1cdbd88ea7e9f5b5b
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241746"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376140"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -347,6 +347,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |DefaultContainerRepositoryAccountName|string, el valor predeterminado es "".|estática|Las credenciales predeterminadas usadas en lugar de las credenciales especificadas en ApplicationManifest.xml. |
 |DefaultContainerRepositoryPassword|string, el valor predeterminado es "".|estática|Las credenciales de contraseña predeterminadas usadas en lugar de las credenciales especificadas en ApplicationManifest.xml.|
 |DefaultContainerRepositoryPasswordType|string, el valor predeterminado es "".|estática|Cuando la cadena no está vacía, el valor puede ser "Encrypted" o "SecretsStoreRef".|
+|DefaultDnsSearchSuffixEmpty|bool, el valor predeterminado es FALSE|estática|De forma predeterminada, el nombre del servicio se anexa al nombre DNS de SF para los servicios de contenedor. Esta característica detiene este comportamiento para que no se anexe nada al nombre DNS de SF de forma predeterminada en la ruta de resolución.|
 |DeploymentMaxFailureCount|int, el valor predeterminado es 20| Dinámica|La implementación de la aplicación se reintentará las veces especificadas en DeploymentMaxFailureCount antes de que genere un error en el nodo.| 
 |DeploymentMaxRetryInterval| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(3600)|Dinámica| Especifique el intervalo de tiempo en segundos. Intervalo de reintento máximo para la implementación. Con cada error continuo, el intervalo de reintento se calcula como Min( DeploymentMaxRetryInterval; Recuento continuo de errores * DeploymentRetryBackoffInterval). |
 |DeploymentRetryBackoffInterval| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(10)|Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de espera para el error de implementación. En cada caso de error de implementación continuo, el sistema reintentará la implementación hasta las veces especificadas en MaxDeploymentFailureCount. El intervalo de reintento es producto de un error de implementación continua y el intervalo de espera de la implementación. |

@@ -1,6 +1,6 @@
 ---
-title: 'Referencia de la API del Monitor de estado de Azure v2: Inicia seguimiento | Microsoft Docs'
-description: Referencia de la API del Monitor de estado de Azure v2. Start-Trace. Recopile registros de ETW desde el Monitor de estado y el SDK de Application Insights.
+title: 'Referencia de la API de Azure Application Insights Agent: Inicia seguimiento | Microsoft Docs'
+description: Referencia de la API de Application Insights Agent. Start-Trace. Recopile registros de ETW desde el Monitor de estado y el SDK de Application Insights.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: f4c43e6bdb70687606041c2f0859ab072db2b587
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b1c5aa34c46a20631b328abfb061dc2477150c72
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200374"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389846"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>API del Monitor de estado v2: Start-ApplicationInsightsMonitoringTrace
+# <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>API de Application Insights Agent: Start-ApplicationInsightsMonitoringTrace
 
 Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -121,7 +121,7 @@ Más soluciones de problemas:
 
 
 
- Hacer más con el Monitor de estado v2:
- - Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) del Monitor de estado v2.
+ Haga mucho más con Application Insights Agent:
+ - Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) de Application Insights Agent.
  - [Obtenga la configuración](status-monitor-v2-api-get-config.md) para confirmar que sus opciones se registraron correctamente.
  - [Obtenga el estado](status-monitor-v2-api-get-status.md) para inspeccionar la supervisión.

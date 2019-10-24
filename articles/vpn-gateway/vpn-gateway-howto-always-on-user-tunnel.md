@@ -1,47 +1,50 @@
 ---
-title: Configuración de un túnel Always On en VPN Gateway
-description: Pasos para configurar un túnel de usuario VPN de Always On para VPN Gateway
+title: Configuración de un túnel de usuario de VPN Always On en VPN Gateway
+description: En este artículo se describe cómo configurar un túnel de usuario de VPN para Grupos de disponibilidad AlwaysOn en VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: dc0abf12c60f845fde0d16bd874a1436aef3b7ab
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 9aa1f951add5b79eab12f4957be05a42bbdd4434
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71846376"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299930"
 ---
-# <a name="configure-an-always-on-vpn-user-tunnel"></a>Configuración de un túnel de usuario VPN de Always On
+# <a name="configure-an-always-on-vpn-user-tunnel"></a>Configuración de un túnel de usuario de VPN para Grupos de disponibilidad AlwaysOn
 
-Una de las nuevas características del cliente de red privada virtual (VPN) de Windows 10 es la posibilidad de mantener una conexión VPN. Always On es una característica de Windows 10 que permite que el perfil activo de VPN se conecte automáticamente y permanezca conectado en función de los desencadenadores; es decir, los inicios de sesión de los usuarios, los cambios en el estado de la red o la activación de la pantalla del dispositivo.
+Always On es una nueva característica del cliente VPN de Windows 10 que ofrece la posibilidad de mantener una conexión VPN. Con Always On, el perfil activo de VPN se puede conectar automáticamente y permanecer conectado según los desencadenadores como, por ejemplo, en los inicios de sesión de los usuarios, los cambios en el estado de la red o la activación de la pantalla del dispositivo.
 
-Las puertas de enlace de red virtual de Azure pueden utilizarse con Windows 10 Always On para establecer túneles de usuario persistentes, así como túneles de dispositivo dirigidos a Azure. Este artículo le ayudará a configurar un túnel de usuario VPN de Always On.
+Las puertas de enlace de red virtual de Azure pueden utilizarse con Windows 10 Always On para establecer túneles de usuario persistentes, así como túneles de dispositivo dirigidos a Azure. Este artículo le ayudará a configurar un túnel de usuario de VPN de Always On.
 
-Las conexiones VPN de Always On incluyen dos tipos de túneles:
+Las conexiones VPN de Always On incluyen uno de estos dos tipos de túneles:
 
 * **Túnel de dispositivo**: se conecta a los servidores VPN especificados antes de que los usuarios inicien sesión en el dispositivo. Los túneles de dispositivo se utilizan en escenarios de conectividad previos al inicio de sesión y para administrar dispositivos.
 
-* **Túnel de usuario**: solo se conecta cuando un usuario inicia sesión en el dispositivo. Los túneles de usuario permiten a los usuarios acceder a los recursos de la organización utilizando servidores VPN.
+* **Túnel de usuario**: solo se conecta después de que los usuarios inicien sesión en el dispositivo. Mediante los túneles de usuario puede acceder a los recursos de la organización utilizando servidores VPN.
 
-Tanto los túneles de dispositivo como de usuario funcionan de forma independiente a los perfiles VPN. Pueden conectarse al mismo tiempo y utilizar diferentes métodos de autenticación u otras opciones de configuración de VPN en función de las necesidades.
+Los túneles de dispositivo y los de usuario funcionan de forma independiente a los perfiles VPN. Pueden conectarse al mismo tiempo y utilizar diferentes métodos de autenticación u otras opciones de configuración de VPN en función de las necesidades.
 
-## <a name="1-configure-the-gateway"></a>1. Configuración de la puerta de enlace
+En las secciones siguientes, puede configurar una puerta de enlace de VPN y un túnel de usuario.
 
-Configure la puerta de enlace VPN para que utilice IKEv2 y la autenticación basada en certificados. Para ello, siga este [artículo sobre las conexiones de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+## <a name="step-1-configure-a-vpn-gateway"></a>Paso 1: Configuración de una instancia de VPN Gateway
 
-## <a name="2-configure-the-user-tunnel"></a>2. Configuración del túnel de usuario
+Configure la puerta de enlace VPN para que utilice IKEv2 y la autenticación basada en certificados mediante las instrucciones que se encuentran en este artículo sobre las [conexiones de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-1. Instale certificados de cliente en el cliente de Windows 10, tal y como se muestra en este [artículo sobre los clientes VPN de punto a sitio](point-to-site-how-to-vpn-client-install-azure-cert.md). El certificado debe estar en el almacén del usuario actual
-2. Configure el cliente VPN de Always On mediante PowerShell, SCCM o Intune siguiendo [estas instrucciones](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+## <a name="step-2-configure-a-user-tunnel"></a>Paso 2: Configuración de un túnel de usuario
 
-### <a name="configuration-example-for-user-tunnel"></a>Ejemplo de configuración de túnel de usuario
+1. Instale certificados de cliente en el cliente de Windows 10, tal y como se muestra en este [artículo sobre los clientes VPN de punto a sitio](point-to-site-how-to-vpn-client-install-azure-cert.md). El certificado debe estar en el almacén del usuario actual.
 
-Una vez que haya configurado la puerta de enlace de red virtual e instalado el certificado de cliente en el almacén del equipo local del cliente de Windows 10, use los ejemplos siguientes para configurar un túnel de dispositivo de cliente.
+1. Configure el cliente VPN de Always On mediante PowerShell, System Center Configuration Manager o Intune siguiendo las instrucciones de [Configuración de conexiones VPN de Always On en el cliente de Windows 10](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
-1. Copie el texto siguiente y guárdelo como ***usercert.ps1***.
+### <a name="example-configuration-for-the-user-tunnel"></a>Ejemplo de configuración para el túnel de usuario
+
+Una vez que haya configurado la puerta de enlace de red virtual e instalado el certificado de cliente en el almacén de la máquina local del cliente de Windows 10, use los ejemplos siguientes para configurar un túnel de dispositivo de cliente:
+
+1. Copie el texto siguiente y guárdelo como *usercert.ps1*:
 
    ```
    Param(
@@ -93,7 +96,7 @@ Una vez que haya configurado la puerta de enlace de red virtual e instalado el c
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copie el texto siguiente y guárdelo como ***VPNProfile.xml*** en la misma carpeta que **usercert.ps1**. Modifique el texto siguiente para adaptarlo a su entorno.
+1. Copie el texto siguiente y guárdelo como *VPNProfile.xml* en la misma carpeta que *usercert.ps1*. Modifique el texto siguiente para adaptarlo a su entorno:
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
    * `<Address>192.168.3.5</Address>`
@@ -138,31 +141,31 @@ Una vez que haya configurado la puerta de enlace de red virtual e instalado el c
    ```
 1. Ejecute PowerShell como administrador.
 
-1. En PowerShell, vaya la carpeta donde se encuentra **usercert.ps1** y **VPNProfile.xml** y ejecute el siguiente comando:
+1. En PowerShell, vaya la carpeta donde se encuentra *usercert.ps1* y *VPNProfile.xml* y ejecute el siguiente comando:
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest
    ```
    
    ![MachineCertTest](./media/vpn-gateway-howto-always-on-user-tunnel/p2s2.jpg)
-1. Mire en Configuración de VPN.
-
-1. Busque la entrada **UserTest** y haga clic en **Conectar**.
+1. En **Configuración de VPN**, busque la entrada **UserTest** y, a continuación, seleccione **Conectar**.
 
 1. Si la conexión se realiza correctamente, habrá configurado correctamente un túnel de usuario de Always On.
 
-## <a name="cleanup"></a>Limpieza
+## <a name="clean-up-your-resources"></a>Limpiar los recursos
 
-Para quitar el perfil, ejecute el siguiente comando:
+Para quitar el perfil, haga lo siguiente:
 
-1. Desconecte la conexión y desactive la opción "Conectar automáticamente".
+1. Ejecute el siguiente comando:
 
    ```powershell
    C:\> Remove-VpnConnection UserTest  
    ```
 
+1. Desconecte la conexión y desactive la opción **Conectar automáticamente**.
+
 ![Limpieza](./media/vpn-gateway-howto-always-on-user-tunnel/p2s4..jpg)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para solucionar problemas, consulte [Problemas de conexión de punto a sitio de Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+Para solucionar los problemas de conexión que puedan producirse, consulte [Problemas de conexión de punto a sitio de Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

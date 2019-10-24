@@ -63,7 +63,7 @@ La restricción de acceso por edad implica dos valores de edad: la edad en que a
 | NL | Países Bajos | 16 | 18 |
 | PL | Polonia | 13 | 18 |
 | PT | Portugal | 16 | 18 |
-| RO | Rumania | 16 | 18 |
+| RO | Rumanía | 16 | 18 |
 | SE | Suecia | 13 | 18 |
 | SG | Singapur | None | 21 |
 | SI | Eslovenia | 16 | 18 |

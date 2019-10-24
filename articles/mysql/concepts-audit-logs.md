@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/26/2019
-ms.openlocfilehash: 86750cea5e7f0d4726f3e0e9a03795ef2a602d8b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42881fcb12f29ec14bbdc0ec4942b2eef17c7312
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443841"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434404"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registros de auditoría en Azure Database for MySQL
 
@@ -27,7 +27,13 @@ De forma predeterminada, el registro de auditoría está deshabilitado. Para hab
 Otros parámetros que se pueden ajustar son los siguientes:
 
 - `audit_log_events`: controla los eventos que se registrarán. Consulte la tabla a continuación para ver los eventos de auditoría específicos.
-- `audit_log_exclude_users`: Los usuarios de MySQL que se excluirán del registro. Permite un máximo de cuatro usuarios. La longitud máxima del parámetro es de 256 caracteres.
+- `audit_log_include_users`: Usuarios de MySQL que se incluirán para el registro. El valor predeterminado de este parámetro es estar vacío, lo que incluirá todos los usuarios en el registro. Este tiene una mayor prioridad que `audit_log_exclude_users`. La longitud máxima del parámetro es de 512 caracteres.
+> [!Note]
+> `audit_log_include_users` tiene mayor prioridad que `audit_log_exclude_users`, por ejemplo, si audit_log_include_users = `demouser` y audit_log_exclude_users = `demouser`, auditará los registros porque `audit_log_include_users` tiene mayor prioridad.
+- `audit_log_exclude_users`: Los usuarios de MySQL que se excluirán del registro. La longitud máxima del parámetro es de 512 caracteres.
+
+> [!Note]
+> Para `sql_text`, el registro se truncará si supera los 2048 caracteres.
 
 | **Evento** | **Descripción** |
 |---|---|
@@ -96,7 +102,7 @@ El esquema siguiente se aplica a los tipos de evento GENERAL, DML_SELECT, DML_NO
 | `LogicalServerName_s` | Nombre del servidor |
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` (solo disponible para MySQL 5.6) |
-| `event_time` | Segundos a partir del inicio de la consulta en formato de marca de tiempo de UNIX |
+| `event_time` | Hora de inicio de la consulta en marca de tiempo UTC |
 | `error_code_d` | Código de error si la consulta no es correcta. `0` significa que no hay error |
 | `thread_id_d` | Id. del subproceso que ejecutó la consulta |
 | `host_s` | En blanco |

@@ -1,6 +1,6 @@
 ---
 title: Automatización de Azure Application Insights con PowerShell | Microsoft Docs
-description: Automatice la creación de recursos, alertas y pruebas de disponibilidad en PowerShell mediante una plantilla de Azure Resource Manager.
+description: Automatice la creación y administración de recursos, alertas y pruebas de disponibilidad en PowerShell mediante una plantilla de Azure Resource Manager.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,22 +10,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 10/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: b4f3d2eba70be39b23e86ebde3c71dfc7c19a374
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 7ac5d933406af10307ba3312a8f609bfde2413fc
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936699"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514393"
 ---
-#  <a name="create-application-insights-resources-using-powershell"></a>Creación de recursos de Application Insights mediante PowerShell
+#  <a name="manage-application-insights-resources-using-powershell"></a>Administración de recursos de Application Insights mediante PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Este artículo muestra cómo automatizar la creación y actualización de los recursos de [Application Insights](../../azure-monitor/app/app-insights-overview.md) automáticamente mediante Azure Resource Management. Puede hacerlo, por ejemplo, como parte de un proceso de compilación. Junto con el recurso básico de Application Insights, puede crear [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md), [configurar alertas](../../azure-monitor/app/alerts.md), establecer el [esquema de precios](pricing.md) y crear otros recursos de Azure.
 
-La clave para crear estos recursos es las plantillas JSON para el [Administrador de recursos de Azure](../../azure-resource-manager/manage-resources-powershell.md). En pocas palabras, el procedimiento es: descargar las definiciones JSON de los recursos existentes; parametrizar determinados valores como los nombres; y luego ejecutar la plantilla siempre que se quiera crear un nuevo recurso. Puede empaquetar varios recursos juntos para crearlos todos en un solo paso, por ejemplo, un monitor de aplicaciones con pruebas de disponibilidad, alertas y almacenamiento para la exportación continua. Existen algunos matices a algunas de las parametrizaciones automáticas, que se explican aquí.
+La clave para crear estos recursos es las plantillas JSON para el [Administrador de recursos de Azure](../../azure-resource-manager/manage-resources-powershell.md). El procedimiento básico es: descargar las definiciones JSON de los recursos existentes; parametrizar determinados valores como los nombres; y luego ejecutar la plantilla siempre que se quiera crear un nuevo recurso. Puede empaquetar varios recursos juntos para crearlos todos en un solo paso, por ejemplo, un monitor de aplicaciones con pruebas de disponibilidad, alertas y almacenamiento para la exportación continua. Existen algunos matices a algunas de las parametrizaciones automáticas, que se explican aquí.
 
 ## <a name="one-time-setup"></a>Instalación única
 Si no ha usado PowerShell con su suscripción de Azure antes:
@@ -35,7 +35,30 @@ Instale el módulo de Azure Powershell en la máquina donde quiere ejecutar los 
 1. Instale el [Instalador de plataforma web de Microsoft (v5 o superior)](https://www.microsoft.com/web/downloads/platform.aspx).
 2. Úselo para instalar Microsoft Azure Powershell.
 
-## <a name="create-an-azure-resource-manager-template"></a>Creación de una plantilla de Azure Resource Manager
+Además de usar plantillas de Resource Manager, existe un completo conjunto de [cmdlets de PowerShell en Application Insights ](https://docs.microsoft.com/powershell/module/az.applicationinsights) que facilitan la configuración de recursos de Application Insights mediante programación. Entre las funcionalidades que habilitan los cmdlets se incluyen las siguientes:
+
+* Crear y eliminar recursos de Application Insights
+* Obtener listas de recursos de Application Insights y sus propiedades
+* Crear y administrar la exportación continua
+* Crear y administrar claves de aplicación
+* Establecer el límite diario
+* Establecer el plan de precios
+
+## <a name="create-application-insights-resources-using-a-powershell-cmdlet"></a>Creación de recursos de Application Insights mediante un cmdlet de PowerShell
+
+Aquí se muestra cómo crear un nuevo recurso de Application Insights en el centro de datos Este de EE. UU. de Azure con el cmdlet [New-AzApplicationInsights](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights):
+
+```PS
+New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location eastus
+```
+
+
+## <a name="create-application-insights-resources-using-a-resource-manager-template"></a>Creación de recursos de Application Insights mediante una plantilla de Resource Manager
+
+Aquí se muestra cómo crear un nuevo recurso de Application Insights mediante una plantilla de Resource Manager.
+
+### <a name="create-the-azure-resource-manager-template"></a>Creación de la plantilla de Azure Resource Manager
+
 Cree un nuevo archivo .json. Vamos a llamarlo `template1.json` en este ejemplo. Copie este contenido en él:
 
 ```JSON
@@ -160,7 +183,7 @@ Cree un nuevo archivo .json. Vamos a llamarlo `template1.json` en este ejemplo. 
                 ],
                 "properties": {
                     "CurrentBillingFeatures": "[variables('pricePlan')]",
-                    "retentionInDays": "[variables('retentionInDays')]",
+                    "retentionInDays": "[parameters('retentionInDays')]",
                     "DataVolumeCap": {
                         "Cap": "[parameters('dailyQuota')]",
                         "WarningThreshold": "[parameters('warningThreshold')]",
@@ -172,16 +195,13 @@ Cree un nuevo archivo .json. Vamos a llamarlo `template1.json` en este ejemplo. 
     }
 ```
 
+### <a name="use-the-resource-manager-template-to-create-a-new-application-insights-resource"></a>Uso de la plantilla de Resource Manager para crear un nuevo recurso de Application Insights
 
-
-## <a name="create-application-insights-resources"></a>Creación de recursos de Application Insights
-1. En PowerShell, inicie sesión en Azure:
-   
-    `Connect-AzAccount`
-2. Ejecute un comando similar al siguiente:
+1. En PowerShell, inicie sesión en Azure mediante `$Connect-AzAccount`.
+2. Establezca el contexto en una suscripción con `Set-AzContext "<subscription ID>"`.
+2. Ejecute una nueva implementación para crear un nuevo recurso de Application Insights:
    
     ```PS
-   
         New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
@@ -194,41 +214,95 @@ Cree un nuevo archivo .json. Vamos a llamarlo `template1.json` en este ejemplo. 
 
 Puede agregar otros parámetros, cuyas descripciones se encuentran en la sección de parámetros de la plantilla.
 
-## <a name="to-get-the-instrumentation-key"></a>Para obtener la clave de instrumentación
+## <a name="get-the-instrumentation-key"></a>Obtención de la clave de instrumentación
+
 Después de crear un recurso de aplicación, querrá la clave de instrumentación: 
 
+1. `$Connect-AzAccount`
+2. `Set-AzContext "<subscription ID>"`
+3. `$resource = Get-AzResource -Name "<resource name>" -ResourceType "Microsoft.Insights/components"`
+4. `$details = Get-AzResource -ResourceId $resource.ResourceId`
+5. `$details.Properties.InstrumentationKey`
+
+Para ver una lista de muchas otras propiedades del recurso de Application Insights, use el siguiente comando:
+
 ```PS
-    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzResource -ResourceId $resource.ResourceId
-    $ikey = $details.Properties.InstrumentationKey
+Get-AzApplicationInsights -ResourceGroupName Fabrikam -Name FabrikamProd | Format-List
 ```
 
+Dispone de propiedades adicionales a través de los siguientes cmdlets:
+* `Set-AzApplicationInsightsDailyCap`
+* `Set-AzApplicationInsightsPricingPlan`
+* `Get-AzApplicationInsightsApiKey`
+* `Get-AzApplicationInsightsContinuousExport`
 
-<a id="price"></a>
-## <a name="set-the-price-plan"></a>Establecimiento del plan de precios
+Consulte la [documentación detallada](https://docs.microsoft.com/powershell/module/az.applicationinsights) para información sobre los parámetros de estos cmdlets.  
 
-Puede establecer el [plan de precios](pricing.md).
+## <a name="set-the-data-retention"></a>Establecimiento de la retención de datos 
 
-Para crear un recurso de aplicación con el plan de precios de Enterprise, use la plantilla anterior:
+Para obtener la retención actual de datos del recurso de Application Insights, puede usar la herramienta OSS [ARMClient](https://github.com/projectkudu/ARMClient)  (puede obtener más información sobre ARMClient en los artículos de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) y [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)).  Este es un ejemplo del uso de `ARMClient` para obtener la retención actual:
 
 ```PS
-        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
+```
+
+Para establecer la retención, se usa un comando PUT similar:
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview "{location: 'eastus', properties: {'retentionInDays': 365}}"
+```
+
+Para establecer la retención de datos en 365 días mediante la plantilla anterior, ejecute:
+
+```PS
+        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
                -TemplateFile .\template1.json `
-               -priceCode 2 `
-               -appName myNewApp
+               -retentionInDays 365 `
+               -appName myApp
+```
+
+## <a name="set-the-daily-cap"></a>Establecimiento del límite diario
+
+Para obtener las propiedades de límite diario, use el cmdlet [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan): 
+
+```PS
+Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
+```
+
+Para establecer las propiedades de límite diario, use el mismo cmdlet. Por ejemplo, para establecer el límite en 300 GB/día: 
+
+```PS
+Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
+```
+
+<a id="price"></a>
+## <a name="set-the-pricing-plan"></a>Establecimiento del plan de precios 
+
+Para obtener el plan de precios actual, use el cmdlet [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan): 
+
+```PS
+Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
+```
+
+Para establecer el plan de precios, use el mismo cmdlet con la especificación de `-PricingPlan`:  
+
+```PS
+Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> -PricingPlan Basic
+```
+
+También puede establecer el plan de precios de un recurso de Application Insights existente mediante la plantilla de Resource Manager anterior, omitiendo el recurso "microsoft.insights/components" y el nodo `dependsOn` del recurso de facturación. Por ejemplo, para establecerlo en el plan Por GB (antes plan Básico), ejecute:
+
+```PS
+        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
+               -TemplateFile .\template1.json `
+               -priceCode 1 `
+               -appName myApp
 ```
 
 |priceCode|plan|
 |---|---|
-|1|Básica|
-|2|Enterprise|
-
-* Si solo desea usar el plan de precios básico predeterminado, puede omitir el recurso CurrentBillingFeatures de la plantilla.
-* Si desea cambiar el plan de precios una vez creado el recurso de componente, puede usar una plantilla que omita el recurso "microsoft.insights/components". Además, omita el nodo `dependsOn` del recurso de facturación. 
-
-Para comprobar el plan de precios actualizado, consulte la hoja **Uso y costos estimados** en el explorador. **Actualice la vista de explorador** para asegurarse de ver el estado más reciente.
-
-
+|1|Por GB (anteriormente denominado plan Básico)|
+|2|Por nodo (anteriormente denominado plan Enterprise)|
 
 ## <a name="add-a-metric-alert"></a>Agregar una alerta de métrica
 
@@ -424,7 +498,7 @@ Para automatizar la creación de otros recursos de cualquier variante, cree un e
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. Abra las secciones de pruebas web y reglas de alertas y copie el código JSON para los elementos individuales de la plantilla. (No copie de los nodos de pruebas web o reglas de alerta: vaya a los elementos que hay debajo de ellos).
+4. Abra las secciones `webtests` y `alertrules` y copie el código JSON de los elementos individuales en la plantilla. No copie de los nodos `webtests` o `alertrules`: vaya a los elementos que hay debajo de ellos.
    
     Cada prueba web tiene una regla de alerta asociada, por lo que tiene que copiar las dos.
    
@@ -449,7 +523,7 @@ No se puede parametrizar solo una parte de una cadena, así que use `concat()` p
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
 | `"myappname"` (minúscula) |`"[toLower(parameters('appName'))]"` |
-| `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Elimine el Guid y el identificador. |
+| `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`|
 
 ### <a name="set-dependencies-between-the-resources"></a>Establecimiento de dependencias entre los recursos
 Azure debe instalar los recursos en un orden estricto. Para tener la seguridad de que una instalación finaliza antes de que comience la siguiente, agregue líneas de dependencia:

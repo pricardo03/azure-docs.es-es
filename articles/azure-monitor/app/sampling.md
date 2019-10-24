@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: d43fe7f1f0fc63ab50821a345802a9e7e62881b2
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 83243ba7df48db5cd7757a464f0818ef69c4559e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169481"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372558"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -197,7 +197,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 **Si usa el método anterior para configurar el muestreo, asegúrese de usar la configuración de ```aiOptions.EnableAdaptiveSampling = false;``` con AddApplicationInsightsTelemetry().**
 
-## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites"></a>Muestreo de frecuencia fija para sitios web ASP.NET, ASP.NET Core y Java
+## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications"></a>Muestreo de frecuencia fija para sitios web ASP.NET, ASP.NET Core y Java y aplicaciones de Python
 
 El muestreo de frecuencia fija reduce el tráfico enviado desde el servidor web y los exploradores web. A diferencia del muestreo adaptable, reduce la telemetría a una tasa fija que usted decide. También sincroniza el muestreo del cliente y del servidor para que los elementos relacionados se conserven; por ejemplo, cuando mira una vista de página en Búsqueda, puede encontrar su solicitud relacionada.
 
@@ -336,7 +336,27 @@ Los tipos de telemetría que se pueden incluir o excluir del muestreo son los si
 
 <a name="other-web-pages"></a>
 
+### <a name="configuring-fixed-rate-sampling-in-opencensus-python"></a>Configuración del muestreo de frecuencia fija en OpenCensus para Python ###
 
+1. Instrumente la aplicación con los [exportadores de Azure Monitor de OpenCensus](../../azure-monitor/app/opencensus-python.md) más recientes.
+
+> [!NOTE]
+> El muestreo de frecuencia fija solo está disponible con el exportador de seguimiento. Esto significa que las solicitudes entrantes y salientes son los únicos tipos de telemetría en los que se puede configurar el muestreo.
+> 
+> 
+
+2. Puede especificar un elemento `sampler` como parte de la configuración de `Tracer`. Si no se proporciona ningún elemento sampler explícito, se usará de forma predeterminada ProbabilitySampler. ProbabilitySampler usaría una frecuencia de 1/10000 de forma predeterminada, lo que significa que se enviará a Application Insights una de cada 10000 solicitudes. Si desea especificar una frecuencia de muestreo, consulte a continuación.
+
+3. Al especificar un elemento sampler, asegúrese de que el elemento `Tracer` especifica un elemento sampler con una frecuencia de muestreo entre 0,0 y 1,0, ambos inclusive. Una velocidad de muestreo de 1,0 representa el 100 %, lo que significa que todas las solicitudes se enviarán como datos de telemetría a Application Insights.
+
+    ```python
+    tracer = Tracer(
+        exporter=AzureExporter(
+            instrumentation_key='00000000-0000-0000-0000-000000000000',
+        ),
+        sampler=ProbabilitySampler(1.0),
+    )
+    ```
 
 ## <a name="ingestion-sampling"></a>muestreo de ingesta
 

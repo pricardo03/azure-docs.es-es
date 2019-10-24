@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: de45f2fe6230e48c3cffc999e2c84d6ee0a60edc
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0a9a5e465e160da34a21f66fd7176a8fea5d1aac
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476768"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376247"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar
 
@@ -43,7 +43,41 @@ Las siguientes consideraciones se aplican al usar el comando Ejecutar:
 > [!NOTE]
 > Para poder funcionar correctamente, el comando Ejecutar requiere conectividad (puerto 443) a las direcciones IP públicas de Azure. Si la extensión no tiene acceso a estos puntos de conexión, los scripts se pueden ejecutar correctamente pero no devuelven los resultados. Si va a bloquear el tráfico de la máquina virtual, puede usar las [etiquetas de servicio](../../virtual-network/security-overview.md#service-tags) para permitir el tráfico a las direcciones IP públicas de Azure mediante el uso de la etiqueta `AzureCloud`.
 
-## <a name="run-a-command"></a>Ejecución de un comando
+## <a name="available-commands"></a>Comandos disponibles
+
+Esta tabla muestra la lista de comandos disponibles para máquinas virtuales Windows. El comando **RunPowerShellScript** se puede usar para ejecutar un script personalizado que desee. Al usar la CLI de Azure o PowerShell para ejecutar un comando, el valor que se proporciona para el parámetro `--command-id` o `-CommandId` debe ser uno de los valores que se enumeran a continuación. Cuando se especifica un valor que no es un comando disponible, se recibe el error.
+
+```error
+The entity was not found in this Azure location
+```
+
+|**Nombre**|**Descripción**|
+|---|---|
+|**RunPowerShellScript**|Ejecuta un script de PowerShell.|
+|**EnableRemotePS**|Configura la máquina para habilitar PowerShell remoto.|
+|**EnableAdminAccount**|Comprueba si la cuenta de administrador local está deshabilitada, y si lo está, la habilita.|
+|**IPConfig**| Muestra información detallada de la dirección IP, la máscara de subred y la puerta de enlace predeterminada de cada adaptador enlazado a TCP/IP.|
+|**RDPSettings**|Comprueba la configuración del registro y de la directiva de dominio. Recomienda acciones de directiva si la máquina forma parte de un dominio o modifica la configuración a los valores predeterminados.|
+|**ResetRDPCert**|Quita el certificado SSL asociado al agente de escucha RDP y restaura la seguridad de este a los valores predeterminados. Use este script si ve algún problema con el certificado.|
+|**SetRDPPort**|Establece el número de puerto especificado por el usuario o predeterminado para las conexiones del Escritorio remoto. Habilita la regla de firewall para el acceso entrante al puerto.|
+
+## <a name="azure-cli"></a>CLI de Azure
+
+A continuación, se muestra un ejemplo que utiliza el comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para ejecutar un script de PowerShell en una máquina virtual Linux de Azure.
+
+```azurecli-interactive
+# script.ps1
+#   param(
+#       [string]$arg1,
+#       [string]$arg2
+#   )
+#   Write-Host This is a sample script with parameters $arg1 and $arg2
+
+az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-resource-group \
+    --scripts @script.ps1 --parameters "arg1=somefoo" "arg2=somebar"
+```
+
+## <a name="azure-portal"></a>Portal de Azure
 
 Navegue a una máquina virtual en [Azure](https://portal.azure.com) y seleccione **Ejecutar comando** en **OPERATIONS**. Se mostrará una lista de los comandos disponibles para ejecutarse en la máquina virtual.
 
@@ -58,24 +92,9 @@ Una vez que se elige el comando, haga clic en **Ejecutar** para ejecutar el scri
 
 ![Salida del script del comando Ejecutar](./media/run-command/run-command-script-output.png)
 
-## <a name="commands"></a>Comandos:
-
-Esta tabla muestra la lista de comandos disponibles para máquinas virtuales Windows. El comando **RunPowerShellScript** se puede usar para ejecutar un script personalizado que desee.
-
-|**Nombre**|**Descripción**|
-|---|---|
-|**RunPowerShellScript**|Ejecuta un script de PowerShell.|
-|**EnableRemotePS**|Configura la máquina para habilitar PowerShell remoto.|
-|**EnableAdminAccount**|Comprueba si la cuenta de administrador local está deshabilitada, y si lo está, la habilita.|
-|**IPConfig**| Muestra información detallada de la dirección IP, la máscara de subred y la puerta de enlace predeterminada de cada adaptador enlazado a TCP/IP.|
-|**RDPSettings**|Comprueba la configuración del registro y de la directiva de dominio. Recomienda acciones de directiva si la máquina forma parte de un dominio o modifica la configuración a los valores predeterminados.|
-|**ResetRDPCert**|Quita el certificado SSL asociado al agente de escucha RDP y restaura la seguridad de este a los valores predeterminados. Use este script si ve algún problema con el certificado.|
-|**SetRDPPort**|Establece el número de puerto especificado por el usuario o predeterminado para las conexiones del Escritorio remoto. Habilita la regla de firewall para el acceso entrante al puerto.|
-
 ## <a name="powershell"></a>PowerShell
 
 A continuación, puede ver un ejemplo de uso del cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) para ejecutar un script de PowerShell en una VM de Azure. El cmdlet espera que el script al que se hace referencia en el parámetro `-ScriptPath` tenga una ubicación local allí donde se está ejecutando el cmdlet.
-
 
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}

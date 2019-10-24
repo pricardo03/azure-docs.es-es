@@ -1,18 +1,18 @@
 ---
-title: 'Muestra de plano técnico PCI-DSS v3.2.1: pasos de implementación'
-description: Pasos de implementación del ejemplo de plano técnico para el cumplimiento con el Estándar de Seguridad de Datos para la Industria de Tarjeta de Pago (PCI-DSS) v3.2.1.
+title: 'Ejemplo de plano técnico PCI-DSS v3.2.1: pasos de implementación'
+description: Pasos de implementación del ejemplo de plano técnico del Estándar de seguridad de los datos del sector de las tarjetas de pago v3.2.1, incluidos los detalles de los parámetros del artefacto de plano técnico.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: f95f9a592085fd93fba5e6b11a1a75609eb70295
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 85f9eab29411ac896f73eed7aba607c733e4b95e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980921"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299031"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implementación del ejemplo de plano técnico para el cumplimiento con PCI-DSS v3.2.1
 

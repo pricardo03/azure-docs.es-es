@@ -1,6 +1,6 @@
 ---
-title: Enmascaramiento dinámico de datos de Azure SQL Database | Microsoft Docs
-description: El enmascaramiento dinámico de datos de SQL Database limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios.
+title: Enmascaramiento dinámico de datos en Azure SQL Database y Data Warehouse | Microsoft Docs
+description: El enmascaramiento dinámico de datos limita la exposición de información confidencial enmascarándola a los usuarios de SQL Database y Data Warehouse que no tienen privilegios.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,14 +11,14 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 03/04/2019
-ms.openlocfilehash: 366b9437aab134985c73611fa8b46c6fbd3d309c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e36e91330232a90ff51cf92ce8dc920b51e2d914
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568767"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430122"
 ---
-# <a name="sql-database-dynamic-data-masking"></a>Enmascaramiento dinámico de datos de SQL Database
+# <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Enmascaramiento dinámico de datos en Azure SQL Database y Data Warehouse
 
 El enmascaramiento dinámico de datos de SQL Database limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. 
 
@@ -26,7 +26,7 @@ El enmascaramiento de datos dinámicos ayuda a impedir el acceso no autorizado a
 
 Por ejemplo, un representante de servicio de un centro de llamadas podría identificar a los autores de las llamadas a partir de varios dígitos del número de su tarjeta de crédito, pero esa es una información que no debería exponerse por completo al representante del servicio. Se puede definir una regla de enmascaramiento que enmascare todo excepto los cuatro últimos dígitos de un número de tarjeta de crédito en el conjunto de resultados de cualquier consulta. Otro ejemplo, una máscara de datos apropiada se puede definir para proteger los datos de información de identificación personal, para que un desarrollador pueda consultar los entornos de producción para solucionar problemas sin infringir las reglamentaciones de cumplimiento.
 
-## <a name="sql-database-dynamic-data-masking-basics"></a>Conceptos básicos del enmascaramiento dinámico de datos de SQL Database
+## <a name="dynamic-data-masking-basics"></a>Aspectos básicos del enmascaramiento dinámico de datos
 
 Para configurar una directiva de enmascaramiento dinámico de datos en Azure Portal, se selecciona la operación de enmascaramiento dinámico de datos en la hoja de configuración de SQL Database.
 

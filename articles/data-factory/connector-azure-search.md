@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: c2165d0ff16233766918f9e274324b02d1bf1ac8
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 703dcb5fee0c31328eee91c9673e62653d7aa698
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962111"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286344"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copia de datos en un índice de Azure Search mediante el uso de Azure Data Factory
 
@@ -179,7 +179,7 @@ En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure 
 | Matriz de cadenas | N |
 | GeographyPoint | N |
 
-Actualmente no se admiten otros tipos de datos, por ejemplo, ComplexType. Para obtener una lista completa del tipo de datos compatible con Azure Search, consulte [Tipos de datos admitidos (Azure Search) ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
+Actualmente no se admiten otros tipos de datos, por ejemplo, ComplexType. Para obtener una lista completa de los tipos de datos que admite Azure Search, consulte [Tipos de datos admitidos (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 manager: nitinme
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d9ddb5af42c538558a69ce68e7ea90161c947b12
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186460"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331174"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinónimos en Azure Search
 
@@ -39,7 +39,9 @@ La incorporación de sinónimos en la aplicación de búsqueda es un proceso de 
 
 1.  Agregar una asignación de sinónimos al servicio de búsqueda a través de las API siguientes.  
 
-2.  Configurar un campo buscable para usar la asignación de sinónimos en la definición del índice.
+2.  Configuración de un campo buscable para usar la asignación de sinónimos en la definición del índice
+
+Puede crear varias asignaciones para la aplicación de búsqueda (por ejemplo, mediante el idioma si la aplicación es compatible con una base de cliente de varios idiomas). Actualmente, un campo solo puede usar una de ellas. Puede actualizar una propiedad synonymMaps del campo en cualquier momento.
 
 ### <a name="synonymmaps-resource-apis"></a>API de recursos de SynonymMaps
 
@@ -154,16 +156,9 @@ Las expansiones de sinónimos no se aplican a los términos de búsqueda de car�
 
 Si tiene que realizar una consulta única que aplique la expansión de sinónimos y búsquedas aproximadas, de expresiones regulares y con comodines, puede combinar las consultas utilizando la sintaxis OR. Por ejemplo, para combinar sinónimos con caracteres comodín en la sintaxis de consulta única, el término sería `<query> | <query>*`.
 
-## <a name="tips-for-building-a-synonym-map"></a>Consejos para crear un asignación de sinónimos
-
-- Una asignación de sinónimos concisa y bien diseñada es más eficiente que una lista exhaustiva de posibles coincidencias. Unos diccionarios excesivamente grandes o complejos tardan más en analizarse y afectan a la latencia de la consulta si esta se expande a muchos sinónimos. En lugar de adivinar qué términos pueden usarse, puede obtener los verdaderos términos a través de un [informe de análisis de tráfico de búsqueda](search-traffic-analytics.md).
-
-- Como ejercicio preliminar y de validación, habilite y luego use este informe para determinar de forma precisa qué términos se beneficiarán de una coincidencia de sinónimo y, a continuación, siga usándolo como validación de que la asignación de sinónimos está generando un mejor resultado. En el informe predefinido, los iconos "Consultas de búsquedas más comunes" y "Consultas de búsqueda con resultado cero" le proporcionarán la información necesaria.
-
-- Puede crear varias asignaciones para la aplicación de búsqueda (por ejemplo, mediante el idioma si la aplicación es compatible con una base de cliente de varios idiomas). Actualmente, un campo solo puede usar una de ellas. Puede actualizar una propiedad synonymMaps del campo en cualquier momento.
+Si dispone de un índice existente en un entorno de desarrollo (no producción), experimente con un diccionario pequeño para ver cómo la adición de sinónimos cambia la experiencia de búsqueda, incluida la repercusión en los perfiles de puntuación, el resaltado de referencias y las sugerencias.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si dispone de un índice existente en un entorno de desarrollo (no producción), experimente con un diccionario pequeño para ver cómo la adición de sinónimos cambia la experiencia de búsqueda, incluida la repercusión en los perfiles de puntuación, el resaltado de referencias y las sugerencias.
-
-- [Habilite el análisis de tráfico de búsqueda](search-traffic-analytics.md) y use el informe de Power BI predefinido para conocer qué términos se usan con mayor frecuencia y cuáles devuelven cero documentos. Con estos datos, revise el diccionario para incluir sinónimos para consultas que no sean productivas que deban resolverse en documentos en su índice.
+> [!div class="nextstepaction"]
+> [Creación de un mapa de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

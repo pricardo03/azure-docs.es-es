@@ -1,5 +1,5 @@
 ---
-title: Evaluación sin conexión de Personalizer
+title: Realización de la evaluación sin conexión - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Aprenda a analizar el bucle de aprendizaje con una evaluación sin conexión.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: diberry
-ms.openlocfilehash: a157b36ad2b4f5a7f2e50a9609d8acd621efd5a8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884496"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515217"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Análisis del bucle de aprendizaje con una evaluación sin conexión
 

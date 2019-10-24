@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 04cd5035d012e7846cc97a5a057fd71ebe103ce3
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 242cdcc07821151503dc6765f820187c0c3dfc53
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168751"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515568"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -47,7 +47,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
      - 169.254.0.0/16 (local de vínculo)
      - 168.63.129.16/32 ([sondeo de estado](../load-balancer/load-balancer-custom-probe-overview.md#probesource) de DNS, DHCP y Azure Load Balancer internos)
 
-     Aunque solo se puede definir un único rango de direcciones cuando se crea la red virtual, puede agregar varios rangos de direcciones al espacio de direcciones una vez creada la red virtual. Para obtener información sobre cómo agregar un rango de direcciones a una red virtual existente, consulte [Agregar o quitar un rango de direcciones](#add-or-remove-an-address-range).
+     Aunque solo se puede definir un único rango de direcciones cuando se crea la red virtual en el portal, puede agregar varios rangos de direcciones al espacio de direcciones una vez creada la red virtual. Para obtener información sobre cómo agregar un rango de direcciones a una red virtual existente, consulte [Agregar o quitar un rango de direcciones](#add-or-remove-an-address-range).
 
      >[!WARNING]
      >Si una red virtual tiene rangos de direcciones que se superponen con otra red virtual o red local, las dos redes no se pueden conectar. Antes de definir un rango de direcciones, tenga en cuenta si es posible que en el futuro quiera conectar la red virtual a otras redes virtuales o redes locales.

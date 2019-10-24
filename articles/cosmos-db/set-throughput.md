@@ -1,17 +1,17 @@
 ---
 title: Aprovisionamiento del rendimiento en contenedores y bases de datos de Azure Cosmos
 description: Aprenda cómo establecer el rendimiento aprovisionado para las bases de datos y los contenedores de Azure Cosmos.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: rimman
-ms.openlocfilehash: 146cc9e89959035ca211a036be4730b59cae8c0b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4c25e8b93fe9bcce17189bd7b787eaf4c3885716
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987391"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752486"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar rendimiento en contenedores y bases de datos
 
@@ -56,15 +56,30 @@ En los siguientes ejemplos se muestra dónde es preferible aprovisionar el rendi
 
 * El uso compartido del rendimiento aprovisionado de una base de datos a través de un conjunto de contenedores es útil al migrar una base de datos de NoSQL, como MongoDB o Cassandra, hospedada en un clúster de máquinas virtuales o desde servidores físicos locales a Azure Cosmos DB. Puede considerar el rendimiento aprovisionado configurado en la base de datos de Azure Cosmos como un equivalente lógico, pero más rentable y flexible, de la capacidad de proceso del clúster de MongoDB o Cassandra.  
 
-Todos los contenedores creados en una base de datos con rendimiento aprovisionado deben crearse con una [clave de partición](partition-data.md). En cualquier momento determinado, el rendimiento asignado a un contenedor dentro de una base de datos se distribuye entre todas las particiones lógicas de dicho contenedor. Cuando hay contenedores que comparten el rendimiento aprovisionado configurado en una base de datos, el rendimiento no se puede aplicar de forma selectiva a un contenedor específico o a una partición lógica. 
+Todos los contenedores creados en una base de datos con rendimiento aprovisionado deben crearse con una [clave de partición](partition-data.md). En cualquier momento, el rendimiento asignado a un contenedor de una base de datos se distribuye entre todas las particiones lógicas de dicho contenedor. Cuando hay contenedores que comparten el rendimiento aprovisionado configurado en una base de datos, el rendimiento no se puede aplicar de forma selectiva a un contenedor específico o a una partición lógica. 
 
 Si la carga de trabajo en una partición lógica consume más que el rendimiento que se asignó a una partición lógica específica, las operaciones tendrán una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento de toda la base de datos o volver a intentar las operaciones. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
 
-Los contenedores de una base de datos pueden compartir el rendimiento aprovisionado en esa base de datos. Un máximo de 25 contenedores puede compartir el rendimiento aprovisionado en la base de datos. Más allá de los 25 contenedores, para cada nuevo contenedor creado dentro de esa base de datos, se puede compartir una parte del rendimiento de la base de datos con otras colecciones que ya están disponibles en la base de datos. La cantidad de rendimiento que se puede compartir depende del número de contenedores aprovisionados en la base de datos. 
+Los contenedores de una base de datos pueden compartir el rendimiento aprovisionado en esa base de datos. Cada uno de los contenedores nuevos del rendimiento compartido en el nivel de base de datos requerirá 100 RU/s. Cuando se aprovisionan contenedores con la oferta de base de datos compartida:
 
-Si las cargas de trabajo implican eliminar y volver a crear todas las colecciones de una base de datos, se recomienda quitar la base de datos vacía y volver a crear una nueva base de datos antes de la creación de la colección.
+* Cada 25 contenedores se agrupan en un conjunto de particiones y el rendimiento de la base de datos (D) se comparte entre los contenedores del conjunto de particiones. Si hay 25 contenedores, o menos, en la base de datos y en cualquier momento, usa un solo contenedor, este puede usar un rendimiento máximo de "D".
 
-En la siguiente imagen se muestra cómo una partición física puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
+* En el caso de los contenedores que se creen después del 25º, se creará un conjunto de particiones y el rendimiento de la base de datos se dividirá entre los nuevos conjuntos de particiones creados (es decir, D/2 en el caso de 2 conjuntos de particiones, D/3 si se crean 3 conjuntos de particiones, y así sucesivamente). En cualquier momento, si se usa solo un contenedor de la base de datos, puede usar un máximo de (rendimiento de D/2, D/3, D/4, etc. ), respectivamente. Dada la reducción del rendimiento, no se recomienda crear más de 25 contenedores en una base de datos.
+
+**Ejemplo**
+
+* Si crea una base de datos denominada "MyDB" con un rendimiento aprovisionado de 10 000 RU/s.
+
+* Si aprovisiona 25 contenedores en "MyDB", todos ellos se agrupan en un conjunto de particiones. En cualquier momento, si se utiliza solo un contenedor de la base de datos, este puede usar un máximo de 10 000 RU/s (D).
+
+* Al aprovisionar el 26º contenedor, se crea un conjunto de particiones y el rendimiento se divide equitativamente entre ambos conjuntos de particiones. Por tanto, en cualquier momento, si se utiliza solo un contenedor de la base de datos, este puede usar un máximo de 5000 RU/s (D/2). Como hay dos conjuntos de particiones, el factor de capacidad de uso compartido del rendimiento se divide en D/2.
+
+   En la siguiente imagen se muestra el ejemplo anterior de forma gráfica:
+
+   ![Factor de uso compartido en el rendimiento del nivel de base de datos](./media/set-throughput/database-level-throughput-shareability-factor.png)
+
+
+Si las cargas de trabajo implican eliminar y volver a crear todas las colecciones de una base de datos, se recomienda quitar la base de datos vacía y volver a crear una nueva base de datos antes de la creación de la colección. En la siguiente imagen se muestra cómo una partición física puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
 
 ![Partición física](./media/set-throughput/resource-partition2.png)
 

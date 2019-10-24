@@ -11,19 +11,19 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
-ms.date: 06/20/2017
+ms.date: 10/08/2019
 ms.author: lahugh
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2014b00a82a6d56bf58b471336c6d809721abea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: H1Hack27Feb2017,fasttrack-edit
+ms.openlocfilehash: a788226ad5bd3f8cd6416ad032fc439e860fd713
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095432"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286698"
 ---
-# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula de escala automática para escalar nodos de proceso en un grupo de Batch
+# <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula automática para escalar nodos de ejecución en un grupo de Batch
 
-Azure Batch puede escalar grupos automáticamente en función de los parámetros que defina. Con el escalado automático, Batch agrega nodos dinámicamente a un grupo a medida que aumenta la demanda de tareas y quita nodos de ejecución a medida que disminuye. El ajuste automático del número de nodos de ejecución que usa la aplicación Batch puede suponer un ahorro de tiempo y dinero. 
+Azure Batch puede escalar grupos automáticamente en función de los parámetros que defina. Con el escalado automático, Batch agrega nodos dinámicamente a un grupo a medida que aumenta la demanda de tareas y quita nodos de ejecución a medida que disminuye. El ajuste automático del número de nodos de ejecución que usa la aplicación Batch puede suponer un ahorro de tiempo y dinero.
 
 Habilite el escalado automático en un grupo de nodos de ejecución asociándolo a una *fórmula de escalado automático* que se puede definir. El servicio Batch usa esta fórmula para determinar el número de nodos de ejecución que se necesitan para ejecutar la carga de trabajo. Los nodos de ejecución pueden ser nodos dedicados o [nodos de prioridad baja](batch-low-pri-vms.md). Batch responde a los datos de métricas de servicio que se recolectan periódicamente. Con estos datos de métricas, Batch ajusta el número de nodos de ejecución del grupo en función de la fórmula y en un intervalo configurable.
 
@@ -39,6 +39,7 @@ En este artículo se describen las distintas entidades que conforman las fórmul
 >
 
 ## <a name="automatic-scaling-formulas"></a>Fórmulas de escalado automático
+
 Una fórmula de escalado automático es un valor de cadena que el usuario define y contiene una o varias instrucciones. La fórmula de escalado automático se asigna a un elemento [autoScaleFormula][rest_autoscaleformula] de un grupo (Batch REST) o a una propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). El servicio Batch usa la fórmula para determinar el número de nodos de ejecución del grupo durante el intervalo de procesamiento siguiente. La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, así como saltos de línea y comentarios.
 
 Puede imaginarse que las fórmulas de escalado automático son un "lenguaje" de escalado automático de Batch. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio Batch) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
@@ -63,12 +64,14 @@ El número objetivo de nodos puede ser mayor, menor o igual que el número actua
 A continuación, se presentan ejemplos de dos fórmulas de escalabilidad automática, que se pueden ajustar para trabajar en la mayoría de los escenarios. Las variables `startingNumberOfVMs` y `maxNumberofVMs` de las fórmulas de ejemplo se pueden ajustar a sus necesidades.
 
 #### <a name="pending-tasks"></a>Tareas pendientes
+
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
 pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 Con esta fórmula de escalado automático, el grupo se crea inicialmente con una sola máquina virtual. La métrica `$PendingTasks` define el número de tareas que están en ejecución o en cola. La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece la variable `$TargetDedicatedNodes` en consecuencia. La fórmula garantiza que el número de destino de nodos dedicados nunca supere la cantidad de 25 máquinas virtuales. El grupo crece automáticamente a medida que se envían nuevas tareas. Cuando las tareas finalizan, las máquinas virtuales quedan libres una a una y la fórmula de escalado automático reduce el grupo.
@@ -76,15 +79,18 @@ Con esta fórmula de escalado automático, el grupo se crea inicialmente con una
 Esta fórmula escala los nodos dedicados, pero se puede modificar para escalar también los nodos de prioridad baja.
 
 #### <a name="preempted-nodes"></a>Nodos con prioridad 
+
 ```
 maxNumberofVMs = 25;
 $TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
 $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 En este ejemplo se crea un grupo que empieza por 25 nodos de prioridad baja. Cada vez que se adelanta un nodo de prioridad baja, se reemplaza por un nodo dedicado. Como en el primer ejemplo, la variable `maxNumberofVMs` impide que el grupo supere 25 máquinas virtuales. Este ejemplo es útil para sacar provecho de las máquinas virtuales de prioridad baja y, al mismo tiempo, garantizar que solo se produzca un número fijo de retrasos en la duración del grupo.
 
 ## <a name="variables"></a>variables
+
 En las fórmulas de escalado automático puede usar tanto variables **definidas por el servicio** como variables **definidas por el usuario**. Las variables definidas por el servicio están integradas en el servicio de Batch. Algunas variables definidas por el servicio son de lectura y escritura, mientras que otras son de solo lectura. Las variables definidas por el usuario son las que usted define. En la fórmula de ejemplo que se muestra en la sección anterior, `$TargetDedicatedNodes` y `$PendingTasks` son variables definidas por el servicio. Las variables `startingNumberOfVMs` y `maxNumberofVMs` son variables definidas por el usuario.
 
 > [!NOTE]
@@ -100,7 +106,12 @@ Puede obtener y establecer los valores de estas variables definidas por el servi
 | --- | --- |
 | $TargetDedicatedNodes |Número objetivo de nodos de ejecución dedicados para el grupo. El número de nodos dedicados se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos dedicados se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. <br /><br /> Podría pasar que un grupo de una cuenta creada con la configuración del servicio de Batch no alcanzara su valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. Podría pasar que un grupo de una cuenta creada con la configuración de suscripción de usuario no alcanzara su valor de destino si el destino supera la cuota de núcleos compartidos de la suscripción.|
 | $TargetLowPriorityNodes |Número objetivo de nodos de ejecución de prioridad baja para el grupo. El número de nodos de prioridad baja se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos de prioridad baja se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. Además, también podría pasar que un grupo no alcanzara el valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. <br /><br /> Para obtener más información sobre los nodos de ejecución de prioridad baja, consulte [Uso de máquinas virtuales de prioridad baja con Batch (versión preliminar)](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |La acción que se produce cuando se quitan los nodos de ejecución de un grupo. Los valores posibles son:<ul><li>**requeue**: finaliza las tareas de inmediato y las vuelve a poner en la cola de trabajos para que se vuelvan a programar.<li>**terminate**: finaliza las tareas de inmediato y las quitar de la cola de trabajos.<li>**taskcompletion**: espera a que finalicen las tareas actualmente en ejecución y, a continuación, quita el nodo del grupo.<li>**retaineddata**: espera a que todos los datos que se conservan en la tarea local en el nodo se limpien antes de quitar el nodo del grupo.</ul> |
+| $NodeDeallocationOption |La acción que se produce cuando se quitan los nodos de ejecución de un grupo. Los valores posibles son:<ul><li>**requeue**: el valor predeterminado. Finaliza las tareas de inmediato y las vuelve a colocar en la cola de trabajos para que se vuelvan a programar. Esta acción garantiza que el número de nodos de destino se alcanza lo antes posible, pero es posible que sea menos eficaz, ya que cualquier tarea en ejecución se interrumpirá y tendrá que reiniciarse, con lo que el trabajo que se haya hecho hasta ese momento no sirve para nada. <li>**terminate**: finaliza las tareas de inmediato y las quitar de la cola de trabajos.<li>**taskcompletion**: espera a que finalicen las tareas actualmente en ejecución y, a continuación, quita el nodo del grupo. Esta opción se usa para evitar que las tareas se interrumpan y se vuelvan a poner en la cola, lo que hace que cualquier trabajo que haya realizado hasta ese momento sea baldío. <li>**retaineddata**: espera a que todos los datos que se conservan en la tarea local en el nodo se limpien antes de quitar el nodo del grupo.</ul> |
+
+> [!NOTE]
+> También se puede especificar la variable `$TargetDedicatedNodes` mediante el alias `$TargetDedicated`. También se puede especificar la variable `$TargetLowPriorityNodes` mediante el alias `$TargetLowPriority`. Si la fórmula establece tanto la variable con nombre completo como su alias, el valor asignado a la variable tendrá prioridad.
+>
+>
 
 Puede obtener el valor de estas variables definidas por el servicio para efectuar ajustes basados en las métricas del servicio de Batch:
 
@@ -132,6 +143,7 @@ Puede obtener el valor de estas variables definidas por el servicio para efectua
 >
 
 ## <a name="types"></a>Tipos
+
 Estos son los tipos que se admiten en las fórmulas:
 
 * double
@@ -161,6 +173,7 @@ Estos son los tipos que se admiten en las fórmulas:
   * TimeInterval_Year
 
 ## <a name="operations"></a>Operaciones
+
 Estas operaciones se permiten en los tipos que constan en la sección anterior.
 
 | Operación | Operadores admitidos | Tipo de resultado |
@@ -194,7 +207,7 @@ Estas **funciones** predefinidas están disponibles para que las use al definir 
 | lg(double) |double |Devuelve la base logarítmica 2 de double. |
 | lg(doubleVecList) |doubleVec |Devuelve la base logarítmica de componentes 2 de doubleVecList. Se debe pasar explícitamente un vec(double) para el parámetro. En caso contrario, se supone la versión double lg(double). |
 | ln(double) |double |Devuelve el registro natural de double. |
-| ln(doubleVecList) |doubleVec |Devuelve la base logarítmica de componentes 2 de doubleVecList. Se debe pasar explícitamente un vec(double) para el parámetro. En caso contrario, se supone la versión double lg(double). |
+| ln(doubleVecList) |doubleVec |Devuelve el registro natural de double. |
 | log(double) |double |Devuelve la base logarítmica 10 de double. |
 | log(doubleVecList) |doubleVec |Devuelve la base logarítmica de componentes 10 de doubleVecList. Se debe pasar explícitamente un vec(double) para un único parámetro double. En caso contrario, se supone la versión double log(double). |
 | max(doubleVecList) |double |Devuelve el valor máximo de doubleVecList. |
@@ -216,6 +229,7 @@ Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista
 El valor *doubleVecList* se convierte en un *doubleVec* individual antes de la evaluación. Por ejemplo, si `v = [1,2,3]`, entonces, llamar a `avg(v)` es equivalente a llamar a `avg(1,2,3)`. Llamar a `avg(v, 7)` es equivalente a llamar a `avg(1,2,3,7)`.
 
 ## <a name="getsampledata"></a>Obtención de datos de ejemplo
+
 Las fórmulas de escalado automático actúan en datos de métricas (muestras) proporcionados por el servicio Batch. Una fórmula aumenta o reduce el tamaño del grupo según los valores que obtiene del servicio. Las variables definidas por el servicio descritas anteriormente son objetos que proporcionan varios métodos para obtener acceso a los datos que están asociados a ese objeto. Por ejemplo, la siguiente expresión muestra una solicitud para obtener los últimos cinco minutos de uso de CPU:
 
 ```
@@ -275,6 +289,7 @@ Dado que puede haber un retraso en la disponibilidad de muestras, es importante 
 >
 
 ## <a name="metrics"></a>Métricas
+
 Puede usar tanto métricas de recurso como de tarea al definir una fórmula. El número de nodos dedicados de destino se ajusta en el grupo basándose en los datos de métricas que obtenga y evalúe. Consulte la sección [Variables](#variables) más arriba para más información sobre cada métrica.
 
 <table>
@@ -321,13 +336,15 @@ Puede usar tanto métricas de recurso como de tarea al definir una fórmula. El 
 </table>
 
 ## <a name="write-an-autoscale-formula"></a>Escritura de una fórmula de escalado automático
+
 Para construir una fórmula de escalado automático, es preciso formar instrucciones que usen los componentes anteriores y luego combinar esas instrucciones en una fórmula completa. En esta sección vamos a crear una fórmula de escalado automático de ejemplo que puede tomar algunas decisiones reales de escalado.
 
 En primer lugar, vamos a definir los requisitos de nuestra nueva fórmula de escalado automático. La fórmula debe:
 
 1. Aumentar el número objetivo de nodos de ejecución dedicados en un grupo si el uso de la CPU es alto.
-2. Reducir el número objetivo de nodos de ejecución dedicados en un grupo si el uso de la CPU es bajo.
-3. Restringir siempre el número máximo de nodos dedicados a 400.
+1. Reducir el número objetivo de nodos de ejecución dedicados en un grupo si el uso de la CPU es bajo.
+1. Restringir siempre el número máximo de nodos dedicados a 400.
+1. Al reducir el número de nodos, no quite los nodos que ejecuten tareas; si fuera necesario, espere a que las tareas finalicen para quitar nodos.
 
 Para aumentar el número de nodos durante un uso elevado de la CPU, definimos la instrucción que rellena una variable definida por el usuario (`$totalDedicatedNodes`) con un valor que representa un 110 por ciento del número de nodos dedicados del destino actual, pero solo si el uso medio mínimo de la CPU en los 10 últimos minutos era superior al 70 por ciento. En caso contrario, use el valor del número actual de nodos dedicados.
 
@@ -634,9 +651,11 @@ Error:
 ```
 
 ## <a name="example-autoscale-formulas"></a>Ejemplo de fórmulas de escalado automático
+
 Echemos un vistazo a algunas fórmulas que muestran distintas formas de ajustar la cantidad de recursos de proceso de un grupo.
 
 ### <a name="example-1-time-based-adjustment"></a>Ejemplo 1: Ajuste basado en tiempo
+
 Imagínese que quiere ajustar el tamaño del grupo en función de la hora y el día de la semana. En este ejemplo se muestra cómo aumentar o disminuir en consecuencia el número de nodos del grupo.
 
 En primer lugar, la fórmula obtiene la hora actual. Si se trata de un día laborable (1-5) y dentro del horario laboral (de 8 a.m. a 6 p.m.), el tamaño del grupo de destino se establece en 20 nodos. De lo contrario, se establece en 10 nodos.
@@ -647,9 +666,11 @@ $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
 $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
 $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
+$NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-2-task-based-adjustment"></a>Ejemplo 2: Ajuste basado en tareas
+
 En este ejemplo, el tamaño del grupo se ajusta en función del número de tareas en la cola. Las cadenas de la fórmula aceptan tanto comentarios como saltos de línea.
 
 ```csharp
@@ -664,11 +685,12 @@ $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);
 // The pool size is capped at 20, if target VM value is more than that, set it
 // to 20. This value should be adjusted according to your use case.
 $TargetDedicatedNodes = max(0, min($targetVMs, 20));
-// Set node deallocation mode - keep nodes active only until tasks finish
+// Set node deallocation mode - let running tasks finish before removing a node
 $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>Ejemplo 3: Contabilidad para tareas paralelas
+
 Este ejemplo ajusta el tamaño del grupo en función del número de tareas. Esta fórmula también tiene en cuenta el valor de [MaxTasksPerComputeNode][net_maxtasks] que se ha establecido para el grupo. Este enfoque es útil en aquellas situaciones en las que la [ejecución de tareas paralelas](batch-parallel-node-tasks.md) se ha habilitado en el grupo.
 
 ```csharp
@@ -690,6 +712,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-4-setting-an-initial-pool-size"></a>Ejemplo 4: Configuración de un tamaño de grupo inicial
+
 En este ejemplo se muestra un fragmento de código de C# con una fórmula de escalado automático que establece el tamaño del grupo en un número de nodos específico durante un período de tiempo inicial. A continuación, se ajusta el tamaño del grupo según el número de tareas activas y en ejecución una vez transcurrido el período de tiempo inicial.
 
 La fórmula en el siguiente fragmento de código:
@@ -714,6 +737,7 @@ string formula = string.Format(@"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Maximizar el uso de recursos de proceso de Azure Batch con tareas simultáneas de nodo](batch-parallel-node-tasks.md) contiene detalles acerca de cómo se pueden ejecutar varias tareas simultáneamente en los nodos de proceso en el grupo. Además del escalado automático, esta característica puede ayudar a reducir la duración del trabajo para algunas cargas de trabajo, lo que permite ahorrar dinero.
 * Para otro ajuste de la eficacia, asegúrese de que la aplicación Batch consulta el servicio Batch de la manera más óptima. Consulte [Creación de consultas para enumerar los recursos de Batch con eficacia](batch-efficient-list-queries.md) para aprender a limitar la cantidad de datos que atraviesan la conexión al consultar el estado de posiblemente miles de nodos de ejecución o tareas.
 

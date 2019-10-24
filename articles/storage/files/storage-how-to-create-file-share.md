@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 000dacb7530b52784a68663d295fde9784d50e29
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3b30df7410f56c203eb600089cce130a8de23d1b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013557"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514608"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creación de un recurso compartido de archivos en Azure Files
 Puede crear recursos compartidos de archivos de Azure mediante  [Azure Portal](https://portal.azure.com/), los cmdlets de PowerShell de Azure Storage, las bibliotecas de cliente de Azure Storage o la API de REST de Azure Storage. En este tutorial, aprenderá a:
@@ -23,6 +23,9 @@ Puede crear recursos compartidos de archivos de Azure mediante  [Azure Portal](
 ## <a name="prerequisites"></a>Requisitos previos
 Para crear un recurso compartido de Azure Files, puede usar una cuenta de almacenamiento que ya exista o [crear una nueva cuenta de Azure Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para crear un recurso compartido de Azure Files con PowerShell, necesitará la clave de la cuenta y el nombre de la cuenta de almacenamiento. Necesitará una clave de la cuenta de almacenamiento si tiene previsto usar Powershell o la CLI.
 
+> [!NOTE]
+> Si desea crear recursos compartidos de archivos de más de 5 TiB, consulte nuestro artículo [Habilitación de recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
+
 ## <a name="create-a-file-share-through-the-azure-portal"></a>Creación de un recurso compartido de archivos mediante Azure Portal
 1. **Vaya a la hoja de la cuenta de almacenamiento en Azure Portal**:    
     ![Hoja de la cuenta de almacenamiento](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
@@ -30,7 +33,7 @@ Para crear un recurso compartido de Azure Files, puede usar una cuenta de almace
 2. **Haga clic en el botón Agregar recurso compartido de archivos**:    
     ![Haga clic en el botón Agregar recurso compartido de archivos](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **Proporcione el nombre y la cuota. El valor máximo actual de la cuota es de 5 TiB**:    
+3. **Proporcione el nombre y la cuota**:    
     ![Proporcione el nombre y cuota deseada para el nuevo recurso compartido de archivos](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **Visualice un nuevo recurso compartido de archivos**:  ![Visualización de un nuevo recurso compartido de archivos](./media/storage-how-to-create-file-share/create-file-share-portal4.png)

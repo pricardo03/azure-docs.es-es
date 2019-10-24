@@ -6,18 +6,26 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 07/29/2019
+ms.date: 10/16/2019
 ms.author: dapatil
-ms.openlocfilehash: acce72a5ddfaab56a7fcce92f0153bb06cb1ae71
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620105"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433416"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Historial de versiones de Azure Site Recovery Deployment Planner
 
 En este artículo se proporciona el historial de todas las versiones de Azure Site Recovery Deployment Planner, junto con las correcciones y limitaciones conocidas de cada una de ellas, así como sus fechas de lanzamiento.
+
+## <a name="version-251"></a>Versión 2.51
+
+**Fecha de lanzamiento: 22 de agosto de 2019**
+
+**Correcciones:**
+
+- Se ha corregido el problema de la recomendación de costos con Deployment Planner, versión 2.5
 
 ## <a name="version-25"></a>Versión 2.5
 

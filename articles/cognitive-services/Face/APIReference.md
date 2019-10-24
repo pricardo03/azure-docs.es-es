@@ -10,14 +10,14 @@ ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: f4258f34bb7d353ee4e76f4675f4ef672a4a8c78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 940a5e25125acc2631fd3629bd610bb0e927e650
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816401"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390104"
 ---
-# <a name="api-reference"></a>Referencia de API
+# <a name="face-api-reference-list"></a>Lista de referencia de Face API
 
 Azure Face API es una API basada en la nube que proporciona algoritmos para la detección y el reconocimiento de caras. Las API de Face pueden clasificarse en las siguientes categorías:
 

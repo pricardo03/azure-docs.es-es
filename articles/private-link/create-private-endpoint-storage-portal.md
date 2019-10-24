@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: bb0c6e9d20c12df3532a52df1fe4d9574344d4b3
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 8a72f70fbc1ab6052587beb1d949dd73b1ad3559
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104726"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376150"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure
 Un punto de conexión privado de Azure es el bloque de creación fundamental para Private Link en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de Private Link.
@@ -114,10 +114,10 @@ En esta sección, creará una cuenta de almacenamiento privada con un punto de c
     | Replicación | Seleccione **Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)** . |
     |||
   
-3. Seleccione **Siguiente: Redes**.
-4. En **Crear una cuenta de almacenamiento: Redes**, método de conectividad, seleccione **Punto de conexión privado**.
-5. En **Crear una cuenta de almacenamiento: Redes**, seleccione **Agregar un punto de conexión privado**. 
-6. En **Crear un punto de conexión privado**, escriba o seleccione esta información:
+3. Seleccione **Siguiente: Redes**.
+4. En **Crear una cuenta de almacenamiento: Redes**, método de conectividad, seleccione **Punto de conexión privado**.
+5. En **Crear una cuenta de almacenamiento: Redes**, seleccione **Agregar un punto de conexión privado**. 
+6. En **Crear un punto de conexión privado**, escriba o seleccione esta información:
 
     | Configuración | Valor |
     | ------- | ----- |
@@ -126,19 +126,19 @@ En esta sección, creará una cuenta de almacenamiento privada con un punto de c
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     |Location|Seleccione **WestCentralUS**.|
     |NOMBRE|Escriba  *myPrivateEndpoint*.  |
-    |Recurso secundario de almacenamiento|Deje el valor predeterminado  **Blob**. |
+    |Recurso secundario de almacenamiento|Deje el valor predeterminado **Blob**. |
     | **REDES** |  |
     | Virtual network  | Seleccione *MyVirtualNetwork* en el grupo de recursos *myResourceGroup*. |
     | Subnet | Seleccione  *mySubnet*. |
     | **INTEGRACIÓN DE DNS PRIVADO**|  |
     | Integración con una zona DNS privada  | Deje el valor predeterminado **Sí**. |
-    | Zona DNS privada  | Deje el valor predeterminado ** (New) privatelink.blob.core.windows.net**. |
+    | Zona DNS privada  | Deje el valor predeterminado ** (New) privatelink.blob.core.windows.net**. |
     |||
-7. Seleccione  **Aceptar**. 
-8. Seleccione  **Revisar y crear**. Se le remite a la página  **Revisar y crear** , donde Azure valida la configuración. 
-9. Cuando reciba el mensaje  **Validación superada** , seleccione  **Crear**. 
+7. Seleccione **Aceptar**. 
+8. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
+9. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**. 
 10. Vaya a la cuenta de almacenamiento que acaba de crear.
-11. Seleccione  **Claves de acceso** en el menú de contenido de la izquierda.
+11. Seleccione **Claves de acceso** en el menú de contenido de la izquierda.
 12. Seleccione **Copiar** en la cadena de conexión para key1.
  
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conexión a una máquina virtual desde Internet
@@ -182,29 +182,30 @@ En esta sección, se conectará de manera privada a la cuenta de almacenamiento 
     Name:    mystorageaccount123123.privatelink.blob.core.windows.net
     Address:  10.0.0.5
     Aliases:  mystorageaccount.blob.core.windows.net
-3. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
-4. Select **Storage accounts** with the right-click.
-5. Select **Connect to an azure storage**.
-6. Select **Use a connection string**.
-7. Select **Next**.
-8. Enter the connection string by pasting the information previously copied.
-9. Select **Next**.
-10. Select **Connect**.
-11. Browse the Blob containers from mystorageaccount 
-12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
-13. Close the remote desktop connection to *myVM*. 
+    ```
+3. Instale [Explorador de Microsoft Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
+4. Seleccione **Cuentas de almacenamiento** con el botón secundario.
+5. Seleccione **Conectar a Azure Storage**.
+6. Seleccione **Usar una cadena de conexión**.
+7. Seleccione **Next** (Siguiente).
+8. Escriba la cadena de conexión pegando la información copiada anteriormente.
+9. Seleccione **Next** (Siguiente).
+10. Seleccione **Conectar**.
+11. Examinar los contenedores de blobs desde mystorageaccount 
+12. Opcionalmente, cree carpetas o cargue archivos en *mystorageaccount* . 
+13. Cierre la conexión de Escritorio remoto con  *myVm*. 
 
-Additional options to access the storage account:
-- Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
+Opciones adicionales para acceder a la cuenta de almacenamiento:
+- El Explorador de Microsoft Azure Storage es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux. Puede instalar la aplicación para examinar de forma privada el contenido de la cuenta de almacenamiento. 
  
-- The AzCopy utility is another option for high-performance scriptable data transfer for Azure storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 
+- La utilidad AzCopy es otra opción para la transferencia de datos que permite ejecutar scripts de alto rendimiento para Azure Storage. Use AzCopy para transferir datos a y desde Blob Storage, File Storage y Table Storage. 
 
 
-## Clean up resources 
-When you're done using the Private Endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
+## <a name="clean-up-resources"></a>Limpieza de recursos 
+Cuando haya terminado de usar el punto de conexión privado, la cuenta de almacenamiento y la máquina virtual, elimine el grupo de recursos y todos los recursos que contiene: 
+1. Escriba *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione *myResourceGroup* en los resultados de la búsqueda. 
+2. Seleccione **Eliminar grupo de recursos**. 
+3. Escriba *myResourceGroup* en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**. 
 
-## Next steps
-In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
+## <a name="next-steps"></a>Pasos siguientes
+En este inicio rápido, ha creado una máquina virtual en una red virtual, una cuenta de almacenamiento y un punto de conexión privado. Se ha conectado a una máquina virtual desde Internet y se ha comunicado de forma segura con la cuenta de almacenamiento mediante el vínculo privado. Para más información sobre el punto de conexión privado, consulte  [¿Qué es un punto de conexión privado de Azure? ](private-endpoint-overview.md).

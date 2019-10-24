@@ -1,5 +1,5 @@
 ---
-title: 'Aprendizaje activo: Personalizer'
+title: 'Eventos activos e inactivos: Personalizer'
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -10,47 +10,36 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 8c1579be3d11ae14ca45ee861de2d4f705e5d62c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: aa6f53901f21dcb0726454d641a4a2a66007f9e0
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663707"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429036"
 ---
-# <a name="active-learning-and-learning-policies"></a>Aprendizaje activo y las directivas de aprendizaje 
+# <a name="active-and-inactive-events"></a>Eventos activos e inactivos
 
-Cuando la aplicación llama a la API Rank, recibe una clasificación del contenido. La lógica de negocios puede usar esta clasificación para determinar si el contenido debe mostrarse al usuario. Cuando muestra el contenido clasificado, significa que es un evento de clasificación _activo_. Cuando la aplicación no muestra el contenido clasificado, significa que es un evento de clasificación _inactivo_. 
+Cuando la aplicación llama a la API Rank, recibe la acción que la aplicación debe mostrar en el campo rewardActionId.  A partir de ese momento, Personalizer esperará una llamada de recompensa con el mismo eventId. La puntuación de la recompensas se usará para entrenar el modelo que se empleará para las llamadas a Rank futuras. Si no se recibe ninguna llamada de recompensa para el eventId, se aplicará una recompensa predeterminada. Las recompensas predeterminadas se establecen en Azure Portal.
 
-La información del evento de clasificación activo se devuelve a Personalizer. Esta información se utiliza para continuar el entrenamiento del modelo mediante la directiva de aprendizaje actual.
-
-## <a name="active-events"></a>Eventos activos
-
-Los eventos activos siempre deben mostrarse al usuario y la llamada de recompensa debe devolverse para cerrar el ciclo de aprendizaje. 
-
-### <a name="inactive-events"></a>Eventos inactivos 
-
-Los eventos inactivos no deberían cambiar el modelo subyacente porque no se le dio al usuario la oportunidad de elegir entre el contenido clasificado.
-
-## <a name="dont-train-with-inactive-rank-events"></a>No entrenar con eventos de clasificación inactivos 
-
-En algunas aplicaciones, es posible que tenga que llamar a la API Rank sin saber aún si la aplicación mostrará los resultados al usuario. 
-
-Esto ocurre cuando:
+En algunos casos, es posible que la aplicación tenga que llamar a Rank, incluso para saber si el resultado se va a usar o a mostrar al usuario. Esto puede ocurrir en situaciones donde, por ejemplo, la representación de la página del contenido promocionado se sobrescriba con una campaña de marketing. Si el resultado de la llamada a Rank no se ha usado nunca y el usuario nunca lo ve, sería incorrecto entrenarlo con cualquier recompensa en los resultados todo, cero o de lo contrario.
+Normalmente esto sucede cuando:
 
 * Es posible que se pueda representar previamente alguna interfaz de usuario que el usuario pueda o no ver. 
 * La aplicación puede estar haciendo una personalización predictiva en la que las llamadas de Rank se realizan con menos contexto en tiempo real y su salida puede utilizarse o no por la aplicación. 
 
-### <a name="disable-active-learning-for-inactive-rank-events-during-rank-call"></a>Deshabilitación del aprendizaje activo para los eventos de clasificación inactivos durante la llamada de Rank
+En estos casos, la manera correcta de usar Personalizer es llamar a Rank solicitando al evento que esté _inactivo_. Personalizer no esperará una recompensa para este evento y no se aplicará ningún predeterminada. Después, en la lógica de negocios, si la aplicación usa la información de la llamada de rango, lo único que debe hacer es _activar_ el evento. Desde el momento en que el evento está activo, Personalizer esperará una recompensa para el evento o aplicará una predeterminada si no se realiza ninguna llamada explícita a la API de recompensa.
 
-Para deshabilitar el aprendizaje automático, llame a Rank con `learningEnabled = False`.
+## <a name="get-inactive-events"></a>Obtención de eventos inactivos
 
-El aprendizaje para un evento inactivo se activa implícitamente si envía una recompensa para la clasificación.
+Para deshabilitar el entrenamiento de un evento, llame a Rank con `learningEnabled = False`.
 
-## <a name="learning-policies"></a>Directivas de aprendizaje
+El aprendizaje para un evento inactivo se activa implícitamente si envía una recompensa para el eventId o si llama a la API `activate` para dicho eventId.
 
-La directiva de aprendizaje determina los *hiperparámetros* específicos del entrenamiento de modelos. Dos modelos de los mismos datos, entrenados en diferentes directivas de aprendizaje, se comportarán de manera diferente.
+## <a name="learning-settings"></a>Configuración del aprendizaje
 
-### <a name="importing-and-exporting-learning-policies"></a>Importación y exportación de directivas de aprendizaje
+La configuración del aprendizaje determina los *hiperparámetros* específicos del entrenamiento de modelo. Dos modelos de los mismos datos, entrenados con configuraciones de aprendizaje diferentes se comportarán de manera distinta.
+
+### <a name="import-and-export-learning-policies"></a>Importación y exportación de directivas de aprendizaje
 
 Puede importar y exportar archivos de directivas de aprendizaje desde Azure Portal. Esto permite guardar las directivas existentes, probarlas, reemplazarlas y archivarlas en el control de código fuente como artefactos para futuras referencias y auditorías.
 

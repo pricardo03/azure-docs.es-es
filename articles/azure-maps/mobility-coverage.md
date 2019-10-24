@@ -109,7 +109,7 @@ En la siguiente tabla se proporciona información sobre la cobertura del servici
 | Polonia | <p>Breslavia, Białystok, Bydgoszcz, Elbląg, Gorzow, Kętrzyna, Krakow, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świonujście, Szczecin, Tricity, Warsaw, Wodzisław Śląski, Breslavia, Zakopane</p> |
 | Portugal | Braganza, Coimbra, Funchal, Leiria, Lisboa, Portimao, Porto|
 | República de Malta | Malta* | 
-| Rumania | <p>Alba Iulia, Arad, Bistrița, Brăila, Braşov, Bucharest, Buzau, Cluj Napoca, Constanța, Craiova, Deva, Focșani, Galati, Iaşi, Miercurea Ciuc, Oradea, Piatra Neamt, Pitești, Ploieşti, Reșița, Satu Mare, Sibiu, Suceava, Targu Mures, Timisoara, Tulcea, Zalau</p> | 
+| Rumanía | <p>Alba Iulia, Arad, Bistrița, Brăila, Braşov, Bucharest, Buzau, Cluj Napoca, Constanța, Craiova, Deva, Focșani, Galati, Iaşi, Miercurea Ciuc, Oradea, Piatra Neamt, Pitești, Ploieşti, Reșița, Satu Mare, Sibiu, Suceava, Targu Mures, Timisoara, Tulcea, Zalau</p> | 
 | Rusia  | Rostov-on-Don, Volgograd, Yekaterinburg, Kazan, Kirov, Krasnodar, Moscú, Nalchik, Nizhny Novgorod, Novosibirsk, Noyabrsk, Omsk, Perm, St Petersburg, Tver, Tomsk |
 | Serbia  | Belgrado, Kragujevac, Nis, Novi Sad, Valjevo, Subotica | 
 | Eslovaquia | Banská Bystrica, Bratislava, Kosice, Presov, Prievidza, Trencin | 

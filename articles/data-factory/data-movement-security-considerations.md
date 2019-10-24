@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b571ba8d259a5e3b3b049ad66d4718e9e85d488b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ca5a98fb4fd0fd07cd0e2557840a2e0aed6901e5
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931264"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285611"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -110,7 +110,7 @@ El canal del comandos permite la comunicación entre los servicios de movimiento
 ### <a name="on-premises-data-store-credentials"></a>Credenciales de los almacenes de datos locales
 Las credenciales se pueden almacenar en Data Factory o [Data Factory puede hacer referencia a ellas](store-credentials-in-key-vault.md) durante el tiempo de ejecución desde Azure Key Vault. Si almacena las credenciales en Data Factory, siempre se almacenan cifrada en entorno de ejecución de integración autohospedado. 
  
-- **Almacenar credenciales localmente**. Si usa directamente el cmdlet **Set-AzDataFactoryV2LinkedService** con las cadenas de conexión y las credenciales insertadas en JSON, el servicio vinculado se cifra y almacena en el entorno de ejecución de integración autohospedado.  En este caso, las credenciales fluyen en el servicio back-end de Azure, que es muy seguro, a la máquina de integración autohospedado, donde finalmente se cifran y se almacenan. El entorno de ejecución de integración autohospedado utiliza Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para cifrar los datos confidenciales y la información de credenciales.
+- **Almacenar credenciales localmente**. Si usa directamente el cmdlet **Set-AzDataFactoryV2LinkedService** con las cadenas de conexión y las credenciales insertadas en JSON, el servicio vinculado se cifra y almacena en el entorno de ejecución de integración autohospedado.  En este caso, las credenciales atraviesan el servicio de back-end de Azure, que es muy seguro, hasta la máquina de integración autohospedada, donde finalmente se cifran y se almacenan. El entorno de ejecución de integración autohospedado utiliza Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para cifrar los datos confidenciales y la información de credenciales.
 
 - **Almacenamiento de credenciales en Azure Key Vault** También puede almacenar la credencial del almacén de datos en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credencial durante la ejecución de una actividad. Para obtener más información, consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md).
 
@@ -152,24 +152,17 @@ Las siguientes imágenes muestran el uso del entorno de ejecución de integraci�
 
 ![Conexión VPN de IPSec con la puerta de enlace](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a> Configuraciones de firewall y lista de direcciones IP permitidas
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> Configuraciones de firewall y configuración de direcciones IP permitidas
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para redes locales o privadas  
 En una empresa, se ejecuta un firewall corporativo en el enrutador central de la organización. El Firewall de Windows se ejecuta como demonio en la máquina local con Integration Runtime autohospedado instalado. 
 
 En la tabla siguiente se proporcionan el puerto de salida y los requisitos de dominio para el firewall corporativo:
 
-| Nombres de dominio                  | Puertos de salida | DESCRIPCIÓN                              |
-| ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443            | El entorno de ejecución de integración autohospedado lo necesita para conectarse a los servicios de movimiento de datos de Data Factory. |
-| `*.frontend.clouddatahub.net` | 443            | El entorno de ejecución de integración autohospedado lo necesita para conectarse al servicio Data Factory. |
-| `download.microsoft.com`    | 443            | Lo necesita el entorno de ejecución de integración autohospedado para descargar las actualizaciones. Si ha deshabilitado la actualización automática, puede omitir esto. |
-| `*.core.windows.net`          | 443            | Lo usa el entorno de ejecución de integración autohospedado para conectarse a la cuenta de Azure Storage cuando se utiliza la característica [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). |
-| `*.database.windows.net`      | 1433           | (Opcional) Necesario cuando se copia desde o hacia Azure SQL Database o Azure SQL Data Warehouse. Usa la característica de copia de almacenamiento temporal para copiar datos en Azure SQL Database o Azure SQL Data Warehouse sin abrir el puerto 1433. |
-| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Opcional) Necesario cuando copia desde o hacia Azure Data Lake Store. |
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> Puede que tenga que administrar puertos o dominios de listas de admitidos a nivel del firewall corporativo, en función de cada origen de datos. En esta tabla, Azure SQL Database, Azure SQL Data Warehouse y Azure Data Lake Store solo se usan a modo de ejemplo.   
+> Puede que tenga que administrar puertos o configurar la lista de admitidos en los dominios a nivel del firewall corporativo, en función de lo que requiera cada origen de datos. En esta tabla, Azure SQL Database, Azure SQL Data Warehouse y Azure Data Lake Store solo se usan a modo de ejemplo.   
 
 En la tabla siguiente, se proporcionan los requisitos del puerto de entrada para el Firewall de Windows.
 
@@ -179,10 +172,10 @@ En la tabla siguiente, se proporcionan los requisitos del puerto de entrada para
 
 ![Requisitos de puerto de la puerta de enlace](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>Configuraciones IP y lista de admitidos en los almacenes de datos
-Algunos almacenes de datos en la nube también requieren listas de direcciones IP admitidas para que la máquina acceda a ellos. Asegúrese de que la dirección IP de la máquina de Integration Runtime autohospedado aparece en la lista o está configurada en el firewall correctamente.
+#### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>Configuraciones de IP y configuración de lista de permitidos en almacenes de datos
+Algunos almacenes de datos de la nube también requieren que permita la dirección IP de la máquina que accede a ellos. Asegúrese de que la dirección IP de la máquina con el entorno de ejecución de integración autohospedado tiene permiso en o está configurada en el firewall correctamente.
 
-Los siguientes almacenes de datos en la nube necesitan una lista de direcciones IP admitidas por la máquina de Integration Runtime autohospedado. De forma predeterminada, algunos de estos almacenes de datos no necesitan listas de direcciones IP admitidas. 
+Los siguientes almacenes de datos en la nube requieren que permita la dirección IP de la máquina el entorno de ejecución de integración autohospedado. De forma predeterminada, es posible que algunos de estos almacenes de datos no necesiten lista de admitidas. 
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -198,7 +191,7 @@ Sí. Más detalles [aquí](https://azure.microsoft.com/blog/sharing-a-self-hoste
 
 **¿Cuáles son los requisitos de puerto para que el entorno de ejecución de integración autohospedado funcione?**
 
-Integration Runtime autohospedado establece conexiones basadas en HTTP para acceder a Internet. El puerto de salida 443 debe estar abierto para que el entorno de ejecución de integración autohospedado establezca la conexión. Abra el puerto de entrada 8060 solo en la máquina (no en el firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure SQL Data Warehouse como origen o destino, tendrá que abrir también el puerto 1433. Para más información, consulte la sección [Configuraciones de firewall y lista de direcciones IP permitidas](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
+Integration Runtime autohospedado establece conexiones basadas en HTTP para acceder a Internet. El puerto de salida 443 debe estar abierto para que el entorno de ejecución de integración autohospedado establezca la conexión. Abra el puerto de entrada 8060 solo en la máquina (no en el firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure SQL Data Warehouse como origen o destino, tendrá que abrir también el puerto 1433. Para más información, consulte la sección [Configuraciones de firewall y configuración de la lista de permitidos para direcciones IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

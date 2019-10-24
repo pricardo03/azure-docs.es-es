@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: c3088ae777fe1a64be218105d36fdb9e01d7b798
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c041578932bd33eb0a2d3afc18a35c2c0458dc8b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66172241"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311856"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Depuración de problemas de los conectores de Application Proxy 
 
@@ -43,7 +43,7 @@ Este diagrama de flujo lo guía a través de los pasos para depurar algunos de l
 |  | . | DESCRIPCIÓN | 
 |---------|---------|---------|
 |1 | Búsqueda del grupo de conectores asignado a la aplicación | Probablemente tiene un conector instalado en varios servidores, en cuyo caso los conectores se deben [asignar a grupos de conectores](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Para más información acerca de los grupos de conectores, consulte [Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores](application-proxy-connector-groups.md). |
-|2 | Instalación del conector y asignación de un grupo | Si no tiene instalado un conector, consulte [Instalación y registro de un conector](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br>Si el conector no está asignado a un grupo, consulte sobre la [asignación del conector a un grupo](application-proxy-connector-groups.md#create-connector-groups).<br></br>Si la aplicación no está asignada a un grupo de conectores, consulte sobre la [asignación de la aplicación a un grupo de conectores](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
+|2 | Instalación del conector y asignación de un grupo | Si no tiene instalado un conector, consulte [Instalación y registro de un conector](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Si tiene problemas para instalar el conector, consulte [Problema al instalar el conector](application-proxy-connector-installation-problem.md).<br></br> Si el conector no está asignado a un grupo, consulte sobre la [asignación del conector a un grupo](application-proxy-connector-groups.md#create-connector-groups).<br></br>Si la aplicación no está asignada a un grupo de conectores, consulte sobre la [asignación de la aplicación a un grupo de conectores](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
 |3 | Ejecución de una prueba de puertos en el servidor del conector | En el servidor del conector, ejecute una prueba de puertos con [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) u otra herramienta para probar los puertos y compruebe si los puertos 443 y 80 están abiertos.|
 |4 | Configuración de dominios y puertos | [Asegúrese de que los dominios y puertos estén configurados correctamente](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) Para que un conector funcione como corresponde, hay determinados puertos que deben estar abiertos y direcciones URL a las que el servidor debe poder acceder. |
 |5 | Comprobación del uso de un proxy de back-end | Compruebe si los conectores están usando servidores proxy de back-end o si los están omitiendo. Para detalles, consulte [Solución de problemas del proxy del conector y de conectividad del servicio](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |

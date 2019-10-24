@@ -1,6 +1,6 @@
 ---
-title: Creación de tareas y flujos de trabajo basados en eventos en Azure Logic Apps
-description: Desencadenamiento, pausa y reanudación de tareas, procesos y flujos de trabajo automatizados basados en eventos que se producen en un punto de conexión con Azure Logic Apps
+title: 'Espera y respuesta a eventos: Azure Logic Apps'
+description: Automatización de flujos de trabajo que se desencadenan, pausan y reanudan en función de eventos en un punto de conexión de servicio mediante el uso de Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,16 +8,16 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: c2658df185d4836210c496d2c46a00a3541257a2
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 36b0ea7233b449584bd83450b45276da5baa135b
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541349"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264342"
 ---
-# <a name="automate-event-based-tasks-and-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Automatización de tareas y flujos de trabajo basados en eventos mediante webhooks HTTP en Azure Logic Apps
+# <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creación y ejecución de flujos de trabajo basados en eventos automatizados mediante webhooks HTTP en Azure Logic Apps
 
 Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector de webhook HTTP integrado, puede automatizar los flujos de trabajo que esperan y se ejecutan basados en eventos específicos que se producen en un punto de conexión HTTP o HTTPS mediante la compilación de aplicaciones lógicas. Por ejemplo, puede crear una aplicación lógica que supervisa un punto de conexión de servicio al esperar un evento específico antes de desencadenar el flujo de trabajo y ejecutar las acciones especificadas, en lugar de comprobar con regularidad o *sondear* ese punto de conexión.
 
@@ -37,6 +37,9 @@ Una acción de webhook HTTP también está basada en eventos y *se suscribe* a u
 * Antes de que la aplicación lógica agote el tiempo de espera
 
 Por ejemplo, la acción [**Enviar correo de aprobación**](connectors-create-api-office365-outlook.md) del conector de Office 365 Outlook es un ejemplo de acción de webhook que sigue este patrón. Puede ampliar este patrón a cualquier servicio mediante el uso de la acción de webhook.
+
+> [!NOTE]
+> Logic Apps aplica la seguridad de la capa de transporte (TLS) 1.2 al recibir la llamada de vuelta al desencadenador o acción de webhook HTTP. Si ve errores de protocolo de enlace SSL, asegúrese de usar TLS 1.2.
 
 Para más información, consulte los temas siguientes:
 
@@ -76,7 +79,7 @@ Este desencadenador integrado registra una dirección URL de devolución de llam
 
 1. Continúe creando el flujo de trabajo de la aplicación lógica con acciones que se ejecuten cuando se activa el desencadenador.
 
-1. Cuando haya finalizado, acabado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Guardar**.
+1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Guardar**.
 
    Al guardar la aplicación lógica, esta llama al punto de conexión de suscripción y registra la dirección URL de devolución de llamada para desencadenar esta aplicación lógica.
 
@@ -122,8 +125,8 @@ Aquí tiene más información acerca de las salidas de un desencadenador o acci�
 
 | Nombre de propiedad | type | DESCRIPCIÓN |
 |---------------|------|-------------|
-| headers | objeto | Encabezados de la solicitud |
-| body | objeto | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
+| headers | object | Encabezados de la solicitud |
+| body | object | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
 | status code | int | Código de estado de la solicitud |
 |||
 

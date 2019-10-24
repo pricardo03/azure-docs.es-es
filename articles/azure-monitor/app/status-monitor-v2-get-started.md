@@ -1,6 +1,6 @@
 ---
-title: Introducción al Monitor de estado de Azure v2 | Microsoft Docs
-description: Una guía de inicio rápido del Monitor de estado v2. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
+title: Introducción a Azure Application Insights Agent | Microsoft Docs
+description: Guía de inicio rápido para Application Insights Agent. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d9c354edac3cbd3faccaa261654e56f858befdf6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: f1911d8187b186f301bea771963f922ee3574fd6
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058247"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388228"
 ---
-# <a name="get-started-with-status-monitor-v2"></a>Introducción al Monitor de estado v2
+# <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Introducción a Azure Application Insights Agent para servidores locales
 
 Este artículo contiene los comandos de inicio rápido que se espera que funcionen para la mayoría de los entornos.
 Las instrucciones dependen de la Galería de PowerShell para distribuir las actualizaciones.
@@ -41,7 +41,7 @@ Install-Module -Name PowerShellGet -Force
 ``` 
 Cierre PowerShell.
 
-### <a name="install-status-monitor-v2"></a>Instalación del Monitor de estado v2
+### <a name="install-application-insights-agent"></a>Instalación de Application Insights Agent
 Ejecute PowerShell como administrador.
 ```powershell   
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -59,7 +59,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ### <a name="download-the-module"></a>Descara del módulo
 Descargue manualmente la versión más reciente del módulo desde la [Galería de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 
-### <a name="unzip-and-install-status-monitor-v2"></a>Descomprimir e instalar el Monitor de estado v2
+### <a name="unzip-and-install-application-insights-agent"></a>Descompresión e instalación de Application Insights Agent
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
@@ -89,7 +89,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 - [Agregue telemetría de cliente web](../../azure-monitor/app/javascript.md) para ver las excepciones de código de la página web y para habilitar las llamadas de seguimiento.
 - [Agregue el SDK de Application Insights al código](../../azure-monitor/app/asp-net.md) para que pueda insertar llamadas de seguimiento y registro.
 
-Hacer más con el Monitor de estado v2:
+Más información sobre Application Insights Agent:
 
 - Revise las [instrucciones detalladas](status-monitor-v2-detailed-instructions.md) para obtener una explicación de los comandos que se encuentran aquí.
-- Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) del Monitor de estado v2.
+- Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) de Application Insights Agent.

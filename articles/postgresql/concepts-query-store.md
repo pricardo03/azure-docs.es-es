@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: deab527d44713bffed1f430ec283592d0e4232ee
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.date: 10/14/2019
+ms.openlocfilehash: 198ef6889ffb7874c44f15338afbd8b3135ae3ef
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764410"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331313"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Supervisión del rendimiento con el Almacén de consultas
 
@@ -58,6 +58,10 @@ Algunos escenarios habituales para usar el Almacén de consultas son:
 
 Para minimizar el uso de espacio, se agregan las estadísticas de ejecución en tiempo de ejecución en el almacén de estadísticas de ejecución en un período fijo y configurable. La información de estos almacenes está visible consultando las vistas del almacén de consultas.
 
+## <a name="access-query-store-information"></a>Acceso a información del Almacén de consultas
+
+Los datos del Almacén de consultas se almacenan en la base de datos azure_sys del servidor de Postgres. 
+
 La consulta siguiente devuelve información sobre las consultas en el Almacén de consultas:
 ```sql
 SELECT * FROM query_store.qs_view; 
@@ -67,6 +71,9 @@ O esta consulta para estadísticas de espera:
 ```sql
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
+
+También puede emitir datos del Almacén de consultas a los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md) para llevar a cabo análisis y creación de alertas, a Event Hubs para streaming y a Azure Storage para el archivado. Las categorías de registro que se configuran son **QueryStoreRuntimeStatistics** y **QueryStoreWaitStatistics**. Para obtener información acerca de la configuración, visite el artículo [Configuración de diagnóstico de Azure Monitor](../azure-monitor/platform/diagnostic-settings.md).
+
 
 ## <a name="finding-wait-queries"></a>Búsqueda de consultas de espera
 Los tipos de evento de espera combinan eventos de espera diferentes en ciclos por similitud. El Almacén de consultas proporciona el tipo de evento de espera, el nombre del evento de espera específico y la consulta en cuestión. Poder correlacionar esta información de espera con las estadísticas de tiempo de ejecución de consultas significa que puede mejorar la comprensión de lo que contribuye a las características de rendimiento de consulta.

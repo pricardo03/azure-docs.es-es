@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 08db59e26a66aca57d65458a302c3c1de2e34a7b
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124922"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373494"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -83,7 +83,7 @@ En las empresas modernas, los departamentos de TI no son a menudo conscientes de
 
 [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) puede ayudarle a identificar aplicaciones útiles que son populares entre los usuarios, y que es posible que TI no autorice, y agregarlas a la galería de aplicaciones empresariales para que los usuarios puedan beneficiarse de funcionalidades como inicio de sesión único y acceso condicional.
 
-*"**Cloud App Security** nos ayuda a garantizar que nuestro personal usa correctamente las aplicaciones SaaS y en la nube de formas tales que respalden las directivas de seguridad fundamentales que ayudan a proteger Accenture"* .--- [John Blasi, director general de seguridad de la información en Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>"**Cloud App Security** nos ayuda a garantizar que nuestro personal usa correctamente las aplicaciones SaaS y en la nube de formas tales que respalden las directivas de seguridad fundamentales que ayudan a proteger Accenture".</em> --- [John Blasi, director general de seguridad de la información en Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Además de detectar TI en la sombra, MCAS también puede determinar el nivel de riesgo de las aplicaciones, impedir el acceso no autorizado a los datos corporativos, evitar una posible pérdida de datos y otros riesgos de seguridad inherentes a las aplicaciones.
 

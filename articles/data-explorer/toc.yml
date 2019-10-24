@@ -15,6 +15,12 @@
       href: web-query-data.md
 - name: Tutoriales
   items:
+    - name: Ingesta de blobs de E2E mediante programación
+      items:
+        - name: 'C#'
+          href: end-to-end-csharp.md
+        - name: Python
+          href: end-to-end-python.md
     - name: Ingesta de datos sin usar código
       href: ingest-data-no-code.md
     - name: Visualización de datos en Power BI

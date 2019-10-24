@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9e45787e7ae39b62605f5d8a54afd4ad95c9cca7
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814430"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331916"
 ---
 # <a name="about-recovery-plans"></a>Acerca de los planes de recuperación
 
@@ -33,6 +33,9 @@ Un plan de recuperación ayudar a definir un proceso de recuperación sistemáti
 
 
 ## <a name="model-apps"></a>Modelado de aplicaciones
+
+> [!NOTE]
+> Se pueden agregar hasta 100 instancias protegidas a un plan de recuperación.
 
 Puede planear y crear un grupo de recuperación para capturar propiedades específicas de la aplicación. Por ejemplo, consideremos una aplicación típica de tres niveles con un back-end de servidor SQL, un software intermedio y un front-end web. Por lo general, personalizará el plan de recuperación para que las máquinas de cada nivel se inicien en el orden correcto después de la conmutación por error.
 

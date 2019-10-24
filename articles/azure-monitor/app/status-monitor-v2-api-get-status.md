@@ -1,6 +1,6 @@
 ---
-title: 'Referencia de la API del Monitor de estado de Azure v2: Obtención del estado | Microsoft Docs'
-description: Referencia de la API del Monitor de estado de Azure v2. Get-ApplicationInsightsMonitoringStatus. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
+title: 'Referencia de la API de Azure Application Insights Agent: Obtención del estado | Microsoft Docs'
+description: Referencia de la API de Application Insights Agent. Get-ApplicationInsightsMonitoringStatus. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c3982e7eb78c1113c73a8e7e9d7b00ad403ac486
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 6e103e1856e338669224540a991c4b9ea6b10d6d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058255"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389869"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>API del Monitor de estado v2: Get-ApplicationInsightsMonitoringStatus
+# <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>API de Application Insights Agent: Get-ApplicationInsightsMonitoringStatus
 
 Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -204,5 +204,5 @@ Si se produce un error en este proceso por cualquier motivo, puede ejecutar esto
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- Hacer más con el Monitor de estado v2:
- - Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) del Monitor de estado v2.
+ Haga mucho más con Application Insights Agent:
+ - Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) de Application Insights Agent.

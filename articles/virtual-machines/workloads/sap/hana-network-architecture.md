@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24404d6b55f83f96d8e2601afd35b2dec00cc7e9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0872d3c798bd5bd94e425869822602e8123517b4
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099730"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303613"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitectura de red de SAP HANA (instancias grandes)
 
@@ -138,7 +138,14 @@ En una implementación hay, de forma predeterminada, tres consideraciones import
 * Las unidades de SAP HANA en Azure (Instancias grandes) tienen una dirección IP asignada del intervalo de direcciones del grupo IP de servidor que ha enviado al solicitar la implementación de HANA (Instancias grandes). Para más información, consulte [Infraestructura y conectividad con SAP HANA en Azure (instancias grandes)](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se puede acceder a esta dirección IP a través de las suscripciones de Azure y del circuito que conecta las redes virtuales de Azure a HANA (Instancias grandes). La dirección IP asignada fuera del intervalo de direcciones del grupo IP de servidor se asigna directamente a la unidad de hardware. Ya *no* se asigna mediante NAT, como sucedía en las primeras implementaciones de esta solución. 
 
 ### <a name="direct-routing-to-hana-large-instances"></a>Enrutamiento directo a HANA (Instancias grandes)
-De forma predeterminada, no funciona el enrutamiento transitivo entre las unidades de HANA (Instancias grandes) y el entorno local o entre HANA (Instancias grandes) y las redes virtuales que se implementan en dos regiones diferentes. Existen varias posibilidades para permitir este enrutamiento transitivo.
+
+De forma predeterminada, el enrutamiento transitivo no funciona en estos escenarios:
+
+* Entre unidades de instancias grandes de HANA y una implementación local.
+
+* Entre el enrutamiento de instancias grandes de HANA que están implementadas en dos regiones diferentes.
+
+Hay tres maneras de habilitar el enrutamiento transitivo en esos escenarios:
 
 - Un servidor proxy inverso para enrutar los datos, desde y hacia. Por ejemplo, F5 BIG-IP y NGINX con Traffic Manager implementado en una red virtual de Azure que se conecta a HANA (Instancias grandes) y al entorno local como una solución de enrutamiento virtual para el firewall y el tráfico.
 - Usar [reglas de IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) en una máquina virtual Linux para habilitar el enrutamiento entre las ubicaciones locales y las unidades de HANA (instancias grandes) o entre unidades de HANA (instancias grandes) en regiones diferentes. La máquina virtual que ejecuta IPTables debe implementarse en la red virtual de Azure que se conecta a HANA (Instancias grandes) y al entorno local. Se debe ajustar el tamaño de la máquina virtual según corresponda, de forma que el rendimiento de red de la máquina virtual sea suficiente para el tráfico de red esperado. Para más información sobre el ancho de banda de red de VM, consulte el artículo [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).

@@ -12,36 +12,38 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: cea0d63c20af781fcfc6ba5d7c06061b12992702
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 8f4de88ed79ee802866579448681cfe6cee3e654
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212033"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293418"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Envío de notificaciones entre plataformas a los usuarios con Notification Hubs
 
-En un tutorial anterior, [Notificación a los usuarios con Notification Hubs], aprendió a insertar notificaciones en todos los dispositivos que están registrados en un usuario autenticado específico. En ese tutorial, se necesitaban varias solicitudes para enviar una notificación a cada plataforma de cliente compatible. Azure Notification Hubs admite plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Este método simplifica el envío de notificaciones entre plataformas.
+Este tutorial se basa en el anterior, [Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs]. En ese tutorial se describe cómo insertar notificaciones en todos los dispositivos que están registrados en un usuario autenticado concreto. Ese enfoque requería que varias solicitudes enviaran una notificación a cada plataforma de cliente compatible. Azure Notification Hubs admite plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Este método simplifica el envío de notificaciones entre plataformas.
 
-En este artículo se muestra cómo aprovechar las plantillas para enviar, en una sola solicitud, una notificación independiente de la plataforma que se dirige a todas las plataformas. Para más información sobre las plantillas, consulte [Introducción a Azure Notification Hubs][Templates].
+En este artículo se muestra cómo aprovechar las plantillas para enviar una notificación que se dirige a todas las plataformas. En este artículo se usa una única solicitud para enviar una notificación que no tiene en cuenta la plataforma. Para más información sobre las plantillas, consulte [Introducción a Notification Hubs][Templates].
 
 > [!IMPORTANT]
-> Windows Phone 8.1 y versiones anteriores no se admiten en Visual Studio 2017. Para más información, consulte [Compatibilidad y destinatarios de la plataforma de Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+> Windows Phone 8.1 y las versiones anteriores no se admiten en Visual Studio 2019. Para más información, consulte [Compatibilidad y destinatarios de la plataforma de Visual Studio 2019](/visualstudio/releases/2019/compatibility).
 
 > [!NOTE]
-> Con Notification Hubs, un dispositivo puede registrar varias plantillas con la misma etiqueta. En este caso, un mensaje entrante dirigido a esa etiqueta da lugar a que se entreguen varias notificaciones al dispositivo, una por cada plantilla. Este proceso le permite mostrar el mismo mensaje en varias notificaciones visuales, como distintivo y como notificación del sistema en una aplicación de la Tienda Windows.
+> Con Notification Hubs, un dispositivo puede registrar varias plantillas con la misma etiqueta. En este caso, un mensaje entrante dirigido a esa etiqueta da lugar a que se entreguen varias notificaciones al dispositivo, una por cada plantilla. Este proceso le permite mostrar el mismo mensaje en varias notificaciones visuales, como distintivo y como notificación del sistema en una aplicación de la Tienda Windows.
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>Envío de notificaciones entre plataformas mediante plantillas
 
-Para enviar notificaciones entre plataformas mediante plantillas, haga lo siguiente:
+En esta sección se usa el código de ejemplo que se creó en el tutorial [Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs]. Puede descargar el ejemplo de [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
-1. En el Explorador de soluciones de Visual Studio, expanda la carpeta **Controladores** y, a continuación, abra el archivo RegisterController.cs.
+Para enviar notificaciones multiplataforma mediante plantillas, siga estos pasos:
 
-2. Encuentre el bloque de código en el método `Put` que crea un nuevo registro y reemplace el contenido de `switch` por el código siguiente:
+1. En Visual Studio, en el **Explorador de soluciones**, expanda la carpeta **Controladores** y, después, abra el archivo *RegisterController.cs*.
+
+1. Encuentre el bloque de código en el método `Put` que crea un nuevo registro y reemplace el contenido de `switch` por el código siguiente:
 
     ```csharp
     switch (deviceUpdate.Platform)
@@ -74,7 +76,7 @@ Para enviar notificaciones entre plataformas mediante plantillas, haga lo siguie
 
     Este código llama al método específico de la plataforma para crear un registro de plantilla en lugar de un registro nativo. Como los registros de plantilla se obtienen de registros nativos, no es necesario modificar los registros existentes.
 
-3. En el controlador `Notifications`, reemplace el método `sendNotification` por el código siguiente:
+1. En el **Explorador de soluciones**, en la carpeta **Controllers**, abra el archivo *NotificationsController.cs*. Reemplace el método `Post` por el código siguiente:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()
@@ -89,21 +91,20 @@ Para enviar notificaciones entre plataformas mediante plantillas, haga lo siguie
     }
     ```
 
-    Este código envía una notificación a todas las plataformas al mismo tiempo, sin que sea necesario especificar una carga nativa. Notification Hubs crea y entrega la carga correcta a cada dispositivo con el valor *tag* proporcionado, tal como se especifica en las plantillas registradas.
+    Este código envía una notificación a todas las plataformas al mismo tiempo. No se especifica una carga nativa. Notification Hubs crea y entrega la carga correcta a cada dispositivo con el valor tag proporcionado, como se especifica en las plantillas registradas.
 
-4. Publique de nuevo su proyecto de back-end de WebApi.
+1. Vuelva a publicar el proyecto de API Web.
 
-5. Vuelva a ejecutar la aplicación cliente y, a continuación, compruebe que el registro se ha realizado correctamente.
+1. Vuelva a ejecutar la aplicación cliente para comprobar que el registro se ha realizado correctamente.
 
-6. (Opcional) Implemente la aplicación cliente en un segundo dispositivo y, a continuación, ejecute la aplicación.
-    Aparece una notificación en cada dispositivo.
+1. Opcionalmente, implemente la aplicación cliente en un segundo dispositivo y ejecute la aplicación. Aparece una notificación en cada dispositivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que completó este tutorial, obtenga más información acerca de Notification Hubs y las plantillas en estos temas:
+Ahora que ha completado este tutorial, puede obtener más información acerca de Notification Hubs y las plantillas en estos artículos:
 
-* [Use Notification Hubs to send breaking news]: Demonstrates another scenario for using templates.
-* [Introducción a Azure Notification Hubs][Templates]: contiene información más detallada sobre las plantillas.
+* Para conocer otro escenario para utilizar plantillas, consulte el tutorial [Notificaciones de inserción a dispositivos Windows concretos que ejecutan aplicaciones de Plataforma universal de Windows][Use Notification Hubs to send breaking news].
+* Para más información sobre las plantillas, consulte [Introducción a Notification Hubs][Templates].
 
 <!-- Anchors. -->
 
@@ -112,10 +113,10 @@ Ahora que completó este tutorial, obtenga más información acerca de Notificat
 <!-- URLs. -->
 [Push to users ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Push to users Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Visual Studio 2012 Express for Windows 8]: https://go.microsoft.com/fwlink/?LinkId=257546
+[Visual Studio 2012 Express for Windows 8]: https://visualstudio.microsoft.com/downloads/
 
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Azure Notification Hubs]: https://go.microsoft.com/fwlink/p/?LinkId=314257
-[Notificación a los usuarios con Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Templates]: https://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: https://msdn.microsoft.com/library/windowsazure/jj927172.aspx

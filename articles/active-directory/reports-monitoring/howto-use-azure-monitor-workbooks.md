@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 288fa54a1a6dd4eb05f953a4490bf7736d6d7ff8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931247"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255663"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Uso de los libros de Azure Monitor en informes de Azure Active Directory
 
@@ -48,6 +48,13 @@ Para utilizar los libros de Monitor, necesita:
 - Un inquilino de Active Directory con una licencia premium (P1 o P2). Aprenda cómo [obtener una licencia prémium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - Un [área de trabajo de Log Analytics.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+
+- [Acceso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) al área de trabajo de Log Analytics
+- Los siguientes roles en Azure Active Directory (si obtiene acceso a Log Analytics a través del portal de Azure Active Directory)
+    - Administrador de seguridad
+    - Lector de seguridad
+    - Lector de informes
+    - Administrador global
 
 ## <a name="roles"></a>Roles
 Debe estar en uno de los roles siguientes y tener [acceso al área de trabajo subyacente de Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para administrar los libros:

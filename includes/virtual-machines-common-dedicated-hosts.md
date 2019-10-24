@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266864"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390542"
 ---
 ## <a name="benefits"></a>Ventajas 
 
@@ -82,6 +82,8 @@ Existe un límite de cuota predeterminado por región de 3000 vCPU para hosts de
 ![Captura de pantalla de la página de uso y cuotas del portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
 Para más información, consulte [Cuotas de vCPU de máquinas virtuales](/azure/virtual-machines/windows/quotas).
+
+La evaluación gratuita y las suscripciones a MSDN no tienen cuota para los hosts dedicados de Azure.
 
 ## <a name="pricing"></a>Precios
 

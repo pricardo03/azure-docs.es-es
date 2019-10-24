@@ -1,20 +1,24 @@
 ---
-title: Control de acceso basado en rol (RBAC) de Azure para controlar los derechos de acceso para crear y administrar solicitudes de soporte técnico | Microsoft Docs
+title: Control del acceso para crear solicitudes de soporte técnico en Azure Portal
 description: Control de acceso basado en rol (RBAC) de Azure para controlar los derechos de acceso para crear y administrar solicitudes de soporte técnico
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 3cf17f6e391608af9d17591a81c579a1db779a6a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 328f4928aff6a892849ce3e08fe794578b5e03a4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967801"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299261"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Control de acceso basado en rol (RBAC) de Azure para controlar los derechos de acceso para crear y administrar solicitudes de soporte técnico
+
+> [!IMPORTANT]
+> Este enfoque manual para controlar los derechos de acceso a la solicitud de soporte técnico en Azure se ha reemplazado por un rol integrado. Para más información, consulte [Colaborador de solicitudes de soporte técnico](../role-based-access-control/built-in-roles.md#support-request-contributor). 
 
 El [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) permite realizar una administración detallada del acceso en Azure.
 La creación de solicitudes de soporte técnico en Azure Portal, [portal.azure.com](https://portal.azure.com), usa el modelo RBAC de Azure para definir quién puede crear y administrar solicitudes de soporte técnico.

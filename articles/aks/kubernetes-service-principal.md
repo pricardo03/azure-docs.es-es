@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: 304b9dae9f3a1e134809d8959a96dc4e3ec0edd3
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: e24d930ec82ea92a040efeed3056a10917ce2b2a
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615110"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263910"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Para crear una entidad de servicio de Azure AD, es preciso tener los permisos su
 
 Si usa una entidad de servicio de otro inquilino de Azure AD, hay consideraciones adicionales en torno a los permisos disponibles al implementar el clúster. Puede que no tenga los permisos adecuados para leer y escribir datos del directorio. Para obtener más información, consulte [¿Cuáles son los permisos de usuario predeterminados en Azure Active Directory?][azure-ad-permissions]
 
-También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Creación y uso de una entidad de servicio automáticamente
 
@@ -93,7 +93,7 @@ Las secciones siguientes detallan las delegaciones comunes que es posible que de
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-Si usa Azure Container Registry (ACR) como el almacén de imágenes de contenedor, deberá conceder permisos para que el clúster de AKS pueda leer y extraer imágenes. La entidad de servicio del clúster de AKS debe tener delegado el rol de *lector* en el registro. Para consultar los pasos detallados, vea [Concesión a AKS del acceso a ACR][aks-to-acr].
+Si usa Azure Container Registry (ACR) como el almacén de imágenes de contenedor, deberá conceder permisos a la entidad de servicio que el clúster de AKS pueda leer y extraer imágenes. Actualmente, la configuración recomendada es usar el comando [az aks create][az-aks-create] o [az aks update][az-aks-update] para integrar con un registro y asignar el rol adecuado para la entidad de servicio. Para ver los pasos detallados, consulte [Autenticación con Azure Container Registry desde Azure Kubernetes Service][aks-to-acr].
 
 ### <a name="networking"></a>Redes
 
@@ -177,6 +177,6 @@ Para obtener información sobre cómo actualizar las credenciales, vea [Actualiz
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
+[aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md

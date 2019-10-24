@@ -10,12 +10,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
-ms.openlocfilehash: 01e1401c5054eb56d4e2313b5e03ce5a36d1b301
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7058806e58dbc2d9a196062c129688e6a96c5f31
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704066"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264462"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Uso de CI/CD con Azure Dev Spaces
 
@@ -31,7 +31,7 @@ Aunque en este artículo se le guiará por Azure DevOps, son de aplicación los 
 * [Organización de Azure DevOps con un proyecto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
     * Detalles disponibles de una [cuenta de administrador](../../container-registry/container-registry-authentication.md#admin-account) de Azure Container Registry
-* [Autorización al clúster de AKS para extraer de Azure Container Registry](../../container-registry/container-registry-auth-aks.md)
+* [Autorización al clúster de AKS para extraer de Azure Container Registry](../../aks/cluster-container-registry-integration.md)
 
 ## <a name="download-sample-code"></a>Descarga de código de ejemplo
 Por motivos de tiempo, vamos a crear una bifurcación de nuestro repositorio con código de ejemplo de GitHub. Vaya a https://github.com/Azure/dev-spaces y seleccione **Bifurcación**. Una vez completado el proceso de bifurcación, **clone** su versión local bifurcada del repositorio. De forma predeterminada, se extraerá del repositorio la rama _maestra_, pero hemos incluido para ahorrar tiempo algunos cambios en la rama _azds_updates_, que también debería haberse transferido durante la bifurcación. La rama _azds_updates_ contiene actualizaciones que le pedimos que realizara manualmente en las secciones del tutorial de Dev Spaces, así como algunos archivos JSON y YAML creados previamente para simplificar la implementación del sistema de CI/CD. Puede usar un comando como `git checkout -b azds_updates origin/azds_updates` para extraer la rama _azds_updates_ del repositorio local.
@@ -77,7 +77,7 @@ Dependiendo del lenguaje que haya elegido, instancia de YAML de canalización se
 Para crear una canalización a partir de este archivo:
 1. En la página principal del proyecto de DevOps, vaya a Canalizaciones > Compilaciones.
 1. Seleccione la opción para crear una **nueva** canalización de compilación.
-1. Seleccione **GitHub** como origen, autorice con su cuenta de GitHub si es necesario y, a continuación, seleccione la rama _azds_updates_ a partir de la versión bifurcada del repositorio de la aplicación de ejemplo de dev-spaces.
+1. Seleccione **GitHub** como origen, autorice con su cuenta de GitHub si es necesario y, a continuación, seleccione la rama _azds_updates_ a partir de la versión bifurcada del repositorio de la aplicación de ejemplo de _dev-spaces_.
 1. Seleccione **Configuración como código** o **YAML** como plantilla.
 1. Ahora verá una página de configuración para la canalización de compilación. Como se mencionó anteriormente, vaya a la ruta de acceso específica del lenguaje para la **ruta del archivo YAML** mediante el botón **...** Por ejemplo, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Vaya a la pestaña **Variables**.
@@ -133,11 +133,11 @@ Ahora se iniciará un proceso de versiones automatizado, que implementa los grá
 La versión estará lista cuando se hayan completado todas las tareas.
 
 > [!TIP]
-> Si se produce un error en la versión con un mensaje de error como *UPGRADE FAILED: timed out waiting for the condition* (ERROR EN LA ACTUALIZACIÓN: se agotó el tiempo de espera para la condición), intente inspeccionar los pods del clúster [mediante el panel de Kubernetes](../../aks/kubernetes-dashboard.md). Si ve que se producen errores al iniciar los pods, con mensajes de error como *Failed to pull image "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Obtener https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: no autorizado:se requiere autenticación*), es posible que el clúster no tenga autorización para extraer de Azure Container Registry. Asegúrese de que ha completado el requisito previo [Autorización al clúster de AKS para extraer de Azure Container Registry](../../container-registry/container-registry-auth-aks.md).
+> Si se produce un error en la versión con un mensaje de error como *UPGRADE FAILED: timed out waiting for the condition* (ERROR EN LA ACTUALIZACIÓN: se agotó el tiempo de espera para la condición), intente inspeccionar los pods del clúster [mediante el panel de Kubernetes](../../aks/kubernetes-dashboard.md). Si ve que se producen errores al iniciar los pods, con mensajes de error como *Failed to pull image "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Obtener https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: no autorizado:se requiere autenticación*), es posible que el clúster no tenga autorización para extraer de Azure Container Registry. Asegúrese de que ha completado el requisito previo [Autorización al clúster de AKS para extraer de Azure Container Registry](../../aks/cluster-container-registry-integration.md).
 
 Ahora dispone de una canalización de CI/CD completamente automatizada para su bifurcación de GitHub de las aplicaciones de ejemplo de Dev Spaces. Cada vez que confirme e inserte el código, la canalización de compilación compilará e insertará las imágenes *mywebapi* y *webfrontend* en la instancia de ACR personalizada. A continuación, la canalización de versión implementará el gráfico de Helm para cada aplicación en el espacio _dev_ en el clúster habilitado para Dev Spaces.
 
-## <a name="accessing-your-dev-services"></a>Acceso a sus servicios de _dev_
+## <a name="accessing-your-_dev_-services"></a>Acceso a sus servicios de _dev_
 Después de la implementación, la versión _dev_ de *webfrontend* puede obtenerse con una dirección URL pública, como: `http://dev.webfrontend.fedcba098.eus.azds.io`. Puede encontrar la dirección URL mediante la ejecución del comando `azds list-uri`: 
 
 ```cmd

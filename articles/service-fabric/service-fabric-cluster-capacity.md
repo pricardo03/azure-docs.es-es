@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 334ccbf64e32655b5e78ac6564abb65996ac53da
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167400"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333104"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
@@ -81,7 +81,7 @@ El nivel de durabilidad se usa para indicar al sistema los privilegios que tiene
 | Bronze           | 1                              | Máquinas virtuales con al menos 50 GB de SSD local                                              | El clúster de Service Fabric no lo retrasará           | No se puede retrasar una cantidad de tiempo significativa                                                    |
 
 > [!WARNING]
-> Los tipos de nodos que se ejecutan con la durabilidad Bronze _no obtienen privilegios_. Es decir, los trabajos de infraestructura que afectan a las cargas de trabajo sin estado no se detendrán ni retrasarán, lo que podría afectar a las cargas de trabajo. Utilice el nivel Bronze en los tipos de nodos que ejecutan únicamente cargas de trabajo sin estado. Para las cargas de trabajo de producción, se recomienda utilizar el nivel Silver o superiores. 
+> Los tipos de nodos que se ejecutan con la durabilidad Bronze _no obtienen privilegios_. Es decir, los trabajos de infraestructura que afecten a las cargas de trabajo con estado no se detendrán ni retrasarán, lo que podría afectar a las cargas de trabajo. Utilice el nivel Bronze en los tipos de nodos que ejecutan únicamente cargas de trabajo sin estado. Para las cargas de trabajo de producción, se recomienda utilizar el nivel Silver o superiores. 
 > 
 > Con independencia de cualquier nivel de durabilidad, la operación de [desasignación](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) en el conjunto de escalado de máquina virtual destruirá el clúster
 
@@ -123,7 +123,7 @@ El nivel de confiabilidad se usa para establecer el número de réplicas de los 
 
 El nivel de confiabilidad puede adoptar los siguientes valores:
 
-* Platinum: ejecuta los servicios del sistema con un objetivo de recuento de conjunto de réplicas de siete.
+* Platinum: los servicios del sistema se ejecutan con un recuento de conjunto de réplicas de nueve
 * Gold: los servicios del sistema se ejecutan con un recuento de conjunto de réplicas de siete
 * Silver: los servicios del sistema se ejecutan con un recuento de conjunto de réplicas de cinco 
 * Bronze: los servicios del sistema se ejecutan con un recuento de conjunto de réplicas de tres

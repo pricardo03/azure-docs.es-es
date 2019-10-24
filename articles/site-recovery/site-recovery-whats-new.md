@@ -5,20 +5,35 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8e034153a2e98a101527f411c78ace6e46b01b29
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5e3d226b0f15148c5ac4a9da84462f4a3277e112
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937525"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383561"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) se actualiza y mejora de manera continua. Para ayudarlo a mantenerse actualizado, en este artículo encontrará información sobre las versiones más recientes, las características nuevas y el nuevo contenido. Esta página se actualiza de manera periódica.
 
 Puede seguirla y suscribirse a las notificaciones de actualizaciones de Site Recovery en el canal de [actualizaciones de Azure](https://azure.microsoft.com/updates/?product=site-recovery).
+
+## <a name="update-to-servicing-stack-updatesha-2"></a>Actualización de la pila de servicio/SHA-2
+
+Para la recuperación ante desastres de máquinas virtuales de Azure en una región secundaria o de máquinas virtuales de VMware locales o servidores físicos en Azure, tenga en cuenta lo siguiente:
+
+- A partir de la versión 9.30.x.x (la versión esperada a partir de noviembre de 2019) de la extensión de Mobility Service (para máquinas virtuales de Azure) y del agente de Mobility Service (para máquinas físicas y de VMware), algunos sistemas operativos para máquinas deben ejecutar la actualización de la pila de servicio y SHA-2. En la tabla siguiente se muestran los detalles.
+- Instale la actualización y SHA-2 de acuerdo con el KB vinculado. SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto.
+- Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
+
+**Sistema operativo** | **MV de Azure** | **Máquina física/máquina virtual de VMware**
+--- | --- | ---
+**Windows 2008 R2 SP1** | [Actualización de la pila de servicio](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Actualización de la pila de servicio](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 2008 SP2** | [Actualización de la pila de servicio](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Actualización de la pila de servicio](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 7 SP1** | [Actualización de la pila de servicio](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Actualización de la pila de servicio](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419).
+
 
 ## <a name="supported-updates"></a>Actualizaciones admitidas
 

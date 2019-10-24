@@ -1,6 +1,6 @@
 ---
 title: Elemento de interfaz de usuario InfoBox de Azure | Microsoft Docs
-description: Describe el elemento de la interfaz de usuario Microsoft.Common.TextBlock para Azure Portal.
+description: Describe el elemento de la interfaz de usuario Microsoft.Common.InfoB para Azure Portal. Se usa para agregar texto o advertencias al implementar una aplicación administrada.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2330197b4512dfdd72de3529145103b644594e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67ae05c2ec7b36d76e49f26d5765bbc68b952292
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711227"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331686"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.InfoBox
 Un control que agrega un cuadro de información. El cuadro contiene texto importante o advertencias que explican a los usuarios los valores que se están proporcionando. También puede vincular a un URI para ampliar la información.

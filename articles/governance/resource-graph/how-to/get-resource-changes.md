@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 13e2a848f9d178fc6554062c324c951102e1343b
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244107"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274203"
 ---
 # <a name="get-resource-changes"></a>Obtención de los cambios del recurso
 
@@ -30,6 +30,7 @@ La detección y los detalles de cambios son de utilidad para los siguientes esce
 - Comprender qué otras propiedades podrían haber cambiado cuando un recurso puede cambió de estado de cumplimiento. La evaluación de estas propiedades adicionales puede proporcionar información sobre otras propiedades que quizás tengan que administrarse a través de una definición de Azure Policy.
 
 En este artículo se muestra cómo recopilar esta información a través del SDK del Resource Graph. Para ver esta información en Azure Portal, consulte Azure Policy [Historial de cambios](../../policy/how-to/determine-non-compliance.md#change-history-preview) o [Historial de cambios](../../../azure-monitor/platform/activity-log-view.md#azure-portal) del Registro de actividad de Azure.
+Para obtener detalles sobre los cambios en sus aplicaciones desde el nivel de infraestructura hasta la implementación de aplicaciones, consulte el artículo sobre el [uso de Application Change Analysis (versión preliminar)](../../../azure-monitor/app/change-analysis.md) en Azure Monitor.
 
 > [!NOTE]
 > Los detalles de cambio en Resource Graph son para las propiedades de Resource Manager. Para realizar un seguimiento de los cambios dentro de una máquina virtual, consulte las opciones [Seguimiento de cambios](../../../automation/automation-change-tracking.md) o Azure Policy [Configuración de invitado para VM](../../policy/concepts/guest-configuration.md) de Azure Automation.

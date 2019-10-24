@@ -4,16 +4,16 @@ description: Configure, optimice y solucione problemas de AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 3843eb2e906e3fb8d390e509e17117b7849ac220
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244701"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595124"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
@@ -38,7 +38,29 @@ Para configurar las opciones de proxy para AzCopy, establezca la variable de ent
 
 En la actualidad, AzCopy no admite servidores proxy que requieren autenticación con NTLM o Kerberos.
 
-## <a name="optimize-throughput"></a>Optimización del rendimiento
+## <a name="optimize-performance"></a>Optimización del rendimiento
+
+Puede realizar un banco de pruebas de rendimiento y, después, usar comandos y variables de entorno para encontrar un equilibrio óptimo entre el rendimiento y el consumo de recursos.
+
+### <a name="run-benchmark-tests"></a>Ejecución de pruebas del banco de pruebas
+
+Puede ejecutar una prueba del banco de pruebas de rendimiento en contenedores de blobs específicos para ver las estadísticas generales de rendimiento y para identificar los cuellos de botella de rendimiento. 
+
+> [!NOTE]
+> En la versión actual, esta característica solo está disponible para contenedores de Blob Storage.
+
+Utilice el siguiente comando para ejecutar un banco de pruebas de rendimiento.
+
+|    |     |
+|--------|-----------|
+| **Sintaxis** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
+| **Ejemplo** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/'` |
+
+Este comando ejecuta un banco de pruebas de rendimiento mediante la carga los datos de prueba en un destino especificado. Los datos de prueba se generan en la memoria, se cargan en el destino y, a continuación, se eliminan del destino una vez completada la prueba. Puede especificar el número de archivos que se van a generar y el tamaño que desea que se utilicen mediante parámetros de comando opcionales.
+
+Para ver una guía de ayuda detallada para este comando, escriba `azcopy bench -h` y, después, presione la tecla ENTRAR.
+
+### <a name="optimize-throughput"></a>Optimización del rendimiento
 
 Puede usar la marca `cap-mbps` para colocar un límite superior en la velocidad de datos de rendimiento. Por ejemplo, el siguiente comando limita el rendimiento a `10` megabits (MB) por segundo.
 
@@ -46,7 +68,9 @@ Puede usar la marca `cap-mbps` para colocar un límite superior en la velocidad 
 azcopy cap-mbps 10
 ```
 
-El rendimiento puede disminuir al transferir archivos pequeños. Puede aumentar el rendimiento si establece la variable de entorno `AZCOPY_CONCURRENCY_VALUE`. Esta variable especifica el número de solicitudes simultáneas que pueden producirse.  Si el equipo tiene menos de cinco CPU, el valor de esta variable se establece en `32`. En caso contrario, el valor predeterminado es igual a 16 multiplicado por el número de CPU. El valor máximo predeterminado de esta variable es `300`, pero puede establecerlo manualmente en un valor superior o inferior.
+El rendimiento puede disminuir al transferir archivos pequeños. Puede aumentar el rendimiento si establece la variable de entorno `AZCOPY_CONCURRENCY_VALUE`. Esta variable especifica el número de solicitudes simultáneas que pueden producirse.  
+
+Si el equipo tiene menos de cinco CPU, el valor de esta variable se establece en `32`. En caso contrario, el valor predeterminado es igual a 16 multiplicado por el número de CPU. El valor máximo predeterminado de esta variable es `3000`, pero puede establecerlo manualmente en un valor superior o inferior. 
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
@@ -54,25 +78,20 @@ El rendimiento puede disminuir al transferir archivos pequeños. Puede aumentar 
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **macOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-Use `azcopy env` para comprobar el valor actual de esta variable.  Si el valor está en blanco, la variable `AZCOPY_CONCURRENCY_VALUE` se establece en el valor predeterminado de `300`.
+Use `azcopy env` para comprobar el valor actual de esta variable. Si el valor está en blanco, puede leer el valor que se está usando al examinar el principio de cualquier archivo de registro de AzCopy. El valor seleccionado, y el motivo por el que se seleccionó, se indican allí.
 
-## <a name="change-the-location-of-the-log-files"></a>Cambie la ubicación del archivo de registro.
+Antes de establecer esta variable, se recomienda ejecutar una prueba del banco de pruebas. El proceso de prueba del banco de pruebas informará del valor de simultaneidad recomendado. Como alternativa, si las condiciones de la red y las cargas varían, establezca esta variable en la palabra `AUTO` en lugar de en un número determinado. Esto hará que AzCopy ejecute siempre el mismo proceso de ajuste automático que utiliza en las pruebas del banco de pruebas.
 
-De forma predeterminada, los archivos de registro se encuentran en el directorio `%USERPROFILE%\.azcopy` de Windows o en el directorio `$HOME\\.azcopy` en Mac y Linux. Si es necesario, puede cambiar esta ubicación mediante los comandos siguientes.
+### <a name="optimize-memory-use"></a>Optimización del uso de memoria
+
+Establezca la variable de entorno `AZCOPY_BUFFER_GB` para especificar la cantidad máxima de memoria del sistema que desea que AzCopy use al descargar y cargar archivos.
+Exprese este valor en gigabytes (GB).
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
-| **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
-| **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
-| **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
-
-Use `azcopy env` para comprobar el valor actual de esta variable. Si el valor está en blanco, los registros se escriben en la ubicación predeterminada.
-
-## <a name="change-the-default-log-level"></a>Cambiar el nivel de registro predeterminado
-
-De forma predeterminada, el nivel de registro de AzCopy se establece en `INFO`. Si quiere reducir el nivel de detalle del registro para ahorrar espacio en disco, sobrescriba este valor mediante la opción ``--log-level``. 
-
-Los niveles de registro disponibles son: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` y `FATAL`.
+| **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
+| **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
+| **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
 ## <a name="troubleshoot-issues"></a>Solución de problemas
 
@@ -80,7 +99,7 @@ AzCopy crea archivos de registro y de plan para cada trabajo. Puede usar los reg
 
 Los registros contendrán el estado de error (`UPLOADFAILED`, `COPYFAILED` y `DOWNLOADFAILED`), la ruta de acceso completa y el motivo del error.
 
-De forma predeterminada, los archivos de registro y de plan se encuentran en el directorio `%USERPROFILE\\.azcopy` de Windows o en el directorio `$HOME\\.azcopy` en Mac y Linux.
+De forma predeterminada, los archivos de registro y de plan se encuentran en el directorio `%USERPROFILE$\.azcopy` de Windows o en el directorio `$HOME$\.azcopy` en Mac y Linux, pero puede cambiar la ubicación si lo desea.
 
 > [!IMPORTANT]
 > Al enviar una solicitud a Soporte técnico de Microsoft (o al solucionar el problema con la participación de terceros), comparta la versión censurada del comando que quiere ejecutar. Esto garantiza que la SAS no se comparta de forma accidental con nadie. Puede encontrar la versión censurada al principio del archivo de registro.
@@ -129,3 +148,45 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
 Al reanudar un trabajo, AzCopy examina el archivo de plan de trabajo. En el archivo de plan se enumeran todos los archivos que se han identificado para el procesamiento al crear el trabajo por primera vez. Al reanudar un trabajo, AzCopy intentará transferir todos los archivos que aparecen en el archivo de plan que no se han transferido todavía.
+
+## <a name="change-the-location-of-the-plan-and-log-files"></a>Cambie las ubicaciones de los archivos de registro y de plan.
+
+De forma predeterminada, los archivos de registro y de plan se encuentran en el directorio `%USERPROFILE$\.azcopy` de Windows o en el directorio `$HOME$\.azcopy` en Mac y Linux. Pero puede cambiar esta ubicación.
+
+### <a name="change-the-location-of-plan-files"></a>Cambio de la ubicación de los archivos de plan
+
+Use cualquiera de estos comandos.
+
+| Sistema operativo | Get-Help  |
+|--------|-----------|
+| **Windows** | `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **macOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+
+Use `azcopy env` para comprobar el valor actual de esta variable. Si el valor está en blanco, los registros se escriben en la ubicación predeterminada.
+
+### <a name="change-the-location-of-log-files"></a>Cambio de la ubicación de los archivos de registro
+
+Use cualquiera de estos comandos.
+
+| Sistema operativo | Get-Help  |
+|--------|-----------|
+| **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
+| **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
+| **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
+
+Use `azcopy env` para comprobar el valor actual de esta variable. Si el valor está en blanco, los registros se escriben en la ubicación predeterminada.
+
+## <a name="change-the-default-log-level"></a>Cambiar el nivel de registro predeterminado
+
+De forma predeterminada, el nivel de registro de AzCopy se establece en `INFO`. Si quiere reducir el nivel de detalle del registro para ahorrar espacio en disco, sobrescriba este valor mediante la opción ``--log-level``. 
+
+Los niveles de registro disponibles son: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` y `FATAL`.
+
+## <a name="remove-plan-and-log-files"></a>Eliminación de archivos de registro y de plan
+
+Si quiere quitar todos los archivos de registro y de plan de la máquina local para ahorrar espacio en disco, use el comando `azcopy jobs clean`.
+
+Para quitar los archivos de registro y de plan asociados a un solo trabajo, use `azcopy jobs rm <job-id>`. Reemplace el marcador de posición `<job-id>` en este ejemplo por el identificador del trabajo.
+
+

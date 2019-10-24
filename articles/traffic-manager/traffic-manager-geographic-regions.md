@@ -65,7 +65,7 @@ En este artículo se muestran los países y las regiones que usa el método de e
 
         - GB(Reino Unido)
 
-        - GG(Guernesey)
+        - GG(Guernsey)
 
         - GI(Gibraltar)
 
@@ -111,7 +111,7 @@ En este artículo se muestran los países y las regiones que usa el método de e
 
         - PT(Portugal)
 
-        - RO(Rumania)
+        - RO(Rumanía)
 
         - RS(Serbia)
 
@@ -404,7 +404,7 @@ En este artículo se muestran los países y las regiones que usa el método de e
 
         - CN(China)
 
-        - CX(Isla Christmas)
+        - CX(Isla de Navidad)
 
         - GE(Georgia)
 

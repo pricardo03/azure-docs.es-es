@@ -1,6 +1,6 @@
 ---
-title: 'Referencia de la API del Monitor de estado de Azure v2: Deshabilitación de la supervisión | Microsoft Docs'
-description: Referencia de la API del Monitor de estado de Azure v2. Disable-ApplicationInsightsMonitoring. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
+title: 'Referencia de la API de Azure Application Insights Agent: Deshabilitación de la supervisión | Microsoft Docs'
+description: Referencia de la API de Application Insights Agent. Disable-ApplicationInsightsMonitoring. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: af105a6a819ced475f490d3c99fc1e63d8eee5c8
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: d305e664c68af34027510a4e27d293bb24abc021
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203436"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389900"
 ---
-# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring"></a>API del Monitor de estado v2: Disable-ApplicationInsightsMonitoring
+# <a name="application-insights-agent-api-disable-applicationinsightsmonitoring"></a>API de Application Insights Agent: Disable-ApplicationInsightsMonitoring
 
 Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -71,5 +71,5 @@ Successfully disabled Application Insights Status Monitor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- Hacer más con el Monitor de estado v2:
- - Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) del Monitor de estado v2.
+ Haga mucho más con Application Insights Agent:
+ - Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) de Application Insights Agent.

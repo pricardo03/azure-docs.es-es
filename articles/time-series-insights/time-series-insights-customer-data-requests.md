@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 3437634ff70371f9679423149b6996a099c044b5
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: fb464d2c75e271bf2f7f1684ed991d01691d70e4
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950729"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330940"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumen de características de solicitud de datos del cliente
 
@@ -68,7 +68,7 @@ Para obtener más información, consulte [Configuración de la retención en Tim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre cómo [conceder acceso a datos en su entorno de TSI](./time-series-insights-data-access.md).
+* Lea sobre cómo [conceder acceso a datos en el entorno de Time Series Insights](./time-series-insights-data-access.md).
 
 * Vea el artículo [Explorador de Azure Time Series Insights](time-series-insights-explorer.md).
 

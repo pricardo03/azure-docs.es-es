@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1e0fee903372668d30db0686f6a23dd913428454
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 659a6357736817f4a590b97e585230ec8c2b7dae
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828176"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332909"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planificación del entorno de Azure Time Series Insights de disponibilidad general
 
@@ -31,17 +31,17 @@ En este artículo se describe cómo planear el entorno de disponibilidad general
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
-Para empezar a trabajar con Time Series Insights, se recomienda saber cuántos datos espera insertar por minuto, así como también durante cuánto tiempo debe almacenar los datos.  
+Para empezar a trabajar con Azure Time Series Insights, se recomienda saber cuántos datos espera insertar por minuto, así como también durante cuánto tiempo debe almacenarlos.  
 
 Para más información sobre la capacidad y la retención de ambas SKU de Time Series Insights, consulte los [precios de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 Considere estos atributos para planear mejor el entorno para el éxito a largo plazo:
 
-- <a href="#storage-capacity">Capacidad de almacenamiento</a>
-- <a href="#data-retention">Período de retención de datos</a>
-- <a href="#ingress-capacity">Capacidad de entrada</a>
-- <a href="#shape-your-events">Eventos con forma</a>
-- <a href="#ensure-that-you-have-reference-data">Confirmación de la presencia de datos de referencia</a>
+- [Capacidad de almacenamiento](#storage-capacity)
+- [Período de retención de datos](#data-retention)
+- [Capacidad de entrada](#ingress-capacity)
+- [Eventos con forma](#shape-your-events)
+- [Confirmación de la presencia de datos de referencia](#ensure-that-you-have-reference-data)
 
 ## <a name="storage-capacity"></a>Capacidad de almacenamiento
 
@@ -49,15 +49,17 @@ De manera predeterminada, Time Series Insights conserva los datos en función de
 
 ## <a name="data-retention"></a>Retención de datos
 
-Puede cambiar el valor de **tiempo de retención de datos** en el entorno de Time Series Insights. Puede habilitar hasta 400 días de retención. 
+Puede cambiar el valor de **Data retention time** (Tiempo de retención de datos) en el entorno de Azure Time Series Insights. Puede habilitar hasta 400 días de retención. 
 
-Time Series Insights tiene dos modos. Un modo realiza la optimización para garantizar que el entorno tiene los datos más actualizados. Este modo está activado, de forma predeterminada. 
+Azure Time Series Insights tiene dos modos:
 
-El otro modo realiza la optimización para garantizar que se cumplen los límites de retención. En este segundo modo, la entrada se pone en pausa si se cumple la capacidad de almacenamiento total del entorno. 
+* Un modo se optimiza para los datos más actualizados. Aplica una directiva **Purgar datos antiguos** y mantiene los datos recientes disponibles con la instancia. Este modo está activado, de forma predeterminada. 
+* El otro optimiza los datos para que permanezcan por debajo de los límites de retención configurados. **Pausar entrada** impide que los nuevos datos entren cuando está seleccionado como **Comportamiento correspondiente a un exceso del límite de almacenamiento** . 
 
 Puede ajustar la retención y alternar entre ambos modos en la página de configuración del entorno en Azure Portal.
 
-Puede configurar un máximo de 400 días de retención de datos en el entorno de Time Series Insights.
+> [!IMPORTANT]
+> Puede configurar un máximo de 400 días de retención de datos en el entorno de Azure Time Series Insights de disponibilidad general.
 
 ### <a name="configure-data-retention"></a>Configuración de la retención de datos
 
@@ -74,7 +76,7 @@ Puede configurar un máximo de 400 días de retención de datos en el entorno de
 
 ## <a name="ingress-capacity"></a>Capacidad de entrada
 
-La segunda área de interés para planear un entorno de Time Series Insights es la capacidad de entrada. La capacidad de entrada es una derivación de la asignación por minuto.
+La segunda área de interés para planear un entorno de Time Series Insights es la *capacidad de entrada*. La capacidad de entrada es una derivación de la asignación por minuto.
 
 Desde la perspectiva de la limitación, un paquete de datos de entrada con un tamaño de 32 KB se trata como 32 eventos de 1 KB cada uno. El tamaño de evento máximo permitido es 32 KB. Los paquetes de datos mayores de 32 KB se truncan.
 

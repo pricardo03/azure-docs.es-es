@@ -1,18 +1,18 @@
 ---
-title: Transformación Nueva rama de Azure Data Factory Mapping Data Flow
-description: Transformación Nueva rama de Azure Data Factory Mapping Data Flow
+title: Transformación Nueva rama de flujo de datos de asignación de Azure Data Factory
+description: Transformación Nueva rama de flujo de datos de asignación de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 35d5b2250cb5f2f5bd5b3a0073dc2e3c655ceccb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 4832cd2036f615d1e90d5e7a21c1a9832c2fa837
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029920"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387134"
 ---
 # <a name="mapping-data-flow-union-transformation"></a>Transformación Unión de Mapping Data Flow
 
@@ -22,7 +22,7 @@ Unión combina varias secuencias de datos en una, y la unión SQL de esas secuen
 
 Puede combinar un número n de secuencias en la tabla de configuración. Para ello, seleccione el icono "+" junto a cada fila configurada, incluidos los datos de origen y las secuencias de transformaciones existentes en el flujo de datos.
 
-![Transformación Unión](media/data-flow/union.png "Union")
+![Transformación Unión](media/data-flow/union.png "Unión")
 
 En este caso, puede combinar los metadatos dispares de varios orígenes (en este ejemplo, tres archivos de origen diferentes) y combinarlos en una única secuencia:
 
@@ -30,7 +30,7 @@ En este caso, puede combinar los metadatos dispares de varios orígenes (en este
 
 Para lograrlo, agregue filas adicionales en la configuración de Unión mediante la inclusión de todos los orígenes que quiere agregar. No se quiere ninguna clave común de búsqueda o unión:
 
-![Configuración de la transformación Unión](media/data-flow/unionsettings.png "Configuración de Unión")
+![Configuración de la transformación Unión](media/data-flow/unionsettings.png "Configuración de unión")
 
 Si establece una transformación Selección después de Unión, podrá cambiar el nombre de los campos superpuestos o los campos cuyos nombres no se han asignado desde orígenes sin encabezado. Haga clic en "Inspeccionar" para ver los metadatos combinados con un total de 132 columnas en este ejemplo de tres orígenes diferentes:
 
@@ -42,7 +42,7 @@ Al elegir la "unión por nombre", cada valor de columna se colocará en la colum
 
 Si elige la "unión por posición", cada valor de columna se colocará en la posición original de cada origen correspondiente, lo que dará lugar a un nuevo flujo de datos combinado, donde los datos de cada origen se agregan a la misma secuencia:
 
-![Salida de Unión](media/data-flow/unionoutput.png "Salida de Unión")
+![Salida de unión](media/data-flow/unionoutput.png "Salida de unión")
 
 ## <a name="next-steps"></a>Pasos siguientes
 

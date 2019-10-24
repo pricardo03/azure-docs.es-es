@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ca55d49721f9c22f35ba79e819efa354a660d92a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186312"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72302351"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Copia de seguridad y recuperación ante desastres para discos IaaS de Azure
 
@@ -130,7 +130,7 @@ Las opciones de alta disponibilidad, copia de seguridad y recuperación ante des
 
 [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) puede realizar copias de seguridad de las máquinas virtuales que ejecutan Windows o Linux en el almacén de Azure Recovery Services. La copia de seguridad y restauración de datos críticos para el negocio resulta complicada por el hecho de que hay que realizar la copia de seguridad mientras se ejecutan las aplicaciones que producen los datos. 
 
-Para solucionar el problema, Azure Backup ofrece copias de seguridad coherentes con la aplicación para las cargas de trabajo de Microsoft. Usa el servicio de instantáneas de volumen para garantizar que los datos se escriben correctamente en el almacenamiento. En las máquinas virtuales Linux, solo se pueden realizar copias de seguridad coherentes con el archivo, dado que Linux no dispone de una plataforma equivalente al servicio de instantáneas de volumen.
+Para solucionar el problema, Azure Backup ofrece copias de seguridad coherentes con la aplicación para las cargas de trabajo de Microsoft. Usa el servicio de instantáneas de volumen para garantizar que los datos se escriben correctamente en el almacenamiento. En las máquinas virtuales Linux, el modo de coherencia predeterminado de las copias de seguridad son las copias de seguridad coherentes con el archivo, dado que Linux no dispone de una funcionalidad equivalente al servicio de instantáneas de volumen como en el caso de Windows. Para máquinas de Linux, consulte [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
 ![Flujo de Azure Backup][1]
 

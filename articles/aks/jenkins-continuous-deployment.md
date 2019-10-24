@@ -7,12 +7,12 @@ author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e46e2c2933ee9afda860b68b10c135ac75a5d247
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073777"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263931"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementación desde GitHub en Azure Kubernetes Service (AKS) con la integración e implementación continuas de Jenkins
 
@@ -37,7 +37,7 @@ Para completar este tutorial, necesita estos elementos:
 
 - Un [registro de Azure Container Registry (ACR)][acr-quickstart], el nombre del servidor de inicio de sesión de ACR y el clúster de AKS configurados para [autenticarse con el registro de ACR][acr-authentication]
 
-- CLI de Azure versión 2.0.46 o posterior instalada y configurada. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+- CLI de Azure versión 2.0.46 o posterior instalada y configurada. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
 - [Docker instalado][docker-install] en el sistema de desarrollo
 
@@ -326,7 +326,7 @@ En este artículo, ha aprendido a usar Jenkins como parte de una solución de CI
 
 <!-- LINKS - internal -->
 [az-acr-list]: /cli/azure/acr#az-acr-list
-[acr-authentication]: ../container-registry/container-registry-auth-aks.md#grant-aks-access-to-acr
+[acr-authentication]: cluster-container-registry-integration.md
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-quickstart]: kubernetes-walkthrough.md

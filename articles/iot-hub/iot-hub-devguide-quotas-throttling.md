@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 0e60607d50722a4496dc8f4ad7d609cdf9fd5792
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 1ed1b105f64d109284de441af1bcaee5f0827d75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877171"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331358"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -43,7 +43,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | Envíos de dispositivo a nube | Más de 100 operaciones de envío por segundo o 12 operaciones de envío por segundo por unidad <br/> Por ejemplo, dos unidades S1 equivalen a 2\*12 = 24/s, pero tendrá al menos 100 operaciones de envío por segundo en todas las unidades. Con nueve unidades S1, tiene 108 nuevas operaciones de envío por segundo (9\*12) entre todas las unidades. | 120 operaciones de envío por segundo por unidad | 6000 operaciones de envío por segundo por unidad |
 | Envíos de nube a dispositivo<sup>1</sup> | 1,67 operaciones de envío por segundo por unidad (100 mensajes por minuto por unidad) | 1,67 operaciones de envío por segundo por unidad (100 operaciones de envío por minuto por unidad) | 83,33 operaciones de envío por segundo por unidad (5000 operaciones de envío por minuto por unidad) |
 | Recepciones de nube a dispositivo<sup>1</sup> <br/> (solo cuando el dispositivo usa HTTPS)| 16,67 operaciones de envío por segundo por unidad (1000 operaciones de recepción por minuto por unidad) | 16,67 operaciones de envío por segundo por unidad (1000 operaciones de recepción por minuto por unidad) | 833,33 operaciones de envío por segundo por unidad (50 000 operaciones de recepción por minuto por unidad) |
-| Carga de archivos | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 83,33 notificaciones de cargas de archivos/s/unidad (5000/m/unidad) |
+| Carga de archivos | 1,67 inicios de carga de archivos por segundo por unidad (100 por minuto por unidad) | 1,67 inicios de carga de archivos por segundo por unidad (100 por minuto por unidad) | 83,33 inicios de carga de archivos por segundo por unidad (5000 por minuto por unidad) |
 | Métodos directos<sup>1</sup> | 160 MB/s/unidad<sup>2</sup> | 480 MB/s/unidad<sup>2</sup> | 24 MB/s/unidad<sup>2</sup> | 
 | Consultas | 20/m/unidad | 20/m/unidad | 1000/m/unidad |
 | Lecturas de (dispositivos y módulos) gemelos<sup>1</sup> | 100/s | Mayor de 100/s o 10/s/unidad | 500/s/unidad |
@@ -95,7 +95,7 @@ IoT Hub exige otros límites operativos:
 
 | Operación | Límite |
 | --------- | ----- |
-| Dispositivos | El número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 1 000 000. La única manera de aumentar este límite es ponerse en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).|
+| Dispositivos | El número total de dispositivos más módulos que se pueden registrar en un único centro de IoT se limita a 1 millón. La única manera de aumentar este límite es ponerse en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).|
 | Cargas de archivos | 10 cargas de archivos simultáneas por dispositivo. |
 | Trabajos<sup>1</sup> | El número máximo de trabajos simultáneos es 1 para gratuitos y S1, 5 para S2 y 10 para S3. No obstante, el número máximo de [trabajos de importación/exportación de dispositivo](iot-hub-bulk-identity-mgmt.md) simultáneos es 1 para todos los niveles. <br/>El historial de trabajos se conserva durante 30 días como máximo. |
 | Puntos de conexión adicionales | Los centros de SKU de pago pueden tener 10 puntos de conexión adicionales. Los centros de SKU gratis pueden tener un punto de conexión adicional. |

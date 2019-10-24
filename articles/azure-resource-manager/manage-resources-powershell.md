@@ -1,6 +1,6 @@
 ---
 title: Administración de recursos de Azure con Azure PowerShell | Microsoft Docs
-description: Uso de Azure PowerShell y de Azure Resource Manager para administrar los recursos.
+description: Use Azure PowerShell y de Azure Resource Manager para administrar los recursos. Muestra cómo implementar y eliminar los recursos.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: f61fcf7833021f23485992c7445f91d9a7b9ee45
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: aa215555fdd39e9d756d5fc925282b1eaffc9ebf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001523"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390363"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Administración de recursos de Azure con Azure PowerShell
 

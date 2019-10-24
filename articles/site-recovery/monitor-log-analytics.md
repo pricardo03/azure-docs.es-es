@@ -1,18 +1,18 @@
 ---
-title: Supervisión de Azure Site Recovery con registros de Azure Monitor (Log Analytics)
+title: Supervisión de Azure Site Recovery con registros de Azure Monitor (Log Analytics) | Microsoft Docs
 description: Aprenda a supervisar Azure Site Recovery con registros de Azure Monitor (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4eb88658437d3b29cc55d24bb83f73b660daea43
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718231"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331933"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Supervisión de Site Recovery con registros de Azure Monitor
 
@@ -25,7 +25,11 @@ En cuanto a Site Recovery, puede usar los registros de Azure Monitor para hacer 
 - **Supervisar el estado de Site Recovery**. Por ejemplo, puede supervisar el estado de la replicación, probar el estado de conmutación por error, los eventos de Site Recovery, los objetivos del punto de recuperación (RPO) para máquinas protegidas y las velocidades de cambio de disco o datos.
 - **Configurar alertas para Site Recovery**. Por ejemplo, puede configurar alertas relacionadas con el estado de la máquina, probar el estado de conmutación por error o el estado del trabajo de Site Recovery.
 
-El uso de los registro de Azure Monitor con Site Recovery es compatible para la replicación de Azure a Azure y con la VM de VMware o el servidor físico a la replicación de Azure.
+El uso de los registros de Azure Monitor con Site Recovery es compatible para la replicación **de Azure a Azure** y **de una máquina virtual de VMware o un servidor físico a Azure**.
+
+> [!NOTE]
+> Los registros de datos de renovación y los registros de frecuencia de carga solo están disponibles para las máquinas virtuales de Azure que se replican en una región secundaria de Azure.
+
 ## <a name="before-you-start"></a>Antes de comenzar
 
 Esto es lo que necesita:
@@ -42,9 +46,10 @@ Le recomendamos que revise las [preguntas de supervisión más comunes](monitori
 
     ![Seleccionar el registro de diagnóstico](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. En **Diagnostic settings** (Configuración de diagnóstico), especifique un nombre para la acción de registro y seleccione **Send to Log Analytics** (Enviar a Log Analytics).
+2. En **Configuración de diagnóstico** especifique un nombre y marque la casilla **Enviar a Log Analytics**.
 3. Seleccione la suscripción de los registros de Azure Monitor y el área de trabajo de Log Analytics.
-4. En la lista de registros, seleccione todos los registros con el prefijo **AzureSiteRecovery**. A continuación, haga clic en **Aceptar**.
+4. Seleccione **Azure Diagnostics** en el control de alternancia.
+5. En la lista de registros, seleccione todos los registros con el prefijo **AzureSiteRecovery**. A continuación, haga clic en **Aceptar**.
 
     ![Selección del área de trabajo](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -171,7 +176,10 @@ AzureDiagnostics  
 
 ### <a name="query-data-change-rate-churn-for-a-vm"></a>Consultar la velocidad de cambio de datos (renovación) de una VM
 
-Esta consulta traza un gráfico de tendencias de una VM de Azure específica (ContosoVM123), que realiza el seguimiento de la velocidad de cambio de datos (bytes de escritura por segundo) y la velocidad de carga de datos. Esta información solo está disponible para VM de Azure replicadas en una región secundaria de Azure.
+> [!NOTE] 
+> Esta información de renovación solo está disponible para las máquinas virtuales de Azure replicadas en una región secundaria de Azure.
+
+Esta consulta traza un gráfico de tendencias de una VM de Azure específica (ContosoVM123), que realiza el seguimiento de la velocidad de cambio de datos (bytes de escritura por segundo) y la velocidad de carga de datos. 
 
 ```
 AzureDiagnostics   

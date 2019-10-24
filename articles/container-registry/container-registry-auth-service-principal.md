@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: bee8b801f46c0018e75d58f941470adcc271daf0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 16ad37eaa50f0c3825d131338cc4a0abdc369978
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032375"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72262867"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticación de Azure Container Registry con entidades de servicio
 
@@ -35,7 +35,7 @@ Por ejemplo, configure su aplicación web para usar una entidad de servicio que 
 
 Debe usar una entidad de servicio para proporcionar acceso al registro en **escenarios de equipos sin periféricos**. Es decir, para cualquier aplicación, servicio o script que deba insertar o extraer imágenes de contenedor de forma automática o desatendida. Por ejemplo:
 
-  * *Incorporación de cambios*: se implementan los contenedores desde un Registro en sistemas de orquestación como son Kubernetes, DC/OS y Docker Swarm. También puede incorporar los cambios desde registros de contenedor a servicios de Azure relacionados, como son [Azure Kubernetes Service (AKS)](container-registry-auth-aks.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) y otros.
+  * *Incorporación de cambios*: se implementan los contenedores desde un Registro en sistemas de orquestación como son Kubernetes, DC/OS y Docker Swarm. También puede incorporar los cambios desde registros de contenedor a servicios de Azure relacionados, como son [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) y otros.
 
   * *Envío de cambios*: crea imágenes de contenedor y las inserta en un Registro con soluciones de integración e implementación continuas, por ejemplo, Azure Pipelines o Jenkins.
 
@@ -65,10 +65,9 @@ Cada valor es un identificador único global con el formato `xxxxxxxx-xxxx-xxxx-
 
 ### <a name="use-credentials-with-azure-services"></a>Uso de credenciales con los servicios de Azure
 
-Puede usar las credenciales de la entidad de servicio desde cualquier servicio de Azure que pueda autenticarse en un registro de contenedor de Azure. Algunos ejemplos son:
+Puede usar las credenciales de la entidad de servicio desde cualquier servicio de Azure que pueda autenticarse en un registro de contenedor de Azure.  Use las credenciales de la entidad de servicio en lugar de las credenciales de administrador del registro para una variedad de escenarios.
 
-* [Autenticación con Azure Container Registry desde Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
-* [Autenticación con Azure Container Registry desde Azure Container Instances (ACI)](container-registry-auth-aci.md)
+Por ejemplo, use las credenciales para extraer una imagen de un registro de contenedor de Azure para [Azure Container Instances](container-registry-auth-aci.md).
 
 ### <a name="use-with-docker-login"></a>Uso con el inicio de sesión de Docker
 

@@ -11,17 +11,17 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c747f25b92d9f165bfeb4468a0e263f102976f9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 109db23976f6332b24bcfa565812bd9491062691
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350576"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330728"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recopilar datos de modelos en producción
 
 >[!IMPORTANT]
-> Este SDK se retirará pronto y lo reemplazará la [supervisión de datos simplificada con Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
+> Aunque este SDK se retirará pronto, sigue siendo adecuado para los desarrolladores que supervisan el desplazamiento de los datos en los modelos; sin embargo, la mayoría de los desarrolladores deben usar la [supervisión de datos simplificada con Application Insights ](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
 
 En este artículo, aprenderá cómo recopilar datos de modelo de entrada de las instancias de Azure Machine Learning que ha implementado en el clúster de Azure Kubernetes (AKS) en Azure Blob Storage. 
 
@@ -204,7 +204,7 @@ Para acceder rápidamente a los datos del blob:
 
 1. Ahora puede hacer clic en **Close and Apply** (Cerrar y aplicar).
 
-1.  Si agregó entradas y predicciones, las tablas se pondrán en correlación automáticamente en función del valor de **RequestId**.
+1.  Si agregó entradas y predicciones, las tablas se correlacionarán automáticamente en función del valor de **RequestId**.
 
 1. Comience a crear los informes personalizados con los datos del modelo.
 

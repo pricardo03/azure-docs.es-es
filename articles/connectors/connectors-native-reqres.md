@@ -9,15 +9,15 @@ ms.author: estfan
 ms.reviewers: klam, LADocs
 manager: carmonm
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
-ms.topic: article
-ms.date: 09/06/2019
+ms.topic: conceptual
+ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122710"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264352"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Recepción de llamadas HTTPS entrantes y respuesta e ellas mediante Azure Logic Apps
 
@@ -27,7 +27,8 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador
 * Desencadene un flujo de trabajo cuando se produzca un evento de webhook externo.
 * Reciba una llamada HTTPS de otra aplicación lógica, y responda e ella.
 
-El desencadenador de solicitud *solo* admite HTTPS. En cambio, para realizar llamadas HTTP o HTTPS salientes, use el [desencadenador o la acción HTTP](../connectors/connectors-native-http.md) integrados.
+> [!NOTE]
+> El desencadenador de solicitud admite *solo* la seguridad de la capa de transporte (TLS) 1.2 para las llamadas entrantes. Las llamadas salientes continúan siendo compatibles con TLS 1.0, 1.1 y 1.2. Si ve errores de protocolo de enlace SSL, asegúrese de usar TLS 1.2.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

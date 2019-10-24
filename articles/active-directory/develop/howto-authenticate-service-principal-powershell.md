@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/19/2019
+ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe0a3c8cbee92be85fe415a4d44d5493940bb45a
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f7c75a567dbefc71b4b0fea595dae56a03def5ed
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638636"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295445"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procedimientos para: Uso de Azure PowerShell para crear una entidad de servicio con un certificado
 
@@ -46,9 +46,14 @@ Para completar este artículo, debe tener permisos suficientes tanto en su suscr
 
 El portal representa la forma más sencilla de comprobar si su cuenta tiene los permisos adecuados. Consulte el [artículo que explica cómo comprobar el permiso requerido](howto-create-service-principal-portal.md#required-permissions).
 
+## <a name="assign-the-application-to-a-role"></a>Asignación de la aplicación a un rol
+Para acceder a los recursos de la suscripción, debe asignarle a la aplicación un rol. Decida qué rol ofrece los permisos adecuados para la aplicación. Para obtener más información sobre los roles disponibles, vea [RBAC: Roles integrados](/azure/role-based-access-control/built-in-roles).
+
+Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores del ámbito. Por ejemplo, el hecho de agregar una aplicación al rol *Lector* para un grupo de recursos significa que esta puede leer el grupo de recursos y los recursos que contiene. Para permitir que la aplicación ejecute acciones como reiniciar, iniciar y detener instancias, seleccione el rol *Colaborador*.
+
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Creación de una entidad de servicio con un certificado autofirmado
 
-En el ejemplo siguiente se trata un escenario sencillo. En él se usa [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) para crear una entidad de servicio con un certificado autofirmado, y se utiliza [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para asignar el rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) a la entidad de servicio. La asignación de roles se limita a su suscripción de Azure seleccionada actualmente. Para seleccionar una suscripción diferente, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+En el ejemplo siguiente se trata un escenario sencillo. En él se usa [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) para crear una entidad de servicio con un certificado autofirmado y se utiliza [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para asignar el rol [Lector](/azure/role-based-access-control/built-in-roles#reader) a la entidad de servicio. La asignación de roles se limita a su suscripción de Azure seleccionada actualmente. Para seleccionar una suscripción diferente, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
 > El cmdlet New-SelfSignedCertificate y el módulo PKI no se admiten actualmente en PowerShell Core. 
@@ -64,7 +69,7 @@ $sp = New-AzADServicePrincipal -DisplayName exampleapp `
   -EndDate $cert.NotAfter `
   -StartDate $cert.NotBefore
 Sleep 20
-New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.ApplicationId
 ```
 
 El ejemplo entra en suspensión durante 20 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure AD. Si el script no espera el tiempo suficiente, verá un error que indica: "La entidad de seguridad {ID} no existe en el directorio {DIR-ID}". Para resolver este error, espere unos instantes y, a continuación, ejecute de nuevo el comando **New-AzRoleAssignment**.
@@ -105,7 +110,7 @@ $ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).Applicat
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Creación de una entidad de servicio con un certificado de una entidad de certificación
 
-En el ejemplo siguiente se utiliza un certificado emitido por una entidad de certificación para crear una entidad de servicio. La asignación se limita a la suscripción de Azure especificada. Se agrega la entidad de servicio al rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor). Si se produce un error durante la asignación de roles, vuelva a intentar la asignación.
+En el ejemplo siguiente se utiliza un certificado emitido por una entidad de certificación para crear una entidad de servicio. La asignación se limita a la suscripción de Azure especificada. Agrega la entidad de servicio al rol [Lector](../../role-based-access-control/built-in-roles.md#reader). Si se produce un error durante la asignación de roles, vuelva a intentar la asignación.
 
 ```powershell
 Param (
@@ -141,7 +146,7 @@ Param (
  {
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
-    New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
+    New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
@@ -222,6 +227,5 @@ Durante la creación de una entidad de servicio pueden producirse los siguientes
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para configurar una entidad de servicio con contraseña, consulte [Creación de una entidad de servicio de Azure con Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
-* Si desea conocer los pasos detallados de la integración de una aplicación en Azure para administrar recursos, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](../../azure-resource-manager/resource-manager-api-authentication.md).
 * Para obtener una explicación más detallada de las aplicaciones y entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](app-objects-and-service-principals.md).
 * Para más información sobre la autenticación de Azure AD, vea [Escenarios de autenticación para Azure AD](authentication-scenarios.md).

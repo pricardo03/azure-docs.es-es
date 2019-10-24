@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0a4990673479c913777a5a7c410460d3d3b31264
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 367a4409c004c98cc4b5ec844aab5b05ec74abcb
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478329"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374495"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -59,7 +59,7 @@ Seleccione **Agregar máquina virtual de Azure**.
 
 ![Pestaña Agregar máquina virtual de Azure](./media/manage-update-multi/update-onboard-vm.png)
 
-Seleccione la máquina virtual que desea incorporar. 
+Seleccione la máquina virtual que desea incorporar.
 
 En **Habilitar la administración de actualizaciones**, seleccione **Habilitar** para incorporar la máquina virtual.
 
@@ -130,12 +130,12 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
 
 - **Nombre**: proporcione un nombre único para identificar la implementación de actualizaciones.
 - **Sistema operativo**: seleccione **Windows** o **Linux**.
-- **Grupos que se deben actualizar (versión preliminar)** : Defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de VM de Azure e incluirlo en la implementación. Para obtener más información, consulte [Dynamic Groups](automation-update-management.md#using-dynamic-groups) (Grupos dinámicos).
+- **Grupos que se deben actualizar (versión preliminar)** : Defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de VM de Azure e incluirlo en la implementación. Para obtener más información, consulte [Dynamic Groups](automation-update-management-groups.md) (Grupos dinámicos).
 - **Máquinas para actualizar**: seleccione una Búsqueda guardada, Grupo importado o Máquinas para elegir las máquinas que desea actualizar. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Puede ver el estado de mantenimiento de la máquina antes de programar la implementación de actualizaciones. Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
   ![Panel Nueva implementación de actualización](./media/manage-update-multi/update-select-computers.png)
 
-- **Actualizar clasificación**: seleccione los tipos de software que se incluirán en la implementación de actualizaciones. Para ver una descripción de los tipos de clasificación, consulte [Actualización de clasificaciones](automation-update-management.md#update-classifications). Los tipos de clasificación son:
+- **Actualizar clasificación**: seleccione los tipos de software que se incluirán en la implementación de actualizaciones. Para ver una descripción de los tipos de clasificación, consulte [Actualización de clasificaciones](automation-view-update-assessments.md#update-classifications). Los tipos de clasificación son:
   - Actualizaciones críticas
   - Actualizaciones de seguridad
   - Paquetes acumulativos de actualizaciones
@@ -145,7 +145,7 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
   - Herramientas
   - Actualizaciones
 
-- **Actualizaciones para incluir/excluir**: abre la página para **incluir/excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para obtener más información sobre cómo se controla la inclusión, consulte la sección [Inclusion behavior](automation-update-management.md#inclusion-behavior) (Comportamiento de la inclusión).
+- **Actualizaciones para incluir/excluir**: abre la página para **incluir/excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte [Programación de una implementación de actualizaciones](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 - **Configuración de la programación**: puede aceptar la fecha y hora predeterminadas, que son 30 minutos después de la hora actual. También puede especificar una hora distinta.
 
@@ -168,7 +168,7 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
 Cuando haya terminado de configurar la programación, seleccione el botón **Crear** para volver al panel de estado. En la tabla **Programada** se muestra la programación de implementaciones que ha creado.
 
 > [!NOTE]
-> Update Management admite la implementación de actualizaciones de origen y la descarga previa de revisiones. Esto requiere cambios en los sistemas a los que se aplican revisiones. Para aprender a configurar estos valores en sus sistemas, consulte [soporte técnico para aplicación de revisiones propias y para descargas previas](automation-update-management.md#firstparty-predownload).
+> Update Management admite la implementación de actualizaciones de origen y la descarga previa de revisiones. Esto requiere cambios en los sistemas a los que se aplican revisiones. Para aprender a configurar estos valores en sus sistemas, consulte [soporte técnico para aplicación de revisiones propias y para descargas previas](automation-configure-windows-update.md#pre-download-updates).
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualización de los resultados de una implementación de actualizaciones
 

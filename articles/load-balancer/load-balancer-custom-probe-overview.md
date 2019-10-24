@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 22f0ef7da9018da128e9a978cefa71eaa786829c
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 62af688c6090b61f2596ab376cb479c270b87759
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098925"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274119"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -116,7 +116,7 @@ A continuación se muestra cómo puede expresar este tipo de configuración de s
 
 Los sondeos HTTP y HTTPS se basan en el sondeo TCP y emiten una solicitud HTTP GET con la ruta de acceso especificada. Ambos sondeos admiten rutas de acceso relativas para la solicitud HTTP GET. Los sondeos HTTPS son lo mismo que los sondeos de HTTP con un contenedor de Seguridad de la capa de transporte (TLS, conocida anteriormente como SSL) añadido. El sondeo de estado se marca cuando la instancia responde con un código de estado 200 de HTTP dentro del período de tiempo de espera.  De forma predeterminada, el sondeo de estado intenta comprobar cada 15 segundos el puerto de sondeo de estado configurado. El intervalo de sondeo mínimo es 5 segundos. La duración total de todos los intervalos no puede superar los 120 segundos.
 
-Los sondeos HTTP o HTTPS también pueden ser útiles si se quiere expresar el sondeo de estado.  Implemente su propia lógica para quitar instancias de la rotación del equilibrador de carga si el puerto de sondeo es también el agente de escucha para el propio servicio. Por ejemplo, podría decidir quitar una instancia si está por encima del 90 % de la CPU y devolver un estado que no es 200. 
+Los sondeos HTTP/HTTPS también pueden ser útiles para implementar su propia lógica para quitar instancias de la rotación del equilibrador de carga si el puerto de sondeo es también el agente de escucha para el propio servicio. Por ejemplo, podría decidir quitar una instancia si está por encima del 90 % de la CPU y devolver un estado que no es 200. 
 
 Si usa Cloud Services y tiene roles web que utilizan w3wp.exe, también obtiene una supervisión automática de su sitio web. Los errores en el código del sitio web devuelven un estado distinto de 200 para el sondeo del equilibrador de carga.
 

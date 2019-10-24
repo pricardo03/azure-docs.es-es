@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: ec0fa0ba7c7cad698cda0f7b440415c3dbb0236a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299632"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298475"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -50,7 +50,7 @@ Sí que puede, si crea las entradas DNS necesarias. Azure NetApp Files proporcio
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>¿Se puede cifrar el tráfico de red entre la máquina virtual de Azure y el almacenamiento?
 
-El tráfico de datos (el tráfico desde el cliente e NFSv3 o SMBv3 a los volúmenes de Azure NetApp Files) no está cifrado. Sin embargo, el tráfico desde una máquina virtual de Azure (que ejecuta un cliente SMB o NFS) a Azure NetApp Files es tan seguro como cualquier otro tráfico de máquina virtual a máquina virtual de Azure. Se trata de tráfico local a la red del centro de datos de Azure. 
+El tráfico de datos (el tráfico desde el cliente de NFSv3, NFSv4.1 o SMBv3 a los volúmenes de Azure NetApp Files) no está cifrado. Sin embargo, el tráfico desde una máquina virtual de Azure (que ejecuta un cliente SMB o NFS) a Azure NetApp Files es tan seguro como cualquier otro tráfico de máquina virtual a máquina virtual de Azure. Se trata de tráfico local a la red del centro de datos de Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>¿Se puede cifrar el almacenamiento en reposo?
 
@@ -120,7 +120,11 @@ El tamaño del volumen notificado en DF es el tamaño máximo que puede alcanzar
 
 ### <a name="what-nfs-version-does-azure-netapp-files-support"></a>¿Qué versión de NFS admite Azure NetApp Files?
 
-Actualmente Azure NetApp Files admite NFSv3.
+Azure NetApp Files admite NFSv3 y NFSv4.1. Se pueden crear volúmenes con cualquier versión de NFS. 
+
+> [!IMPORTANT] 
+> El acceso a la característica NFSv4.1 requiere la inclusión en una lista blanca.  Para solicitar la inclusión en una lista blanca, envíe una solicitud a <anffeedback@microsoft.com>. 
+
 
 ### <a name="how-do-i-enable-root-squashing"></a>¿Cómo se puede habilitar root squashing?
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991881"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299663"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen2
 
-En este artículo obtendrá más información sobre los procedimientos recomendados y las consideraciones para trabajar con Azure Data Lake Storage Gen2. En este artículo se proporciona información sobre seguridad, rendimiento, resistencia y supervisión de Data Lake Storage Gen2. Antes de Data Lake Storage Gen2, el trabajo con macrodatos en servicios como Azure HDInsight era complicado. Había que particionar los datos en varias cuentas de almacenamiento de blobs para que se pudiera lograr un almacenamiento de petabytes y un rendimiento óptimo a esa escala. Con Data Lake Storage Gen2, la mayoría de los restrictivos límites de tamaño y rendimiento se han eliminado. Pero aún quedan algunas consideraciones que se describen en este artículo para que pueda obtener el mejor rendimiento con Data Lake Storage Gen2.
+En este artículo obtendrá más información sobre los procedimientos recomendados y las consideraciones para trabajar con Azure Data Lake Storage Gen2. En este artículo se proporciona información sobre seguridad, rendimiento, resistencia y supervisión de Data Lake Storage Gen2. Antes de Data Lake Storage Gen2, el trabajo con macrodatos en servicios como Azure HDInsight era complicado. Había que particionar los datos en varias cuentas de almacenamiento de blobs para que se pudiera lograr un almacenamiento de petabytes y un rendimiento óptimo a esa escala. Data Lake Storage Gen2 admite tamaños de archivo individuales de hasta 5 TB y la mayoría de los límites estrictos de rendimiento se han eliminado. Pero aún quedan algunas consideraciones que se describen en este artículo para que pueda obtener el mejor rendimiento con Data Lake Storage Gen2.
 
 ## <a name="security-considerations"></a>Consideraciones sobre la seguridad
 

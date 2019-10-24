@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20a973e5386cd9cad7d090236f021ced9a64cafc
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799080"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300931"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examen de la salida de Video Indexer producida por la API
 
@@ -312,7 +312,7 @@ Ejemplo:
 |knownPersonId|Si es alguien conocido, su identificador interno.|
 |referenceId|Si es una celebridad de Bing, su identificador de Bing.|
 |referenceType|Actualmente, solo Bing.|
-|título|Si es una celebridad, su cargo (por ejemplo, "CEO de Microsoft").|
+|title|Si es una celebridad, su cargo (por ejemplo, "CEO de Microsoft").|
 |imageUrl|Si es una celebridad, la dirección URL de su imagen.|
 |instances|Instancias de cuándo apareció el rostro en el intervalo de tiempo determinado. Cada instancia también tiene su thumbnailsId. |
 
@@ -760,7 +760,7 @@ Video Indexer identifica emociones en función de las indicaciones para voz y au
 
 #### <a name="topics"></a>topics
 
-Video Indexer saca conclusiones de los temas principales a partir de las transcripciones. Cuando es posible, se incluye la taxonomía [IPTC](https://iptc.org/standards/media-topics/) de primer nivel. 
+Video Indexer saca conclusiones de los temas principales a partir de las transcripciones. Cuando es posible, se incluye la taxonomía [IPTC](https://iptc.org/standards/media-topics/) de segundo nivel. 
 
 |NOMBRE|Descripción|
 |---|---|

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: db0921d709f842b004ec4c23d15a986f2e59ec23
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 43b8dfd571537aaaf6753d6b762ab84cfe4cfd0d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687072"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376162"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Creación de un punto de conexión privado mediante Azure PowerShell
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. 
@@ -50,7 +50,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>Adición de una subred
 
-Azure implementa recursos en una subred dentro de una red virtual, por lo que es necesario crear una subred. Cree una configuración de subred denominada  *mySubnet*  con  [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crea una subred denominada *mySubnet* con la marca de directiva de la red del punto de conexión privado establecida en **Deshabilitado**.
+Azure implementa recursos en una subred dentro de una red virtual, por lo que es necesario crear una subred. Cree una configuración de subred denominada *mySubnet* con  [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crea una subred denominada *mySubnet* con la marca de directiva de la red del punto de conexión privado establecida en **Deshabilitado**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -167,7 +167,7 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
   
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conexión a una máquina virtual desde Internet
 
-Use  [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress)  para devolver la dirección IP pública de una máquina virtual. Este ejemplo devuelve la dirección IP pública de la máquina virtual  *myVM* :
+Use  [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress)  para devolver la dirección IP pública de una máquina virtual. Este ejemplo devuelve la dirección IP pública de la máquina virtual *myVM*:
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -184,13 +184,13 @@ Abra un símbolo del sistema en el equipo local. Ejecute el comando mstsc. Reemp
 mstsc /v:<publicIpAddress>
 ```
 
-1. Cuando se le pida, seleccione  **Conectar**. 
+1. Cuando se le pida, seleccione **Conectar**. 
 2. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual.
   > [!NOTE]
   > Es posible que tenga que seleccionar Más opciones > Usar otra cuenta para especificar las credenciales que escribió al crear la máquina virtual. 
   
-3. Seleccione  **Aceptar**. 
-4. Puede que reciba una advertencia de certificado. Si lo hace, seleccione **Sí** o **Continuar**. 
+3. Seleccione **Aceptar**. 
+4. Puede que reciba una advertencia de certificado. Si la recibe, seleccione **Sí** o **Continuar**. 
 
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>Acceso al servidor de SQL Database de forma privada desde la máquina virtual
 
@@ -214,7 +214,7 @@ mstsc /v:<publicIpAddress>
 5. Seleccione Conectar.
 6. Examine las bases de datos en el menú izquierdo. 
 7. (Opcionalmente) Cree o consulte la información de mydatabase
-8. Cierre la conexión de Escritorio remoto con  *myVm*. 
+8. Cierre la conexión de Escritorio remoto a *myVM*. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 Cuando haya terminado con el punto de conexión privado, el servidor de SQL Database y la máquina virtual, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que tiene:

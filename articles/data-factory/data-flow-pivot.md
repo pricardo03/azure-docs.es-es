@@ -1,40 +1,40 @@
 ---
-title: Transformación Dinamizar de Azure Data Factory Mapping Data Flow
-description: Dinamice los datos de filas a columnas mediante la transformación Dinamizar de Azure Data Factory Mapping Data Flow
+title: Transformación Dinamizar en el flujo de datos de asignación de Azure Data Factory
+description: Dinamice los datos de filas a columnas mediante la transformación Dinamizar del flujo de datos de asignación de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 1412f7d822d83a8712d27dd4e86311567d6ac714
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e59f0623b898fedada63e51fabbaf88d8b17f59d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029303"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387792"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Transformación Dinamizar de Azure Data Factory
 
 
 Utiliza Dinamizar en ADF Data Flow como una agregación en la que los valores distintivos de una o más columnas de agrupación se transforman en columnas individuales. Básicamente, puede dinamizar valores de fila en nuevas columnas (convertir datos en metadatos).
 
-![Opciones de dinamización](media/data-flow/pivot1.png "pivot 1")
+![Opciones de dinamización](media/data-flow/pivot1.png "dinamizar 1")
 
 ## <a name="group-by"></a>Agrupar por
 
-![Opciones de dinamización](media/data-flow/pivot2.png "pivot 2")
+![Opciones de dinamización](media/data-flow/pivot2.png "dinamizar 2")
 
 En primer lugar, establezca las columnas que desea agrupar para la agregación dinámica. Puede establecer más de una columna con el signo + que aparece junto a la lista de columnas.
 
 ## <a name="pivot-key"></a>Clave dinámica
 
-![Opciones de dinamización](media/data-flow/pivot3.png "pivot 3")
+![Opciones de dinamización](media/data-flow/pivot3.png "dinamizar 3")
 
 La clave dinámica es la columna que ADF dinamizará de fila a columna. De forma predeterminada, cada valor único del conjunto de datos de este campo se dinamizará en una columna. Sin embargo, también puede escribir los valores del conjunto de datos que desea dinamizar en valores de columna. Se trata de la columna que determinará las nuevas columnas que se crearán.
 
 ## <a name="pivoted-columns"></a>Columnas dinamizadas
 
-![Opciones de dinamización](media/data-flow/pivot4.png "pivot 4")
+![Opciones de dinamización](media/data-flow/pivot4.png "dinamizar 4")
 
 Por último, elegirá la agregación que se va a usar para los valores dinamizados y cómo desea que las columnas se muestren en la nueva proyección de salida de la transformación.
 
@@ -42,7 +42,7 @@ Por último, elegirá la agregación que se va a usar para los valores dinamizad
 
 Por ejemplo, dinamizar "Ventas" por "Región" daría lugar a nuevos valores de columna a partir de cada valor de ventas; es decir: "25", "50", "1000", etc. Sin embargo, si establece un valor de prefijo de "Sales-", cada valor de columna agregará "Sales-" al principio del valor.
 
-![Opciones de dinamización](media/data-flow/pivot5.png "pivot 5")
+![Opciones de dinamización](media/data-flow/pivot5.png "dinamizar 5")
 
 Al establecer la organización de la columna en "Normal", se agruparán todas las columnas dinámicas con sus valores agregados. Al establecer la organización de las columnas en "Lateral", se alternará entre columna y valor.
 
@@ -60,7 +60,7 @@ La transformación Dinamizar generará nuevos nombres de columna que serán din�
 
 Dinamizar genera nuevos nombres de columna de forma dinámica en función de los valores de fila. Estas nuevas columnas se pueden convertir en metadatos a los que se puede hacer referencia posteriormente en el flujo de datos. Para ello, haga clic en la pestaña Vista previa de datos. Las nuevas columnas generadas por la transformación Dinamizar aparecen con un icono de desviación en el encabezado de la tabla. Haga clic en el botón "Map drifted" (Asignar desviadas) para convertir esas nuevas columnas en metadatos, haciendo así que pasen a formar parte del modelo de flujo de datos.
 
-![Columnas dinamizadas](media/data-flow/newpivot1.png "Asignar columnas dinamizadas desviadas")
+![Columnas dinámicas](media/data-flow/newpivot1.png "Asignar columnas dinámicas desplazadas")
 
 ### <a name="landing-new-columns-in-sink"></a>Aterrizaje de nuevas columnas e Receptor
 

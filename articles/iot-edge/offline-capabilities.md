@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 80a38767121f5c54afe51a7d4d788716fe9547e2
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 3fc90e685a3c6a077250028bae5602e95f114c03
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091358"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293445"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Uso de funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios IoT Edge
 
@@ -110,7 +110,7 @@ En los siguientes artículos se describe de forma detallada una manera de crear 
 
 ## <a name="specify-dns-servers"></a>Especificación de los servidores DNS 
 
-Para mejorar la solidez, se recomienda especificar las direcciones del servidor DNS usadas en su entorno. Para configurar su servidor DNS para IoT Edge, consulte la resolución para El módulo Agente de Edge continuamente notifica "archivo de configuración vacío" y no se inicia ningún módulo en el dispositivo en el artículo de solución de problemas.
+Para mejorar la solidez, se recomienda especificar las direcciones del servidor DNS usadas en su entorno. Para configurar su servidor DNS para IoT Edge, consulte la resolución que encontrará en el apartado [El módulo Agente de Edge continuamente notifica "archivo de configuración vacío" y no se inicia ningún módulo en el dispositivo](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) del artículo de solución de problemas.
 
 ## <a name="optional-offline-settings"></a>Ajustes opcionales del modo sin conexión
 
@@ -138,69 +138,7 @@ Esta configuración es una propiedad deseada del centro de IoT Edge, que se alma
 
 ### <a name="host-storage-for-system-modules"></a>Almacenamiento de host para módulos del sistema
 
-Los mensajes y la información de estado de los módulos se almacenan de manera predeterminada en el sistema de archivos de contenedor local del centro de IoT Edge. Para mejorar la confiabilidad, especialmente cuando se trabaja sin conexión, también puede dedicar almacenamiento en el dispositivo host de IoT Edge.
-
-Para configurar el almacenamiento en el sistema host, cree variables de entorno para el centro de IoT Edge y el agente de IoT Edge que apunten a una carpeta de almacenamiento en el contenedor. Después, tendrá que utilizar las opciones de creación para enlazar esa carpeta de almacenamiento con una carpeta del equipo host. 
-
-Puede configurar las variables de entorno y las opciones de creación del módulo del centro de IoT Edge en Azure Portal, en la sección **Configurar las opciones avanzadas del entorno en tiempo de ejecución de Edge**. 
-
-1. Tanto para el centro de IoT Edge como para el agente de IOT Edge, agregue una variable de entorno denominada **storageFolder** que apunte a un directorio en el módulo.
-1. Tanto para el centro de IoT Edge como para el agente de IoT Edge, agregue enlaces para conectar un directorio local de la máquina host a un directorio del módulo. Por ejemplo: 
-
-   ![Agregar opciones de creación y variables de entorno para el almacenamiento local](./media/offline-capabilities/offline-storage.png)
-
-También puede configurar el almacenamiento local directamente en el manifiesto de implementación. Por ejemplo: 
-
-```json
-"systemModules": {
-    "edgeAgent": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
-                }
-            }
-        },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        }
-    },
-    "edgeHub": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
-                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
-        },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        },
-        "status": "running",
-        "restartPolicy": "always"
-    }
-}
-```
-
-Reemplace `<HostStoragePath>` y `<ModuleStoragePath>` por las rutas de almacenamiento de su host y de su módulo; ambos valores deben ser una ruta de acceso absoluta. 
-
-Por ejemplo, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` significa que el directorio **/etc/iotedge/storage** en el sistema host se asigna al directorio **/iotedge/storage/** en el contenedor. O en otro ejemplo para sistemas Windows, `"Binds":["C:\\temp:C:\\contemp"]` significa que el directorio **C:\\temp** en el sistema host se asigna al directorio **C:\\contemp** en el contenedor. 
-
-En los dispositivos Linux, asegúrese de que el perfil de usuario del centro de IoT Edge, UID 1000, tenga permisos de lectura, escritura y ejecución en el directorio del sistema host. Estos permisos son necesarios para que el centro de IoT Edge pueda almacenar mensajes en el directorio y recuperarlos más adelante. (El agente de IoT Edge funciona como raíz, por lo que no necesita permisos adicionales). Hay varias maneras de administrar los permisos de directorio en los sistemas Linux; entre otros, usar `chown` para cambiar el propietario del directorio y, luego, `chmod` para cambiar los permisos. Por ejemplo:
-
-```bash
-sudo chown 1000 <HostStoragePath>
-sudo chmod 700 <HostStoragePath>
-```
-
-Puede encontrar más detalles sobre las opciones de creación en la [documentación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+Los mensajes y la información de estado de los módulos se almacenan de manera predeterminada en el sistema de archivos de contenedor local del centro de IoT Edge. Para mejorar la confiabilidad, especialmente cuando se trabaja sin conexión, también puede dedicar almacenamiento en el dispositivo host de IoT Edge. Para más información, consulte [Acceso de los módulos al almacenamiento local de un dispositivo](how-to-access-host-storage-from-module.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

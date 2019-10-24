@@ -7,12 +7,12 @@ services: service-health
 ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a6f6288aebe599db794a7f15fc733563d26c66cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e3c83b7233ad4da263dec31c6012209ebaca0fe
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067093"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515857"
 ---
 # <a name="service-health-overview"></a>Información general de Service Health
 
@@ -27,7 +27,7 @@ Service Health realiza un seguimiento de tres tipos de eventos de estado que pue
 3. **Avisos de estado**: cambios en los servicios de Azure que requieren su atención. Por ejemplo, cuando están en desuso características de Azure o si se supera una cuota de uso.
 
 > [!NOTE]
-> Para ver los eventos de Service Health, los usuarios deben tener el rol de lector en una suscripción.
+> Para ver los eventos de Service Health, a los usuarios se les debe [conceder el rol de lector](../role-based-access-control/role-assignments-portal.md) en una suscripción.
 
 ## <a name="get-started-with-service-health"></a>Introducción a Service Health
 

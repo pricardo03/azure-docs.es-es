@@ -205,7 +205,7 @@ Azure AD B2C incluye compatibilidad con los idiomas siguientes. Azure AD B2C pro
 |-----------------------| :-----------: | :----------------: | :----------------: |
 | Árabe                | ar            | :x:                | :heavy_check_mark: |
 | Búlgaro             | bg            | :x:                | :heavy_check_mark: |
-| Bangla                | bn            | :heavy_check_mark: | :x:                |
+| Bengalí                | bn            | :heavy_check_mark: | :x:                |
 | Catalán               | ca            | :x:                | :heavy_check_mark: |
 | Checo                 | cs            | :heavy_check_mark: | :heavy_check_mark: |
 | Danés                | da            | :heavy_check_mark: | :heavy_check_mark: |

@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 853fff955a953052b94ad4e7e1dd55371069c30b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2031820843342fb7e6b115865297e08cbee28a0a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030192"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387331"
 ---
-# <a name="mapping-data-flow-move-nodes"></a>Nodos de movimiento de Mapping Data Flow
+# <a name="mapping-data-flow-move-nodes"></a>Nodos de movimiento de flujo de datos de asignación
 
 
 
-![Agregar opciones de transformación](media/data-flow/agghead.png "encabezado del agregador")
+![Opciones de la transformación Agregar](media/data-flow/agghead.png "encabezado de agregador")
 
 La superficie de diseño de flujo de datos de Azure Data Factory Data Flow es una superficie de "construcción" en la que los flujos de datos se crean de arriba a abajo y de izquierda a derecha. Hay un cuadro de herramientas asociado a cada transformación con el símbolo de más (+). Concéntrese en su lógica de negocios, en lugar de en conectar los nodos a través de los extremos de un entorno de DAG de forma libre.
 

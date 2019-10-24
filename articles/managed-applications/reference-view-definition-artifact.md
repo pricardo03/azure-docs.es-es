@@ -1,18 +1,18 @@
 ---
 title: Referencia para ver un artefacto de definición de una aplicación administrada de Azure
-description: Este artículo es una referencia para ver un artefacto de definición.
+description: Proporciona un ejemplo de artefacto de definición de vista para Azure Managed Applications. El nombre de archivo es viewDefinition.json.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: e60f26fe0a7144d768bac020d62c61cb92594914
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 1f56f6c9c519bd29423d92a8dc8b8ce5904b523c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336654"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332631"
 ---
 # <a name="reference-view-definition-artifact"></a>Referencia: Ver definición de artefacto
 

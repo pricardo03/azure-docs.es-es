@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ce0ac4f40f3dd1bd7252689618459769d0aeb56
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: fcc704e7027903a1ede14c787a64c35d6b5fd9c0
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203065"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373456"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -93,7 +93,7 @@ Puede seguir iniciando sesión en los servicios en la nube con una contraseña s
 
 Si hay usuarios sincronizados que solo interactúan con servicios integrados de Azure AD y también deben cumplir una directiva de expiración de contraseñas, puede obligarlos a cumplir con la directiva de expiración de contraseñas de Azure AD mediante la habilitación de la característica *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
 
-Cuando  *EnforceCloudPasswordPolicyForPasswordSyncedUsers* está deshabilitado (que es la configuración predeterminada), Azure AD Connect establece el atributo PasswordPolicies de los usuarios sincronizados en "DisablePasswordExpiration". Esto se hace cada vez que se sincroniza la contraseña de un usuario e indica a Azure AD que omita la directiva de expiración de contraseñas en la nube para ese usuario. Puede comprobar el valor del atributo mediante el módulo de Azure AD PowerShell con el siguiente comando:
+Cuando *EnforceCloudPasswordPolicyForPasswordSyncedUsers* está deshabilitado (que es la configuración predeterminada), Azure AD Connect establece el atributo PasswordPolicies de los usuarios sincronizados en "DisablePasswordExpiration". Esto se hace cada vez que se sincroniza la contraseña de un usuario e indica a Azure AD que omita la directiva de expiración de contraseñas en la nube para ese usuario. Puede comprobar el valor del atributo mediante el módulo de Azure AD PowerShell con el siguiente comando:
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
 

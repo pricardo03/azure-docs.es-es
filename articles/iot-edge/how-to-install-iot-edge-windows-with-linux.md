@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 9e9028d0c9aeff19dc221b81defa5e2057927fa6
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3cf30b53f950ff18dd6dcde332b7e97e332133aa
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034205"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516573"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Uso de IoT Edge en Windows para ejecutar contenedores de Linux
 
@@ -92,20 +92,25 @@ Puede leer más sobre los distintos parámetros y opciones de instalación en el
 
 ## <a name="verify-successful-installation"></a>Comprobación de instalación correcta
 
-Compruebe el estado del servicio IoT Edge. Debe aparecer como en ejecución.  
+Compruebe el estado del servicio IoT Edge: 
 
 ```powershell
 Get-Service iotedge
 ```
 
-Examine los registros de servicio de los últimos 5 minutos. 
+Examine los registros del servicio de los últimos 5 minutos: 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Enumere los módulos en ejecución. Después de una instalación nueva, el único módulo que debería en ejecución es **edgeAgent**. Después de [implementar los módulos de IoT Edge](how-to-deploy-modules-portal.md) por primera vez, el otro módulo del sistema, **edgeHub**, se iniciará también en el dispositivo. 
+Ejecute una comprobación automatizada para detectar los errores de configuración y red más comunes: 
 
+```powershell
+iotedge check
+```
+
+Enumere los módulos en ejecución. Después de una instalación nueva, el único módulo que debería en ejecución es **edgeAgent**. Después de [implementar los módulos de IoT Edge](how-to-deploy-modules-portal.md) por primera vez, el otro módulo del sistema, **edgeHub**, se iniciará también en el dispositivo. 
 
 ```powershell
 iotedge list

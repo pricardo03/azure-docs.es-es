@@ -4,14 +4,14 @@ description: Comprenda cómo funciona la indexación en Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: thweiss
-ms.openlocfilehash: 4d961f8635a52a09011543b793ce8a87eaa4ea9e
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d679208914eb7d1f74bfaec77fbcff196909a2f4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914191"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299788"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
 
@@ -64,15 +64,26 @@ Cuando se escribe un elemento, Azure Cosmos DB indexa eficazmente la ruta de acc
 
 ## <a name="index-kinds"></a>Tipos de índices
 
-Actualmente, Azure Cosmos DB admite tres tipos de índices:
+Actualmente, Azure Cosmos DB admite tres tipos de índices.
 
-El tipo de índice de **rango** se usa con:
+### <a name="range-index"></a>Índice de rangos
+
+El **índice de rangos** se basa en una estructura de árbol ordenada. El tipo de índice de rango se usa con:
 
 - Consultas de igualdad:
 
     ```sql
    SELECT * FROM container c WHERE c.property = 'value'
    ```
+
+   ```sql
+   SELECT * FROM c WHERE c.property IN ("value1", "value2", "value3")
+   ```
+
+   Coincidencia de igualdad numérica en un elemento de matriz
+   ```sql
+    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1”)
+    ```
 
 - Consultas por rango:
 
@@ -81,9 +92,21 @@ El tipo de índice de **rango** se usa con:
    ```
   (funciona para `>`, `<`, `>=`, `<=`, `!=`).
 
+- Comprobación de la presencia de una propiedad:
+
+   ```sql
+   SELECT * FROM c WHERE IS_DEFINED(c.property)
+   ```
+
+- Coincidencias de prefijo de cadena (la palabra clave CONTAINS no utilizará el índice de rango):
+
+   ```sql
+   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   ```
+
 - Consultas `ORDER BY`:
 
-   ```sql 
+   ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
@@ -95,23 +118,33 @@ El tipo de índice de **rango** se usa con:
 
 Los índices de rango se pueden usar en valores escalares (cadena o número).
 
-El tipo de índice **espacial** se usa con:
+### <a name="spatial-index"></a>Índice espacial
 
-- Consultas de distancia geoespaciales: 
+Los índices **espaciales** permiten realizar consultas eficaces en objetos geoespaciales como puntos, líneas, polígonos y multipolígonos. Estas consultas usan las palabras clave ST_DISTANCE, ST_WITHIN, ST_INTERSECTS. A continuación se muestran algunos ejemplos que usan el tipo de índice espacial:
+
+- Consultas de distancia geoespaciales:
 
    ```sql
    SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40
    ```
 
-- Información geoespacial dentro de consultas: 
+- Información geoespacial dentro de consultas:
 
    ```sql
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
+- Consultas de intersecciones geoespaciales:
+
+   ```sql
+   SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
+   ```
+
 Los índices espaciales pueden usarse en objetos [GeoJSON](geospatial.md) con un formato correcto. Actualmente, se admiten Points, LineStrings, Polygons y MultiPolygons.
 
-El tipo de índice **compuesto** se usa con:
+### <a name="composite-indexes"></a>Índices compuestos
+
+Los índices **compuestos** aumentan la eficacia al realizar operaciones en varios campos. El tipo de índice compuesto se usa con:
 
 - Consultas `ORDER BY` en varias propiedades:
 
@@ -130,6 +163,13 @@ El tipo de índice **compuesto** se usa con:
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
+
+Siempre y cuando un predicado de filtro use un tipo de índice, el motor de consultas evaluará ese primero antes de examinar el resto. Por ejemplo, si tiene una consulta SQL como `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+
+* La consulta anterior primero filtrará las entradas en las que firstName = "Andrew" mediante el índice. Después, pasa todas las entradas firstName = "Andrew" a través de una canalización subsiguiente para evaluar el predicado de filtro CONTAINS.
+
+* Puede acelerar las consultas y evitar exámenes de todo el contenedor cuando emplee funciones que no usen el índice (por ejemplo, CONTAINS) mediante la incorporación de predicados de filtro adicionales que utilicen el índice. El orden de las cláusulas de filtro no es importante. El motor de consultas determinará qué predicados son más selectivos y ejecutará la consulta en consecuencia.
+
 
 ## <a name="querying-with-indexes"></a>Consultas con índices
 

@@ -6,16 +6,16 @@ keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 03/16/2018
-ms.openlocfilehash: 14c34a13440d50fcf42c2207f9933dc1de014a14
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 10/11/2019
+ms.openlocfilehash: a18c374df0cad7994af855089f1096d52fe30ce2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191965"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330698"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-azure-data-science-virtual-machine"></a>Herramientas de visualización y exploración de datos en Azure Data Science Virtual Machine
 
@@ -31,15 +31,18 @@ Un paso clave en la ciencia de datos es comprender los datos. Las herramientas d
 | Cómo usarla y ejecutarla      | Acceso directo de escritorio  <br/> [Comience a usar Drill en 10 minutos](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Herramientas relacionadas en DSVM      |   Rattle, Weka y SQL Server Management Studio      |
 
-## <a name="weka"></a>Weka
+## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
-| ¿Qué es?   |  Una colección de algoritmos de aprendizaje automático para las tareas de minería de datos. Los algoritmos se pueden aplicar directamente a un conjunto de datos o se pueden llamar desde su propio código de Java. Weka contiene herramientas para el preprocesamiento, la clasificación, la regresión, la agrupación en clústeres, las reglas de asociación y la visualización de datos. |
-| Ediciones compatibles de DSVM     | Windows, Linux     |
-| Usos típicos      | Herramienta de aprendizaje automático general     |
-| Cómo usarla y ejecutarla      | En Windows, busque Weka en el menú Inicio. En Linux, inicie sesión con X2Go y, a continuación, vaya a Applications (Aplicaciones) > Development (Desarrollo) > Weka. |
-| Vínculos a ejemplos      | [Ejemplos de Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Herramientas relacionadas en DSVM      |LightGBM, Rattle y Xgboost   |
+| ¿Qué es?   | Visualización de datos interactivos y herramienta de BI    |
+| Versiones de DSVM compatibles      | Windows  |
+| Usos típicos      |  Visualización de datos y creación de paneles   |
+| Cómo usarla y ejecutarla      | Use el acceso directo del escritorio (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`) o ejecútelo desde el menú **Inicio**.      |
+| Herramientas relacionadas en DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
+
+> [!NOTE]
+> Necesitará una cuenta de Microsoft Office 365 para acceder a Power BI.
+
 
 ## <a name="rattle"></a>Rattle
 |    |           |
@@ -51,12 +54,17 @@ Un paso clave en la ciencia de datos es comprender los datos. Las herramientas d
 | Vínculos a ejemplos      | [Rattle](https://togaware.com/onepager/) |
 | Herramientas relacionadas en DSVM      |LightGBM, Weka y Xgboost   |
 
-## <a name="power-bi-desktop"></a>Power BI Desktop 
+
+## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| ¿Qué es?   | Visualización de datos interactivos y herramienta de BI    |
-| Versiones de DSVM compatibles      | Windows  |
-| Usos típicos      |  Visualización de datos y creación de paneles   |
-| Cómo usarla y ejecutarla      | Acceso directo de escritorio (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Herramientas relacionadas en DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
+| ¿Qué es?   |  Una colección de algoritmos de aprendizaje automático para las tareas de minería de datos. Los algoritmos se pueden aplicar directamente a un conjunto de datos o se pueden llamar desde su propio código de Java. Weka contiene herramientas para el preprocesamiento, la clasificación, la regresión, la agrupación en clústeres, las reglas de asociación y la visualización de datos. |
+| Ediciones compatibles de DSVM     | Windows, Linux     |
+| Usos típicos      | Herramienta de aprendizaje automático general     |
+| Cómo usarla y ejecutarla      | En Windows, busque Weka en el menú Inicio. En Linux, inicie sesión con X2Go y, a continuación, vaya a Applications (Aplicaciones) > Development (Desarrollo) > Weka. |
+| Vínculos a ejemplos      | [Ejemplos de Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Herramientas relacionadas en DSVM      |LightGBM, Rattle y Xgboost   |
+
+
+
 

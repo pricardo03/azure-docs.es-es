@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 3afee614c36ddd38deaee6455aad0f42e7584631
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: b22242ac617f8dca95941a489c38658f5721851a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009328"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387290"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copia de datos con un sistema de archivos como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -114,7 +114,7 @@ Para copiar datos desde y hacia el **formato binario, de texto delimitado, Parqu
 | fileName   | Nombre de archivo en la propiedad folderPath indicada. Si quiere usar el carácter comodín para filtrar los archivos, omita este valor y especifique la configuración del origen de actividad. | Sin       |
 
 > [!NOTE]
-> El conjunto de datos de tipo **FileShare** con formato Parquet o Texto que se menciona en la sección siguiente todavía se admite tal cual en las actividades de copia, búsqueda y GetMetadata para compatibilidad con versiones anteriores, pero no funciona con Mapping Data Flow. A partir de ahora se sugiere usar este modelo nuevo, y la interfaz de usuario de creación de ADF ha cambiado para generar estos nuevos tipos.
+> El conjunto de datos de tipo **FileShare** con formato Parquet o Texto que se menciona en la sección siguiente todavía se admite tal cual en las actividades de copia, búsqueda y GetMetadata para compatibilidad con versiones anteriores, pero no funciona con flujo de datos de asignación. A partir de ahora se sugiere usar este modelo nuevo, y la interfaz de usuario de creación de ADF ha cambiado para generar estos nuevos tipos.
 
 **Ejemplo:**
 

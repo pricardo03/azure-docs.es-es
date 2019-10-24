@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: f680eae7f8c4cc2b57e3238a14b793f9b4298a79
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f5f8985a0b9a97c559016add2567a936220aa910
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828594"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300088"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 
@@ -29,6 +29,7 @@ Azure permite implementar una máquina virtual (VM) con una imagen de SQL Serve
 | Cambios | Detalles |
 | --- | --- |
 | **Configuración del almacenamiento optimizado para el rendimiento** | Ya se puede [personalizar totalmente la configuración del almacenamiento](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) al crear una nueva máquina virtual con SQL Server. |
+| **Recursos compartidos de archivos premium para FCI** | Ahora puede crear una instancia de clúster de conmutación por error mediante un [recurso compartido de archivos premium](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md) en lugar del método original de [Espacios de almacenamiento directo](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
 | &nbsp; | &nbsp; |
 
 ## <a name="august-2019"></a>Agosto de 2019

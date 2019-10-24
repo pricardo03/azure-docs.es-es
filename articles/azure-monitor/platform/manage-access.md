@@ -13,24 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 920e470a8bc06050219d0f603ab842cfc267e6ce
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 010f7bb2f19eed757da3f62011b69e1f09ddadf0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695007"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329411"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
-Azure Monitor almacena los datos de [registro](data-platform-logs.md) en un área de trabajo de Log Analytics, que es básicamente un contenedor que incluye información de configuración y datos. Para administrar el acceso a los datos de registro, realice varias tareas administrativas relacionadas con su área de trabajo.
+Azure Monitor almacena datos de [registro](data-platform-logs.md) en un área de trabajo de Log Analytics. Un área de trabajo es un contenedor que incluye datos e información de configuración. Para administrar el acceso a los datos de registro, realice varias tareas administrativas relacionadas con su área de trabajo.
 
-En este artículo se explica cómo administrar el acceso a los registros y las áreas de trabajo que los contienen, lo que incluye:
+En este artículo se explica cómo administrar el acceso a los registros y cómo administrar las áreas de trabajo que los contienen, lo que incluye cómo conceder acceso a: 
 
-* Cómo conceder acceso a los usuarios que necesitan acceder a los datos de registro de recursos concretos mediante el control de acceso basado en rol (RBAC) de Azure.
-
-* Cómo conceder acceso al área de trabajo mediante los permisos de área de trabajo.
-
-* Cómo conceder acceso a los usuarios que necesitan acceder a los datos de registro de una tabla específica en el área de trabajo mediante Azure RBAC.
+* El área de trabajo mediante los permisos del área de trabajo.
+* Los usuarios que necesitan acceder a los datos de registro desde recursos concretos mediante el control de acceso basado en rol (RBAC) de Azure.
+* Los usuarios que necesitan acceder a los datos de registro de una tabla específica del área de trabajo mediante Azure RBAC.
 
 ## <a name="configure-access-control-mode"></a>Configuración del modo de control de acceso
 
@@ -150,14 +148,14 @@ El rol Lector de Log Analytics incluye las siguientes acciones de Azure:
 
 Los miembros del rol *Colaborador de Log Analytics* pueden:
 
-* Leer todos los datos de supervisión como puede el lector de Log Analytics
+* Leer todos los datos de supervisión que pueda leer el lector de Log Analytics
 * Crear y configurar cuentas de Automation
-* Agregar y quitar soluciones de administración
+* Agregar y eliminar soluciones de administración
 
     > [!NOTE]
     > Para llevar a cabo correctamente estas dos últimas acciones, este permiso debe concederse en el nivel de suscripción o grupo de recursos.
 
-* Leer las claves de las cuentas de almacenamiento
+* Leer las claves de la cuenta de almacenamiento
 * Configurar la recopilación de registros de Azure Storage
 * Editar la configuración de supervisión de los recursos de Azure:
   * Agregar la extensión de máquina virtual a las máquinas virtuales

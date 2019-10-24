@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 575f23aef9534696566080257e61b2fa84de5d0f
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1f13efeb5c2ebcb8b23dea6f9ae997039972f089
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013554"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428319"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
@@ -59,7 +59,7 @@ Al ejecutar por primera vez el emulador de almacenamiento, el entorno de almacen
 El emulador de almacenamiento está instalado de forma predeterminada en `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> Puede usar el [Explorador de Microsoft Azure Storage](https://storageexplorer.com) para trabajar con recursos locales del emulador de almacenamiento. Después de haber instalado e iniciado el emulador de almacenamiento, busque "(Desarrollo)" en "Cuentas de Storage" en el árbol de recursos del Explorador de Storage.
+> Puede usar el [Explorador de Microsoft Azure Storage](https://storageexplorer.com) para trabajar con recursos locales del emulador de almacenamiento. Después de haber instalado e iniciado el emulador de almacenamiento, busque "(Emulador: Puertos predeterminados) (Clave)" en "Local ~Attached" (Local y conectados), en el árbol de recursos del Explorador de Storage.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Inicializar el emulador de almacenamiento para usar otra base de datos SQL

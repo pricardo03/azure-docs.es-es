@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 22c12d3233d85a02f6eef8d63e5a4494b4f0cdfa
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: dc6edaebebe89b6d4a35ada58d40795f86a935d3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273700"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264471"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs
 Azure Event Hubs es una plataforma de streaming de datos muy escalable. Por lo tanto, el uso de Event Hubs suele aumentar después de empezar a utilizar el servicio. Para esta utilización, es necesario incrementar las [unidades de procesamiento](event-hubs-scalability.md#throughput-units) predeterminadas con el objetivo de escalar Event Hubs y controlar velocidades de transferencia más elevadas. La característica de **inflado automático** de Event Hubs escala verticalmente y de forma automática mediante el aumento del número de unidades de procesamiento para responder a las necesidades de utilización. Al aumentar las unidades de rendimiento, se evitan escenarios de limitación en los que nos encontramos con:
@@ -40,10 +40,13 @@ El tráfico de los Event Hubs lo controlan las [unidades de procesamiento](event
 
 ## <a name="enable-auto-inflate-on-a-namespace"></a>Habilitación del inflado automático en un espacio de nombres
 
-Puede habilitar o deshabilitar aumentar el inflado automático en un espacio de nombres de Event Hubs utilizando cualquiera de los métodos siguientes:
+Puede habilitar o deshabilitar aumentar el inflado automático en un espacio de nombres de Event Hubs del nivel Estándar mediante cualquiera de los métodos siguientes:
 
 - [Azure Portal](https://portal.azure.com)
 - Una [Plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
+
+> [!NOTE]
+> Los espacios de nombres de Event Hubs de nivel Básico no admiten el inflado automático.
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Habilitación del inflado automático mediante Azure Portal
 

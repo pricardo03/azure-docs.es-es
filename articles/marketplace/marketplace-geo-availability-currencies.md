@@ -124,7 +124,7 @@ Se pueden adquirir ofertas de Azure Marketplace y AppSource en 141 zonas geográ
 | Portugal                            | PT        | EUR          |
 | Puerto Rico                         | PR        | USD          |
 | Qatar                               | QA        | USD          |
-| Rumania                             | RO        | EUR          |
+| Rumanía                             | RO        | EUR          |
 | Rusia                              | RU        | RUB          |
 | Ruanda                              | RW        | USD          |
 | San Cristóbal y Nieves               | KN        | USD          |

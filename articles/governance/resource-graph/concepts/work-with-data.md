@@ -3,15 +3,15 @@ title: Uso de grandes conjuntos de datos
 description: Aprenda a obtener y controlar grandes conjuntos de datos mientras trabaja con Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/01/2019
+ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 4da890a5ef7acb44d0e8628dc4ec3904f6a065e4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: c78f2e37fa29fa1cdcb9acc6a4600688750b6d74
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980320"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387593"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Uso de grandes conjuntos de datos de recursos de Azure
 
@@ -29,11 +29,11 @@ De forma predeterminada, en Resource Graph hay un límite en el número de regis
 El límite predeterminado se puede invalidar mediante todos los métodos de interacción con Resource Graph. En los ejemplos siguientes se muestra cómo cambiar el límite de tamaño del conjunto de datos a _200_:
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --first 200 --output table
+az graph query -q "Resources | project name | order by name asc" --first 200 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -First 200
+Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
 En la [API REST](/rest/api/azureresourcegraph/resources/resources), el control es **$top** y forma parte de **QueryRequestOptions**.
@@ -52,11 +52,11 @@ La siguiente opción para trabajar con grandes conjuntos de datos es el control 
 En los ejemplos siguientes se muestra cómo omitir los primeros _10_ registros que devolvería una consulta, en lugar de comenzar el conjunto de resultados devuelto con el registro número 11:
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --skip 10 --output table
+az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -Skip 10
+Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
 En la [API REST](/rest/api/azureresourcegraph/resources/resources), el control es **$skip** y forma parte de **QueryRequestOptions**.
@@ -68,20 +68,104 @@ Cuando sea necesario dividir un conjunto de resultados en conjuntos de registros
 
 Cuando **resultTruncated** es **true**, la propiedad **$skipToken** se establece en la respuesta. Este valor se usa con los mismos valores de consulta y suscripción para obtener el siguiente conjunto de registros que coinciden con la consulta.
 
-Los ejemplos siguientes muestran cómo **omitir** los primeros 3000 registros y cómo devolver los **primeros** 1000 registros después de los omitidos con la CLI de Azure y Azure PowerShell:
+Los ejemplos siguientes muestran cómo **omitir** los primeros 3000 registros y cómo devolver los **primeros** 1000 registros después de los registros omitidos con la CLI de Azure y Azure PowerShell:
 
 ```azurecli-interactive
-az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 1000 -Skip 3000
 ```
 
 > [!IMPORTANT]
 > La consulta debe **proyectar** el campo **id** para que la paginación funcione. Si no aparece en la consulta, la respuesta no incluirá **$skipToken**.
 
 Para ver un ejemplo, consulte [Next page query](/rest/api/azureresourcegraph/resources/resources#next-page-query) (Consulta de página siguiente) en la documentación de la API REST.
+
+## <a name="formatting-results"></a>Resultados de formato
+
+Los resultados de una consulta de Resource Graph se proporcionan en dos formatos, _Table_ y _ObjectArray_. El formato se configura con el parámetro **resultFormat** como parte de las opciones de solicitud. El formato _Table_ es el valor predeterminado para **resultFormat**.
+
+De forma predeterminada, los resultados de la CLI de Azure se proporcionan en JSON. Los resultados en Azure PowerShell son un objeto **PSCustomObject** de forma predeterminada, pero se pueden convertir rápidamente a JSON mediante el cmdlet `ConvertTo-Json`. En el caso de otros SDK, los resultados de la consulta pueden configurarse para generar el formato _ObjectArray_.
+
+### <a name="format---table"></a>Formato: Table
+
+El formato predeterminado, _Table_, devuelve resultados en un formato JSON diseñado para resaltar el diseño de columna y los valores de fila de las propiedades devueltas por la consulta. Este formato se parece mucho a los datos definidos en una hoja de cálculo o tabla estructurada con las columnas identificadas primero y, a continuación, cada fila que representa datos alineada con esas columnas.
+
+Este es un ejemplo del resultado de una consulta con el formato _Table_:
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": {
+        "columns": [{
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "type",
+                "type": "string"
+            },
+            {
+                "name": "location",
+                "type": "string"
+            },
+            {
+                "name": "subscriptionId",
+                "type": "string"
+            }
+        ],
+        "rows": [
+            [
+                "veryscaryvm2-nsg",
+                "microsoft.network/networksecuritygroups",
+                "eastus",
+                "11111111-1111-1111-1111-111111111111"
+            ]
+        ]
+    },
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+### <a name="format---objectarray"></a>Formato: ObjectArray
+
+El formato _ObjectArray_ también devuelve resultados en formato JSON. Sin embargo, este diseño se alinea con la relación de par clave-valor común en JSON, donde los datos de columna y fila se relacionan en grupos de matrices.
+
+Este es un ejemplo del resultado de una consulta con el formato _ObjectArray_:
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": [{
+        "name": "veryscaryvm2-nsg",
+        "type": "microsoft.network/networksecuritygroups",
+        "location": "eastus",
+        "subscriptionId": "11111111-1111-1111-1111-111111111111"
+    }],
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+A continuación, se muestran ejemplos al establecer **resultFormat** para usar el formato _ObjectArray_:
+
+```csharp
+var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
+var request = new QueryRequest(subscriptions, "Resources | limit 1", options: requestOptions);
+```
+
+```python
+request_options = QueryRequestOptions(
+    result_format=ResultFormat.object_array
+)
+request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, options=request_options)
+response = client.resources(request)
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

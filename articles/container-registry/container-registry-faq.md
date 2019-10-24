@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: b365c914db0ce43da5dac4c5b889c854c0ea0639
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: cfa8efe0b73811474b1e50a7d2fb1e9abe9045c6
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827408"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286511"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -39,7 +39,7 @@ Sí. Consulte la documentación de [Twistlock](https://www.twistlock.com/2016/11
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>¿Cómo se configura Kubernetes con Azure Container Registry?
 
-Consulte la documentación de [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) y los pasos para [Azure Kubernetes Service](container-registry-auth-aks.md).
+Consulte la documentación de [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) y los pasos para [Azure Kubernetes Service](../aks/cluster-container-registry-integration.md).
 
 ### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>¿Cómo se pueden obtener las credenciales de administrador para un registro de contenedor?
 
@@ -420,7 +420,7 @@ Es posible que el explorador no pueda enviar la solicitud para capturar reposito
 * Bloqueadores de publicidad
 * Errores de DNS
 
-Póngase en contacto con el administrador de red o compruebe la configuración y la conectividad de la red. Además, también puede probar una sesión de incógnito o privada en el explorador para evitar cookies o memoria caché del explorador obsoletas.
+Póngase en contacto con el administrador de red o compruebe la configuración y la conectividad de la red. Intente ejecutar `az acr check-health -n yourRegistry` mediante la CLI de Azure para comprobar si el entorno puede conectarse a Azure Container Registry. Además, también puede probar una sesión de incógnito o privada en el explorador para evitar cookies o memoria caché del explorador obsoletas.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>¿Cómo se pueden recopilar los seguimientos http en Windows?
 

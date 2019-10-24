@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5b0d182e09a4978a4d9c1184f085e140e5c698bc
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: be639a67f70ab40f8d7dcc0f3793cbbd4a2ec4a3
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811712"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436812"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Creación de contenedores con una clave de partición de gran tamaño
 
@@ -21,7 +21,7 @@ Las claves de partición de gran tamaño se admiten mediante el uso de la funcio
 
 ## <a name="create-a-large-partition-key-azure-portal"></a>Creación de una clave de partición de gran tamaño (Azure Portal)
 
-Para crear una clave de partición de gran tamaño, mientras crea un contenedor con Azure Portal, active la opción **My partition key is larger than 100-bytes** (Mi clave de partición tiene más de 100 bytes). De manera predeterminada, todos los contenedores nuevos usan las claves de partición de gran tamaño. Desactive la casilla si no necesita claves de partición de gran tamaño o si tiene aplicaciones que ejecutan una versión de SDK anterior a 1.18.
+Para crear una clave de partición de gran tamaño, cuando crea un contenedor con Azure Portal, active la opción **My partition key is larger than 100-bytes** (Mi clave de partición tiene más de 100 bytes). Desactive la casilla si no necesita claves de partición de gran tamaño o si tiene aplicaciones que ejecutan una versión de SDK anterior a 1.18.
 
 ![Creación de claves de partición de gran tamaño con Azure Portal](./media/large-partition-keys/large-partition-key-with-portal.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 4571b0e1a2c9207ce913901f11157f5155201393
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7ca6f1bda2dff9a8a9e54cb9d9ce5fd2d34c7245
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100037"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428078"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -38,7 +38,7 @@ ms.locfileid: "70100037"
 [sles-pacemaker]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker
 [sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
 [nfs-ha]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs
-[sles-ha-guide]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
+[sles-ha-guide]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP4/
 [ascs-ha]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse
 
 [dbms-guide]:dbms-guide.md
@@ -80,8 +80,8 @@ Antes de comenzar una instalación, consulte la documentación y notas SAP sigui
 | [Implementación de máquinas virtuales de Azure para SAP en Linux][deployment-guide] (este artículo) |
 | Guía [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP][dbms-guide] |
 | [Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure][azr-sap-plancheck] |
-| [Guías de procedimientos recomendados de SUSE Linux Enterprise Server for SAP Applications 12 SP3][sles-for-sap-bp] |
-| [SUSE Linux Enterprise High Availability Extension 12 SP3][sles-ha-guide] |
+| [Guías de procedimientos recomendados de SUSE Linux Enterprise Server for SAP Applications 12 SP4][sles-for-sap-bp] |
+| [SUSE Linux Enterprise High Availability Extension 12 SP4][sles-ha-guide] |
 | [Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP][dbms-db2] |
 | [IBM Db2 HADR 11.1][db2-hadr-11.1] |
 | [IBM Db2 HADR R 10.5][db2-hadr-10.5] |
@@ -149,7 +149,7 @@ Haga una lista de todos los nombres de host, incluidos los nombres de host virtu
 
 ### <a name="manual-deployment"></a>Implementación manual
 
-Asegúrese de que el SO seleccionado sea compatible con IBM/SAP para IBM Db2 LUW. La lista de versiones de SO admitidas para máquinas virtuales de Azure y las versiones de Db2 está disponible en la nota de SAP [1928533]. La lista de las versiones de SO por versión de Db2 individual está disponible en la matriz de disponibilidad de productos de SAP. Se recomienda un mínimo de SLES 12 SP3 debido a las mejoras de rendimiento relacionados con Azure en esta versión o versiones posteriores de SUSE Linux.
+Asegúrese de que el SO seleccionado sea compatible con IBM/SAP para IBM Db2 LUW. La lista de versiones de SO admitidas para máquinas virtuales de Azure y las versiones de Db2 está disponible en la nota de SAP [1928533]. La lista de las versiones de SO por versión de Db2 individual está disponible en la matriz de disponibilidad de productos de SAP. Se recomienda un mínimo de SLES 12 SP4 debido a las mejoras de rendimiento relacionados con Azure en esta versión o versiones posteriores de SUSE Linux.
 
 1. Cree o seleccione un grupo de recursos.
 1. Cree o seleccione una red virtual y subred.

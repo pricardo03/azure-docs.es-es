@@ -3,13 +3,13 @@ ms.topic: include
 ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
-ms.date: 04/29/2019
-ms.openlocfilehash: 8a3c630b54ff95a9b1200e2421c787a514a0aa52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/09/2019
+ms.openlocfilehash: 61842a8f410d972c21614f625f7d4f36476cb239
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431036"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72259105"
 ---
 ## <a name="business-disaster-recovery"></a>Recuperación ante desastres de la empresa
 
@@ -24,6 +24,7 @@ Entre las características de alta disponibilidad adicionales proporcionadas med
 - **Conmutación por error**: Azure proporciona [replicación geográfica y equilibrio de carga](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
 - **Restauración de datos** y **recuperación del almacenamiento**: Azure proporciona [varias opciones para conservar y recuperar datos](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
 - **Recuperación del sitio**: Azure proporciona características de recuperación del sitio a través de [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+- **Azure Backup**: [Azure Backup ](https://docs.microsoft.com/azure/backup/backup-architecture) admite la copia de seguridad local y en la nube de las máquinas virtuales de Azure.
 
 Asegúrese de habilitar las características de Azure pertinentes para proporcionar una alta disponibilidad global entre regiones para los dispositivos y usuarios.
 

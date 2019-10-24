@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: ab5af0e5971b91f45cbb12b4d0583caafa5ad504
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d79cefa9adec403ebbb5105351d2909eac9d02a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079658"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390498"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creación de una máquina virtual a partir de un VHD mediante Azure Portal
 
@@ -34,6 +34,7 @@ Hay varias maneras de crear una máquina virtual en Azure:
 
 No use un disco especializado si desea crear varias máquinas virtuales. En su lugar, para implementaciones más grandes, debe [crear una imagen](capture-image-resource.md) y, a continuación, [usarla para crear varias máquinas virtuales](create-vm-generalized-managed.md).
 
+Se recomienda limitar el número de implementaciones simultáneas desde una sola instantánea o VHD a 20 máquinas virtuales. 
 
 ## <a name="copy-a-disk"></a>Copiar un disco
 
@@ -74,6 +75,7 @@ Una vez que tenga el VHD del disco administrado que quiere usar, puede crear la 
 10. En la página **Configuración de invitado**, agregue extensiones según sea necesario.
 11. Seleccione **Revisar y crear** cuando haya terminado. 
 12. Si la configuración de la máquina virtual supera la validación, seleccione **Crear** para iniciar la implementación.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,22 +9,22 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: d3e22df76124185c1e23f04f59145e12a1fec023
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b3aa6d06add1d80512eda0e62888b4a36760e98c
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164261"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274800"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Time Series Insights mediante plantillas de Azure Resource Manager
 
-En este artículo se describe cómo crear e implementar recursos de Time Series Insights mediante plantillas de Azure Resource Manager, PowerShell y el proveedor de recursos de Time Series Insights.
+En este artículo se describe cómo crear e implementar recursos de Time Series Insights mediante [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell y el proveedor de recursos de Time Series Insights.
 
 Time Series Insights admite los siguientes recursos:
 
-   | Recurso | DESCRIPCIÓN |
+   | Resource | DESCRIPCIÓN |
    | --- | --- |
    | Entorno | Un entorno de Time Series Insights es una agrupación lógica de eventos que se leen en los agentes de eventos, se almacenan y están disponibles para consulta. Para más información, consulte [Planeamiento del entorno de Azure Time Series Insights](time-series-insights-environment-planning.md). |
    | Origen de eventos | Un origen de eventos es una conexión a un agente de eventos del que Time Series Insights lee e ingiere eventos en el entorno. Los orígenes de eventos actualmente admitidos son IoT Hub y Event Hub. |
@@ -47,7 +47,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
 1. Instale Azure PowerShell siguiendo las instrucciones de [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introducción a Azure PowerShell).
 
-1. Clone o copie la plantilla [201-timeseriesinsights-environment-with-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) de GitHub.
+1. Clone o copie la plantilla [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) de GitHub.
 
    * Creación de un archivo de parámetros
 
@@ -208,7 +208,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
        DeploymentName          : MyDemoDeployment
        ResourceGroupName       : MyDemoRG
        ProvisioningState       : Succeeded
-       Timestamp               : 5/8/2019 10:28:34 PM
+       Timestamp               : 10/11/2019 3:20:37 AM
        Mode                    : Incremental
        TemplateLink            :
        Parameters              :

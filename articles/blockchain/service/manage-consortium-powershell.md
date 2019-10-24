@@ -1,21 +1,21 @@
 ---
-title: Administración de los miembros de un consorcio de Azure Blockchain Service mediante Azure PowerShell
+title: Administración de los miembros de Azure Blockchain Service mediante Azure PowerShell
 description: Aprenda a administrar los miembros de un consorcio de Azure Blockchain Service mediante Azure PowerShell.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/10/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 9f76597a91c0e22f57d1ba66ff1a16eea9002af0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c35a3bd99518825805c2f29cfdc586e1ccf5b0bb
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250083"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329178"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>Administración de los miembros del consorcio en Azure Blockchain Service mediante PowerShell
 
@@ -151,6 +151,8 @@ Use este cmdlet para obtener detalles de los miembros o enumerar los miembros de
 
 #### <a name="example"></a>Ejemplo
 
+[Establezca una conexión Web3](#establish-a-web3-connection) para definir la variable $ContractConnection.
+
 ```powershell-interactive
 $ContractConnection | Get-BlockchainMember -Name <Member Name>
 ```
@@ -181,6 +183,8 @@ Use este cmdlet para quitar a un miembro de la cadena de bloques.
 
 #### <a name="example"></a>Ejemplo
 
+[Establezca una conexión Web3](#establish-a-web3-connection) para definir las variables $ContractConnection y $MemberAccount.
+
 ```powershell-interactive
 $ContractConnection | Remove-BlockchainMember -Name <Member Name> -Web3Account $MemberAccount
 ```
@@ -206,6 +210,8 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
 | Web3Client |  Objeto Web3Client obtenido de New-Web3Connection| Sí |
 
 #### <a name="example"></a>Ejemplo
+
+[Establezca una conexión Web3](#establish-a-web3-connection) para definir las variables $ContractConnection y $MemberAccount.
 
 ```powershell-interactive
 $ContractConnection | Set-BlockchainMember -Name <Member Name> -DisplayName <Display name> -Web3Account $MemberAccount
@@ -234,6 +240,8 @@ New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 
 #### <a name="example"></a>Ejemplo
 
+[Establezca una conexión Web3](#establish-a-web3-connection) para definir las variables $ContractConnection y $MemberAccount.
+
 ```powershell-interactive
 $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subscription ID> -Role USER -Web3Account $MemberAccount
 ```
@@ -251,6 +259,8 @@ Use este cmdlet para recuperar o enumerar el estado de la invitación de un miem
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
 
 #### <a name="example"></a>Ejemplo
+
+[Establezca una conexión Web3](#establish-a-web3-connection) para definir la variable $ContractConnection.
 
 ```powershell-interactive
 $ContractConnection | Get-BlockchainMemberInvitation – SubscriptionId <Azure subscription ID>
@@ -282,6 +292,8 @@ Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> 
 
 #### <a name="example"></a>Ejemplo
 
+[Establezca una conexión Web3](#establish-a-web3-connection) para definir las variables $ContractConnection y $MemberAccount.
+
 ```powershell-interactive
 $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscription ID> -Web3Account $MemberAccount
 ```
@@ -304,6 +316,8 @@ Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
 
 #### <a name="example"></a>Ejemplo
+
+[Establezca una conexión Web3](#establish-a-web3-connection) para definir las variables $ContractConnection y $MemberAccount.
 
 ```powershell-interactive
 $ContractConnection | Set-BlockchainMemberInvitation -SubscriptionId <Azure subscription ID> -Role USER -Web3Account $MemberAccount

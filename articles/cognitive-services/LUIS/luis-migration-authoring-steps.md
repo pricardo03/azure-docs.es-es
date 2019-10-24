@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7e79d3119f5d2d0fe1894de0ab9535dd988706f8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: e1e89612ee48aaf5ee9bda51f954add426bf6720
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935216"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516802"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Pasos para migrar al recurso de creación de Azure
 
@@ -91,7 +91,7 @@ El proceso de migración está disponible si es el propietario de cualquier apli
 
     No es necesario conocer la clave del recurso de creación para seguir editando las aplicaciones en el portal de LUIS. Si tiene previsto editar las aplicaciones mediante programación, necesita los valores de clave de creación. Estos valores se muestran en la página **Administrar -> Recursos de Azure** en el portal de LUIS y también están disponibles en la página **Claves** del recurso de Azure Portal.  
 
-1. Antes de obtener acceso a las aplicaciones, seleccione la suscripción y el recurso de creación de LUIS para ver las aplicaciones que puede crear.
+1. Antes de acceder a las aplicaciones, seleccione la suscripción y el recurso de creación de LUIS para ver las aplicaciones que puede crear.
 
     ![Seleccione la suscripción y el recurso de creación de LUIS para ver las aplicaciones que puede crear.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
 

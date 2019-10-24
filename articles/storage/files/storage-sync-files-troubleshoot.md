@@ -4,15 +4,15 @@ description: Solución de problemas comunes con Azure File Sync.
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e07d154ce5dae8a461bf9db19303db685f8a4152
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 31a9eda0e17083aac25be071c1d1a3ab84049e39
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103076"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274883"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -797,6 +797,17 @@ Para resolver este problema, elimine y vuelva a crear el grupo de sincronizació
 4. Si se ha habilitado la nube por niveles en un punto de conexión de servidor, elimine los archivos en niveles huérfanos en el servidor mediante los pasos descritos en la sección [No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
 5. Volver a crear el grupo de sincronización.
 
+<a id="-2145844941"></a>**Error de sincronización porque se redirigió la solicitud HTTP**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80190133 |
+| **HRESULT (decimal)** | -2145844941 |
+| **Cadena de error** | HTTP_E_STATUS_REDIRECT_KEEP_VERB |
+| **Se requiere una corrección** | Sí |
+
+Este error se produce porque Azure File Sync no admite el redireccionamiento de HTTP (código de estado 3xx). Para resolver este problema, deshabilite el redireccionamiento de HTTP en el servidor proxy o en el dispositivo de red.
+
 ### <a name="common-troubleshooting-steps"></a>Pasos comunes de solución de problemas
 <a id="troubleshoot-storage-account"></a>**Compruebe que la cuenta de almacenamiento existe.**  
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
@@ -1008,7 +1019,22 @@ Si no se pueden recuperar archivos:
         - En un símbolo del sistema con privilegios elevados, ejecute `fltmc`. Compruebe que aparecen los controladores de filtro del sistema de archivos StorageSync.sys y StorageSyncGuard.sys.
 
 > [!NOTE]
-> El identificador de evento 9006 se registra una vez cada hora en el registro de eventos de telemetría si el archivo no puede recuperarse (se registra un evento por cada código de error). Se deben utilizar los registros de eventos operativos y de diagnóstico si se necesita información adicional para diagnosticar un problema.
+> El identificador de evento 9006 se registra una vez cada hora en el registro de eventos de telemetría si el archivo no puede recuperarse (se registra un evento por cada código de error). Consulte la sección [Errores de coincidencia y corrección ](#recall-errors-and-remediation) para ver si se muestran los pasos de corrección del código de error.
+
+### <a name="recall-errors-and-remediation"></a>Errores de coincidencia y corrección
+
+| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80070079 | -121 | ERROR_SEM_TIMEOUT | El archivo no se recuperó debido a un tiempo de expiración de E/S. Este problema puede aparecer por varias razones: las restricciones de recursos del servidor, una conectividad de red deficiente o un problema de Azure Storage (por ejemplo, la limitación). | No es necesaria ninguna acción. Si el error persiste durante varias horas, abra una incidencia de soporte técnico. |
+| 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | El archivo no se recuperó debido a una incidencia en la red.  | Si el error no desaparece, compruebe la conectividad de red con el recurso compartido de archivos de Azure. |
+| 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | El archivo no se recuperó debido a que se eliminó el punto de conexión del servidor. | Para resolver este problema, consulte [No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | El archivo no se recuperó debido a un error de acceso denegado. Este problema puede producirse en la configuración del archivo no se puede sincronizar porque el firewall y la configuración de red virtual de la cuenta de almacenamiento están habilitados y el servidor no tiene acceso a la cuenta de almacenamiento. | Para resolver esta incidencia, agregue la dirección IP del servidor o la red virtual siguiendo los pasos descritos en la sección [Configuración de los ajustes de red virtual y del firewall](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) en la guía de implementación. |
+| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | El archivo no se recuperó porque no se puede acceder a él en el recurso compartido de archivos de Azure. | Para resolver esta incidencia, compruebe que el archivo existe en el recurso compartido de archivos de Azure. Si existe, realice la actualización a la [versión más reciente del agente](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions) de Azure File Sync. |
+| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | El archivo no se recuperó debido a un error de autorización en la cuenta de almacenamiento. | Para resolver esta incidencia, compruebe que [Azure File Sync tiene acceso a la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
+| 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | El archivo no se recuperó porque no se puede acceder al recurso compartido de archivos de Azure. | Compruebe que el recurso compartido de archivos existe y que es posible acceder a él. Si el recurso compartido de archivos se ha eliminado y se ha vuelto a crear, realice los pasos documentados en la sección [Error de sincronización porque se eliminó el recurso compartido de archivos de Azure y se volvió a crear](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) para eliminar y volver a crear el grupo de sincronización. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | El archivo no se recuperó porque no hay suficientes recursos en el sistema. | Si el error no desaparece, investigue qué aplicación o controlador del modo kernel está agotando los recursos del sistema. |
+| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | El archivo no se recuperó porque no hay suficiente memoria. | Si el error no desaparece, investigue qué aplicación o controlador del modo kernel provocan el estado de poca memoria. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | El archivo no se recuperó porque no hay suficiente espacio en el disco. | Para resolver esta incidencia, libere espacio en el volumen moviendo los archivos a otro volumen, aumente el tamaño del volumen o fuerce los archivos a organizarse en niveles mediante el cmdlet Invoke-StorageSyncCloudTiering. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor
 Los archivos en niveles se volverán inaccesibles si no se recuperan antes de eliminar el punto de conexión de servidor.

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 4d801ada8fd8a8b35c71601d3ca274f26afb24f6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 90f3e80c92cd4409a77d4661462ae027c535eaf7
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262274"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434289"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registros de consultas lentas en Azure Database for MySQL
 En Azure Database for MySQL, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema.
@@ -40,6 +40,9 @@ Otros parámetros que se pueden ajustar son los siguientes:
 - **log_queries_not_using_indexes**: determina si las consultas que no utilizan índices se registran en slow_query_log.
 - **log_throttle_queries_not_using_indexes**: este parámetro limita el número de consultas que no son de índice que se pueden escribir en el registro de consultas lentas. Este parámetro surte efecto cuando log_queries_not_using_indexes está configurado en ON.
 
+> [!Note]
+> Para `sql_text`, el registro se truncará si supera los 2048 caracteres.
+
 Consulte la [documentación rel registro de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) de MySQL para obtener una descripción completa de los parámetros de registro de consultas lentas.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
@@ -66,8 +69,8 @@ En la tabla siguiente se describe lo que contiene cada registro. En función del
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nombre del servidor |
 | `start_time_t` [UTC] | Hora de inicio de la consulta |
-| `query_time_s` | Tiempo total que tardó en ejecutarse la consulta |
-| `lock_time_s` | Tiempo total durante el que se bloqueó la consulta |
+| `query_time_s` | Tiempo total en segundos que tardó en ejecutarse la consulta |
+| `lock_time_s` | Tiempo total en segundos durante el que se bloqueó la consulta |
 | `user_host_s` | Nombre de usuario |
 | `rows_sent_s` | Número de filas enviadas |
 | `rows_examined_s` | Número de filas examinadas |

@@ -11,12 +11,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eeb80c3a94e63a886e4a16c0b8fa445b2a8a34e4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64918495"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515822"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS 
 
@@ -34,12 +34,12 @@ En la siguiente tabla se proporciona un resumen de los permisos necesarios en lo
 
 | Característica | Permisos |
 | --- | --- |
-| característica ms-DS-ConsistencyGuid |Permisos de escritura para el atributo msDS-ConsistencyGuid documentado en [Conceptos de diseño: Uso de msDS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
+| característica ms-DS-ConsistencyGuid |Permisos de lectura y escritura para el atributo ms-DS-ConsistencyGuid documentado en [Conceptos de diseño: Uso de ms-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Sincronización de hash de contraseñas |<li>Replicación de cambios de directorio</li>  <li>Replicación de todos los cambios de directorio |
-| Implementación híbrida de Exchange |Permisos de escritura en los atributos que se documentan en [Escritura diferida híbrida de Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuarios, grupos y contactos. |
+| Implementación híbrida de Exchange |Permisos de lectura y escritura en los atributos que se documentan en [Escritura diferida híbrida de Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuarios, grupos y contactos. |
 | Carpeta pública de correo de Exchange |Permisos de lectura para los atributos que se documentan en [carpetas públicas de correo electrónico de Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para las carpetas públicas. | 
-| escritura diferida de contraseñas |Permisos de escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../authentication/howto-sspr-writeback.md) para los usuarios. |
-| Escritura diferida de dispositivos |Permisos de escritura a objetos de dispositivo y contenedores que se documentan en [la escritura diferida de dispositivo](how-to-connect-device-writeback.md). |
+| escritura diferida de contraseñas |Permisos de lectura y escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../authentication/howto-sspr-writeback.md) para los usuarios. |
+| Escritura diferida de dispositivos |Permisos de lectura y escritura a objetos de dispositivo y contenedores que se documentan en la [escritura diferida de dispositivo](how-to-connect-device-writeback.md). |
 | Escritura diferida de grupos |Objetos de grupo Leer, Crear, Actualizar y Eliminar para **grupos de Office 365** sincronizados.  Para más información, vea [Escritura diferida de grupos](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Usar el módulo de PowerShell ADSyncConfig 
@@ -136,15 +136,15 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Este cmdlet establecerá los siguientes permisos: 
  
 
-|Type |NOMBRE |Access |Se aplica a| 
+|type |NOMBRE |Access |Se aplica a| 
 |-----|-----|-----|-----|
-|PERMITIR |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del dispositivo descendientes| 
-|PERMITIR |Cuenta del conector de AD DS|Lectura de todas las propiedades |Objetos InetOrgPerson descendientes| 
-|PERMITIR |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del equipo descendientes| 
-|PERMITIR |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos foreignSecurityPrincipal descendientes| 
-|PERMITIR |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del grupo descendientes| 
-|PERMITIR |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del usuario descendientes| 
-|PERMITIR |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del contacto descendiente| 
+|Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del dispositivo descendientes| 
+|Allow |Cuenta del conector de AD DS|Lectura de todas las propiedades |Objetos InetOrgPerson descendientes| 
+|Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del equipo descendientes| 
+|Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos foreignSecurityPrincipal descendientes| 
+|Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del grupo descendientes| 
+|Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del usuario descendientes| 
+|Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del contacto descendiente| 
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurar los permisos de MS-DS-Consistency-Guid 
@@ -162,9 +162,9 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Este cmdlet establecerá los siguientes permisos: 
 
-|Type |NOMBRE |Access |Se aplica a|
+|type |NOMBRE |Access |Se aplica a|
 |-----|-----|-----|-----| 
-|PERMITIR|Cuenta del conector de AD DS|Propiedad de lectura/escritura|Objetos del usuario descendientes|
+|Allow|Cuenta del conector de AD DS|Propiedad de lectura/escritura|Objetos del usuario descendientes|
 
 ### <a name="permissions-for-password-hash-synchronization"></a>Permisos para la sincronización del hash de contraseñas 
 Para establecer los permisos de la cuenta del conector de AD DS cuando se usa la sincronización del hash de contraseñas, ejecute lo siguiente: 
@@ -182,10 +182,10 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Este cmdlet establecerá los siguientes permisos: 
 
-|Type |NOMBRE |Access |Se aplica a|
+|type |NOMBRE |Access |Se aplica a|
 |-----|-----|-----|-----| 
-|PERMITIR |Cuenta del conector de AD DS |Replicación de los cambios de directorio |Solo este objeto (raíz del dominio)| 
-|PERMITIR |Cuenta del conector de AD DS |Replicación de todos los cambios de directorio |Solo este objeto (raíz del dominio)| 
+|Allow |Cuenta del conector de AD DS |Replicación de los cambios de directorio |Solo este objeto (raíz del dominio)| 
+|Allow |Cuenta del conector de AD DS |Replicación de todos los cambios de directorio |Solo este objeto (raíz del dominio)| 
   
 ### <a name="permissions-for-password-writeback"></a>Permisos de escritura diferida de contraseñas 
 Para establecer los permisos de la cuenta del conector de AD DS cuando se usa la escritura diferida de contraseñas, ejecute lo siguiente: 
@@ -202,11 +202,11 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Este cmdlet establecerá los siguientes permisos: 
 
-|Type |NOMBRE |Access |Se aplica a|
+|type |NOMBRE |Access |Se aplica a|
 |-----|-----|-----|-----| 
-|PERMITIR |Cuenta del conector de AD DS |Restablecimiento de contraseña |Objetos del usuario descendientes| 
-|PERMITIR |Cuenta del conector de AD DS |Escritura del elemento lockoutTime de la propiedad |Objetos del usuario descendientes| 
-|PERMITIR |Cuenta del conector de AD DS |Escritura del elemento pwdLastSet de la propiedad |Objetos del usuario descendientes| 
+|Allow |Cuenta del conector de AD DS |Restablecimiento de contraseña |Objetos del usuario descendientes| 
+|Allow |Cuenta del conector de AD DS |Escritura del elemento lockoutTime de la propiedad |Objetos del usuario descendientes| 
+|Allow |Cuenta del conector de AD DS |Escritura del elemento pwdLastSet de la propiedad |Objetos del usuario descendientes| 
 
 ### <a name="permissions-for-group-writeback"></a>Permisos de escritura diferida de grupos 
 Para establecer los permisos de la cuenta del conector de AD DS cuando se usa la escritura diferida de grupos, ejecute lo siguiente: 
@@ -222,11 +222,11 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 Este cmdlet establecerá los siguientes permisos: 
 
-|Type |NOMBRE |Access |Se aplica a|
+|type |NOMBRE |Access |Se aplica a|
 |-----|-----|-----|-----| 
-|PERMITIR |Cuenta del conector de AD DS |Lectura/escritura genérica |Todos los atributos del grupo de tipo de objeto y subobjetos| 
-|PERMITIR |Cuenta del conector de AD DS |Creación o eliminación de los objetos secundarios |Todos los atributos del grupo de tipo de objeto y subobjetos| 
-|PERMITIR |Cuenta del conector de AD DS |Eliminación/eliminación de objetos de árbol|Todos los atributos del grupo de tipo de objeto y subobjetos|
+|Allow |Cuenta del conector de AD DS |Lectura/escritura genérica |Todos los atributos del grupo de tipo de objeto y subobjetos| 
+|Allow |Cuenta del conector de AD DS |Creación o eliminación de los objetos secundarios |Todos los atributos del grupo de tipo de objeto y subobjetos| 
+|Allow |Cuenta del conector de AD DS |Eliminación/eliminación de objetos de árbol|Todos los atributos del grupo de tipo de objeto y subobjetos|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Permisos para la implementación híbrida de Exchange 
 Para establecer los permisos de la cuenta del conector de AD DS cuando se usa la implementación híbrida de Exchange, ejecute lo siguiente: 
@@ -245,12 +245,12 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Este cmdlet establecerá los siguientes permisos:  
  
 
-|Type |NOMBRE |Access |Se aplica a|
+|type |NOMBRE |Access |Se aplica a|
 |-----|-----|-----|-----| 
-|PERMITIR |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos del usuario descendientes| 
-|PERMITIR |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos InetOrgPerson descendientes| 
-|PERMITIR |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos del grupo descendientes| 
-|PERMITIR |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos del contacto descendiente| 
+|Allow |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos del usuario descendientes| 
+|Allow |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos InetOrgPerson descendientes| 
+|Allow |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos del grupo descendientes| 
+|Allow |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos del contacto descendiente| 
 
 ### <a name="permissions-for-exchange-mail-public-folders-preview"></a>Permisos para carpetas públicas de correo de Exchange (versión preliminar) 
 Para establecer los permisos de la cuenta del conector de AD DS cuando se usa la característica de las carpetas públicas de correo de Exchange, ejecute lo siguiente: 
@@ -267,9 +267,9 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Este cmdlet establecerá los siguientes permisos: 
 
-|Type |NOMBRE |Access |Se aplica a|
+|type |NOMBRE |Access |Se aplica a|
 |-----|-----|-----|-----| 
-|PERMITIR |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos PublicFolder descendientes| 
+|Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos PublicFolder descendientes| 
 
 ### <a name="restrict-permissions-on-the-ad-ds-connector-account"></a>Restringir los permisos en la cuenta del conector de AD DS 
 Este script de PowerShell reforzará los permisos para la cuenta del conector de AD que se proporcionó como parámetro. Para limitar los permisos, es necesario realizar los pasos siguientes: 
@@ -292,18 +292,18 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Este cmdlet establecerá los siguientes permisos: 
 
-|Type |NOMBRE |Access |Se aplica a|
+|type |NOMBRE |Access |Se aplica a|
 |-----|-----|-----|-----| 
-|PERMITIR |SYSTEM |Control total |Este objeto 
-|PERMITIR |Administradores de empresas |Control total |Este objeto 
-|PERMITIR |Administradores de dominio |Control total |Este objeto 
-|PERMITIR |Administradores |Control total |Este objeto 
-|PERMITIR |Enterprise Domain Controllers |Contenido de la lista |Este objeto 
-|PERMITIR |Enterprise Domain Controllers |Lectura de todas las propiedades |Este objeto 
-|PERMITIR |Enterprise Domain Controllers |Permisos de lectura |Este objeto 
-|PERMITIR |Usuarios autenticados |Contenido de la lista |Este objeto 
-|PERMITIR |Usuarios autenticados |Lectura de todas las propiedades |Este objeto 
-|PERMITIR |Usuarios autenticados |Permisos de lectura |Este objeto 
+|Allow |SYSTEM |Control total |Este objeto 
+|Allow |Administradores de empresas |Control total |Este objeto 
+|Allow |Administradores de dominio |Control total |Este objeto 
+|Allow |Administradores |Control total |Este objeto 
+|Allow |Enterprise Domain Controllers |Contenido de la lista |Este objeto 
+|Allow |Enterprise Domain Controllers |Lectura de todas las propiedades |Este objeto 
+|Allow |Enterprise Domain Controllers |Permisos de lectura |Este objeto 
+|Allow |Usuarios autenticados |Contenido de la lista |Este objeto 
+|Allow |Usuarios autenticados |Lectura de todas las propiedades |Este objeto 
+|Allow |Usuarios autenticados |Permisos de lectura |Este objeto 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Azure AD Connect: cuentas y permisos](reference-connect-accounts-permissions.md)

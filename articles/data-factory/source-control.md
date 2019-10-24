@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: fd8168b5786f669de0c5c2109c9e02b43c62c582
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f3d443eed43cc1e131cd3dc47407ce2dfb023ce8
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933649"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326376"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 
@@ -25,6 +25,9 @@ La experiencia de la interfaz de usuario (UX) de Azure Data Factory tiene dos mo
 
 - Creación directa con el servicio Data Factory
 - Creación con la integración de Git o GitHub de Azure Repos
+
+> [!NOTE]
+> Solo se admite la creación directa con el servicio Data Factory en la nube de Azure Government.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>Creación directa con el servicio Data Factory
 

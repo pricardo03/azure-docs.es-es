@@ -1,6 +1,6 @@
 ---
 title: Elemento de interfaz de usuario Section de Azure | Microsoft Docs
-description: Describe el elemento de la interfaz de usuario Microsoft.Common.Section para Azure Portal.
+description: Describe el elemento de la interfaz de usuario Microsoft.Common.Section para Azure Portal. Se usa para agrupar elementos en el portal para implementar aplicaciones administradas.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: c89b45dd4d8e6c2964f3d2bcbb6c3cef445c79e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a48c89785e0a448609026aab53364f6cf704e948
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698890"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331647"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.Section
 Control que agrupa uno o varios elementos en un encabezado.

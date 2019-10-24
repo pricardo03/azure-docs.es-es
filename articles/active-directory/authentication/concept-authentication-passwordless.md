@@ -5,28 +5,40 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab48579c6eda085d77e2a6ab080b0a4a1ce806bd
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 89b52f356b112cff51105ed44c79788ee4542c6e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000333"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430493"
 ---
-# <a name="what-is-passwordless"></a>¿Qué quiere decir sin contraseña?
+# <a name="passwordless-authentication-options"></a>Opciones de autenticación sin contraseña
 
 La autenticación multifactor (MFA) es una excelente manera de proteger la organización, aunque los usuarios se frustran con el paso que se suma a tener que recordar sus contraseñas. Los métodos de autenticación sin contraseña resultan más cómodos, ya que la contraseña se quita y se reemplaza por algo que se tiene más algo que se es o se sabe.
 
 |   | Algo que se tiene | Algo que se es o se sabe |
 | --- | --- | --- |
-| Inicio de sesión sin contraseña | Clave de seguridad o teléfono | PIN o biométrica |
+| Inicio de sesión sin contraseña | Dispositivo, teléfono o clave de seguridad con Windows 10 | PIN o biométrica |
 
-Cada organización tiene diferentes necesidades en cuanto a la autenticación. Microsoft ofrece actualmente Windows Hello para equipos Windows. Incorporamos la aplicación Microsoft Authenticator y las claves de seguridad FIDO2 a la familia de las opciones sin contraseñas.
+Cada organización tiene diferentes necesidades en cuanto a la autenticación. Microsoft ofrece tres opciones de autenticación sin contraseña:
+
+- Windows Hello para empresas 
+- Aplicación Microsoft Authenticator 
+- Claves de seguridad FIDO2
+
+![Autenticación: Seguridad frente a comodidad](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
+
+## <a name="windows-hello-for-business"></a>Windows Hello para empresas 
+
+Windows Hello para empresas resulta muy conveniente para los trabajadores de la información que tienen su propio PC con Windows designado. La información biométrica y el PIN están directamente asociados con el equipo del usuario, lo que impide que cualquier otra persona que no sea el propietario pueda obtener acceso. Con la integración de PKI y la compatibilidad integrada con el inicio de sesión único (SSO), Windows Hello para empresas ofrece un método sencillo y práctico de acceder completamente a los recursos corporativos del entorno local y la nube.
+
+La [guía de planeamiento](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) de Windows Hello para empresas se puede usar para ayudarle a tomar decisiones sobre el tipo de implementación y las opciones que es necesario tener en cuenta.
 
 ## <a name="microsoft-authenticator-app"></a>Aplicación Microsoft Authenticator
 
@@ -44,7 +56,7 @@ En la versión preliminar pública, los empleados pueden usar claves de segurida
 
 ![Inicio de sesión en Microsoft Edge con una clave de seguridad](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
-Aunque hay muchas claves certificadas como FIDO2 por FIDO Alliance, Microsoft requiere la implementación de algunas extensiones opcionales de la especificación FIDO2 CTAP por parte del proveedor para garantizar la máxima seguridad y la mejor experiencia.
+Aunque hay muchas claves certificadas como FIDO2 por FIDO Alliance, Microsoft necesita que el proveedor implemente algunas extensiones opcionales de la especificación Client-to-Authenticator Protocol (CTAP) FIDO2 para garantizar la máxima seguridad y la mejor experiencia.
 
 Una clave de seguridad **DEBE** implementar las siguientes extensiones y características del protocolo FIDO2 CTAP para ser compatible con Microsoft:
 
@@ -55,7 +67,7 @@ Una clave de seguridad **DEBE** implementar las siguientes extensiones y caracte
 | 3 | hmac-secret | Esta extensión garantiza que pueda iniciar sesión en el dispositivo cuando está sin conexión o en modo avión. |
 | 4 | Varias cuentas por RP | Esta característica garantiza que pueda usar la misma clave de seguridad en varios servicios, como Microsoft Account y Azure Active Directory. |
 
-Los siguientes proveedores ofrecen claves de seguridad FIDO2 o diferentes factores de forma que se sabe que son compatibles con la experiencia sin contraseña. Microsoft anima a los clientes a evaluar las propiedades de seguridad de estas claves al ponerse en contacto con el proveedor y con FIDO Alliance.
+Los siguientes proveedores ofrecen claves de seguridad FIDO2 o diferentes factores de forma que permiten iniciar sesión sin contraseña. Microsoft anima a los clientes a evaluar las propiedades de seguridad de estas claves al ponerse en contacto con el proveedor y con FIDO Alliance.
 
 | Proveedor | Contacto |
 | --- | --- |

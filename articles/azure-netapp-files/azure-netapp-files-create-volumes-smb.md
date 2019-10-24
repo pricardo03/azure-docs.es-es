@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827509"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300532"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -111,6 +111,9 @@ Debe haber una subred delegada en Azure NetApp Files.
     Aparece la conexión de Active Directory que creó.
 
     ![Conexiones de Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+
+> [!NOTE] 
+> Puede editar los campos de nombre de usuario y contraseña después de guardar la conexión de Active Directory. No se puede editar ningún otro valor después de guardar la conexión. Si necesita cambiar cualquier otro valor, primero debe eliminar todos los volúmenes SMB implementados y, a continuación, eliminar y volver a crear la conexión de Active Directory.
 
 ## <a name="add-an-smb-volume"></a>Incorporación de un volumen SMB
 

@@ -74,7 +74,7 @@ Si un contacto cubre más de un país o región, escriba cada uno de los código
 | Chequia                             | CZ        |
 | Chile                               | CL        |
 | China                               | CN        |
-| Isla Christmas                    | CX        |
+| Isla de Navidad                    | CX        |
 | Islas Cocos (Keeling)             | CC        |
 | Colombia                            | CO        |
 | Comores                             | KM        |
@@ -118,7 +118,7 @@ Si un contacto cubre más de un país o región, escriba cada uno de los código
 | Guadalupe                          | GP        |
 | Guam                                | GU        |
 | Guatemala                           | GT        |
-| Guernesey                            | GG        |
+| Guernsey                            | GG        |
 | Guinea                              | GN        |
 | Guinea-Bisáu                       | GW        |
 | Guayana                              | GY        |
@@ -207,7 +207,7 @@ Si un contacto cubre más de un país o región, escriba cada uno de los código
 | Puerto Rico                         | PR        |
 | Qatar                               | QA        |
 | Reunión                             | RE        |
-| Rumania                             | RO        |
+| Rumanía                             | RO        |
 | Rusia                              | RU        |
 | Ruanda                              | RW        |
 | San Bartolomé                    | BL        |

@@ -1,6 +1,6 @@
 ---
 title: Error RequestDisallowedByPolicy con la directiva de recursos de Azure | Microsoft Docs
-description: Describe la causa del error RequestDisallowedByPolicy.
+description: Describe la causa del error RequestDisallowedByPolicy al implementar recursos con Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e862637c688fd473b112fdfc0ee197da0444d02f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c791342bf68f84f6893e549d8528d1a861aa9040
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121232"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390301"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Error RequestDisallowedByPolicy con la directiva de recursos de Azure
 

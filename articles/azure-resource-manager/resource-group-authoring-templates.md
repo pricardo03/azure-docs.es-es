@@ -4,14 +4,14 @@ description: Describe la estructura y las propiedades de plantillas de Azure Res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d479935bc9e4bd731b93d3e027644b9ca4dbe0
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: e5ef3dcd7c2eec08237d5eb31fb95a0e450d9ac9
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694974"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286724"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -66,7 +66,7 @@ Las propiedades disponibles para un parámetro son:
     "minLength": <minimum-length-for-string-or-array>,
     "maxLength": <maximum-length-for-string-or-array-parameters>,
     "metadata": {
-      "description": "<description-of-the parameter>" 
+      "description": "<description-of-the parameter>"
     }
   }
 }
@@ -107,8 +107,8 @@ En el ejemplo siguiente se muestran las opciones disponibles para definir una va
 ```json
 "variables": {
   "<variable-name>": "<variable-value>",
-  "<variable-name>": { 
-    <variable-complex-type-value> 
+  "<variable-name>": {
+    <variable-complex-type-value>
   },
   "<variable-object-name>": {
     "copy": [
@@ -252,7 +252,7 @@ Defina recursos con la siguiente estructura:
 | properties |Sin |Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. También puede especificar una matriz de copia para crear varias instancias de una propiedad. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |
 | sku | Sin | Algunos recursos permiten valores que definen la SKU que se va a implementar. Por ejemplo, puede especificar el tipo de redundancia para una cuenta de almacenamiento. |
 | kind | Sin | Algunos recursos permiten un valor que define el tipo de recurso que va a implementar. Por ejemplo, puede especificar el tipo de instancia de Cosmos DB que va a crear. |
-| plan | Sin | Algunos recursos permiten valores que definen el plan que se va a implementar. Por ejemplo, puede especificar la imagen de Marketplace para una máquina virtual. | 
+| plan | Sin | Algunos recursos permiten valores que definen el plan que se va a implementar. Por ejemplo, puede especificar la imagen de Marketplace para una máquina virtual. |
 | resources |Sin |Recursos secundarios que dependen del recurso que se está definiendo. Proporcione solo tipos de recursos que permita el esquema del recurso principal. La dependencia del recurso principal no está implícita. Debe definirla explícitamente. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
 
 ## <a name="outputs"></a>Salidas
@@ -355,7 +355,10 @@ Para **outputs**, agregue un objeto de metadatos para el valor de salida.
 
 No se puede agregar un objeto de metadatos a las funciones definidas por el usuario.
 
-Para los comentarios en línea, puede usar `//`, pero esta sintaxis no funciona con todas las herramientas. No se puede usar la CLI de Azure para implementar la plantilla con comentarios insertados. Y no se puede usar el editor de plantillas del portal para trabajar en las plantillas con comentarios insertados. Si agrega este estilo de comentarios, asegúrese de que las herramientas que use admitan los comentarios JSON insertados.
+Para los comentarios en línea, puede usar `//` o `/* ... */`, pero esta sintaxis no funciona con todas las herramientas. No puede usar el editor de plantillas del portal para trabajar en plantillas con comentarios insertados. Si agrega este estilo de comentarios, asegúrese de que las herramientas que use admitan los comentarios JSON insertados.
+
+> [!NOTE]
+> Para implementar plantillas con comentarios mediante la CLI de Azure, debe usar el modificador `--handle-extended-json-format`.
 
 ```json
 {
@@ -363,7 +366,7 @@ Para los comentarios en línea, puede usar `//`, pero esta sintaxis no funciona 
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
   "apiVersion": "2018-10-01",
-  "dependsOn": [ // storage account and network interface must be deployed first
+  "dependsOn": [ /* storage account and network interface must be deployed first */
     "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
@@ -376,6 +379,30 @@ En VS Code, puede establecer el modo de lenguaje en JSON con comentarios. Los co
 1. Seleccione **JSON with Comments** (JSON con comentarios).
 
    ![Seleccionar modo de lenguaje](./media/resource-group-authoring-templates/select-json-comments.png)
+
+## <a name="multi-line-strings"></a>Cadenas de varias líneas
+
+Una cadena se puede dividir en varias líneas. Por ejemplo, la propiedad Location y uno de los comentarios del siguiente ejemplo de JSON.
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
+Para implementar plantillas con cadenas de varias líneas mediante la CLI de Azure, debe usar el modificador `--handle-extended-json-format`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

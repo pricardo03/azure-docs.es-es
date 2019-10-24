@@ -1,5 +1,5 @@
 ---
-title: Transformación Ordenar de Azure Data Factory Mapping Data Flow
+title: Transformación Ordenar de flujo de datos de asignación de Azure Data Factory
 description: Transformación Ordenar de Azure Data Factory Mapping Data
 author: kromerm
 ms.author: makromer
@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: f9d2699c870de21daea9ce421c79f089c04b99fa
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 029ce3c509d3f4d241012d3786e60f0c6e95fdc2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029129"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387187"
 ---
 # <a name="azure-data-factory-data-flow-sort-transformations"></a>Transformaciones Ordenar de Azure Data Factory Data Flow
 
 
 
-![Opciones de Ordenar](media/data-flow/sort.png "Sort")
+![Configuración de ordenación](media/data-flow/sort.png "Sort")
 
 La transformación Ordenar permite ordenar las filas entrantes de la secuencia de datos actual. Las filas de salida de la transformación Ordenar seguirán después las reglas de ordenación que establezca. Puede seleccionar columnas individuales y ordenarlas de forma ascendente o descendente, con la flecha situada junto a cada campo. Si necesita modificar la columna antes de aplicar la ordenación, haga clic en "Columnas calculadas" para abrir el editor de expresiones. Esto le permitirá crear una expresión para la operación de ordenación en lugar de simplemente aplicar una columna para la ordenación.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 966386bfed5f94556f145afab1c665eb3c90546a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 36a95b502c13ccf360ba4ac56b4837d41ee487c8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065558"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296396"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Administración de SSO y personalización de tokens con directivas personalizadas en Azure Active Directory B2C
 
@@ -102,5 +102,5 @@ Para cambiar las configuraciones de comportamiento de sesión y SSO, debe agrega
 Los valores siguientes se configuran en el ejemplo anterior:
 
 - **Single sign on (SSO)** : el inicio de sesión único se configura con **SingleSignOn**. Los valores aplicables son `Tenant`, `Application`, `Policy` y `Suppressed`.
-- **Duración de la sesión de la aplicación web (minutos)** : el valor se establece con el elemento **SessionExpiryInSeconds**. El valor predeterminado es 86 400 segundos (1440 minutos).
 - **Tiempo de espera de la sesión de la aplicación web**: el valor se establece con el elemento **SessionExpiryType**. Los valores aplicables son `Absolute` y `Rolling`.
+- **Duración de la sesión de la aplicación web**: el valor se establece con el elemento **SessionExpiryInSeconds**. El valor predeterminado es 86 400 segundos (1440 minutos).

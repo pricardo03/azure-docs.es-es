@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: b9b4a33e5aee92a4e8caa7a1128538cb2f1a8a7e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 65ad9e1f5ef62ab2dd9f37a13d3c18871c30e603
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933120"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515490"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Descripción del mantenimiento de las máquinas virtuales de Azure
 
@@ -117,7 +117,7 @@ Un estado de mantenimiento Desconocido puede deberse a las siguientes incidencia
 - Se ha vuelto a configurar el agente y ya no informa al área de trabajo especificada cuando se habilitó Azure Monitor para VM. Para configurar el agente para que informe al área de trabajo, consulte [Adición o eliminación de un área de trabajo](../platform/agent-manage.md#adding-or-removing-a-workspace).
 - Se ha eliminado la máquina virtual.
 - Se ha eliminado el área de trabajo asociada a Azure Monitor para VM. Puede recuperar el área de trabajo si tiene ventajas de soporte técnico Premier. Vaya a [Premier](https://premier.microsoft.com/) y abra una solicitud de soporte técnico.
-- Se han eliminado las dependencias de la solución. Para volver a habilitar las soluciones ServiceMap e InfrastructureInsights en el área de trabajo de Log Analytics, vuelva a instalar estas soluciones con la [plantilla de Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions). También puede usar la opción Configurar área de trabajo que se encuentra en la pestaña Introducción.
+- Se han eliminado las dependencias de la solución. Para volver a habilitar las soluciones Service Map e Infrastructure Insights en el área de trabajo de Log Analytics, vuelva a instalar Service Map con la [plantilla de Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution). Para volver a instalar la solución Infrastructure Insights, envíe un correo electrónico a vminsights@microsoft.com. 
 - Se ha apagado la máquina virtual.
 - El servicio de máquina virtual de Azure no está disponible o se están realizando operaciones de mantenimiento.
 - Se alcanzó el [límite de datos diarios o de retención](../platform/manage-cost-storage.md) del área de trabajo.
@@ -307,7 +307,7 @@ Para filtrar esta vista, seleccione los valores en los menús desplegables que a
 |Subscription |Seleccione una suscripción de Azure. Solo se incluyen las alertas de la suscripción seleccionada en la vista. |
 |Grupo de recursos |Seleccione un solo grupo de recursos. Solo las alertas con destinos en el grupo de recursos seleccionado se incluyen en la vista. |
 |Tipo de recurso |Seleccione uno o varios tipos de recurso. De manare predeterminada, se seleccionan las alertas de las **máquinas virtuales** de destino y se incluyen en esta vista. Esta columna solo está disponible tras especificar un grupo de recursos. |
-|Recurso |Seleccione un recurso. Solo las alertas con ese recurso como destino se incluyen en la vista. Esta columna solo está disponible tras especificar un tipo de recurso. |
+|Resource |Seleccione un recurso. Solo las alertas con ese recurso como destino se incluyen en la vista. Esta columna solo está disponible tras especificar un tipo de recurso. |
 |severity |Seleccione un nivel de gravedad de alerta o seleccione **Todo** para incluir alertas de todos los niveles de gravedad. |
 |Condición de supervisión |Seleccione una condición de supervisión para filtrar las alertas en función de si el sistema las ha desencadenado o resuelto, en el caso de que la condición ya no esté activa. O bien seleccione **Todas** para incluir alertas de todas las condiciones. |
 |Estado de alerta |Seleccione un estado de alerta, **Nueva**, **Confirmación** o **Cerrada** o seleccione **Todas** para incluir alertas de todos los estados. |
@@ -440,5 +440,6 @@ El mantenimiento de Azure Monitor para VM admite notificaciones por SMS y correo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para identificar las limitaciones y el rendimiento general de la máquina virtual, consulte [Visualizar el rendimiento de la máquina virtual de Azure](vminsights-performance.md).
+- Para identificar las limitaciones y el rendimiento general de la máquina virtual, consulte [Visualización del rendimiento de la máquina virtual de Azure](vminsights-performance.md).
+
 - Para más información sobre las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM](vminsights-maps.md).

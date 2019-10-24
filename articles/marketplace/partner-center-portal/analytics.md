@@ -1,18 +1,18 @@
 ---
 title: Análisis para Marketplace comercial en el Centro de partners
 description: Obtenga información sobre cómo obtener acceso a los informes de análisis para supervisar las ventas, evaluar el rendimiento y optimizar sus ofertas de Marketplace.
-author: chjenk
+author: ChJenk
 manager: evansma
-ms.author: shthota
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.openlocfilehash: b48e0cddfe4880382147e7bfb634335f10d6f5f9
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.date: 10/14/2019
+ms.openlocfilehash: 593d43339961ab4576081aaa18a8d68716e40e9b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028849"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332131"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análisis para Marketplace comercial en el Centro de partners
 
@@ -321,3 +321,24 @@ La sección del resumen de calificaciones y reseñas muestra las métricas sigui
 Las revisiones se muestran en orden cronológico y se usará el momento en que se publicaron. La vista predeterminada muestra todas las reseñas. Las reseñas se pueden filtrar por clasificación por estrellas desde la opción **Filtro** del menú desplegable. También puede buscar palabras clave que aparecen en la reseña.  
 
 ![Comentario de revisión de análisis del Centro de partners](./media/analyze-reviews.png)
+
+## <a name="frequently-asked-questions"></a>Preguntas frecuentes
+
+En esta sección se proporcionan respuestas a las preguntas más frecuentes sobre los mensajes de **No Analytics Available Yet** (Sin análisis disponibles aún) del Centro de partners.
+
+**No puedo ver mis datos de análisis en el Centro de partners. Cuando accedo a estas páginas, veo el mensaje siguiente. ¿Por qué ocurre esto?**
+
+![Todavía no hay datos para las ofertas](./media/analytics-faq-no-data.png)
+
+Por qué podría recibir este mensaje:
+
+- Las ofertas que aparecen en Marketplace no son ofertas de SaaS. Actualmente, Centro de partners solo informa del análisis de las ofertas de SaaS. Las ofertas de Dynamics 365 se pueden publicar en Centro de partners, pero aún no se han habilitado los análisis de estas ofertas ahí.
+- Actualmente no existe ninguna adquisición para las ofertas publicadas en Marketplace. Esto puede significar que las ofertas están activas en Marketplace y obtienen vistas de los clientes en las páginas de presentación del producto, pero que los clientes aún no han realizado acciones para comprarlas e implementarlas.
+- La publicación de la oferta podría estar en curso y no activa aún. Los clientes solo pueden adquirir ofertas en directo. Para comprobar el estado de las ofertas, consulte la información general en el [panel Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Para más información, consulte [Panel Resumen](#summary-dashboard) en este artículo.
+- Sus ofertas pueden aparecer como **Ponerse en contacto conmigo**, que son ofertas solo de anuncio y no pueden ser adquiridas por los clientes en Marketplace. Aunque estas ofertas generan clientes potenciales y se comparten con usted, no se crean pedidos para estas ofertas, ya que no se pueden comprar. Para consultar el tipo de anuncio de la oferta, vaya a la página de configuración.
+
+**Sé que tengo datos de análisis, pero aparece el mensaje siguiente:**
+
+![Sin datos para el intervalo de fechas proporcionado](./media/analytics-faq-data-range.png)
+
+Si recibe este mensaje, significa que tiene datos de análisis pero no hay datos para el intervalo de fechas seleccionado. Seleccione un intervalo de fechas diferente o un intervalo de fechas personalizado para ver los datos desde 2010. Para más información, consulte [Intervalo de fechas](#date-range).

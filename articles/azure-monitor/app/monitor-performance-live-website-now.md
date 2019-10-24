@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e7d69e2258036318b736f245f9e3aec3cf5f54de
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67876435"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389940"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Adjuntar sin código de Application Insights
+
+> [!IMPORTANT]
+> Ya no se recomienda el uso de Monitor de estado. Se ha reemplazado por Azure Application Insights Agent (anteriormente denominado Monitor de estado V2). Consulte nuestra documentación sobre las [implementaciones de servidores locales](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) o las [implementaciones de máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 Puede instrumentar una aplicación web activa con Azure Application Insights sin tener que modificar ni volver a implementar el código. Necesita una suscripción a [Microsoft Azure](https://azure.com) .
 
@@ -39,7 +42,7 @@ Puede optar entre dos vías de aplicar Application Insights a sus aplicaciones w
 * **Tiempo de ejecución:** instrumenta la aplicación web en el servidor, como se describe a continuación, sin volver a generar e implementar el código.
 
 > [!NOTE]
-> Si usa la instrumentación en tiempo de compilación, la instrumentación en tiempo de ejecución no funcionará incluso si está activada.
+> Si usa la instrumentación en tiempo de compilación, la instrumentación en tiempo de ejecución no funcionará ni aunque esté activada.
 
 A continuación hay un resumen de lo que se obtiene por cada vía:
 

@@ -1,5 +1,5 @@
 ---
-title: Uso de colas de Service Bus de Azure con Python | Microsoft Docs
+title: 'Tutorial: Uso de colas de Azure Service Bus con Python'
 description: Aprenda a usar las colas de de Azure Service Bus desde Python.
 services: service-bus-messaging
 documentationcenter: python
@@ -14,14 +14,15 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 9bb53a8e68866e2ed346277171e2706f5907e8af
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.custom: seo-python-october2019
+ms.openlocfilehash: 69ae02ea7c0c04312dd4e64125c80384172c6528
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141911"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438117"
 ---
-# <a name="how-to-use-service-bus-queues-with-python"></a>Uso de colas de Service Bus con Python
+# <a name="tutorial-use-azure-service-bus-queues-with-python"></a>Tutorial: Uso de colas de Azure Service Bus con Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 

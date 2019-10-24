@@ -1,6 +1,6 @@
 ---
-title: Procesamiento de archivos de texto de longitud fija con Mapping Data Flow en Azure Data Factory
-description: Aprenda a procesar archivos de texto de longitud fija en Azure Data Factory mediante Mapping Data Flows.
+title: Procesamiento de archivos de texto de longitud fija con flujos de datos de asignación en Azure Data Factory
+description: Aprenda a procesar archivos de texto de longitud fija en Azure Data Factory mediante flujos de datos de asignación.
 services: data-factory
 author: balakreshnan
 ms.service: data-factory
@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: 9964aaf060c43cc3e9992f515bf272011e795043
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d6885e9b30cc71bda822a29574c4d574f2b020a0
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962132"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387042"
 ---
-# <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Procesamiento de archivos de texto de Mapping Data Flow de Data Factory
+# <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Procesamiento de archivos de texto de longitud fija mediante flujos de datos de asignación de Data Factory
 
-Mediante el uso de Mapping Data Flow en Microsoft Azure Data Factory, puede transformar datos de archivos de texto de ancho fijo. En la tarea siguiente, definiremos un conjunto de datos para un archivo de texto sin un delimitador y, a continuación, configuraremos divisiones de subcadenas basadas en la posición ordinal.
+Mediante el uso de flujos de datos de asignación en Microsoft Azure Data Factory, puede transformar datos de archivos de texto de ancho fijo. En la tarea siguiente, definiremos un conjunto de datos para un archivo de texto sin un delimitador y, a continuación, configuraremos divisiones de subcadenas basadas en la posición ordinal.
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 
@@ -27,7 +27,7 @@ Mediante el uso de Mapping Data Flow en Microsoft Azure Data Factory, puede tran
 
     ![Canalización de ancho fijo](media/data-flow/fwpipe.png)
 
-3. En la actividad de flujo de datos, seleccione **New Mapping Data Flow** (Nueva actividad de Mapping Data Flow).
+3. En la actividad de flujo de datos, seleccione **New Mapping Data Flow** (Nuevo flujo de datos de asignación).
 
 4. Agregue una transformación de origen, una columna derivada, una de selección y una de receptor:
 
@@ -89,4 +89,4 @@ Mediante el uso de Mapping Data Flow en Microsoft Azure Data Factory, puede tran
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Compile el resto de la lógica del flujo de datos mediante [transformaciones](concepts-data-flow-overview.md) de Mapping Data Flows.
+* Compile el resto de la lógica del flujo de datos mediante [transformaciones](concepts-data-flow-overview.md) de flujos de datos de asignación.

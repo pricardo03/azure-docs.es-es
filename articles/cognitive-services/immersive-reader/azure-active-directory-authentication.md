@@ -10,22 +10,22 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: e4b792a04b4926fdb56f37c089e73b90cde905d3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d51c27b90113679c1547f2d030459a03cc22c80c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990140"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299812"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Uso de la autenticación de Azure Active Directory (Azure AD) con el servicio Lector inmersivo
 
-En las secciones siguientes, usará el entorno de Azure Cloud Shell o la CLI de Azure para crear un nuevo recurso de Lector inmersivo con un subdominio personalizado y, después, configure Azure AD en el inquilino de Azure. Después de completar la configuración inicial, llamará a Azure AD para obtener un token de acceso, de forma similar a como se realizará cuando se use el SDK de Lector inmersivo. Si se bloquea, se proporcionan vínculos en cada sección con todas las opciones disponibles para cada uno de los comandos de la CLI de Azure.
+En las secciones siguientes, usará el entorno de Azure Cloud Shell o Azure PowerShell para crear un nuevo recurso de Lector inmersivo con un subdominio personalizado y, después, configure Azure AD en el inquilino de Azure. Después de completar la configuración inicial, llamará a Azure AD para obtener un token de acceso, de forma similar a como se realizará cuando se use el SDK de Lector inmersivo. Si se bloquea, se proporcionan vínculos en cada sección con todas las opciones disponibles para cada uno de los comandos de Azure PowerShell.
 
 ## <a name="create-an-immersive-reader-resource-with-a-custom-subdomain"></a>Creación de un recurso de Lector inmersivo con un subdominio personalizado
 
 1. Para empezar, abra [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Después [seleccione una suscripción](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
    ```
 
@@ -41,7 +41,7 @@ En las secciones siguientes, usará el entorno de Azure Cloud Shell o la CLI de 
    -CustomSubdomainName debe ser globalmente único y no puede incluir caracteres especiales, como: ".", "!" o ",".
 
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $resource = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <RESOURCE_NAME> -Type ImmersiveReader -SkuName S0 -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
 
    // Display the Resource info
@@ -58,7 +58,7 @@ En las secciones siguientes, usará el entorno de Azure Cloud Shell o la CLI de 
 
    Si el recurso se creó en el portal, también [puede obtener un recurso existente](https://docs.microsoft.com/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount?view=azps-1.8.0) ahora.
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $resource = Get-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <RESOURCE_NAME>
 
    // Display the Resource info
@@ -74,7 +74,7 @@ Ahora que tiene un subdominio personalizado asociado al recurso, necesita asigna
    >[!NOTE]
    > La contraseña, también conocida como "secreto de cliente", se utilizará al obtener los tokens de autenticación.
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $password = "<YOUR_PASSWORD>"
    $secureStringPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
    $aadApp = New-AzADApplication -DisplayName ImmersiveReaderAAD -IdentifierUris http://ImmersiveReaderAAD -Password $secureStringPassword
@@ -87,7 +87,7 @@ Ahora que tiene un subdominio personalizado asociado al recurso, necesita asigna
 
 2. Después, tiene que [crear una entidad de servicio](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) para la aplicación de Azure AD.
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $principal = New-AzADServicePrincipal -ApplicationId $aadApp.ApplicationId
 
    // Display the service principal info
@@ -99,7 +99,7 @@ Ahora que tiene un subdominio personalizado asociado al recurso, necesita asigna
 
 3. El último paso es [asignar el rol "Usuario de Cognitive Services"](https://docs.microsoft.com/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) a la entidad de servicio (en el ámbito del recurso). Mediante la asignación de un rol, concede acceso a la entidad de servicio a este recurso. Puede conceder a la misma entidad de servicio acceso a varios recursos de la suscripción.
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    New-AzRoleAssignment -ObjectId $principal.Id -Scope $resource.Id -RoleDefinitionName "Cognitive Services User"
    ```
 
@@ -112,13 +112,13 @@ Ahora que tiene un subdominio personalizado asociado al recurso, necesita asigna
 En este ejemplo, la contraseña se usa para autenticar la entidad de servicio para obtener un token de Azure AD.
 
 1. Obtenga el **TenantId**:
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $context = Get-AzContext
    $context.Tenant.Id
    ```
 
 2. Obtenga un token:
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $authority = "https://login.windows.net/" + $context.Tenant.Id
    $resource = "https://cognitiveservices.azure.com/"
    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority

@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5812cc73fb1da58c591d0593e079851e05bd0940
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125702"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331954"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -98,6 +98,9 @@ Si replica más de una máquina virtual de VMware, consulte las [consideraciones
 > No cambie las configuraciones de los recursos (restricción de memoria, núcleos o CPU) ni modifique o elimine los servicios o archivos instalados en el servidor de configuración después de la implementación. Si lo hace, el registro del servidor de configuración en los servicios de Azure y el rendimiento del servidor de configuración resultarán afectados.
 
 ## <a name="add-an-additional-adapter"></a>Incorporación de un adaptador adicional
+
+> [!NOTE]
+> Si planea conservar las direcciones IP de las máquinas de origen en la conmutación por error y desea realizar la conmutación por recuperación en el entorno local, se necesitan dos NIC. Una NIC se conectará a las máquinas de origen y la otra se usará para la conectividad de Azure.
 
 Si desea agregar una NIC adicional al servidor de configuración, hágalo antes de registrar el servidor en el almacén. No se admiten adaptadores adicionales después del registro.
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 10/14/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 735c3db14963c1f3cfe700a97dee9fedb70e29f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4b26679542753d5fb429c33e4220c23a3937c5cb
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441123"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430444"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users-preview"></a>Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B (versión preliminar)
 
@@ -26,7 +26,7 @@ ms.locfileid: "67441123"
 | La federación de Google es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Gracias a la configuración de la federación con Google puede permitir a los usuarios invitados iniciar sesión en sus aplicaciones y recursos compartidos con sus propias cuentas de Google, sin tener que crear cuentas Microsoft (cuentas de servicio administradas) o de Azure AD.  
+Si configura la federación con Google, puede permitir que los usuarios invitados puedan iniciar sesión en sus aplicaciones y recursos compartidos con sus propias cuentas de Google, sin tener que crear cuentas Microsoft (cuentas de servicio administradas) o de Azure AD. La federación de Google está diseñada específicamente para los usuarios de Gmail. Para realizar la federación con los dominios de G Suite, use en su lugar la característica [Federación directa](direct-federation.md).
 > [!NOTE]
 > Los usuarios invitados de Google deben iniciar sesión con un vínculo que incluye el contexto del inquilino (por ejemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` o `https://portal.azure.com/<tenant id>`, o, en el caso de un dominio comprobado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Los vínculos directos a aplicaciones y los recursos también funcionan siempre que incluyan el contexto del inquilino. Actualmente, los usuarios invitados no pueden iniciar sesión con puntos de conexión sin contexto de inquilino. Por ejemplo, el uso de `https://myapps.microsoft.com`, `https://portal.azure.com` o el punto de conexión común de los equipos producirá un error.
  

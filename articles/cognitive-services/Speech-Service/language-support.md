@@ -196,7 +196,7 @@ La personalización de voz está disponible para de-DE, en-GB, en-IN, en-US, es-
 |:----------- |:-------------:|
 | Afrikáans      | `af`          |
 | Árabe       | `ar`          |
-| Bangla      | `bn`          |
+| Bengalí      | `bn`          |
 | Bosnio (latino)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Cantonés (tradicional)      | `yue`          |

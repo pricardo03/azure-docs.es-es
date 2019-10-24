@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e1427ce8cd83b49f4b9b39fa82eff1e8a32cd10
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61387288"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515406"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crear informes interactivos con libros de Azure Monitor
 
@@ -166,7 +166,7 @@ Hay cuatro tipos diferentes de parámetros que se admiten actualmente:
 
 |                  |      |
 | ---------------- |:-----|
-| **Texto**    | Permite al usuario editar un cuadro de texto y, si se quiere, se puede proporcionar una consulta para rellenar el valor predeterminado. |
+| **Text**    | Permite al usuario editar un cuadro de texto y, si se quiere, se puede proporcionar una consulta para rellenar el valor predeterminado. |
 | **Lista desplegable** | Permite al usuario elegir entre un conjunto de valores. |
 | **Selector de intervalo de tiempo**| Permite al usuario elegir entre un conjunto predefinido de valores de intervalo de tiempo o seleccionar entre un intervalo de tiempo personalizado.|
 | **Selector de recursos** | Permite al usuario elegir entre los recursos seleccionados para el libro.|
@@ -252,4 +252,7 @@ Para anclar un vínculo a un libro en un panel de Azure:
 3. Haga clic en **Anclar al panel**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener información sobre cómo usar la característica de mantenimiento, consulte el artículo [Ver el mantenimiento de la máquina virtual de Azure](vminsights-health.md) y, para ver las dependencias de aplicaciones detectadas, consulte el artículo [Ver la asignación de Azure Monitor para VM](vminsights-maps.md). 
+
+- Para identificar las limitaciones y el rendimiento general de la máquina virtual, consulte [Visualización del rendimiento de la máquina virtual de Azure](vminsights-performance.md).
+
+- Para más información sobre las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM](vminsights-maps.md).

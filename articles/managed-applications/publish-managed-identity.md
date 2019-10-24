@@ -1,6 +1,6 @@
 ---
 title: Aplicación administrada de Azure con identidad administrada
-description: Obtenga información sobre cómo configurar una aplicación administrada con identidad administrada. La identidad administrada puede usarse para implementar aplicaciones administradas vinculadas a recursos existentes, conceder aplicaciones administradas para administrar recursos de Azure fuera del grupo de recursos administrados, y proporcionar una identidad operativa de aplicaciones administradas para el registro de actividad y otros servicios dentro de Azure.
+description: Configure la aplicación administrada con identidad administrada para vincularla a recursos existentes, administrar recursos de Azure y proporcionar identidad operativa para el registro de actividad.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9e1f5072921104c749a0acef95b7da09f1cbb662
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434858"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330224"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Aplicación administrada de Azure con identidad administrada
 

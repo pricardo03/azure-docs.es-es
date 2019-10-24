@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828941"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285774"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Inicio rápido: configuración del entorno de una nube privada
 
@@ -183,9 +183,9 @@ Si establece una contraseña que no cumpla los requisitos:
 * Si usa el cliente vSphere Flash, notifica un error
 * Si usa el cliente HTML5, no notifica ningún error. El cliente no acepta el cambio y la contraseña antigua continúa funcionando.
 
-## <a name="change-nsx-administrator-password"></a>Cambio de la contraseña del administrador de NSX
+## <a name="access-nsx-manager"></a>Acceso al administrador de NSX
 
-El administrador de NSX se implementa con una contraseña predeterminada.  Se recomienda cambiar la contraseña después de crear la nube privada.
+El administrador de NSX se implementa con una contraseña predeterminada. 
 
 * Nombre de usuario: **admin**
 * Contraseña: **CloudSimple123!**
@@ -198,8 +198,6 @@ Puede encontrar el nombre de dominio completo (FQDN) y la dirección IP del admi
 4. Use la dirección IP o el FQDN de **NSX Manager** y conéctese mediante un explorador web.
 
     ![Buscar el FQDN de NSX Manager](media/private-cloud-nsx-manager-fqdn.png)
-
-Para cambiar la contraseña, siga las instrucciones de [Instalación de NSX Manager](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
 
 ## <a name="create-a-port-group"></a>Creación de un grupo de puertos
 

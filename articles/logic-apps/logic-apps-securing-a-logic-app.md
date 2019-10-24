@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: be10d144fadb21a695c5573c82681a26136e71d4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c7b6abb9874c8b6bb2469595b9ce53541656834f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004099"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430131"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -183,7 +183,7 @@ Para evitar que otros usuarios cambien o eliminen la aplicación lógica, puede 
 
 ## <a name="access-to-run-history-data"></a>Acceso a los datos del historial de ejecución
 
-Durante la ejecución de una aplicación lógica, todos los datos se cifran en tránsito mediante [Seguridad de la capa de transporte (TLS)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) y en [reposo](../security/fundamentals/encryption-atrest.md). Cuando finaliza la ejecución de la aplicación lógica, puede ver el historial de esa ejecución, incluidos los pasos que se ejecutaron junto con el estado, la duración, las entradas y las salidas de cada acción. Este completo detalle proporciona información sobre cómo se ejecuta la aplicación lógica y dónde puede empezar a solucionar los problemas que surjan.
+Durante la ejecución de una aplicación lógica, todos los datos [se cifran en tránsito](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) con Seguridad de la capa de transporte (TLS) y [en reposo](../security/fundamentals/encryption-atrest.md). Cuando finaliza la ejecución de la aplicación lógica, puede ver el historial de esa ejecución, incluidos los pasos que se ejecutaron junto con el estado, la duración, las entradas y las salidas de cada acción. Este completo detalle proporciona información sobre cómo se ejecuta la aplicación lógica y dónde puede empezar a solucionar los problemas que surjan.
 
 Cuando accede al historial de ejecución de la aplicación lógica, Logic Apps autentica su acceso y proporciona vínculos a las entradas y salidas de las solicitudes y respuestas de la ejecución de la aplicación lógica. Sin embargo, para las acciones que controlan contraseñas, secretos, claves u otra información confidencial, es recomendable evitar que otros usuarios vean los datos y accedan a ellos. Por ejemplo, si la aplicación lógica obtiene un secreto de [Azure Key Vault](../key-vault/key-vault-overview.md) para usarlo al autenticar una acción HTTP, puede ocultar ese secreto de la vista.
 

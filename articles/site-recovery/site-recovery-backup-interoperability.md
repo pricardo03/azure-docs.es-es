@@ -5,14 +5,14 @@ author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 10/15/2019
 ms.author: sideeksh
-ms.openlocfilehash: 2078aa33ca735b91b5923d94028a286427f107a6
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: d8c896bc655339fbd7d51f738fb629450e8c12ae
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146869"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376214"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Compatibilidad para usar Site Recovery con Azure Backup
 
@@ -22,7 +22,7 @@ En este artículo se resume la compatibilidad para usar el [servicio Site Recove
 --- | --- | ---
 **Implementación conjunta de servicios** | Compatible | Los servicios son interoperables y se pueden configurar juntos.
 **Copia de seguridad/restauración de archivos** | Compatible | Cuando la copia de seguridad y la replicación están habilitadas para una VM y se realizan copias de seguridad, no hay ningún problema en la restauración de archivos en las VM de origen ni en el grupo de VM. La replicación continúa como de costumbre sin ningún cambio en el estado de la replicación.
-**Copia de seguridad/restauración del disco** | No compatible actualmente | Si restaura un disco del que se ha realizado una copia de seguridad, deberá deshabilitar la replicación y luego volver a habilitarla para la VM.
-**Copia de seguridad/restauración de la VM** | No compatible actualmente | Si la copia de seguridad o la restauración de una VM o un grupo de VM, deberá deshabilitar y volver a habilitar la replicación para la VM.  
+**Restauración de disco** | No compatible actualmente | Si restaura un disco del que se ha realizado una copia de seguridad, deberá deshabilitar la replicación y luego volver a habilitarla para la máquina virtual.
+**Restauración de máquina virtual** | No compatible actualmente | Si restaura una máquina virtual o un grupo de máquinas virtuales, deberá deshabilitar y volver a habilitar la replicación para la máquina virtual.  
 
 

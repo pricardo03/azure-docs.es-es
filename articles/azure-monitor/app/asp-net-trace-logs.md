@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 125f1bc14a376523a22984e9d8efa7848408bf7a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 654e4bc35de1ed33842944ba360d319705589683
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035216"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372504"
 ---
-# <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de .NET y .NET Core en Application Insights
+# <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de .NET, .NET Core y Python en Application Insights
 
-Envíe registros de seguimiento de diagnóstico para la aplicación ASP.NET/ASP.NET Core desde ILogger, NLog, log4Net o System.Diagnostics.Trace a [Azure Application Insights][start]. Después, puede explorarlos y buscar en ellos. Estos registros se combinan con los otros archivos de registro procedentes de su aplicación, de modo que pueda identificar los seguimientos asociados con cada solicitud de usuario y correlacionarlos con otros eventos e informes de excepciones.
+Envíe registros de seguimiento de diagnóstico para la aplicación ASP.NET/ASP.NET Core desde ILogger, NLog, log4Net o System.Diagnostics.Trace a [Azure Application Insights][start]. En el caso de las aplicaciones de Python, envíe registros de seguimiento de diagnóstico mediante AzureLogHandler en OpenCensus para Python para Azure Monitor. Después, puede explorarlos y buscar en ellos. Estos registros se combinan con los otros archivos de registro procedentes de su aplicación, de modo que pueda identificar los seguimientos asociados con cada solicitud de usuario y correlacionarlos con otros eventos e informes de excepciones.
 
 > [!NOTE]
 > ¿Necesita el módulo de captura de registros? Es un adaptador útil para registradores de terceros, pero si aún no usa NLog, log4Net o System.Diagnostics.Trace, considere la posibilidad de llamar directamente a [**Application Insights TrackTrace()** ](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace).
@@ -155,6 +155,23 @@ También puede agregar un nivel de gravedad al mensaje. Además, al igual que co
                    new Dictionary<string,string> { {"database", db.ID} });
 
 Esto permitiría filtrar fácilmente en [Búsqueda][diagnostic] todos los mensajes de un determinado nivel de gravedad relativos a una determinada base de datos.
+
+## <a name="azureloghandler-for-opencensus-python"></a>AzureLogHandler para OpenCensus para Python
+El controlador de registro de Azure Monitor permite exportar registros de Python a Azure Monitor.
+
+Instrumente la aplicación con el [SDK de OpenCensus para Python](../../azure-monitor/app/opencensus-python.md) para Azure Monitor.
+
+En este ejemplo se muestra cómo enviar un registro de nivel de advertencia a Azure Monitor.
+
+```python
+import logging
+
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+logger = logging.getLogger(__name__)
+logger.addHandler(AzureLogHandler(connection_string='InstrumentationKey=<your-instrumentation_key-here>'))
+logger.warning('Hello, World!')
+```
 
 ## <a name="explore-your-logs"></a>Explorar los registros
 Ejecute la aplicación en modo de depuración o impleméntela para que esté activa.

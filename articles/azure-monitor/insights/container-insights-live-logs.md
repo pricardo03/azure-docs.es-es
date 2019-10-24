@@ -1,31 +1,27 @@
 ---
 title: Vista de los registros de Azure Monitor para contenedores en tiempo real | Microsoft Docs
 description: En este artículo se describe la vista en tiempo real de los registros de contenedor (stdout/stderr) sin usar kubectl con Azure Monitor para contenedores.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 2eab6fa75e4adbbde7bcf20f18301a1e516235c2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 07/12/2019
+ms.openlocfilehash: 25cfe10ec192f874d050bca22ce1b85c2d1afbb4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035354"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554089"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Visualización de registros y eventos en tiempo real (versión preliminar)
 Azure Monitor para contenedores incluye una característica (actualmente en versión preliminar) que proporciona una vista en vivo de los registros de contenedor (stdout y stderr) y los eventos de Azure Kubernetes Service (AKS) sin tener que ejecutar los comandos de kubectl. Cuando se selecciona cualquiera de las opciones, aparece un nuevo panel debajo de la tabla de datos de rendimiento en la vista **Nodos**, **Controladores** y **Contenedores**. En este panel se muestran el registro y los eventos en vivo generados por el motor de contenedores para ayudar a solucionar problemas en tiempo real.
 
 >[!NOTE]
->Para que esta característica funcione, se requiere el acceso de **colaborador** al recurso de clúster.
->
+>Esta característica está disponible en todas las regiones de Azure, incluida Azure China. Actualmente no está disponible en Azure Gobierno de EE. UU.
+
+>[!NOTE]
+>Para que esta característica funcione, se requiere el acceso al recurso de clúster del **rol de usuario de Azure Kubernetes Service**. [Obtenga más información sobre el rol de usuario de clúster de Azure Kubernetes](https://docs.microsoft.com/en-us/azure/aks/control-kubeconfig-access#available-cluster-roles-permissions).
 
 Los registros dinámicos admiten tres métodos diferentes para controlar el acceso a los registros:
 
@@ -74,6 +70,9 @@ Es posible configurar AKS para que utilice Azure Active Directory (AD) para la a
 
 -  **URI de redirección**: Deben crearse dos tipos de aplicaciones **web**. El primer valor de URL base debe ser `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` y el segundo, `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
 - Después de registrar la aplicación, desde la página **Información general**, seleccione **Autenticación** en el panel izquierdo. En la página **Autenticación**, en **Configuración avanzada**, conceda implícitamente **tokens de acceso** y **tokens de identidad** y, luego, guarde su cambios.
+
+>[!NOTE]
+>Si usa esta característica en la región Azure China, el primer valor de dirección URL base debe ser `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` y el segundo, `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
 
 >[!NOTE]
 >La configuración de la autenticación con Azure Active Directory para el inicio de sesión único solo puede lograrse durante la implementación inicial de un nuevo clúster de AKS. No puede configurar el inicio de sesión único en un clúster de AKS ya implementado.

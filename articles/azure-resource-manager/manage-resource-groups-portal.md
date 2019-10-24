@@ -1,6 +1,6 @@
 ---
 title: Administración de grupos de Azure Resource Manager mediante Azure Portal | Microsoft Docs
-description: Usar Azure Portal para administrar grupos de Azure Resource Manager.
+description: Use Azure Portal para administrar grupos de recursos con Azure Resource Manager. Muestra cómo crear, enumerar y eliminar grupos de recursos.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 967ba72e6d270c3aa910d0b89207ed1878f994b0
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296287"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390446"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Administración de grupos de recursos de Azure Resource Manager mediante Azure Portal
 

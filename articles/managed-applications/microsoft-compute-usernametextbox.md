@@ -1,6 +1,6 @@
 ---
 title: Elemento de interfaz de usuario UserNameTextBox de Azure | Microsoft Docs
-description: Describe el elemento de la interfaz de usuario Microsoft.Common.UserNameTextBox para Azure Portal.
+description: Describe el elemento de la interfaz de usuario Microsoft.Common.UserNameTextBox para Azure Portal. Permite a los usuarios proporcionar nombres de usuario de Windows o Linux.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 88ab13329a719ba1e1b8a7b5fba2f7a2d381eca2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 875c73c546fa52642959e2593d41f9af82c13797
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64700856"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331594"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento de interfaz de usuario Microsoft.Compute.UserNameTextBox
 Control de cuadro de texto con validación integrada para nombres de usuario de Windows y Linux.

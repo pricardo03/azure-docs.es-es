@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 10/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 6faf32232c42f863bff52fdfb3c0714aee8e9b88
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9a86ba803f899e78b2ba9640e6cc317966969e64
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702441"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332325"
 ---
 # <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Creación de un entorno con varias máquinas virtuales en una máquina virtual de plantilla de un laboratorio educativo
 Actualmente, Azure Lab Services le permite configurar una máquina virtual de una plantilla en un laboratorio y realizar una copia única disponible para cada uno de los usuarios. Pero si es usted un profesor de una materia de informática que enseña cómo configurar firewalls o servidores, puede que necesite proporcionar a cada uno de los alumnos un entorno en el que varias máquinas virtuales puedan comunicarse entre sí a través de una red.
@@ -43,59 +43,56 @@ Los pasos importantes son:
 El procedimiento siguiente proporciona los pasos detallados: 
 
 1. Cree una cuenta de laboratorio si todavía no tiene una. Para obtener instrucciones, consulte: [Tutorial: Configuración de una cuenta de laboratorio con Azure Lab Services](tutorial-setup-lab-account.md).
-2. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com). 
-3. Seleccione **Iniciar sesión** y escriba las credenciales. Azure Lab Services es compatible con cuentas profesionales y cuentas Microsoft. 
+1. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com). Tenga en cuenta que Internet Explorer 11 aún no se admite. 
+2. Seleccione **Iniciar sesión** y escriba las credenciales. Azure Lab Services es compatible con cuentas profesionales y cuentas Microsoft. 
+3. Seleccione **New lab** (Nuevo laboratorio). 
+    
+    ![Creación de un laboratorio educativo](../media/tutorial-setup-classroom-lab/new-lab-button.png)
 4. En la ventana **Nuevo laboratorio**, lleve a cabo las siguientes acciones: 
     1. Especifique un **nombre** para el laboratorio. 
-    2. Especifique el máximo **número de máquinas virtuales** del laboratorio. Puede aumentar o reducir el número de máquinas virtuales después de crear el laboratorio o en un laboratorio existente. Para más información, consulte [Actualización del número de máquinas virtuales en un laboratorio](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab).
-    6. Seleccione **Guardar**.
+    2. Seleccione **Large (nested virtualization)** (Grande [virtualización anidada]) o **Medium (nested virtualization)** (Medio [virtualización anidada]) como **tamaño de la máquina virtual**.
+    6. Seleccione la **imagen** de Windows que desee usar. La virtualización anidada solo está disponible en equipos de Windows. 
+    4. Después, seleccione **Siguiente**. 
 
-        ![Creación de un laboratorio educativo](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-4. En la página **Seleccionar especificaciones de máquina virtual**, realice los pasos siguientes:
-    1. Seleccione **Grande** para el tamaño de máquinas virtuales (VM) que se creará en el laboratorio. Actualmente, el tamaño grande es el único compatible con la virtualización anidada.
-    2. Elija una imagen de máquina virtual que sea una **imagen de Windows**. La virtualización anidada solo está disponible en equipos de Windows. 
-    3. Seleccione **Next** (Siguiente).
+        ![Creación de un laboratorio educativo](../media/how-to-enable-multi-vm-environment/new-lab-window.png)
+    1. En la página **Virtual machine credentials** (Credenciales de la máquina virtual), especifique las credenciales predeterminadas de todas las máquinas virtuales del laboratorio. Especifique los valores de **Name** (Nombre) y **Password** (Contraseña) para el usuario y seleccione **Next** (Siguiente).  
 
-        ![Especificaciones de máquina virtual](../media/how-to-enable-multi-vm-environment/large-windows-vm.png)    
-5. En la página **Establecer credenciales**, especifique las credenciales predeterminadas de todas las máquinas virtuales del laboratorio. 
-    1. Especifique el **nombre del usuario** para todas las máquinas virtuales del laboratorio.
-    2. Especifique la **contraseña** del usuario. 
+        ![Nueva ventana de laboratorio](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
         > [!IMPORTANT]
         > Tome nota de ambos. No se volverán a mostrar.
-    3. Seleccione **Crear**. 
+    3. En la página **Lab policies** (Directivas del laboratorio), escriba el número de horas asignadas para cada usuario (**cuota para cada usuario**) fuera del tiempo programado para el laboratorio y seleccione **Finish** (Terminar). 
 
-        ![Establecer credenciales](../media/tutorial-setup-classroom-lab/set-credentials.png)
-6. En la página **Configurar plantilla**, puede ver el estado del proceso de creación del laboratorio. La creación de la plantilla en el laboratorio tarda un máximo de 20 minutos. 
+        ![Cuota para cada usuario](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+5. Debería ver la siguiente pantalla, que muestra el estado de la creación de la máquina virtual de plantilla. La creación de la plantilla en el laboratorio tarda un máximo de 20 minutos. 
 
-    ![Configurar plantilla](../media/tutorial-setup-classroom-lab/configure-template.png)
-7. Una vez completada la configuración de la plantilla, verá la siguiente página: 
+    ![Estado de la creación de la plantilla de máquina virtual](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
+1. En la página **Template** (Plantilla), seleccione **Customize template** (Personalizar plantilla) en la barra de herramientas. 
 
-    ![Página Configurar plantilla una vez terminada](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. En la página **Configurar plantilla**, seleccione **Conectar** para conectarse a la máquina virtual de plantilla a fin de configurar la virtualización anidada. También puede configurarla más adelante, después de completar los pasos descritos en este asistente. 
+    ![Botón Customize template (Personalizar plantilla)](../media/how-to-create-manage-template/customize-template-button.png)
+2. En el cuadro de diálogo **Customize template** (Personalizar plantilla), seleccione **Continue** (Continuar). Una vez iniciada la plantilla y realizados los cambios, dejará de tener la misma configuración que las máquinas virtuales publicaron la última vez para los usuarios. Los cambios en la plantilla no se reflejarán en las máquinas virtuales existentes de los usuarios hasta que realice otra publicación.
+
+    ![Cuadro de diálogo Customize (Personalizar)](../media/how-to-create-manage-template/customize-template-dialog.png)
+1. Seleccione el botón **Connect to template** (Conectarse a la plantilla) en la barra de herramientas para conectarse a la máquina virtual de plantilla y configurar la virtualización anidada; para ello, siga las instrucciones. Si es una máquina Windows, verá una opción para descargar el archivo RDP. 
+
+    ![Conexión a la plantilla de máquina virtual](../media/how-to-create-manage-template/connect-template-vm.png) 
 9. Dentro de la máquina virtual de plantilla, configure la virtualización anidada y una red virtual con varias máquinas virtuales. Para obtener instrucciones paso a paso detalladas, consulte [Habilitación de la virtualización anidada en una máquina virtual de Azure](../../virtual-machines/windows/nested-virtualization.md). Este es un resumen rápido de los pasos: 
     1. Habilite la característica de Hyper-V en la máquina virtual de plantilla.
     2. Configure una red virtual interna con conectividad a Internet para las máquinas virtuales anidadas.
     3. Cree máquinas virtuales a través del Administrador de Hyper-V.
     4. Asigne una dirección IP a las máquinas virtuales.
-10. Seleccione **Siguiente** en la página de plantilla. 
-11. En la página **Publicar la plantilla**, realice las acciones siguientes. 
-    1. Para publicar inmediatamente la plantilla, seleccione **Publicar**.  
+10. En la página **Template** (Plantilla), seleccione **Publish** (Publicar) en la barra de herramientas. 
 
-        > [!WARNING]
-        > Una vez que publique, no se puede cancelar la publicación. 
-    2. Para publicar más adelante, seleccione **Guardar para más adelante**. Puede publicar la plantilla de máquina virtual una vez finalizado el asistente. Para más información sobre cómo configurar y publicar una vez finalizado el asistente, consulte la sección [Publicación de la plantilla](how-to-create-manage-template.md#publish-the-template-vm) del artículo [Administración de laboratorios educativos](how-to-manage-classroom-labs.md).
+    ![Botón de publicación de plantilla](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
-        ![Publicar plantilla](../media/how-to-enable-multi-vm-environment/publish-template-page.png)
-11. Puede ver el **progreso de la publicación** de la plantilla. Este proceso puede tardar hasta una hora. 
+    > [!WARNING]
+    > Una vez que publique, no se puede cancelar la publicación. 
+8. En la página **Publish template** (Publicar plantilla), escriba el número de máquinas virtuales que desea crear en el laboratorio y seleccione **Publish** (Publicar). 
+
+    ![Publicación de plantilla: número de máquinas virtuales](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+11. Puede ver el **estado de la publicación** de la plantilla en la página. Este proceso puede tardar hasta una hora. 
 
     ![Publicar plantilla: progreso](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-12. Podrá ver la página siguiente cuando la plantilla se haya publicado correctamente. Seleccione **Listo**.
-
-    ![Publicar plantilla: correctamente](../media/tutorial-setup-classroom-lab/publish-success.png)
-1. Verá el **panel** del laboratorio. 
-    
-    ![Panel del laboratorio de clase](../media/how-to-enable-multi-vm-environment/dashboard.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
