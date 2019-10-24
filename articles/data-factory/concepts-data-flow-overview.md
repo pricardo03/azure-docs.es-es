@@ -1,20 +1,20 @@
 ---
-title: Asignación de flujos de datos de Azure Data Factory | Microsoft Docs
-description: Introducción a la asignación de flujos de datos en Azure Data Factory
+title: Flujos de datos de asignación en Azure Data Factory | Microsoft Docs
+description: Introducción a los flujos de datos de asignación en Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 8d0ad794caee8a06c8d403a981037d6560fb3f43
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 37fec388acda78f3d13c8e85ddddf780ad099d69
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030151"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387993"
 ---
-# <a name="what-are-mapping-data-flows"></a>¿Qué es la asignación de instancias de Data Flow?
+# <a name="what-are-mapping-data-flows"></a>¿Qué son los flujos de datos de asignación?
 
 La asignación de flujos de datos es una transformación de datos diseñada visualmente en Azure Data Factory. Los flujos de datos permiten a los ingenieros de datos desarrollar una lógica de transformación de datos gráfica sin necesidad de escribir código. Los flujos de datos resultantes se ejecutan como actividades en las canalizaciones de Azure Data Factory mediante clústeres de Spark de escalabilidad horizontal. Las actividades de flujo de datos pueden ponerse en marcha mediante las funcionalidades de programación, control, flujo y supervisión existentes en Data Factory.
 
@@ -24,7 +24,7 @@ La asignación de flujos de datos proporciona una experiencia completamente visu
 
 Para crear un flujo de datos, haga clic en el signo más de Factory Resources (Recursos de fábrica). 
 
-![nuevo flujo de datos](media/data-flow/newdataflow2.png "new data flow")
+![nuevo flujo de datos](media/data-flow/newdataflow2.png "nuevo flujo de datos")
 
 De este modo, accederá al lienzo de flujo de datos, donde podrá crear la lógica de transformación. Haga clic en el cuadro "Agregar origen" para comenzar a configurar la transformación de origen. Para más información, consulte [Transformación de origen](data-flow-source.md).
 
@@ -32,13 +32,13 @@ De este modo, accederá al lienzo de flujo de datos, donde podrá crear la lógi
 
 El lienzo de flujo de datos está dividido en tres partes: la barra superior, el gráfico y el panel de configuración. 
 
-![Canvas](media/data-flow/canvas1.png "Canvas")
+![Lienzo](media/data-flow/canvas1.png "Lienzo")
 
 ### <a name="graph"></a>Grafo
 
 En el gráfico se muestra el flujo de transformación. Muestra el linaje de los datos de origen a medida que fluyen hacia uno o varios receptores. Para agregar un nuevo origen, haga clic en el cuadro "Agregar origen". Para agregar una nueva transformación, haga clic en el signo más situado en la parte inferior derecha de una transformación existente.
 
-![Canvas](media/data-flow/canvas2.png "Canvas")
+![Lienzo](media/data-flow/canvas2.png "Lienzo")
 
 ### <a name="configuration-panel"></a>Panel de configuración
 
@@ -50,13 +50,13 @@ Cada transformación tiene al menos cuatro pestañas de configuración:
 
 La primera pestaña del panel de configuración de cada transformación contiene los valores específicos de esa transformación. Para más información, consulte la página de documentación de la transformación.
 
-![Pestaña Configuración de origen](media/data-flow/source1.png "Source settings tab")
+![Pestaña de configuración de origen](media/data-flow/source1.png "Pestaña de configuración de origen")
 
 #### <a name="optimize"></a>Optimizar
 
 La pestaña _Optimizar_ contiene valores opcionales para configurar los esquemas de partición.
 
-![Optimizar](media/data-flow/optimize1.png "Optimizar")
+![Optimize](media/data-flow/optimize1.png "Optimizar") (Optimizar)
 
 El ajuste predeterminado es "current partitioning" (Usar particiones actuales), que le indica a Azure Data Factory que use el esquema de partición nativo en los flujos de datos que se ejecutan en Spark. En la mayoría de los escenarios, este valor es el recomendado.
 
@@ -104,11 +104,11 @@ Si el modo de depuración está activado, en la pestaña _Vista previa de los da
 
 La barra superior contiene acciones que afectan a todo el flujo de datos, como la operación de guardar y la validación. Puede alternar entre el modo de gráfico y el modo de configuración con los botones **Mostrar gráfico** y **Ocultar gráfico**.
 
-![Ocultar grafo](media/data-flow/hideg.png "Hide Graph")
+![Ocultar gráfico](media/data-flow/hideg.png "Ocultar gráfico")
 
 Si oculta el gráfico, podrá navegar lateralmente por los nodos de transformación con los botones **anterior** y **siguiente**.
 
-![Navegar](media/data-flow/showhide.png "navigate")
+![Navegar](media/data-flow/showhide.png "navegar")
 
 ## <a name="next-steps"></a>Pasos siguientes
 

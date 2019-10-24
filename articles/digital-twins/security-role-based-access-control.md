@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 1d4243457f51f11db5bc9681b29d27293fbc6250
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e89a8f98d92e92fa8afe93340576b14ff1dd5051
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949025"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249195"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Control de acceso basado en rol en Azure Digital Twins
 
-Azure Digital Twins permite el control de acceso preciso a datos, recursos y acciones específicos en un grafo espacial. Para ello, se usa la administración pormenorizada de roles y permisos que se conoce como control de acceso basado en rol (RBAC). RBAC consta de _roles_ y _asignaciones de roles_. Los roles identifican el nivel de permiso. Las asignaciones de roles asocian un rol a un usuario o dispositivo.
+Azure Digital Twins permite el control de acceso preciso sobre datos, recursos y acciones específicos en un grafo espacial. Para ello, se usa la administración pormenorizada de roles y permisos que se conoce como [control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC). RBAC consta de _roles_ y _asignaciones de roles_. Los roles identifican el nivel de permiso. Las asignaciones de roles asocian un rol a un usuario o dispositivo.
 
 Con RBAC, se puede conceder permiso a:
 
@@ -84,3 +84,5 @@ Para conceder permisos a un destinatario, cree una asignación de roles. Para re
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información sobre la creación y administración de asignaciones de roles de Azure Digital Twins, lea [Creación y administración de asignaciones de roles](./security-create-manage-role-assignments.md).
+
+- Obtenga más información sobre [RBAC para Azure](https://docs.microsoft.com/azure/role-based-access-control/).

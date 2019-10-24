@@ -11,15 +11,15 @@ ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91ac6b4530414850c52605bac8cb701aa2b877d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7993810343f6bd925afd54cc38a8302420d6aec
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473196"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439360"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Eliminación de un directorio en Azure Active Directory
 
@@ -65,21 +65,33 @@ Desaprovisionado (30 días tras la deshabilitación) | Los datos se eliminan (au
 
 ## <a name="delete-a-subscription"></a>Eliminación de una suscripción
 
-Puede colocar una suscripción en un estado Desaprovisionado para que se elimine a los 3 días mediante el centro de administración de Microsoft 365.
+Puede colocar una suscripción en un estado **Desaprovisionado** para que se elimine a los 3 días mediante el centro de administración de Microsoft 365.
 
 1. Inicie sesión en el [Centro de administración de Microsoft 365](https://admin.microsoft.com) con una cuenta que sea la del administrador global de la organización. Si está intentando eliminar el directorio "Contoso" que tiene el dominio predeterminado inicial "contoso.onmicrosoft.com", inicie sesión con un UPN como admin@contoso.onmicrosoft.com.
 
-2. Seleccione **Facturación** y luego **Suscripciones**. A continuación, elija la suscripción que desee cancelar. Tras hacer clic en **Cancelar**, actualice la página.
-  
+2. Para obtener una vista previa del nuevo centro de administración de Microsoft 365, asegúrese de que el botón de alternancia **Try the new admin center** (Probar el nuevo centro de administración) está habilitado.
+
+   ![Vista previa de la nueva experiencia del centro de administración de M365](./media/directory-delete-howto/preview-toggle.png)
+
+3. Una vez habilitado el nuevo centro de administración, debe cancelar una suscripción para poder eliminarla. Seleccione **Billing** (Facturación) y **Products & services** (Productos y servicios), luego, seleccione **Cancel subscription** (Cancelar suscripción) en la suscripción que quiere cancelar. Se le dirigirá a una página de comentarios.
+
+   ![Elegir una suscripción para cancelar](./media/directory-delete-howto/cancel-choose-subscription.png)
+
+4. Complete el formulario de comentarios y seleccione **Cancel suscripción**  (Cancelar suscripción) para cancelar la suscripción.
+
+   ![Comando de cancelación en la vista previa de la suscripción](./media/directory-delete-howto/cancel-command.png)
+
+5. Ahora puede eliminar la suscripción. Seleccione **Delete** (Eliminar) en la suscripción que quiere eliminar. Si no encuentra la suscripción en la página **Products & services** (Productos y servicios), asegúrese de que el **Estado de la suscripción** está establecido en **All** (Todo).
+
    ![Eliminación del vínculo para eliminar la suscripción](./media/directory-delete-howto/delete-command.png)
-  
-3. Seleccione **Eliminar** para eliminar la suscripción y acepte los términos y condiciones. Todos los datos se eliminarán permanentemente a los tres días. Puede reactivar la suscripción durante el período de tres días, si cambia de opinión.
+
+6. Seleccione **Delete subscription** (Eliminar suscripción) para eliminar la suscripción y acepte los términos y condiciones. Todos los datos se eliminarán permanentemente a los tres días. Puede [reactivar la suscripción](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) durante el período de tres días, si cambia de opinión.
   
    ![Lea detenidamente los términos y condiciones.](./media/directory-delete-howto/delete-terms.png)
 
-4. Ahora que ha cambiado el estado de la suscripción, esta se marca para eliminarla. La suscripción entra en el estado **Desaprovisionado** 72 horas más tarde.
+7. Ahora que ha cambiado el estado de la suscripción, esta se marca para eliminarla. La suscripción entra en el estado **Desaprovisionado** 72 horas más tarde.
 
-5. Una vez que haya eliminado una suscripción en el directorio y hayan transcurrido 72 horas, puede iniciar sesión de nuevo en el centro de administración de Azure AD y no debería requerirse ninguna acción ni haber ninguna suscripción que bloquee la eliminación de directorios. Debe ser capaz de eliminar correctamente el directorio de Azure AD.
+8. Una vez que haya eliminado una suscripción en el directorio y hayan transcurrido 72 horas, puede iniciar sesión de nuevo en el centro de administración de Azure AD y no debería requerirse ninguna acción ni haber ninguna suscripción que bloquee la eliminación de directorios. Debe ser capaz de eliminar correctamente el directorio de Azure AD.
   
    ![pasar la comprobación de suscripción en la pantalla de eliminación](./media/directory-delete-howto/delete-checks-passed.png)
 

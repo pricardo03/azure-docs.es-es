@@ -4,17 +4,17 @@ description: Con Azure DevOps Projects es fácil empezar a usar Azure. En pocos 
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 07/09/2019
+ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 109a7e327217a342f485dd61b53115569f2346cd
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: daa4bc7b1584dc2159d4128fa4b44056df347ecb
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722980"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72253002"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Creación de una canalización de CI/CD para IoT Edge con Azure DevOps Projects
 
@@ -56,6 +56,8 @@ DevOps Projects crea una canalización de CI/CD en Azure DevOps. Puede crear una
 
    4. Use el nombre de IoT Hub generado por el nombre del proyecto o proporcione uno.
 
+   5. Acepte la ubicación predeterminada o elija una que se encuentre próxima. 
+
    5. Seleccione **Configuración adicional** para configurar los recursos de Azure que DevOps Projects crea en su nombre.
 
    6. Seleccione **Listo** para terminar de crear el proyecto. 
@@ -64,7 +66,7 @@ DevOps Projects crea una canalización de CI/CD en Azure DevOps. Puede crear una
 
 En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Seleccione el nombre del proyecto para ver el progreso. Es posible que deba actualizar la página. Una aplicación IoT Edge de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en el dispositivo IoT Edge. Este panel proporciona visibilidad sobre el repositorio de código, la canalización de CI/CD y la aplicación de Azure.
 
-   ![Visualización de la aplicación en el portal de DevOps](./media/how-to-devops-project/devops-portal.png)
+   ![Visualización de la aplicación en Azure Portal](./media/how-to-devops-project/devops-portal.png)
 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmación de los cambios de código y ejecución de CI/CD
@@ -77,23 +79,16 @@ DevOps Projects ha creado un repositorio Git para el proyecto en Azure Repos. En
 
 2. Los pasos siguientes sirven como guía para el uso del explorador web para realizar cambios de código. Si quiere clonar el repositorio localmente en su lugar, seleccione **Clonar** en la parte superior derecha de la ventana. Use la dirección URL proporcionada para clonar el repositorio de Git en Visual Studio Code o la herramienta de desarrollo que prefiera. 
 
-3. El repositorio ya incluye código para un módulo denominado **SampleModule** según el idioma de la aplicación que eligió en el proceso de creación. Abra el archivo **modules/SampleModule/module.json**.
+3. El repositorio ya incluye código para un módulo denominado **FilterModule** según el idioma de la aplicación que eligió en el proceso de creación. Abra el archivo **modules/FilterModule/module.json**.
 
    ![Archivo module.json abierto en Azure Repos](./media/how-to-devops-project/open-module-json.png)
 
-4. Seleccione **Editar** y haga un cambio en `"version"` en `"tag"`. Por ejemplo, lo puede actualizar a `"version": "${BUILD_BUILDID}"` para usar las [variables de compilación de Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) como parte de la etiqueta de imagen de módulo Azure IoT Edge.
+4. Tenga en cuenta que este archivo usa [variables de compilación de Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) en el parámetro de **versión**. Esta configuración garantiza la creación de una nueva versión del módulo cada vez que se ejecute una nueva compilación. 
 
-   ![Edición de la versión para que acepte variables de compilación](media/how-to-devops-project/update-module-json.png)
-
-5. Seleccione **Confirmar** y guarde los cambios.
-
-6. En el explorador, vuelva al panel de DevOps Projects en Azure Portal. Debería ver que hay una compilación en curso. Los cambios que ha realizado se compilan e implementan automáticamente a través de una canalización de CI/CD.
-
-    ![Visualización del estado en curso](media/how-to-devops-project/ci-cd-in-progress.png)
 
 ## <a name="examine-the-cicd-pipeline"></a>Examen de la canalización de CI/CD
 
-En las secciones anteriores, Azure DevOps Projects configuró automáticamente una canalización de CI/CD completa para la aplicación de IoT Edge. A continuación, probó dicha canalización de compilación confirmando los cambios en uno de los archivos. Ahora, explore y personalice la canalización según sea necesario. Para familiarizarse con las canalizaciones de compilación y versión de Azure DevOps, siga estos pasos:
+En las secciones anteriores, Azure DevOps Projects configuró automáticamente una canalización de CI/CD completa para la aplicación de IoT Edge. Ahora, explore y personalice la canalización según sea necesario. Para familiarizarse con las canalizaciones de compilación y versión de Azure DevOps, use estos pasos.
 
 1. Para ver las canalizaciones de compilación en el proyecto de DevOps, seleccione **Compilar canalizaciones** en el menú del panel del proyecto. Este vínculo abre una pestaña del explorador y la canalización de compilación de Azure DevOps del nuevo proyecto.
 
@@ -111,7 +106,7 @@ En las secciones anteriores, Azure DevOps Projects configuró automáticamente u
 
 5. Seleccione **Guardar y poner en cola** y, después, seleccione **Guardar**.
 
-6. En el menú de la canalización de compilación, seleccione **Desencadenadores**. DevOps Projects creó automáticamente un desencadenador de integración continua y cada confirmación en el repositorio inicia una compilación.  Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
+6. Seleccione **Desencadenadores** en el menú de canalización de compilación. DevOps Projects creó automáticamente un desencadenador de integración continua y cada confirmación en el repositorio inicia una compilación.  Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
 
 7. Seleccione **Retención**. En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
 

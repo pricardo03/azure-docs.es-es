@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1a6d7901368d19cf5ca8221bc00f426980e6f48
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 85479abfd19110703d5ce9f59f545830e84feadb
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169923"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429576"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management-preview"></a>Creación y administración de un catálogo de recursos en la administración de derechos de Azure AD (versión preliminar)
 
@@ -52,13 +52,13 @@ Un catálogo es un contenedor de recursos y paquetes de acceso. Creará un catá
 
 1. Si quiere permitir que los usuarios de directorios externos seleccionados puedan solicitar los paquetes de acceso de este catálogo, establezca **Enabled for external users** (Habilitado para usuarios externos) en **Sí**.
 
-    ![Panel Nuevo catálogo](./media/entitlement-management-catalog-create/new-catalog.png)
+    ![Panel Nuevo catálogo](./media/entitlement-management-shared/new-catalog.png)
 
 1. Haga clic en **Crear** para crear el catálogo.
 
 ## <a name="add-resources-to-a-catalog"></a>Adición de recursos a un catálogo
 
-Para incluir recursos en un paquete de acceso, deben estar en un catálogo. Los tipos de recursos que puede agregar son grupos, aplicaciones y sitios de SharePoint Online. Los grupos pueden ser grupos de Office 365 creados en la nube o grupos de seguridad de Azure AD creados en la nube. Las aplicaciones pueden ser aplicaciones empresariales de Azure AD, incluidas las aplicaciones SaaS y sus propias aplicaciones federadas con Azure AD. Los sitios pueden ser sitios de SharePoint Online o colecciones de sitios de SharePoint Online.
+Para incluir recursos en un paquete de acceso, deben estar en un catálogo. Los tipos de recursos que puede agregar son grupos, aplicaciones y sitios de SharePoint Online. Los grupos pueden ser grupos de Office 365 creados en la nube o grupos de seguridad de Azure AD creados en la nube. Las aplicaciones pueden ser aplicaciones empresariales de Azure AD, incluidas las aplicaciones SaaS y sus propias aplicaciones federadas con Azure AD. Los sitios pueden ser sitios de SharePoint Online o colecciones de sitios de SharePoint Online.
 
 **Rol necesario:** vea [Roles necesarios para agregar recursos a un catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
@@ -130,7 +130,9 @@ Puede editar el nombre y la descripción de un catálogo. Los usuarios ven esta 
 
 1. En la página **Introducción** del catálogo, haga clic en **Editar**.
 
-1. Edite el nombre o la descripción del catálogo.
+1. Edite el nombre, la descripción o la configuración habilitada del catálogo.
+
+    ![Edición de la configuración del catálogo](./media/entitlement-management-shared/catalog-edit.png)
 
 1. Haga clic en **Save**(Guardar).
 

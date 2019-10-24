@@ -8,12 +8,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: ca831fe66a0ce6a2dbfafc54a761b86473067b10
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846890"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514786"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de Azure Storage Analytics (clásicas)
 
@@ -74,11 +74,8 @@ Siga estos pasos para habilitar las métricas en [Azure Portal](https://portal.a
 
 [Azure Portal](https://portal.azure.com) no permite actualmente configurar métricas por minuto en su cuenta de almacenamiento; debe habilitar las métricas por minuto con PowerShell o mediante programación.
 
-> [!NOTE]
->  Tenga en cuenta que, actualmente, Azure Portal no permite configurar métricas por minuto en su cuenta de almacenamiento. Deberá habilitar las métricas por minuto con PowerShell o mediante programación.
-
 ## <a name="enable-storage-metrics-using-powershell"></a>Habilitar métricas de almacenamiento con PowerShell  
-Puede usar PowerShell en el equipo local para configurar métricas de almacenamiento en su cuenta de almacenamiento, mediante el cmdlet **Get-AzureStorageServiceMetricsProperty** de Azure PowerShell para recuperar la configuración actual y el cmdlet **Set-AzureStorageServiceMetricsProperty** para cambiar la configuración actual.  
+Puede usar PowerShell en la máquina local para configurar las métricas de almacenamiento en su cuenta de almacenamiento con los cmdlets de Azure PowerShell **Get-AzStorageServiceMetricsProperty** para recuperar la configuración actual y **Set-AzStorageServiceMetricsProperty** para cambiar la configuración actual.  
 
 Los cmdlets que controlan las Métricas de almacenamiento usan los siguientes parámetros:  
 
@@ -94,22 +91,22 @@ Por ejemplo, el siguiente comando activa las métricas por minuto para Blob serv
 > [!NOTE]
 > Este comando da por supuesto que ha iniciado sesión en su suscripción de Azure mediante el comando `Connect-AzAccount`.
 
-```  
+```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
 
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
 
 * Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
-
+        
 * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
 
 
 El comando siguiente recupera el nivel de métricas por hora actual y los días de retención para el servicio BLOB en su cuenta de almacenamiento predeterminada:  
 
-```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
+```powershell
+Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
 Para más información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

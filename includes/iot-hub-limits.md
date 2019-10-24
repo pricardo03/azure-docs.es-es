@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 689322614e2cea4e59a5a573b72bfeb2aafda847
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148492"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391780"
 ---
 En la tabla siguiente se enumeran los límites asociados a los diferentes niveles de servicio (S1, S2, S3 y F1). Para información sobre el costo de cada *unidad* en cada nivel, consulte los [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -56,7 +56,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 > Si necesita más de 50 centros de IoT de pago en una suscripción de Azure, póngase en contacto con el servicio de soporte técnico de Microsoft.
 
 > [!NOTE]
-> Actualmente, el número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 1 000 000. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
+> Actualmente, el número total de dispositivos más módulos que es posible registrar en un único centro de IoT se limita a 1 millón. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
 
 El servicio IoT Hub limita las solicitudes cuando se superan las cuotas siguientes:
 
@@ -67,7 +67,7 @@ El servicio IoT Hub limita las solicitudes cuando se superan las cuotas siguient
 | Envíos de dispositivo a nube |6000/s/unidad (para S3), 120/s/unidad (para S2), 12/s/unidad (para S1). <br/>Mínimo de 100/s. |
 | Envíos de nube a dispositivo | 83,33/s/unidad (5000/min/unidad) (para S3), 1,67/s/unidad (100/min/unidad) (para S1 y S2). |
 | Recepciones de nube a dispositivo |833,33/s/unidad (50 000/min/unidad) (para S3), 16,67/s/unidad (1000/min/unidad) (para S1 y S2). |
-| Operaciones de carga de archivos |Notificaciones de carga de 83,33 archivos/s/unidad (5000/min/unidad) (para S3), notificaciones de carga de 1,67 archivos/s/unidad (100/min/unidad) (para S1 y S2). <br/> Puede haber 10 000 URI de SAS fuera para una cuenta de Azure Storage al mismo tiempo.<br/> 10 URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
+| Operaciones de carga de archivos |Iniciaciones de carga de 83,33 archivos/s/unidad (5000/min/unidad) (para S3), iniciaciones de carga de 1,67 archivos/s/unidad (100/min/unidad) (para S1 y S2). <br/> Puede haber 10 000 URI de SAS fuera para una cuenta de Azure Storage al mismo tiempo.<br/> 10 URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
 | Métodos directos | 24 MB/s/unidad (para S3), 480 KB/s/unidad (para S2), 160 KB/s/unidad (para S1).<br/> Según un tamaño de medidor de limitación de 8 KB. |
 | Lecturas de dispositivos gemelos | 500/s/unidad (para S3), 100/s o 10/s/unidad como máximo (para S2), 100/s (para S1) |
 | Actualizaciones de dispositivos gemelos | 250/s/unidad (para S3), 50/s o 5/s/unidad como máximo (para S2), 50/s (para S1) |

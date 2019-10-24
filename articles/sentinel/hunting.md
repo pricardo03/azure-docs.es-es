@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: b00f60394a24008ca39f3ac7b378b1936c46ef76
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240612"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372409"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel"></a>Búsqueda de amenazas con Azure Sentinel
 
@@ -68,7 +68,7 @@ Con la función de búsqueda de Azure Sentinel, puede aprovechar las siguientes 
 
 ## <a name="query-language"></a>Lenguaje de consulta 
 
-Las búsquedas de Azure Sentinel se basan en el lenguaje de consultas de Azure Log Analytics. Para obtener más información sobre el lenguaje de consulta y los operadores admitidos, consulte la [referencia de idioma de consulta](https://docs.loganalytics.io/docs/Language-Reference/).
+Las búsquedas de Azure Sentinel se basan en el lenguaje de consultas de Kusto. Para obtener más información sobre el lenguaje de consulta y los operadores admitidos, consulte la [referencia de idioma de consulta](https://docs.loganalytics.io/docs/Language-Reference/).
 
 ## <a name="public-hunting-query-github-repository"></a>Repositorio de GitHub de consultas de búsquedas públicas
 

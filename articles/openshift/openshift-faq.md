@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203542"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249207"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Preguntas más frecuentes de Red Hat OpenShift en Azure
 
@@ -189,7 +189,7 @@ Esto se lograría con la integración de Azure AD. 
 
 Cada clúster de Red Hat OpenShift en Azure está dedicado a un cliente determinado y vive en la suscripción del cliente. 
 
-## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>Podemos elegir cualquier solución de almacenamiento persistente. ¿OCS? 
+## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>¿Podemos elegir cualquier solución de almacenamiento persistente, como OCS? 
 
 Hay dos clases de almacenamiento disponibles para seleccionar: Azure Disk y Azure Files.
 

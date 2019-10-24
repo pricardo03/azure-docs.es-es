@@ -1,21 +1,21 @@
 ---
-title: Guía de optimización y rendimiento de la asignación de instancias de Data Flow en Azure Data Factory | Microsoft Docs
-description: Conozca los factores clave que afectan al rendimiento de Mapping Data Flows en Azure Data Factory.
+title: Guía de optimización y rendimiento del flujo de datos de asignación en Azure Data Factory | Microsoft Docs
+description: Conozca los factores clave que afectan al rendimiento de los flujos de datos de asignación en Azure Data Factory.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 9db1b96cb495fd0de452091da79ab61f7ae59118
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 24b0deb60f1047228dc3ff6000d423e7cb6939ca
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030726"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72387319"
 ---
-# <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de Mapping Data Flows
+# <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
-Mapping Data Flows de Azure Data Factory proporciona una interfaz sin código para diseñar, implementar y orquestar transformaciones de datos a escala. Si no está familiarizado con Mapping Data Flows, consulte la [Información general sobre Mapping Data Flows](concepts-data-flow-overview.md).
+Mapping Data Flows de Azure Data Factory proporciona una interfaz sin código para diseñar, implementar y orquestar transformaciones de datos a escala. Si no está familiarizado con los flujos de datos de asignación, consulte [Introducción a Mapping Data Flow](concepts-data-flow-overview.md).
 
 Al diseñar y probar flujos de datos desde la interfaz de usuario de ADF, asegúrese de activar el modo de depuración para ejecutar los flujos de datos en tiempo real sin esperar a que se prepare un clúster. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
 
@@ -23,11 +23,11 @@ Al diseñar y probar flujos de datos desde la interfaz de usuario de ADF, asegú
 
 Al diseñar flujos de datos de asignación, puede hacer una prueba unitaria de cada transformación si hace clic en la pestaña Vista previa de datos del panel Configuración. Una vez que compruebe la lógica, pruebe el flujo de datos de un extremo a otro como una actividad en una canalización. Agregue una actividad de ejecución de Data Flow y use el botón de depuración para probar el rendimiento del flujo de datos. Para abrir el plan de ejecución y el perfil de rendimiento del flujo de datos, haga clic en el icono de anteojos en "acciones" en la pestaña Salida de la canalización.
 
-![Supervisión de Data Flow](media/data-flow/mon002.png "Monitor 2 de Data Flow")
+![Supervisión de Data Flow](media/data-flow/mon002.png "Supervisión de Data Flow 2")
 
- Puede usar esta información para calcular el rendimiento del flujo de datos en orígenes de datos de diferente tamaño. Para más información, consulte [Supervisión de Mapping Data Flows](concepts-data-flow-monitoring.md).
+ Puede usar esta información para calcular el rendimiento del flujo de datos en orígenes de datos de diferente tamaño. Para más información, consulte [Supervisión de los flujos de datos de asignación](concepts-data-flow-monitoring.md).
 
-![Supervisión de Data Flow](media/data-flow/mon003.png "Monitor 3 de Data Flow")
+![Supervisión de Data Flow](media/data-flow/mon003.png "Supervisión de Data Flow 3")
 
  En el caso de las ejecuciones de depuración de canalización, se requiere aproximadamente un minuto de tiempo de configuración del clúster en los cálculos de rendimiento generales para preparar un clúster. Si va a inicializar la instancia de Azure Integration Runtime predeterminada, el tiempo de giro puede ser de unos 5 minutos.
 
@@ -37,7 +37,7 @@ Un entorno Integration Runtime con más núcleos aumenta el número de nodos en 
 * Pruebe un clúster **optimizado para proceso**, si desea que la velocidad de procesamiento sea mayor que la velocidad de entrada.
 * Pruebe un clúster **optimizado para memoria** si desea almacenar en caché más datos en memoria.
 
-![Nuevo IR](media/data-flow/ir-new.png "New IR")
+![Nuevo IR](media/data-flow/ir-new.png "Nuevo IR")
 
 Para más información sobre cómo crear un entorno de Integration Runtime, consulte [Integration Runtime en Azure Data Factory](concepts-integration-runtime.md).
 
@@ -56,7 +56,7 @@ De forma predeterminada, al activar la depuración se usará el entorno Azure In
 1. Si seleccionó **Columna**, elija la columna de partición.
 1. Si seleccionó **Consulta**, escriba una consulta que coincida con el esquema de partición de la tabla de base de datos. Esta consulta permite que el motor de base de datos de origen aproveche la eliminación de particiones. No es necesario crear particiones de las tablas de la base de datos de origen. Si todavía no se han creado particiones en el origen, ADF seguirá usando la creación de particiones en el entorno de transformación de Spark en función de la clave que seleccione en la transformación de origen.
 
-![Elemento de origen](media/data-flow/sourcepart3.png "Source Part")
+![Elemento de origen](media/data-flow/sourcepart3.png "Elemento de origen")
 
 ### <a name="source-batch-size-input-and-isolation-level"></a>Tamaño de lote de origen, entrada y nivel de aislamiento
 
@@ -72,7 +72,7 @@ En **Opciones de origen**, en la transformación de origen, la siguiente configu
 
 Para evitar el procesamiento fila por fila de los flujos de datos, establezca el **Tamaño de lote** en la pestaña Configuración de los receptores de Azure SQL DB y Azure SQL Data Warehouse. Si se establece el tamaño de lote, ADF procesa las operaciones de escritura de base de datos en lotes según el tamaño especificado.
 
-![Receptor](media/data-flow/sink4.png "Sink")
+![Sink](media/data-flow/sink4.png "Receptor")
 
 ### <a name="partitioning-on-sink"></a>Creación de particiones en el receptor
 
@@ -101,11 +101,11 @@ En cada transformación, puede establecer el esquema de partición que desee que
 Al depurar en la vista previa de datos y la depuración de la canalización, el límite y los tamaños de muestreo de los conjuntos de datos de origen basados en archivos solo se aplican al número de filas devueltas, no al número de filas leídas. Esto puede afectar al rendimiento de sus ejecuciones de depuración y, posiblemente, hacer que se produzca un error en el flujo.
 * Los clústeres de depuración son pequeños clústeres de un solo nodo de forma predeterminada, de modo que se recomienda usar archivos pequeños de ejemplo para la depuración. Vaya a Configuración de depuración y seleccione un pequeño subconjunto de sus datos mediante un archivo temporal.
 
-    ![Configuración de depuración](media/data-flow/debugsettings3.png "Debug Settings")
+    ![Configuración de depuración](media/data-flow/debugsettings3.png "Configuración de depuración")
 
 ### <a name="file-naming-options"></a>Opciones de nombre de archivo
 
-La forma más común de escribir datos transformados en Mapping Data Flows es en el almacenamiento de blobs o de archivos ADLS. En el receptor, debe seleccionar un conjunto de datos que apunte a un contenedor o carpeta, no a un archivo con nombre. A medida que Mapping Data Flows usa Spark para la ejecución, el resultado se divide en varios archivos según el esquema de partición.
+La forma más común de escribir datos transformados en flujos de datos de asignación es el almacenamiento de blobs o de archivos ADLS. En el receptor, debe seleccionar un conjunto de datos que apunte a un contenedor o carpeta, no a un archivo con nombre. A medida que el flujo de datos de asignación usa Spark para la ejecución, el resultado se divide en varios archivos según el esquema de partición.
 
 Un esquema de particionamiento común es elegir _Salida en un solo archivo_, que combina todos los archivos PART de salida en un solo archivo del receptor. Esta operación requiere que la salida se reduzca a una única partición en un único nodo de clúster. Si combina muchos archivos de origen grandes en un solo archivo de salida, puede quedarse sin recursos de nodo de clúster.
 
@@ -113,7 +113,7 @@ Para evitar que se agoten los recursos de nodo de proceso, mantenga el esquema o
 
 ### <a name="looping-through-file-lists"></a>Bucles a través de listas de archivos
 
-Una instancia de Mapping Data Flow se ejecutará mejor cuando la transformación de origen recorra en iteración varios archivos en lugar de crear bucles a través de la actividad For Each. Se recomienda usar caracteres comodín o listas de archivos en la transformación de origen. El proceso de Data Flow se ejecutará más rápido si se permiten bucles dentro del clúster de Spark. Para más información, consulte [Caracteres comodín en la transformación de origen](data-flow-source.md#file-based-source-options).
+Un flujo de datos de asignación se ejecutará mejor cuando la transformación de origen recorra en iteración varios archivos en lugar de crear bucles a través de la actividad For Each. Se recomienda usar caracteres comodín o listas de archivos en la transformación de origen. El proceso de Data Flow se ejecutará más rápido si se permiten bucles dentro del clúster de Spark. Para más información, consulte [Caracteres comodín en la transformación de origen](data-flow-source.md#file-based-source-options).
 
 Por ejemplo, si tiene una lista de archivos de datos de julio de 2019 que desea procesar en una carpeta en Blob Storage, a continuación se muestra un carácter comodín que puede usar en la transformación de origen.
 

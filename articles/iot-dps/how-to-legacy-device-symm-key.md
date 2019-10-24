@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13e22d772ef9b90f415f10b65e4a4290a1f7bd81
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65914302"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434822"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Aprovisionamiento de dispositivos antiguos mediante claves simétricas
-
 
 Un problema habitual con muchos dispositivos antiguos es que a menudo tienen una identidad que está compuesta de un solo fragmento de información. Esta información de identidad suele ser una dirección MAC o un número de serie. Puede que los dispositivos antiguos no tengan un certificado, un módulo de plataforma segura o cualquier otra característica de seguridad que se pueda usar para identificar de forma segura al dispositivo. Device Provisioning Service de IoT Hub incluye la atestación de clave simétrica. La atestación de clave simétrica se puede usar para identificar un dispositivo basándose en información como la dirección MAC o un número de serie.
 
@@ -28,6 +27,8 @@ En este artículo también se da por supuesto que la actualización del disposit
 
 Este artículo está orientado a una estación de trabajo basada en Windows. No obstante, también puede realizar los procedimientos en Linux. Para obtener un ejemplo de Linux, consulte [Cómo aprovisionar para varios inquilinos](how-to-provision-multitenant.md).
 
+> [!NOTE]
+> El ejemplo que se usa en este artículo está escrito en C. También hay disponible un [ejemplo de clave simétrica de aprovisionamiento de dispositivos de C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample). Para usar este ejemplo, descargue o clone el repositorio [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) y siga las instrucciones insertadas en el código de ejemplo. Puede seguir las instrucciones que aparecen en este artículo para crear un grupo de inscripción de claves simétricas mediante el portal y para buscar el ámbito de identificador y las claves principales y secundarias del grupo de inscripción que se necesitan para ejecutar el ejemplo. También puede crear inscripciones individuales con el ejemplo.
 
 ## <a name="overview"></a>Información general
 

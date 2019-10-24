@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f4eeecccb3815ebfef9cdf79ac14f3dd3bd5e77a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937499"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300178"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integraciones de partners de Windows Virtual Desktop
 
@@ -62,6 +62,16 @@ Si se usa con Windows Virtual Desktop, ControlUp proporciona funcionalidades adi
 - [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Ir al sitio web del asociado](https://www.controlup.com/solutions/ms_wvd/).
 
+## <a name="devicetrust"></a>deviceTRUST
+
+![Logotipo de deviceTRUST](./media/partners/devicetrust.png)
+
+deviceTRUST es un proveedor de servicios de valor añadido de Windows Virtual Desktop que contextualiza la empresa corporativa, dando a los usuarios la libertad de obtener acceso a su instancia de Windows Virtual Desktop desde cualquier ubicación, en cualquier dispositivo, a través de cualquier red al mismo tiempo que proporciona a los departamentos de TI la información y el control que necesitan para cumplir sus requisitos de gobernanza. 
+
+deviceTRUST extiende el valor de Windows Virtual Desktop con su tecnología de seguridad contextual. deviceTRUST habilita el acceso condicional para un acceso a Windows Virtual Desktop seguro, un acceso a la aplicación condicional en Windows Virtual Desktop y para aplicar directivas de Windows Virtual Desktop condicionales sin ninguna infraestructura adicional. El uso de deviceTRUST habilita un área de trabajo móvil y flexible que cumple todos los requisitos de seguridad, de cumplimiento y reglamentarios. 
+
+- [Ir al sitio web del asociado](https://devicetrust.com/wvd).
+
 ## <a name="lakeside-software"></a>Lakeside Software
 
 ![Logotipo de Lakeside Software](./media/partners/lakeside.png)
@@ -84,6 +94,14 @@ Liquidware Essentials amplía el valor de Windows Virtual Desktop al recolectar 
 - [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
 - [Ir al sitio web del asociado](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
+## <a name="login-vsi"></a>Login VSI
+
+![Logotipo de Login VSI](./media/partners/loginvsi.png)
+
+Login VSI es un proveedor de servicios de valor añadido de Windows Virtual Desktop y un asociado de Microsoft que entrega software para pruebas de rendimiento de la aplicación en entornos de Windows Virtual Desktop. Los clientes que trasladan sus servicios empresariales locales a Windows Virtual Desktop usan Login VSI Enterprise Edition para evaluar y mantener un rendimiento, una escalabilidad y una disponibilidad óptimos de la sesión múltiple de Windows 10 Enterprise, Windows 10 Enterprise y Windows 7 habilitados con sus aplicaciones críticas para la empresa.
+
+- [Ir al sitio web del asociado](https://www.loginvsi.com).
+
 ## <a name="nerdio"></a>Nerdio
 
 ![Logotipo de Nerdio](./media/partners/nerdio.png)
@@ -94,6 +112,26 @@ Nerdio amplía el valor de Windows Virtual Desktop al facilitar el aprovisionami
 
 - [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Ir al sitio web del asociado](https://getnerdio.com/windows-virtual-desktop/).
+
+## <a name="policypak"></a>PolicyPak
+
+![Logotipo de PolicyPak](./media/partners/policypak.png)
+
+El software PolicyPak es un asociado de Windows Virtual Desktop que se ocupa de la administración de configuración total para aplicaciones, el escritorio, exploradores, Java y la configuración de seguridad. PolicyPak mantiene la compatibilidad de la configuración de seguridad, el sistema y el escritorio. PolicyPak mejora el valor de Windows Virtual Desktop agregando un conjunto de componentes para mejorar la administración integrada de Windows. Use su directiva de grupo de Active Directory o instancia de Windows Intune existente para proporcionar la configuración de PolicyPak y aumentar la capacidad de los administradores para administrar sus máquinas de Windows 10. 
+
+Los principales casos de uso para PolicyPak son la eliminación de derechos de administrador local y el afrontamiento de solicitudes de UAC, el bloqueo de ransomware, la administración de varios exploradores, la administración de los modos de empresa y compatibilidad de Internet Explorer, la reducción del número de GPO, la administración de asociaciones de archivos de Windows 10, la administración del menú Inicio y la barra de tareas de Windows 10, y la administración de características y características opcionales de Windows 10.  
+
+- [Ir al sitio web del asociado](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
+
+## <a name="printerlogic"></a>PrinterLogic
+
+![Logotipo de PrinterLogic](./media/partners/printerlogic.png)
+
+PrinterLogic es una plataforma del proveedor de servicios de valor añadido de Windows Virtual Desktop que capacita a los profesionales de TI para eliminar todos los servidores de impresión y ofrecer una infraestructura de impresión sin servidor altamente disponible. PrinterLogic extiende el valor de Windows Virtual Desktop y Azure facilitando la administración e implementación de objetos de impresora de forma centralizada en cualquier sistema operativo de punto de conexión o impresora.   
+
+Disponible como SaaS o como pila web en su propia nube privada, la plataforma PrinterLogic garantiza que los usuarios siempre tengan las impresoras adecuadas que necesitan en sus sesiones virtuales en función del identificador de usuario, el nombre de dispositivo o la ubicación. Esta funcionalidad se complementa por medio de un completo conjunto de características de administración de impresión empresariales como los informes y el seguimiento de impresión, la impresión móvil y la impresión de la versión de notificación segura. 
+
+- [Ir al sitio web del asociado](https://www.printerlogic.com).
 
 ## <a name="thinprint"></a>ThinPrint
 

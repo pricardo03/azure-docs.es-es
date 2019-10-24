@@ -13,26 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: aab2535eb44ca5007859c71bf1f8142b26de7d14
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 0d05650ff349cb9e9750b0cefe0de217a986b32a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996742"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254600"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Administrar datos de usuario en Azure Security Center
 En este artículo se proporciona información sobre cómo administrar los datos de usuario en Azure Security Center. La administración de los datos de usuario incluye la capacidad de acceder, eliminar o exportar datos.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-Un usuario de Security Center que tenga asignado el rol Lector, Propietario, Colaborador o Administrador de cuenta puede tener acceso a los datos del cliente dentro de la herramienta. Vea [Roles integrados para el control de acceso basado en roles de Azure](../role-based-access-control/built-in-roles.md) para obtener más información sobre los roles Lector, Propietario y Colaborador. Vea [Administradores de la suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md) para obtener más información sobre el rol Administrador de cuenta.
+Un usuario de Security Center que tenga asignado el rol Lector, Propietario, Colaborador o Administrador de cuenta puede acceder a los datos del cliente dentro de la herramienta. Para obtener más información sobre el rol Administrador de cuenta, consulte [Roles integrados para el control de acceso basado en roles de Azure](../role-based-access-control/built-in-roles.md) para obtener más información sobre los roles Lector, Propietario y Colaborador. Consulte el artículo sobre los [administradores de la suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Búsqueda e identificación de datos personales
-Un usuario de Security Center puede ver sus datos personales a través de Azure Portal. En Security Center solo se almacenan los detalles de contacto de seguridad como direcciones de correo electrónico y números de teléfono. Vea [Provisión de detalles de contacto de seguridad en Azure Security Center](security-center-provide-security-contact-details.md) para obtener más información.
+Un usuario de Security Center puede ver sus datos personales a través de Azure Portal. En Security Center solo se almacenan los detalles de contacto de seguridad como direcciones de correo electrónico y números de teléfono. Para obtener más información, consulte [Provisión de detalles de contacto de seguridad en Azure Security Center](security-center-provide-security-contact-details.md).
 
-En Azure Portal, un usuario puede ver las configuraciones de IP permitidas mediante el la característica de acceso Just-In-Time a la máquina virtual de Security Center. Para más información, consulte [Administración del acceso a máquina virtual mediante Just-In-Time](security-center-just-in-time.md).
+En Azure Portal, un usuario puede ver las configuraciones de IP permitidas mediante el la característica de acceso Just-In-Time a la máquina virtual de Security Center. Para obtener más información, consulte [Administrar el acceso a máquina virtual mediante Just-In-Time](security-center-just-in-time.md).
 
-En Azure Portal, un usuario puede ver las alertas de seguridad proporcionadas por Security Center, incluidos los detalles de atacantes y direcciones IP. Vea [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) para obtener más información.
+En Azure Portal, un usuario puede ver las alertas de seguridad proporcionadas por Security Center, incluidos los detalles de atacantes y direcciones IP. Para obtener más información, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 ## <a name="classifying-personal-data"></a>Clasificación de datos personales
 No es necesario clasificar los datos personales que se encuentran en la característica de contactos de seguridad de Security Center. Los datos guardados son una dirección de correo electrónico (o varias) y un número de teléfono. Security Center valida los [datos de contacto](security-center-provide-security-contact-details.md).
@@ -60,12 +60,12 @@ Un usuario de Security Center que tenga asignado el rol Propietario, Colaborador
 
 Un usuario de Security Center que tenga asignado el rol Propietario, Colaborador o Administrador de cuenta puede eliminar las [directivas Just-In-Time](security-center-just-in-time.md) a través de Azure Portal.
 
-Un usuario de Security Center no puede eliminar los incidentes de alerta. Debido a las necesidades de seguridad, un [incidente de alerta](security-center-managing-and-responding-alerts.md) se considera datos de solo lectura.
+Un usuario de Security Center no puede eliminar los incidentes de alerta. Por motivos de seguridad, un [incidente de alerta](security-center-managing-and-responding-alerts.md) se considera datos de solo lectura.
 
 ## <a name="exporting-personal-data"></a>Exportación de datos personales
 Un usuario de Security Center que tenga asignado el rol Lector, Propietario, Colaborador o Administrador de cuenta puede exportar los [datos de contacto de seguridad](security-center-provide-security-contact-details.md) si:
 
-- Realiza una copia desde Azure Portal.
+- Copia desde Azure Portal
 - Ejecuta la llamada de API de REST de Azure, GET HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
@@ -73,7 +73,7 @@ Un usuario de Security Center que tenga asignado el rol Lector, Propietario, Col
 
 Un usuario de Security Center que tenga asignado el rol Administrador de cuenta puede exportar las [directivas Just-In-Time](security-center-just-in-time.md) que contienen las direcciones IP si:
 
-- Realiza una copia desde Azure Portal.
+- Copia desde Azure Portal
 - Ejecuta la llamada de API de REST de Azure, GET HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
@@ -81,13 +81,13 @@ Un usuario de Security Center que tenga asignado el rol Administrador de cuenta 
 
 Un Administrador de cuenta puede exportar los detalles de alerta si:
 
-- Realiza una copia desde Azure Portal.
+- Copia desde Azure Portal
 - Ejecuta la llamada de API de REST de Azure, GET HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
   ```
 
-Vea [Get Security Alerts (GET Collection)](https://msdn.microsoft.com/library/mt704050.aspx) (Obtener alertas de seguridad [colección GET]) para obtener más información.
+Para obtener más información, consulte [Obtener alertas de seguridad (colección GET)](https://msdn.microsoft.com/library/mt704050.aspx).
 
 ## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>Restricción del uso de datos personales para la generación de perfiles o marketing sin consentimiento
 Un usuario de Security Center puede elegir no participar mediante la eliminación de sus [datos de contacto de seguridad](security-center-provide-security-contact-details.md).

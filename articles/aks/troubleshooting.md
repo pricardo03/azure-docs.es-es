@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: d2561b1882ea612f29c0ff0eeb4bd6614403c9ff
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2c25069ce5231a1f89027dea69579231f0fe4bcd
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025489"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517085"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -147,3 +147,337 @@ Para ello, use las siguientes soluciones alternativas:
 Cuando se restringe el tráfico de salida desde un clúster de AKS, hay puerto de salida / reglas de red y reglas de aplicación /FQDN [requeridos y recomendados opcionales](limit-egress-traffic.md) para AKS. Si la configuración entra en conflicto con cualquiera de estas reglas, es posible que no puede ejecutar ciertos comandos `kubectl`. También puede ver errores al crear un clúster de AKS.
 
 Compruebe que la configuración no esté en conflicto con ninguno de los puertos de salida / reglas de red ni reglas de aplicación / FQDN requeridos o recomendados opcionales.
+
+## <a name="azure-storage-and-aks-troubleshooting"></a>Solución de problemas de Azure Storage y AKS
+
+### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>¿Cuáles son las versiones estables recomendadas de Kubernetes para Azure Disk? 
+
+| Versión de Kubernetes | Versión recomendada |
+| -- | :--: |
+| 1.12 | 1.12.9 o posterior |
+| 1.13 | 1.13.6 o posterior |
+| 1,14 | 1.14.2 o posterior |
+
+
+### <a name="what-versions-of-kubernetes-have-azure-disk-support-on-the-sovereign-cloud"></a>¿Qué versiones de Kubernetes tienen compatibilidad con Azure Disk en la nube soberana?
+
+| Versión de Kubernetes | Versión recomendada |
+| -- | :--: |
+| 1.12 | 1.12.0 o posterior |
+| 1.13 | 1.13.0 o posterior |
+| 1,14 | 1.14.0 o posterior |
+
+
+### <a name="waitforattach-failed-for-azure-disk-parsing-devdiskazurescsi1lun1-invalid-syntax"></a>Error de WaitForAttach para Azure Disk: análisis de "/dev/disk/azure/scsi1/lun1": sintaxis no válida
+
+En la versión 1.10 de Kubernetes, MountVolume.WaitForAttach puede generar un error con el remontaje de Azure Disk.
+
+En Linux, es posible que vea un error de formato de DevicePath incorrecto. Por ejemplo:
+
+```console
+MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
+  Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
+```
+
+En Windows, es posible que vea un error de número de DevicePath(LUN) incorrecto. Por ejemplo:
+
+```console
+Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
+1102-dynamic-pvc-6c526c51-4a18-11e8-ab5c-000d3af7b38e) lun:(4)
+```
+
+Este problema se corrigió en las versiones siguientes de Kubernetes:
+
+| Versión de Kubernetes | Versión corregida |
+| -- | :--: |
+| 1.10 | 1.10.2 o posterior |
+| 1.11 | 1.11.0 o posterior |
+| 1.12 y posterior | N/D |
+
+### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Error al establecer el valor de UID y GID en mountOptions para Azure Disk
+
+De manera predeterminada, Azure Disk usa el sistema de archivos ext4,xfs y mountOptions como uid=x,gid=x no se pueden establecer en el momento del montaje. Por ejemplo, si intenta establecer mountOptions como uid=999,gid=999, vería un error como:
+
+```console
+Warning  FailedMount             63s                  kubelet, aks-nodepool1-29460110-0  MountVolume.MountDevice failed for volume "pvc-d783d0e4-85a1-11e9-8a90-369885447933" : azureDisk - mountDevice:FormatAndMount failed with mount failed: exit status 32
+Mounting command: systemd-run
+Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/plugins/kubernetes.io/azure-disk/mounts/m436970985 --scope -- mount -t xfs -o dir_mode=0777,file_mode=0777,uid=1000,gid=1000,defaults /dev/disk/azure/scsi1/lun2 /var/lib/kubelet/plugins/kubernetes.io/azure-disk/mounts/m436970985
+Output: Running scope as unit run-rb21966413ab449b3a242ae9b0fbc9398.scope.
+mount: wrong fs type, bad option, bad superblock on /dev/sde,
+       missing codepage or helper program, or other error
+```
+
+Para mitigar el problema, haga una de las acciones siguientes:
+
+* [Configure el contexto de seguridad para un pod](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) al establecer UID en runAsUser y GID in fsGroup. Por ejemplo, la configuración siguiente establecerá la ejecución de pod como raíz, con lo que será accesible a cualquier archivo:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context-demo
+spec:
+  securityContext:
+    runAsUser: 0
+    fsGroup: 0
+```
+
+  >[!NOTE]
+  > Como GID y UID se montan como raíz o 0 de manera predeterminada. Si GID o UID se establecen como no raíz, por ejemplo 1000, Kubernetes usará `chown` para cambiar todos los directorios y archivos de ese disco. Esta operación puede llevar mucho tiempo y puede hacer que montar el disco sea muy lento.
+
+* Use `chown` en initContainers para establecer GID y UID. Por ejemplo:
+
+```yaml
+initContainers:
+- name: volume-mount
+  image: busybox
+  command: ["sh", "-c", "chown -R 100:100 /data"]
+  volumeMounts:
+  - name: <your data volume>
+    mountPath: /data
+```
+
+### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Error al eliminar una PersistentVolumeClaim de Azure Disk que usa un pod
+
+Si intenta eliminar una PersistentVolumeClaim de Azure Disk a la que usa un pod, es posible que vea un error. Por ejemplo:
+
+```console
+$ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
+...
+Message:         disk.DisksClient#Delete: Failure responding to request: StatusCode=409 -- Original Error: autorest/azure: Service returned an error. Status=409 Code="OperationNotAllowed" Message="Disk kubernetes-dynamic-pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06 is attached to VM /subscriptions/{subs-id}/resourceGroups/MC_markito-aks-pvc_markito-aks-pvc_westus/providers/Microsoft.Compute/virtualMachines/aks-agentpool-25259074-0."
+```
+
+En la versión 1.10 de Kubernetes y versiones posteriores, hay una característica de protección de PersistentVolumeClaim habilitada de manera predeterminada para evitar este error. Si usa una versión de Kubernetes que no tiene la solución para este problema, puede mitigarlo si elimina el pod mediante la PersistentVolumeClaim antes de eliminar la PersistentVolumeClaim.
+
+
+### <a name="error-cannot-find-lun-for-disk-when-attaching-a-disk-to-a-node"></a>Error "Cannot find Lun for disk" (No se encuentra el LUN) al adjuntar un disco a un nodo
+
+Al adjuntar un disco a un nodo, es posible que vea el error siguiente:
+
+```console
+MountVolume.WaitForAttach failed for volume "pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6" : Cannot find Lun for disk kubernetes-dynamic-pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6
+```
+
+Este problema se corrigió en las versiones siguientes de Kubernetes:
+
+| Versión de Kubernetes | Versión corregida |
+| -- | :--: |
+| 1.10 | 1.10.10 o posterior |
+| 1.11 | 1.11.5 o posterior |
+| 1.12 | 1.12.3 o posterior |
+| 1.13 | 1.13.0 o posterior |
+| 1.14 y versiones posteriores | N/D |
+
+Si usa una versión de Kubernetes que no tiene la solución para este problema, puede mitigarlo si espera varios minutos y vuelve a intentarlo.
+
+### <a name="azure-disk-attachdetach-failure-mount-issues-or-io-errors-during-multiple-attachdetach-operations"></a>Error al asociar/desasociar discos de Azure Disk, problemas de montaje o errores de E/S durante varias operaciones de asociación/desasociación
+
+A partir de la versión 1.9.2 de Kubernetes, cuando se ejecutan varias operaciones de asociación y desasociación en paralelo, es posible que vea los siguientes problemas de disco debido a una caché de máquinas virtuales sucia:
+
+* Errores de asociación o desasociación de discos
+* Errores de E/S de disco
+* Desasociación inesperada de disco de la máquina virtual
+* Máquina virtual que se ejecuta en estado erróneo debido a que se asoció un disco no existente
+
+Este problema se corrigió en las versiones siguientes de Kubernetes:
+
+| Versión de Kubernetes | Versión corregida |
+| -- | :--: |
+| 1.10 | 1.10.12 o posterior |
+| 1.11 | 1.11.6 o posterior |
+| 1.12 | 1.12.4 o posterior |
+| 1.13 | 1.13.0 o posterior |
+| 1.14 y versiones posteriores | N/D |
+
+Si usa una versión de Kubernetes que no tiene la solución para este problema, puede mitigarlo si intenta lo siguiente:
+
+* Si hay un disco esperando para desasociarse durante un largo período de tiempo, intente desasociar el disco manualmente.
+
+### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Disco de Azure Disk a la espera de desasociarse de manera indefinida
+
+En algunos casos, si se produce un error en una operación de desasociación de un disco de Azure en el primer intento, no volverá a intentar la operación de desasociación y seguirá conectado a la máquina virtual del nodo original. Este error puede producirse al mover un disco de un nodo a otro. Por ejemplo:
+
+```console
+[Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
+```
+
+Este problema se corrigió en las versiones siguientes de Kubernetes:
+
+| Versión de Kubernetes | Versión corregida |
+| -- | :--: |
+| 1.11 | 1.11.9 o posterior |
+| 1.12 | 1.12.7 o posterior |
+| 1.13 | 1.13.4 o posterior |
+| 1.14 y versiones posteriores | N/D |
+
+Si usa una versión de Kubernetes que no tiene la solución para este problema, puede mitigarlo si desasocia manualmente el disco.
+
+### <a name="azure-disk-detach-failure-leading-to-potential-race-condition-issue-and-invalid-data-disk-list"></a>Error de desasociación de un disco de Azure Disk que lleva a un posible problema de condición de carrera y a una lista de discos de datos no válida
+
+Cuando se produce un error en la desasociación de un disco de Azure Disk, se reintentará hasta seis veces para desasociar el disco mediante el retroceso exponencial. También retendrá un bloqueo de nivel de nodo en la lista de discos de datos durante unos 3 minutos. Si la lista de discos se actualiza manualmente durante ese período de tiempo, como una operación de asociación o desasociación manual, la lista de discos que retiene el bloqueo de nivel de nodo quedará obsoleta y provocará inestabilidad en la máquina virtual del nodo.
+
+Este problema se corrigió en las versiones siguientes de Kubernetes:
+
+| Versión de Kubernetes | Versión corregida |
+| -- | :--: |
+| 1.12 | 1.12.9 o posterior |
+| 1.13 | 1.13.6 o posterior |
+| 1,14 | 1.14.2 o posterior |
+| 1.15 y posteriores | N/D |
+
+Si usa una versión de Kubernetes que no tiene la solución para este problema y la máquina virtual del nodo tiene una lista de discos obsoletos, puede mitigar el problema si desasocia todos los discos no existentes de la máquina virtual como una operación única y masiva. **Es posible que se produzca un error al desasociar manualmente los discos no existentes.**
+
+
+### <a name="large-number-of-azure-disks-causes-slow-attachdetach"></a>Un gran número de discos de Azure provoca asociaciones/desasociaciones lentas
+
+Cuando el número de discos de Azure conectados a una máquina virtual de nodo es superior a 10, las operaciones de asociación y desasociación pueden ser lentas. Este problema es un problema conocido y no hay ninguna solución alternativa en este momento.
+
+### <a name="azure-disk-detach-failure-leading-to-potential-node-vm-in-failed-state"></a>Error de desasociación de disco de Azure que lleva a una posible máquina virtual de nodo en estado erróneo
+
+En algunos casos, es posible que se produzca un error en la desasociación de discos de Azure y que deje la máquina virtual del nodo en un estado erróneo.
+
+Este problema se corrigió en las versiones siguientes de Kubernetes:
+
+| Versión de Kubernetes | Versión corregida |
+| -- | :--: |
+| 1.12 | 1.12.10 o posterior |
+| 1.13 | 1.13.8 o posterior |
+| 1,14 | 1.14.4 o posterior |
+| 1.15 y posteriores | N/D |
+
+Si usa una versión de Kubernetes que no tiene la solución para este problema y la máquina virtual del nodo está en un estado erróneo, puede mitigar el problema si actualiza manualmente el estado de la máquina virtual de una de las maneras siguientes:
+
+* Para un clúster basado en un conjunto de disponibilidad:
+    ```console
+    az vm update -n <VM_NAME> -g <RESOURCE_GROUP_NAME>
+    ```
+
+* Para un clúster basado en VMSS:
+    ```console
+    az vmss update-instances -g <RESOURCE_GROUP_NAME> --name <VMSS_NAME> --instance-id <ID>
+    ```
+
+## <a name="azure-files-and-aks-troubleshooting"></a>Solución de problemas de Azure Files y AKS
+
+### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-files"></a>¿Cuáles son las versiones estables recomendadas de Kubernetes para Azure Files?
+ 
+| Versión de Kubernetes | Versión recomendada |
+| -- | :--: |
+| 1.12 | 1.12.6 o posterior |
+| 1.13 | 1.13.4 o posterior |
+| 1,14 | 1.14.0 o posterior |
+
+### <a name="what-versions-of-kubernetes-have-azure-files-support-on-the-sovereign-cloud"></a>¿Qué versiones de Kubernetes tienen compatibilidad con Azure Files en la nube soberana?
+
+| Versión de Kubernetes | Versión recomendada |
+| -- | :--: |
+| 1.12 | 1.12.0 o posterior |
+| 1.13 | 1.13.0 o posterior |
+| 1,14 | 1.14.0 o posterior |
+
+### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>¿Cuál es el valor predeterminado de mountOptions cuando se usa Azure Files?
+
+Configuración recomendada:
+
+| Versión de Kubernetes | Valor de fileMode y dirMode|
+| -- | :--: |
+| 1.12.0 - 1.12.1 | 0755 |
+| 1.12.2 y versiones posteriores | 0777 |
+
+Si utiliza un clúster con Kubernetes 1.8.5 o superior y crea dinámicamente el volumen persistente con una clase de almacenamiento, se pueden especificar las opciones de montaje en el objeto de la clase de almacenamiento. En el ejemplo siguiente se establece *0777*:
+
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: azurefile
+provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+  - mfsymlinks
+  - nobrl
+  - cache=none
+parameters:
+  skuName: Standard_LRS
+```
+
+Algunos valores de *mountOptions* útiles adicionales:
+
+* *mfsymlinks* hará que el montaje de Azure Files (cifs) admita vínculos simbólicos.
+* *nobrl* impedirá las solicitudes de bloqueo de intervalo de bytes al servidor. Esta configuración es necesaria para ciertas aplicaciones que se interrumpen con bloqueos de intervalo de bytes obligatorios de estilo CIFS. La mayoría de los servidores CIFS todavía no admiten la solicitud de bloqueos de intervalo de bytes. Si no se usa *nobrl* , las aplicaciones que se interrumpen con bloqueos de intervalo de bytes obligatorios de estilo CIFS pueden generar mensajes de error similares a:
+    ```console
+    Error: SQLITE_BUSY: database is locked
+    ```
+
+### <a name="error-could-not-change-permissions-when-using-azure-files"></a>Error "Could not change permissions" (No se pudieron cambiar los permisos) cuando se usa Azure Files
+
+Al ejecutar PostgreSQL en el complemento de Azure Files, puede ver un error similar al siguiente:
+
+```console
+initdb: could not change permissions of directory "/var/lib/postgresql/data": Operation not permitted
+fixing permissions on existing directory /var/lib/postgresql/data
+```
+
+Este error se debe al complemento de Azure Files que usa el protocolo cifs/SMB. Al usar el protocolo cifs/SMB, no se pudieron cambiar los permisos de archivos y directorios después del montaje.
+
+Para resolver este problema, use *subPath*  junto con el complemento de Azure Disk. 
+
+> [!NOTE] 
+> Para el tipo de disco ext3/4, se produce un error en el directorio perdido y encontrado después de dar formato al disco.
+
+### <a name="azure-files-has-high-latency-compared-to-azure-disk-when-handling-many-small-files"></a>Azure Files tiene una latencia alta en comparación con Azure Disk al controlar muchos archivos pequeños
+
+En algunos casos, como el control de muchos archivos pequeños, se puede experimentar una latencia elevada al usar Azure Files en comparación con Azure Disk.
+
+### <a name="error-when-enabling-allow-access-allow-access-from-selected-network-setting-on-storage-account"></a>Error al habilitar la configuración "Permitir el acceso desde la red seleccionada" en la cuenta de almacenamiento
+
+Si habilita la opción *Permitir el acceso desde la red seleccionada* en una cuenta de almacenamiento que se usa para el aprovisionamiento dinámico en AKS, recibirá un error cuando AKS cree un recurso compartido de archivos:
+
+```console
+persistentvolume-controller (combined from similar events): Failed to provision volume with StorageClass "azurefile": failed to create share kubernetes-dynamic-pvc-xxx in account xxx: failed to create file share, err: storage: service returned error: StatusCode=403, ErrorCode=AuthorizationFailure, ErrorMessage=This request is not authorized to perform this operation.
+```
+
+Este error se debe a que *persistentvolume-controller* de Kubernetes no está en la red que se eligió cuando se estableció la opción *Permitir el acceso desde la red seleccionada*.
+
+Para mitigar el problema, use el [aprovisionamiento estático con Azure Files](azure-files-volume.md).
+
+### <a name="azure-files-fails-to-remount-in-windows-pod"></a>Azure Files no se puede volver a montar en el pod de Windows
+
+Si se elimina un pod de Windows con un montaje de Azure Files y luego se programa para volver a crearlo en el mismo nodo, el montaje generará un error. Este error se debe a un error del comando `New-SmbGlobalMapping` debido a que el montaje de Azure Files ya está montado en el nodo.
+
+Por ejemplo, puede ver un error similar al siguiente:
+
+```console
+E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"kubernetes.io/azure-file/42c0ea39-1af9-11e9-8941-000d3af95268-pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\" (\"42c0ea39-1af9-11e9-8941-000d3af95268\")" failed. No retries permitted until 2019-01-18 08:15:53.0410149 +0000 GMT m=+732.446642701 (durationBeforeRetry 1s). Error: "MountVolume.SetUp failed for volume \"pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\" (UniqueName: \"kubernetes.io/azure-file/42c0ea39-1af9-11e9-8941-000d3af95268-pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\") pod \"deployment-azurefile-697f98d559-6zrlf\" (UID: \"42c0ea39-1af9-11e9-8941-000d3af95268\") : azureMount: SmbGlobalMapping failed: exit status 1, only SMB mount is supported now, output: \"New-SmbGlobalMapping : Generic failure \\r\\nAt line:1 char:190\\r\\n+ ... ser, $PWord;New-SmbGlobalMapping -RemotePath $Env:smbremotepath -Cred ...\\r\\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\r\\n    + CategoryInfo          : NotSpecified: (MSFT_SmbGlobalMapping:ROOT/Microsoft/...mbGlobalMapping) [New-SmbGlobalMa \\r\\n   pping], CimException\\r\\n    + FullyQualifiedErrorId : HRESULT 0x80041001,New-SmbGlobalMapping\\r\\n \\r\\n\""
+```
+
+Este problema se corrigió en las versiones siguientes de Kubernetes:
+
+| Versión de Kubernetes | Versión corregida |
+| -- | :--: |
+| 1.12 | 1.12.6 o posterior |
+| 1.13 | 1.13.4 o posterior |
+| 1.14 y versiones posteriores | N/D |
+
+### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>No se puede montar Azure Files debido a que la clave de cuenta de almacenamiento cambió
+
+Si la clave de cuenta de almacenamiento cambió, es posible que vea errores de montaje de Azure Files.
+
+Puede mitigar el problema si actualiza manualmente el campo *azurestorageaccountkey* en el secreto del archivo de Azure con la clave de cuenta de almacenamiento codificada en Base64.
+
+Para codificar la clave de cuenta de almacenamiento en Base64, puede usar `base64`. Por ejemplo:
+
+```console
+echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
+```
+
+Para actualizar el archivo secreto de Azure, use `kubectl edit secret`. Por ejemplo:
+
+```console
+kubectl edit secret azure-storage-account-{storage-account-name}-secret
+```
+
+Después de unos minutos, el nodo del agente volverá a intentar el montaje de Azure Files con la clave de almacenamiento actualizada.

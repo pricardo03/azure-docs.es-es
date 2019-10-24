@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/24/2019
+ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a99aa766ed4e6cacbe22933db226b2037d3e736d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170007"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389516"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Creación de un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
 
@@ -36,15 +36,31 @@ Un paquete de acceso le permite realizar una instalación única de los recursos
 
 Todos los paquetes de acceso deben colocarse en un contenedor que se conoce como catálogo. Un catálogo define qué recursos puede agregar al paquete acceso. Si no especifica un catálogo, el paquete de acceso se colocará en el catálogo General. Actualmente, no puede mover un paquete de acceso existente a otro catálogo.
 
-Todos los paquetes de acceso deben tener al menos una directiva. Las directivas especifican quién puede solicitar el paquete de acceso y también la configuración de aprobación y expiración. Al crear un paquete de acceso, puede crear una directiva inicial para los usuarios del directorio, para los usuarios que no están en el directorio, solo para asignaciones directas del administrador o puede decidir crear la directiva más adelante.
+Si es un administrador de paquetes de acceso, no podrá agregar los recursos que posea a un catálogo. Está limitado a usar los recursos disponibles en el catálogo. Si necesita agregar recursos a un catálogo, puede solicitarlo al propietario del catálogo.
 
-En el siguiente diagrama se muestra el proceso general para crear un paquete de acceso.
+Todos los paquetes de acceso deben tener al menos una directiva. Las directivas especifican quién puede solicitar el paquete de acceso y también la configuración de la aprobación y del ciclo de vida. Al crear un paquete de acceso, puede crear una directiva inicial para los usuarios del directorio, para los usuarios que no están en el directorio, solo para asignaciones directas del administrador o puede decidir crear la directiva más adelante.
 
-![Proceso de creación de un paquete de acceso](./media/entitlement-management-access-package-create/access-package-process.png)
+![Creación de un paquete de acceso](./media/entitlement-management-access-package-create/access-package-create.png)
+
+Estos son los pasos generales para crear un paquete de acceso.
+
+1. En Identity Governance, inicie el proceso para crear un paquete de acceso.
+
+1. Seleccione el catálogo en el que quiere crearlo.
+
+1. Agregue recursos del catálogo al paquete de acceso.
+
+1. Asigne roles de recursos a cada recurso.
+
+1. Especifique los usuarios que pueden solicitar acceso.
+
+1. Especifique cualquier configuración de aprobación.
+
+1. Especifique la configuración del ciclo de vida.
 
 ## <a name="start-new-access-package"></a>Inicio de un nuevo paquete de acceso
 
-**Rol necesario:** administrador global, administrador de usuarios o propietario del catálogo.
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
@@ -64,20 +80,19 @@ En la pestaña **Aspectos básicos**, asigne un nombre al paquete de acceso y es
 
 1. En la lista desplegable **Catálogo**, seleccione el catálogo en el que quiera crear el paquete de acceso. Por ejemplo, puede que tenga un propietario de catálogo que administra todos los recursos de marketing que se pueden solicitar. En este caso, puede seleccionar el catálogo de marketing.
 
-    Solo verá los catálogos en los que tenga permiso para crear paquetes de acceso. Para crear el paquete de acceso en un catálogo existente, debe ser al menos administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso en ese catálogo.
+    Solo verá los catálogos en los que tenga permiso para crear paquetes de acceso. Para crear el paquete de acceso en un catálogo existente, debe ser al menos administrador global o administrador de usuarios, o debe ser propietario del catálogo o administrador del paquete de acceso en ese catálogo.
 
     ![Paquete de acceso: aspectos básicos](./media/entitlement-management-access-package-create/basics.png)
 
-    Si es administrador global o administrador de usuarios y quiere crear el paquete de acceso en un catálogo nuevo que no aparece en la lista, haga clic en **Crear nuevo**. Escriba el nombre del catálogo y la descripción y después haga clic en **Crear**.
+    Si es administrador global, administrador de usuarios o el creador del catálogo y quiere crear el paquete de acceso en un catálogo nuevo que no aparece en la lista, haga clic en **Crear catálogo**. Escriba el nombre del catálogo y la descripción y después haga clic en **Crear**.
 
     El paquete de acceso que está creando y los recursos incluidos en él se agregarán al nuevo catálogo. También puede agregar a otros propietarios del catálogo.
-
 
 1. Haga clic en **Next**.
 
 ## <a name="resource-roles"></a>Roles de recursos
 
-En la pestaña **Roles de recurso**, se seleccionan los recursos que se incluirán en el paquete de acceso.  Los usuarios que soliciten y reciban el paquete de acceso recibirán todos los roles de recursos del paquete de acceso.
+En la pestaña **Roles de recurso**, se seleccionan los recursos que se incluirán en el paquete de acceso. Los usuarios que soliciten y reciban el paquete de acceso recibirán todos los roles de recursos del paquete de acceso.
 
 1. Haga clic en el tipo de recurso que quiera agregar (**Grupos y equipos**, **Aplicaciones** o **Sitios de SharePoint**).
 
@@ -97,19 +112,17 @@ En la pestaña **Roles de recurso**, se seleccionan los recursos que se incluir�
 
 1. Haga clic en **Next**.
 
-## <a name="policy"></a>Directiva
+## <a name="requests"></a>Requests
 
-En la pestaña **Directiva**, creará la primera directiva para especificar quién puede solicitar el paquete de acceso y también la configuración de aprobación y expiración. Más adelante, puede crear más directivas para permitir a otros grupos de usuarios que soliciten el paquete de acceso con su propia configuración de aprobación y expiración. También puede decidir crear la directiva más adelante.
+En la pestaña **Solicitudes**, creará la primera directiva para especificar quién puede solicitar el paquete de acceso y también la configuración de aprobación. Más adelante, puede crear más directivas de solicitud para permitir a otros grupos de usuarios que soliciten el paquete de acceso con su propia configuración de aprobación.
 
-1. Establezca el botón de alternancia **Crear la primera directiva** en **Ahora** o **Más tarde**.
+![Paquete de acceso: pestaña Solicitudes](./media/entitlement-management-access-package-create/requests.png)
 
-    ![Paquete de acceso: directiva](./media/entitlement-management-access-package-create/policy.png)
+Siga los pasos que se describen en una de las secciones siguientes.
 
-1. Si selecciona **Más tarde**, pase a la sección [Revisar y crear](#review--create) para crear el paquete de acceso.
+[!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 
-1. Si selecciona **Ahora**, realice los pasos en una de las siguientes secciones de la directiva.
-
-[!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
+[!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
 ## <a name="review--create"></a>Revisar y crear
 
@@ -125,4 +138,5 @@ En la pestaña **Revisar y crear**, puede revisar la configuración y comprobar 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Edición y administración de un paquete de acceso existente](entitlement-management-access-package-edit.md)
+- [Uso compartido de un vínculo para solicitar un paquete de acceso](entitlement-management-access-package-settings.md)
+- [Cambio de los roles de recursos de un paquete de acceso](entitlement-management-access-package-resources.md)

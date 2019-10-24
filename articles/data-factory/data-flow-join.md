@@ -7,20 +7,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 48cf9d58c8acd85e545a5bcb5104d7069670e349
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: da6c3c90ebbeffcf468aad3809da097976d8ef0d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029325"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387241"
 ---
-# <a name="mapping-data-flow-join-transformation"></a>Transformación Combinación de Mapping Data Flow
+# <a name="mapping-data-flow-join-transformation"></a>Transformación de combinación de Mapping Data Flow
 
 
 
 Use Combinación para combinar datos de dos tablas en su flujo de datos. Haga clic en la transformación que será la relación de la izquierda y agregue una transformación Combinación en el cuadro de herramientas. Dentro de la transformación Combinación, seleccionará otro flujo de datos para que sea la relación adecuada.
 
-![Transformación Combinación](media/data-flow/join.png "Combinación")
+![Transformación de combinación](media/data-flow/join.png "Unión")
 
 ## <a name="join-types"></a>Tipos de combinación
 
@@ -56,7 +56,7 @@ Es necesario que escriba al menos 1 (1..n) condiciones de combinación. Pueden s
 
 A diferencia de la unión de combinación en herramientas como SSIS, la combinación en ADF Data Flow no es una operación de unión de combinación obligatoria. Por lo tanto, no es necesario que las claves de combinación se ordenen primero. La operación de combinación se producirá basándose en la operación de combinación óptima de Spark: Combinación de difusión y del lado del asignación:
 
-![Optimización de la transformación Combinación](media/data-flow/joinoptimize.png "Optimización de Combinación")
+![Optimización de la transformación de combinación](media/data-flow/joinoptimize.png "Optimización de la combinación")
 
 Si el conjunto de datos puede caber en la memoria de nodo de trabajo de Databricks, podemos optimizar el rendimiento de la combinación. También puede especificar la creación de particiones de los datos en la operación de combinación para crear conjuntos de datos que pueden adaptarse mejor a la memoria por trabajo.
 

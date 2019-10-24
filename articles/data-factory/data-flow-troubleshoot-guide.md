@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: b5895b061426066d265d3ff68dc948014e641322
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 5cf4773ac781ae51a60ef7d987c3dc324c125d95
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242265"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387724"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Solución de problemas de flujos de datos en Azure Data Factory
 
@@ -84,4 +84,4 @@ Para obtener ayuda para solucionar problemas, pruebe estos recursos:
 *  [Foro de MSDN](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
 *  [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Información de Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)
-*  [Guía de optimización y rendimiento de la asignación de instancias de Data Flow](concepts-data-flow-performance.md)
+*  [Guía de optimización y rendimiento de Mapping Data Flows](concepts-data-flow-performance.md)

@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001642"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263045"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -35,6 +35,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | BadRequest | Envió valores de implementación que no coinciden con los que Resource Manager esperaba. Compruebe el mensaje de estado interno para obtener ayuda para solucionar el problema. | [Referencia de plantillas](/azure/templates/) y [ubicaciones admitidas](resource-location.md) |
 | Conflicto | Se solicita una operación no permitida con el estado actual del recurso. Por ejemplo, solo se permite el cambio de tamaño del disco al crear una VM o al desasignar la VM. | |
 | DeploymentActiveAndUneditable | Espere a que la implementación simultánea de este grupo de recursos finalice. | |
+| DeploymentFailedCleanUp | Al implementar en modo completo, se eliminará cualquier recurso que no esté en la plantilla. Obtendrá este error si no tiene los permisos adecuados para eliminar todos los recursos que no están en la plantilla. Para evitar el error, cambie el modo de implementación a incremental. | [Modos de implementación de Azure Resource Manager](deployment-modes.md) |
 | DeploymentNameInvalidCharacters | El nombre de la implementación solo puede contener letras, dígitos, "-", "." o "_". | |
 | DeploymentNameLengthLimitExceeded | Los nombres de implementación se limitan a 64 caracteres.  | |
 | DeploymentFailed | El error DeploymentFailed es un error general que no proporciona la información necesaria para resolverlo. Mire en los detalles del error si hay un código de error que proporcione más información. | [Búsqueda de códigos de error](#find-error-code) |

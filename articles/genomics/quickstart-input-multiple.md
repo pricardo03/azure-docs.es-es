@@ -1,7 +1,7 @@
 ---
-title: 'Envío de un flujo de trabajo con varias entradas: Microsoft Genomics'
-titleSuffix: Azure
-description: Este artículo demuestra cómo enviar un flujo de trabajo al servicio de Microsoft Genomics, si la entrada son varios archivos FASTQ o BAM procedentes del mismo ejemplo. Ya tiene instalado el cliente de msgen y ha ejecutado correctamente los datos de ejemplo mediante el servicio.
+title: Envío de un flujo de trabajo mediante varias entradas
+titleSuffix: Microsoft Genomics
+description: Este artículo demuestra cómo enviar un flujo de trabajo al servicio de Microsoft Genomics si su archivo de entrada son varios archivos FASTQ o BAM del mismo ejemplo.
 services: genomics
 ms.service: genomics
 author: grhuynh
@@ -9,12 +9,12 @@ manager: cgronlund
 ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 399b1ed735ce1b7a3fca1d27155863f6bfa18776
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b426015906a8e17674123c0c3ad2fccb9c43798f
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780885"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248564"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Envío de un flujo de trabajo con varias entradas del mismo ejemplo
 

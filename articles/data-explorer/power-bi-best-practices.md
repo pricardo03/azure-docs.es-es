@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: e6767c1e03b074f43993e449ca81af951c579090
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 39fab02ebc3a80e0aae34a86a1a6b7f3f46c96f3
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937318"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286751"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Procedimientos recomendados para usar Power BI para consultar y visualizar datos de Azure Data Explorer
 
@@ -48,7 +48,7 @@ En la sección siguiente se incluyen sugerencias y trucos para usar el lenguaje 
 
 Las consultas complejas se expresan más fácilmente en Kusto que en Power Query. Deben implementarse como [funciones de Kusto](/azure/kusto/query/functions) y se invocan en Power BI. Este método es necesario cuando **DirectQuery** se usa con instrucciones `let` en la consulta Kusto. Como Power BI combina dos consultas y las instrucciones `let` no se pueden usar con el operador `join`, pueden producirse errores de sintaxis. Por lo tanto, guarde cada parte de la combinación como una función Kusto y permita que Power BI combine estas dos funciones.
 
-### <a name="how-to-simulate-a-relative-data-time-operator"></a>Simulación de un operador relativo de fecha y hora
+### <a name="how-to-simulate-a-relative-date-time-operator"></a>Simulación de un operador relativo de fecha y hora
 
 Power BI no contiene un operador *relativo* de fecha y hora como `ago()`.
 Para simuar `ago()`, use una combinación de funciones `DateTime.FixedLocalNow()` y `#duration` de Power BI.

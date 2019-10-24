@@ -10,18 +10,63 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: da0c674eaf3bc650beae0a05f8f8a0c3613fbeaf
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f51b9c3032518fb66215126c5a8bf26ab9b59526
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177901"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331571"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) de Azure Machine Learning. 
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
+
+## <a name="2019-10-14"></a>2019-10-14
+
+### <a name="azure-machine-learning-sdk-for-python-v1069"></a>SDK de Azure Machine Learning para Python v1.0.69
+
++ **Mejoras y correcciones de errores**
+  + **azureml-automl-core**
+    + Limitación de las explicaciones de modelo a la mejor ejecución en vez de calcular las explicaciones para cada ejecución. Cambio de este comportamiento para el modo local, remoto y ADB.
+    + Se ha agregado compatibilidad con las explicaciones del modelo a petición para la interfaz de usuario.
+    + Se ha agregado psutil como dependencia de automl y se ha incluido psutil como una dependencia de Conda en amlcompute.
+    + Se corrigió el problema con intervalos heurísticos y los tamaños de ventanas graduales en los conjuntos de datos de previsión de los cuales algunas series pueden provocar errores de álgebra lineal.
+      + Se ha agregado la impresión para los parámetros que se han determinado heurísticamente en las ejecuciones de previsión.
+  + **azureml-contrib-datadrift**
+    + Se ha agregado protección al crear métricas de salida si el desfase del nivel de conjunto de resultados no está en la primera sección.
+  + **azureml-contrib-interpret**
+    + Se ha cambiado el nombre del paquete azureml-contrib-explain a azureml-contrib-interpret.
+  + **azureml-core**
+    + Se ha agregado una API para cancelar el registro de conjuntos de registros. `dataset.unregister_all_versions()`
+    + Se ha agregado una API de conjunto de datos para comprobar la hora del cambio de los datos. `dataset.data_changed_time`.
+    + Capacidad de consumir `FileDataset` y `TabularDataset` como entradas para `PythonScriptStep`, `EstimatorStep` y `HyperDriveStep` en la canalización de Azure Machine Learning.
+    + Se ha mejorado el rendimiento de `FileDataset.mount` para las carpetas con un gran número de archivos.
+    + Se ha agregado la dirección URL a las recomendaciones de errores conocidas en los detalles de ejecución.
+    + Se ha corregido un error en la ejecución run.get_metrics por el cual las solicitudes darían error si una ejecución tuviera demasiados elementos secundarios.
+    + Se ha agregado compatibilidad para la autenticación en el clúster de Arcadia.
+    + La creación de un objeto de experimento obtiene o crea el experimento en el área de trabajo Azure Machine Learning para el seguimiento del historial de ejecución. El identificador de experimento y el tiempo de archivado se rellenan en el objeto de experimento al crearse. Ejemplo: experiment = Experiment(workspace, "New Experiment") experiment_id = experiment.id archive() y reactivate() son funciones a las que se puede llamar en un experimento para ocultar y volver a mostrar el experimento en la experiencia de usuario o para mostrarlo de forma predeterminada en una llamada para enumerar experimentos. Si se crea un nuevo experimento con el mismo nombre que un experimento archivado, puede cambiar el nombre del experimento archivado al reactivarlo proporcionando un nuevo nombre. Solo puede haber un experimento activo con un nombre determinado. Ejemplo: experiment1 = Experiment(workspace, "Active Experiment") experiment1.archive() # Crear un nuevo experimento activo con el mismo nombre que el archivado. experiment2. = Experiment(workspace, "Active Experiment") experiment1.reactivate(new_name="Previous Active Experiment") La lista de métodos estáticos () del experimento puede tomar un filtro de nombre y un filtro ViewType. Los valores ViewType son "ACTIVE_ONLY", "ARCHIVED_ONLY" y "ALL" Ejemplo: archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY") all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
+    + Compatibilidad con el uso del entorno para la implementación de modelos y la actualización del servicio
+  + **azureml-datadrift**
+    + El atributo show de la clase DataDriftDector ya no es compatible con el argumento opcional "with_details". El atributo show solo presentará el coeficiente de desfase de datos y la contribución del desfase de datos de las columnas de características.
+    + Cambios de comportamiento del atributo "get_output" de DataDriftDetector:
+      + Los parámetros de entrada start_time, end_time son opcionales en lugar de obligatorios;
+      + la especificación de un valor start_time o end_time particular con un run_id determinado en la misma invocación provocará una excepción de error de valor porque son mutualmente excluyentes. 
+      + Al indicar un valor específico de start_time o end_time, solo se devolverán los resultados de las ejecuciones programadas. 
+      + El parámetro "daily_latest_only" está en desuso.
+    + Compatibilidad con la recuperación de salidas de desfase de datos basadas en conjuntos de datos.
+  + **azureml-explain-model**
+    + Cambia el nombre del paquete AzureML-explain-model a AzureML-interpret, manteniendo por ahora el paquete anterior por compatibilidad con versiones anteriores.
+    + Se corrigió el error de automl consistente en la presencia de explicaciones sin procesar en la tarea de clasificación en lugar de regresión de forma predeterminada en la descarga de ExplanationClient.
+    + Se agregó compatibilidad con `ScoringExplainer` para que se cree directamente con `MimicWrapper`.
+  + **azureml-pipeline-core**
+    + Se mejoró el rendimiento para la creación de canalizaciones de gran tamaño.
+  + **azureml-train-core**
+    + Se agregó compatibilidad con TensorFlow 2.0 en un estimador de TensorFlow.
+  + **azureml-train-automl**
+    + Ya no se producirá un error en la ejecución primaria cuando se produzca un error en la iteración de instalación, ya que la orquestación se encarga de ello.
+    + Se agregó compatibilidad con local-docker y local-conda para los experimentos de AutoML.
 
 ## <a name="2019-10-08"></a>2019-10-08
 

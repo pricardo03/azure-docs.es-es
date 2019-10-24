@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b291f2243dfe28a8e866796e0b7375f94fa4f2e
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 23ba9b06c9a3e6025d7227493713fe9187fba233
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779439"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514895"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migración de la federación a la sincronización de hash de contraseña para Azure Active Directory
 
@@ -161,9 +161,9 @@ Para más información sobre la condición **Ubicación** en el acceso condicion
 
 Al unir un dispositivo a Azure AD, puede crear reglas de acceso condicional que obligan a que el acceso desde dispositivos cumpla con las normas de seguridad y cumplimiento. Además, los usuarios pueden iniciar sesión en un dispositivo mediante una cuenta profesional o educativa en lugar de una cuenta personal. Al usar dispositivos unidos a Azure AD híbrido, puede unir a Azure AD sus dispositivos unidos a un dominio de Active Directory. Es posible que un entorno federado se haya configurado para usar esta característica.
 
-Para asegurarse de que la unión híbrida sigue funcionando en todos los dispositivos unidos al dominio una vez que los dominios se han convertido a la sincronización de hash de contraseña, para clientes de Windows 10, debe usar Azure AD Connect para sincronizar las cuentas de equipos de Active Directory con Azure AD. 
+Para asegurarse de que la unión híbrida sigue funcionando en todos los dispositivos unidos al dominio una vez que los dominios se han convertido a la sincronización de hash de contraseña, para clientes de Windows 10, debe usar opciones de dispositivo de Azure AD Connect para rellenar SCP y luego sincronizar las cuentas de equipos de Active Directory con Azure AD. 
 
-En el caso de las cuentas de equipos de Windows 8 y Windows 7, la unión híbrida usa el inicio de sesión único de conexión directa para registrar el equipo en Azure AD. No es necesario sincronizar cuentas de equipo de Windows 8 y Windows 7 como hace para dispositivos con Windows 10. Sin embargo, debe implementar una versión actualizada del archivo workplacejoin.exe (a través de un archivo .msi) en los clientes de Windows 8 y Windows 7 para que puedan registrarse mediante SSO de conexión directa. [Descargue el archivo .msi](https://www.microsoft.com/download/details.aspx?id=53554).
+En el caso de las cuentas de equipos de Windows 8 y Windows 7, la unión híbrida usa SSO de conexión directa para registrar el equipo en Azure AD. No es necesario sincronizar cuentas de equipo de Windows 8 y Windows 7 como hace para dispositivos con Windows 10. Sin embargo, debe implementar una versión actualizada del archivo workplacejoin.exe (a través de un archivo .msi) en los clientes de Windows 8 y Windows 7 para que puedan registrarse mediante SSO de conexión directa. [Descargue el archivo .msi](https://www.microsoft.com/download/details.aspx?id=53554).
 
 Para más información, consulte [Configuración de dispositivos unidos a Azure AD híbrido](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
 

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0410da26a2ea5811c5a107ce233f2442b60fd9ca
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 9623152bdea5cc56e6b9bcb7d9911a730fd7a4a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670847"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382006"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)
 
@@ -24,9 +24,17 @@ Una firma de acceso compartido (SAS) ofrece acceso delegado a los recursos en la
 
 Azure Storage admite tres tipos de firmas de acceso compartido:
 
-- **SAS de delegación de usuarios (versión preliminar).** Una SAS de delegación de usuarios está protegida con credenciales de Azure Active Directory (Azure AD) y también con los permisos especificados para la SAS. Una SAS de delegación de usuarios solo se aplica a Blob Storage. Para crear una SAS de delegación de usuarios, primero debe solicitar una clave de delegación de usuarios, que se usa para firmar la SAS. Para más información sobre la SAS de delegación de usuarios, consulte [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios [API REST]).
-- **SAS de servicio.** Una SAS de servicio está protegida con la clave de cuenta de almacenamiento. Una SAS de servicio administra el acceso a un recurso en solo uno de los servicios de Azure Storage: Blob Storage, Queue Storage, Table Storage o Azure Files. Para más información sobre la SAS de servicio, consulte [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas) (Creación de una SAS de servicio [API REST]).
-- **SAS de cuenta.** Una SAS de cuenta está protegida con la clave de cuenta de almacenamiento. SAS de cuenta delega el acceso a los recursos en uno o varios de los servicios de almacenamiento. Todas las operaciones disponibles con una SAS de servicio o delegación de usuarios están también disponibles con una SAS de cuenta. Además, con la SAS de cuenta, puede delegar el acceso a las operaciones que se aplican a nivel de servicio, como las operaciones **Get/Set Service Properties** y **Get Service Stats**. También puede delegar el acceso para leer, escribir y eliminar operaciones en contenedores de blobs, tablas, colas y recursos compartidos de archivos que no están permitidos con SAS de servicio. Para obtener más información sobre la SAS de cuenta, consulte [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas) (Creación de una SAS de cuenta [API REST]).
+- **SAS de delegación de usuarios (versión preliminar).** Una SAS de delegación de usuarios está protegida con credenciales de Azure Active Directory (Azure AD) y también con los permisos especificados para la SAS. Una SAS de delegación de usuarios solo se aplica a Blob Storage.
+
+    Para más información sobre la SAS de delegación de usuarios, consulte [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios [API REST]).
+
+- **SAS de servicio.** Una SAS de servicio está protegida con la clave de cuenta de almacenamiento. Una SAS de servicio administra el acceso a un recurso en solo uno de los servicios de Azure Storage: Blob Storage, Queue Storage, Table Storage o Azure Files. 
+
+    Para más información sobre la SAS de servicio, consulte [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas) (Creación de una SAS de servicio [API REST]).
+
+- **SAS de cuenta.** Una SAS de cuenta está protegida con la clave de cuenta de almacenamiento. SAS de cuenta delega el acceso a los recursos en uno o varios de los servicios de almacenamiento. Todas las operaciones disponibles con una SAS de servicio o delegación de usuarios están también disponibles con una SAS de cuenta. Además, con la SAS de cuenta, puede delegar el acceso a las operaciones que se aplican a nivel de servicio, como las operaciones **Get/Set Service Properties** y **Get Service Stats**. También puede delegar el acceso para leer, escribir y eliminar operaciones en contenedores de blobs, tablas, colas y recursos compartidos de archivos que no están permitidos con SAS de servicio. 
+
+    Para obtener más información sobre la SAS de cuenta, consulte [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas) (Creación de una SAS de cuenta [API REST]).
 
 > [!NOTE]
 > Microsoft recomienda usar credenciales de Azure AD cuando sea posible como procedimiento recomendado de seguridad, en lugar de usar la clave de cuenta, que se puede poner en peligro más fácilmente. Cuando el diseño de la aplicación requiera firmas de acceso compartido para el acceso a Blob Storage, utilice credenciales de Azure AD para crear una SAS de delegación de usuarios cuando sea posible para una seguridad superior.
@@ -47,7 +55,7 @@ Una firma de acceso compartido es un URI firmado que señala a uno o más recurs
 
 Puede firmar una SAS de dos maneras:
 
-- Con una clave de delegación de usuarios creada con las credenciales de Azure Active Directory (Azure AD). Una SAS de delegación de usuarios está firmada con la clave de delegación de usuarios.
+- Con una *clave de delegación de usuarios* creada con las credenciales de Azure Active Directory (Azure AD). Una SAS de delegación de usuarios está firmada con la clave de delegación de usuarios.
 
     Para obtener la clave de delegación de usuarios y crear la SAS, una entidad de seguridad de Azure AD debe tener asignado un rol de control de acceso basado en rol (RBAC) que incluya la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Para obtener información detallada sobre los roles de RBAC con permisos para obtener la clave de delegación de usuarios, consulte [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios [API REST]).
 

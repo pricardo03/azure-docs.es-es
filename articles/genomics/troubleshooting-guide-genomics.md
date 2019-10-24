@@ -1,22 +1,22 @@
 ---
-title: 'Microsoft Genomics: Guía de solución de problemas | Microsoft Docs'
-titleSuffix: Azure
-description: Más información sobre estrategias de solución de problemas
+title: Guía de solución de problemas
+titleSuffix: Microsoft Genomics
+description: Obtenga información sobre las estrategias de solución de problemas para usar Microsoft Genomics.
 keywords: solución de problemas, error, depuración
-services: microsoft-genomics
+services: genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
 ms.service: genomics
 ms.workload: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce8af4d444e642a8f67f43f8cf403ce9b2cb08ab
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790511"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248514"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
@@ -116,7 +116,7 @@ Estos errores sí pueden corregirlos los usuarios. Según el tipo de archivo y e
 
 | Tipo de archivo | Código de error | Mensaje de error                                                                           | Pasos recomendados para la solución de problemas                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Cualquiera          | 701        | La lectura [identificadorLectura] tiene [númeroDeBases], pero el límite es [longitudLectura Máxima]           | La razón más común de este error es un daño en los archivos que provoca la concatenación de dos lecturas. Compruebe los archivos de entrada. |
+| Any          | 701        | La lectura [identificadorLectura] tiene [númeroDeBases], pero el límite es [longitudLectura Máxima]           | La razón más común de este error es un daño en los archivos que provoca la concatenación de dos lecturas. Compruebe los archivos de entrada. |
 | BAM          | 200        |   No se puede leer el archivo "[nombreArchivo]".                                                                                       | Compruebe el formato del archivo BAM. Envíe de nuevo el flujo de trabajo con un archivo que tenga el formato correcto.                                                                           |
 | BAM          | 201        |  No se puede leer el archivo BAM [nombre_archivo].                                                                                      |Compruebe el formato del archivo BAM.  Envíe el flujo de trabajo con un archivo que tenga el formato correcto.                                                                            |
 | BAM          | 202        | No se puede leer el archivo BAM [nombre_archivo]. El archivo es demasiado pequeño y faltan el encabezado.                                                                                        | Compruebe el formato del archivo BAM.  Envíe el flujo de trabajo con un archivo que tenga el formato correcto.                                                                            |

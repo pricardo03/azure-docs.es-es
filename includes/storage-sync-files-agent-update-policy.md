@@ -1,15 +1,15 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
-ms.author: tamram
-ms.openlocfilehash: 5be5cf6cd410874d870b351c209517e90fcf3848
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: rogarana
+ms.openlocfilehash: 02e9553b9704c96794e0c1113ab3e06458f0f7c8
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699337"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391787"
 ---
 El agente de Azure File Sync se actualiza periódicamente con el fin de agregar nueva funcionalidad y solucionar los problemas. Se recomienda configurar Microsoft Update para obtener todas las actualizaciones del agente de Azure File Sync a medida que están disponibles.
 
@@ -37,18 +37,23 @@ Con la versión 6 del agente, el equipo de sincronización de archivos ha introd
 
 En las instrucciones siguientes se describe cómo cambiar la configuración después de haber completado el instalador, en caso de que sea necesario realizar cambios.
 
-Abra un shell y navegue hasta el directorio donde instaló el agente de sincronización y, a continuación, importe los cmdlets del servidor; de forma predeterminada, tendrá un aspecto similar al siguiente:
+Abra una consola de PowerShell y navegue hasta el directorio donde instaló el agente de sincronización y, después, importe los cmdlets del servidor. De manera predeterminada, esto tendría un aspecto similar al siguiente:
 ```powershell
-cd C:\Program Files\Azure\StorageSyncAgent
-
-ipmo .\StorageSync.Management.ServerCmdlets.dll
+cd 'C:\Program Files\Azure\StorageSyncAgent'
+Import-Module -Name \StorageSync.Management.ServerCmdlets.dll
 ```
 
 Puede ejecutar `Get-StorageSyncAgentAutoUpdatePolicy` para comprobar la configuración de la directiva actual y determinar si quiere cambiarla.
 
-Para cambiar la configuración de directiva actual a la pista de actualización retrasada, puede usar `Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration`.
+Para cambiar la configuración de directiva actual a la pista de actualización retrasada, puede usar:
+```powershell
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration
+```
 
-Para cambiar la configuración de directiva actual a la pista de actualización inmediata, puede usar `Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest`.
+Para cambiar la configuración de directiva actual a la pista de actualización inmediata, puede usar:
+```powershell
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest
+```
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>Garantías de ciclo de vida y administración de cambios del agente
 Azure File Sync es un servicio en la nube que introduce de forma continua nuevas características y funcionalidades. Esto significa que una versión específica del agente de Azure File Sync solo se puede admitir por tiempo limitado. Para facilitar la implementación, las siguientes reglas garantizan que dispone de tiempo suficiente y le notifican que adapte las actualizaciones del agente en el proceso de administración de cambios:

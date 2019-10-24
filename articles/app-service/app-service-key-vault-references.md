@@ -8,20 +8,20 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 311a9fc887db399cb16d6cbb2bcec665a7ddfce7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 49bf7984efe74edd2a19909509e0c6b9564fc2e9
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240121"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274418"
 ---
-# <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Uso de referencias de Key Vault para App Service y Azure Functions (versión preliminar)
+# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Uso de referencias de Key Vault para App Service y Azure Functions
 
 > [!NOTE] 
-> Actualmente, las referencias de Key Vault se encuentran en versión preliminar y no se admiten actualmente en los planes de consumo de Linux.
+> Las referencias de Key Vault no están actualmente disponibles en los planes de consumo de Linux.
 
 En este tema se muestra cómo trabajar con secretos de Azure Key Vault en la aplicación de App Service o Azure Functions sin necesidad de realizar cambios en el código. [Azure Key Vault](../key-vault/key-vault-overview.md) es un servicio que proporciona administración centralizada de los secretos, con control total sobre las directivas de acceso y el historial de auditoría.
 
@@ -52,7 +52,7 @@ Una referencia de Key Vault tiene el formato `@Microsoft.KeyVault({referenceStri
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** debe ser el nombre del recurso de Key Vault. **SecretName** debe ser el nombre del secreto de destino. **SecretVersion** debe ser la versión del secreto que se va a usar. |
 
 > [!NOTE] 
-> En la versión preliminar actual, se requieren versiones. Al rotar secretos, deberá actualizar la versión en la configuración de la aplicación.
+> Las versiones son obligatorias actualmente. Al rotar secretos, deberá actualizar la versión en la configuración de la aplicación.
 
 Por ejemplo, una referencia completa se parecería a la siguiente:
 
@@ -192,7 +192,9 @@ Si alguna referencia no se resuelve correctamente, se usará el valor de la refe
 
 Habitualmente, esto se debe a una mala configuración de la [directiva de acceso de Key Vault](#granting-your-app-access-to-key-vault). Sin embargo, también puede deberse a que el secreto ya no existe o a un error de sintaxis de la propia referencia.
 
-Si la sintaxis es correcta, compruebe el estado de resolución actual mediante un detector integrado para ver otras posibles causas del error.
+Si la sintaxis es correcta, compruebe el estado de resolución actual en el portal para ver otras posibles causas del error. Vaya a Configuración de la aplicación y seleccione "Editar" para la referencia en cuestión. En la configuración de opciones, debe ver la información sobre el estado, incluido cualquier error. La ausencia de estos implica que la sintaxis de referencia no es válida.
+
+También puede usar uno de los detectores integrados para obtener información adicional.
 
 ### <a name="using-the-detector-for-app-service"></a>Uso del detector en App Service
 

@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cc827f52d227ee36620bd215dfcba96b433804d3
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 6fecd143055da2829ac49cee4f50d448a37a6e1b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103054"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514889"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -344,7 +344,12 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="need-larger-share"></a>
  **¿Qué tamaños están disponibles para los recursos compartidos de archivos de Azure?**  
-    Los tamaños de recursos compartidos de archivos de Azure (Premium y estándar) pueden escalar hasta 100 TiB. Existen tamaños de recursos compartidos de archivos Premium de hasta 100 TiB disponibles como oferta de GA. Los tamaños de recursos compartidos de archivos estándar de hasta 5 TiB están disponibles como un oferta de GA, aunque los tamaños de hasta 100 TiB están en versión preliminar. Consulte la sección [Incorporación de recursos compartidos de archivos de mayor tamaño (nivel estándar)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) de la Guía de planeación para obtener instrucciones de incorporación para la versión preliminar de recursos compartidos de archivos más grandes para el nivel estándar.
+    Los tamaños de recursos compartidos de archivos de Azure (Premium y estándar) pueden escalar hasta 100 TiB. Consulte la sección [Incorporación de recursos compartidos de archivos de mayor tamaño (nivel estándar)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) de la Guía de planeación para obtener instrucciones de incorporación para los recursos compartidos de archivos más grandes para el nivel estándar.
+
+* <a id="lfs-performance-impact"></a>
+ **¿Expandir mi cuota de recursos compartidos de archivos afecta mis cargas de trabajo o a Azure File Sync?**
+    
+    No. La expansión de la cuota no afectará sus cargas de trabajo ni Azure File Sync.
 
 * <a id="open-handles-quota"></a>
  **¿Cuántos clientes pueden obtener acceso al mismo archivo simultáneamente?**    

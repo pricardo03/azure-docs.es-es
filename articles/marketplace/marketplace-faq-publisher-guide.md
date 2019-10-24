@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 1c6e381f5f05bc285b50521c9a57e8b5189a7478
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: c24f956a7aeb68fe6b0325705a9e7dab8e70b063
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969576"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330235"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>P+F de Marketplace comercial de Microsoft
 
@@ -24,9 +24,9 @@ Respuestas a preguntas habituales sobre Azure Marketplace y AppSource.
 
 **¿Qué es Azure Marketplace?**
 
-[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) proporciona acceso a soluciones y servicios disponibles de Microsoft y nuestros socios, así como información sobre ellos. Los clientes (profesionales de TI y desarrolladores) pueden descubrir y probar para comprar soluciones de software en la nube creadas en o para Azure. Nuestro catálogo de más de 8000 ofertas ofrece bloques de creación de Azure, como Virtual Machines (VM), API, aplicaciones de Azure, plantillas de soluciones y aplicaciones administradas, aplicaciones SaaS, contenedores y servicios de consultoría. 
+[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) proporciona acceso a soluciones y servicios disponibles de Microsoft y nuestros socios, así como información sobre ellos. Los clientes pueden descubrir, probar o comprar soluciones de software en la nube creadas en o para Azure. Nuestro catálogo de más de 8000 ofertas ofrece bloques de creación de Azure, como Virtual Machines (VM), API, aplicaciones de Azure, plantillas de soluciones y aplicaciones administradas, aplicaciones SaaS, contenedores y servicios de consultoría.
 
-**¿Quiénes son clientes de Azure Marketplace?**
+**¿Quiénes son los clientes de Azure Marketplace?**
 
 Azure Marketplace está diseñado para profesionales de TI y desarrolladores de nube que están interesados en servicios y software comercial de TI.
 
@@ -41,9 +41,6 @@ Azure Marketplace ofrece soluciones técnicas y servicios de Microsoft y de asoc
 * networking
 * cadena de bloques
 * herramientas de desarrollo
-* y mucho más...
-
-Azure Marketplace ofrece aplicaciones SaaS, máquinas virtuales, plantillas de soluciones, aplicaciones administradas por Azure y servicios de consultoría.
 
 ### <a name="azure-marketplace-for-customers"></a>Azure Marketplace para clientes
 
@@ -338,7 +335,7 @@ Los clientes potenciales son los clientes que están implementando sus productos
 
 **¿Dónde puedo obtener ayuda para la configuración de mi destino de clientes potenciales?**
 
-Obtenga más información en la documentación sobre [obtención de clientes potenciales de Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md), o envíe una incidencia de soporte técnico a través de [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) mediante la selección de su tipo de oferta y la administración de clientes potenciales.
+Obtenga más información en la documentación sobre [obtención de clientes potenciales en el Centro de partners](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) o envíe una incidencia de soporte técnico a través de [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) mediante la selección de su tipo de oferta y la administración de clientes potenciales.
 
 **¿Debo configurar un destino de clientes potenciales para poder publicar una oferta en Marketplace?**
 
@@ -346,7 +343,7 @@ Sí, si se publica una oferta del tipo **Ponerse en contacto conmigo**, **aplica
 
 **¿Cómo puedo confirmar que la configuración de cliente potencial es correcta?**
 
-Después de completar la oferta y configurar un destino de clientes potenciales, puede publicarse correctamente la oferta en la plataforma [Cloud Partner Portal](https://cloudpartner.azure.com/). Antes de que la oferta esté activa, puede validar si la configuración de los clientes potenciales funciona correctamente.  Envíe un cliente potencial de prueba al destino de clientes potenciales configurado en la oferta.
+Después de completar la oferta y configurar un destino de clientes potenciales, la oferta puede publicarse correctamente en el [Centro de partners](https://cloudpartner.azure.com/). Antes de que la oferta esté activa, puede validar si la configuración de los clientes potenciales funciona correctamente.  Envíe un cliente potencial de prueba al destino de clientes potenciales configurado en la oferta.
 
 **¿En qué países o regiones está disponible Azure Marketplace para que los anunciantes puedan vender sus soluciones?**
 
@@ -356,7 +353,7 @@ Actualmente, los anunciantes de los países y regiones siguientes pueden vender 
 
 *Aplicaciones de Azure y máquina virtual:*
 
-1. Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/).
+1. Inicie sesión en el [Centro de partners](https://cloudpartner.azure.com/).
 1. Seleccione la oferta en la pestaña **Todas las ofertas**.
 1. En el panel izquierdo de la pantalla, seleccione la pestaña **SKU**.
 1. Seleccione la SKU que quiera eliminar y haga clic en el botón **Eliminar** de esa SKU.
@@ -366,7 +363,7 @@ Para más información, consulte la sección sobre la [eliminación de una ofert
 
 *Web Apps (aplicaciones de SaaS, complementos) y servicios de consultoría:*
 
-1. en Cloud Partner Portal, seleccione el icono de signo de interrogación y, a continuación, haga clic en **Support** (Soporte técnico).
+1. en el Centro de partners, seleccione el icono de signo de interrogación y, a continuación, haga clic en **Soporte técnico**.
 1. Vaya a <https://go.microsoft.com/fwlink/?linkid=844975>.
 1. En la página de soporte técnico, seleccione el tipo de oferta.
 1. Seleccione **Remove** (Quitar) una oferta publicada.
@@ -419,19 +416,19 @@ Registre una incidencia para el servicio de [soporte técnico de Microsoft](http
 
 **¿Con quién debo ponerme en contacto para cuestiones generales de soporte técnico para Azure Marketplace?**
 
-Para obtener soporte técnico general relacionado con el uso o la solución de problemas de aplicaciones, póngase en contacto con el servicio de soporte técnico de [Cloud Partner Portal](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007).
+Para obtener soporte técnico general relacionado con el uso o la solución de problemas de aplicaciones, póngase en contacto con el servicio de soporte técnico del [Centro de partners](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007).
 
 Si surgen problemas de facturación y suscripción en alguna compra realizada en Azure Marketplace, póngase en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 **¿Con quién debo ponerme en contacto para cuestiones de publicación o administración de ofertas?**
 
-Consulte la [guía del anunciante de Azure Marketplace](marketplace-publishers-guide.md) para obtener los últimos recursos y documentos sobre las preguntas más frecuentes. Además, puede registrar una incidencia para el [servicio de soporte técnico de Microsoft en Cloud Partner Portal](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Consulte la [guía del anunciante de Azure Marketplace](marketplace-publishers-guide.md) para obtener los últimos recursos y documentos sobre las preguntas más frecuentes. Además, puede registrar una incidencia para el [servicio de soporte técnico de Microsoft del Centro de partners](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
 ### <a name="azure-marketplace-for-publishers"></a>Azure Marketplace para anunciantes
 
 **¿Cómo puedo definir mi disponibilidad geográfica para habilitar la venta en diferentes países y regiones?**
 
-1.  En Cloud Partner Portal, navegue hasta la SKU a la que desea agregar nuevos países o regiones.  En **SKU Details** (Detalles de SKU), vaya a **Disponibilidad de país/región** y haga clic en **Seleccionar regiones**.
+1.  En el Centro de partners, navegue hasta la SKU a la que desea agregar nuevos países o regiones.  En **SKU Details** (Detalles de SKU), vaya a **Disponibilidad de país/región** y haga clic en **Seleccionar regiones**.
 
     ![Seleccionar regiones](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 

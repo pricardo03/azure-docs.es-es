@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 908d681b271aa8acdb0898676c33d396461d8f9a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972075"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255206"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario.
 
@@ -25,6 +25,17 @@ En este artículo, se resumen los elementos compatibles cuando se usa el servici
 > [!NOTE]
 > La replicación de servidores físicos y máquinas virtuales de VMware locales se realiza a través de InMage Scout. InMage Scout está incluido en la suscripción al servicio Azure Site Recovery.
 
+## <a name="end-of-support-announcement"></a>Anuncio de fin del soporte técnico
+El escenario de Site Recovery para la replicación entre los centros de datos físicos o de VMware locales está llegando al fin del soporte técnico.
+
+- Desde agosto de 2018, no se puede configurar el escenario en el almacén de Recovery Services y el software InMage Scout no se puede descargar desde el almacén. Se seguirá ofreciendo soporte técnico a las implementaciones existentes.
+- - Desde el 31 de diciembre de 2020, no se ofrecerá soporte técnico al escenario.
+Los asociados existentes pueden incorporar nuevos clientes al escenario hasta que finalice el soporte técnico.
+- Durante la 2018 y 2019, se lanzarán dos actualizaciones:
+
+    - Actualización 7: corrige problemas de cumplimiento y configuración de red y proporciona compatibilidad con TLS 1.2.
+    - Actualización 8: agrega compatibilidad para sistemas operativos Linux RHEL/CentOS 7.3/7.4/7.5 y para SUSE 12.
+    - Después de la actualizaciones 8, no se publicarán más actualizaciones. Habrá soporte técnico de revisiones limitadas para los sistemas operativos agregados en la actualización 8 y correcciones de errores basadas en el mejor esfuerzo.
 
 ## <a name="host-servers"></a>Servidores host
 

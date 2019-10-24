@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a0ceb5aa82b0d38ab5d2567689e3e131ba781ce9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295556"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254990"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Consultas de búsqueda en registros de Azure Monitor
 Las consultas de registro de Azure Monitor pueden comenzar por un nombre de tabla o un comando de búsqueda. Este tutorial trata las consultas de búsqueda. Cada método tiene sus ventajas.
@@ -50,7 +50,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### <a name="table-and-column-scoping"></a>Ámbito de tabla y columna
-De forma predeterminada, **search** evalúa todas las columnas del conjunto de datos. Para buscar solo una columna específica, use esta sintaxis:
+De forma predeterminada, **search** evalúa todas las columnas del conjunto de datos. Para buscar solo una columna específica (*origen* con nombre en el ejemplo siguiente), use esta sintaxis:
 
 ```Kusto
 search in (Event) Source:"error"

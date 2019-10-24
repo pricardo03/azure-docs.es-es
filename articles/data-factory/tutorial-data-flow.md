@@ -1,31 +1,31 @@
 ---
-title: Transformación de datos mediante Mapping Data Flow en Azure Data Factory | Microsoft Docs
-description: Este tutorial proporciona instrucciones detalladas para usar Azure Data Factory a fin de transformar los datos con Mapping Data Flow
+title: Transformación de datos mediante un flujo de datos de asignación en Azure Data Factory | Microsoft Docs
+description: Este tutorial proporciona instrucciones detalladas para usar Azure Data Factory con el objetivo de transformar los datos con un flujo de datos de asignación.
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 8c9043db8159e2b7ff6520e9525472048cf73ae1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5b618798c74393f3e7d89cfc69c67ba831356ce4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030933"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385552"
 ---
-# <a name="transform-data-using-mapping-data-flows"></a>Transformación de datos mediante Mapping Data Flows
+# <a name="transform-data-using-mapping-data-flows"></a>Transformación de datos mediante flujos de datos de asignación
 
 Si no está familiarizado con Azure Data Factory, consulte [Introducción a Azure Data Factory](introduction.md).
 
-En este tutorial, usará la interfaz de usuario de Azure Data Factory (UX) para crear una canalización que copie y transforme los datos de un origen de Azure Data Lake Storage (ADLS) Gen2 en un receptor de ADLS Gen2 mediante Mapping Data Flow. El patrón de configuración de este tutorial se puede expandir al transformar los datos mediante Mapping Data Flow.
+En este tutorial, usará la interfaz de usuario de Azure Data Factory (UX) para crear una canalización que copie y transforme los datos desde un origen de Azure Data Lake Storage (ADLS) Gen2 hasta un receptor de ADLS Gen2 mediante un flujo de datos de asignación. El patrón de configuración de este tutorial se puede expandir al transformar los datos mediante el flujo de datos de asignación.
 
 En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
 > * Creación de una canalización con una actividad de Data Flow.
-> * Creación de un Mapping Data Flow con cuatro transformaciones. 
+> * Cree un flujo de datos de asignación con cuatro transformaciones. 
 > * Realización de la serie de pruebas de la canalización.
 > * Supervisión de una actividad de Data Flow
 
@@ -198,7 +198,7 @@ La canalización de este tutorial ejecuta un flujo de datos que agrega el promed
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
 > * Creación de una canalización con una actividad de Data Flow.
-> * Creación de un Mapping Data Flow con cuatro transformaciones. 
+> * Cree un flujo de datos de asignación con cuatro transformaciones. 
 > * Realización de la serie de pruebas de la canalización.
 > * Supervisión de una actividad de Data Flow
 

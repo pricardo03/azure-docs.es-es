@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 5ff6d9e33e15aa04adfa03705172166492f87e30
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001699"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330024"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 
@@ -102,7 +102,7 @@ Use el portal de Azure Active Directory para configurar el servicio de una aplic
 
 1. Seleccione la opción Automático en **Modo de aprovisionamiento** para especificar la configuración de las credenciales de administrador, asignaciones, inicio y parada, y sincronización.
 
-   - Expanda **Credenciales de administrador** para especificar las credenciales necesarias para que Azure AD se conecte a la API de administración de usuarios de la aplicación. En esta sección también se puede habilitar notificaciones por correo electrónico si se produce un error con las credenciales o si el trabajo de aprovisionamiento entra en [cuarentena](#quarantine).
+   - Expanda **Credenciales de administrador** para especificar las credenciales necesarias para que Azure AD se conecte a la API de administración de usuarios de la aplicación. En esta sección también se puede habilitar notificaciones por correo electrónico si se produce un error con las credenciales o si el trabajo de aprovisionamiento entra en [cuarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
    - Expanda **Asignaciones** para ver y modificar los atributos de usuario que fluyen entre Azure AD y la aplicación de destino cuando las cuentas de usuario se aprovisionan o se actualizan. Si la aplicación de destino lo admite, en esta sección se puede configurar opcionalmente el aprovisionamiento de grupos y cuentas de usuario. Seleccione una asignación de la tabla para abrir el editor de asignaciones a la derecha, donde puede ver y personalizar los atributos de usuario.
 
      Los **filtros de ámbito** le indican al servicio de aprovisionamiento qué usuarios y grupo del sistema de origen se deben aprovisionar o desaprovisionar para el sistema de destino. En el panel **Asignaciones de atributos**, seleccione **Ámbito de objeto de origen** para filtrar por valores de atributo concretos. Por ejemplo, puede especificar que solo los usuarios con el atributo "Department" (Departamento) de "Sales" (Ventas) deben estar en el ámbito del aprovisionamiento. Para más información, consulte [Uso de filtros de ámbito](define-conditional-rules-for-provisioning-user-accounts.md).
@@ -176,7 +176,7 @@ Si todas o la mayoría de las llamadas realizadas al sistema de destino no tiene
 
 En cuarentena, la frecuencia de los ciclos incrementales se reduce gradualmente a una vez al día.
 
-El trabajo de aprovisionamiento se quita de la cuarentena después de que se hayan resuelto todos los errores causantes y se inicie el siguiente ciclo de sincronización. Si el trabajo de aprovisionamiento permanece en cuarentena durante más de cuatro semanas, se deshabilita.
+El trabajo de aprovisionamiento se quita de la cuarentena después de que se hayan resuelto todos los errores causantes y se inicie el siguiente ciclo de sincronización. Si el trabajo de aprovisionamiento permanece en cuarentena durante más de cuatro semanas, se deshabilita. [Aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) encontrará más información sobre el estado de cuarentena.
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>¿Cuánto tiempo se tarda en aprovisionar usuarios?
 

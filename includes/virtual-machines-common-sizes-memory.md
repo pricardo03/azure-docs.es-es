@@ -6,18 +6,18 @@ author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 08/08/2019
-ms.author: azcspmt;jonbeck;cynthn
+ms.author: azcspmt;jonbeck;cynthn;joelpell
 ms.custom: include file
-ms.openlocfilehash: 4d0e7bc7f491e328f5e9fce291d415452c49c745
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 55f82344956af7d6096fce7dbc3d7023589daa69
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830169"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428023"
 ---
 Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memoria a CPU que es excelente para servidores de bases de datos relacionales, memorias caché de medianas a grandes y análisis en memoria. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación.
 
-* Las serie Ev3 tiene el mismo procesador E5-2673 v4 (Broadwell) de 2,3 GHz en una configuración de hyperthreading. Gracia a esto, proporciona una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general y la equipara con las máquinas virtuales de propósito general de la mayoría de las demás tecnologías de nube.  Se ha ampliado la memoria (de 7 GiB/vCPU a 8 GiB/vCPU), y los límites de disco y red se han ajustado por núcleo para equipararse con el cambio a hyperthreading.  La serie Ev3 es la continuación de los tamaños de máquina virtual de memoria alta de las familias D/Dv2.
+* La serie Ev3 tiene el procesador Intel® Xeon® 8171M de 2,1 GHz (Skylake) o el procesador Intel® Xeon® E5-2673 v4 de 2,3 GHz en una configuración de Hyper-Threading. Gracias a esto, proporciona una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general y la equipara con las máquinas virtuales de propósito general de la mayoría de las demás tecnologías de nube.  Se ha ampliado la memoria (de 7 GiB/vCPU a 8 GiB/vCPU), y los límites de disco y red se han ajustado por núcleo para equipararse con el cambio a hyperthreading.  La serie Ev3 es la continuación de los tamaños de máquina virtual de memoria alta de las familias D/Dv2.
 
 * Los tamaños de la versión preliminar de las series Eav3 y Easv3 utilizan el procesador 7452 EPYC<sup>TM</sup> de AMD de 2,35 Ghz en una configuración de varios subprocesos con una caché L3 de hasta 256 MB, lo que aumenta las opciones para ejecutar la mayoría de las cargas de trabajo optimizadas para memoria.  Las series Eav3 y Easv3 tienen las mismas configuraciones de memoria y disco que las series Ev3 y Esv3.
 
@@ -27,7 +27,7 @@ Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memori
 
 * Las series Dv2, G y DSv2/GS son ideales para las aplicaciones que requieren vCPU más rápidas, mejor rendimiento del almacenamiento temporal o tienen mayor demanda de memoria. Ofrecen una combinación eficaz para muchas aplicaciones de clase empresarial.
 
-* Serie de Dv2, una evolución de la serie D original, presenta una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación o en los procesadores E5-2673 v4 (Broadwell) de 2,3 GHz; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,1 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
+* Serie de Dv2, una evolución de la serie D original, presenta una CPU más eficaz. La serie Dv2 es un 35 % aproximadamente más rápida que la serie D. Se ejecuta en procesadores Intel® Xeon® 8171M de 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 de 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 de 2,4 GHz (Haswell) y con la tecnología Intel Turbo Boost Technology 2.0. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 
 * Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente.  Estos tamaños de máquina virtual son más adecuados para cargas de trabajo que requieren un alto grado de aislamiento de otros clientes como, por ejemplo, las cargas de trabajo que incluyen elementos como el cumplimiento normativo y los requisitos legales.  Los clientes también puede elegir subdividir aún más los recursos de estas máquinas virtuales aisladas mediante la [compatibilidad de Azure para máquinas virtuales anidadas](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).  Consulte las tablas de familias de máquinas virtuales que aparecen a continuación para ver las opciones de las máquinas virtuales aisladas.
 
@@ -39,7 +39,7 @@ Premium Storage:  Compatible
 
 Almacenamiento en caché de Premium Storage:  Compatible
 
-Las instancias de la serie ESv3 se basan en el procesador Intel XEON® E5-2673 v4 (Broadwell) de 2,3 GHz y pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0 y el uso de Premium Storage. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
+La serie Ev3 tiene el procesador Intel® Xeon® 8171M de 2,1 GHz (Skylake) o el procesador Intel® Xeon® E5-2673 v4 de 2,3 GHz (Broadwell), puede alcanzar 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0 y usa almacenamiento prémium. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
 
 | Size             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
@@ -89,7 +89,7 @@ Premium Storage:  No compatible
 
 Almacenamiento en caché de Premium Storage:  No compatible
 
-Las instancias de la serie Ev3 se basan en el procesador Intel XEON ® E5-2673 v4 (Broadwell) de 2,3 GHz y pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
+La serie Ev3 tiene el procesador Intel® Xeon® 8171M de 2,1 GHz (Skylake) o el procesador Intel® Xeon® E5-2673 v4 de 2,3 GHz (Broadwell) y puede alcanzar 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
 El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar discos de Premium Storage, utilice los tamaños ESv3. Los precios y los medidores de facturación para los tamaños ESv3 son los mismos que para la serie Ev3. 
 
@@ -241,7 +241,7 @@ Premium Storage:  Compatible
 
 Almacenamiento en caché de Premium Storage:  Compatible
 
-Los tamaños de la serie DSv2 se basan en la CPU E5-2673 v3 Intel(R) Xeon(R) a 2,40 GHz
+Los tamaños de la serie DSv2 se ejecutan en procesadores Intel® Xeon® 8171M de 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 de 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 de 2,4 GHz (Haswell).
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -266,7 +266,7 @@ Premium Storage:  No compatible
 
 Almacenamiento en caché de Premium Storage:  No compatible
 
-Los tamaños de la serie DSv2 se basan en la CPU E5-2673 v3 Intel(R) Xeon(R) a 2,40 GHz
+Los tamaños de la serie DSv2 se ejecutan en procesadores Intel® Xeon® 8171M de 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 de 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 de 2,4 GHz (Haswell).
 
 | Size              | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

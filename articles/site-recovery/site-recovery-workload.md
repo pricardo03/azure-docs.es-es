@@ -1,22 +1,22 @@
 ---
-title: ¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery? | Microsoft Docs
+title: Acerca de la recuperación ante desastres para aplicaciones locales con Azure Site Recovery
 description: Describe las cargas de trabajo que pueden protegerse mediante la recuperación ante desastres con el servicio Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ad989a28e150635637a477d07803107a9fefff63
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232191"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255562"
 ---
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
+# <a name="about-disaster-recovery-for-on-premises-apps"></a>Acerca de la recuperación ante desastres en aplicaciones locales
 
-En este artículo se describen las cargas de trabajo y las aplicaciones que se pueden proteger para la recuperación ante desastres con el servicio [Azure Site Recovery](site-recovery-overview.md).
+En este artículo se describen las cargas de trabajo y las aplicaciones locales que se pueden proteger para la recuperación ante desastres con el servicio [Azure Site Recovery](site-recovery-overview.md).
 
 
 

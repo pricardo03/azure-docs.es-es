@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: 6249a3c1c8ea3be02ca802d6be7e720bd900f675
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 687c21170c0397b89270e9c3a6af1e994c758179
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178091"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331103"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configuración de la asignación de red y el direccionamiento IP para redes virtuales
 
@@ -76,8 +76,7 @@ La dirección IP de cada NIC de una máquina virtual de destino se configura com
 **Subredes de origen y destino** | **Detalles**
 --- | ---
 Mismo espacio de direcciones | La dirección IP de la NIC de la máquina virtual de origen se establece como la dirección IP de la NIC de la máquina virtual de destino.<br/><br/> Si la dirección no está disponible, la siguiente dirección IP disponible se establece como la dirección IP de destino.
-
-Distinto espacio de direcciones<br/><br/> La siguiente dirección IP disponible en la subred de destino se establece como la dirección de la NIC de la máquina virtual de destino.
+Distinto espacio de direcciones | La siguiente dirección IP disponible en la subred de destino se establece como la dirección de la NIC de la máquina virtual de destino.
 
 
 
@@ -85,8 +84,8 @@ Distinto espacio de direcciones<br/><br/> La siguiente dirección IP disponible 
 
 **Red de destino** | **Detalles**
 --- | ---
-La red de destino es la red virtual de conmutación por error | - La dirección IP de destino es estática, pero no la misma dirección IP que se reserva para la conmutación por error.<br/><br/>  - La dirección IP asignada será la siguiente dirección disponible del final del intervalo de direcciones de subred.<br/><br/> Por ejemplo:  si la dirección IP de origen es la 10.0.0.19 y la red de conmutación por error usa el intervalo 10.0.0.0/24, la siguiente dirección IP asignada a la máquina virtual de destino es la 10.0.0.254.
-La red de destino no es la red virtual de conmutación por error | - La dirección IP de destino será estática con la misma dirección IP reservada para la conmutación por error.<br/><br/>  - Si la misma dirección IP ya está asignada, esta es la siguiente disponible en cada el extremo del intervalo de subred.<br/><br/> Por ejemplo:  si la dirección IP estática de origen es la 10.0.0.19 y la conmutación por error está en una red que no es la red de conmutación por error, con el intervalo 10.0.0.0/24, la dirección IP estática de destino será la 10.0.0.0.19 si está disponible y, en caso contrario, será la 10.0.0.254.
+La red de destino es la red virtual de conmutación por error | - La dirección IP de destino será estática con la misma dirección IP. <br/><br/>  - Si la misma dirección IP ya está asignada, esta es la siguiente disponible en cada el extremo del intervalo de subred. Por ejemplo:  si la dirección IP de origen es la 10.0.0.19 y la red de conmutación por error usa el intervalo 10.0.0.0/24, la siguiente dirección IP asignada a la máquina virtual de destino es la 10.0.0.254.
+La red de destino no es la red virtual de conmutación por error | - La dirección IP de destino será estática con la misma dirección IP.<br/><br/>  - Si la misma dirección IP ya está asignada, esta es la siguiente disponible en cada el extremo del intervalo de subred.<br/><br/> Por ejemplo:  si la dirección IP estática de origen es la 10.0.0.19 y la conmutación por error está en una red que no es la red de conmutación por error, con el intervalo 10.0.0.0/24, la dirección IP estática de destino será la 10.0.0.0.19 si está disponible y, en caso contrario, será la 10.0.0.254.
 
 - La red virtual de conmutación por error es la red de destino que seleccionó al configurar la recuperación ante desastres.
 - Se recomienda que utilice siempre una red que no sea de producción para la conmutación por error de prueba.

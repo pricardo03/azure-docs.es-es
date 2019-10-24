@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 57b4f018cd044b4f516266dcf9776e82252f7f22
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 439e5ab4bf943293ff4ed20ed477bc98bb683836
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937111"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299332"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -213,7 +213,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
     }
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
- ```
+```
 
 ## <a name="configuration"></a>Configuración
 
@@ -264,7 +264,7 @@ Cada campo puede tener uno de los siguientes tipos de valores:
 |---------|---------|---------|
 |Un valor específico |<nobr>"0 5 * * * *"</nobr>|A las hh:05:00, donde hh es cada hora (una vez por hora)|
 |Todos los valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|A las 5:mm: 00 cada día, donde mm es cada minuto de la hora (60 veces al día)|
-|Un intervalo (operador `-`)|<nobr>"5-7 * * * * *"</nobr>|A las hh:mm:05, hh:mm:06 y hh:mm:07, donde hh:mm es cada minuto de cada hora (tres veces por minuto)|  
+|Un intervalo (operador `-`)|<nobr>"5-7 * * * * *"</nobr>|A las hh:mm:05, hh:mm:06 y hh:mm:07, donde hh:mm es cada minuto de cada hora (tres veces por minuto)|
 |Un conjunto de valores (operador `,`)|<nobr>"5,8,10 * * * * *"</nobr>|A las hh:mm:05, hh:mm:08 y hh:mm:10, donde hh:mm es cada minuto de cada hora (tres veces por minuto)|
 |Un valor de intervalo (operador `/`)|<nobr>"0 */5 * * * *"</nobr>|A las hh:05:00, hh:10:00, hh:15:00 y así sucesivamente hasta hh:55:00, donde hh es cada hora (doce veces por hora)|
 
@@ -317,7 +317,7 @@ Expresado como una cadena, el formato `TimeSpan` es `hh:mm:ss` cuando `hh` es me
 |---------|---------|
 |"01:00:00" | Cada hora        |
 |"00:01:00"|Cada minuto         |
-|"24:00:00" | Cada 24 días        |
+|"24:00:00" | cada 24 horas        |
 |"1.00:00:00" | Todos los días        |
 
 ## <a name="scale-out"></a>Escalado horizontal
@@ -326,7 +326,16 @@ Si una aplicación de función se escala horizontalmente a varias instancias, un
 
 ## <a name="function-apps-sharing-storage"></a>Aplicaciones de función que comparten almacenamiento
 
-Si comparte una cuenta de almacenamiento entre varias aplicaciones de función, asegúrese de que cada aplicación de función tiene otro `id` en *host.json*. Puede omitir la propiedad `id` o establecer manualmente el `id` de cada aplicación de función en un valor diferente. El desencadenador de temporizador utiliza un bloqueo de almacenamiento para asegurarse de que solo hay una instancia de temporizador cuando una aplicación de función se escala a varias instancias. Si dos aplicaciones de función comparten el mismo `id` y cada una usa un desencadenador de temporizador, solo se ejecutará un temporizador.
+Si comparte cuentas de almacenamiento en aplicaciones de funciones que no se implementan en app service, es posible que tenga que asignar explícitamente un identificador de host a cada aplicación.
+
+| Versión de Functions | Configuración                                              |
+| ----------------- | ---------------------------------------------------- |
+| 2.x               | Variable de entorno `AzureFunctionsWebHost__hostid` |
+| 1.x               | `id` en *host.json*                                  |
+
+Puede omitir el valor de identificación o establecer manualmente la configuración de identificación de cada aplicación de funciones en otro valor.
+
+El desencadenador de temporizador utiliza un bloqueo de almacenamiento para asegurarse de que solo hay una instancia de temporizador cuando una aplicación de función se escala a varias instancias. Si dos aplicaciones de función comparten la misma configuración de identificación y cada una usa un desencadenador de temporizador, solo se ejecutará un temporizador.
 
 ## <a name="retry-behavior"></a>Comportamiento de reintento
 

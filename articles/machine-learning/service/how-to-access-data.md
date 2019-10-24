@@ -11,22 +11,23 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8c9b8489ded264a895d480ed180b411da079e883
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 3576f7cc0297ff1e9b10373ccc27b09e1a0ae8ae
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950115"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436699"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acceso a los datos en los servicios de almacenamiento de Azure
 
-En este artículo, aprenderá a acceder fácilmente a los datos en los servicios de almacenamiento de Azure a través de almacenes de datos de Azure Machine Learning. Los almacenes de datos se usan para almacenar información de conexión, como el identificador de suscripción y la autorización de token. El uso de almacenes de datos permite acceder al almacenamiento sin tener que codificar de forma rígida la información de conexión en los scripts. Puede crear almacenes de datos a partir de estas [soluciones de Azure Storage](#matrix).
+En este artículo, aprenderá a acceder fácilmente a los datos en los servicios de almacenamiento de Azure a través de almacenes de datos de Azure Machine Learning. Los almacenes de datos se usan para almacenar información de conexión, como el identificador de suscripción y la autorización de token. El uso de almacenes de datos permite acceder al almacenamiento sin tener que codificar de forma rígida la información de conexión en los scripts. Puede crear almacenes de datos a partir de estas [soluciones de Azure Storage](#matrix). En el caso de las soluciones de almacenamiento no compatibles, para ahorrar el costo de salida de datos durante los experimentos de aprendizaje automático, se recomienda mover los datos a nuestras soluciones de Azure Storage compatibles. [Obtenga información sobre cómo mover los datos](#move). 
 
 En este procedimiento se muestran ejemplos de las tareas siguientes:
 * [Registro de almacenes de datos](#access)
 * [Obtención de almacenes de almacenamiento del área de trabajo](#get)
 * [Carga y descarga de datos con almacenes de datos](#up-and-down)
 * [Acceso a los datos durante el aprendizaje](#train)
+* [Migrar datos a Azure](#move)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -276,6 +277,10 @@ Azure Machine Learning dispone de varios métodos para usar los modelos para pun
 
 En situaciones en las que el SDK no proporciona acceso a los almacenes de datos, es posible que pueda crear código personalizado mediante el SDK de Azure correspondiente para acceder a los datos. Por ejemplo, el [SDK de Azure Storage para Python](https://github.com/Azure/azure-storage-python) es una biblioteca cliente que puede usar para acceder a los datos almacenados en blobs o archivos.
 
+<a name="move"></a>
+## <a name="move-data-to-supported-azure-storage-solutions"></a>Movimiento de datos a soluciones de Azure Storage compatibles
+
+El servicio Azure Machine Learning admite el acceso a datos desde Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. En el caso del almacenamiento no compatible, para ahorrar el costo de salida de datos durante los experimentos de aprendizaje automático, se recomienda mover los datos a nuestras soluciones de Azure Storage compatibles con Azure Data Factory. Azure Data Factory proporciona una transferencia de datos eficaz y resistente con más de 80 conectores precompilados, como los servicios de datos de Azure, los orígenes de datos locales, Amazon S3 y Redshift, y Google BigQuery, sin costo adicional. [Siga la guía paso a paso para mover los datos mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

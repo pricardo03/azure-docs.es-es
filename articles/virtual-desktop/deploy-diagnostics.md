@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4718ee7943b4130bb977d5eefeb82bb385c71835
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177764"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332833"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos
 
@@ -108,7 +108,7 @@ Aquí se muestra cómo configurar manualmente los contadores de rendimiento reco
 3. En la sección **Configuración**, seleccione **Configuración avanzada**.
 4. Después, vaya a **Datos** > **Contadores de rendimiento de Windows** y agregue los siguientes contadores:
 
-    -   Disco lógico(\*)\|% espacio disponible
+    -   Disco lógico (\*)\%Espacio libre
     -   Disco lógico (C:)\\Longitud Longitud de la cola de disco
     -   Memoria(\*)\\Mbytes disponibles
     -   Información del procesador(\*)\\Tiempo de procesador
@@ -142,7 +142,7 @@ Para asegurarse de que el área de trabajo de Log Analytics tiene los contadores
 3. Después, vaya a **Datos** > **Contadores de rendimiento de Windows**.
 4. Asegúrese de que los siguientes contadores están preconfigurados:
 
-   - Disco lógico(\*)\|% espacio disponible: muestra el porcentaje de espacio libre que se puede usar del espacio total del disco.
+   - Disco lógico (\*)\%Espacio libre: muestra el porcentaje de espacio libre que se puede usar del espacio total del disco.
    - Disco lógico (C:)\\Longitud promedio de la cola de disco: duración de la solicitud de transferencia de disco para la unidad C. El valor no debe ser superior a 2 durante más de un breve período.
    - Memoria(\*)\\Mbytes disponibles: memoria disponible para el sistema en megabytes.
    - Información de procesador(\*)\\Tiempo de procesador: porcentaje de tiempo transcurrido que el procesador invierte en ejecutar un subproceso no inactivo.

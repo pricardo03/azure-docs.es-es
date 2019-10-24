@@ -4,14 +4,14 @@ description: Use Azure Portal para exportar una plantilla de Azure Resource Mana
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 15f527dfe517dcb3329b8b61243d7c5054eedb56
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 6b37b61bea63ec626bfd709a40f177f43d1dfe03
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959699"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300416"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportación de uno y varios recursos a una plantilla en Azure Portal
 
@@ -48,39 +48,36 @@ Exporte la plantilla antes de la implementación o desde el historial cuando:
 * Quiera una plantilla fácil de reutilizar.
 * No necesite incluir los cambios realizados después de la implementación original.
 
-## <a name="export-template-from-resource-group"></a>Exportación de la plantilla desde el grupo de recursos
+## <a name="export-template-from-a-resource-group"></a>Exportación de la plantilla desde un grupo de recursos
 
 Para exportar uno o varios recursos de un grupo de recursos:
 
 1. Seleccione el grupo de recursos que contiene los recursos que quiere exportar.
 
-1. Para exportar todos los recursos del grupo de recursos, seleccione Todos y después **Exportar plantilla**. La opción **Exportar plantilla** solo se habilita después de seleccionar al menos un recurso.
+1. Seleccione uno o varios recursos activando las casillas.  Para seleccionar todo, active la casilla situada a la izquierda de **Nombre**. El elemento de menú **Exportar plantilla** solo se habilita después de seleccionar al menos un recurso.
 
    ![Exportar todos los recursos](./media/export-template-portal/select-all-resources.png)
 
-1. Para elegir recursos específicos para la exportación, active las casillas situadas junto a esos recursos. Después, seleccione **Exportar plantilla**.
+    En la captura de pantalla, solo se selecciona la cuenta de almacenamiento.
+1. Seleccione **Exportar plantilla**.
 
-   ![Seleccionar recursos para exportar](./media/export-template-portal/select-resources.png)
-
-1. Se mostrará la plantilla exportada, que estará disponible para descargar.
+1. Se mostrará la plantilla exportada, que estará disponible para descargar e implementar.
 
    ![Mostrar la plantilla](./media/export-template-portal/show-template.png)
 
-## <a name="export-template-from-resource"></a>Exportación de la plantilla desde el recurso
+## <a name="export-template-from-a-resource"></a>Exportación de la plantilla desde un recurso
 
 Para exportar un recurso:
 
 1. Seleccione el grupo de recursos que contiene el recurso que quiere exportar.
 
-1. Seleccione el recurso que se va a exportar.
-
-   ![Seleccionar recurso](./media/export-template-portal/select-link-resource.png)
+1. Seleccione el recurso que quiere exportar para abrir el recurso.
 
 1. Para ese recurso, seleccione **Exportar plantilla** en el panel de la izquierda.
 
    ![Exportación del recurso](./media/export-template-portal/export-single-resource.png)
 
-1. Se mostrará la plantilla exportada, que estará disponible para descargar. La plantilla solo contiene ese único recurso.
+1. Se mostrará la plantilla exportada, que estará disponible para descargar e implementar. La plantilla solo contiene ese único recurso.
 
 ## <a name="export-template-before-deployment"></a>Exportación de la plantilla antes de la implementación
 
@@ -92,9 +89,8 @@ Para exportar un recurso:
 
    ![Descarga de una plantilla](./media/export-template-portal/download-before-deployment.png)
 
-1. Se mostrará la plantilla y estará disponible para descargarla.
+1. Se mostrará la plantilla y estará disponible para descargarla e implementarla.
 
-   ![Mostrar la plantilla](./media/export-template-portal/show-template-before-deployment.png)
 
 ## <a name="export-template-after-deployment"></a>Exportación de la plantilla después de la implementación
 

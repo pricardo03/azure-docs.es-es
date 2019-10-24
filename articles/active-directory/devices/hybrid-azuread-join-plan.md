@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d89c0784c2125f5a7810ff134686645e8314a6
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3e1024b529bd099c70b870fe8b059d4982f04e40
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960223"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389559"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -97,7 +97,7 @@ Si los dispositivos unidos a un dominio de Windows 10 están [registrados en Az
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Revisión de la validación controlada de la unión a Azure AD híbrido
 
-Una vez cumplidos todos los requisitos previos, los dispositivos Windows se registrarán automáticamente como dispositivos en el inquilino de Azure AD. El estado de estas identidades de dispositivo en Azure AD se conoce como unión a Azure AD híbrido. Puede obtener más información sobre los conceptos tratados en este artículo en los artículos [Introducción a la administración de identidades de dispositivo en Azure Active Directory](overview.md) y [Planear la implementación de la unión a Azure Active Directory híbrido](hybrid-azuread-join-plan.md).
+Una vez cumplidos todos los requisitos previos, los dispositivos Windows se registrarán automáticamente como dispositivos en el inquilino de Azure AD. El estado de estas identidades de dispositivo en Azure AD se conoce como unión a Azure AD híbrido. Puede encontrar más información sobre los conceptos descritos en este artículo en el artículo [Introducción a la administración de identidades de dispositivos en Azure Active Directory ](overview.md).
 
 Es posible las organizaciones estén interesadas en realizar una validación controlada de la unión a Azure AD híbrido antes de habilitarla en toda la organización a la vez. Consulte el artículo [Validación controlada de la unión a Azure AD híbrido](hybrid-azuread-join-control.md) para entender cómo llevarla a cabo.
 

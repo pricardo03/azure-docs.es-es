@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 92623377daa80efe08b260745fa1d9443366cb8a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170267"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300598"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
@@ -375,14 +375,15 @@ Para crear el equilibrador de carga:
 
 1. Configure el equilibrador de carga con:
 
-   - **Nombre**: un nombre que identifica el equilibrador de carga.
-   - **Tipo**: el equilibrador de carga puede ser público o privado. A los equilibradores de carga privados se puede acceder desde la misma red virtual. La mayoría de las aplicaciones de Azure pueden usar un equilibrador de carga privado. Si la aplicación necesita acceder a SQL Server directamente a través de Internet, utilice un equilibrador de carga público.
-   - **Virtual Network**: la misma red que la de las máquinas virtuales.
-   - **Subred**: la misma subred que la de las máquinas virtuales.
-   - **Dirección IP privada**: la misma dirección IP que asignó al recurso de red de clúster de la FCI de SQL Server.
    - **Suscripción**: Su suscripción de Azure.
    - **Grupo de recursos**: use el mismo grupo de recursos que las máquinas virtuales.
-   - **Ubicación**: use la misma ubicación de Azure que las máquinas virtuales.
+   - **Nombre**: un nombre que identifica el equilibrador de carga.
+   - **Región**: use la misma ubicación de Azure que las máquinas virtuales.
+   - **Tipo**: el equilibrador de carga puede ser público o privado. A los equilibradores de carga privados se puede acceder desde la misma red virtual. La mayoría de las aplicaciones de Azure pueden usar un equilibrador de carga privado. Si la aplicación necesita acceder a SQL Server directamente a través de Internet, utilice un equilibrador de carga público.
+   - **SKU**: la SKU de su equilibrador de carga debe ser estándar. 
+   - **Red virtual**: la misma red que la de las máquinas virtuales.
+   - **Asignación de dirección IP**: la asignación de dirección IP debe ser estática. 
+   - **Dirección IP privada**: la misma dirección IP que asignó al recurso de red de clúster de la FCI de SQL Server.
    Vea la siguiente imagen:
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/09/2019
 ms.author: diberry
-ms.openlocfilehash: 03e04853e93bb78391476a365b20550d471e1dbb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: a63b6773a7546f8add0b2f2ab6280801e90bccca
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971807"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248635"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtención de una respuesta con GenerateAnswer API y metadatos
 
@@ -82,7 +82,7 @@ Un cuerpo JSON de ejemplo tiene el siguiente aspecto:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
-    "scoreThreshold": 20,
+    "scoreThreshold": 30,
     "strictFilters": [
     {
         "name": "category",
@@ -91,6 +91,8 @@ Un cuerpo JSON de ejemplo tiene el siguiente aspecto:
     "userId": "sd53lsY="
 }
 ```
+
+El código JSON anterior solo solicitó aquellas respuestas con una puntuación del 30 % o que están por encima de la puntuación del umbral. 
 
 <a name="generateanswer-response"></a>
 
@@ -102,7 +104,7 @@ La [respuesta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrun
 {
     "answers": [
         {
-            "score": 28.54820341616869,
+            "score": 38.54820341616869,
             "Id": 20,
             "answer": "There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS)",
             "source": "Custom Editorial",
@@ -120,9 +122,11 @@ La [respuesta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrun
 }
 ```
 
+El código JSON anterior respondió con una respuesta con una puntuación del 38,5 %. 
+
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Uso de QnA Maker con un bot en C#
 
-Bot Framework brinda acceso a las propiedades de QnA Maker:
+Bot Framework brinda acceso a las propiedades de QnA Maker con [getAnswer API](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -137,11 +141,13 @@ qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
+El código JSON anterior solo solicitó aquellas respuestas con una puntuación del 30 % o que están por encima de la puntuación del umbral. 
+
 El bot de soporte técnico tiene [un ejemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) con este código.
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Uso de QnA Maker con un bot en Node.js
 
-Bot Framework brinda acceso a las propiedades de QnA Maker:
+Bot Framework brinda acceso a las propiedades de QnA Maker con [getAnswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');
@@ -149,11 +155,13 @@ this.qnaMaker = new QnAMaker(endpoint);
 
 // Default QnAMakerOptions
 var qnaMakerOptions = {
-    ScoreThreshold: 0.03,
+    ScoreThreshold: 0.30,
     Top: 3
 };
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
+
+El código JSON anterior solo solicitó aquellas respuestas con una puntuación del 30 % o que están por encima de la puntuación del umbral. 
 
 El bot de soporte técnico tiene [un ejemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) con este código.
 

@@ -1,26 +1,26 @@
 ---
-title: Funciones de expresiones en la característica Mapping Data Flow de Azure Data Factory
-description: Obtenga información sobre las funciones de expresiones de Mapping Data Flow.
+title: Funciones de expresiones en la característica Asignación de Data Flow de Azure Data Factory
+description: Obtenga información sobre las funciones de expresiones de Asignación de Data Flow.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: c062a75516a1b865c1ff6c35f00d4fbf7c4881c6
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 27d968aa5202fbeb38be9a2416514d2185c1d8b9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029378"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436746"
 ---
-# <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Mapping Data Flow 
+# <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Asignación de Data Flow 
 
 
 
 ## <a name="expression-functions"></a>Funciones de expresiones
 
-En Data Factory, utilice el lenguaje de expresiones de la característica Mapping Data Flow para configurar transformaciones de datos.
+En Data Factory, utilice el lenguaje de expresiones de la característica Asignación de Data Flow para configurar transformaciones de datos.
 
 ___
 ### <code>abs</code>
@@ -197,7 +197,8 @@ Obtiene la marca de tiempo actual cuando se inicia el trabajo para ejecutarse co
 ___
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Obtiene la marca de tiempo actual como hora UTC. Si desea que la hora actual se interprete en una zona horaria distinta de la del clúster, puede pasar una zona horaria opcional con el formato "GMT", "PST", "UTC ", "America/Caimán". La zona horaria actual se establece como predeterminada. Consulte SimpleDateFormat de Java para conocer los formatos disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.htmlTo Conversión de la zona horaria UTC a un uso de zona horaria diferentes fromUTC() * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
+Obtiene la marca de tiempo actual como hora UTC. Si desea que la hora actual se interprete en una zona horaria distinta de la del clúster, puede pasar una zona horaria opcional con el formato "GMT", "PST", "UTC ", "America/Caimán". La zona horaria actual se establece como predeterminada. Consulte SimpleDateFormat de Java para conocer los formatos disponibles. Use [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) para convertir la zona horaria UTC a un uso de zona horaria diferente fromUTC().
+* ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___

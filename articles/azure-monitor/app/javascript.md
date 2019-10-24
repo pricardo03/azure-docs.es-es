@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9b2cb9b16a91220db6fcc193fe64ea674b7103ab
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: b49206c677e2f1b20c154ae0c9e358e8b2b0bbd8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937088"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430202"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -30,13 +30,13 @@ Puede utilizar Application Insights con cualquier página web, solo tiene que ag
 1. En primer lugar, necesita un recurso de Application Insights. Si aún no tiene un recurso y una clave de instrumentación, siga las [instrucciones para crear un nuevo recurso](create-new-resource.md).
 2. Copie la clave de instrumentación del recurso al que desea que se envíe la telemetría de JavaScript.
 3. Agregue el SDK de JavaScript de Application Insights a su página web o aplicación mediante una de las dos opciones siguientes:
-    * [Configuración de NPM](#npm-based-setup)
+    * [Configuración de npm](#npm-based-setup)
     * [Fragmento de código Javascript](#snippet-based-setup)
 
 > [!IMPORTANT]
-> Solo tiene que usar uno de los métodos siguientes para agregar el SDK de JavaScript de Application Insights a la aplicación. Si usa la configuración basada en NPM, no use la configuración basada en el fragmento de código. Lo mismo ocurre a la inversa. Si usa el método del fragmento de código, no utilice la configuración basada en NPM. 
+> Solo tiene que usar uno de los métodos siguientes para agregar el SDK de JavaScript de Application Insights a la aplicación. Si usa la configuración basada en npm, no use la configuración basada en el fragmento de código. Lo mismo ocurre a la inversa: si usa el método del fragmento de código, no utilice la configuración basada en npm. 
 
-### <a name="npm-based-setup"></a>Configuración basada en NPM
+### <a name="npm-based-setup"></a>Configuración basada en npm
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -50,7 +50,7 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>Configuración basada en fragmento de código
 
-Si su aplicación no usa NPM, puede instrumentar directamente las páginas web con Application Insights pegando este fragmento de código en la parte superior de cada una de las páginas. Preferiblemente, debe ser el primer script de la sección `<head>` para que pueda supervisar cualquier posible problema con todas las dependencias. Si usa una aplicación de servidor de Blazor, agregue el fragmento de código en la parte superior del archivo `_Host.cshtml` en la sección `<head>`.
+Si su aplicación no usa npm, puede instrumentar directamente las páginas web con Application Insights pegando este fragmento de código en la parte superior de cada una de las páginas. Preferiblemente, debe ser el primer script de la sección `<head>` para que pueda supervisar cualquier posible problema con todas las dependencias. Si usa una aplicación de servidor de Blazor, agregue el fragmento de código en la parte superior del archivo `_Host.cshtml` en la sección `<head>`.
 
 ```html
 <script type="text/javascript">
@@ -229,7 +229,7 @@ Si usa el SDK de producción de Application Insights actual (1.0.20) y desea ver
    "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
    ```
 
-- Escenario de NPM: llame a `downloadAndSetup` para descargar el script ApplicationInsights completo de la red CDN e inicialícelo con la clave de instrumentación:
+- Escenario de npm: llame a `downloadAndSetup` para descargar el script ApplicationInsights completo de la red CDN e inicialícelo con la clave de instrumentación:
 
    ```ts
    appInsights.downloadAndSetup({

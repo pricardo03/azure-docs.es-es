@@ -1,5 +1,5 @@
 ---
-title: Ejecutar Azure Container Instances
+title: Ejecución de un contenedor de Computer Vision en Azure Container Instances
 titleSuffix: Azure Cognitive Services
 description: Implemente el contenedor de Computer Vision en una instancia de Azure Container Instances y pruébelo en un explorador web.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 859147d23ea78abac2da4a4c2f1fa26a8d976d02
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2de879d271ab001e62725424ea72e0604176efb4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711297"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516861"
 ---
 # <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Implementar un contenedor de Computer Vision en Azure Container Instances
 

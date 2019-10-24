@@ -1,17 +1,17 @@
 ---
-title: Cómo usar Azure Policy para Azure Kubernetes Service
+title: Más información sobre Azure Policy para Azure Kubernetes Service
 description: Obtenga información sobre cómo Azure Policy usa Rego y el agente de directivas público para administrar clústeres en Azure Kubernetes Service.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 81dfb0d82502607cce761ce66c8e60563d1be157
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 56bc8934db86bb03446a6d2637bd54daaf2b5fb9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243768"
+ms.locfileid: "72254749"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Cómo usar Azure Policy para Azure Kubernetes Service
 

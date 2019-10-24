@@ -3,18 +3,18 @@ title: Glosario de términos - Versión preliminar de IoT Plug and Play | Micros
 description: 'Conceptos: glosario de términos comunes relacionados con la versión preliminar de IoT Plug and Play.'
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 08/29/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 7b37912c58312644059f3990b4776514e081a4bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858835"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249299"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glosario de términos de la versión preliminar de IoT Plug and Play
 
@@ -97,6 +97,7 @@ Una cadena de conexión encapsula la información necesaria para conectarse a un
 
 - Las cadenas de conexión de dispositivo permiten que los [dispositivos IoT Plug and Play](#iot-plug-and-play-device) se conecten a puntos de conexión orientados a dispositivos de un centro de IoT. El código de cliente en un dispositivo usa la cadena de conexión para establecer una conexión segura con un centro de IoT.
 - Las cadenas de conexión de IoT Hub permiten que las aplicaciones y herramientas de back-end se conecten de forma segura a puntos de conexión orientados a servicios de un centro de IoT. Estas soluciones y herramientas administran el centro de IoT y los dispositivos conectados a él.
+- Las cadenas de conexión del repositorio de modelos de la empresa permiten la conexión segura de soluciones y herramientas de back-end a un [repositorio de modelos de la empresa](#company-model-repository). Estas soluciones y herramientas consumen o administran los [modelos de funcionalidad del dispositivo](#device-capability-model) y las [interfaces](#interface) en el repositorio.
 
 ## <a name="device-capability-model"></a>Modelo de funcionalidad del dispositivo
 

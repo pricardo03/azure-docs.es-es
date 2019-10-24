@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 095d539404412d34c66201646f6134ff740f86b7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: cae035927217a7e2677cf6ebfcce1b53782e4c01
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299273"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248745"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtro y preprocesamiento de la telemetría en el SDK de Application Insights
 
@@ -30,7 +30,7 @@ Puede escribir y configurar complementos para el SDK de Application Insights con
 
 Antes de comenzar:
 
-* Instale el SDK adecuado para su aplicación. [ASP.NET](asp-net.md) o [ASP.NET Core](asp-net-core.md) o [No HTTP/Trabajo para .NET/.NET Core](worker-service.md) o [Java](../../azure-monitor/app/java-get-started.md) en su aplicación.
+* Instale el SDK adecuado para su aplicación: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [No HTTP/Trabajo para .NET/.NET Core](worker-service.md) o [Java](../../azure-monitor/app/java-get-started.md).
 
 <a name="filtering"></a>
 

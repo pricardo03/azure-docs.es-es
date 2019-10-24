@@ -4,16 +4,16 @@ description: En este artículo se proporciona información de referencia del com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fb6c3b711a89ae7e4ef403a75927c4c6172523d0
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8b4ab0e44f2432056c9c94061c59c99c89a6407d
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70196754"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513423"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -26,19 +26,18 @@ Las horas de última modificación se utilizan con fines de comparación. El arc
 Los pares admitidos son:
 
 - local <-> blob de Azure (se puede emplear la autenticación con SAS u OAuth)
+- Azure Blob <-> Azure Blob (el origen debe incluir SAS o ser de acceso público; se puede emplear la autenticación con SAS u OAuth para el destino).
+- Azure File <-> Azure File (el origen debe incluir SAS o ser de acceso público; se debe usar la autenticación con SAS para el destino).
 
 El comando sync difiere del comando copy de varias maneras:
 
-  1. La marca recursiva está activada de forma predeterminada.
-  2. El origen y el destino no deben contener patrones (como "*" o "?").
-  3. Las marcas de inclusión y exclusión pueden ser una lista de patrones que coinciden con nombres de archivos. Consulte la sección de ejemplos para más información.
-  4. Si hay archivos o blobs en el destino que no están presentes en el origen, se solicitará al usuario que los elimine.
-
-     Este mensaje se puede silenciar mediante las marcas correspondientes para responder automáticamente a la petición de eliminación.
+1. De manera predeterminada, la marca recursiva es true y sync copia todos los subdirectorios. Sync solo copia los archivos de nivel superior dentro de un directorio si la marca recursiva es false.
+2. Al sincronizar entre directorios virtuales, agregue una barra diagonal final a la ruta de acceso (consulte los ejemplos) si hay un blob con el mismo nombre que uno de los directorios virtuales.
+3. Si la marca "deleteDestination" está establecida en true o prompt, sync eliminará los archivos y blobs del destino que no estén presentes en el origen.
 
 ### <a name="advanced"></a>Avanzado
 
-AzCopy detecta automáticamente el tipo de contenido de los archivos cuando se cargan desde el disco local, basándose en la extensión del archivo o en el contenido (si no se especifica ninguna extensión).
+Si no especifica una extensión de archivo, AzCopy detecta automáticamente el tipo de contenido de los archivos cuando se cargan desde el disco local, basándose en la extensión del archivo o en el contenido (si no se especifica ninguna extensión).
 
 La tabla de búsqueda integrada es pequeña pero, en Unix, los archivos mime.types del sistema local la pueden aumentar si están disponibles en una o varias de estas ubicaciones:
 
@@ -96,22 +95,55 @@ Sincronización de un directorio completo, pero con la exclusión de ciertos arc
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude="foo*;*bar"
 ```
 
+Sincronización de un solo blob:
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+
+Sync a virtual directory:
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=true
+```
+
+Sincronización de un directorio virtual que tenga el mismo nombre que un blob (agregue una barra diagonal final a la ruta de acceso para eliminar la ambigüedad):
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/" --recursive=true
+```
+
+Sincronización de un directorio de Azure File (la misma sintaxis que en Blob):
+
+```azcopy
+azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]" --recursive=true
+```
+
 > [!NOTE]
 > Si se usan juntas las marcas de inclusión y exclusión, solo los archivos que coincidan con los patrones de inclusión se examinarán, pero los que coincidan con los patrones de exclusión se ignorarán siempre.
 
 ## <a name="options"></a>Opciones
 
-|Opción|DESCRIPCIÓN|
-|--|--|
-|--block-size-mb float|Use este tamaño de bloque (especificado en MiB) al cargar o descargar de Azure Storage. El valor predeterminado se calcula automáticamente en función del tamaño del archivo. Se permiten fracciones decimales (por ejemplo: 0,25).|
-|--check-md5 string|Especifica cómo de estrictamente se deben validar los hashes MD5 al descargarse. Esta opción solo está disponible al descargar. Los valores disponibles son: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (el valor predeterminado es "FailIfDifferent").|
-|--delete-destination string|Define si se eliminan los archivos adicionales del destino que no están presentes en el origen. Se puede establecer en true, false o prompt. Si se establece en prompt, se le formulará al usuario una pregunta antes de programar archivos y blobs para su eliminación. (El valor predeterminado es false).|
-|--exclude string|Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: *.jpg;* .pdf; exactName.|
-|-h, --help|Muestra el contenido de la ayuda para el comando sync.|
-|--include string|Incluye solo los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: *.jpg;* .pdf; exactName.|
-|--log-level string|Define el nivel de detalle del registro para el archivo de registro. Niveles disponibles: INFO (todas las solicitudes y respuestas), WARNING (respuestas lentas), ERROR (solo solicitudes con error) y NONE (sin registros de salida). (Valor predeterminado: "INFO").|
-|--put-md5|Crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.|
-|--recursive|"True" de forma predeterminada, busca en los subdirectorios de forma recursiva al sincronizar entre directorios. (El valor predeterminado es true).|
+**--block-size-mb** float         Usa este tamaño de bloque (especificado en MiB) al cargar o descargar de Azure Storage. El valor predeterminado se calcula automáticamente en función del tamaño del archivo. Se permiten fracciones decimales (por ejemplo: 0,25).
+
+**--check-md5** string            Especifica qué tan estrictamente se deben validar los hashes MD5 al descargarse. Esta opción solo está disponible al descargar. Los valores disponibles son: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (el valor predeterminado es "FailIfDifferent") (el valor predeterminado es "FailIfDifferent")
+
+**--delete-destination** string   Define si se eliminan los archivos adicionales del destino que no están presentes en el origen. Se puede establecer en true, false o prompt. Si se establece en prompt, se le formulará al usuario una pregunta antes de programar archivos y blobs para su eliminación. (el valor predeterminado es "false") (el valor predeterminado es "false")
+
+**--exclude-attributes** string   (solo Windows) Excluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo:  A;S;R
+
+**--exclude-pattern** string      Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: *.jpg;* .pdf; exactName.
+
+**-h, --help**                        Ayuda de sync.
+
+**--include-attributes** string   (solo Windows) Incluye solo los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo:  A;S;R
+
+**--include-pattern** string      Incluye solo los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: *.jpg;* .pdf; exactName.
+
+**--log-level** string            Define el nivel de detalle del registro para el archivo de registro. Niveles disponibles: INFO (todas las solicitudes y respuestas), WARNING (respuestas lentas), ERROR (solo solicitudes con error) y NONE (sin registros de salida). (Valor predeterminado: "INFO"). (Valor predeterminado: "INFO").
+
+**--put-md5**                     Crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
+
+**--recursive**                   "True" de manera predeterminada, busca en los subdirectorios de forma recursiva al sincronizar entre directorios. (El valor predeterminado es true). (El valor predeterminado es true)
 
 ## <a name="options-inherited-from-parent-commands"></a>Opciones heredadas de comandos primarios
 

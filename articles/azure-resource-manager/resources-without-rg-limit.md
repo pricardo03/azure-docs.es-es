@@ -4,14 +4,14 @@ description: Aquí se enumeran los tipos de recursos de Azure que pueden tener m
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/4/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6677290999049dead40f39e9a840735810c7c763
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0f9db618b69ff692350f333b8a4a4354f4980169
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973324"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249134"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos no limitados a 800 instancias por grupo de recursos
 
@@ -32,7 +32,7 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices: póngase en contacto con el soporte técnico para ampliar el límite.
+* botServices: de forma predeterminada, con un límite de 800 instancias. Este límite se puede incrementar poniéndose en contacto con soporte técnico.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -128,7 +128,7 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses: póngase en contacto con el soporte técnico para ampliar el límite.
+* publicIPAddresses: de forma predeterminada, con un límite de 800 instancias. Este límite se puede incrementar poniéndose en contacto con soporte técnico.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -139,7 +139,7 @@ Para usar algunos tipos de recursos, debe ponerse en contacto con el servicio de
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections: póngase en contacto con el soporte técnico para ampliar el límite.
+* workspaceCollections: de forma predeterminada, con un límite de 800 instancias. Este límite se puede incrementar poniéndose en contacto con soporte técnico.
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 

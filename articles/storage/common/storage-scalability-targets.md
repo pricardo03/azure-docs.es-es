@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 046c2308d5cef2df7e12b6185fc24b8df4f821dc
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 293d0de024ad815b4755d48833b7058c29ebcd5a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326975"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513305"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento
 
@@ -46,8 +46,8 @@ Para obtener más información sobre los objetivos de escalabilidad y rendimient
 > [!IMPORTANT]
 > Los límites de la cuenta de almacenamiento se aplican a todos los recursos compartidos. El escalado vertical hasta el número máximo de cuentas de almacenamiento solo se puede lograr si hay un único recurso compartido por cuenta de almacenamiento.
 >
-> Los recursos compartidos de archivos estándar de más de 5 TiB están en versión preliminar y tienen ciertas limitaciones.
-> Para obtener una lista de las limitaciones y para incorporar a la versión preliminar de estos tamaños de recursos compartidos de archivos mayores, vea la sección [Recursos compartidos de archivos estándar](../files/storage-files-planning.md#standard-file-shares) de la guía de planeamiento de Azure Files.
+> Los recursos compartidos de archivos estándar mayores que 5 TiB tienen ciertas limitaciones y restricciones regionales.
+> Para una lista de limitaciones, información regional e instrucciones para habilitar estos tamaños de recursos compartidos de archivos más grandes, consulte la sección [Incorporación a recursos compartidos de archivos de mayor tamaño (nivel estándar)](../files/storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) de la guía de planeación de Azure Files.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

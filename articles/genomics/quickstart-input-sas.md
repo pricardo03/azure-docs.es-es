@@ -1,7 +1,7 @@
 ---
-title: 'Envío de un flujo de trabajo con firmas de acceso compartido: Microsoft Genomics'
-titleSuffix: Azure
-description: En este artículo se da por supuesto que tiene instalado el cliente de msgen y que ha ejecutado correctamente los datos de ejemplo mediante el servicio.
+title: Flujo de trabajo que usa firmas de acceso compartido
+titleSuffix: Microsoft Genomics
+description: Este artículo muestra cómo enviar un flujo de trabajo al servicio Microsoft Genomics mediante firmas de acceso compartido (SAS) en lugar de claves de cuenta de almacenamiento.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 833067f53f53f347ce091a64702d44a78cde836f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657100"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248581"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envío de un flujo de trabajo a Microsoft Genomics mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento 
 
@@ -33,14 +33,14 @@ El identificador URI de un token de firma de acceso compartido (SAS) en el nivel
 Se necesitan dos o más tokens de SAS para cada flujo de trabajo que se envía al servicio Microsoft Genomics, uno para cada archivo de entrada y otro para el contenedor de salida.
 
 La firma de acceso compartido de los archivos de entrada debe tener las siguientes propiedades:
-1.  Ámbito (cuenta, contenedor, blob): blob
-2.  Expiración: 48 horas desde ahora
-3.  Permisos: lectura
+ - Ámbito (cuenta, contenedor, blob): blob
+ - Expiración: 48 horas desde ahora
+ - Permisos: lectura
 
 La firma de acceso compartido del contenedor de salida debe tener las siguientes propiedades:
-1.  Ámbito (cuenta, contenedor, blob): contenedor
-2.  Expiración: 48 horas desde ahora
-3.  Permisos: lectura, escritura, eliminación
+ - Ámbito (cuenta, contenedor, blob): contenedor
+ - Expiración: 48 horas desde ahora
+ - Permisos: lectura, escritura, eliminación
 
 
 ## <a name="create-a-sas-for-the-input-files-and-the-output-container"></a>Creación de una SAS para los archivos de entrada y el contenedor de salida

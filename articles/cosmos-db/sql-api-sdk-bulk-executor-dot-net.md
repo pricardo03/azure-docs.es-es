@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/08/2019
+ms.date: 10/11/2019
 ms.author: ramkris
-ms.openlocfilehash: 90537a7e24e5f87087fb718322a7271043d1d229
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 9da994550609b0be44362e0f0059844b288aabbd
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176840"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388062"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca Bulk Executor para .NET: Información de descarga 
 
@@ -42,6 +42,10 @@ ms.locfileid: "72176840"
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="a-name241-preview241-preview"></a><a name="2.4.1-preview"/>2.4.1-preview
+
+* Se corrigió TotalElapsedTime en la respuesta de BulkDelete para medir correctamente el tiempo total, incluidos los reintentos.
+
 ### <a name="a-name240-preview240-preview"></a><a name="2.4.0-preview"/>2.4.0-preview
 
 * Se ha modificado la dependencia del SDK por la versión 2.5.1 o posteriores
@@ -65,6 +69,14 @@ ms.locfileid: "72176840"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * Se ha agregado .NET Standard 2.0 como una de las plataformas de destino admitidas para que la biblioteca Bulk Executor funcione con las aplicaciones .NET Core.
+
+### <a name="a-name184184"></a><a name="1.8.4"/>1.8.4
+
+* Se corrigió el control de los identificadores al llamar a BulkImport con una lista de objetos POCO con valores numéricos.
+
+### <a name="a-name183183"></a><a name="1.8.3"/>1.8.3
+
+* Se corrigió TotalElapsedTime en la respuesta de BulkDelete para medir correctamente el tiempo total, incluidos los reintentos.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 

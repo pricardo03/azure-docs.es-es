@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: a53d5810b20aa8389c152889fed5d7f4e8cfc5b7
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 728d32ddb63658d24e932e8eeef4a3f50371ccc3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177666"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72265047"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -91,6 +91,9 @@ Para más información acerca de los permisos necesarios para crear un emparejam
 Hay un cargo nominal para el tráfico de entrada y salida que utiliza una conexión de emparejamiento de red virtual. Para más información acerca del emparejamiento de VNet y los precios del emparejamiento de VNet global, consulte la [página de precios](https://azure.microsoft.com/pricing/details/virtual-network).
 
 El tránsito de puerta de enlace es una propiedad del emparejamiento que permite que una red virtual utilice una puerta de enlace de VPN o ExpressRoute de una red virtual emparejada para la conectividad entre entornos locales o entre redes virtuales. El tráfico a la puerta de enlace (entrada o salida) de la red virtual emparejada incurrirá en cargos de emparejamiento de red virtual. Para más información, consulte los [precios de VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/) o los precios de la puerta de enlace de ExpressRoute y los [precios de Virtual Network.](https://azure.microsoft.com/pricing/details/virtual-network)
+
+>[!NOTE]
+> Una versión anterior de este documento indicaba que no se aplicarían cargos de emparejamiento de VNet con el tránsito de puerta de enlace. Esto se ha actualizado para reflejar precios precisos por la página de precios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

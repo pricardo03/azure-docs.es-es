@@ -4,15 +4,15 @@ description: Conozca los puntos que debe tener en cuenta al planear una implemen
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327670"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514662"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -26,7 +26,7 @@ ms.locfileid: "71327670"
 
 * **Storage Account** (Cuenta de almacenamiento): Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Consulte el artículo sobre los [objetivos de escalado y rendimiento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para información sobre la capacidad de la cuenta de almacenamiento.
 
-* **Recurso compartido**: un recurso compartido de File Storage es un recurso compartido de archivos de SMB en Azure. Todos los directorios y archivos se deben crear en un recurso compartido principal. Una cuenta puede contener un número ilimitado de recursos compartidos y un recurso compartido puede almacenar un número ilimitado de archivos, hasta una capacidad total del recurso compartido de archivos. En el caso de los recursos compartidos de archivos estándar, la capacidad total es de hasta 5 TiB (GA) o 100 TiB (versión preliminar), para los recursos compartidos de archivos prémium, la capacidad total es de hasta 100 TiB.
+* **Recurso compartido**: un recurso compartido de File Storage es un recurso compartido de archivos de SMB en Azure. Todos los directorios y archivos se deben crear en un recurso compartido principal. Una cuenta puede contener un número ilimitado de recursos compartidos y un recurso compartido puede almacenar un número ilimitado de archivos, hasta una capacidad total del recurso compartido de archivos. La capacidad total de los recursos compartidos de archivos prémium y estándar es 100 TiB.
 
 * **Directorio**: una jerarquía de directorios opcional.
 
@@ -79,10 +79,8 @@ Azure Files ofrece dos niveles de rendimiento: Estándar y Prémium.
 
 Los recursos compartidos de archivos estándar están respaldados por unidades de disco duro (HDD). Los recursos compartidos de archivos estándar ofrecen un rendimiento confiable para cargas de trabajo de E/S menos sensibles a la variabilidad del rendimiento, como recursos compartidos de archivos de uso general y entornos de desarrollo y pruebas. Los recursos compartidos de archivos estándar solo están disponibles en un modelo de facturación de pago por uso.
 
-Existen recursos compartidos de archivos estándar de hasta 5 TiB de tamaño disponibles como oferta de GA. Los recursos compartidos de archivos más grandes, con un tamaño superior a los 5 TiB, hasta 100 TiB, están disponibles actualmente como oferta de versión preliminar.
-
 > [!IMPORTANT]
-> Consulte la sección [Incorporación a recursos compartidos de archivos de mayor tamaño (nivel estándar)](#onboard-to-larger-file-shares-standard-tier) para conocer los pasos de la incorporación, así como el ámbito y las restricciones de la versión preliminar.
+> Si quiere usar recursos compartidos de archivos de más de 5 TiB, consulte la sección [Incorporación a recursos compartidos de archivos de mayor tamaño (nivel estándar)](#onboard-to-larger-file-shares-standard-tier) para ver los pasos de incorporación, además de la disponibilidad regional y las restricciones.
 
 ### <a name="premium-file-shares"></a>Recursos compartidos de archivos Prémium
 
@@ -195,75 +193,43 @@ Tenga en cuenta estos puntos cuando decida qué opción de replicación usar:
 
 ## <a name="onboard-to-larger-file-shares-standard-tier"></a>Incorporación a recursos compartidos de archivos de mayor tamaño (nivel estándar)
 
-Esta sección solo se aplica a los recursos compartidos de archivos estándar. Todos los recursos compartidos de archivos prémium están disponibles con 100 TiB como oferta de GA.
+Esta sección solo se aplica a los recursos compartidos de archivos estándar. Todos los recursos compartidos de archivos prémium están disponibles con 100 TiB de capacidad.
 
 ### <a name="restrictions"></a>Restricciones
 
-- Los [términos](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de la versión preliminar de Azure se aplican a recursos compartidos de archivos grandes mientras están en versión preliminar, incluso cuando se usan con las implementaciones de Azure File Sync.
-- Requiere que cree una nueva cuenta de almacenamiento de uso general (las cuentas de almacenamiento existentes no se pueden ampliar).
-- La conversión de cuentas de LRS/ZRS a GRS/GZRS no será posible en ninguna nueva cuenta de almacenamiento nueva creada después de que la suscripción se aceptara en la versión preliminar de los recursos compartidos de archivos de mayor tamaño.
-
+- La conversión de cuentas de LRS/ZRS a GRS/GZRS no será posible en ninguna nueva cuenta de almacenamiento nueva creada con los recursos compartidos de archivos de gran tamaño habilitados.
 
 ### <a name="regional-availability"></a>Disponibilidad regional
 
-Los recursos compartidos de archivos estándar están disponibles en todas las regiones hasta 5 TiB. En determinadas regiones, está disponible con un límite de 100 TiB. Estas regiones se muestran en la tabla siguiente:
+Los recursos compartidos de archivos estándar están disponibles en todas las regiones hasta 5 TiB. En determinadas regiones, están disponible con un límite de 100 TiB. Esas regiones se muestran en la tabla siguiente:
 
-|Region |Redundancia admitida |Admite cuentas de almacenamiento existentes |Soporte técnico del portal* |
-|-------|---------|---------|---------|
-|Este de Australia |LRS     |Sin    |Sí|
-|Sudeste de Australia|LRS     |Sin    |Aún no|
-|India Central  |LRS     |Sin    |Aún no|
-|Asia oriental      |LRS     |Sin    |Aún no|
-|East US        |LRS     |Sin    |Aún no|
-|Centro de Francia |LRS, ZRS|Sin    |LRS: sí; ZRS: aún no|
-|Sur de Francia   |LRS     |Sin    |Sí|
-|Europa del Norte   |LRS     |Sin    |Aún no|
-|Sur de la India    |LRS     |Sin    |Aún no|
-|Sudeste asiático |LRS, ZRS|Sin    |Sí|
-|Centro occidental de EE.UU.|LRS     |Sin    |Aún no|
-|Europa occidental    |LRS, ZRS|Sin    |Sí|
-|Oeste de EE. UU.        |LRS     |Sin    |Aún no|
-|Oeste de EE. UU. 2      |LRS, ZRS|Sin    |Sí|
+|Region |Redundancia admitida |
+|-------|---------|
+|Este de Australia |LRS     |
+|Sudeste de Australia|LRS |
+|India Central  |LRS     |
+|Asia oriental      |LRS     |
+|Este de EE. UU.*        |LRS     |
+|Centro de Francia |LRS, ZRS|
+|Sur de Francia   |LRS     |
+|Sur de la India    |LRS     |
+|Sudeste asiático |LRS, ZRS|
+|Centro occidental de EE.UU.|LRS     |
+|Oeste de Europa*    |LRS, ZRS|
+|Oeste de EE. UU.*        |LRS     |
+|Oeste de EE. UU. 2      |LRS, ZRS|
 
-
-*En el caso de las regiones sin soporte técnico del portal, de todos modos puede usar PowerShell en la Interfaz de la línea de comandos (CLI) de Azure para crear recursos compartidos de más de 5 TiB. Además, puede crear un recurso compartido mediante el portal sin especificar ninguna cuota. Esto creará un recurso compartido con un tamaño predeterminado de 100 TiB que se pueden actualizar más adelante a través de PowerShell o la CLI de Azure.
+\* Compatible con cuentas nuevas, no todas las cuentas existentes han completado el proceso de actualización.
 
 Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características, rellene esta [encuesta](https://aka.ms/azurefilesatscalesurvey).
 
-### <a name="steps-to-onboard"></a>Pasos para la incorporación
+### <a name="enable-and-create-larger-file-shares"></a>Habilitación y creación de recursos compartidos de archivos de mayor tamaño
 
-Para inscribir su suscripción en la versión preliminar para recursos compartidos de archivos de mayor tamaño, debe usar Azure PowerShell. Puede usar [Azure Cloud Shell](https://shell.azure.com/) o instalar el [módulo de Azure PowerShell localmente](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) para ejecutar los siguientes comandos de PowerShell:
-
-En primer lugar, asegúrese de que la suscripción que quiere inscribir en la versión preliminar esté seleccionada:
-
-```powershell
-$context = Get-AzSubscription -SubscriptionId ...
-Set-AzContext $context
-```
-
-A continuación, inscríbala en la versión preliminar con los comandos siguientes:
-
-```powershell
-Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-La suscripción se aprueba automáticamente una vez que se ejecutan ambos comandos.
-
-Para comprobar el estado de registro, ejecute el comando siguiente:
-
-```powershell
-Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-```
-
-El estado puede tardar hasta 15 minutos en actualizarse a **registrado**. Una vez que el estado aparece como **registrado**, debería poder utilizar la característica.
-
-### <a name="use-larger-file-shares"></a>Usar recursos compartidos de archivos de mayor tamaño
-
-Para empezar a usar recursos compartidos de archivos de mayor tamaño, cree una nueva cuenta de almacenamiento de uso general v2 y un nuevo recurso compartido de archivos.
+Para empezar a usar recursos compartidos de archivos de mayor tamaño, consulte nuestro artículo [Habilitación de recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
 
 ## <a name="data-growth-pattern"></a>Patrón de crecimiento de datos
 
-Actualmente, el tamaño máximo de un recurso compartido de archivos de Azure es de 5 TiB (100 TiB en la versión preliminar). Debido a esta limitación actual, debe tener en cuenta el crecimiento esperado de los datos al implementar un recurso compartido de archivos de Azure.
+Actualmente, el tamaño máximo de un recurso compartido de archivos de Azure es de 100 TiB. Debido a esta limitación actual, debe tener en cuenta el crecimiento esperado de los datos al implementar un recurso compartido de archivos de Azure.
 
 Es posible sincronizar varios recursos compartidos de archivos de Azure en un único servidor de archivos de Windows con Azure File Sync. Esto permite garantizar que los recursos compartidos de archivos anteriores de gran tamaño que pueda tener en un entorno local se incluyen en Azure File Sync. Para más información, consulte [Planeamiento de una implementación de Azure File Sync](storage-files-planning.md).
 

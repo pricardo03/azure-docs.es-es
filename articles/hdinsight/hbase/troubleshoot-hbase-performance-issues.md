@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: c67f21a6ed8a7697977bb7737f0e46348efb2530
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71266505"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Solución de problemas de rendimiento de Apache HBase en Azure HDInsight
@@ -22,7 +22,7 @@ En este documento se describen diversas instrucciones y sugerencias de ajuste de
 
 El principal cuello de botella en la mayoría de las cargas de trabajo de HBase es el registro de escritura previa (WAL). Afecta de manera importante al rendimiento de escritura. HDInsight HBase tiene un modelo de almacenamiento y proceso separados; es decir, los datos se almacenan de forma remota en Azure Storage, pero los servidores regionales se hospedan en las máquinas virtuales. Hasta hace poco, el registro de escritura previa también se escribía en Azure Storage, lo que aumentaba el cuello de botella en el caso de HDInsight. La característica [Escrituras aceleradas](./apache-hbase-accelerated-writes.md) se ha diseñado para resolver este problema, al escribir el registro de escritura previa en discos administrados SSD Premium de Azure. Esto supone una sustancial mejora en el rendimiento de la escritura y ayuda a resolver muchos problemas con los que se encuentran algunas de las cargas de trabajo de escritura intensiva.
 
-Use una cuenta de almacenamiento de blobs en bloques Premium como almacenamiento remoto para obtener una mejora significativa en las operaciones de lectura. Esta opción solo es posible si está habilitada la característica de registros de escritura previa.
+Use una [cuenta de almacenamiento de blobs en bloques Premium](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/) como almacenamiento remoto para obtener una mejora significativa en las operaciones de lectura. Esta opción solo es posible si está habilitada la característica de registros de escritura previa.
 
 ## <a name="compaction"></a>Compactación
 
@@ -65,7 +65,7 @@ Si va a migrar a Azure HDInsight, asegúrese de que la migración se realiza de 
 
 ## <a name="server-side-config-tunings"></a>Ajustes de la configuración del servidor
 
-En HDInsight HBase, los HFiles se guardan en el almacenamiento remoto; por lo tanto, cuando se produce un error de caché, el costo de las lecturas es sin duda más alto que en los sistemas locales (cuyos datos cuentan con respaldo de HDFS local) debido a la latencia de red implicada. En la mayoría de los escenarios, se ha diseñado un uso inteligente de las memorias caché de HBase (caché de bloques y caché de cubos) para evitar este problema. Sin embargo, seguirán existiendo casos esporádicos en los que esto podría suponer un problema para el cliente. El uso de una cuenta de blobs en bloques Premium ha supuesto cierta ayuda. Sin embargo, dado que el blob WASB (controlador de Windows Azure Storage) se basa en determinadas propiedades, para capturar los datos en bloques, en función de los cuales determina el modo de lectura (secuencial o aleatorio), es posible que se sigan produciendo casos de latencias mayores con operaciones de lectura. A partir de experimentos prácticos, hemos determinado que establecer el tamaño del bloque de solicitud de lectura (`fs.azure.read.request.size`) en 512 KB y hacer coincidir con él el tamaño de bloque de las tablas de HBase ofrece los mejores resultados.
+En HDInsight HBase, los HFiles se guardan en el almacenamiento remoto; por lo tanto, cuando se produce un error de caché, el costo de las lecturas es sin duda más alto que en los sistemas locales (cuyos datos cuentan con respaldo de HDFS local) debido a la latencia de red implicada. En la mayoría de los escenarios, se ha diseñado un uso inteligente de las memorias caché de HBase (caché de bloques y caché de cubos) para evitar este problema. Sin embargo, seguirán existiendo casos esporádicos en los que esto podría suponer un problema para el cliente. El uso de una cuenta de blobs en bloques Premium ha supuesto cierta ayuda. Sin embargo, dado que el blob WASB (controlador de Windows Azure Storage) se basa en determinadas propiedades como `fs.azure.read.request.size`, para capturar los datos en bloques, en función de los cuales determina el modo de lectura (secuencial o aleatorio), es posible que se sigan produciendo casos de latencias mayores con operaciones de lectura. A partir de experimentos prácticos, hemos determinado que establecer el tamaño del bloque de solicitud de lectura (`fs.azure.read.request.size`) en 512 KB y hacer coincidir con él el tamaño de bloque de las tablas de HBase ofrece los mejores resultados.
 
 HDInsight HBase, en la mayoría de los clústeres de nodos de gran tamaño, proporciona `bucketcache` como archivo en un disco SSD local conectado a la máquina virtual, que ejecuta las instancias `regionservers`. En ocasiones, el uso en su lugar de memoria caché fuera del montón puede suponer alguna mejora. Esto tiene la limitación de que usa la memoria disponible y puede tener un tamaño menor que el de la memoria caché basada en archivos, por lo que es posible que no sea siempre la mejor opción.
 

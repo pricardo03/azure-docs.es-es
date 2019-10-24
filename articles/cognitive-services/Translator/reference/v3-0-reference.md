@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: cb5a3b8572cebfd6c0731a9e572e966fda280be6
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772785"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252976"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -48,10 +48,9 @@ Para hacer que la solicitud se controle en una geografía de Azure específica, 
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
-
 ## <a name="authentication"></a>Authentication
 
-Suscríbase a Translator Text API o a los [varios servicios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) en Microsoft Cognitive Services y use la clave de suscripción (disponible en Azure Portal) para autenticarse. 
+Suscríbase a Translator Text API o a los [varios servicios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) en Azure Cognitive Services y use la clave de suscripción (disponible en Azure Portal) para autenticarse. 
 
 Hay tres encabezados que puede usar para autenticar su suscripción. En esta tabla, se explica cómo se utiliza cada uno de ellos:
 
@@ -62,7 +61,7 @@ Hay tres encabezados que puede usar para autenticar su suscripción. En esta tab
 |Ocp-Apim-Subscription-Region|*Úselo con una suscripción a varios servicios de Cognitive Services si pasa una clave secreta de varios servicios*.<br/>El valor es la región de la suscripción a varios servicios. Este valor es opcional cuando no se usa una suscripción de varios servicios.|
 
 ###  <a name="secret-key"></a>Clave secreta
-La primera opción consiste en realizar la autenticación con el encabezado `Ocp-Apim-Subscription-Key`. Basta con agregar el encabezado `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` a la solicitud.
+La primera opción consiste en realizar la autenticación con el encabezado `Ocp-Apim-Subscription-Key`. Agregue el encabezado `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` a la solicitud.
 
 ### <a name="authorization-token"></a>Token de autorización
 Si lo desea, también puede cambiar la clave secreta por un token de acceso. Este token se incluirá en cada solicitud como un encabezado `Authorization`. Para obtener un token de autorización, realice una solicitud `POST` a la dirección URL siguiente:
@@ -73,7 +72,7 @@ Si lo desea, también puede cambiar la clave secreta por un token de acceso. Est
 
 Estas son algunas solicitudes de ejemplo para obtener un token una vez proporcionada una clave secreta:
 
-```
+```curl
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
 
@@ -83,7 +82,7 @@ curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscrip
 
 Una solicitud correcta devuelve el token de acceso codificado como texto sin formato en el cuerpo de respuesta. El token válido se pasa al servicio Translator como un token de portador en la autorización.
 
-```
+```http
 Authorization: Bearer <Base64-access_token>
 ```
 
@@ -111,12 +110,11 @@ Si utiliza un token de portador, tendrá que obtener el token del punto de conex
 Una respuesta de error estándar es un objeto JSON con el par de nombre/valor denominado `error`. El valor también es un objeto JSON con propiedades:
 
   * `code`: código de error definido por el servidor.
-
   * `message`: cadena que proporciona una representación legible del error.
 
 Por ejemplo, un cliente con una suscripción de prueba gratuita recibiría el error siguiente una vez agotada la cuota gratuita:
 
-```
+```json
 {
   "error": {
     "code":403001,

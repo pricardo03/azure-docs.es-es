@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b0a7221107f05ff2239bd77cc18e7ffedc18efc1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a0e5076f6ecb102b239a94b986830235eb720125
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023602"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512360"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registro de una máquina virtual con SQL Server en Azure con el proveedor de recursos de máquina virtual con SQL
 
@@ -203,7 +203,7 @@ Puede ver el modo actual del Agente de IaaS de SQL Server mediante PowerShell:
      $sqlvm.Properties.sqlManagement
   ```
 
-Las VM con SQL Server que tengan instalada la extensión IaaS *Lightweight*, puede actualizar el modo a _Full_ mediante Azure Portal. Las VM con SQL Server en el modo _NoAgent_ pueden actualizar a _Full_ tras actualizar el sistema operativo a Windows 2008 R2 y versiones posteriores. No se puede cambiar a una versión anterior. Para hacerlo, deberá desinstalar por completo la extensión IaaS de SQL e instalarla de nuevo. 
+Las VM con SQL Server que tengan instalada la extensión IaaS *Lightweight*, puede actualizar el modo a _Full_ mediante Azure Portal. Las VM con SQL Server en el modo _NoAgent_ pueden actualizar a _Full_ tras actualizar el sistema operativo a Windows 2008 R2 y versiones posteriores. No se puede cambiar a una versión anterior. Para hacerlo, deberá eliminar el recurso del proveedor de recursos de la VM con SQL con Azure Portal y volver a registrarlo con el proveedor de recursos de VM con SQL. 
 
 Para actualizar el modo del agente a Full: 
 
@@ -353,7 +353,7 @@ Sí. La actualización del modo de administración de ligero a completo se admit
 
 No. No se admite cambiar a una versión inferior del modo de administración de la extensión IaaS de SQL Server. El modo de administración no se puede cambiar a una versión inferior, del modo completo al modo ligero o sin agente, ni del modo ligero al modo sin agente. 
 
-Para cambiar el modo de administración completa, quite la extensión IaaS de SQL Server. A continuación, quite el recurso Microsoft.SqlVirtualMachine y vuelva a registrar la máquina virtual con SQL Server utilizando el proveedor de recursos de máquinas virtuales con SQL.
+Para cambiar el modo de administración completa, quite el recurso Microsoft.SqlVirtualMachine y vuelva a registrar la VM con SQL Server con el proveedor de recursos de la VM con SQL.
 
 **¿Puedo registrarme en un proveedor de recursos de máquina virtual con SQL desde Azure Portal?**
 

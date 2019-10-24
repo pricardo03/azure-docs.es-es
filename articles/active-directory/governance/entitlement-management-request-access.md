@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aaa58d3027fecdbfdf594e5712cbdbd758380a7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169811"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389084"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Solicitud de acceso a un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
 
@@ -30,7 +30,7 @@ ms.locfileid: "72169811"
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Con la administración de derechos de Azure AD, los paquetes de acceso permiten realizar una instalación única de los recursos y las directivas que administran automáticamente el acceso durante toda la vida del paquete de acceso. 
+Con la administración de derechos de Azure AD, los paquetes de acceso permiten realizar una instalación única de los recursos y de las directivas que administran automáticamente el acceso durante todo el período de vida del paquete. 
 
 Los administradores de paquetes de acceso pueden configurar directivas para requerir que los usuarios tengan que aprobar el acceso a los paquetes de acceso. Los usuarios que necesite acceder a un paquete de acceso pueden enviar una solicitud para obtenerlo. En este artículo se describe cómo enviar una solicitud de acceso.
 
@@ -40,7 +40,7 @@ El primer paso es iniciar sesión en el portal Mi acceso, donde puede solicitar 
 
 **Rol necesario:** Solicitante
 
-1. Busque un correo electrónico o un mensaje del jefe de proyecto o el director comercial con el que trabaja. El correo electrónico debe incluir un vínculo al paquete acceso al que necesitará acceso. El vínculo, similar al siguiente, comenzará por "myaccess" (mi acceso), incluirá una sugerencia de directorio y terminará con un identificador de paquete de acceso:
+1. Busque un correo electrónico o un mensaje del jefe de proyecto o el director comercial con el que trabaja. El correo electrónico debe incluir un vínculo al paquete acceso al que necesitará acceso. El vínculo comienza con `myaccess`, incluye una sugerencia de directorio y termina con un identificador de paquete de acceso.
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
