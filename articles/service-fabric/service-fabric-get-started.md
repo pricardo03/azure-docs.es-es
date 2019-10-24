@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/22/2019
+ms.date: 10/03/2019
 ms.author: atsenthi
-ms.openlocfilehash: 0bc8a5bbecc4e7d58265e9c10c2c8a3351fcc312
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: cc77995e12d756c5878ee62ef6dd0f0229506d4c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036009"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333069"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 > [!div class="op_single_selector"]
@@ -69,8 +69,8 @@ Si únicamente necesita el SDK, puede instalar este paquete:
 * [Instale el SDK de Microsoft Azure Service Fabric][core-sdk].
 
 Las versiones actuales son:
-* SDK y herramientas de Service Fabric 3.4.664
-* Entorno de ejecución de Service Fabric 6.5.664
+* SDK y herramientas de Service Fabric 3.4.676
+* Entorno de ejecución de Service Fabric 6.5.676
 * Herramientas de Service Fabric para Visual Studio 2015 2.5.20615.1
 * Visual Studio 2017 15.9 incluye Herramientas de Service Fabric para Visual Studio 2.4.11024.1 
 * Visual Studio 2019 16.1 incluye Herramientas de Service Fabric para Visual Studio 2.5.20423.3

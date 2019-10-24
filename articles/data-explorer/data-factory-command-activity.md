@@ -8,12 +8,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/15/2019
-ms.openlocfilehash: 316ddbf662a5418e54f37cb335475a86c50118c7
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 20da2d54ea54674656b2c1006d094c63133baf79
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131095"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264495"
 ---
 # <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Uso de la actividad de comandos de Azure Data Factory para ejecutar comandos de control de Azure Data Explorer
 
@@ -34,6 +34,8 @@ ms.locfileid: "71131095"
    ![crear canalización](media/data-factory-command-activity/create-pipeline.png)
 
 ## <a name="create-a-lookup-activity"></a>Creación de una actividad de búsqueda
+
+La [actividad de búsqueda](/azure/data-factory/control-flow-lookup-activity) puede recuperar un conjunto de datos de cualquiera de los orígenes de datos compatibles con Azure Data Factory. La salida de la actividad de búsqueda se puede usar en una instrucción ForEach u otra actividad.
 
 1. En el panel **Actividades**, en **General**, seleccione la actividad **Búsqueda**. Arrástrela y colóquela en el lienzo principal de la derecha.
  
@@ -103,7 +105,9 @@ ms.locfileid: "71131095"
 
 ## <a name="create-a-for-each-activity"></a>Creación de una actividad ForEach 
 
-1. A continuación, agregará una actividad ForEach a la canalización. Esta actividad procesará los datos devueltos por la actividad de búsqueda. 
+La actividad [For-Each](/azure/data-factory/control-flow-for-each-activity) se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. 
+
+1. A continuación, agregará una actividad For-Each a la canalización. Esta actividad procesará los datos devueltos por la actividad de búsqueda. 
     * En el panel **Activities** (Actividades), en **Iteration & Conditionals** (Iteración y condicionales), seleccione la actividad **ForEach** y arrástrela y suéltela en el lienzo.
     * Dibuje una línea entre la salida de la actividad de búsqueda y la entrada de la actividad ForEach en el lienzo para conectarlas.
 

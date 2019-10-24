@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5799974581ba74d3265f0a5a66f9b081ded9f800
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 2939e37c891a6ecc0421062493cab2e5d79223b5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948203"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330926"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Descripción de la retención de datos en Azure Time Series Insights
 
@@ -28,32 +28,31 @@ En este artículo se describen dos parámetros de configuración que tienen un i
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-Cada uno de los entornos de Azure Time Series tiene un valor que controla el **tiempo de retención de datos**. El valor abarca de 1 a 400 días. Los datos se eliminan según la capacidad de almacenamiento del entorno o la duración de la retención, lo que se agote antes.
+Cada uno de los entornos de Azure Time Series Insights tiene una configuración que controla el **tiempo de retención de los datos**. El valor abarca de 1 a 400 días. Los datos se eliminan según la capacidad de almacenamiento del entorno o la duración de la retención, lo que se agote antes.
 
-Además, el entorno de Azure Time Series tiene un valor de **comportamiento superado de límite de almacenamiento**. Controla el comportamiento de entrada y de purga cuando se alcanza la capacidad máxima de un entorno. Para configurarlo se puede elegir entre dos comportamientos:
+Además, el entorno de Azure Time Series Insights tiene una configuración de **comportamiento superado de límite de almacenamiento**. Controla el comportamiento de entrada y de purga cuando se alcanza la capacidad máxima de un entorno. Para configurarlo se puede elegir entre dos comportamientos:
 
 - **Purgar datos antiguos** (valor predeterminado)  
 - **Pausar entradas**
 
 > [!NOTE]
 > De forma predeterminada, al crear un nuevo entorno, el período de retención está configurado en **Purgar datos antiguos**. Esta opción se puede activar o desactivar según sea necesario después de la creación en Azure Portal, en la página **Configurar** del entorno de Time Series Insights.
+> * Para información sobre cómo configurar las directivas de retención, lea [Configuración de la retención en Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
-Para obtener información acerca de cómo cambiar los comportamientos de retención, consulte [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md) (Configuración de la retención en Time Series Insights).
-
-Compare el comportamiento de retención de datos:
+A continuación se describen con más detalle ambas directivas de retención de datos.
 
 ## <a name="purge-old-data"></a>Purgar datos antiguos
 
-- Este es el comportamiento predeterminado para los entornos de Time Series Insights.  
-- Este comportamiento es preferible cuando los usuarios quieren ver siempre sus *datos más recientes* en su entorno de Time Series Insights.
-- Este comportamiento *purga* los datos una vez que se alcanzan los límites del entorno (tiempo de retención, tamaño o cantidad, lo que llegue antes). La retención está establecida en 30 días de forma predeterminada.
-- Los datos introducidos hace más tiempo se purgan primero (enfoque FIFO [PEPS]).
+- **Purgar datos antiguos**  es la configuración predeterminada para los entornos de Azure Time Series Insights.  
+- Esta es la opción preferida cuando los usuarios quieren ver siempre los **datos más recientes** de su entorno de Time Series Insights.
+- La configuración **Purgar datos antiguos** *purga* los datos una vez que se alcanzan los límites del entorno (tiempo de retención, tamaño o cantidad, lo que llegue antes). La retención está establecida en 30 días de forma predeterminada.
+- Los datos ingeridos hace más tiempo se purgan primero (enfoque "primero en entrar, primero en salir").
 
-### <a name="example-one"></a>Primer ejemplo
+### <a name="example-one"></a>Ejemplo 1
 
 Piense ahora en un entorno de ejemplo con un comportamiento de retención en el modo de **continuar entrada y purgar datos antiguos**:
 
-El **tiempo de retención de datos** está configurado en un valor de 400 días. La **capacidad** es una unidad S1, que contiene 30 GB de capacidad total.   Supongamos que los datos entrantes acumulan 500 MB cada día por término medio. Este entorno solo puede retener datos de 60 días dada la tasa de datos entrantes, ya que la capacidad máxima se alcanza a los 60 días. Los datos entrantes se acumulan de este modo: 500 MB cada día x 60 días = 30 GB.
+El **tiempo de retención de datos** está configurado en un valor de 400 días. La **capacidad** es una unidad S1, que contiene 30 GB de capacidad total. Supongamos que los datos entrantes acumulan 500 MB cada día por término medio. Este entorno solo puede retener datos de 60 días dada la tasa de datos entrantes, ya que la capacidad máxima se alcanza a los 60 días. Los datos entrantes se acumulan de este modo: 500 MB cada día x 60 días = 30 GB.
 
 Al día 61.º, el entorno muestra los datos más actuales, pero purga los más antiguos (los que tengan más de 60 días). La purga genera espacio para el flujo entrante de nuevos datos, de manera que puedan seguir explorándose nuevos datos. Si el usuario desea retener los datos durante más tiempo, puede aumentar el tamaño del entorno mediante la adición de unidades adicionales o bien insertar menos datos.  
 
@@ -66,7 +65,7 @@ En caso de que la tasa de entrada diaria del entorno sea superior a 0,166 GB por
 ## <a name="pause-ingress"></a>Pausar entradas
 
 - Este valor **Pausar entradas** está diseñado para velar por que no se purguen los datos si los límites de tamaño y cantidad se alcanzan con anterioridad a su período de retención.  
-- **Pausar entradas** proporciona más tiempo para que los usuarios aumenten la capacidad de su entorno antes de que los datos se purguen una vez que se supere el periodo de retención
+- **Pausar entradas** proporciona más tiempo para que los usuarios aumenten la capacidad de su entorno antes de que los datos se purguen una vez que se supere el periodo de retención.
 - Ayuda a proteger contra la pérdida de datos, pero puede generar una oportunidad para la pérdida de los datos más recientes si la entrada se pausa una vez alcanzado el periodo de retención del origen del evento.
 - Pero una vez alcanzada la capacidad máxima de un entorno, el entorno pausa la entrada de datos hasta que ocurran las acciones adicionales siguientes:
 
@@ -93,8 +92,10 @@ En los Event Hubs afectados, considere la posibilidad de ajustar la propiedad **
 
 Si no se configuran propiedades en el origen del evento (`timeStampPropertyName`), Time Series Insights se establece de manera predeterminada en la marca de tiempo de llegada al Event Hub como eje X. Si se configura `timeStampPropertyName` en algo diferente, el entorno busca el valor `timeStampPropertyName` configurado en el paquete de datos al analizar eventos.
 
-Si necesita escalar su entorno para dar cabida a una capacidad adicional o para aumentar la duración de retención, vea [Escalado de su entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md) para obtener más información.  
+Si necesita escalar su entorno para tener capacidad adicional o para aumentar la duración de la retención, lea [Escalado de su entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información sobre la configuración o el cambio de los valores de retención de datos, consulte [Configuración de la retención en Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+- Más información sobre [Mitigación de la latencia en Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).

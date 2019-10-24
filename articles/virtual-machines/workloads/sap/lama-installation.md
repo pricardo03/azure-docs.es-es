@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 1b8297a797f83935f16365a15d100ce88cadca30
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6521c139463bb0de1e24783bbbdd6a2d3996be6f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099536"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430093"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
 
@@ -289,7 +289,7 @@ Dentro de la cuenta de NetApp, el grupo de capacidad especifica el tamaño y el 
 
 ![SAP LaMa Grupo de capacidad de NetApp creado ](media/lama/sap-lama-capacitypool-list.png)
 
-Ahora se pueden definir los volúmenes NFS. Dado que habrá volúmenes para varios sistemas en un grupo, se debe elegir un esquema de nomenclatura autodescriptivo. Agregar el SID ayuda a agrupar los volúmenes relacionados. En el caso de la instancia de ASCS y la de AS, se necesitan los siguientes montajes: /sapmnt/\<SID\>, /usr/SAP/\<SID\> y/home/\<sid\>adm. /Usr/sap/trans opcional para el directorio central de transporte, que al menos lo utilizan todos los sistemas de un panorama.
+Ahora se pueden definir los volúmenes NFS. Dado que habrá volúmenes para varios sistemas en un grupo, se debe elegir un esquema de nomenclatura autodescriptivo. Agregar el SID ayuda a agrupar los volúmenes relacionados. En el caso de ASCS y la instancia de AS, se necesitan los siguientes montajes: */sapmnt/\<SID\>* , */usr/sap/\<SID\>* y */home/\<sid\>adm*. De forma opcional, se necesita */usr/sap/trans* para el directorio central de transporte, que se utiliza, como mínimo, en todos los sistemas de un escenario.
 
 > [!NOTE]
 > Durante la fase BETA, el nombre de los volúmenes debe ser único dentro de la suscripción.

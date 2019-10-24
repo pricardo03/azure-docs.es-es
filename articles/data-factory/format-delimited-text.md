@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: a545617c9e93a9a5fd0a34acc1dd5e2825917b62
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: fb836b44ebd567f0ce1c833ca523b1c199ed9c9a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387677"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785990"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado en Azure Data Factory
 
@@ -29,7 +29,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | Propiedad         | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | Tipo             | La propiedad type del conjunto de datos debe establecerse en **DelimitedText**. | Sí      |
-| location         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
+| location         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`.  | Sí      |
 | columnDelimiter  | Los caracteres usados para separar las columnas en un archivo. Actualmente, solo se admite el delimitador de varios caracteres para el flujo de datos de asignación, pero no para la actividad de copia. <br>El valor predeterminado es **coma `,`** . Cuando el delimitador de columna se define como cadena vacía —es decir, ningún delimitador—, toda la línea se toma como una sola columna. | Sin       |
 | rowDelimiter     | El carácter único o "\r\n" usado para separar las filas en un archivo.<br>El valor predeterminado es cualquiera de los siguientes valores **en lectura: ["\r\n", "\r", "\n"]** , y **"\n" o "\r\n" en escritura** mediante el flujo de datos de asignación y la actividad de copia, respectivamente. <br>Cuando `rowDelimiter` se establece en ningún delimitador (cadena vacía), también `columnDelimiter` debe establecerse como sin delimitador (cadena vacía), lo que significa que se trata todo el contenido como un valor único. | Sin       |
 | quoteChar        | El carácter único para entrecomillar los valores de columna si contiene el delimitador de columna. <br>El valor predeterminado es **comillas dobles** `"`. <br>Para el flujo de datos de asignación, `quoteChar` no puede ser una cadena vacía. <br>Para la actividad de copia, cuando `quoteChar` se define como una cadena vacía, significa que no hay ningún carácter de comillas y el valor de la columna no está entre comillas, y `escapeChar` se usa para escapar el delimitador de columna y a sí mismo. | Sin       |
@@ -79,7 +79,7 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 | -------------- | ------------------------------------------------------------ | -------- |
 | Tipo           | La propiedad type del origen de la actividad de copia debe establecerse en **DelimitedTextSource**. | Sí      |
 | formatSettings | Un grupo de propiedades. Consulte la tabla **Configuración de lectura de texto delimitado** a continuación. | Sin       |
-| storeSettings  | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
+| storeSettings  | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. | Sin       |
 
 **Configuración de lectura de texto delimitado** admitida en `formatSettings`:
 
@@ -96,7 +96,7 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 | -------------- | ------------------------------------------------------------ | -------- |
 | Tipo           | La propiedad type del origen de la actividad de copia debe establecerse en **DelimitedTextSink**. | Sí      |
 | formatSettings | Un grupo de propiedades. Consulte la tabla **Configuración de escritura de texto delimitado** a continuación. |          |
-| storeSettings  | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
+| storeSettings  | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`.  | Sin       |
 
 **Configuración de escritura de texto delimitado** admitida en `formatSettings`:
 

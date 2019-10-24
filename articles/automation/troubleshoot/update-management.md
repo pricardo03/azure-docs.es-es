@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 48d2463eee2caeaae36118bf736d00eed84c897a
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 89c5c849ffdbe70ae449f41ac08471c84f2fb5bc
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186213"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372627"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
@@ -21,11 +21,58 @@ En este artículo se describen soluciones para resolver problemas que pueden sur
 
 Existe un solucionador de problemas de agente para que el agente de Hybrid Worker determine el problema subyacente. Para más información sobre el solucionador de problemas, consulte el artículo sobre [cómo solucionar problemas con el agente de actualización](update-agent-issues.md). Para todos los demás problemas, consulte la información detallada que aparece a continuación sobre posibles problemas.
 
-## <a name="general"></a>General
+Si se producen problemas al intentar incorporar la solución en una máquina virtual, compruebe el registro de eventos de **Operations Manager** en **Registros de aplicaciones y servicios** en la máquina local en busca de eventos con el identificador de evento **4502** y el mensaje de evento que contenga **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
-### <a name="rp-register"></a>Escenario: No se puede registrar el proveedor de recursos de Automation para las suscripciones
+En la sección siguiente se destacan los mensajes de error específicos y una posible solución para cada uno. Para otros problemas sobre la incorporación, consulte el artículo sobre la [solución de problemas de incorporación de la solución](onboarding.md).
 
-#### <a name="issue"></a>Problema
+## <a name="nologs"></a>Escenario: Las máquinas no se muestran en el portal en Update Management
+
+### <a name="issue"></a>Problema
+
+Pueden aparecer los siguientes escenarios:
+
+* La máquina muestra **No configurada** en la vista de Update Management de una máquina virtual.
+
+* Faltan las máquinas en la vista de Update Management de la cuenta de Automation.
+
+* Tiene máquinas que se muestran con el estado **No evaluada** en **Cumplimiento**, pero ve datos de latido en los registros de Azure Monitor correspondientes a Hybrid Runbook Worker, pero no a Update Management.
+
+### <a name="cause"></a>Causa
+
+Esta situación puede deberse a posibles problemas de configuración local o a que la configuración de ámbito no está realizada correctamente.
+
+Es posible que sea necesario volver a registrar e instalar Hybrid Runbook Worker.
+
+Puede que haya definido una cuota en el área de trabajo que se ha alcanzado y ha impedido que se almacenen los datos.
+
+### <a name="resolution"></a>Resolución
+
+* Ejecute el solucionador de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), según el sistema operativo.
+
+* Asegúrese de que las notificaciones de la máquina se envían al área de trabajo correcta. Compruebe cuál es el área de trabajo al que la máquina envía notificaciones. Para saber cómo hacerlo, consulte [Comprobación de la conectividad del agente a Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). A continuación, asegúrese de que esta sea el área de trabajo que está vinculada a su cuenta de Azure Automation. Para ello, vaya a la cuenta de Automation y haga clic en **Linked workspace** (Área de trabajo vinculada) en **Related Resources** (Recursos relacionados).
+
+* Compruebe que las máquinas se muestran en el área de trabajo de Log Analytics. Ejecute la siguiente consulta en el área de trabajo de Log Analytics que está vinculada a su cuenta de Automation. Si no ve la máquina en los resultados de consulta, es que la máquina no se ha registrado recientemente, lo que significa que probablemente haya un problema de configuración local y puede [volver a instalar el agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Si la máquina se muestra en los resultados de consulta, será preciso comprobar la configuración de ámbito especificada en la siguiente viñeta.
+
+  ```loganalytics
+  Heartbeat
+  | summarize by Computer, Solutions
+  ```
+
+* Compruebe si hay problemas de configuración de ámbito. La [configuración de ámbito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina qué máquinas se configuran para la solución. Si la máquina aparece en el área de trabajo pero no se muestra en el portal de **Update Management**, tendrá que realizar la configuración de ámbito para dirigirse a las máquinas. Para información sobre cómo hacerlo, consulte [Incorporación de máquinas en el área de trabajo](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+
+* En el área de trabajo, ejecute la siguiente consulta. Si ve el resultado `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, tiene una cuota definida en el área de trabajo que se ha alcanzado y ha impedido que se guarden los datos. En el área de trabajo, vaya a **Uso y costos estimados** > **administración del volumen de datos** y compruebe su cuota o elimine la cuota que tiene.
+
+  ```loganalytics
+  Operation
+  | where OperationCategory == 'Data Collection Status'
+  | sort by TimeGenerated desc
+  ```
+
+* Si los pasos anteriores no resuelven el problema, siga los pasos que se describen en [Implementación de Hybrid Runbook Worker en Windows](../automation-windows-hrw-install.md) para volver a instalar Hybrid Worker para Windows o los de [Implementación de Hybrid Runbook Worker en Linux](../automation-linux-hrw-install.md) para Linux.
+
+## <a name="rp-register"></a>Escenario: No se puede registrar el proveedor de recursos de Automation para las suscripciones
+
+### <a name="issue"></a>Problema
 
 Es posible que reciba el siguiente error al trabajar con soluciones en su cuenta de Automation.
 
@@ -33,11 +80,11 @@ Es posible que reciba el siguiente error al trabajar con soluciones en su cuenta
 Error details: Unable to register Automation Resource Provider for subscriptions:
 ```
 
-#### <a name="cause"></a>Causa
+### <a name="cause"></a>Causa
 
 El proveedor de recursos de Automation no está registrado en la suscripción.
 
-#### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Resolución
 
 Puede registrar los proveedores de recursos de Automation completando los pasos siguientes en Azure Portal:
 
@@ -47,21 +94,9 @@ Puede registrar los proveedores de recursos de Automation completando los pasos 
 4. En la lista de proveedores de recursos, compruebe que el proveedor de recursos **Microsoft.Automation** está registrado.
 5. Si el proveedor no aparece en la lista, registre el proveedor **Microsoft.Automation** con los pasos indicados en [](/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
-### <a name="mw-exceeded"></a>Escenario: Error MaintenanceWindowExceeded en la administración de actualizaciones programada
+## <a name="components-enabled-not-working"></a>Escenario: Se han habilitado los componentes de la solución "Update Management" y ahora se está configurando esta máquina virtual
 
-#### <a name="issue"></a>Problema
-
-La ventana de mantenimiento predeterminada para las actualizaciones es de 120 minutos. Puede aumentar la ventana de mantenimiento a un máximo de seis (6) horas o 360 minutos.
-
-#### <a name="resolution"></a>Resolución
-
-Edite las implementaciones de actualizaciones programadas con errores y aumente la ventana de mantenimiento.
-
-Para más información sobre las ventanas de mantenimiento, consulte [Instalación de actualizaciones](../automation-update-management.md#install-updates).
-
-### <a name="components-enabled-not-working"></a>Escenario: Se han habilitado los componentes de la solución "Update Management" y ahora se está configurando esta máquina virtual
-
-#### <a name="issue"></a>Problema
+### <a name="issue"></a>Problema
 
 Continúa recibiendo el mensaje siguiente en una máquina virtual 15 minutos después de la incorporación:
 
@@ -69,14 +104,14 @@ Continúa recibiendo el mensaje siguiente en una máquina virtual 15 minutos des
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
 ```
 
-#### <a name="cause"></a>Causa
+### <a name="cause"></a>Causa
 
 Este error puede deberse a las siguientes razones:
 
 1. Está bloqueada la comunicación a la cuenta de Automation.
 2. La máquina virtual que se incorpora puede provenir de una máquina clonada que no estaba preparada con sysprep con Microsoft Monitoring Agent instalado.
 
-#### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Resolución
 
 1. Visite [Planeamiento de red](../automation-hybrid-runbook-worker.md#network-planning) para obtener información acerca de qué direcciones y puertos deben permitirse para que Update Management funcione.
 2. Si usa una imagen clonada:
@@ -85,9 +120,9 @@ Este error puede deberse a las siguientes razones:
    3. Ejecute `Restart-Service HealthService` para reiniciar `HealthService`. Se volverá a crear la clave y se generará un nuevo UUID.
    4. Si esta solución no funciona, primero prepare la imagen con sysprep y, después, instale el agente MMA.
 
-### <a name="multi-tenant"></a>Escenario: Recibe un error de la suscripción vinculada al crear una implementación de actualización para las máquinas en otro inquilino de Azure.
+## <a name="multi-tenant"></a>Escenario: Recibe un error de la suscripción vinculada al crear una implementación de actualización para las máquinas en otro inquilino de Azure.
 
-#### <a name="issue"></a>Problema
+### <a name="issue"></a>Problema
 
 Recibe el error siguiente al intentar crear una implementación de actualización para las máquinas en otro inquilino de Azure:
 
@@ -95,11 +130,11 @@ Recibe el error siguiente al intentar crear una implementación de actualizació
 The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
 ```
 
-#### <a name="cause"></a>Causa
+### <a name="cause"></a>Causa
 
 Este error se produce cuando se crea una implementación de actualización que tiene máquinas virtuales de Azure en otro inquilino incluidas en una implementación de actualización.
 
-#### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Resolución
 
 Tendrá que usar la solución alternativa siguiente para programarlas. Puede usar el cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) con el modificador `-ForUpdate` para crear una programación y usar el cmdlet [New AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) y pasar las máquinas del otro inquilino al parámetro `-NonAzureComputer`. En el ejemplo siguiente se muestra cómo hacerlo:
@@ -114,7 +149,53 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="updates-nodeployment"></a>Escenario: Instalación de actualizaciones sin una implementación
+## <a name="node-reboots"></a>Escenario: Reinicios inexplicables
+
+### <a name="issue"></a>Problema
+
+Ha configurado **Control de reinicio** con **No reiniciar nunca**, pero las máquinas se siguen reiniciando después de las actualizaciones instaladas.
+
+### <a name="cause"></a>Causa
+
+Es posible que el comportamiento de Windows Update haya sido modificado por varias claves del Registro que pueden modificar comportamientos de reinicio.
+
+### <a name="resolution"></a>Resolución
+
+Revise las claves del Registro enumeradas en [Configuración de actualizaciones automáticas mediante la edición del Registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) y [Claves del Registro usadas para administrar reinicios](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) para asegurarse de que las máquinas estén configuradas correctamente.
+
+## <a name="failed-to-start"></a>Escenario: Una máquina muestra No se pudo iniciar en una implementación de actualizaciones
+
+### <a name="issue"></a>Problema
+
+Una máquina tiene el estado **No se pudo iniciar**. Al ver los detalles específicos de la máquina, observará el siguiente error:
+
+```error
+Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+```
+
+### <a name="cause"></a>Causa
+
+Este error puede ocurrir principalmente por los siguientes motivos:
+
+* La máquina ya no existe.
+* La máquina está desactivada y no se posible establecer comunicación con ella.
+* La máquina tiene un problema de conectividad de red y no se puede acceder a la instancia de Hybrid Worker de la máquina.
+* Ha habido una actualización de Microsoft Monitoring Agent que ha cambiado el valor de SourceComputerId.
+* La ejecución de actualizaciones puede haber limitado si se alcanza el tope de 2000 trabajos simultáneos en una cuenta de Automation. Cada implementación se considera un trabajo y cada máquina de una implementación de actualizaciones se cuenta como un trabajo. Cualquier otro trabajo de automatización o implementación de actualizaciones actualmente en ejecución en la cuenta de Automation cuenta para el límite de trabajos simultáneos.
+
+### <a name="resolution"></a>Resolución
+
+Cuando proceda, use [grupos dinámicos](../automation-update-management-groups.md) para las implementaciones de actualizaciones.
+
+* Compruebe que la máquina aún exista y sea accesible. Si no existe, edite la implementación y quite la máquina.
+* Consulte la sección sobre el [planeamiento de red](../automation-update-management.md#ports) para obtener una lista de puertos y direcciones que son necesarios para Update Management y asegúrese de que la máquina cumple estos requisitos.
+* Ejecute la siguiente consulta en Log Analytics para encontrar máquinas en el entorno cuyo valor de `SourceComputerId` haya cambiado. Busque los equipos que tienen el mismo valor de `Computer`, pero distinto valor de `SourceComputerId`. Una vez que encuentre las máquinas afectadas, debe editar las implementaciones de actualizaciones que se dirijan a esas máquinas, y quitar y volver a agregar las máquinas para que `SourceComputerId` refleje el valor correcto.
+
+   ```loganalytics
+   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
+   ```
+
+## <a name="updates-nodeployment"></a>Escenario: Instalación de actualizaciones sin una implementación
 
 ### <a name="issue"></a>Problema
 
@@ -130,60 +211,11 @@ La clave del registro de Windows, `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsof
 
 En el caso de los clientes de Update Management, se recomienda establecer esta clave en "3": **descargar automáticamente, pero no instalar automáticamente**.
 
-Para más información, consulte [Configuración de actualizaciones automáticas](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
+Para más información, consulte [Configuración de actualizaciones automáticas](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
-### <a name="nologs"></a>Escenario: Las máquinas no se muestran en el portal en Update Management
+## <a name="machine-already-registered"></a>Escenario: La máquina ya está registrada en otra cuenta
 
-#### <a name="issue"></a>Problema
-
-Pueden aparecer los siguientes escenarios:
-
-* La máquina muestra **No configurada** en la vista de Update Management de una máquina virtual.
-
-* Faltan las máquinas en la vista de Update Management de la cuenta de Automation.
-
-* Tiene máquinas que se muestran con el estado **No evaluada** en **Cumplimiento**, pero ve datos de latido en los registros de Azure Monitor correspondientes a Hybrid Runbook Worker, pero no a Update Management.
-
-#### <a name="cause"></a>Causa
-
-Esta situación puede deberse a posibles problemas de configuración local o a que la configuración de ámbito no está realizada correctamente.
-
-Es posible que sea necesario volver a registrar e instalar Hybrid Runbook Worker.
-
-Puede que haya definido una cuota en el área de trabajo que se ha alcanzado y ha impedido que se almacenen los datos.
-
-#### <a name="resolution"></a>Resolución
-
-* Asegúrese de que las notificaciones de la máquina se envían al área de trabajo correcta. Compruebe cuál es el área de trabajo al que la máquina envía notificaciones. Para saber cómo hacerlo, consulte [Comprobación de la conectividad del agente a Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). A continuación, asegúrese de que esta sea el área de trabajo que está vinculada a su cuenta de Azure Automation. Para ello, vaya a la cuenta de Automation y haga clic en **Linked workspace** (Área de trabajo vinculada) en **Related Resources** (Recursos relacionados).
-
-* Compruebe que las máquinas se muestran en el área de trabajo de Log Analytics. Ejecute la siguiente consulta en el área de trabajo de Log Analytics que está vinculada a su cuenta de Automation. Si no ve la máquina en los resultados de consulta, es que no está latente, lo que significa que probablemente haya un problema de configuración local. Puede ejecutar el solucionador de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), según el sistema operativo, o puede [volver a instalar el agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Si la máquina se muestra en los resultados de consulta, será preciso comprobar la configuración de ámbito especificada en la siguiente viñeta.
-
-  ```loganalytics
-  Heartbeat
-  | summarize by Computer, Solutions
-  ```
-
-* Compruebe si hay problemas de configuración de ámbito. La [configuración de ámbito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina qué máquinas se configuran para la solución. Si la máquina aparece en el área de trabajo pero no se muestra, tendrá que realizar la configuración de ámbito para dirigirse a ella. Para información sobre cómo hacerlo, consulte [Incorporación de máquinas en el área de trabajo](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
-
-* Si los pasos anteriores no resuelven el problema, siga los pasos que se describen en [Implementación de Hybrid Runbook Worker en Windows](../automation-windows-hrw-install.md) para volver a instalar Hybrid Worker para Windows o los de [Implementación de Hybrid Runbook Worker en Linux](../automation-linux-hrw-install.md) para Linux.
-
-* En el área de trabajo, ejecute la siguiente consulta. Si ve el resultado `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, tiene una cuota definida en el área de trabajo que se ha alcanzado y ha impedido que se guarden los datos. En el área de trabajo, vaya a **Uso y costos estimados** > **administración del volumen de datos** y compruebe su cuota o elimine la cuota que tiene.
-
-  ```loganalytics
-  Operation
-  | where OperationCategory == 'Data Collection Status'
-  | sort by TimeGenerated desc
-  ```
-
-## <a name="windows"></a>Windows
-
-Si se producen problemas al intentar incorporar la solución en una máquina virtual, compruebe el registro de eventos de **Operations Manager** en **Registros de aplicaciones y servicios** en la máquina local en busca de eventos con el identificador de evento **4502** y el mensaje de evento que contenga **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
-
-En la sección siguiente se destacan los mensajes de error específicos y una posible solución para cada uno. Para otros problemas sobre la incorporación, consulte el artículo sobre la [solución de problemas de incorporación de la solución](onboarding.md).
-
-### <a name="machine-already-registered"></a>Escenario: La máquina ya está registrada en otra cuenta
-
-#### <a name="issue"></a>Problema
+### <a name="issue"></a>Problema
 
 Aparece el siguiente mensaje de error:
 
@@ -191,17 +223,18 @@ Aparece el siguiente mensaje de error:
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
-#### <a name="cause"></a>Causa
+### <a name="cause"></a>Causa
 
 La máquina ya está incorporada a otra área de trabajo para Update Management.
 
-#### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Resolución
 
-Realice una limpieza de los artefactos antiguos en la máquina mediante la [eliminación del grupo Hybrid Runbook](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) y vuelva a intentarlo.
+1. Siga los pasos de [Las máquinas no se muestran en el portal en Update Management](#nologs) para asegurarse de que la máquina envía notificaciones al área de trabajo adecuada.
+2. Realice una limpieza de los artefactos antiguos en la máquina mediante la [eliminación del grupo Hybrid Runbook](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) y vuelva a intentarlo.
 
-### <a name="machine-unable-to-communicate"></a>Escenario: La máquina no se puede comunicar con el servicio
+## <a name="machine-unable-to-communicate"></a>Escenario: La máquina no se puede comunicar con el servicio
 
-#### <a name="issue"></a>Problema
+### <a name="issue"></a>Problema
 
 Aparece uno de los siguientes mensajes de error:
 
@@ -217,17 +250,17 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
-#### <a name="cause"></a>Causa
+### <a name="cause"></a>Causa
 
 Puede haber un servidor proxy, una puerta de enlace o un firewall bloqueando la comunicación de red.
 
-#### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Resolución
 
 Revise la red y asegúrese de que se permiten las direcciones y los puertos correspondientes. Consulte los [requisitos de red](../automation-hybrid-runbook-worker.md#network-planning), para obtener una lista de puertos y direcciones que necesitan Update Management y las instancias de Hybrid Runbook Worker.
 
-### <a name="unable-to-create-selfsigned-cert"></a>Escenario: Error al crear el certificado autofirmado
+## <a name="unable-to-create-selfsigned-cert"></a>Escenario: Error al crear el certificado autofirmado
 
-#### <a name="issue"></a>Problema
+### <a name="issue"></a>Problema
 
 Aparece uno de los siguientes mensajes de error:
 
@@ -235,59 +268,51 @@ Aparece uno de los siguientes mensajes de error:
 Unable to Register Machine for Patch Management, Registration Failed with Exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException: Failed to create a self-signed certificate. ---> System.UnauthorizedAccessException: Access is denied.
 ```
 
-#### <a name="cause"></a>Causa
+### <a name="cause"></a>Causa
 
 Hybrid Runbook Worker no pudo generar un certificado autofirmado
 
-#### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Resolución
 
 Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\ProgramData\Microsoft\Crypto\RSA** e inténtelo de nuevo.
 
-### <a name="failed-to-start"></a>Escenario: Una máquina muestra No se pudo iniciar en una implementación de actualizaciones
+## <a name="mw-exceeded"></a>Escenario: Error MaintenanceWindowExceeded en la administración de actualizaciones programada
 
-#### <a name="issue"></a>Problema
+### <a name="issue"></a>Problema
 
-Una máquina tiene el estado **No se pudo iniciar**. Al ver los detalles específicos de la máquina, observará el siguiente error:
+La ventana de mantenimiento predeterminada para las actualizaciones es de 120 minutos. Puede aumentar la ventana de mantenimiento a un máximo de seis (6) horas o 360 minutos.
 
-```error
-Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
-```
+### <a name="resolution"></a>Resolución
 
-#### <a name="cause"></a>Causa
+Edite las implementaciones de actualizaciones programadas con errores y aumente la ventana de mantenimiento.
 
-Este error puede ocurrir principalmente por los siguientes motivos:
+Para más información sobre las ventanas de mantenimiento, consulte [Instalación de actualizaciones](../automation-tutorial-update-management.md#schedule-an-update-deployment).
 
-* La máquina ya no existe.
-* La máquina está desactivada y no se posible establecer comunicación con ella.
-* La máquina tiene un problema de conectividad de red y no se puede acceder a la instancia de Hybrid Worker de la máquina.
-* Ha habido una actualización de Microsoft Monitoring Agent que ha cambiado el valor de SourceComputerId.
-* La ejecución de actualizaciones puede haber limitado si se alcanza el tope de 2000 trabajos simultáneos en una cuenta de Automation. Cada implementación se considera un trabajo y cada máquina de una implementación de actualizaciones se cuenta como un trabajo. Cualquier otro trabajo de automatización o implementación de actualizaciones actualmente en ejecución en la cuenta de Automation cuenta para el límite de trabajos simultáneos.
+## <a name="hresult"></a>Escenario: La máquina aparece como No evaluado y se muestra una excepción HResult
 
-#### <a name="resolution"></a>Resolución
+### <a name="issue"></a>Problema
 
-Cuando proceda, use [grupos dinámicos](../automation-update-management.md#using-dynamic-groups) para las implementaciones de actualizaciones.
+* Tiene máquinas que aparecen como **No evaluado** en **Cumplimiento**, y verá un mensaje de excepción debajo de él.
+* Tiene máquinas que se muestran como no evaluadas.
+* Se muestra un código de error HRESULT en el portal.
 
-* Compruebe que la máquina aún exista y sea accesible. Si no existe, edite la implementación y quite la máquina.
-* Consulte la sección sobre el [planeamiento de red](../automation-update-management.md#ports) para obtener una lista de puertos y direcciones que son necesarios para Update Management y asegúrese de que la máquina cumple estos requisitos.
-* Ejecute la siguiente consulta en Log Analytics para encontrar máquinas en el entorno cuyo valor de `SourceComputerId` haya cambiado. Busque los equipos que tienen el mismo valor de `Computer`, pero distinto valor de `SourceComputerId`. Una vez que encuentre las máquinas afectadas, debe editar las implementaciones de actualizaciones que se dirijan a esas máquinas, y quitar y volver a agregar las máquinas para que `SourceComputerId` refleje el valor correcto.
+### <a name="cause"></a>Causa
 
-   ```loganalytics
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
+El agente de actualización (Agente de Windows Update en Windows, el administrador de paquetes para la distribución de Linux) no está configurado correctamente. Update Management se basa en el agente de actualización de la máquina para proporcionar las actualizaciones necesarias, el estado de la revisión y los resultados de las revisiones implementadas. Sin esta información, Update Management no puede informar correctamente de las revisiones que son necesarias o que están instaladas.
 
-### <a name="hresult"></a>Escenario: La máquina aparece como No evaluado y se muestra una excepción HResult
+### <a name="resolution"></a>Resolución
 
-#### <a name="issue"></a>Problema
+Se está intentando realizar actualizaciones de forma local en la máquina. Si se produce un error, esto suele deberse a un error de configuración con el agente de actualización.
 
-Tiene máquinas que aparecen como **No evaluado** en **Cumplimiento**, y verá un mensaje de excepción debajo de él.
+Causas comunes de error:
 
-#### <a name="cause"></a>Causa
+* Configuración de red y firewalls.
+* Para Linux, consulte la documentación correspondiente para asegurarse de que puede acceder al punto de conexión de red del repositorio de paquetes.
+* Para Windows, compruebe la configuración del agente como se indica en [Las actualizaciones no se descargan desde el punto de conexión de la intranet (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).
+  * Si las máquinas están configuradas para Windows Update, asegúrese de que puede acceder a los puntos de conexión enumerados en [](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
+  * Si las máquinas están configuradas para WSUS, asegúrese de que puede acceder al servidor WSUS configurado por la [clave del Registro WUServer ](/windows/deployment/update/waas-wu-settings).
 
-Windows Update o WSUS no están configurados correctamente en la máquina. Update Management se basa en Windows Update o WSUS para proporcionar las actualizaciones necesarias, el estado de la revisión y los resultados de las revisiones implementadas. Sin esta información, Update Management no puede informar correctamente de las revisiones que son necesarias o que están instaladas.
-
-#### <a name="resolution"></a>Resolución
-
-Haga doble clic en la excepción que se muestra en rojo para ver el mensaje de excepción completo. Revise la siguiente tabla para ver posibles soluciones o acciones que deben realizarse:
+Si se muestra un código de error HRESULT, haga doble clic en la excepción que se muestra en rojo para ver el mensaje de excepción completo. Revise la siguiente tabla para ver posibles soluciones o acciones que deben realizarse:
 
 |Excepción  |Acción o resolución  |
 |---------|---------|
@@ -307,45 +332,27 @@ Además, puede descargar y ejecutar el [solucionador de problemas de Windows Upd
 > [!NOTE]
 > El [Solucionador de problemas de Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) indica que es para clientes de Windows, pero también funciona en Windows Server.
 
-## <a name="linux"></a>Linux
+## <a name="scenario-update-run-returns-status-failed"></a>Escenario: La ejecución de la actualización devuelve un estado de error
 
-### <a name="scenario-update-run-fails-to-start"></a>Escenario: No se puede iniciar la ejecución de actualización
-
-#### <a name="issue"></a>Problema
-
-No se pudo iniciar una ejecución de actualización en una máquina Linux.
-
-#### <a name="cause"></a>Causa
-
-La instancia de Hybrid Worker de Linux no es correcta.
-
-#### <a name="resolution"></a>Resolución
-
-Realice una copia del archivo de registro siguiente y consérvelo para la solución de problemas:
-
-```bash
-/var/opt/microsoft/omsagent/run/automationworker/worker.log
-```
-
-### <a name="scenario-update-run-starts-but-encounters-errors"></a>Escenario: La ejecución de actualización se inicia, pero encuentra errores
-
-#### <a name="issue"></a>Problema
+### <a name="issue"></a>Problema
 
 Se inicia una ejecución de la actualización, pero encuentra errores durante la ejecución.
 
-#### <a name="cause"></a>Causa
+### <a name="cause"></a>Causa
 
 Las posibles causas pueden ser:
 
-* El estado del administrador de paquetes no es correcto
-* Paquetes específicos pueden interferir con la aplicación de revisiones basada en la nube
-* Otros motivos
+* El estado del administrador de paquetes no es correcto.
+* El agente de actualización (WUA para Windows, el administrador de paquetes específico de la distribución para Linux) no está configurado correctamente.
+* Paquetes específicos pueden interferir con la aplicación de revisiones basada en la nube.
+* No se ha podido acceder a la máquina.
+* Las actualizaciones tenían dependencias que no se resolvieron.
 
-#### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Resolución
 
-Si se producen errores durante una ejecución de actualizaciones después de que se ha iniciado correctamente en Linux, compruebe el trabajo de salida desde la máquina afectada en la ejecución. Puede encontrar mensajes de error específicos procedentes del Administrador de paquetes de su máquina que puede investigar e intentar solucionar. Update Management requiere que el administrador de paquetes tenga un estado correcto para que las implementaciones de actualizaciones se realicen con éxito.
+Si se producen errores durante una ejecución de actualizaciones después de que se haya iniciado correctamente, [compruebe el trabajo de salida](../manage-update-multi.md#view-results-of-an-update-deployment) desde la máquina afectada en la ejecución. Puede encontrar mensajes de error específicos procedentes de las máquinas que puede investigar e intentar solucionar. Update Management requiere que el administrador de paquetes tenga un estado correcto para que las implementaciones de actualizaciones se realicen con éxito.
 
-En algunos casos, las actualizaciones de paquetes pueden interferir con Update Management e impedir que finalice una implementación de actualizaciones. Si ese fuera el caso, deberá excluir estos paquetes de las futuras ejecuciones de actualizaciones o instalarlos manualmente por su cuenta.
+Si se observan revisiones, paquetes o actualizaciones específicos inmediatamente antes de que se produzca un error en el trabajo, puede intentar [excluirlos](../automation-tutorial-update-management.md#schedule-an-update-deployment) de la siguiente implementación de actualizaciones. Para recopilar información de registro de Windows Update, consulte [Archivo de registro de Windows Update](/windows/deployment/update/windows-update-logs).
 
 Si no puede resolver un problema de aplicación de revisiones, realice una copia del archivo de registro siguiente y consérvela **antes** de que se inicie la siguiente implementación de actualizaciones para solucionar los problemas:
 
@@ -364,39 +371,23 @@ Si no puede resolver un problema de aplicación de revisiones, realice una copia
 
 * Esto sucede a menudo si las máquinas están configuradas para obtener actualizaciones de WSUS/SCCM, pero WSUS/SCCM no han aprobado las actualizaciones.
 * Puede comprobar si las máquinas están configuradas para WSUS/SCCM [mediante la referencia cruzada de la clave del Registro "UseWUServer" con las claves del Registro de la sección "Configurar Actualizaciones automáticas modificando el Registro" de este documento](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
+* Si las actualizaciones no se aprueban en WSUS, no se instalarán. Puede comprobar si hay actualizaciones no aprobadas en Log Analytics con la siguiente consulta.
 
-### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>**Las actualizaciones se muestran como instaladas, pero no las encuentro en mi máquina**
+  ```loganalytics
+  Update | where UpdateState == "Needed" and ApprovalSource == "WSUS" and Approved == "False" | summarize max(TimeGenerated) by Computer, KBID, Title
+  ```
+
+### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>Las actualizaciones se muestran como instaladas, pero no las encuentro en mi máquina
 
 * Con frecuencia, unas actualizaciones tienen preferencia sobre otras. Para más información, consulte ["Se reemplazó la actualización" en la guía de solución de problemas de actualización de Windows](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
 
-### <a name="installing-updates-by-classification-on-linux"></a>**Instalación de actualizaciones mediante clasificación en Linux**
+### <a name="installing-updates-by-classification-on-linux"></a>Instalación de actualizaciones mediante clasificación en Linux
 
 * La implementación de actualizaciones en Linux mediante clasificación ("actualizaciones críticas y de seguridad") tiene advertencias importantes, especialmente para CentOS. Estas [limitaciones se documentan en la página de información general de Update Management](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2).
 
-### <a name="kb2267602-is-consistently--missing"></a>**KB2267602 falta constantemente**
+### <a name="kb2267602-is-consistently--missing"></a>KB2267602 falta constantemente
 
 * KB2267602 es la [actualización de la definición de Windows Defender](https://www.microsoft.com/wdsi/definitions). Se actualiza diariamente.
-
-## <a name="other"></a>Escenario: Mi problema no se ha indicado anteriormente
-
-### <a name="issue"></a>Problema
-
-Tiene un problema que no se resuelve en los otros escenarios que aparecen en la lista.
-
-### <a name="cause"></a>Causa
-
-Las claves del Registro faltantes o configuradas de manera incorrecta pueden provocar problemas con Update Management.
-
-### <a name="resolution"></a>Resolución
-
-Elimine la clave del Registro `HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker` y reinicie **HealthService**.
-
-También puede usar estos comandos de PowerShell.
-
-```powershell
-Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force
-Restart-Service healthservice
-```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

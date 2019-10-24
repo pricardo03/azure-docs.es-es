@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 388b389cca7c3e820ea3ccfd37a2a93ccd476b31
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c3c13b7e28ef7c17fd45682d828f318de5326542
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254632"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293875"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
 
@@ -30,6 +30,10 @@ En este artículo se supone que ya ha leído los siguientes artículos:
 
 * [Guía para desarrolladores de Azure Functions](functions-reference.md)
 * [Herramientas de Visual Studio 2019 de Azure Functions](functions-develop-vs.md)
+
+## <a name="supported-versions"></a>Versiones compatibles
+
+El runtime de Azure Functions 2. x usa .NET Core 2.2. El código de la función puede usar las API de .NET Core 2.2 mediante la actualización de la configuración del proyecto de Visual Studio. Las plantillas de Functions no tienen como valor predeterminado .NET Core 2.2 para que los clientes que no tengan .NET Core 2.2 instalado no resulten afectados negativamente.
 
 ## <a name="functions-class-library-project"></a>Proyecto de biblioteca de clases de Functions
 
@@ -53,7 +57,8 @@ Al compilar el proyecto, se genera una estructura de carpetas que se parece al s
 Este directorio es lo que se implementa en la aplicación de función en Azure. Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del sistema en tiempo de ejecución de Functions se [agregan al proyecto como paquetes de NuGet](./functions-bindings-register.md#vs).
 
 > [!IMPORTANT]
-> El proceso de compilación crea un archivo *function.json* para cada función. Este archivo no está pensado para que se pueda modificar directamente. No se puede cambiar la configuración del enlace ni deshabilitar la función mediante la edición de este archivo. Para obtener información sobre cómo deshabilitar una función, consulte [How to disable functions (Cómo deshabilitar funciones)](disable-function.md#functions-2x---c-class-libraries).
+> El proceso de compilación crea un archivo *function.json* para cada función. Este archivo *function.json* no está pensado para que se pueda modificar directamente. No se puede cambiar la configuración del enlace ni deshabilitar la función mediante la edición de este archivo. Para obtener información sobre cómo deshabilitar una función, consulte [How to disable functions (Cómo deshabilitar funciones)](disable-function.md#functions-2x---c-class-libraries).
+
 
 ## <a name="methods-recognized-as-functions"></a>Métodos reconocidos como funciones
 
