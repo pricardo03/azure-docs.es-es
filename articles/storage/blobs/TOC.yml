@@ -627,7 +627,7 @@
       items:
         - name: Crear y administrar cuentas de almacenamiento
           items:
-            - name: Creación de una cuenta de almacenamiento de uso general
+            - name: Creación de una cuenta de almacenamiento para Data Lake
               href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Administración de una cuenta de almacenamiento
               href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

@@ -55,7 +55,7 @@
           maintainContext: true
 - name: Procedimiento
   items:
-    - name: Uso del complemento de App Service
+    - name: "Uso del complemento de App\_Service"
       href: deploy-jenkins-app-service-plugin.md
 - name: Ejemplos
   items:

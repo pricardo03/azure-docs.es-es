@@ -31,10 +31,11 @@
           href: quickstarts/get-started-xamarin-ios.md
 - name: Tutoriales
   items:
-    - name: Uso compartido de Unity
+    - name: Uso compartido entre sesiones y dispositivos
       href: tutorials/tutorial-share-anchors-across-devices.md
-    - name: Uso compartido de Unity con Azure Cosmos DB
-      href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+      items:
+        - name: "Uso compartido continuado con Azure Cosmos\_DB"
+          href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
     - name: Inicio de una nueva aplicación de Unity HoloLens
       href: tutorials/tutorial-new-unity-hololens-app.md
     - name: Inicio de una nueva aplicación Android
