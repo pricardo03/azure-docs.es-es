@@ -11,12 +11,12 @@ metadata:
   author: jpconnock
   ms.author: jpconnock
   ms.date: 09/26/2019
-  ms.openlocfilehash: 0dcbe8d01761e8feb06cd5705a104d8c9e5196e0
-  ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+  ms.openlocfilehash: 671093610cc53fae3a06f9b185ef258ab2097305
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/08/2019
-  ms.locfileid: "72038608"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72933371"
 landingContent:
 - title: Acerca de Azure Spring Cloud
   linkLists:
@@ -38,6 +38,22 @@ landingContent:
     links:
     - text: Preparación de una aplicación Java Spring para la implementación
       url: spring-cloud-tutorial-prepare-app-deployment.md
+- title: Configuración de un servicio
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Uso del servidor de configuración para mantener la configuración de la aplicación
+      url: spring-cloud-tutorial-config-server.md
+    - text: Escalado manual de una aplicación
+      url: spring-cloud-tutorial-scale-manual.md
+  - linkListType: how-to-guide
+    links:
+    - text: Automatización de la canalización de CI/CD en Azure Spring Cloud
+      url: spring-cloud-howto-cicd.md
+    - text: Habilitación de implementaciones azules y verdes mediante Azure Spring Cloud
+      url: spring-cloud-howto-staging-environment.md
+    - text: Uso del almacenamiento persistente en Azure Spring Cloud
+      url: spring-cloud-howto-persistent-storage.md
 - title: Supervisión de una aplicación
   linkLists:
   - linkListType: tutorial
@@ -60,19 +76,3 @@ landingContent:
       url: spring-cloud-tutorial-bind-mysql.md
     - text: Enlace de una aplicación a Azure CosmosDB
       url: spring-cloud-tutorial-bind-cosmos.md
-- title: Configuración de un servicio
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Uso del servidor de configuración para mantener la configuración de la aplicación
-      url: spring-cloud-tutorial-config-server.md
-    - text: Escalado manual de una aplicación
-      url: spring-cloud-tutorial-scale-manual.md
-  - linkListType: how-to-guide
-    links:
-    - text: Automatización de la canalización de CI/CD en Azure Spring Cloud
-      url: spring-cloud-howto-cicd.md
-    - text: Habilitación de implementaciones azules y verdes mediante Azure Spring Cloud
-      url: spring-cloud-howto-staging-environment.md
-    - text: Uso del almacenamiento persistente en Azure Spring Cloud
-      url: spring-cloud-howto-persistent-storage.md

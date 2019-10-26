@@ -17,6 +17,8 @@
           href: quickstarts-sdk/java-sdk.md
         - name: SDK de Node.js
           href: quickstarts-sdk/node-sdk.md
+        - name: Go SDK
+          href: quickstarts-sdk/go-sdk.md
     - name: Uso de la API de REST
       items:
         - name: Analizar una imagen remota
