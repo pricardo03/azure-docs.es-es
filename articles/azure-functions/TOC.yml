@@ -245,8 +245,12 @@
         - name: Deshabilitar una función
           href: disable-function.md
     - name: Supervisión
-      href: functions-monitoring.md
-      displayName: 'App Insights, Application Insights, logs, logging'
+      items:
+        - name: Supervisión de funciones
+          href: functions-monitoring.md
+          displayName: 'App Insights, Application Insights, logs, logging'
+        - name: Análisis de registros
+          href: functions-monitor-log-analytics.md
     - name: Seguridad
       items:
         - name: Compra de un certificado SSL
