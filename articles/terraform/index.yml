@@ -4,18 +4,17 @@ summary: Aprenda a usar Terraform para aprovisionar de forma confiable las máqu
 metadata:
   title: 'Terraform en la documentación de Azure: tutoriales, ejemplos, referencia y recursos'
   description: Aprenda a usar Terraform para aprovisionar de forma confiable las máquinas virtuales y otras infraestructuras en Azure.
-  services: azure
   ms.service: terraform
-  ms.topic: landing-page
   author: TomArcherMsft
   ms.author: tarcher
-  ms.date: 09/20/2019
-  ms.openlocfilehash: 35391f886d473b91ab99d27bff64d64903ba0545
-  ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+  ms.topic: landing-page
+  ms.date: 10/26/2019
+  ms.openlocfilehash: dbc4ed58b32312023b3248662357777d8567fff9
+  ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71173538"
+  ms.lasthandoff: 10/27/2019
+  ms.locfileid: "72969497"
 landingContent:
 - title: Acerca de Terraform en Azure
   linkLists:
@@ -34,7 +33,7 @@ landingContent:
     - text: Instalación y configuración de Terraform
       url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
     - text: Creación de una configuración de Terraform para Azure
-      url: terrafom-quickstart.md
+      url: terraform-create-configuration.md
     - text: Instalación de la extensión de Visual Studio Code de Terraform
       url: terraform-vscode-extension.md
     - text: Creación de una plantilla base de Terraform mediante Yeoman
@@ -58,7 +57,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Creación de una máquina virtual de Terraform con MSI habilitado
-      url: terraform-vm-msi.md
+      url: terraform-vm-managed-identities-for-azure-resources.md
     - text: Creación de un clúster de máquina virtual con módulos de Terraform
       url: terraform-create-vm-cluster-module.md
     - text: Creación de un clúster de máquina virtual con Terraform y HCL
