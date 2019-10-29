@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Documentación de Event Grid en IoT Edge
+summary: Aprenda a usar Event Grid en IoT Edge para reaccionar ante eventos pertinentes generados en dispositivos perimetrales casi en tiempo real.
+metadata:
+  title: Documentación de Event Grid en IoT Edge
+  description: Aprenda a usar Event Grid en IoT Edge para reaccionar ante eventos pertinentes generados en dispositivos perimetrales casi en tiempo real.
+  services: event-grid
+  ms.service: event-grid
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 10/12/2019
+  ms.openlocfilehash: 4b79d64240b96ed41b535f8dbcd1155d67e76282
+  ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/28/2019
+  ms.locfileid: "72991620"
+landingContent:
+- title: Acerca de Event Grid en IoT Edge
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Event Grid en IoT Edge?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Conceptos de Event Grid
+      url: concepts.md
+    - text: Esquemas de eventos
+      url: event-schemas.md
+    - text: Procesamiento por lotes de salida
+      url: delivery-output-batching.md
+    - text: Filtrado avanzado
+      url: advanced-filtering.md
+    - text: Entrega y nuevo intento
+      url: delivery-retry.md
+- title: Escenarios
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Publicación y suscripción a eventos localmente
+      url: pub-sub-events-webhook-local.md
+    - text: Publicación y suscripción a eventos en la nube
+      url: pub-sub-events-webhook-cloud.md
+    - text: Reenvío de eventos a Azure Event Grid
+      url: forward-events-event-grid-cloud.md
+    - text: Reenvío de eventos a Azure IoT Hub
+      url: forward-events-event-grid-cloud.md
+    - text: Reacción a eventos de Azure Blob Storage localmente
+      url: react-blob-storage-events-locally.md
+- title: Seguridad
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Seguridad y autenticación
+      url: security-authentication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de la autenticación de clientes
+      url: configure-client-auth.md
+    - text: Configuración de la autenticación de suscriptores de webhook
+      url: configure-webhook-subscriber-auth.md
+    - text: Configuración de la autenticación de identidades
+      url: configure-identity-auth.md

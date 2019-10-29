@@ -1,0 +1,105 @@
+### YamlMime:Landing
+title: Documentación de Azure IoT Central para el comercio minorista
+summary: Aprenda a crear, personalizar y administrar soluciones de IoT para el comercio minorista mediante plantillas de aplicación de IoT Central.
+metadata:
+  title: Documentación de Azure IoT Central para el comercio minorista
+  description: Aprenda a crear, personalizar y administrar soluciones de IoT para el comercio minorista mediante plantillas de aplicación de IoT Central.
+  services: iot-central
+  ms.service: iot-central
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 10/25/2019
+  ms.openlocfilehash: 59372e07cb9e85e28b9762775f533bf93a5ee603
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72937566"
+landingContent:
+- title: Creación de soluciones para el comercio minorista
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Soluciones de comercio minorista para Azure IoT Central
+      url: overview-iot-central-retail-pnp.md
+  - linkListType: tutorial
+    links:
+    - text: '1: Creación de una aplicación de comercio minorista'
+      url: tutorial-in-store-analytics-create-app-pnp.md
+    - text: '2: Personalización del panel del operador'
+      url: tutorial-in-store-analytics-customize-dashboard-pnp.md
+    - text: '3: Exportación de datos y visualización de conclusiones'
+      url: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+    - text: Creación de una aplicación de administración inteligente del inventario
+      url: tutorial-iot-central-smart-inventory-management-pnp.md
+    - text: Creación de una aplicación de logística conectada
+      url: tutorial-iot-central-connected-logistics-pnp.md
+    - text: Creación de una aplicación del centro de distribución digital
+      url: tutorial-iot-central-digital-distribution-center-pnp.md
+  - linkListType: how-to-guide
+    links:
+    - text: Conexión a Rigado Cascade 500
+      url: ../core/howto-connect-rigado-cascade-500-pnp.md
+- title: Obtención de conexión
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configuración de una plantilla de dispositivo
+      url: ../core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Conexión de un dispositivo IoT Plug and Play
+      url: ../core/tutorial-add-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Preparación y conexión de una instancia de MXChip IoT DevKit
+      url: ../core/howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Conexión a otras nubes de IoT
+      url: ../core/howto-build-iotc-device-bridge.md
+- title: Mantenimiento de la conexión
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Uso de grupos de dispositivos
+      url: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Administración de los dispositivos
+      url: ../core/howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Ejecución de un trabajo
+      url: ../core/howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Analizar los datos del dispositivo
+      url: ../core/howto-create-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- title: Transformación
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Crear una regla
+      url: ../core/quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Creación de reglas de telemetría
+      url: ../core/tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Exportación a Blob Storage
+      url: ../core/howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Crear reglas personalizadas
+      url: ../core/howto-create-custom-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Creación de análisis personalizados
+      url: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- title: Administración
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Administración de una aplicación
+      url: ../core/howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Administración de usuarios y roles
+      url: ../core/howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Ver la factura
+      url: ../core/howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Personalización de la interfaz de usuario de la aplicación
+      url: ../core/howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Creación de paneles personales
+      url: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Uso de iconos de panel
+      url: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - text: Uso de plantillas de aplicación
+      url: ../core/howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json

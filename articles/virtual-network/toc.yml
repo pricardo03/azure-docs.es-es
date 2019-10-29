@@ -103,8 +103,12 @@
                   href: virtual-network-ipv4-ipv6-dual-stack-cli.md
                 - name: Plantilla de Resource Manager
                   href: ipv6-configure-template-json.md
-            - name: Actualización local
-              href: ipv6-add-to-existing-vnet-powershell.md
+            - name: Adición de IPv6 a la aplicación IPv4
+              items:
+                - name: Azure PowerShell
+                  href: ipv6-add-to-existing-vnet-powershell.md
+                - name: CLI de Azure
+                  href: ipv6-add-to-existing-vnet-cli.md
             - name: Equilibrador de carga público básico
               items:
                 - name: Azure PowerShell

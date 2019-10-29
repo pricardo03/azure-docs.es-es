@@ -42,6 +42,8 @@
           items:
             - name: Delegación en los creadores de catálogos
               href: entitlement-management-delegate-catalog.md
+            - name: Adición de una organización conectada
+              href: entitlement-management-organization.md
             - name: Gobierno del acceso para usuarios externos
               href: entitlement-management-external-users.md
             - name: Ver informes y registros

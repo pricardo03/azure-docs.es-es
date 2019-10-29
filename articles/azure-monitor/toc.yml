@@ -36,7 +36,7 @@
           href: log-query/get-started-portal.md
         - name: Consultas de registros
           href: log-query/get-started-queries.md
-        - name: Visualización de datos de registro
+        - name: Panel con datos de registro
           href: learn/tutorial-logs-dashboards.md
         - name: Alerta sobre datos de registro
           href: learn/tutorial-response.md
@@ -50,7 +50,7 @@
           href: learn/tutorial-alert.md
         - name: Descripción de los usuarios de aplicaciones
           href: learn/tutorial-users.md
-        - name: Creación de paneles personalizados
+        - name: Panel con datos de aplicación
           href: learn/tutorial-app-dashboards.md
     - name: Archivado de métricas de plataforma y datos de registro
       href: learn/tutorial-archive-data.md
@@ -889,7 +889,11 @@
         - name: Workbooks
           href: app/usage-workbooks.md
         - name: Paneles
-          href: app/app-insights-dashboards.md
+          items:
+            - name: Panel mediante datos de registro
+              href: learn/tutorial-logs-dashboards.md
+            - name: Panel mediante datos de aplicación
+              href: learn/tutorial-app-dashboards.md
         - name: Envío de datos a Grafana
           href: platform/grafana-plugin.md
     - name: Alertas
@@ -1098,10 +1102,8 @@
           href: platform/metrics-supported.md
         - name: Métricas compatibles con alertas más recientes
           href: platform/alerts-metric-near-real-time.md
-    - name: Registros de diagnóstico
-      items:
-        - name: 'Servicios, categorías y esquemas de registros de diagnóstico'
-          href: platform/diagnostic-logs-schema.md
+    - name: 'Servicios, categorías y esquemas de registros de recursos'
+      href: platform/diagnostic-logs-schema.md
     - name: CLI de Azure
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: 'CLI de Azure: Application Insights (versión preliminar)'
@@ -1110,9 +1112,11 @@
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:
+        - name: 'Alertas, métricas, registro de actividad, escalabilidad automática'
+          href: /powershell/module/az.monitor
         - name: Application Insights
           href: /powershell/module/az.applicationinsights
-        - name: Registros
+        - name: Log Analytics
           href: /powershell/module/az.operationalinsights
     - name: API DE REST
       items:

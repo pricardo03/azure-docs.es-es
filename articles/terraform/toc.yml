@@ -10,13 +10,19 @@
     - name: Instalación y configuración de Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
-    - name: Creación de una aplicación multiservicio
-      href: terrafom-quickstart.md
+    - name: Creación de un archivo de configuración de Terraform
+      href: terraform-create-configuration.md
     - name: Creación de una máquina virtual Linux
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
 - name: Tutoriales
   items:
+    - name: Instalación y configuración
+      items:
+        - name: Estado de Terraform en Azure Storage
+          href: terraform-backend.md
+        - name: Configuración de Azure Cloud Shell para Terraform
+          href: terraform-cloud-shell.md
     - name: App Service
       items:
         - name: Ranuras de implementación del proveedor de Terraform y de Azure
@@ -29,8 +35,8 @@
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infraestructura
       items:
-        - name: Creación de una máquina virtual de Terraform con MSI habilitado
-          href: terraform-vm-msi.md
+        - name: Creación de una máquina virtual de Terraform con identidades administradas habilitadas para recursos de Azure
+          href: terraform-vm-managed-identities-for-azure-resources.md
         - name: Creación de un clúster de máquina virtual con módulos de Terraform
           href: terraform-create-vm-cluster-module.md
         - name: Creación de un clúster de máquina virtual con Terraform y HCL
@@ -67,10 +73,6 @@
   items:
     - name: Plantillas de configuración
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: Guías de procedimientos
-  items:
-    - name: Almacenamiento de estados en Azure Storage
-      href: terraform-backend.md
 - name: Referencia
   items:
     - name: Registro de módulos de Azure

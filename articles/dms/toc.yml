@@ -55,6 +55,8 @@
       href: pre-reqs.md
     - name: Topologías de red para migraciones a una instancia administrada de Azure SQL DB
       href: resource-network-topologies.md
+    - name: Roles personalizados para migraciones en línea desde SQL Server a una instancia administrada de Azure SQL DB
+      href: resource-custom-roles-sql-db-managed-instance.md
     - name: Solución de problemas conocidos
       items:
         - name: Solución de problemas de conectividad de base de datos de origen

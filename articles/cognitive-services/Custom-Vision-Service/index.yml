@@ -2,7 +2,7 @@
 title: Documentación sobre Custom Vision
 summary: Custom Vision es un servicio cognitivo que permite crear, implementar y mejorar los clasificadores de imágenes propios. Un clasificador de imágenes es un servicio de inteligencia artificial que aplica etiquetas (que representan clases) a las imágenes, en función de sus características visuales.
 metadata:
-  title: Documentación sobre Custom Vision
+  title: 'Documentación de Custom Vision: Guías de inicio rápido, tutoriales, referencia de API - Azure Cognitive Services | Microsoft Docs'
   description: Custom Vision es un servicio cognitivo que permite crear, implementar y mejorar los clasificadores de imágenes propios. Un clasificador de imágenes es un servicio de inteligencia artificial que aplica etiquetas (que representan clases) a las imágenes, en función de sus características visuales.
   services: cognitive-services
   ms.service: cognitive-services
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 5be5dcd64345de32e37413932869574391573c60
-  ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+  ms.openlocfilehash: 21e4c324b947cb863614f50bb2ee0bfe09246372
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2019
-  ms.locfileid: "72176168"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72931638"
 landingContent:
 - title: Acerca de Custom Vision
   linkLists:
@@ -128,3 +128,11 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: Interfaz de la línea de comandos (CLI) de Azure
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+- title: Ayuda y comentarios
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://cognitive.uservoice.com/forums/598141-custom-vision-service
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

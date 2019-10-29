@@ -138,6 +138,9 @@
         - name: Entrenamiento con conjuntos de datos
           displayName: 'data, dataset'
           href: how-to-train-with-datasets.md
+        - name: Creación de versión y seguimiento de conjuntos de datos
+          displayName: 'data, data set'
+          href: how-to-version-track-datasets.md
     - name: Entrenamiento de modelos
       items:
         - name: Uso de una interfaz visual

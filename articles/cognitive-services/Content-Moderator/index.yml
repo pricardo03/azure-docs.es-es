@@ -1,101 +1,164 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación de Content Moderator
+summary: Azure Content Moderator API es un servicio Cognitive que comprueba el contenido de texto, imágenes y vídeo de material que es potencialmente ofensivo, arriesgado o no deseable por algún otro motivo. Cuando se encuentra dicho material, el servicio aplica las etiquetas adecuadas (marcas) al contenido. Luego, la aplicación puede controlar el contenido marcado para cumplir las normativas o mantener el entorno adecuado para los usuarios.
 metadata:
   title: 'Documentación de Content Moderator: Guías de inicio rápido, tutoriales, referencia de API: Azure Cognitive Services | Microsoft Docs'
-  description: 'Aprenda a usar Content Moderator para comprobar el contenido de texto, imágenes y vídeo de material que es potencialmente ofensivo, arriesgado o no deseable por algún otro motivo.'
+  description: Azure Content Moderator API es un servicio Cognitive que comprueba el contenido de texto, imágenes y vídeo de material que es potencialmente ofensivo, arriesgado o no deseable por algún otro motivo. Cuando se encuentra dicho material, el servicio aplica las etiquetas adecuadas (marcas) al contenido. Luego, la aplicación puede controlar el contenido marcado para cumplir las normativas o mantener el entorno adecuado para los usuarios.
   services: cognitive-services
-  author: nitinme
-  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: content-moderator
   ms.topic: landing-page
-  ms.date: 12/20/2018
-  ms.author: nitinme
-abstract:
-  description: 'Azure Content Moderator API es un servicio Cognitive que comprueba el contenido de texto, imágenes y vídeo de material que es potencialmente ofensivo, arriesgado o no deseable por algún otro motivo. Cuando se encuentra dicho material, el servicio aplica las etiquetas adecuadas (marcas) al contenido. Luego, la aplicación puede controlar el contenido marcado para cumplir las normativas o mantener el entorno adecuado para los usuarios.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ../media/index/content-moderator-landing-page-video.png
-      width: 250
-    title: 'Moderación de vídeo con Content Moderator (15:42)'
-    href: 'https://channel9.msdn.com/Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/content-moderator/overview
-            html: <p>Información acerca de Content Moderator API.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: ¿Qué es Content Moderator?
-          - href: /azure/cognitive-services/content-moderator/text-moderation-api
-            html: <p>Información acerca de la moderación de texto.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Text Moderation API
-          - href: /azure/cognitive-services/content-moderator/image-moderation-api
-            html: <p>Información acerca de la moderación de imágenes.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Image Moderation API
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: Más información sobre cómo empezar a trabajar con Content Moderator seleccionando un vínculo de flecha <img src="images/index/link.jpg" height="15" width="15"></img>.
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: images/index/i_portal.svg
-          - image:
-              src: images/index/logo_csharp.svg
-          - image:
-              src: images/index/logo_python.svg
-        rows:
-          - title: Análisis de contenido de texto
-            values:
-              - href: quick-start
-              - href: text-moderation-quickstart-dotnet
-              - href: text-moderation-quickstart-python
-          - title: Análisis de contenido de imágenes
-            values:
-              - href: null
-              - href: image-moderation-quickstart-dotnet
-              - href: null
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: 'Aprenda a desarrollar aplicaciones mediante Content Moderator:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="ecommerce-retail-catalog-moderation.md">Moderación de imágenes de productos de comercio electrónico</a>
-  - title: Ejemplos
-    items:
-      - type: paragraph
-        text: 'Obtención de ejemplos para Content Moderator API:'
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator&sort=Relevance">Ejemplos de código</a>'
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API existentes
-            html: '<p><a href="https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference">API DE REST</a></p>'
-          - title: SDK
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator">Go</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI de Azure</a></p>'
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 10/24/2019
+  ms.openlocfilehash: 486badfa18f461a8dce9733593a8979318364e12
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72931719"
+landingContent:
+- title: Acerca de Content Moderator
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Content Moderator?
+      url: overview.md
+  - linkListType: video
+    links:
+    - text: Moderación de vídeo con Content Moderator
+      url: https://channel9.msdn.com/Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
+- title: Análisis de contenido de imágenes
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Moderación de imágenes
+      url: image-moderation-api.md
+  - linkListType: quickstart
+    links:
+    - text: Uso del SDK de .NET
+      url: image-moderation-quickstart-dotnet.md
+    - text: Uso del SDK de Python
+      url: python-sdk-quickstart.md
+    - text: Uso del SDK de Java
+      url: java-sdk-quickstart.md
+  - linkListType: how-to-guide
+    links:
+    - text: Uso de la consola de API
+      url: try-image-api.md
+  - linkListType: tutorial
+    links:
+    - text: Moderación de imágenes de productos de comercio electrónico
+      url: ecommerce-retail-catalog-moderation.md
+- title: Uso de listas de imágenes personalizadas
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso del SDK de .NET
+      url: image-lists-quickstart-dotnet.md
+    - text: Uso del SDK de Python
+      url: python-sdk-quickstart.md
+    - text: Uso del SDK de Java
+      url: java-sdk-quickstart.md
+  - linkListType: how-to-guide
+    links:
+    - text: Uso de la consola de API
+      url: try-image-list-api.md
+- title: Análisis de contenido de texto
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Moderación de texto
+      url: text-moderation-api.md
+  - linkListType: quickstart
+    links:
+    - text: Uso del SDK de .NET
+      url: text-moderation-quickstart-dotnet.md
+    - text: Uso del SDK de Python
+      url: python-sdk-quickstart.md
+    - text: Uso del SDK de Java
+      url: java-sdk-quickstart.md
+  - linkListType: how-to-guide
+    links:
+    - text: Uso de la consola de API
+      url: try-text-api.md
+- title: Uso de listas de términos personalizados
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso del SDK de .NET
+      url: term-lists-quickstart-dotnet.md
+    - text: Uso del SDK de Python
+      url: python-sdk-quickstart.md
+    - text: Uso del SDK de Java
+      url: java-sdk-quickstart.md
+  - linkListType: how-to-guide
+    links:
+    - text: Uso de la consola de API
+      url: try-terms-list-api.md
+- title: Análisis de contenido de vídeo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Uso del SDK de .NET
+      url: video-moderation-api.md
+  - linkListType: tutorial
+    links:
+    - text: Moderación de vídeos y transcripciones
+      url: video-transcript-moderation-review-tutorial-dotnet.md
+  - linkListType: video
+    links:
+    - text: Moderación de vídeo con Content Moderator
+      url: https://channel9.msdn.com/Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
+- title: Uso de revisiones, flujos de trabajo y trabajos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Herramienta de revisión
+      url: Review-Tool-User-Guide/human-in-the-loop.md
+    - text: Revisiones, flujos de trabajo y trabajos
+      url: review-api.md
+  - linkListType: quickstart
+    links:
+    - text: Creación de revisiones con el SDK de Python
+      url: python-sdk-quickstart.md
+    - text: Creación de revisiones con el SDK de Java
+      url: java-sdk-quickstart.md
+  - linkListType: how-to-guide
+    links:
+    - text: Definición y uso de revisiones (herramienta de revisión)
+      url: Review-Tool-User-Guide/review-moderated-images.md
+    - text: Definición y uso de flujos de trabajo (herramienta de revisión)
+      url: Review-Tool-User-Guide/workflows.md
+    - text: Definición y uso de trabajos (consola de API)
+      url: try-review-api-job.md
+- title: Referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Content Moderator API
+      url: https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference
+    - text: .NET SDK
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+    - text: SDK de Python
+      url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python
+    - text: SDK de Java
+      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
+    - text: SDK de Node.js
+      url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest
+    - text: Go SDK
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Interfaz de la línea de comandos (CLI) de Azure
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+- title: Ayuda y comentarios
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://cognitive.uservoice.com/forums/559960-content-moderator
+    - text: Knowledge Base
+      url: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

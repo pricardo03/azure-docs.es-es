@@ -56,28 +56,37 @@
               href: virtual-machines-windows-ps-sql-keyvault.md
 - name: Guías de procedimientos
   items:
-    - name: Creación de una máquina virtual de SQL
+    - name: Creación de máquinas virtuales de SQL
       items:
         - name: Uso del portal
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Uso de Azure PowerShell
           href: virtual-machines-windows-ps-sql-create.md
-    - name: Registro con el proveedor de recursos
-      href: virtual-machines-windows-sql-register-with-resource-provider.md
-    - name: Cambio del modelo de licencia
-      href: virtual-machines-windows-sql-ahb.md
-    - name: Cambio de edición
-      href: virtual-machines-windows-sql-change-edition.md
+    - name: Registro con el proveedor de recursos de máquina virtual de SQL
+      displayName: 'resource provider, registration'
+      items:
+        - name: Máquina virtual única
+          href: virtual-machines-windows-sql-register-with-resource-provider.md
+        - name: Registro en bloque de varias máquinas virtuales
+          href: virtual-machines-windows-sql-bulk-register-with-resource-provider.md
+    - name: administración
+      items:
+        - name: Modelo de licencia
+          displayName: 'ahb, ahub, payg, change, modify, update'
+          href: virtual-machines-windows-sql-ahb.md
+        - name: Edition
+          displayName: 'change, modify, update'
+          href: virtual-machines-windows-sql-change-edition.md
+        - name: Azure Storage para la copia de seguridad y restauración
+          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
     - name: Migrar
       items:
-        - name: Migración de una base de datos de SQL Server
+        - name: Base de datos de SQL Server en la máquina virtual
           href: virtual-machines-windows-migrate-sql.md
         - name: Máquina virtual en una nueva región
           href: virtual-machines-windows-sql-move-different-region.md
     - name: Configuración para alta disponibilidad
       items:
-        - name: Uso de Azure Storage para la copia de seguridad y la restauración
-          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
         - name: Grupos de disponibilidad AlwaysOn
           items:
             - name: CLI de la máquina virtual de Azure SQL

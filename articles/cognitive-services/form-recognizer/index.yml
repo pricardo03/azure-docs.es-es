@@ -2,7 +2,7 @@
 title: Documentación de Form Recognizer
 summary: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo comprenda el diseño y las relaciones entre los campos y las entradas sin necesidad de un etiquetado de datos manual o de una codificación y un mantenimiento intensivos.
 metadata:
-  title: Documentación de Form Recognizer
+  title: 'Documentación de Form Recognizer: inicios rápidos, tutoriales, referencia de API - Azure Cognitive Services | Microsoft Docs'
   description: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo comprenda el diseño y las relaciones entre los campos y las entradas sin necesidad de un etiquetado de datos manual o de una codificación y un mantenimiento intensivos.
   services: cognitive-services
   ms.service: cognitive-services
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 0c450a79c0dbdd19732488af927c3c29df263a23
-  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.openlocfilehash: 3a3146c6a918916792a331c0dab74683db82a02d
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/12/2019
-  ms.locfileid: "70931825"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72931301"
 landingContent:
 - title: Acerca de Form Recognizer
   linkLists:
@@ -76,3 +76,11 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: Interfaz de la línea de comandos (CLI) de Azure
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+- title: Ayuda y comentarios
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://go.microsoft.com/fwlink/?linkid=2090535
+    - text: Stack Overflow
+      url: https://go.microsoft.com/fwlink/?linkid=2087186

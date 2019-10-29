@@ -40,8 +40,8 @@
               href: data-lake-analytics-manage-use-nodejs.md
         - name: Agregar usuarios
           href: data-lake-analytics-add-users.md
-        - name: Directivas
-          href: data-lake-analytics-policies.md
+        - name: Directivas de cuentas
+          href: data-lake-analytics-account-policies.md
         - name: Protección de carpetas de trabajo
           href: data-lake-analytics-secure.md
         - name: Acceso a los registros de diagnóstico
@@ -118,6 +118,14 @@
           href: data-lake-analytics-cicd-test.md
         - name: SDK DE U-SQL
           href: data-lake-analytics-u-sql-sdk.md
+    - name: Descripción de Apache Spark para desarrolladores de U-SQL
+      items:
+        - name: Descripción de Apache Spark para desarrolladores de U-SQL
+          href: data-lake-analytics-understand-spark-for-usql-developers.md
+        - name: Descripción de los formatos de datos de Apache Spark
+          href: data-lake-analytics-understand-spark-data-formats.md
+        - name: Descripción de los conceptos de código de Apache Spark
+          href: data-lake-analytics-understand-spark-code-concepts.md
 - name: Referencia
   items:
     - name: Azure PowerShell
