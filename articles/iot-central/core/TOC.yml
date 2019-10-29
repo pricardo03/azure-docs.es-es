@@ -8,8 +8,6 @@
       href: overview-iot-options.md
     - name: Paseo por la interfaz de usuario
       href: overview-iot-central-tour.md
-    - name: Mantenimiento de la conexión
-      href: concepts-stay-connected.md
 - name: Guías de inicio rápido
   expanded: true
   items:

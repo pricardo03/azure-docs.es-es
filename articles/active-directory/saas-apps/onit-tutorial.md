@@ -17,10 +17,10 @@ ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e908cb76a57f027494230edc648b69da0730ac27
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70164240"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Onit
@@ -141,11 +141,11 @@ En esta sección, va a permitir que B.Simon acceda a Onit mediante el inicio de 
 
 3. Haga clic en **Edit Corporation**(Editar corporación).
    
-    ![Editar corporación](./media/onit-tutorial/IC791175.png "Editar corporación")
+    ![Edit Corporation](./media/onit-tutorial/IC791175.png "Edit Corporation")
    
 4. Haga clic en la pestaña **Security** (Seguridad).
     
-    ![Editar información de la compañía](./media/onit-tutorial/IC791176.png "Editar información de la compañía")
+    ![Editar información de la empresa](./media/onit-tutorial/IC791176.png "Editar información de la compañía")
 
 5. En la pestaña **Seguridad** , lleve a cabo estos pasos:
 

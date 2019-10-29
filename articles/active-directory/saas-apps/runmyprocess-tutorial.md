@@ -17,10 +17,10 @@ ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46c31a209e8521b24e7f604dbe630f689fca484e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68880406"
 ---
 # <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>Tutorial: Integración de RunMyProcess con Azure Active Directory
@@ -159,7 +159,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en RunMyProcess, deb
 
 1. Haga clic en **Account** (Cuenta) y seleccione **Users** (Usuarios) en el panel de navegación izquierdo y, a continuación, haga clic en **New User** (Usuario nuevo).
 
-    ![Nuevo usuario](./media/runmyprocess-tutorial/tutorial_runmyprocess_003.png "nuevo usuario")
+    ![New User](./media/runmyprocess-tutorial/tutorial_runmyprocess_003.png "Nuevo usuario") (Usuario nuevo)
 
 1. En la sección **Configuración del usuario** , lleve a cabo estos pasos:
 

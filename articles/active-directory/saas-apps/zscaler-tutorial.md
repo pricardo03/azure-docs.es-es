@@ -17,10 +17,10 @@ ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dcf0341e03a5d95abbe8b1a8ce69379fef8251b7
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68989062"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zscaler
@@ -187,7 +187,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 1. En la ventana **Editar SAML**, realice los pasos siguientes y haga clic en Guardar.  
 
-    ![Administración de usuarios y autenticación](./media/zscaler-tutorial/ic800208.png "Administración de usuarios y autenticación")
+    ![Administración de usuarios y autenticación](./media/zscaler-tutorial/ic800208.png "Manage Users & Authentication")
     
     a. En el cuadro de texto **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 

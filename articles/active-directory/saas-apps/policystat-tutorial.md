@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68943438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integración de Azure Active Directory con PolicyStat
@@ -162,7 +162,7 @@ Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice 
 
 2. Haga clic en la pestaña **Administración** y en **Configuración de inicio de sesión único** en el panel de navegación izquierdo.
    
-    ![Menú Administrator](./media/policystat-tutorial/ic808633.png "Menú Administrator")
+    ![Menú Administrador](./media/policystat-tutorial/ic808633.png "Menú Administrador")
 
 3. En la sección **Configuración**, seleccione **Habilitar la integración de inicio de sesión único**.
    
