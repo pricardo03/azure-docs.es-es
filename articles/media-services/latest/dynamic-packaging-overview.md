@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 35fd511f2383a09898bcd7e7a5227b750c36125a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383529"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595529"
 ---
 # <a name="dynamic-packaging"></a>Empaquetado dinámico
 
@@ -98,7 +98,7 @@ Para más información acerca del streaming en vivo en Media Services v3, consu
 El empaquetado dinámico admite archivos MP4, que contienen vídeo codificado con [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC o AVC1) o [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 o hvc1).
 
 > [!NOTE]
-> Se han probado resoluciones de hasta 4K y velocidades de fotogramas de hasta 60 fotogramas por segundo con el empaquetado dinámico. El [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) admite la codificación en H.265, mediante las API heredadas de la versión v2. Si tiene preguntas sobre este tema, póngase en contacto con amshelp@microsoft.com. 
+> Se han probado resoluciones de hasta 4K y velocidades de fotogramas de hasta 60 fotogramas por segundo con el empaquetado dinámico. El [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) admite la codificación en H.265, mediante las API heredadas de la versión v2.
 
 ## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Códecs de audio compatibles con el empaquetado dinámico
 
@@ -124,7 +124,7 @@ El empaquetado dinámico admite varias pistas de audio con DASH o HLS (versión 
 El empaquetado dinámico no admite archivos que contienen audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (es un códec heredado).
 
 > [!NOTE]
-> El [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) admite la codificación en Dolby Digital Plus, mediante las API heredadas de la versión v2. Si tiene preguntas sobre este tema, póngase en contacto con amshelp@microsoft.com. 
+> El [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) admite la codificación en Dolby Digital Plus, mediante las API heredadas de la versión v2. 
 
 ## <a name="manifests"></a>Manifiestos 
  
@@ -272,6 +272,10 @@ Puede usar el *cifrado dinámico* para cifrar de forma dinámica el contenido en
 ## <a name="more-information"></a>Más información
 
 Consulte [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
+
+## <a name="need-help"></a>¿Necesita ayuda?
+
+Puede abrir una incidencia de soporte técnico si se desplaza a la [nueva solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

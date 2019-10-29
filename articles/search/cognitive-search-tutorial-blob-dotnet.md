@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial de C# para llamar a Cognitive Services APIs en una canalización de indexación: Azure Search'
-description: En este tutorial se analiza un ejemplo de procesamiento de IA de imágenes, extracción de datos y lenguaje natural en la indexación de Azure Search para la extracción y transformación de datos.
+title: Tutorial de C# para llamar a Cognitive Services APIs en una canalización de indexación de inteligencia artificial
+titleSuffix: Azure Cognitive Search
+description: Siga paso a paso un ejemplo de extracción de datos, lenguaje natural y procesamiento de inteligencia artificial de imágenes en una canalización de indexación de enriquecimiento de Azure Cognitive Search.
 manager: nitinme
 author: MarkHeff
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: b40cd63062e961848eb1ab6b956e63a83a634817
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 7a8146f524a6e6f9abed2440c98a83aa3878f0c7
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936949"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790221"
 ---
-# <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial de C#: Llamar a Cognitive Services APIs en una canalización de indexación de Azure Search
+# <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-indexing-pipeline"></a>Tutorial de C#: Llamada a Cognitive Services APIs en una canalización de indexación de Azure Cognitive Search
 
-En este tutorial, aprenderá la mecánica para programar el enriquecimiento de datos en Azure Search mediante *aptitudes cognitivas*. Las aptitudes tienen el respaldo de las funcionalidades del procesamiento de lenguaje natural (NLP) y del análisis de imágenes de Cognitive Services. A través de la composición y configuración del conjunto de aptitudes puede extraer texto y representaciones de texto de un archivo con una imagen o con un documento digitalizado. También puede detectar el idioma, las entidades, las frases clave, etc. El resultado final es un contenido adicional abundante en un índice de Azure Search, creado por una canalización de indexación alimentado por inteligencia artificial.
+En este tutorial, aprenderá la mecánica para programar el enriquecimiento de datos en Azure Cognitive Search mediante *aptitudes cognitivas*. Las aptitudes tienen el respaldo de las funcionalidades del procesamiento de lenguaje natural (NLP) y del análisis de imágenes de Cognitive Services. A través de la composición y configuración del conjunto de aptitudes puede extraer texto y representaciones de texto de un archivo con una imagen o con un documento digitalizado. También puede detectar el idioma, las entidades, las frases clave, etc. El resultado final es un contenido adicional abundante en un índice de búsqueda, creado por una canalización de indexación alimentado por inteligencia artificial.
 
 En este tutorial, usará el SDK de .NET para realizar las tareas siguientes:
 
@@ -28,14 +28,14 @@ En este tutorial, usará el SDK de .NET para realizar las tareas siguientes:
 > * Ejecutar solicitudes y revisar los resultados.
 > * Restablecer el índice y los indexadores para su posterior desarrollo.
 
-La salida es un índice que permite realizar búsquedas de texto completo en Azure Search. Puede mejorar el índice con otras funciones estándares, como [sinónimos](search-synonyms.md), [perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analizadores](search-analyzers.md) y [filtros](search-filters.md).
+La salida es un índice que permite búsquedas de texto completo en Azure Cognitive Search. Puede mejorar el índice con otras funciones estándares, como [sinónimos](search-synonyms.md), [perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analizadores](search-analyzers.md) y [filtros](search-filters.md).
 
 Este tutorial se ejecuta en el servicio Gratis, pero el número de transacciones gratuitas está limitado a 20 documentos por día. Si desea ejecutar este tutorial más de una vez en el mismo día, use un conjunto de archivos más pequeño para que pueda realizar más ejecuciones.
 
 > [!NOTE]
-> A medida que expande el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de inteligencia artificial, tendrá que asociar un recurso facturable de Cognitive Services. Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
+> A medida que expande el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de inteligencia artificial, tendrá que asociar un recurso facturable de Cognitive Services. Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra a los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra a los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -43,29 +43,29 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 En este tutorial se usan los siguientes servicios, herramientas y datos. 
 
-+ [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo. Asegúrese de que la cuenta de almacenamiento se encuentra en la misma región que Azure Search.
++ [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo. Asegúrese de que la cuenta de almacenamiento se encuentra en la misma región que Azure Cognitive Search.
 
 + Los [datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) están formados por un pequeño conjunto de archivos de tipos diferentes. 
 
 + [Instale Visual Studio](https://visualstudio.microsoft.com/) para usarlo como IDE.
 
-+ [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
++ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
 
 ## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
-Para interactuar con el servicio Azure Search, necesitará la dirección URL del servicio y una clave de acceso. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
+Para interactuar con el servicio Azure Cognitive Search, necesitará la dirección URL del servicio y una clave de acceso. Con ambos se crea un servicio de búsqueda, por lo que, si ha agregado Azure Cognitive Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
 
 1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
-   ![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+   ![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
 
 Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
 ## <a name="prepare-sample-data"></a>Preparación de datos de ejemplo
 
-La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los datos de origen deben proceder de un tipo de origen de datos compatible de un [indexador de Azure Search](search-indexer-overview.md). Para realizar este ejercicio, usaremos Blob Storage para mostrar varios tipos de contenido.
+La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los datos de origen deben proceder de un tipo de origen de datos compatible de un [indexador de Azure Cognitive Search](search-indexer-overview.md). Para realizar este ejercicio, usaremos Blob Storage para mostrar varios tipos de contenido.
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com), vaya a su cuenta de Azure Storage, haga clic en **Blobs** y, después, en **+Contenedor**.
 
@@ -91,7 +91,7 @@ Para comenzar, abra Visual Studio y cree un nuevo proyecto de Aplicación de con
 
 ### <a name="install-nuget-packages"></a>Instalación de paquetes NuGet
 
-El [SDK de .NET de Azure Search](https://aka.ms/search-sdk) consta de algunas bibliotecas de cliente que le permiten administrar los índices, los orígenes de datos, indexadores y los conjuntos de aptitudes, así como cargar y administrar documentos y ejecutar consultas. Todo ello sin tener que encargarse de los detalles de HTTP y JSON. Esas bibliotecas de cliente se distribuyen como paquetes de NuGet.
+El [SDK de .NET de Azure Cognitive Search](https://aka.ms/search-sdk) consta de algunas bibliotecas de cliente que le permiten administrar los índices, los orígenes de datos, los indexadores y los conjuntos de aptitudes, así como cargar y administrar documentos y ejecutar consultas. Todo ello sin tener que encargarse de los detalles de HTTP y JSON. Esas bibliotecas de cliente se distribuyen como paquetes de NuGet.
 
 Para este proyecto, deberá instalar la versión 9 del paquete NuGet `Microsoft.Azure.Search` y la versión más reciente del paquete NuGet `Microsoft.Extensions.Configuration.Json`.
 
@@ -99,9 +99,9 @@ Instale el paquete NuGet `Microsoft.Azure.Search` con la consola del Administrad
 
 Para instalar el paquete NuGet `Microsoft.Extensions.Configuration.Json` en Visual Studio, seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Administrar paquetes NuGet para la solución...** . Seleccione Examinar y busque el paquete NuGet `Microsoft.Extensions.Configuration.Json`. Una vez que lo encuentre, seleccione el paquete, seleccione el proyecto, confirme que la versión sea la versión estable más reciente y, luego, seleccione Instalar.
 
-## <a name="add-azure-search-service-information"></a>Agregar información del servicio Azure Search
+## <a name="add-azure-cognitive-search-service-information"></a>Agregar información del servicio Azure Cognitive Search
 
-Para poder conectarse al servicio Azure Search, deberá agregar la información del servicio de búsqueda a su proyecto. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione **Agregar** > **Nuevo elemento...** Asigne el nombre `appsettings.json` al archivo y seleccione **Agregar**. 
+Para poder conectarse al servicio Azure Cognitive Search, deberá agregar la información del servicio de búsqueda a su proyecto. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione **Agregar** > **Nuevo elemento...** Asigne el nombre `appsettings.json` al archivo y seleccione **Agregar**. 
 
 Este archivo deberá incluirse en el directorio de salida. Para ello, haga clic con el botón derecho en `appsettings.json` y seleccione **Propiedades**. Cambie el valor de **Copiar en el directorio de salida** a **Copy of newer** (Copia de más reciente).
 
@@ -179,7 +179,7 @@ DataSource dataSource = DataSource.AzureBlobStorage(
     description: "Demo files to demonstrate cognitive search capabilities.");
 ```
 
-Ahora que ha inicializado el objeto `DataSource`, cree el origen de datos. `SearchServiceClient` tiene una propiedad `DataSources`. Esta propiedad proporciona todos los métodos que necesita para crear, enumerar, actualizar o eliminar orígenes de datos de Azure Search.
+Ahora que ha inicializado el objeto `DataSource`, cree el origen de datos. `SearchServiceClient` tiene una propiedad `DataSources`. Esta propiedad proporciona todos los métodos que necesita para crear, enumerar, actualizar o eliminar orígenes de datos de Azure Cognitive Search.
 
 Para una solicitud correcta, el método devolverá el origen de datos que se creó. Si hay un problema con la solicitud, como un parámetro no válido, el método producirá una excepción.
 
@@ -194,13 +194,13 @@ catch (Exception e)
 }
 ```
 
-Puesto que se trata de su primera solicitud, consulte Azure Portal para confirmar el origen de datos se creó en Azure Search. En la página del panel del servicio de búsqueda, compruebe que el icono de Data Sources tiene un nuevo elemento. Debe esperar unos minutos a que la página del portal se actualice.
+Puesto que se trata de su primera solicitud, consulte Azure Portal para confirmar el origen de datos se creó en Azure Cognitive Search. En la página del panel del servicio de búsqueda, compruebe que el icono de Data Sources tiene un nuevo elemento. Debe esperar unos minutos a que la página del portal se actualice.
 
-  ![Icono de Data Sources del portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Icono de Data Sources del portal")
+  ![Icono de orígenes de datos en el portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Icono de orígenes de datos en el portal")
 
 ## <a name="create-a-skillset"></a>Creación de un conjunto de aptitudes
 
-En esta sección, definirá un conjunto de pasos de enriquecimiento que quiere aplicar en los datos. Cada paso de enriquecimiento se denomina una *aptitud*, y el conjunto de pasos de enriquecimiento, un *conjunto de aptitudes*. Este tutorial usa [aptitudes cognitivas predefinidas](cognitive-search-predefined-skills.md) para el conjunto de aptitudes:
+En esta sección, definirá un conjunto de pasos de enriquecimiento que quiere aplicar en los datos. Cada paso de enriquecimiento se denomina una *aptitud*, y el conjunto de pasos de enriquecimiento, un *conjunto de aptitudes*. Este tutorial usa un conjunto de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md):
 
 + [Reconocimiento óptico de caracteres](cognitive-search-skill-ocr.md) para reconocer texto escrito a mano e impreso en los archivos de imagen.
 
@@ -214,7 +214,7 @@ En esta sección, definirá un conjunto de pasos de enriquecimiento que quiere a
 
 + [Extracción de frases clave](cognitive-search-skill-keyphrases.md) para extraer las frases clave principales.
 
-Durante el procesamiento inicial, Azure Search descifra cada documento para leer el contenido de distintos formatos de archivo. El texto encontrado procedente del archivo de origen se coloca en un campo ```content``` generado, uno para cada documento. Por lo tanto, establezca la entrada en ```"/document/content"``` para usar este texto. 
+Durante el procesamiento inicial, Azure Cognitive Search descifra cada documento para leer el contenido de distintos formatos de archivo. El texto encontrado procedente del archivo de origen se coloca en un campo ```content``` generado, uno para cada documento. Por lo tanto, establezca la entrada en ```"/document/content"``` para usar este texto. 
 
 Las salidas se pueden asignar a un índice, usar como entrada para una aptitud descendente, o ambas cosas como sucede con el código de idioma. En el índice, un código de idioma es útil para el filtrado. Como entrada, el código de idioma se usa en las aptitudes de análisis de texto para informar a las reglas lingüísticas de la separación de palabras.
 
@@ -436,7 +436,7 @@ using Microsoft.Azure.Search.Models;
 Agregue la siguiente definición de la clase de modelo en `DemoIndex.cs` e inclúyala en el mismo espacio de nombres donde creará el índice.
 
 ```csharp
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
+// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Cognitive Search .NET SDK.
 // It ensures that Pascal-case property names in the model class are mapped to camel-case
 // field names in the index.
 [SerializePropertyNamesAsCamelCase]
@@ -490,7 +490,7 @@ catch (Exception e)
 }
 ```
 
-Para más información acerca de cómo definir un índice, consulte [Crear índice (API de REST de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Para más información acerca de cómo definir un índice, consulte [Creación de un índice (API REST de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>Creación de un indexador, asignación de campos y ejecución de transformaciones
 
@@ -612,7 +612,7 @@ Las advertencias son comunes con algunas combinaciones de aptitudes y archivos d
  
 ## <a name="query-your-index"></a>Consulta del índice
 
-Una vez finalizada la indexación, puede ejecutar consultas que devuelvan el contenido de los campos individuales. De forma predeterminada, Azure Search devuelve los primeros 50 resultados. Los datos de ejemplo tiene un tamaño reducido, por lo que la configuración predeterminada funciona bien. Sin embargo, si trabaja con conjuntos de datos más grandes, deberá incluir parámetros en la cadena de consulta para que se devuelvan más resultados. Para obtener instrucciones, consulte [Cómo paginar los resultados de la búsqueda en Azure Search](search-pagination-page-layout.md).
+Una vez finalizada la indexación, puede ejecutar consultas que devuelvan el contenido de los campos individuales. De forma predeterminada, Azure Cognitive Search devuelve los primeros 50 resultados. Los datos de ejemplo tiene un tamaño reducido, por lo que la configuración predeterminada funciona bien. Sin embargo, si trabaja con conjuntos de datos más grandes, deberá incluir parámetros en la cadena de consulta para que se devuelvan más resultados. Para instrucciones, consulte [Cómo paginar los resultados de la búsqueda en Azure Cognitive Search](search-pagination-page-layout.md).
 
 Como paso de verificación, consulte el índice para todos los campos.
 
@@ -671,7 +671,7 @@ Repita el proceso para otros campos: contenido, languageCode, keyPhrases y organ
 
 ## <a name="reset-and-rerun"></a>Restablecer y volver a ejecutar
 
-En las primeras etapas experimentales de desarrollo, el enfoque más práctico para las iteraciones del diseño es eliminar los objetos de Azure Search y permitir que el código vuelva a generarlos. Los nombres de los recursos son únicos. La eliminación de un objeto permite volver a crearlo con el mismo nombre.
+En las primeras etapas experimentales de desarrollo, el enfoque más práctico para las iteraciones del diseño es eliminar los objetos de Azure Cognitive Search y permitir que el código vuelva a generarlos. Los nombres de los recursos son únicos. La eliminación de un objeto permite volver a crearlo con el mismo nombre.
 
 En este tutorial se encargó de comprobar los indexadores e índices existentes y eliminarlos, si ya existían, para poder volver a ejecutar el código.
 
@@ -683,17 +683,17 @@ A medida que el código evoluciona, puede refinar una estrategia de regeneració
 
 En este tutorial se han mostrado los pasos básicos para la creación de una canalización de indexación enriquecida a través de la creación de componentes: un origen de datos, un conjunto de aptitudes, un índice y un indexador.
 
-Las [aptitudes predefinidas](cognitive-search-predefined-skills.md) se presentan, junto con la definición del conjunto de aptitudes y los mecanismos de encadenamiento de aptitudes, a través de entradas y salidas. También ha aprendido que `outputFieldMappings` en la definición del indexador se necesita para enrutar los valores enriquecidos de la canalización a un índice que permita búsquedas en un servicio Azure Search.
+Se presentaron las [aptitudes integradas](cognitive-search-predefined-skills.md), junto con la definición del conjunto de aptitudes y los mecanismos de encadenamiento de aptitudes, mediante entradas y salidas. También aprendió que `outputFieldMappings` en la definición del indexador es necesario para enrutar los valores enriquecidos de la canalización a un índice que permita búsquedas en un servicio Azure Cognitive Search.
 
 Por último, ha aprendido cómo probar los resultados y restablecer el sistema para otras iteraciones. Ha aprendido que emitir consultas en el índice devuelve la salida creada por la canalización de indexación enriquecida. También ha aprendido cómo comprobar el estado del indexador y qué objetos se deben eliminar antes de volver a ejecutar una canalización.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contiene el servicio Azure Search y el servicio Azure Blob. Si decide colocar ambos servicios en el mismo grupo, elimine el grupo de recursos para eliminar de manera permanente todo lo que contiene, incluyendo los servicios y cualquier contenido almacenado que haya creado para este tutorial. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio.
+La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contenga el servicio de Azure Cognitive Search y Azure Blob service. Si decide colocar ambos servicios en el mismo grupo, elimine el grupo de recursos para eliminar de manera permanente todo lo que contiene, incluyendo los servicios y cualquier contenido almacenado que haya creado para este tutorial. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Personalice o extienda la canalización con aptitudes personalizadas. Al crear una aptitud personalizada y agregarla a un conjunto de aptitudes, puede incorporar texto o análisis de imágenes que escriba usted mismo.
 
 > [!div class="nextstepaction"]
-> [Ejemplo: Creación de una aptitud de búsqueda cognitiva personalizada](cognitive-search-create-custom-skill-example.md)
+> [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento con inteligencia artificial](cognitive-search-create-custom-skill-example.md)

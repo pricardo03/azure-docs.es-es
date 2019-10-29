@@ -9,10 +9,10 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71326986"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutorial: Implementación del patrón de captura de Data Lake para actualizar una tabla de Databricks Delta
@@ -55,7 +55,7 @@ En primer lugar, cree un archivo CSV que describa un pedido de ventas y, a conti
 
 1. Abra el Explorador de Azure Storage. A continuación, vaya a la cuenta de almacenamiento y, en la sección **Contenedores de blobs**, cree un nuevo contenedor denominado **data**.
 
-   ![carpeta data](./media/data-lake-storage-events/data-container.png "data folder")
+   ![carpeta de datos](./media/data-lake-storage-events/data-container.png "carpeta de datos")
 
    Para más información sobre cómo usar el Explorador de Storage, consulte [Uso del Explorador de Azure Storage para administrar los datos de una cuenta de Azure Data Lake Storage Gen2](data-lake-storage-explorer.md).
 
@@ -88,7 +88,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
 1. En Azure Portal, seleccione **Crear un recurso** > **Análisis** > **Azure Databricks**.
 
-    ![Databricks en Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks en Azure Portal")
+    ![Databricks en Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks de Azure Portal")
 
 2. En **Azure Databricks Service**, proporcione los valores para crear un área de trabajo de Databricks.
 
@@ -106,7 +106,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
 3. En la página **Nuevo clúster**, proporcione los valores para crear un clúster.
 
-    ![Creación de un clúster de Databricks Spark en Azure](./media/data-lake-storage-events/create-databricks-spark-cluster.png "Creación de un clúster de Databricks Spark en Azure")
+    ![Creación de clústeres de Spark para Databricks en Azure](./media/data-lake-storage-events/create-databricks-spark-cluster.png "Creación de clústeres de Spark para Databricks en Azure")
 
     Acepte los demás valores predeterminados, salvo los siguientes:
 
@@ -121,11 +121,11 @@ Para obtener más información sobre la creación de clústeres, consulte [Creat
 
 1. En el panel izquierdo, seleccione **Workspace** (Área de trabajo). En la lista desplegable **Workspace** (Área de trabajo), seleccione **Create** > **Notebook** (Crear > Cuaderno).
 
-    ![Creación de notebooks en Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Creación de notebooks en Databricks")
+    ![Creación de un cuaderno en Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Creación de un cuaderno en Databricks")
 
 2. En el cuadro de diálogo **Create Notebook** (Crear cuaderno), escriba un nombre para el cuaderno. Seleccione **Python** como lenguaje y, a continuación, seleccione el clúster de Spark que creó anteriormente.
 
-    ![Creación de notebooks en Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Creación de notebooks en Databricks")
+    ![Creación de un cuaderno en Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Creación de un cuaderno en Databricks")
 
     Seleccione **Crear**.
 
@@ -243,7 +243,7 @@ Cree un trabajo que ejecute el cuaderno que creó anteriormente. Más adelante, 
 
 3. Asigne un nombre al trabajo y, a continuación, seleccione el libro `upsert-order-data`.
 
-   ![Creación de un trabajo](./media/data-lake-storage-events/create-spark-job.png "Create a job")
+   ![Creación de un trabajo](./media/data-lake-storage-events/create-spark-job.png "Creación de un trabajo")
 
 ## <a name="create-an-azure-function"></a>Creación de una Función de Azure
 
@@ -251,7 +251,7 @@ Cree una función de Azure que ejecute el trabajo.
 
 1. En la esquina superior del área de trabajo de Databricks, elija el icono de personas y, a continuación, seleccione **Configuración de usuario**.
 
-   ![Administrar cuenta](./media/data-lake-storage-events/generate-token.png "Configuración de usuario")
+   ![Administración de una cuenta](./media/data-lake-storage-events/generate-token.png "Configuración de usuario")
 
 2. Haga clic en el botón **Generar nuevo token** y, después, en el botón **Generar**.
 
@@ -259,19 +259,19 @@ Cree una función de Azure que ejecute el trabajo.
   
 3. Seleccione el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal y, después, **Proceso > Function App**.
 
-   ![Creación de una función de Azure](./media/data-lake-storage-events/function-app-create-flow.png "Create Azure function")
+   ![Creación de una función de Azure](./media/data-lake-storage-events/function-app-create-flow.png "Creación de una función de Azure")
 
 4. En la página **Crear** de la aplicación de funciones, asegúrese de seleccionar **.NET Core** para la pila en tiempo de ejecución y de configurar una instancia de Application Insights.
 
-   ![Configuración de la aplicación de funciones](./media/data-lake-storage-events/new-function-app.png "Configure the function app")
+   ![Configuración de la aplicación de funciones](./media/data-lake-storage-events/new-function-app.png "Configuración de la Function App")
 
 5. En la página **Información general** de la aplicación de funciones, haga clic en **Configuración**.
 
-   ![Configuración de la aplicación de funciones](./media/data-lake-storage-events/configure-function-app.png "Configure the function app")
+   ![Configuración de la aplicación de funciones](./media/data-lake-storage-events/configure-function-app.png "Configuración de la Function App")
 
 6. En la página **Configuración de la aplicación**, seleccione el botón **Nueva configuración de la aplicación** para agregar cada opción de configuración.
 
-   ![Adición de opciones de configuración](./media/data-lake-storage-events/add-application-setting.png "Add configuration setting")
+   ![Incorporación de opciones de configuración](./media/data-lake-storage-events/add-application-setting.png "Incorporación de opciones de configuración")
 
    Agregue la configuración siguiente:
 
@@ -282,7 +282,7 @@ Cree una función de Azure que ejecute el trabajo.
    |**DBX_JOB_ID**|El identificador del trabajo en ejecución. En este caso, este valor es `1`.|
 7. En la página de información general de la aplicación de funciones, haga clic en el botón **Nueva función**.
 
-   ![Nueva función](./media/data-lake-storage-events/new-function.png "New function")
+   ![Nueva función](./media/data-lake-storage-events/new-function.png "Nueva función")
 
 8. Seleccione **Azure Event Grid Trigger** (Desencadenador de Azure Event Grid).
 
@@ -344,11 +344,11 @@ En esta sección, creará una suscripción a Event Grid que llama a la función 
 
 1. En la página de código de la función, haga clic en el botón **Agregar suscripción a Event Grid**.
 
-   ![Nueva suscripción de eventos](./media/data-lake-storage-events/new-event-subscription.png "New event subscription")
+   ![Nueva suscripción de evento](./media/data-lake-storage-events/new-event-subscription.png "Nueva suscripción de evento")
 
 2. En la página **Crear suscripción de eventos**, asigne un nombre a la suscripción y, a continuación, use los campos de la página para seleccionar su cuenta de almacenamiento.
 
-   ![Nueva suscripción de eventos](./media/data-lake-storage-events/new-event-subscription-2.png "New event subscription")
+   ![Nueva suscripción de evento](./media/data-lake-storage-events/new-event-subscription-2.png "Nueva suscripción de evento")
 
 3. En la lista desplegable **Filtro para tipos de evento**, seleccione los eventos **Blob creado** y **Blob eliminado** y, a continuación, haga clic en el botón **Crear**.
 
@@ -369,11 +369,11 @@ En esta sección, creará una suscripción a Event Grid que llama a la función 
 
 4. Seleccione el trabajo para abrir la página del trabajo.
 
-   ![Trabajo de Spark](./media/data-lake-storage-events/spark-job.png "Spark job")
+   ![Trabajo de Spark](./media/data-lake-storage-events/spark-job.png "Trabajo de Spark")
 
    Cuando el trabajo se complete, verá un estado de finalización.
 
-   ![Trabajo completado correctamente](./media/data-lake-storage-events/spark-job-completed.png "Successfully completed job")
+   ![Trabajo completado correctamente](./media/data-lake-storage-events/spark-job-completed.png "Trabajo completado correctamente")
 
 5. En una nueva celda del libro, ejecute esta consulta para ver la tabla Delta actualizada.
 
@@ -383,7 +383,7 @@ En esta sección, creará una suscripción a Event Grid que llama a la función 
 
    La tabla devuelta muestra el registro más reciente.
 
-   ![Registro más reciente mostrado en la tabla](./media/data-lake-storage-events/final_query.png "Latest record appears in table")
+   ![El registro más reciente aparece en la tabla](./media/data-lake-storage-events/final_query.png "El registro más reciente aparece en la tabla")
 
 6. Para actualizar este registro, cree un archivo denominado `customer-order-update.csv`, pegue la siguiente información en ese archivo y guárdelo en el equipo local.
 
@@ -404,7 +404,7 @@ En esta sección, creará una suscripción a Event Grid que llama a la función 
 
    La tabla devuelta muestra el registro actualizado.
 
-   ![El registro actualizado aparece en la tabla](./media/data-lake-storage-events/final_query-2.png "Latest record appears in table")
+   ![El registro actualizado aparece en la tabla](./media/data-lake-storage-events/final_query-2.png "El registro actualizado aparece en la tabla")
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

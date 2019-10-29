@@ -4,7 +4,7 @@ description: Ofrece una introducción a Azure AD Privileged Identity Management 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -14,24 +14,24 @@ ms.date: 04/09/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5009310dd4ea4e99e1da2871085ee2d2d99a6eab
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 1ae9429920a4d3a6bac8830d6add2782276850d7
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804513"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595359"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) es un servicio que permite administrar, controlar y supervisar el acceso a recursos importantes dentro de la organización. Esto incluye el acceso a los recursos de Azure AD, de los recursos de Azure y de otros servicios de Microsoft Online Services, como Office 365 o Microsoft Intune.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) es un servicio que permite administrar, controlar y supervisar el acceso a recursos importantes dentro de la organización. Estos recursos incluyen los recursos de Azure AD, los recursos de Azure y los de otros servicios de Microsoft Online Services, como Office 365 o Microsoft Intune.
 
-## <a name="why-should-i-use-pim"></a>¿Por qué debo usar PIM?
+## <a name="reasons-to-use"></a>Motivos para su uso
 
-Las organizaciones buscan reducir el número de personas que tienen acceso a información segura o a recursos, ya que de esta manera se reduce la posibilidad de que personas malintencionadas obtengan acceso a ellos o de que algún usuario autorizado haga algo involuntariamente que pueda afectar a recursos sensibles. Sin embargo, los usuarios siguen teniendo la necesidad de llevar a cabo operaciones con privilegios en aplicaciones de Azure AD, Azure, Office 365 o SaaS. Las organizaciones pueden conceder a los usuarios privilegios de acceso Just-In-Time (JIT) a los recursos de Azure y a Azure AD. Es necesario supervisar lo que los usuarios hacen con los privilegios de administrador. PIM ayuda a mitigar el riesgo de derechos de acceso excesivos, innecesarios o mal utilizados.
+Las organizaciones buscan reducir el número de personas que tienen acceso a información segura o a recursos, ya que de esta manera se reduce la posibilidad de que personas malintencionadas obtengan acceso a ellos o de que algún usuario autorizado haga algo involuntariamente que pueda afectar a recursos sensibles. Sin embargo, los usuarios siguen teniendo la necesidad de llevar a cabo operaciones con privilegios en aplicaciones de Azure AD, Azure, Office 365 o SaaS. Las organizaciones pueden conceder a los usuarios privilegios de acceso Just-In-Time (JIT) a los recursos de Azure y a Azure AD. Es necesario supervisar lo que los usuarios hacen con los privilegios de administrador.
 
-## <a name="what-can-i-do-with-pim"></a>¿Qué puedo hacer con PIM?
+## <a name="what-does-it-do"></a>¿Para qué sirve?
 
-Básicamente, PIM ayuda a administrar quién accede a los recursos que le importan, y a saber a cuáles, dónde, cuándo y por qué. Estas son algunas de las principales características de PIM:
+Privileged Identity Management proporciona activación de rol basada en tiempo y en aprobación para mitigar los riesgos de tener unos permisos de acceso excesivos, innecesarios o mal utilizados en los recursos que le interesan. Estas son algunas de las características clave de Privileged Identity Management:
 
 - Conceda privilegios de acceso **Just-In-Time** a Azure AD y a los recursos de Azure
 - Asigne acceso **limitado** a los recursos con fechas de inicio y fin
@@ -42,9 +42,45 @@ Básicamente, PIM ayuda a administrar quién accede a los recursos que le import
 - Lleve a cabo **revisiones de acceso** para asegurarse de que los usuarios siguen necesitando roles
 - Descargue el **historial de auditoría** para la auditoría interna o externa
 
+## <a name="what-can-i-do-with-it"></a>¿Qué se puede hacer con Privileged Identity Management (PIM)?
+
+Una vez que se haya configurado Privileged Identity Management, verá las opciones **Tareas**, **Administrar**, y **Actividad** en el menú de navegación izquierdo. Como administrador, podrá elegir entre la administración de **Roles de Azure AD** y de **Roles de recursos de Azure**. Al elegir el tipo de roles que administrar, verá un conjunto similar de opciones para ese tipo de rol.
+
+![Captura de pantalla de Privileged Identity Management en Azure Portal](./media/pim-configure/pim-overview.png)
+
+## <a name="who-can-do-what"></a>¿Quién puede realizar cada tarea en PIM?
+
+Si es la primera persona que usa Privileged Identity Management en el directorio, se le asignarán automáticamente los roles de [Administrador de seguridad](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) y [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) del directorio.
+
+En el caso de los roles de Azure AD en Privileged Identity Management, los usuarios que estén en el rol Administrador de rol con privilegios son los únicos que pueden administrar asignaciones para los demás administradores. Puede [conceder acceso a otros administradores para administrar Privileged Identity Management](pim-how-to-give-access-to-pim.md). Los administradores globales, administradores de seguridad, lectores globales y lectores de seguridad pueden ver también las asignaciones de roles de Azure AD en Privileged Identity Management.
+
+En el caso de los roles de los recursos de Azure en Privileged Identity Management, los únicos que pueden administrar asignaciones para los demás administradores son los administradores de suscripciones, los propietarios de los recursos o los administradores de acceso de usuario de los recursos. De forma predeterminada, los usuarios que son administradores de roles con privilegios, administradores de seguridad o lectores de seguridad no tienen acceso para ver asignaciones a roles de recursos de Azure en Privileged Identity Management.
+
+## <a name="scenarios"></a>Escenarios
+
+Privileged Identity Management admite los siguientes escenarios:
+
+### <a name="privileged-role-administrator-permissions"></a>Permisos de administrador de roles con privilegios
+
+- Habilitar la aprobación de roles específicos
+- Especificar usuarios y grupos de aprobadores para la aprobación de solicitudes
+- Ver el historial de solicitudes y aprobaciones de todos los roles con privilegios
+
+### <a name="approver-permissions"></a>Permisos de aprobador
+
+- Ver aprobaciones o solicitudes pendientes
+- Aprobar o rechazar solicitudes de elevación de rol (de forma individual o masiva)
+- Proporcionar una justificación de la aprobación o el rechazo
+
+### <a name="eligible-role-user-permissions"></a>Permisos de usuario de rol válidos
+
+- Solicitar la activación de un rol que requiere aprobación
+- Ver el estado de la solicitud de activación
+- Completar la tarea en Azure AD si la activación se ha aprobado
+
 ## <a name="terminology"></a>Terminología
 
-Para conocer mejor PIM y su documentación, debe revisar los términos siguientes.
+Para conocer mejor Privileged Identity Management y su documentación, debe revisar los términos siguientes.
 
 | Término o concepto | Categoría de asignación de roles | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -60,50 +96,14 @@ Para conocer mejor PIM y su documentación, debe revisar los términos siguiente
 | acceso just-in-time (JIT) |  | Modelo en el que los usuarios reciben permisos temporales para realizar tareas con privilegios, lo que impide que usuarios malintencionados o sin autorización obtengan acceso después de que el permiso haya expirado. El acceso se concede solo cuando los usuarios lo necesitan. |
 | Principio de acceso con privilegios mínimos |  | Una práctica de seguridad recomendada en la que se proporcionan a todos los usuarios únicamente los privilegios mínimos necesarios para realizar las tareas que están autorizados a realizar. Esta práctica minimiza el número de administradores globales, ya que en su lugar utiliza roles de administrador específicos para determinados escenarios. |
 
-## <a name="what-does-pim-look-like"></a>¿Qué aspecto tiene PIM?
-
-Una vez PIM se haya configurado, verá las opciones **Tareas**, **Administrar**, y **Actividad** en el menú de navegación izquierdo. Como administrador, podrá elegir entre la administración de **Roles de Azure AD** y de **Roles de recursos de Azure**. Al elegir el tipo de roles que administrar, verá un conjunto similar de opciones para ese tipo de rol.
-
-![Captura de pantalla de PIM en Azure Portal](./media/pim-configure/pim-overview.png)
-
-## <a name="who-can-do-what-in-pim"></a>¿Quién puede realizar cada tarea en PIM?
-
-Si es la primera persona que usa PIM, se le asignarán automáticamente los roles de [Administrador de seguridad](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) y [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) del directorio.
-
-En el caso de los roles de Azure AD, los usuarios que estén en el rol Administrador de rol con privilegios son los únicos que pueden administrar asignaciones para los demás administradores de PIM. Puede [conceder acceso a otros administradores para administrar PIM](pim-how-to-give-access-to-pim.md). Los administradores globales, administradores de seguridad y lectores de seguridad pueden ver las asignaciones de roles de Azure AD en PIM.
-
-En el caso de los roles de los recursos de Azure, los únicos que pueden administrar asignaciones para los demás administradores de PIM son los administrador de suscripciones, los propietarios de los recursos o los administradores de acceso de usuario de los recursos. De forma predeterminada, los usuarios que son administradores de roles con privilegios, administradores de seguridad o lectores de seguridad no tienen acceso para ver asignaciones a roles de recursos de Azure en PIM.
-
-## <a name="scenarios"></a>Escenarios
-
-PIM admite los siguientes escenarios:
-
-**Como administrador de rol con privilegios, puede:**
-
-- Habilitar la aprobación de roles específicos
-- Especificar usuarios y grupos de aprobadores para la aprobación de solicitudes
-- Ver el historial de solicitudes y aprobaciones de todos los roles con privilegios
-
-**Como aprobador, puede:**
-
-- Ver aprobaciones o solicitudes pendientes
-- Aprobar o rechazar solicitudes de elevación de rol (de forma individual o masiva)
-- Proporcionar una justificación de la aprobación o el rechazo 
-
-**Como usuario de rol apto, puede:**
-
-- Solicitar la activación de un rol que requiere aprobación
-- Ver el estado de la solicitud de activación
-- Completar la tarea en Azure AD si la activación se ha aprobado
-
 ## <a name="license-requirements"></a>Requisitos de licencia
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Para información sobre las licencias para los usuarios, consulte [License requirements to use PIM](subscription-requirements.md) (Requisitos de licencia para usar PIM).
+Para más información sobre las licencias para usuarios, consulte [License requirements to use Privileged Identity Management](subscription-requirements.md) (Requisitos de licencia para usar Privileged Identity Management).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Requisitos de licencia para usar PIM](subscription-requirements.md)
+- [License requirements to use Privileged Identity Management](subscription-requirements.md) (Requisitos de licencia para usar Privileged Identity Management)
 - [Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-- [Implementación de PIM](pim-deployment-plan.md)
+- [Implementación de Privileged Identity Management](pim-deployment-plan.md)

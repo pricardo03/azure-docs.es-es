@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e1ae0501e2a558967b7d53229dc629e035c5e067
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676564"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597900"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
@@ -76,8 +76,8 @@ Su infraestructura necesita cumplir los siguientes requisitos para ser compatibl
 * Una instancia de Windows Server Active Directory sincronizada con Azure Active Directory. Para habilitar dicha instancia, use:
   * Azure AD Connect
   * Azure AD Domain Services
-  >[!NOTE]
-  >Windows Virtual Desktop solo admite usuarios de Azure AD Domain Services cuyo origen sea Azure Active Directory. En este momento no se admiten usuarios cuyo origen sea Windows Server AD.
+     >[!NOTE]
+     >Si usa Azure AD Domain Services, el origen de los usuarios debe ser Azure Active Directory. En este momento no se admite el uso de Azure AD Domain Services con usuarios cuyo origen sea Windows Server AD.
 * Una suscripción a Azure, que contenga una red virtual que conste de la instancia de Windows Server Active Directory o esté conectada a ella.
   
 Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cumplir estos requisitos:

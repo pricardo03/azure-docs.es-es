@@ -7,17 +7,16 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 05/06/2019
-ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 10/16/2019
+ms.openlocfilehash: 0071b0df2c2e173eced1722372f88b1de2708afa
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186732"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692295"
 ---
 >[!IMPORTANT]
 >Los recursos que creó pueden usarse como requisitos previos de otros tutoriales y artículos de procedimientos de Azure Machine Learning Service.
-
 
 ### <a name="delete-everything"></a>Eliminar todo el contenido
 
@@ -49,6 +48,6 @@ El destino de proceso que ha creado aquí se *escala automáticamente* a cero no
 
 ### <a name="delete-individual-assets"></a>Eliminación de recursos individuales
 
-En la interfaz visual donde creó el experimento, elimine recursos individuales; para ello, selecciónelos y, luego, haga clic en el botón **Eliminar**.
+En la interfaz visual donde creó el experimento, elimine recursos individuales; para ello, selecciónelos y, luego, haga clic en el botón **Eliminar**. Se puede anular el registro de los conjuntos de datos del área de trabajo seleccionando cada conjunto de datos y **Anular el registro**.
 
-![Eliminación de experimentos](./media/aml-ui-cleanup/delete-experiment.png)
+![Eliminación de recursos](./media/aml-ui-cleanup/delete-asset.png)

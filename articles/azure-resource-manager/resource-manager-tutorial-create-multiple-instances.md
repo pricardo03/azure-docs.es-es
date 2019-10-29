@@ -1,5 +1,5 @@
 ---
-title: Creación de varias instancias con Azure Resource Manager | Microsoft Docs
+title: 'Creación de varias instancias de recursos: Azure Resource Manager'
 description: Obtenga información sobre cómo crear una plantilla de Azure Resource Manager para crear varias instancias de recursos de Azure.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cf2559b280a1c43269c0cf45d77ee98dcd5ee5a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1233ff4695a1f715801d78d70ea80ab84be2a36
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388801"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528255"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager
 
@@ -64,7 +64,7 @@ En Visual Studio Code, haga estos cuatro cambios:
 ![Azure Resource Manager crea varias instancias](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. Agregue un elemento `copy` a la definición de recurso de la cuenta de almacenamiento. En el elemento de copia, especifique el número de iteraciones y una variable para este bucle. El valor de recuento debe ser un número entero positivo y no puede ser superior a 800.
-2. La función `copyIndex()` devuelve la iteración actual en el bucle. Utilice el índice como prefijo del nombre. `copyIndex()` es de base cero. Para desplazar el valor de índice, puede pasar un valor de la función copyIndex(). Por ejemplo, *copyIndex(1)*.
+2. La función `copyIndex()` devuelve la iteración actual en el bucle. Utilice el índice como prefijo del nombre. `copyIndex()` es de base cero. Para desplazar el valor de índice, puede pasar un valor de la función copyIndex(). Por ejemplo, *copyIndex(1)* .
 3. Elimine el elemento **variables**, porque no se volverá a usar.
 4. Elimine el elemento **outputs**. Ya no es necesario.
 

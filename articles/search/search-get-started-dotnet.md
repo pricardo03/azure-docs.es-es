@@ -1,23 +1,22 @@
 ---
-title: 'Inicio rápido: Creación de un índice de búsqueda en C# mediante el SDK de .NET (Azure Search)'
-description: Explica cómo crear un índice, cargar datos y ejecutar consultas mediante C# y el SDK de Azure Search para .NET.
-author: heidisteen
+title: 'Inicio rápido: Creación de un índice de búsqueda en C# mediante el SDK de .NET'
+titleSuffix: Azure Cognitive Search
+description: Se explica cómo crear un índice, cargar datos y ejecutar consultas mediante C# y el SDK de .NET de Azure Cognitive Search.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-tags: azure-portal
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: bda9c29fe3af0bd7d9a6ec61dd5fe40a8e9cc339
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 11/04/2019
+ms.openlocfilehash: cb52ebc4cfdb6f62e9e68bf007cadc20cd565fad
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881587"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792818"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>Inicio rápido: Creación de un índice de Azure Search en C# mediante el SDK para .NET
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en C# mediante el SDK de .NET
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
@@ -26,12 +25,12 @@ ms.locfileid: "70881587"
 > * [Postman](search-get-started-postman.md)
 >*
 
-Creación de una aplicación de consola de C# de .NET Core que crea, carga y consulta un índice de Azure Search mediante Visual Studio y el [SDK de Azure Search para .NET](https://aka.ms/search-sdk). En este artículo se explica cómo crear la aplicación paso a paso. Como alternativa, puede [descargar y ejecutar la aplicación completa](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart).
+Cree una aplicación de consola en C# de .NET Core que cree, cargue y consulte un índice de Azure Cognitive Search mediante Visual Studio y el [SDK de .NET de Azure Cognitive Search](https://aka.ms/search-sdk). En este artículo se explica cómo crear la aplicación paso a paso. Como alternativa, puede [descargar y ejecutar la aplicación completa](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 > [!NOTE]
-> El código de demostración de este artículo usa los métodos sincrónicos del SDK de Azure Search para .NET para simplificar. De todas formas, para escenarios de producción en sus propias aplicaciones, se recomienda que use métodos asincrónicos para mantener su escalabilidad y capacidad de respuesta. Por ejemplo, podría utilizar `CreateAsync` y `DeleteAsync` en lugar de `Create` y `Delete`.
+> En aras de la simplicidad, el código de demostración de este artículo usa los métodos sincrónicos del SDK de .NET de Azure Cognitive Search. De todas formas, para escenarios de producción en sus propias aplicaciones, se recomienda que use métodos asincrónicos para mantener su escalabilidad y capacidad de respuesta. Por ejemplo, podría utilizar `CreateAsync` y `DeleteAsync` en lugar de `Create` y `Delete`.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,13 +38,13 @@ Para este inicio rápido, se requieren los siguientes servicios y herramientas.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), cualquier edición. Se han probado código de ejemplo e instrucciones en la edición Community Edition gratuita.
 
-+ [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
++ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
 
 <a name="get-service-info"></a>
 
 ## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
-Las llamadas al servicio requieren un punto de conexión de URL y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
+Las llamadas al servicio requieren un punto de conexión de URL y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que, si ha agregado Azure Cognitive Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
 
@@ -53,7 +52,7 @@ Las llamadas al servicio requieren un punto de conexión de URL y una clave de a
 
    Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
 
-![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -63,7 +62,7 @@ Para comenzar, abra Visual Studio y cree un nuevo proyecto de Aplicación de con
 
 ### <a name="install-nuget-packages"></a>Instalación de paquetes NuGet
 
-El [SDK de Azure Search para .NET](https://aka.ms/search-sdk) consta de varias bibliotecas de cliente que se distribuyen como paquetes de NuGet.
+El [SDK de .NET de Azure Cognitive Search](https://aka.ms/search-sdk) consta de varias bibliotecas cliente que se distribuyen como paquetes de NuGet.
 
 Para este proyecto, utilice la versión 9 del `Microsoft.Azure.Search`paquete NuGet y la versión más reciente del `Microsoft.Extensions.Configuration.Json` paquete NuGet.
 
@@ -78,7 +77,7 @@ Para este proyecto, utilice la versión 9 del `Microsoft.Azure.Search`paquete Nu
 1. Repita el proceso para `Microsoft.Extensions.Configuration.Json`, seleccione la versión 2.2.0 o posterior.
 
 
-### <a name="add-azure-search-service-information"></a>Agregar información del servicio Azure Search
+### <a name="add-azure-cognitive-search-service-information"></a>Incorporación de información del servicio Azure Cognitive Search
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y seleccione **Agregar** > **Nuevo elemento...** 
 
@@ -204,7 +203,7 @@ El índice de hoteles se compone de campos sencillos y complejos, donde un campo
 
 1. En Program.cs, cree una instancia de la clase [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) para conectarse al servicio, con los valores que están almacenados en el archivo de configuración de la aplicación (appsettings.json). 
 
-   `SearchServiceClient` tiene una propiedad [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) que proporciona todos los métodos que necesita para crear, enumerar, actualizar o eliminar los índices de Azure Search. 
+   `SearchServiceClient` tiene una propiedad [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet), lo que proporciona todos los métodos necesarios para crear, enumerar, actualizar o eliminar índices de Azure Cognitive Search. 
 
     ```csharp
     using System;
@@ -302,9 +301,9 @@ El índice de hoteles se compone de campos sencillos y complejos, donde un campo
 
 ## <a name="2---load-documents"></a>2 - Carga de documentos
 
-En Azure Search, los documentos son estructuras de datos que son tanto entradas para la indexación como salidas de las consultas. Tal como se obtienen del origen de datos externo, las entradas de documento pueden ser las filas de una base de datos, los blobs en Blob Storage o documentos JSON en el disco. En este ejemplo vamos a atajar e insertaremos los documentos JSON para cuatro hoteles en el propio código. 
+En Azure Cognitive Search, los documentos son estructuras de datos que se pueden usar como entradas para la indexación y como salidas de las consultas. Tal como se obtienen del origen de datos externo, las entradas de documento pueden ser las filas de una base de datos, los blobs en Blob Storage o documentos JSON en el disco. En este ejemplo vamos a atajar e insertaremos los documentos JSON para cuatro hoteles en el propio código. 
 
-Al cargar documentos, tiene que usar un objeto [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet). `IndexBatch` contiene una colección de objetos [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet), cada uno de los cuales contiene un documento y una propiedad que indica a Azure Search qué acción debe realizar ([carga, combinación, eliminación y mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
+Al cargar documentos, tiene que usar un objeto [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet). `IndexBatch` contiene una colección de objetos [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet), cada uno de los cuales contiene un documento y una propiedad que indica a Azure Cognitive Search la acción que debe realizar ([carga, combinación, eliminación y mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
 1. En Program.cs, cree una matriz de documentos y las acciones de índice y, a continuación, pase la matriz a `IndexBatch`. Los siguientes documentos se ajustan al índice hotel-quickstart, tal como se define mediante las clases de hotel y dirección.
 

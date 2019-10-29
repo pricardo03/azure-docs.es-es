@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 5f22c9e7b7f040a0e6b957cbc184720918ce9222
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: c55de6b437755f46df8d95a8ee461c0671a52cff
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274145"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791541"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Guía de inicio rápido: Ejecución de un trabajo de Spark en Azure Databricks con una plantilla de Azure Resource Manager
 
@@ -31,7 +31,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 > [!Note]
 > Este tutorial no puede llevarse a cabo mediante una **suscripción de evaluación gratuita de Azure**.
-> Si tiene una cuenta gratuita, vaya a su perfil y cambiar la suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/). Después, [quite el límite de gasto](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center) y [solicite un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para las vCPU de su región. Cuando crea su área de trabajo de Azure Databricks, puede seleccionar el plan de tarifa de la **Trial (Premium - 14-Days Free DBUs)** para que el área de trabajo acceda a las DBU Premium de Azure Databricks gratis durante 14 días.
+> Si tiene una cuenta gratuita, vaya a su perfil y cambiar la suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/). Después, [quite el límite de gasto](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) y [solicite un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para las vCPU de su región. Cuando crea su área de trabajo de Azure Databricks, puede seleccionar el plan de tarifa de la **Trial (Premium - 14-Days Free DBUs)** para que el área de trabajo acceda a las DBU Premium de Azure Databricks gratis durante 14 días.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creación de un área de trabajo de Azure Databricks
 
@@ -43,7 +43,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante una p
 
 2. Proporcione los valores necesarios para crear el área de trabajo de Azure Databricks.
 
-   ![Crear área de trabajo de Azure Databricks mediante una plantilla de Azure Resource Manager](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-workspace-using-resource-manager-template.png "Create Azure Databricks workspace using an Azure Resource Manager template")
+   ![Creación de un área de trabajo de Azure Databricks con una plantilla de Azure Resource Manager](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-workspace-using-resource-manager-template.png "Creación de un área de trabajo de Azure Databricks con una plantilla de Azure Resource Manager")
 
    Proporcione los valores siguientes:
 
@@ -59,7 +59,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante una p
 
 4. Se tarda unos minutos en crear el área de trabajo. Durante la creación del área de trabajo, el portal muestra el icono **Enviando implementación para Azure Databricks** a la derecha. Puede que deba desplazarse a la derecha del panel para ver el icono. También hay una barra de progreso que se muestra en la parte superior de la pantalla. Puede ver cualquier área para el progreso.
 
-   ![Icono de implementación de Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Databricks deployment tile")
+   ![Icono de implementación de Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Icono de implementación de Databricks")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Creación de un clúster de Spark en Databricks
 
@@ -71,7 +71,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante una p
 
 3. En la página **Nuevo clúster**, proporcione los valores para crear un clúster.
 
-   ![Creación de un clúster de Databricks Spark en Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "Creación de un clúster de Databricks Spark en Azure")
+   ![Creación de clústeres de Spark para Databricks en Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "Creación de clústeres de Spark para Databricks en Azure")
 
    Acepte los demás valores predeterminados, salvo los siguientes:
 
@@ -95,11 +95,11 @@ Realice las tareas siguientes para crear un cuaderno en Databricks, configúrelo
 
 1. En el panel izquierdo, haga clic en **Área de trabajo**. Desde la lista desplegable **Área de trabajo**, haga clic en **Crear** y, a continuación, haga clic en **Notebook**.
 
-   ![Creación de notebooks en Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Creación de notebooks en Databricks")
+   ![Creación de un cuaderno en Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Creación de un cuaderno en Databricks")
 
 2. En el cuadro de diálogo **Creación de notebook**, escriba un nombre, seleccione **Scala** como lenguaje y seleccione el clúster de Spark que creó anteriormente.
 
-   ![Creación de notebooks en Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Creación de notebooks en Databricks")
+   ![Creación de un cuaderno en Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Creación de un cuaderno en Databricks")
 
    Haga clic en **Create**(Crear).
 
@@ -159,7 +159,7 @@ Realice las tareas siguientes para crear un cuaderno en Databricks, configúrelo
 
 7. Ahora cree una representación visual de estos datos para mostrar para cada género, cuántos usuarios tienen cuentas gratis y cuántas son de suscriptores pagados. En la parte inferior de la salida tabular, haga clic en el icono **Gráfico de barras** y, a continuación, haga clic en **Opciones de trazado**.
 
-   ![Creación del gráfico de barras](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "Creación del gráfico de barras")
+   ![Creación de un gráfico de barras](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "Creación de un gráfico de barras")
 
 8. En **Personalizar trazado**, arrastre y coloque los valores como se muestra en la captura de pantalla.
 
@@ -180,7 +180,7 @@ Realice las tareas siguientes para crear un cuaderno en Databricks, configúrelo
 
 Cuando haya terminado el artículo, puede finalizar el clúster. Para ello, desde el área de trabajo de Azure Databricks, en el panel izquierdo, seleccione **Clusters** (Clústeres). En el clúster que desea finalizar, mueva el cursor sobre el botón de puntos suspensivos en la columna **Actions** (Acciones) y seleccione el icono **Terminate** (Finalizar).
 
-![Detener un clúster de Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Stop a Databricks cluster")
+![Detención de un clúster de Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Detención de un clúster de Databricks")
 
 Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de \_\_ minutos de inactividad) al crear el clúster. En tal caso, el clúster se detiene automáticamente si ha estado inactivo durante el tiempo especificado.
 

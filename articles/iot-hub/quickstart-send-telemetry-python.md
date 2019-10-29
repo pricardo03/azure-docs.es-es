@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/28/2019
-ms.openlocfilehash: 0e4cafee26d9d3345d9099c3c9fc048fb982ada5
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 10/17/2019
+ms.openlocfilehash: a5ccf2d45d2c699f1f2261884f09f8cefe92b615
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166409"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598199"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (Python)
 
@@ -24,8 +24,6 @@ ms.locfileid: "72166409"
 IoT Hub es un servicio de Azure que le permite ingerir grandes volúmenes de datos de telemetría desde los dispositivos IoT en la nube para su almacenamiento o procesamiento. En este inicio rápido, enviará datos de telemetría desde una aplicación de dispositivo simulado, por IoT Hub, a una aplicación back-end para su procesamiento.
 
 En este inicio rápido se usa una aplicación Python escrita previamente para enviar los datos de telemetría y una utilidad CLI para leer los datos de telemetría procedentes del centro. Antes de ejecutar estas dos aplicaciones, creará un centro de IoT Hub y registrará un dispositivo con el centro.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -38,6 +36,8 @@ az extension add --name azure-cli-iot-ext
 ```
 
 Descargue el proyecto de muestra de Python desde https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip y extraiga el archivo ZIP.
+
+Instale la versión 3.5.3 de Python en la máquina de desarrollo. 
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 

@@ -1,23 +1,24 @@
 ---
-title: 'Visualización de un almacén de conocimiento con el Explorador de Storage: Azure Search'
-description: Visualice y analice un almacén de conocimiento de Azure Search con el Explorador de Storage de Azure Portal.
+title: Visualización de un almacén de conocimiento con el Explorador de Storage
+titleSuffix: Azure Cognitive Search
+description: Visualice y analice un almacén de conocimiento de Azure Cognitive Search con el Explorador de Storage de Azure Portal.
+manager: nitinme
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 9ec93bcd2309bb47b24983260c35726ac24b5e95
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265613"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789974"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visualización de un almacén de conocimiento con el Explorador de Storage
 
 > [!Note]
-> El almacén de conocimiento se encuentra en versión preliminar y no debe usarse en producción. Esta característica se proporciona en la [API REST de Azure Search, versión 2019-05-06-Preview](search-api-preview.md). Por el momento, no hay compatibilidad con .NET SDK.
+> El almacén de conocimiento se encuentra en versión preliminar y no debe usarse en producción. Esta característica se proporciona en la [API REST de Azure Cognitive Search versión 2019-05-06-Preview](search-api-preview.md). Por el momento, no hay compatibilidad con .NET SDK.
 >
 En este artículo, aprenderá a conectar y explorar un almacén de conocimiento con el Explorador de Storage en Azure Portal. Para crear el ejemplo de almacén de conocimiento que se usa en este tutorial, consulte [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md).
 
@@ -37,15 +38,15 @@ En este artículo, aprenderá a conectar y explorar un almacén de conocimiento 
 
 Seleccione una tabla para ver los datos enriquecidos, incluidas las puntuaciones de opinión de las frases clave, los datos de latitud y longitud de la ubicación, etc.
 
-   ![Ver tablas en el Explorador de Storage](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Ver tablas en el Explorador de Storage")
+   ![Visualización de tablas en el Explorador de Storage](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Visualización de tablas en el Explorador de Storage")
 
 Para cambiar el tipo de datos de cualquier valor de tabla o para cambiar los valores individuales de la tabla, haga clic en **Editar**. Al cambiar el tipo de datos de una columna de una fila de la tabla, se aplicará a todas las filas.
 
-   ![Editar tabla en el Explorador de Storage](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Editar tabla en el Explorador de Storage")
+   ![Edición de tablas en el Explorador de Storage](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Edición de tablas en el Explorador de Storage")
 
 Para ejecutar consultas, haga clic en **Consultar** en la barra de comandos y escriba las condiciones.  
 
-   ![Consultar tabla en el Explorador de Storage](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Consultar tabla en el Explorador de Storage")
+   ![Consulta de tablas en el Explorador de Storage](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Consulta de tablas en el Explorador de Storage")
 
 ## <a name="clean-up"></a>Limpieza
 

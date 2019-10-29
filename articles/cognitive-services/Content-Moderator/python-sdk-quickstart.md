@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: pafarley
-ms.openlocfilehash: f3b9a7aefc5fc347c4d5114575388914ea8d6fee
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 62407467e3c63b1752ee6816325f097ad9a1f09e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698533"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755252"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Content Moderator para Python
 
@@ -42,9 +42,9 @@ Use la biblioteca cliente de Content Moderator para Python para:
 Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Content Moderator con [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede:
 
 * Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Ver este recurso en [Azure Portal](https://portal.azure.com/)
+* Ver este recurso en [Azure Portal](https://portal.azure.com/).
 
-Después de obtener una clave de la suscripción de evaluación o el recurso, [cree una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para ella denominada `CONTENT_MODERATOR_SUBSCRIPTION_KEY`.
+Después de obtener una clave de la suscripción de evaluación o el recurso, [cree una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave y la dirección URL del punto de conexión, denominadas `CONTENT_MODERATOR_SUBSCRIPTION_KEY` y `CONTENT_MODERATOR_ENDPOINT`, respectivamente.
  
 ### <a name="create-a-python-script"></a>Crear un script de Python
 
@@ -52,12 +52,12 @@ Cree un script de Python y ábralo en el editor o el IDE que prefiera. Luego, ag
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imports)]
 
-Después, cree variables para la ubicación de Azure del recurso y la clave como una variable de entorno. 
+Después, cree variables para la ubicación del punto de conexión del recurso y claves como variables de entorno. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_vars)]
 
 > [!NOTE]
-> Si ha creado la variable de entorno después de haber iniciado la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que lo ejecuta para acceder a la variable.
+> Si ha creado las variables de entorno después de haber iniciado la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que lo ejecuta para acceder a ellas.
 
 ### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
 
@@ -92,7 +92,7 @@ En estos fragmentos de código se muestra cómo realizar las siguientes tareas c
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
 > [!NOTE]
-> En este inicio rápido se da por supuesto que ha [creado una variable de entorno](../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para la clave de Content Moderator, denominada `CONTENT_MODERATOR_SUBSCRIPTION_KEY`.
+> En este inicio rápido se da por supuesto que ha [creado variables de entorno](../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para la clave y el punto de conexión de Content Moderator.
 
 Cree una instancia de un cliente con la clave y el punto de conexión. Cree un objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) con la clave y úselo con el punto de conexión para crear un objeto [ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python).
 
@@ -355,4 +355,4 @@ En este inicio rápido, ha aprendido a usar la biblioteca de Python para Content
 >[Conceptos de moderación de imágenes](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
 * [¿Qué es Azure Content Moderator?](./overview.md)
-* El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision).
+* El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py).

@@ -1,30 +1,29 @@
 ---
-title: 'Tutorial de REST: Indexación de datos semiestructurados en blobs JSON: Azure Search'
-description: Aprenda a indexar y realizar búsquedas en blobs JSON de Azure semiestructurados mediante las API REST de Azure Search y Postman.
-author: HeidiSteen
+title: 'Tutorial de REST: Indexación de datos semiestructurados en blobs JSON'
+titleSuffix: Azure Cognitive Search
+description: Aprenda a indexar y realizar búsquedas en blobs JSON de Azure semiestructurados mediante las API REST de Azure Cognitive Search y Postman.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: cb9c97efd62a56ad0eac49956f11fb422a448194
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 569289a2d750f96423bd03ac82cb9e33f893ee15
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647852"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794286"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutorial de REST: Indexación y búsqueda de datos semiestructurados (blobs JSON) en Azure Search
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>Tutorial de REST: Indexación y búsqueda de datos semiestructurados (blobs JSON) en Azure Cognitive Search
 
-Azure Search puede indexar documentos y matrices JSON en Azure Blob Storage mediante un [indexador](search-indexer-overview.md) que sabe cómo leer datos semiestructurados. Los datos semiestructurados contienen etiquetas o marcas que separan el contenido dentro de los datos. Dividen la diferencia entre datos no estructurados, que se deben indexar completamente, y datos estructurados formalmente que se ajustan a un modelo de datos, como un esquema de base de datos relacional, que se pueden indexar por campo.
+Azure Cognitive Search puede indexar documentos y matrices JSON en Azure Blob Storage mediante un [indexador](search-indexer-overview.md) que sabe cómo leer datos semiestructurados. Los datos semiestructurados contienen etiquetas o marcas que separan el contenido dentro de los datos. Dividen la diferencia entre datos no estructurados, que se deben indexar completamente, y datos estructurados formalmente que se ajustan a un modelo de datos, como un esquema de base de datos relacional, que se pueden indexar por campo.
 
-En este tutorial, usará las [API REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/) y un cliente REST para realizar las siguientes tareas:
+En este tutorial, usará las [API REST de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/) y un cliente REST para realizar las siguientes tareas:
 
 > [!div class="checklist"]
-> * Configurar un origen de datos de Azure Search para un contenedor de blobs de Azure.
-> * Crear un índice de Azure Search que contenga el contenido que permite búsquedas
+> * Configurar un origen de datos de Azure Cognitive Search para un contenedor de blobs de Azure
+> * Crear un índice de Azure Cognitive Search que contenga el contenido que permite búsquedas
 > * Configurar y ejecutar un indexador para leer el contenedor y extraer contenido que permite búsquedas de Azure Blob Storage
 > * Buscar el índice que acaba de crear.
 
@@ -32,23 +31,23 @@ En este tutorial, usará las [API REST de Azure Search](https://docs.microsoft.c
 
 En este inicio rápido se usan los siguientes servicios, herramientas y datos. 
 
-[Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial. 
+[Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial. 
 
 [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo.
 
-La [aplicación de escritorio Postman](https://www.getpostman.com/) se usa para enviar solicitudes a Azure Search.
+[Aplicación de escritorio Postman](https://www.getpostman.com/) para enviar solicitudes a Azure Cognitive Search.
 
 [Clínical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contiene los datos que se usan en este tutorial. Descargue y descomprima este archivo en su propia carpeta. Los datos proceden de [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), convertido a JSON para los fines de este tutorial.
 
 ## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
-Las llamadas de REST requieren la dirección URL del servicio y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
+Las llamadas de REST requieren la dirección URL del servicio y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que, si ha agregado Azure Cognitive Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
 
 1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
-![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -60,17 +59,17 @@ Todas las solicitudes requieren una clave de API en cada solicitud enviada al se
 
 1. Una vez creado el contenedor, ábralo y seleccione **Cargar** en la barra de comandos.
 
-   ![Cargar en la barra de comandos](media/search-semi-structured-data/upload-command-bar.png "Upload on command bar")
+   ![Carga en la barra de comandos](media/search-semi-structured-data/upload-command-bar.png "Carga en la barra de comandos")
 
 1. Vaya a la carpeta que contiene los archivos de ejemplo. Selecciónelos todos ellos y haga clic en **Cargar**.
 
-   ![Cargar archivos](media/search-semi-structured-data/clinicalupload.png "Upload files")
+   ![Carga de archivos](media/search-semi-structured-data/clinicalupload.png "Carga de archivos")
 
 Una vez finalizada la carga, los archivos deberían aparecer en su propia subcarpeta dentro del contenedor de datos.
 
 ## <a name="set-up-postman"></a>Configuración de Postman
 
-Inicie Postman y configure una solicitud HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API REST de Azure Search mediante Postman](search-get-started-postman.md).
+Inicie Postman y configure una solicitud HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API REST de Azure Cognitive Search mediante Postman](search-get-started-postman.md).
 
 El método de solicitud de todas las llamadas del tutorial es **POST**. Las claves de encabezado son "Content-type" y "api-key". Los valores de las claves de encabezado son, respectivamente, "application/json" y su "clave de administrador" (la clave de administrador es un marcador de posición para su clave principal de búsqueda). El cuerpo es donde se coloca el contenido real de la llamada. En función del cliente que esté usando, puede haber algunas variaciones en cómo se crea la consulta, pero estos son los conceptos básicos.
 
@@ -84,7 +83,7 @@ Ejecute las siguientes tres llamadas API desde el cliente de REST.
 
 ## <a name="create-a-data-source"></a>Creación de un origen de datos
 
-[Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un objeto de Azure Search que especifica qué datos se indexan.
+La [API Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un objeto de Azure Cognitive Search que especifica qué datos se indexan.
 
 El punto de conexión de esta llamada es `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Reemplace `[service name]` por el nombre del servicio de búsqueda. 
 
@@ -127,7 +126,7 @@ La respuesta debería tener este aspecto:
 
 ## <a name="create-an-index"></a>Creación de un índice
     
-La segunda llamada es [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-indexer), que crea un índice de Azure Search que almacena todos los datos en los que se pueden realizar búsquedas. Un índice especifica todos los parámetros y sus atributos.
+La segunda llamada es a la [API Create Index](https://docs.microsoft.com/rest/api/searchservice/create-indexer), que crea un índice de Azure Cognitive Search que almacena todos los datos en los que se pueden realizar búsquedas. Un índice especifica todos los parámetros y sus atributos.
 
 La dirección URL de esta llamada es `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Reemplace `[service name]` por el nombre del servicio de búsqueda.
 
@@ -286,11 +285,11 @@ El parámetro `$filter` solo funciona con los metadatos que se marcaron como fil
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contiene el servicio Azure Search. Para eliminar de forma definitiva todo lo que contenga el grupo de recursos, elimine el grupo. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio Azure Search.
+La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contenga el servicio Azure Cognitive Search. Para eliminar de forma definitiva todo lo que contenga el grupo de recursos, elimine el grupo. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio Azure Cognitive Search.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Hay varios enfoques y varias opciones para la indexación de blobs JSON. Como paso siguiente, revise y pruebe las diversas opciones para ver qué funciona mejor en su escenario.
 
 > [!div class="nextstepaction"]
-> [Indexación de blobs JSON con el indexador de blobs de Azure Search](search-howto-index-json-blobs.md)
+> [Indexación de blobs JSON con el indexador de blobs de Azure Cognitive Search](search-howto-index-json-blobs.md)

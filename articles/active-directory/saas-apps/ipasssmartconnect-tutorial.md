@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con iPass SmartConnect | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con iPass SmartConnect | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e iPass SmartConnect.
 services: active-directory
 documentationCenter: na
@@ -13,252 +13,157 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9417d7b957d69dc802ecb2f9f78723eb7aba08ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 15a84504efc39b901120c6584634950809f0c306
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099848"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790979"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Tutorial: integración de Azure Active Directory con iPass SmartConnect
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ipass-smartconnect"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con iPass SmartConnect
 
-En este tutorial, obtendrá información sobre cómo integrar iPass SmartConnect con Azure Active Directory (Azure AD).
-La integración de iPass SmartConnect con Azure AD le proporciona las siguientes ventajas:
+En este tutorial aprenderá a integrar iPass SmartConnect con Azure Active Directory (Azure AD). Al integrar iPass SmartConnect con Azure AD, puede hacer lo siguiente:
 
-* Puede controlar en Azure AD quién tiene acceso a iPass SmartConnect.
-* Puede permitir que los usuarios inicien sesión automáticamente en iPass SmartConnect (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a iPass SmartConnect.
+* Permitir que los usuarios inicien sesión automáticamente en iPass SmartConnect con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con iPass SmartConnect, necesita los siguientes elementos:
+Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción que permita el inicio de sesión único en iPass SmartConnect
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción que permita el inicio de sesión único (SSO) en iPass SmartConnect.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * iPass SmartConnect admite SSO iniciado por **SP e IDP**
 * iPass SmartConnect admite el aprovisionamiento de usuarios **Just-In-Time**
+
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
 ## <a name="adding-ipass-smartconnect-from-the-gallery"></a>Agregar iPass SmartConnect desde la galería
 
 Para configurar la integración de iPass SmartConnect en Azure AD, será preciso que agregue iPass SmartConnect desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar iPass SmartConnect desde la galería, realice los pasos siguientes:**
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **iPass SmartConnect** en el cuadro de búsqueda.
+1. Seleccione **iPass SmartConnect** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-ipass-smartconnect"></a>Configuración y prueba del inicio de sesión único de Azure AD para iPass SmartConnect
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+Configure y pruebe el inicio de sesión único de Azure AD con iPass SmartConnect mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de iPass SmartConnect.
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+Para configurar y probar el inicio de sesión único de Azure AD con iPass SmartConnect, es preciso completar los siguientes bloques de creación:
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único en iPass SmartConnect](#configure-ipass-smartconnect-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
+    * **[Creación de un usuario de prueba en iPass SmartConnect](#create-ipass-smartconnect-test-user)** : para tener un homólogo de B. Simon en iPass SmartConnect vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-4. En el cuadro de búsqueda, escriba **iPass SmartConnect**, seleccione **iPass SmartConnect** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **iPass SmartConnect**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
-     ![iPass SmartConnect en la lista de resultados](common/search-new-app.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, no es necesario realizar ningún paso porque la aplicación ya está integrada previamente con Azure.
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con iPass SmartConnect con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de iPass SmartConnect.
-
-Para configurar y probar el inicio de sesión único de Azure AD con iPass SmartConnect, es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de iPass SmartConnect](#configure-ipass-smartconnect-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de iPass SmartConnect](#create-ipass-smartconnect-test-user)** : para tener un homólogo de Britta Simon en iPass SmartConnect que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con iPass SmartConnect, siga estos pasos:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **iPass SmartConnect**, seleccione **Inicio de sesión único**.
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
-
-4. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
-
-    ![Información de dominio y direcciones URL de inicio de sesión único de iPass SmartConnect](common/preintegrated.png)
-
-5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
-
-    ![Información de dominio y direcciones URL de inicio de sesión único de iPass SmartConnect](common/metadata-upload-additional-signon.png)
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://om-activation.ipass.com/ClientActivation/ssolanding.go`
 
-6. La aplicación iPass SmartConnect espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
+1. Haga clic en **Save**(Guardar).
 
-    ![imagen](common/edit-attribute.png)
+1. La aplicación iPass SmartConnect espera las aserciones de SAML en un formato específico, lo cual requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-7. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, edite las notificaciones mediante el **icono Editar** o agregue notificaciones mediante **Agregar nueva notificación** para configurar el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
+    ![imagen](common/default-attributes.png)
+
+1. Además de lo anterior, la aplicación iPass SmartConnect espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
     | NOMBRE |  Atributo de origen|
     | ---------------| ----------|
     | firstName | user.givenname |
     | lastName | user.surname |
     | email | user.userprincipalname |
-    | nombre de usuario | user.userprincipalname |
-    | | |
+    | username | user.userprincipalname |
 
-    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
-
-    ![imagen](common/new-save-attribute.png)
-
-    ![imagen](common/new-attribute-details.png)
-
-    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
-
-    c. Deje **Espacio de nombres** en blanco.
-
-    d. Seleccione **Atributo** como origen.
-
-    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
-
-    f. Haga clic en **Aceptar**.
-
-    g. Haga clic en **Save**(Guardar).
-
-8. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-9. En la sección **Set up iPass SmartConnect,** (Configurar iPass SmartConnect), copie las direcciones URL adecuadas en función de sus requisitos.
+1. En la sección **Set up iPass SmartConnect** (Configurar iPass SmartConnect), copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-    b. Identificador de Azure AD
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-    c. URL de cierre de sesión
-
-### <a name="configure-ipass-smartconnect-single-sign-on"></a>Configuración del inicio de sesión único en iPass SmartConnect
-
-Para configurar el inicio de sesión único en **iPass SmartConnect**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de iPass SmartConnect](mailto:help@ipass.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
-
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
-
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
-    Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Create**(Crear).
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Create**(Crear).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá acceso a Britta Simon a iPass SmartConnect para que use el inicio de sesión único de Azure.
+En esta sección va a permitir que B.Simon acceda a iPass SmartConnect mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** e **iPass SmartConnect**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **iPass SmartConnect**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-2. En la lista de aplicaciones, seleccione **iPass SmartConnect**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
-    ![El vínculo de iPass SmartConnect en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+## <a name="configure-ipass-smartconnect-sso"></a>Configuración del inicio de sesión único en iPass SmartConnect
 
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+Para configurar el inicio de sesión único en **iPass SmartConnect**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de iPass SmartConnect](mailto:help@ipass.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-ipass-smartconnect-test-user"></a>Creación de un usuario de prueba en iPass SmartConnect
 
-En esta sección, creará la usuaria llamada Britta Simon en iPass SmartConnect. Colabore con el  [equipo de soporte técnico de iPass SmartConnect](mailto:help@ipass.com)  para agregar los usuarios o el dominio que deben incluirse en la lista de permitidos en la plataforma de iPass SmartConnect. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de iPass SmartConnect. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará la usuaria llamada Britta Simon en iPass SmartConnect. Colabore con el [equipo de soporte técnico de iPass SmartConnect](mailto:help@ipass.com) para agregar los usuarios o el dominio que deben incluirse en la lista de permitidos en la plataforma de iPass SmartConnect. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de iPass SmartConnect. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-**Para probar la aplicación en el flujo iniciado por SP, realice los pasos siguientes:**
-
-a. Descargue el cliente iPass SmartConnect para Windows [aquí](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
-
-![El vínculo de iPass SmartConnect en la lista de aplicaciones](./media/ipasssmartconnect-tutorial/testing3.png)
-
-b. Instale el cliente e inícielo.
-
-c. Para continuar, haga clic en **Introducción**.
-
-![El vínculo de iPass SmartConnect en la lista de aplicaciones](./media/ipasssmartconnect-tutorial/testing1.png) 
-
-d. Escriba el nombre de usuario de Azure con el dominio. Haga clic en **Continuar**. Se le redirigirá a la página de inicio de sesión de Azure.
-
-![El vínculo de iPass SmartConnect en la lista de aplicaciones](./media/ipasssmartconnect-tutorial/testing2.png) 
-
-e. Tras la autenticación correcta, se iniciará la activación del cliente. Se activará el cliente.
-
-**Para probar la aplicación en el flujo iniciado por IdP, realice los pasos siguientes:**
-
-a. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com).
-
-b. Haga clic en la aplicación iPass SmartConnect.
-
-c. Inicia la página de SSA, haga clic en **Download App for Windows** (Descargar la aplicación para Windows) para instalar el cliente de iPass SmartConnect.
-
-![El vínculo de iPass SmartConnect en la lista de aplicaciones](./media/ipasssmartconnect-tutorial/testing4.png)
-
-d. Después de la instalación, el cliente en el primer inicio iniciará la activación automáticamente después de aceptar los términos y condiciones.
-
-e. Si no se inicia la activación, haga clic en el botón Activar en la página de SSA para iniciar la activación.
-
-f. Se activará el cliente.
+Al hacer clic en el icono de iPass SmartConnect en el panel de acceso, debería iniciar sesión automáticamente en la versión de iPass SmartConnect para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Pruebe iPass SmartConnect con Azure AD](https://aad.portal.azure.com/)
+

@@ -1,23 +1,24 @@
 ---
-title: 'Conexión a un almacén de conocimiento con Power BI: Azure Search'
-description: Conecte un almacén de conocimiento de Azure Search con Power BI para análisis y exploración.
+title: Conexión a un almacén de conocimiento con Power BI
+titleSuffix: Azure Cognitive Search
+description: Conecte un almacén de conocimiento de Azure Cognitive Search con Power BI para su análisis y exploración.
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
+manager: nitinme
 ms.author: v-lilei
-ms.openlocfilehash: de282213535a2e49f73bc30e476bae02d470fdb2
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 7852eda849dfb05343829875ba5a66fa47970e7e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265666"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790067"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conexión a un almacén de conocimiento con Power BI
 
 > [!Note]
-> El almacén de conocimiento se encuentra en versión preliminar y no debe usarse en producción. Esta característica se proporciona en la [API REST de Azure Search, versión 2019-05-06-Preview](search-api-preview.md). Por el momento, no hay compatibilidad con .NET SDK.
+> El almacén de conocimiento se encuentra en versión preliminar y no debe usarse en producción. Esta característica se proporciona en la [API REST de Azure Cognitive Search versión 2019-05-06-Preview](search-api-preview.md). Por el momento, no hay compatibilidad con .NET SDK.
 >
 En este artículo, aprenderá a conectar y explorar un almacén de conocimiento con Power Query en la aplicación Power BI Desktop. Para crear el ejemplo de almacén de conocimiento que se usa en este tutorial, consulte [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md).
 
@@ -39,17 +40,17 @@ En este artículo, aprenderá a conectar y explorar un almacén de conocimiento 
 
 1. Si se le solicita, escriba la clave de la cuenta de almacenamiento.
 
-1. Seleccione las tablas *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases* y *hotelReviewsSsPages*. Estas tablas son proyecciones de tabla de Azure de los datos de ejemplo de reseñas de hoteles e incluyen enriquecimientos de servicios cognitivos que se seleccionaron cuando se creó el almacén de conocimiento.
+1. Seleccione las tablas *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases* y *hotelReviewsSsPages*. Estas tablas son proyecciones de tabla de Azure de los datos de ejemplo de reseñas de hoteles e incluyen los enriquecimientos de inteligencia artificial que se seleccionaron cuando se creó el almacén de conocimiento.
 
 1. Haga clic en **Cargar**.
 
 1. En la cinta de opciones superior, haga clic en **Editar consultas** para abrir el **Editor de Power Query**.
 
-   ![Abrir Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Open Power Query")
+   ![Abrir Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Abrir Power Query")
 
 1. Seleccione *hotelReviewsSsDocument* y quite las columnas *PartitionKey*, *RowKey* y *Timestamp*. 
 
-   ![Editar tablas](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Edit tables")
+   ![Editar tablas](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Editar tablas")
 
 1. Haga clic en el icono con flechas opuestas en el lado superior derecho de la tabla para expandir el *contenido*. Cuando aparezca la lista de columnas, seleccione todas las columnas y, a continuación, anule la selección de las columnas que comienzan por "metadata". Haga clic en **Aceptar** para mostrar las columnas seleccionadas.
 
@@ -60,7 +61,7 @@ En este artículo, aprenderá a conectar y explorar un almacén de conocimiento 
    + Para *content.latitude* y *Content.longitude*, seleccione **Número decimal**.
    + En *Content.reviews_date* y *Content.reviews_dateAdded*, seleccione **Fecha y hora**.
 
-   ![Cambio de tipos de datos](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Change data types")
+   ![Cambiar tipos de datos](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Cambiar tipos de datos")
 
 1. Seleccione *hotelReviewsSsPages* y repita los pasos 9 y 10 para eliminar las columnas y expandir el *contenido*.
 1. Cambie el tipo de datos de *Content.SentimentScore* a **Número decimal**.
@@ -70,7 +71,7 @@ En este artículo, aprenderá a conectar y explorar un almacén de conocimiento 
 
 1. Haga clic en el icono Modelo en el panel de navegación izquierdo y compruebe que Power BI muestra relaciones entre las tres tablas.
 
-   ![Validar relaciones](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Validate relationships")
+   ![Validar relaciones](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Validar relaciones")
 
 1. Haga doble clic en cada relación y asegúrese de que la **dirección de filtro cruzado** está establecida en **Ambas**.  Esto permite que los objetos visuales se actualicen cuando se aplica un filtro.
 
@@ -87,7 +88,7 @@ Create new containers in Azure Blob storage and upload each CSV file to its own 
 | Medium (6000 Records)| [HotelReviews_Medium.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Medium.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)
 | Large (Full dataset 35000 Records) | [HotelReviews_Large.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Large.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Be aware that very large data sets are expensive to process. This one costs roughly $1000 U.S dollars.|
 
-In the enrichment step of the wizard, attach a billable [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) resource, created at the *S0* tier, in the same region as Azure Search to use larger data sets. 
+In the enrichment step of the wizard, attach a billable [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) resource, created at the *S0* tier, in the same region as Azure Cognitive Search to use larger data sets. 
 
   ![Create a Cognitive Services resource](media/knowledge-store-connect-power-bi/create-cognitive-service.png "Create a Cognitive Services resource") -->
 

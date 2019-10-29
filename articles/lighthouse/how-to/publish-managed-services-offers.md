@@ -4,15 +4,15 @@ description: Aprenda a publicar una oferta de servicio administrada que incorpor
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/19/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: c358c728f7fe008ee8d9138cd081932524e7eaf9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 10105d06e48a727e71ea5cb03f2ffceb589df50a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300291"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595274"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicación de una oferta de servicios administrados en Azure Marketplace
 
@@ -132,7 +132,7 @@ Cuando esté satisfecho con toda la información que ha proporcionado, el siguie
 
 ## <a name="the-customer-onboarding-process"></a>Proceso de incorporación del cliente
 
-Cuando un cliente agregue su oferta, podrá [delegar uno o varios grupos de recursos o suscripciones específicos](view-manage-service-providers.md#delegate-resources) que se incorporarán para la administración de recursos delegada de Azure. Si un cliente ha aceptado una oferta pero aún no ha delegado los recursos, verá una nota en la parte superior de la sección **Ofertas de proveedor** de la página [**Service providers**](view-manage-service-providers.md) (Proveedores de servicio) en Azure Portal.
+Cuando un cliente agregue su oferta, podrá [delegar uno o varios grupos de recursos o suscripciones específicos](view-manage-service-providers.md#delegate-resources) que se incorporarán para la administración de recursos delegada de Azure. Si un cliente ha aceptado una oferta pero aún no ha delegado los recursos, verá una nota en la parte superior de la sección **Ofertas de proveedor** de la página [**Service providers**](view-manage-service-providers.md) (Proveedores de servicio) en Azure Portal. Si un usuario del inquilino del cliente no puede realizar esta delegación, es probable que se deba a que no tiene el rol Propietario en la suscripción. Para buscar usuarios que puedan delegar la suscripción, el usuario puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
 Para que se pueda incorporar una suscripción (o grupos de recursos dentro de una suscripción), la suscripción debe autorizarse para la incorporación; para ello, el proveedor de recursos **Microsoft.ManagedServices** se debe registrar manualmente. Un usuario del inquilino del cliente con el rol de colaborador o de propietario puede hacer esto si sigue los pasos descritos en [Proveedores y tipos de recursos de Azure](../../azure-resource-manager/resource-manager-supported-services.md).
 

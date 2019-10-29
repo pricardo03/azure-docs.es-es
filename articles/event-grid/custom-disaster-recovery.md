@@ -1,18 +1,18 @@
 ---
-title: Creación de una recuperación ante desastres propia para temas personalizados en Azure Event Grid | Microsoft Docs
-description: Sobreviva a interrupciones regionales para mantener conectado Azure Event Grid.
+title: Recuperación ante desastres en temas personalizados de Azure Event Grid
+description: Sepa cómo sobrevivir a interrupciones regionales para mantener conectado Azure Event Grid.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7020fb167539e8ad16cc6c386f58e38326dec43b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305072"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790272"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creación de una recuperación ante desastres propia para temas personalizados en Event Grid
 La recuperación ante desastres se ocupa de recuperarse tras una pérdida grave de funcionalidad de la aplicación. Este tutorial le guía por los pasos para configurar la arquitectura de eventos para recuperación en caso de que el servicio Event Grid deje de funcionar correctamente en una región determinada.

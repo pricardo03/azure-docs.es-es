@@ -3,15 +3,64 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/20/2019
-ms.openlocfilehash: e64363c39675305c94557515e54db53c722c6a5f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 10/08/2019
+ms.openlocfilehash: a7ae6cb1231e4c202dfd0a39602c03b33099d088
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639337"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554692"
 ---
-Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Anomaly Detector mediante [Azure Portal](../articles/cognitive-services/cognitive-services-apis-create-account.md) o la [CLI de Azure](../articles/cognitive-services/cognitive-services-apis-create-account-cli.md) en la máquina local. También puede:
+Comience a usar el servicio Anomaly Detector mediante la creación de uno de los recursos de Azure que se indican a continuación.
 
-* Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) válida durante siete días de forma gratuita. Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Ver este recurso en [Azure Portal](https://portal.azure.com/).
+* Un [recurso de prueba](https://azure.microsoft.com/try/cognitive-services/#decision) (no se necesita ninguna suscripción de Azure): 
+    * Válido durante siete días de forma gratuita. Después de suscribirse, tendrá una clave de prueba y un punto de conexión disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
+    * Esta es una buena opción si desea probar Anomaly Detector, pero no tiene una suscripción de Azure.
+
+* Un [recurso de Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
+    * Disponible en [Azure Portal](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) hasta que lo elimine.
+    * Use el plan de tarifa gratuito para probar el servicio y actualícelo más adelante a un nivel de pago para producción.
+
+### <a name="create-an-environment-variable"></a>Creación de una variable de entorno
+
+>[!NOTE]
+> Los puntos de conexión de los recursos creados que no son de prueba usan desde el 1 de julio de 2019 el formato de subdominio personalizado que se muestra a continuación. Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) 
+
+Con la clave y el punto de conexión del recurso que ha creado, cree dos variables de entorno para la autenticación:
+
+* `ANOMALY_DETECTOR_KEY`: la clave de recurso para autenticar las solicitudes.
+* `ANOMALY_DETECTOR_ENDPOINT`: el punto de conexión del recurso para enviar solicitudes de API. Tendrá el siguiente aspecto: 
+  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+
+Siga las instrucciones adecuadas para su sistema operativo.
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx ANOMALY_DETECTOR_KEY your-anomaly-detector-key
+setx ANOMALY_DETECTOR_ENDPOINT your-anomaly-detector-endpoint
+```
+
+Después de agregar la variable de entorno, reinicie la ventana de la consola.
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
+export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+```
+
+Después de agregar la variable de entorno, ejecute `source ~/.bashrc` desde la ventana de consola para que los cambios surtan efecto.
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+Edite `.bash_profile` y agregue la variable de entorno:
+
+```bash
+export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
+export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+```
+
+Después de agregar la variable de entorno, ejecute `source .bash_profile` desde la ventana de consola para que los cambios surtan efecto.
+
+***

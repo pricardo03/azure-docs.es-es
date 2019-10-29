@@ -17,10 +17,10 @@ ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68943289"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integración de Azure Active Directory con Zscaler Beta
@@ -177,7 +177,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Beta, reali
 
 5. En la ventana **Editar SAML**, siga estos pasos: 
             
-    ![Administración de usuarios y autenticación](./media/zscaler-beta-tutorial/ic800208.png "Administración de usuarios y autenticación")
+    ![Administración de usuarios y autenticación](./media/zscaler-beta-tutorial/ic800208.png "Manage Users & Authentication")
     
     a. En el cuadro **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que copió de Azure Portal.
 
@@ -214,13 +214,13 @@ Para definir la configuración de proxy en Internet Explorer, siga estos pasos.
 
 3. Seleccione la pestaña **Conexiones**. 
   
-     ![Pestaña conexiones](./media/zscaler-beta-tutorial/ic769493.png "Conexiones")
+     ![Pestaña Conexiones](./media/zscaler-beta-tutorial/ic769493.png "Conexiones")
 
 4. Seleccione **Configuración de LAN** para abrir el cuadro de diálogo **Configuración de red de área local (LAN)** .
 
 5. En la sección **Servidor proxy**, siga estos pasos: 
    
-    ![Sección Servidor proxy](./media/zscaler-beta-tutorial/ic769494.png "Servidor proxy")
+    ![Sección del servidor proxy](./media/zscaler-beta-tutorial/ic769494.png "Servidor proxy")
 
     a. Seleccione la casilla de verificación **Usar un servidor proxy para la LAN**.
 

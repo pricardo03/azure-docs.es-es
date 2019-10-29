@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 10/18/2019
 ms.author: spelluru
-ms.openlocfilehash: e2831191905da1b9e0ad55131be9eaa7aa13950e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 842392ab425628a1c82a39e25a65066064747211
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894367"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675736"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: Seguimiento del uso de un laboratorio en Azure Lab Services
 Este tutorial muestra cómo un creador o propietario de un laboratorio puede realizar un seguimiento de su uso.
@@ -49,18 +49,11 @@ En este tutorial realizará lo siguiente:
     ![Uso de máquinas virtuales](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Administración de máquinas virtuales de estudiantes 
-Cuando mantenga el mouse sobre una fila en la lista de máquinas virtuales, verá los controles para realizar las siguientes tareas (como se muestra en la imagen de la sección anterior): 
-
-- Conexión a una máquina virtual
-- Inicio de una máquina virtual
-- Detención de una máquina virtual
-- Eliminación de una máquina virtual
-
+En esta página, puede iniciar, detener o restablecer las máquinas virtuales de los alumnos mediante la lista desplegable de la columna **Estado** o los botones de la barra de herramientas. 
 
 ![Controles de máquinas virtuales](../media/tutorial-track-usage/vm-controls.png)
 
 También puede usar los botones de barra de herramientas para iniciar, detener o eliminar una máquina virtual. 
-
 
 
 ## <a name="next-steps"></a>Pasos siguientes

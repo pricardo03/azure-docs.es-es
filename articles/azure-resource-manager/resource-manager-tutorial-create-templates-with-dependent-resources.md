@@ -1,5 +1,5 @@
 ---
-title: Creación de plantillas de Azure Resource Manager con recursos dependientes | Microsoft Docs
+title: Plantillas de Azure Resource Manager con recursos dependientes
 description: Aprenda a crear una plantilla de Azure Resource Manager con varios recursos y a implementarla mediante Azure Portal.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 486a13db9cf18cb44a063d37dde4a657f6dc625c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0eb4b29ffb8ae0269dbc7efd7e9ef6b720188bce
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103678"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533509"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes
 

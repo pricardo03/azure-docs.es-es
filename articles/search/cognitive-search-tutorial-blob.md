@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial de REST: Creación de una canalización de enriquecimiento de inteligencia artificial mediante la búsqueda cognitiva: Azure Search'
-description: Recorra un ejemplo de extracción de texto y de procesamiento de lenguaje natural sobre el contenido de blobs JSON mediante Postman y las API REST de Azure Search.
+title: 'Tutorial de REST: Creación de una canalización de enriquecimiento de inteligencia artificial para extraer texto y estructura de blobs JSON'
+titleSuffix: Azure Cognitive Search
+description: Recorra un ejemplo de extracción de texto y de procesamiento de lenguaje natural por el contenido de blobs JSON mediante Postman y las API REST de Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 08/23/2019
 ms.author: luisca
-ms.openlocfilehash: 6f7c5e2955c57e0e1891593504e5eec1a06bbb04
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265366"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790191"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>Tutorial: Adición de una estructura a "contenido no estructurado" con la búsqueda cognitiva
+# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>Tutorial: Adición de una estructura a "contenido no estructurado" con enriquecimiento de inteligencia artificial
 
-Si tiene contenido de imagen o texto no estructurado, la característica de [ búsqueda cognitiva](cognitive-search-concept-intro.md) de Azure Search puede ayudarle a extraer información y crear contenido útil para escenarios de búsqueda de texto completo o de minería de conocimiento. Aunque la búsqueda cognitiva puede procesar archivos de imagen (JPG, PNG y TIFF), este tutorial se centra en contenido basado en palabras y se aplica la detección de idioma y el análisis de texto para crear campos e información que puede aprovechar en consultas, aspectos y filtros.
+Si tiene contenido de imagen o texto no estructurado, una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) puede ayudarle a extraer información y crear contenido útil para escenarios de búsqueda de texto completo o minería de conocimiento. Aunque una canalización puede procesar archivos de imagen (JPG, PNG y TIFF), este tutorial se centra en el contenido basado en palabras y se aplica la detección de idioma y el análisis de texto para crear campos e información que puede aprovechar en consultas, facetas y filtros.
 
 > [!div class="checklist"]
 > * Comience con documentos completos (texto no estructurado) como PDF, MD, DOCX y PPTX en Azure Blob Storage.
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.m
 
 ## <a name="1---create-services"></a>1: Creación de servicios
 
-En este tutorial se usa Azure Search para los índices y las consultas, Cognitive Services para el enriquecimiento de la inteligencia artificial y Azure Blob Storage para proporcionar los datos. Si es posible, cree los tres servicios en la misma región y grupo de recursos por proximidad y capacidad de administración. En la práctica, la cuenta de Azure Storage puede estar en cualquier región.
+En este tutorial se usa Azure Cognitive Search en la indexación y las consultas, Cognitive Services en el enriquecimiento de inteligencia artificial y Azure Blob Storage en la provisión de datos. Si es posible, cree los tres servicios en la misma región y grupo de recursos por proximidad y capacidad de administración. En la práctica, la cuenta de Azure Storage puede estar en cualquier región.
 
 ### <a name="start-with-azure-storage"></a>Comienzo con Azure Storage
 
@@ -46,7 +46,7 @@ En este tutorial se usa Azure Search para los índices y las consultas, Cognitiv
 
 1. Busque *cuenta de almacenamiento* y seleccione la oferta de Cuenta de almacenamiento de Microsoft.
 
-   ![Crear cuenta de almacenamiento](media/cognitive-search-tutorial-blob/storage-account.png "Create Storage account")
+   ![Creación de una cuenta de almacenamiento](media/cognitive-search-tutorial-blob/storage-account.png "Crear cuenta de almacenamiento")
 
 1. En la pestaña Datos básicos, se necesitan los siguientes elementos. Acepte los valores predeterminados para todo lo demás.
 
@@ -54,7 +54,7 @@ En este tutorial se usa Azure Search para los índices y las consultas, Cognitiv
 
    + **Nombre de cuenta de almacenamiento**. Si cree que puede tener varios recursos del mismo tipo, use el nombre para diferenciarlos por tipo y región, por ejemplo *blobstoragewestus*. 
 
-   + **Ubicación**. Si es posible, elija la misma ubicación que se usa para Azure Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
+   + **Ubicación**. Si es posible, elija la misma ubicación que se usa para Azure Cognitive Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
 
    + **Tipo de cuenta**. Elija el valor predeterminado, *StorageV2 (uso general v2)* .
 
@@ -68,9 +68,9 @@ En este tutorial se usa Azure Search para los índices y las consultas, Cognitiv
 
 1. Seleccione *cog-search-demo* y haga clic en **Cargar** para abrir la carpeta en la que guardó los archivos de descarga. Seleccione todos los archivos que no sean de imagen. Debería tener 7 archivos. Haga clic en **Aceptar** para empezar a cargar.
 
-   ![Cargar archivos de ejemplo](media/cognitive-search-tutorial-blob/sample-files.png "Upload sample files")
+   ![Carga de archivos de ejemplo](media/cognitive-search-tutorial-blob/sample-files.png "Carga de archivos de ejemplo")
 
-1. Antes de salir de Azure Storage, obtenga una cadena de conexión para poder formular una conexión en Azure Search. 
+1. Antes de salir de Azure Storage, obtenga una cadena de conexión para poder formular una conexión en Azure Cognitive Search. 
 
    1. Vuelva a la página de información general de la cuenta de almacenamiento (hemos usado *blobstragewestus* como ejemplo). 
    
@@ -86,17 +86,17 @@ En este tutorial se usa Azure Search para los índices y las consultas, Cognitiv
 
 ### <a name="cognitive-services"></a>Cognitive Services
 
-El enriquecimiento de la inteligencia artificial en la búsqueda cognitiva está respaldado por Cognitive Services, lo que incluye Text Analytics y Computer Vision para el procesamiento de imágenes y del lenguaje natural. Si su objetivo era completar un prototipo o proyecto reales, en este momento aprovisionaría Cognitive Services (en la misma región que Azure Search) para poder conectarlo a las operaciones de indexación.
+El enriquecimiento de inteligencia artificial está respaldado por Cognitive Services, lo que incluye Text Analytics y Computer Vision para el procesamiento de imágenes y del lenguaje natural. Si su objetivo fuera trabajar con un prototipo o un proyecto reales, en este punto aprovisionaría Cognitive Services (en la misma región que Azure Cognitive Search) para poder conectarlo con las operaciones de indexación.
 
-Sin embargo, para este ejercicio puede omitir el aprovisionamiento de recursos, porque Azure Search puede conectarse a Cognitive Services en segundo plano y darle veinte transacciones gratuitas por cada ejecución del indexador. Como en este tutorial se usan 7 transacciones, la asignación gratuita es suficiente. En el caso de proyectos mayores, planee aprovisionamiento de Cognitive Services en el nivel S0 de pago por uso. Para más información, consulte [Asociación de Cognitive Services](cognitive-search-attach-cognitive-services.md).
+Sin embargo, en este ejercicio puede omitir el aprovisionamiento de recursos, porque Azure Cognitive Search puede conectarse a Cognitive Services en segundo plano y proporcionarle 20 transacciones gratuitas por cada ejecución del indexador. Como en este tutorial se usan 7 transacciones, la asignación gratuita es suficiente. En el caso de proyectos mayores, planee aprovisionamiento de Cognitive Services en el nivel S0 de pago por uso. Para más información, consulte [Asociación de Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
-### <a name="azure-search"></a>Azure Search
+### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
-El tercer componente es Azure Search, que se puede [crear en el portal](search-create-service-portal.md). Puede usar el nivel Gratis para completar este tutorial. 
+El tercer componente es Azure Cognitive Search, que se puede [crear en el portal](search-create-service-portal.md). Puede usar el nivel Gratis para completar este tutorial. 
 
 Al igual que con Azure Blob Storage dedique un momento a recopilar la clave de acceso. Además, cuando empiece a estructurar las solicitudes, deberá proporcionar el punto de conexión y la clave de la API de administración que se usan para autenticar cada solicitud.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-search"></a>Obtención de una clave de API de administración y una dirección URL para Azure Search
+### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtención de una clave de API de administración y una dirección URL para Azure Cognitive Search
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y, en la página **Información general** del servicio de búsqueda, obtenga el nombre del servicio de búsqueda. Para confirmar el nombre del servicio, revise la dirección URL del punto de conexión. Si la dirección URL del punto de conexión fuera `https://mydemo.search.windows.net`, el nombre del servicio sería `mydemo`.
 
@@ -110,17 +110,17 @@ Todas las solicitudes enviadas al servicio necesitan una clave de API en el enca
 
 ## <a name="2---set-up-postman"></a>2: Configuración de Postman
 
-Inicie Postman y configure una solicitud HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API REST de Azure Search mediante Postman](search-get-started-postman.md).
+Inicie Postman y configure una solicitud HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API REST de Azure Cognitive Search mediante Postman](search-get-started-postman.md).
 
 Los métodos de solicitud usados en este tutorial son **POST**, **PUT** y **GET**. Usaremos los métodos siguientes para realizar cuatro llamadas API al servicio de búsqueda: crear un origen de datos, un conjunto de aptitudes, un índice y un indexador.
 
-En Encabezados, establezca "Content-Type" en `application/json` y establezca `api-key` en la clave de API de administración de su servicio de Azure Search. Una vez que establezca los encabezados, puede usarlos para todas las solicitudes de este ejercicio.
+En Headers (Encabezados), establezca "Content-Type" en `application/json` y establezca `api-key` en la clave de API de administración de su servicio Azure Cognitive Search. Una vez que establezca los encabezados, puede usarlos para todas las solicitudes de este ejercicio.
 
-  ![URL y encabezado de solicitud Postman](media/search-get-started-postman/postman-url.png "Postman request URL and header")
+  ![Encabezado y dirección URL de solicitud de Postman](media/search-get-started-postman/postman-url.png "Encabezado y dirección URL de solicitud de Postman")
 
 ## <a name="3---create-the-pipeline"></a>3: Creación de la canalización
 
-En Azure Search, el procesamiento de la inteligencia artificial se produce durante la indexación (o la ingesta de datos). En esta parte del tutorial se crean cuatro objetos: origen de datos, definición de índice, conjunto de aptitudes, indexador. 
+En Azure Cognitive Search, el procesamiento de la inteligencia artificial se produce durante la indexación (o la ingesta de datos). En esta parte del tutorial se crean cuatro objetos: origen de datos, definición de índice, conjunto de aptitudes, indexador. 
 
 ### <a name="step-1-create-a-data-source"></a>Paso 1: Creación de un origen de datos
 
@@ -171,7 +171,7 @@ Un [objeto conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchserv
    | [División de texto](cognitive-search-skill-textsplit.md)  | Divide el contenido de gran tamaño en fragmentos más pequeños antes de llamar a la aptitud de extracción de frases clave. La extracción de frases clave acepta entradas de 50 000 caracteres o menos. Algunos de los archivos de ejemplo deben dividirse para no superar este límite. |
    | [Extracción de frases clave](cognitive-search-skill-keyphrases.md) | Extrae las principales frases clave. |
 
-   Cada aptitud se ejecuta en el contenido del documento. Durante el procesamiento, Azure Search extrae cada documento para leer el contenido de diferentes formatos de archivo. El texto encontrado procedente del archivo de origen se coloca en un campo ```content``` generado, uno para cada documento. Como tal, la entrada pasa a ser ```"/document/content"```.
+   Cada aptitud se ejecuta en el contenido del documento. Durante el procesamiento, Azure Cognitive Search extrae cada documento para leer el contenido de diferentes formatos de archivo. El texto encontrado procedente del archivo de origen se coloca en un campo ```content``` generado, uno para cada documento. Como tal, la entrada pasa a ser ```"/document/content"```.
 
    Para la extracción de las frases clave, al usar el separador de texto para dividir los archivos grandes en páginas, el contenido de la aptitud de la extracción de frases clave es ```"document/pages/*"``` (para cada página del documento) en lugar de ```"/document/content"```.
 
@@ -230,7 +230,7 @@ Un [objeto conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchserv
     ```
     A continuación se muestra una representación gráfica del conjunto de aptitudes. 
 
-    ![Comprender un conjunto de aptitudes](media/cognitive-search-tutorial-blob/skillset.png "Comprender un conjunto de aptitudes")
+    ![Uso de un conjunto de aptitudes](media/cognitive-search-tutorial-blob/skillset.png "Uso de un conjunto de aptitudes")
 
 1. Envíe la solicitud. Postman debe devolver un código de estado 201 que confirme que la operación se ha realizado correctamente. 
 
@@ -239,7 +239,7 @@ Un [objeto conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchserv
 
 ### <a name="step-3-create-an-index"></a>Paso 3: Creación de un índice
 
-Un [índice](https://docs.microsoft.com/rest/api/searchservice/create-index) proporciona el esquema que se usa para crear la expresión física del contenido en índices invertidos y otras construcciones en Azure Search. El componente más grande de un índice es la colección de campos, donde el tipo de datos y los atributos determinan el contenido y los comportamientos en Azure Search.
+Un [índice](https://docs.microsoft.com/rest/api/searchservice/create-index) proporciona el esquema que se usa para crear la expresión física del contenido en índices invertidos y otras construcciones en Azure Cognitive Search. El componente más grande de un índice es la colección de campos, donde el tipo de datos y los atributos determinan el contenido y los comportamientos en Azure Cognitive Search.
 
 1. Use **PUT** y la dirección URL siguiente, reemplazando NOMBRE-DE-SU-SERVICIO por el nombre real del servicio, para asignar un nombre al índice.
 
@@ -323,7 +323,7 @@ Un [índice](https://docs.microsoft.com/rest/api/searchservice/create-index) pro
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Paso 4: Creación y ejecución de un indexador
 
-Un [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) rige la canalización. Los tres componentes que ha creado hasta ahora (origen de datos, conjunto de aptitudes e índice) son entradas para un indexador. La creación del indexador en Azure Search es el evento que pone toda la canalización en movimiento. 
+Un [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) rige la canalización. Los tres componentes que ha creado hasta ahora (origen de datos, conjunto de aptitudes e índice) son entradas para un indexador. La creación del indexador en Azure Cognitive Search es el evento que pone toda la canalización en movimiento. 
 
 1. Use **PUT** y la dirección URL siguiente, reemplazando NOMBRE-DE-SU-SERVICIO por el nombre real del servicio, para asignar un nombre al indexador.
 
@@ -445,7 +445,7 @@ Recuerde que comenzamos con el contenido del blob, donde todo el documento se em
    
    Los resultados de esta consulta devuelven el contenido del documento, que es el mismo resultado que obtendría si usara el indexador de blob sin la canalización de búsqueda cognitiva. En este campo se pueden realizar búsquedas, pero no se puede trabajar en él si se desean usar facetas, filtros o la función de autocompletar.
 
-   ![Salida del campo de contenido](media/cognitive-search-tutorial-blob/content-output.png "Content field output")
+   ![Salida del campo de contenido](media/cognitive-search-tutorial-blob/content-output.png "Salida del campo de contenido")
    
 1. Para la segunda consulta, devuelva algunos de los nuevos campos que ha creado la canalización (persons, organizations, locations, languageCode). Se omite keyPhrases para no extenderse en exceso, pero es preciso incluirlo si se desea ver esos valores.
 
@@ -456,7 +456,7 @@ Recuerde que comenzamos con el contenido del blob, donde todo el documento se em
 
    En la imagen siguiente se muestran los resultados de la carta abierta que escribió Satya Nadella cuando aceptó el puesto de CEO en Microsoft.
 
-   ![Salida de canalización](media/cognitive-search-tutorial-blob/pipeline-output.png "Pipeline output")
+   ![Salida de la canalización](media/cognitive-search-tutorial-blob/pipeline-output.png "Salida de la canalización")
 
 1. Para ver cómo puede aprovechar estos campos, agregue un parámetro facet para que se devuelva una agregación de los documentos coincidentes por ubicación.
 
@@ -466,7 +466,7 @@ Recuerde que comenzamos con el contenido del blob, donde todo el documento se em
 
    En este ejemplo, para cada ubicación hay 2 o 3 coincidencias.
 
-   ![Salida de facet](media/cognitive-search-tutorial-blob/facet-output.png "Facet output")
+   ![Salida de faceta](media/cognitive-search-tutorial-blob/facet-output.png "Salida de faceta")
    
 
 1. En este ejemplo final, aplique un filtro a la colección de organizaciones, lo que devolverá dos coincidencias para los criterios de filtro basados en NASDAQ.
@@ -481,7 +481,7 @@ Estas consultas muestran algunas de las formas en que puede trabajar con la sint
 
 ## <a name="reset-and-rerun"></a>Restablecer y volver a ejecutar
 
-En las primeras etapas experimentales del desarrollo de canalizaciones, el enfoque más práctico para las iteraciones de diseño es eliminar los objetos de Azure Search y permitir que el código vuelva a generarlos. Los nombres de los recursos son únicos. La eliminación de un objeto permite volver a crearlo con el mismo nombre.
+En las primeras etapas experimentales del desarrollo de canalizaciones, el enfoque más práctico para las iteraciones de diseño es eliminar los objetos de Azure Cognitive Search y permitir que el código vuelva a generarlos. Los nombres de los recursos son únicos. La eliminación de un objeto permite volver a crearlo con el mismo nombre.
 
 Para volver a indexar los documentos con las nuevas definiciones:
 
@@ -503,17 +503,17 @@ A medida que el código evoluciona, puede refinar una estrategia de regeneració
 
 Este tutorial muestra los pasos básicos para la creación de una canalización de indexación enriquecida a través de la creación de componentes: un origen de datos, un conjunto de aptitudes, un índice y un indexador.
 
-Las [aptitudes predefinidas](cognitive-search-predefined-skills.md) se presentan, junto con la definición del conjunto de aptitudes y los mecanismos de encadenamiento de aptitudes, a través de entradas y salidas. También ha aprendido que `outputFieldMappings` en la definición del indexador se necesita para enrutar los valores enriquecidos de la canalización a un índice que permita búsquedas en un servicio Azure Search.
+Se presentaron las [aptitudes integradas](cognitive-search-predefined-skills.md), junto con la definición del conjunto de aptitudes y los mecanismos de encadenamiento de aptitudes, mediante entradas y salidas. También aprendió que `outputFieldMappings` en la definición del indexador es necesario para enrutar los valores enriquecidos de la canalización a un índice que permita búsquedas en un servicio Azure Cognitive Search.
 
 Por último, ha aprendido cómo probar los resultados y restablecer el sistema para otras iteraciones. Ha aprendido que emitir consultas en el índice devuelve la salida creada por la canalización de indexación enriquecida. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contiene el servicio Azure Search y el servicio Azure Blob. Si decide colocar ambos servicios en el mismo grupo, elimine el grupo de recursos para eliminar de manera permanente todo lo que contiene, incluyendo los servicios y cualquier contenido almacenado que haya creado para este tutorial. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio.
+La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contiene el servicio Azure Cognitive Search y el servicio Azure Blob. Si decide colocar ambos servicios en el mismo grupo, elimine el grupo de recursos para eliminar de manera permanente todo lo que contiene, incluyendo los servicios y cualquier contenido almacenado que haya creado para este tutorial. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Personalice o extienda la canalización con aptitudes personalizadas. Al crear una aptitud personalizada y agregarla a un conjunto de aptitudes, puede incorporar texto o análisis de imágenes que escriba usted mismo. 
 
 > [!div class="nextstepaction"]
-> [Ejemplo: Creación de una aptitud de búsqueda cognitiva personalizada](cognitive-search-create-custom-skill-example.md)
+> [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento de inteligencia artificial](cognitive-search-create-custom-skill-example.md)

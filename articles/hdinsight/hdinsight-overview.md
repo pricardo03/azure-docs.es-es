@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: f950d273e16dc7fc25f443fda58f9d6582085129
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 1cea76bec3a1b8b698a604c0bac491ac0319a10e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076395"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791174"
 ---
 # <a name="what-is-azure-hdinsight"></a>¿Qué es Azure HDInsight?
 
@@ -56,7 +56,7 @@ El de extracción, transformación y carga (ETL) es un proceso en el que se extr
 
 Puede usar HDInsight para realizar consultas interactivas a escalas de petabytes sobre datos estructurados o no estructurados en cualquier formato. También puede generar modelos conectándolos a herramientas de BI. Para más información, [lea este caso de cliente](https://customers.microsoft.com/story/milliman). 
 
-![Arquitectura de HDInsight: almacenamiento de datos](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "Arquitectura de almacenamiento de datos de HDInsight")
+![Arquitectura de HDInsight: Almacenamiento de datos](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "Arquitectura de almacenamiento de datos de HDInsight")
 
 ### <a name="internet-of-things-iot"></a>Internet de las cosas (IoT)
 
@@ -68,13 +68,13 @@ Puede usar HDInsight para procesar los datos de streaming recibidos en tiempo re
 
 Puede usar HDInsight para compilar aplicaciones que extraigan información crítica de los datos. También puede usar Azure Machine Learning para predecir tendencias futuras de la empresa. Para más información, [lea este caso de cliente](https://customers.microsoft.com/story/pros).
 
-![Arquitectura de HDInsight: ciencia de datos](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "Arquitectura de ciencia de datos de HDInsight")
+![Arquitectura de HDInsight: Ciencia de datos](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "Arquitectura de ciencia de datos de HDInsight")
 
 ### <a name="hybrid"></a>Híbrido
 
 Puede usar HDInsight para ampliar la infraestructura local de macrodatos existente en Azure para aprovechar las avanzadas funcionalidades de análisis en la nube.
 
-![Arquitectura de HDInsight: híbrida](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "Arquitectura híbrida de HDInsight")
+![Arquitectura de HDInsight: Híbrido](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "Arquitectura híbrida de HDInsight")
 
 ## <a name="cluster-types-in-hdinsight"></a>Tipos de clúster de HDInsight
 
@@ -86,7 +86,7 @@ HDInsight incluye tipos de clúster concretos y funcionalidades de personalizaci
 |[Spark de Apache](https://spark.apache.org/)|plataforma de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones de análisis de macrodatos. Consulte [¿qué es Apache Spark en HDInsight?](./spark/apache-spark-overview.md)|
 |[Apache HBase](https://hbase.apache.org/)|base de datos NoSQL en Hadoop que proporciona acceso aleatorio y coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados; potencialmente miles de millones de filas multiplicadas por millones de columnas. Consulte [¿qué es HBase en HDInsight?](./hbase/apache-hbase-overview.md)|
 |[ML Services](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)|un servidor para hospedar y administrar procesos de R distribuidos en paralelo. Proporciona a los científicos de datos, estadísticos y programadores de R acceso a petición a métodos escalables y distribuidos para realizar análisis en HDInsight. Consulte [Información general de ML Services en HDInsight](./r-server/r-server-overview.md).|
-|[Apache Storm](https://storm.incubator.apache.org/)|sistema distribuido de cálculo en tiempo real para el procesamiento rápido de grandes transmisiones de datos. Storm se ofrece como clúster administrado en HDInsight. Consulte [Análisis de datos de sensor en tiempo real con Storm y Hadoop](./storm/apache-storm-sensor-data-analysis.md).|
+|[Apache Storm](https://storm.incubator.apache.org/)|sistema distribuido de cálculo en tiempo real para el procesamiento rápido de grandes transmisiones de datos. Storm se ofrece como clúster administrado en HDInsight. Consulte [Análisis de datos de sensor en tiempo real con Storm y Hadoop](/azure/hdinsight/storm/apache-storm-overview).|
 |[Consulta interactiva de Apache](https://cwiki.apache.org/confluence/display/Hive/LLAP)|almacenamiento en caché en memoria para realizar consultas de Hive interactivas y más rápidas. Consulte [Uso de Interactive Query en HDInsight](./interactive-query/apache-interactive-query-get-started.md).|
 |[Apache Kafka](https://kafka.apache.org/)|una plataforma de código abierto que se usa para crear canalizaciones y aplicaciones de datos de streaming. Kafka también proporciona funcionalidad de cola de mensajes que le permite publicar flujos de datos y suscribirse a ellos. Consulte [Introducción a Apache Kafka en HDInsight](./kafka/apache-kafka-introduction.md).|
 

@@ -14,23 +14,25 @@ ms.date: 11/13/2018
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c7f42d536880f2578c62c6c4866b21be1cc9dc
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 49d49f42e0d705981a5b4e41630b425fcb02e940
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804561"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756259"
 ---
-# <a name="microsoft-graph-apis-for-pim-preview"></a>Instancias de Microsoft Graph API para PIM (versión preliminar)
+# <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Instancias de Microsoft Graph API para Privileged Identity Management (versión preliminar)
 
-La mayoría de las tareas que se pueden realizar en Azure Active Directory (Azure AD) Privileged Identity Management (PIM) desde Azure Portal también puede realizar mediante instancias de [Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/overview). En este artículo se describen varios conceptos importantes que se deben tener en cuenta cuando se usan instancias de Microsoft Graph API para PIM. Para más información acerca de las instancias de Microsoft Graph API, consulte la [referencia de las API de Azure AD Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
+Ya puede realizar todas las tareas de Privileged Identity Management mediante las instancias de [Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/overview) para Azure Active Directory. En este artículo se describen conceptos importantes a la hora de usar instancias de Microsoft Graph API para Privileged Identity Management.
+
+Para más información acerca de las instancias de Microsoft Graph API, consulte la [referencia de las API de Azure AD Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
 
 > [!IMPORTANT]
 > Las API de la versión /beta de Microsoft Graph están en versión preliminar y sujetas a cambios. No se admite su uso en aplicaciones de producción.
 
 ## <a name="required-permissions"></a>Permisos necesarios
 
-Para llamar a las instancias de Microsoft Graph API para PIM, debe tener **uno o varios** de los siguientes permisos:
+Para llamar a las instancias de Microsoft Graph API para Privileged Identity Management, debe tener **uno o varios** de los siguientes permisos:
 
 - `Directory.AccessAsUser.All`
 - `Directory.Read.All`
@@ -39,7 +41,7 @@ Para llamar a las instancias de Microsoft Graph API para PIM, debe tener **uno o
 
 ### <a name="set-permissions"></a>Establecer permisos
 
-Para que las aplicaciones llamen a la instancias de Microsoft Graph API para PIM, deben tener los permisos necesarios. La forma más fácil de especificar los permisos necesarios es usar el [marco de consentimiento de Azure AD](../develop/consent-framework.md).
+Para que las aplicaciones llamen a la instancias de Microsoft Graph API para Privileged Identity Management, deben tener los permisos necesarios. La forma más fácil de especificar los permisos necesarios es usar el [marco de consentimiento de Azure AD](../develop/consent-framework.md).
 
 ### <a name="set-permissions-in-graph-explorer"></a>Establecimiento de permisos en el Probador de Graph
 
@@ -51,7 +53,7 @@ Si utiliza el Probador de Graph para probar las llamadas, puede especificar los 
 
     ![Probador de Graph: modificar permisos](./media/pim-apis/graph-explorer.png)
 
-1. Agregue marcas de verificación junto a los permisos que desea incluir. `PrivilegedAccess.ReadWrite.AzureAD` aún no está disponible en el Probador de Graph.
+1. Seleccione las casillas situadas junto a los permisos que desea incluir. `PrivilegedAccess.ReadWrite.AzureAD` aún no está disponible en el Probador de Graph.
 
     ![Probador de Graph: modificar permisos](./media/pim-apis/graph-explorer-modify-permissions.png)
 

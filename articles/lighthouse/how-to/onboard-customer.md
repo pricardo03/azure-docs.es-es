@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo incorporar un cliente a la adminis
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/30/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: e16747d74df7db0fb2ca2d4e0f07247258a980d7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 882afb83aa2a9bad9633df43b29e00b43162bf87
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299757"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595658"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Incorporación de un cliente a la administración de recursos delegados de Azure
 
@@ -195,7 +195,8 @@ La última autorización del ejemplo anterior agrega un valor de **principalId**
 Una vez actualizado el archivo de parámetros, el cliente debe implementar la plantilla de administración de recursos en el inquilino de su cliente como implementación de nivel de suscripción. Se necesita una implementación independiente para cada suscripción que quiera incorporar a la administración de recursos delegados de Azure (o para cada suscripción que contenga grupos de recursos que quiera incorporar).
 
 > [!IMPORTANT]
-> La implementación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para la suscripción que se va a incorporar (o que contiene los grupos de recursos que se están incorporando).
+> La implementación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para la suscripción que se va a incorporar (o que contiene los grupos de recursos que se están incorporando). Para ver todos los usuarios que puedan delegar la suscripción, cualquiera de los usuarios del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell

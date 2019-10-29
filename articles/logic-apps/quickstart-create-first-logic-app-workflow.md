@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación y automatización del primer flujo de trabajo con Azure Logic Apps'
-description: Cree una primera aplicación lógica que automatice tareas, procesos y flujos de trabajo con Azure Logic Apps. Cree aplicaciones lógicas para la integración de sistemas y soluciones de integración de aplicaciones empresariales (EAI) para los sistemas y servicios en la nube.
+title: 'Creación y automatización del primer flujo de trabajo: Azure Logic Apps'
+description: 'Inicio rápido: creación de la primera tarea o flujo de trabajo automatizados mediante el uso de Azure Logic Apps para soluciones de integración de aplicaciones empresariales (EAI) e integración del sistema'
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
-ms.openlocfilehash: c85b3e3ced661eb36d9cb1eb0ae443a5ab21a913
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8886472b9840c27bcbceb70265379db1682673a9
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029417"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679144"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Inicio rápido: Creación del primer flujo de trabajo automatizado con Azure Logic Apps: Azure Portal
 

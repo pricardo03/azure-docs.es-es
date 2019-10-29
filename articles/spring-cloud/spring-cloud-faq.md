@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: d4edc634ad41042642b1d73f28ec61cb6dc15ac4
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 69b3827bbb53a5f989f3bdec0d5c4ea6035130f0
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433325"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592310"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas frecuentes
 
@@ -30,12 +30,10 @@ Azure Spring Cloud mejora la experiencia de diagnóstico de aplicaciones de los 
 
 ### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>¿Qué planes de servicio ofrece Azure Spring Cloud?
 
-Azure Spring Cloud ofrece un solo plan de servicio durante el periodo de versión preliminar.
+Azure Spring Cloud ofrece un solo plan de servicio durante el periodo de versión preliminar.  Las implementaciones de Spring Cloud contienen 16 núcleos de vCPU y 32 GB de memoria.  El límite superior de cada instancia de microservicio dentro de una implementación es de 4 núcleos de vCPU con 8 GB de memoria.
 
 Resource | Importe
 ------- | -------
-vCPU | 4
-Memoria | 8 GBytes
 Instancias de aplicación por aplicación de Spring | 20
 Instancias de aplicación totales por instancia del servicio Azure Spring Cloud | 50*
 Instancias del servicio Azure Spring Cloud por región y suscripción | 2*

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: abc7302ee59103a9cbab156b95a41b77eb95d474
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e243fd2f5c4a90e45f424ce39a97913df2332b2b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729162"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677883"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicación de modelos de aprendizaje automático en Azure Functions con Python y TensorFlow
 
@@ -140,7 +140,7 @@ Usará un modelo de TensorFlow pregenerado que se haya entrenado con el servicio
 > [!NOTE]
 > Si desea crear su propio modelo con el nivel gratuito de Custom Vision, puede seguir las [instrucciones del repositorio del proyecto de ejemplo](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
-El modelo cuenta con dos archivos en la carpeta *<REPOSITORY_ROOT>/resources/model*: *model.db* y *labels.txt*. Cópielos en la carpeta *classify* de la función.
+El modelo consta de dos archivos en la carpeta *<REPOSITORY_ROOT>/resources/model*: *model.pb* y *labels.txt*. Cópielos en la carpeta *classify* de la función.
 
 #### <a name="linux-and-macos"></a>Linux y macOS:
 
@@ -179,7 +179,7 @@ Confirme que *classify* ahora contiene un archivo denominado *predict.py*.
 La biblioteca auxiliar tiene algunas dependencias que deben instalarse. Abra *start/requirements.txt* en el editor y agregue las siguientes dependencias al archivo.
 
 ```txt
-tensorflow
+tensorflow==1.15
 Pillow
 requests
 ```

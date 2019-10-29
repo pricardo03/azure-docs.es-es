@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Automatización del procesamiento de correos electrónicos y datos adjuntos: Azure Logic Apps'
-description: 'Tutorial: Creación de flujos de trabajo automatizados para gestionar los correos electrónicos y datos adjuntos con Azure Logic Apps, Azure Storage y Azure Functions'
+title: 'Creación de flujos de trabajo con Azure Functions: Azure Logic Apps'
+description: 'Tutorial: Automatización de los flujos de trabajo para procesar correos electrónicos y datos adjuntos con Azure Logic Apps, Azure Storage y Azure Functions'
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: e7c27d284ef93d15c5ac9a6228205e79518f2ffa
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 2919816872fd73c8a50f404e857c9ec56eeab0f5
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051778"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679171"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Gestión automática de correos electrónicos y datos adjuntos con Azure Logic Apps
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 10/12/2019
 ms.author: diberry
-ms.openlocfilehash: f0888b25258f6a7830df1195995159432b19907d
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d13bce3c1cafd20b311aa882d3a32101c1833ba5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802818"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555493"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Uso de C# para crear una base de conocimiento y responder a las preguntas
 
@@ -146,7 +146,7 @@ La llamada API devuelve un estado 204 en caso de publicación correcta sin ning�
 Para cualquier otra respuesta, esa respuesta se devuelve sin modificar.
 
 ## <a name="generating-an-answer"></a>Generación de una respuesta
-Para acceder a la base de datos de conocimiento para enviar una pregunta y recibir la mejor respuesta, el programa necesita el <bpt id="p1">_</bpt>nombre del recurso<ept id="p1">_</ept> de la API de detalles de la KB y la <bpt id="p2">_</bpt>clave del punto de conexión principal<ept id="p2">_</ept> de Endpoints API. Estos métodos están en las secciones siguientes junto con el método para generar una respuesta. 
+Para acceder a la base de datos de conocimiento para enviar una pregunta y recibir la mejor respuesta, el programa necesita el _nombre de recurso_ de la base de conocimiento de la API de detalles y la _clave del punto de conexión principal_ de la API de puntos de conexión. Estos métodos están en las secciones siguientes junto con el método para generar una respuesta. 
 
 En la tabla siguiente se muestra cómo se usan los datos para construir el identificador URI:
 
@@ -214,6 +214,13 @@ Esta llamada API devuelve una respuesta JSON:
 Agregue el método siguiente para obtener una respuesta a la pregunta del usuario. 
 
 [!code-csharp[Get Answer](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=290-315 "Get Answer")]
+
+Si desea limitar la respuesta solo para preguntas, agregue la propiedad `[rankerType](Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
+)` al cuerpo, por ejemplo: 
+
+```csharp
+request.Content = new StringContent("{question:'" + question + "', rankerType:'QuestionOnly'}", Encoding.UTF8, "application/json"); 
+```
 
 Esta llamada API devuelve una respuesta JSON: 
 

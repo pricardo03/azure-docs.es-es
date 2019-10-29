@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 5de0fe47d8ca6372c35cc4f148f97b366a1a742c
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a273b89d864d97d9bc71acff476371f77cfff066
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971392"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754833"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Creación de una aplicación de consola de Node.js con el SDK de JavaScript para administrar los datos de SQL API de Azure Cosmos DB
 
@@ -133,7 +133,7 @@ Ahora que existe la aplicación, se debe asegurar de que se puede comunicar con 
 
 Ahora que tiene el código necesario para inicializar el cliente de Azure Cosmos DB, se explicará cómo usar los recursos de este servicio.
 
-## <a name="create-a-database"></a>Creación de una base de datos
+## <a name="create-a-database"></a>Crear una base de datos
 
 1. Copie y pegue el código siguiente para establecer el identificador de la base de datos y el identificador del contenedor. Dichos identificadores son la forma en que el cliente de Azure Cosmos DB encuentra la base de datos y el contenedor correctos.
 
@@ -662,7 +662,7 @@ Instale las dependencias del proyecto mediante npm. Use el comando siguiente:
 
 * ```npm install``` 
 
-Después, en el archivo ```config.js```, actualice los valores de config.endpoint y config.primaryKey tal como se describe en el [Paso 3: Configuración de las opciones de la aplicación](#Config).  
+Luego, en el archivo ```config.js```, actualice los valores config.endpoint y config.key como describe en [Paso 3: Configuración de las opciones de la aplicación](#Config).  
 
 Luego, en el terminal, busque el archivo ```app.js``` y ejecute el comando:  
 

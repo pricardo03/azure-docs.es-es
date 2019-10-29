@@ -17,10 +17,10 @@ ms.date: 08/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69891977"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workday
@@ -151,11 +151,11 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
 
 2. En el **cuadro de búsqueda**, escriba el nombre **Edit Tenant Setup – Security** (Editar configuración de inquilino – Seguridad) en la parte superior izquierda de la página principal.
 
-    ![Edición de seguridad del inquilino](./media/workday-tutorial/IC782925.png "Edición de seguridad del inquilino")
+    ![Edición de la seguridad del inquilino](./media/workday-tutorial/IC782925.png "Editar seguridad del inquilino")
 
 3. En la sección **URL de redireccionamiento** , siga estos pasos:
 
-    ![Direcciones URL de redirección](./media/workday-tutorial/IC7829581.png "Direcciones URL de redirección")
+    ![Direcciones URL de redireccionamiento](./media/workday-tutorial/IC7829581.png "URL de redireccionamiento")
 
     a. Haga clic en **Add Row**(Agregar fila).
 
@@ -180,13 +180,13 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
 
 5. En la sección **Proveedores de identidades SAML**, realice los pasos siguientes:
 
-    ![Proveedores de identidades SAML](./media/workday-tutorial/IC7829271.png "Proveedores de identidades SAML")
+    ![Proveedores de identidades de SAML](./media/workday-tutorial/IC7829271.png "Proveedores de identidades SAML")
 
     a. En el cuadro de texto **Identity Provider Name** (Nombre del proveedor de identidades), escriba un nombre de proveedor (por ejemplo: *SPInitiatedSSO*).
 
     b. En Azure Portal, en la sección **Set up Workday** (Configurar Workday), copie el valor de **Identificador de Azure AD** y péguelo en el cuadro de texto **Emisor**.
 
-    ![Proveedores de identidades SAML](./media/workday-tutorial/IC7829272.png "Proveedores de identidades SAML")
+    ![Proveedores de identidades de SAML](./media/workday-tutorial/IC7829272.png "Proveedores de identidades SAML")
 
     c. En Azure Portal, en la sección **Set up Workday** (Configurar Workday), copie el valor de **URL de cierre de sesión** y péguelo en el cuadro de texto **Logout Request URL** (URL de solicitud de cierre de sesión).
 
@@ -196,15 +196,15 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
 
     f. Haga clic en **Identity Provider Public Key Certificate** (Certificado de clave pública de proveedor de identidades) y, después, en **Crear**.
 
-    ![Crear](./media/workday-tutorial/IC782928.png "Crear")
+    ![Creación](./media/workday-tutorial/IC782928.png "Crear")
 
     g. Haga clic en **Create x509 Public Key**(Crear clave pública x509).
 
-    ![Crear](./media/workday-tutorial/IC782929.png "Crear")
+    ![Creación](./media/workday-tutorial/IC782929.png "Crear")
 
 6. En la sección **View x509 Public Key** (Ver clave pública x509), siga estos pasos:
 
-    ![Visualización de clave pública x509](./media/workday-tutorial/IC782930.png "Visualización de clave pública x509")
+    ![View x509 Public Key](./media/workday-tutorial/IC782930.png "View x509 Public Key") (Ver clave pública x509)
 
     a. En el cuadro de texto **Name** (Nombre), escriba un nombre para el certificado (por ejemplo: *PPE\_SP*).
 
@@ -225,7 +225,7 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
 
 7. Lleve a cabo los siguiente pasos:
 
-    ![Configuración de SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "Configuración de SSO")
+    ![Configuración del inicio de sesión único](./media/workday-tutorial/WorkdaySSOConfiguratio.png "Configuración de SSO")
 
     a.  En el cuadro de texto **Service Provider ID** (Id. de proveedor de servicios), escriba **http://www.workday.com** .
 
@@ -233,11 +233,11 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
 
     c. Como **Método de firma de solicitud de autenticación**, seleccione **SHA256**.
 
-    ![Método de firma de solicitud de autenticación](./media/workday-tutorial/WorkdaySSOConfiguration.png "Método de firma de solicitud de autenticación") 
+    ![Método de firma de solicitud de autenticación](./media/workday-tutorial/WorkdaySSOConfiguration.png "Método de firmas de solicitudes de autenticación") 
 
     d. Haga clic en **OK**.
 
-    ![Aceptar](./media/workday-tutorial/IC782933.png "Aceptar")
+    ![OK (CORRECTO)](./media/workday-tutorial/IC782933.png "OK")
 
     > [!NOTE]
     > Asegúrese de configurar el inicio de sesión único correctamente. Si habilita el inicio de sesión único con una configuración incorrecta, es posible que no pueda entrar en la aplicación con sus credenciales y quede bloqueado fuera de esta. En esta situación, Workday proporciona una URL de inicio de sesión de respaldo donde los usuarios pueden iniciar sesión con su nombre de usuario y contraseña normal en el siguiente formato: [Su URL de Workday]/login.flex?redirect=n

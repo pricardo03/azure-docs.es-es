@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: fb57d69b4969bcbf66717a8ca29ede23f2ed8e43
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 30ffcd9bdb8170777c245d95b0c07198a34c5464
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429148"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72556068"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Guía de inicio rápido: Enrutamiento de eventos personalizados al punto de conexión de web con la CLI de Azure y Event Grid
 
@@ -27,7 +27,7 @@ Por lo general, se envían eventos a un punto de conexión que procesa los datos
 
 Cuando haya terminado, verá que los datos del evento se han enviado a la aplicación web.
 
-![Uso del visor de Azure Event Grid para comprobar que se han enviado datos de eventos](./media/custom-event-quickstart/azure-event-grid-viewer-displays-event-data.png)
+![Ver los resultados en el visor de Azure Event Grid](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -98,7 +98,8 @@ az eventgrid event-subscription create \
 
 Vuelva a la aplicación web y observe que se ha enviado un evento de validación de suscripción. Seleccione el icono del ojo para expandir los datos del evento. Event Grid envía el evento de validación para que el punto de conexión pueda verificar que desea recibir datos de eventos. La aplicación web incluye código para validar la suscripción.
 
-![Visualización del código de validación de la suscripción en el visor de Azure Event Grid](./media/custom-event-quickstart/view-subscription-validation-code-in-azure-event-grid-viewer.png)
+![Visualización del evento de suscripción en el visor de Azure Event Grid](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+
 
 ## <a name="send-an-event-to-your-custom-topic"></a>Envío de un evento al tema personalizado
 

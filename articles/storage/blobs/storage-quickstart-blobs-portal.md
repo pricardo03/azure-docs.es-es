@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 84753f2c3ab19a0cc9d72ef8ce5011dfc8e5a8da
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f3d5aaaf57387ae4ccefdfe8ec22435f03b2452f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711895"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757556"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Guía de inicio rápido: Carga, descarga y enumeración de blobs con Azure Portal
+# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Inicio rápido: Carga, descarga y enumeración de blobs con Azure Portal
 
 En esta guía de inicio rápido, aprenderá a usar [Azure Portal](https://portal.azure.com/) para crear un contenedor en Azure Storage y para cargar y descargar los blobs en bloques en ese contenedor.
 
@@ -28,7 +28,7 @@ En esta guía de inicio rápido, aprenderá a usar [Azure Portal](https://portal
 Para crear un contenedor en Azure Portal, siga estos pasos:
 
 1. Vaya a la nueva cuenta de almacenamiento en Azure Portal.
-2. En el menú izquierdo de la cuenta de almacenamiento, desplácese a la sección **Blob service** y, a continuación, seleccione **Blobs**.
+2. En el menú izquierdo de la cuenta de almacenamiento, desplácese a la sección **Blob service** y seleccione **Containers**.
 3. Seleccione el botón **+ Contenedor**.
 4. Escriba un nombre para el nuevo contenedor. El nombre del contenedor debe escribirse en minúsculas, comenzar por una letra o un número, y solo puede incluir letras, números y el carácter de guión (-). Para más información sobre la nomenclatura de contenedores y blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y referencia a contenedores, blobs y metadatos).
 5. Establezca el nivel de acceso público al contenedor. El nivel predeterminado es **Private (no anonymous access)** [Privado (sin acceso anónimo)].
@@ -67,7 +67,7 @@ Para eliminar el contenedor:
 
 1. En Azure Portal, vaya a la lista de contenedores en la cuenta de almacenamiento.
 2. Seleccione el contenedor que desee eliminar.
-3. Seleccione el botón **Más** (**...**) y, después, **Eliminar**.
+3. Seleccione el botón **Más** ( **...** ) y, después, **Eliminar**.
 4. Confirme que desea eliminar el contenedor.
 
 ## <a name="next-steps"></a>Pasos siguientes

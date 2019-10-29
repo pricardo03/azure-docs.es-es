@@ -1,23 +1,22 @@
 ---
-title: 'Inicio rápido: Creación de un índice de búsqueda en Node.js mediante las API REST (Azure Search)'
-description: Ejemplo de Node.js para Azure Search, en el que se muestra cómo crear, cargar datos y realizar consultas desde JavaScript.
+title: 'Inicio rápido: Creación de un índice de búsqueda en Node.js mediante las API REST'
+titleSuffix: Azure Cognitive Search
+description: Ejemplo de Node.js para Azure Cognitive Search en el que se muestra cómo crear, cargar datos y realizar consultas desde JavaScript.
 author: lobrien
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: 4e17247ea412b5472a0c23fd74ff7e53f375710d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.devlang: nodejs
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 20a5af5ac7163c182ea01a9a9442d3c99614442d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881506"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787442"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-nodejs-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Search en Node.js mediante las API REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Node.js mediante las API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -26,7 +25,7 @@ ms.locfileid: "70881506"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Cree una aplicación de Node.js que cree, cargue y realice consultas en un índice de Azure Search. En este artículo, se muestra cómo crear la aplicación paso a paso. También puede [descargar el código fuente de los datos](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) y ejecutar la aplicación desde la línea de comandos.
+Cree una aplicación de Node.js que cree, cargue y realice consultas en un índice de Azure Cognitive Search. En este artículo, se muestra cómo crear la aplicación paso a paso. También puede [descargar el código fuente de los datos](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) y ejecutar la aplicación desde la línea de comandos.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -37,7 +36,7 @@ En este inicio rápido se usan los siguientes servicios, herramientas y datos.
 + [Node.js](https://nodejs.org).
 + [NPM](https://www.npmjs.com) tiene que instalarse mediante Node.js.
 + En este artículo, se proporciona una estructura de índice de ejemplo y documentos coincidentes; también puede obtenerlos desde el directorio [**quickstart** del repositorio](https://github.com/Azure-Samples/azure-search-javascript-samples/).
-+ [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
++ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
 
 Se recomienda:
 
@@ -47,7 +46,7 @@ Se recomienda:
 <a name="get-service-info"></a>
 ## <a name="get-keys-and-urls"></a>Obtención de claves y direcciones URL
 
-Las llamadas al servicio requieren un punto de conexión de URL y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
+Las llamadas al servicio requieren un punto de conexión de URL y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que, si ha agregado Azure Cognitive Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y, en la página **Información general** del servicio de búsqueda, obtenga el nombre del servicio de búsqueda. Para confirmar el nombre del servicio, revise la dirección URL del punto de conexión. Si la dirección URL del punto de conexión fuera `https://mydemo.search.windows.net`, el nombre del servicio sería `mydemo`.
 
@@ -85,7 +84,7 @@ Para empezar, abra una consola de PowerShell u otro entorno en el que haya insta
     {
       "name": "quickstart",
       "version": "1.0.0",
-      "description": "Azure Search Quickstart",
+      "description": "Azure Cognitive Search Quickstart",
       "main": "index.js",
       "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -124,7 +123,7 @@ Reemplace el valor `[SERVICE_NAME]` por el nombre del servicio de búsqueda. Ree
 
 ## <a name="1---create-index"></a>1 - Creación de un índice 
 
-Cree el archivo **hotels_quickstart_index.json**.  Este archivo define la forma en que Azure Search funciona con los documentos que cargará en el paso siguiente. Cada campo se identificará mediante un elemento `name` y tendrá un elemento especificado `type`. Cada campo también tiene una serie de atributos del índice que especifican si Azure Search puede buscar, filtrar, ordenar y cambiar las facetas del campo. La mayoría de los campos son tipos de datos simples; pero algunos, como `AddressType`, son tipos complejos que le permiten crear estructuras de datos enriquecidos en el índice.  Puede obtener más información sobre los [tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) y los [atributos del índice](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes). 
+Cree el archivo **hotels_quickstart_index.json**.  Este archivo define la forma en que Azure Cognitive Search funciona con los documentos que cargará en el paso siguiente. Cada campo se identificará mediante un elemento `name` y tendrá un elemento especificado `type`. Cada campo también tiene una serie de atributos del índice que especifican si Azure Cognitive Search puede buscar, filtrar, ordenar y cambiar las facetas del campo. La mayoría de los campos son tipos de datos simples; pero algunos, como `AddressType`, son tipos complejos que le permiten crear estructuras de datos enriquecidos en el índice.  Puede obtener más información sobre los [tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) y los [atributos del índice](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes). 
 
 Agregue lo siguiente a **hotels_quickstart_index.json**, o bien [descargue el archivo](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels_quickstart_index.json). 
 
@@ -337,7 +336,7 @@ static throwOnHttpError(response) {
 }
 ```
 
-Por último, agregue los métodos para detectar, eliminar y crear el índice de Azure Search. Todos estos métodos tienen la misma estructura:
+Por último, agregue los métodos para detectar, eliminar y crear el índice de Azure Cognitive Search. Todos estos métodos tienen la misma estructura:
 
 * Obtenga el punto de conexión en el que se realizará la solicitud.
 * Genere la solicitud con la información correspondiente: punto de conexión, verbo HTTP, clave de API y, si corresponde, cuerpo JSON. `indexExistsAsync()` y `deleteIndexAsync()` no tienen un cuerpo JSON, pero `createIndexAsync(definition)` sí que lo tiene.
@@ -467,13 +466,13 @@ Verá una serie de mensajes en los que se describen las acciones realizadas por 
 
 Abra la página **Información general** del servicio de búsqueda en Azure Portal. Seleccione la pestaña **Índices**. Debe ver algo parecido a lo siguiente:
 
-![Captura de pantalla de Azure Portal, Información general del servicio de búsqueda, pestaña Índices](media/search-get-started-nodejs/create-index-no-data.png)
+![Captura de pantalla de Azure Portal, información general del servicio de búsqueda, pestaña Índices](media/search-get-started-nodejs/create-index-no-data.png)
 
 En el paso siguiente, agregará datos al índice. 
 
 ## <a name="2---load-documents"></a>2 - Carga de documentos 
 
-En Azure Search, los documentos son estructuras de datos que son tanto entradas para la indexación como salidas de las consultas. Necesita enviar dichos datos al índice. Esto usa un punto de conexión distinto al de las operaciones realizadas en el paso anterior. Abra **AzureSearchClient.js** y agregue el método siguiente después de `getIndexUrl()`:
+En Azure Cognitive Search, los documentos son estructuras de datos que se pueden usar como entradas para la indexación y como salidas de las consultas. Necesita enviar dichos datos al índice. Esto usa un punto de conexión distinto al de las operaciones realizadas en el paso anterior. Abra **AzureSearchClient.js** y agregue el método siguiente después de `getIndexUrl()`:
 
 ```javascript
  getPostDataUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs/index?api-version=${this.apiVersion}`;  }
@@ -604,7 +603,7 @@ Vuelva a ejecutar el programa con `node index.js`. Verá un conjunto de mensajes
 
 ## <a name="3---search-an-index"></a>3 - Búsqueda en un índice
 
-Vuelva a la pestaña **Índices** de la página **Información general** del servicio de búsqueda, en Azure Portal. Verá que el índice ahora contiene cuatro documentos y usa espacio de almacenamiento (puede que la interfaz de usuario tarde unos minutos en reflejar correctamente el estado subyacente del índice). Haga clic en el nombre del índice para abrir el **Explorador de búsquedas**. Esta página le permite experimentar con consultas de datos. Puede buscar una cadena de consulta de `*&$count=true`; se mostrarán todos los documentos y el número de resultados. Pruebe con la cadena de consulta `historic&highlight=Description&$filter=Rating gt 4`; se mostrará un único documento, con la palabra “historic” entre las etiquetas `<em></em>`. Obtenga más información sobre [cómo crear una consulta en Azure Search](https://docs.microsoft.com/azure/search/search-query-overview). 
+Vuelva a la pestaña **Índices** de la página **Información general** del servicio de búsqueda, en Azure Portal. Verá que el índice ahora contiene cuatro documentos y usa espacio de almacenamiento (puede que la interfaz de usuario tarde unos minutos en reflejar correctamente el estado subyacente del índice). Haga clic en el nombre del índice para abrir el **Explorador de búsquedas**. Esta página le permite experimentar con consultas de datos. Puede buscar una cadena de consulta de `*&$count=true`; se mostrarán todos los documentos y el número de resultados. Pruebe con la cadena de consulta `historic&highlight=Description&$filter=Rating gt 4`; se mostrará un único documento, con la palabra “historic” entre las etiquetas `<em></em>`. Obtenga más información sobre [cómo crear una consulta en Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-query-overview). 
 
 Reproduzca estas consultas en código; para hacerlo, abra **index.js** y agregue este código cerca de la parte superior:
 
@@ -679,11 +678,11 @@ Ejecute el programa con `node index.js`. Ahora, además de los pasos anteriores,
 
 ### <a name="about-the-sample"></a>Sobre el ejemplo
 
-En este ejemplo, se usa una pequeña cantidad de datos de hoteles, suficiente para mostrar los conceptos básicos de crear y consultar un índice de Azure Search.
+En este ejemplo, se usa una pequeña cantidad de datos de hoteles, la suficiente para mostrar los conceptos básicos de la creación y realización de consultas en un índice de Azure Cognitive Search.
 
-La clase **AzureSearchClient** encapsula la configuración, las direcciones URL y las solicitudes HTTP básicas del servicio de búsqueda. El archivo **index.js** carga los datos de configuración del servicio Azure Search, los datos de hoteles que se cargarán para su indexación y, en la función `run`, ordena y ejecuta las distintas operaciones.
+La clase **AzureSearchClient** encapsula la configuración, las direcciones URL y las solicitudes HTTP básicas del servicio de búsqueda. El archivo **index.js** carga los datos de configuración del servicio Azure Cognitive Search, los datos de hoteles que se cargarán para su indexación y, en la función `run`, ordena y ejecuta las distintas operaciones.
 
-El comportamiento general de la función `run` es eliminar el índice de Azure Search (si existe), crear el índice, agregar datos y realizar consultas.  
+El comportamiento general de la función `run` es eliminar el índice de Azure Cognitive Search (si existe), crear el índice, agregar datos y realizar consultas.  
 
 ## <a name="clean-up"></a>Limpieza 
 
@@ -696,7 +695,7 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 En este inicio rápido de Node.js, ha realizado una serie de tareas para crear un índice, cargar documentos en este y ejecutar consultas. Realizamos algunos pasos, como leer la configuración y definir las consultas, de la forma más sencilla posible. En una aplicación real, le recomendamos que coloque los elementos en módulos separados que proporcionen flexibilidad y encapsulado. 
  
-Si ya tiene conocimientos sobre Azure Search, puede usar este ejemplo como punto de partida para probar proveedores de sugerencias (escritura automática o autocompletar consultas), filtros y navegación por facetas. Si está empezando a usar Azure Search, le recomendamos que vea otros tutoriales para comprender mejor lo que puede crear. Visite nuestra [página de documentación](https://azure.microsoft.com/documentation/services/search/) para encontrar más recursos. 
+Si ya tiene conocimientos sobre Azure Cognitive Search, puede usar este ejemplo como trampolín para probar proveedores de sugerencias (escritura automática o autocompletar consultas), filtros y navegación por facetas. Si es la primera vez que usa Azure Cognitive Search, le recomendamos que vea otros tutoriales para comprender mejor lo que puede crear. Visite nuestra [página de documentación](https://azure.microsoft.com/documentation/services/search/) para encontrar más recursos. 
 
 > [!div class="nextstepaction"]
-> [Llamada a Azure Search desde una página web con JavaScript](https://github.com/liamca/azure-search-javascript-samples)
+> [Llamada a Azure Cognitive Search desde una página web mediante JavaScript](https://github.com/liamca/azure-search-javascript-samples)

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe02e9d6c3fa69e0ccd88057e10edb6ea1c6e0d0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 15e98bf83cedc22aa565ba0f98089e9f6f217728
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986041"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787610"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workplace by Facebook
 
@@ -63,7 +63,6 @@ Para configurar la integración de Workplace by Facebook en Azure AD, deberá ag
 1. En la sección **Agregar desde la galería**, escriba **Workplace by Facebook** en el cuadro de búsqueda.
 1. Seleccione **Workplace by Facebook** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-workplace-by-facebook"></a>Configuración y prueba del inicio de sesión único (SSO) de Azure AD para Workplace by Facebook
 
 Configure y pruebe el inicio de sesión único de Azure AD con Workplace by Facebook mediante un usuario de prueba llamado **B. Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Workplace by Facebook.
@@ -71,10 +70,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con Workplace by Fac
 Para configurar y probar el inicio de sesión único de Azure AD con Workplace by Facebook, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 2. **[Configuración del inicio de sesión único de Workplace by Facebook](#configure-workplace-by-facebook-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Workplace by Facebook](#create-workplace-by-facebook-test-user)** : para tener un homólogo de B. Simon en Workplace by Facebook que esté vinculado a la representación del usuario en Azure AD.
+    * **[Creación de un usuario de prueba de Workplace by Facebook](#create-workplace-by-facebook-test-user)** : para tener un homólogo de B. Simon en Workplace by Facebook que esté vinculado a la representación del usuario en Azure AD.
 3. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -96,11 +95,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Consulte la página de autenticación del panel de la empresa Workplace para obtener los valores correctos de la comunidad Workplace.
 
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-6. En la sección **Set up Workplace by Facebook** (Configurar Workplace by Facebook), copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Set up Workplace by Facebook** (Configurar Workplace by Facebook), copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -136,24 +135,36 @@ En esta sección, habilitará a B. Simon para usar el inicio de sesión único 
 
 ## <a name="configure-workplace-by-facebook-sso"></a>Configuración del inicio de sesión único de Workplace by Facebook
 
-1. En otra ventana del explorador web, inicie sesión en el sitio de empresa de Workplace by Facebook como administrador.
-  
+1. Para automatizar la configuración en Workplace by Facebook, debe instalar la **extensión del explorador de inicio de sesión seguro de Aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Set up Workplace by Facebook** (Configurar Workplace by Facebook) para ir a la aplicación del mismo nombre. Desde ahí, proporcione las credenciales de administrador para iniciar sesión en la aplicación. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 5.
+
+    ![Configuración](common/setup-sso.png)
+
+1. Si quiere configurar Workplace by Facebook manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Workplace by Facebook como administrador y haga lo siguiente:
+
     > [!NOTE]
     > Como parte del proceso de autenticación SAML, es posible que Workplace use cadenas de consulta de hasta 2,5 kilobytes de tamaño para pasar parámetros a Azure AD.
 
-2. En el **panel de administración**, vaya a la pestaña **Seguridad**.
+1. En el panel de navegación izquierdo, vaya a la pestaña **Security** > **Authentication** (Seguridad > Autenticación).
 
     ![Panel de administración](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-3. En la pestaña **Autenticación**, seleccione **Inicio de sesión único (SSO)** y realice los pasos siguientes:
+    a. Active la opción **Single-sign on (SSO)** (Inicio de sesión único [SSO]).
+    
+    b. Haga clic en **+ Add new SSO Provider** (+ Agregar nuevo proveedor de SSO).
+
+1. En la pestaña **Autenticación**, seleccione **Inicio de sesión único (SSO)** y realice los pasos siguientes:
 
     ![Pestaña Autenticación](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-    a. En el cuadro de texto **Dirección URL de SAML**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    a. En **Name of the SSO Provider** (Nombre del proveedor de SSO), escriba el nombre de la instancia de inicio de sesión único, como Azureadsso.
 
-    b. En el cuadro de texto **SAML Issuer URI** (URI del emisor de SAML), pegue el valor del **identificador de Azure AD** que ha copiado de Azure Portal.
+    b. En el cuadro de texto **Dirección URL de SAML**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    c. En el cuadro de texto **Logout URL SAML** (Dirección URL de cierre de sesión de SAML), pegue el valor de **Dirección URL de cierre de sesión** que ha copiado de Azure Portal.
+    c. En el cuadro de texto **SAML Issuer URL** (Dirección URL del emisor de SAML), pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
 
     d. Abra el **certificado codificado en Base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado SAML**.
 
@@ -169,7 +180,7 @@ En esta sección, habilitará a B. Simon para usar el inicio de sesión único 
 
     i. Ahora se presentará a todos los usuarios de Workplace la página de inicio de sesión de Azure AD para la autenticación.
 
-4. **Redirigir el cierre de sesión de SAML (opcional)**  -
+1. **Redirigir el cierre de sesión de SAML (opcional)**  -
 
     Puede optar por configurar una dirección URL de cierre de sesión de SAML que puede usarse para apuntar a la página de cierre de sesión de Azure AD. Si esta opción está habilitada y configurada, ya no se dirige al usuario a la página de cierre de sesión de Workplace, sino que se le redirige a la dirección URL agregada en la opción Redirigir el cierre de sesión de SAML.
 
@@ -230,4 +241,3 @@ Al hacer clic en el icono de Workplace by Facebook en el panel de acceso, deber�
 - [Configuración del aprovisionamiento de usuarios](workplacebyfacebook-provisioning-tutorial.md)
 
 - [Prueba de Workplace by Facebook con Azure AD](https://aad.portal.azure.com)
-

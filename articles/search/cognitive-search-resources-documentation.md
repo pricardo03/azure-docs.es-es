@@ -1,44 +1,44 @@
 ---
-title: 'Recursos de documentación de búsqueda cognitiva: Azure Search'
-description: Una lista anotada de artículos, tutoriales, ejemplos y entradas de blog relacionados con cargas de trabajo de búsqueda cognitiva en Azure Search.
-services: search
+title: Vínculos de la documentación del enriquecimiento con inteligencia artificial
+titleSuffix: Azure Cognitive Search
+description: Una lista anotada de artículos, tutoriales, ejemplos y entradas de blog relacionados con cargas de trabajo de enriquecimiento con inteligencia artificial en Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 7267f40a981b984ab945d956ff3552157267cd43
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 5fb1050fed2ab7318ad5b4ecafec7a96a9324575
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265476"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792069"
 ---
-# <a name="documentation-resources-for-cognitive-search-workloads"></a>Recursos de documentación para las cargas de trabajo de búsqueda cognitiva
+# <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentación para el enriquecimiento con inteligencia artificial en Azure Cognitive Search
 
-Búsqueda cognitiva, ahora disponible de forma general, es una nueva capa de enriquecimiento de la indexación de Azure Search que busca información latente en orígenes no textuales y texto sin diferenciar, y la transforma en contenido de búsqueda de texto completo en Azure Search.
+El enriquecimiento con inteligencia artificial es una funcionalidad de indexación de Azure Cognitive Search que busca información latente en orígenes no textuales y texto sin diferenciar, y la transforma en contenido que permite búsquedas de texto completo en Azure Cognitive Search.
 
-Los artículos siguientes son la documentación completa para la búsqueda cognitiva.
+Los artículos siguientes son la documentación completa que trata sobre el enriquecimiento con inteligencia artificial.
 
 ## <a name="getting-started"></a>Introducción
-+ [What is cognitive search?](cognitive-search-concept-intro.md) (¿Qué es la búsqueda cognitiva?)
-+ [Inicio rápido: Probar Cognitive Search en el portal](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Aprendizaje de Cognitive Search API](cognitive-search-tutorial-blob.md)
-+ [Ejemplo: Creación de una aptitud de búsqueda cognitiva personalizada](cognitive-search-create-custom-skill-example.md)
++ [Introducción al enriquecimiento con inteligencia artificial en Azure Cognitive Search](cognitive-search-concept-intro.md)
++ [Inicio rápido: Prueba del enriquecimiento con inteligencia artificial en el portal](cognitive-search-quickstart-blob.md)
++ [Tutorial: Indexación con inteligencia artificial](cognitive-search-tutorial-blob.md)
++ [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento con inteligencia artificial](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Guía de procedimientos
 + [Definición de un conjunto de habilidades](cognitive-search-defining-skillset.md)
 + [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) (Referencia a las anotaciones de un conjunto de aptitudes)
 + [How to map fields to an index](cognitive-search-output-field-mapping.md) (Asignación de campos enriquecidos a un índice)
 + [How to process and extract information from images](cognitive-search-concept-image-scenarios.md) (Procesamiento y extracción de información de imágenes)
-+ [How to rebuild an Azure Search index](search-howto-reindex.md) (Reconstrucción de un índice de Azure Search)
++ [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md) (Reconstrucción de un índice de Azure Cognitive Search)
 + [How to define a custom skills interface](cognitive-search-custom-skill-interface.md) (Definición de una interfaz de aptitudes personalizada)
 + [Sugerencias para la solución de problemas](cognitive-search-concept-troubleshooting.md)
 
 ## <a name="reference"></a>Referencia
 
-+ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
++ [Aptitudes integradas](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
@@ -63,6 +63,6 @@ Los artículos siguientes son la documentación completa para la búsqueda cogni
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [API REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/)
-+ [Indexadores de Azure Search](search-indexer-overview.md)
-+ [¿Qué es Azure Search?](search-what-is-azure-search.md)
++ [API REST de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/)
++ [Indexadores de Azure Cognitive Search](search-indexer-overview.md)
++ [¿Qué es Azure Cognitive Search?](search-what-is-azure-search.md)

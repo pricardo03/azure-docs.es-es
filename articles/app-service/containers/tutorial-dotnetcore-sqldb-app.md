@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a4774431b6a6e37ee9e175e161813936a71cdee9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 532c6a45351f872260ea9383adaacacd486b9d9a
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824728"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532723"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación de ASP.NET Core y SQL Database en Azure App Service en Linux
 
@@ -49,7 +49,7 @@ En este tutorial, aprenderá a:
 Para completar este tutorial:
 
 * [Instalación de Git](https://git-scm.com/)
-* [Instalación de .NET Core](https://www.microsoft.com/net/core/)
+* [Instalación del SDK de .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
 
 ## <a name="create-local-net-core-app"></a>Creación de una aplicación .NET Core local
 
@@ -135,7 +135,7 @@ Cree una [regla de firewall de nivel de servidor de Azure SQL Database](../../
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-### <a name="create-a-database"></a>Creación de una base de datos
+### <a name="create-a-database"></a>Crear una base de datos
 
 Cree una base de datos con un [nivel de rendimiento S0](../../sql-database/sql-database-service-tiers-dtu.md) en el servidor con el comando [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
 

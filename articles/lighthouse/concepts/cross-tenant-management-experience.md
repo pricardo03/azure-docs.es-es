@@ -4,15 +4,15 @@ description: La administración de recursos delegados de Azure habilita una expe
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/11/2019
+ms.date: 10/18/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 0c6fed9cd83f18df0fe0a77d57a76c60cd570c21
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 8d7b1f24d5dcf3d66ffd04704c79a284c4810365
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300990"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598443"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -123,6 +123,7 @@ Con todos los escenarios, tenga en cuenta las siguientes limitaciones actuales:
 - Las solicitudes controladas por Azure Resource Manager pueden realizarse mediante la administración de recursos delegados de Azure. Los URI de operación de estas solicitudes comienzan por `https://management.azure.com`. Sin embargo, las solicitudes que se administran mediante una instancia de un tipo de recurso (por ejemplo, acceso a los secretos de KeyVault o acceso a datos de almacenamiento) no son compatibles con la administración de recursos delegados de Azure. Los URI de la operación para estas solicitudes suelen empezar con una dirección que es única para la instancia, como `https://myaccount.blob.core.windows.net` o `https://mykeyvault.vault.azure.net/`. Esta última también suelen ser operaciones de datos, en lugar de operaciones de administración. 
 - Las asignaciones de roles deben usar [roles integrados](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) de control de acceso basado en rol (RBAC). Actualmente, todos los roles integrados se admiten con la administración de recursos delegados de Azure, excepto el rol Propietario, Administrador de acceso de usuario y los roles integrados con el permiso [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions). Tampoco se admiten los roles personalizados y [los roles de administrador de la suscripción clásica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators).
 - Actualmente, no se puede incorporar una suscripción (o un grupo de recursos de una suscripción) para la administración de recursos delegados de Azure si la suscripción usa Azure Databricks. Del mismo modo, si una suscripción se ha registrado para la incorporación con el proveedor de recursos **Microsoft.ManagedServices**, en este momento, no podrá crear un área de trabajo de Databricks para la suscripción.
+- Aunque puede incorporar suscripciones y grupos de recursos para la administración de recursos delegados de Azure que tengas bloqueos de recursos, dichos bloqueos no impedirán que los usuarios realicen acciones en el inquilino de administración. Las [asignaciones de denegación](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) que protegen los recursos administrados por el sistema, como los que crean Azure Managed Applications o Azure Blueprints (asignaciones de denegación asignadas por el sistema), impiden que los usuarios del inquilino de administración actúen en esos recursos; sin embargo, actualmente, los usuarios del inquilino del cliente no pueden crear sus propias asignaciones de denegación (asignaciones de denegación asignadas por el usuario).
 
 ## <a name="using-apis-and-management-tools-with-cross-tenant-management"></a>Uso de API y herramientas de administración con administración entre inquilinos
 

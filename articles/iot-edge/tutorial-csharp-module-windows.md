@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 32bd0438afa63212222acb84c0194bbc1f4816ce
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 88ff026ea56e5f41b3b124c2d5594822ffeb6830
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286683"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529283"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desarrollo de un módulo de IoT Edge en C# para dispositivos Windows
 
@@ -82,9 +82,9 @@ Azure IoT Edge Tools proporciona plantillas de proyecto para todos los idiomas
    | Nombre del proyecto de módulo | Asigne al módulo el nombre **CSharpModule**. | 
    | Repositorio de imágenes de Docker | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el valor del nombre del proyecto del módulo. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. <br><br> El repositorio de imágenes final será similar a \<nombre del Registro\>.azurecr.io/pythonmodule. |
 
-   ![Configure el proyecto para el dispositivo de destino, tipo de módulo y registro de contenedor.](./media/tutorial-csharp-module-windows/add-application-and-module.png)
+   ![Configuración del proyecto para el dispositivo de destino, el tipo de módulo y el registro de contenedor](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
-5. Seleccione **Aceptar** para aplicar los cambios. 
+5. Haga clic en **Aceptar** para crear el proyecto. 
 
 ### <a name="add-your-registry-credentials"></a>Adición de las credenciales del Registro
 

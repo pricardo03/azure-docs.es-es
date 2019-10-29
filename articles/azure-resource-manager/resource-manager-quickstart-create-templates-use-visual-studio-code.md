@@ -1,5 +1,5 @@
 ---
-title: Uso de Visual Studio Code para crear plantillas de Azure Resource Manager | Microsoft Docs
+title: 'Creación de una plantilla de Azure Resource Manager: Visual Studio Code'
 description: Use Visual Studio Code y la extensión de herramientas de Azure Resource Manager para trabajar con plantillas de Resource Manager.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: b62d4f8b43c62ff401b4d74932b131c1bf8fd63f
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3e4707e6c0d2a45c02933a5b6022f5604ca7dbed
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169560"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533638"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager mediante Visual Studio Code
 

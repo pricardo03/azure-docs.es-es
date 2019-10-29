@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: d23fc94fba9a9b750f2977fd9c5d8297e4da8d5c
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68825918"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Tutorial: Integración de Azure Active Directory con Zscaler One
@@ -177,7 +177,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler One, realic
 
 5. En la ventana **Editar SAML**, realice los pasos siguientes y haga clic en Guardar.  
             
-    ![Administración de usuarios y autenticación](./media/zscaler-one-tutorial/ic800208.png "Administración de usuarios y autenticación")
+    ![Administración de usuarios y autenticación](./media/zscaler-one-tutorial/ic800208.png "Manage Users & Authentication")
     
     a. En el cuadro de texto **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 

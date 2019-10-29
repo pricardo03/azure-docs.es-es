@@ -17,10 +17,10 @@ ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70213619"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Tutorial: Integración de Adaptive Insights con Azure Active Directory
@@ -104,15 +104,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 2. Vaya a **Administración**.
 
-    ![Administración](./media/adaptivesuite-tutorial/ic805644.png "Administración")
+    ![Administrador](./media/adaptivesuite-tutorial/ic805644.png "Administración")
 
 3. En la sección **Users and Roles** (Usuarios y roles), haga clic en **SAML SSO Settings** (Configuración de SSO de SAML).
 
-    ![Manage SAML SSO Settings (Administrar configuración de SSO de SAML)](./media/adaptivesuite-tutorial/ic805645.png "Manage SAML SSO Settings (Administrar configuración de SSO de SAML)")
+    ![Administración de la configuración de inicio de sesión único de SAML](./media/adaptivesuite-tutorial/ic805645.png "Manage SAML SSO Settings")
 
 4. En la página **SAML SSO Settings** (Configuración de SSO de SAML), realice los pasos siguientes:
 
-    ![SAML SSO Settings (Configuración de SSO de) SAML](./media/adaptivesuite-tutorial/ic805646.png "SAML SSO Settings (Configuración de SSO de) SAML")
+    ![SAML SSO Settings](./media/adaptivesuite-tutorial/ic805646.png "SAML SSO Settings") (Configuración de SSO de SAML)
 
     a. En el cuadro de texto **Identity provider name** (Nombre del proveedor de identidades), escriba el nombre de la configuración.
 
@@ -178,7 +178,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Adaptive Insights,
 
 2. Vaya a **Administración**.
 
-   ![Administración](./media/adaptivesuite-tutorial/IC805644.png "Administración")
+   ![Administrador](./media/adaptivesuite-tutorial/IC805644.png "Administración")
 
 3. En la sección **Users and Roles** (Usuarios y roles), haga clic en **Users** (Usuarios).
 
@@ -186,7 +186,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Adaptive Insights,
 
 4. En la sección **Nuevo usuario** , lleve a cabo estos pasos:
 
-   ![Enviar](./media/adaptivesuite-tutorial/IC805649.png "Enviar")
+   Haga clic en ![Enviar](./media/adaptivesuite-tutorial/IC805649.png "Enviar").
 
    a. Escriba el **nombre**, el **nombre de usuario**, la **dirección de correo electrónico** y la **contraseña** o de un usuario válido de Azure Active Directory que quiera aprovisionar en los cuadros de texto relacionados.
 

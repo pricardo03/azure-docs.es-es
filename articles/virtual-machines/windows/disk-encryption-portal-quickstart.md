@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 240c0e157d7fcd8b76ee7f42f4c780361df6281d
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: bde0c483eacec7fb8e076530bba594eb33a32a12
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245775"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553435"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Inicio rápido: Creación y cifrado de una máquina virtual Windows desde Azure Portal
 
@@ -77,7 +77,7 @@ La implementación de la máquina virtual tardará unos minutos. Cuando finalice
 
 1. En la pantalla de cifrado, en **Disks to encrypt** (Discos que se cifran), elija **OS and data disks** (Discos de SO y de datos).
 1. En **Configuración de cifrado**, haga clic en "Seleccionar un almacén de claves y una clave para el cifrado".
-1. En la barra lateral derecha, seleccione el nombre del almacén de claves que creó anteriormente como valor para *Almacén de claves** y haga clic en **Seleccionar**.
+1. En la barra lateral derecha, seleccione el nombre del almacén de claves que creó anteriormente como valor de **Almacén de claves** y haga clic en **Seleccionar**.
 
     ![Selección de discos y de cifrado](../media/disk-encryption/portal-qs-encrypt-vm-screen.png)
 1. En la parte superior de la pantalla de cifrado, haga clic en "Guardar". Un elemento emergente le avisará que la máquina virtual se va a reiniciar la máquina virtual. Haga clic en **Sí**.

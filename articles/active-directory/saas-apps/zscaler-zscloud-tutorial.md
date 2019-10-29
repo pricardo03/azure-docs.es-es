@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 43d7e58f0c267afe8a22c217d9800abb041df8cb
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68723057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: Integración de Azure Active Directory con Zscaler ZSCloud
@@ -177,7 +177,7 @@ Para configurar el inicio de sesión único de Azure AD con ZScaler ZSCloud, hag
 
 5. En la ventana **Editar SAML**, realice los pasos siguientes y haga clic en Guardar.  
             
-    ![Administración de usuarios y autenticación](./media/zscaler-zscloud-tutorial/ic800208.png "Administración de usuarios y autenticación")
+    ![Administración de usuarios y autenticación](./media/zscaler-zscloud-tutorial/ic800208.png "Manage Users & Authentication")
     
     a. En el cuadro de texto **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 

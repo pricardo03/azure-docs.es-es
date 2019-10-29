@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 001d53cbd7e2a57615ea3da71d128bd210a79921
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6d54ec8df08e7c3d76a97c2531c21b1fd4d130b9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565855"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554752"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Inicio rápido: Detección de anomalías en los datos de serie temporal mediante API REST Anomaly Detector y Java
 
@@ -38,28 +38,15 @@ Use este inicio rápido para comenzar a usar los dos modos de detección de la A
 
 - Un archivo JSON que contiene los puntos de datos de la serie temporal. Los datos de ejemplo de este inicio rápido están disponibles en [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
-[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+### <a name="create-an-anomaly-detector-resource"></a>Creación de un recurso de Anomaly Detector
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
 ## <a name="create-a-new-application"></a>Creación de una aplicación
 
-1. Cree un proyecto de Java en su IDE o editor favorito e importe las bibliotecas siguientes.
-
-    ```java
-    import org.apache.http.HttpEntity;
-    import org.apache.http.client.methods.CloseableHttpResponse;
-    import org.apache.http.client.methods.HttpPost;
-    import org.apache.http.entity.StringEntity;
-    import org.apache.http.impl.client.CloseableHttpClient;
-    import org.apache.http.impl.client.HttpClients;
-    import org.apache.http.util.EntityUtils;
-    import org.json.JSONArray;
-    import org.json.JSONObject;
-    import java.io.IOException;
-    import java.nio.file.Files;
-    import java.nio.file.Paths;
-    ```
+1. Cree un proyecto de Java e importe las bibliotecas siguientes.
+    
+    [!code-java[Import statements](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=imports)]
 
 2. Cree variables para la clave de suscripción y el punto de conexión. A continuación se muestran los URI puede usar para la detección de anomalías. Estos se agregarán a su punto de conexión de servicio más adelante para crear las direcciones URL de solicitud de API.
 
@@ -68,23 +55,7 @@ Use este inicio rápido para comenzar a usar los dos modos de detección de la A
     |Detección por lotes    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Detección en el último punto de datos     | `/anomalydetector/v1.0/timeseries/last/detect`        |
 
-    ```java
-    // Replace the subscriptionKey string value with your valid subscription key.
-    static final String subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
-    //replace the endpoint URL with the correct one for your subscription. Your endpoint can be found in the Azure portal. 
-    //For example: https://westus2.api.cognitive.microsoft.com
-    static final String endpoint = "[YOUR_ENDPOINT_URL]";
-    // Replace the dataPath string with a path to the JSON formatted time series data.
-    static final String dataPath = "[PATH_TO_TIME_SERIES_DATA]";
-    static final String latestPointDetectionUrl = "/anomalydetector/v1.0/timeseries/last/detect";
-    static final String batchDetectionUrl = "/anomalydetector/v1.0/timeseries/entire/detect";
-    ```
-
-3. Lectura en el archivo de datos JSON
-
-    ```java
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
-    ```
+    [!code-java[Initial key and endpoint variables](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Creación de una función para enviar solicitudes
 
@@ -100,29 +71,7 @@ Use este inicio rápido para comenzar a usar los dos modos de detección de la A
 
 6. Cree un objeto `HttpEntity` para almacenar el contenido de respuesta. Obtenga el contenido con `getEntity()`. Si la respuesta no está vacía, se devuelve.
 
-```java
-static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
-    try (CloseableHttpClient client = HttpClients.createDefault()) {
-        HttpPost request = new HttpPost(endpoint + apiAddress);
-        // Request headers.
-        request.setHeader("Content-Type", "application/json");
-        request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-        request.setEntity(new StringEntity(requestData));
-        try (CloseableHttpResponse response = client.execute(request)) {
-            HttpEntity respEntity = response.getEntity();
-            if (respEntity != null) {
-                return EntityUtils.toString(respEntity, "utf-8");
-            }
-        } catch (Exception respEx) {
-            respEx.printStackTrace();
-        }
-    } catch (IOException ex) {
-        System.err.println("Exception on Anomaly Detector: " + ex.getMessage());
-        ex.printStackTrace();
-    }
-    return null;
-}
-```
+[!code-java[API request method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>Detección de anomalías como un lote
 
@@ -132,39 +81,13 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 3. En caso contrario, busque las posiciones de las anomalías en el conjunto de datos. El campo `isAnomaly` de la respuesta contiene un valor booleano sobre si un punto de datos determinado es una anomalía. Obtenga la matriz JSON e itere mediante ella, imprimiendo el índice de cualquier valor `true`. Estos valores se corresponden con el índice de los puntos de datos anómalos, si se detecta alguno.
 
-```java
-static void detectAnomaliesBatch(String requestData) {
-    System.out.println("Detecting anomalies as a batch");
-    String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
-    if (result != null) {
-        System.out.println(result);
-        JSONObject jsonObj = new JSONObject(result);
-        if (jsonObj.has("code")) {
-            System.out.println(String.format("Detection failed. ErrorCode:%s, ErrorMessage:%s", jsonObj.getString("code"), jsonObj.getString("message")));
-        } else {
-            JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
-            System.out.println("Anomalies found in the following data positions:");
-            for (int i = 0; i < jsonArray.length(); ++i) {
-                if (jsonArray.getBoolean(i))
-                    System.out.print(i + ", ");
-            }
-            System.out.println();
-        }
-    }
-}
-```
+[!code-java[Method for batch detection](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectBatch)]
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detección del estado de anomalía del punto de datos más reciente
 
 * Cree un método llamado `detectAnomaliesLatest()` para detectar el estado de las anomalías del último punto de datos del conjunto de datos. Llame al método `sendRequest()` creado anteriormente con el punto de conexión, dirección URL, la clave de suscripción y datos JSON. Obtenga el resultado e imprímalo en la consola.
 
-```java
-static void detectAnomaliesLatest(String requestData) {
-    System.out.println("Determining if latest data point is an anomaly");
-    String result = sendRequest(latestPointDetectionUrl, endpoint, subscriptionKey, requestData);
-    System.out.println(result);
-}
-```
+[!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
 
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Carga de datos de la serie temporal y envío de la solicitud
 
@@ -172,13 +95,7 @@ static void detectAnomaliesLatest(String requestData) {
 
 2. Llame a las dos funciones de detección de anomalías creadas anteriormente.
 
-```java
-public static void main(String[] args) throws Exception {
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
-    detectAnomaliesBatch(requestData);
-    detectAnomaliesLatest(requestData);
-}
-```
+[!code-java[Main method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=main)]
 
 ### <a name="example-response"></a>Respuesta de ejemplo
 
@@ -189,4 +106,8 @@ Se devuelve una respuesta correcta en formato JSON. Haga clic en los siguientes 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Referencia de API de REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
+>[Streaming de detección de anomalías con Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
+
+* ¿Qué es [Anomaly Detector API?](../overview.md)
+* [Procedimientos recomendados](../concepts/anomaly-detection-best-practices.md) cuando se usa Anomaly Detector API.
+* El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).

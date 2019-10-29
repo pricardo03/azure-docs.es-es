@@ -1,27 +1,27 @@
 ---
-title: 'Tutorial de C#: Indexación de datos a partir de bases de datos de Azure SQL: Azure Search'
-description: Un código de ejemplo en C# le mostrará cómo conectarse a Azure SQL Database, extraer datos que permitan búsquedas y que se cargarán en un índice de Azure Search.
-author: HeidiSteen
+title: 'Tutorial de C#: Indexación de datos a partir de bases de datos de Azure SQL'
+titleSuffix: Azure Cognitive Search
+description: Un código de ejemplo en C# le mostrará cómo conectarse a Azure SQL Database, extraer datos que permitan búsquedas y que se cargarán en un índice de Azure Cognitive Search.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 1ba0a965de356cfbe7d9a1cfc8d6d2e8da092934
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: d83db424ee6e9a009353ca568232b38260883a4c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327174"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793602"
 ---
-# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial de C#: Cómo rastrear una base de datos de Azure SQL mediante los indexadores de Azure Search
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-cognitive-search-indexers"></a>Tutorial de C#: Cómo rastrear una base de datos de Azure SQL mediante los indexadores de Azure Cognitive Search
 
-Aprenda a configurar un indexador para extraer datos que permiten búsquedas de una base de datos de Azure SQL de ejemplo. [Los indexadores](search-indexer-overview.md) son un componente de Azure Search que rastrean orígenes de datos externos y rellenan un [índice de búsqueda](search-what-is-an-index.md) con contenido. De todos los indexadores, el más usado es el indexador de Azure SQL Database. 
+Aprenda a configurar un indexador para extraer datos que permiten búsquedas de una base de datos de Azure SQL de ejemplo. [Los indexadores](search-indexer-overview.md) son componentes de Azure Cognitive Search que rastrean orígenes de datos externos y rellenan un [índice de búsqueda](search-what-is-an-index.md) con contenido. De todos los indexadores, el más usado es el indexador de Azure SQL Database. 
 
 Tener un profundo conocimiento de la configuración del indexador resulta de utilidad porque simplifica la cantidad de código que se tiene que escribir y mantener. En lugar de preparar e insertar un conjunto de datos JSON conforme a un esquema, puede asociar un indexador a un origen de datos, hacer que el indexador extraiga los datos y los inserte en un índice y, luego, de manera opcional, puede ejecutar el indexador según una programación recurrente para seleccionar los cambios en el origen subyacente.
 
-En este tutorial, se usarán las [bibliotecas cliente .NET de Azure Search](https://aka.ms/search-sdk) y una aplicación de consola de .NET Core para realizar las siguientes tareas:
+En este tutorial, se usarán las [bibliotecas cliente .NET de Azure Cognitive Search](https://aka.ms/search-sdk) y una aplicación de consola de .NET Core para realizar las siguientes tareas:
 
 > [!div class="checklist"]
 > * Agregar información del servicio de búsqueda a la configuración de la aplicación
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 En este inicio rápido se usan los siguientes servicios, herramientas y datos. 
 
-[Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
+[Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) almacena el origen de datos externo usado por un indexador. La solución de ejemplo proporciona un archivo de datos SQL para crear la tabla. En este tutorial se indican los pasos para crear el servicio y la base de datos.
 
@@ -46,17 +46,17 @@ Se puede usar cualquier edición de [Visual Studio 2017](https://visualstudio.mi
 En [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) puede encontrar la solución de ejemplo, en el repositorio de GitHub de ejemplos de Azure. Descargue y extraiga la solución. De forma predeterminada, las soluciones son de solo lectura. Haga clic con el botón derecho en la solución y borre el atributo de solo lectura para que se puedan modificar los archivos.
 
 > [!Note]
-> Si va a usar el servicio gratuito de Azure Search, está limitado a tres índices, tres indexadores y tres orígenes de datos. En este tutorial se crea uno de cada uno. Asegúrese de que haya espacio en el servicio para aceptar los nuevos recursos.
+> Si va a usar el servicio gratuito de Azure Cognitive Search, está limitado a tres índices, tres indexadores y tres orígenes de datos. En este tutorial se crea uno de cada uno. Asegúrese de que haya espacio en el servicio para aceptar los nuevos recursos.
 
 ## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
-Las llamadas de REST requieren la dirección URL del servicio y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
+Las llamadas de REST requieren la dirección URL del servicio y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que, si ha agregado Azure Cognitive Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
 
 1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
-![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -67,7 +67,7 @@ La información de conexión para los servicios requeridos se especifica en el a
 
 1. En el Explorador de soluciones, abra **appsettings.json** para que pueda rellenar cada valor de configuración.  
 
-Las dos primeras entradas las puede rellenar en este mismo momento mediante las claves de dirección URL y de administrador del servicio Azure Search. Dado un punto de conexión de `https://mydemo.search.windows.net`, el nombre del servicio que debe proporcionar es `mydemo`.
+Las dos primeras entradas las puede rellenar en este mismo momento mediante las claves de dirección URL y de administrador del servicio Azure Cognitive Search. Dado un punto de conexión de `https://mydemo.search.windows.net`, el nombre del servicio que debe proporcionar es `mydemo`.
 
 ```json
 {
@@ -81,7 +81,7 @@ La última entrada requiere una base de datos existente. La creará en el paso s
 
 ## <a name="prepare-sample-data"></a>Preparación de datos de ejemplo
 
-En este paso, creará un origen de datos externo que se pueda rastrear con un indexador. Puede usar Azure Portal y el archivo *hotels.sql* del ejemplo para crear el conjunto de datos en Azure SQL Database. Azure Search usa conjuntos de filas planas, como los que se generan a partir de una vista o una consulta. El archivo SQL de la solución de ejemplo crea y rellena una sola tabla.
+En este paso, creará un origen de datos externo que se pueda rastrear con un indexador. Puede usar Azure Portal y el archivo *hotels.sql* del ejemplo para crear el conjunto de datos en Azure SQL Database. Azure Cognitive Search usa conjuntos de filas planas, como los que se generan a partir de una vista o una consulta. El archivo SQL de la solución de ejemplo crea y rellena una sola tabla.
 
 En el ejercicio siguiente se da por supuesto que no hay ningún servidor ni base de datos, y se le indica que cree ambos en el paso 2. Opcionalmente, si tiene un recurso existente, puede agregar en él la tabla de hoteles, a partir del paso 4.
 
@@ -159,7 +159,7 @@ En este tutorial, el indexador extrae los datos de un origen de datos. En la pr�
 
 El programa principal incluye lógica para la creación de un cliente, un índice, un origen de datos y un indexador. El código busca y elimina los recursos existentes del mismo nombre, bajo el supuesto de que este programa se podría ejecutar varias veces.
 
-El objeto de origen de datos está configurado con valores específicos de los recursos de Azure SQL Database, [indexación incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) incluida, para aprovechar las [características de detección de cambios](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) integradas de Azure SQL. La base de datos de demostración de hoteles de Azure SQL tiene una columna de "eliminación temporal" denominada **IsDeleted**. Cuando esta columna se establece en true en la base de datos, el indexador quita el documento correspondiente del índice de Azure Search.
+El objeto de origen de datos está configurado con valores específicos de los recursos de Azure SQL Database, [indexación incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) incluida, para aprovechar las [características de detección de cambios](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) integradas de Azure SQL. La base de datos de demostración de hoteles de Azure SQL tiene una columna de "eliminación temporal" denominada **IsDeleted**. Cuando esta columna se establece en true en la base de datos, el indexador quita el documento correspondiente del índice de Azure Cognitive Search.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -261,7 +261,7 @@ Todos los indexadores, incluido el que acaba de crear mediante programación, se
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contiene el servicio Azure Search. Para eliminar de forma definitiva todo lo que contenga el grupo de recursos, elimine el grupo. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio Azure Search.
+La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contenga el servicio Azure Cognitive Search. Para eliminar de forma definitiva todo lo que contenga el grupo de recursos, elimine el grupo. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio Azure Cognitive Search.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

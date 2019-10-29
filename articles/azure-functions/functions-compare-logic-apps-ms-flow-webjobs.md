@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 47e300bf242f02d458363b7d2ab7af8a4399b399
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: b131a6fd5bb39ee5ec672a8ffb75cb22087a38af
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155035"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597437"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>¿Qué son Microsoft Flow, Logic Apps, Functions y WebJobs?
 
@@ -27,7 +27,9 @@ En este artículo se comparan los siguientes servicios en la nube de Microsoft:
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service](../app-service/webjobs-create.md)
 
-Todos estos servicios pueden solucionar problemas de integración y automatizar procesos empresariales. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Cada servicio tiene unas ventajas únicas y este artículo explica las diferencias.
+Todos estos servicios pueden solucionar problemas de integración y automatizar procesos empresariales. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Cada servicio tiene unas ventajas únicas y este artículo explica las diferencias. 
+
+Si está buscando una comparación más general entre Azure Functions y las demás opciones de proceso de Azure, consulte [Criterios para elegir un servicio de proceso de Azure](/azure/architecture/guide/technology-choices/compute-comparison) y [Elección de una opción de proceso de Azure para microservicios](/azure/architecture/microservices/design/compute-options).
 
 ## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>Comparativa entre Microsoft Flow y Azure Logic Apps
 

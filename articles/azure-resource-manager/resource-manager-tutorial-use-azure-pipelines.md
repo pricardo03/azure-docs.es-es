@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/12/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122222"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597253"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines
 
@@ -91,7 +91,7 @@ Este repositorio se conoce como *repositorio remoto*. Cada uno de los desarrolla
 
     Reemplaza **[YourAccountName]** por el nombre de tu cuenta de GitHub y reemplaza **[YourGitHubRepositoryName]** por el nombre del repositorio que creaste en el procedimiento anterior.
 
-    En las siguientes capturas de pantalla se muestra un ejemplo.
+    La siguiente captura de pantalla muestra un ejemplo.
 
     ![Creación de bash de GitHub para Azure Resource Manager Azure DevOps Azure Pipelines](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-bash.png)
 
@@ -183,9 +183,11 @@ Para crear una canalización con un paso para implementar una plantilla:
 
     ```yaml
     steps:
-    - task: AzureResourceGroupDeployment@2
+    - task: AzureResourceManagerTemplateDeployment@3
       inputs:
-        azureSubscription: '[YourServiceConnectionName]'
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: '[EnterYourServiceConnectionName]'
+        subscriptionName: '[EnterTheTargetSubscriptionID]'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '[EnterANewResourceGroupName]'
         location: 'Central US'
@@ -200,14 +202,16 @@ Para crear una canalización con un paso para implementar una plantilla:
 
     Se han realizado los siguientes cambios:
 
-    * **azureSubscription**: Actualiza el valor con la conexión de servicio creada en el procedimiento anterior.
+    * **deloymentScope**: seleccione el ámbito de implementación entre las opciones: `Management Group`, `Subscription` y `Resource Group`. En este tutorial, use **Grupo de recursos**. Para más información sobre los ámbitos, consulte [Ámbitos de implementación](./resource-group-template-deploy-rest.md#deployment-scope).
+    * **ConnectedServiceName**: especifique el nombre de la conexión de servicio que creó anteriormente.
+    * **SubscriptionName**:  especifique el identificador de la suscripción de destino.
     * **action**: La acción **Create Or Update Resource Group** se encarga de 2 acciones: 1. crear un grupo de recursos si se proporciona un nuevo nombre de grupo de recursos; 2. implementar la plantilla especificada.
     * **resourceGroupName**: Especifica un nuevo nombre de grupo de recursos. Por ejemplo, **AzureRmPipeline-rg**.
     * **location**: Especifica la ubicación del grupo de recursos.
     * **templateLocation**: Cuando se especifica **Linked artifact**, la tarea busca el archivo de plantilla directamente en el repositorio conectado.
     * **csmFile** es la ruta de acceso al archivo de plantilla. No es necesario especificar un archivo de parámetros de plantilla, ya que todos los parámetros definidos en la plantilla tienen valores predeterminados.
 
-    Para más información sobre la tarea, consulta [Azure Resource Group Deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment) (Tarea Azure Resource Group Deployment).
+    Para más información sobre la tarea, consulte [Tarea de implementación del grupo de recursos de Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment) y [Tarea de implementación de plantillas de Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md).
 1. Seleccione **Guardar y ejecutar**.
 1. Selecciona **Guardar y ejecutar** nuevamente. En el repositorio conectado, se guarda una copia del archivo YAML. Para ver el archivo YAML, ve al repositorio.
 1. Verifica que la canalización se haya ejecutado correctamente.

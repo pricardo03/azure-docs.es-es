@@ -1,125 +1,121 @@
 ---
 title: 'Tutorial: Implementación de un modelo de Machine Learning con la interfaz visual'
 titleSuffix: Azure Machine Learning
-description: Aprenda a crear una solución de análisis predictivo en la interfaz visual de Azure Machine Learning. Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar. Este tutorial es la segunda de una serie de dos partes sobre la predicción de precios de automóviles mediante la regresión lineal.
+description: Aprenda a crear una solución de análisis predictivo en la interfaz visual de Azure Machine Learning. Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/11/2019
-ms.openlocfilehash: 9378c6a14c3b755a6456ef68ecd73730cb77fc79
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 10/22/2019
+ms.openlocfilehash: 6f8717f70a2cb03a7fd683cfe61f1198461f4305
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128980"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792671"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Implementación de un modelo de Machine Learning con la interfaz visual
 
-Para que otros usuarios puedan usar el modelo predictivo desarrollado en la [parte uno de este tutorial](ui-tutorial-automobile-price-train-score.md), se puede implementar como servicio web de Azure. Hasta ahora ha estado experimentando con el entrenamiento del modelo. Ahora, es momento de generar predicciones basadas en los datos que escriba el usuario. En esta parte del tutorial, va a:
+Para que otros usuarios puedan usar el modelo predictivo desarrollado en la [parte uno de este tutorial](ui-tutorial-automobile-price-train-score.md), se puede implementar como un punto de conexión en tiempo real. En la parte 1, ha entrenado el modelo. Ahora, es momento de generar predicciones basadas en los datos que escriba el usuario. En esta parte del tutorial, va a:
 
 > [!div class="checklist"]
-> * Preparar un modelo para la implementación
-> * Implementación de un servicio web
-> * Probara un servicio web
-> * Administrar un servicio web
-> * Consumo del servicio web
+> * Implementar un punto de conexión en tiempo real
+> * Crear un clúster de inferencia
+> * Probar un punto de conexión en tiempo real
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Complete la [parte uno del tutorial](ui-tutorial-automobile-price-train-score.md) para aprender a entrenar y puntuar un modelo de Machine Learning en la interfaz visual.
 
-## <a name="prepare-for-deployment"></a>Preparación de la implementación
+## <a name="deploy-a-real-time-endpoint"></a>Implementar un punto de conexión en tiempo real
 
-Antes de implementar el experimento como un servicio web, primero debe convertir el *experimento de entrenamiento* en un *experimento predictivo*.
+Para implementar la canalización, debe:
 
-1. Seleccione **Create Predictive Experiment** (Crear experimento predictivo)* en la parte inferior del lienzo.
+1. Convertir la canalización de entrenamiento en una canalización de inferencia en tiempo real, que quita los módulos de entrenamiento y agrega entradas y salidas para la inferencia de solicitudes.
+1. Implementar la canalización de inferencia
 
-    ![Gif animado que muestra la conversión automática de un experimento de entrenamiento en un experimento de predicción](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
+### <a name="create-a-real-time-inference-pipeline"></a>Crear una canalización de inferencia en tiempo real
 
-    Cuando selecciona **Create Predictive Experiment** (Crear experimento predictivo), suceden varias cosas:
+1. En la parte superior del lienzo de la canalización, seleccione **Create inference pipeline** > **Real-time inference pipeline** (Crear canalización de inferencia > Canalización de inferencia en tiempo real).
+
+    Al seleccionar **Create inference pipeline** (Crear canalización de inferencia), suceden varias cosas:
     
-    * El modelo entrenado se almacena como un módulo del **modelo entrenado** en la paleta de módulos. Puede encontrarlo en **Trained Models** (Modelos entrenados).
-    * Se quitan los módulos que se utilizaron para el entrenamiento, en particular:
-      * Train Model (Entrenar modelo)
-      * Split Data (Dividir datos)
-      * Evaluate Model (Evaluar modelo)
-    * El modelo entrenado guardado se vuelve a agregar al experimento.
-    * Se agregan los módulos de **entrada de servicio web** y de **salida de servicio web**. Estos módulos identifican el lugar en que los datos del usuario entrarán en el modelo y el lugar en que se devuelven los datos.
+    * El modelo entrenado se almacena como un módulo **Conjunto de datos** en la paleta de módulos. Puede encontrarlo en **My Datasets** (Mis conjuntos de datos).
+    * Los módulos, como **Entrenar modelo** y **Dividir datos**, que se usaron para el entrenamiento se eliminan.
+    * El modelo entrenado guardado se vuelve a agregar a la canalización.
+    * Se agregan los módulos **Web Service Input** (Entrada de servicio web) y **Web Service Output** (Salida de servicio web). Estos módulos identifican dónde entrarán los datos del usuario en el modelo y dónde se devuelven los datos.
 
-    El **experimento de entrenamiento** se guarda todavía en las nuevas pestañas de la parte superior del lienzo de experimentos.
+    > [!Note]
+    > La **canalización de entrenamiento** se guarda en la nueva pestaña en la parte superior del lienzo de la canalización. También se puede encontrar como una canalización publicada en la interfaz visual.
+    >
 
-1. **Ejecute** el experimento.
+    La canalización debería tener este aspecto:  
 
-1. Para comprobar que el modelo aún funciona, seleccione la salida del módulo **Score Model** (Puntuar modelo) y, después, **View Results** (Ver resultados). Puede ver que se muestran los datos originales, junto con el precio previsto ("Etiquetas puntuadas").
+   ![Captura de pantalla que muestra la configuración esperada de la canalización después de prepararla para la implementación](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-El experimento debería ser similar al siguiente:  
+1. Seleccione **Ejecutar** y use el mismo destino de proceso y experimento que usó en la parte 1.
 
-![Captura de pantalla que muestra la configuración esperada del experimento después de prepararlo para su implementación](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
+1. Seleccione el módulo **Score Model** (Puntuar modelo).
 
-## <a name="deploy-the-web-service"></a>Implementación del servicio web
+1. En el panel de propiedades, seleccione **Salidas** > **Visualizar** para comprobar que el modelo sigue funcionando. Puede ver que se muestran los datos originales, junto con el precio previsto ("etiquetas puntuadas").
 
-1. Seleccione **Deploy Web Service** (Implementar servicio web) debajo del lienzo.
+1. Seleccione **Implementar**.
 
-1. Seleccione el **destino de proceso** que desea que ejecute el servicio web.
+### <a name="create-an-inferencing-cluster"></a>Creación de un clúster de inferencia
 
-    Actualmente, la interfaz visual solo admite la implementación en los destinos de proceso de Azure Kubernetes Service (AKS). Puede elegir entre los destinos de proceso AKS disponibles en el área de trabajo de Machine Learning Service o configure un entorno de AKS nuevo mediante los pasos del cuadro de diálogo.
+En el cuadro de diálogo que aparece, puede seleccionar entre los clústeres de Azure Kubernetes Service (AKS) existentes en el área de trabajo para implementar el modelo. Si no tiene un clúster de AKS, use los pasos siguientes para crear uno.
 
-    ![Captura de pantalla que muestra una posible configuración para un nuevo destino de proceso](./media/ui-tutorial-automobile-price-deploy/deploy-compute.png)
+1. Seleccione **Proceso** en el cuadro de diálogo para ir a la página **Proceso**.
 
-1. Seleccione **Deploy Web Service** (Implementar servicio web). Cuando finalice la implementación verá la siguiente notificación. La implementación puede tardar unos minutos.
+1. En la cinta de opciones de navegación, seleccione **Inference Clusters** (Clústeres de inferencia)  >  **+ Nuevo**.
 
-    ![Captura de pantalla que muestra el mensaje de confirmación tras una implementación correcta.](./media/ui-tutorial-automobile-price-deploy/deploy-succeed.png)
+    ![Captura de pantalla que muestra cómo ir al panel de nuevo clúster de inferencia](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
 
-## <a name="test-the-web-service"></a>Prueba del servicio web
+1. En el panel del clúster de inferencia, configure un nuevo servicio de Kubernetes.
 
-Puede probar y administrar los servicios web de la interfaz visual. Para ello, vaya a la pestaña **Servicios web**.
+1. Escriba "aks-compute" en **Compute name** (Nombre de proceso).
+    
+1. En **Región**, seleccione una región disponible cercana.
 
-1. Vaya a la sección del servicio web. Verá el servicio web que ha implementado con el nombre **Tutorial - Predict Automobile Price[Predictive Exp]** (Tutorial: predecir el precio de automóviles [exp. de predicción]).
+1. Seleccione **Crear**.
 
-     ![Captura de pantalla que muestra la pestaña del servicio web con el servicio web recién creado resaltado](./media/ui-tutorial-automobile-price-deploy/web-services.png)
+    > [!Note]
+    > La creación de un servicio AKS tarda unos 15 minutos. Puede comprobar el estado de aprovisionamiento en la página **Inference Clusters** (Clústeres de inferencia).
+    >
 
-1. Seleccione el nombre del servicio web para ver más detalles.
+### <a name="deploy-the-real-time-endpoint"></a>Implementación del punto de conexión en tiempo real
+
+Después de que el servicio AKS haya terminado de aprovisionarse, vuelva a la canalización de inferencia en tiempo real para finalizar la implementación.
+
+1. Seleccione **Implementar** encima del lienzo.
+
+1. Seleccione **Deploy new real-time endpoint** (Implementar nuevo punto de conexión en tiempo real). 
+
+1. Seleccione el clúster de AKS que ha creado.
+
+1. Seleccione **Implementar**.
+
+    ![Captura de pantalla que muestra cómo configurar un nuevo punto de conexión en tiempo real](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+
+    Cuando finalice la implementación (puede tardar unos minutos), aparecerá una notificación de operación correcta encima del lienzo.
+
+## <a name="test-the-real-time-endpoint"></a>Prueba del punto de conexión en tiempo real
+
+Para probar el punto de conexión en tiempo real, vaya a la página **Puntos de conexión** en el panel de navegación del área de trabajo de la izquierda.
+
+1. En la página **Puntos de conexión**, seleccione el punto de conexión que implementó.
+
+    ![Captura de pantalla que muestra la pestaña de puntos de conexión en tiempo real con el punto de conexión creado recientemente resaltado](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 
 1. Seleccione **Probar**.
 
-    [![Captura de pantalla que muestra la página de prueba del servicio web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)](./media/ui-tutorial-automobile-price-deploy/web-service-test.png#lightbox)
-
 1. Escriba los datos de prueba o use los datos de ejemplo que se rellenan automáticamente y seleccione **Test** (Probar).
 
-    La solicitud de prueba se envía al servicio web y los resultados se muestran en la página. Aunque se genera un valor de precio para los datos de entrada, este no se usa para generar el valor de predicción.
+    La solicitud de prueba se envía al punto de conexión y los resultados se muestran en la página. Aunque se genera un valor de precio para los datos de entrada, este no se usa para generar el valor de predicción.
 
-## <a name="consume-the-web-service"></a>Consumo del servicio web
-
-Los usuarios ya pueden enviar solicitudes de API al servicio web de Azure y recibir los resultados para predecir el precio de sus nuevos automóviles.
-
-**Solicitud/respuesta**: el usuario envía una o varias filas de datos de automóviles al servicio mediante un protocolo HTTP. El servicio responde con uno o varios conjuntos de resultados.
-
-Puede encontrar en las llamadas de REST de ejemplo en la pestaña **Consume** (Consumir) de la página de detalles del servicio web.
-
-   ![Captura de pantalla que muestra una llamada de REST de ejemplo que los usuarios pueden encontrar en la pestaña Consume (Consumir)](./media/ui-tutorial-automobile-price-deploy/web-service-consume.png)
-
-Vaya a la pestaña **API Doc** (Documentación de la API) para buscar más detalles acerca de la API.
-
-## <a name="manage-models-and-deployments"></a>Administración de modelos e implementaciones
-
-Los modelos y las implementaciones de servicios web que cree en la interfaz visual se pueden administrar también desde el área de trabajo de Azure Machine Learning.
-
-1. Abra el área de trabajo en [Azure Portal](https://portal.azure.com/).  
-
-1. En el área de trabajo, seleccione **Models** (Modelos). Luego, seleccione el experimento que ha creado.
-
-    ![Captura de pantalla que muestra cómo ir a los experimentos en Azure Portal](./media/ui-tutorial-automobile-price-deploy/portal-models.png)
-
-    En esta página, verá más detalles acerca del modelo.
-
-1. Seleccione **Deployments** (implementaciones) y obtendrá una lista de todos los servicios web que usan el modelo. Seleccione el nombre del servicio web, irá a la página de detalles del servicio web. En dicha página, puede obtener información más detallada del servicio web.
-
-    [![Captura de pantalla del informe de ejecución detallado](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
-
-Estos modelos e implementaciones también se puede encontrar en las seccione **Modelos** y **Puntos de conexión** de la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com).
+    ![Captura de pantalla que muestra cómo probar el punto de conexión en tiempo real con la etiqueta puntuada del precio resaltada](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -127,7 +123,7 @@ Estos modelos e implementaciones también se puede encontrar en las seccione **M
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido los pasos clave para crear, implementar y consumir un modelo de Machine Learning en la interfaz visual. Para más información acerca de cómo usar la interfaz visual para resolver otros tipos de problemas, consulte los experimentos de ejemplo.
+En este tutorial, ha aprendido los pasos clave para crear, implementar y consumir un modelo de Machine Learning en la interfaz visual. Para más información sobre cómo usar la interfaz visual para resolver otros tipos de problemas, consulte las otras canalizaciones de ejemplo.
 
 > [!div class="nextstepaction"]
 > [Ejemplo de clasificación de riesgo crediticio](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)

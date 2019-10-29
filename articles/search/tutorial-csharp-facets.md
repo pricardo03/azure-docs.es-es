@@ -1,24 +1,25 @@
 ---
-title: Tutorial de C# sobre el uso de facetas para facilitar la navegación - Azure Search
-description: 'Este tutorial se basa en el proyecto "Paginación de los resultados de la búsqueda: Azure Search", para agregar navegación por facetas. Aprenda a usar facetas para restringir una búsqueda fácilmente.'
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: Tutorial de C# sobre el uso de facetas para facilitar la navegación
+titleSuffix: Azure Cognitive Search
+description: Este tutorial se basa en el proyecto de paginación de los resultados de la búsqueda en Azure Cognitive Search, para agregar navegación por facetas. Aprenda cómo usar facetas para restringir una búsqueda fácilmente.
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/20/2019
-ms.openlocfilehash: 62326ad3bc5f2d740ce744819df559bce8658eb7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 9f0d716e9077b2d9702f26b1afe92d9e4faf4a77
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443780"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794088"
 ---
-# <a name="c-tutorial-use-facets-to-aid-navigation---azure-search"></a>Tutorial de C#: Usar facetas para facilitar la navegación - Azure Search
+# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>Tutorial de C#: Uso de facetas para facilitar la navegación en Azure Cognitive Search
 
 Las facetas se usan para facilitar la navegación al proporcionar al usuario un conjunto de vínculos se usan para centrar su búsqueda. Las facetas son atributos de los datos (por ejemplo, la categoría, o una característica específica, de un hotel en los datos de ejemplo).
 
-Este tutorial se basa en el proyecto de paginación que se creó en el [Tutorial de C#: paginación de los resultados de la búsqueda - Azure Search](tutorial-csharp-paging.md).
+Este tutorial se basa en el proyecto de paginación que se creó en el [Tutorial de C#: Paginación de los resultados de búsqueda: Azure Cognitive Search](tutorial-csharp-paging.md).
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -29,7 +30,7 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, necesita:
 
-Abrir y ejecutar el proyecto [Tutorial de C#: paginación de los resultados de la búsqueda - Azure Search](tutorial-csharp-paging.md). Este proyecto puede ser su propia versión o puede instalarlo desde GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples) (Crear la primera aplicación).
+Tener listo y en ejecución el proyecto [Tutorial de C#: El proyecto Paginación de los resultados de búsqueda: Azure Cognitive Search](tutorial-csharp-paging.md) en funcionamiento. Este proyecto puede ser su propia versión o puede instalarlo desde GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples) (Crear la primera aplicación).
 
 ## <a name="set-model-properties-as-isfacetable"></a>Establecer las propiedades del modelo en IsFacetable
 
@@ -559,4 +560,4 @@ Tenga en cuenta las siguientes conclusiones de este proyecto:
 En el siguiente tutorial, nos centramos en cómo ordenar los resultados. Llegado a este punto, los resultados se ordenan simplemente en el orden en que se encuentran en la base de datos.
 
 > [!div class="nextstepaction"]
-> [Tutorial de C#: ordenar los resultados - Azure Search](tutorial-csharp-orders.md)
+> [Tutorial de C#: Ordenación de los resultados: Azure Cognitive Search](tutorial-csharp-orders.md)

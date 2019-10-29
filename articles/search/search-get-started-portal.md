@@ -1,45 +1,46 @@
 ---
-title: 'Inicio rápido: Creación de un índice de búsqueda mediante Azure Portal (Azure Search)'
-description: Utilice el Asistente para importar datos en Azure Portal para crear, cargar y consultar el primer índice de Azure Search.
+title: Creación de un índice de búsqueda en Azure Portal
+titleSuffix: Azure Cognitive Search
+description: Utilice el Asistente para importar datos para crear, cargar y consultar el primer índice de búsqueda de Azure Cognitive Search.
 author: lobrien
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: a4a25b8504d873b624e1f6822807c9c08ebd2e4f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 502177519c0e66baa7ae9c1de18a7b41bceb054a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936981"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791249"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Search en Azure Portal
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
+> * [C#](search-get-started-dotnet.md)
+> * [Java](search-get-started-java.md)
+> * [Node.js](search-get-started-nodejs.md)
 > * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
-> * [C#](search-get-started-dotnet.md)
 
-Para un rápido avance en los conceptos de Azure Search, prueba las herramientas integradas en Azure Portal. Los asistentes y editores no ofrecen una paridad completa con las API REST y .NET, pero puede empezar a trabajar rápidamente con una introducción sin código, lo que permite escribir consultas interesantes en un índice en cuestión de minutos.
+Use el portal para ponerse al día rápidamente con los conceptos y escribir consultas interesantes en un índice en cuestión de minutos.
 
 > [!div class="checklist"]
 > * Empiece con un conjunto de datos de ejemplo público y gratuito hospedado en Azure.
-> * Ejecute el **Asistente para la importación de datos** en Azure Search para cargar datos y generar un índice.
+> * Ejecute el **Asistente para la importación de datos** en Azure Cognitive Search para cargar datos y generar un índice
 > * Supervise el progreso de la indexación en el portal.
 > * Vea un índice existente y las opciones para modificarlo.
 > * Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada y la búsqueda geográfica con el **Explorador de búsqueda**.
 
-Si las herramientas son demasiado restrictivas, puede plantearse utilizar una [introducción basada en código a la programación de Azure Search en .NET](search-howto-dotnet-sdk.md) o utilice [Postman para realizar llamadas a la API REST](search-get-started-postman.md). También puede ver una demostración de seis minutos de los pasos de este tutorial, comenzando por este [vídeo de introducción a Azure Search](https://channel9.msdn.com/Events/Connect/2016/138) de aproximadamente tres minutos.
+Si las herramientas son demasiado restrictivas, puede plantearse la posibilidad de utilizar una [introducción basada en código a la programación de Azure Cognitive Search en .NET](search-howto-dotnet-sdk.md) o utilizar [Postman para realizar llamadas a la API REST](search-get-started-postman.md). 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
+[Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
 ### <a name="check-for-space"></a>Búsqueda de espacio
 
@@ -57,7 +58,7 @@ En este tutorial, se usa un conjunto de datos de ejemplo integrado que se puede 
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Paso 1: Inicio del Asistente para la importación de datos y creación de un origen de datos
 
-1. En el panel del servicio Azure Search, haga clic en **Importar datos** en la barra de comandos para crear y rellenar un índice de búsqueda.
+1. En el panel del servicio Azure Cognitive Search, haga clic en **Import data** (Importar datos) en la barra de comandos para crear y rellenar un índice de búsqueda.
 
    ![Comando de importación de datos](media/search-get-started-portal/import-data-cmd.png)
 
@@ -71,7 +72,7 @@ En este tutorial, se usa un conjunto de datos de ejemplo integrado que se puede 
 
 ### <a name="step-2---skip-cognitive-skills"></a>Paso 2: Omisión de aptitudes cognitivas
 
-El asistente admite la creación de una [canalización de aptitudes cognitivas](cognitive-search-concept-intro.md) para incorporar los algoritmos de inteligencia artificial de Cognitive Services a la indexación. 
+El asistente admite la creación de una [canalización de enriquecimiento con inteligencia artificial](cognitive-search-concept-intro.md) para incorporar los algoritmos de inteligencia artificial de Cognitive Services a la indexación. 
 
 Omitiremos este paso por ahora y pasaremos directamente a **Personalización del índice de destino**.
 
@@ -125,13 +126,13 @@ El portal puede tardar unos minutos en actualizar la página, pero debería ver 
 
 ## <a name="view-the-index"></a>Ver el índice
 
-La página principal del servicio proporciona vínculos a los recursos creados en el servicio Azure Search.  Para ver el índice que acaba de crear, haga clic en **Índices** en la lista de vínculos. 
+La página principal del servicio proporciona vínculos a los recursos creados en el servicio Azure Cognitive Search.  Para ver el índice que acaba de crear, haga clic en **Índices** en la lista de vínculos. 
 
    ![Lista de índices en el panel del servicio](media/search-get-started-portal/indexes-list.png)
 
 En esta lista, puede hacer clic en el índice de *hotels-sample* que acaba de crear y ver el esquema de índice y, opcionalmente, agregar nuevos campos. 
 
-La pestaña **Campos** muestra el esquema de índice. Desplácese hasta la parte inferior de la lista para especificar un nuevo campo. En la mayoría de los casos, no se pueden cambiar los campos existentes. Los campos existentes tienen una representación física en Azure Search y, por tanto, no son modificables, ni siquiera en el código. Para cambiar radicalmente un campo, cree otro índice y elimine el original.
+La pestaña **Campos** muestra el esquema de índice. Desplácese hasta la parte inferior de la lista para especificar un nuevo campo. En la mayoría de los casos, no se pueden cambiar los campos existentes. Los campos existentes tienen una representación física en Azure Cognitive Search y, por tanto, no se pueden modificar, ni siquiera en el código. Para cambiar radicalmente un campo, cree otro índice y elimine el original.
 
    ![definición de índice de ejemplo](media/search-get-started-portal/sample-index-def.png)
 
@@ -146,7 +147,7 @@ Más adelante, debería tener ahora un índice de búsqueda que esté preparado 
 El **explorador de Search** está equipado solo para administrar [solicitudes de API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), pero acepta sintaxis para la [sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) y el [analizador de consultas completo de Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), además de todos los parámetros de búsqueda disponibles en las operaciones de [API REST de búsqueda en documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
-> En el [vídeo de introducción a Azure Search](https://channel9.msdn.com/Events/Connect/2016/138), los siguientes pasos se demuestran en 6 minutos y 8 segundos.
+> En el [vídeo de introducción a Azure Cognitive Search](https://channel9.msdn.com/Events/Connect/2016/138), los siguientes pasos se demuestran en el minuto 6 y 8 segundos.
 >
 
 1. Haga clic en **Explorador de búsqueda** en la barra de comandos.
@@ -181,7 +182,7 @@ Puede escribir términos y frases, de forma similar a lo que podría hacer en un
 
 * El parámetro **$count=true** devuelve el recuento total de todos los documentos devueltos. Este valor aparece en la parte superior de los resultados de búsqueda. Puede comprobar las consultas de filtro mediante la supervisión de los cambios notificados por **$count=true**. Los recuentos más pequeños indican que su filtro está funcionando.
 
-* El parámetro **$top=10** devuelve los 10 documentos mejor clasificados del total. De forma predeterminada, Azure Search devuelve las primeras 50 mejores coincidencias. Puede aumentar o disminuir la cantidad mediante **$top**.
+* El parámetro **$top=10** devuelve los 10 documentos mejor clasificados del total. De forma predeterminada, Azure Cognitive Search devuelve las 50 mayores coincidencias. Puede aumentar o disminuir la cantidad mediante **$top**.
 
 ### <a name="filter-query"></a> Filtro de la consulta
 
@@ -200,7 +201,7 @@ Los filtros de faceta se incluyen en las solicitudes de búsqueda. Puede usar el
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Ejemplo (con faceta con reducción del ámbito): `search=*&facet=Category&$top=2`
 
 * **search=** * es una búsqueda vacía. Las búsquedas vacías buscan en todo. Una de las razones para enviar una búsqueda vacía es filtrar o clasificar el conjunto completo de documentos. Por ejemplo, quiere una estructura de navegación en facetas que conste de todos los hoteles del índice.
-* **facet** devuelve una estructura de navegación que puede pasar a un control de interfaz de usuario. Devuelve categorías y un recuento. En este caso, las categorías se basan en un campo denominado convenientemente *Category*. No hay ninguna agregación en Azure Search, pero puede aproximarla mediante `facet`, que proporciona un recuento de documentos de cada categoría.
+* **facet** devuelve una estructura de navegación que puede pasar a un control de interfaz de usuario. Devuelve categorías y un recuento. En este caso, las categorías se basan en un campo denominado convenientemente *Category*. No hay ninguna agregación en Azure Cognitive Search, pero puede aproximarla mediante `facet`, que proporciona un recuento de documentos de cada categoría.
 
 * **$top=2** devuelve dos documentos, lo cual muestra que puede usar `top` para reducir o aumentar los resultados.
 
@@ -210,7 +211,7 @@ Los filtros de faceta se incluyen en las solicitudes de búsqueda. Puede usar el
 
 * Solo los campos que se pueden filtrar se pueden clasificar. Solo se pueden devolver en los resultados campos recuperables.
 
-* El campo *Rating* es un número de punto flotante de doble precisión y la agrupación será por valor preciso. Para más información sobre la agrupación por intervalo (por ejemplo, "clasificaciones de 3 estrellas", "clasificaciones de 4 estrellas", etc.), consulte [Procedimiento para implementar la navegación por facetas en Azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* El campo *Rating* es un número de punto flotante de doble precisión y la agrupación será por valor preciso. Para más información sobre la agrupación por intervalo (por ejemplo, "clasificaciones de 3 estrellas", "clasificaciones de 4 estrellas", etc.), consulte [Procedimiento para implementar la navegación por facetas en Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
 ### <a name="highlight-query"></a> Resaltado de los resultados de la búsqueda
@@ -225,7 +226,7 @@ El proceso de resaltado de referencias se refiere al formato en el texto que coi
 
 * La búsqueda de texto completo reconoce variaciones básicas en los formularios de palabras. En este caso, los resultados de búsqueda contienen el texto resaltado para "beach", para aquellos hoteles que tengan esa palabra en sus campos de búsqueda, en respuesta a una búsqueda por palabra clave en "beaches". Diferentes formas de la misma palabra pueden aparecer en los resultados debido al análisis lingüístico. 
 
-* Azure Search admite 56 analizadores de Lucene y Microsoft. El valor predeterminado usado por Azure Search es el analizador de Lucene estándar.
+* Azure Cognitive Search admite 56 analizadores de Lucene y Microsoft. El que usa Azure Cognitive Search es el analizador de Lucene estándar.
 
 ### <a name="fuzzy-search"></a> Probar la búsqueda aproximada
 
@@ -241,9 +242,9 @@ Este ejemplo devuelve documentos que contengan coincidencias con "Seattle".
 
 Cuando **queryType** no se especifica, se usa el analizador de consultas sencillo de manera predeterminada. El analizador de consultas sencillo es más rápido, pero si necesita búsqueda aproximada, expresiones regulares, búsqueda de proximidad u otros tipos de consultas avanzadas, necesitará la sintaxis completa.
 
-La búsqueda aproximada y la búsqueda con caracteres comodín tienen implicaciones en los resultados de búsqueda. No se realiza un análisis lingüístico en estos formatos de consulta. Antes de usar la búsqueda con caracteres comodín y la búsqueda aproximada, consulte [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md#stage-2-lexical-analysis) y busque la sección sobre las excepciones para el análisis léxico.
+La búsqueda aproximada y la búsqueda con caracteres comodín tienen implicaciones en los resultados de búsqueda. No se realiza un análisis lingüístico en estos formatos de consulta. Antes de usar la búsqueda con caracteres comodín y la búsqueda aproximada, consulte [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md#stage-2-lexical-analysis) y busque la sección sobre las excepciones para el análisis léxico.
 
-Para más información sobre los escenarios de consulta habilitados por el analizador de consultas completo, consulte [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Sintaxis de consulta de Lucene en Azure Search).
+Para más información sobre los escenarios de consulta habilitados por el analizador de consultas completo, consulte [Sintaxis de consulta de Lucene en Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="geo-search"></a> Prueba de la búsqueda geoespacial
 
@@ -257,7 +258,7 @@ La búsqueda geoespacial resulta útil si su aplicación de búsqueda tiene una 
 
 ## <a name="takeaways"></a>Puntos clave
 
-Este tutorial proporciona una introducción rápida al uso de Azure Search desde Azure Portal.
+En este tutorial se ha proporcionado una introducción rápida al uso de Azure Cognitive Search desde Azure Portal.
 
 Ha aprendido cómo crear un índice de búsqueda mediante el asistente para **importar datos**. Ha aprendido acerca de los [indexadores](search-indexer-overview.md), así como del flujo de trabajo básico para el diseño de índices, incluidas las [modificaciones admitidas en un índice publicado](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
@@ -275,8 +276,8 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede explorar más sobre Azure Search mediante las herramientas de programación:
+Para explorar más sobre Azure Cognitive Search, use las herramientas de programación:
 
 * [Creación de un índice con el SDK de .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [Creación de un índice con las API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Creación de un índice con Postman o Fiddler y las API REST de Azure Search](search-get-started-postman.md)
+* [Creación de un índice mediante Postman o Fiddler y las API REST de Azure Cognitive Search](search-get-started-postman.md)
