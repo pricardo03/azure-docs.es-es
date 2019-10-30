@@ -29,7 +29,7 @@
     - name: Registro para restablecer la contraseña
       href: active-directory-passwords-reset-register.md
     - name: Restablecimiento de la contraseña
-      href: user-help-reset-password.md
+      href: active-directory-passwords-update-your-own-password.md
 - name: Ayuda de la aplicación Microsoft Authenticator
   items:
     - name: Información general
