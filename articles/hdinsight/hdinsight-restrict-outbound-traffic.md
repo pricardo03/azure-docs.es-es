@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 070365c79e14b80c50c70aa3277a6eddd9286a37
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 56e745a4f4e4bfbe82da00b46b7a5c0a58e3785e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018741"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789804"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configuración del tráfico de red saliente para clústeres de Azure HDInsight mediante el uso de un firewall (Versión preliminar)
 
@@ -139,7 +139,7 @@ Se deben crear rutas para el tráfico de la aplicación para evitar incidencias 
 
 Si las aplicaciones tienen otras dependencias, deben agregarse a Azure Firewall. Crear reglas de aplicación para permitir el tráfico HTTP/HTTPS y reglas de red para todo lo demás.
 
-## <a name="logging"></a>Registro
+## <a name="logging-and-scale"></a>Registro y escala
 
 Azure Firewall puede enviar registros a algunos sistemas de almacenamiento diferentes. Para obtener instrucciones sobre la configuración del registro para el firewall, siga los pasos de [Tutorial: Supervisión de métricas y registros de Azure Firewall](../firewall/tutorial-diagnostics.md).
 
@@ -151,8 +151,12 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 La integración de Azure Firewall con los registros de Azure Monitor resulta útil la primera vez que se pone una aplicación en funcionamiento, cuando aún no se conocen todas las dependencias de la aplicación. Puede obtener más información acerca de los registros de Azure Monitor en [Análisis de datos de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
+Para información sobre los límites de escala de Azure Firewall y los aumentos de solicitud, consulte [este](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) documento o las [preguntas más frecuentes](https://docs.microsoft.com/en-us/azure/firewall/firewall-faq). 
+
 ## <a name="access-to-the-cluster"></a>Acceso al clúster
-Después de configurar correctamente el firewall, puede usar el punto de conexión interno (`https://<clustername>-int.azurehdinsight.net`) para acceder a Ambari desde la red virtual. Para usar el punto de conexión público (`https://<clustername>.azurehdinsight.net`) o el punto de conexión de SSH (`<clustername>-ssh.azurehdinsight.net`), asegúrese de que dispone de las rutas adecuadas en la tabla de rutas y la configuración de las reglas del grupo de seguridad de red para evitar la incidencia de enrutamiento asimétrico que se explica [aquí](https://docs.microsoft.com/azure/firewall/integrate-lb).
+Después de configurar correctamente el firewall, puede usar el punto de conexión interno (`https://<clustername>-int.azurehdinsight.net`) para acceder a Ambari desde dentro de la red virtual. 
+
+Para usar el punto de conexión público (`https://<clustername>.azurehdinsight.net`) o el punto de conexión de SSH (`<clustername>-ssh.azurehdinsight.net`), asegúrese de que dispone de las rutas adecuadas en la tabla de rutas y las reglas del grupo de seguridad de red para evitar la incidencia de enrutamiento asimétrico que se explica [aquí](https://docs.microsoft.com/azure/firewall/integrate-lb). Específicamente en este caso, debe permitir la dirección IP del cliente en las reglas de grupo de seguridad de red de entrada y también agregarla a la tabla de rutas definida por el usuario con el próximo salto establecido como `internet`. Si no se configura correctamente, verá un error de tiempo de expiración.
 
 ## <a name="configure-another-network-virtual-appliance"></a>Configuración de otra aplicación virtual de red
 

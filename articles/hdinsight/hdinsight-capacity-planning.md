@@ -2,18 +2,18 @@
 title: Planificación de la capacidad del clúster en Azure HDInsight
 description: Identifique las principales preguntas para planear la capacidad y el rendimiento de un clúster de Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: hrasheed
-ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 10/15/2019
+ms.openlocfilehash: 17b68de4766aa8f995a88bd583a7a84e646b9325
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916571"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529155"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -31,13 +31,13 @@ Las preguntas claves para planear la capacidad son:
 
 La región de Azure determina dónde se aprovisiona físicamente el clúster. Para minimizar la latencia de lecturas y escrituras, el clúster debe estar cerca de los datos.
 
-HDInsight está disponible en muchas regiones de Azure. Para buscar la región más cercana, vea la entrada *HDInsight* de *Análisis* en [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
+HDInsight está disponible en muchas regiones de Azure. Para encontrar la región más cercana, consulte [Productos disponibles por región](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=hdinsight/).
 
 ## <a name="choose-storage-location-and-size"></a>Elección del tamaño y la ubicación de almacenamiento
 
 ### <a name="location-of-default-storage"></a>Ubicación del almacenamiento predeterminado
 
-El almacenamiento predeterminado, ya sea una cuenta de Azure Storage o Azure Data Lake Storage, debe estar en la misma ubicación que el clúster. Azure Storage está disponible en todas las ubicaciones. Data Lake Storage Gen1 está disponible en algunas regiones: vea la disponibilidad actual de Data Lake Storage en *Storage* en [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
+El almacenamiento predeterminado, ya sea una cuenta de Azure Storage o Azure Data Lake Storage, debe estar en la misma ubicación que el clúster. Azure Storage está disponible en todas las ubicaciones. Data Lake Storage Gen1 está disponible en algunas regiones: consulte la [disponibilidad actual de Data Lake Storage](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage).
 
 ### <a name="location-of-existing-data"></a>Ubicación de los datos existentes
 
@@ -66,7 +66,7 @@ El tipo de clúster determina la carga de trabajo configurada para que el clúst
 
 Cada tipo de clúster tiene un conjunto de tipos de nodos, y cada uno de ellos incluye opciones específicas para el tamaño y el tipo de máquina virtual.
 
-Para determinar el tamaño de clúster óptimo de la aplicación, puede realizar pruebas comparativas de la capacidad del clúster y aumentar el tamaño como se indica. Por ejemplo, puede usar una carga de trabajo simulada o una *consulta de valor controlado*. Con una carga de trabajo simulada, ejecute las cargas de trabajo esperadas en clústeres de diferente tamaño, aumentando gradualmente el tamaño hasta alcanzar el rendimiento deseado. Una consulta de valor controlado puede insertarse periódicamente entre las demás consultas de producción para mostrar si el clúster tiene suficientes recursos o no.
+Para determinar el tamaño de clúster óptimo de la aplicación, puede realizar pruebas comparativas de la capacidad del clúster y aumentar el tamaño como se indica. Por ejemplo, puede usar una carga de trabajo simulada o una *consulta de valor controlado*. Con una carga de trabajo simulada, ejecute las cargas de trabajo esperadas en clústeres de diferente tamaño, aumentando gradualmente el tamaño hasta alcanzar el rendimiento deseado. Una consulta de valor controlado puede insertarse periódicamente entre las demás consultas de producción para mostrar si el clúster tiene suficientes recursos.
 
 El tamaño y el tipo de máquina virtual los determinan la capacidad de procesamiento de la CPU, el tamaño de RAM y la latencia de red:
 
@@ -95,7 +95,6 @@ Se le cobra en función de la duración del clúster. Si solo necesita que el cl
 ### <a name="isolate-cluster-job-errors"></a>Aislamiento de errores de trabajo del clúster
 
 A veces, los errores pueden producirse debido a la ejecución en paralelo de varios componentes de asignación y reducción en un clúster de varios nodos. Para facilitar el aislamiento del problema, intente realizar pruebas distribuidas mediante la ejecución de varios trabajos simultáneos en un clúster de un solo nodo de trabajo y luego expanda este enfoque para ejecutar varios trabajos simultáneamente en clústeres que contienen más de un nodo. Para crear un clúster de HDInsight de un solo nodo en Azure, use la opción *Custom (size,settings,apps)* (Personalizar [tamaño, configuración, aplicaciones]) y use un valor de 1 en *Number of Worker nodes* (Número de nodos de trabajo) en la sección **Tamaño de grupo** al aprovisionar un nuevo clúster en el portal.
-
 
 ## <a name="quotas"></a>Cuotas
 

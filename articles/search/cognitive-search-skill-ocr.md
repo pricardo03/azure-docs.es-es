@@ -1,24 +1,23 @@
 ---
-title: 'Aptitud de búsqueda cognitiva de OCR: Azure Search'
-description: Extraiga texto a partir de archivos de imagen mediante el reconocimiento óptico de caracteres (OCR) en una canalización de enriquecimiento de Azure Search.
-services: search
+title: Aptitud cognitiva de OCR
+titleSuffix: Azure Cognitive Search
+description: Extraiga texto de archivos de imágenes mediante el reconocimiento óptico de caracteres (OCR) en una canalización de enriquecimiento de Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: da1ca218f7a3d33e6ceb08b3f8d0f632b8b752b7
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: bdb510113a8d65ac04b54e77158f46d03cccd9de
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265342"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791923"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
-La aptitud de reconocimiento óptico de caracteres (OCR) reconoce texto impreso y manuscrito en archivos de imagen. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) en Cognitive Services. La aptitud de **reconocimiento óptico de caracteres** se asocia a la siguiente funcionalidad:
+La aptitud de **reconocimiento óptico de caracteres (OCR)** reconoce texto impreso y manuscrito en archivos de imágenes. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) en Cognitive Services. La aptitud de **reconocimiento óptico de caracteres** se asocia a la siguiente funcionalidad:
 
 + La API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) se usa para idiomas distintos del inglés. 
 + En inglés, se usa la nueva API ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api).
@@ -33,9 +32,9 @@ La aptitud de **OCR** extrae texto de los archivos de imagen. Entre otros, estos
 + .TIFF
 
 > [!NOTE]
-> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
+> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="skill-parameters"></a>Parámetros de la aptitud
@@ -206,7 +205,7 @@ En el ejemplo del conjunto de aptitudes anterior, se asume que existe un campo d
 ```
 
 ## <a name="see-also"></a>Otras referencias
-+ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
++ [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Aptitud TextMerger](cognitive-search-skill-textmerger.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

@@ -1,5 +1,5 @@
 ---
-title: 'Crear y administrar acuerdos entre socios comerciales: Azure Logic Apps'
+title: 'Contratos entre socios comerciales: Azure Logic Apps'
 description: Cree y administre acuerdos entre socios comerciales con Azure Logic Apps y Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 4bfee4ec442c9e7b0351b0fd0c6a2b8e163a2541
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 35ebaab47edd110258f537dbbb044387515ed6c4
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330316"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680418"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Crear y administrar acuerdos entre socios comerciales en Azure Logic Apps
 

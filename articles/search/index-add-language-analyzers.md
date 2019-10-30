@@ -1,13 +1,13 @@
 ---
-title: 'Adición de analizadores de idiomas: Azure Search'
-description: Análisis de texto de léxico en varios idiomas para consultas e índices en idiomas distintos del inglés en Azure Search.
-ms.date: 02/14/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Incorporación de analizadores de idioma a los campos de cadena de un índice
+titleSuffix: Azure Cognitive Search
+description: Análisis de texto de léxico en varios idiomas para consultas e índices en idiomas distintos del inglés en Azure Cognitive Search.
+manager: nitinme
 author: Yahnoosh
 ms.author: jlembicz
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e54fa449e0ed7f3208d9924b69946c6598a00444
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: f5833da5b15c893499b0d786972eff61c7391137
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648807"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790137"
 ---
-# <a name="add-language-analyzers-to-an-azure-search-index"></a>Incorporación de analizadores de idiomas a un índice de Azure Search
+# <a name="add-language-analyzers-to-an-azure-cognitive-search-index"></a>Incorporación de analizadores de idiomas a un índice de Azure Cognitive Search
 
 Un *analizador de idiomas* es un componente específico de un [analizador de texto](search-analyzers.md) que realiza un análisis léxico mediante las reglas lingüísticas del idioma de destino. Cada campo de búsqueda tiene una propiedad **analyzer**. Si el índice contiene cadenas traducidas, como campos independientes para texto en inglés y en chino, puede especificar los analizadores de idiomas en cada campo para acceder a las funcionalidades lingüísticas enriquecidas de esos analizadores.  
 
-Azure Search admite 35 analizadores respaldados por la tecnología de Lucene y 50 analizadores respaldados por la tecnología de procesamiento de lenguaje natural de Microsoft que se usa en Office y Bing.
+Azure Cognitive Search admite 35 analizadores respaldados por la tecnología de Lucene y 50 analizadores respaldados por la tecnología de procesamiento de lenguaje natural de Microsoft que se usa en Office y Bing.
 
 ## <a name="comparing-analyzers"></a>Comparación de analizadores
 
@@ -52,7 +52,7 @@ Los analizadores de lenguaje se usan tal cual. Para cada campo de la definición
 
 Use el parámetro de consulta **searchFields** para especificar qué campo concreto del lenguaje buscar en las consultas. Puede revisar ejemplos de consultas que incluyan la propiedad analyzer en [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-Para más información sobre las propiedades del índice, consulte [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de un índice [API REST de Azure Search Service]). Para más información sobre el análisis en Azure Search, consulte [Analizadores de Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
+Para más información sobre las propiedades del índice, consulte [Creación de un índice &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Para más información sobre el análisis en Azure Cognitive Search, consulte [Analizadores de Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-analyzers).
 
 <a name="language-analyzer-list"></a>
 
@@ -121,7 +121,8 @@ Para más información sobre las propiedades del índice, consulte [Create Index
  Todos los analizadores con nombres anotados con **lucene** disponen de la tecnología de [analizadores de idioma de Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
 ## <a name="see-also"></a>Otras referencias  
- [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de un índice [API REST de Azure Search Service])  
- [Clase AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
- [Vídeo: Módulo 7 de la presentación MVA de Azure Search](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07).  
+
++ [Creación de un índice &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+
++ [Clase AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
 

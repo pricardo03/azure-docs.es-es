@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: f417d83a67f2f3afa33a83a56a72d0d82c64ab0d
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 62e67d4965444df0e731b4387808ed3b89e4673a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850005"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597206"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Solución de errores del proveedor de recursos de Azure NetApp Files 
 
@@ -364,7 +364,7 @@ Deje la propiedad Name vacía o permita que use el mismo valor que la propiedad 
 
 ***Tipo de protocolo {valor} desconocido***
 
-Este error se produce cuando se crea un volumen con un tipo de protocolo desconocido.  Los valores válidos son "NFSv3" y "CIFS".
+Este error se produce cuando se crea un volumen con un tipo de protocolo desconocido.  Los valores válidos son "NFSv3", "NFSv4" y "CIFS".
 
 * Causa:   
 Intenta establecer un valor no válido en la propiedad `protocolType` del volumen.

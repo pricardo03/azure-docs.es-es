@@ -1,13 +1,13 @@
 ---
-title: 'Incorporación de consultas de escritura automática a un índice: Azure Search'
-description: Para habilitar acciones de escritura automática en Azure Search, puede crear proveedores de sugerencias y formular las solicitudes que invocan los términos de consulta de sugerencias automáticas o de autocompletar.
-ms.date: 09/30/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Incorporación de consultas de escritura automática a un índice
+titleSuffix: Azure Cognitive Search
+description: Para habilitar acciones de escritura automática en Azure Cognitive Search, puede crear proveedores de sugerencias y formular las solicitudes que invocan los términos de consulta de sugerencias automáticas o de autocompletar.
+manager: nitinme
 author: Brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,24 +19,24 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: d3f934bea5df821e51a4747170af4f7efd1eaacc
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a312068d5c8c574e7b069263cf37e3b855810e4b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828292"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790101"
 ---
-# <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Incorporación de proveedores de sugerencias a un índice de escritura automática en Azure Search
+# <a name="add-suggesters-to-an-index-for-typeahead-in-azure-cognitive-search"></a>Incorporación de proveedores de sugerencias a un índice de escritura automática en Azure Cognitive Search
 
-En Azure Search, la funcionalidad de escritura anticipada o "buscar mientras escribe" se basa en una construcción de **proveedor de sugerencias** que se agrega a un [índice de búsqueda](search-what-is-an-index.md). Se trata de una lista de uno o más campos en los que quiere habilitar la escritura anticipada.
+En Azure Cognitive Search, la funcionalidad de escritura anticipada o "buscar mientras escribe" se basa en una construcción de **proveedor de sugerencias** que se agrega a un [índice de búsqueda](search-what-is-an-index.md). Se trata de una lista de uno o más campos en los que quiere habilitar la escritura anticipada.
 
 Un proveedor de sugerencias admite dos variantes de escritura anticipada: *autocompletar*, que completa el término o la frase que escribe, y *sugerencias*, que devuelve una corta lista de documentos coincidentes.  
 
 En la siguiente captura de pantalla, en el ejemplo [Creación de la primera aplicación en C#](tutorial-csharp-type-ahead-and-suggestions.md), se ilustra la escritura anticipada. Autocompletar anticipa lo que el usuario podría escribir en el cuadro de búsqueda. La entrada real es "gem", que autocompletar termina con "elo". Esta entrada se resuelve como "gemelo" en cuanto posible término de búsqueda. Las sugerencias se visualizan en la lista desplegable. Para obtener sugerencias, puede exponer cualquier parte de un documento que mejor describa el resultado. En este ejemplo, las sugerencias son nombres de hoteles. 
 
-![Comparación visual de Autocompletar y consultas sugeridas](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
+![Comparación visual de Autocompletar y consultas sugeridas](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Comparación visual de Autocompletar y consultas sugeridas")
 
-Para implementar estos comportamientos en Azure Search, hay un componente de consulta e índice. 
+Para implementar estos comportamientos en Azure Cognitive Search, hay un componente de consulta e índice. 
 
 + En el índice, agregue un proveedor de sugerencias a un índice. Puede usar el portal, la [API REST](https://docs.microsoft.com/rest/api/searchservice/create-index) o el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). El resto de este artículo se centra en la creación de un proveedor de sugerencias. 
 
@@ -54,7 +54,7 @@ Para crear un proveedor de sugerencias, agregue uno a un esquema de índice. Pue
 
 El mejor momento para crear un proveedor de sugerencias es durante la creación de la propia definición de campo.
 
-Si intenta crearlo con campos ya existentes, la API no lo permitirá. El texto de escritura anticipada se crea durante la indexación, cuando se acortan los términos parciales de dos o más combinaciones de caracteres junto con los términos completos. Dado que los campos existentes ya están acortados, tendrá que volver a generar el índice si quiere agregarlos a un proveedor de sugerencias. Para más información sobre la indexación, consulte [Cómo recompilar un índice de Azure Search](search-howto-reindex.md).
+Si intenta crearlo con campos ya existentes, la API no lo permitirá. El texto de escritura anticipada se crea durante la indexación, cuando se acortan los términos parciales de dos o más combinaciones de caracteres junto con los términos completos. Dado que los campos existentes ya están acortados, tendrá que volver a generar el índice si quiere agregarlos a un proveedor de sugerencias. Para más información sobre la indexación, consulte [Cómo recompilar un índice de Azure Cognitive Search](search-howto-reindex.md).
 
 ### <a name="create-using-the-rest-api"></a>Creación del proveedor de sugerencias mediante la API REST
 
@@ -113,7 +113,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 ### <a name="analyzer-restrictions-for-sourcefields-in-a-suggester"></a>Restricciones del analizador para sourceFields en un proveedor de sugerencias
 
-Azure Search analiza el contenido del campo para habilitar las consultas sobre términos individuales. Los proveedores de sugerencias requieren que se indexen los prefijos además de los términos completos, lo cual requiere un análisis adicional de los campos de origen. Las configuraciones de los analizadores personalizados pueden combinar cualquiera de los distintos tokenizadores y filtros, a menudo de formas que harían imposible la generación de los prefijos necesarios para las sugerencias. Por esta razón, Azure Search impide que los campos con analizadores personalizados se incluyan en un proveedor de sugerencias.
+Azure Cognitive Search analiza el contenido del campo para habilitar las consultas sobre términos individuales. Los proveedores de sugerencias requieren que se indexen los prefijos además de los términos completos, lo cual requiere un análisis adicional de los campos de origen. Las configuraciones de los analizadores personalizados pueden combinar cualquiera de los distintos tokenizadores y filtros, a menudo de formas que harían imposible la generación de los prefijos necesarios para las sugerencias. Por esta razón, Azure Cognitive Search impide que los campos con analizadores personalizados se incluyan en un proveedor de sugerencias.
 
 > [!NOTE] 
 >  Si necesita solucionar la limitación anterior, use dos campos distintos para el mismo contenido. De esta forma, uno de los campos tendrá un proveedor de sugerencias y el otro se puede configurar con una configuración de analizador personalizada.
@@ -140,7 +140,7 @@ Si no se define un proveedor de sugerencias en el índice, se producirá un erro
 
 ## <a name="sample-code"></a>Código de ejemplo
 
-+ En el ejemplo de [Creación de la primera aplicación en C#](tutorial-csharp-type-ahead-and-suggestions.md) se muestra una construcción de proveedor de sugerencias, consultas sugeridas, autocompletar y navegación por facetas. Este ejemplo de código se ejecuta en un servicio de espacio aislado de Azure Search y usa un índice de hoteles cargado previamente, por lo que todo lo que tiene que hacer es presionar F5 para ejecutar la aplicación. No se necesita ninguna suscripción o inicio de sesión.
++ En el ejemplo de [Creación de la primera aplicación en C#](tutorial-csharp-type-ahead-and-suggestions.md) se muestra una construcción de proveedor de sugerencias, consultas sugeridas, autocompletar y navegación por facetas. Este ejemplo de código se ejecuta en un servicio de espacio aislado de Azure Cognitive Search y usa un índice de hoteles cargado previamente, por lo que todo lo que tiene que hacer es presionar F5 para ejecutar la aplicación. No se necesita ninguna suscripción o inicio de sesión.
 
 + [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) es otro ejemplo más antiguo que contiene tanto código de C# como de Java. También se muestra una construcción de proveedor de sugerencias, consultas sugeridas, autocompletar y navegación por facetas. Este ejemplo de código usa los datos de ejemplo [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) hospedados. 
 

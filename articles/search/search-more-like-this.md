@@ -1,23 +1,22 @@
 ---
-title: 'moreLikeThis en Azure Search (versión preliminar): Azure Search'
-description: Documentación preliminar de la característica moreLikeThis (versión preliminar), expuesta en la API de REST de Azure Search.
-author: brjohnstmsft
+title: Característica de la consulta moreLikeThis (versión preliminar)
+titleSuffix: Azure Cognitive Search
+description: Se describe la característica moreLikeThis (versión preliminar), que está disponible en las versiones preliminares de la API REST de Azure Cognitive Search.
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: brjohnstmsft
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: d7c816c545c6647907aa9d700a4eb6ed91277465
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.devlang: rest-api
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: b7959beca8a7787a331388b77ebe4060c3675e6d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182302"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793468"
 ---
-# <a name="morelikethis-in-azure-search"></a>moreLikeThis en Azure Search
+# <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (versión preliminar) en Azure Cognitive Search
 
 > [!Note]
 > moreLikeThis se encuentra en versión preliminar y no está pensado para su uso en producción. En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. Por el momento, no hay compatibilidad con .NET SDK.
@@ -50,4 +49,4 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
 Puede usar cualquier herramienta de pruebas web para experimentar con esta característica.  Se recomienda usar Postman para este ejercicio.
 
 > [!div class="nextstepaction"]
-> [Exploración de las API REST de Azure Search mediante Postman](search-get-started-postman.md)
+> [Exploración de la API REST de Azure Cognitive Search mediante Postman](search-get-started-postman.md)

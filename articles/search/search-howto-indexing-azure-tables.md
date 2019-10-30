@@ -1,38 +1,38 @@
 ---
-title: 'Indexación de contenido desde Azure Table Storage para la búsqueda de texto completo: Azure Search'
-description: Aprenda a indexar datos almacenados en Azure Table Storage con un indizador de Azure Search.
-ms.date: 05/02/2019
-author: mgottein
+title: Indexación de contenido desde Azure Table Storage para la búsqueda de texto completo
+titleSuffix: Azure Cognitive Search
+description: Aprenda a indexar datos almacenados en Azure Table Storage con un indizador de Azure Cognitive Search.
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: dffb0a41dbf33cd86014115b089036d69a8e4718
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: ae99145178fba8e204267546dc1cedf42df412eb
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648184"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793753"
 ---
-# <a name="index-azure-table-storage-with-azure-search"></a>Indexación de Azure Table Storage con Azure Search
-En este artículo se muestra cómo usar Azure Search para indexar datos almacenados en Azure Table Storage.
+# <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Indexación de documentos en Azure Blob Storage con Azure Cognitive Search
+
+En este artículo se muestra cómo usar Azure Cognitive Search para indexar datos almacenados en Azure Table Storage.
 
 ## <a name="set-up-azure-table-storage-indexing"></a>Configuración de la indexación de Azure Table Storage
 
 Puede configurar un indexador de Azure Table Storage mediante estos recursos:
 
 * [Azure Portal](https://ms.portal.azure.com)
-* [API de REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Azure Search
-* [SDK de .NET de Azure Search](https://aka.ms/search-sdk)
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Azure Cognitive Search
+* [SDK de .NET](https://aka.ms/search-sdk) de Azure Cognitive Search
 
 En este caso, demostramos el flujo mediante la API de REST. 
 
 ### <a name="step-1-create-a-datasource"></a>Paso 1: Crear un origen de datos
 
-Un origen de datos especifica los datos que se indexan, las credenciales necesarias para acceder a ellos y las directivas que permiten que Azure Search identifique cambios en los datos de forma eficiente.
+Un origen de datos especifica los datos que se indexan, las credenciales necesarias para acceder a ellos y las directivas que permiten que Azure Cognitive Search identifique cambios en los datos de forma eficiente.
 
 Para realizar la indexación de tablas, el origen de datos debe tener las siguientes propiedades:
 
@@ -115,15 +115,15 @@ Este indexador se ejecuta cada dos horas. (El intervalo de programación se esta
 
 Para más información sobre la API de creación de indexador, consulte [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creación de un indexador).
 
-Para más información acerca de cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Search](search-howto-schedule-indexers.md).
+Para más información sobre cómo definir las programaciones del indizador, consulte [Programación de indizadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Trabajo con distintos nombres de campos
-A veces, los nombres de los campos de un índice existente no coincidirán con los nombres de las propiedades de la tabla. Puede usar asignaciones de campos para asignar los nombres de propiedad procedentes de la tabla a los nombres de campo del índice de búsqueda. Para aprender más sobre las asignaciones de campos, consulte [Las asignaciones de campos de indexador de Azure Search salvan las diferencias entre los orígenes de datos y los índices de búsqueda](search-indexer-field-mappings.md).
+A veces, los nombres de los campos de un índice existente no coincidirán con los nombres de las propiedades de la tabla. Puede usar asignaciones de campos para asignar los nombres de propiedad procedentes de la tabla a los nombres de campo del índice de búsqueda. Para aprender más sobre las asignaciones de campos, consulte [Las asignaciones de campos de indizador de Azure Cognitive Search salvan las diferencias entre los orígenes de datos y los índices de búsqueda](search-indexer-field-mappings.md).
 
 ## <a name="handle-document-keys"></a>Trabajo con claves de documento
-En Azure Search, la clave del documento identifica de forma exclusiva a un documento. Cada índice de búsqueda debe tener exactamente un campo clave de tipo `Edm.String`. El campo de clave es necesario para cada documento que se agrega al índice (de hecho, es el único campo obligatorio).
+En Azure Cognitive Search, la clave del documento identifica de forma exclusiva a un documento. Cada índice de búsqueda debe tener exactamente un campo clave de tipo `Edm.String`. El campo de clave es necesario para cada documento que se agrega al índice (de hecho, es el único campo obligatorio).
 
-Como las filas de tablas tienen una clave compuesta, Azure Search genera un campo sintético llamado `Key`, que es una concatenación de valores de clave de partición y clave de fila. Por ejemplo, si el valor PartitionKey de una fila es `PK1` y el valor RowKey es `RK1`, el valor del campo `Key` es `PK1RK1`.
+Como las filas de tablas tienen una clave compuesta, Azure Cognitive Search genera un campo sintético llamado `Key`, que es una concatenación de valores de clave de partición y clave de fila. Por ejemplo, si el valor PartitionKey de una fila es `PK1` y el valor RowKey es `RK1`, el valor del campo `Key` es `PK1RK1`.
 
 > [!NOTE]
 > El valor `Key` puede contener caracteres no válidos en claves de documentos, como guiones. Para tratar con caracteres no válidos, use la [función de asignación de campos](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`. Si lo hace, recuerde utilizar también la codificación Base64 de seguridad de direcciones URL al pasar las claves de documento en las llamadas de la API como búsqueda.
@@ -150,7 +150,7 @@ Para indicar que determinados documentos se deben quitar del índice, puede usar
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Consideraciones sobre rendimiento
 
-De forma predeterminada, Azure Search usa el siguiente filtro de consulta: `Timestamp >= HighWaterMarkValue`. Como las tablas de Azure no tienen un índice secundario en el campo `Timestamp`, este tipo de consulta requiere un examen de toda la tabla y, por tanto, es lento para tablas grandes.
+De forma predeterminada, Azure Cognitive Search usa el siguiente filtro de consulta: `Timestamp >= HighWaterMarkValue`. Como las tablas de Azure no tienen un índice secundario en el campo `Timestamp`, este tipo de consulta requiere un examen de toda la tabla y, por tanto, es lento para tablas grandes.
 
 
 Aquí hay dos posibles enfoques para mejorar el rendimiento de la indexación de tablas. Ambos se basan en el uso de particiones de tabla: 
@@ -166,5 +166,5 @@ Aquí hay dos posibles enfoques para mejorar el rendimiento de la indexación de
     - Con este enfoque, si tiene que desencadenar un reindexado completo, tendrá que restablecer la consulta del origen de datos, además de restablecer el indexador. 
 
 
-## <a name="help-us-make-azure-search-better"></a>Ayúdenos a mejorar Azure Search
+## <a name="help-us-make-azure-cognitive-search-better"></a>Ayúdenos a mejorar Azure Cognitive Search
 Si tiene solicitudes o ideas para mejorar las características, envíelas en el [sitio de UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

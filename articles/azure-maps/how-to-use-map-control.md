@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: fa6a3af7893830eba2f4a5c43184991bff68d8a8
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: c764460fb65287dab0031b27291d2f332cec3b3d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898202"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756546"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Uso del control de mapa de Azure Maps
 
@@ -41,9 +41,15 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
     Agregue las referencias de hoja de estilos y origen de script de Azure Maps al elemento `<head>` del archivo:
 
     ```HTML
-    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css">
-    <script src="node_modules/azure-maps-control/dist/js/atlas.min.js"></script>
+    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
+    <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
     ```
+
+    >[!Note]
+    > Las definiciones de Typescript se pueden importar en la aplicación si agrega:
+    > ```Javascript
+    > import * as atlas from 'azure-maps-control';
+    > ```
 
 3. Para representar el mapa para que rellene el cuerpo completo de la página, agregue el siguiente elemento `<style>` al elemento `<head>`.
 
@@ -102,6 +108,8 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
     </script>
     ```
 
+    [Aquí](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) puede encontrar una lista de ejemplos que muestran cómo integrar Azure Active Directory (AAD) con Azure Maps. 
+    
     Para obtener más información, consulte el documento [Autenticación con Azure Maps](azure-maps-authentication.md).
 
 6. Opcionalmente, puede que agregar los siguientes elementos de la etiqueta meta al encabezado de la página le resulte útil:
@@ -222,3 +230,8 @@ Para agregar más datos al mapa:
 
 > [!div class="nextstepaction"]
 > [Ejemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+Para ver una lista de ejemplos que muestran cómo integrar Azure Active Directory (AAD) con Azure Maps, consulte:
+
+> [!div class="nextstepaction"]
+> [Ejemplos de autenticación de AAD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

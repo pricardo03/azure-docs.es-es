@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 810e03988fb900325794ea1c1a825c07824b3b08
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201634"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755631"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -41,15 +41,13 @@ En las secciones siguientes se enumeran los sistemas operativos de servidor admi
 
 ### Sistemas operativos Windows Server <a name="os-windows"></a>
 
-* Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
-
-> [!NOTE]
-> La integración con ATP de Microsoft Defender solo admite Windows Server 2012 R2 y Windows Server 2016.
+[!div class="mx-tableFixed"]
+|OS|Compatible con Azure Security Center|Compatibilidad para la integración con Microsoft Defender ATP|
+|---|---|---|
+|Windows Server 2019|✔|X|
+|Windows Server 2016|✔|✔|
+|Windows Server 2012 R2|✔|✔|
+|Windows Server 2008 R2|✔|✔|
 
 Para obtener más información acerca de las características admitidas para los sistemas operativos Windows, enumerados anteriormente, consulte [Características compatibles con máquinas virtuales y servidores](security-center-services.md##vm-server-features).
 

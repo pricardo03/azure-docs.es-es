@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65cd59933fa31d870a507cbe80b454934c9008d0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 626f446c18acf1f07f458fb1b4238f182546e479
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265097"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596939"
 ---
 # <a name="my-first-python-runbook"></a>Mi primer runbook de Python
 
@@ -205,6 +205,30 @@ Escriba el nombre del grupo de recursos como valor del primer parámetro y el no
 ![Escribir valores de parámetro](media/automation-first-runbook-textual-python/runbook-python-params.png)
 
 Haga clic en **Aceptar** para iniciar el runbook. El runbook se ejecuta e inicia la máquina virtual que se ha especificado.
+
+## <a name="error-handling-in-python"></a>Control de errores en Python
+
+También puede usar las siguientes convenciones para recuperar varios flujos de los runbooks de Python, como los flujos **WARNING**, **ERROR** y **DEBUG**.
+
+```python
+print("Hello World output") 
+print("ERROR: - Hello world error")
+print("WARNING: - Hello world warning")
+print("DEBUG: - Hello world debug")
+print("VERBOSE: - Hello world verbose")
+```
+
+En el ejemplo siguiente se muestra esta convención utilizada en un bloque `try...except`.
+
+```python
+try:
+    raise Exception('one', 'two')
+except Exception as detail:
+    print 'ERROR: Handling run-time error:', detail
+```
+
+> [!NOTE]
+> **sys.stderr** no se admite en Azure Automation.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

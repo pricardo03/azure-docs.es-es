@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: fe3a3b673f6512856f3640b3e103db8623570a88
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: da3d407b39ef00154b717b54213a3b40d2d110bb
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60548290"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754496"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carga de datos de Office 365 mediante Azure Data Factory
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo usar Data Factory para _cargar datos de Offic
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. En el menú de la izquierda, seleccione **Crear un recurso** > **Datos y análisis** > **Data Factory**: 
+1. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory**: 
    
    ![Selección de la factoría de datos en el panel Nuevo](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -32,7 +32,7 @@ En este artículo se muestra cómo usar Data Factory para _cargar datos de Offic
       
    ![Página New data factory (Nueva factoría de datos)](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Nombre**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre \"LoadFromOffice365Demo\" de factoría de datos no está disponible", escriba un nombre diferente para la factoría de datos. Por ejemplo, podría usar el nombre _**su nombre**_ **LoadFromOffice365Demo**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
+    * **Nombre**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre *LoadFromOffice365Demo* de factoría de datos no está disponible", escriba un nombre diferente para la factoría de datos. Por ejemplo, podría usar el nombre _**su nombre**_ **LoadFromOffice365Demo**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
     * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
     * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versión**: seleccione **V2**.
@@ -59,55 +59,48 @@ En este artículo se muestra cómo usar Data Factory para _cargar datos de Offic
 
 1. Vaya a la canalización > **pestaña Source** (Origen) y haga clic en **+ New** (+Nuevo) para crear un conjunto de datos de origen. 
 
-2. En la ventana de nuevo conjunto de datos, seleccione **Office 365** y, a continuación, seleccione **Finish** (Finalizar).
-
-    ![Nuevo conjunto de datos de Office 365](./media/load-office-365-data/new-office-365-dataset.png)
+2. En la ventana del nuevo conjunto de datos, seleccione **Office 365** y, a continuación, seleccione **Continue** (Continuar).
  
-3. Verá que se abre una nueva pestaña para el conjunto de datos de Office 365. En la pestaña **General** de la parte inferior de la ventana de propiedades, escriba "SourceOffice365Dataset" como nombre.
+3. Ahora se encuentra en la pestaña de configuración de la actividad de copia. Haga clic en el botón **Edit** (Editar) situado junto al conjunto de datos de Office 365 para continuar con la configuración de los datos.
 
-    ![Configuración de Office 365: conjunto de datos general](./media/load-office-365-data/config-office-365-dataset-general.png)
+    ![Configuración de Office 365: conjunto de datos general](./media/load-office-365-data/transition-to-edit-dataset.png)
  
-4. Vaya a la pestaña **Connection** (Conexión) de la ventana de propiedades. Junto al cuadro de texto del servicio vinculado, haga clic en **+ New** (+Nuevo).
+4. Verá que se abre una nueva pestaña para el conjunto de datos de Office 365. En la pestaña **General** de la parte inferior de la ventana Propiedades, escriba "SourceOffice365Dataset" como nombre.
  
-    ![Configuración de Office 365: conexión del conjunto de datos](./media/load-office-365-data/config-office-365-dataset-connection.png)
+5. Vaya a la pestaña **Connection** (Conexión) de la ventana de propiedades. Junto al cuadro de texto del servicio vinculado, haga clic en **+ New** (+Nuevo).
 
-5. En la ventana de nuevo servicio vinculado, escriba "Office365LinkedService" como nombre, escriba el identificador y la clave de la entidad de servicio y, luego, seleccione Save (Guardar) para implementar el servicio vinculado.
+6. En la ventana del nuevo servicio vinculado, escriba "Office365LinkedService" como nombre, escriba el identificador y la clave de la entidad de servicio y, luego, seleccione **Create** (Crear) para implementar el servicio vinculado.
 
     ![Nuevo servicio vinculado de Office 365](./media/load-office-365-data/new-office-365-linked-service.png)
  
-6. Una vez que se ha creado el servicio vinculado, volverá a la configuración del conjunto de datos. Junto a "Table" (Tabla), elija la flecha abajo para expandir la lista de conjuntos de datos de Office 365 disponibles y seleccione "BasicDataSet_v0. Contact_v0 "en la lista desplegable:
+7. Una vez que se ha creado el servicio vinculado, volverá a la configuración del conjunto de datos. Junto a **Table** (Tabla), elija la flecha hacia abajo para expandir la lista de conjuntos de datos de Office 365 disponibles y seleccione "BasicDataSet_v0.Message_v0" en la lista desplegable:
 
-    ![Configuración de Office 365: tabla de conjunto de datos](./media/load-office-365-data/config-office-365-dataset-table.png)
- 
-7. Vaya a la pestaña **Schema** (Esquema) de la ventana de propiedades y seleccione **Import Schema** (Importar esquema).  Observe que se muestran los valores de ejemplo y esquema del conjunto de datos de contacto.
+    ![Configuración de Office 365: tabla de conjunto de datos](./media/load-office-365-data/edit-dataset.png)
 
-    ![Configuración de Office 365: esquema de conjunto de datos](./media/load-office-365-data/config-office-365-dataset-schema.png)
+8. Ahora, vuelva a la pestaña **pipeline** > **Source** (Origen de canalización) para continuar con la configuración de las propiedades adicionales de la extracción de datos de Office 365.  El ámbito de usuario y el filtro de ámbito de usuario son predicados opcionales que puede definir para restringir los datos que desea extraer de Office 365. Consulte la sección [Propiedades del conjunto de datos de Office 365](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) sobre cómo configurar estas opciones.
 
-8. Ahora, vuelva a la canalización -> pestaña Source (Origen) y confirme que SourceBlobDataset está seleccionado.
- 
+9. Se le pedirá que elija uno de los filtros de fecha y que proporcione los valores de hora de inicio y de finalización.
+
+10. Haga clic en la pestaña **Import Schema** (Importar esquema) para importar el esquema del conjunto de datos de los mensajes.
+
+    ![Configuración de Office 365: esquema de conjunto de datos](./media/load-office-365-data/edit-source-properties.png)
+
 ### <a name="configure-sink"></a>Configuración del receptor
 
 1. Vaya a la canalización > **pestaña Sink** (Receptor) y seleccione **+ New** (+Nuevo) para crear un conjunto de datos del receptor.
  
-2. En la ventana de nuevo conjunto de datos, observe que solo se selecciona el destino admitido al copiar desde Office 365. Seleccione **Azure Blob Storage** y elija **Finish** (Finalizar).  En este tutorial, copiará datos de Office 365 en una instancia de Azure Blob Storage.
+2. En la ventana del nuevo conjunto de datos, observe que solo se selecciona el destino admitido al copiar desde Office 365. Seleccione **Azure Blob Storage**, seleccione el formato binario y, después, **Continue** (Continuar).  En este tutorial, copiará datos de Office 365 en una instancia de Azure Blob Storage.
 
-    ![Nuevo conjunto de datos de blob](./media/load-office-365-data/new-blob-dataset.png)
+3. Haga clic en el botón **Edit** (Editar) situado junto al conjunto de datos de Azure Blob Storage para continuar con la configuración de los datos.
 
 4. En la pestaña **General** de la ventana de propiedades, escriba "OutputBlobDataset" como nombre.
 
 5. Vaya a la pestaña **Connection** (Conexión) de la ventana de propiedades. Junto al cuadro de texto de servicio vinculado, seleccione **+ New** (+Nuevo).
 
-    ![Configuración del blob: conexión del conjunto de datos](./media/load-office-365-data/config-blob-dataset-connection.png) 
+6. En la ventana del nuevo servicio vinculado, escriba "AzureStorageLinkedService" como nombre, seleccione la entidad de servicio en la lista desplegable de métodos de autenticación, rellene el punto de conexión de servicio, el identificador de la entidad de servicio del inquilino y la clave de la entidad de servicio y, luego, seleccione Save (Guardar) para implementar el servicio vinculado.  Consulte [aquí](connector-azure-blob-storage.md#service-principal-authentication) acerca de cómo configurar la autenticación de la entidad de servicio para Azure Blob Storage.
 
-6. En la ventana de nuevo servicio vinculado, escriba "AzureStorageLinkedService" como nombre, seleccione la entidad de servicio en la lista desplegable de métodos de autenticación, rellene el punto de conexión de servicio, el identificador de la entidad de servicio del inquilino y la clave de la entidad de servicio y, luego, seleccione Save (Guardar) para implementar el servicio vinculado.  Consulte [aquí](connector-azure-blob-storage.md#service-principal-authentication) acerca de cómo configurar la autenticación de la entidad de servicio para Azure Blob Storage.
+    ![Nuevo servicio vinculado de blob](./media/load-office-365-data/configure-blob-linked-service.png)
 
-    ![Nuevo servicio vinculado de blob](./media/load-office-365-data/new-blob-linked-service.png)
-
-7. Una vez que se ha creado el servicio vinculado, volverá a la configuración del conjunto de datos. Junto a la ruta de acceso de archivo, seleccione **Browse** (Examinar) para seleccionar la carpeta de salida donde se extraerán los datos de Office 365.  En "File Format Settings" (Configuración del formato de archivo), junto a File Format (Formato de archivo), elija "**JSON format**" (Formato JSON) y, junto a File Pattern (Patrón de archivo), elija "**Set of objects**" (Conjunto de objetos).
-
-    ![Configuración de blob: ruta de acceso y formato de conjunto de datos](./media/load-office-365-data/config-blob-dataset-path-and-format.png) 
-
-8. Vuelva a la canalización > pestaña Sink (Receptor) y confirme que OutputBlobDataset está seleccionado.
 
 ## <a name="validate-the-pipeline"></a>Comprobación de la canalización
 
@@ -123,19 +116,19 @@ En la barra de herramientas superior, seleccione **Publish All** (Publicar todo)
 
 ## <a name="trigger-the-pipeline-manually"></a>Desencadenamiento manual de la canalización
 
-Seleccione **Trigger** (Desencadenar) en la barra de herramientas y, después, seleccione **Trigger Now** (Desencadenar ahora). En la página de ejecución de la canalización, seleccione **Finish** (Finalizar). 
+Seleccione **Add Trigger** (Agregar desencadenador) en la barra de herramientas y, después, seleccione **Trigger Now** (Desencadenar ahora). En la página de ejecución de la canalización, seleccione **Finish** (Finalizar). 
 
 ## <a name="monitor-the-pipeline"></a>Supervisar la canalización
 
 Vaya a la pestaña **Monitor** (Supervisar) de la izquierda. Verá una ejecución de canalización que se desencadena de forma manual. Puede usar los vínculos de la columna **Actions** (Acciones) para ver los detalles de la actividad y volver a ejecutar la canalización.
 
-![Supervisión de la canalización](./media/load-office-365-data/pipeline-monitoring.png) 
+![Supervisión de la canalización](./media/load-office-365-data/pipeline-status.png) 
 
-Para ver las ejecuciones de actividad asociadas con la ejecución de canalización, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en la columna de acciones. En este ejemplo, solo hay una actividad, así que solo verá una entrada en la lista. Para ver detalles sobre la operación de copia, seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna de acciones.
+Para ver las ejecuciones de actividad asociadas con la ejecución de canalización, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en la columna de acciones. En este ejemplo, solo hay una actividad, así que solo verá una entrada en la lista. Para ver más información sobre la operación de copia, seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna de acciones.
 
-![Supervisión de la actividad](./media/load-office-365-data/activity-monitoring.png) 
+![Supervisión de la actividad](./media/load-office-365-data/activity-status.png) 
 
-Si es la primera vez que solicita datos para este contexto (una combinación de los datos de tabla a los que se accede, la cuenta de destino en la que se cargan los datos y la identidad de usuario que realiza la solicitud de acceso a los datos), verá el estado de la actividad de copia como "**In Progress**" (En curso), y solo al hacer clic en el vínculo de detalles en Actions (Acciones), verá el estado como "**RequesetingConsent**".  Un miembro del grupo de aprobadores de acceso a datos debe aprobar la solicitud en Privileged Access Management antes de pasar a la extracción de datos.
+Si es la primera vez que solicita datos para este contexto (una combinación de los datos de tabla a los que se accede, la cuenta de destino en la que se cargan los datos y la identidad de usuario que realiza la solicitud de acceso a los datos), verá el estado de la actividad de copia como **In Progress** (En curso), y solo al hacer clic en el vínculo de detalles en Actions (Acciones), verá el estado como "**RequesetingConsent**".  Un miembro del grupo de aprobadores de acceso a datos debe aprobar la solicitud en Privileged Access Management antes de pasar a la extracción de datos.
 
 _Estado como solicitando consentimiento:_ 
 ![Detalles de la ejecución de la actividad: solicitar consentimiento](./media/load-office-365-data/activity-details-request-consent.png) 
@@ -144,11 +137,11 @@ _Estado como extrayendo datos:_
 
 ![Detalles de ejecución de la actividad: extraer datos](./media/load-office-365-data/activity-details-extract-data.png) 
 
-Una vez que se proporciona el consentimiento, la extracción de los datos continuará y, al cabo de algún tiempo, la ejecución de la canalización se mostrará como completada.
+Una vez que se dé el consentimiento, la extracción de los datos continuará y, al cabo de un tiempo, la ejecución de la canalización se mostrará como completada.
 
 ![Supervisión de la canalización: correcta](./media/load-office-365-data/pipeline-monitoring-succeeded.png) 
 
-Ahora, vaya al destino Azure Blob Storage y compruebe que Office 365 se ha extraído en formato JSON.
+Ahora, vaya a la instancia de Azure Blob Storage de destino y compruebe que Office 365 se ha extraído en formato binario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

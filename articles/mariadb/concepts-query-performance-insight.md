@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 709428d420c7d5f725d1b7df85e4860aec765b48
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: b1007080c907eecc940b57184954c793b85f5eec
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950661"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595627"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Información de rendimiento de consultas en Azure Database for MariaDB
 
@@ -59,7 +59,7 @@ Puede hacer clic y arrastrar en el gráfico para restringir a un período de tie
 ### <a name="wait-statistics"></a>Estadísticas de espera 
 
 > [!NOTE]
-> Las estadísticas de espera están diseñadas para solucionar problemas con el rendimiento de una consulta. Se recomienda activarlas solo para solucionar problemas.
+> Las estadísticas de espera están diseñadas para solucionar problemas con el rendimiento de una consulta. Se recomienda activarlas solo para solucionar problemas. <br>Si recibe el mensaje de error en Azure Portal "*Se produjo un problema en "Microsoft.DBforMariaDB"; no se puede realizar la solicitud. Si el problema continua o no se lo esperaba, póngase en contacto con el servicio de soporte técnico y facilíteles esta información.* " durante la visualización de las estadísticas de espera, use un período de tiempo menor.
 
 Las estadísticas de espera brindan una vista de los eventos de espera que se producen durante la ejecución de una consulta específica. Puede encontrar más información sobre los tipos de eventos de espera en la [documentación del motor de MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 

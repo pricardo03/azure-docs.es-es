@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 10/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 984284fa185d4d8454b1689a62ca9e08c342e33b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2fec017f80758dbcf2a155c3535b9a3e028e4bd9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195107"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592693"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 
@@ -65,6 +65,9 @@ Siga estos pasos para elevar los privilegios de acceso de un administrador globa
 
    Al establecer el botón de alternancia en **No**, se quita el rol de administrador de accesos de usuario en Azure RBAC de su cuenta de usuario. Ya no puede asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Puede ver y administrar solo las suscripciones de Azure y los grupos de administración a los que se le ha concedido acceso.
 
+    > [!NOTE]
+    > Si usa [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), la desactivación de la asignación de roles no cambia esta opción a **No**. Para mantener el acceso con privilegios mínimos, se recomienda establecer esta opción en **No** antes de desactivar la asignación de roles.
+    
 1. Haga clic en **Guardar** para guardar la configuración.
 
    Esta configuración no es una propiedad global y se aplica solo al usuario que tiene la sesión iniciada. No puede elevar los privilegios de acceso para todos los miembros del rol de administrador global.

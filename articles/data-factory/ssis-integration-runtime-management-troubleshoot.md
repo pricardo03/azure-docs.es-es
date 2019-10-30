@@ -12,12 +12,12 @@ author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 8abffdf443e26c03c38c12a3947a47a94157c9da
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: d16267e104d753770dc40ce99b0f56e5c749b2d0
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609624"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752167"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solución de problemas con la administración de SSIS Integration Runtime en Azure Data Factory
 
@@ -105,7 +105,7 @@ Este error significa que se produjo un error en la ejecución del script de inst
 
 ### <a name="customsetupscripttimeout"></a>CustomSetupScriptTimeout
 
-Este error indica un tiempo de espera en la ejecución del script de instalación personalizada. Asegúrese de que el contenedor de blobs contiene solo los archivos de instalación personalizada necesarios. También debe comprobar los registros de ejecución de la instalación personalizada en el contenedor de blobs. El período máximo para la instalación personalizada e de 45 minutos antes de que se agote el tiempo de espera, y el período máximo incluye el tiempo necesario para descargar todos los archivos del contenedor e instalarlos en SSIS IR. Si es necesario un período más largo, genere una incidencia de soporte técnico.
+Este error indica un tiempo de espera en la ejecución del script de instalación personalizada. Asegúrese de que el script se puede ejecutar en modo silencioso y no se necesita ninguna entrada interactiva, además de que el contenedor de blobs contenga solo los archivos de instalación personalizados necesarios. Se recomienda probar primero el script en la máquina local. También debe comprobar los registros de ejecución de la instalación personalizada en el contenedor de blobs. El período máximo para la instalación personalizada e de 45 minutos antes de que se agote el tiempo de espera, y el período máximo incluye el tiempo necesario para descargar todos los archivos del contenedor e instalarlos en SSIS IR. Si es necesario un período más largo, genere una incidencia de soporte técnico.
 
 ### <a name="customsetupscriptloguploadfailure"></a>CustomSetupScriptLogUploadFailure
 

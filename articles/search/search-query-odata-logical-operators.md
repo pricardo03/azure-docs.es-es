@@ -1,13 +1,13 @@
 ---
-title: 'Referencia de operadores lógicos de OData: Azure Search'
-description: Operadores lógicos de OData and, or y not, en las consultas de Azure Search.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Referencia de los operadores lógicos de OData
+titleSuffix: Azure Cognitive Search
+description: Operadores lógicos de OData and, or y not, en las consultas de Azure Cognitive Search.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: bf4939a40a2fdf1c8fc6cf97beca0184b1604c98
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 4e016047d66e49f17c08d4b92a1c865f4b63e39b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647989"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793319"
 ---
-# <a name="odata-logical-operators-in-azure-search---and-or-not"></a>Operadores lógicos de OData en Azure Search: `and`, `or`, `not`
+# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operadores lógicos de OData en Azure Cognitive Search: `and`, `or`, `not`
 
-[Las expresiones de filtro de OData](query-odata-filter-orderby-syntax.md) en Azure Search son expresiones booleanas que se evalúan como `true` o `false`. Puede escribir un filtro complejo si escribe una serie de [filtros más sencillos](search-query-odata-comparison-operators.md) y los combina mediante los operadores lógicos de [álgebra booleana](https://en.wikipedia.org/wiki/Boolean_algebra):
+[Las expresiones de filtro de OData](query-odata-filter-orderby-syntax.md) de Azure Cognitive Search son expresiones booleanas que se evalúan como `true` o `false`. Puede escribir un filtro complejo si escribe una serie de [filtros más sencillos](search-query-odata-comparison-operators.md) y los combina mediante los operadores lógicos de [álgebra booleana](https://en.wikipedia.org/wiki/Boolean_algebra):
 
 - `and`: un operador binario que se evalúa como `true` si las dos subexpresiones a la izquierda y la derecha se evalúan como `true`.
 - `or`: un operador binario que se evalúa como `true` si una de las subexpresiones a la izquierda o la derecha se evalúa como `true`.
@@ -51,10 +51,10 @@ logical_expression ::=
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
+> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
 
 > [!NOTE]
-> Vea [Referencia de sintaxis de expresiones OData para Azure Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
+> Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
 Hay dos formas de expresiones lógicas: binarias (`and`/`or`), donde hay dos subexpresiones, y unarias (`not`), donde solo hay una. Las subexpresiones pueden ser expresiones booleanas de cualquier tipo:
 
@@ -66,7 +66,7 @@ Hay dos formas de expresiones lógicas: binarias (`and`/`or`), donde hay dos sub
 - Otras expresiones lógicas que se construyen con `and`, `or` y `not`.
 
 > [!IMPORTANT]
-> En algunas situaciones no todos los tipos de subexpresión se pueden usar con `and`/`or`, especialmente dentro de expresiones lambda. Vea [Operadores de colección de OData en Azure Search](search-query-odata-collection-operators.md#limitations) para más información.
+> En algunas situaciones no todos los tipos de subexpresión se pueden usar con `and`/`or`, especialmente dentro de expresiones lambda. Consulte [Operadores de colección de OData en Azure Cognitive Search](search-query-odata-collection-operators.md#limitations) para más información.
 
 ### <a name="logical-operators-and-null"></a>Operadores lógicos y `null`
 
@@ -109,7 +109,7 @@ Comparar documentos para hoteles en Vancouver, Canadá donde hay una habitación
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-- [Filtros de Azure Search](search-filters.md)
-- [Información general sobre el lenguaje de expresiones OData para Azure Search](query-odata-filter-orderby-syntax.md)
-- [Referencia de sintaxis de expresiones OData para Azure Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Búsqueda en documentos [API REST de Azure Search Service])
+- [Filtros de Azure Cognitive Search](search-filters.md)
+- [Información general sobre el lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

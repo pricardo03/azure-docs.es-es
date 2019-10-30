@@ -5,14 +5,14 @@ services: service-fabric
 author: athinanthny
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: atsenthi
-ms.openlocfilehash: dcffc1ba783b49343bf3380b62c3d4085f5aa347
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b9a3534c24649e71385cd8fdc8b4981ac471cf90
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390093"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752316"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>¿Qué es el modelo de recurso de aplicación de Service Fabric?
 Se recomienda que las aplicaciones de Service Fabric se implementen en el clúster de Service Fabric mediante Azure Resource Manager. Este método permite describir las aplicaciones y los servicios en JSON e implementarlos en la misma plantilla de Resource Manager que su clúster. A diferencia de implementar y administrar aplicaciones a través de PowerShell o la CLI de Azure, en este caso no es necesario esperar a que el clúster esté listo. El proceso de registro de la aplicación, su aprovisionamiento e implementación, puede suceder todo en un paso. Este es el procedimiento recomendado para administrar el ciclo de vida de las aplicaciones en el clúster. Para obtener más información, consulte los [procedimientos recomendados](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -41,8 +41,14 @@ La implementación de una aplicación desde una plantilla de Resource Manager re
 ![Crear una cuenta de almacenamiento][CreateStorageAccount]
 
 ### <a name="configure-storage-account"></a>Configuración de la cuenta de almacenamiento 
-Una vez creada la cuenta de almacenamiento, debe crear un contenedor de blobs donde se puedan almacenar provisionalmente las aplicaciones. En Azure Portal, navegue hasta la cuenta de almacenamiento que quiera usar para almacenar sus aplicaciones. Seleccione la hoja **Blobs** y haga clic en el botón **Agregar contenedor**. Agregue un nuevo contenedor con el nivel de acceso Público de blob.
-   
+Una vez creada la cuenta de almacenamiento, debe crear un contenedor de blobs donde se puedan almacenar provisionalmente las aplicaciones. En Azure Portal, navegue hasta la cuenta de almacenamiento que quiera usar para almacenar sus aplicaciones. Seleccione la hoja **Blobs** y haga clic en el botón **Agregar contenedor**. Se deben proteger los recursos del clúster estableciendo el nivel de acceso público en privado. Se puede conceder acceso de varias formas:
+* [Autorización del acceso a blobs y colas con Azure Active Directory](../storage/common/storage-auth-aad-app.md)
+* [Conceder acceso a datos de blob y cola de Azure con RBAC en Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md)
+* [Delegación de acceso con una firma de acceso compartido (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature
+)
+
+ En este ejemplo vamos a utilizar el acceso de lectura anónimo para blobs.
+
 ![Creación de un blob][CreateBlob]
 
 ### <a name="stage-application-in-a-storage-account"></a>Almacenamiento provisional de una aplicación en una cuenta de almacenamiento

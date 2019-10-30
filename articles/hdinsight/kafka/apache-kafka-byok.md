@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ba49944011546db45d25cc87c2c4b93c8b99502a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71122682"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Método Bring Your Own Key para Apache Kafka en Azure HDInsight
@@ -55,11 +55,11 @@ Para crear un clúster de Kafka habilitado para BYOK, llevaremos a cabo los paso
 
         a. Para crear una nueva clave, seleccione **Generar/Importar** en el menú **Claves** en **Configuración**.
 
-        ![Generar una nueva clave en Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png "Generate a new key in Azure Key Vault")
+        ![Generación de una clave nueva en Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png "Generar una clave nueva en Azure Key Vault")
 
         b. Establezca **Opciones** en **Generar** y asigne un nombre a la clave.
 
-        ![Apache Kafka: generación del nombre de la clave](./media/apache-kafka-byok/apache-kafka-create-key.png "Generar el nombre de la clave")
+        ![Apache Kafka: generación del nombre de la clave](./media/apache-kafka-byok/apache-kafka-create-key.png "Generación de un nombre de clave")
 
         c. Seleccione la clave que creó en la lista de claves.
 
@@ -81,11 +81,11 @@ Para crear un clúster de Kafka habilitado para BYOK, llevaremos a cabo los paso
 
         c. Establezca los **Permisos de clave** en **Obtener**, **Desencapsular clave** y **Encapsular clave**.
 
-        ![Establecer los permisos de clave para la directiva de acceso 1 de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "Set Key Permissions for Azure Key Vault access policy1")
+        ![Establecimiento de los permisos de clave para la directiva de acceso 1 de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "Establecimiento de los permisos de clave para la directiva de acceso 1 de Azure Key Vault")
 
         d. Establezca los **Permisos de secretos** en **Obtener**, **Establecer** y **Eliminar**.
 
-        ![Establecer los permisos de clave para la directiva de acceso 2 de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Set Key Permissions for Azure Key Vault access policy1")
+        ![Establecimiento de los permisos de clave para la directiva de acceso 2 de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Establecimiento de los permisos de clave para la directiva de acceso 2 de Azure Key Vault")
 
         e. Haga clic en **Save**(Guardar). 
 

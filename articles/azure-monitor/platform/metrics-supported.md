@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: a8cffe83ec0f2cdfd2e71accfa55966e5dedcd89
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: aab5d9a4cb7527e8a2085f826febc64bbd74854c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259137"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551967"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -32,6 +32,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |qpu_metric|QPU|Count|Media|QPU. Intervalo de 0-100 para S1, 0-200 para S2 y 0-400 para S4|ServerResourceType|
 |memory_metric|Memoria|Bytes|Media|Memoria. Intervalo de 0-25 GB para S1, 0-50 GB para S2 y 0-100 GB para S4|ServerResourceType|
+|private_bytes_metric|Bytes privados |Bytes|Media|La cantidad total de memoria que el proceso del motor de Analysis Services y los procesos de contenedor de Mashup han asignado, sin incluir la memoria compartida con otros procesos.|ServerResourceType|
+|virtual_bytes_metric|Bytes virtuales |Bytes|Media|Tamaño actual del espacio de direcciones virtuales que están usando el proceso del motor de Analysis Services y los procesos de contenedor de Mashup.|ServerResourceType|
 |TotalConnectionRequests|Número total de solicitudes de conexión|Count|Media|Número total de solicitudes de conexión. Se trata de llegadas.|ServerResourceType|
 |SuccessfullConnectionsPerSec|Conexiones correctas por segundo|CountPerSecond|Media|Tasa de finalizaciones de conexión correctas.|ServerResourceType|
 |TotalConnectionFailures|Número total de errores de conexión|Count|Media|Número total de intentos de conexión con error.|ServerResourceType|
@@ -73,6 +75,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |memory_thrashing_metric|Paginación excesiva de memoria|Percent|Media|Paginación excesiva media de memoria.|ServerResourceType|
 |mashup_engine_qpu_metric|QPU de motor M|Count|Media|Uso de QPU por los procesos del motor de mashup|ServerResourceType|
 |mashup_engine_memory_metric|Memoria del motor M|Bytes|Media|Uso de memoria por los procesos del motor de mashup|ServerResourceType|
+|mashup_engine_private_bytes_metric|Bytes privados del motor M |Bytes|Media|Cantidad total de procesos de contenedor de mashup de memoria asignados, sin incluir la memoria compartida con otros procesos.|ServerResourceType|
+|mashup_engine_virtual_bytes_metric|Bytes virtuales del motor M |Bytes|Media|Tamaño actual del espacio de direcciones virtuales que están usando los proceso de contenedor de Mashup.|ServerResourceType|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
@@ -1433,68 +1437,78 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|cpu_percent|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|Sin dimensiones|
-|physical_data_read_percent|Porcentaje de E/S de datos|Percent|Media|Porcentaje de E/S de datos|Sin dimensiones|
-|log_write_percent|Porcentaje de E/S de registro|Percent|Media|Porcentaje de E/S de registro. No es aplicable a los almacenes de datos.|Sin dimensiones|
-|dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
-|storage|Espacio de datos usado|Bytes|Máxima|Tamaño total de base de datos. No es aplicable a los almacenes de datos.|Sin dimensiones|
-|connection_successful|Conexiones correctas|Count|Total|Conexiones correctas|Sin dimensiones|
-|connection_failed|Conexiones con errores|Count|Total|Conexiones con errores|Sin dimensiones|
-|blocked_by_firewall|Bloqueado por el firewall|Count|Total|Bloqueado por el firewall|Sin dimensiones|
-|deadlock|Interbloqueos|Count|Total|Interbloqueos. No es aplicable a los almacenes de datos.|Sin dimensiones|
-|storage_percent|Porcentaje de espacio de datos usado|Percent|Máxima|Porcentaje de tamaño de base de datos. No se aplica a los almacenamientos de datos ni a las bases de datos de hiperescala.|Sin dimensiones|
-|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Media|Porcentaje de almacenamiento de OLTP en memoria. No es aplicable a los almacenes de datos.|Sin dimensiones|
-|workers_percent|Porcentaje de trabajos|Percent|Media|Porcentaje de trabajos. No es aplicable a los almacenes de datos.|Sin dimensiones|
-|sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones. No es aplicable a los almacenes de datos.|Sin dimensiones|
-|dtu_limit|Límite de DTU|Count|Media|Límite de DTU. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
-|dtu_used|DTU utilizada|Count|Media|DTU utilizada. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
-|cpu_limit|Límite de CPU|Count|Media|Límite de CPU. Se aplica a las bases de datos basadas en núcleo virtual.|Sin dimensiones|
-|cpu_used|CPU utilizada|Count|Media|CPU utilizada. Se aplica a las bases de datos basadas en núcleo virtual.|Sin dimensiones|
-|dwu_limit|Límite de DWU|Count|Máxima|Límite de DWU. Solo se aplica a los almacenes de datos.|Sin dimensiones|
-|dwu_consumption_percent|Porcentaje de DWU|Percent|Máxima|Porcentaje de DWU. Solo se aplica a los almacenes de datos.|Sin dimensiones|
-|dwu_used|DWU utilizada|Count|Máxima|DWU utilizada. Solo se aplica a los almacenes de datos.|Sin dimensiones|
-|dw_cpu_percent|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|Percent|Media|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
-|dw_physical_data_read_percent|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|Percent|Media|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
-|cache_hit_percent|Porcentaje de aciertos de caché|Percent|Máxima|Porcentaje de aciertos de caché. Solo se aplica a los almacenes de datos.|Sin dimensiones|
-|cache_used_percent|Porcentaje de caché usada|Percent|Máxima|Porcentaje de caché usada. Solo se aplica a los almacenes de datos.|Sin dimensiones|
-|local_tempdb_usage_percent|Porcentaje de tempdb local|Percent|Media|Porcentaje de tempdb local. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|allocated_data_storage|Espacio de datos asignado|Bytes|Media|Espacio de datos asignado. No es aplicable a los almacenes de datos.|Sin dimensiones|
 |app_cpu_billed|CPU de aplicación facturada|Count|Total|CPU de aplicación facturada. Se aplica a las bases de datos sin servidor.|Sin dimensiones|
 |app_cpu_percent|Porcentaje de CPU de la aplicación|Percent|Media|Porcentaje de CPU de la aplicación. Se aplica a las bases de datos sin servidor.|Sin dimensiones|
 |app_memory_percent|Porcentaje utilizado de memoria de la aplicación|Percent|Media|Porcentaje utilizado de memoria de la aplicación. Se aplica a las bases de datos sin servidor.|Sin dimensiones|
-|allocated_data_storage|Espacio de datos asignado|Bytes|Media|Espacio de datos asignado. No es aplicable a los almacenes de datos.|Sin dimensiones|
+|blocked_by_firewall|Bloqueado por el firewall|Count|Total|Bloqueado por el firewall|Sin dimensiones|
+|cache_hit_percent|Porcentaje de aciertos de caché|Percent|Máxima|Porcentaje de aciertos de caché. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|cache_used_percent|Porcentaje de caché usada|Percent|Máxima|Porcentaje de caché usada. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|connection_failed|Conexiones con errores|Count|Total|Conexiones con errores|Sin dimensiones|
+|connection_successful|Conexiones correctas|Count|Total|Conexiones correctas|Sin dimensiones|
+|cpu_percent|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|Sin dimensiones|
+|cpu_limit|Límite de CPU|Count|Media|Límite de CPU. Se aplica a las bases de datos basadas en núcleo virtual.|Sin dimensiones|
+|cpu_used|CPU utilizada|Count|Media|CPU utilizada. Se aplica a las bases de datos basadas en núcleo virtual.|Sin dimensiones|
+|deadlock|Interbloqueos|Count|Total|Interbloqueos. No es aplicable a los almacenes de datos.|Sin dimensiones|
+|dtu_limit|Límite de DTU|Count|Media|Límite de DTU. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
+|dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
+|dtu_used|DTU utilizada|Count|Media|DTU utilizada. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
+|dw_cpu_percent|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|Percent|Media|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
+|dw_physical_data_read_percent|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|Percent|Media|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
+|dwu_consumption_percent|Porcentaje de DWU|Percent|Máxima|Porcentaje de DWU. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|dwu_limit|Límite de DWU|Count|Máxima|Límite de DWU. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|dwu_used|DWU utilizada|Count|Máxima|DWU utilizada. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|local_tempdb_usage_percent|Porcentaje de tempdb local|Percent|Media|Porcentaje de tempdb local. Solo se aplica a los almacenes de datos.|Sin dimensiones|
+|log_write_percent|Porcentaje de E/S de registro|Percent|Media|Porcentaje de E/S de registro. No es aplicable a los almacenes de datos.|Sin dimensiones|
+|physical_data_read_percent|Porcentaje de E/S de datos|Percent|Media|Porcentaje de E/S de datos|Sin dimensiones|
+|sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones. No es aplicable a los almacenes de datos.|Sin dimensiones|
+|sqlserver_process_core_percent|Porcentaje de núcleos de proceso de SQL Server|Percent|Máxima|Esta métrica es un marcador de posición y no se rellena en este momento.|Sin dimensiones|
+|sqlserver_process_memory_percent|Porcentaje de memoria de proceso de SQL Server|Percent|Máxima|Esta métrica es un marcador de posición y no se rellena en este momento.|Sin dimensiones|
+|storage|Espacio de datos usado|Bytes|Máxima|Tamaño total de base de datos. No es aplicable a los almacenes de datos.|Sin dimensiones|
+|storage_percent|Porcentaje de espacio de datos usado|Percent|Máxima|Porcentaje de tamaño de base de datos. No se aplica a los almacenamientos de datos ni a las bases de datos de hiperescala.|Sin dimensiones|
+|tempdb_data_size|Kilobytes de tamaño de archivo de datos Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de datos Tempdb. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra de núcleos virtuales, o 100 DTU o más para los modelos de compra basados en DTU.|Sin dimensiones|
+|tempdb_log_size|Kilobytes de tamaño de archivo de registro Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de registro Tempdb. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra de núcleos virtuales, o 100 DTU o más para los modelos de compra basados en DTU.|Sin dimensiones|
+|tempdb_log_used_percent|Porcentaje de registro de tempdb usado|Percent|Máxima|Porcentaje de registro de tempdb usado. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra de núcleos virtuales, o 100 DTU o más para los modelos de compra basados en DTU.|Sin dimensiones|
+|workers_percent|Porcentaje de trabajos|Percent|Media|Porcentaje de trabajos. No es aplicable a los almacenes de datos.|Sin dimensiones|
+|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Media|Porcentaje de almacenamiento de OLTP en memoria. No es aplicable a los almacenes de datos.|Sin dimensiones|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|cpu_percent|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|Sin dimensiones|
-|physical_data_read_percent|Porcentaje de E/S de datos|Percent|Media|Porcentaje de E/S de datos|Sin dimensiones|
-|log_write_percent|Porcentaje de E/S de registro|Percent|Media|Porcentaje de E/S de registro|Sin dimensiones|
-|dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU. Se aplica a los grupos elásticos basados en DTU.|Sin dimensiones|
-|storage_percent|Porcentaje de espacio de datos usado||Percent|Media|Porcentaje de almacenamiento|Sin dimensiones|
-|workers_percent|Porcentaje de trabajos|Percent|Media|Porcentaje de trabajos|Sin dimensiones|
-|sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones|Sin dimensiones|
-|eDTU_limit|Límite de eDTU|Count|Media|Límite de eDTU. Se aplica a los grupos elásticos basados en DTU.|Sin dimensiones|
-|storage_limit|Tamaño máximo de datos|Bytes|Media|Límite de almacenamiento|Sin dimensiones|
-|eDTU_used|eDTU utilizada|Count|Media|eDTU utilizada. Se aplica a los grupos elásticos basados en DTU.|Sin dimensiones|
-|storage_used|Espacio de datos usado|Bytes|Media|Almacenamiento utilizado|Sin dimensiones|
-|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Media|Porcentaje de almacenamiento de OLTP en memoria|Sin dimensiones|
-|cpu_limit|Límite de CPU|Count|Media|Límite de CPU. Se aplica a los grupos elásticos basados en núcleo virtual.|Sin dimensiones|
-|cpu_used|CPU utilizada|Count|Media|CPU utilizada. Se aplica a los grupos elásticos basados en núcleo virtual.|Sin dimensiones|
 |allocated_data_storage|Espacio de datos asignado|Bytes|Media|Espacio de datos asignado|Sin dimensiones|
 |allocated_data_storage_percent|Porcentaje asignado de espacio de datos|Percent|Máxima|Porcentaje asignado de espacio de datos|Sin dimensiones|
+|cpu_limit|Límite de CPU|Count|Media|Límite de CPU. Se aplica a los grupos elásticos basados en núcleo virtual.|Sin dimensiones|
+|cpu_percent|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|Sin dimensiones|
+|cpu_used|CPU utilizada|Count|Media|CPU utilizada. Se aplica a los grupos elásticos basados en núcleo virtual.|Sin dimensiones|
+|dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU. Se aplica a los grupos elásticos basados en DTU.|Sin dimensiones|
+|eDTU_limit|Límite de eDTU|Count|Media|Límite de eDTU. Se aplica a los grupos elásticos basados en DTU.|Sin dimensiones|
+|eDTU_used|eDTU utilizada|Count|Media|eDTU utilizada. Se aplica a los grupos elásticos basados en DTU.|Sin dimensiones|
+|log_write_percent|Porcentaje de E/S de registro|Percent|Media|Porcentaje de E/S de registro|Sin dimensiones|
+|physical_data_read_percent|Porcentaje de E/S de datos|Percent|Media|Porcentaje de E/S de datos|Sin dimensiones|
+|sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones|Sin dimensiones|
+|storage_limit|Tamaño máximo de datos|Bytes|Media|Límite de almacenamiento|Sin dimensiones|
+|storage_percent|Porcentaje de espacio de datos usado||Percent|Media|Porcentaje de almacenamiento|Sin dimensiones|
+|storage_used|Espacio de datos usado|Bytes|Media|Almacenamiento utilizado|Sin dimensiones|
+|sqlserver_process_core_percent|Porcentaje de núcleos de proceso de SQL Server|Percent|Máxima|Esta métrica es un marcador de posición y no se rellena en este momento.|Sin dimensiones|
+|sqlserver_process_memory_percent|Porcentaje de memoria de proceso de SQL Server|Percent|Máxima|Esta métrica es un marcador de posición y no se rellena en este momento.|Sin dimensiones|
+|tempdb_data_size|Kilobytes de tamaño de archivo de datos Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de datos Tempdb. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra de núcleos virtuales, o 100 DTU o más para los modelos de compra basados en DTU.|Sin dimensiones|
+|tempdb_log_size|Kilobytes de tamaño de archivo de registro Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de registro Tempdb. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra de núcleos virtuales, o 100 DTU o más para los modelos de compra basados en DTU.|Sin dimensiones|
+|tempdb_log_used_percent|Porcentaje de registro de tempdb usado|Percent|Máxima|Porcentaje de registro de tempdb usado. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra de núcleos virtuales, o 100 DTU o más para los modelos de compra basados en DTU.|Sin dimensiones|
+|workers_percent|Porcentaje de trabajos|Percent|Media|Porcentaje de trabajos|Sin dimensiones|
+|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Media|Porcentaje de almacenamiento de OLTP en memoria|Sin dimensiones|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|virtual_core_count|Recuento de núcleos virtuales|Count|Media|Recuento de núcleos virtuales|Sin dimensiones|
 |avg_cpu_percent|Porcentaje de CPU medio|Percent|Media|Porcentaje de CPU medio|Sin dimensiones|
+|io_bytes_read|Bytes de E/S leídos|Bytes|Media|Bytes de E/S leídos|Sin dimensiones|
+|io_requests|Recuento de solicitudes de E/S|Count|Media|Recuento de solicitudes de E/S|Sin dimensiones|
+|io_bytes_written|Bytes de E/S escritos|Bytes|Media|Bytes de E/S escritos|Sin dimensiones|
 |reserved_storage_mb|Espacio de almacenamiento reservado|Count|Media|Espacio de almacenamiento reservado|Sin dimensiones|
 |storage_space_used_mb|Espacio de almacenamiento usado|Count|Media|Espacio de almacenamiento usado|Sin dimensiones|
-|io_requests|Recuento de solicitudes de E/S|Count|Media|Recuento de solicitudes de E/S|Sin dimensiones|
-|io_bytes_read|Bytes de E/S leídos|Bytes|Media|Bytes de E/S leídos|Sin dimensiones|
-|io_bytes_written|Bytes de E/S escritos|Bytes|Media|Bytes de E/S escritos|Sin dimensiones|
+|virtual_core_count|Recuento de núcleos virtuales|Count|Media|Recuento de núcleos virtuales|Sin dimensiones|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 

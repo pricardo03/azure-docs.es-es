@@ -1,57 +1,57 @@
 ---
-title: 'Asociación de un recurso de Cognitive Services con un conjunto de aptitudes: Azure Search'
-description: Instrucciones para asociar una suscripción todo en uno de Cognitive Services a una canalización de enriquecimiento cognitivo en Azure Search.
+title: Asociación de un recurso de Cognitive Services con un conjunto de aptitudes
+titleSuffix: Azure Cognitive Search
+description: Instrucciones para asociar una suscripción todo en uno de Cognitive Services a una canalización de enriquecimiento de inteligencia artificial en Azure Cognitive Search.
 manager: nitinme
 author: LuisCabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/20/2019
 ms.author: luisca
-ms.openlocfilehash: 113286f829b628d4740fbba34e7279741a934aef
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 11ca5f71cb0d08a4bebf72407035a9557c794f9f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265923"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72788027"
 ---
-# <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Search 
+# <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Cognitive Search 
 
-Los algoritmos de inteligencia artificial impulsan las [canalizaciones de indexación cognitivas](cognitive-search-concept-intro.md) usadas para el enriquecimiento de documentos en Azure Search. Estos algoritmos se basan en recursos de Cognitive Services, incluidos [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para el análisis de imágenes y el reconocimiento óptico de caracteres (OCR) y [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para el reconocimiento de entidades, la extracción de frases clave y otros enriquecimientos. Tal como los utiliza Azure Search con fines de enriquecimiento de documentos, los algoritmos se incluyen en una *aptitud*, ubicada en un *conjunto de aptitudes* y mencionada por un *indexador* durante la indexación.
+Los algoritmos de inteligencia artificial impulsan las [canalizaciones de enriquecimiento](cognitive-search-concept-intro.md) que se usan para la transformación en Azure Cognitive Search. Estos algoritmos se basan en recursos de Cognitive Services, incluidos [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para el análisis de imágenes y el reconocimiento óptico de caracteres (OCR) y [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para el reconocimiento de entidades, la extracción de frases clave y otros enriquecimientos. Tal como los utiliza Azure Cognitive Search con fines de enriquecimiento de documentos, los algoritmos se incluyen en una *aptitud*, ubicada en un *conjunto de aptitudes* y mencionada por un *indexador* durante la indexación.
 
-Puede enriquecer un número limitado de documentos de manera gratuita, o bien puede asociar un recurso de Cognitive Services facturable a un *conjunto de aptitudes* para cargas de trabajo más grandes y más frecuentes. En este artículo, aprenderá a asociar un recurso de Cognitive Services facturable para enriquecer documentos durante la [indexación](search-what-is-an-index.md) de Azure Search.
+Puede enriquecer un número limitado de documentos de manera gratuita, o bien puede asociar un recurso de Cognitive Services facturable a un *conjunto de aptitudes* para cargas de trabajo más grandes y más frecuentes. En este artículo, aprenderá a asociar un recurso de Cognitive Services facturable para enriquecer documentos durante la [indexación](search-what-is-an-index.md) de Azure Cognitive Search.
 
 > [!NOTE]
-> Los eventos facturables incluyen llamadas a Cognitive Services APIs y la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No se aplica ningún cargo por la extracción de texto de documentos o por las aptitudes que no llaman a Cognitive Services.
+> Los eventos facturables incluyen llamadas a Cognitive Services APIs y la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Cognitive Search. No se aplica ningún cargo por la extracción de texto de documentos o por las aptitudes que no llaman a Cognitive Services.
 >
-> La ejecución de aptitudes facturables tiene lugar al [precio de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Para ver los precios de la extracción de imágenes, consulte la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes facturables tiene lugar al [precio de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Para ver los precios de la extracción de imágenes, consulte la [página de precios de Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="same-region-requirement"></a>Requisito de la misma región
 
-Se requiere la existencia de Azure Search y Azure Cognitive Services en la misma región. De lo contrario, recibirá este mensaje en tiempo de ejecución: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+Se requiere la existencia de Azure Cognitive Search y Azure Cognitive Services en la misma región. De lo contrario, recibirá este mensaje en tiempo de ejecución: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
-No existe forma alguna de migrar un servicio entre regiones. Si recibe este error, debe crear un nuevo recurso de Cognitive Services en la misma región que Azure Search.
+No existe forma alguna de migrar un servicio entre regiones. Si recibe este error, debe crear un nuevo recurso de Cognitive Services en la misma región que Azure Cognitive Search.
 
 > [!NOTE]
-> Algunas habilidades integradas se basan en una instancia de Cognitive Services no regional (por ejemplo, la [habilidad de traducción de texto](cognitive-search-skill-text-translation.md)). Tenga en cuenta que si agrega cualquiera de estas habilidades a su conjunto de aptitudes, no se garantiza que los datos permanezcan en la misma región que el recurso de Azure Search o Cognitive Services. Consulte la [página de estado del servicio](https://aka.ms/allinoneregioninfo) para obtener más detalles.
+> Algunas habilidades integradas se basan en una instancia de Cognitive Services no regional (por ejemplo, la [habilidad de traducción de texto](cognitive-search-skill-text-translation.md)). Tenga en cuenta que si agrega cualquiera de estas habilidades a su conjunto de aptitudes, no se garantiza que los datos permanezcan en la misma región que el recurso de Azure Cognitive Search o Cognitive Services. Consulte la [página de estado del servicio](https://aka.ms/allinoneregioninfo) para obtener más detalles.
 
 ## <a name="use-free-resources"></a>Uso de recursos gratis
 
-Puede usar una opción de procesamiento limitada y gratuita para completar los ejercicios del tutorial y la guía de inicio rápido de Cognitive Search.
+Puede usar una opción de procesamiento limitada y gratuita para completar los ejercicios del tutorial y la guía de inicio rápido de enriquecimiento con inteligencia artificial.
 
 Los recursos gratuitos (enriquecimientos limitados) se restringen a 20 documentos al día, por suscripción.
 
 1. Abra el Asistente para la importación de datos:
 
-   ![Abra el Asistente para importar datos](media/search-get-started-portal/import-data-cmd.png "Open the Import data wizard")
+   ![Abra el Asistente para la importación de datos](media/search-get-started-portal/import-data-cmd.png "Abra el Asistente para la importación de datos")
 
-1. Elija un origen de datos y siga a **Agregar Cognitive Search (opcional)** . Para ver un tutorial paso a paso de este asistente, consulte el artículo sobre cómo [importar, indexar y consultar con las herramientas del portal](search-get-started-portal.md).
+1. Elija un origen de datos y siga para **Add AI enrichment (Optional)** (Agregar el enriquecimiento con IA [opcional]). Para un tutorial paso a paso de este Asistente, consulte [Creación de un índice de Azure Search en Azure Portal](search-get-started-portal.md).
 
 1. Expanda **Adjuntar Cognitive Services** y seleccione **Gratis (enriquecimientos limitados)** :
 
-   ![Sección Adjuntar Cognitive Services expandida](./media/cognitive-search-attach-cognitive-services/attach1.png "Expanded Attach Cognitive Services section")
+   ![Sección Adjuntar Cognitive Services expandida](./media/cognitive-search-attach-cognitive-services/attach1.png "Sección Adjuntar Cognitive Services expandida")
 
-1. Vaya al paso siguiente, **Agregar enriquecimientos**. Para una descripción de las aptitudes disponibles en el portal, consulte [Paso 2: Agregar conocimientos cognitivos](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) en el inicio rápido de Cognitive Search.
+1. Ahora puede seguir con los próximos pasos, incluido **Agregar aptitudes cognitivas**.
 
 ## <a name="use-billable-resources"></a>Uso de recursos facturables
 
@@ -59,15 +59,15 @@ Para cargas de trabajo que creen más de 20 enriquecimientos al día, asegúrese
 
 Solo se aplican cargos por las aptitudes que llaman a Cognitive Services APIs. No se le facturará por las [aptitudes personalizadas](cognitive-search-create-custom-skill-example.md) o aptitudes como la de [combinación de texto](cognitive-search-skill-textmerger.md), la de [división de texto](cognitive-search-skill-textsplit.md) y la de [conformador](cognitive-search-skill-shaper.md), que no están basadas en API.
 
-1. Abra el Asistente para la importación de datos, elija un origen de datos y siga a **Agregar Cognitive Search (opcional)** .
+1. Abra el Asistente para la importación de datos, elija un origen de datos y siga a **Add AI enrichment (Optional)** (Agregar enriquecimiento con IA [opcional]).
 
 1. Expanda **Adjuntar Cognitive Services** y, a continuación, seleccione **Crear nuevo recurso de Cognitive Services**. Se abre una nueva pestaña para poder crear el recurso:
 
-   ![Creación de un recurso de Cognitive Services](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Create a Cognitive Services resource")
+   ![Cree un recurso de Cognitive Services](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Creación de un recurso de Cognitive Services")
 
-1. En la lista **Ubicación**, seleccione la región donde se encuentra su instancia de Azure Search. Asegúrese de usar esta región por motivos de rendimiento. Al usar esta región, también se anulan los cobros por ancho de banda saliente entre regiones.
+1. En la lista **Ubicación**, seleccione la región donde se encuentra su instancia de Azure Cognitive Search. Asegúrese de usar esta región por motivos de rendimiento. Al usar esta región, también se anulan los cobros por ancho de banda saliente entre regiones.
 
-1. En la lista **Plan de tarifa**, seleccione **S0** para obtener la colección todo en uno de características de Cognitive Services, incluidas las características Visión e Idioma utilizadas para respaldar las aptitudes predefinidas que usa Azure Search.
+1. En la lista **Plan de tarifa**, seleccione **S0** para obtener la colección todo en uno de características de Cognitive Services, incluidas las características Visión e Idioma que respaldan las aptitudes integradas que proporciona Azure Cognitive Search.
 
    Para el nivel S0, encontrará tarifas para cargas de trabajo específicas en la [página de precios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
   
@@ -79,9 +79,9 @@ Solo se aplican cargos por las aptitudes que llaman a Cognitive Services APIs. N
 
 1. Vuelva a la pestaña anterior, donde se encuentra el Asistente para la importación de datos. Seleccione **Actualizar** para mostrar el recurso de Cognitive Services y, luego, seleccione el recurso:
 
-   ![Selección del recurso de Cognitive Services](./media/cognitive-search-attach-cognitive-services/attach2.png "Select the Cognitive Services resource")
+   ![Seleccione el recurso de Cognitive Services](./media/cognitive-search-attach-cognitive-services/attach2.png "Seleccione el recurso de Cognitive Services")
 
-1. Expanda la sección **Agregar enriquecimientos** para seleccionar las aptitudes cognitivas específicas que desea ejecutar en los datos. Realice los pasos restantes del asistente. Para una descripción de las aptitudes disponibles en el portal, consulte [Paso 2: Agregar conocimientos cognitivos](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) en el inicio rápido de Cognitive Search.
+1. Expanda la sección **Agregar aptitudes cognitivas** para seleccionar las aptitudes cognitivas específicas que desea ejecutar en los datos. Realice los pasos restantes del asistente.
 
 ## <a name="attach-an-existing-skillset-to-a-cognitive-services-resource"></a>Asociación de un conjunto de aptitudes existentes con un recurso de Cognitive Services
 
@@ -89,7 +89,7 @@ Si ya tiene un conjunto de aptitudes, puede asociarlo a un recurso de Cognitive 
 
 1. En la página **Información general del servicio**, seleccione **Conjuntos de aptitudes**:
 
-   ![Pestaña Conjuntos de aptitudes](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Skillsets tab")
+   ![Pestaña Conjuntos de aptitudes](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Pestaña Conjuntos de aptitudes")
 
 1. Seleccione el nombre del conjunto de aptitudes y un recurso existente o cree uno nuevo. Seleccione **Aceptar** para confirmar los cambios.
 
@@ -99,7 +99,7 @@ Si ya tiene un conjunto de aptitudes, puede asociarlo a un recurso de Cognitive 
 
 ## <a name="attach-cognitive-services-programmatically"></a>Asociación de Cognitive Services mediante programación
 
-Cuando defina un conjunto de aptitudes mediante programación, agregue una sección `cognitiveServices` al conjunto de aptitudes. En la sección, incluya la clave del recurso de Cognitive Services que desea asociar con el conjunto de aptitudes. Recuerde que el recurso debe estar en la misma región que su recurso de Azure Search. Además incluya `@odata.type` y establézcalo en `#Microsoft.Azure.Search.CognitiveServicesByKey`.
+Cuando defina un conjunto de aptitudes mediante programación, agregue una sección `cognitiveServices` al conjunto de aptitudes. En la sección, incluya la clave del recurso de Cognitive Services que desea asociar con el conjunto de aptitudes. Recuerde que el recurso debe estar en la misma región que su recurso de Azure Cognitive Search. Además incluya `@odata.type` y establézcalo en `#Microsoft.Azure.Search.CognitiveServicesByKey`.
 
 En el siguiente ejemplo se muestra este patrón. Observe la sección `cognitiveServices` al final de la definición.
 
@@ -159,7 +159,7 @@ Los precios mostrados en este artículo son hipotéticos. Se usan para ilustrar 
 En resumen, pagaría unos 57 USD por la ingesta de 1000 documentos PDF de este tipo con el conjunto de aptitudes descrito.
 
 ## <a name="next-steps"></a>Pasos siguientes
-+ [Página de precios de Azure Search](https://azure.microsoft.com/pricing/details/search/)
++ [Página de precios de Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Crear un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Cómo asignar campos enriquecidos](cognitive-search-output-field-mapping.md)

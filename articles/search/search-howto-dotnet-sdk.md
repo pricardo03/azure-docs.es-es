@@ -1,56 +1,56 @@
 ---
-title: 'Cómo usar Azure Search desde una aplicación .NET: Azure Search'
-description: Obtenga información sobre cómo usar Azure Search en una aplicación de .NET con C# y el SDK de. NET. Las tareas basadas en código incluyen la conexión al servicio, el contenido del índice y la consulta de un índice.
-author: brjohnstmsft
+title: Cómo usar Búsqueda cognitiva de Azure desde una aplicación .NET
+titleSuffix: Azure Cognitive Search
+description: Obtenga información sobre cómo usar Búsqueda cognitiva de Azure en una aplicación .NET con C# y el SDK de. NET. Las tareas basadas en código incluyen la conexión al servicio, el contenido del índice y la consulta de un índice.
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 06/19/2019
+author: brjohnstmsft
 ms.author: brjohnst
-ms.openlocfilehash: 3f167ee082b751f6bd686c0543db6a262615e486
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.devlang: dotnet
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: e1903b3b33e1dde5178fadbc37feee191a2eaacd
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208246"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792137"
 ---
-# <a name="how-to-use-azure-search-from-a-net-application"></a>Cómo usar Azure Search desde una aplicación .NET
+# <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Cómo usar Búsqueda cognitiva de Azure desde una aplicación .NET
 
-Este artículo es un tutorial para empezar a trabajar con el [SDK de Azure Search para .NET](https://aka.ms/search-sdk). Puede utilizar el SDK para .NET para implementar una experiencia de búsqueda enriquecida en la aplicación mediante Azure Search.
+Este artículo es un tutorial para empezar a trabajar con el [SDK de Búsqueda cognitiva de Azure para .NET](https://aka.ms/search-sdk). Puede utilizar el SDK para .NET para implementar una experiencia de búsqueda enriquecida en la aplicación mediante Búsqueda cognitiva de Azure.
 
-## <a name="whats-in-the-azure-search-sdk"></a>Qué es el SDK de Azure Search
+## <a name="whats-in-the-azure-cognitive-search-sdk"></a>Qué hay en el SDK de Búsqueda cognitiva de Azure
 El SDK se compone de unas cuantas bibliotecas de cliente que le permiten administrar los índices, orígenes de datos, indexadores y asignaciones de sinónimos, así como cargar y administrar documentos y ejecutar consultas; todo ello sin tener que lidiar con los detalles de HTTP y JSON. Esas bibliotecas de cliente se distribuyen como paquetes de NuGet.
 
-El paquete de NuGet principal es `Microsoft.Azure.Search`, que es un metapaquete que incluye el resto de paquetes a modo de dependencias. Use este paquete si está comenzando a trabajar con él o si sabe que la aplicación necesitará todas las características de Azure Search.
+El paquete de NuGet principal es `Microsoft.Azure.Search`, que es un metapaquete que incluye el resto de paquetes a modo de dependencias. Use este paquete si está comenzando a trabajar con él o si sabe que la aplicación necesitará todas las características de Búsqueda cognitiva de Azure.
 
 Estos son otros paquetes de NuGet que tiene el SDK:
  
-  - `Microsoft.Azure.Search.Data`: use este paquete si va a desarrollar una aplicación de .NET mediante Azure Search y solo necesita consultar o actualizar los documentos en los índices. Si también tiene que crear o actualizar los índices, las asignaciones de sinónimos u otros recursos de nivel de servicio, use el paquete `Microsoft.Azure.Search`.
-  - `Microsoft.Azure.Search.Service`: use este paquete si está desarrollando la automatización en .NET para administrar los índices, las asignaciones de sinónimos, los indexadores, los orígenes de datos u otros recursos de nivel de servicio de Azure Search. Si solo necesita consultar o actualizar los documentos de los índices, use el paquete `Microsoft.Azure.Search.Data` en su lugar. Si necesita toda la funcionalidad de Azure Search, use el paquete `Microsoft.Azure.Search`.
-  - `Microsoft.Azure.Search.Common`: tipos comunes que necesitan las bibliotecas de .NET de Azure Search. No es necesario usar este paquete directamente en la aplicación, sino que está concebido únicamente para usarse como una dependencia.
+  - `Microsoft.Azure.Search.Data`: use este paquete si va a desarrollar una aplicación .NET mediante Búsqueda cognitiva de Azure y solo necesita consultar o actualizar los documentos en los índices. Si también tiene que crear o actualizar los índices, las asignaciones de sinónimos u otros recursos de nivel de servicio, use el paquete `Microsoft.Azure.Search`.
+  - `Microsoft.Azure.Search.Service`: use este paquete si está desarrollando la automatización en .NET para administrar los índices, las asignaciones de sinónimos, los indexadores, los orígenes de datos u otros recursos de nivel de servicio de Búsqueda cognitiva de Azure. Si solo necesita consultar o actualizar los documentos de los índices, use el paquete `Microsoft.Azure.Search.Data` en su lugar. Si necesita toda la funcionalidad de Búsqueda cognitiva de Azure, use el paquete `Microsoft.Azure.Search`.
+  - `Microsoft.Azure.Search.Common`: tipos comunes que necesitan las bibliotecas de .NET de Búsqueda cognitiva de Azure. No es necesario usar este paquete directamente en la aplicación, sino que está concebido únicamente para usarse como una dependencia.
 
 Las diferentes bibliotecas de cliente definen clases como `Index`, `Field` y `Document`, además de operaciones como `Indexes.Create` y `Documents.Search` en las clases `SearchServiceClient` y `SearchIndexClient`. Estas clases están organizadas en los espacios de nombres siguientes:
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
-Si desea proporcionar comentarios para una actualización futura del SDK, vaya a nuestra [página de comentarios](https://feedback.azure.com/forums/263029-azure-search/) o cree un problema en [GitHub](https://github.com/azure/azure-sdk-for-net/issues) y mencione "Azure Search" en el título del problema.
+Si desea proporcionar comentarios para una actualización futura del SDK, vaya a nuestra [página de comentarios](https://feedback.azure.com/forums/263029-azure-search/) o cree un problema en [GitHub](https://github.com/azure/azure-sdk-for-net/issues) y mencione "Búsqueda cognitiva de Azure" en el título del problema.
 
-El SDK para .NET es compatible con la versión `2019-05-06` de la [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Esta versión incluye compatibilidad con [tipos complejos](search-howto-complex-data-types.md), con la [búsqueda cognitiva](cognitive-search-concept-intro.md), con la característica [Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) y con el [modo de análisis JsonLines](search-howto-index-json-blobs.md) al indexar Azure Blobs. 
+El SDK para .NET es compatible con la versión `2019-05-06` de la [API de REST de Búsqueda cognitiva de Azure](https://docs.microsoft.com/rest/api/searchservice/). Esta versión incluye compatibilidad con [tipos complejos](search-howto-complex-data-types.md), con el [enriquecimiento con inteligencia artificial](cognitive-search-concept-intro.md), con la característica [Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) y con el [modo de análisis JsonLines](search-howto-index-json-blobs.md) al indexar Azure Blobs. 
 
-Este SDK no admite [operaciones de administración](https://docs.microsoft.com/rest/api/searchmanagement/) como la creación y el escalado de servicios de Search y las claves de API de administración. Si necesita administrar los recursos de Search desde una aplicación .NET, puede usar el [SDK de administración para .NET de Azure Search](https://aka.ms/search-mgmt-sdk).
+Este SDK no admite [operaciones de administración](https://docs.microsoft.com/rest/api/searchmanagement/) como la creación y el escalado de servicios de Search y las claves de API de administración. Si necesita administrar los recursos de Search desde una aplicación .NET, puede usar el [SDK de administración para .NET de Búsqueda cognitiva de Azure](https://aka.ms/search-mgmt-sdk).
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>Actualización a la versión más reciente del SDK
-Si ya utiliza una versión anterior del SDK de .NET para Azure Search y desea actualizar a la versión disponible más reciente, en [este artículo](search-dotnet-sdk-migration-version-9.md) se explica el proceso.
+Si ya utiliza una versión anterior del SDK para .NET de Búsqueda cognitiva de Azure y desea actualizar a la versión más reciente disponible con carácter general, en [este artículo](search-dotnet-sdk-migration-version-9.md) se explica el proceso.
 
 ## <a name="requirements-for-the-sdk"></a>Requisitos para el SDK
 1. Visual Studio 2017 o cualquier versión posterior.
-2. Su propio servicio Azure Search. Para usar el SDK, será necesario el nombre del servicio y una o varias claves de API. [Crear un servicio en el portal](search-create-service-portal.md) le ayudará con estos pasos.
-3. Descargue el [paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search) del SDK de Azure Search para .NET mediante "Administrar paquetes de NuGet" en Visual Studio. Simplemente busque el nombre del paquete `Microsoft.Azure.Search` en NuGet.org (o uno de los otros nombres de paquetes mencionados anteriormente si solo necesita un subconjunto de la funcionalidad).
+2. Su propio servicio Búsqueda cognitiva de Azure. Para usar el SDK, será necesario el nombre del servicio y una o varias claves de API. [Crear un servicio en el portal](search-create-service-portal.md) le ayudará con estos pasos.
+3. Descargue el [paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search) del SDK de Búsqueda cognitiva de Azure para .NET mediante "Administrar paquetes NuGet" en Visual Studio. Simplemente busque el nombre del paquete `Microsoft.Azure.Search` en NuGet.org (o uno de los otros nombres de paquetes mencionados anteriormente si solo necesita un subconjunto de la funcionalidad).
 
-El SDK de .NET de Azure Search es compatible con las aplicaciones destinadas a .NET Framework 4.5.2 y otras versiones superiores, así como a .NET Core 2.0 y otras versiones superiores.
+El SDK para .NET de Búsqueda cognitiva de Azure es compatible con las aplicaciones destinadas a .NET Framework 4.5.2 y otras versiones superiores, así como a .NET Core 2.0 y otras versiones superiores.
 
 ## <a name="core-scenarios"></a>Escenarios principales
 Hay varias tareas que debe realizar en su aplicación de búsqueda. En este tutorial, hablaremos sobre estos escenarios básicos:
@@ -100,7 +100,7 @@ static void Main(string[] args)
 > 
 >
 
-Lo recorreremos paso a paso. Primero, debemos crear un nuevo `SearchServiceClient`. Este objeto le permite administrar índices. Para crear uno, deberá proporcionar el nombre de su servicio Azure Search y una clave de API de administración. Puede escribir esta información en el archivo `appsettings.json` de la [aplicación de ejemplo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
+Lo recorreremos paso a paso. Primero, debemos crear un nuevo `SearchServiceClient`. Este objeto le permite administrar índices. Para crear uno, deberá proporcionar el nombre de su servicio Búsqueda cognitiva de Azure y una clave de API de administración. Puede escribir esta información en el archivo `appsettings.json` de la [aplicación de ejemplo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -232,7 +232,7 @@ private static void DeleteIndexIfExists(string indexName, SearchServiceClient se
 Este método utiliza el `SearchServiceClient` proporcionado para comprobar si existe el índice y, en ese caso, eliminarlo.
 
 > [!NOTE]
-> El código de ejemplo de este artículo usa los métodos sincrónicos del SDK de Azure Search para .NET por motivos de simplicidad. En sus propias aplicaciones, recomendamos que use métodos asincrónicos para mantener su escalabilidad y capacidad de respuesta. Por ejemplo, en el método anterior podría utilizar `ExistsAsync` y `DeleteAsync` en lugar de `Exists` y `Delete`.
+> El código de ejemplo de este artículo usa los métodos sincrónicos del SDK de Búsqueda cognitiva de Azure para .NET por motivos de simplicidad. En sus propias aplicaciones, recomendamos que use métodos asincrónicos para mantener su escalabilidad y capacidad de respuesta. Por ejemplo, en el método anterior podría utilizar `ExistsAsync` y `DeleteAsync` en lugar de `Exists` y `Delete`.
 > 
 > 
 
@@ -258,7 +258,7 @@ Este método crea un nuevo objeto `Index` con una lista de objetos `Field` que d
 >
 > 
 
-Además de campos, puede agregar al índice perfiles de puntuación, proveedores de sugerencias u opciones de CORS (estos parámetros se omiten en el ejemplo para mayor brevedad). Puede encontrar más información sobre el objeto Index y sus partes constituyentes en la [referencia del SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), así como en la [referencia de la API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
+Además de campos, puede agregar al índice perfiles de puntuación, proveedores de sugerencias u opciones de CORS (estos parámetros se omiten en el ejemplo para mayor brevedad). Puede encontrar más información sobre el objeto Index y sus partes constituyentes en la [referencia del SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), así como en la [referencia de la API de REST de Búsqueda cognitiva de Azure](https://docs.microsoft.com/rest/api/searchservice/).
 
 ### <a name="populating-the-index"></a>Llenado del índice
 El siguiente paso en `Main` rellena el índice recién creado. Esto se lleva a cabo mediante el método siguiente (parte del código se ha reemplazado por "..." con fines meramente ilustrativos,  pero puede consultar la solución de ejemplo completa para ver el código de llenado de datos completo):
@@ -379,26 +379,26 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 
 Este método tiene cuatro partes. La primera crea una matriz de tres objetos `Hotel` (cada uno con tres objetos `Room`), que serán los datos de entrada que cargaremos en el índice. Estos datos están incluidos en el código por motivos de simplicidad. En su propia aplicación, los datos provendrán normalmente de un origen de datos externo, como una base de datos SQL.
 
-En la segunda parte se crea un `IndexBatch` que contiene los documentos. Especifique la operación que desee aplicar al lote en el momento de su creación, en este caso llamando a `IndexBatch.Upload`. A continuación, el lote se carga en el índice de Azure Search mediante el método `Documents.Index` .
+En la segunda parte se crea un `IndexBatch` que contiene los documentos. Especifique la operación que desee aplicar al lote en el momento de su creación, en este caso llamando a `IndexBatch.Upload`. A continuación, el lote se carga en el índice de Búsqueda cognitiva de Azure mediante el método `Documents.Index` .
 
 > [!NOTE]
-> En este ejemplo nos limitamos a cargar documentos. Si desea combinar los cambios en los documentos existentes o eliminar documentos, puede crear lotes llamando a `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` o `IndexBatch.Delete`. También puede combinar diferentes operaciones en un único lote llamando a `IndexBatch.New`, que selecciona una colección de objetos de `IndexAction`, que indican a Azure Search que realice una operación determinada en un documento. Puede crear cada `IndexAction` con su propia operación llamando al método correspondiente, como `IndexAction.Merge`, `IndexAction.Upload`, etc.
+> En este ejemplo nos limitamos a cargar documentos. Si desea combinar los cambios en los documentos existentes o eliminar documentos, puede crear lotes llamando a `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` o `IndexBatch.Delete`. También puede combinar diferentes operaciones en un único lote llamando a `IndexBatch.New`, que selecciona una colección de objetos de `IndexAction`, que indican a Búsqueda cognitiva de Azure que realice una operación determinada en un documento. Puede crear cada `IndexAction` con su propia operación llamando al método correspondiente, como `IndexAction.Merge`, `IndexAction.Upload`, etc.
 > 
 > 
 
-La tercera parte de este método es un bloque catch que controla un caso de error importante para la indización. Si su servicio Azure Search no logra indizar algunos de los documentos del lote, aparece una `IndexBatchException` producida por `Documents.Index`. Esta excepción puede suceder si se indexan documentos mientras el servicio está sobrecargado. **Recomendamos encarecidamente controlar este caso de forma explícita en el código.** Puede retrasar la indización de los documentos que dieron error y volver a intentarlo; puede crear un registro y continuar, como hace el ejemplo, o puede adoptar otro enfoque según los requisitos de coherencia de datos de la aplicación.
+La tercera parte de este método es un bloque catch que controla un caso de error importante para la indización. Si su servicio Búsqueda cognitiva de Azure no logra indexar algunos de los documentos del lote, aparece una `IndexBatchException` producida por `Documents.Index`. Esta excepción puede suceder si se indexan documentos mientras el servicio está sobrecargado. **Recomendamos encarecidamente controlar este caso de forma explícita en el código.** Puede retrasar la indización de los documentos que dieron error y volver a intentarlo; puede crear un registro y continuar, como hace el ejemplo, o puede adoptar otro enfoque según los requisitos de coherencia de datos de la aplicación.
 
 > [!NOTE]
 > Puede usar el método [`FindFailedActionsToRetry`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) para construir un nuevo lote que contenga solo las acciones que dieron error en una llamada anterior a `Index`. Hay una explicación sobre cómo se usa correctamente [en StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
 >
 >
 
-Por último, el método `UploadDocuments` se retrasa durante dos segundos. La indización ocurre de manera asincrónica en el servicio Azure Search, por lo que la aplicación de ejemplo debe esperar unos momentos para asegurarse de que los documentos estén disponibles para la búsqueda. Retrasos así solo suelen ser necesarios en las pruebas, demostraciones y aplicaciones de ejemplo.
+Por último, el método `UploadDocuments` se retrasa durante dos segundos. La indexación ocurre de manera asincrónica en el servicio Búsqueda cognitiva de Azure, por lo que la aplicación de ejemplo debe esperar unos momentos para asegurarse de que los documentos estén disponibles para la búsqueda. Retrasos así solo suelen ser necesarios en las pruebas, demostraciones y aplicaciones de ejemplo.
 
 <a name="how-dotnet-handles-documents"></a>
 
 #### <a name="how-the-net-sdk-handles-documents"></a>Gestión de documentos del SDK de .NET
-Quizás se pregunte cómo consigue el SDK de Azure para .NET cargar en el índice las instancias de una clase definida por el usuario como `Hotel` . Para responder mejor a esa pregunta, echemos un vistazo a la clase `Hotel` :
+Quizás se pregunte cómo consigue el SDK de Búsqueda cognitiva de Azure para .NET cargar en el índice las instancias de una clase definida por el usuario como `Hotel` . Para responder mejor a esa pregunta, echemos un vistazo a la clase `Hotel` :
 
 ```csharp
 using System;
@@ -458,13 +458,13 @@ public partial class Hotel
 Lo primero que se debe tener en cuenta es que el nombre de cada propiedad pública de la clase `Hotel` se asignará a un campo con el mismo nombre en la definición del índice. Si quiere que cada campo comience por una letra minúscula, puede indicar al SDK que asigne los nombres de propiedad en mayúscula y minúscula automáticamente con el atributo `[SerializePropertyNamesAsCamelCase]` de la clase. Este escenario es habitual en aplicaciones .NET que realizan enlaces de datos cuando el esquema de destino está fuera del control del desarrollador de la aplicación, sin infringir ninguna directriz de nomenclatura de "Pascal Case" en .NET.
 
 > [!NOTE]
-> El SDK de .NET para Azure Search usa la biblioteca [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar y deserializar los objetos de modelo personalizados en JSON y de este. Puede personalizar esta serialización si es necesario. Para más información, vea [Serialización personalizada con JSON.NET](#JsonDotNet).
+> El SDK para .NET de Búsqueda cognitiva de Azure usa la biblioteca [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar y deserializar los objetos de modelo personalizados en JSON y de este. Puede personalizar esta serialización si es necesario. Para más información, vea [Serialización personalizada con JSON.NET](#JsonDotNet).
 > 
 > 
 
-La segunda cuestión que debe considerarse es que cada propiedad se representa con atributos como `IsFilterable`, `IsSearchable`, `Key` y `Analyzer`. Estos atributos se asignan directamente a los [atributos de campo correspondientes de un índice de Azure Search](https://docs.microsoft.com/rest/api/searchservice/create-index#request). La clase `FieldBuilder` usa estas propiedades para construir definiciones de campo para el índice.
+La segunda cuestión que debe considerarse es que cada propiedad se representa con atributos como `IsFilterable`, `IsSearchable`, `Key` y `Analyzer`. Estos atributos se asignan directamente a los [atributos de campo correspondientes de un índice de Búsqueda cognitiva de Azure](https://docs.microsoft.com/rest/api/searchservice/create-index#request). La clase `FieldBuilder` usa estas propiedades para construir definiciones de campo para el índice.
 
-La tercera cuestión importante sobre la clase `Hotel` son los tipos de datos de las propiedades públicas. Los tipos .NET de esas propiedades se asignan a los tipos de campo equivalentes de la definición del índice. Por ejemplo, la propiedad de cadena `Category` se asigna al campo `category`, que es de tipo `Edm.String`. Se dan asignaciones de tipos semejantes entre `bool?`, `Edm.Boolean`, `DateTimeOffset?` y `Edm.DateTimeOffset`, etc. Las reglas específicas para la asignación de tipos se documentan con el método `Documents.Get` en la [referencia del SDK de Azure Search para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). Aunque la clase `FieldBuilder` se ocupa de esta asignación, todavía puede ser útil comprenderlo por si necesitara solucionar los problemas de serialización.
+La tercera cuestión importante sobre la clase `Hotel` son los tipos de datos de las propiedades públicas. Los tipos .NET de esas propiedades se asignan a los tipos de campo equivalentes de la definición del índice. Por ejemplo, la propiedad de cadena `Category` se asigna al campo `category`, que es de tipo `Edm.String`. Se dan asignaciones de tipos semejantes entre `bool?`, `Edm.Boolean`, `DateTimeOffset?` y `Edm.DateTimeOffset`, etc. Las reglas específicas para la asignación de tipos se documentan con el método `Documents.Get` en la [referencia del SDK de Búsqueda cognitiva de Azure para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). Aunque la clase `FieldBuilder` se ocupa de esta asignación, todavía puede ser útil comprenderlo por si necesitara solucionar los problemas de serialización.
 
 ¿Se ha dado cuenta de la propiedad `SmokingAllowed`?
 
@@ -556,15 +556,15 @@ El modelo de datos de .NET y su esquema de índice correspondiente se deben dise
 Esta posibilidad de usar sus propias clases para interactuar con los documentos del índice funciona en ambas direcciones: también puede recuperar los resultados de la búsqueda y hacer que el SDK los deserialice automáticamente a un tipo de su elección, como veremos en la siguiente sección.
 
 > [!NOTE]
-> El SDK de Azure Search para .NET también admite documentos de tipo dinámico mediante la clase `Document`, que es una asignación clave/valor de nombres de campo a valores de campo. Esto es útil en escenarios en los que no se conoce el esquema del índice en el momento del diseño o en los que resulte inconveniente enlazar a clases de modelo específicas. Todos los métodos del SDK que se ocupan de los documentos tienen sobrecargas que funcionan con la clase `Document` , así como sobrecargas de asignación rigurosa que aceptan un parámetro de tipo genérico. En el código de ejemplo de este tutorial solo se utilizan las últimas. La [clase `Document`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) se hereda de `Dictionary<string, object>`.
+> El SDK de Búsqueda cognitiva de Azure para .NET también admite documentos de tipo dinámico mediante la clase `Document`, que es una asignación clave/valor de nombres de campo a valores de campo. Esto es útil en escenarios en los que no se conoce el esquema del índice en el momento del diseño o en los que resulte inconveniente enlazar a clases de modelo específicas. Todos los métodos del SDK que se ocupan de los documentos tienen sobrecargas que funcionan con la clase `Document` , así como sobrecargas de asignación rigurosa que aceptan un parámetro de tipo genérico. En el código de ejemplo de este tutorial solo se utilizan las últimas. La [clase `Document`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) se hereda de `Dictionary<string, object>`.
 > 
 >
 
 **¿Por qué debería usar tipos de datos que aceptan valores null?**
 
-Al diseñar sus propias clases de modelo para asignar a un índice de Azure Search, es recomendable declarar las propiedades de tipos de valor como `bool` y `int` que aceptan valores NULL (por ejemplo: `bool?` en lugar de `bool`). Si usa un tipo de modelo con una propiedad que no acepta valores NULL, tendrá que **garantizar** que ningún documento del índice contiene un valor NULL para el campo correspondiente. Ni el SDK ni el servicio Azure Search le permitirá aplicar esto.
+Al diseñar sus propias clases de modelo para asignar a un índice de Búsqueda cognitiva de Azure, es recomendable declarar las propiedades de tipos de valor como `bool` y `int` que aceptan valores NULL (por ejemplo: `bool?` en lugar de `bool`). Si usa un tipo de modelo con una propiedad que no acepta valores NULL, tendrá que **garantizar** que ningún documento del índice contiene un valor NULL para el campo correspondiente. Ni el SDK ni el servicio Búsqueda cognitiva de Azure le permitirá aplicar esto.
 
-No solo se trata de una cuestión hipotética: imagine un escenario donde se agrega un nuevo campo a un índice existente que es de tipo `Edm.Int32`. Después de actualizar la definición del índice, todos los documentos tendrán un valor null para ese campo nuevo (ya que todos los tipos aceptan valores NULL en Azure Search). Si después usa una clase de modelo con una propiedad `int` que no acepta valores NULL para ese campo, obtendrá `JsonSerializationException` así al intentar recuperar documentos:
+No solo se trata de una cuestión hipotética: imagine un escenario donde se agrega un nuevo campo a un índice existente que es de tipo `Edm.Int32`. Después de actualizar la definición del índice, todos los documentos tendrán un valor null para ese campo nuevo (ya que todos los tipos aceptan valores NULL en Búsqueda cognitiva de Azure). Si después usa una clase de modelo con una propiedad `int` que no acepta valores NULL para ese campo, obtendrá `JsonSerializationException` así al intentar recuperar documentos:
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 
@@ -573,13 +573,13 @@ Por este motivo, recomendamos utilizar tipos que aceptan valores NULL en las cla
 <a name="JsonDotNet"></a>
 
 #### <a name="custom-serialization-with-jsonnet"></a>Serialización personalizada con JSON.NET
-El SDK usa JSON.NET para serializar y deserializar documentos. Puede personalizar la serialización y deserialización si lo necesita definiendo su propio `JsonConverter` o `IContractResolver`. Para más información, vea la [documentación de JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm). Esto puede ser útil cuando desea adaptar una clase de modelo existente de la aplicación para usarla con Azure Search y otros escenarios más avanzados. Por ejemplo, con la serialización personalizada, puede:
+El SDK usa JSON.NET para serializar y deserializar documentos. Puede personalizar la serialización y deserialización si lo necesita definiendo su propio `JsonConverter` o `IContractResolver`. Para más información, vea la [documentación de JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm). Esto puede ser útil cuando desea adaptar una clase de modelo existente de la aplicación para usarla con Búsqueda cognitiva de Azure y otros escenarios más avanzados. Por ejemplo, con la serialización personalizada, puede:
 
 * Incluir o excluir determinadas propiedades de la clase de modelo para que se almacenen como campos del documento.
 * Asignar entre los nombres de propiedad del código y los nombres de campo del índice.
 * Cree atributos personalizados que se puedan usar para asignar propiedades a campos de documento.
 
-Puede encontrar ejemplos de implementación de serialización personalizada en las pruebas unitarias del SDK de .NET para Azure Search en GitHub. [Esta carpeta](https://github.com/Azure/azure-sdk-for-net/tree/4f6f4e4c90200c1b0621c4cead302a91e89f2aba/sdk/search/Microsoft.Azure.Search/tests/Tests/Models) es un buen punto de partida. Contiene clases que las pruebas de serialización personalizada utilizan.
+Puede encontrar ejemplos de implementación de serialización personalizada en las pruebas unitarias del SDK para .NET de Búsqueda cognitiva de Azure en GitHub. [Esta carpeta](https://github.com/Azure/azure-sdk-for-net/tree/4f6f4e4c90200c1b0621c4cead302a91e89f2aba/sdk/search/Microsoft.Azure.Search/tests/Tests/Models) es un buen punto de partida. Contiene clases que las pruebas de serialización personalizada utilizan.
 
 ### <a name="searching-for-documents-in-the-index"></a>Búsqueda de documentos en el índice
 El último paso de la aplicación de ejemplo es buscar algunos documentos en el índice:
@@ -699,7 +699,7 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 WriteDocuments(results);
 ```
 
-Esta consulta usa una expresión `$filter` de OData, `Rooms/any(r: r/BaseRate lt 100)`, para filtrar los documentos del índice. Aquí se usa [cualquier operador](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) para aplicar "BaseRate lt 100" a todos los elementos de la colección de objetos Rooms. Puede encontrar más información acerca de la sintaxis de OData admitida por Azure Search [aquí](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
+Esta consulta usa una expresión `$filter` de OData, `Rooms/any(r: r/BaseRate lt 100)`, para filtrar los documentos del índice. Aquí se usa [cualquier operador](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) para aplicar "BaseRate lt 100" a todos los elementos de la colección de objetos Rooms. Puede encontrar más información acerca de la sintaxis de OData admitida por Búsqueda cognitiva de Azure [aquí](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
 
 Estos son los resultados de la consulta:
 
@@ -750,9 +750,9 @@ Y estos son los resultados, que incluyen todos los campos, ya que no se especifi
     Name: Triple Landscape Hotel
     ...
 
-Este paso finaliza el tutorial, pero no se detenga aquí. **En los pasos siguientes se proporcionan recursos adicionales para obtener más información sobre Azure Search.
+Este paso finaliza el tutorial, pero no se detenga aquí. **En los pasos siguientes se proporcionan recursos adicionales para obtener más información sobre Búsqueda cognitiva de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Examine las referencias del [SDK para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) y la [API de REST](https://docs.microsoft.com/rest/api/searchservice/).
 * Consulte las [convenciones de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) para conocer las reglas que deben seguir los nombres de diversos objetos.
-* Consulte los [tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) en Azure Search.
+* Revise los [tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) en Búsqueda cognitiva de Azure.

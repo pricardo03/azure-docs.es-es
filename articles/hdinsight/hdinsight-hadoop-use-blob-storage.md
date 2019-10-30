@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.openlocfilehash: d934568f09e62ad8c1b472583cbfee79d2c837f6
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71936858"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Uso de Azure Storage con clústeres de Azure HDInsight
@@ -46,7 +46,7 @@ Si decide proteger la cuenta de almacenamiento con las restricciones de **firewa
 
 El diagrama siguiente proporciona una panorámica de la arquitectura de almacenamiento de HDInsight disponible al utilizar Azure Storage:
 
-![Los clústeres de Hadoop usan la API de HDFS para acceder a los datos y almacenarlos en Blob Storage](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "Arquitectura de Almacenamiento para HDInsight")
+![Los clústeres de Hadoop usan la API de HDFS para acceder a los datos y almacenarlos en Blob Storage](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "Arquitectura de almacenamiento para HDInsight")
 
 HDInsight brinda acceso al sistema de archivos distribuidos que se adjunta localmente a los nodos de ejecución. Se puede acceder a este sistema de archivos usando el URI completo, por ejemplo:
 

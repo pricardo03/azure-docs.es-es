@@ -1,27 +1,26 @@
 ---
-title: 'Administración de operaciones de escritura simultáneas en los recursos: Azure Search'
-description: Use la simultaneidad optimista para evitar colisiones en vuelo en las actualizaciones o eliminaciones de índices, indexadores u orígenes de datos de Azure Search.
-author: HeidiSteen
+title: Administración de operaciones de escritura simultáneas en los recursos
+titleSuffix: Azure Cognitive Search
+description: Use la simultaneidad optimista para evitar colisiones en vuelo en las actualizaciones o eliminaciones de índices, indexadores u orígenes de datos de Azure Cognitive Search.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/21/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 67f2dad016d3958dc10ba87e785d31694a1c94f5
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656733"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792209"
 ---
-# <a name="how-to-manage-concurrency-in-azure-search"></a>Cómo administrar la simultaneidad en Azure Search
+# <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Administración de la simultaneidad en Azure Cognitive Search
 
-Al administrar recursos de Azure Search, como los índices y los orígenes de datos, es importante actualizarlos de forma segura, sobre todo si hay varios componentes de la aplicación que obtienen acceso a ellos de forma simultánea. Cuando dos clientes actualizan simultáneamente un recurso sin ninguna coordinación, es posible que se produzcan condiciones de carrera. Para evitarlo, Azure Search ofrece un *modelo de simultaneidad optimista*. No hay ningún bloqueo en un recurso, sino que hay un valor ETag para todos los recursos que identifica la versión del recurso de modo que pueda crear solicitudes que eviten sobrescrituras accidentales.
+Al administrar recursos de Azure Cognitive Search, como los índices y los orígenes de datos, es importante actualizarlos de forma segura, sobre todo si hay varios componentes de la aplicación que obtienen acceso a ellos de forma simultánea. Cuando dos clientes actualizan simultáneamente un recurso sin ninguna coordinación, es posible que se produzcan condiciones de carrera. Para evitarlo, Azure Cognitive Search ofrece un *modelo de simultaneidad optimista*. No hay ningún bloqueo en un recurso, sino que hay un valor ETag para todos los recursos que identifica la versión del recurso de modo que pueda crear solicitudes que eviten sobrescrituras accidentales.
 
 > [!Tip]
-> El código conceptual de una [solución de C# de ejemplo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explica el funcionamiento del control de simultaneidad en Azure Search. El código crea condiciones que invocan el control de simultaneidad. Con leer el [siguiente fragmento de código](#samplecode) probablemente sea suficiente para la mayoría de los desarrolladores pero, si quiere ejecutarlo, edite appSettings.json para agregar el nombre del servicio y una clave de API de administración. Si se indica la dirección URL de servicio `http://myservice.search.windows.net`, el nombre del servicio será `myservice`.
+> El código conceptual de una [solución de C# de ejemplo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explica el funcionamiento del control de simultaneidad en Azure Cognitive Search. El código crea condiciones que invocan el control de simultaneidad. Con leer el [siguiente fragmento de código](#samplecode) probablemente sea suficiente para la mayoría de los desarrolladores pero, si quiere ejecutarlo, edite appSettings.json para agregar el nombre del servicio y una clave de API de administración. Si se indica la dirección URL de servicio `http://myservice.search.windows.net`, el nombre del servicio será `myservice`.
 
 ## <a name="how-it-works"></a>Cómo funciona
 
@@ -51,7 +50,7 @@ En el siguiente código se muestran las comprobaciones accessCondition para las 
     class Program
     {
         // This sample shows how ETags work by performing conditional updates and deletes
-        // on an Azure Search index.
+        // on an Azure Cognitive Search index.
         static void Main(string[] args)
         {
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -62,14 +61,14 @@ En el siguiente código se muestran las comprobaciones accessCondition para las 
             Console.WriteLine("Deleting index...\n");
             DeleteTestIndexIfExists(serviceClient);
 
-            // Every top-level resource in Azure Search has an associated ETag that keeps track of which version
+            // Every top-level resource in Azure Cognitive Search has an associated ETag that keeps track of which version
             // of the resource you're working on. When you first create a resource such as an index, its ETag is
             // empty.
             Index index = DefineTestIndex();
             Console.WriteLine(
                 $"Test index hasn't been created yet, so its ETag should be blank. ETag: '{index.ETag}'");
 
-            // Once the resource exists in Azure Search, its ETag will be populated. Make sure to use the object
+            // Once the resource exists in Azure Cognitive Search, its ETag will be populated. Make sure to use the object
             // returned by the SearchServiceClient! Otherwise, you will still have the old object with the
             // blank ETag.
             Console.WriteLine("Creating index...\n");
@@ -129,9 +128,9 @@ En el siguiente código se muestran las comprobaciones accessCondition para las 
             serviceClient.Indexes.Delete("test", accessCondition: AccessCondition.GenerateIfExistsCondition());
 
             // This is slightly better than using the Exists method since it makes only one round trip to
-            // Azure Search instead of potentially two. It also avoids an extra Delete request in cases where
+            // Azure Cognitive Search instead of potentially two. It also avoids an extra Delete request in cases where
             // the resource is deleted concurrently, but this doesn't matter much since resource deletion in
-            // Azure Search is idempotent.
+            // Azure Cognitive Search is idempotent.
 
             // And we're done! Bye!
             Console.WriteLine("Complete.  Press any key to end application...\n");
@@ -170,7 +169,7 @@ En el siguiente código se muestran las comprobaciones accessCondition para las 
 
 Los modelos de diseño para la implementación de la simultaneidad optimista deben incluir un bucle que vuelva a intentar efectuar la comprobación de la condición de acceso, una prueba para la condición de acceso y, opcionalmente, que recupere un recurso actualizado antes de intentar aplicar de nuevo los cambios.
 
-En este fragmento de código se muestra la agregación de un synonymMap a un índice que ya existe. Este código está tomado del [ejemplo C# de sinónimos para Azure Search](search-synonyms-tutorial-sdk.md).
+En este fragmento de código se muestra la agregación de un synonymMap a un índice que ya existe. Este código está tomado del [ejemplo C# de sinónimos para Azure Cognitive Search](search-synonyms-tutorial-sdk.md).
 
 El fragmento de código obtiene el índice "hotels", comprueba la versión del objeto en una operación de actualización, genera una excepción si se produce un error en la condición y, después, vuelve a intentar efectuar la operación (hasta tres veces) a partir de la recuperación del índice desde el servidor para obtener la versión más reciente.
 

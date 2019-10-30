@@ -1,13 +1,13 @@
 ---
-title: 'Sintaxis de consulta de Lucene: Azure Search'
-description: Referencia de la sintaxis completa de Lucene, como se usa con Azure Search.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
+title: Sintaxis de consulta de Lucene
+titleSuffix: Azure Cognitive Search
+description: Referencia de la sintaxis completa de Lucene tal y como se usa con Azure Cognitive Search.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,15 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: d667588cea5902700c225dd7b597d8f03d93d200
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1b94a1bbab810345ab222be9e7aba2fef0f52549
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650042"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786283"
 ---
-# <a name="lucene-query-syntax-in-azure-search"></a>Sintaxis de consulta de Lucene en Azure Search
-Puede escribir consultas en Azure Search basadas en la sintaxis enriquecida del [analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formularios de consulta especializados, por ejemplo, carácter comodín, búsqueda aproximada, búsqueda por proximidad o expresiones regulares. Gran parte de la sintaxis del analizador de consultas de Lucene [se implementa tal cual en Azure Search](search-lucene-query-architecture.md), a excepción de las *búsquedas de intervalo* que se construyen en Azure Search mediante expresiones `$filter`. 
+# <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta de Lucene en Azure Cognitive Search
+
+Puede escribir consultas en Azure Cognitive Search basadas en la sintaxis enriquecida del [analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formas de consulta especializadas, por ejemplo, comodines, búsqueda aproximada, búsqueda por proximidad o expresiones regulares. Gran parte de la sintaxis del analizador de consultas de Lucene [se implementa tal cual en Azure Cognitive Search](search-lucene-query-architecture.md), a excepción de las *búsquedas de intervalo* que se construyen mediante expresiones `$filter`. 
 
 ## <a name="how-to-invoke-full-parsing"></a>Invocación del análisis completo
 
@@ -56,10 +57,10 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 }
 ```
 
-Para ver ejemplos adicionales, consulte los [ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Azure Search](search-query-lucene-examples.md). Para más información sobre cómo especificar el contingente completo de parámetros de consulta, consulte [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Buscar documentos [API REST del servicio Azure Search]).
+Para ver ejemplos adicionales, consulte los [ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Azure Cognitive Search](search-query-lucene-examples.md). Para más información sobre cómo especificar el contingente completo de parámetros de consulta, consulte [Documentos de búsqueda &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
->  Azure Search también admite [sintaxis de consulta simple](query-simple-syntax.md), un lenguaje de consulta sencillo y robusto que se puede usar para la búsqueda directa de palabras clave.  
+>  Azure Cognitive Search también admite [sintaxis de consulta simple](query-simple-syntax.md), un lenguaje de consulta sencillo y robusto que se puede usar para la búsqueda directa de palabras clave.  
 
 ##  <a name="bkmk_syntax"></a> Fundamentos de sintaxis  
  Los siguientes fundamentos de sintaxis se aplican a todas las consultas que usan la sintaxis de Lucene.  
@@ -83,7 +84,7 @@ El ejemplo anterior es la tilde (~), pero el mismo principio se aplica a todos l
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codificación de caracteres reservados y no seguros en las direcciones URL
 
- Asegúrese de que todos los caracteres reservados y no seguros están codificados en una dirección URL. Por ejemplo, "#" es un carácter no seguro porque es un identificador de delimitador o fragmento en una dirección URL. El carácter debe codificarse con `%23` si se usa en una dirección URL. "&" y "=" son ejemplos de caracteres reservados, ya que delimitan parámetros y especifican valores en Azure Search. Consulte [RFC1738: Localizadores uniformes de recursos (URL)](https://www.ietf.org/rfc/rfc1738.txt) para más información.
+ Asegúrese de que todos los caracteres reservados y no seguros están codificados en una dirección URL. Por ejemplo, "#" es un carácter no seguro porque es un identificador de delimitador o fragmento en una dirección URL. El carácter debe codificarse con `%23` si se usa en una dirección URL. "&" y "=" son ejemplos de caracteres reservados, ya que delimitan parámetros y especifican valores en Azure Cognitive Search. Consulte [RFC1738: Localizadores uniformes de recursos (URL)](https://www.ietf.org/rfc/rfc1738.txt) para más información.
 
  Los caracteres no seguros son ``" ` < > # % { } | \ ^ ~ [ ]``. Los caracteres reservados son `; / ? : @ = + &`.
 
@@ -93,7 +94,7 @@ El ejemplo anterior es la tilde (~), pero el mismo principio se aplica a todos l
 La agrupación de campos es parecida pero establece el ámbito de la agrupación en un único campo. Por ejemplo, `hotelAmenities:(gym+(wifi||pool))` busca "gym" y "wifi", o "gym" y "pool" en el campo "hotelAmenities".  
 
 ### <a name="searchmode-parameter-considerations"></a>Consideraciones sobre los parámetros SearchMode  
- El efecto de `searchMode` sobre las consultas, como se describe en [Simple query syntax in Azure Search](query-simple-syntax.md) (Sintaxis de consulta simple en Azure Search), se aplica igualmente a la sintaxis de consulta de Lucene. Es decir, `searchMode` junto con los operadores NOT pueden dar lugar a resultados de consulta que pueden parecer inusuales si no están claros en las implicaciones de cómo establecer el parámetro. Si mantiene el valor predeterminado, `searchMode=any`, y usa un operador NOT, la operación se calcula como una acción OR, tal que "New York" NOT "Seattle" devuelve todas las ciudades que no son Seattle.  
+ El efecto de `searchMode` sobre las consultas, como se describe en [Sintaxis de consulta simple en Azure Cognitive Search](query-simple-syntax.md), se aplica igualmente a la sintaxis de consulta de Lucene. Es decir, `searchMode` junto con los operadores NOT pueden dar lugar a resultados de consulta que pueden parecer inusuales si no están claros en las implicaciones de cómo establecer el parámetro. Si mantiene el valor predeterminado, `searchMode=any`, y usa un operador NOT, la operación se calcula como una acción OR, tal que "New York" NOT "Seattle" devuelve todas las ciudades que no son Seattle.  
 
 ##  <a name="bkmk_boolean"></a> Operadores booleanos (AND, OR, NOT) 
  Especifique siempre operadores booleanos de texto (AND, OR, NOT) todo en mayúsculas.  
@@ -116,10 +117,10 @@ El uso de `searchMode=any` aumenta la recuperación de consultas al incluirse m�
 El uso de `searchMode=all` aumenta la precisión de las consultas al incluirse menos resultados y, de forma predeterminada, - se interpretará como "AND NOT". Por ejemplo, `wifi -luxury` encontrará documentos que contengan el término `wifi` y no contengan el término `luxury`. Se puede decir que este comportamiento del operador - es más intuitivo. Por lo tanto, debería considerar elegir `searchMode=all` sobre `searchMode=any` si quiere optimizar la precisión de las búsquedas en lugar de la recuperación, *y* los usuarios usan con frecuencia el operador `-` en las búsquedas.
 
 ##  <a name="bkmk_querysizelimits"></a> Límites de tamaño de consulta  
- Existe un límite en el tamaño de las consultas que se pueden enviar a Azure Search. En concreto, puede tener como máximo 1024 cláusulas (expresiones separadas por AND, OR, etc.). También hay un límite de aproximadamente 32 KB en el tamaño de cualquier término individual en una consulta. Si la aplicación genera consultas de búsqueda mediante programación, se recomienda que la diseña de manera que no genere consultas de tamaño ilimitado.  
+ Existe un límite en el tamaño de las consultas que se pueden enviar a Azure Cognitive Search. En concreto, puede tener como máximo 1024 cláusulas (expresiones separadas por AND, OR, etc.). También hay un límite de aproximadamente 32 KB en el tamaño de cualquier término individual en una consulta. Si la aplicación genera consultas de búsqueda mediante programación, se recomienda que la diseña de manera que no genere consultas de tamaño ilimitado.  
 
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Puntuación de consultas de caracteres comodín y expresiones regulares
- Azure Search usa la puntuación basada en la frecuencia ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para las consultas de texto. Sin embargo, para consultas con caracteres comodín y expresiones regulares donde el ámbito de los términos puede ser posiblemente amplio, se omite el factor de frecuencia para evitar que la clasificación se desvíe hacia las coincidencias de términos menos frecuentes. Todas las coincidencias se tratan por igual en las búsquedas con caracteres comodín y expresiones regulares.
+ Azure Cognitive Search usa la puntuación basada en la frecuencia ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para las consultas de texto. Sin embargo, para consultas con caracteres comodín y expresiones regulares donde el ámbito de los términos puede ser posiblemente amplio, se omite el factor de frecuencia para evitar que la clasificación se desvíe hacia las coincidencias de términos menos frecuentes. Todas las coincidencias se tratan por igual en las búsquedas con caracteres comodín y expresiones regulares.
 
 ##  <a name="bkmk_fields"></a> Búsqueda clasificada por campos  
 Puede definir una operación de búsqueda clasificada por campos con la sintaxis `fieldName:searchExpression`, donde la expresión de búsqueda puede ser una sola palabra, una frase o una expresión más compleja entre paréntesis, opcionalmente con operadores booleanos. Estos son algunos ejemplos:  
@@ -172,4 +173,4 @@ En el siguiente ejemplo se muestran las diferencias. Suponga que hay un perfil d
 
 + [Buscar en documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [OData expression syntax for filters and sorting](query-odata-filter-orderby-syntax.md) (Sintaxis de expresiones de OData para filtros y ordenación)   
-+ [Simple query syntax in Azure Search](query-simple-syntax.md) (Sintaxis de consulta simple en Azure Search)   
++ [Sintaxis de consulta simple en Azure Cognitive Search](query-simple-syntax.md)   

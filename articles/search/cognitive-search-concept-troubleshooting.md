@@ -1,26 +1,25 @@
 ---
-title: Recomendaciones para solucionar problemas con Cognitive Search en Azure Search
-description: Recomendaciones y solución de problemas para configurar canalizaciones de Cognitive Search en Azure Search.
-services: search
+title: Sugerencias para la solución de problemas de enriquecimiento con inteligencia artificial
+titleSuffix: Azure Cognitive Search
+description: Sugerencias y solución de problemas para configurar las canalizaciones de enriquecimiento con inteligencia artificial en Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 02/02/2019
 ms.author: luisca
-ms.openlocfilehash: ee54d560ae1a294467e4520063153566d2c3b0a2
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 485dd47e035f03a8e20ded4c8a424f1658f5246a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265845"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787715"
 ---
-# <a name="troubleshooting-tips-for-cognitive-search"></a>Recomendaciones para solucionar problemas con Cognitive Search
+# <a name="troubleshooting-tips-for-ai-enrichment-in-azure-cognitive-search"></a>Sugerencias para la solución de problemas de enriquecimiento con inteligencia artificial en Azure Cognitive Search
 
-En este artículo encontrará una lista de recomendaciones y trucos para avanzar sin pausa a medida que trabaja con las funcionalidades de Cognitive Search en Azure Search. 
+En este artículo encontrará una lista de sugerencias y trucos para avanzar sin pausa a medida que empieza a usar las funcionalidades de enriquecimiento con IA en Azure Cognitive Search. 
 
-Si aún no lo ha hecho, siga las instrucciones de [Tutorial: Learn how to call the cognitive search APIs](cognitive-search-quickstart-blob.md) (Tutorial: Aprender a llamar a las API de Cognitive Search) para practicar la aplicación de las opciones de enriquecimiento de Cognitive Search a un origen de datos de blobs.
+Si aún no lo ha hecho, siga las instrucciones de [Tutorial: Obtenga información sobre cómo llamar a las API de enriquecimiento con IA](cognitive-search-quickstart-blob.md) para practicar la aplicación de los enriquecimientos con IA a un origen de datos de blobs.
 
 ## <a name="tip-1-start-with-a-small-dataset"></a>Sugerencia 1: Comience con un pequeño conjunto de datos.
 La mejor forma de detectar problemas rápidamente es aumentar la velocidad de solución de esos problemas. La mejor forma de reducir el tiempo de indexación es reducir el número de documentos que se indexarán. 
@@ -31,7 +30,7 @@ Ejecute la muestra de documentos mediante la canalización de un extremo a otro,
 
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>Sugerencia 2: Asegúrese de que las credenciales del origen de datos sean correctas.
 La conexión del origen de datos no se validará hasta que se defina un indexador que la use. Si ve algún error que indique que el indexador no puede acceder a los datos, asegúrese de que:
-- La cadena de conexión es correcta. Igualmente, cuando cree tokens de SAS, asegúrese de usar el formato que espera Azure Search. Consulte [la sección de especificación de credenciales ](
+- La cadena de conexión es correcta. Igualmente, cuando cree tokens de SAS, asegúrese de usar el formato que espera Azure Cognitive Search. Consulte [la sección de especificación de credenciales ](
 https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) para conocer los diferentes formatos compatibles.
 - El nombre del contenedor en el indexador es correcto.
 
@@ -92,10 +91,10 @@ El análisis de imágenes es un proceso intensivo a nivel computacional, incluso
 
 El tiempo máximo de ejecución varía según el nivel: varios minutos en el nivel gratuito, y una indexación de 24 horas en niveles de pago. Si el procesamiento no se completa dentro de un período de 24 horas según el procesamiento bajo demanda, use una programación en la que el indexador pueda retomar el procesamiento desde donde lo dejó. 
 
-En cuanto a los indexadores programados, la indexación se reanuda según la programación del último documento válido conocido. Al usar una programación recurrente, el indexador puede abrirse camino a través de las imágenes pendientes durante una serie de horas o días, hasta que se procesen todas aquellas imágenes que no estén procesadas. Para más información acerca de la sintaxis de programación, consulte [Paso 3: Cree un indizador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) o consulte [Programación de indexadores para Azure Search](search-howto-schedule-indexers.md).
+En cuanto a los indexadores programados, la indexación se reanuda según la programación del último documento válido conocido. Al usar una programación recurrente, el indexador puede abrirse camino a través de las imágenes pendientes durante una serie de horas o días, hasta que se procesen todas aquellas imágenes que no estén procesadas. Para más información acerca de la sintaxis de programación, consulte [Paso 3: Cree un indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) o consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 > [!NOTE]
-> Si un indizador se establece en una programación determinada pero se produce repetidamente un error en el mismo documento una y otra vez cada vez se ejecuta, el indizador comenzará a ejecutarse en un intervalo menos frecuente (hasta un máximo de al menos una vez cada 24 horas) hasta que vuelva a avanzar correctamente.  Si cree que solucionó el problema que hacía que el indizador que se bloqueara en un punto determinado, puede realizar una ejecución a petición del indizador y, si avanza correctamente, el indizador volverá a su intervalo de programación establecido.
+> Si un indexador se establece en una programación determinada pero se produce repetidamente un error en el mismo documento una y otra vez cada vez se ejecuta, el indexador comenzará a ejecutarse en un intervalo menos frecuente (hasta un máximo de al menos una vez cada 24 horas) hasta que vuelva a avanzar correctamente.  Si cree que solucionó el problema que hacía que el indizador que se bloqueara en un punto determinado, puede realizar una ejecución a petición del indizador y, si avanza correctamente, el indizador volverá a su intervalo de programación establecido.
 
 Si realiza una indexación basada en el portal (tal como se describe en la guía de inicio rápido), la elección de la opción del indexador "ejecutar una vez" limita el procesamiento a 1 hora (`"maxRunTime": "PT1H"`). Es posible que quiera extender el período de procesamiento para que sea algo más largo.
 
@@ -105,8 +104,8 @@ Para realizar una [indexación paralela](search-howto-large-index.md), coloque l
 Para obtener más información, consulte [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets) (Indexar grandes conjuntos de datos).
 
 ## <a name="see-also"></a>Otras referencias
-+ [Inicio rápido: Creación de una canalización de Cognitive Search en el portal](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Obtención de información sobre las API REST de Cognitive Search](cognitive-search-tutorial-blob.md)
++ [Inicio rápido: Cree una canalización de enriquecimiento con IA en el portal](cognitive-search-quickstart-blob.md)
++ [Tutorial: Obtenga información sobre las API REST de enriquecimiento con IA](cognitive-search-tutorial-blob.md)
 + [Especificar las credenciales de origen de datos.](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexar grandes conjuntos de datos](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Cómo definir un conjunto de aptitudes](cognitive-search-defining-skillset.md)

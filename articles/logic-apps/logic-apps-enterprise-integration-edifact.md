@@ -1,5 +1,5 @@
 ---
-title: 'Mensajes EDIFACT para la integración empresarial B2B: Azure Logic Apps | Microsoft Docs'
+title: 'Mensajes EDIFACT para la integración B2B: Azure Logic Apps'
 description: Intercambio de mensajes EDIFACT en formato EDI para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 42197f8bf08ae1f36c531c220ebbf78484a5946e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684512"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680346"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes EDIFACT para integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
@@ -38,7 +37,7 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 
 ## <a name="create-an-edifact-agreement"></a>Creación de un acuerdo EDIFACT 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal"). 
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com "Portal de Azure"). 
 
 2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y, después, seleccione **Cuentas de integración**.
 
@@ -246,5 +245,5 @@ Cuando haya completado cada fila de validación, se agrega otra automáticamente
 Para ver los detalles de Swagger para el conector EDIFACT, consulte [EDIFACT](/connectors/edifact/).
 
 ## <a name="learn-more"></a>Más información
-* [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  
+* [Más información acerca de Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  
 

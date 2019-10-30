@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 23f5c638146472b72078e76745e557b6babe7a49
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c58e66070f137f9c5d713a45682afac5f30bbd1e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128302"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692605"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Máquina de vectores de soporte de dos clases
 
@@ -38,9 +38,9 @@ Para la predicción, el algoritmo de SVM asigna ejemplos nuevos a una categoría
 
 Para este tipo de modelo, se recomienda normalizar el conjunto de datos antes de usarlo para entrenar al clasificador.
   
-1.  Agregue el módulo **Máquina de vectores de soporte de dos clases** al experimento.  
+1.  Agregue el módulo **Máquina de vectores de soporte de dos clases** a la canalización.  
   
-2.  Para especificar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
+2.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).  
   
     -   **Parámetro único**: Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.  
 
@@ -64,10 +64,10 @@ Para este tipo de modelo, se recomienda normalizar el conjunto de datos antes de
   
 9. Conecte un conjunto de datos etiquetados y uno de los [módulos de entrenamiento](module-reference.md):
   
-    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Modelo de entrenamiento](train-model.md).
+    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](train-model.md).
   
 
-10. Ejecute el experimento.
+10. Ejecución de la canalización
 
 ## <a name="results"></a>Results
 

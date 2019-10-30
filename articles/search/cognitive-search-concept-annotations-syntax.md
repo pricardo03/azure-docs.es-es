@@ -1,22 +1,21 @@
 ---
-title: 'Referencia sobre entradas y salidas de canalizaciones de búsqueda cognitivas: Azure Search'
-description: Aquí se explica la sintaxis de la anotación y cómo hacer referencia a una anotación en las entradas y salidas de un conjunto de aptitudes en una canalización de Cognitive Search en Azure Search.
-services: search
+title: Entradas y salidas de referencia en una canalización de enriquecimiento con IA
+titleSuffix: Azure Cognitive Search
+description: En este artículo se explica la sintaxis de la anotación y cómo hacer referencia a una anotación en las entradas y salidas de un conjunto de aptitudes en una canalización de enriquecimiento de IA en Azure Cognitive Search.
 manager: nitinme
-author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: LuisCabrer
 ms.author: luisca
-ms.openlocfilehash: 40559744f0650c64afb1dc63c38f56efaa0219d7
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: fe81ccb5324d75212763e20ac2514ade9ce50496
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265536"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787775"
 ---
-# <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Cómo hacer referencia a las anotaciones en un conjunto de aptitudes de Cognitive Search
+# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Referencia a las anotaciones en un conjunto de aptitudes de Azure Cognitive Search
 
 En este artículo aprenderá a hacer referencia a las anotaciones de las definiciones de aptitudes; para ello, usaremos ejemplos para ilustrar varios escenarios. Como el contenido de un documento fluye a través de un conjunto de aptitudes, este se enriquece con anotaciones. Las anotaciones se pueden utilizar como entradas para conseguir un mayor enriquecimiento de niveles inferiores, o se pueden asignar a un campo de salida en un índice. 
  

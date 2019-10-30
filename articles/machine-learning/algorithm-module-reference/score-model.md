@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 43a398b091b282da6ede06796250cda17117dc18
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f046b41d02ac392d003a9ecd15f25b43e5449cd0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128516"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692667"
 ---
 # <a name="score-model-module"></a>Score Model module
 
@@ -24,13 +24,13 @@ Utilice este módulo para generar predicciones con un modelo entrenado de clasif
 
 ## <a name="how-to-use"></a>Modo de uso
 
-1. Agregue el módulo **Puntuar modelo** al experimento.
+1. Agregue el módulo **Score Model** (Puntuar modelo) a la canalización.
 
 2. Adjunte un modelo entrenado y un conjunto de datos que contenga los nuevos datos de entrada. 
 
     Los datos deben estar en un formato compatible con el tipo de modelo entrenado que usa. El esquema del conjunto de datos de entrada también debe coincidir generalmente con el esquema de los datos utilizados para entrenar el modelo.
 
-3. Ejecute el experimento.
+3. Ejecución de la canalización
 
 ## <a name="results"></a>Results
 
@@ -48,7 +48,7 @@ La puntuación, o el valor de predicción, puede estar en muchos formatos difere
 
 ## <a name="publish-scores-as-a-web-service"></a>Publicar puntuaciones como servicio web
 
-Un uso común de la puntuación es devolver la salida como parte de un servicio web predictivo. Para obtener más información, vea este tutorial sobre cómo crear un servicio web basado en un experimento en Azure Machine Learning:
+Un uso común de la puntuación es devolver la salida como parte de un servicio web predictivo. Para más información, consulte este tutorial sobre cómo crear un servicio web basado en una canalización en Azure Machine Learning:
 
 
 ## <a name="next-steps"></a>Pasos siguientes

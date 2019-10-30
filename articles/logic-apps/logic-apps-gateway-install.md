@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 09/01/2019
-ms.openlocfilehash: 7384f058c82699095e1209e677dc5c6f61b57178
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.date: 10/18/2019
+ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309850"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675687"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -31,17 +31,21 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Una cuenta y una suscripción de Azure. Si no tiene una cuenta de Azure con suscripción, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-  * Debe usar la misma cuenta de Azure para instalar y administrar la puerta de enlace. Durante la instalación, usará esta cuenta de Azure para asociar la puerta de enlace del equipo con una suscripción de Azure. Más adelante, usará la misma cuenta al crear un recurso de Azure en Azure Portal para la instalación de la puerta de enlace. 
+  * Debe usar la misma cuenta de Azure para instalar y administrar la puerta de enlace en el equipo local.
 
-  * Debe iniciar sesión con una cuenta profesional o educativa, también conocida como *cuenta organizativa*, que se parece a `username@contoso.com`. No puede usar cuentas de Azure B2B (invitado) o cuentas Microsoft personales, como @hotmail.com o @outlook.com.
+    Durante la instalación de la puerta de enlace, inicie sesión con su cuenta de Azure, que vincula la instalación de la puerta de enlace a su cuenta de Azure y solo a esa cuenta. Más adelante, en Azure Portal, debe usar la misma cuenta de Azure para crear un recurso de puerta de enlace de Azure que registre y notifique la instalación de la puerta de enlace. En Azure Logic Apps, los desencadenadores y las acciones locales usan el recurso de puerta de enlace para conectarse a orígenes de datos locales.
+
+    > [!NOTE]
+    > Solo puede vincular una instalación de puerta de enlace a un recurso de puerta de enlace de Azure. No se puede vincular la misma instalación de puerta de enlace a varias cuentas de Azure o a recursos de puerta de enlace de Azure. Sin embargo, una cuenta de Azure puede vincularse a varias instalaciones de puerta de enlace y recursos de puerta de enlace de Azure. En un desencadenador o acción locales puede seleccionar entre varias suscripciones de Azure y un recurso de puerta de enlace asociado.
+
+  * Debe iniciar sesión con una cuenta profesional o educativa, que también se conocen como *cuentas organizativas*, similares a `username@contoso.com`. No puede usar cuentas de Azure B2B (invitado) o cuentas Microsoft personales, como @hotmail.com o @outlook.com.
 
     > [!TIP]
     > Si se suscribió a una oferta de Office 365 y no proporcionó su correo electrónico del trabajo, la dirección de inicio de sesión podría tener un aspecto similar a `username@domain.onmicrosoft.com`. La cuenta se almacena en un inquilino de Azure Active Directory (Azure AD). En la mayoría de los casos, el nombre principal de usuario de la cuenta de Azure AD es el mismo que su dirección de correo electrónico.
     >
-    > Para usar una [suscripción estándar de Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) que esté asociada a una cuenta Microsoft, primero [cree un inquilino en Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) o use el directorio predeterminado. Agregue un usuario con una contraseña al directorio y, a continuación, conceda acceso a la suscripción a ese usuario. 
-    > A continuación, puede iniciar sesión durante la instalación de la puerta de enlace con este nombre de usuario y contraseña.
+    > Para usar una [suscripción estándar de Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) vinculada a una cuenta Microsoft, primero [cree un inquilino en Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) o use el directorio predeterminado. Agregue un usuario con contraseña al directorio y conceda acceso a la suscripción de Azure a ese usuario. A continuación, puede iniciar sesión durante la instalación de la puerta de enlace con este nombre de usuario y contraseña.
 
 * Estos son los requisitos para el equipo local:
 
@@ -75,7 +79,7 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
   * La puerta de enlace tiene dos modos: modo estándar y modo personal, que solo se aplica a Power BI. No se puede ejecutar más de una puerta de enlace en el mismo modo en el mismo equipo.
 
-  * Azure Logic Apps admite operaciones de escritura, incluidas inserciones y actualizaciones, mediante la puerta de enlace. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+  * Azure Logic Apps admite operaciones de lectura y escritura mediante la puerta de enlace. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
@@ -95,11 +99,11 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
    ![Revisión de los requisitos y aceptación de los términos de uso](./media/logic-apps-gateway-install/accept-terms.png)
 
-1. Cuando la puerta de enlace esté correctamente instalada, indique la dirección de correo electrónico de su cuenta organizativa y elija **Iniciar sesión**, por ejemplo:
+1. Cuando la puerta de enlace esté correctamente instalada, indique la dirección de correo electrónico de su cuenta de Azure y elija **Iniciar sesión**, por ejemplo:
 
    ![Inicio de sesión con una cuenta profesional o educativa](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   Ya ha iniciado sesión en su cuenta.
+   La instalación de la puerta de enlace solo se puede vincular a una cuenta de Azure.
 
 1. Seleccione **Registrar una nueva puerta de enlace en este equipo** > **Siguiente**. Con este paso se registra la instalación de la puerta de enlace con el [servicio en la nube de la puerta de enlace](#gateway-cloud-service).
 
@@ -155,7 +159,7 @@ La puerta de enlace de datos local depende de [Azure Service Bus](../service-bus
 
 Para evitar puntos de error únicos en el acceso a datos locales, puede tener varias instalaciones de puerta de enlace (solo en modo estándar) de modo que cada una esté en un equipo diferente, y configurarlas como clúster o grupo. De este modo, si la puerta de enlace principal no está disponible, las solicitudes de datos se enrutan a la segunda puerta de enlace, y así sucesivamente. Dado que solo puede instalar una puerta de enlace estándar en un equipo, debe instalar cada puerta de enlace adicional que se encuentre en el clúster en un equipo diferente. Todos los conectores que funcionan con la puerta de enlace de datos local admiten alta disponibilidad.
 
-* Debe tener al menos una instalación de puerta de enlace en la misma suscripción de Azure que la puerta de enlace principal y la clave de recuperación para esa instalación.
+* Debe tener al menos una instalación de puerta de enlace con la misma cuenta de Azure que la puerta de enlace principal y la clave de recuperación para esa instalación.
 
 * La puerta de enlace principal debe ejecutar la actualización de puerta de enlace de noviembre de 2017 o posterior.
 
@@ -235,19 +239,19 @@ Estos pasos describen lo que sucede cuando interactúa con un elemento conectado
 
 Una credencial almacenada se usa para conectarse desde la puerta de enlace a los orígenes de datos locales. Independientemente del usuario, la puerta de enlace usa la credencial almacenada para conectarse. Puede haber excepciones de autenticación para servicios específicos, como DirectQuery y LiveConnect para Analysis Services en Power BI.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
-Los servicios en la nube de Microsoft utilizan [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) para autenticar a los usuarios. Un inquilino de Azure AD contiene nombres de usuario y grupos de seguridad. Normalmente, la dirección de correo electrónico que se usa para el inicio de sesión es la misma que la del nombre principal de usuario (UPN) de la cuenta.
+Los servicios en la nube de Microsoft utilizan [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) para autenticar a los usuarios. Un inquilino de Azure AD contiene nombres de usuario y grupos de seguridad. Normalmente, la dirección de correo electrónico que se usa para el inicio de sesión es la misma que la del nombre principal de usuario (UPN) de la cuenta.
 
 ### <a name="what-is-my-upn"></a>¿Qué es mi UPN?
 
 Si no es administrador de dominio, es posible que no conozca su UPN. Para buscar el UPN de la cuenta, ejecute el comando `whoami /upn` desde la estación de trabajo. Aunque el resultado parece una dirección de correo electrónico, en realidad se trata del UPN para su cuenta de dominio local.
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-active-directory"></a>Sincronización de una instancia de Active Directory local con Azure Active Directory
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Sincronización de una instancia de Active Directory local con Azure AD
 
-El UPN para las cuentas de Active Directory locales y las cuentas de Azure AD debe ser el mismo. Por lo tanto, asegúrese de que cada cuenta de Active Directory local coincide con la cuenta de Azure AD. Los servicios en la nube solo conocen las cuentas dentro de Azure AD. Por lo tanto, no es necesario agregar una cuenta a su Active Directory local. Si la cuenta no existe en Azure AD, no puede usar esa cuenta. 
+El UPN para las cuentas de Active Directory locales y las cuentas de Azure AD debe ser el mismo. Por lo tanto, asegúrese de que cada cuenta de Active Directory local coincide con la cuenta de Azure AD. Los servicios en la nube solo conocen las cuentas dentro de Azure AD. Por lo tanto, no es necesario agregar una cuenta a su Active Directory local. Si la cuenta no existe en Azure AD, no puede usar esa cuenta.
 
-Estas son algunas formas de hacer coincidir las cuentas de Active Directory locales con Azure AD. 
+Estas son algunas formas de hacer coincidir las cuentas de Active Directory locales con Azure AD.
 
 * Agregue las cuentas manualmente a Azure AD.
 

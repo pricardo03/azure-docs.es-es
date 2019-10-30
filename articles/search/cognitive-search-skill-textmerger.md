@@ -1,22 +1,21 @@
 ---
-title: 'Aptitud de búsqueda cognitiva Combinación de texto: Azure Search'
-description: Combine el texto de una colección de campos en un solo campo consolidado. Use esta aptitud cognitiva en una canalización de enriquecimiento de Azure Search.
-services: search
+title: Aptitud cognitiva Combinación de texto
+titleSuffix: Azure Cognitive Search
+description: Combine el texto de una colección de campos en un solo campo consolidado. Use esta aptitud cognitiva en una canalización de enriquecimiento con inteligencia artificial de Búsqueda cognitiva de Azure.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e88fcc13d97d92cf9b35616ecb7d71c2d24db1f
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c44f37c37bff2ddeb0fbba83d170054bf21129a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265275"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791835"
 ---
-#    <a name="text-merge-cognitive-skill"></a>Aptitud cognitiva Combinación de texto
+#   <a name="text-merge-cognitive-skill"></a>Aptitud cognitiva Combinación de texto
 
 La aptitud **Combinación de texto** consolida el texto de una colección de campos en un solo campo. 
 
@@ -143,6 +142,6 @@ En el ejemplo anterior se asume que existe un campo de imágenes normalizadas. P
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
++ [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

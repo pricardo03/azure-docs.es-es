@@ -1,21 +1,21 @@
 ---
-title: 'Asignar campos de entrada enriquecidos de Cognitive Search a los campos de salida: Azure Search'
-description: Extraer y enriquecer los campos de datos de origen y asignarlos a los campos de salida de un índice de Azure Search.
+title: Asignación de campos de entrada enriquecidos con IA a campos de salida
+titleSuffix: Azure Cognitive Search
+description: Extraiga y enriquezca los campos de datos de origen y asígnelos a los campos de salida de un índice de Búsqueda cognitiva de Azure.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 4ceb8e6290e3e7f4fb552db13c97558db1c8c97e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 77f378f4e0c4a8e4827523e244f7b18c2a9ba336
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265503"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792118"
 ---
-# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Cómo asignar campos enriquecidos a un índice de búsqueda
+# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Cómo asignar campos enriquecidos con IA a un índice de búsqueda
 
 En este artículo, aprenderá a asignar campos de entrada enriquecidos a campos de salida en un índice de búsqueda. Una vez que haya [definido un conjunto de aptitudes](cognitive-search-defining-skillset.md), debe asignar los campos de salida de cualquier aptitud que aporte directamente valores a un campo dado del índice de búsqueda. Las asignaciones de campo son necesarias para mover contenido de documentos enriquecidos al índice.
 
@@ -72,4 +72,4 @@ La ruta de acceso en un campo sourceFieldName puede representar un elemento o va
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez haya asignado los campos enriquecidos a los campos de búsqueda, puede establecer los atributos de campo de cada uno de los campos de búsqueda [como parte de la definición del índice](search-what-is-an-index.md).
 
-Para obtener información acerca de las asignaciones de campos, consulte [Field mappings in Azure Search indexers](search-indexer-field-mappings.md) (Asignaciones de campos en los indexadores de Azure Search).
+Para obtener más información acerca de las asignaciones de campos, consulte [Field mappings in Azure Cognitive Search indexers](search-indexer-field-mappings.md) (Asignaciones de campos en los indexadores de Búsqueda cognitiva de Azure).

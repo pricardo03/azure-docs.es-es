@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 818b8627decd5ee7db711abc417f71c83e32b6c0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7020bf529fa635d74959a9dac071aa6e2b134c5b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128373"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692619"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo Regresión logística de dos clases
 
@@ -36,7 +36,7 @@ Para entrenar este modelo, debe proporcionar un conjunto de datos que contenga u
 
 Por ejemplo, la columna de etiqueta podría ser [Votado] con los valores posibles "Sí" o "No". O bien, podría ser [Riesgo de crédito,] con los valores posibles "Alto" o "Bajo". 
   
-1.  Agregue el módulo **Regresión logística de dos clases** al experimento.  
+1.  Agregue el módulo **Two-Class Logistic Regression** (Regresión logística de dos clases) a la canalización.  
   
 2.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).  
   
@@ -67,14 +67,14 @@ Por ejemplo, la columna de etiqueta podría ser [Votado] con los valores posible
   
      Este parámetro de optimización limita la cantidad de memoria que se usa para calcular el siguiente paso y la dirección. Cuando especifica menos memoria, el entrenamiento es más rápido, pero menos preciso.  
   
-6.  Para **Random number seed** (Inicialización de número aleatorio), escriba un valor entero. Definir un valor de inicialización es importante si desea que los resultados se puedan reproducir a través de varias ejecuciones del mismo experimento.  
+6.  Para **Random number seed** (Inicialización de número aleatorio), escriba un valor entero. Definir un valor de inicialización es importante si desea que los resultados se puedan reproducir en varias ejecuciones de la misma canalización.  
   
   
-8. Agregue un conjunto de datos etiquetado al experimento y conecte uno de los [módulos de aprendizaje](module-reference.md).  
+8. Agregue un conjunto de datos etiquetado a la canalización y conecte uno de los [módulos de aprendizaje](module-reference.md).  
   
-    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Modelo de entrenamiento](./train-model.md).  
+    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](./train-model.md).  
   
-9. Ejecute el experimento.  
+9. Ejecución de la canalización  
   
 ## <a name="results"></a>Results
 

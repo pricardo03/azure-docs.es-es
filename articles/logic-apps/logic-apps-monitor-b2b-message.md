@@ -1,6 +1,6 @@
 ---
-title: 'Supervisión de mensajes B2B con los registros de Azure Monitor: Azure Logic Apps | Microsoft Docs'
-description: Supervisión de mensajes AS2, X12 y EDIFACT para las cuentas de integración y de Azure Logic Apps, y configuración del registro de diagnóstico con los registros de Azure Monitor
+title: Supervisión de los mensajes B2B con Azure Monitor en Azure Logic Apps
+description: Configuración del registro de diagnóstico para los mensajes AS2, X12 y EDIFACT en Azure Logic Apps mediante Azure Monitor
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,14 +9,14 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: a4a7f951d34455f2e333f2c11e30d24efdfd22c1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e5c8e5f3d42f4e85406fcc7dd5a2f6602045c8ed
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261204"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680201"
 ---
-# <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Supervisión de mensajes B2B con los registros de Azure Monitor en Azure Logic Apps
+# <a name="set-up-diagnostics-logging-for-b2b-messages-in-azure-logic-apps-by-using-azure-monitor"></a>Configuración el registro de diagnóstico para los mensajes B2B en Azure Logic Apps mediante Azure Monitor
 
 Después de establecer la comunicación B2B entre entidades en la cuenta de integración, los asociados pueden intercambiar mensajes entre sí. Para comprobar que esta comunicación funciona según lo esperado, puede supervisar los mensajes AS2, X12 y EDIFACT y configurar el registro de diagnóstico de la cuenta de integración mediante los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Este servicio supervisa los entornos locales y en la nube, lo que le permite conservar la disponibilidad y el rendimiento, y recopila detalles de entorno de tiempo de ejecución y eventos para lograr una depuración más completa. También puede usar estos datos con otros servicios, como Azure Storage y Azure Event Hubs.
 

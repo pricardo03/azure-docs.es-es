@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 8ca994b0b4abb27eef284eedf5a76571fe19699d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972663"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595320"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creación de un recurso de Cognitive Services mediante la interfaz de la línea de comandos (CLI) de Azure
 
@@ -74,8 +74,15 @@ az group create \
 
 Al crear un nuevo recurso, deberá conocer el "tipo" de servicio que quiere usar, junto con el [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/) (o sku) que quiere. Usará esta y otra información como parámetros al crear el recurso.
 
+### <a name="multi-service"></a>Varios servicios
+
+| Servicio                    | Clase                      |
+|----------------------------|---------------------------|
+| Varios servicios Consulte la página de [precios](https://azure.microsoft.com/pricing/details/cognitive-services/) para más información.            | `CognitiveServices`     |
+
+
 > [!NOTE]
-> Muchas instancias de Cognitive Services tienen un nivel gratuito que puede usar para probar el servicio. Para usar el nivel gratuito, use `F0` como sku del recurso.
+> Muchas de las instancias siguientes de Cognitive Services tienen un nivel gratuito que puede usar para probar el servicio. Para usar el nivel gratuito, use `F0` como sku del recurso.
 
 ### <a name="vision"></a>Visión
 

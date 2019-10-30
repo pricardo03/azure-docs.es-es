@@ -1,23 +1,23 @@
 ---
-title: 'Ejemplo: Modelado de la base de datos del inventario de AdventureWorks para Azure Search'
-description: Aprenda a modelar datos relacionales, transformándolos en un conjunto de datos planos, para indexación y búsqueda de texto completo en Azure Search.
+title: 'Ejemplo: Modelado de la base de datos del inventario de AdventureWorks'
+titleSuffix: Azure Cognitive Search
+description: Aprenda a modelar datos relacionales, transformándolos en un conjunto de datos planos, para indexación y búsqueda de texto completo en Azure Cognitive Search.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: heidist
-ms.openlocfilehash: c25dd34460e7e92bb20913f5b812044623dd38e3
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: edb6162724938962df8a7340afea6e930a0b1049
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274034"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792988"
 ---
-# <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Ejemplo: Modelado de la base de datos del inventario de AdventureWorks para Azure Search
+# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Ejemplo: Modelado de la base de datos del inventario de AdventureWorks para Azure Cognitive Search
 
-Azure Search acepta un conjunto de filas planas como entradas para la [canalización de indexación (ingesta de datos)](search-what-is-an-index.md). Si los datos de origen proceden de una base de datos relacional SQL Server, en este artículo se muestra un enfoque para crear un conjunto de filas planas antes de la indexación, la base de datos de AdventureWorks como ejemplo.
+Azure Cognitive Search acepta un conjunto de filas planas como entradas para la [canalización de indexación (ingesta de datos)](search-what-is-an-index.md). Si los datos de origen proceden de una base de datos relacional SQL Server, en este artículo se muestra un enfoque para crear un conjunto de filas planas antes de la indexación, la base de datos de AdventureWorks como ejemplo.
 
 ## <a name="about-adventureworks"></a>Acerca de AdventureWorks
 
@@ -35,7 +35,7 @@ Combinar todos estos datos en un conjunto de filas planas que se puede ingerir e
 
 El enfoque primitivo consistiría en indexar todas las filas de la tabla Product (combinadas en su caso), ya que la tabla Product contiene la información más específica. Sin embargo, ese enfoque expondría el índice de búsqueda a duplicados percibidos en un conjunto de resultados. Por ejemplo, el modelo Road-650 está disponible en dos colores y en seis tamaños. Una búsqueda de "bicicletas de carretera" estaría entonces dominada por doce instancias del mismo modelo, diferenciadas solo por el tamaño y el color. Los otros seis modelos específicos de bicicletas quedarían relegados al mundo inferior de la búsqueda: página dos.
 
-  ![Lista de productos](./media/search-example-adventureworks/products-list.png "Products list")
+  ![Lista de productos](./media/search-example-adventureworks/products-list.png "Lista de productos")
  
 Observe que el modelo Road-650 tiene doce opciones. Las filas de la entidad de una a muchas se representan mejor como campos de valores múltiples o campos de valores preagregados en el índice de búsqueda.
 
@@ -43,13 +43,13 @@ Resolver este problema no es tan simple como mover el índice de destino a la ta
 
 ## <a name="use-a-collection-data-type"></a>Uso de un tipo de datos de colección
 
-El "enfoque correcto" es utilizar una característica de esquema de búsqueda que no tiene un paralelo directo en el modelo de base de datos: **Collection(Edm.String)** . Esta construcción se define en el esquema de índice de Azure Search. Se utiliza el tipo de datos Collection cuando es necesario representar una lista de cadenas individuales, en lugar de una cadena muy larga (única). Si tiene etiquetas o palabras clave, utilizaría un tipo de datos Collection para este campo.
+El "enfoque correcto" es utilizar una característica de esquema de búsqueda que no tiene un paralelo directo en el modelo de base de datos: **Collection(Edm.String)** . Esta construcción se define en el esquema de índice de Azure Cognitive Search. Se utiliza el tipo de datos Collection cuando es necesario representar una lista de cadenas individuales, en lugar de una cadena muy larga (única). Si tiene etiquetas o palabras clave, utilizaría un tipo de datos Collection para este campo.
 
 Mediante la definición de campos de índice de valores múltiples de **Collection(Edm.String)** para "color", "tamaño" e "imagen", la información auxiliar se conserva para facetar y filtrar sin contaminar el índice con entradas duplicadas. Del mismo modo, aplique funciones de agregado a los campos numéricos del producto, indexando **minListPrice** en lugar de **listPrice** de cada uno de los productos.
 
 Dado un índice con estas estructuras, una búsqueda de "bicicletas de montaña" mostraría modelos discretos de bicicletas, a la vez que preservaría metadatos importantes como el color, el tamaño y el precio más bajo. En la captura de pantalla siguiente se muestra una ilustración.
 
-  ![Ejemplo de búsqueda de bicicleta de montaña](./media/search-example-adventureworks/mountain-bikes-visual.png "Mountain bike search example")
+  ![Ejemplo de búsqueda de bicicletas de montaña](./media/search-example-adventureworks/mountain-bikes-visual.png "Ejemplo de búsqueda de bicicletas de montaña")
 
 ## <a name="use-script-for-data-manipulation"></a>Uso de un script para la manipulación de datos
 
@@ -163,4 +163,4 @@ WHERE
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Ejemplo: Taxonomías de facetas de varios niveles en Azure Search](search-example-adventureworks-multilevel-faceting.md)
+> [Ejemplo: Taxonomías de facetas de varios niveles en Azure Cognitive Search](search-example-adventureworks-multilevel-faceting.md)

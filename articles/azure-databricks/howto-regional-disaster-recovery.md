@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 3718b79562ec05383b9881a1a97cc5bcc5e04258
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06ab1783a6e0f4884ab46d3f00a26c47f28d02b0
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075453"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596891"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperación ante desastres regional para clústeres de Azure Databricks
 
@@ -21,7 +21,7 @@ En este artículo se describe una arquitectura de recuperación ante desastres �
 
 ## <a name="azure-databricks-architecture"></a>Arquitectura de Azure Databricks
 
-En un nivel alto, al crear un área de trabajo de Azure Databricks desde Azure Portal, se implementa un [dispositivo administrado](../managed-applications/overview.md) como un recurso de Azure en su suscripción, en la región de Azure seleccionada (por ejemplo, Oeste de EE. UU.). Esta aplicación se implementa en una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) con un [grupo de seguridad de red](../virtual-network/manage-network-security-group.md) y una cuenta de Azure Storage, disponible en su suscripción. La red virtual proporciona seguridad a nivel de perímetro para el área de trabajo de Databricks y está protegida a través del grupo de seguridad de red. En el área de trabajo, puede crear clústeres de Databricks proporcionando el trabajo y tipo de máquina virtual de controlador y versión del runtime de Databricks. Los datos persistentes están disponibles en la cuenta de almacenamiento, que puede ser de Azure Blob Storage o Azure Data Lake Store. Una vez creado el clúster, puede ejecutar trabajos a través de puntos de conexión ODBC/JDBC, blocs de notas, las API REST, adjuntándolos a un clúster concreto.
+En un nivel alto, al crear un área de trabajo de Azure Databricks desde Azure Portal, se implementa un [dispositivo administrado](../managed-applications/overview.md) como un recurso de Azure en su suscripción, en la región de Azure seleccionada (por ejemplo, Oeste de EE. UU.). Esta aplicación se implementa en una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) con un [grupo de seguridad de red](../virtual-network/manage-network-security-group.md) y una cuenta de Azure Storage, disponible en su suscripción. La red virtual proporciona seguridad a nivel de perímetro para el área de trabajo de Databricks y está protegida a través del grupo de seguridad de red. En el área de trabajo, puede crear clústeres de Databricks proporcionando el trabajo y tipo de máquina virtual de controlador y versión del runtime de Databricks. Los datos persistentes están disponibles en la cuenta de almacenamiento, que puede ser de Azure Blob Storage o Azure Data Lake Storage. Una vez creado el clúster, puede ejecutar trabajos a través de puntos de conexión ODBC/JDBC, blocs de notas, las API REST, adjuntándolos a un clúster concreto.
 
 El plano de control de Databricks administra y supervisa el entorno de área de trabajo de Databricks. Cualquier operación de administración, como crear un clúster, se iniciará desde el plano de control. Todos los metadatos, como los trabajos programados, se almacenan en una base de datos de Azure con replicación geográfica para la tolerancia a errores.
 
@@ -284,9 +284,9 @@ Para crear su propia topología de recuperación ante desastres regional, siga e
 
    Actualmente no hay ninguna manera sencilla de migrar las bibliotecas de un área de trabajo a otra. Vuelva a instalar esas bibliotecas en la nueva área de trabajo manualmente. Es posible automatizar usando la combinación de la [CLI de DBFS](https://github.com/databricks/databricks-cli#dbfs-cli-examples) para cargar bibliotecas personalizadas en el área de trabajo y la [CLI de bibliotecas](https://github.com/databricks/databricks-cli#libraries-cli).
 
-8. **Migración de montajes de Azure Blob Storage y Azure Data Lake Store**
+8. **Migración de montajes de Azure Blob Storage y Azure Data Lake Storage**
 
-   Vuelva a montar manualmente todos los puntos de montaje de [Azure Blob Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) y [Azure Data Lake Store (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) mediante una solución basada en el bloc de notas. Los recursos de almacenamiento se habrían montado en el área de trabajo principal, y esto mismo tiene que repetirse en el área de trabajo secundario. No hay ninguna API externa para montajes.
+   Vuelva a montar manualmente todos los puntos de montaje de [Azure Blob Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) y [Azure Data Lake Storage (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) mediante una solución basada en cuaderno. Los recursos de almacenamiento se habrían montado en el área de trabajo principal, y esto mismo tiene que repetirse en el área de trabajo secundario. No hay ninguna API externa para montajes.
 
 9. **Migración de los scripts de inicialización de clúster**
 

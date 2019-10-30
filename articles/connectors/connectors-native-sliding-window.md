@@ -1,6 +1,6 @@
 ---
-title: 'Programación de tareas periódicas con desencadenador de ventana deslizante: Azure Logic Apps'
-description: Programación y ejecución de tareas y flujos de trabajo automatizados periódicos con el desencadenador de ventana deslizante en Azure Logic Apps
+title: 'Programación de tareas para administrar datos contiguos: Azure Logic Apps'
+description: Creación y ejecución de tareas periódicas que administren datos contiguos mediante ventanas deslizantes en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 44944955019fcf81fb0d296592577e2b00a15928
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0312d9480d00d4430cd5d42dc22ef9dac005ee2e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299508"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679059"
 ---
-# <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-sliding-window-trigger-in-azure-logic-apps"></a>Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de ventana deslizante en Azure Logic Apps
+# <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Programación y ejecución de tareas para datos contiguos mediante el desencadenador de ventana deslizante en Azure Logic Apps
 
-Para ejecutar con regularidad tareas, procesos o trabajos que deben administrar datos en fragmentos continuos, puede iniciar el flujo de trabajo de aplicación lógica con el desencadenador de **ventana deslizante: programación**. Puede establecer una fecha y hora, así como una zona horaria para iniciar el flujo de trabajo y una periodicidad para la repetición de ese flujo de trabajo. Si se pierde la periodicidad por cualquier motivo, este desencadenador procesa las periodicidades que faltan. Por ejemplo, cuando sincronice datos entre la base de datos y el almacenamiento de copia de seguridad, use el desencadenador de ventana deslizante para que se sincronicen los datos sin existan intervalos. Para obtener más información sobre los desencadenadores y las acciones de programación integradas, consulte [Programación y ejecución de tareas y flujos de trabajo automatizados periódicos con Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Para ejecutar con regularidad tareas, procesos o trabajos que deben administrar los datos en fragmentos continuos, puede iniciar el flujo de trabajo de aplicación lógica con el desencadenador de **ventana deslizante**. Puede establecer una fecha y hora, así como una zona horaria para iniciar el flujo de trabajo y una periodicidad para la repetición de ese flujo de trabajo. Si se pierde la periodicidad por cualquier motivo, este desencadenador procesa las periodicidades que faltan. Por ejemplo, cuando sincronice datos entre la base de datos y el almacenamiento de copia de seguridad, use el desencadenador de ventana deslizante para que se sincronicen los datos sin existan intervalos. Para obtener más información sobre los desencadenadores y las acciones de programación integradas, consulte [Programación y ejecución de tareas y flujos de trabajo automatizados periódicos con Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Aquí se presentan algunos patrones que admite este desencadenador:
 
@@ -51,9 +51,9 @@ Para ver las diferencias entre este desencadenador y el desencadenador de period
 
    ![Establecer el intervalo y la frecuencia](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Propiedad | Obligatorio | Nombre JSON | Type | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Nombre JSON | type | DESCRIPCIÓN |
    |----------|----------|-----------|------|-------------|
-   | **Intervalo** | Sí | interval | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. Estos son los intervalos mínimo y máximo: <p>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "hour", la periodicidad es cada 6 horas. |
+   | **Intervalo** | Sí | interval | Integer | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. Estos son los intervalos mínimo y máximo: <p>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "hour", la periodicidad es cada 6 horas. |
    | **Frecuencia** | Sí | frequency | Cadena | Unidad de tiempo que se usa para la periodicidad: **Second**, **Minute** o **Hour** |
    ||||||
 
@@ -62,7 +62,7 @@ Para ver las diferencias entre este desencadenador y el desencadenador de period
    Para ver más propiedades de periodicidad, abra la lista **Agregar nuevo parámetro**. 
    Las opciones que seleccione aparecerán en el desencadenador después de la selección.
 
-   | Propiedad | Obligatorio | Nombre JSON | Type | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Nombre JSON | type | DESCRIPCIÓN |
    |----------|----------|-----------|------|-------------|
    | **Delay** | Sin | delay | Cadena | La duración del retraso para cada periodicidad con la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
    | **Zona horaria** | Sin | timeZone | Cadena | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Seleccione la zona horaria que desea aplicar. |

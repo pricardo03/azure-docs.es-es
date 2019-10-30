@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 944c05a28eb33c659bf4aaa600985530122f8d3e
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 886d17098259ddbb78698a3c1280f797e370c714
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000322"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597152"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -120,7 +120,7 @@ Al definir un índice compuesto, especifique lo siguiente:
 - El orden (ascendente o descendente).
 
 > [!NOTE]
-> Al agregar un índice compuesto, al igual que con otros tipos de índice, las consultas pueden devolver resultados incoherentes cuando se actualiza el índice.
+> Al agregar un índice compuesto, la consulta utilizará los índices de intervalo existentes hasta que se complete la nueva adición de índice compuesto. Por lo tanto, al agregar un índice compuesto, es posible que no observe inmediatamente las mejoras en el rendimiento. Es posible realizar un seguimiento del progreso de transformación del índice [mediante uno de los SDK](how-to-manage-indexing-policy.md).
 
 ### <a name="order-by-queries-on-multiple-properties"></a>Consultas ORDER BY en varias propiedades:
 
@@ -238,7 +238,7 @@ Las consideraciones siguientes se usan cuando se crean índices compuestos para 
 Se puede actualizar en cualquier momento una directiva de indexación de un contenedor [mediante Azure Portal o uno de los SDK admitidos](how-to-manage-indexing-policy.md). Una actualización de la directiva de indexación desencadena una transformación del índice antiguo al nuevo, que se realiza en línea y en local (por lo que no se consume ningún espacio de almacenamiento adicional durante la operación). El índice de la directiva antigua se transforma eficientemente en la nueva directiva sin que ello afecte a la disponibilidad de escritura ni al rendimiento aprovisionado en el contenedor. La transformación del índice es una operación asincrónica, y el tiempo que tarda en completarse depende del rendimiento aprovisionado, el número de elementos y su tamaño.
 
 > [!NOTE]
-> Mientras la reindexación está en curso, es posible que las consultas no devuelvan todos los resultados coincidentes y la hará sin devolver ningún error. Esto significa que los resultados de consultas no pueden ser coherentes hasta que se complete la transformación del índice. Es posible realizar un seguimiento del progreso de transformación del índice [mediante uno de los SDK](how-to-manage-indexing-policy.md).
+> Mientras agrega un intervalo o un índice espacial, es posible que las consultas no devuelvan todos los resultados coincidentes y no se devolverá ningún error. Esto significa que los resultados de consultas no pueden ser coherentes hasta que se complete la transformación del índice. Es posible realizar un seguimiento del progreso de transformación del índice [mediante uno de los SDK](how-to-manage-indexing-policy.md).
 
 Si el modo nuevo de la directiva de indexación se establece en coherente, no se puede aplicar ningún otro cambio de directiva de indexación mientras la transformación del índice esté en curso. Se puede cancelar una transformación del índice en ejecución al establecer el modo de la directiva de indexación en None (lo que inmediatamente anulará el índice).
 

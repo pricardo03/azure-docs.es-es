@@ -15,102 +15,70 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1f4d4a6b60961515826a1ba7409bf149b318e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0187d17f8210800aef1c68def0614ce26913e09a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60276965"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555070"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para el aprovisionamiento automático de usuarios
 
-El objetivo de este tutorial es explicar cómo aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure Active Directory (Azure AD) para G Suite.
+El objetivo de este tutorial es mostrar los pasos que se realizan en G Suite y Azure Active Directory (Azure AD) para configurar Azure AD a fin de aprovisionar y desaprovisionar usuarios o grupos en G Suite.
 
 > [!NOTE]
 > Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
+
+> [!NOTE]
+> El conector de G Suite se actualizó recientemente, en octubre de 2019. Entre los cambios realizados en el conector de G Suite se incluyen los siguientes:
+- Se ha agregado compatibilidad con atributos adicionales de usuario y grupo de G Suite. 
+- Se han actualizado los nombres de atributo de destino de G Suite para que coincidan con lo que se define [aquí]().
+- Se han actualizado las asignaciones de atributos predeterminadas.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con G Suite, se necesitan los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada de G Suite para el inicio de sesión único
-- Una suscripción de Google Apps o Google Cloud Platform
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+- Un inquilino de Azure AD
+- [Un inquilino de G Suite](https://gsuite.google.com/pricing.html)
+- Una cuenta de usuario en G Suite con permisos de administrador
 
 ## <a name="assign-users-to-g-suite"></a>Asignación de usuarios a G Suite
 
-Azure Active Directory usa un concepto que se denomina "asignaciones" para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto de aprovisionamiento automático de cuentas de usuario, solo se sincronizarán los usuarios y grupos que se han "asignado" a una aplicación en Azure AD.
+Azure Active Directory usa el concepto de asignación para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto del aprovisionamiento automático de usuarios, solo se sincronizan los usuarios y grupos que se han asignado a una aplicación en Azure AD.
 
-Antes de configurar y habilitar el servicio de aprovisionamiento, tiene que decidir qué usuarios o grupos de Azure AD necesitan acceso a la aplicación. Una vez decidido, puede asignar estos usuarios a la aplicación siguiendo las instrucciones de [Asignación de un usuario o un grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Antes de configurar y habilitar el aprovisionamiento automático de usuarios, debe decidir qué usuarios o grupos de Azure AD necesitan acceder a G Suite. Una vez que lo decida, puede seguir estas instrucciones para asignar dichos usuarios o grupos a G Suite:
 
-> [!IMPORTANT]
-> Se recomienda asignar un solo usuario de Azure AD a G Suite para probar la configuración de aprovisionamiento. Asigne usuarios y grupos adicionales más tarde.
-> 
-> Al asignar un usuario a G Suite, debe seleccionar los roles **Usuario** o **Grupo** en el cuadro de diálogo de asignación. El rol **Acceso predeterminado** no funciona para realizar el aprovisionamiento.
+* [Asignar un usuario o grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="enable-automated-user-provisioning"></a>Habilitación del aprovisionamiento automático de usuarios
+### <a name="important-tips-for-assigning-users-to-g-suite"></a>Sugerencias importantes para asignar usuarios a G Suite
 
-Esta sección lo guiará a través del proceso de conexión de Azure AD a la API de aprovisionamiento de cuentas de usuario de G Suite. También ayuda a configurar el servicio de aprovisionamiento para crear, actualizar y deshabilitar cuentas de usuario asignado en G Suite en función de la asignación de usuario y de grupo en Azure AD.
+* Se recomienda asignar un único usuario de Azure AD a G Suite para probar la configuración de aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
 
->[!TIP]
->También puede decidir habilitar el inicio de sesión único basado en SAML para G Suites siguiendo las instrucciones de [Azure Portal](https://portal.azure.com). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí.
+* Al asignar un usuario a G Suite, debe seleccionar un rol válido específico de la aplicación (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.
 
-### <a name="configure-automatic-user-account-provisioning"></a>Configurar el aprovisionamiento automático de cuentas de usuario
+## <a name="setup-g-suite-for-provisioning"></a>Configuración de G Suite para el aprovisionamiento
 
-> [!NOTE]
-> Otra opción viable para automatizar el aprovisionamiento de usuarios en G Suite consiste en usar [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS aprovisiona las identidades de Active Directory locales en G Suite. En cambio, la solución en este tutorial realiza el aprovisionamiento de los usuarios de Azure Active Directory (nube) y a los grupos habilitados para correo en G Suite. 
+Antes de configurar G Suite para el aprovisionamiento automático de usuarios con Azure AD, deberá habilitar el aprovisionamiento SCIM en G Suite.
 
-1. Inicie sesión en la [Consola de administración de Google Apps](https://admin.google.com/) con su cuenta de administrador y haga clic en **Security** (Seguridad). Si no ve el vínculo, puede estar oculto debajo del menú **More Controls** (Más controles) en la parte inferior de la pantalla.
+1. Inicie sesión en la [consola de administración de G Suite](https://admin.google.com/) con su cuenta de administrador y haga clic en **Security** (Seguridad). Si no ve el vínculo, puede estar oculto debajo del menú **More Controls** (Más controles) en la parte inferior de la pantalla.
 
     ![Selección de seguridad.][10]
 
-1. En la página **Security** (Seguridad), haga clic en **API Reference** (Referencia de API).
+2. En la página **Security** (Seguridad), haga clic en **API Reference** (Referencia de API).
 
     ![Selección de Referencia de API.][15]
 
-1. Seleccione **Enable API access**.
+3. Seleccione **Enable API access**.
 
     ![Selección de Referencia de API.][16]
 
    > [!IMPORTANT]
-   > El nombre en Azure Active Directory de cada uno de los usuarios que quiera aprovisionar en G Suite *tiene que* estar vinculado a un dominio personalizado. Por ejemplo, G Suite no acepta los nombres de usuario parecidos a bob@contoso.onmicrosoft.com. Por otro lado, bob@contoso.com se acepta. Puede cambiar el dominio de un usuario existente editando sus propiedades en Azure AD. En los pasos siguientes se han incluido instrucciones sobre cómo establecer un dominio personalizado para Azure Active Directory y G Suite.
+   > El nombre en Azure AD de cada uno de los usuarios que quiera aprovisionar en G Suite **tiene que** estar vinculado a un dominio personalizado. Por ejemplo, G Suite no acepta los nombres de usuario parecidos a bob@contoso.onmicrosoft.com. Por otro lado, bob@contoso.com se acepta. Puede cambiar el dominio de un usuario existente siguiendo las instrucciones indicadas [aquí](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain).
 
-1. Si todavía no ha agregado un nombre de dominio personalizado para Azure Active Directory, siga los pasos a continuación:
-  
-    a. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**. En la lista de directorios, seleccione el directorio.
+4.  Una vez que haya agregado y comprobado los dominios personalizados que desee con Azure AD, deberá comprobarlos de nuevo con G Suite. Para comprobar los dominios en G Suite, consulte los pasos siguientes:
 
-    b. Seleccione **Nombre de dominio** en el panel de navegación izquierdo y, después seleccione **Agregar**.
-
-    ![Dominio](./media/google-apps-provisioning-tutorial/domain_1.png)
-
-    ![Incorporación de un dominio](./media/google-apps-provisioning-tutorial/domain_2.png)
-
-    c. Escriba el nombre del dominio en el campo **Nombre de dominio** . Este nombre de dominio debe ser el mismo que piensa usar para G Suite. A continuación, seleccione el botón **Agregar dominio**.
-
-    ![Nombre de dominio](./media/google-apps-provisioning-tutorial/domain_3.png)
-
-    d. Seleccione **Siguiente** para ir a la página de comprobación. Para comprobar que es propietario de este dominio, edite los registros DNS del dominio según los valores proporcionados en esta página. Puede optar por realizar la comprobación con **registros MX** o **registros TXT** según lo que seleccione en la opción **Tipo de registro**.
-
-    Si desea instrucciones detalladas sobre cómo comprobar los nombres de dominio con Azure AD, consulte [Incorporación de su propio nombre de dominio a Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
-
-    ![Dominio](./media/google-apps-provisioning-tutorial/domain_4.png)
-
-    e. Repita los pasos anteriores para todos los dominios que quiera agregar a su directorio.
-
-    > [!NOTE]
-    > Para el aprovisionamiento de usuarios, el dominio personalizado debe coincidir con el nombre de dominio de la instancia de Azure AD de origen. Si no coinciden, puede resolver el problema si implementa la personalización de asignación de atributos.
-
-1. Ahora que ha comprobado todos los dominios con Azure AD, tiene que volverlos a comprobar con Google Apps. Para cada dominio que no esté registrado aún con Google, realice los pasos siguientes:
-
-    a. En la [Consola de administración de Google Apps](https://admin.google.com/), haga clic en **Domains** (Dominios).
+    a. En la [consola de administración de G Suite](https://admin.google.com/), seleccione **Domains** (Dominios).
 
     ![Selección de dominios][20]
 
@@ -122,63 +90,125 @@ Esta sección lo guiará a través del proceso de conexión de Azure AD a la API
 
     ![Especificación de un nombre de dominio][22]
 
-    d. Haga clic en **Continue and verify domain ownership** (Continuar y comprobar la propiedad del dominio). A continuación, siga los pasos para comprobar que posee el nombre de dominio. Para obtener instrucciones completas sobre cómo comprobar un dominio con Google, vea [Cómo elegir un método de verificación con Google Apps](https://support.google.com/webmasters/answer/35179).
+    d. Haga clic en **Continue and verify domain ownership** (Continuar y comprobar la propiedad del dominio). A continuación, siga los pasos para comprobar que posee el nombre de dominio. Para obtener instrucciones completas sobre cómo comprobar un dominio con Google, consulte [Verificar que eres el propietario de un sitio web](https://support.google.com/webmasters/answer/35179).
 
-    e. Repita los pasos anteriores para todos los dominios adicionales que se van a agregar a Google Apps.
+    e. Repita los pasos anteriores para todos los dominios adicionales que vaya a agregar a G Suite.
 
-    > [!WARNING]
-    > Si cambia el dominio principal del inquilino de G Suite y ya ha configurado el inicio de sesión único con Azure AD, tendrá que repetir el paso 3 en Paso 2: Habilitar el inicio de sesión único.
-
-1. En la [Consola de administración de Google Apps](https://admin.google.com/), seleccione **Admin Roles** (Funciones de administrador).
+5. A continuación, determine qué cuenta de administrador quiere usar para administrar el aprovisionamiento de usuarios en G Suite. Vaya a **Admin Roles** (Roles de administrador).
 
     ![Selección de Google Apps][26]
-
-1. Determine qué cuenta de administrador quiere usar para administrar el aprovisionamiento de usuarios. Para el **rol administrativo** de esa cuenta, edite los **privilegios** para ese rol. Asegúrese de que habilita todos los **privilegios de la API de administración** para que esta cuenta pueda usarse para el aprovisionamiento.
+    
+6. En el **rol administrativo** de esa cuenta, edite los valores de **Privileges** (Privilegios) para ese rol. Asegúrese de que habilita todos los **privilegios de la API de administración** para que esta cuenta pueda usarse para el aprovisionamiento.
 
     ![Selección de Google Apps][27]
 
-    > [!NOTE]
-    > Si va a configurar un entorno de producción, el procedimiento recomendado es crear una nueva cuenta de administrador en G Suite específicamente para este paso. Estas cuentas tienen que tener un rol de administrador asociado que tenga los privilegios necesarios de la API.
+## <a name="add-g-suite-from-the-gallery"></a>Incorporación de G Suite desde la galería
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory**  > **Aplicaciones empresariales** > **Todas las aplicaciones**.
+Para configurar G Suite para el aprovisionamiento automático de usuarios con Azure AD, es preciso agregar G Suite desde la galería de aplicaciones de Azure AD a la lista de aplicaciones SaaS administradas. 
 
-1. Si ya ha configurado G Suite para el inicio de sesión único, busque la instancia de G Suite mediante el campo de búsqueda. En caso contrario, haga clic en **Agregar** y busque **G Suite** o **Google Apps** en la galería de aplicaciones. Seleccione la aplicación en los resultados de la búsqueda y agréguela a la lista de aplicaciones.
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
 
-1. Seleccione la instancia de G Suite y, después, la pestaña **Aprovisionamiento**.
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Establezca el **modo de aprovisionamiento** en **Automático**. 
+2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 
-    ![Aprovisionamiento](./media/google-apps-provisioning-tutorial/provisioning.png)
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En **Credenciales de administrador**, haga clic en **Autorizar**. Se abrirá un cuadro de diálogo de autorización de Google en una nueva ventana del explorador.
+3. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior del panel.
 
-1. Confirme que quiere conceder permiso de Azure Active Directory para realizar cambios en el inquilino de G Suite. Seleccione **Aceptar**.
+    ![Botón Nueva aplicación](common/add-new-app.png)
+
+4. En el cuadro de búsqueda, escriba **G Suite**, seleccione **G Suite** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![G Suite en la lista de resultados](common/search-new-app.png)
+
+## <a name="configuring-automatic-user-provisioning-to-g-suite"></a>Configuración del aprovisionamiento automático de usuarios en G Suite 
+
+Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD para crear, actualizar y deshabilitar usuarios o grupos en G Suite en función de las asignaciones de grupos y usuarios de Azure AD.
+
+> [!TIP]
+> También puede optar por habilitar el inicio de sesión único basado en SAML para G Suite siguiendo las instrucciones del [tutorial de inicio de sesión único de G Suite](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+
+### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para G Suite en Azure AD:
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
+
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
+2. En la lista de aplicaciones, seleccione **G Suite**.
+
+    ![Vínculo a G Suite en la lista de aplicaciones](common/all-applications.png)
+
+3. Seleccione la pestaña **Aprovisionamiento**.
+
+    ![Pestaña Aprovisionamiento](common/provisioning.png)
+
+4. Establezca el **modo de aprovisionamiento** en **Automático**.
+
+    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+
+5. En **Credenciales de administrador**, haga clic en **Autorizar**. Se abrirá un cuadro de diálogo de autorización de Google en una nueva ventana del explorador.
+
+    ![Autorización de G Suite](media/google-apps-provisioning-tutorial/authorize.png)
+
+6. Confirme que quiere conceder permisos de Azure AD para realizar cambios en el inquilino de G Suite. Seleccione **Aceptar**.
 
     ![Confirme los permisos.][28]
 
-1. En Azure Portal, seleccione **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación. Si la conexión no se establece, asegúrese de que la cuenta de G Suite tiene permisos de administrador de equipo. Luego vuelva a intentar el paso **Autorizar**.
+7. En Azure Portal, seleccione **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación. Si la conexión no se establece, asegúrese de que la cuenta de G Suite tiene permisos de administrador de equipo. Luego vuelva a intentar el paso **Autorizar**.
 
-1. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación**. Luego active la casilla.
+8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
-1. Seleccione **Guardar.**
+    ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-1. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Google Apps** (Sincronizar usuarios de Azure Active Directory con Google Apps).
+8. Haga clic en **Save**(Guardar).
 
-1. En la sección **Attribute Mappings** (Asignaciones de atributos), revise los atributos de usuario que se sincronizan entre Azure AD y G Suite. Los atributos que son propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de G Suite con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
+9. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to G Suite** (Sincronizar usuarios de Azure Active Directory con G Suite).
 
-1. Para habilitar el servicio de aprovisionamiento de Azure AD para G Suite, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+    ![Asignaciones de usuario de G Suite](media/google-apps-provisioning-tutorial/usermappings.png)
 
-1. Seleccione **Guardar**.
+10. Revise los atributos de usuario que se sincronizan entre Azure AD y G Suite en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer coincidencias con las cuentas de usuario de G Suite con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-Este proceso inicia la sincronización inicial de todos los usuarios y grupos asignados a G Suite en la sección Usuarios y grupos. La primera sincronización tarda más tiempo en realizarse que las sincronizaciones posteriores, que, mientras el servicio esté en ejecución, tendrán lugar aproximadamente cada 40 minutos. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y utilizar los vínculos a los registros de actividad de aprovisionamiento. En estos registros, se describen todas las acciones que lleva a cabo el servicio de aprovisionamiento en la aplicación.
+    ![Atributos de usuario de G Suite](media/google-apps-provisioning-tutorial/userattributes.png)
+
+11. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to G Suite** (Sincronizar grupos de Azure Active Directory con G Suite).
+
+    ![Asignaciones de grupo de G Suite](media/google-apps-provisioning-tutorial/groupmappings.png)
+
+12. Revise los atributos de grupo que se sincronizan entre Azure AD y G Suite en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer coincidencias con los grupos de G Suite con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+
+    ![Atributos de grupo de G Suite](media/google-apps-provisioning-tutorial/groupattributes.png)
+
+13. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+14. Para habilitar el servicio de aprovisionamiento de Azure AD para G Suite, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+
+    ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
+
+15. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en G Suite.
+
+    ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
+
+16. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
+
+    ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
+
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en G Suite.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
 
+> [!NOTE]
+> Otra opción viable para automatizar el aprovisionamiento de usuarios en G Suite consiste en usar [Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en). Esta opción aprovisiona las identidades de Active Directory locales en G Suite.
+
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](tutorial-list.md)
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configuración del inicio de sesión único](google-apps-tutorial.md)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
+
 
 <!--Image references-->
 

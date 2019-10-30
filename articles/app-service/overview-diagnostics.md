@@ -11,15 +11,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: c9d6bc8802b54e970fe863ed6a7283f01c947916
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2919c7a2fa3a8912de0272af5131583988184704
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066855"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755530"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Introducción a los diagnósticos de Azure App Service
 
@@ -92,17 +92,17 @@ Las Herramientas de diagnóstico incluyen herramientas de diagnóstico más avan
 
 ### <a name="proactive-cpu-monitoring"></a>Supervisión de CPU proactiva
 
-La supervisión de CPU proactiva proporciona una manera fácil y proactiva de realizar una acción cuando la aplicación o el proceso secundario de la aplicación consumen recursos elevados de la CPU. Puede establecer sus propias reglas de umbral de la CPU para mitigar temporalmente un problema de uso elevado de la CPU hasta que se detecte la causa real del problema.
+La supervisión de CPU proactiva proporciona una manera fácil y proactiva de realizar una acción cuando la aplicación o el proceso secundario de la aplicación consumen recursos elevados de la CPU. Puede establecer sus propias reglas de umbral de la CPU para mitigar temporalmente un problema de uso elevado de la CPU hasta que se detecte la causa real del problema. Para más información, consulte [Mitigate your CPU problems before they happen](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html) (Mitigar los problemas de CPU antes de que ocurran).
 
 ![Supervisión de CPU proactiva](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
 ### <a name="auto-healing-and-proactive-auto-healing"></a>Recuperación automática y recuperación automática proactiva
 
-La recuperación automática es una acción de mitigación que puede realizar cuando la aplicación se comporta de manera inesperada. Puede establecer sus propias reglas basadas en número de solicitudes, una solicitud lenta, el límite de memoria y el código de estado HTTP para desencadenar acciones de mitigación. Use la herramienta para mitigar temporalmente un comportamiento inesperado hasta que encuentre la causa principal.
+La recuperación automática es una acción de mitigación que puede realizar cuando la aplicación se comporta de manera inesperada. Puede establecer sus propias reglas basadas en número de solicitudes, una solicitud lenta, el límite de memoria y el código de estado HTTP para desencadenar acciones de mitigación. Use la herramienta para mitigar temporalmente un comportamiento inesperado hasta que encuentre la causa principal. Para más información, consulte [Anuncio de la nueva experiencia de recuperación automática en los diagnósticos de App Service](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
 
 ![Recuperación automática](./media/app-service-diagnostics/auto-healing-10.png)
 
-Al igual que la supervisión de CPU proactiva, la recuperación automática proactiva es una solución completa para mitigar un comportamiento inesperado de la aplicación. La recuperación automática proactiva reinicia la aplicación cuando App Service determina que esta se encuentra en un estado irrecuperable. Para más información, consulte [Anuncio de la nueva experiencia de recuperación automática en los diagnósticos de App Service](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+Al igual que la supervisión de CPU proactiva, la recuperación automática proactiva es una solución completa para mitigar un comportamiento inesperado de la aplicación. La recuperación automática proactiva reinicia la aplicación cuando App Service determina que esta se encuentra en un estado irrecuperable. Para más información, consulte [Introducing Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html) (Introducción a la reparación automática proactiva).
 
 ## <a name="navigator-and-change-analysis-only-for-windows-app"></a>El navegador y el análisis de cambios (solo para la aplicación de Windows)
 

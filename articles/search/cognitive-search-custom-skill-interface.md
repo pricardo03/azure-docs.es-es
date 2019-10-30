@@ -1,25 +1,25 @@
 ---
-title: 'Definición de interfaz para aptitudes personalizadas en Cognitive Search: Azure Search'
-description: Interfaz de extracción de datos personalizada para la aptitud personalizada de Web API en la canalización de Cognitive Search en Azure Search.
+title: Definición de interfaz de las aptitudes personalizadas
+titleSuffix: Azure Cognitive Search
+description: Interfaz de extracción de datos personalizada para la aptitud personalizada de API web en la canalización de enriquecimiento con IA de Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: b5529babfae37fa0d9f4de46018bb3b107ce4eae
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: f86c34dcc1276b8677e3e60514661a6d0b974005
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265823"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787560"
 ---
-# <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Cómo agregar una aptitud personalizada a una canalización de Cognitive Search
+# <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Incorporación de una aptitud personalizada a una canalización de enriquecimiento de Azure Cognitive Search
 
-Se puede crear una [canalización de indexación de Cognitive Search](cognitive-search-concept-intro.md) en Azure Search a partir de [aptitudes predefinidas](cognitive-search-predefined-skills.md) y [aptitudes personalizadas](cognitive-search-custom-skill-web-api.md) que puede crear y agregar personalmente a la canalización. En este artículo, obtendrá información sobre cómo crear una aptitud personalizada que exponga una interfaz para que pueda incluirse en una canalización de Cognitive Search. 
+Una [canalización de indexación](cognitive-search-concept-intro.md) de Azure Cognitive Search se puede ensamblar a partir de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md) y [aptitudes personalizadas](cognitive-search-custom-skill-web-api.md) que puede crear y agregar personalmente a la canalización. En este artículo, obtendrá información sobre cómo crear una aptitud personalizada que exponga una interfaz para que pueda incluirse en una canalización de enriquecimiento con IA. 
 
-Crear una aptitud personalizada le otorga una forma de insertar transformaciones únicas en el contenido. Una aptitud personalizada se ejecuta de forma independiente; además, puede aplicar cualquier paso de enriquecimiento que quiera. Por ejemplo, puede definir entidades personalizadas específicas de campo, crear modelos de clasificación personalizados para diferenciar contratos y documentos comerciales y financieros, o agregar una aptitud de reconocimiento de voz para profundizar en el contenido relevante de los archivos de audio. Para ver un ejemplo paso a paso, consulte [Ejemplo: Creación de una aptitud personalizada de búsqueda cognitiva](cognitive-search-create-custom-skill-example.md).
+Crear una aptitud personalizada le otorga una forma de insertar transformaciones únicas en el contenido. Una aptitud personalizada se ejecuta de forma independiente; además, puede aplicar cualquier paso de enriquecimiento que quiera. Por ejemplo, puede definir entidades personalizadas específicas de campo, crear modelos de clasificación personalizados para diferenciar contratos y documentos comerciales y financieros, o agregar una aptitud de reconocimiento de voz para profundizar en el contenido relevante de los archivos de audio. Para ver un ejemplo paso a paso, consulte [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento con inteligencia artificial](cognitive-search-create-custom-skill-example.md).
 
  Cualquiera que sea la capacidad personalizada que necesite, existe una interfaz simple y clara para conectar una aptitud personalizada al resto de la canalización de enriquecimiento. El único requisito para su inclusión en un [conjunto de aptitudes](cognitive-search-defining-skillset.md), es la capacidad de aceptar entradas y emitir salidas de manera que se puedan consumir dentro del conjunto de aptitudes en conjunto. Este artículo se centra en los formatos de entrada y salida que necesita la canalización de enriquecimiento.
 
@@ -154,6 +154,7 @@ Cuando crea una opción de enriquecimiento de Web API, puede describir encabezad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
++ [Aptitudes avanzadas: un repositorio de aptitudes personalizadas](https://aka.ms/powerskills)
 + [Ejemplo: Creación de una habilidad personalizada de búsqueda cognitiva](cognitive-search-create-custom-skill-example.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Crear un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

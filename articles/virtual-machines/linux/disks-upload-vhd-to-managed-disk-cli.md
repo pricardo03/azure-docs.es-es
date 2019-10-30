@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: d16e37849ce8ba043fdb1fddb13df2abe8732cda
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 3257e75849c3e00ae4b221746ebd25798a0aa6f0
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71717168"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757580"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Carga de un disco duro virtual mediante la CLI de Azure
 
@@ -109,11 +109,11 @@ targetLocale = <yourTargetLocationHere>
 
 sourceDiskSizeBytes= $(az disk show -g $sourceRG -n $sourceDiskName --query '[uniqueId]' -o tsv)
 
-az disk create -n $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+az disk create -g $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
 targetSASURI = $(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
 
-sourceSASURI=$(az disk grant-access -n <sourceDiskNameHere> -g $sourceRG --duration-in-seconds 86400 --query [acessSas] -o tsv)
+sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
 .\azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
 
@@ -124,6 +124,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha cargado correctamente un disco duro virtual en un disco administrado, puede conectar el disco a una máquina virtual y empezar a usarlo.
+Ahora que ha cargado correctamente un disco duro virtual en un disco administrado, puede conectar el disco como [disco de datos a una máquina virtual ya existente](add-disk.md) o [conectarlo como disco del sistema operativo](upload-vhd.md#create-the-vm), para crear una nueva máquina virtual. 
 
-Para aprender a conectar un disco a una máquina virtual, consulte nuestro artículo al respecto: [Adición de un disco a una máquina virtual Linux](add-disk.md).

@@ -1,13 +1,13 @@
 ---
-title: 'Referencia de select de OData: Azure Search'
-description: Referencia del lenguaje OData para la sintaxis de select en consultas de Azure Search.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
+title: Referencia de select de OData
+titleSuffix: Azure Cognitive Search
+description: Referencia del lenguaje OData para la sintaxis de select en consultas de Azure Cognitive Search
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64e9ad75d88f595ab5def6fe8b63fee9407ae0fe
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7786974f3d39f9cbc81e1ffea955156d623f1476
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647870"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793248"
 ---
-# <a name="odata-select-syntax-in-azure-search"></a>Sintaxis de $select de OData en Azure Search
+# <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintaxis de $select de OData en Azure Cognitive Search
 
- Puede usar el [parámetro **$select** de OData](query-odata-filter-orderby-syntax.md) para elegir qué campos quiere incluir en los resultados de la búsqueda de Azure Search. En este artículo se describe con detalle la sintaxis de **$select**. Para obtener información general sobre cómo usar **$select** al presentar los resultados de la búsqueda, vea [Uso de los resultados de la búsqueda en Azure Search](search-pagination-page-layout.md).
+ Puede usar el [parámetro **$select** de OData](query-odata-filter-orderby-syntax.md) para elegir qué campos quiere incluir en los resultados de la búsqueda de Azure Cognitive Search. En este artículo se describe con detalle la sintaxis de **$select**. Para obtener información general sobre cómo usar **$select** al presentar los resultados de la búsqueda, consulte [Uso de los resultados de la búsqueda en Azure Cognitive Search](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -45,10 +45,10 @@ field_path ::= identifier('/'identifier)*
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> Vea [Referencia de sintaxis de expresiones OData para Azure Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
+> Consulte [Referencia de la sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
 El parámetro **$select** tiene dos formatos:
 
@@ -110,7 +110,7 @@ Un resultado de ejemplo podría tener este aspecto:
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-- [Uso de los resultados de la búsqueda en Azure Search](search-pagination-page-layout.md)
-- [Información general sobre el lenguaje de expresiones OData para Azure Search](query-odata-filter-orderby-syntax.md)
-- [Referencia de sintaxis de expresiones OData para Azure Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Búsqueda en documentos [API REST de Azure Search Service])
+- [Uso de los resultados de la búsqueda en Azure Cognitive Search](search-pagination-page-layout.md)
+- [Introducción al lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [Referencia de la sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

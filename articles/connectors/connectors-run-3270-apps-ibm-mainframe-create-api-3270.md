@@ -1,5 +1,5 @@
 ---
-title: 'Conexión a aplicaciones de 3270 en sistemas centrales de IBM con Azure: Azure Logic Apps'
+title: 'Conexión a aplicaciones 3270 en sistemas centrales de IBM: Azure Logic Apps'
 description: Integración y automatización de aplicaciones controladas por pantallas 3270 con Azure mediante Azure Logic Apps y el conector de IBM 3270
 services: logic-apps
 ms.service: logic-apps
@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 50b8fc6b6a350d0a5982cc84f94067979d018cce
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f039d0cbfa2b34fecbcdee53ebe2b56b6e9b6d69
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050675"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787571"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integración de aplicaciones controladas por pantallas 3270 en sistemas centrales de IBM con Azure mediante Azure Logic Apps y el conector de IBM 3270
 

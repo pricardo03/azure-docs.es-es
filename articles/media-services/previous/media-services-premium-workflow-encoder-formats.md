@@ -14,18 +14,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 9ec8e2df8befa28fc023edb30889f177b60939f9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015038"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792588"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
 
 > [!NOTE]
-> Si tiene preguntas sobre Premium Encoder, envíe un correo electrónico a mepd@microsoft.com.
-> 
 > El procesador multimedia del flujo de trabajo premium de Media Encoder del que se habla en este tema no está disponible en China. 
 
 Este documento contiene una lista de los formatos de archivo de entrada y salida y los códecs que son compatibles con la vista previa pública del **Flujo de trabajo del Codificador multimedia premium** .
@@ -100,8 +98,6 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que se ad
 * Creación de miniaturas JPEG
 * HEVC (H.265; 8 bits y 10 bits, Perfil Main y Main 10)
 
-  El soporte técnico para HDR 10 está disponible en determinados escenarios; póngase en contacto con mepd@microsoft.com para obtener más información.
-
 
 ### <a name="output-audio-codecs"></a>Códecs de audio de salida
 
@@ -141,6 +137,9 @@ En la salida, están disponibles las siguientes opciones:
 
 Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío. 
 
+## <a name="need-help"></a>¿Necesita ayuda?
+
+Puede abrir una incidencia de soporte técnico si se desplaza a la [nueva solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

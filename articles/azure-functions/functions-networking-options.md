@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: ca7985ee302b35f8e7b39c46c229c7b0b263ffce
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 9fe7147325b2e14a7ae6bb4b31aa941fb4059b11
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170655"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690825"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -34,9 +34,9 @@ Puede hospedar aplicaciones de funciones de dos formas:
 |                |[Plan de consumo](functions-scale.md#consumption-plan)|[Plan Premium (versión preliminar)](functions-scale.md#premium-plan)|[plan de App Service](functions-scale.md#app-service-plan)|[entorno de App Service](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restricciones de IP de entrada y acceso al sitio privado](#inbound-ip-restrictions)|✅Sí|✅Sí|✅Sí|✅Sí|
-|[Integración de redes virtuales](#virtual-network-integration)|❌No|✅Sí (regional)|✅ Sí (regional y puerta de enlace)|✅Sí|
+|[Integración de redes virtuales](#virtual-network-integration)|❌No|✅Sí (regional)|✅Sí (regional y puerta de enlace)|✅Sí|
 |[Desencadenadores de red virtual (no HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Sí|✅Sí|
-|[conexiones híbridas](#hybrid-connections)|❌No|❌No|✅Sí|✅Sí|
+|[conexiones híbridas](#hybrid-connections)|❌No|✅Sí|✅Sí|✅Sí|
 |[Restricciones de IP de salida](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Sí|
 
 
@@ -52,7 +52,7 @@ Para obtener más información, consulte [Restricciones de acceso estático de A
 ## <a name="private-site-access"></a>El acceso privado a sitios
 
 El acceso privado a sitios se refiere a que solo se puede acceder a la aplicación desde una red privada (por ejemplo, desde dentro de una red virtual de Azure). 
-* El acceso privado a sitios está disponible en los planes [Premium](./functions-premium-plan.md) y [Consumo](functions-scale.md#consumption-plan) y en el [plan de App Service](functions-scale.md#app-service-plan) si se han configurado **puntos de conexión de servicio**. 
+* Si se han configurado **puntos de conexión de servicio**, el acceso privado a sitios está disponible en los planes [Premium](./functions-premium-plan.md), [Consumo] (functions-scale.md#consumption-plan) y [App Service](functions-scale.md#app-service-plan). 
     * Los puntos de conexión de servicio se pueden configurar por aplicación en Características de la plataforma > Redes > Configurar restricciones de acceso > Agregar regla. Las redes virtuales se pueden seleccionar ahora como el "tipo" de una regla.
     * Para obtener más información, consulte [Puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
         * Tenga en cuenta que, con los puntos de conexión de servicio, la función todavía tiene acceso saliente completo a Internet, incluso cuando está configurada la integración de red virtual.
@@ -102,12 +102,20 @@ La integración de redes virtuales en Functions usa una infraestructura comparti
 
 Para obtener más información sobre el uso de la integración de red virtual, consulte [Integración de una aplicación de funciones con una red virtual de Azure](functions-create-vnet.md).
 
-### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restricción de la cuenta de almacenamiento a una red virtual
+## <a name="connecting-to-service-endpoint-secured-resources"></a>Conexión a recursos protegidos del punto de conexión de servicio
 
 > [!note] 
-> De forma temporal, la cuenta de almacenamiento puede tardar hasta 12 horas en estar disponible para la aplicación de funciones una vez configuradas las restricciones de acceso en esa cuenta de almacenamiento. Durante este tiempo, la aplicación estará completamente sin conexión.
+> Una vez configuradas las restricciones de acceso en el recurso descendente, los nuevos puntos de conexión de servicio pueden tardar, de forma temporal, hasta 12 horas en estar disponibles para la aplicación de funciones. Durante este tiempo, el recurso dejará de estar disponible para la aplicación.
 
-Con el fin de proporcionar un mayor nivel de seguridad, puede restringir la cuenta de almacenamiento de la aplicación a una red virtual. A continuación, debe integrar el sitio con esa red virtual para tener acceso a su cuenta de almacenamiento. Esta configuración es compatible con todos los planes que admiten la integración de redes virtuales.
+Con el fin de proporcionar un mayor nivel de seguridad, puede restringir una serie de servicios de Azure a una red virtual mediante puntos de conexión de servicio. Después debe integrar la aplicación de funciones con esa red virtual para acceder al recurso. Esta configuración es compatible con todos los planes que admiten la integración de redes virtuales.
+
+[Más información sobre los puntos de conexión de servicio de la red virtual aquí](../virtual-network/virtual-network-service-endpoints-overview.md).
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restricción de la cuenta de almacenamiento a una red virtual
+Al crear una aplicación de funciones, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. En la actualidad, no es posible usar ninguna restricción de red virtual en esta cuenta. Si configura un punto de conexión de servicio de red virtual en la cuenta de almacenamiento que usa para la aplicación de funciones, se interrumpirá la aplicación.
+
+[Más información sobre los requisitos de la cuenta de almacenamiento aquí](./functions-create-function-app-portal.md#storage-account-requirements
+). 
 
 ## <a name="virtual-network-triggers-non-http"></a>Desencadenadores de red virtual (no HTTP)
 
@@ -119,11 +127,11 @@ Consulte [esta lista de todos los desencadenares que no son HTTP](./functions-tr
 
 ## <a name="hybrid-connections"></a>conexiones híbridas
 
-[Conexiones híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) es una característica de Azure Relay que se puede usar para acceder a recursos de la aplicación en otras redes. Proporciona acceso desde la aplicación a un punto de conexión de la aplicación. No se puede usar para acceder a la aplicación. Conexiones híbridas está disponible para las funciones que se ejecutan en un [plan de App Service](functions-scale.md#app-service-plan) y un [App Service Environment](../app-service/environment/intro.md).
+[Conexiones híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) es una característica de Azure Relay que se puede usar para acceder a recursos de la aplicación en otras redes. Proporciona acceso desde la aplicación a un punto de conexión de la aplicación. No se puede usar para acceder a la aplicación. Conexiones híbridas está disponible en todos los planes de Functions excepto el plan Consumo.
 
 Dado que se usa en Azure Functions, cada conexión híbrida se correlaciona con una combinación única de host y puerto TCP. Esto significa que el punto de conexión de la conexión híbrida puede estar en cualquier sistema operativo y en cualquier aplicación, siempre que se acceda a un puerto de escucha TCP. La característica Conexiones híbridas no sabe lo que es el protocolo de aplicaciones ni sabe a qué se accede. Simplemente ofrece acceso a la red.
 
-Para obtener más información, consulte la [documentación de App Service de Conexiones híbridas](../app-service/app-service-hybrid-connections.md), que es compatible con Functions en un plan de App Service.
+Para más información, consulte la [documentación de App Service de Conexiones híbridas](../app-service/app-service-hybrid-connections.md), que admite Functions mediante los mismos pasos de configuración.
 
 ## <a name="outbound-ip-restrictions"></a>Restricciones de IP de salida
 

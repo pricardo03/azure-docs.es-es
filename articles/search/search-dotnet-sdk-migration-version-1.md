@@ -1,23 +1,22 @@
 ---
-title: 'Actualización a la versión 1.1 del SDK de Azure Search para .NET: Azure Search'
+title: Actualización a la versión 1.1 del SDK de .NET para Azure Search
+titleSuffix: Azure Cognitive Search
 description: Migre el código a la versión 1.1 del SDK de Azure Search para .NET a partir de versiones de API anteriores. Obtenga información sobre las novedades y los cambios de código necesarios.
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: 8227e1b372af1eee43db59da2cfad165d67be9ae
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: 159aaa8424c3d7a711b587464b80696929f02186
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183274"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792378"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Actualización a la versión 1.1 del SDK de .NET para Azure Search
+# <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Actualización a la versión 1.1 del SDK de .NET para Azure Search
 
 Si usa la versión preliminar 1.0.2 o anterior del [SDK de .NET para Azure Search](https://aka.ms/search-sdk), este artículo le ayudará a actualizar la aplicación para que use la versión 1.1.
 

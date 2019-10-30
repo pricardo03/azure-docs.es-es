@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: bde68a70ac047433e86b7e06bc5f4a56bdd28595
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1f934bc5627331cc92ad3f497f1f7e4e0e5526cd
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028501"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595335"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -71,6 +71,28 @@ Si ha adaptado e implementado un modelo con la línea de base V1.0, esa implemen
 
 Póngase en contacto con el [servicio de soporte técnico de Speech](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) si requiere una escala mayor.
 
+Para aumentar la simultaneidad de un modelo personalizado, se necesita la siguiente información:
+
+- La región donde se implementa el modelo.
+- El identificador del punto de conexión del modelo implementado.
+
+Para aumentar la simultaneidad de los modelos base, se necesita la siguiente información:
+
+- La región del servicio
+
+y bien
+
+- un token de acceso para la suscripción (consulte [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token))
+
+o
+
+- el identificador del recurso de la suscripción:
+  - Vaya a https://portal.azure.com,
+  - seleccione `Cognitive Services` en el cuadro de búsqueda,
+  - en los servicios mostrados, seleccione el servicio de voz para el que desea aumentar la simultaneidad,
+  - muestre las propiedades de este servicio,
+  - copie el `Resource ID`completo.
+
 **P: ¿Puedo descargar mi modelo y ejecutarlo localmente?**
 
 **R.** : Los modelos no se pueden descargar ni ejecutar localmente.
@@ -94,7 +116,7 @@ Póngase en contacto con el [servicio de soporte técnico de Speech](mailto:spee
 
 **P: ¿Cuál es el límite de tamaño de un conjunto de datos, y por qué existe?**
 
-**R.** : El límite actual de un conjunto de datos es de 2 GB. El límite se debe a la restricción del tamaño de un archivo para la carga HTTP. 
+**R.** : El límite actual de un conjunto de datos es de 2 GB. El límite se debe a la restricción del tamaño de un archivo para la carga HTTP.
 
 **P: ¿Puedo comprimir mis archivos de texto para cargar un archivo de texto mayor?** 
 

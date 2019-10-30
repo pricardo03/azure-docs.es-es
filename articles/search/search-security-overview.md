@@ -1,30 +1,29 @@
 ---
-title: 'Seguridad y privacidad de los datos: Azure Search'
-description: Azure Search es compatible con SOC 2, HIPAA y otras certificaciones. Conexión y cifrado de datos, autenticación y acceso a identidades mediante identificadores de seguridad de usuarios y grupos en los filtros de Azure Search.
-author: HeidiSteen
+title: Seguridad y privacidad de los datos
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search es compatible con SOC 2, HIPAA y otras certificaciones. Conexión y cifrado de datos, autenticación y acceso a identidades mediante identificadores de seguridad de usuarios y grupos en expresiones de filtro.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 3a6ac7ff22c04bff5948193c163a7071cf2c2ff5
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 2e509535473fa50fd3150965e1513e056ead18a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320388"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794348"
 ---
-# <a name="security-and-data-privacy-in-azure-search"></a>Seguridad y privacidad de datos en Azure Search
+# <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Seguridad y privacidad de datos en Azure Cognitive Search
 
-Los controles de acceso y las características de seguridad integrales se integran en Azure Search para garantizar que el contenido privado se mantenga privado. En este artículo se enumeran las características de seguridad y el cumplimiento de normas integrados en Azure Search.
+Azure Cognitive Search lleva integrados completos controles de acceso y características de seguridad para garantizar que el contenido privado se mantenga privado. En este artículo se enumeran las características de seguridad y el cumplimiento de normas integrados en Azure Cognitive Search.
 
-La arquitectura de seguridad de Azure Search abarca seguridad física, transmisiones cifradas, almacenamiento cifrado y cumplimiento de normas en toda la plataforma. Azure Search solo acepta solicitudes autenticadas en sus operaciones. De modo opcional, puede agregar controles de acceso por usuario en el contenido mediante filtros de seguridad. En este artículo se trata la seguridad en cada capa, pero se centra principalmente en cómo se protegen los datos y las operaciones en Azure Search.
+La arquitectura de seguridad de Azure Cognitive Search abarca la seguridad física, las transmisiones cifradas, el almacenamiento cifrado y el cumplimiento de normas en toda la plataforma. Azure Cognitive Search solo acepta solicitudes autenticadas en sus operaciones. De modo opcional, puede agregar controles de acceso por usuario en el contenido mediante filtros de seguridad. En este artículo se trata la seguridad en cada capa, pero se centra principalmente en cómo se protegen los datos y las operaciones en Azure Cognitive Search.
 
 ## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Cumplimiento de estándares: ISO 27001, SOC 2, HIPAA
 
-Azure Search está certificada por los siguientes estándares, tal como se [anunció en junio de 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
+Azure Cognitive Search está certificado por los siguientes estándares, tal como se [anunció en junio de 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [Cumplimiento de SOC 2 tipo 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) Para ver el informe completo, vaya a [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports) (Informe de SOC 2 de tipo II de Azure y Azure Government). 
@@ -38,17 +37,17 @@ El cumplimiento de estándares se aplica a las características disponibles con 
 
 ## <a name="encrypted-transmission-and-storage"></a>Transmisión y almacenamiento cifrados
 
-El cifrado se extiende a lo largo de la canalización de indización: desde las conexiones, pasando por la transmisión y hasta los datos indizados almacenados en Azure Search.
+El cifrado se extiende a lo largo de la canalización de indexación entera: desde las conexiones, pasando por la transmisión y hasta los datos indexados almacenados en Azure Cognitive Search.
 
 | Nivel de seguridad | DESCRIPCIÓN |
 |----------------|-------------|
-| Cifrado en tránsito <br>(HTTPS/SSL/TLS) | Azure Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. <br/><br/>Todas las interacciones de Azure Search de cliente a servicio son compatibles con los protocolos SSL o TLS 1.2.  Asegúrese de usar TLSv1.2 para las conexiones SSL con el servicio.|
-| Cifrado en reposo <br>Claves administradas por Microsoft | El cifrado se internaliza totalmente en el proceso de indexación, sin impacto cuantificable a la hora de indexar el tiempo que tarda en completarse ni el tamaño de indexación. Se produce automáticamente en todas las indexaciones, incluidas las actualizaciones incrementales a un índice que no esté totalmente cifrado (creado antes de enero de 2018).<br><br>Internamente, el cifrado se basa en el [cifrado del servicio de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), que usa [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits.<br><br> El cifrado es interno para Azure Search, con certificados y claves de cifrado que Microsoft administra internamente, y se aplica universalmente. No se puede activar ni desactivar el cifrado, administrar ni sustituir sus claves, ni ver la configuración de cifrado en el portal o mediante programación.<br><br>El cifrado en reposo se anunció el 24 de enero de 2018 y se aplica a todos los niveles de servicio, incluido el nivel Gratis, en todas las regiones. Para el cifrado completo, los índices creados antes de esa fecha deben quitarse y volver a generarse para que se produzca el cifrado. En caso contrario, solo se cifrarán los datos nuevos a partir del 24 de enero.|
-| Cifrado en reposo <br>Claves administradas por el cliente | El cifrado con claves administradas por el cliente es una característica en **vista previa** (GB) que no está disponible para servicios gratuitos. En el caso de servicios de pago, solo está disponible para los servicios de búsqueda creados en enero de 2019 o posteriormente mediante la versión de API de versión preliminar más reciente (api-version=2019-05-06-Preview).<br><br>Las asignaciones de sinónimos y los índices de Azure Search ya se pueden cifran en reposo con claves administradas por el cliente en Azure Key Vault. Para obtener más información, consulte [Administración de claves de cifrado en Azure Search](search-security-manage-encryption-keys.md).<br>Esta característica no reemplaza el cifrado en reposo de forma predeterminada, sino que se aplica además de este.<br>Si habilita esta característica, aumentará el tamaño del índice y reducirá el rendimiento de las consultas. Según las observaciones hechas hasta la fecha, puede esperar un aumento del 30 al 60% en los tiempos de consultas, aunque el rendimiento real variará según la definición del índice y los tipos de consultas. Debido a este impacto en el rendimiento, se recomienda habilitar esta característica solo en los índices que realmente la necesitan.
+| Cifrado en tránsito <br>(HTTPS/SSL/TLS) | Azure Cognitive Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. <br/><br/>Todas las interacciones de Azure Cognitive Search entre el cliente y el servicio son compatibles con los protocolos SSL o TLS 1.2.  Asegúrese de usar TLSv1.2 para las conexiones SSL con el servicio.|
+| Cifrado en reposo <br>Claves administradas por Microsoft | El cifrado se internaliza totalmente en el proceso de indexación, sin impacto cuantificable a la hora de indexar el tiempo que tarda en completarse ni el tamaño de indexación. Se produce automáticamente en todas las indexaciones, incluidas las actualizaciones incrementales a un índice que no esté totalmente cifrado (creado antes de enero de 2018).<br><br>Internamente, el cifrado se basa en el [cifrado del servicio de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), que usa [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits.<br><br> El cifrado es interno para Azure Cognitive Search, con certificados y claves de cifrado que Microsoft administra internamente, y se aplica universalmente. No se puede activar ni desactivar el cifrado, administrar ni sustituir sus claves, ni ver la configuración de cifrado en el portal o mediante programación.<br><br>El cifrado en reposo se anunció el 24 de enero de 2018 y se aplica a todos los niveles de servicio, incluido el nivel Gratis, en todas las regiones. Para el cifrado completo, los índices creados antes de esa fecha deben quitarse y volver a generarse para que se produzca el cifrado. En caso contrario, solo se cifrarán los datos nuevos a partir del 24 de enero.|
+| Cifrado en reposo <br>Claves administradas por el cliente | El cifrado con claves administradas por el cliente es una característica en **vista previa** (GB) que no está disponible para servicios gratuitos. En el caso de servicios de pago, solo está disponible para los servicios de búsqueda creados en enero de 2019 o posteriormente mediante la versión de API de versión preliminar más reciente (api-version=2019-05-06-Preview).<br><br>Los mapas de sinónimos y los índices de Azure Cognitive Search ya se pueden cifran en reposo con claves administradas por el cliente en Azure Key Vault. Para más información, consulte [Administración de claves de cifrado en Azure Cognitive Search](search-security-manage-encryption-keys.md).<br>Esta característica no reemplaza el cifrado en reposo de forma predeterminada, sino que se aplica además de este.<br>Si habilita esta característica, aumentará el tamaño del índice y reducirá el rendimiento de las consultas. Según las observaciones hechas hasta la fecha, puede esperar un aumento del 30 al 60% en los tiempos de consultas, aunque el rendimiento real variará según la definición del índice y los tipos de consultas. Debido a este impacto en el rendimiento, se recomienda habilitar esta característica solo en los índices que realmente la necesitan.
 
 ## <a name="azure-wide-user-access-controls"></a>Controles de acceso de usuario en todo Azure
 
-Hay disponibles varios mecanismos de seguridad en todo Azure que, por tanto, están disponibles automáticamente para los recursos de Azure Search que cree.
+Azure cuenta con varios mecanismos de seguridad y, por tanto, están disponibles automáticamente para los recursos de Azure Cognitive Search que se creen.
 
 + [Bloqueos en el nivel de suscripción y recurso para evitar la eliminación](../azure-resource-manager/resource-group-lock-resources.md)
 + [Control de acceso basado en roles (RBAC) para controlar el acceso a la información y las operaciones administrativas](../role-based-access-control/overview.md)
@@ -59,7 +58,7 @@ Todos los servicios de Azure admiten controles de acceso basado en roles (RBAC) 
 
 ## <a name="service-access-and-authentication"></a>Autenticación y acceso al servicio
 
-Mientras Azure Search hereda las medidas de seguridad de la plataforma Azure, también proporciona su propia autenticación basada en claves. Una clave de API es una cadena que se compone de letras y números generados aleatoriamente. El tipo de clave (administrador o consulta) determina el nivel de acceso. El envío de una clave válida se considera una prueba de que la solicitud se origina desde una entidad de confianza. 
+Si bien Azure Cognitive Search hereda las medidas de seguridad de la plataforma Azure, también proporciona su propia autenticación basada en claves. Una clave de API es una cadena que se compone de letras y números generados aleatoriamente. El tipo de clave (administrador o consulta) determina el nivel de acceso. El envío de una clave válida se considera una prueba de que la solicitud se origina desde una entidad de confianza. 
 
 Hay dos niveles de acceso al servicio de búsqueda, habilitados por dos tipos de claves:
 
@@ -74,17 +73,17 @@ Se requiere autenticación en cada solicitud, y cada solicitud se compone de una
 
 ## <a name="index-access"></a>Acceso a los índices
 
-En Azure Search, un índice individual no es un objeto protegible. En su lugar, el acceso a un índice se determina en la capa de servicio (acceso de lectura o escritura), junto con el contexto de una operación.
+En Azure Cognitive Search, un índice individual no es un objeto protegible. En su lugar, el acceso a un índice se determina en la capa de servicio (acceso de lectura o escritura), junto con el contexto de una operación.
 
 Para el acceso del usuario final, puede estructurar las solicitudes de consulta para conectarse con una clave de consulta, lo que hace que cualquier solicitud sea de solo lectura e incluir el índice específico utilizado por la aplicación. En una solicitud de consulta, no existe el concepto de combinación de índices ni de acceso simultáneo a varios índices para que todas las solicitudes tengan un único índice de destino por definición. Por lo tanto, la construcción de la solicitud de consulta misma (una clave y un índice único de destino) define el límite de seguridad.
 
-Los accesos de administrador y de desarrollador a los índices no se diferencian: ambos necesitan tener acceso de escritura para crear, eliminar y actualizar objetos administrados por el servicio. Cualquier persona con una clave de administración del servicio puede leer, modificar o eliminar cualquier índice en el mismo servicio. Para la protección contra la eliminación accidental o malintencionada de índices, su control de código fuente interno para los recursos de código es la solución para revertir una eliminación o modificación de índices no deseada. Azure Search tiene conmutación por error dentro del clúster para garantizar la disponibilidad, pero no almacena ni ejecuta el código propietario utilizado para crear o cargar los índices.
+Los accesos de administrador y de desarrollador a los índices no se diferencian: ambos necesitan tener acceso de escritura para crear, eliminar y actualizar objetos administrados por el servicio. Cualquier persona con una clave de administración del servicio puede leer, modificar o eliminar cualquier índice en el mismo servicio. Para la protección contra la eliminación accidental o malintencionada de índices, su control de código fuente interno para los recursos de código es la solución para revertir una eliminación o modificación de índices no deseada. Azure Cognitive Search incluye conmutación por error dentro del clúster para garantizar la disponibilidad, pero no almacena ni ejecuta el código propietario utilizado para crear o cargar los índices.
 
-Para soluciones multiinquilino que requieren límites de seguridad en el nivel de índice, estas soluciones suelen incluir un nivel intermedio que los clientes utilizan para controlar el aislamiento de índices. Para más información sobre casos de uso para varios inquilinos, consulte [Modelos de diseño de aplicaciones SaaS para varios inquilinos y Azure Search](search-modeling-multitenant-saas-applications.md).
+Para soluciones multiinquilino que requieren límites de seguridad en el nivel de índice, estas soluciones suelen incluir un nivel intermedio que los clientes utilizan para controlar el aislamiento de índices. Para más información sobre los casos de uso de varios inquilinos, consulte [Modelos de diseño de aplicaciones SaaS para varios inquilinos y Azure Cognitive Search](search-modeling-multitenant-saas-applications.md).
 
 ## <a name="admin-access"></a>Acceso de administrador
 
-El [acceso basado en roles (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) determina si tiene acceso a los controles del servicio y su contenido. Si es propietario o colaborador en un servicio de Azure Search, puede usar el módulo **Az.Search** de PowerShell o el portal para crear, actualizar o eliminar objetos en el servicio. También puede usar la [API REST de administración de Azure Search](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+El [acceso basado en roles (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) determina si tiene acceso a los controles del servicio y su contenido. Si es propietario o colaborador en un servicio de Azure Cognitive Search, puede usar el módulo **Az.Search** de PowerShell o el portal para crear, actualizar o eliminar objetos del servicio. También puede usar la [API REST de administración de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 ## <a name="user-access"></a>Acceso de usuarios
 
@@ -99,7 +98,7 @@ Si necesita tener un control por usuario pormenorizado del contenido, puede crea
 
 ## <a name="table-permissioned-operations"></a>Tabla: Operaciones con permisos
 
-En la tabla siguiente se resumen las operaciones permitidas en Azure Search y la clave que desbloquea el acceso a una operación determinada.
+En la tabla siguiente se resumen las operaciones permitidas en Azure Cognitive Search y la clave que desbloquea el acceso a una operación determinada.
 
 | Operación | Permisos |
 |-----------|-------------------------|
@@ -123,6 +122,6 @@ Los centros de datos de Microsoft proporcionan una seguridad física líder en l
 
 + [Introducción a .NET (se muestra el uso de una clave de administración para crear un índice)](search-create-index-dotnet.md)
 + [Introducción a REST (se muestra el uso de una clave de administración para crear un índice)](search-create-index-rest-api.md)
-+ [Control de acceso basado en identidades mediante filtros de Azure Search](search-security-trimming-for-azure-search.md)
-+ [Control de acceso basado en identidades de Active Directory mediante filtros de Azure Search](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filtros de Azure Search](search-filters.md)
++ [Control de acceso basado en identidades mediante filtros de Azure Cognitive Search](search-security-trimming-for-azure-search.md)
++ [Control de acceso basado en identidades de Active Directory mediante filtros de Azure Cognitive Search](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtros de Azure Cognitive Search](search-filters.md)

@@ -1,13 +1,13 @@
 ---
-title: 'Introducción al lenguaje OData: Azure Search'
-description: Introducción al lenguaje OData para las expresiones filter, select y order by en consultas de Azure Search.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
+title: Introducción al lenguaje OData
+titleSuffix: Azure Cognitive Search
+description: Introducción a las expresiones filter, select y order by del lenguaje OData en consultas de Azure Cognitive Search.
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0bd446b0ffa97a758f68a0f85889b13da6e3d8b0
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: e0db41098287ff011416932a0d44a1cb9f76127d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650030"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786155"
 ---
-# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-search"></a>Introducción al lenguaje OData para `$filter`, `$orderby` y `$select` en Azure Search
+# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Introducción a `$filter`, `$orderby` y `$select` del lenguaje OData en Azure Cognitive Search
 
-Azure Search admite un subconjunto de la sintaxis de expresiones de OData para las expresiones **$filter**, **$orderby** y **$select**. Las expresiones de filtro se evalúan durante el análisis de la consulta, restringiendo la búsqueda a campos específicos o agregando criterios de coincidencia que se usan durante los exámenes de índice. Las expresiones Order by se aplican como un paso posterior al procesamiento sobre un conjunto de resultados para ordenar los documentos que se devuelven. Las expresiones select determinan qué campos de documento se incluyen en el conjunto de resultados. La sintaxis de estas expresiones es distinta de la sintaxis de consulta [simple](query-simple-syntax.md) o [completa](query-lucene-syntax.md) que se usa en el parámetro **search**, si bien existe cierto solapamiento en la sintaxis de los campos de referencia.
+Azure Cognitive Search admite un subconjunto de la sintaxis de expresiones de OData **$filter**, **$orderby** y **$select**. Las expresiones de filtro se evalúan durante el análisis de la consulta, restringiendo la búsqueda a campos específicos o agregando criterios de coincidencia que se usan durante los exámenes de índice. Las expresiones Order by se aplican como un paso posterior al procesamiento sobre un conjunto de resultados para ordenar los documentos que se devuelven. Las expresiones select determinan qué campos de documento se incluyen en el conjunto de resultados. La sintaxis de estas expresiones es distinta de la sintaxis de consulta [simple](query-simple-syntax.md) o [completa](query-lucene-syntax.md) que se usa en el parámetro **search**, si bien existe cierto solapamiento en la sintaxis de los campos de referencia.
 
 En este artículo se proporciona información general sobre el lenguaje de expresiones OData usado en las expresiones filter, order by y select. El lenguaje se presenta en sentido ascendente, se comienza con los elementos más básicos y se construye sobre ellos. La sintaxis de nivel superior de cada parámetro se describe en otro artículo:
 
@@ -36,13 +36,13 @@ En este artículo se proporciona información general sobre el lenguaje de expre
 - [Sintaxis de $orderby](search-query-odata-orderby.md)
 - [Sintaxis de $select](search-query-odata-select.md)
 
-Las expresiones de OData pueden ser sencillas o muy complejas, pero todas comparten elementos comunes. Las partes más básicas de una expresión de OData en Azure Search son:
+Las expresiones de OData pueden ser sencillas o muy complejas, pero todas comparten elementos comunes. Las partes más básicas de una expresión de OData en Azure Cognitive Search son:
 
 - **Rutas de acceso de campo**, que hacen referencia a campos específicos del índice.
 - **Constantes**, que son valores literales de un tipo de datos determinado.
 
 > [!NOTE]
-> La terminología de Azure Search se diferencia del [estándar de OData](https://www.odata.org/documentation/) de varias maneras. Lo que llamamos un **campo** en Azure Search se denomina una **propiedad** en OData y lo mismo para **ruta de acceso de campo** frente a **ruta de acceso de propiedad**. Un **índice** que contiene **documentos** en Azure Search se conoce más generalmente en OData como un **conjunto de entidades** que contiene **entidades**. A lo largo de esta referencia se usará la terminología de Azure Search.
+> La terminología de Azure Cognitive Search se diferencia del [estándar de OData](https://www.odata.org/documentation/) de varias maneras. Lo que llamamos un **campo** en Azure Cognitive Search se denomina **propiedad** en OData y lo mismo para **ruta de acceso de campo** frente a **ruta de acceso de propiedad**. Un **índice** que contiene **documentos** en Azure Cognitive Search se conoce más generalmente en OData como un **conjunto de entidades** que contiene **entidades**. A lo largo de esta referencia se usará la terminología de Azure Cognitive Search.
 
 ## <a name="field-paths"></a>Rutas de acceso de campo
 
@@ -59,10 +59,10 @@ identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
+> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
 
 > [!NOTE]
-> Consulte [Referencia de sintaxis de expresiones OData para Azure Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
+> Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
 Una ruta de acceso de campo se compone de uno o varios **identificadores** separados por barras diagonales. Cada identificador es una secuencia de caracteres que debe comenzar con una letra ASCII o un carácter de subrayado y contener solo letras ASCII, dígitos o caracteres de subrayado. Las letras pueden ser mayúsculas o minúsculas.
 
@@ -89,7 +89,7 @@ En este ejemplo, la variable de rango `room` aparece en la ruta de acceso de cam
 
 ### <a name="using-field-paths"></a>Uso de rutas de acceso de campo
 
-Las rutas de acceso de campo se usan en numerosos parámetros de [Azure Search API](https://docs.microsoft.com/rest/api/searchservice/). En la tabla siguiente se enumeran todos los lugares donde pueden usarse, además de las restricciones sobre su uso:
+Las rutas de acceso de campo se usan en numerosos parámetros de las [API REST de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/). En la tabla siguiente se enumeran todos los lugares donde pueden usarse, además de las restricciones sobre su uso:
 
 | API | Nombre de parámetro | Restricciones |
 | --- | --- | --- |
@@ -107,9 +107,9 @@ Las rutas de acceso de campo se usan en numerosos parámetros de [Azure Search A
 
 ## <a name="constants"></a>Constantes
 
-Las constantes en OData son valores literales de un determinado tipo de [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM). Consulte [Tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para ver una lista de tipos admitidos en Azure Search. No se admiten constantes de tipos de colección.
+Las constantes en OData son valores literales de un determinado tipo de [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM). Consulte [Tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para ver una lista de tipos admitidos en Azure Cognitive Search. No se admiten constantes de tipos de colección.
 
-En la tabla siguiente se muestran ejemplos de constantes para cada uno de los tipos de datos admitidos por Azure Search:
+En la tabla siguiente se muestran ejemplos de constantes de cada uno de los tipos de datos admitidos por Azure Cognitive Search:
 
 | Tipo de datos | Constantes de ejemplo |
 | --- | --- |
@@ -122,7 +122,7 @@ En la tabla siguiente se muestran ejemplos de constantes para cada uno de los ti
 | `Edm.Int64` | `283032927235` |
 | `Edm.String` | `'hello'` |
 
-El siguiente EBNF ([notación de Backus-Naur extendida](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define la gramática de la mayoría de las constantes que se muestran en la tabla anterior. La gramática para los tipos geoespaciales se puede encontrar en [OData geo-spatial functions in Azure Search](search-query-odata-geo-spatial-functions.md) (Funciones geoespaciales de OData en Azure Search).
+El siguiente EBNF ([notación de Backus-Naur extendida](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define la gramática de la mayoría de las constantes que se muestran en la tabla anterior. La gramática de los tipos geoespaciales se puede encontrar en [Funciones geoespaciales de Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -187,14 +187,14 @@ boolean_literal ::= 'true' | 'false'
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#constant)
+> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#constant)
 
 > [!NOTE]
-> Consulte [Referencia de sintaxis de expresiones OData para Azure Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
+> Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
 ## <a name="building-expressions-from-field-paths-and-constants"></a>Generación de expresiones a partir de rutas de acceso de campo y constantes
 
-Las rutas de acceso de campo y las constantes son la parte más básica de una expresión de OData, pero ya son expresiones completas por derecho propio. De hecho, el parámetro **$select** de Azure Search no es más que una lista separada por comas de las rutas de acceso de campo y **$orderby** no es mucho más complicado que **$select**. Si resulta que tiene un campo de tipo `Edm.Boolean` en el índice, puede escribir incluso un filtro que no sea si no la ruta de acceso de ese campo. Las constantes `true` y `false` son igualmente filtros válidos.
+Las rutas de acceso de campo y las constantes son la parte más básica de una expresión de OData, pero ya son expresiones completas por derecho propio. De hecho, el parámetro **$select** de Azure Cognitive Search no es más que una lista separada por comas de las rutas de acceso de campo y **$orderby** no es mucho más complicado que **$select**. Si resulta que tiene un campo de tipo `Edm.Boolean` en el índice, puede escribir incluso un filtro que no sea si no la ruta de acceso de ese campo. Las constantes `true` y `false` son igualmente filtros válidos.
 
 Sin embargo, casi siempre necesitará expresiones más complejas que hagan referencia a más de un campo y más de una constante. Estas expresiones se compilan de diferentes maneras según el parámetro.
 
@@ -213,23 +213,23 @@ select_expression ::= '*' | field_path(',' field_path)*
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
+> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
 
 > [!NOTE]
-> Consulte [Referencia de sintaxis de expresiones OData para Azure Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
+> Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
 Los parámetros **$orderby** y **$select** son ambos listas separadas por comas de expresiones más sencillas. El parámetro **$filter** es una expresión booleana que se compone de subexpresiones más sencillas. Estas subexpresiones se combinan mediante operadores lógicos, como [ `and`, `or`, y `not` ](search-query-odata-logical-operators.md), operadores de comparación, como [`eq`, `lt`, `gt`, etc.](search-query-odata-comparison-operators.md) y operadores de colección, como [`any` y `all`](search-query-odata-collection-operators.md).
 
 Los parámetros **$filter**, **$orderby**, y **$select** se exploran con más detalle en los siguientes artículos:
 
-- [Sintaxis de $filter de OData en Azure Search](search-query-odata-filter.md)
-- [Sintaxis de $orderby de OData en Azure Search](search-query-odata-orderby.md)
-- [Sintaxis de $select de OData en Azure Search](search-query-odata-select.md)
+- [Sintaxis de $filter de OData en Azure Cognitive Search](search-query-odata-filter.md)
+- [Sintaxis de $orderby de OData en Azure Cognitive Search](search-query-odata-orderby.md)
+- [Sintaxis de $select de OData en Azure Cognitive Search](search-query-odata-select.md)
 
 ## <a name="see-also"></a>Otras referencias  
 
-- [Navegación por facetas en Azure Search](search-faceted-navigation.md)
-- [Filtros de Azure Search](search-filters.md)
-- [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Búsqueda en documentos [API REST de Azure Search Service])
+- [Navegación por facetas en Azure Cognitive Search](search-faceted-navigation.md)
+- [Filtros de Azure Cognitive Search](search-filters.md)
+- [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 - [Sintaxis de consulta de Lucene](query-lucene-syntax.md)
-- [Simple query syntax in Azure Search](query-simple-syntax.md) (Sintaxis de consulta simple en Azure Search)
+- [Sintaxis de consulta simple en Azure Cognitive Search](query-simple-syntax.md)

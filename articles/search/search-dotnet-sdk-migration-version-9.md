@@ -1,23 +1,22 @@
 ---
-title: 'Actualización a la versión 9 del SDK de Azure Search para .NET: Azure Search'
+title: Actualización a la versión 9 del SDK de .NET para Azure Search
+titleSuffix: Azure Cognitive Search
 description: Migre el código a la versión 9 del SDK de Azure Search para .NET a partir de versiones anteriores. Obtenga información sobre las novedades y los cambios de código necesarios.
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: 32908ab209cbe05a0acf9da896e1e1fb11e6f5dd
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: fcc70267754f7e66f29dd1b855d3efb8b814e78b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183229"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793020"
 ---
-# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Actualizar a la versión 9 del SDK de .NET para Azure Search
+# <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Actualización a la versión 9 del SDK de .NET para Azure Search
 
 Si usa la versión preliminar 7.0 o anterior del [SDK de .NET para Azure Search](https://aka.ms/search-sdk), este artículo le ayudará a actualizar la aplicación para que use la versión 9.
 
@@ -38,7 +37,7 @@ La versión 9 del SDK de .NET para Azure Search contiene muchos cambios respecto
 ## <a name="whats-new-in-version-9"></a>Novedades de la versión 9
 La versión 9 del SDK de .NET para Azure Search tiene como destino la versión más reciente con disponibilidad general de la API de REST de Azure Search, en concreto la del 06-05-2019. Esto hace posible el uso de características nuevas de Azure Search desde una aplicación. NET, incluidas las siguientes:
 
-* La [búsqueda cognitiva](cognitive-search-concept-intro.md) es una característica de IA en Azure Search, que se usa para extraer el texto de imágenes, blobs y otros orígenes de datos no estructurados, enriqueciendo el contenido para facilitar las búsquedas en un índice de Azure Search.
+* El [enriquecimiento con inteligencia artificial](cognitive-search-concept-intro.md) es la capacidad de extraer el texto de imágenes, blobs y otros orígenes de datos no estructurados, enriqueciendo el contenido para facilitar las búsquedas en un índice de Azure Search.
 * La compatibilidad con [tipos complejos](search-howto-complex-data-types.md) le permite modelar casi cualquier estructura anidada JSON en un índice de Azure Search.
 * [Autocomplete](search-autocomplete-tutorial.md) proporciona una alternativa a la API de la función **Sugerir** para implementar el comportamiento de búsqueda mientras se escribe. Autocomplete "finaliza" la palabra o frase que un usuario está escribiendo actualmente.
 * El [modo de análisis de JsonLines](search-howto-index-json-blobs.md), parte de la indexación de Azure Blob, crea un documento de búsqueda por entidad JSON que está separado por una línea nueva.

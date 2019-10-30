@@ -1,25 +1,25 @@
 ---
-title: 'Creación de un conjunto de aptitudes en una canalización de búsqueda cognitiva: Azure Search'
-description: Defina la extracción de datos, el procesamiento de lenguaje natural o los pasos de análisis de imagen para enriquecer y extraer información estructurada de los datos para utilizarla en Azure Search.
+title: Creación de un conjunto de aptitudes en una canalización de enriquecimiento
+titleSuffix: Azure Cognitive Search
+description: Defina la extracción de datos, el procesamiento de lenguaje natural o los pasos de análisis de imágenes para enriquecer y extraer información estructurada de los datos para su uso en Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a60298b02b02e375d7241acf15852a19f814d59a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265527"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787467"
 ---
-# <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento
+# <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento de inteligencia artificial en Azure Cognitive Search 
 
-La búsqueda cognitiva extrae y enriquece datos para que se puedan buscar en Azure Search. A los pasos de extracción y enriquecimiento los denominamos *aptitudes cognitivas*, combinadas en un *conjunto de aptitudes* al que se hace referencia durante la indexación. Los conjuntos de aptitudes pueden utilizar [aptitudes predefinidas](cognitive-search-predefined-skills.md) o aptitudes personalizadas (consulte [Ejemplo: Creación de una aptitud personalizada de búsqueda cognitiva](cognitive-search-create-custom-skill-example.md) para más información).
+El enriquecimiento de inteligencia artificial extrae y enriquece datos para que se puedan buscar en Azure Cognitive Search. A los pasos de extracción y enriquecimiento los denominamos *aptitudes cognitivas*, combinadas en un *conjunto de aptitudes* al que se hace referencia durante la indexación. Los conjuntos de aptitudes pueden utilizar [aptitudes predefinidas](cognitive-search-predefined-skills.md) o aptitudes personalizadas (consulte [Ejemplo: Creación de una aptitud personalizada en una canalización de enriquecimiento de inteligencia artificial](cognitive-search-create-custom-skill-example.md) para más información).
 
-En este artículo aprenderá a crear una canalización de enriquecimiento para las aptitudes que desee utilizar. Se adjunta un conjunto de aptitudes a un [indexador](search-indexer-overview.md) de Azure Search. Una parte del diseño de canalización, que se trata en este artículo, es la construcción del propio conjunto de aptitudes. 
+En este artículo aprenderá a crear una canalización de enriquecimiento para las aptitudes que desee utilizar. Hay un conjunto de aptitudes asociado a un [indexador](search-indexer-overview.md) de Azure Cognitive Search. Una parte del diseño de canalización, que se trata en este artículo, es la construcción del propio conjunto de aptitudes. 
 
 > [!NOTE]
 > Otra parte del diseño de canalización es la especificación de un indexador, que se trata en el [siguiente paso](#next-step). Una definición de indexador incluye una referencia al conjunto de aptitudes, además de las asignaciones de campos que se usan para conectar las entradas a las salidas en el índice de destino.
@@ -42,13 +42,13 @@ Supongamos que está interesado en el procesamiento de un conjunto de comentario
 
 El siguiente diagrama muestra una canalización de enriquecimiento hipotética:
 
-![Una canalización de enriquecimiento hipotética](media/cognitive-search-defining-skillset/sample-skillset.png "A hypothetical enrichment pipeline")
+![Una canalización de enriquecimiento hipotética](media/cognitive-search-defining-skillset/sample-skillset.png "Una canalización de enriquecimiento hipotética")
 
 
-Una vez que tenga una idea clara de lo que desea en la canalización, puede expresar el conjunto de aptitudes que proporciona estos pasos. Funcionalmente, el conjunto de aptitudes se expresa al cargar la definición de indexador en Azure Search. Para más información sobre cómo cargar el indexador, consulte la [documentación del indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Una vez que tenga una idea clara de lo que desea en la canalización, puede expresar el conjunto de aptitudes que proporciona estos pasos. Funcionalmente, el conjunto de aptitudes se expresa al cargar la definición de indexador en Azure Cognitive Search. Para más información sobre cómo cargar el indexador, consulte la [documentación del indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 
-En el diagrama, el paso de *descifrado de documentos* se realiza automáticamente. Básicamente, Azure Search sabe cómo abrir archivos conocidos y crea un campo *content* que contiene el texto extraído de cada documento. Los cuadros blancos son enriquecedores integrados y el cuadro "Entity Search de Bing" con puntos representa un enriquecedor personalizado que está creando. Como se muestra, el conjunto de aptitudes contiene tres aptitudes.
+En el diagrama, el paso de *descifrado de documentos* se realiza automáticamente. Básicamente, Azure Cognitive Search sabe cómo abrir archivos conocidos y crea un campo *content* que contiene el texto extraído de cada documento. Los cuadros blancos son enriquecedores integrados y el cuadro "Entity Search de Bing" con puntos representa un enriquecedor personalizado que está creando. Como se muestra, el conjunto de aptitudes contiene tres aptitudes.
 
 ## <a name="skillset-definition-in-rest"></a>Definición del conjunto de aptitudes en REST
 
@@ -241,13 +241,13 @@ El conjunto de aptitudes genera información estructurada a partir de datos no e
 
 Una salida probable sería una estructura generada similar a la siguiente ilustración:
 
-![Estructura de salida de ejemplo](media/cognitive-search-defining-skillset/enriched-doc.png "Sample output structure")
+![Ejemplo de estructura de salida](media/cognitive-search-defining-skillset/enriched-doc.png "Ejemplo de estructura de salida")
 
-Hasta ahora, esta estructura ha sido solo de uso interno y solo de memoria, además de emplearse exclusivamente en índices de Azure Search. La adición de un almacén de conocimiento proporciona una manera de guardar enriquecimientos con forma para su uso más allá de la búsqueda.
+Hasta ahora, esta estructura ha sido solo de uso interno y solo de memoria, además de emplearse exclusivamente en índices de Azure Cognitive Search. La adición de un almacén de conocimiento proporciona una manera de guardar enriquecimientos con forma para su uso más allá de la búsqueda.
 
 ## <a name="add-a-knowledge-store"></a>Agregar un almacén de conocimiento
 
-El [almacén de conocimiento](knowledge-store-concept-intro.md) es una característica en vista previa de Azure Search para guardar el documento enriquecido. Un almacén de conocimiento que se crea, respaldado por una cuenta de Azure Storage, es el repositorio donde se colocan los datos enriquecidos. 
+El [almacén de conocimiento](knowledge-store-concept-intro.md) es una característica en versión preliminar de Azure Cognitive Search para guardar el documento enriquecido. Un almacén de conocimiento que se crea, respaldado por una cuenta de Azure Storage, es el repositorio donde se colocan los datos enriquecidos. 
 
 Una definición de almacén de conocimiento se agrega a un conjunto de aptitudes. Para obtener un tutorial de todo el proceso, vea [Introducción a Knowledge Store](knowledge-store-howto.md).
 

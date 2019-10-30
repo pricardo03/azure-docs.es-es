@@ -1,6 +1,6 @@
 ---
-title: Incorporación de artefactos a entornos del servicio de integración (ISE) en Azure Logic Apps
-description: Agregue aplicaciones lógicas, conectores personalizados y cuentas de integración al entorno del servicio de integración (ISE) para acceder a redes virtuales de Azure (VNET), a la vez que se mantiene privado y aislado del servicio público o "global" de Azure.
+title: 'Incorporación de artefactos al entorno del servicio de integración: Azure Logic Apps'
+description: Agregue aplicaciones lógicas, cuentas de integración y conectores personalizados al entorno del servicio de integración (ISE) para acceder a redes virtuales de Azure (VNET).
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6327f0c14b46ceaadbf7adaa58a70c32b39b7c2a
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 266c942adb62b187d39d2eac4a47455482bfadaa
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960489"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680525"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Incorporación de artefactos al entorno del servicio de integración (ISE) en Azure Logic Apps
 

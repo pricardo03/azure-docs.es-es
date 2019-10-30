@@ -1,21 +1,20 @@
 ---
-title: Agregar bucles que repiten acciones o matrices de procesos - Azure Logic Apps | Microsoft Docs
-description: Cómo crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
+title: Incorporación de bucles para repetir acciones en Azure Logic Apps
+description: Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-manager: jeconnoc
-ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/05/2019
+ms.openlocfilehash: 31885749a7194a94a403e5c156220b3fceab951d
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684097"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680446"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
@@ -196,7 +195,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
    | Propiedad | Valor | DESCRIPCIÓN |
    | -------- | ----- | ----------- |
    | **Nombre** | Límite | El nombre de la variable | 
-   | **Tipo** | Entero | El tipo de datos de la variable | 
+   | **Tipo** | Integer | El tipo de datos de la variable | 
    | **Valor** | 0 | El valor de inicio de la variable | 
    |||| 
 
@@ -237,7 +236,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
       | Propiedad | Valor | DESCRIPCIÓN |
       | -------- | ----- | ----------- | 
       | **To** | *\<dirección de correo electrónico\@dominio >* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
-      | **Asunto** | El valor actual de "Límite" es **Limit** | Especifique el asunto del correo electrónico. En este ejemplo, asegúrese de que incluye la variable **Limit**. | 
+      | **Subject** | El valor actual de "Límite" es **Limit** | Especifique el asunto del correo electrónico. En este ejemplo, asegúrese de que incluye la variable **Limit**. | 
       | **Cuerpo** | <*email-content*> | Especifique el contenido del mensaje de correo electrónico que desea enviar. En este ejemplo, escriba cualquier texto que desee. | 
       |||| 
 

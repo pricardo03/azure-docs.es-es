@@ -1,26 +1,25 @@
 ---
-title: 'Creación de conceptos y definición de un índice: Azure Search'
-description: Introducción a los términos y conceptos de índice en Azure Search, incluidos los elementos de los componentes y la estructura física.
-author: HeidiSteen
+title: Creación de conceptos y definición de un índice
+titleSuffix: Azure Cognitive Search
+description: Introducción a los términos y conceptos de índice en Azure Cognitive Search, incluidos los elementos de los componentes y la estructura física.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647362"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794209"
 ---
-# <a name="create-a-basic-index-in-azure-search"></a>Creación de un índice básico en Azure Search
+# <a name="create-a-basic-index-in-azure-cognitive-search"></a>Creación de un índice básico en Azure Cognitive Search
 
-En Azure Search, un *índice* es un almacén persistente de *documentos* y otras construcciones que se usa para las búsquedas de texto completo y filtrado en los servicios de Azure Search. Desde un punto de vista conceptual, un documento es una sola unidad de datos habilitada para búsquedas en el índice. Por ejemplo, un minorista de comercio electrónico podría tener un documento para cada objeto que vende, una organización de noticias podría tener un documento para cada artículo, etc. Estos conceptos pueden equipararse a equivalentes de base de datos más conocidos: un *índice* es conceptualmente similar a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
+En Azure Cognitive Search, un *índice* es un almacén persistente de *documentos* y otras construcciones que se usa para las búsquedas de texto completo y filtrado en los servicios de Azure Search. Desde un punto de vista conceptual, un documento es una sola unidad de datos habilitada para búsquedas en el índice. Por ejemplo, un minorista de comercio electrónico podría tener un documento para cada objeto que vende, una organización de noticias podría tener un documento para cada artículo, etc. Estos conceptos pueden equipararse a equivalentes de base de datos más conocidos: un *índice* es conceptualmente similar a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
 
-Al agregar o cargar un índice, Azure Search crea las estructuras físicas basadas en el esquema que proporciona. Por ejemplo, si un campo del índice está marcado como habilitado para búsquedas, se crea un índice invertido para ese campo. Posteriormente, cuando agrega o carga documentos o cuando envía consultas de búsqueda a Azure Search, está enviando las solicitudes a un índice específico del servicio de búsqueda. La carga de campos con valores de documento se denomina *indexación* o ingesta de datos.
+Al agregar o cargar un índice, Azure Cognitive Search crea las estructuras físicas basadas en el esquema que proporciona. Por ejemplo, si un campo del índice está marcado como habilitado para búsquedas, se crea un índice invertido para ese campo. Posteriormente, cuando agrega o carga documentos o cuando envía consultas de búsqueda a Azure Cognitive Search, está enviando las solicitudes a un índice específico del servicio de búsqueda. La carga de campos con valores de documento se denomina *indexación* o ingesta de datos.
 
 Puede crear un índice en el portal, la [API REST](search-create-index-rest-api.md) o el [SDK de .NET](search-create-index-dotnet.md).
 
@@ -32,7 +31,7 @@ Para llegar al diseño adecuado del índice, se necesitan normalmente varias ite
 
 2. Si no puede usar dicho asistente, puede [crear un índice inicial en el portal](search-create-index-portal.md), y agregar campos y tipos de datos y asignar atributos mediante los controles de la página **Add Index** (Agregar índice). El portal muestra los atributos que están disponibles para diferentes tipos de datos. Si no está familiarizado con el diseño de índices, esta información resulta útil.
 
-   ![Agregar página de índice que muestra atributos por tipo de datos](media/search-create-index-portal/field-attributes.png "Add index page showing attributes by data type")
+   ![Página Agregar índice que muestra los atributos según el tipo de datos](media/search-create-index-portal/field-attributes.png "Página Agregar índice que muestra los atributos según el tipo de datos")
   
    Al hacer clic en **Create** (Crear), se crean todas las estructuras físicas que respaldan el índice en el servicio de búsqueda.
 
@@ -40,7 +39,7 @@ Para llegar al diseño adecuado del índice, se necesitan normalmente varias ite
 
    Llegados a este punto, va a cambiar a un enfoque basado en código. El portal no es adecuado para la iteración porque no se puede editar un índice que ya se ha creado. Sin embargo, puede usar Postman y REST en el resto de las tareas.
 
-4. [Cargue el índice con datos](search-what-is-data-import.md). Azure Search acepta documentos JSON. Para cargar los datos mediante programación, puede usar Postman con documentos JSON en la carga de solicitudes. Si los datos no se expresan con facilidad como JSON, este paso será más laborioso.
+4. [Cargue el índice con datos](search-what-is-data-import.md). Azure Cognitive Search acepta documentos JSON. Para cargar los datos mediante programación, puede usar Postman con documentos JSON en la carga de solicitudes. Si los datos no se expresan con facilidad como JSON, este paso será más laborioso.
 
 5. Consulte el índice, examine los resultados y siga recorriendo en iteración el esquema de índice hasta que empiece a ver los resultados esperados. Puede usar el [**explorador de búsqueda**](search-explorer.md) o Postman para consultar el índice.
 
@@ -52,7 +51,7 @@ Para un diseño iterativo, se recomienda código, en lugar del portal. Si confí
 
 ## <a name="components-of-an-index"></a>Componentes de un índice
 
-De forma esquemática, un índice de Azure Search se compone de los siguientes elementos. 
+De forma esquemática, un índice de Azure Cognitive Search se compone de los siguientes elementos. 
 
 La [*recopilación de campos*](#fields-collection) es normalmente el elemento más grande de un índice, en el que cada campo recibe un nombre, se escribe y se le asignan unos atributos con los comportamientos permitidos que determinan cómo se usa. Otros elementos incluyen [proveedores de sugerencias](#suggesters), [perfiles de puntuación](#scoring-profiles), [analizadores](#analyzers) con elementos de componentes que admitan personalización y opciones de [CORS](#cors) y [clave de cifrado](#encryption-key).
 
@@ -157,7 +156,7 @@ Al definir el esquema, debe especificar el nombre, el tipo y los atributos de ca
 | *Edm.DateTimeOffset* |Los valores de fecha y hora se representan con el formato OData V4 (por ejemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` o `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Un punto que representa una ubicación geográfica en todo el mundo. |
 
-Puede encontrar información más detallada sobre los [tipos de datos de Azure Search admitidos aquí](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+Puede encontrar información más detallada sobre los [tipos de datos de Azure Cognitive Search admitidos aquí](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="index-attributes"></a>Atributos de índice
 
@@ -183,14 +182,14 @@ Los atributos seleccionados tienen un efecto sobre el almacenamiento. La siguien
 
 El índice se basa en el origen de datos [ejemplo de real estate integrado](search-get-started-portal.md), que se puede indexar y consultar en el portal. Aunque no se muestran los esquemas de índice, puede deducir los atributos según el nombre del índice. Por ejemplo, el índice *realestate-searchable* tiene seleccionado el atributo **searchable** y nada más, el índice *realestate-retrievable* tiene seleccionado el atributo **retrievable** y nada más y así sucesivamente.
 
-![Tamaño de índice según la selección de atributos](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
+![Tamaño del índice basado en la selección de atributos](./media/search-what-is-an-index/realestate-index-size.png "Tamaño del índice basado en la selección de atributos")
 
 Aunque estas variantes de índice son artificiales, se puede hacer referencia a ellas en comparaciones más amplias de cómo los atributos afectan al almacenamiento. ¿El valor **retrievable** aumenta el tamaño del índice? No. ¿Agregar campos a un **proveedor de sugerencias** aumenta el tamaño del índice? Sí.
 
 Los índices que admiten ordenación y filtrado son en proporción más grandes que aquellos que solo admiten búsqueda de texto completo. El motivo es que la consulta de ordenación y filtrado se realiza por coincidencias exactas, de forma que los documentos se almacenan intactos. En cambio, los campos que permiten búsquedas que admiten búsqueda de texto completo y búsqueda parcial usan índices invertidos, que se rellenan con términos acortados que consumen menos espacio que los documentos completos.
 
 > [!Note]
-> La arquitectura de almacenamiento se considera un detalle de implementación de Azure Search y podría cambiar sin previo aviso. No hay ninguna garantía de que el comportamiento actual se conserve en el futuro.
+> La arquitectura de almacenamiento se considera un detalle de implementación de Azure Cognitive Search y podría cambiar sin previo aviso. No hay ninguna garantía de que el comportamiento actual se conserve en el futuro.
 
 ## <a name="suggesters"></a>Proveedores de sugerencias
 Un proveedor de sugerencias es una sección del esquema que define qué campos de un índice se utilizan para admitir consultas con la función Autocompletar o con escritura automática en las búsquedas. Normalmente, las cadenas de búsqueda parcial se envían a las [API REST de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) mientras el usuario escribe una consulta de búsqueda, y la API devuelve un conjunto de frases sugeridas. 
@@ -205,7 +204,7 @@ El perfil de puntuación predeterminada funciona en segundo plano para calcular 
 
 ## <a name="analyzers"></a>Analizadores
 
-El elemento de analizadores establece el nombre del analizador de idioma que se utilizará para el campo. Para más información sobre el intervalo de analizadores disponibles, consulte [Adición de analizadores a un índice de Azure Search](search-analyzers.md). Los analizadores solo pueden usarse con campos de que permiten búsquedas. Una vez que el analizador se asigna a un campo, no se puede cambiar a menos que se vuelva a generar el índice.
+El elemento de analizadores establece el nombre del analizador de idioma que se utilizará para el campo. Para más información sobre el intervalo de analizadores disponibles, consulte [Adición de analizadores a un índice de Azure Cognitive Search](search-analyzers.md). Los analizadores solo pueden usarse con campos de que permiten búsquedas. Una vez que el analizador se asigna a un campo, no se puede cambiar a menos que se vuelva a generar el índice.
 
 ## <a name="cors"></a>CORS
 
@@ -221,7 +220,7 @@ Se pueden establecer las opciones siguientes para CORS:
 
 ## <a name="encryption-key"></a>Clave de cifrado
 
-Mientras todos los índices de búsqueda de Azure se cifran mediante claves administradas por Microsoft de manera predeterminada, los índices se pueden configurar para cifrarse con **claves administradas por el cliente** en Key Vault. Para obtener más información, consulte [Administración de claves de cifrado en Azure Search](search-security-manage-encryption-keys.md).
+Mientras todos los índices de Azure Cognitive Search se cifran mediante claves administradas por Microsoft de manera predeterminada, los índices se pueden configurar para cifrarse con **claves administradas por el cliente** en Key Vault. Para obtener más información, consulte [Administración de claves de cifrado en Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

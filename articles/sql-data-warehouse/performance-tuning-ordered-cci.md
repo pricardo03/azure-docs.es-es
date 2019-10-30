@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0aecb2309743ffecc2fb68435192224c6c690aee
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035110"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595363"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado  
 
@@ -119,10 +119,10 @@ El siguiente es un ejemplo de una distribución de tabla de CCI ordenado que no 
 ## <a name="create-ordered-cci-on-large-tables"></a>Creación de un CCI ordenado en tablas grandes
 La creación de un CCI ordenado es una operación sin conexión.  En el caso de tablas sin particiones, los datos no serán accesibles para los usuarios hasta que se complete el proceso de creación del CCI ordenado.   En el caso de tablas con particiones, como el motor crea el CCI ordenado partición a partición, los usuarios todavía pueden acceder a los datos de las particiones en las que la creación del CCI ordenado no está en curso.   Puede usar esta opción para minimizar el tiempo de inactividad durante la creación del CCI ordenado en tablas grandes: 
 
-1.  Cree particiones en la tabla grande de destino (llamada tabla A).
-2.  Cree una tabla de CCI ordenado vacía (llamada tabla B) con la misma tabla y esquema de particiones que la tabla A.
+1.  Cree particiones en la tabla grande de destino (llamada Table_A).
+2.  Cree una tabla de CCI ordenado vacía (llamada Tabla_B) con la misma tabla y esquema de particiones que la tabla A.
 3.  Cambie una partición de la tabla A a la tabla B.
-4.  Ejecute ALTER INDEX <Índice_CCI_ordenado> REBUILD PARTITION = <Identificador_de_partición> en la tabla B para volver a generar la partición cambiada.  
+4.  Ejecute ALTER INDEX <Índice_CCI_ordenado> ON <Tabla_B> REBUILD PARTITION = <Identificador_de_partición> en la tabla B para volver a generar la partición cambiada.  
 5.  Repita los pasos 3 y 4 para cada partición de la tabla A.
 6.  Una vez que todas las particiones se han cambiado de la tabla A a la tabla B y se han vuelto a generar, elimine la tabla A y cambie el nombre de la tabla B a tabla A. 
 

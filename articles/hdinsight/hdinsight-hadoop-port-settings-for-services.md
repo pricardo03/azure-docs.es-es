@@ -1,23 +1,23 @@
 ---
 title: Puertos utilizados por los servicios Hadoop en HDInsight (Azure)
-description: Esto proporciona una lista de puertos usados por los servicios de Apache Hadoop que se ejecutan en Azure HDInsight.
+description: En este artículo se proporciona una lista de puertos usados por los servicios de Apache Hadoop que se ejecutan en Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/27/2019
-ms.author: hrasheed
-ms.openlocfilehash: 1fe66c1c171e779f48f4cc7c6767307feaafbd5f
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/15/2019
+ms.openlocfilehash: 46c2cd49258b8eb6813caaf50e9895990ce67287
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733420"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529544"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Apache Hadoop en HDInsight
 
-En este documento se proporciona una lista de puertos que se usan con los servicios de Apache Hadoop que se ejecutan en clústeres de HDInsight basados en Linux. También se proporciona información sobre los puertos utilizados para conectarse al clúster mediante SSH.
+En este documento se proporciona una lista de puertos que se usan con los servicios de Apache Hadoop que se ejecutan en clústeres de HDInsight. También se proporciona información sobre los puertos utilizados para conectarse al clúster mediante SSH.
 
 ## <a name="public-ports-vs-non-public-ports"></a>Puertos públicos frente a puertos no públicos
 
@@ -26,7 +26,7 @@ Los clústeres de HDInsight basados en Linux solo exponen tres puertos públicam
 Internamente, HDInsight se implementa mediante varias Azure Virtual Machines (los nodos del clúster) que se ejecutan en una instancia de Azure Virtual Network. Desde dentro de la red virtual, puede acceder a los puertos no expuestos a través de Internet. Por ejemplo, si se conecta a uno de los nodos principales con SSH, desde él puede acceder directamente a los servicios que se ejecutan en los nodos del clúster.
 
 > [!IMPORTANT]  
-> Si no especifica una instancia de Azure Virtual Network como una opción de configuración de HDInsight, automáticamente se crea una. Sin embargo, no puede unir otras máquinas (por ejemplo, otras Azure Virtual Machines o su equipo de desarrollo de cliente) a esta red virtual.
+> Si no especifica una instancia de Azure Virtual Network como una opción de configuración de HDInsight, automáticamente se crea una. Sin embargo, no puede unir otras máquinas (por ejemplo, otras instancias de Azure Virtual Machines o su máquina de desarrollo de cliente) a esta red virtual.
 
 Para unir equipos adicionales a la red virtual, debe crear primero la red virtual y luego especificarla al crear el clúster de HDInsight. Para más información, consulte [Planeamiento de una red virtual para HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
@@ -73,7 +73,7 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 
 ### <a name="ambari"></a>Ambari
 
-| Servicio | Nodos | Port | Ruta de acceso URL | Protocolo | 
+| Servicio | Nodos | Port | Ruta de acceso URL | Protocolo |
 | --- | --- | --- | --- | --- |
 | Interfaz de usuario web de Ambari | Nodos principales | 8080 | / | HTTP |
 | API de REST de Ambari | Nodos principales | 8080 | /api/v1 | HTTP |

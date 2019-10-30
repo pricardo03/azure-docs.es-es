@@ -1,42 +1,41 @@
 ---
-title: 'Preguntas frecuentes (FAQ): Azure Search'
-description: Obtenga respuestas a preguntas comunes sobre Microsoft Azure Search Service, un servicio de búsqueda hospedado en la nube en Microsoft Azure.
-author: HeidiSteen
+title: Preguntas más frecuentes
+titleSuffix: Azure Cognitive Search
+description: Obtenga respuestas a preguntas comunes sobre el servicio Microsoft Azure Cognitive Search, un servicio de búsqueda hospedado en la nube en Microsoft Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/03/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 600c619134cae18e69b5a200cb03fbebd82dee0f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: fee74cb6ec5acd5fa0f171eab9769a833f04ad66
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719888"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792910"
 ---
-# <a name="azure-search---frequently-asked-questions-faq"></a>Microsoft Azure Search: preguntas más frecuentes (P+F)
+# <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search: preguntas más frecuentes (P+F)
 
- Encuentre respuestas a preguntas habituales sobre conceptos, código y escenarios relacionados con Azure Search.
+ Encuentre respuestas a preguntas habituales sobre conceptos, código y escenarios relacionados con Azure Cognitive Search.
 
 ## <a name="platform"></a>Plataforma
 
-### <a name="how-is-azure-search-different-from-full-text-search-in-my-dbms"></a>¿En qué se diferencia la búsqueda de texto completo en DBMS de la de Azure Search?
+### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>¿En qué se diferencia Azure Cognitive Search de la búsqueda de texto completo de mi DBMS?
 
-Azure Search admite varios orígenes de datos, el [análisis lingüístico en muchos lenguajes](https://docs.microsoft.com/rest/api/searchservice/language-support), [análisis personalizados para entradas de datos interesantes e inusuales](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), controles del rango de búsqueda a través de [perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) y características de la experiencia del usuario como la escritura anticipada, el resaltado de referencias y la navegación por facetas. También incluye otras características, como los sinónimos y la sintaxis de consulta completa, pero no suelen ser relevantes.
+Azure Cognitive Search admite varios orígenes de datos, el [análisis lingüístico en muchos lenguajes](https://docs.microsoft.com/rest/api/searchservice/language-support), [análisis personalizados para entradas de datos interesantes e inusuales](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), controles del rango de búsqueda a través de [perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) y características de la experiencia del usuario como la escritura anticipada, el resaltado de referencias y la navegación por facetas. También incluye otras características, como los sinónimos y la sintaxis de consulta completa, pero no suelen ser relevantes.
 
-### <a name="what-is-the-difference-between-azure-search-and-elasticsearch"></a>¿Cuál es la diferencia entre Azure Search y Elasticsearch?
+### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>¿Cuál es la diferencia entre Azure Cognitive Search y Elasticsearch?
 
-Cuando se comparan las tecnologías de búsqueda, los clientes a menudo preguntan información específica sobre Azure Search y Elasticsearch. Los clientes que eligen Azure Search en lugar de Elasticsearch para sus proyectos de aplicaciones de búsqueda suelen hacerlo porque hemos conseguido facilitar una tarea clave o porque necesitan integración incorporada con otras tecnologías de Microsoft:
+Cuando se comparan las tecnologías de búsqueda, los clientes a menudo preguntan información específica sobre Azure Cognitive Search y Elasticsearch. Los clientes que eligen Azure Cognitive Search en lugar de Elasticsearch para sus proyectos de aplicaciones de búsqueda suelen hacerlo porque hemos conseguido facilitar una tarea clave o porque necesitan integración incorporada con otras tecnologías de Microsoft:
 
-+ Azure Search es un servicio en la nube completamente administrado con acuerdos de nivel de servicio (SLA) del 99,9 % cuando se aprovisiona con suficiente redundancia (dos réplicas para el acceso de lectura y tres para lectura y escritura).
++ Azure Cognitive Search es un servicio en la nube completamente administrado con acuerdos de nivel de servicio (SLA) del 99,9 % cuando se aprovisiona con suficiente redundancia (dos réplicas para el acceso de lectura y tres para lectura y escritura).
 + Los [procesadores de lenguaje Natural](https://docs.microsoft.com/rest/api/searchservice/language-support) de Microsoft ofrecen un análisis lingüístico de vanguardia.  
-+ Los [indexadores de Azure Search](search-indexer-overview.md) pueden rastrear diversos orígenes de datos de Azure para llevar a cabo la indexación inicial e incremental.
++ Los [indexadores de Azure Cognitive Search](search-indexer-overview.md) pueden rastrear diversos orígenes de datos de Azure para llevar a cabo la indexación inicial e incremental.
 + Si necesita una respuesta rápida a las fluctuaciones de volúmenes de indexación o de consultas, puede usar [controles deslizantes](search-manage.md#scale-up-or-down) en Azure Portal o ejecutar un [script de PowerShell](search-manage-powershell.md), omitiendo la administración de particiones directamente.  
 + Las [características de optimización y puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) proporcionan medios para influir en las clasificaciones de las búsquedas más allá de lo que puede proporcionar únicamente el motor de búsqueda.
 
-### <a name="can-i-pause-azure-search-service-and-stop-billing"></a>¿Se puede pausar el servicio Azure Search y dejar de facturar?
+### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>¿Se puede pausar el servicio Azure Cognitive Search y dejar de facturar?
 
 El servicio no se puede pausar. Cuando se crea el servicio, se asignan los recursos de proceso y almacenamiento para su uso exclusivo. No es posible liberar y recuperar esos recursos a petición.
 
@@ -48,21 +47,21 @@ Durante la fase de desarrollo, es posible que quiera mover el índice entre los 
 
 O puede que quiera realizar una copia de seguridad de una instantánea de índice que se pueda usar para restaurarla más tarde. 
 
-Puede realizar todas estas acciones con el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Search](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
+Puede realizar todas estas acciones con el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
 
-También puede [obtener una definición de índice](https://docs.microsoft.com/rest/api/searchservice/get-index) en cualquier momento mediante la API REST de Azure Search.
+También puede [obtener una definición de índice](https://docs.microsoft.com/rest/api/searchservice/get-index) en cualquier momento mediante la API REST de Azure Cognitive Search.
 
 Actualmente no hay ninguna característica de extracción de índices, instantáneas o restauración de copias de seguridad en Azure Portal. Sin embargo, estamos considerando la opción de agregar la funcionalidad de restauración y copia de seguridad en una futura versión. Si quiere mostrar su apoyo para esta característica, vote en [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
 ### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>¿Puedo restaurar mi índice o servicio una vez que los he eliminado?
 
-No, si elimina un servicio o índice de Azure Search, no se puede recuperar. Cuando elimina un servicio de Azure Search, se eliminarán permanentemente todos los índices en el servicio. Si elimina un grupo de recursos de Azure que contiene uno o varios servicios de Azure Search, se eliminarán permanentemente todos los servicios.  
+No, si elimina un servicio o índice de Azure Cognitive Search, no se puede recuperar. Cuando elimina un servicio de Azure Cognitive Search, se eliminarán permanentemente todos los índices en el servicio. Si elimina un grupo de recursos de Azure que contiene uno o varios servicios de Azure Cognitive Search, se eliminarán permanentemente todos los servicios.  
 
 Para volver a crear recursos, como índices, indexadores, orígenes de datos y conjuntos de habilidades, es necesario volver a crearlos desde el código. 
 
 Para volver a crear un índice, debe volver a indexar los datos de orígenes externos. Por este motivo, se recomienda conservar una copia maestra o copia de seguridad de los datos originales en otro almacén de datos, como Azure SQL Database o Cosmos DB.
 
-También puede usar el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Search](https://github.com/Azure-Samples/azure-search-dotnet-samples) para realizar la copia de seguridad de una definición de índice e indexar instantáneas en una serie de archivos JSON. Más tarde, puede usar la herramienta y los archivos para restaurar el índice, en caso de que sea necesario.  
+También puede usar el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-dotnet-samples) para realizar la copia de seguridad de una definición de índice e indexar instantáneas en una serie de archivos JSON. Más tarde, puede usar la herramienta y los archivos para restaurar el índice, en caso de que sea necesario.  
 
 ### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexershttpsdocsmicrosoftcomazuresearchsearch-howto-connecting-azure-sql-database-to-azure-search-using-indexers"></a>¿Se pueden indexar réplicas de bases de datos SQL? (Se aplica a [indexadores de Azure SQL Database](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
@@ -90,7 +89,7 @@ La mayoría de las consultas de búsqueda con comodín, como las que llevan pref
 
 ### <a name="why-is-the-search-rank-a-constant-or-equal-score-of-10-for-every-hit"></a>¿Por qué el rango de búsqueda es una clasificación igual o constante de 1.0 para cada acierto?
 
-De forma predeterminada, los resultados de la búsqueda se puntúan según las [propiedades estadísticas de los términos de búsqueda de coincidencias](search-lucene-query-architecture.md#stage-4-scoring) y se ordena de mayor a menor en el conjunto de resultados. Sin embargo, algunos tipos de consulta (comodín, prefijo y regex) siempre aportan una puntuación constante a la puntuación total del documento. Este comportamiento es así por diseño. Azure Search impone una puntuación constante que permite la inclusión de las coincidencias encontradas a través de la expansión de consultas en los resultados, pero sin que ello afecte a la clasificación.
+De forma predeterminada, los resultados de la búsqueda se puntúan según las [propiedades estadísticas de los términos de búsqueda de coincidencias](search-lucene-query-architecture.md#stage-4-scoring) y se ordena de mayor a menor en el conjunto de resultados. Sin embargo, algunos tipos de consulta (comodín, prefijo y regex) siempre aportan una puntuación constante a la puntuación total del documento. Este comportamiento es así por diseño. Azure Cognitive Search impone una puntuación constante que permite la inclusión de las coincidencias encontradas a través de la expansión de consultas en los resultados, pero sin que ello afecte a la clasificación.
 
 Por ejemplo, suponga que la entrada "pase*" en una búsqueda con caracteres comodín genera coincidencias en "pasear", "paseo" y "paseante". Dada la naturaleza de estos resultados, no hay ninguna manera razonable de deducir qué términos son más valiosos que los demás. Por este motivo, se omiten las frecuencias de los términos cuando se realiza la puntuación de los resultados en consultas de los tipos caracteres comodín, prefijo y regex. Los resultados de la búsqueda en función de una entrada parcial reciben una puntuación constante para evitar un sesgo hacia coincidencias potencialmente inesperadas.
 
@@ -98,7 +97,7 @@ Por ejemplo, suponga que la entrada "pase*" en una búsqueda con caracteres como
 
 ### <a name="what-is-the-best-approach-for-implementing-localized-search"></a>¿Cuál es el mejor método para implementar la búsqueda localizada?
 
-La mayoría de los clientes eligen campos dedicados en una colección cuando se trata de admitir distintas configuraciones regionales (idiomas) en el mismo índice. Los campos específicos de la configuración regional permiten asignar un analizador adecuado. Por ejemplo, asignar Microsoft French Analyzer a un campo que contiene cadenas en francés. También simplifica el filtrado. Si sabe que una consulta se inicia en una página fr-fr, puede limitar los resultados de búsqueda a este campo. O bien, puede crear un [perfil de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) para dar al campo más peso relativo. Azure Search admite más de [cincuenta analizadores de lenguaje](https://docs.microsoft.com/azure/search/search-language-support) entre los que puede elegir.
+La mayoría de los clientes eligen campos dedicados en una colección cuando se trata de admitir distintas configuraciones regionales (idiomas) en el mismo índice. Los campos específicos de la configuración regional permiten asignar un analizador adecuado. Por ejemplo, asignar Microsoft French Analyzer a un campo que contiene cadenas en francés. También simplifica el filtrado. Si sabe que una consulta se inicia en una página fr-fr, puede limitar los resultados de búsqueda a este campo. O bien, puede crear un [perfil de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) para dar al campo más peso relativo. Azure Cognitive Search admite más de [50 analizadores de lenguaje](https://docs.microsoft.com/azure/search/search-language-support) entre los que puede elegir.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -106,6 +105,6 @@ La mayoría de los clientes eligen campos dedicados en una colección cuando se 
 
 ## <a name="see-also"></a>Otras referencias
 
- [StackOverflow: Azure Search](https://stackoverflow.com/questions/tagged/azure-search)   
- [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md)  
- [¿Qué es Azure Search?](search-what-is-azure-search.md)
+ [StackOverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   
+ [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md)  
+ [¿Qué es Azure Cognitive Search?](search-what-is-azure-search.md)

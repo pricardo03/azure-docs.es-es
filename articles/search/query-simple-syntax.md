@@ -1,13 +1,13 @@
 ---
-title: 'Sintaxis de consulta simple: Azure Search'
-description: Referencia de la sintaxis de consulta simple que se usa para las consultas de búsqueda de texto completo en Azure Search.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
+title: Sintaxis de consulta simplificada
+titleSuffix: Azure Cognitive Search
+description: Referencia de la sintaxis de consulta simple que se usa para las consultas de búsqueda de texto completo en Azure Cognitive Search.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,18 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e6c5ea86534001e0e5de2b02c4151af70631e4ef
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fb98be9975de38ec9f65e723e078a1db8755b4ed
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650010"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792556"
 ---
-# <a name="simple-query-syntax-in-azure-search"></a>Sintaxis de consulta simple en Azure Search
-Azure Search implementa dos lenguajes de consulta basados en Lucene: [Analizador de consultas simple](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) y [Analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). En Azure Search, la sintaxis de consulta simple excluye las opciones de búsqueda aproximada y de desecho.  
+# <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta simple en Azure Cognitive Search
+
+Azure Cognitive Search implementa dos lenguajes de consulta basados en Lucene: [Analizador de consultas simple](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) y [Analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). En Azure Cognitive Search, la sintaxis de consulta simple excluye las opciones de búsqueda aproximada y de desecho.  
 
 > [!NOTE]  
->  Azure Search proporciona una [sintaxis de consulta de Lucene](query-lucene-syntax.md) alternativa para consultas más complejas. Para más información sobre la arquitectura de análisis de consulta y las ventajas de cada sintaxis, vea [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md).
+>  Azure Cognitive Search proporciona una [sintaxis de consulta de Lucene](query-lucene-syntax.md) alternativa para consultas más complejas. Para más información sobre la arquitectura de análisis de consulta y las ventajas de cada sintaxis, consulte [Cómo funciona la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md).
 
 ## <a name="how-to-invoke-simple-parsing"></a>Invocación del análisis simple
 
@@ -38,9 +39,9 @@ La sintaxis simple es la opción predeterminada. La invocación solo es necesari
 
 ## <a name="query-behavior-anomalies"></a>Anomalías del comportamiento de las consultas
 
-Cualquier texto con uno o varios términos se considera un punto inicial válido para la ejecución de consultas. Azure Search encontrará coincidencias en los documentos que contengan cualquiera de los términos o todos ellos, incluidas las variaciones encontradas durante el análisis del texto. 
+Cualquier texto con uno o varios términos se considera un punto inicial válido para la ejecución de consultas. Azure Cognitive Search encontrará coincidencias en los documentos que contengan cualquiera de los términos o todos ellos, incluidas las variaciones encontradas durante el análisis del texto. 
 
-Tan sencillo como suena: hay un aspecto de la ejecución de consultas en Azure Search que *podría* producir resultados inesperados, aumentando (en lugar de disminuir) los resultados de búsqueda a medida que se agregan más términos y operadores a la cadena de entrada. Que se produzca o no esta expansión realmente depende de la inclusión de un operador NOT, combinado con una configuración del parámetro `searchMode`, que determina cómo se interpreta NOT en términos de comportamientos de AND u OR. Dado el valor predeterminado, `searchMode=Any`, y un operador NOT, la operación se calcula como una acción OR, tal que `"New York" NOT Seattle` devuelve todas las ciudades que no son Seattle.  
+Tan sencillo como suena: hay un aspecto de la ejecución de consultas en Azure Cognitive Search que *podría* producir resultados inesperados, aumentando (en lugar de disminuir) los resultados de búsqueda a medida que se agregan más términos y operadores a la cadena de entrada. Que se produzca o no esta expansión realmente depende de la inclusión de un operador NOT, combinado con una configuración del parámetro `searchMode`, que determina cómo se interpreta NOT en términos de comportamientos de AND u OR. Dado el valor predeterminado, `searchMode=Any`, y un operador NOT, la operación se calcula como una acción OR, tal que `"New York" NOT Seattle` devuelve todas las ciudades que no son Seattle.  
 
 Por lo general, es más probable ver estos comportamientos en los patrones de interacción del usuario para las aplicaciones que buscar en el contenido, donde es más probable que los usuarios incluyan un operador en una consulta, a diferencia de los sitios de comercio electrónico, que tienen estructuras de navegación más integradas. Para más información, vea [NOT operator](#not-operator) (Operador NOT). 
 
@@ -85,10 +86,10 @@ El operador de precedencia incluye la cadena entre paréntesis `( )`. Por ejempl
 - El operador de sufijo `*` necesita escaparse solamente si es el último carácter antes de un espacio en blanco, no si se encuentra en medio de un término. Por ejemplo, `wi*fi` se trata como un token único.
 
 > [!NOTE]  
->  Aunque la operación de escape mantiene los tokens juntos, el análisis de texto puede dividirlos, dependiendo del modo de análisis. Consulte [Language support &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md) (Compatibilidad con idiomas [API REST de Azure Search Service]) para más detalles.  
+>  Aunque la operación de escape mantiene los tokens juntos, el análisis de texto puede dividirlos, dependiendo del modo de análisis. Consulte [Compatibilidad con idiomas &#40;API REST de Azure Cognitive Search&#41;](index-add-language-analyzers.md) para más información.  
 
 ## <a name="see-also"></a>Otras referencias  
 
-+ [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Búsqueda en documentos [API REST de Azure Search Service]) 
++ [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Sintaxis de consulta de Lucene](query-lucene-syntax.md)
 + [Sintaxis de expresión de OData](query-odata-filter-orderby-syntax.md) 

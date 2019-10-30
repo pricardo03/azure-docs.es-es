@@ -1,25 +1,23 @@
 ---
-title: 'Creación de una consulta simple: Azure Search'
-description: Aprenda por ejemplo mediante la ejecución de consultas basadas en la sintaxis simple para la búsqueda de texto completo, la búsqueda filtrada, la búsqueda geográfica o la búsqueda por facetas en un índice de Azure Search.
-author: HeidiSteen
+title: Creación de una consulta simple
+titleSuffix: Azure Cognitive Search
+description: Aprenda por ejemplo mediante la ejecución de consultas basadas en la sintaxis simple para la búsqueda de texto completo, la búsqueda filtrada, la búsqueda geográfica o la búsqueda por facetas en un índice de Azure Cognitive Search.
 manager: nitinme
-tags: Simple query analyzer syntax
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7c4aeef07d34159e01f188effae77926895e2857
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 525c20f5b6e24811ab092a63fa84fe6ebbd7b618
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179196"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793205"
 ---
-# <a name="create-a-simple-query-in-azure-search"></a>Creación de una consulta simple en Azure Search
+# <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creación de una consulta simple en Azure Cognitive Search
 
-En Azure Search, la [sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invoca el analizador de consultas predeterminado para ejecutar consultas de búsqueda de texto completo en un índice. Este analizador es rápido y gestiona escenarios comunes, incluida la búsqueda de texto completo, la búsqueda por facetas, la búsqueda filtrada y la búsqueda geográfica. 
+En Azure Cognitive Search, la [sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invoca el analizador de consultas predeterminado para ejecutar consultas de búsqueda de texto completo en un índice. Este analizador es rápido y gestiona escenarios comunes, incluida la búsqueda de texto completo, la búsqueda por facetas, la búsqueda filtrada y la búsqueda geográfica. 
 
 En este artículo, usamos ejemplos para ilustrar la sintaxis simple.
 
@@ -27,9 +25,9 @@ Una sintaxis de consulta alternativa es [Lucene completa](https://docs.microsoft
 
 ## <a name="formulate-requests-in-postman"></a>Formulación de solicitudes en Postman
 
-Los ejemplos siguientes aprovechan un índice de búsqueda de trabajos de Nueva York que consta de los disponibles según un conjunto de datos proporcionado por la iniciativa [City of New York OpenData](https://nycopendata.socrata.com/). Estos datos no deben considerarse actuales o completos. El índice está en un servicio de espacio aislado proporcionado por Microsoft, lo que significa que no necesita una suscripción de Azure o Azure Search para probar estas consultas.
+Los ejemplos siguientes aprovechan un índice de búsqueda de trabajos de Nueva York que consta de los disponibles según un conjunto de datos proporcionado por la iniciativa [City of New York OpenData](https://nycopendata.socrata.com/). Estos datos no deben considerarse actuales o completos. El índice está en un servicio de espacio aislado proporcionado por Microsoft, lo que significa que no necesita una suscripción de Azure o Azure Cognitive Search para probar estas consultas.
 
-Lo que necesita es Postman o una herramienta equivalente para emitir la solicitud HTTP en GET. Para más información, consulte [Inicio rápido: Exploración de la API REST de Azure Search mediante Postman](search-get-started-postman.md).
+Lo que necesita es Postman o una herramienta equivalente para emitir la solicitud HTTP en GET. Para más información, consulte [Inicio rápido: Exploración de la API REST de Azure Cognitive Search mediante Postman](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Establecimiento del encabezado de solicitud
 
@@ -43,13 +41,13 @@ Después de especificar el encabezado de solicitud, puede volver a usarlo para t
 
 ### <a name="set-the-request-url"></a>Establecimiento de la dirección URL de solicitud
 
-La solicitud es un comando GET emparejado con una dirección URL que contiene la cadena de búsqueda y el punto de conexión de Azure Search.
+La solicitud es un comando GET emparejado con una dirección URL que contiene la cadena de búsqueda y el punto de conexión de Azure Cognitive Search.
 
   ![Encabezado de solicitud de Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 La composición de dirección URL tiene los siguientes elementos:
 
-+ **`https://azs-playground.search.windows.net/`** es un servicio de búsqueda de espacio aislado mantenido por el equipo de desarrollo de Azure Search. 
++ **`https://azs-playground.search.windows.net/`** es un servicio de búsqueda de espacio aislado mantenido por el equipo de desarrollo de Azure Cognitive Search. 
 + **`indexes/nycjobs/`** es el índice de trabajos de Nueva York en la colección de índices de ese servicio. Tanto el nombre del servicio como el índice son necesarios en la solicitud.
 + **`docs`** es la colección de documentos que incluye todo el contenido que permite búsquedas. El valor de clave-api de la consulta proporcionada en el encabezado de solicitud solo funciona en las operaciones de lectura destinadas a la colección de documentos.
 + **`api-version=2019-05-06`** establece la versión de api, que es un parámetro necesario en cada solicitud.
@@ -128,7 +126,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
-      "select": "select=job_id, business_title, agency, salary_range_from",
+      "select": "job_id, business_title, agency, salary_range_from",
       "count": "true"
     }
 ```
@@ -155,7 +153,7 @@ Para más información acerca de la función, consulte [search.ismatch en los ej
 
 Se admite el filtrado de rango mediante expresiones **`$filter`** para cualquier tipo de datos. En los siguientes ejemplos se busca en campos numéricos y de cadena. 
 
-Los tipos de datos son importantes en los filtros de rango y funcionan mejor cuando los campos numéricos contienen datos numéricos y los de cadena, datos de cadena. Los datos numéricos en los campos de cadena no son adecuados para los rangos, ya que los números y las cadenas no se pueden comparar en Azure Search. 
+Los tipos de datos son importantes en los filtros de rango y funcionan mejor cuando los campos numéricos contienen datos numéricos y los de cadena, datos de cadena. Los datos numéricos en los campos de cadena no son adecuados para los rangos, ya que los números y las cadenas no se pueden comparar en Azure Cognitive Search. 
 
 Los ejemplos siguientes están en formato POST para mejorar la legibilidad (rango numérico, seguido por el rango de texto):
 
@@ -290,13 +288,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="next-steps"></a>Pasos siguientes
 Pruebe a especificar las consultas en el código. Los vínculos siguientes explican cómo configurar las consultas de búsqueda para la API REST y .NET mediante la sintaxis simplificada predeterminada.
 
-* [Consultas del índice de Azure Search con el SDK de .NET](search-query-dotnet.md)
-* [Realización de una consulta al índice de Azure Search con la API de REST](search-create-index-rest-api.md)
+* [Consultas del índice con el SDK de .NET](search-query-dotnet.md)
+* [Consultas del índice con la API REST](search-create-index-rest-api.md)
 
 En los vínculos siguientes, se puede encontrar una referencia de la sintaxis, la arquitectura de las consultas y ejemplos:
 
 + [Ejemplos de consulta con sintaxis de Lucene para la creación de consultas avanzadas](search-query-lucene-examples.md)
-+ [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md)
++ [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Consulta completa de Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 + [Sintaxis de filtro y de ordenación](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)

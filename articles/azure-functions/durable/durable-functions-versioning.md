@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 10/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ef64a43cbed7f033a938351506b7f78142ff044c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097630"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791294"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Control de versiones en Durable Functions (Azure Functions)
 
@@ -24,11 +24,11 @@ Resulta inevitable agregar, eliminar y cambiar funciones durante el ciclo de vid
 
 Hay varios ejemplos de cambios importantes que se deben tener en cuenta. En este artículo se abordan los más habituales. Todos ellos tienen en común que tanto las orquestaciones de función nuevas como las ya existentes se ven afectadas por los cambios realizados en el código de función.
 
-### <a name="changing-activity-function-signatures"></a>Cambiar las firmas de función de actividad
+### <a name="changing-activity-or-entity-function-signatures"></a>Cambiar las firmas de función de actividad o entidad
 
-Un cambio de firma hace referencia a un cambio en el nombre, la entrada o la salida de una función. Si este tipo de cambio se realiza en una función de actividad, podría interrumpir la función de orquestador que dependa de él. Si actualiza la función de orquestador para dar cabida a este cambio, se podrían interrumpir las instancias en curso existentes.
+Un cambio de firma hace referencia a un cambio en el nombre, la entrada o la salida de una función. Si este tipo de cambio se realiza en una función de actividad o entidad, podría interrumpir la función de orquestador que dependa de él. Si actualiza la función de orquestador para dar cabida a este cambio, se podrían interrumpir las instancias en curso existentes.
 
-Por ejemplo, supongamos que tiene la siguiente función:
+Por ejemplo, supongamos que tenemos la siguiente función de orquestador.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -85,7 +85,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-Este cambio agrega una nueva llamada de función a **SendNotification** entre **Foo** y **Bar**. No hay ningún cambio de firma. El problema surge cuando se reanuda una instancia existente desde la llamada a **Bar**. Durante la reproducción, si la llamada original a **Foo** devolvió `true`, la reproducción del orquestador llamará a **SendNotification**, que no está en su historial de ejecución. En consecuencia, se produce un error de Durable Task Framework con la excepción `NonDeterministicOrchestrationException` porque ha encontrado una llamada a **SendNotification** cuando esperaba una llamada a **Bar**.
+Este cambio agrega una nueva llamada de función a **SendNotification** entre **Foo** y **Bar**. No hay ningún cambio de firma. El problema surge cuando se reanuda una instancia existente desde la llamada a **Bar**. Durante la reproducción, si la llamada original a **Foo** devolvió `true`, la reproducción del orquestador llamará a **SendNotification**, que no está en su historial de ejecución. En consecuencia, se produce un error de Durable Task Framework con la excepción `NonDeterministicOrchestrationException` porque ha encontrado una llamada a **SendNotification** cuando esperaba una llamada a **Bar**. El mismo tipo de problema puede producirse al agregar llamadas a API "durables", incluidas `CreateTimer`, `WaitForExternalEvent`, etc.
 
 ## <a name="mitigation-strategies"></a>Estrategias de mitigación
 
@@ -112,9 +112,9 @@ Otra opción es detener todas las instancias en curso. Esto puede realizarse bor
 
 El método menos propenso a errores para garantizar que los cambios importantes se implementen con seguridad consiste en implementarlos en paralelo con sus versiones anteriores. Esto puede realizarse mediante cualquiera de las técnicas siguientes:
 
-* Implemente todas las actualizaciones como funciones completamente nuevas (nuevos nombres).
+* Implemente todas las implementaciones como funciones completamente nuevas, dejando las funciones existentes tal cual. Esto puede ser complicado, ya que los autores de llamada de las nuevas versiones de función deben actualizarse también siguiendo las mismas directrices.
 * Implemente todas las actualizaciones como una nueva aplicación de función con una cuenta de almacenamiento diferente.
-* Implemente una nueva copia de la aplicación de función, pero con un nombre `TaskHub` actualizado. Este es la técnica recomendada.
+* Implemente una nueva copia de la aplicación de función con la misma cuenta de almacenamiento, pero con un nombre `taskHub` actualizado. Este es la técnica recomendada.
 
 ### <a name="how-to-change-task-hub-name"></a>Cómo cambiar el nombre de la central de tareas
 
@@ -125,18 +125,28 @@ La central de tareas se puede configurar en el archivo *host.json* de la siguien
 ```json
 {
     "durableTask": {
-        "HubName": "MyTaskHubV2"
+        "hubName": "MyTaskHubV2"
     }
 }
 ```
 
 #### <a name="functions-2x"></a>Functions 2.x
 
-El valor predeterminado es `DurableFunctionsHub`.
+```json
+{
+    "extensions": {
+        "durableTask": {
+            "hubName": "MyTaskHubV2"
+        }
+    }
+}
+```
 
-Todas las entidades de Azure Storage reciben su nombre según el valor de configuración de `HubName`. Al asignar un nuevo nombre a la central de tareas, garantiza que se creen colas y una tabla de historial independientes para la nueva versión de la aplicación.
+El valor predeterminado de Durable Functions v1.x es `DurableFunctionsHub`. A partir de Durable Functions v2.0, el nombre de la central de tareas predeterminado es el mismo que el de la aplicación de funciones en Azure, o bien `TestHubName` si se ejecuta fuera de Azure.
 
-Se recomienda que implemente la nueva versión de la aplicación de función en una nueva [ranura de implementación](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Las ranuras de implementación permiten ejecutar varias copias de la aplicación de función en paralelo con solo una de ellas como ranura de *producción* activa. Cuando desee exponer la nueva lógica de orquestación en su infraestructura existente, será tan sencillo como intercambiar la nueva versión en la ranura de producción.
+Todas las entidades de Azure Storage reciben su nombre según el valor de configuración de `hubName`. Al asignar un nuevo nombre a la central de tareas, garantiza que se creen colas y una tabla de historial independientes para la nueva versión de la aplicación. La aplicación de funciones, sin embargo, detendrá el procesamiento de eventos para orquestaciones o entidades creadas con el nombre de la central de tareas anterior.
+
+Se recomienda que implemente la nueva versión de la aplicación de función en una nueva [ranura de implementación](../functions-deployment-slots.md). Las ranuras de implementación permiten ejecutar varias copias de la aplicación de función en paralelo con solo una de ellas como ranura de *producción* activa. Cuando desee exponer la nueva lógica de orquestación en su infraestructura existente, será tan sencillo como intercambiar la nueva versión en la ranura de producción.
 
 > [!NOTE]
 > Esta estrategia funciona mejor cuando se usan desencadenadores HTTP y webhook para las funciones de orquestador. Para desencadenadores que no son HTTP, como las colas o Event Hubs, la definición del desencadenador debe [derivar de una configuración de aplicación](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que se actualiza como parte de la operación de intercambio.

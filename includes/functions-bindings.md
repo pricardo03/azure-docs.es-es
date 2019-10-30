@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 87c438403934df34a02678c805d3622956654b4e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 5d2608d1c374fadac18cebc093ce50ef93f9656a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172048"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597377"
 ---
 En esta tabla se muestran los enlaces que son compatibles con las dos versiones principales del entorno de ejecución de Azure Functions:
 
@@ -36,4 +36,4 @@ En esta tabla se muestran los enlaces que son compatibles con las dos versiones 
 | [Temporizador](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> En 2.x, se deben registrar todos los enlaces, excepto HTTP y el temporizador. Consulte [Registro de extensiones de enlace](../articles/azure-functions/functions-bindings-register.md).
+<sup>1</sup> En el entorno de ejecución de la versión 2.x, se deben registrar todos los enlaces, excepto HTTP y el temporizador. Consulte [Registro de extensiones de enlace](../articles/azure-functions/functions-bindings-register.md). Todos los enlaces admitidos de la versión 2.x también se admiten en la versión 3.x, a menos que se indique lo contrario.   

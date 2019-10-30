@@ -1,26 +1,25 @@
 ---
-title: Uso de la herramienta Explorador de búsqueda para consultar datos en Azure Portal (Azure Search)
-description: El Explorador de búsqueda está integrado en Azure Portal y resulta útil para explorar el contenido y validar las consultas en Azure Search. Especifique cadenas para la búsqueda de términos o frases, o expresiones de búsqueda completas con sintaxis avanzada.
+title: Uso de la herramienta Explorador de búsqueda para consultar datos en Azure Portal
+titleSuffix: Azure Cognitive Search
+description: El explorador de búsqueda está integrado en Azure Portal y resulta útil para explorar el contenido y validar las consultas en Azure Cognitive Search. Especifique cadenas para la búsqueda de términos o frases, o expresiones de búsqueda completas con sintaxis avanzada.
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178136"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792958"
 ---
-# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Uso del Explorador de búsqueda en Azure Portal para consultar documentos en Azure Search 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>Uso del Explorador de búsqueda en Azure Portal para consultar documentos en Azure Cognitive Search 
 
-En este artículo se muestra cómo consultar un índice existente de Azure Search mediante el **Explorador de búsqueda** de Azure Portal. El Explorador de búsqueda se puede iniciar desde la barra de comandos para enviar expresiones de consulta de Lucene simples o completas a cualquier índice existente en el servicio. 
+En este artículo se muestra cómo consultar un índice existente de Azure Cognitive Search mediante el **Explorador de búsqueda** de Azure Portal. El Explorador de búsqueda se puede iniciar desde la barra de comandos para enviar expresiones de consulta de Lucene simples o completas a cualquier índice existente en el servicio. 
 
-   ![Comando del explorador de búsqueda en el portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
+   ![Comando del Explorador de búsqueda en el portal](./media/search-explorer/search-explorer-cmd2.png "Comando del explorador de búsqueda en el portal")
 
 ## <a name="basic-search-strings"></a>Cadenas de búsqueda básica
 
@@ -38,11 +37,11 @@ La sintaxis equivalente para una búsqueda vacía es `*` o `search=*`.
 
    **Resultados**
    
-   ![Ejemplo de consulta vacía](./media/search-explorer/search-explorer-example-empty.png "Ejemplo de consulta vacía o incompleta")
+   ![Ejemplo de consulta vacío](./media/search-explorer/search-explorer-example-empty.png "Ejemplo de consulta vacía o incompleta")
 
 ### <a name="example-2---free-text-search"></a>Ejemplo 2: búsqueda de texto libre
 
-Las consultas de forma libre, con o sin operadores, resultan útiles para simular consultas definidas por el usuario enviadas desde una aplicación personalizada a Azure Search. Tenga en cuenta que, al proporcionar expresiones o términos de consulta, entra en juego la clasificación de búsqueda. El ejemplo siguiente ilustra una búsqueda de texto libre.
+Las consultas de forma libre, con o sin operadores, resultan útiles para simular consultas definidas por el usuario enviadas desde una aplicación personalizada a Azure Cognitive Search. Tenga en cuenta que, al proporcionar expresiones o términos de consulta, entra en juego la clasificación de búsqueda. El ejemplo siguiente ilustra una búsqueda de texto libre.
 
    ```Input
    Seattle apartment "Lake Washington" miele OR thermador appliance
@@ -52,7 +51,7 @@ Las consultas de forma libre, con o sin operadores, resultan útiles para simula
 
    Puede usar Ctrl-F para buscar términos específicos de interés en los resultados.
 
-   ![Ejemplo de consulta de texto libre](./media/search-explorer/search-explorer-example-freetext.png "Free text query example")
+   ![Ejemplo de consulta de texto libre](./media/search-explorer/search-explorer-example-freetext.png "Ejemplo de consulta de texto libre")
 
 ### <a name="example-3---count-of-matching-documents"></a>Ejemplo 3: recuento de documentos coincidentes 
 
@@ -63,7 +62,7 @@ Agregue **$count** para obtener el número de coincidencias encontradas en un í
    ```
    **Resultados**
 
-   ![Ejemplo de recuento de documentos](./media/search-explorer/search-explorer-example-count.png "Recuento de documentos coincidentes en el índice")
+   ![Ejemplo del número de documentos](./media/search-explorer/search-explorer-example-count.png "Número de documentos coincidentes en el índice")
 
 ### <a name="example-4---restrict-fields-in-search-results"></a>Example 4: restricción de campos en los resultados de la búsqueda
 
@@ -75,11 +74,11 @@ Agregue **$select** para limitar los resultados a los campos con nombre explíci
 
    **Resultados**
 
-   ![Ejemplo de restricción de campos](./media/search-explorer/search-explorer-example-selectfield.png "Restricción de campos en los resultados de la búsqueda")
+   ![Ejemplo de campos de límite](./media/search-explorer/search-explorer-example-selectfield.png "Restricción de campos en los resultados de la búsqueda")
 
 ### <a name="example-5---return-next-batch-of-results"></a>Ejemplo 5: devolución del lote siguiente de resultados
 
-Azure Search devuelve las primeras 50 coincidencias en función de la clasificación de búsqueda. Para obtener el siguiente conjunto de documentos coincidentes, anexe **$top=100,&$skip=50** para aumentar el conjunto de resultados a 100 documentos (el valor predeterminado es 50, el máximo es 1000), lo que omite los primeros 50 documentos. Recuerde que debe proporcionar criterios de búsqueda, como una expresión o un término de consulta, para obtener los resultados clasificados. Tenga en cuenta que las puntuaciones de búsqueda disminuyen cuanto más profundamente se llega en los resultados de la búsqueda.
+Azure Cognitive Search devuelve las primeras 50 coincidencias en función de la clasificación de búsqueda. Para obtener el siguiente conjunto de documentos coincidentes, anexe **$top=100,&$skip=50** para aumentar el conjunto de resultados a 100 documentos (el valor predeterminado es 50, el máximo es 1000), lo que omite los primeros 50 documentos. Recuerde que debe proporcionar criterios de búsqueda, como una expresión o un término de consulta, para obtener los resultados clasificados. Tenga en cuenta que las puntuaciones de búsqueda disminuyen cuanto más profundamente se llega en los resultados de la búsqueda.
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
@@ -87,7 +86,7 @@ Azure Search devuelve las primeras 50 coincidencias en función de la clasificac
 
    **Resultados**
 
-   ![Resultados de la búsqueda por lotes](./media/search-explorer/search-explorer-example-topskip.png "Devolución del siguiente lote de resultados de la búsqueda")
+   ![Resultados de la búsqueda por lotes](./media/search-explorer/search-explorer-example-topskip.png "Devolución del lote siguiente de los resultados de búsqueda")
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Expresiones de filtro (mayor que, menor que, igual a)
 
@@ -99,7 +98,7 @@ Utilice el parámetro **$filter** si quiere especificar criterios precisos en lu
    
    **Resultados**
 
-   ![Expresión de filtro](./media/search-explorer/search-explorer-example-filter.png "Criterios de Filtrar por")
+   ![Expresión de filtro](./media/search-explorer/search-explorer-example-filter.png "Filtrar por criterios")
 
 ## <a name="order-by-expressions"></a>Expresiones OrderBy
 
@@ -111,7 +110,7 @@ Agregue **$orderby** para ordenar los resultados por otro campo además de la pu
    
    **Resultados**
 
-   ![Expresión OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Cambiar el criterio de ordenación")
+   ![Expresión OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Cambio del criterio de ordenación")
 
 Ambas expresiones, **$filter** y **$orderby** son construcciones de OData. Para más información, consulte la [sintaxis de filtro de OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -123,17 +122,17 @@ Ambas expresiones, **$filter** y **$orderby** son construcciones de OData. Para 
 
 2. En la página de información general del servicio, haga clic en **Explorador de búsqueda**.
 
-   ![Comando del explorador de búsqueda en el portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
+   ![Comando del Explorador de búsqueda en el portal](./media/search-explorer/search-explorer-cmd2.png "Comando del explorador de búsqueda en el portal")
 
 3. Seleccione el índice de la consulta.
 
-   ![Seleccionar el índice de la consulta](./media/search-explorer/search-explorer-changeindex-se2.png "Seleccionar el índice")
+   ![Selección del índice de la consulta](./media/search-explorer/search-explorer-changeindex-se2.png "Selección del índice")
 
 4. Si quiere, establezca la versión de API. De forma predeterminada, se selecciona la versión actual de API disponible con carácter general, pero puede elegir una API anterior o versión preliminar si la sintaxis que quiere utilizar es específica de la versión.
 
 5. Una vez seleccionada la versión de la API y el índice, escriba los términos de búsqueda o las expresiones de consulta completas en la barra de búsqueda y haga clic en **Buscar** para ejecutar.
 
-   ![Escriba los términos de búsqueda y haga clic en Buscar](./media/search-explorer/search-explorer-query-string-example.png "Enter search terms and click Search")
+   ![Especificación de los términos de búsqueda y clic en Buscar](./media/search-explorer/search-explorer-query-string-example.png "Especificación de los términos de búsqueda y clic en Buscar")
 
 Sugerencias para realizar búsquedas en **Explorador de búsqueda**:
 
@@ -143,7 +142,7 @@ Sugerencias para realizar búsquedas en **Explorador de búsqueda**:
 
 + Las consultas de forma libre, similares a las que se pueden escribir en un explorador web comercial, resultan útiles para probar una experiencia de usuario final. Por ejemplo, si partimos del índice realestate de ejemplo integrado, podría escribir "Apartamentos Seattle Lake Washington" y luego usar Ctrl-F para buscar términos dentro de los resultados de búsqueda. 
 
-+ Las expresiones de consulta y de filtro deben articularse en una sintaxis que Azure Search admita. El valor predeterminado es una [sintaxis simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), pero también puede usar la sintaxis de [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para realizar consultas más eficaces. Las [expresiones de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) son una sintaxis de OData.
++ Las expresiones de consulta y de filtro deben articularse en una sintaxis que Azure Cognitive Search admita. El valor predeterminado es una [sintaxis simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), pero también puede usar la sintaxis de [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para realizar consultas más eficaces. Las [expresiones de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) son una sintaxis de OData.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

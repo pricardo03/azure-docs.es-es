@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 2cc6493d01508d439d8dcef2d12ca1ea40632d81
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096224"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755412"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Plan Premium de Azure Functions (versión preliminar)
 
@@ -106,15 +106,18 @@ A continuación se muestran las regiones admitidas actualmente en la versión pr
 
 |Region| Windows | Linux |
 |--| -- | -- |
+|Centro de Australia| ✔* | |
+|Centro de Australia 2| ✔* | |
 |Este de Australia| ✔ | |
 |Sudeste de Australia | ✔ | ✔ |
+|Sur de Brasil| ✔** |  |
 |Centro de Canadá| ✔ |  |
 |Centro de EE. UU.| ✔ |  |
 |Asia oriental| ✔ |  |
-|East US | | ✔ |
+|East US | ✔ | ✔ |
 |Este de EE. UU. 2| ✔ |  |
 |Centro de Francia| ✔ |  |
-|Este de Japón|  | ✔ |
+|Este de Japón| ✔ | ✔ |
 |Oeste de Japón| ✔ | |
 |Corea Central| ✔ |  |
 |Centro-Norte de EE. UU| ✔ |  |
@@ -122,10 +125,15 @@ A continuación se muestran las regiones admitidas actualmente en la versión pr
 |Centro-Sur de EE. UU| ✔ |  |
 |Sur de la India | ✔ | |
 |Sudeste asiático| ✔ | ✔ |
+|Sur de Reino Unido 2| ✔ | |
 |Oeste de Reino Unido| ✔ |  |
 |Europa occidental| ✔ | ✔ |
 |Oeste de la India| ✔ |  |
 |Oeste de EE. UU.| ✔ | ✔ |
+
+\* Escalado horizontal máximo limitado a 20 instancias
+
+\* Escalado horizontal máximo limitado a 60 instancias
 
 ## <a name="known-issues"></a>Problemas conocidos
 

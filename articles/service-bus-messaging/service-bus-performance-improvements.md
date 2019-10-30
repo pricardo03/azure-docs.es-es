@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d2d26e8cb8a3b1ee7720424aea701ca063ecc9f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589660"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596454"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
 
@@ -152,7 +152,7 @@ Hay algunos desafíos con tener un enfoque codicioso (es decir, mantener el recu
 
 ## <a name="multiple-queues"></a>Varias colas
 
-Si una única cola o tema con particiones no pueden procesar la carga esperada, debe usar varias entidades de mensajería. Cuando use varias entidades, cree un cliente dedicado para cada una, en lugar de usar el mismo cliente para todas.
+Si una única cola o tema no pueden procesar la carga esperada, debe usar varias entidades de mensajería. Cuando use varias entidades, cree un cliente dedicado para cada una, en lugar de usar el mismo cliente para todas.
 
 ## <a name="development-and-testing-features"></a>Características de desarrollo y pruebas
 
@@ -174,7 +174,6 @@ Objetivo: Maximizar el rendimiento de una sola cola. El número de remitentes y 
 * Establezca el intervalo de procesamiento por lotes en 50 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus. Si se usan varios remitentes, aumente el intervalo de procesamiento por lotes a 100 ms.
 * Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso aumenta la tasa general con que se pueden escribir mensajes en la cola.
 * Establezca el número de capturas previas en el valor resultante de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores de una factoría. Este número reduce la cantidad de transmisiones del protocolo de cliente de Service Bus.
-* Use una cola particionada para mejorar la disponibilidad y el rendimiento.
 
 ### <a name="multiple-high-throughput-queues"></a>Varias colas de alto rendimiento
 
@@ -190,7 +189,6 @@ Objetivo: Minimizar la latencia de un extremo a otro de una cola o un tema. El n
 * Deshabilite el acceso al almacén de procesamiento por lotes. El servicio escribe inmediatamente el mensaje en el almacén.
 * Si usa un solo cliente, establezca el número de capturas previas en el valor resultante de multiplicar por 20 la tasa de procesamiento del receptor. Si llegan varios mensajes a la cola al mismo tiempo, el protocolo de cliente de Service Bus los transmite todos a la vez. Cuando el cliente recibe el siguiente mensaje, ese mensaje ya se encuentra en la memoria caché local. La memoria caché debe ser pequeña.
 * Si se usan varios clientes, establezca el número de capturas previas en 0. Al establecer este número, el segundo cliente puede recibir el segundo mensaje mientras el primer cliente todavía está procesando el primero.
-* Use una cola particionada para mejorar la disponibilidad y el rendimiento.
 
 ### <a name="queue-with-a-large-number-of-senders"></a>Cola con un gran número de remitentes
 
@@ -205,7 +203,6 @@ Para maximizar el rendimiento, realice los pasos siguientes:
 * Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus.
 * Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso aumenta la velocidad global con que se pueden escribir mensajes en la cola o el tema.
 * Establezca el número de capturas previas en el valor resultante de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores de una factoría. Este número reduce la cantidad de transmisiones del protocolo de cliente de Service Bus.
-* Use una cola particionada para mejorar la disponibilidad y el rendimiento.
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>Cola con un gran número de receptores
 
@@ -219,7 +216,6 @@ Para maximizar el rendimiento, haga lo siguiente:
 * Los receptores pueden usar operaciones sincrónicas o asincrónicas. Dada la tasa de recepción moderada de un receptor individual, el procesamiento por lotes del lado cliente de una solicitud Complete no afecta al rendimiento del receptor.
 * Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso reduce la carga general de la entidad. También reduce la velocidad global con que se pueden escribir mensajes en la cola o el tema.
 * Establezca el número de capturas previas en un valor pequeño (por ejemplo, PrefetchCount = 10). Este número evita que haya receptores inactivos mientras otros tienen un gran número de mensajes almacenados en caché.
-* Use una cola particionada para mejorar la disponibilidad y el rendimiento.
 
 ### <a name="topic-with-a-small-number-of-subscriptions"></a>Tema con un número pequeño de suscripciones
 
@@ -233,7 +229,6 @@ Para maximizar el rendimiento, haga lo siguiente:
 * Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus.
 * Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso aumenta la velocidad general con que se pueden escribir mensajes en el tema.
 * Establezca el número de capturas previas en el valor resultante de multiplicar por 20 las tasas máximas de procesamiento de todos los receptores de una factoría. Este número reduce la cantidad de transmisiones del protocolo de cliente de Service Bus.
-* Use un tema con particiones para mejorar la disponibilidad y el rendimiento.
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>Tema con un gran número de suscripciones
 
@@ -247,11 +242,6 @@ Para maximizar el rendimiento, intente los siguientes pasos:
 * Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus.
 * Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso aumenta la velocidad general con que se pueden escribir mensajes en el tema.
 * Establezca el número de capturas previas en el valor resultante de multiplicar por 20 la tasa de recepción esperada en segundos. Este número reduce la cantidad de transmisiones del protocolo de cliente de Service Bus.
-* Use un tema con particiones para mejorar la disponibilidad y el rendimiento.
-
-## <a name="next-steps"></a>Pasos siguientes
-
-Para obtener más información sobre cómo optimizar el rendimiento de Service Bus, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
 
 [QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
 [MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender

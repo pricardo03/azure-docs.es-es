@@ -1,27 +1,27 @@
 ---
-title: 'Ejemplo: Facetas de varios niveles: Azure Search'
+title: 'Ejemplo: Facetas de varios niveles'
+titleSuffix: Azure Cognitive Search
 description: Obtenga información sobre cómo crear estructuras en facetas para taxonomías de varios niveles mediante la creación de una estructura de navegación anidada que puede incluir en las páginas de aplicaciones.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 8672fa0911d1a031205bb3340fa0c03ab9492a28
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274080"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792944"
 ---
-# <a name="example-multi-level-facets-in-azure-search"></a>Ejemplo: Facetas de varios niveles en Azure Search
+# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>Ejemplo: Facetas de varios niveles en Azure Cognitive Search
 
-Los esquemas de Azure Search no admiten explícitamente las categorías de taxonomía de varios niveles, pero es posible aproximarlas si se manipula el contenido antes de la indexación y luego se aplica un control especial a los resultados. 
+Los esquemas de Azure Cognitive Search no admiten explícitamente las categorías de taxonomía de varios niveles, pero es posible aproximarlas si se manipula el contenido antes de la indexación y luego se aplica un control especial a los resultados. 
 
 ## <a name="start-with-the-data"></a>Comenzar con los datos
 
-El ejemplo que aparece en este artículo se basa en un ejemplo anterior, [Model the AdventureWorks Inventory database](search-example-adventureworks-modeling.md) (Modelo de la base de datos del inventario de AdventureWorks), para mostrar las facetas de varios niveles de Azure Search.
+El ejemplo que aparece en este artículo se basa en un ejemplo anterior, el [modelo de la base de datos del inventario de AdventureWorks](search-example-adventureworks-modeling.md), para mostrar las facetas de varios niveles de Azure Cognitive Search.
 
 AdventureWorks tiene una taxonomía simple de dos niveles con una relación principal-secundario. En el caso de las profundidades de la taxonomía de longitud fija de esta estructura, se puede usar una consulta JOIN de SQL sencilla para agrupar la taxonomía:
 
@@ -39,7 +39,7 @@ LEFT JOIN
 
 ## <a name="indexing-to-a-collection-field"></a>Indexación en un campo de colección
 
-En el índice que contiene esta estructura, cree un campo **Collection(Edm.String)** en el esquema de Azure Search para almacenar estos datos y asegúrese de que los atributos del campo incluyan searchable, filtrable, facetable y retrievable.
+En el índice que contiene esta estructura, cree un campo **Collection(Edm.String)** en el esquema de Azure Cognitive Search para almacenar estos datos y asegúrese de que los atributos del campo incluyan searchable, filtrable, facetable y retrievable.
 
 Ahora, al indexar el contenido que hace referencia a una categoría de taxonomía específica, envíe la taxonomía como una matriz que contiene texto de cada nivel de la taxonomía. Por ejemplo, para una entidad con `ProductCategoryId = 5 (Mountain Bikes)`, envíe el campo como `[ "Bikes", "Bikes|Mountain Bikes"]`
 
@@ -51,7 +51,7 @@ Al emitir consultas, incluya la especificación de faceta siguiente (donde la ta
 
 El valor del recuento debe ser lo suficientemente alto para devolver todos los valores de taxonomía posibles. Los datos de AdventureWorks contienen 41 valores de taxonomía distintos, por lo que `count:50` es suficiente.
 
-  ![Filtro en facetas](./media/search-example-adventureworks/facet-filter.png "Filtro en facetas")
+  ![Filtro con facetas](./media/search-example-adventureworks/facet-filter.png "Filtro con facetas")
 
 ## <a name="build-the-structure-in-client-code"></a>Creación de la estructura en el código de cliente
 
@@ -84,7 +84,7 @@ categories.count = sum;
 
 El objeto **categories** ahora se puede usar para representar un árbol taxonómico contraíble con recuentos precisos:
 
-  ![filtro en facetas de varios niveles](./media/search-example-adventureworks/multi-level-facet.png "filtro en facetas de varios niveles")
+  ![Filtro con facetas de varios niveles](./media/search-example-adventureworks/multi-level-facet.png "Filtro con facetas de varios niveles")
 
  
 Cada vínculo del árbol debe aplicar el filtro relacionado. Por ejemplo:
@@ -99,4 +99,4 @@ Esta técnica escalará para abarcar escenarios más complejos, como árboles ta
 
 ## <a name="see-also"></a>Otras referencias
 
-[Ejemplo: Model the AdventureWorks Inventory database for Azure Search](search-example-adventureworks-modeling.md) (Modelo de la base de datos del inventario de AdventureWorks para Azure Search)
+[Ejemplo: Modelado de la base de datos del inventario de AdventureWorks para Azure Cognitive Search](search-example-adventureworks-modeling.md).

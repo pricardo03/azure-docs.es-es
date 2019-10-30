@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 600577ebf05a8bc89dbec35d3b3ee5162aa246e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7565ce24199dd8f86f756f01f66aa79e764a1a12
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64872725"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752137"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Niveles de mensajería Premium y Estándar de Service Bus
 
@@ -69,6 +69,31 @@ El uso de CPU y memoria se supervisa y se muestra por los siguientes motivos:
 - Proporcionar transparencia en los aspectos internos del sistema.
 - Entender la capacidad de los recursos adquiridos.
 - Permitir el planeamiento de capacidad que le ayuda a escalar o reducir verticalmente.
+
+## <a name="messaging-unit---how-many-are-needed"></a>Unidad de mensajería: ¿cuántas se necesitan?
+
+Al aprovisionar un espacio de nombres Premium de Azure Service Bus, debe especificarse el número de unidades de mensajería asignadas. Estas unidades de mensajería son recursos dedicados que se asignan al espacio de nombres.
+
+El número de unidades de mensajería asignadas al espacio de nombres Premium de Service Bus se puede **ajustar dinámicamente** para factorizar el cambio (aumento o disminución) de las cargas de trabajo.
+
+Hay una serie de factores que se deben tener en cuenta a la hora de decidir el número de unidades de mensajería para la arquitectura:
+
+- Comience con ***1 o 2 unidades de mensajería*** asignadas al espacio de nombres.
+- Estudie las métricas de uso de la CPU en [Métricas de uso de recursos](service-bus-metrics-azure-monitor.md#resource-usage-metrics) para el espacio de nombres.
+    - Si el uso de CPU está ***por debajo del 20 %***, es posible que pueda ***reducir verticalmente*** el número de unidades de mensajería asignadas al espacio de nombres.
+    - Si el uso de CPU está ***por encima del 70 %***, la aplicación se beneficiará del ***escalado vertical*** del número de unidades de mensajería asignadas al espacio de nombres.
+
+El proceso de escalado de los recursos asignados a un espacio de nombres de Service Bus se puede automatizar mediante [runbooks de Azure Automation](../automation/automation-quickstart-create-runbook.md).
+
+> [!NOTE]
+> El **escalado** de los recursos asignados al espacio de nombres puede ser preventivo o reactivo.
+>
+>  * **Preventivo**: Si se espera una carga de trabajo adicional (debido a la estacionalidad o a determinadas tendencias), puede seguir asignando más unidades de mensajería al espacio de nombres antes de que lleguen las cargas de trabajo.
+>
+>  * **Reactivo**: Si se identifican cargas de trabajo adicionales mediante el estudio de las métricas de uso de los recursos, se pueden asignar recursos adicionales al espacio de nombres para satisfacer una mayor demanda.
+>
+> Los medidores de facturación de Service Bus son por horas. En el caso del escalado vertical, solo paga por los recursos adicionales durante las horas en que se usaron.
+>
 
 ## <a name="get-started-with-premium-messaging"></a>Introducción a la Mensajería premium
 

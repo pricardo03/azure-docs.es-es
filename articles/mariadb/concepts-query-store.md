@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: d68934174c3bbb53bba4eb786ac79ab94725151b
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 10/17/2019
+ms.openlocfilehash: ab543ee8e379b89aaa9a1133bb75387ed9904002
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166234"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598394"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MariaDB con el Almacén de consultas
 
@@ -70,6 +70,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 ```
 
 ## <a name="finding-wait-queries"></a>Búsqueda de consultas de espera
+
+> [!NOTE]
+> Las estadísticas de espera no deben habilitarse durante las horas de carga de trabajo máximas ni activarse indefinidamente para cargas de trabajo confidenciales. <br>En el caso de cargas de trabajo que hacen un uso intensivo de la CPU o en servidores configurados con menos núcleos virtuales, tenga cuidado al habilitar las estadísticas de espera. No deben activarse indefinidamente. 
 
 Los tipos de evento de espera combinan eventos de espera diferentes en ciclos por similitud. El Almacén de consultas proporciona el tipo de evento de espera, el nombre del evento de espera específico y la consulta en cuestión. Poder correlacionar esta información de espera con las estadísticas de tiempo de ejecución de consultas significa que puede mejorar la comprensión de lo que contribuye a las características de rendimiento de consulta.
 

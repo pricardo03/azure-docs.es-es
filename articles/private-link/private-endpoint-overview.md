@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 1fff9c076349d98d7a72c4bf69edb0a2795ac88f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937377"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592377"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -121,7 +121,7 @@ En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar
 
 |Limitación |DESCRIPCIÓN |Mitigación  |
 |---------|---------|---------|
-|Las reglas del grupo de seguridad de red (NSG) no se aplican al punto de conexión privado.    |El grupo de seguridad de red no se admite en los puntos de conexión privados. Si bien las subredes que contienen el punto de conexión privado pueden tener un grupo de seguridad de red asociado, las reglas no serán efectivas en el tráfico procesado por el punto de conexión privado. Debe tener la [aplicación de directivas de red deshabilitada](disable-private-endpoint-network-policy.md) para implementar puntos de conexión privados en una subred. El grupo de seguridad de red se sigue aplicando en otras cargas de trabajo hospedadas en la misma subred.   | Controle el tráfico mediante el uso de reglas del grupo de seguridad de red para el tráfico saliente en los clientes de origen.        |
+|Las reglas de grupo de seguridad de red (NSG) y las rutas definidas por el usuario no se aplican al punto de conexión privado.    |El grupo de seguridad de red no se admite en los puntos de conexión privados. Si bien las subredes que contienen el punto de conexión privado pueden tener un grupo de seguridad de red asociado, las reglas no serán efectivas en el tráfico procesado por el punto de conexión privado. Debe tener la [aplicación de directivas de red deshabilitada](disable-private-endpoint-network-policy.md) para implementar puntos de conexión privados en una subred. El grupo de seguridad de red se sigue aplicando en otras cargas de trabajo hospedadas en la misma subred. Las rutas de cualquier subred de cliente utilizarán un prefijo /32, lo que cambia el comportamiento de enrutamiento predeterminado requiere un UDR similar.  | Controle el tráfico mediante el uso de reglas del grupo de seguridad de red para el tráfico saliente en los clientes de origen. Implementación de rutas individuales con un prefijo /32 para invalidar rutas de punto de conexión privado.        |
 |No se pueden crear puntos de conexión privados en subredes habilitadas para el punto de conexión de servicio o cargas de trabajo especializadas.    |No se pueden implementar puntos de conexión privados en subredes habilitadas para puntos de conexión de servicio o subredes delegadas en cargas de trabajo especializadas.|  Cree una subred independiente para implementar los puntos de conexión privados.        |
 |El punto de conexión privado solo se puede asignar a un servicio de vínculo privado (propiedad del cliente) en la misma región.    |   No se admite la conexión a un servicio de vínculo privado (de su propiedad) desde una región diferente.       |  Durante la versión preliminar, debe implementar el servicio Private Link en la misma región.        |
 |  No se admiten las redes virtuales emparejadas solo con puntos de conexión privados   |   No se admite la conexión a puntos de conexión privados en una red virtual emparejada sin ninguna otra carga de trabajo.       | Implemente una única máquina virtual en la red virtual emparejada para habilitar la conectividad. |

@@ -1,6 +1,6 @@
 ---
-title: 'Referencia sobre los tipos de desencadenador y acción del lenguaje de definición de flujo de trabajo: Azure Logic Apps'
-description: Guía de referencia sobre los tipos de desencadenador y acción del lenguaje de definición de flujo de trabajo para Azure Logic Apps
+title: 'Referencia de esquema para los tipos de desencadenador y de acción: Azure Logic Apps'
+description: Guía de referencia de esquema para los tipos de desencadenador y de acción del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -9,14 +9,14 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 3311ca3665083ec8c71f48b28e7195aa8c14f13d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 9bee329953a1f39720b054ed90e1d56c6743862e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350670"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679872"
 ---
-# <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referencia sobre los tipos de desencadenador y acción del lenguaje de definición de flujo de trabajo para Azure Logic Apps
+# <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
 En esta referencia se describen los tipos generales que se usan para identificar desencadenadores y acciones en la definición de flujo de trabajo subyacente de la aplicación lógica, que el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md) describe y valida.
 Para buscar los desencadenadores de conector específicos y las acciones que puede usar en las aplicaciones lógicas, vea la lista en [Introducción a los conectores](https://docs.microsoft.com/connectors/).

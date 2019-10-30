@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 650e45ca9092b9c81b2127eb995a0297745410a4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b452fccf2ae0915592420bdda3a47fef43eba9a8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244141"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72788692"
 ---
 # <a name="expressroute-encryption"></a>Cifrado de ExpressRoute
  
@@ -31,7 +31,7 @@ No. Si MACsec se configura y se produce una discrepancia en la clave, se pierde 
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>¿Al habilitarse MACsec en ExpressRoute Direct se degradará el rendimiento de la red?
 El cifrado y el descifrado de MACsec se produce en el hardware de los enrutadores que usamos. No hay ningún efecto en el rendimiento por nuestra parte. Sin embargo, debe consultar al proveedor de la red los dispositivos que usa y comprobar si MACsec tiene alguna implicación en su rendimiento.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>¿Qué conjuntos de cifrado se admiten para el cifrado?
-Admitimos AES128(GCM– ES–128) y AES256(GCM–AES–256).
+Se admiten AES128 y AES256.
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Preguntas frecuentes sobre el cifrado de un extremo a otro de IPsec
 IPsec es un [estándar de IETF](https://tools.ietf.org/html/rfc6071). Cifra los datos en el nivel Protocolo de Internet (IP) o Capa 3 de red. Puede usar IPsec para cifrar una conexión de un extremo a otro entre la red local y la red virtual (VNET) en Azure. Vea otras preguntas frecuentes a continuación.

@@ -1,41 +1,41 @@
 ---
-title: 'Actualización a la versión más reciente de la API REST de Azure Search Service: Azure Search'
-description: Revise las diferencias en las versiones de API y conozca qué acciones son necesarias para migrar código existente a la versión más reciente de la API REST de Azure Search Service.
-author: brjohnstmsft
+title: Actualización a la versión más reciente de la API de REST del servicio Búsqueda cognitiva de Azure
+titleSuffix: Azure Cognitive Search
+description: Revise las diferencias en las versiones de API y conozca qué acciones son necesarias para migrar código existente a la versión más reciente de la API de REST del servicio Búsqueda cognitiva de Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: brjohnstmsft
 ms.author: brjohnst
-ms.openlocfilehash: 6c1f7fdb1f349c9e31ba63d79a9b9e26ea9f09da
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9bffb41cce030b7a63e600e5ffaf65130261b4c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182389"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791156"
 ---
-# <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Actualización a la versión más reciente de la API REST de Azure Search Service
-Si usa una versión anterior de la [API REST del servicio Azure Search](https://docs.microsoft.com/rest/api/searchservice/), este artículo le ayudará a actualizar la aplicación para que use la versión más reciente de la API disponible con carácter general, 2019-05-06.
+# <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Actualización a la versión más reciente de la API de REST del servicio Búsqueda cognitiva de Azure
+
+Si usa una versión anterior de la [API de REST de Search](https://docs.microsoft.com/rest/api/searchservice/), este artículo le ayudará a actualizar la aplicación para que use la versión más reciente de la API disponible con carácter general, 2019-05-06.
 
 La versión 2019-05-06 de la API REST contiene algunos cambios con respecto a versiones anteriores. Se trata principalmente de cambios compatibles con versiones anteriores, por lo que cambiar el código apenas debe exigir esfuerzo, según la versión que utilizaba antes. En [Pasos para la actualización](#UpgradeSteps) se describen los cambios de código necesarios para usar nuevas características.
 
 > [!NOTE]
-> Una instancia del servicio Azure Search admite varias versiones de la API REST, incluidas las anteriores. Puede seguir usando esas versiones de API, pero se recomienda migrar el código a la versión más reciente, para poder acceder a las funciones nuevas.
+> Una instancia del servicio Búsqueda cognitiva de Azure admite varias versiones de la API de REST, incluidas las anteriores. Puede seguir usando esas versiones de API, pero se recomienda migrar el código a la versión más reciente, para poder acceder a las funciones nuevas.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-2019-05-06"></a>Novedades de la versión 2019-05-06
-La versión 2019-05-06 es la versión disponible con carácter general más reciente de la API REST del servicio Azure Search. Las características que se han pasado al estado de disponibilidad general en esta versión de la API incluyen las siguientes:
+La versión 2019-05-06 es la versión disponible con carácter general más reciente de la API de REST. Las características que se han pasado al estado de disponibilidad general en esta versión de la API incluyen las siguientes:
 
 * [Autocompletar](index-add-suggesters.md) es una característica de escritura anticipada que completa una entrada de término especificada de forma parcial.
 
-* Los [tipos complejos](search-howto-complex-data-types.md) proporcionan compatibilidad nativa para los datos de objeto estructurado en un índice de Azure Search.
+* Los [tipos complejos](search-howto-complex-data-types.md) proporcionan compatibilidad nativa para los datos de objeto estructurado en un índice de búsqueda.
 
 * Los [modos de análisis de JsonLines](search-howto-index-json-blobs.md), parte de la indexación de Azure Blob, crean un documento de búsqueda por entidad JSON que está separado por una línea nueva.
 
-* La [búsqueda cognitiva](cognitive-search-concept-intro.md) ofrece indexación que aprovecha los motores de enriquecimiento de inteligencia artificial de Cognitive Services.
+* El [enriquecimiento con inteligencia artificial](cognitive-search-concept-intro.md) ofrece indexación que aprovecha los motores de enriquecimiento de inteligencia artificial de Cognitive Services.
 
 Varias versiones de características en versión preliminar coinciden con esta actualización de disponibilidad general. Para revisar la lista de nuevas características en versión preliminar, vea [API REST de Search: versión 2019-05-06-Preview](search-api-preview.md).
 
@@ -53,7 +53,7 @@ La estructura de error para la ejecución del indizador anteriormente tenía un 
 
 ### <a name="indexer-data-source-api-no-longer-returns-connection-strings"></a>La API del origen de datos de indizador ya no devuelve cadenas de conexión
 
-A partir de las versiones 2019-05-06 y 2019-05-06-Preview de la API, la API del origen de datos ya no devuelve cadenas de conexión en la respuesta de ninguna operación de REST. En versiones anteriores de la API, para los orígenes de datos creados mediante POST, Azure Search devolvía **201** seguido de la respuesta de OData, que contenía la cadena de conexión en texto sin formato.
+A partir de las versiones 2019-05-06 y 2019-05-06-Preview de la API, la API del origen de datos ya no devuelve cadenas de conexión en la respuesta de ninguna operación de REST. En versiones anteriores de la API, para los orígenes de datos creados mediante POST, Búsqueda cognitiva de Azure devolvía **201** seguido de la respuesta de OData, que contenía la cadena de conexión en texto sin formato.
 
 ### <a name="named-entity-recognition-cognitive-skill-is-now-discontinued"></a>La aptitud cognitiva de reconocimiento de entidades se ha interrumpido
 
@@ -90,7 +90,7 @@ Si en el código se usan tipos complejos con las versiones anteriores de la API 
 
 + Hay un límite nuevo en la versión 2019-05-06 de la API, para el número de elementos de colecciones complejas por documento. Si ha creado índices con documentos que superaban estos límites mediante las versiones de la API en versión preliminar, cualquier intento de indexar de nuevo esos datos con la versión 2019-05-06 de la API producirá un error. Si esto se aplica a su caso, tendrá que reducir el número de elementos de colección complejos por documento antes de volver a indexar los datos.
 
-Para más información, vea [Límites de servicio en Azure Search](search-limits-quotas-capacity.md).
+Para más información, vea [Límites de servicio en Búsqueda cognitiva de Azure](search-limits-quotas-capacity.md).
 
 ### <a name="how-to-upgrade-an-old-complex-type-structure"></a>Procedimientos para actualizar una estructura de tipo complejo anterior
 
@@ -144,7 +144,7 @@ Puede actualizar índices "planos" al formato nuevo mediante los pasos siguiente
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise la documentación de referencia de la API de REST del servicio Azure Search. Si tiene algún problema, puede solicitar ayuda en [StackOverflow](https://stackoverflow.com/) o [ponerse en contacto con el servicio de soporte técnico](https://azure.microsoft.com/support/community/?product=search).
+Revise la documentación de referencia de la API de REST del servicio Search. Si tiene algún problema, puede solicitar ayuda en [StackOverflow](https://stackoverflow.com/) o [ponerse en contacto con el servicio de soporte técnico](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Referencia de la API de REST del servicio Search](https://docs.microsoft.com/rest/api/searchservice/)

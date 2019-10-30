@@ -1,25 +1,24 @@
 ---
-title: Cómo supervisar el estado y los resultados del indizador de Azure Search
-description: Supervise el estado, el progreso y los resultados de los indizadores de Azure Search en Azure Portal mediante la API de REST o el SDK de .NET.
-ms.date: 06/28/2019
-author: RobDixon22
+title: Supervisión del estado y los resultados del indizador
+titleSuffix: Azure Cognitive Search
+description: Supervise el estado, el progreso y los resultados de los indizadores de Azure Cognitive Search en Azure Portal mediante la API REST o el SDK de .NET.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 6a8eaca029767e1d6bce4bc8ce22ce5523be26d8
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: c7f688c96576f660795becaf318c3b0677a24542
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186598"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793801"
 ---
-# <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Cómo supervisar el estado y los resultados del indizador de Azure Search
+# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Supervisión del estado y los resultados del indizador de Azure Cognitive Search
 
-Azure Search proporciona información sobre el estado y la supervisión de las ejecuciones actuales e históricas de todos los indizadores.
+Azure Cognitive Search proporciona información sobre el estado y la supervisión de las ejecuciones actuales e históricas de todos los indizadores.
 
 La supervisión de los indizadores es útil si quiere:
 
@@ -27,7 +26,7 @@ La supervisión de los indizadores es útil si quiere:
 * Revisar los resultados de una ejecución en curso o anterior del indizador.
 * Identificar errores del indizador de nivel superior, así como errores o advertencias sobre documentos individuales que se están indexando.
 
-## <a name="find-indexer-status-and-history-details"></a>Consulta de detalles sobre el estado del indizador y el historial
+## <a name="get-status-and-history"></a>Obtención del estado e historial
 
 Puede acceder a la información de supervisión del indizador de varias maneras, incluidas las siguientes:
 
@@ -45,11 +44,11 @@ Los indizadores que procesan grandes volúmenes de datos pueden tardar mucho en 
 
 <a name="portal"></a>
 
-## <a name="monitor-indexers-in-the-portal"></a>Supervisión de indizadores en el portal
+## <a name="monitor-using-the-portal"></a>Supervisión del uso del portal
 
 Puede consultar el estado actual de todos los indizadores en la lista **Indizadores**, en la página de información general del servicio de búsqueda.
 
-   ![Lista de indizadores](media/search-monitor-indexers/indexers-list.png "Indexers list")
+   ![Lista de indizadores](media/search-monitor-indexers/indexers-list.png "Lista de indizadores")
 
 Cuando se está ejecutando un indizador, el estado de la lista es **En curso** y el valor **Documentos correctos** indica el número de documentos procesados hasta el momento. El portal puede tardar unos minutos en actualizar los valores de estado del indizador y el número de documentos.
 
@@ -59,7 +58,7 @@ Si la última ejecución finaliza con un error, se muestra el estado **Erróneo*
 
 Haga clic en un indizador de la lista para ver más detalles sobre sus ejecuciones actuales y recientes.
 
-   ![Resumen e historial de ejecución del indizador](media/search-monitor-indexers/indexer-summary.png "Indexer summary and execution history")
+   ![Historial de ejecución y resumen del indizador](media/search-monitor-indexers/indexer-summary.png "Historial de ejecución y resumen del indizador")
 
 En el gráfico **Resumen del indizador** se muestra el número de documentos procesados en las ejecuciones más recientes.
 
@@ -67,11 +66,11 @@ En la lista **Detalles de la ejecución** aparecen como máximo los 50 resultad
 
 Haga clic en un resultado de la lista para ver los detalles de una ejecución en concreto. Se incluyen las horas de inicio y finalización, así como los errores y las advertencias que se han producido.
 
-   ![Detalles de la ejecución del indizador](media/search-monitor-indexers/indexer-execution.png "Indexer execution details")
+   ![Detalles de ejecución del indizador](media/search-monitor-indexers/indexer-execution.png "Detalles de ejecución del indizador")
 
 Si se produjeron problemas específicos del documento durante la ejecución, se mostrarán en el campo Errores o advertencias.
 
-   ![Detalles del indizador con errores](media/search-monitor-indexers/indexer-execution-error.png "Indexer details with errors")
+   ![Detalles del indizador con errores](media/search-monitor-indexers/indexer-execution-error.png "Detalles del indizador con errores")
 
 Las advertencias son comunes con algunos tipos de indizadores y no siempre indican un problema. Por ejemplo, los indizadores que usan Cognitive Services pueden notificar advertencias cuando las imágenes o los archivos PDF no contienen texto para procesar.
 
@@ -79,7 +78,7 @@ Para obtener más información sobre cómo investigar los errores y las adverten
 
 <a name="restapi"></a>
 
-## <a name="monitor-indexers-using-the-rest-api"></a>Supervisión de indizadores con la API de REST
+## <a name="monitor-using-rest-apis"></a>Supervisión mediante las API REST
 
 Puede recuperar el estado y el historial de ejecución de un indizador con el [comando Obtener estado del indizador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
@@ -126,9 +125,9 @@ Para obtener más información sobre los códigos de estado y los datos de super
 
 <a name="dotnetsdk"></a>
 
-## <a name="monitor-indexers-using-the-net-sdk"></a>Supervisión de indizadores con el SDK de .NET
+## <a name="monitor-using-the-net-sdk"></a>Supervisión mediante el SDK de .NET
 
-La programación de un indexador se puede definir mediante el SDK de .NET de Azure Search. Para ello, incluya la propiedad **schedule** al crear o actualizar cualquier indexador.
+La programación de un indizador se puede definir mediante el SDK de .NET de Azure Cognitive Search. Para ello, incluya la propiedad **schedule** al crear o actualizar cualquier indexador.
 
 En el siguiente ejemplo de C# se escribe información sobre el estado de un indizador y los resultados de su ejecución más reciente (o en curso) en la consola.
 

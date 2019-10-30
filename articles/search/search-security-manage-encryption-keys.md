@@ -1,29 +1,28 @@
 ---
-title: 'Cifrado en reposo mediante claves administradas por el cliente en Azure Key Vault (versión preliminar): Azure Search'
-description: Complemente el cifrado del lado servidor con índices y mapas de sinónimos en Azure Search mediante las claves que se crean y se administran en Azure Key Vault.
-author: NatiNimni
+title: Cifrado en reposo mediante claves administradas por el cliente en Azure Key Vault (versión preliminar)
+titleSuffix: Azure Cognitive Search
+description: Complemente el cifrado del lado servidor con índices y mapas de sinónimos de Azure Cognitive Search mediante claves que se crean y administran en Azure Key Vault.
 manager: nitinme
+author: NatiNimni
 ms.author: natinimn
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.custom: ''
-ms.openlocfilehash: ce7a8af1416664a3a94b248c95203c8e775e805c
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 94c9d94edb9a9ca3f6117bd43ab9cefe1dad52a3
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182397"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794354"
 ---
-# <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado de Azure Search mediante claves administradas por el cliente en Azure Key Vault
+# <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado de contenido de Azure Cognitive Search mediante claves administradas por el cliente en Azure Key Vault
 
 > [!Note]
 > El cifrado con claves administradas por el cliente se encuentra en versión preliminar y no se ha pensado para su uso en producción. En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. También puede usar .NET SDK versión 8.0-preview.
 >
 > Esta característica no está disponible para los servicios gratis. Debe utilizar un servicio de búsqueda facturable creado a partir del 2019-01-01-01. En este momento no es compatible con el portal.
 
-De forma predeterminada, Azure Search cifra el contenido de usuario en reposo con [claves administradas por el servicio](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Puede complementar el cifrado predeterminado con un nivel de cifrado adicional con las claves que se crean y administran en Azure Key Vault. Este artículo le guía a través de los pasos.
+De forma predeterminada, Azure Cognitive Search cifra el contenido de usuario en reposo con [claves administradas por el servicio](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Puede complementar el cifrado predeterminado con un nivel de cifrado adicional con las claves que se crean y administran en Azure Key Vault. Este artículo le guía a través de los pasos.
 
 Se admite el cifrado de lado servidor mediante la integración con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Puede crear sus propias claves de cifrado y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generar las claves de cifrado. Con Azure Key Vault, también puede auditar el uso de claves. 
 
@@ -35,13 +34,13 @@ Puede usar claves diferentes desde distintos almacenes de claves. Esto significa
 
 En este ejemplo se usan los servicios siguientes. 
 
-+ [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
++ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
 
 + [Cree un recurso de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) o busque un almacén existente en su suscripción.
 
 + Se usan [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para las tareas de configuración.
 
-+ Se utilizan [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) y [SDK de Azure Search](https://aka.ms/search-sdk-preview) para llamar a la API REST de versión preliminar. No hay compatibilidad con el portal o con el SDK de .NET para el cifrado administrado por el cliente en este momento.
++ Se puede usar [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) y el [SDK de Azure Cognitive Search](https://aka.ms/search-sdk-preview) para llamar a la API REST de versión preliminar. No hay compatibilidad con el portal o con el SDK de .NET para el cifrado administrado por el cliente en este momento.
 
 ## <a name="1---enable-key-recovery"></a>1\. Habilitación de la recuperación de claves
 
@@ -62,11 +61,11 @@ az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --en
 ```
 
 >[!Note]
-> Debido a la naturaleza misma del cifrado con la característica de claves administradas por el cliente, Azure Search no podrá recuperar los datos si se elimina la clave del almacén de Azure Key Vault. Para evitar la pérdida de datos causada por las eliminaciones accidentales de claves de Key Vault, se recomienda encarecidamente que habilite las opciones de eliminación temporal y de protección de purgas en el almacén de claves seleccionado. Para más información, consulte el artículo sobre la [eliminación temporal de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
+> Debido a la naturaleza misma del cifrado con la característica de claves administradas por el cliente, Azure Cognitive Search no podrá recuperar los datos si se elimina la clave de almacén de Azure Key Vault. Para evitar la pérdida de datos causada por las eliminaciones accidentales de claves de Key Vault, se recomienda encarecidamente que habilite las opciones de eliminación temporal y de protección de purgas en el almacén de claves seleccionado. Para más información, consulte el artículo sobre la [eliminación temporal de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
 
 ## <a name="2---create-a-new-key"></a>2\. Creación de una nueva clave
 
-Si utiliza una clave existente para cifrar el contenido de Azure Search, omita este paso.
+Si usa una clave existente para cifrar el contenido de Azure Cognitive Search, omita este paso.
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com) y vaya al panel del almacén de claves.
 
@@ -78,15 +77,15 @@ Si utiliza una clave existente para cifrar el contenido de Azure Search, omita e
 
 1. Haga clic en el botón **Crear** para iniciar la implementación.
 
-Tome nota del identificador de la clave: se compone del **Uri del valor de clave**, el **nombre de clave** y la **versión de clave**. Los necesitará para definir un índice cifrado en Azure Search.
+Tome nota del identificador de la clave: se compone del **Uri del valor de clave**, el **nombre de clave** y la **versión de clave**. Necesitará esta información para definir un índice cifrado en Azure Cognitive Search.
  
-![Crear una nueva clave de almacén de claves](./media/search-manage-encryption-keys/create-new-key-vault-key.png "Create a new key vault key")
+![Crear una clave del almacén de claves](./media/search-manage-encryption-keys/create-new-key-vault-key.png "Crear una clave del almacén de claves")
 
 ## <a name="3---create-a-service-identity"></a>3\. Creación de una identidad de servicio
 
 La asignación de una identidad a su servicio de búsqueda le permite conceder permisos de acceso a Key Vault a su servicio de búsqueda. El servicio de búsqueda usará su identidad para autenticarse con Azure Key Vault.
 
-Azure Search admite dos formas de asignar la identidad: una identidad administrada o una aplicación de Azure Active Directory administrada externamente. 
+Azure Cognitive Search admite dos formas de asignar la identidad: una identidad administrada o una aplicación de Azure Active Directory administrada externamente. 
 
 Si es posible, utilice una identidad administrada. Es la forma más sencilla de asignar una identidad al servicio de búsqueda y debería funcionar en la mayoría de los casos. Si está utilizando varias claves para índices y mapas de sinónimos, o si la solución se encuentra en una arquitectura distribuida que descalifica la autenticación basada en identidad, utilice el [enfoque avanzado de Azure Active Directory administrado externamente](#aad-app), que se describe al final de este artículo.
 
@@ -96,7 +95,7 @@ Si es posible, utilice una identidad administrada. Es la forma más sencilla de 
 
 1. Haga clic en **Identidad** en el panel de navegación izquierdo, cambie su estado a **Activado** y haga clic en **Guardar**.
 
-![Habilitación de una identidad administrada](./media/search-enable-msi/enable-identity-portal.png "Enable a managed identity")
+![Habilitar una identidad administrada](./media/search-enable-msi/enable-identity-portal.png "Habilitar una identidad administrada")
 
 ## <a name="4---grant-key-access-permissions"></a>4\. Concesión de permisos de acceso clave
 
@@ -108,30 +107,30 @@ Los permisos de acceso se pueden revocar en cualquier momento. Una vez revocados
 
 1. Seleccione la opción **Directivas de acceso** en panel de navegación izquierdo y haga clic en **+ Agregar nuevo**.
 
-   ![Adición de una nueva directiva de acceso del almacén de claves](./media/search-manage-encryption-keys/add-new-key-vault-access-policy.png "Add new key vault access policy")
+   ![Agregar una nueva directiva de acceso del almacén de claves](./media/search-manage-encryption-keys/add-new-key-vault-access-policy.png "Agregar una nueva directiva de acceso del almacén de claves")
 
-1. Haga clic en **Seleccionar la entidad de seguridad** y seleccione el servicio Azure Search. Puede buscarlo por nombre o por el identificador de objeto que se mostró después de habilitar la identidad administrada.
+1. Haga clic en **Seleccionar la entidad de seguridad** y seleccione el servicio Azure Cognitive Search. Puede buscarlo por nombre o por el identificador de objeto que se mostró después de habilitar la identidad administrada.
 
-   ![Selección de la entidad de seguridad de la directiva de acceso del almacén de claves](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "Select key vault access policy principal")
+   ![Seleccionar la entidad de seguridad de la directiva de acceso del almacén de claves](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "Seleccionar la entidad de seguridad de la directiva de acceso del almacén de claves")
 
 1. Haga clic en **Permisos de clave** y seleccione *Obtener*, *Desencapsular clave* y *Encapsular clave*. Puede usar la plantilla *Azure Data Lake Storage o Azure Storage* para seleccionar rápidamente los permisos necesarios.
 
-   A Azure Search se le deben conceder los siguientes [permisos de acceso](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-operations):
+   A Azure Cognitive Search se le deben conceder los siguientes [permisos de acceso](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-operations):
 
    * *Obtener*: permite al servicio de búsqueda recuperar las partes públicas de una clave en un almacén de Key Vault
    * *Encapsular clave*: permite que el servicio de búsqueda utilice la clave para proteger la clave de cifrado interno
    * *Desencapsular clave*: permite que el servicio de búsqueda utilice la clave para desencapsular la clave de cifrado interno
 
-   ![Selección de los permisos de clave de la directiva de acceso de almacén de claves](./media/search-manage-encryption-keys/select-key-vault-access-policy-key-permissions.png "Select key vault access policy key permissions")
+   ![Seleccionar los permisos de claves de la directiva de acceso del almacén de claves](./media/search-manage-encryption-keys/select-key-vault-access-policy-key-permissions.png "Seleccionar los permisos de claves de la directiva de acceso del almacén de claves")
 
 1. Haga clic en **Aceptar** y **guarde** los cambios de directiva de acceso.
 
 > [!Important]
-> El contenido cifrado de Azure Search está configurado para utilizar una clave específica de Azure Key Vault con una **versión** específica. Si cambia la clave o versión, debe actualizarse el índice o el mapa de sinónimos para utilizar la nueva versión de clave **antes de** eliminar la versión de clave anterior. Si no lo hace, el índice o el mapa de sinónimos quedará inutilizable, ya que no podrá descifrar el contenido una vez que se pierda la clave de acceso.   
+> El contenido cifrado de Azure Cognitive Search está configurado para usar una clave específica de Azure Key Vault con una **versión** concreta. Si cambia la clave o versión, debe actualizarse el índice o el mapa de sinónimos para utilizar la nueva versión de clave **antes de** eliminar la versión de clave anterior. Si no lo hace, el índice o el mapa de sinónimos quedará inutilizable, ya que no podrá descifrar el contenido una vez que se pierda la clave de acceso.   
 
 ## <a name="5---encrypt-content"></a>5\. Cifrado del contenido
 
-La creación de un índice o mapa de sinónimos cifrado con una clave administrada por el cliente todavía no es posible mediante Azure Portal. Utilice la API REST de Azure Search para crear este tipo de índice o mapa de sinónimos.
+La creación de un índice o mapa de sinónimos cifrado con una clave administrada por el cliente todavía no es posible mediante Azure Portal. Use la API REST de Azure Cognitive Search para crear este tipo de índice o mapa de sinónimos.
 
 Tanto el índice como el mapa de sinónimos admiten una nueva propiedad **encryptionKey** de nivel superior utilizada para especificar la clave. 
 
@@ -165,7 +164,7 @@ Si utiliza una aplicación de AAD para la autenticación del almacén de Key Vau
 ```
 
 ## <a name="example-index-encryption"></a>Ejemplo: Cifrado del índice
-Los detalles de la creación de un nuevo índice a través de API REST se encuentran en [Create Index Map (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de una asignación de índice [API REST de Azure Search Service]), donde la única diferencia es la especificación de los detalles de la clave de cifrado como parte de la definición del índice: 
+Los detalles de la creación de un índice mediante la API REST se pueden encontrar en [Creación de un índice (API REST de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/create-index), donde la única diferencia es la especificación de los detalles de la clave de cifrado como parte de la definición del índice: 
 
 ```json
 {
@@ -193,7 +192,7 @@ Ahora puede enviar la solicitud de creación del índice y, a continuación, emp
 
 ## <a name="example-synonym-map-encryption"></a>Ejemplo: Cifrado del mapa de sinónimos
 
-Los detalles de la creación de un nuevo mapa de sinónimos a través de API REST se encuentran en [Create Synonym Map (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map) (Creación de un mapa de sinónimos [API REST de Azure Search Service]), donde la única diferencia es la especificación de los detalles de la clave de cifrado como parte de la definición del mapa de sinónimos: 
+Los detalles de la creación de un nuevo mapa de sinónimos mediante la API REST se pueden encontrar en [Creación de un mapa de sinónimos (API REST de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map), donde la única diferencia es la especificación de los detalles de la clave de cifrado como parte de la definición del mapa de sinónimos: 
 
 ```json
 {   
@@ -211,18 +210,18 @@ Los detalles de la creación de un nuevo mapa de sinónimos a través de API RES
 Ahora puede enviar la solicitud de creación del mapa de sinónimos y, a continuación, empiece a usarlo con normalidad.
 
 >[!Important] 
-> Aunque **encryptionKey** no se puede agregar a los índices de Azure Search ni a las asignaciones de sinónimos existentes, se puede actualizar al proporcionar valores diferentes para cualquiera de los tres detalles del almacén de claves (por ejemplo, mediante la actualización de la versión de la clave). Al cambiar a una nueva clave del almacén de claves o a una nueva versión de la clave, cualquier índice de Azure Search o mapa de sinónimos que utilice la clave debe actualizarse primero para utilizar la nueva versión de clave **antes de** eliminar la versión de clave anterior. Si no lo hace, el índice o el mapa de sinónimos quedarán inutilizables, ya que no podrá descifrar el contenido una vez que se pierda el acceso a la clave.   
+> Aunque **encryptionKey** no se puede agregar a los índices ni a los mapas de sinónimos existentes de Azure Cognitive Search, se puede actualizar si se proporcionan diferentes valores para cualquiera de los tres datos del almacén de claves (por ejemplo, la actualización de la versión de la clave). Al cambiar a una nueva clave o a una nueva versión de clave de Key Vault, el índice o el mapa de sinónimos de Azure Cognitive Search que usen la clave deben actualizarse primero para utilizar la nueva versión o clave **antes** de eliminar las anteriores. Si no lo hace, el índice o el mapa de sinónimos quedarán inutilizables, ya que no podrá descifrar el contenido una vez que se pierda el acceso a la clave.   
 > La restauración de los permisos de acceso al almacén de claves en un momento posterior restaurará el acceso al contenido.
 
 ## <a name="aad-app"></a> Avanzado: Uso de una aplicación de Azure Active Directory administrada externamente
 
-Cuando una identidad administrada no es posible, puede crear una aplicación de Azure Active Directory con una entidad de seguridad para el servicio de Azure Search. En concreto, una identidad administrada no es viable en estas condiciones:
+Cuando una identidad administrada no es posible, puede crear una aplicación de Azure Active Directory con una entidad de seguridad para el servicio de Azure Cognitive Search. En concreto, una identidad administrada no es viable en estas condiciones:
 
 * No puede conceder directamente a su servicio de búsqueda permisos de acceso al almacén de claves (por ejemplo, si el servicio de búsqueda se encuentra en un inquilino de Active Directory diferente al de Azure Key Vault).
 
 * Se requiere un único servicio de búsqueda para hospedar varias asignaciones de sinónimos e índices cifrados, cada una de las cuales utiliza una clave diferente de un almacén de claves diferente, en el que cada almacén de claves debe utilizar una **identidad diferente** para la autenticación. Si no es necesario utilizar una identidad diferente para administrar distintos almacenes de claves, considere la posibilidad de utilizar la opción de identidad administrada anterior.  
 
-Para dar cabida a estas topologías, Azure Search admite el uso de aplicaciones de Azure Active Directory (AAD) para la autenticación entre el servicio de búsqueda y Key Vault.    
+Para dar cabida a estas topologías, Azure Cognitive Search admite el uso de aplicaciones de Azure Active Directory (AAD) para la autenticación entre el servicio de búsqueda y Key Vault.    
 Para crear una aplicación AAD en el portal:
 
 1. [Crear una aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
@@ -230,8 +229,8 @@ Para crear una aplicación AAD en el portal:
 1. [Obtenga la clave de autenticación y el identificador de aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) como los que se necesitarán para crear un índice cifrado. Los valores que deberá proporcionar incluyen el **identificador de la aplicación** y la **clave de autenticación**.
 
 >[!Important]
-> Cuando se decide utilizar una aplicación de autenticación de AAD en lugar de una identidad administrada, hay que tener en cuenta el hecho de que Azure Search no está autorizado para administrar la aplicación de AAD en nombre del usuario, y que es el usuario quien debe administrar la aplicación de AAD, como la rotación periódica de la clave de autenticación de la aplicación.
-> Al cambiar una aplicación de AAD o su clave de autenticación, cualquier índice de Azure Search o mapa de sinónimos que utilice esa aplicación debe actualizarse primero para utilizar la nueva clave o identificador de aplicación **antes** de eliminar la aplicación anterior o su clave de autorización, y antes de revocar el acceso del almacén de claves a la misma.
+> Cuando se decide usar una aplicación de autenticación de AAD en lugar de una identidad administrada, hay que tener en cuenta el hecho de que Azure Cognitive Search no está autorizado para administrar la aplicación de AAD en nombre del usuario, y que es el usuario quien debe administrar la aplicación de AAD, como la rotación periódica de la clave de autenticación de la aplicación.
+> Al cambiar una aplicación de AAD o su clave de autenticación, el índice o el mapa de sinónimos de Azure Cognitive Search que usen esa aplicación deben actualizarse primero para utilizar la nueva clave o identificador de aplicación **antes** de eliminar la aplicación anterior o su clave de autorización, y antes de revocar el acceso del almacén de claves a esta.
 > Si no lo hace, el índice o el mapa de sinónimos quedarán inutilizables, ya que no podrá descifrar el contenido una vez que se pierda el acceso a la clave.   
 
 ## <a name="next-steps"></a>Pasos siguientes

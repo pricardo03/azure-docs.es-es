@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/04/2019
-ms.openlocfilehash: ad43af0f6f9bd8d5d78cef78b26345436169c0fd
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 10/16/2019
+ms.openlocfilehash: 97725099e82c5edb05447d97b47f352c440bd8e8
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034131"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529298"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conexión de HDInsight a la red local
 
@@ -45,8 +45,8 @@ En el diagrama siguiente, las líneas verdes son solicitudes de recursos que fin
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](./hdinsight-hadoop-linux-use-ssh-unix.md).
-* Si usa PowerShell, necesitará el [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
-* Si quiere usar la CLI de Azure y todavía no la ha instalado, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Si usa PowerShell, necesitará el [Módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Si quiere usar la CLI de Azure y todavía no la ha instalado, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Creación de la configuración de la red virtual
 
@@ -103,6 +103,7 @@ Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear un
 5. En la pestaña **Revisar y crear**, seleccione **Crear** para crear la máquina virtual.
 
 ### <a name="review-ip-addresses"></a>Examen de direcciones IP
+
 Una vez que se haya creado la máquina virtual, recibirá una notificación de **Implementación correcta** con un botón **Ir al recurso**.  Seleccione **Ir al recurso** para ir a la nueva máquina virtual.  En la vista predeterminada de la nueva máquina virtual, siga estos pasos para identificar las direcciones IP asociadas:
 
 1. En **Configuración**, seleccione **Propiedades**.
@@ -237,7 +238,7 @@ Para configurar la red virtual para que use el servidor DNS personalizado, en lu
 
 3. En la vista predeterminada, en **Configuración**, seleccione **Servidores DNS**.  
 
-4. Seleccione __Personalizar__ y escriba la **DIRECCIÓN IP PRIVADA** del servidor DNS personalizado.   
+4. Seleccione __Personalizar__ y escriba la **DIRECCIÓN IP PRIVADA** del servidor DNS personalizado.
 
 5. Seleccione __Guardar__.  <br />  
 

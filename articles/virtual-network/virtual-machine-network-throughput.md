@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: f5694e18d5743118e2b6e73708dd3acb17151198
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874940"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750320"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Ancho de banda de la red de máquinas virtuales
 
@@ -54,13 +54,13 @@ La transferencia de datos entre puntos de conexión exige la creación de varios
 
 ## <a name="flow-limits-and-recommendations"></a>Límites y recomendaciones de flujo
 
-Hoy en día, la pila de red de Azure admite 250 mil flujos de red totales con buen rendimiento para máquinas virtuales con más de 8 núcleos de CPU y 100 mil flujos totales con buen rendimiento para máquinas virtuales con menos de 8 núcleos de CPU. Más allá de este límite, el rendimiento de red decae gradualmente para flujos adicionales hasta un límite máximo de 1 millón de flujos totales, 500 mil entrantes y 500 mil salientes, después de lo cual se eliminan los flujos adicionales.
+Hoy en día, la pila de red de Azure admite 250 mil flujos de red totales con buen rendimiento para máquinas virtuales con más de 8 núcleos de CPU y 100 mil flujos totales con buen rendimiento para máquinas virtuales con menos de 8 núcleos de CPU. Más allá de este límite, el rendimiento de red decae gradualmente para flujos adicionales hasta un límite máximo de 500 000 flujos totales, 250 000 entrantes y 250 000 salientes, después de lo cual se eliminan los flujos adicionales.
 
 ||Máquinas virtuales con menos de 8 núcleos de CPU|Máquinas virtuales con más de 8 núcleos de CPU|
 |---|---|---|
 |<b>Buen rendimiento</b>|100 mil flujos |250 mil flujos|
 |<b>Rendimiento reducido</b>|Más de 100 mil flujos|Más de 250 mil flujos|
-|<b>Límite de flujos</b>|1 millón de flujos|1 millón de flujos|
+|<b>Límite de flujos</b>|500 000 flujos|500 000 flujos|
 
 Hay métricas disponibles en [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para realizar un seguimiento del número de flujos de red y la velocidad de creación de flujos en las instancias de VM o VMSS.
 

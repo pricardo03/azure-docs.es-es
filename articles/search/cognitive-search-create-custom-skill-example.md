@@ -1,19 +1,19 @@
 ---
-title: 'Ejemplo: Creación de una aptitud cognitiva personalizada con Bing Entity Search API: Azure Search'
-description: Aquí se muestra cómo usar el servicio Bing Entity Search en una aptitud personalizada asignada a una canalización de indexación de búsqueda cognitiva en Azure Search.
+title: 'Ejemplo: Creación de una aptitud cognitiva personalizada con Bing Entity Search API'
+titleSuffix: Azure Cognitive Search
+description: Aquí se muestra cómo usar el servicio Bing Entity Search en una aptitud personalizada asignada a una canalización de indexación enriquecida con IA en Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: d76a250cc3554b086501899376cb411346a4251c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9ab828daa009f7204abb1c64291d937a1f0dba2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266345"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784933"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Ejemplo: Creación de una aptitud personalizada con Bing Entity Search API
 
@@ -69,7 +69,7 @@ namespace SampleSkills
 {
     /// <summary>
     /// Sample custom skill that wraps the Bing entity search API to connect it with a 
-    /// cognitive search pipeline.
+    /// AI enrichment pipeline.
     /// </summary>
     public static class BingEntitySearch
     {
@@ -313,7 +313,7 @@ namespace SampleSkills
 
 Asegúrese de escribir su propio valor de *clave* en la constante `key`, según la clave que ha obtenido al registrarse en Bing Entity Search API.
 
-En este ejemplo se incluye todo el código necesario en un solo archivo para mayor comodidad. Puede encontrar una versión algo más estructurada de esa misma aptitud en el [repositorio de aptitudes avanzadas](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
+En este ejemplo se incluye todo el código necesario en un solo archivo para mayor comodidad. Puede encontrar una versión ligeramente más estructurada de esa misma aptitud, así como otros ejemplos de aptitudes personalizadas en el [repositorio de aptitudes avanzadas](https://aka.ms/entity-search-power-skill).
 
 Por supuesto, puede cambiar el nombre del archivo de `Function1.cs` a `BingEntitySearch.cs`.
 
@@ -478,6 +478,7 @@ En este caso, contamos con la [aptitud de reconocimiento de entidades](cognitive
 ## <a name="next-steps"></a>Pasos siguientes
 Felicidades. Acaba de crear su primera opción de enriquecimiento personalizada. Si quiere agregar su propia funcionalidad personalizada, puede seguir el mismo patrón. 
 
++ [Aptitudes avanzadas: un repositorio de aptitudes personalizadas](https://aka.ms/powerskills)
 + [Agregar una aptitud personalizada a una canalización de Cognitive Search](cognitive-search-custom-skill-interface.md)
 + [Cómo definir un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Crear un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

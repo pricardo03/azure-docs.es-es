@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: e80d79c16b0748e25e549365001990fb014b5f14
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 895425232dabc78650b6ee7ed035048471084237
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030541"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793892"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -108,6 +108,8 @@ Un experimento automatizado de series temporales se trata como un problema de re
 Obtenga más información y vea un ejemplo de [aprendizaje automático automatizado para la predicción de series temporales](how-to-auto-train-forecast.md). O bien, consulte el [cuaderno de demanda energética](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) para obtener ejemplos de código detallados de la configuración de predicciones avanzada, que incluye:
 
 * detección y caracterización de festividades
+* aprendizaje de series temporales y DNN (ARIMA, Prophet, ForecastTCN)
+* compatibilidad con gran cantidad de modelos a través de la agrupación
 * validación cruzada de origen variable
 * retardos configurables
 * características de agregado en periodos acumulados

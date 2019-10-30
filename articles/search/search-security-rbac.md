@@ -1,22 +1,21 @@
 ---
-title: 'Establecer roles RBAC para el acceso administrativo de Azure en el portal: Azure Search'
-description: Control administrativo basado en roles (RBAC) en Azure Portal para controlar y delegar tareas administrativas para la administración de Azure Search.
-author: HeidiSteen
+title: Establecimiento de roles RBAC para el acceso administrativo de Azure en el portal
+titleSuffix: Azure Cognitive Search
+description: Control administrativo basado en roles (RBAC) en Azure Portal para controlar y delegar tareas administrativas para la administración de Azure Cognitive Search.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 04/05/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 924d2529e3477c299d4a90c076fe9e6c8faf11f3
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 321aabb26d5929f7587dd61e7d4059701f7ad526
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647408"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794324"
 ---
-# <a name="set-rbac-roles-for-administrative-access"></a>Configuración de roles RBAC para el acceso administrativo
+# <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Configuración de roles RBAC para el acceso administrativo a Azure Cognitive Search
 
 Azure proporciona un [modelo de autorización global basado en roles](../role-based-access-control/role-assignments-portal.md) para todos los servicios que se administran del portal o de las API de Resource Manager. Los roles de Propietario, Colaborador y Lector determinan el nivel de *administración de servicio* de los usuarios, grupos y entidades de seguridad de Active Directory asignados a cada rol. 
 
@@ -25,7 +24,7 @@ Azure proporciona un [modelo de autorización global basado en roles](../role-ba
 
 ## <a name="management-tasks-by-role"></a>Tareas de administración por rol
 
-Para Azure Search, los roles están asociados a los niveles de permisos que admiten las siguientes tareas de administración:
+Para Azure Cognitive Search, los roles están asociados a los niveles de permisos que admiten las siguientes tareas de administración:
 
 | Role | Tarea |
 | --- | --- |
@@ -39,5 +38,5 @@ Los roles no otorgan derechos de acceso al punto de conexión de servicio. Las o
 ## <a name="see-also"></a>Otras referencias
 
 + [Administración mediante PowerShell](search-manage-powershell.md) 
-+ [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md)
++ [Consideraciones sobre el rendimiento y la optimización de Azure Cognitive Search](search-performance-optimization.md)
 + [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md)

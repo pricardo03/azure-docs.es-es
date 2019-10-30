@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 17db8dbcba8dd0181be9ca7289ea1b85079ff9a1
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: f7f45e479ad21b27832573b73a5e09e8da1b37b1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168506"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756127"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuales
 
@@ -107,13 +107,13 @@ Los recursos de una red virtual no pueden resolver los nombres de los recursos d
 
 ## <a name="permissions"></a>Permisos
 
-Azure usa el [control de acceso basado en roles](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) para los recursos. Los permisos se asignan a un [ámbito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) de la siguiente jerarquía: suscripción, grupo de administración, grupo de recursos y recurso individual. Para obtener más información acerca de la jerarquía, consulte [Organización de los recursos](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para trabajar con redes virtuales de Azure y todas sus capacidades relacionadas, como el emparejamiento, los grupos de seguridad de red, los puntos de conexión de servicio y las tablas de rutas, puede asignar miembros de la organización a los roles integrados [Propietario](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) o [Colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) y, a continuación, asignar uno de esos roles a un ámbito adecuado. Si quiere asignar permisos específicos para un subconjunto de capacidades de red virtual, cree un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y asigne al rol los permisos específicos necesarios para [redes virtuales](manage-virtual-network.md#permissions), [subredes y puntos de conexión de servicio](virtual-network-manage-subnet.md#permissions), [interfaces de red](virtual-network-network-interface.md#permissions), [emparejamientos](virtual-network-manage-peering.md#permissions), [grupos de seguridad de aplicaciones y red](manage-network-security-group.md#permissions) o [tablas de rutas](manage-route-table.md#permissions).
+Azure usa el [control de acceso basado en roles](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) para los recursos. Se asignan permisos a un [ámbito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) según la siguiente jerarquía: grupo de administración, suscripción, grupo de recursos y recurso individual. Para obtener más información acerca de la jerarquía, consulte [Organización de los recursos](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para trabajar con redes virtuales de Azure y todas sus capacidades relacionadas, como el emparejamiento, los grupos de seguridad de red, los puntos de conexión de servicio y las tablas de rutas, puede asignar miembros de la organización a los roles integrados [Propietario](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) o [Colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) y, a continuación, asignar uno de esos roles a un ámbito adecuado. Si quiere asignar permisos específicos para un subconjunto de capacidades de red virtual, cree un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y asigne al rol los permisos específicos necesarios para [redes virtuales](manage-virtual-network.md#permissions), [subredes y puntos de conexión de servicio](virtual-network-manage-subnet.md#permissions), [interfaces de red](virtual-network-network-interface.md#permissions), [emparejamientos](virtual-network-manage-peering.md#permissions), [grupos de seguridad de aplicaciones y red](manage-network-security-group.md#permissions) o [tablas de rutas](manage-route-table.md#permissions).
 
 ## <a name="policy"></a>Directiva
 
 Azure Policy le permite crear, asignar y administrar las definiciones de directivas. Las definiciones de directivas aplican distintas reglas en los recursos, para que estos sigan siendo compatibles con los estándares de la organización y los contratos de nivel de servicio. Azure Policy ejecuta una evaluación de los recursos, para detectar los que no son compatibles con las definiciones de directivas que tiene. Por ejemplo, puede definir y aplicar una directiva que permita la creación de redes virtuales en un solo grupo de recursos o región específicos. Otra directiva puede requerir que cada subred tenga un grupo de seguridad de red asociado a ella. Estas directivas se evalúan al crear y actualizar los recursos.
 
-Las directivas se aplican a la siguiente jerarquía: suscripción, grupo de administración y grupo de recursos. Obtenga más información sobre la [directiva de Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o acerca de cómo implementar algunos ejemplos de [plantillas de directivas](policy-samples.md) de redes virtuales.
+Igualmente, las directivas se aplican según la jerarquía siguiente: grupo de administración, suscripción y grupo de recursos. Obtenga más información sobre la [directiva de Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o acerca de cómo implementar algunos ejemplos de [plantillas de directivas](policy-samples.md) de redes virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

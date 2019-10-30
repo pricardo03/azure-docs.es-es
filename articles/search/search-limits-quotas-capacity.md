@@ -1,22 +1,23 @@
 ---
-title: Límites de servicio para los niveles y SKU en Azure Search
-description: Límites de servicio usados en la planeación de la capacidad y los límites máximos de solicitudes y respuestas de Azure Search.
-author: HeidiSteen
+title: Límites de servicio para niveles y SKU
+titleSuffix: Azure Cognitive Search
+description: Límites de servicio usados en el planeamiento de la capacidad y límites máximos sobre solicitudes y respuestas de Azure Cognitive Search.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: d70812779d392cc4555c91599fad37c2d2c68ba5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947778"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793574"
 ---
-# <a name="service-limits-in-azure-search"></a>Límites de servicio en Azure Search
-Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si [aprovisiona Azure Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico**, **Estándar** o **Almacenamiento optimizado**.
+# <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
+
+Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantidades de índices, los documentos y otros objetos dependen de si se [aprovisiona Azure Cognitive Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico**, **Estándar** u **Optimizado para almacenamiento**.
 
 + **Gratis** es un servicio multiinquilino compartido incluido en su suscripción de Azure. Las solicitudes de indexación y consulta se ejecutan en las réplicas y las particiones que usan otros inquilinos.
 
@@ -68,11 +69,11 @@ Para determinar si su servicio tiene límites de documentos, compruebe el icono 
 
   ![Icono de Uso](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-<sup>1</sup> Aunque no hay ningún límite de documentos específico de SKU, cada índice sigue sujeto a un límite máximo de seguridad para garantizar la estabilidad del servicio. Este límite proviene de Lucene. Cada documento de Azure Search se indexa internamente como uno o más documentos Lucene. El número de documentos Lucene por documento de Azure Search depende del número total de elementos en campos de colección complejos. Cada elemento se indexa como un documento Lucene independiente. Por ejemplo, un documento con tres elementos en un campo de colección complejo se indexará como cuatro documentos Lucene: uno para el documento en sí y tres para los elementos. El número máximo de documentos Lucene es aproximadamente 25 mil millones por índice.
+<sup>1</sup> Aunque no hay ningún límite de documentos específico de SKU, cada índice sigue sujeto a un límite máximo de seguridad para garantizar la estabilidad del servicio. Este límite proviene de Lucene. Cada documento de Azure Cognitive Search se indexa internamente como uno o más documentos de Lucene. El número de documentos de Lucene por documento de búsqueda depende del número total de elementos en campos de colección complejos. Cada elemento se indexa como un documento Lucene independiente. Por ejemplo, un documento con tres elementos en un campo de colección complejo se indexará como cuatro documentos Lucene: uno para el documento en sí y tres para los elementos. El número máximo de documentos Lucene es aproximadamente 25 mil millones por índice.
 
 ### <a name="regions-previously-having-document-limits"></a>Regiones que anteriormente tenían límites de documentos
 
-Si el portal indica un límite de documentos, su servicio se creó antes de finales de 2017, o se creó en un centro de datos mediante clústeres de menor capacidad para hospedar servicios de Azure Search:
+Si el portal indica un límite de documentos, el servicio se creó antes de finales de 2017 o en un centro de datos mediante clústeres de menor capacidad para hospedar servicios de Azure Cognitive Search:
 
 + Este de Australia
 + Asia oriental
@@ -140,13 +141,13 @@ El número máximo de asignaciones de sinónimos permitidas varía según el niv
 
 Cada cliente debe desarrollar las estimaciones de QPS de manera independiente. El tamaño y la complejidad del índice, el tamaño y la complejidad de la consulta, y la cantidad de tráfico son los determinantes principales de las consultas por segundo. No hay manera de ofrecer estimaciones significativas cuando estos factores son desconocidos.
 
-Las estimaciones son más predecibles cuando se calculan en los servicios que se ejecutan en recursos dedicados (niveles Básico y Estándar). Puede calcular el número de QPS con más precisión porque tiene control sobre más parámetros. Para obtener instrucciones sobre cómo encargarse del cálculo, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md).
+Las estimaciones son más predecibles cuando se calculan en los servicios que se ejecutan en recursos dedicados (niveles Básico y Estándar). Puede calcular el número de QPS con más precisión porque tiene control sobre más parámetros. Para instrucciones sobre cómo realizar una estimación, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Cognitive Search](search-performance-optimization.md).
 
 En el caso de los niveles de Almacenamiento optimizado, debe esperar un rendimiento más bajo de las consultas y una latencia superior que en los niveles Estándar.  La metodología para calcular el rendimiento de las consultas que experimentará es igual que en los niveles Estándar.
 
-## <a name="data-limits-cognitive-search"></a>Límites de datos (búsqueda cognitiva)
+## <a name="data-limits-ai-enrichment"></a>Límites de datos (enriquecimiento de inteligencia artificial)
 
-Una [canalización de búsqueda cognitiva](cognitive-search-concept-intro.md) que realiza llamadas a un recurso de Text Analytics para el [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), la [extracción de frases clave](cognitive-search-skill-keyphrases.md), el [análisis de sentimiento ](cognitive-search-skill-sentiment.md) y la [detección de idioma](cognitive-search-skill-language-detection.md) está sujeta a los límites de datos. El tamaño máximo de un registro debe ser de 50 000 caracteres, medidos por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al analizador de opiniones, use la [aptitud División de texto](cognitive-search-skill-textsplit.md).
+Una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) que realiza llamadas a un recurso de Text Analytics para el [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), la [extracción de frases clave](cognitive-search-skill-keyphrases.md), el [análisis de sentimiento](cognitive-search-skill-sentiment.md) y la [detección de idioma](cognitive-search-skill-language-detection.md) está sujeta a los límites de datos. El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al analizador de opiniones, use la [aptitud División de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limitaciones
 
@@ -167,7 +168,7 @@ Límites estáticos de frecuencia de solicitudes para las operaciones relacionad
 * Máximo de 32 campos en cláusula $orderby
 * El tamaño máximo del término de búsqueda es de 32 766 bytes (32 KB menos 2 bytes) de texto con codificación UTF-8
 
-<sup>1</sup> En Azure Search, el cuerpo de una solicitud está sujeto a un límite superior de 16 MB, que impone un límite práctico en el contenido de campos individuales o colecciones que no esté restringido de algún modo por límites teóricos (consulte [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) (Tipos de datos admitidos) para más información sobre composición de campos y restricciones).
+<sup>1</sup> En Azure Cognitive Search, el cuerpo de una solicitud está sujeto a un límite superior de 16 MB, lo que impone un límite práctico sobre el contenido de campos individuales o colecciones que no están restringidos de algún modo por límites teóricos (consulte [Tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para más información sobre composición de campos y restricciones).
 
 ## <a name="api-response-limits"></a>Límites de respuesta de API
 * Máximo de 1000 documentos devueltos por página de resultados de búsqueda

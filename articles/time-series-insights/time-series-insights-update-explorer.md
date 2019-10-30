@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a0d8f7cdace8d3e810dfcda6e54df5823840307c
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a1707740d673ea49a4b4494f5d2e6a5753982090
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034334"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553413"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualización de datos en la versión preliminar del explorador
 
@@ -155,7 +155,7 @@ Cuando trabaje con la versión preliminar de Time Series Insights, primero debe 
 
 ## <a name="navigation-panel"></a>Panel de navegación
 
-El panel de navegación de la versión preliminar de Time Series Insights aparece en la parte superior de la aplicación de Time Series Insights. Ofrece la siguiente funcionalidad.
+El panel de navegación de la versión preliminar de Time Series Insights aparece en la parte superior de la aplicación de Time Series Insights. Ofrece la siguiente funcionalidad:
 
 ### <a name="current-session-share-link-control"></a>Control de vínculo del recurso compartido de la sesión actual
 
@@ -201,7 +201,7 @@ En lugar de la jerarquía, se ve el panel de términos de Time Series Insights, 
 
 El panel del editor de términos de la versión preliminar de Time Series Insights toma los parámetros siguientes:
 
-**Where**: use la cláusula Where para filtrar rápidamente sus eventos mediante el conjunto de operandos que se enumeran en la siguiente tabla. Si realiza una búsqueda seleccionando un operando, el predicado se actualizará automáticamente según esa búsqueda. Los tipos de operando compatibles incluyen:
+**Where**: use la cláusula Where para filtrar rápidamente sus eventos mediante el conjunto de operandos que se enumeran en la siguiente tabla. Si realiza una búsqueda seleccionando un operando, el predicado se actualizará automáticamente según esa búsqueda. Los tipos de operando compatibles incluyen los siguientes:
 
 | Operación | Tipos admitidos   | Notas |
 | --- | --- | --- |

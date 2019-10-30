@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960571"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679863"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalación y uso de Azure IoT Explorer
 
@@ -77,23 +77,29 @@ En la página de lista **Dispositivos** puede:
 
 ## <a name="interact-with-a-device"></a>Interactuación con un dispositivo
 
-En la página de lista **Dispositivos**, seleccione un valor en la columna **ID de dispositivo** para ver la página de detalles del dispositivo registrado. Para los dispositivos, hay dos secciones: **Dispositivo** y **gemelo digital**.
+En la página de lista **Dispositivos**, seleccione un valor en la columna **ID de dispositivo** para ver la página de detalles del dispositivo registrado. Para cada dispositivo, hay dos secciones: **Dispositivo** y **gemelo digital**.
 
 ### <a name="device"></a>Dispositivo
 
-Esta sección incluye las pestañas **Id. de dispositivo**, **Telemetría** y **Dispositivo gemelo**.
+En esta sección se incluyen las pestañas **Device Identity** (Identidad de dispositivo), **Dispositivo gemelo**, **Telemetría**, **Método directo** y **Cloud-to-device message** (Mensaje de nube a dispositivo).
 
 - Puede ver y actualizar la información de la [identidad del dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) en la pestaña **Id. de dispositivo**.
 - Puede acceder a la información del [dispositivo gemelo](../iot-hub/iot-hub-devguide-device-twins.md) en la pestaña **Dispositivo gemelo**.
 - Si un dispositivo está conectado y envía datos de forma activa, puede ver la [telemetría](../iot-hub/iot-hub-devguide-messages-read-builtin.md) en la pestaña **Telemetría**.
+- Puede llamar a un [método directo](../iot-hub/iot-hub-devguide-direct-methods.md) en el dispositivo en la pestaña **Método directo**.
+- Puede enviar un [mensaje de nube a dispositivo](../iot-hub/iot-hub-devguide-messages-c2d.md) en la pestaña **Cloud-to-device messages** (Mensajes de nube a dispositivo).
 
 ### <a name="digital-twin"></a>Gemelo digital
 
-Puede usar la herramienta para ver una instancia del gemelo digital del dispositivo. En el caso de un dispositivo IoT Plug and Play, en este artículo se muestran todas las interfaces asociadas al modelo de funcionalidad del dispositivo. Seleccione una interfaz para expandir las correspondientes [primitivas de IoT Plug and Play](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+Puede usar la herramienta para ver una instancia del gemelo digital del dispositivo. En el caso de un dispositivo IoT Plug and Play, en esta sección de la herramienta se muestran todas las interfaces asociadas al modelo de funcionalidad del dispositivo. Seleccione una interfaz para expandir las correspondientes [primitivas de IoT Plug and Play](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+
+### <a name="interface"></a>Interfaz
+
+En la página **Interfaz**, puede ver la definición de JSON de la interfaz.
 
 #### <a name="properties"></a>properties (Propiedades)
 
-Puede ver las propiedades de solo lectura definidas en una interfaz en la página **Properties** (Propiedades). Puede actualizar las propiedades grabables definidas en una interfaz en la página **Writeable properties** (Propiedades que se pueden escribir).
+Puede ver las propiedades de solo lectura definidas en una interfaz en la página **Non-writeable Properties** (Propiedades que no se pueden escribir). Puede actualizar las propiedades que se pueden escribir definidas en una interfaz en la página **Writeable properties** (Propiedades que se pueden escribir):
 
 1. Vaya a la página **Writeable properties** (Propiedades que se pueden escribir).
 1. Haga clic en la propiedad que desea actualizar.

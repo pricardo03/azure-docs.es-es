@@ -1,13 +1,13 @@
 ---
-title: 'Incorporación de analizadores personalizados: Azure Search'
-description: Modifique los tokenizadores de texto y los filtros de caracteres utilizados en consultas de búsqueda de texto completo de Azure Search.
-ms.date: 08/08/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Incorporación de analizadores personalizados a los campos de cadena de un índice
+titleSuffix: Azure Cognitive Search
+description: Configure los tokenizadores de texto y los filtros de caracteres utilizados en consultas de búsqueda de texto completo de Azure Cognitive Search.
+manager: nitinme
 author: Yahnoosh
 ms.author: jlembicz
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0cd2cf4b7847b767bac391f2547c0a5c3e3a9135
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: bed011d62fa227697562f552ecb649c4b1fc00c9
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891569"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790158"
 ---
-# <a name="add-custom-analyzers-to-an-azure-search-index"></a>Incorporación de analizadores personalizados a un índice de Azure Search
+# <a name="add-custom-analyzers-to-an-azure-cognitive-search-index"></a>Incorporación de analizadores personalizados a un índice de Azure Cognitive Search
 
 Un *analizador personalizado* es un tipo específico de [analizador de texto](search-analyzers.md) que se compone de una combinación definida por el usuario de un tokenizador existente y unos filtros opcionales. Si combina los tokenizadores y los filtros de nuevas formas, puede personalizar el procesamiento de texto del motor de búsqueda para lograr resultados específicos. Por ejemplo, podría crear un analizador personalizado con un *filtro de caracteres* para quitar el marcado HTML antes de que se tokenicen las entradas de texto.
 
@@ -36,7 +36,7 @@ Un *analizador personalizado* es un tipo específico de [analizador de texto](se
 
  El rol de un [motor de búsqueda de texto completo](search-lucene-query-architecture.md), en términos simples, es procesar y almacenar documentos de manera que sea posible realizar de forma eficiente consultas y recuperación. A nivel general, se trata en definitiva de extraer palabras importantes de los documentos, colocarlas en un índice y luego utilizar el índice para buscar documentos que coincidan con las palabras de una consulta determinada. El proceso que extrae palabras de documentos y consultas de búsqueda se denomina *análisis léxico*. Los componentes que realizan el análisis léxico se denominan *analizadores*.
 
- En Azure Search, puede elegir entre el conjunto de analizadores predefinidos independientes del idioma que aparecen en la tabla [Analizadores](#AnalyzerTable) o los analizadores específicos de idioma que se indican en [Analizadores de idiomas &#40;API REST de Azure Search Service&#41;](index-add-language-analyzers.md). También tiene una opción para definir sus propios analizadores personalizados.  
+ En Azure Cognitive Search, puede elegir entre el conjunto de analizadores predefinidos independientes del idioma que aparecen en la tabla [Analizadores](#AnalyzerTable) o los analizadores específicos de idioma que se indican en [Analizadores de idiomas &#40;API REST de Azure Cognitive Search Service&#41;](index-add-language-analyzers.md). También tiene una opción para definir sus propios analizadores personalizados.  
 
  Un analizador personalizado le permite hacerse con el control del proceso de conversión de texto en tokens que se pueden indexar o buscar. Se trata de una configuración definida por el usuario que consta de un único tokenizador predefinido, uno o más filtros de token y uno o varios filtros de caracteres. El tokenizer es el responsable de dividir texto en tokens y los filtros de token son los que modifican los tokens emitidos por el tokenizer. Los filtros de caracteres se aplican para preparar el texto de entrada antes de que el tokenizador lo procese. Por ejemplo, el filtro de caracteres puede reemplazar determinados caracteres o símbolos.
 
@@ -52,13 +52,13 @@ Un *analizador personalizado* es un tipo específico de [analizador de texto](se
 
 - Plegado ASCII. Agregue el filtro de plegado ASCII estándar para normalizar los signos diacríticos como ö o ê en los términos de búsqueda.  
 
-  En esta página se proporciona una lista de analizadores, tokenizadores, filtros de token y filtros de caracteres admitidos. También puede encontrar una descripción de los cambios en la definición del índice con un ejemplo de uso. Para más información sobre la tecnología subyacente aprovechada en la implementación de Azure Search, consulte [el resumen del paquete de análisis Lucene](https://lucene.apache.org/core/6_0_0/core/org/apache/lucene/codecs/lucene60/package-summary.html). Para ver ejemplos de las configuraciones del analizador, consulte [Incorporación de analizadores en Azure Search](search-analyzers.md#examples).
+  En esta página se proporciona una lista de analizadores, tokenizadores, filtros de token y filtros de caracteres admitidos. También puede encontrar una descripción de los cambios en la definición del índice con un ejemplo de uso. Para más información sobre la tecnología subyacente aprovechada en la implementación de Azure Cognitive Search, consulte [el resumen del paquete de análisis Lucene](https://lucene.apache.org/core/6_0_0/core/org/apache/lucene/codecs/lucene60/package-summary.html). Para ver ejemplos de las configuraciones del analizador, consulte [Incorporación de analizadores en Azure Cognitive Search](search-analyzers.md#examples).
 
 ## <a name="validation-rules"></a>Reglas de validación  
  Los nombres de los analizadores, tokenizadores, filtros de token y filtros de caracteres tienen que ser únicos y no pueden ser los mismos que cualquiera de los analizadores, tokenizadores, filtros de token o filtros de caracteres predefinidos. Consulte la sección [Referencia de propiedades](#PropertyReference) para los nombres que ya están en uso.
 
 ## <a name="create-custom-analyzers"></a>Creación de analizadores personalizados
- Puede definir analizadores personalizados en el momento de la creación de índices. En esta sección se describe la sintaxis para especificar un analizador personalizado. Para familiarizarse con la sintaxis, también puede revisar las definiciones de muestra de [Incorporación de analizadores en Azure Search](search-analyzers.md#examples).  
+ Puede definir analizadores personalizados en el momento de la creación de índices. En esta sección se describe la sintaxis para especificar un analizador personalizado. Para familiarizarse con la sintaxis, también puede revisar las definiciones de muestra de [Incorporación de analizadores en Azure Cognitive Search](search-analyzers.md#examples).  
 
  Una definición de analizador incluye un nombre, un tipo, uno o varios filtros de caracteres, un máximo de un tokenizador y uno o varios filtros de token para el procesamiento posterior a la tokenización. Los filtros de caracteres se aplican antes de la tokenización. Los filtros de token y los filtros de caracteres se aplican de izquierda a derecha.
 
@@ -383,6 +383,6 @@ En la tabla siguiente, los filtros de token que se implementan mediante Apache L
 
 
 ## <a name="see-also"></a>Otras referencias  
- [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)  (API REST de Azure Search Service)  
- [Analizadores en Azure Search > Ejemplos](search-analyzers.md#examples)    
- [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de un índice [API REST de Azure Search Service])  
+ [API REST de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/)   
+ [Analizadores de Azure Cognitive Search > ejemplos](search-analyzers.md#examples)    
+ [Creación de un índice &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

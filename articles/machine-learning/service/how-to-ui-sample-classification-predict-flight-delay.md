@@ -9,42 +9,40 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
-ms.date: 07/02/2019
-ms.openlocfilehash: 257f6034df7d1974f3964c4d07ca96d17c7fe509
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 6e65075b309ed12505ce6fffadac12af3f16344b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131159"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692565"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos mediante R
 
-Este experimento utiliza datos históricos relativos a los vuelos y la meteorología para predecir si un vuelo de pasajeros programado se retrasará más de 15 minutos.
+Esta canalización utiliza datos históricos relativos a los vuelos y la meteorología para predecir si un vuelo de pasajeros programado se retrasará más de 15 minutos. Este problema se puede abordar como un problema de clasificación, que predice dos clases: retrasado o puntual.
 
-Este problema se puede abordar como un problema de clasificación, que predice dos clases: retrasado o puntual. Para compilar un clasificador, este modelo utiliza una gran cantidad de ejemplos de datos históricos de vuelo.
+Este es el gráfico de la canalización final de este ejemplo:
 
-Este es el gráfico del experimento final de este ejemplo:
-
-[![Gráfico del experimento](media/how-to-ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Gráfico de la canalización](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Seleccione el botón **Abrir** correspondiente al experimento Ejemplo 6:
+4. Seleccione el botón **Abrir** correspondiente a la canalización del ejemplo 6:
 
-    ![Abrir el experimento](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
+    ![Abrir la canalización](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
 
 ## <a name="get-the-data"></a>Obtener los datos
 
-Este experimento usa el conjunto de datos **Flight Delays Data** (Datos de retrasos de vuelos). Forma parte de la colección de datos TranStats del Departamento de Transporte de EE. UU. El conjunto de datos contiene información sobre los retrasos de vuelos de abril a octubre de 2013. Antes de cargar los datos en la interfaz visual, se han procesado previamente del modo siguiente:
+En este ejemplo se usa el conjunto de datos **Flight Delays Data** (Datos de retrasos de vuelos). Forma parte de la colección de datos TranStats del Departamento de Transporte de EE. UU. El conjunto de datos contiene información sobre los retrasos de vuelos de abril a octubre de 2013. El conjunto de datos se ha procesado previamente de la siguiente manera:
 
 * Se han filtrado para incluir los 70 aeropuertos con más actividad del territorio continental de Estados Unidos.
-* Los vuelos cancelados se reetiquetaron como retrasados más de 15 minutos.
+* Se han reetiquetado los vuelos cancelados como retrasados más de 15 minutos.
 * Los vuelos desviados se quitaron de la muestra.
 * Se seleccionaron 14 columnas.
 
-Para complementar los datos de vuelo, se usa el lote **Weather Dataset** (conjunto de datos meteorológicos). Los datos meteorológicos contienen observaciones meteorológicas terrestres por hora de la NOAA y representan las observaciones desde las estaciones meteorológicas de los aeropuertos, que abarcan el mismo período de abril a octubre de 2013. Antes de cargar los datos en la interfaz visual de Azure Machine Learning, se han procesado previamente del modo siguiente:
+Para complementar los datos de vuelo, se usa el lote **Weather Dataset** (conjunto de datos meteorológicos). Los datos meteorológicos contienen observaciones meteorológicas terrestres por hora de la NOAA y representan las observaciones desde las estaciones meteorológicas de los aeropuertos, que abarcan el mismo período que el conjunto de datos de vuelo. Se ha procesado previamente de la siguiente manera:
 
 * Se asignaron los identificadores de las estaciones meteorológicas a los identificadores de aeropuerto correspondientes.
 * Se excluyeron las estaciones meteorológicas no asociadas a los 70 aeropuertos con mayor tráfico.
@@ -107,10 +105,9 @@ Para crear un modelo, puede utilizar todas las características disponibles o se
 Cree un modelo con el módulo **Two-Class Logistic Regression** (Regresión logística de dos clases) y entrénelo en el conjunto de datos de entrenamiento. 
 
 El resultado del módulo **Train Model** (Entrenar modelo) es un modelo de clasificación entrenado que se puede usar para puntuar las nuevas muestras para realizar predicciones. Utilice el conjunto de pruebas para generar puntuaciones a partir de los modelos entrenados. A continuación, utilice el módulo **Evaluate Model** (Evaluación de modelo) para analizar y comparar la calidad de los modelos.
+Después de ejecutar la canalización, puede ver la salida desde el módulo **Score Model** (Puntuar modelo) haciendo clic en el puerto de salida y seleccionando **Visualizar**. La salida incluye las etiquetas puntuadas y las probabilidades de las etiquetas.
 
-Después de ejecutar el experimento, puede ver la salida desde el módulo **Score Model** (Puntuar modelo) haciendo clic en el puerto de salida y seleccionando **Visualizar**. La salida incluye las etiquetas puntuadas y las probabilidades de las etiquetas.
-
-Finalmente, para probar la calidad de los resultados, agregue el módulo**Evaluate Model** (Evaluar modelo) al lienzo de experimentos, y conecte el puerto de entrada izquierdo a la salida del módulo Score Model (Puntuar modelo). Ejecute el experimento y vea la salida desde el módulo **Evaluate Model** (Evaluar modelo) haciendo clic en el puerto de salida y seleccionando **Visualizar**.
+Finalmente, para probar la calidad de los resultados, agregue el módulo**Evaluate Model** (Evaluar modelo) al lienzo de la canalización, y conecte el puerto de entrada izquierdo a la salida del módulo Score Model (Puntuar modelo). Ejecute la canalización y vea la salida desde el módulo **Evaluate Model** (Evaluar modelo) haciendo clic en el puerto de salida y seleccionando **Visualizar**.
 
 ## <a name="evaluate"></a>Evaluate
 El modelo de regresión logística tiene un área bajo la curva de 0,631 en el conjunto de prueba.
@@ -126,3 +123,4 @@ Explore otros ejemplos disponibles para la interfaz visual:
 - [Ejemplo 3 - Clasificación: predicción del riesgo crediticio](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 - [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Ejemplo 5 - Clasificación: predicción de la renovación](how-to-ui-sample-classification-predict-churn.md)
+- [Ejemplo 7 - Clasificación de texto: revisiones de libros](how-to-ui-sample-text-classification.md)

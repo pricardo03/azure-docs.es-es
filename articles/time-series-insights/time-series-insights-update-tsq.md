@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b7d041b678ccf2a476afc6d0744f6971349677e
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 0b2f89a846747eaf78c60077372b48802506731e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034867"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553370"
 ---
 # <a name="data-querying"></a>Consultas de datos
 
@@ -25,7 +25,7 @@ Existen tres categorías principales de API en Time Series Insights:
 
 * **API de entorno**: Permite las consultas del mismo entorno de Time Series Insights. Como ejemplos de consultas, tenemos la lista de entornos a los que el autor de la llamada tiene acceso y los metadatos del entorno.
 
-* **API de consulta de modelo de serie temporal (TSM-Q)** : Permite crear, leer, actualizar y eliminar operaciones en metadatos almacenados en la parte del entorno del modelo de serie temporal. Algunos ejemplos son las instancias, los tipos y las jerarquías.
+* **API de consulta de modelo de serie temporal (TSM-Q)** : Permite crear, leer, actualizar y eliminar (CRUD) operaciones en metadatos almacenados en la parte del entorno del modelo de serie temporal. Algunos ejemplos son las instancias, los tipos y las jerarquías.
 
 * **API de consulta de serie temporal (TSQ)** : Permite la recuperación de datos de eventos a medida que se registra en el proveedor de origen. Estas API pueden realizar operaciones para transformar, combinar y realizar cálculos en datos de series temporales.
 

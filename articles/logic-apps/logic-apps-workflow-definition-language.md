@@ -1,6 +1,6 @@
 ---
-title: 'Referencia de esquema del lenguaje de definición de flujo de trabajo: Azure Logic Apps'
-description: Guía de referencia del esquema del lenguaje de definición de flujo de trabajo en Azure Logic Apps
+title: Esquema para el lenguaje de definición de flujo de trabajo en Azure Logic Apps
+description: Referencia del esquema del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 05/13/2019
-ms.openlocfilehash: c84791cb30622350b3e6d6356abd4580636c4ddf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 64c01baf0852e7e09ce9ffed2d079b47e95f7190
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385352"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680081"
 ---
-# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia de esquema del lenguaje de definición de flujo de trabajo en Azure Logic Apps
+# <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Guía de referencia del esquema del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
 Cuando se crea una aplicación lógica en [Azure Logic Apps](../logic-apps/logic-apps-overview.md), tiene una definición de flujo de trabajo subyacente en la que se describe la lógica real que se ejecuta en la aplicación lógica. Esa definición de flujo de trabajo usa [JSON](https://www.json.org/) y sigue una estructura que se valida mediante el esquema del lenguaje de definición de flujo de trabajo. En esta referencia se proporciona información general sobre esta estructura y cómo el esquema define los atributos en la definición de flujo de trabajo.
 

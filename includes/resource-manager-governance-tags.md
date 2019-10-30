@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/11/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 099bca7483100da1a4ee2f8f10057c416ad145b0
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: a9a837d8a486e10ea2a62be69b889e657b1dbc05
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67841584"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72601136"
 ---
 Aplicará etiquetas a los recursos de Azure que proporcionan metadatos para organizarlos de forma lógica en una taxonomía. Cada etiqueta consta de un nombre y un par de valores. Por ejemplo, puede aplicar el nombre "Environment" y el valor "Production" a todos los recursos en producción.
 
@@ -30,3 +30,6 @@ Se aplican las siguientes limitaciones a las etiquetas:
 * Los recursos de un grupo de recursos no heredan las etiquetas aplicadas a este.
 * No se pueden aplicar etiquetas a recursos clásicos como Cloud Services.
 * Los nombres de etiqueta no pueden contener estos caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
+
+   > [!NOTE]
+   > Actualmente las zonas de Azure DNS y los servicios de Traffic Manager tampoco permiten el uso de espacios en la etiqueta. 

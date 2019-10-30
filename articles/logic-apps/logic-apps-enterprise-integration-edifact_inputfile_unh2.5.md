@@ -1,6 +1,6 @@
 ---
-title: 'Control de mensajes EDIFACT con segmentos UNH 2.5: Azure Logic Apps | Microsoft Docs'
-description: Resuelva los documentos EDIFACT con segmentos UNH 2.5 en Azure Logic Apps con Enterprise Integration Pack
+title: 'Segmentos UNH 2.5 en los mensajes EDIFACT: Azure Logic Apps'
+description: Resolución de los mensajes EDIFACT con segmentos UNH 2.5 en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,45 +8,62 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/27/2017
-ms.openlocfilehash: 926c9ebe8675d8b50d4544be813ae0b15492ae35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c30c35375a45171c938f80e94dd7d9be4c3ee8b1
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60681685"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679962"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Control de documentos EDIFACT con segmentos UNH2.5 en Azure Logic Apps
 
-Si UNH2.5 está presente en el documento EDIFACT, se va a usar para la búsqueda de esquema. 
+Si existe un segmento UNH 2.5 en un documento EDIFACT, el segmento se utiliza para la búsqueda de esquemas. Por ejemplo, en este mensaje EDIFACT de ejemplo, el campo UNH es `EAN008`:
 
-Ejemplo: el campo UNH es **EAN008** en el mensaje EDIFACT  
-UNH+SSDD1+ORDERS:D:03B:UN:**EAN008**'  
+`UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
 
-Pasos que deben seguirse para controlar el mensaje: 
-1. Revisión del esquema
-2. Comprobación de la configuración del acuerdo  
+Para administrar este mensaje, siga los pasos que se describen a continuación:
+
+1. Actualice el esquema.
+
+1. Compruebe la configuración del acuerdo.
 
 ## <a name="update-the-schema"></a>Revisión del esquema
-Para procesar el mensaje, debe implementar un esquema con el nombre del nodo raíz UNH2.5.  Para un ejemplo dado, el nombre de raíz de esquema sería **EFACT_D03B_ORDERS_EAN008**.  
 
-Para cada D03B_ORDERS con un segmento UNH2.5 diferente, tendría que implementar un esquema individual.  
+Para procesar el mensaje, debe implementar un esquema con el nombre del nodo raíz UNH2.5. Por ejemplo, el nombre de la raíz del esquema para el campo UNH del ejemplo es `EFACT_D03B_ORDERS_EAN008`. Para cada `D03B_ORDERS` con un segmento UNH2.5 diferente, tiene que implementar un esquema distinto.
 
-## <a name="add-schema-to-the-edifact-agreement"></a>Incorporación de un esquema al acuerdo de EDIFACT
+## <a name="add-schema-to-edifact-agreement"></a>Incorporación de un esquema al acuerdo EDIFACT
+
 ### <a name="edifact-decode"></a>Descodificación EDIFACT
+
 Para descodificar el mensaje entrante, configure el esquema en la configuración de recepción del acuerdo EDIFACT:
-1. Agregue el esquema a la cuenta de integración.    
-2. Configure el esquema en la configuración de recepción del acuerdo EDIFACT. 
-3. Seleccione el acuerdo EDIFACT y haga clic en **Editar como JSON**.  Agregue un valor UNH2.5 en el acuerdo de recepción **schemaReferences**
-![](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png).
+
+1. En [Azure Portal](https://portal.azure.com), abra la cuenta de integración.
+
+1. Agregue el esquema a la cuenta de integración.
+
+1. Configure el esquema en la configuración de recepción del acuerdo EDIFACT.
+
+1. Seleccione el acuerdo EDIFACT y seleccione **Editar como JSON**. Agregue el valor de UNH 2.5 a la sección `schemaReferences` del acuerdo de recepción:
+
+   ![Incorporación de UNH 2.5 al acuerdo de recepción](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
 
 ### <a name="edifact-encode"></a>Codificación EDIFACT
-Para codificar el mensaje entrante, configure el esquema en la configuración de envío del acuerdo EDIFACT:
-1. Agregue el esquema a la cuenta de integración.    
-2. Configure el esquema en la configuración de envío del acuerdo EDIFACT. 
-3. Seleccione el acuerdo EDIFACT y haga clic en **Editar como JSON**.  Agregue un valor UNH2.5 en el acuerdo de envío **schemaReferences**
-![](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png).
+
+Para codificar el mensaje entrante, configure el esquema en la configuración de envío del acuerdo EDIFACT
+
+1. En [Azure Portal](https://portal.azure.com), abra la cuenta de integración.
+
+1. Agregue el esquema a la cuenta de integración.
+
+1. Configure el esquema en la configuración de envío del acuerdo EDIFACT.
+
+1. Seleccione el acuerdo EDIFACT y haga clic en **Editar como JSON**.  Agregue un valor UNH2.5 al acuerdo de envío **schemaReferences**.
+
+1. Seleccione el acuerdo EDIFACT y seleccione **Editar como JSON**. Agregue el valor de UNH 2.5 a la sección `schemaReferences` del acuerdo de envío:
+
+   ![Incorporación del valor de UNH 2.5 al acuerdo de envío](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre los acuerdos de cuentas de integración](../logic-apps/logic-apps-enterprise-integration-agreements.md "Más información sobre los acuerdos de cuentas de integración")  
+
+* Más información sobre los [acuerdos de la cuenta de integración](../logic-apps/logic-apps-enterprise-integration-agreements.md)

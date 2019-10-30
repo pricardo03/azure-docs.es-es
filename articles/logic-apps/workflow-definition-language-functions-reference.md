@@ -1,6 +1,6 @@
 ---
-title: 'Referencia de las funciones del Lenguaje de definición de flujo de trabajo: Azure Logic Apps y Microsoft Flow'
-description: Guía de referencia de las funciones en las expresiones creadas con el Lenguaje de definición de flujo de trabajo para Azure Logic Apps y Microsoft Flow
+title: 'Guía de referencia de las funciones en las expresiones: Azure Logic Apps'
+description: Guía de referencia de las funciones en las expresiones para Azure Logic Apps y Microsoft Flow
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/23/2019
-ms.openlocfilehash: 484e2776d96d9beaca703f93b22c51299ccf63a7
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: d16df46ada2254f5bfc671db55e82fc89ef450b6
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208403"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679040"
 ---
-# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Referencia de las funciones del Lenguaje de definición de flujo de trabajo en Azure Logic Apps y Microsoft Flow
+# <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-microsoft-flow"></a>Guía de referencia para el uso de funciones en expresiones para Azure Logic Apps y Microsoft Flow
 
 En las definiciones de flujo de trabajo en [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), algunas [expresiones](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtienen sus valores de las acciones del entorno de ejecución que puede que no existan aún cuando comienza a ejecutarse el flujo de trabajo. Para hacer referencia a estos valores o procesarlos en estas expresiones, puede usar las *funciones* que proporciona el [Lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md). 
 
@@ -1079,7 +1079,7 @@ Y devuelve este resultado:
 
 <a name="bool"></a>
 
-### <a name="bool"></a>booleano
+### <a name="bool"></a>bool
 
 Devuelve la versión booleana de un valor.
 

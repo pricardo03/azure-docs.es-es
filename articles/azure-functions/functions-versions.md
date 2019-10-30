@@ -1,49 +1,55 @@
 ---
 title: Introducción a las versiones de tiempo de ejecución de Azure Functions
 description: Azure Functions admite varias versiones del runtime. Conozca las diferencias entre ellas y cómo elegir la más adecuada en su caso.
-services: functions
-documentationcenter: ''
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 10/10/2019
 ms.author: glenga
-ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ca7006bb842cbe235d2e982e611613e1fd74ed9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61036321"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597433"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
- Hay dos versiones principales del entorno de ejecución de Azure Functions: 1.x y 2.x. La versión actual (donde se están realizando mejoras y trabajos en características nuevas) es la 2.x., aunque para los escenarios de producción se admiten las dos.  A continuación se detallan algunas de las diferencias entre ambas versiones y la manera de crear cada una de ellas y actualizar de 1.x a 2.x.
+Las versiones principales del entorno de ejecución de Azure Functions se relacionan con la versión de .NET en la que se basa ese entorno. En la tabla siguiente se indica la versión actual del entorno de ejecución, el nivel de versión y la versión de .NET relacionada. 
 
-> [!NOTE]
-> Este artículo se refiere al servicio en la nube de Azure Functions. Para información acerca del producto en versión preliminar que le permite ejecutar Azure Functions de forma local, consulte la [Introducción a Azure Functions Runtime](functions-runtime-overview.md).
+| Versión en tiempo de ejecución | Nivel de versión<sup>1</sup> | Versión de .NET | 
+| --------------- | ------------- | ------------ |
+| 3.x  | Vista previa | .NET Core 3.x | 
+| 2.x | GA | .NET Core 2.2 |
+| 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
 
-## <a name="cross-platform-development"></a>Desarrollo multiplataforma
+<sup>1</sup> Las versiones de disponibilidad general se admiten en escenarios de producción.   
+<sup>2</sup> La versión 1. x está en modo de mantenimiento. Las mejoras solo se proporcionan en versiones posteriores.   
+<sup>3</sup> Solo admite el desarrollo en Azure Portal o localmente en equipos Windows.
 
-La versión 2.x del entorno de ejecución funciona en .NET Core 2, lo cual permite su ejecución en todas las plataformas que admita .NET Core, incluidos macOS y Linux. La ejecución en .NET Core hace posible escenarios de desarrollo y hospedaje multiplataforma.
+>[!NOTE]  
+> La versión 3. x del entorno de ejecución de Functions está en versión preliminar y no se admite en entornos de producción. Para más información sobre cómo probar la versión 3.x, consulte [este anuncio](https://dev.to/azure/develop-azure-functions-using-net-core-3-0-gcm).
 
-En cambio, la versión 1.x del entorno de ejecución admite solo desarrollo y hospedaje en Azure Portal o en equipos Windows.
+En este artículo se detallan algunas de las diferencias entre las distintas versiones, cómo se puede crear cada versión y cómo se cambian las versiones.
 
-## <a name="languages"></a>Languages
+## <a name="languages"></a>Lenguajes
 
-La versión 2.x del entorno de ejecución emplea un nuevo modelo de extensibilidad de lenguajes. En la versión 2.x, todas las funciones de una aplicación de función deben compartir el mismo lenguaje. El lenguaje de las funciones en una aplicación de función se elige al crear la aplicación.
+A partir de la versión 2.x, el entorno de ejecución usa un modelo de extensibilidad de lenguaje y todas las funciones de una aplicación de funciones deben compartir el mismo lenguaje. El lenguaje de las funciones de una aplicación de funciones se elige cuando se crea la aplicación y se mantiene en el valor [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime). 
 
-Los lenguajes experimentales de la versión 1.x de Azure Functions no se actualizarán para usar el nuevo modelo, así que no se admiten en 2.x. En la siguiente tabla se indican los lenguajes de programación que se admiten actualmente en cada versión del entorno de ejecución.
+Los lenguajes experimentales de la versión 1.x de Azure Functions no pueden utilizar el nuevo modelo, así que no se admiten en la versión 2.x. En la siguiente tabla se indican los lenguajes de programación que se admiten actualmente en cada versión del entorno de ejecución.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 Para más información, consulte [Lenguajes admitidos](supported-languages.md).
 
-## <a name="creating-1x-apps"></a>Ejecución en la versión 1.x
+## <a name="creating-1x-apps"></a>Ejecución en una versión específica
 
-De forma predeterminada, las aplicaciones de función que se crean en Azure Portal se establecen en la versión 2.x. Cuando sea posible, debe usar esta versión del entorno de ejecución, ya que en ella se invierte en nuevas características. Si lo necesita, puede seguir ejecutando una aplicación de función en la versión 1.x del entorno de ejecución. Solo puede cambiar la versión del entorno de ejecución después de crear la aplicación de función, pero antes de agregar funciones. Para información sobre cómo anclar la versión 1.x del entorno de ejecución, consulte [Visualización y actualización de la versión actual del entorno de ejecución](set-runtime-version.md#view-and-update-the-current-runtime-version).
+De forma predeterminada, las aplicaciones de funciones que se crean en Azure Portal y en la CLI de Azure se establecen en la versión 2.x. Siempre que sea posible, debe usar esta versión del entorno de ejecución. Si lo necesita, puede seguir ejecutando una aplicación de función en la versión 1.x del entorno de ejecución. Solo puede cambiar la versión del entorno de ejecución después de crear la aplicación de función, pero antes de agregar funciones. Para información sobre cómo anclar la versión 1.x del entorno de ejecución, consulte [Visualización y actualización de la versión actual del entorno de ejecución](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
-## <a name="migrating-from-1x-to-2x"></a>Migración de 1.x a 2.x
+También puede actualizar a la versión 3.x del entorno de ejecución, que se encuentra en versión preliminar. Hágalo si necesita ejecutar las funciones en .NET Core 3.x. Para información sobre cómo actualizar a la versión 3.x, consulte [Visualización y actualización de la versión actual del entorno de ejecución](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
+## <a name="migrating-from-1x-to-later-versions"></a>Migración desde la versión 1.x a versiones posteriores
 
 Puede migrar una aplicación existente escrita para usar la versión 1.x del entorno de ejecución para que use 2.x. La mayoría de los cambios que debe realizar están relacionados con cambios del entorno de ejecución del lenguaje, como en la API de C#, de .NET Framework 4.7 y .NET Core 2. Deberá asegurarse de que el código y las bibliotecas son compatibles con la versión del entorno de ejecución del lenguaje que utilice. Finalmente, asegúrese de anotar los cambios en el desencadenador, los enlaces y las características que se resaltan a continuación. Para los mejores resultados de migración, debe crear una nueva aplicación de función para la versión 2.x y enrutar el código existente en 1.x a esta nueva aplicación.  
 
@@ -113,7 +119,7 @@ La versión del sistema en ejecución de Functions que usan las aplicaciones pub
 
 ## <a name="bindings"></a>Enlaces
 
-La versión 2.x del entorno de ejecución usa un nuevo [modelo de extensibilidad de enlaces](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) que ofrece estas ventajas:
+A partir de la versión 2.x, el entorno de ejecución usa un nuevo [modelo de extensibilidad de enlaces](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) que ofrece estas ventajas:
 
 * Compatibilidad con extensiones de enlace de terceros.
 

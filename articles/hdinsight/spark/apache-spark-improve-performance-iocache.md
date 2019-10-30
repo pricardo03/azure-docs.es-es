@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266184"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight
@@ -41,7 +41,7 @@ La memoria caché de E/S de Azure HDInsight está desactivada de forma predeterm
 
 1. Seleccione **Acciones** y **Activar**.
 
-    ![Habilitación del servicio de memoria caché de E/S en Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Enabling the IO Cache service in Ambari")
+    ![Habilitación del servicio de la memoria caché de E/S en Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Habilitación del servicio de la memoria caché de E/S en Ambari")
 
 1. Confirme el reinicio de todos los servicios afectados en el clúster.
 
@@ -56,7 +56,7 @@ Es posible que aparezcan errores de espacio en disco al ejecutar trabajos de Spa
 
 1. Seleccione las pestañas **Configs** (Configuraciones) y **Advanced** (Opciones avanzadas).
 
-    ![Edición de la configuración avanzada de HDFS](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Edit HDFS Advanced Configuration")
+    ![Edición de la configuración avanzada de HDFS](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Edición de la configuración avanzada de HDFS")
 
 1. Desplácese hacia abajo y expanda el área **Custom core-site** (Personalizar sitio principal).
 
@@ -64,13 +64,13 @@ Es posible que aparezcan errores de espacio en disco al ejecutar trabajos de Spa
 
 1. Cambie el valor en el cuadro.
 
-    ![Edición del porcentaje de completado de la memoria caché de E/S](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Edit IO Cache Fullness Percentage")
+    ![Edición del porcentaje de completado de la memoria caché de E/S](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Edición del porcentaje de completado de la memoria caché de E/S")
 
 1. Seleccione **Save** (Guardar) en la esquina superior derecha.
 
 1. Seleccione **Restart** (Reiniciar)  > **Restart All Affected** (Reiniciar todos los servicios afectados).
 
-    ![Reinicio de todos los servicios afectados en Apache Ambari](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reinicio de todos los servicios afectados")
+    ![Reinicio de todas las entradas afectadas en Apache Ambari](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reinicio de todas las entradas afectadas")
 
 1. Seleccione **Confirm Restart All** (Confirmar reinicio de todo).
 

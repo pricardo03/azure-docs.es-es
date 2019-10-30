@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/30/2019
-ms.author: kevin
+ms.date: 10/21/2019
+ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 90544e182eb25f53232cee9a4dd0c05bd25508a3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1cf6444b155830326f4876d2d65bcdaa5923fc35
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988472"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72788814"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Copia de seguridad y restauración en Azure SQL Data Warehouse
 
@@ -25,11 +25,11 @@ Obtenga información sobre cómo usar las copias de seguridad y las restauracion
 
 Una *instantánea de almacenamiento de datos* crea un punto de restauración que se puede aprovechar para recuperar o copiar el almacenamiento de datos en un estado anterior.  Dado que SQL Data Warehouse es un sistema distribuido, una instantánea de almacenamiento de datos consta de muchos archivos que se almacenan en Azure Storage. Las instantáneas capturan los cambios incrementales de los datos almacenados en el almacenamiento de datos.
 
-Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de datos que se crea a partir de un punto de restauración de un almacenamiento de datos existente o eliminado. La restauración del almacenamiento de datos es una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad empresarial, ya que vuelve a crear los datos tras daños o eliminaciones accidentales. El almacenamiento de datos es también un mecanismo eficaz para crear copias del almacenamiento de datos con fines de prueba o desarrollo.  Las tasas de restauración de SQL Data Warehouse pueden variar según el tamaño de la base de datos y la ubicación del almacenamiento de datos de origen y de destino. Como media en la misma región, las tasas de restauración suelen durar unos 20 minutos. 
+Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de datos que se crea a partir de un punto de restauración de un almacenamiento de datos existente o eliminado. La restauración del almacenamiento de datos es una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad empresarial, ya que vuelve a crear los datos tras daños o eliminaciones accidentales. El almacenamiento de datos es también un mecanismo eficaz para crear copias del almacenamiento de datos con fines de prueba o desarrollo.  Las tasas de restauración de SQL Data Warehouse pueden variar según el tamaño de la base de datos y la ubicación del almacenamiento de datos de origen y de destino. 
 
 ## <a name="automatic-restore-points"></a>Puntos de restauración automáticos
 
-Las instantáneas son una característica integrada del servicio que crea puntos de restauración. No es necesario habilitar esta funcionalidad. Actualmente, los usuarios no pueden eliminar los puntos de restauración automática cuando el servicio utiliza estos puntos de restauración para mantener los contratos de nivel de servicio para la recuperación.
+Las instantáneas son una característica integrada del servicio que crea puntos de restauración. No es necesario habilitar esta funcionalidad. Sin embargo, el almacenamiento de datos debe estar en estado activo para la creación del punto de restauración. Si el almacenamiento de datos se pausa con frecuencia, es posible que no se creen puntos de restauración automáticos, por lo que debe asegurarse de crear un punto de restauración definido por el usuario antes de pausar el almacenamiento de datos. Actualmente, los usuarios no pueden eliminar los puntos de restauración automática mientras el servicio utiliza estos puntos de restauración para mantener los contratos de nivel de servicio para la recuperación.
 
 SQL Data Warehouse toma instantáneas del almacenamiento de datos a lo largo del día que crean puntos de restauración que están disponibles durante siete días. No se puede cambiar este período de retención. SQL Data Warehouse admite un objetivo de punto de recuperación (RPO) de ocho horas. Puede restaurar el almacenamiento de datos de la región primaria a partir de cualquiera de las instantáneas capturadas en los últimos siete días.
 
@@ -61,7 +61,7 @@ A continuación se indican los detalles sobre los períodos de retención de pun
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Retención de instantáneas cuando se quita un almacenamiento de datos
 
-Cuando se quita un almacenamiento de datos SQL Data Warehouse crea una instantánea final y la guarda durante siete días. Puede restaurar el almacenamiento de datos en el punto de restauración final durante la eliminación.
+Cuando se quita un almacenamiento de datos SQL Data Warehouse crea una instantánea final y la guarda durante siete días. Puede restaurar el almacenamiento de datos en el punto de restauración final durante la eliminación. Si el almacenamiento de datos se quita del estado en pausa, no se toma ninguna instantánea. En ese escenario, asegúrese de crear un punto de restauración definido por el usuario antes de quitar el almacenamiento de datos.
 
 > [!IMPORTANT]
 > Si elimina una instancia de servidor de SQL lógica, todas las bases de datos que pertenecen a la instancia también se eliminan y no se pueden recuperar. No puede restaurar un servidor eliminado.
@@ -69,8 +69,6 @@ Cuando se quita un almacenamiento de datos SQL Data Warehouse crea una instantá
 ## <a name="geo-backups-and-disaster-recovery"></a>Copias de seguridad geográficas y recuperación ante desastres
 
 SQL Data Warehouse realiza una copia de seguridad geográfica una vez al día en un [centro de datos emparejado](../best-practices-availability-paired-regions.md). El RPO para una restauración geográfica es de 24 horas. Puede restaurar la copia de seguridad de replicación geográfica en un servidor de cualquier otra región donde se admita SQL Data Warehouse. Una copia de seguridad geográfica garantiza que pueda restaurar el almacenamiento de datos en caso de que no tenga acceso a los puntos de restauración de su región primaria.
-
-Las copias de seguridad geográficas están activadas de manera predeterminada. Si el almacenamiento de datos es Gen1, puede [optar por no participar](/powershell/module/az.sql/set-azsqldatabasegeobackuppolicy), si lo desea. No se puede optar por no realizar las copias de seguridad de replicación geográfica para Gen2, ya que la protección de datos es una garantía integrada.
 
 > [!NOTE]
 > Si necesita un objetivo de punto de recuperación más reducido para copias de seguridad de replicación geográfica, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse). También puede crear un punto de restauración definido por el usuario y restaurar a partir del punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Si necesita una copia activa del almacenamiento de datos, puede reanudarlo, lo que solo le llevará unos minutos.
@@ -83,7 +81,7 @@ El costo total del almacenamiento de datos principal y de los siete días de cam
 
 Si usa almacenamiento con redundancia geográfica, recibirá un cargo de almacenamiento por separado. El almacenamiento con redundancia geográfica se factura según la tarifa estándar de almacenamiento geográficamente redundante con acceso de lectura (RA-GRS).
 
-Para obtener más información sobre los precios de SQL Data Warehouse, vea [Precios de SQL Data Warehouse]. La salida de datos no se cobra al restaurar entre regiones.
+Para más información sobre los precios de SQL Data Warehouse, consulte [Precios de SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). La salida de datos no se cobra al restaurar entre regiones.
 
 ## <a name="restoring-from-restore-points"></a>Restauración a partir de puntos de restauración
 

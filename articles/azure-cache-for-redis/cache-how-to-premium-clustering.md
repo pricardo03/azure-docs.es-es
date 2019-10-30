@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: yegu
-ms.openlocfilehash: a919ccd2a23acf6e1bd04cda8a5dd18782ff31b0
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: d81647e8d09d8f10827e8eb6038363db73395c1e
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315977"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596922"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Configuración de la agrupación en clústeres de Redis para una instancia de Azure Cache for Redis de nivel Prémium
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. En este artículo se describe cómo configurar la agrupación en clústeres en una instancia de Azure Cache for Redis de nivel Prémium.
@@ -124,9 +124,9 @@ Para obtener el código de ejemplo sobre el trabajo con agrupación en clústere
 El tamaño máximo de caché premium es de 120 GB. Puede crear hasta 10 particiones con un tamaño máximo de 1,2 TB GB. Si necesita un tamaño mayor, puede [solicitar más](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para más información, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/).
 
 ### <a name="do-all-redis-clients-support-clustering"></a>¿Todos los clientes de Redis admiten la agrupación en clústeres?
-En este momento no todos los clientes admiten la agrupación en clústeres de Redis. StackExchange.Redis es uno de los que los admiten. Para obtener más información sobre otros clientes, consulte la sección [Jugar con el clúster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) del [Tutorial de clúster de Redis](https://redis.io/topics/cluster-tutorial). 
+No todos los clientes admiten la agrupación en clústeres de Redis. Consulte la documentación de la biblioteca que está usando para comprobar si utiliza una biblioteca y una versión que admiten la agrupación en clústeres. StackExchange.Redis es una biblioteca que admite la agrupación en clústeres, en sus versiones más recientes. Para obtener más información sobre otros clientes, consulte la sección [Jugar con el clúster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) del [Tutorial de clúster de Redis](https://redis.io/topics/cluster-tutorial). 
 
-El protocolo de agrupación en clústeres de Redis requiere que cada cliente se conecte a cada partición directamente en modo de agrupación en clústeres. Al intentar utilizar un cliente que no es compatible con la agrupación en clústeres, probablemente se tendrá como resultado una gran cantidad de [excepciones de redirección MOVED](https://redis.io/topics/cluster-spec#moved-redirection).
+El protocolo de agrupación en clústeres de Redis requiere que cada cliente se conecte a cada partición directamente en modo de agrupación en clústeres y también define nuevas respuestas de error, como 'MOVED' y 'CROSSSLOTS'. Si se intenta usar un cliente que no admite la agrupación en clústeres con una caché en modo de clúster, se pueden producir muchas [excepciones de redireccionamiento MOVED](https://redis.io/topics/cluster-spec#moved-redirection), o simplemente se interrumpe la aplicación si se realizan solicitudes de varias claves entre espacios.
 
 > [!NOTE]
 > Si está usando StackExchange.Redis como su cliente, asegúrese de que está usando la versión más reciente de [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 o posterior para que la agrupación en clústeres funcione correctamente. Si tiene problemas con las excepciones move, consulte la explicación sobre [excepciones move](#move-exceptions) para obtener más información.
@@ -150,7 +150,10 @@ Cuando no sea ssl, use los siguientes comandos.
 Para ssl, reemplace `1300N` por `1500N`.
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>¿Puedo configurar la agrupación en clústeres para una memoria caché creada anteriormente?
-En este momento solo puede habilitar la agrupación en clústeres cuando cree una memoria caché. También puede cambiar el tamaño de clúster una vez creada la memoria caché, pero no puede agregar la agrupación en clústeres a una caché premium o quitar la agrupación en clústeres de una memoria caché premium una vez creada la memoria caché. Una memoria caché premium que tiene habilitada la agrupación en clústeres y solo una partición es distinta de una memoria caché premium del mismo tamaño, sin agrupación en clústeres.
+Sí. En primer lugar, asegúrese de que la memoria caché es Premium y realice un escalado si no lo es. A continuación, debería poder ver las opciones de configuración del clúster, incluida una opción para habilitar el clúster. Puede cambiar el tamaño del clúster una vez creada la memoria caché o después de habilitar la agrupación en clústeres por primera vez.
+
+   >[!IMPORTANT]
+   >La habilitación de la agrupación en clústeres no se puede deshacer. Hay que tener en cuenta que una caché que tiene habilitada la agrupación en clústeres y solo una partición se comporta *de modo diferente* que una caché del mismo tamaño *sin* agrupación en clústeres.
 
 ### <a name="can-i-configure-clustering-for-a-basic-or-standard-cache"></a>¿Puedo configurar la agrupación en clústeres para una caché básica o estándar?
 La agrupación en clústeres solo está disponible para las memorias cachés premium.

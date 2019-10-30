@@ -1,13 +1,13 @@
 ---
-title: 'Solución de problemas de filtros de colección de OData: Azure Search'
-description: Solucione problemas de errores de filtros de colección de OData en consultas de Azure Search.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Solución de problemas de filtros de colección de OData
+titleSuffix: Azure Cognitive Search
+description: Solucione problemas de errores de filtros de colección de OData en consultas de Azure Cognitive Search.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fbd43cc13d3b7377668aad2fadc874ae47422ee1
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 0af2525a15618c6bfd9022b4388c547209ee957b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647949"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793187"
 ---
-# <a name="troubleshooting-odata-collection-filters-in-azure-search"></a>Solución de problemas de filtros de colección de OData en Azure Search
+# <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Solución de problemas de filtros de colección de OData en Azure Cognitive Search
 
-Para [filtrar](query-odata-filter-orderby-syntax.md) por campos de colección en Azure Search, puede usar los [operadores `any` y `all`](search-query-odata-collection-operators.md) junto con **expresiones lambda**. Una expresión lambda es un subfiltro que se aplica a cada elemento de una colección.
+Para [filtrar](query-odata-filter-orderby-syntax.md) por campos de colección en Azure Cognitive Search, puede usar los operadores [`any` y `all`](search-query-odata-collection-operators.md) junto con **expresiones lambda**. Una expresión lambda es un subfiltro que se aplica a cada elemento de una colección.
 
 No todas las características de las expresiones de filtro están disponibles dentro de una expresión lambda. Las características disponibles difieren en función del tipo de datos del campo de colección que se quiere filtrar. Esto puede producir un error si se intenta usar una característica en una expresión lambda que no se admite en ese contexto. Si estos errores se producen al intentar escribir un filtro complejo sobre campos de colección, este artículo le ayudará a solucionar el problema.
 
@@ -64,7 +64,7 @@ Las reglas para escribir filtros de colección válidos son diferentes para cada
 Dentro de las expresiones lambda para colecciones de cadenas, los únicos operadores de comparación que se pueden usar son `eq` y `ne`.
 
 > [!NOTE]
-> Azure Search no admite los operadores `lt`/`le`/`gt`/`ge` para las cadenas, ya sea dentro o fuera de una expresión lambda.
+> Azure Cognitive Search no admite los operadores `lt`/`le`/`gt`/`ge` para las cadenas, ya sea dentro o fuera de una expresión lambda.
 
 El cuerpo de una expresión `any` solo se puede probar para igualdad, mientras el cuerpo de una expresión `all` solo se puede probar para la desigualdad.
 
@@ -125,7 +125,7 @@ Al igual que las colecciones de cadenas, las colecciones `Edm.GeographyPoint` ti
 - En el cuerpo de una expresión `all`, la función `geo.intersects` debe ser negativa. Por el contrario, en el cuerpo de una expresión `any`, la función `geo.intersects` no debe ser negativa.
 - En el cuerpo de `any`, las expresiones geoespaciales se pueden combinar mediante `or`. En el cuerpo de `all`, ese tipo de expresiones se pueden combinar mediante `and`.
 
-Las limitaciones anteriores existen por motivos similares a la limitación de igualdad y desigualdad en las colecciones de cadenas. Vea [Descripción de los filtros de colección de OData en Azure Search](search-query-understand-collection-filters.md) para obtener una visión más profunda de estos motivos.
+Las limitaciones anteriores existen por motivos similares a la limitación de igualdad y desigualdad en las colecciones de cadenas. Consulte [Descripción de los filtros de colección de OData en Azure Cognitive Search](search-query-understand-collection-filters.md) para obtener una visión más profunda de estos motivos.
 
 Estos son algunos ejemplos de filtros permitidos en colecciones `Edm.GeographyPoint`:
 
@@ -197,7 +197,7 @@ Pero existen limitaciones con respecto a cómo se pueden combinar estas expresio
 
 Las expresiones lambda sobre colecciones complejas admiten una sintaxis mucho más flexible que las expresiones lambda sobre colecciones de tipos primitivos. Dentro de una expresión lambda puede usar cualquier construcción de filtro que se pueda usar fuera de ella, con solo dos excepciones.
 
-En primer lugar, las funciones `search.ismatch` y `search.ismatchscoring` no se admiten dentro de las expresiones lambda. Para más información, vea [Descripción de los filtros de colección de OData en Azure Search](search-query-understand-collection-filters.md).
+En primer lugar, las funciones `search.ismatch` y `search.ismatchscoring` no se admiten dentro de las expresiones lambda. Para más información, consulte [Descripción de los filtros de colección de OData en Azure Cognitive Search](search-query-understand-collection-filters.md).
 
 En segundo lugar, los campos de referencia que no están *enlazados* a la variable de rango (denominados *variables independientes*) no están permitidos. Por ejemplo, fíjese en las dos siguientes expresiones de filtro de OData equivalentes:
 
@@ -217,16 +217,16 @@ Esta limitación no debería ser un problema en la práctica, ya que siempre se 
 
 En la tabla siguiente se resumen las reglas para construir filtros válidos para cada tipo de datos de la colección.
 
-[!INCLUDE [Limitations on OData lambda expressions in Azure Search](../../includes/search-query-odata-lambda-limitations.md)]
+[!INCLUDE [Limitations on OData lambda expressions in Azure Cognitive Search](../../includes/search-query-odata-lambda-limitations.md)]
 
 Para obtener ejemplos de cómo crear filtros válidos para cada caso, vea [Procedimientos para escribir filtros de colección válidos](#bkmk_examples).
 
-Si escribe filtros con frecuencia, y entender las reglas de los primeros principios le ayudaría a algo más que memorizarlas simplemente, vea [Descripción de los filtros de colección de OData en Azure Search](search-query-understand-collection-filters.md).
+Si escribe filtros con frecuencia, y entender las reglas de los primeros principios le ayudaría a algo más que memorizarlas simplemente, consulte [Descripción de los filtros de colección de OData en Azure Cognitive Search](search-query-understand-collection-filters.md).
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-- [Descripción de los filtros de colección de OData en Azure Search](search-query-understand-collection-filters.md)
-- [Filtros de Azure Search](search-filters.md)
-- [Información general sobre el lenguaje de expresiones OData para Azure Search](query-odata-filter-orderby-syntax.md)
-- [Referencia de sintaxis de expresiones OData para Azure Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Búsqueda en documentos [API REST de Azure Search Service])
+- [Descripción de los filtros de colección de OData en Azure Cognitive Search](search-query-understand-collection-filters.md)
+- [Filtros de Azure Cognitive Search](search-filters.md)
+- [Información general sobre el lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [Referencia de sintaxis de expresiones de OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

@@ -1,23 +1,18 @@
 ---
 title: Solución de administración de Office 365 en Azure | Microsoft Docs
 description: Este artículo proporciona detalles sobre la configuración y el uso de la solución Office 365 en Azure.  Incluye una descripción detallada de los registros de Office 365 creados en Azure Monitor.
-services: operations-management-suite
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
 ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/13/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.date: 08/13/2019
+ms.openlocfilehash: 84af0484ed9fb792bef6bbbe9c53395b569acb3c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061609"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793865"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -74,7 +69,10 @@ Desde la suscripción a Office 365:
 
 - Nombre de usuario: dirección de correo electrónico de una cuenta administrativa.
 - Identificador de inquilino: identificador único de la suscripción a Office 365.
-- Identificador de cliente: cadena de 16 caracteres que representa el cliente de Office 365.
+
+Se debería recopilar la siguiente información durante la creación y configuración de la aplicación Office 365 en Azure Active Directory:
+
+- Id. de aplicación (cliente): cadena de 16 caracteres que representa el cliente de Office 365.
 - Secreto de cliente: cadena cifrada necesaria para la autenticación.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Creación de una aplicación de Office 365 en Azure Active Directory
@@ -92,6 +90,9 @@ El primer paso es crear una aplicación en Azure Active Directory que la soluci�
 1. Haga clic en **Registrar** y valide la información de la aplicación.
 
     ![Aplicación registrada](media/solution-office-365/registered-app.png)
+
+1. Guarde el identificador de la aplicación (cliente) junto con el resto de la información que se recopiló antes.
+
 
 ### <a name="configure-application-for-office-365"></a>Configuración de la aplicación para Office 365
 
@@ -122,7 +123,7 @@ El primer paso es crear una aplicación en Azure Active Directory que la soluci�
     ![Claves](media/solution-office-365/secret.png)
  
 1. Especifique los valores de **Descripción** y **Duración** de la nueva clave.
-1. Haga clic en **Agregar** y, a continuación, copie el **valor** que se generó.
+1. Haga clic en **Agregar** y, a continuación, guarde el **valor** que se generó como secreto de cliente junto con el resto de la información que se recopiló antes.
 
     ![Claves](media/solution-office-365/keys.png)
 
@@ -193,7 +194,12 @@ Para habilitar la cuenta administrativa por primera vez, debe proporcionar el co
     
     ![Consentimiento de administrador](media/solution-office-365/admin-consent.png)
 
+> [!NOTE]
+> Es posible que se le redirija a una página que no existe. Considérelo un síntoma de que la operación transcurre según lo previsto.
+
 ### <a name="subscribe-to-log-analytics-workspace"></a>Suscripción al área de trabajo de Log Analytics
+
+El último paso es suscribirse la aplicación al área de trabajo de Log Analytics. También puede hacerlo con un script de PowerShell.
 
 El último paso es suscribirse la aplicación al área de trabajo de Log Analytics. También puede hacerlo con un script de PowerShell.
 
@@ -241,18 +247,20 @@ El último paso es suscribirse la aplicación al área de trabajo de Log Analyti
                     $authority = "https://login.windows.net/$adTenant";
                     $ARMResource ="https://management.azure.com/";break} 
                     }
-    
+
     Function RESTAPI-Auth { 
-    
-    $global:SubscriptionID = $Subscription.SubscriptionId
+    $global:SubscriptionID = $Subscription.Subscription.Id
     # Set Resource URI to Azure Service Management API
-    $resourceAppIdURIARM=$ARMResource;
+    $resourceAppIdURIARM=$ARMResource
     # Authenticate and Acquire Token 
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
+
     $authHeader
     }
     
@@ -276,7 +284,7 @@ El último paso es suscribirse la aplicación al área de trabajo de Log Analyti
     
     Function Connection-API
     {
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     
@@ -320,7 +328,7 @@ El último paso es suscribirse la aplicación al área de trabajo de Log Analyti
     Function Office-Subscribe-Call{
     try{
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_' + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
     

@@ -1,35 +1,34 @@
 ---
-title: 'Asignaciones de campos para la indexación automatizada mediante indexadores: Azure Search'
-description: Configure asignaciones de campos de indexador de Azure Search para tener en cuenta las diferencias en los nombres de campo y las representaciones de datos.
-ms.date: 05/02/2019
-author: mgottein
+title: Asignaciones de campos para la indexación automatizada mediante indexadores
+titleSuffix: Azure Cognitive Search
+description: Configure asignaciones de campos en un indexador para tener en cuenta las diferencias en los nombres de campo y las representaciones de datos.
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: b64f6dcecb26e35689ad6f569ade6c7862f06f1a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: cc863ee3dc7f2dc8049fcd22189acac94a855352
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648138"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786970"
 ---
-# <a name="field-mappings-and-transformations-using-azure-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Search
+# <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
 
-Al usar indexadores de Azure Search, habrá ocasiones en que se dé cuenta de que los datos de entrada no coinciden demasiado con el esquema del índice de destino. En esos casos, puede usar **asignaciones de campos** para modificar los datos durante el proceso de indexación.
+Al usar indexadores de Azure Cognitive Search, habrá ocasiones en que observará que los datos de entrada no coinciden demasiado con el esquema del índice de destino. En esos casos, puede usar **asignaciones de campos** para modificar los datos durante el proceso de indexación.
 
 Algunas situaciones donde las asignaciones de campos son útiles:
 
-* El origen de datos tiene un campo `_id`, pero Azure Search no permite los nombres de campo que empiezan por un carácter de subrayado. Una asignación de campo permite cambiar el nombre de un campo de forma eficaz.
+* El origen de datos tiene un campo llamado `_id`, pero Azure Cognitive Search no permite los nombres de campo que empiezan por un carácter de subrayado. Una asignación de campo permite cambiar el nombre de un campo de forma eficaz.
 * Desea rellenar varios campos en el índice con datos del mismo origen de datos. Por ejemplo, puede querer aplicar diferentes analizadores a esos campos.
 * Desea rellenar un campo de índice con los datos de más de un origen de datos, y cada origen de datos usa nombres de campo diferentes.
 * Necesita codificar o descodificar sus datos con Base64. Las asignaciones de campos admiten varias **funciones de asignación**, incluidas las funciones de codificación y descodificación Base64.
 
 > [!NOTE]
-> La característica de asignación de campos de los indexadores de Azure Search proporciona una manera sencilla de asignar campos de datos a los campos de índice, con unas cuantas opciones para la conversión de datos. Los datos más complejos pueden requerir un procesamiento previo para transformarlos en un formato que sea fácil de indexar.
+> La característica de asignación de campos de los indexadores de Azure Cognitive Search proporciona una manera sencilla de asignar campos de datos a los campos de índice, con unas cuantas opciones para la conversión de datos. Los datos más complejos pueden requerir un procesamiento previo para transformarlos en un formato que sea fácil de indexar.
 >
 > Microsoft Azure Data Factory es una solución basada en la nube muy eficaz para importar y transformar datos. También puede escribir código para transformar los datos de origen antes de la indexación. Para obtener ejemplos de código, vea [Modelado de datos relacionales](search-example-adventureworks-modeling.md) y [Modelado de facetas de varios niveles](search-example-adventureworks-multilevel-faceting.md).
 >
@@ -73,7 +72,7 @@ Se puede hacer referencia a un campo de origen en varias asignaciones de campos.
 ```
 
 > [!NOTE]
-> Azure Search usa una comparación que no distingue mayúsculas de minúsculas para resolver los nombres de campo y función de las asignaciones de campos. Esto es práctico (no es necesario que el uso de mayúsculas y minúsculas sea correcto en todo momento), pero se traduce en que su índice u origen de datos no puede tener campos que difieran únicamente en mayúsculas y minúsculas.  
+> Azure Cognitive Search usa una comparación que no distingue mayúsculas de minúsculas para resolver los nombres de campo y función de las asignaciones de campos. Esto es práctico (no es necesario que el uso de mayúsculas y minúsculas sea correcto en todo momento), pero se traduce en que su índice u origen de datos no puede tener campos que difieran únicamente en mayúsculas y minúsculas.  
 >
 >
 
@@ -124,7 +123,7 @@ Realiza una codificación Base64 *segura para direcciones URL* de la cadena de e
 
 #### <a name="example---document-key-lookup"></a>Ejemplo: búsqueda de clave de documento
 
-Solo pueden aparecer caracteres de dirección URL seguros en una clave de documento de Azure Search (porque los clientes deben poder enviar el documento con la [API de búsqueda](https://docs.microsoft.com/rest/api/searchservice/lookup-document)). Si el campo de origen de la clave contiene caracteres de dirección URL no seguros, puede usar la función `base64Encode` para convertirlo en el momento de la indexación.
+Solo pueden aparecer caracteres seguros para direcciones URL en una clave de documento de Azure Cognitive Search (porque los clientes deben poder enviar el documento con la [API de búsqueda](https://docs.microsoft.com/rest/api/searchservice/lookup-document)). Si el campo de origen de la clave contiene caracteres de dirección URL no seguros, puede usar la función `base64Encode` para convertirlo en el momento de la indexación.
 
 Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la función `base64Decode` para obtener el valor de clave original y usarlo para recuperar el documento de origen.
 
@@ -143,7 +142,7 @@ Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la funci�
 
 Si no incluye una propiedad de parámetros de la función de asignación, el valor `{"useHttpServerUtilityUrlTokenEncode" : true}` se establece como valor predeterminado.
 
-Azure Search admite dos codificaciones Base64 distintas. Debe usar los mismos parámetros al codificar y descodificar el mismo campo. Para más información, vea [Opciones de codificación Base64](#base64details) para decidir qué parámetros usar.
+Azure Cognitive Search admite dos codificaciones Base64 distintas. Debe usar los mismos parámetros al codificar y descodificar el mismo campo. Para más información, vea [Opciones de codificación Base64](#base64details) para decidir qué parámetros usar.
 
 <a name="base64DecodeFunction"></a>
 
@@ -170,17 +169,17 @@ El origen de datos podría contener cadenas con codificación Base64, como caden
 
 Si no incluye una propiedad de parámetros, el valor `{"useHttpServerUtilityUrlTokenEncode" : true}` se establece como valor predeterminado.
 
-Azure Search admite dos codificaciones Base64 distintas. Debe usar los mismos parámetros al codificar y descodificar el mismo campo. Para más información, vea [Opciones de codificación Base64](#base64details) para decidir qué parámetros usar.
+Azure Cognitive Search admite dos codificaciones Base64 distintas. Debe usar los mismos parámetros al codificar y descodificar el mismo campo. Para más información, vea [Opciones de codificación Base64](#base64details) para decidir qué parámetros usar.
 
 <a name="base64details"></a>
 
 #### <a name="base64-encoding-options"></a>Opciones de codificación Base64
 
-Azure Search admite dos codificaciones Base64 distintas: **token de dirección URL de HttpServerUtility** y **codificación Base64 segura para direcciones URL sin espaciado interno**. Una cadena codificada con Base64 durante la indexación se debe descodificar más adelante con las mismas opciones de codificación o, de lo contrario, el resultado no coincidirá con el original.
+Azure Cognitive Search admite dos codificaciones Base64 distintas: **token de dirección URL de HttpServerUtility** y **codificación Base64 segura para direcciones URL sin espaciado interno**. Una cadena codificada con Base64 durante la indexación se debe descodificar más adelante con las mismas opciones de codificación o, de lo contrario, el resultado no coincidirá con el original.
 
 Si los parámetros `useHttpServerUtilityUrlTokenEncode` o `useHttpServerUtilityUrlTokenDecode` para codificar y descodificar respectivamente se establecen en `true`, `base64Encode` se comporta como [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) y `base64Decode` se comporta como [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Si no usa la versión completa de .NET Framework (es decir, usa .NET Core u otro marco) para generar los valores de clave para emular el comportamiento de Azure Search, debe establecer `useHttpServerUtilityUrlTokenEncode` y `useHttpServerUtilityUrlTokenDecode` en `false`. Dependiendo de la biblioteca que use, las funciones de codificación y descodificación Base64 puede diferir de las usadas por Azure Search.
+Si no usa la versión completa de .NET Framework (es decir, usa .NET Core u otro marco) para generar los valores de clave para emular el comportamiento de Azure Cognitive Search, debe establecer `useHttpServerUtilityUrlTokenEncode` y `useHttpServerUtilityUrlTokenDecode` en `false`. Dependiendo de la biblioteca que use, las funciones de codificación y descodificación Base64 pueden diferir de las usadas por Azure Cognitive Search.
 
 La tabla siguiente compara diferentes codificaciones Base64 de la cadena `00>00?00`. Para determinar el procesamiento adicional necesario (si existe) para las funciones de Base64, aplique la función de codificación de bibliotecas en la cadena `00>00?00` y compare el resultado con el resultado esperado `MDA-MDA_MDA`.
 
@@ -233,7 +232,7 @@ Por ejemplo, si la cadena de entrada es `["red", "white", "blue"]`, el campo de 
 
 #### <a name="example---populate-collection-from-relational-data"></a>Ejemplo: rellenar la colección de datos relacionales
 
-Azure SQL Database no tiene un tipo de datos integrado que se asigne de forma natural a los campos `Collection(Edm.String)` de Azure Search. Para rellenar los campos de colección de cadenas, puede preprocesar los datos de origen como una matriz de cadenas JSON y, luego, usar la función de asignación `jsonArrayToStringCollection`.
+Azure SQL Database no tiene un tipo de datos integrado que se asigne de forma natural a los campos `Collection(Edm.String)` de Azure Cognitive Search. Para rellenar los campos de colección de cadenas, puede preprocesar los datos de origen como una matriz de cadenas JSON y, luego, usar la función de asignación `jsonArrayToStringCollection`.
 
 ```JSON
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 06/21/2019
 ms.author: joncole
-ms.openlocfilehash: 6ac4722c1253f97bfb8c232202e24a923c027edf
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 29e5a81c438a7aa834fc002b916739a952c9a270
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018837"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785869"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedimientos recomendados para Azure Cache for Redis 
 Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y rentabilizar el uso de la instancia de Azure Cache for Redis.
@@ -31,9 +31,9 @@ Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y ren
 
  * **Desarrolle el sistema para que pueda controlar interrupciones momentáneas de la conexión** [debido a la aplicación de revisiones y a la conmutación por error](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
- * **Configure la opción [maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para mejorar la capacidad de respuesta del sistema** en situaciones de presión de memoria.  Esta configuración es especialmente importante para cargas de trabajo de escritura intensiva o si está almacenando valores más grandes (100 KB o más) en Redis.  Es recomendable comenzar con el 10 % del tamaño de la caché y, a continuación, aumentarla si tiene una gran carga de escritura intensiva. Consulte [algunas opciones a tener en cuenta](cache-how-to-troubleshoot.md#considerations-for-memory-reservations) cuando seleccione un valor.
+ * **Configure la opción [maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para mejorar la capacidad de respuesta del sistema** en situaciones de presión de memoria.  Esta configuración es especialmente importante para cargas de trabajo de escritura intensiva o si está almacenando valores más grandes (100 KB o más) en Redis. Se recomienda comenzar con el 10 % del tamaño de la memoria caché y, a continuación, aumentar el porcentaje si se producen cargas con mucha actividad de escritura.
 
- * **Redis funciona mejor con valores más pequeños**, por lo que puede cortar los datos más grandes en varias claves.  En [este artículo de Redis](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/) se enumeran algunas opciones que debe considerar cuidadosamente.  Lea [este artículo](cache-how-to-troubleshoot.md#large-requestresponse-size) para ver un problema de ejemplo que puede deberse a valores grandes.
+ * **Redis funciona mejor con valores más pequeños**, por lo que puede cortar los datos más grandes en varias claves.  En [este artículo de Redis](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/) se enumeran algunas opciones que debe considerar cuidadosamente.  Lea [este artículo](cache-troubleshoot-client.md#large-request-or-response-size) para ver un problema de ejemplo que puede deberse a valores grandes.
 
  * **Localice su instancia de la caché y su aplicación en la misma región.**  Si se conecta a una caché de una región diferente puede aumentar significativamente la latencia y reducir la confiabilidad.  Si bien puede conectarse desde fuera de Azure, no es recomendable, *especialmente cuando se usa Redis como caché*.  Si está usando Redis solo como un almacén de clave/valor, es posible que la latencia no sea su principal preocupación. 
 
@@ -43,10 +43,9 @@ Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y ren
      > [!NOTE]
      > En esta guía se detallan los *intentos de conexión* y no está relacionada con el tiempo que está dispuesto a esperar para que se complete una *operación* como GET o SET.
  
+ * **Evite las operaciones caras**: algunas operaciones de Redis, como el comando [KEYS](https://redis.io/commands/keys), son *muy* caras y deben evitarse.  Para más información, consulte algunas opciones acerca de los [comandos de larga duración](cache-troubleshoot-server.md#long-running-commands).
 
- * **Evite los comandos caros**: algunas operaciones de Redis, como el comando [KEYS](https://redis.io/commands/keys) son *muy* costosas y deben evitarse.  Para obtener más información, consulte [algunas opciones a tener en cuenta sobre los comandos caros ](cache-how-to-troubleshoot.md#expensive-commands)
-
-
+ * **Use el cifrado TLS**: Redis Cache requiere comunicaciones cifradas TLS de forma predeterminada.  Actualmente se admiten las versiones de TLS 1.0, 1.1 y 1.2.  Sin embargo, TLS 1.0 y 1.1 están en proceso de desuso en todo el sector, por lo que se recomienda TLS 1.2 si es posible.  Si la biblioteca o la herramienta cliente no admiten TLS, se pueden habilitar las conexiones no cifradas [mediante Azure Portal](cache-configure.md#access-ports) o las [API de administración](https://docs.microsoft.com/rest/api/redis/redis/update).  En casos en los que no es posible establecer conexiones cifradas, se recomienda colocar la caché y la aplicación cliente en una red virtual.  Para más información sobre los puertos que se usan para 
  
 ## <a name="memory-management"></a>Administración de memoria
 Es posible que quiera tener en cuenta varias cosas relacionadas con el uso de la memoria dentro de la instancia del servidor de Redis.  Estas son algunas:

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9fcac058a510b8b7fed5b3967bbbf439dd4c0f71
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561351"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786737"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -96,6 +96,12 @@ Los usuarios no tendrán la opción de registrar su aplicación móvil cuando se
 
 > [!WARNING]
 > Debe habilitar [Registro convergente para autoservicio de restablecimiento de contraseña y Azure Multi-Factor Authentication (versión preliminar pública)](concept-registration-mfa-sspr-converged.md) para que los usuarios puedan acceder a la nueva experiencia en [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+
+> [!IMPORTANT]
+> Cuando se configura una directiva de una puerta, no se puede seleccionar la aplicación de autenticación como único método de autenticación. Del mismo modo, tampoco se pueden seleccionar la aplicación de autenticación y un único método adicional al configurar una directiva de dos puertas.
+> Por tanto, al configurar las directivas de SSPR que incluyen la aplicación de autenticación como método, se debe seleccionar al menos un método adicional si se configura una directiva de una puerta y al menos dos métodos adicionales si se configura una directiva de dos puertas.
+> Este requisito se debe a que la experiencia de registro de SSPR actual no incluye la opción para registrar la aplicación de autenticación. La opción para registrar está aplicación se incluye con el nuevo [registro convergente para autoservicio de restablecimiento de contraseña y Azure Multi-Factor Authentication (versión preliminar pública)](concept-registration-mfa-sspr-converged.md).
+> Si se permiten directivas que solo usan la aplicación de autenticación (en las directivas de una puerta) o la aplicación de autenticación y un único método adicional (en las directivas de dos puertas), los usuarios podrían ver bloqueado su registro en SSPR hasta que se modificase su configuración para usar la nueva experiencia de registro.
 
 ### <a name="change-authentication-methods"></a>Cambio de métodos de autenticación
 

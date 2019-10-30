@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e9bc5c876da6bd2be1b22b389b819e51330b2e50
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: adbc21c3e963a98a8482de0c26bf5e257f43013e
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595456"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675449"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparejamiento y alineación de oraciones en documentos paralelos
 
@@ -30,16 +30,21 @@ Si sabe que tiene documentos paralelos, puede invalidar la alineación de oracio
 
 Para obtener mejores resultados, intente asegurarse de que hay una oración por línea en sus archivos. No incluya caracteres de nueva línea en una oración, ya que esto ocasionará alineaciones deficientes.
 
-## <a name="suggested-minimum-number-of-extracted-and-aligned-sentences"></a>Número mínimo sugerido de oraciones extraídas y alineadas
+## <a name="suggested-minimum-number-of-sentences"></a>Número mínimo de frases sugerido
 
-Para que un entrenamiento se realice correctamente, la tabla que se muestra a continuación muestra el número mínimo de oraciones extraídas y alineadas necesario en cada conjunto de datos. El número mínimo sugerido de oraciones extraídas es mucho mayor que el número mínimo sugerido de oraciones alineadas para considerar el hecho de que la alineación de oraciones tal vez no pueda alinear correctamente todas las oraciones extraídas.
+Para que un entrenamiento se realice correctamente, en la tabla siguiente se muestra el número mínimo de frases necesarias en cada tipo de documento. Esta limitación es una red de seguridad para asegurarse de que las frases paralelas contienen suficiente vocabulario único para entrenar correctamente un modelo de traducción. La directriz general consiste en tener más frases paralelas en el dominio de calidad de traducción humana y generar modelos de mayor calidad.
 
-| Conjunto de datos   | Número mínimo sugerido de oraciones extraídas | Número mínimo sugerido de oraciones alineadas | Número máximo de oraciones alineadas |
-|------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Cursos   | 10 000                                     | 2\.000                                    | No hay límite superior                 |
-| Ajuste     | 2\.000                                      | 500                                      | 2500                          |
-| Prueba    | 2\.000                                      | 500                                      | 2500                          |
-| Diccionario | 0                                          | 0                                        | No hay límite superior                 |
+| Tipo de documento   | Número mínimo sugerido de frases | Número máximo de frases |
+|------------|--------------------------------------------|--------------------------------|
+| Cursos   | 10 000                                     | No hay límite superior                 |
+| Ajuste     | 5\.000                                      | 2500                          |
+| Prueba    | 5\.000                                      | 2500                          |
+| Diccionario | 0                                          | No hay límite superior                 |
+
+> [!NOTE]
+> - El entrenamiento no se iniciará y se producirá un error si no se cumple el número mínimo de 10 000 frases para el entrenamiento. 
+> - La optimización y las pruebas son opcionales. Si no las proporciona, el sistema quitará un porcentaje adecuado del entrenamiento que se usará para la validación y las pruebas. 
+> - Puede entrenar un modelo usando solo los datos de un diccionario. Consulte [Qué es el diccionario](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

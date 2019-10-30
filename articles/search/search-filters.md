@@ -1,24 +1,23 @@
 ---
-title: 'Filtros para definir el ámbito de los resultados de búsqueda en un índice: Azure Search'
-description: Puede filtrar por identidad de seguridad del usuario, idioma, geolocalización o valores numéricos para reducir los resultados de búsqueda para las consultas de Azure Search, un servicio de búsqueda en la nube hospedado de Microsoft Azure.
-author: HeidiSteen
+title: Filtros para definir el ámbito de los resultados de búsqueda en un índice
+titleSuffix: Azure Cognitive Search
+description: Puede filtrar por identidad de seguridad del usuario, idioma, geolocalización o valores numéricos para reducir los resultados de búsqueda para las consultas de Azure Cognitive Search, un servicio de búsqueda en la nube hospedado de Microsoft Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 06/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 49af6f1f535df098aa45cccd7e2d629ff6ccef50
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 7dd289005e91323010cfa2a0298c351b3e757d1d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649844"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792857"
 ---
-# <a name="filters-in-azure-search"></a>Filtros de Azure Search 
+# <a name="filters-in-azure-cognitive-search"></a>Filtros de Azure Cognitive Search 
 
-Un *filtro* proporciona criterios para seleccionar los documentos que se usan en una consulta de Azure Search. La búsqueda sin filtrar incluye todos los documentos del índice. Un filtro delimita el ámbito de una consulta de búsqueda a un subconjunto de documentos. Por ejemplo, un filtro puede restringir la búsqueda de texto completo a aquellos productos que tienen una marca o un color específicos y un precio de venta al público superior a un umbral determinado.
+Un *filtro* proporciona criterios para seleccionar los documentos que se usan en una consulta de Azure Cognitive Search. La búsqueda sin filtrar incluye todos los documentos del índice. Un filtro delimita el ámbito de una consulta de búsqueda a un subconjunto de documentos. Por ejemplo, un filtro puede restringir la búsqueda de texto completo a aquellos productos que tienen una marca o un color específicos y un precio de venta al público superior a un umbral determinado.
 
 Algunas experiencias de búsqueda imponen los requisitos de filtro como parte de la implementación, pero puede usar filtros siempre que quiera restringir la búsqueda mediante criterios *basados en valores*; por ejemplo, puede delimitar la búsqueda al tipo de producto "libros" de la categoría "no ficción" publicados por "Simon & Schuster".
 
@@ -63,7 +62,7 @@ El filtrado se produce en paralelo con la búsqueda y define los documentos que 
 
 ## <a name="defining-filters"></a>Definición de filtros
 
-Los filtros son expresiones de OData, articuladas mediante un [subconjunto de sintaxis de OData V4 admitido en Azure Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+Los filtros son expresiones de OData, articuladas mediante un [subconjunto de sintaxis de OData V4 admitido en Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 Puede especificar un filtro para cada operación **search**, pero el filtro en sí puede incluir varios campos, varios criterios y, si usa una función **ismatch**, varias expresiones de búsqueda de texto completo. En una expresión de filtro de varias partes, puede especificar predicados en cualquier orden (respetando las reglas de prioridad del operador). No hay ninguna mejora apreciable del rendimiento si intenta reorganizar los predicados en una secuencia determinada.
 
@@ -148,7 +147,7 @@ En el SDK de. NET, el filtrado está *desactivado* de forma predeterminada. Pued
 
 ### <a name="making-an-existing-field-filterable"></a>Hacer que un campo existente se pueda filtrar
 
-No puede modificar los campos existentes para hacer que se puedan filtrar. Como alternativa, deberá agregar un campo nuevo o volver a generar el índice. Para obtener más información sobre cómo volver a generar un índice o volver a rellenar los campos, vea [Recompilación de un índice de Azure Search](search-howto-reindex.md).
+No puede modificar los campos existentes para hacer que se puedan filtrar. Como alternativa, deberá agregar un campo nuevo o volver a generar el índice. Para obtener más información sobre cómo volver a generar un índice o volver a rellenar los campos, consulte [Recompilación de un índice de Azure Cognitive Search](search-howto-reindex.md).
 
 ## <a name="text-filter-fundamentals"></a>Conceptos básicos de filtro de texto
 
@@ -199,7 +198,7 @@ Para trabajar con más ejemplos, consulte [OData Filter Expression Syntax > Exam
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md)
++ [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md)
 + [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 + [Sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Sintaxis de consulta de Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

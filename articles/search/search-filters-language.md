@@ -1,25 +1,23 @@
 ---
-title: 'Filtros de idioma para contenido en varios idiomas en un índice de búsqueda: Azure Search'
+title: Filtros de idioma para contenido en varios idiomas en un índice de búsqueda
+titleSuffix: Azure Cognitive Search
 description: Criterios de filtro para admitir la búsqueda en varios idiomas, de ámbito de ejecución de consultas en campos específicos del idioma.
-author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 10/23/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 1eced868b180a916355d6f9fbfc8cd47a5d7d6e2
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 2762ce42f0d3f5829682e0910c452746a65ef2f3
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649858"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792885"
 ---
-# <a name="how-to-filter-by-language-in-azure-search"></a>Filtro por idioma en Azure Search 
+# <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Filtro por idioma en Azure Cognitive Search 
 
-Un requisito fundamental de una aplicación de búsqueda multilingüe es la posibilidad de buscar y recuperar los resultados en el idioma del usuario. En Azure Search, una manera de satisfacer los requisitos de idioma de una aplicación multilingüe es crear una serie de campos dedicados al almacenamiento de cadenas en un idioma determinado y luego restringir la búsqueda de texto completo a solo esos campos en el momento de la consulta.
+Un requisito fundamental de una aplicación de búsqueda multilingüe es la posibilidad de buscar y recuperar los resultados en el idioma del usuario. En Azure Cognitive Search, una manera de satisfacer los requisitos de idioma de una aplicación multilingüe es crear una serie de campos dedicados al almacenamiento de cadenas en un idioma determinado y luego restringir la búsqueda de texto completo a solo esos campos en el momento de la consulta.
 
 Los parámetros de consulta de la solicitud se usan para establecer el ámbito de la operación de búsqueda y para recortar los resultados de los campos que no proporcionan contenido compatible con la experiencia de búsqueda que quiere proporcionar.
 
@@ -28,11 +26,11 @@ Los parámetros de consulta de la solicitud se usan para establecer el ámbito d
 | **searchFields** | Limita la búsqueda de texto completo a la lista de campos con nombre. |
 | **$select** | Recorta la respuesta para incluir solo los campos que especifique. De forma predeterminada, se devuelven todos los campos recuperables. El parámetro **$select** le permite elegir cuáles devolver. |
 
-El éxito de esta técnica depende de la integridad del contenido del campo. Azure Search no traduce las cadenas ni realiza la detección del idioma. Es responsabilidad suya asegurarse de que los campos contienen las cadenas que espera.
+El éxito de esta técnica depende de la integridad del contenido del campo. Azure Cognitive Search no traduce las cadenas ni realiza la detección del idioma. Es responsabilidad suya asegurarse de que los campos contienen las cadenas que espera.
 
 ## <a name="define-fields-for-content-in-different-languages"></a>Definición de campos para el contenido en distintos idiomas
 
-En Azure Search, las consultas tienen como destino un índice único. Los desarrolladores que quieran proporcionar cadenas específicas del idioma en una única experiencia de búsqueda suele definen campos dedicados para almacenar los valores: un campo para las cadenas en inglés, otro para las de francés, etc. 
+En Azure Cognitive Search, las consultas tienen como destino un índice único. Los desarrolladores que quieran proporcionar cadenas específicas del idioma en una única experiencia de búsqueda suele definen campos dedicados para almacenar los valores: un campo para las cadenas en inglés, otro para las de francés, etc. 
 
 En nuestros ejemplos, incluido el de la [inmobiliaria](search-get-started-portal.md) que se muestra a continuación, es posible que haya visto definiciones de campo similares a las de la captura de pantalla siguiente. Observe cómo este ejemplo muestra las asignaciones del analizador de idioma para los campos de este índice. Los campos que contienen cadenas funcionan mejor en la búsqueda de texto completo cuando se emparejan con un analizador diseñado para administrar las reglas lingüísticas del idioma de destino.
 
@@ -64,8 +62,8 @@ parameters =
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Filtros de Azure Search](search-filters.md)
++ [Filtros de Azure Cognitive Search](search-filters.md)
 + [Analizadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support)
-+ [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md)
++ [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md)
 + [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

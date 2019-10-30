@@ -1,10 +1,9 @@
 ---
-title: 'Uso de colas de Azure Service Bus en Node.js: azure/service-bus | Microsoft Docs'
-description: Obtenga información sobre cómo usar las colas de Service Bus en Azure desde una aplicación Node.js.
+title: Uso de colas de azure/service-bus en Node.js
+description: Aprenda a usar las colas de Service Bus en Azure desde una aplicación Node.js con el paquete azure/service-bus.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 10/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 7aacefde9c037fcce64d9256e35082eb04e0a2f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58049855cc27d51134b9f76a773f32f49c6381b6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988347"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790303"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Uso de colas de Service Bus con Node.js y el paquete azure/service-bus
 > [!div class="op_multi_selector" title1="Lenguaje de programación" title2="Paquete Node.js"]
@@ -29,7 +28,7 @@ ms.locfileid: "65988347"
 En este tutorial, aprenderá a escribir un programa de Nodejs para enviar mensajes a una cola de Service Bus, y recibirlos de ella, con el nuevo paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). En este paquete se usa el [protocolo AMQP 1.0](service-bus-amqp-overview.md) (más rápido), mientras que en el paquete [azure-sb](https://www.npmjs.com/package/azure-sb) anterior se utilizaban las [API de tiempo de ejecución de REST](/rest/api/servicebus/service-bus-runtime-rest). Los ejemplos están escritos en JavaScript.
 
 ## <a name="prerequisites"></a>Requisitos previos
-- Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [ventajas de suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Si no tiene una cola con la que trabajar, siga los pasos del artículo [Uso de Azure Portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) para crear una. Anote la cadena de conexión para la instancia de Service Bus y el nombre de la cola que creó. Utilizaremos estos valores en los ejemplos.
 
 > [!NOTE]
@@ -89,7 +88,7 @@ La interactuación con una cola de Service Bus empieza por la creación de una i
 
 Felicidades. Acaba de enviar mensajes a una cola de Service Bus.
 
-Los mensajes tienen algunas propiedades estándares, como `label` y `messageId`, que se pueden establecer cuando se envían. Si desea establecer alguna propiedad personalizada, utilice `userProperties`, que es un objeto JSON que puede contener pares de clave y valor de los datos personalizados.
+Los mensajes tienen algunas propiedades estándar, como `label` y `messageId`, que se pueden establecer cuando se envían. Si desea establecer alguna propiedad personalizada, utilice `userProperties`, que es un objeto JSON que puede contener pares de clave y valor de los datos personalizados.
 
 El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, consulte [Cuotas de Service Bus](service-bus-quotas.md).
 
@@ -109,7 +108,7 @@ La interactuación con una cola de Service Bus empieza por la creación de una i
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
       const queueClient = sbClient.createQueueClient(queueName);
-      const receiver = queueClient.createReceiver(ReceiveMode.ReceiveAndDelete);
+      const receiver = queueClient.createReceiver(ReceiveMode.receiveAndDelete);
       try {
         const messages = await receiver.receiveMessages(10)
         console.log("Received messages:");
@@ -138,6 +137,6 @@ El método [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/s
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los recursos siguientes.
 - [Colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md)
-- Consulte otros [ejemplos de Nodejs para Service Bus en GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
+- Consulte otros [ejemplos de Node.js para Service Bus en GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
 - [Centro para desarrolladores de Node.js](https://azure.microsoft.com/develop/nodejs/)
 

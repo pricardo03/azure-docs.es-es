@@ -1,6 +1,6 @@
 ---
-title: 'Escenario de control de excepciones y registro de errores: Azure Logic Apps | Microsoft Docs'
-description: Descripción de un caso de uso real sobre control de excepciones y registro de errores avanzados en Azure Logic Apps
+title: 'Escenario de control de excepciones y registro de errores: Azure Logic Apps'
+description: Caso de uso real y escenario sobre el control de excepciones y el registro de errores avanzados en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,12 +10,12 @@ ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 7930d487d367ee19b869becae5017f80ea1df8cb
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385464"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680162"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Escenario: Control de excepciones y registro de errores para aplicaciones lógicas
 
@@ -36,13 +36,13 @@ El proyecto tenía dos requisitos principales:
 * Una manera de ver todos los errores que se producían dentro del flujo de trabajo.
 
 > [!TIP]
-> Para ver un vídeo detallado sobre este proyecto, vea [Integration User Group](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
+> Para ver un vídeo de alto nivel sobre este proyecto, vea [Integration User Group](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
 
 ## <a name="how-we-solved-the-problem"></a>¿Cómo resolvimos el problema?
 
-Elegimos [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") como repositorio para los registros y entradas de error (Cosmos DB hace referencia a los registros como documentos). Puesto que Azure Logic Apps tiene una plantilla estándar para todas las respuestas, no sería necesario crear un esquema personalizado. Podíamos crear una aplicación de API para **insertar** y **consultar** registros de errores y registros. También podíamos definir un esquema para cada uno de ellos dentro de la aplicación de API.  
+Elegimos [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") como repositorio para los registros y las entradas de error (Cosmos DB hace referencia a los registros como documentos). Puesto que Azure Logic Apps tiene una plantilla estándar para todas las respuestas, no sería necesario crear un esquema personalizado. Podíamos crear una aplicación de API para **insertar** y **consultar** registros de errores y registros. También podíamos definir un esquema para cada uno de ellos dentro de la aplicación de API.  
 
-Otro requisito era que se purgaran los registros después de una determinada fecha. Cosmos DB presenta una propiedad llamada [período de vida](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "período de vida") (TTL), que nos permitió establecer un valor de **período de vida** para cada registro o colección. Esta capacidad suprimía la necesidad de eliminar manualmente los registros en Cosmos DB.
+Otro requisito era que se purgaran los registros después de una determinada fecha. Cosmos DB presenta una propiedad llamada [Período de vida](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Período de vida") (TTL), que nos permitió establecer un valor de **Período de vida** para cada registro o colección. Esta capacidad suprimía la necesidad de eliminar manualmente los registros en Cosmos DB.
 
 > [!IMPORTANT]
 > Para completar este tutorial, debe crear una base de datos de Cosmos DB y dos colecciones (Registro y Errores).

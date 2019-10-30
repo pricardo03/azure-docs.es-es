@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 812fb8d312b165bd43f600da520f390f9c6399fe
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 5795dc994872ac5da37a1226524dddd35aa35126
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128419"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692633"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árbol de decisión ampliado de dos clases
 
@@ -32,9 +32,9 @@ En este módulo se crea un modelo de clasificación no entrenado. Dado que la cl
 
 Puede entrenar este tipo de modelo mediante [Entrenar modelo](././train-model.md). 
 
-1.  En Azure Machine Learning, agregue el módulo **Árbol de decisión ampliado** al experimento.
+1.  En Azure Machine Learning, agregue el módulo **Boosted Decision Tree** (Árbol de decisión ampliado) a la canalización.
   
-2.  Para especificar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).
+2.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).
   
     + **Parámetro único**: Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.
   

@@ -1,6 +1,6 @@
 ---
 title: Perfil e identificador de usuario para su uso con Azure Notebooks
-description: Cómo crear y administrar su perfil de usuario y el identificador de usuario con Azure Notebooks.
+description: Cómo crear y administrar su perfil de usuario y el identificador de usuario con Azure Notebooks, que pasa a formar parte de la dirección URL de los cuadernos compartidos.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 1fddefeb2a54ae775a9016799ffff1963eab247e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 3985e3d5fbe6e24014694665557f13bcc9a35a25
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970162"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598209"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Perfil e identificador de usuario de Azure Notebooks
 

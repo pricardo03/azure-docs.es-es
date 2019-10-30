@@ -1,6 +1,6 @@
 ---
-title: 'Mensajes AS2 para la integración empresarial B2B: Azure Logic Apps'
-description: Intercambio de mensajes AS2 en Azure Logic Apps con Enterprise Integration Pack
+title: 'Envío y recepción de mensajes AS2 para B2B: Azure Logic Apps'
+description: Intercambio de mensajes AS2 para escenarios de integración empresarial B2B mediante Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 08/22/2019
-ms.openlocfilehash: b1e7664aa08171c16c83e17ad93977b29e31b5c0
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1f063c0e8dada8eb6c4eee031764f6ca7dd3a91d
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656461"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680382"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes AS2 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 

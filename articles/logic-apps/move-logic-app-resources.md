@@ -1,5 +1,5 @@
 ---
-title: 'Traslado de recursos de la aplicación lógica entre suscripciones, grupos de recursos o regiones: Azure Logic Apps'
+title: 'Traslado de aplicaciones lógicas entre suscripciones, grupos de recursos o regiones: Azure Logic Apps'
 description: Migración de aplicaciones lógicas o cuentas de integración a otras suscripciones de Azure, grupos de recursos o ubicaciones (regiones)
 services: logic-apps
 ms.service: logic-apps
@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: e7c201004be6c4d39f482cc288824cba74e302cb
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8c3bad32943b83cbfe4c96087f3fef1c51f64bb1
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737302"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679107"
 ---
-# <a name="migrate-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Migración de recursos de aplicaciones lógicas a otras suscripciones, grupos de recursos o regiones de Azure
+# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Traslado de recursos de aplicaciones lógicas a otras suscripciones, grupos de recursos o regiones de Azure
 
 Para trasladar la aplicación lógica o los recursos relacionados a otra suscripción, grupo de recursos o región de Azure, tiene varias formas de completar estas tareas, como Azure Portal, Azure PowerShell, CLI de Azure y API REST. Antes de trasladar recursos, revise estas consideraciones: 
 
@@ -46,7 +46,7 @@ Para trasladar un recurso, como una aplicación lógica o una cuenta de integrac
 
 1. En la lista **Suscripción**, seleccione la suscripción de destino.
 
-1. En la lista **Grupo de recursos**, seleccione el grupo de recursos de destino. O bien, para crear otro grupo de recursos, seleccione **Creación de un nuevo grupo**.
+1. En la lista **Grupo de recursos**, seleccione el grupo de recursos de destino. O bien, para crear otro grupo de recursos, seleccione **Crear un nuevo grupo**.
 
 1. Para confirmar que comprende que los scripts o las herramientas asociados a los recursos que se han movido no funcionarán hasta que los actualice con los nuevos identificadores de recurso, seleccione el cuadro de confirmación y después seleccione **Aceptar**.
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: f6c74582760d77ae4318739c74f77d0bcd0501fe
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.date: 10/17/2019
+ms.openlocfilehash: b7395a8ab71e860c2e584339dcd581077a4f4020
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950356"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595495"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Información de rendimiento de consultas en Azure Database for MySQL
 
@@ -59,7 +59,7 @@ Puede hacer clic y arrastrar en el gráfico para restringir a un período de tie
 ### <a name="wait-statistics"></a>Estadísticas de espera
 
 > [!NOTE]
-> Las estadísticas de espera están diseñadas para solucionar problemas con el rendimiento de una consulta. Se recomienda activarlas solo para solucionar problemas.
+> Las estadísticas de espera están diseñadas para solucionar problemas con el rendimiento de una consulta. Se recomienda activarlas solo para solucionar problemas. <br>Si recibe el mensaje de error en Azure Portal "*Se produjo un problema en "Microsoft.DBforMySQL"; no se puede realizar la solicitud. Si el problema continua o no se lo esperaba, póngase en contacto con el servicio de soporte técnico y facilíteles esta información.* " durante la visualización de las estadísticas de espera, use un período de tiempo menor.
 
 Las estadísticas de espera brindan una vista de los eventos de espera que se producen durante la ejecución de una consulta específica. Puede encontrar más información sobre los tipos de eventos de espera en la [documentación del motor de MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 

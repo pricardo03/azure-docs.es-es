@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 574b1591669cc32ce30677cad5158e13b944486f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025637"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750202"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desarrollo con API de Media Services v3
 
@@ -107,6 +107,8 @@ Media Services tiene las siguientes operaciones de larga duración:
 * [Escalar StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
 
 Si se envía correctamente una operación larga, recibirá un mensaje "202 Aceptado" y deberá sondear la finalización de la operación con el identificador de operación devuelto.
+
+En el artículo [Seguimiento de las operaciones asincrónicas de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) se explica de forma detallada cómo realizar un seguimiento del estado de las operaciones asincrónicas de Azure mediante los valores devueltos en la respuesta.
 
 Solo se admite una operación de larga duración para un LiveEvent determinado o para cualquiera de sus LiveOutput asociados. Una vez iniciada, la operación de larga duración se debe completar antes de iniciar una operación de larga duración posterior en el mismo LiveEvent o en cualquier LiveOutput asociado. En el caso de los LiveEvent con varios LiveOutput, debe esperar a que se complete una operación de larga duración en un LiveOutput antes de desencadenar una operación de larga duración en otro LiveOutput. 
 

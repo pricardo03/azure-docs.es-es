@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 318a9c2df7902ae89a731ca45b24b8bb6241faa1
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: fd7e94261d8302224b0e31e5f4ac46978dfa812f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498392"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690874"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
 
@@ -43,7 +43,7 @@ Existen dos tipos de cuentas de ejecución:
 
 ## <a name="permissions"></a>Permisos para configurar cuentas de ejecución
 
-Para crear o actualizar una cuenta de ejecución, debe tener los permisos y privilegios específicos. Un administrador global en Azure Active Directory y un propietario en una suscripción pueden completar todas las tareas. En una situación en la que tenga separación de tareas, la siguiente tabla muestra una lista de las tareas, el cmdlet equivalente y los permisos necesarios:
+Para crear o actualizar una cuenta de ejecución, debe tener los permisos y privilegios específicos. Un administrador de aplicaciones en Azure Active Directory y un propietario en una suscripción pueden completar todas las tareas. En una situación en la que tenga separación de tareas, la siguiente tabla muestra una lista de las tareas, el cmdlet equivalente y los permisos necesarios:
 
 |Tarea|Cmdlet  |Permisos mínimos  |Donde se establecen los permisos|
 |---|---------|---------|---|
@@ -424,7 +424,7 @@ $roleDefinition | Set-AzureRMRoleDefinition
 
 Para determinar si la entidad de servicio que la cuenta de ejecución usa está en el rol **Colaborador** o en una definición de roles personalizada, vaya a su cuenta de Automation y, en **Configuración de la cuenta**, seleccione **Cuentas de ejecución** > **Cuenta de ejecución de Azure**. En **Rol** encontrará la definición de roles que se está usando.
 
-[![](media/manage-runas-account/verify-role.png "Comprobación del rol de la cuenta de ejecución")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+[![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 
 Para determinar la definición de roles que las cuentas de ejecución de Automation utilizan para varias suscripciones o cuentas de Automation, puede usar el script [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) en la Galería de PowerShell.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 31612e10e7978e94f1ed467b5ffbecde40910ef9
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3fa6b61b1b1761756339d6a7f05c74eb4a968777
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128460"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692647"
 ---
 # <a name="split-data-module"></a>Módulo Split Data
 
@@ -30,7 +30,7 @@ Este módulo es especialmente útil cuando necesita separar los datos en conjunt
 > Antes de elegir el modo de división, lea todas las opciones para determinar el tipo de división que necesita.
 > Si cambia el modo de división, se podrían restablecer todas las demás opciones.
 
-1. Agregue el módulo **Split Data** al experimento en la interfaz. Puede encontrar este módulo en **Transformación de datos**, en la categoría **Sample and Split** (Muestrear y dividir).
+1. Agregue el módulo **Split Data** a la canalización en la interfaz. Puede encontrar este módulo en **Transformación de datos**, en la categoría **Sample and Split** (Muestrear y dividir).
 
 2. **Splitting mode** (Modo de división): Elija uno de los modos siguientes, según el tipo de datos que tenga y cómo quiera dividirlos. Cada modo de división tiene distintas opciones. Haga clic en los temas siguientes para obtener instrucciones detalladas y ejemplos. 
 
@@ -45,7 +45,7 @@ Este módulo es especialmente útil cuando necesita separar los datos en conjunt
     - **Relative Expression Split** (División de expresión relativa):  Use esta opción siempre que quiera aplicar una condición a una columna de números. El número podría ser un campo de fecha y hora, una columna que contiene edades o importes monetarios, incluso un porcentaje. Por ejemplo, es posible que quiera dividir el conjunto de datos según el costo de los artículos, agrupar personas por intervalos de edad, o separar datos por una fecha del calendario.
 
 ### <a name="split-rows"></a>Dividir filas
-1.  Agregue el módulo [Split Data](./split-data.md) al experimento en la interfaz y conecte el conjunto de datos que quiera dividir.
+1.  Agregue el módulo [Split Data](./split-data.md) a la canalización en la interfaz y conecte el conjunto de datos que quiera dividir.
   
 2.  Para **Splitting mode**, elija **Split rows**. 
 
@@ -65,12 +65,12 @@ Este módulo es especialmente útil cuando necesita separar los datos en conjunt
 
     Con el muestreo estratificado, los datos se dividen de forma que cada conjunto de datos de salida obtiene aproximadamente el mismo porcentaje de cada valor de destino. Por ejemplo, es posible que quiera asegurarse de que sus conjuntos de entrenamiento y de pruebas estén más o menos equilibrados en relación con el resultado, o con respecto a alguna otra columna, como el género.
 
-7. Ejecute el experimento.
+7. Ejecución de la canalización
 
 
 ## <a name="regular-expression-split"></a>División de expresiones regulares
 
-1.  Agregue el módulo [Split Data](./split-data.md) al experimento y conéctelo como entrada en el conjunto de datos que quiere dividir.  
+1.  Agregue el módulo [Split Data](./split-data.md) a la canalización y conéctelo como entrada en el conjunto de datos que quiere dividir.  
   
 2.  Para **Splitting mode**, seleccione **Regular expression split**.
 
@@ -79,13 +79,13 @@ Este módulo es especialmente útil cuando necesita separar los datos en conjunt
    La expresión regular debe seguir la sintaxis de expresión regular de Python.
 
 
-4. Ejecute el experimento.
+4. Ejecución de la canalización
 
     En función de la expresión regular que proporcione, el conjunto de datos se divide en dos conjuntos de filas: las filas con valores que coinciden con la expresión y todas las filas restantes. 
 
 ## <a name="relative-expression-split"></a>División de expresión relativa
 
-1. Agregue el módulo [Split Data](./split-data.md) al experimento y conéctelo como entrada en el conjunto de datos que quiere dividir.
+1. Agregue el módulo [Split Data](./split-data.md) a la canalización y conéctelo como entrada en el conjunto de datos que quiere dividir.
   
 2. Para **Splitting mode**, seleccione **Relative expression split**.
   
@@ -108,7 +108,7 @@ Este módulo es especialmente útil cuando necesita separar los datos en conjunt
 
 
 
-4. Ejecute el experimento.
+4. Ejecución de la canalización
 
     La expresión divide el conjunto de datos en dos conjuntos de filas: las filas con valores que cumplen la condición y todas las filas restantes.
 

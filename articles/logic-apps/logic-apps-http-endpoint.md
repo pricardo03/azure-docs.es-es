@@ -1,6 +1,6 @@
 ---
-title: Llamada, desencadenador o anidamiento de flujos de trabajo con puntos de conexión HTTP - Azure Logic Apps
-description: Configuración de puntos de conexión HTTP para llamadas, desencadenamientos o anidamiento de flujos de trabajo para Azure Logic Apps
+title: Llamada, desencadenamiento o anidación de aplicaciones lógicas en Azure Logic Apps
+description: Configuración de puntos de conexión HTTP para llamadas, desencadenamientos o anidamiento de flujos de trabajo de aplicaciones lógicas en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.workload: integration
@@ -12,14 +12,14 @@ ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: f93e90ef442740e4fb17f166023fbe3d5f0bae66
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: eb8451272ecb5bc7b9a7c670545170cd74621883
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875951"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680324"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Llamada, desencadenador o anidamiento de flujos de trabajo con puntos de conexión HTTP en Azure Logic Apps
+# <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTP en Azure Logic Apps
 
 Puede exponer de manera nativa puntos de conexión HTTP sincrónicos como desencadenadores en aplicaciones lógicas, de manera que pueda desencadenar las aplicaciones lógicas o llamarlas a través de una dirección URL. También puede anidar flujos de trabajo en las aplicaciones lógicas mediante el uso de un patrón de puntos de conexión invocables.
 
@@ -38,7 +38,7 @@ Para crear puntos de conexión HTTP, puede agregar estos desencadenadores para q
 
 Para crear un punto de conexión HTTP, agregue un desencadenador que pueda recibir solicitudes entrantes.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal"). Vaya a la aplicación lógica y abra el Diseñador de aplicación lógica.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com "Portal de Azure"). Vaya a la aplicación lógica y abra el Diseñador de aplicación lógica.
 
 2. Agregue un desencadenador que permita a la aplicación lógica recibir solicitudes entrantes. Por ejemplo, agregue el desencadenador de tipo **Solicitud** a su aplicación lógica.
 
@@ -287,7 +287,7 @@ R: Sí, los puntos de conexión HTTP admiten una configuración más avanzada co
 
 * [Cambio del método de solicitud](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Cambio de los segmentos de dirección URL de la solicitud](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
-* Configuración de los dominios de API Management en [Azure Portal](https://portal.azure.com/ "Azure Portal")
+* Configuración de los dominios de API Management en [Azure Portal](https://portal.azure.com/ "Portal de Azure")
 * Configuración de la directiva para comprobar la autenticación básica
 
 #### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: ¿Qué cambió cuando el esquema se migró desde la versión preliminar de 1 de diciembre de 2014?

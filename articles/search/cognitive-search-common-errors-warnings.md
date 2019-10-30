@@ -1,24 +1,23 @@
 ---
-title: 'Advertencias y errores comunes: Azure Search'
-description: En este artículo se proporciona información y soluciones a errores y advertencias comunes que pueden surgir durante el enriquecimiento de IA en Azure Search.
-services: search
-manager: heidist
+title: Errores y advertencias comunes
+titleSuffix: Azure Cognitive Search
+description: En este artículo se proporciona información y soluciones a errores y advertencias comunes que pueden surgir durante el enriquecimiento de IA en Azure Cognitive Search.
+manager: nitinme
 author: amotley
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: b5a161e570489e6382f2226ab5dc9a1c34dc67df
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028319"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787973"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Errores y advertencias comunes de la canalización de enriquecimiento de IA en Azure Search
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Errores y advertencias comunes de la canalización de enriquecimiento de IA en Azure Cognitive Search
 
-En este artículo se proporciona información y soluciones a errores y advertencias comunes que pueden surgir durante el enriquecimiento de IA en Azure Search.
+En este artículo se proporciona información y soluciones a errores y advertencias comunes que pueden surgir durante el enriquecimiento de IA en Azure Cognitive Search.
 
 ## <a name="errors"></a>Errors
 La indexación se detiene cuando el recuento de errores supera ["maxfaileditems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -59,38 +58,20 @@ El indexador leyó el documento desde el origen de datos, pero hubo un problema 
 | No se pudo aplicar la asignación de campos a un campo | No se pudo aplicar la función de asignación `'functionName'` al campo `'fieldName'`. La matriz no puede ser NULL. Nombre de parámetro: bytes | Compruebe las [asignaciones de campos](search-indexer-field-mappings.md) definidas en el indexador y compárelas con los datos del campo especificado del documento con errores. Puede que sea necesario modificar las asignaciones de campos o los datos del documento. |
 | No se pudo leer el valor del campo | No se pudo leer el valor de la columna `'fieldName'` en el índice `'fieldIndex'`. Error en el nivel del transporte al recibir los resultados del servidor. (proveedor: Proveedor TCP, error: 0: El host remoto forzó el cierre de la conexión existente). | Normalmente, estos errores se deben a problemas de conectividad inesperados con el servicio subyacente del origen de datos. Intente volver a ejecutar el documento mediante el indexador más adelante. |
 
-### <a name="could-not-index-document"></a>No se pudo indexar el documento
-El documento se leyó y se procesó, pero el indexador no pudo agregarlo al índice de búsqueda. Estos pueden ser los motivos:
+### <a name="could-not-execute-skill"></a>No se pudo ejecutar la aptitud
+El indexador no pudo ejecutar una aptitud del conjunto de aptitudes.
 
 | Motivo | Ejemplo | . |
 | --- | --- | --- |
-| Un campo contiene un término demasiado grande | Un término del documento es mayor que el [límite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Para evitar esta restricción, asegúrese de que el campo no está configurado como filtrable, con facetas o que se puede ordenar.
-| El documento es demasiado grande para indexarlo | Un documento es mayor que el [tamaño de solicitud de API máximo](search-limits-quotas-capacity.md#api-request-limits) | [Indexación de grandes conjuntos de datos](search-howto-large-index.md)
+| Problemas de conectividad transitorios | Se produjo un error transitorio. Inténtelo de nuevo más tarde. | En ocasiones, hay problemas de conectividad inesperados. Intente volver a ejecutar el documento mediante el indexador más adelante. |
+| Posible error del producto | Se ha producido un error inesperado. | Esto indica una clase desconocida de error y puede significar que hay un error del producto. Registre una [incidencia de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) para obtener ayuda. |
+| Una aptitud detectó un error durante la ejecución | (De la Aptitud Combinación) Uno o varios valores de desplazamiento no eran válidos y no se pudieron analizar. Los elementos se insertaron al final del texto | Use la información del mensaje de error para solucionar el problema. Este tipo de error requerirá la acción de resolución. |
 
-### <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>La entrada de aptitud "languageCode" tiene los siguientes códigos de idioma "X,Y,Z", uno de los cuales es al menos válido.
-Uno o varios de los valores que pasan a la entrada `languageCode` opcional de una aptitud de nivel inferior no se admiten. Esta situación puede darse si se pasa la salida de [LanguageDetectionSkil](cognitive-search-skill-language-detection.md) a aptitudes posteriores y la salida consta de más idiomas de los que se admiten en esas aptitudes de nivel inferior.
+### <a name="could-not-execute-skill-because-the-web-api-request-failed"></a>No se pudo ejecutar la aptitud debido a un error en la solicitud a la API web
+Error al ejecutar la aptitud porque no se pudo realizar la llamada a la API web. Por lo general, esta clase de error se produce cuando se usan aptitudes personalizadas, en cuyo caso necesitará depurar el código personalizado para resolver el problema. Por el contrario, si el error proviene de una aptitud integrada, consulte el mensaje de error para saber cómo corregir el problema.
 
-Si sabe que el conjunto de datos solo tiene un idioma, debe quitar el elemento [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) y la entrada de aptitud `languageCode` y usar en cambio el parámetro de aptitud `defaultLanguageCode` para esa aptitud, suponiendo que el idioma sea compatible con ella.
-
-Si sabe que el conjunto de datos contiene varios idiomas y, por tanto, necesita el elemento [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) y la entrada `languageCode`, considere agregar un elemento [ConditionalSkill](cognitive-search-skill-conditional.md) para filtrar el texto con los idiomas que no se admiten antes de pasar el texto a la aptitud de nivel inferior.  Este es un ejemplo de cuál podría ser el aspecto del elemento EntityRecognitionSkill:
-
-```json
-{
-    "@odata.type": "#Microsoft.Skills.Util.ConditionalSkill",
-    "context": "/document",
-    "inputs": [
-        { "name": "condition", "source": "= $(/document/language) == 'de' || $(/document/language) == 'en' || $(/document/language) == 'es' || $(/document/language) == 'fr' || $(/document/language) == 'it'" },
-        { "name": "whenTrue", "source": "/document/content" },
-        { "name": "whenFalse", "source": "= null" }
-    ],
-    "outputs": [ { "name": "output", "targetName": "supportedByEntityRecognitionSkill" } ]
-}
-```
-
-Estas son algunas referencias de los idiomas admitidos actualmente en cada una de las aptitudes que pueden producir este mensaje de error:
-* [Idiomas compatibles con Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (para [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) y [SentimentSkill](cognitive-search-skill-sentiment.md))
-* [Idiomas compatibles con Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (para [Text TranslationSkill](cognitive-search-skill-text-translation.md))
-* Idiomas compatibles con [Text SplitSkill](cognitive-search-skill-textsplit.md): `da, de, en, es, fi, fr, it, ko, pt`
+### <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>No se pudo ejecutar la aptitud porque la respuesta de la aptitud de API web no es válida
+No se pudo ejecutar la aptitud porque la llamada a la API web devolvió una respuesta no válida. Por lo general, esta clase de error se produce cuando se usan aptitudes personalizadas, en cuyo caso necesitará depurar el código personalizado para resolver el problema. Por el contrario, si el error proviene de una aptitud integrada, registre una [incidencia de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) para obtener ayuda.
 
 ### <a name="skill-did-not-execute-within-the-time-limit"></a>La aptitud no se ejecutó dentro del límite de tiempo
 Hay dos casos en los que puede encontrarse con este mensaje de error, cada uno de los cuales debe tratarse de forma diferente. Siga las instrucciones que se indican a continuación según la aptitud que devuelva este error en su caso.
@@ -137,8 +118,74 @@ El documento se leyó y se procesó, pero el indexador no pudo agregarlo al índ
 | El servicio de búsqueda se está revisando para la actualización del servicio o está en medio de una reconfiguración de la topología. | No se puede establecer la conexión para actualizar el índice. El servicio de búsqueda está inactivo o está experimentando una transición. | Configure el servicio con al menos 3 réplicas para una disponibilidad del 99,9 % según se indica en la [documentación del Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 | Error en el recurso de proceso o de red subyacente (poco frecuente) | No se puede establecer la conexión para actualizar el índice. Se produjo un error desconocido. | Establezca los indexadores en [Ejecutar según una programación](search-howto-schedule-indexers.md) para que se recuperen de un estado de error.
 
+### <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>No se pudo indexar el documento porque los datos del indexador para el índice no eran válidos
+
+El documento se leyó y se procesó, pero debido a un error de coincidencia en la configuración de los campos del índice y la naturaleza de los datos extraídos por el indexador, no se pudo agregar al índice de búsqueda. Estos pueden ser los motivos:
+
+| Motivo | Ejemplo
+| --- | ---
+| El tipo de datos de los campos extraídos por el indexador no es compatible con el modelo de datos del campo de índice de destino correspondiente. | El campo de datos "_data_" del documento con la clave "_data_" tiene un valor no válido "of type 'Edm.String'". El tipo esperado era "Collection(Edm.String)". |
+| Error al extraer una entidad JSON de un valor de cadena. | No se pudo analizar el valor "of type 'Edm.String'" del campo "_data_" como objeto JSON. Error: "After parsing a value an unexpected character was encountered: ''. Path '_path_', line 1, position 3162". |
+| Error al extraer una colección de entidades JSON de un valor de cadena.  | No se pudo analizar el valor "of type 'Edm.String'" del campo "_data_" como matriz JSON. Error: "After parsing a value an unexpected character was encountered: ''. Path '[0]', line 1, position 27". |
+| Se detectó un tipo desconocido en el documento de origen. | No se puede indexar el tipo desconocido "_unknown_" |
+| Se usó una notación no compatible para los puntos geográficos en el documento de origen. | No se admiten los literales de cadena WKT POINT. En su lugar, use los literales de punto GeoJSON. |
+
+En todos estos casos, consulte [Tipos de datos admitidos (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) y [Asignación de tipos de datos para indexadores en Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) para asegurarse de compilar correctamente el esquema de índice y de que haya configurado las [asignaciones de campos de indexador](search-indexer-field-mappings.md) adecuadas. El mensaje de error incluirá detalles que pueden ayudar a realizar un seguimiento del origen del error de coincidencia.
+
 ##  <a name="warnings"></a>Advertencias
 Las advertencias no detienen la indexación, sino que indican las condiciones que podrían dar lugar a resultados inesperados. Que realice o no una acción depende de los datos y del escenario.
+
+### <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>No se pudo ejecutar la aptitud porque una entrada de aptitud no era válida
+El indexador no pudo ejecutar una aptitud del conjunto de aptitudes porque faltaba una entrada para la aptitud, era del tipo equivocado o no era válida.
+
+Las aptitudes cognitivas tienen entradas obligatorias y entradas opcionales. Por ejemplo, la [aptitud Extracción de frases clave](cognitive-search-skill-keyphrases.md) tiene dos entradas obligatorias `text`, `languageCode`, y no tienen ninguna entrada opcional. Si las entradas requeridas no son válidas, la aptitud se omite y genera una advertencia. Las aptitudes omitidas no generan ninguna salida, por lo que si otras aptitudes usan salidas de la aptitud omitida, podrían generar más advertencias.
+
+Si quiere proporcionar un valor predeterminado en caso de una entrada omitida, puede usar la [aptitud condicional](cognitive-search-skill-conditional.md) para generar un valor predeterminado y luego usar la salida de la [aptitud condicional](cognitive-search-skill-conditional.md) como la entrada de la aptitud.
+
+
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Util.ConditionalSkill",
+    "context": "/document",
+    "inputs": [
+        { "name": "condition", "source": "= $(/document/language) == null" },
+        { "name": "whenTrue", "source": "= 'en'" },
+        { "name": "whenFalse", "source": "= $(/document/language)" }
+    ],
+    "outputs": [ { "name": "output", "targetName": "languageWithDefault" } ]
+}
+```
+
+| Motivo | Ejemplo | . |
+| --- | --- | --- |
+| La entrada de aptitud tiene un tipo incorrecto | La entrada de aptitud obligatoria `X` no tenía el tipo esperado `String`. La entrada de aptitud obligatoria `X` no tenía el formato esperado. | Ciertas aptitudes esperan entradas de tipos determinados, por ejemplo, la [aptitud Opinión](cognitive-search-skill-sentiment.md) espera que `text` sea una cadena. Si la entrada especifica un valor que no es de cadena, la aptitud no se ejecuta y no genera ninguna salida. Asegúrese de que el conjunto de datos tiene valores de entrada con un tipo uniforme, o bien use una [aptitud API web personalizada](cognitive-search-custom-skill-web-api.md) para procesar previamente la entrada. Si va a iterar la aptitud en una matriz, revise que la entrada y el contexto de la aptitud tengan `*` en las posiciones correctas. Por lo general, tanto el contexto como el origen de entrada deben finalizar con `*` para las matrices. |
+| Falta la entrada de aptitud | Falta la entrada de aptitud obligatoria `X`. | Si todos los documentos reciben esta advertencia, lo más probable es que haya un error tipográfico en las rutas de acceso de las entradas, por lo que debe revisar nuevamente el uso de mayúsculas y minúsculas en el nombre de la propiedad, ver si faltan o sobran `*` en la ruta de acceso y si los documentos del origen de datos definen las entradas obligatorias. |
+| La entrada de código de idioma de aptitud no es válida | La entrada de aptitud `languageCode` tiene los códigos de idioma siguientes `X,Y,Z`, uno de los cuales es al menos no válido. | Consulte más detalles [a continuación](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid). |
+
+### <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>La entrada de aptitud "languageCode" tiene los siguientes códigos de idioma "X,Y,Z", uno de los cuales es al menos válido.
+Uno o varios de los valores que pasan a la entrada `languageCode` opcional de una aptitud de nivel inferior no se admiten. Esta situación puede darse si se pasa la salida de [LanguageDetectionSkil](cognitive-search-skill-language-detection.md) a aptitudes posteriores y la salida consta de más idiomas de los que se admiten en esas aptitudes de nivel inferior.
+
+Si sabe que el conjunto de datos solo tiene un idioma, debe quitar el elemento [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) y la entrada de aptitud `languageCode` y usar en cambio el parámetro de aptitud `defaultLanguageCode` para esa aptitud, suponiendo que el idioma sea compatible con ella.
+
+Si sabe que el conjunto de datos contiene varios idiomas y, por tanto, necesita el elemento [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) y la entrada `languageCode`, considere agregar un elemento [ConditionalSkill](cognitive-search-skill-conditional.md) para filtrar el texto con los idiomas que no se admiten antes de pasar el texto a la aptitud de nivel inferior.  Este es un ejemplo de cuál podría ser el aspecto del elemento EntityRecognitionSkill:
+
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Util.ConditionalSkill",
+    "context": "/document",
+    "inputs": [
+        { "name": "condition", "source": "= $(/document/language) == 'de' || $(/document/language) == 'en' || $(/document/language) == 'es' || $(/document/language) == 'fr' || $(/document/language) == 'it'" },
+        { "name": "whenTrue", "source": "/document/content" },
+        { "name": "whenFalse", "source": "= null" }
+    ],
+    "outputs": [ { "name": "output", "targetName": "supportedByEntityRecognitionSkill" } ]
+}
+```
+
+Estas son algunas referencias de los idiomas admitidos actualmente en cada una de las aptitudes que pueden producir este mensaje de error:
+* [Idiomas compatibles con Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (para [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) y [SentimentSkill](cognitive-search-skill-sentiment.md))
+* [Idiomas compatibles con Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (para [Text TranslationSkill](cognitive-search-skill-text-translation.md))
+* Idiomas compatibles con [Text SplitSkill](cognitive-search-skill-textsplit.md): `da, de, en, es, fi, fr, it, ko, pt`
 
 ### <a name="skill-input-was-truncated"></a>La entrada de aptitud se truncó
 Las aptitudes cognitivas tienen límites en cuanto a la longitud del texto que se puede analizar a la vez. Si la entrada de texto de estas aptitudes está por encima de ese límite, se truncará el texto para cumplir el límite y, luego, se realizará el enriquecimiento sobre ese texto truncado. Esto significa que la aptitud se ejecuta, pero no sobre todos los datos.
@@ -159,3 +206,17 @@ En el ejemplo de LanguageDetectionSkill que se indica a continuación, el campo 
 ```
 
 Si quiere asegurarse de que se analice todo el texto, considere la posibilidad de usar la [aptitud dividida](cognitive-search-skill-textsplit.md).
+
+### <a name="web-api-skill-response-contains-warnings"></a>La respuesta de la aptitud API web contiene advertencias
+Los indexadores podían ejecutar una aptitud del conjunto de aptitudes, pero la respuesta de la solicitud de API web indicaban que había advertencias durante la ejecución. Revise las advertencias para entender cómo se ven afectados los datos y si es necesario realizar alguna acción o no.
+
+### <a name="the-current-indexer-configuration-does-not-support-incremental-progress"></a>La configuración del indexador actual no admite el progreso incremental
+Esta advertencia solo se produce para los orígenes de datos de Cosmos DB.
+
+El progreso incremental durante la indexación garantiza que si se interrumpe la ejecución del indexador por errores transitorios o por el límite de tiempo de ejecución, dicho indexador puede retomar la ejecución por donde la dejó la próxima vez que se ejecute, en lugar de tener que volver a indexar toda la colección desde el principio. Esto es especialmente importante cuando se indexan colecciones grandes.
+
+La capacidad de reanudar un trabajo de indexación sin terminar se basa en tener documentos ordenados por la columna de `_ts`. El indexador usa la marca de tiempo para determinar qué documento se debe seleccionar a continuación. Si falta la columna de `_ts` o si el indexador no puede determinar si se ha ordenado una consulta personalizada, el indexador comienza al principio y usted verá esta advertencia.
+
+Es posible invalidar este comportamiento, habilitar el progreso incremental y suprimir esta advertencia si usa la propiedad de configuración `assumeOrderByHighWatermarkColumn`.
+
+[Más información sobre las consultas personalizadas y el progreso incremental de Cosmos DB](https://go.microsoft.com/fwlink/?linkid=2099593).

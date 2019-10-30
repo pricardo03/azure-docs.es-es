@@ -1,34 +1,32 @@
 ---
-title: 'Indexación de blobs que contienen varios documentos de índice de búsqueda del indexador de blobs de Azure para la búsqueda de texto completo: Azure Search'
-description: Rastree el contenido de texto de los blobs de Azure mediante el indexador de blobs de Azure Search. Cada blob puede contener uno o varios documentos de índice de Azure Search.
-ms.date: 05/02/2019
-author: arv100kri
+title: Indexación de un blob en varios documentos de índice de búsqueda del indizador de blobs de Azure para la búsqueda de texto completo
+description: Rastree el contenido de texto de los blobs de Azure mediante el indizador de blobs de Azure Cognitive Search. Cada blob puede contener uno o varios documentos de índice de búsqueda.
 manager: nitinme
+author: arv100kri
 ms.author: arjagann
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seofeb2018
-ms.openlocfilehash: 2c2a17d006f65854a89b9fac1818fcec420c07dc
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: ec7796f19df8d58831b442adeae02b54223799c1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182315"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793726"
 ---
-# <a name="indexing-blobs-producing-multiple-search-documents"></a>Indexación de blobs de varios documentos de búsqueda
+# <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexación de blobs para producir varios documentos de búsqueda
 De manera predeterminada, un indexador de blobs tratará el contenido de un blob como un único documento de búsqueda. Determinados valores de **parsingMode** admiten escenarios donde un blob individual puede dar lugar a varios documentos de búsqueda. A continuación, se muestran los diferentes tipos de **parsingMode** que permiten que un indexador extraiga más de un documento de búsqueda de un blob:
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
 
 ## <a name="one-to-many-document-key"></a>Clave de documento de uno a varios
-Cada documento que se muestra en un índice de Azure Search se identifica de forma única mediante una clave de documento. 
+Cada documento que se muestra en un índice de Azure Cognitive Search se identifica de forma única mediante una clave de documento. 
 
-Cuando no se especifica ningún modo de análisis y si no hay ninguna asignación explícita para el campo de clave en el índice, Azure Search [asigna](search-indexer-field-mappings.md) automáticamente la propiedad `metadata_storage_path` como clave. Esta asignación garantiza que cada blob aparezca como un documento de búsqueda distinto.
+Cuando no se especifica ningún modo de análisis y si no hay ninguna asignación explícita para el campo de clave en el índice, Azure Cognitive Search [asigna](search-indexer-field-mappings.md) automáticamente la propiedad `metadata_storage_path` como clave. Esta asignación garantiza que cada blob aparezca como un documento de búsqueda distinto.
 
-Al usar cualquiera de los modos de análisis mencionados anteriormente, un blob se asigna a "varios" documentos de búsqueda, lo que provoca que una clave de documento que se basa únicamente en los metadatos del blob no sea adecuada. Para superar esta restricción, Azure Search es capaz de generar una clave de documento de "uno a varios" para cada entidad individual extraída de un blob. Esta propiedad se denomina `AzureSearch_DocumentKey` y se agrega a cada entidad individual extraída del blob. Se garantiza que el valor de esta propiedad sea único para cada entidad individual _entre blobs_ y las entidades se mostrarán como documentos de búsqueda independientes.
+Al usar cualquiera de los modos de análisis mencionados anteriormente, un blob se asigna a "varios" documentos de búsqueda, lo que provoca que una clave de documento que se basa únicamente en los metadatos del blob no sea adecuada. Para superar esta restricción, Azure Cognitive Search es capaz de generar una clave de documento de "uno a varios" para cada entidad individual extraída de un blob. Esta propiedad se denomina `AzureSearch_DocumentKey` y se agrega a cada entidad individual extraída del blob. Se garantiza que el valor de esta propiedad sea único para cada entidad individual _entre blobs_ y las entidades se mostrarán como documentos de búsqueda independientes.
 
 De manera predeterminada, cuando no se especifica ninguna asignación de campo explícita para el campo de índice de la clave, se le asigna `AzureSearch_DocumentKey` mediante la función `base64Encode` de asignación de campos.
 
@@ -59,7 +57,7 @@ Al crear un indexador y establecer el valor de **parsingMode** en `jsonLines`: s
         "mappingFunction": { "name" : "base64Encode" }
     }
 
-Esta configuración dará como resultado el índice de Azure Search que contiene la información siguiente (el id. codificado en base64 se ha reducido para abreviar).
+Esta configuración dará como resultado el índice de Azure Cognitive Search que contiene la información siguiente (el id. codificado en base64 se ha reducido para abreviar).
 
 | id | temperatura | presión | timestamp |
 |----|-------------|----------|-----------|
@@ -98,12 +96,10 @@ Si quiere configurar la asignación de campos explícita, asegúrese de que _sou
 > [!NOTE]
 > El enfoque usado por `AzureSearch_DocumentKey` para garantizar la unicidad por entidad extraída está sujeto a cambios y, por tanto, no debe confiar en su valor para las necesidades de la aplicación.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
 
-+ [Indexadores de Azure Search](search-indexer-overview.md)
-+ [Indexación de Azure Blob Storage con Azure Search](search-howto-index-json-blobs.md)
-+ [Indexación de blobs CSV con el indexador de blobs de Azure Search](search-howto-index-csv-blobs.md)
-+ [Indexación de blobs JSON con el indexador de blobs de Azure Search](search-howto-index-json-blobs.md)
+Si aún no está familiarizado con la estructura y el flujo de trabajo básicos de la indexación de blobs, revise primero [Indexación de Azure Blob Storage con Azure Congitive Search](search-howto-index-json-blobs.md). Para obtener más información sobre los modos de análisis para los distintos tipos de contenido de blobs, revise los artículos siguientes.
 
-## <a name="NextSteps"></a>Pasos siguientes
-* Para obtener más información sobre Azure Search, consulte la [página del servicio Search](https://azure.microsoft.com/services/search/).
+> [!div class="nextstepaction"]
+> [Indexación de blobs CSV](search-howto-index-csv-blobs.md)
+> [Indexación de blobs JSON](search-howto-index-json-blobs.md)

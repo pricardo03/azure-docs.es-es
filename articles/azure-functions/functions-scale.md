@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fcace82eed81b85571ba88243a3de991ae01aa0
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180112"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550642"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -78,11 +78,12 @@ Cuando se usa el plan Prémium, las instancias del host de Azure Functions se ag
 
 Puede encontrar información sobre cómo configurar estas opciones en el [documento del plan prémium de Azure Functions](functions-premium-plan.md).
 
-En lugar de la facturación por ejecución y la memoria consumida, la facturación del plan Prémium se basa en la cantidad de núcleos por segundo, el tiempo de ejecución y la memoria utilizada en las instancias necesarias y reservadas.  Al menos debe haber una instancia semiactiva en todo momento. Esto significa que hay un costo mensual fijo por plan activo, independientemente del número de ejecuciones.
+En lugar de la facturación por ejecución y la memoria consumida, la facturación del plan Premium se basa en la cantidad de núcleos por segundo y en la memoria utilizada en las instancias necesarias y preparadas previamente. Al menos debe haber una instancia preparada en todo momento en cada plan. Esto significa que hay un costo mensual por plan activo, independientemente del número de ejecuciones. Tenga en cuenta que todas las aplicaciones de función de un plan Premium comparten instancias activas y preparadas.
 
 Considere la posibilidad de elegir el plan Prémium de Azure Functions en las siguientes situaciones:
 
 * La aplicación de función se ejecuta de forma continua, o casi continua.
+* Tiene un gran número de ejecuciones pequeñas y tiene una factura de ejecución alta, pero una segunda factura de pocos gigabytes en el plan de consumo.
 * Necesita más opciones de CPU o memoria de las que proporciona el plan de consumo.
 * Su código debe ejecutarse durante más tiempo del [máximo permitido](#timeout) en el plan de consumo.
 * Necesita características que solo están disponibles en un plan Prémium, como conectividad de red virtual o VPN.

@@ -1,24 +1,26 @@
 ---
-title: 'Indexación del contenido de Azure Blob Storage para la búsqueda de texto completo: Azure Search'
-description: Aprenda a indexar Azure Blob Storage y a extraer el texto de los documentos con Azure Search.
-ms.date: 05/02/2019
-author: mgottein
+title: Indexación del contenido de Azure Blob Storage para la búsqueda de texto completo
+titleSuffix: Azure Cognitive Search
+description: Aprenda a indexar Azure Blob Storage y a extraer el texto de los documentos con Azure Cognitive Search.
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 03f828be603720871672b9b5d90eb87dd283c002
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 11/04/2019
+ms.openlocfilehash: b093525fcabc31074b398444a2fceffd0f6d3493
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842533"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791786"
 ---
-# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexación de documentos en Azure Blob Storage con Azure Search
-En este artículo se explica cómo usar Azure Search para indexar documentos (como archivos PD, documentos de Microsoft Office y otros formatos comunes) almacenados en Azure Blob Storage. En primer lugar, se explican los conceptos básicos de cómo instalar y configurar un indizador de blobs. A continuación, se ofrecen más detalles sobre los comportamientos y escenarios que es probable que encuentre.
+# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexación de documentos en Azure Blob Storage con Azure Cognitive Search
+
+En este artículo se explica cómo usar Azure Cognitive Search para indexar documentos (como archivos PDF, documentos de Microsoft Office y otros formatos comunes) almacenados en Azure Blob Storage. En primer lugar, se explican los conceptos básicos de cómo instalar y configurar un indizador de blobs. A continuación, se ofrecen más detalles sobre los comportamientos y escenarios que es probable que encuentre.
+
+<a name="SupportedFormats"></a>
 
 ## <a name="supported-document-formats"></a>Formatos de documento admitidos
 El indexador de blob puede extraer texto de los siguientes formatos de documento:
@@ -29,8 +31,8 @@ El indexador de blob puede extraer texto de los siguientes formatos de documento
 Puede configurar un indexador de Azure Blob Storage utilizando:
 
 * [Azure Portal](https://ms.portal.azure.com)
-* [API de REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Azure Search
-* [SDK de .NET de Azure Search](https://aka.ms/search-sdk)
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Azure Cognitive Search
+* [SDK para .NET](https://aka.ms/search-sdk) de Azure Cognitive Search
 
 > [!NOTE]
 > Algunas características (por ejemplo, las asignaciones de campos) aún no están disponibles en el portal y tienen que usarse mediante programación.
@@ -116,9 +118,11 @@ Este indizador se ejecutará cada dos horas (el intervalo de programación se es
 
 Para más información sobre la API Create Indexer, consulte [Crear indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Para más información acerca de cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Search](search-howto-schedule-indexers.md).
+Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
 
-## <a name="how-azure-search-indexes-blobs"></a>Proceso mediante el cual Azure Search indiza los blobs
+<a name="how-azure-search-indexes-blobs"></a>
+
+## <a name="how-azure-cognitive-search-indexes-blobs"></a>Indexación de los blobs con Azure Cognitive Search
 
 En función de la [configuración del indizador](#PartsOfBlobToIndex), el indizador de blob puede indizar solo los metadatos de almacenamiento (resulta útil cuando solo le interesan los metadatos y no necesita indizar el contenido de los blobs), los metadatos de almacenamiento y contenido, o bien el contenido textual y los metadatos. De forma predeterminada, el indizador extrae los metadatos y el contenido.
 
@@ -130,7 +134,7 @@ En función de la [configuración del indizador](#PartsOfBlobToIndex), el indiza
 * Se extrae el contenido textual en un campo de cadena denominado "`content`".
 
 > [!NOTE]
-> Azure Search limita la cantidad de texto que extrae según el plan de tarifa: 32 000 caracteres para el nivel Gratis, 64 000 para Básico y 4 millones para Estándar, Estándar S2 y Estándar S3. Se incluye una advertencia en la respuesta de estado del indexador para documentos truncados.  
+> Azure Cognitive Search limita la cantidad de texto que extrae según el plan de tarifa: 32 000 caracteres para el nivel Gratis, 64 000 para Básico y 4 millones para Estándar, Estándar S2 y Estándar S3. Se incluye una advertencia en la respuesta de estado del indexador para documentos truncados.  
 
 * Las propiedades de metadatos especificadas por el usuario en el blob, si las hubiera, se extraen textualmente.
 * Las propiedades de metadatos de blob estándar se extraen en los campos siguientes:
@@ -138,7 +142,7 @@ En función de la [configuración del indizador](#PartsOfBlobToIndex), el indiza
   * **metadata\_storage\_name** (Edm.String): Nombre de archivo del blob. Por ejemplo, si tiene un blob /my-container/my-folder/subfolder/resume.pdf, el valor de este campo es `resume.pdf`.
   * **metadata\_storage\_path**: El identificador URI completo del blob, incluida la cuenta de almacenamiento. Por ejemplo, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * **metadata\_storage\_content\_type** (Edm.String): Tipo de contenido tal como especifica el código que usó para cargar el blob. Por ejemplo: `application/octet-stream`.
-  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): La última marca de tiempo modificada para el blob. Azure Search usa esta marca de tiempo para identificar los blobs modificados para evitar volver a indexar todo después de la indexación inicial.
+  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): La última marca de tiempo modificada para el blob. Azure Cognitive Search emplea esta marca de tiempo para identificar los blobs modificados a fin de evitar volver a indexar todo después de la indexación inicial.
   * **metadata\_storage\_size** (Edm.Int64): Tamaño del blob en bytes.
   * **metadata\_storage\_content\_md5** (Edm.String): Hash MD5 del contenido del blob, si está disponible.
   * **metadata\_storage\_sas\_token** (Edm.String): un token de SAS temporal que pueden utilizar las [aptitudes personalizadas](cognitive-search-custom-skill-interface.md) para obtener acceso al blob. Este token no se debe almacenar para su uso posterior, ya que podría expirar.
@@ -148,13 +152,13 @@ En función de la [configuración del indizador](#PartsOfBlobToIndex), el indiza
 No es necesario definir campos para todas las propiedades anteriores en el índice de búsqueda, capture solo las propiedades que necesita para la aplicación.
 
 > [!NOTE]
-> A menudo, los nombres de campo en el índice existente serán diferentes de los nombres de campo generados durante la extracción del documento. Puede usar **asignaciones de campos** para asignar los nombres de propiedad proporcionados por Azure Search a los nombres de campo en el índice de búsqueda. A continuación, verá un ejemplo del uso de las asignaciones de campos.
+> A menudo, los nombres de campo en el índice existente serán diferentes de los nombres de campo generados durante la extracción del documento. Puede usar **asignaciones de campos** para asignar los nombres de propiedad proporcionados en Azure Cognitive Search a los nombres de campo en el índice de búsqueda. A continuación, verá un ejemplo del uso de las asignaciones de campos.
 >
 >
 
 <a name="DocumentKeys"></a>
 ### <a name="defining-document-keys-and-field-mappings"></a>Definición de claves de documento y asignaciones de campos
-En Azure Search, la clave del documento identifica de forma exclusiva a un documento. Cada índice de búsqueda tiene que tener exactamente un campo de clave del tipo Edm.String. El campo de clave es necesario para cada documento que se va a agregar al índice (de hecho, es el único campo obligatorio).  
+En Azure Cognitive Search, la clave del documento identifica de forma exclusiva a un documento. Cada índice de búsqueda tiene que tener exactamente un campo de clave del tipo Edm.String. El campo de clave es necesario para cada documento que se va a agregar al índice (de hecho, es el único campo obligatorio).  
 
 Debe considerar detenidamente qué campo extraído se debe asignar al campo de clave para el índice. Los candidatos son:
 
@@ -163,7 +167,7 @@ Debe considerar detenidamente qué campo extraído se debe asignar al campo de c
 * Si ninguna de las opciones anteriores le sirve, puede agregar una propiedad de metadatos personalizada a los blobs. De todas formas, esta opción requiere que el proceso de carga de blob agregue dicha propiedad de metadatos a todos los blobs. Dado que la clave es una propiedad obligatoria, todos los blobs que no tengan esa propiedad no se indexarán.
 
 > [!IMPORTANT]
-> Si no hay ninguna asignación explícita para el campo de clave en el índice, Azure Search usa automáticamente `metadata_storage_path` como clave y valores de clave de codificaciones de base 64 (la segunda opción anterior).
+> Si no hay ninguna asignación explícita para el campo de clave en el índice, Azure Cognitive Search usa automáticamente `metadata_storage_path` como clave y valores de clave de codificaciones Base64 (la segunda opción anterior).
 >
 >
 
@@ -223,7 +227,7 @@ Puede excluir blobs con extensiones de nombre de archivo específicas de la inde
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
 
-Si los dos parámetros `indexedFileNameExtensions` y `excludedFileNameExtensions` están presentes, Azure Search mira primero en `indexedFileNameExtensions` y, luego, en `excludedFileNameExtensions`. Esto significa que si la misma extensión de archivo está presente en las dos listas, se excluirá de la indexación.
+Si los dos parámetros `indexedFileNameExtensions` y `excludedFileNameExtensions` existen, Azure Cognitive Search mira primero en `indexedFileNameExtensions` y, luego, en `excludedFileNameExtensions`. Esto significa que si la misma extensión de archivo está presente en las dos listas, se excluirá de la indexación.
 
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Control de qué partes del blob se indizarán
@@ -268,11 +272,11 @@ De forma predeterminada, el indizador de blob se detiene cuando encuentra un blo
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
 
-Para algunos blobs, Azure Search no puede determinar el tipo de contenido o no puede procesar un documento de otro tipo de contenido admitido. Para ignorar este modo de error, establezca el parámetro de configuración `failOnUnprocessableDocument` en false:
+En algunos blobs, Azure Cognitive Search no puede determinar el tipo de contenido o no puede procesar un documento de otro tipo de contenido admitido. Para ignorar este modo de error, establezca el parámetro de configuración `failOnUnprocessableDocument` en false:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 
-Azure Search limita el tamaño de los blobs que se indexan. Estos límites se documentan en [Límites de servicio en Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Los blobs demasiado grandes se tratan como errores de forma predeterminada. Sin embargo, puede indexar los metadatos de almacenamiento de blobs demasiado grandes si define el parámetro de configuración `indexStorageMetadataOnlyForOversizedDocuments` como true: 
+Azure Cognitive Search limita el tamaño de los blobs que se indexan. Estos límites se documentan en [Límites de servicio en Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Los blobs demasiado grandes se tratan como errores de forma predeterminada. Sin embargo, puede indexar los metadatos de almacenamiento de blobs demasiado grandes si define el parámetro de configuración `indexStorageMetadataOnlyForOversizedDocuments` como true: 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
@@ -291,7 +295,7 @@ Al configurar un indexador de blob para ejecutarlo en una programación, se vuel
 
 Para admitir la eliminación de documentos, utilice un enfoque de "eliminación temporal". Si elimina los blobs directamente, los documentos correspondientes no se quitarán del índice de búsqueda. Para ello, use los pasos siguientes:  
 
-1. Agregar una propiedad de metadatos personalizados al blob para indicar a Azure Search que lógicamente está eliminado
+1. Agregar una propiedad de metadatos personalizada al blob para indicar a Azure Cognitive Search que está eliminado de forma lógica
 2. Configurar una directiva de detección de eliminación temporal en el origen de datos
 3. Una vez que el indexador ha procesado el blob (como muestra la API de estado del indexador), puede eliminar el blob físicamente
 
@@ -318,7 +322,7 @@ Por ejemplo, la siguiente directiva considera que un blob se va a eliminar si ti
 La indización de blobs puede ser un proceso lento. En los casos donde hay millones de blobs que se van a indizar, puede acelerar la indización dividiendo los datos y utilizando varios indizadores para procesar los datos en paralelo. Le mostramos cómo puede configurar esta opción:
 
 - Divida los datos en varios contenedores de blobs o carpetas virtuales.
-- Configure varios orígenes de datos de Azure Search, uno por cada contenedor o carpeta. Para seleccionar una carpeta de blobs, use el parámetro `query`:
+- Configure varios orígenes de datos de Azure Cognitive Search, uno por cada contenedor o carpeta. Para seleccionar una carpeta de blobs, use el parámetro `query`:
 
     ```
     {
@@ -331,7 +335,7 @@ La indización de blobs puede ser un proceso lento. En los casos donde hay millo
 
 - Cree un indizador correspondiente a cada origen de datos. Todos los indizadores pueden apuntar al mismo índice de búsqueda de destino.  
 
-- Una unidad de búsqueda del servicio puede ejecutar un indexador en cualquier momento dado. La creación de varios indexadores como se ha descrito arriba solo es útil si se ejecutan realmente en paralelo. Para ejecutar varios indexadores en paralelo, escale horizontalmente el servicio de búsqueda mediante la creación de un número adecuado de particiones y réplicas. Por ejemplo, si el servicio de búsqueda tiene 6 unidades de búsqueda (por ejemplo, 2 particiones x 3 réplicas), se pueden ejecutar 6 indexadores simultáneamente, lo que produce una multiplicación por seis del rendimiento de indexación. Para más información sobre la planeación de la capacidad y el escalado, vea [Scale resource levels for query and indexing workloads in Azure Search (Escalado de los niveles de recursos de las cargas de trabajo de consulta e indexación en Azure Search)](search-capacity-planning.md).
+- Una unidad de búsqueda del servicio puede ejecutar un indexador en cualquier momento dado. La creación de varios indexadores como se ha descrito arriba solo es útil si se ejecutan realmente en paralelo. Para ejecutar varios indexadores en paralelo, escale horizontalmente el servicio de búsqueda mediante la creación de un número adecuado de particiones y réplicas. Por ejemplo, si el servicio de búsqueda tiene 6 unidades de búsqueda (por ejemplo, 2 particiones x 3 réplicas), se pueden ejecutar 6 indexadores simultáneamente, lo que produce una multiplicación por seis del rendimiento de indexación. Para más información sobre el escalado y el planeamiento de la capacidad, consulte [Escalado de niveles de recursos para las cargas de trabajo de indexación y consulta en Azure Cognitive Search](search-capacity-planning.md).
 
 ## <a name="indexing-documents-along-with-related-data"></a>Indización de los documentos con datos relacionados
 
@@ -363,7 +367,7 @@ De forma predeterminada, se da por hecha la codificación `UTF-8`. Para especifi
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Propiedades de metadatos específicas del tipo de contenido
-La tabla siguiente resume el procesamiento que se realiza para cada formato de documento y describe las propiedades de metadatos extraídas por Azure Search.
+En la tabla siguiente se resume el procesamiento que se realiza para cada formato de documento y se describen las propiedades de metadatos extraídas mediante Azure Cognitive Search.
 
 | Formato de documento/Tipo de contenido | Propiedades de metadatos específicas del tipo de contenido | Detalles de procesamiento |
 | --- | --- | --- |
@@ -394,5 +398,5 @@ La tabla siguiente resume el procesamiento que se realiza para cada formato de d
 | Plain text (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Extraer texto|
 
 
-## <a name="help-us-make-azure-search-better"></a>Ayúdenos a mejorar Azure Search
+## <a name="help-us-make-azure-cognitive-search-better"></a>Ayúdenos a mejorar Azure Cognitive Search
 Si tiene solicitudes o ideas para mejorar las características, remítalas en [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

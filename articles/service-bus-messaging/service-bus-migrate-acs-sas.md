@@ -1,24 +1,23 @@
 ---
-title: Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido | Microsoft Docs
-description: Migrar aplicaciones desde Access Control Service a SAS
+title: Migración desde Azure AD Access Control Service a SAS
+description: Aprenda a migrar desde Azure Active Directory Access Control Service a la autorización de firma de acceso compartido.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
-manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 746b19062c3014caa37c6668e6c41df054a47e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae0dd3827e17cc63b4b698eb8d88a08799c7278f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868169"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790341"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido
 

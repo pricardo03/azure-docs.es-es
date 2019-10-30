@@ -1,21 +1,21 @@
 ---
-title: Compilación de aplicaciones sin servidor en Visual Studio con Azure Logic Apps y Azure Functions
-description: Creación, implementación y administración de su primera aplicación sin servidor en Visual Studio con Azure Logic Apps y Azure Functions
+title: 'Creación de una aplicación sin servidor en Visual Studio: Azure Logic Apps'
+description: Creación, implementación y administración de una aplicación sin servidor en Visual Studio con Azure Logic Apps y Azure Functions
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
+ms.workload: vs-azure
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.custom: vs-azure
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: b7af4fc731d01bb666165655baa2f1d6c64d4071
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 76ab76440ddc25f4b1cf51f7d540a6e21614541d
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444869"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680130"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Creación de su primera aplicación sin servidor en Visual Studio con Azure Logic Apps y Azure Functions
 

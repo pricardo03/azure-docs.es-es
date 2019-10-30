@@ -1,19 +1,18 @@
 ---
 title: Integración del esquema común de alertas con Logic Apps
 description: Obtenga información sobre cómo crear una aplicación lógica que aprovecha el esquema común de alertas para controlar todas las alertas.
-author: ananthradhakrishnan
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/27/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 569b97ecc24306741c3323ce5bc526f88645c1dd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: ananthradhakrishnan
+ms.author: robb
+ms.date: 05/27/2019
+ms.openlocfilehash: 50a6067d271ad824f17df1ece36c3dd919c7b55b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702952"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555651"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Integración del esquema común de alertas con Logic Apps
 
@@ -41,7 +40,7 @@ En este artículo se supone que el lector está familiarizado con los conceptos 
 
 1.  Seleccione **Editar** para cambiar el desencadenador de solicitud HTTP.
 
-    ![Desencadenadores de solicitud HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "Desencadenadores de solicitud HTTP")
+    ![Desencadenadores de solicitudes HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "Desencadenadores de solicitudes HTTP")
 
 
 1.  Copie y pegue el siguiente esquema:
@@ -119,11 +118,11 @@ En este artículo se supone que el lector está familiarizado con los conceptos 
 
 1. En esta fase, puede agregar diversos conectores (Microsoft Teams, Slack, Salesforce, etc.) en función de sus requisitos empresariales específicos. Puede usar los "campos esenciales" proporcionados. 
 
-    ![Campos esenciales](media/alerts-common-schema-integrations/logic-app-essential-fields.png "Essential fields")
+    ![Campos esenciales](media/alerts-common-schema-integrations/logic-app-essential-fields.png "Campos esenciales")
     
     Como alternativa, puede crear una lógica condicional propia según el tipo de alerta mediante la opción "Expression".
 
-    ![Expresión de aplicación lógica](media/alerts-common-schema-integrations/logic-app-expressions.png "Logic app expression")
+    ![Expresión de aplicación lógica](media/alerts-common-schema-integrations/logic-app-expressions.png "Expresión de aplicación lógica")
     
      El [campo "monitoringService"](alerts-common-schema-definitions.md#alert-context) permite identificar de forma única el tipo de alerta en función del cual puede crear la lógica condicional.
 

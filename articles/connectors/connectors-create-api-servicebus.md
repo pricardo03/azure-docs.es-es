@@ -1,6 +1,6 @@
 ---
-title: 'Envío y recepción de mensajes con Azure Service Bus: Azure Logic Apps'
-description: Configuración de la mensajería empresarial en la nube con Azure Service Bus y Azure Logic Apps
+title: 'Intercambio de mensajes con Azure Service Bus: Azure Logic Apps'
+description: Envío y recepción de mensajes con Azure Service Bus en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,15 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 tags: connectors
-ms.openlocfilehash: f2034686e4a8de5e1ccc246f49337a6600bf441f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0cf5486e77e69f83973f7e62669e5ab45d1c94a2
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121096"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679200"
 ---
-# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-with-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
+# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
 Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector de [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) puede crear tareas y flujos de trabajo automatizados que transfieren datos, por ejemplo, ventas y pedidos de compra, diarios y movimientos del inventario, en todas las aplicaciones de la organización. El conector no solo supervisa, envía y administra los mensajes, sino que además realiza acciones con las colas, las sesiones, los temas, las suscripciones, etc., por ejemplo:
 

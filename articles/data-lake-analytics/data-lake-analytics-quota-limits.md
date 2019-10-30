@@ -9,22 +9,22 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d3601fd8c32c70cf828cd08fada71258ec8fa5d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0ccfb00c4b45a2a29ccab74362a4296cdcd7cae
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812684"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595711"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajustar las cuotas y los límites en Azure Data Lake Analytics
 
-Obtenga información sobre cómo ajustar y aumentar la cuota y los límites en cuentas de Azure Data Lake Analytics (ADLA). Conocer estos límites puede ayudarle a comprender su comportamiento de trabajos de U-SQL. Todos los límites de cuota son flexibles, y siempre se puede poner en contacto con el servicio de soporte técnico de Azure para aumentar los límites máximos.
+Obtenga información sobre cómo ajustar y aumentar la cuota y los límites en cuentas de Azure Data Lake Analytics (ADLA). Conocer estos límites le ayudará a comprender el comportamiento de los trabajos de U-SQL. Todos los límites de cuota son flexibles, y siempre se puede poner en contacto con el servicio de soporte técnico de Azure para aumentar los límites máximos.
 
 ## <a name="azure-subscriptions-limits"></a>Límites de las suscripciones de Azure
 
 **Número máximo de cuentas de ADLA por suscripción y región:**  5
 
-Al intentar crear la sexta cuenta de ADLA, se muestra el error "Ha alcanzado el número máximo de cuentas de Data Lake Analytics permitido (5) en {región} con la suscripción {nombre}". 
+Al intentar crear la sexta cuenta de ADLA, se muestra el error "Ha alcanzado el número máximo de cuentas de Data Lake Analytics permitido (5) en {región} con la suscripción {nombre}".
 
 Si desea superar este límite, puede probar estas opciones:
 * Si es posible, seleccione otra región.
@@ -32,16 +32,18 @@ Si desea superar este límite, puede probar estas opciones:
 
 ## <a name="default-adla-account-limits"></a>Límites predeterminados de cuentas de ADLA
 
-**Número máximo de unidades de análisis (UA) por cuenta:** 32
+**Número máximo de unidades de análisis (UA) por cuenta:** 250, predeterminado 32
 
 Es el número máximo de unidades de análisis que se pueden ejecutar de forma simultánea en su cuenta. Si el total de unidades de análisis en ejecución entre todos los trabajos supera este límite, los trabajos nuevos se ponen en cola automáticamente. Por ejemplo:
 
 * Si solo tiene un trabajo en ejecución con 32 unidades de análisis, cuando envíe un segundo trabajo, este permanecerá en la cola de trabajos hasta que el primero se complete.
 * Si ya tiene cuatro trabajos en ejecución y cada uno usa ocho unidades de análisis, al enviar un quinto trabajo que necesita ocho unidades de análisis, este permanecerá en la cola de trabajos hasta que haya ocho unidades de análisis disponibles.
 
-**Número máximo de unidades de análisis (UA) por trabajo:** 32
+    ![Página de límites y cuotas de Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
 
-Este es el número máximo predeterminado de unidades de análisis que se puede asignar a cada trabajo individual en la cuenta. Los trabajos a los que se asigne más de este límite se rechazarán, a menos que el remitente se vea afectado por una directiva de proceso (límite de envío de trabajos) que le otorgue más unidades de análisis por trabajo. El límite superior de este valor es el límite de unidades de análisis de la cuenta.
+**Número máximo de unidades de análisis (UA) por trabajo:** 250, predeterminado 32
+
+Este es el número máximo de unidades de análisis que se puede asignar a cada trabajo individual en la cuenta. Los trabajos a los que se asigne más de este límite se rechazarán, a menos que el remitente se vea afectado por una directiva de proceso (límite de envío de trabajos) que le otorgue más unidades de análisis por trabajo. El límite superior de este valor es el límite de unidades de análisis de la cuenta.
 
 **Número máximo de trabajos de U-SQL simultáneos por cuenta:** 20
 

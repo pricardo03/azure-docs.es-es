@@ -1,25 +1,25 @@
 ---
-title: 'Indexación multilingüe para consultas de búsqueda que no están en inglés: Azure Search'
-description: Azure Search admite 56 idiomas y aprovecha los analizadores de idiomas Lucene y la tecnología de procesamiento de lenguaje natural de Microsoft.
-author: yahnoosh
+title: Indexación multilingüe para consultas de búsqueda que no están en inglés
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search admite 56 idiomas y aprovecha los analizadores de idiomas de Lucene y la tecnología de procesamiento del lenguaje natural de Microsoft.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
+author: yahnoosh
 ms.author: jlembicz
-ms.openlocfilehash: 9d2e6418eb925f0d113b7e9a91463951ca52031a
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: ca2bc66c755da2011cc7016f37b194caa6200d9a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186562"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793589"
 ---
-# <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Cómo crear un índice para varios idiomas en Azure Search
+# <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Creación de un índice para varios idiomas en Azure Cognitive Search
 
 Los índices pueden incluir campos con contenido en varios idiomas, por ejemplo, la creación de campos individuales para cadenas específicas del idioma. Para obtener los mejores resultados durante la indexación y la consulta, asigne un analizador de idioma que proporcione las reglas lingüísticas adecuadas. 
 
-Azure Search ofrece una amplia selección de analizadores de idioma de Lucene y Microsoft que se pueden asignar a campos individuales mediante la propiedad Analyzer. También puede especificar un analizador de idioma en el portal, como se describe en este artículo.
+Azure Cognitive Search ofrece una amplia selección de analizadores de idioma de Lucene y Microsoft que se pueden asignar a campos individuales mediante la propiedad Analyzer. También puede especificar un analizador de idioma en el portal, como se describe en este artículo.
 
 ## <a name="add-analyzers-to-fields"></a>Adición de analizadores a campos
 
@@ -32,9 +32,9 @@ Los analizadores de idioma se especifican cuando se crea un campo. Para agregar 
 1. Establezca el atributo **Searchable** para habilitar la propiedad Analyzer. Un campo debe estar basado en texto para poder usar un analizador de idioma.
 1. Elija uno de los analizadores disponibles. 
 
-![Asignación de analizadores de idioma durante la definición del campo](media/search-language-support/select-analyzer.png "Assign language analyzers during field definition")
+![Asignación de analizadores de idioma durante la definición de campos](media/search-language-support/select-analyzer.png "Asignación de analizadores de idioma durante la definición de campos")
 
-De forma predeterminada, todos los campos en los que se puede buscar usan el [analizador Lucene estándar](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), que no depende del idioma. Para ver la lista completa de los analizadores compatibles, consulte [Incorporación de analizadores de idiomas a un índice de Azure Search](index-add-language-analyzers.md).
+De forma predeterminada, todos los campos en los que se puede buscar usan el [analizador Lucene estándar](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), que no depende del idioma. Para ver la lista completa de analizadores admitidos, consulte [Incorporación de analizadores de idioma a un índice de Azure Cognitive Search](index-add-language-analyzers.md).
 
 Los analizadores están diseñados para usarse tal cual en el portal. Si necesita algún tipo de personalización o configuración específica para los filtros y los tokenizadores, debe [crear un analizador personalizado](index-add-custom-analyzers.md) en el código. El portal no admite la selección ni la configuración de analizadores personalizados.
 
@@ -65,4 +65,4 @@ A veces se desconoce el idioma del agente que emite una consulta, en cuyo caso l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si es desarrollador de .NET, tenga en cuenta que puede configurar los analizadores de idioma mediante el [SDK de Azure Search para .NET](https://www.nuget.org/packages/Microsoft.Azure.Search) y la propiedad [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet). 
+Si es desarrollador de .NET, tenga en cuenta que puede configurar los analizadores de idioma mediante el [SDK para .NET de Azure Cognitive Search](https://www.nuget.org/packages/Microsoft.Azure.Search) y la propiedad [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet). 

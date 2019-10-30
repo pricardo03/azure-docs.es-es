@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1555eb4e48a0cf43a38aa811e20ffbbed8ee87a9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311733"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755808"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adición de un repositorio de Git para almacenar artefactos personalizados y plantillas de Resource Manager
 
@@ -65,7 +65,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
    1. Escriba la información que desee en **Descripción** para el token.
    2. En la lista **Expira en**, seleccione **180 días**.
    3. En la lista **Cuentas accesibles**, seleccione **Todas las cuentas accesibles**.
-   4. Seleccione la opción **Todos los ámbitos**.
+   4. Seleccione la opción **Solo lectura**.
    5. Seleccione **Crear token**.
 9. El nuevo token aparece en la lista **Tokens de acceso personal** . Seleccione **token**y luego guarde el valor del token para usarlo más adelante.
 10. Continúe con la sección [Conexión del laboratorio al repositorio](#connect-your-lab-to-the-repository) .

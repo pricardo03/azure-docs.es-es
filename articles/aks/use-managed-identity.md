@@ -8,80 +8,91 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
-ms.openlocfilehash: a5717d8ee44e4d2e086a6e7bc1b7c3d0deb614c8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 77655f08350419f0d102c9927b3e09b87edba341
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827542"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592867"
 ---
 # <a name="preview---use-managed-identities-in-azure-kubernetes-service"></a>Uso de identidades administradas en Azure Kubernetes Service (versión preliminar)
 
-En la actualidad, los usuarios deben proporcionar una entidad de servicio o AKS debe crear una en su nombre para que el clúster de AKS (especialmente el proveedor de servicios en la nube de Kubernetes) pueda crear recursos adicionales en Azure, como equilibradores de carga y discos administrados. Las entidades de servicio normalmente se crean con una fecha de expiración. Los clústeres llegarán finalmente a un estado en el que la entidad de servicio deberá renovarse; de lo contrario, el clúster no funcionará. La administración de las entidades de servicio es compleja. En esencia, las identidades administradas son un contenedor relacionado con las entidades de servicio que facilitan su administración. Para más información, consulte este artículo sobre las [entidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Actualmente, un clúster de Azure Kubernetes Service (AKS) (específicamente, el proveedor de servicios en la nube de Kubernetes) requiere una *entidad de servicio* para crear recursos adicionales, como equilibradores de carga y discos administrados, en Azure. El usuario puede proporcionar una entidad de servicio o bien AKS se encargará de crearla. Las entidades de servicio suelen tener una fecha de expiración. Llega un momento en que los clústeres alcanzan un estado en el que se debe renovar la entidad de servicio para mantener el clúster en funcionamiento. La administración de las entidades de servicio es compleja.
 
-AKS crea dos identidades administradas: una asignada por el sistema y otra asignada por el usuario. El proveedor de nube de Kubernetes utiliza una identidad administrada asignada por el sistema para crear recursos de Azure en nombre del usuario. El ciclo de vida de esta identidad administrada depende del clúster y termina cuando se elimina el clúster. AKS también crea una identidad administrada asignada por el usuario que se utiliza en el clúster a fin de autorizar a AKS para que pueda acceder a ACR, de autorizar a kubelet para que pueda obtener metadatos de Azure, etc.
+Las *identidades administradas* son básicamente un contenedor relacionado con las entidades de servicio y facilitan su administración. Para más información, consulte el tema sobre [identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-En este período de versión preliminar, aún será necesario contar con una entidad de servicio. Esta entidad de servicio se usará para autorizar ciertos complementos, como la supervisión, el nodo virtual, la directiva de Azure y el enrutamiento de aplicaciones http. Estamos trabajando para poder prescindir de esta dependencia de los complementos del SPN y en algún momento este requisito se eliminará de AKS por completo.
+AKS crea dos identidades administradas:
+
+- **Identidad administrada asignada por el sistema**: identidad que utiliza el proveedor de servicios en la nube de Kubernetes para crear recursos de Azure en nombre del usuario. El ciclo de vida de la identidad asignada por el sistema está vinculado al del clúster. La identidad se elimina cuando se elimina el clúster.
+- **Identidad administrada asignada por el usuario**: la identidad que se usa para la autorización en el clúster. Por ejemplo, la identidad asignada por el usuario se usa para autorizar a AKS a usar los registros de control de acceso (ACR) o para autorizar al kubelet a obtener metadatos de Azure.
+
+En este período de versión preliminar, aún será necesario contar con una entidad de servicio. Esta entidad se usa para autorizar complementos como la supervisión, los nodos virtuales, Azure Policy y el enrutamiento de aplicaciones HTTP. Se está trabajando para eliminar la dependencia que tienen los complementos del nombre de la entidad de seguridad de servicio (SPN). Al final desaparecerá el requisito de un SPN en AKS.
 
 > [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para obtener información adicional, consulte los siguientes artículos de soporte:
+> Las características en versión preliminar de AKS están disponibles como opción de participación y autoservicio. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los Acuerdos de Nivel de Servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para más información, consulte los siguientes artículos de soporte:
 >
-> * [Directivas de soporte técnico para AKS](support-policies.md)
-> * [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
+> - [Directivas de soporte técnico para AKS](support-policies.md)
+> - [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Debe tener lo siguiente:
+Debe tener instalados los siguientes recursos:
 
-* También necesita la versión 2.0.70 de la CLI de Azure u otra versión posterior y la extensión 0.4.14 de la versión preliminar de AKS.
+- CLI de Azure, versión 2.0.70 o posterior
+- Extensión aks-preview 0.4.14
 
-## <a name="install-latest-aks-cli-preview-extension"></a>Instalación de la extensión de la versión preliminar de la CLI de AKS más reciente
-
-Necesita la extensión **0.4.14 de la versión preliminar de AKS** o una versión posterior.
+Para instalar la extensión aks-preview 0.4.14 o posterior, use los siguientes comandos de la CLI de Azure:
 
 ```azurecli
-az extension update --name aks-preview 
+az extension update --name aks-preview
 az extension list
 ```
 
 > [!CAUTION]
-> Actualmente, al registrar una característica en una suscripción, no se puede anular el registro de esa característica. Después de habilitar algunas características en vista previa, se pueden usar los valores predeterminados en todos los clústeres de AKS y, luego, se pueden crear en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
+> Actualmente, después de registrar una característica en una suscripción no se puede anular el registro de esa característica. Al habilitar algunas características en versión preliminar, es posible que se usen valores predeterminados en todos los clústeres de AKS creados más tarde en la suscripción. No habilite características en vista previa en las suscripciones de producción. En su lugar, use una suscripción independiente para probar las características en versión preliminar y recopilar comentarios.
 
 ```azurecli-interactive
 az feature register --name MSIPreview --namespace Microsoft.ContainerService
 ```
 
-Pueden pasar unos minutos hasta que el estado aparezca como *Registrado*. Puede consultar el estado del registro con el comando [az feature list][az-feature-list]:
+Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](https://docs.microsoft.com/en-us/cli/azure/feature?view=azure-cli-latest#az-feature-list):
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MSIPreview')].{Name:name,State:properties.state}"
 ```
 
-Cuando el estado esté registrado, actualice el registro del proveedor de recursos *Microsoft.ContainerService* utilizando el comando [az provider register][az-provider-register]:
+Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](https://docs.microsoft.com/en-us/cli/azure/provider?view=azure-cli-latest#az-provider-register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## <a name="create-an-aks-cluster-with-managed-identity"></a>Creación de un clúster de AKS con una identidad administrada
+## <a name="create-an-aks-cluster-with-managed-identities"></a>Creación de un clúster de AKS con identidades administradas
 
-Ahora puede crear un clúster de AKS con identidades administradas utilizando el siguiente comando de la CLI.
+Ahora puede crear un clúster de AKS con identidades administradas utilizando los siguientes comandos de la CLI.
+
+En primer lugar, cree un grupo de recursos de Azure:
+
 ```azurecli-interactive
 # Create an Azure resource group
 az group create --name myResourceGroup --location westus2
 ```
 
-## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
+Después, cree un clúster de AKS:
+
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
 ```
 
-## <a name="get-credentials-to-access-the-cluster"></a>Obtención de credenciales para acceder al clúster
+Por último, obtenga credenciales para acceder al clúster:
+
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
-Después de unos minutos, se crea el clúster. En ese momento, puede implementar las cargas de trabajo de la aplicación e interactuar con ellas igual que con los clústeres de AKS basados en una entidad de servicio. 
+
+El clúster se creará en pocos minutos. Después, puede implementar las cargas de trabajo de la aplicación en el nuevo clúster e interactuar con él del mismo modo que con los clústeres de AKS basados en una entidad de servicio.
 
 > [!IMPORTANT]
-> * Los clústeres de AKS con identidades administradas solo se pueden habilitar durante la creación del clúster.
-> * Los clústeres de AKS existentes no se pueden actualizar para habilitar las identidades administradas.
+>
+> - Los clústeres de AKS con identidades administradas solo se pueden habilitar durante la creación del clúster.
+> - Los clústeres de AKS existentes no se pueden actualizar para habilitar las identidades administradas.

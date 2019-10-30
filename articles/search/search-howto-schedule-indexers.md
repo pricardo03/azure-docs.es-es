@@ -1,31 +1,31 @@
 ---
-title: Programación de indexadores (Azure Search)
-description: Programe los indexadores de Azure Search para indexar el contenido periódicamente o en horas específicas.
-ms.date: 05/31/2019
+title: Programación de indizadores
+titleSuffix: Azure Cognitive Search
+description: Programe los indizadores de Azure Cognitive Search para indexar el contenido periódicamente o en horas específicas.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: ''
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.openlocfilehash: f72067637f9db84a432562ea5502861355426469
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: e9d4f49bd0aec1a04b4839b2084a81fb538f7890
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186578"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793686"
 ---
-# <a name="how-to-schedule-indexers-for-azure-search"></a>Programación de indexadores para Azure Search
+# <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Programación de indizadores de Azure Cognitive Search
+
 Los indexadores normalmente se ejecutan una vez, inmediatamente después de que se crean. Se pueden ejecutar a petición mediante el portal, la API REST o el SDK de .NET. También se puede configurar un indexador para que se ejecute periódicamente según una programación.
 
 Estas son algunas situaciones en las que resulta útil programar el indexador:
 
-* Los datos de origen cambiarán con el tiempo, y desea que los indexadores de Azure Search procesen automáticamente los datos modificados.
+* Los datos de origen cambiarán con el tiempo, y desea que los indizadores de Azure Cognitive Search procesen automáticamente los datos modificados.
 * El índice se rellenará desde varios orígenes de datos y desea asegurarse de que los indexadores se ejecutan a horas distintas para reducir los conflictos.
-* Los datos de origen son muy grandes y desea expandir el procesamiento del indexador a lo largo del tiempo. Para más información acerca de la indexación de grandes volúmenes de datos, consulte [Indexación de grandes conjuntos de datos en Azure Search](search-howto-large-index.md).
+* Los datos de origen son muy grandes y desea expandir el procesamiento del indexador a lo largo del tiempo. Para más información acerca de la indexación de grandes volúmenes de datos, consulte [Indexación de grandes conjuntos de datos en Azure Cognitive Search](search-howto-large-index.md).
 
-El programador es una característica integrada de Azure Search. No se puede usar un programador externo para controlar los indexadores de búsqueda.
+El programador es una característica integrada de Azure Cognitive Search. No se puede usar un programador externo para controlar los indexadores de búsqueda.
 
 ## <a name="define-schedule-properties"></a>Definición de las propiedades de la programación
 
@@ -48,7 +48,7 @@ Veamos un ejemplo entenderlo concretamente. Supongamos que se configura una prog
 
 <a name="portal"></a>
 
-## <a name="define-a-schedule-in-the-portal"></a>Definición de una programación en el portal
+## <a name="schedule-in-the-portal"></a>Programación en el portal
 
 El Asistente para importar datos del portal le permite definir la programación de un indexador en tiempo de creación. El valor de la programación predeterminada es **Cada hora**, lo que significa que el indexador se ejecuta una vez después de que se crea y se vuelve a ejecutar posteriormente cada hora.
 
@@ -56,15 +56,15 @@ El valor de la programación se puede cambiar a **Una vez** si no desea que el i
 
 Si la programación se establece en **Personalizado**, los campos le permiten especificar el **intervalo** y la **hora de inicio (UTC)** . El menor intervalo de tiempo que se permite es 5 minutos, mientras que el mayor es 1440 minutos (24 horas).
 
-   ![Establecimiento de la programación del indexador en el Asistente para importar datos](media/search-howto-schedule-indexers/schedule-import-data.png "Setting indexer schedule in Import Data wizard")
+   ![Establecimiento de la programación del indizador en el Asistente para importar datos](media/search-howto-schedule-indexers/schedule-import-data.png "Establecimiento de la programación del indizador en el Asistente para importar datos")
 
 Una vez creado un indexador, puede cambiar la configuración de la programación mediante el panel de edición del indexador. Los campos de Programación son los mismos que los del Asistente para importar datos.
 
-   ![Establecimiento de la programación en el panel de edición del indexador](media/search-howto-schedule-indexers/schedule-edit.png "Setting the schedule in indexer Edit panel")
+   ![Establecimiento de la programación en el panel de edición del indizador](media/search-howto-schedule-indexers/schedule-edit.png "Establecimiento de la programación en el panel de edición del indizador")
 
 <a name="restApi"></a>
 
-## <a name="define-a-schedule-using-the-rest-api"></a>Definición de una programación mediante la API REST
+## <a name="schedule-using-rest-apis"></a>Programación mediante las API REST
 
 La programación de un indexador se puede definir mediante la API REST. Para ello, incluya la propiedad **schedule** al crear o actualizar el indexador. El ejemplo siguiente muestra una solicitud PUT para actualizar un indexador existente:
 
@@ -86,9 +86,9 @@ También puede ejecutar un indexador a petición en cualquier momento mediante l
 
 <a name="dotNetSdk"></a>
 
-## <a name="define-a-schedule-using-the-net-sdk"></a>Definición de una programación mediante el SDK de .NET
+## <a name="schedule-using-the-net-sdk"></a>Programación mediante el SDK de .NET
 
-La programación de un indexador se puede definir mediante el SDK de .NET de Azure Search. Para ello, incluya la propiedad **schedule** al crear o actualizar cualquier indexador.
+La programación de un indizador se puede definir mediante el SDK de .NET de Azure Cognitive Search. Para ello, incluya la propiedad **schedule** al crear o actualizar cualquier indexador.
 
 En el siguiente ejemplo de C# se crea un indexador, para lo que se usa un origen de datos y un índice predefinidos, y se establece su programación para que se ejecute una vez al día y que empiece en 30 minutos, a partir de este momento:
 

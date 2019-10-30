@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 10/19/2019
 ms.author: victorh
-ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: f64e9717a1e6391c15ee5207c7566114f2bf9f8f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130219"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596780"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -163,6 +163,14 @@ Azure Firewall debe aprovisionar más instancias de máquinas virtuales a medida
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>¿Es necesario cambiar el tamaño de la subred del firewall a medida que se escala el servicio?
 
 No. Azure Firewall no necesita una subred mayor que /26.
+
+## <a name="how-can-i-increase-my-firewall-throughput"></a>¿Cómo puedo aumentar el rendimiento del firewall?
+
+La capacidad de rendimiento inicial de Azure Firewall es de 2,5-3 Gbps. Actualmente, la escalabilidad horizontal se basa solo en el uso de la CPU. En algunos casos, un firewall con reglas de red no se escala verticalmente para aumentar el rendimiento, ya que las reglas de red no afectan significativamente al uso de la CPU. Si necesita un mayor rendimiento para el firewall, póngase en contacto con el soporte técnico para aumentar la capacidad de rendimiento inicial del firewall.
+
+## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>¿Cuánto tiempo tarda Azure Firewall en escalar horizontalmente?
+
+Actualmente, Azure Firewall tarda entre cinco y siete minutos en escalar horizontalmente. Si tiene ráfagas que requieren una escalabilidad automática más rápida, póngase en contacto con el soporte técnico para aumentar la capacidad de rendimiento inicial del firewall.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>¿Permite Azure Firewall el acceso a Active Directory de forma predeterminada?
 

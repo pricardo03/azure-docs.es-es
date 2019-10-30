@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 66022b5e4885c515bd6117f9a44b8108ff84ae5c
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 42e1e283736d8a1e3d4ece33c861185df2d72da7
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250100"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791817"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres de la VM de VMware
 
@@ -20,6 +20,10 @@ Se configura un servidor de configuración local cuando se usa [Azure Site Recov
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="update-windows-license"></a>Actualización de la licencia de Windows
+
+La licencia que se proporciona con la plantilla de OVF es una licencia de evaluación válida durante 180 días. Para el uso ininterrumpido, debe activar Windows con una licencia adquirida. La actualización de la licencia se puede realizar mediante una clave independiente o una clave estándar de KMS. Hay instrucciones disponibles en la [línea de comandos de DISM Windows para el sistema operativo en ejecución](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Para obtener las claves, consulte la [configuración del cliente KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
 
 ## <a name="access-configuration-server"></a>Acceso al servidor de configuración
 
@@ -291,10 +295,6 @@ En lo que respecta a las implementaciones de servidores de configuración antes 
 2. Haga clic en el servidor de configuración que quiere actualizar.
 3. En la hoja con detalles del servidor de configuración elegido, haga clic en **Más** > **Actualizar servidor**.
 4. Supervise el progreso del trabajo en **Almacén de Recovery Services** > **Supervisión** > **Trabajos de Site Recovery**.
-
-## <a name="update-windows-license"></a>Actualización de la licencia de Windows
-
-La licencia que se proporciona con la plantilla de OVF es una licencia de evaluación válida durante 180 días. Para el uso ininterrumpido, debe activar Windows con una licencia adquirida.
 
 ## <a name="failback-requirements"></a>Requisitos de conmutación por recuperación
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: c8517d4754d10b61f7ee4c8075830860e1d22864
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 10d300638f95fe275a23dfbc239f8f961f46b127
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172992"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598016"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Descripción del control del tiempo en Azure Stream Analytics
 
@@ -208,7 +208,7 @@ En esta ilustración, se usan las tolerancias siguientes:
 
    4. Cuando el sexto evento (device3) se procesa, la hora de llegada (12:17) y la hora del evento (12:12) están por debajo del nivel de la marca de agua. La hora del evento se ajusta al nivel de la marca de agua (12:17).
 
-   5. Cuando el noveno evento (device3) se procesa, la hora de llegada (12:27) es seis minutos después de la hora del evento (12:21). Se aplica la directiva de llegada tardía. Se ajusta la hora del evento (12:22), que es posterior a la marca de agua (12:21), por lo que no se aplican más ajustes.
+   5. Cuando el duodécimo evento (device3) se procesa, la hora de llegada (12:27) es seis minutos después de la hora del evento (12:21). Se aplica la directiva de llegada tardía. Se ajusta la hora del evento (12:22), que es posterior a la marca de agua (12:21), por lo que no se aplican más ajustes.
 
 2. Segunda ilustración del progreso de las marcas de agua sin una directiva de llegada temprana:
 

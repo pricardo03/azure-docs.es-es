@@ -1,24 +1,23 @@
 ---
-title: 'Filtros de seguridad para limitar los resultados mediante Active Directory: Azure Search'
-description: Control de acceso al contenido de Azure Search mediante filtros de seguridad e identidades de Azure Active Directory (AAD).
-author: brjohnstmsft
+title: Filtros de seguridad para limitar los resultados mediante Active Directory
+titleSuffix: Azure Cognitive Search
+description: Control de acceso al contenido de Azure Cognitive Search mediante filtros de seguridad e identidades de Azure Active Directory (AAD).
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 11/07/2017
+author: brjohnstmsft
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: 8bcc1dcd1d86c0ca18ed03dc60834884a42a39c9
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186516"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794303"
 ---
-# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de seguridad para limitar los resultados de Azure Search mediante las identidades de Active Directory
+# <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtros de seguridad para limitar los resultados de Azure Cognitive Search mediante las identidades de Active Directory
 
-En este artículo se muestra cómo usar las identidades de seguridad de Azure Active Directory (AAD) junto con los filtros de Azure Search para limitar los resultados de búsqueda en función de la pertenencia a grupos de usuarios.
+En este artículo se muestra cómo usar las identidades de seguridad de Azure Active Directory (AAD) junto con los filtros de Azure Cognitive Search para limitar los resultados de búsqueda en función de la pertenencia a grupos de usuarios.
 
 En este artículo se tratan las tareas siguientes:
 > [!div class="checklist"]
@@ -33,7 +32,7 @@ En este artículo se tratan las tareas siguientes:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-El índice de Azure Search debe tener un [campo de seguridad](search-security-trimming-for-azure-search.md) para almacenar la lista de identidades de grupo que tengan acceso de lectura al documento. Este caso de uso supone una correspondencia uno a uno entre un elemento protegible (por ejemplo, la solicitud de la universidad de un individuo) y un campo de seguridad que especifica quién tiene acceso a ese elemento (personal de admisión).
+El índice de Azure Cognitive Search debe tener un [campo de seguridad](search-security-trimming-for-azure-search.md) para almacenar la lista de identidades de grupo que tengan acceso de lectura al documento. Este caso de uso supone una correspondencia uno a uno entre un elemento protegible (por ejemplo, la solicitud de la universidad de un individuo) y un campo de seguridad que especifica quién tiene acceso a ese elemento (personal de admisión).
 
 Debe tener permisos de administrador de AAD, necesarios en este tutorial para crear usuarios, grupos y asociaciones en AAD.
 
@@ -60,9 +59,9 @@ Microsoft Graph proporciona una API que permite el acceso mediante programación
 
 Si va a agregar la búsqueda a una solicitud establecida, podría tener identificadores de grupo y usuarios existentes en AAD. En este caso, puede omitir los tres pasos siguientes. 
 
-Sin embargo, si no tiene usuarios existentes, puede utilizar Microsoft Graph API para crear las entidades de seguridad. Los siguientes fragmentos de código muestran cómo generar identificadores, que se convierten en valores de datos para el campo de seguridad en el índice de Azure Search. En nuestra hipotética solicitud de admisión de la universidad, esto serían los identificadores de seguridad para el personal de admisión.
+Sin embargo, si no tiene usuarios existentes, puede utilizar Microsoft Graph API para crear las entidades de seguridad. Los siguientes fragmentos de código muestran cómo generar identificadores, que se convierten en valores de datos para el campo de seguridad en el índice de Azure Cognitive Search. En nuestra hipotética solicitud de admisión de la universidad, esto serían los identificadores de seguridad para el personal de admisión.
 
-La pertenencia de usuarios y grupos podría ser muy fluida, especialmente en grandes organizaciones. El código que crea identidades de usuario y grupo debe ejecutarse con la frecuencia suficiente como para recoger los cambios en la pertenencia de la organización. Del mismo modo, el índice de Azure Search requiere una programación de actualización similar para reflejar el estado actual de recursos y usuarios permitidos.
+La pertenencia de usuarios y grupos podría ser muy fluida, especialmente en grandes organizaciones. El código que crea identidades de usuario y grupo debe ejecutarse con la frecuencia suficiente como para recoger los cambios en la pertenencia de la organización. Del mismo modo, el índice de Azure Cognitive Search requiere una programación de actualización similar para reflejar el estado actual de recursos y usuarios permitidos.
 
 ### <a name="step-1-create-aad-grouphttpsdocsmicrosoftcomgraphapigroup-post-groupsviewgraph-rest-10"></a>Paso 1: Crear un [grupo de AAD](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
@@ -105,11 +104,11 @@ Microsoft Graph se ha diseñado para controlar un alto volumen de solicitudes. S
 
 ## <a name="index-document-with-their-permitted-groups"></a>Documento de índice con sus grupos permitidos
 
-Las operaciones de consulta en Azure Search se ejecutan sobre un índice de Azure Search. En este paso, una operación de indexación importa datos que permiten realizar búsquedas en un índice, incluidos los identificadores usados como filtros de seguridad. 
+Las operaciones de consulta en Azure Cognitive Search se ejecutan sobre un índice de Azure Cognitive Search. En este paso, una operación de indexación importa datos que permiten realizar búsquedas en un índice, incluidos los identificadores usados como filtros de seguridad. 
 
-Azure Search no autentica identidades de usuario ni proporciona lógica para establecer el contenido que un usuario tiene permiso para ver. El caso de uso para el recorte de seguridad asume que se proporciona la asociación entre un documento confidencial y el identificador del grupo que tiene acceso a ese documento, que se ha importado intacto en un índice de búsqueda. 
+Azure Cognitive Search no autentica identidades de usuario ni proporciona lógica para establecer el contenido que un usuario tiene permiso para ver. El caso de uso para el recorte de seguridad asume que se proporciona la asociación entre un documento confidencial y el identificador del grupo que tiene acceso a ese documento, que se ha importado intacto en un índice de búsqueda. 
 
-En el ejemplo hipotético, el cuerpo de la solicitud PUT en un índice de Azure Search incluiría el trabajo o la transcripción de la universidad de un solicitante junto con el identificador de grupo que tiene permiso para ver el contenido. 
+En el ejemplo hipotético, el cuerpo de la solicitud PUT en un índice de Azure Cognitive Search incluiría el trabajo o la transcripción de la universidad de un solicitante junto con el identificador de grupo que tiene permiso para ver el contenido. 
 
 En el ejemplo genérico utilizado en el ejemplo de código para este tutorial, la acción del índice podría ser la siguiente:
 
@@ -133,7 +132,7 @@ _indexClient.Documents.Index(batch);
 
 ## <a name="issue-a-search-request"></a>Emisión de una solicitud de búsqueda
 
-Por motivos de recorte de seguridad, los valores del campo de seguridad en el índice son valores estáticos que se usan para incluir o excluir documentos en los resultados de la búsqueda. Por ejemplo, si el identificador de grupo de admisiones es "A11B22C33D44-E55F66G77-H88I99JKK", todos los documentos de un índice de Azure Search que tengan ese identificador en el campo de seguridad se incluyen (o excluyen) en los resultados de búsqueda devueltos al solicitante.
+Por motivos de recorte de seguridad, los valores del campo de seguridad en el índice son valores estáticos que se usan para incluir o excluir documentos en los resultados de la búsqueda. Por ejemplo, si el identificador de grupo de admisiones es "A11B22C33D44-E55F66G77-H88I99JKK", todos los documentos de un índice de Azure Cognitive Search que tengan ese identificador en el campo de seguridad se incluyen (o excluyen) en los resultados de búsqueda devueltos al solicitante.
 
 Para filtrar los documentos devueltos en los resultados de búsqueda en función de los grupos de usuario que emiten la solicitud, revise los siguientes pasos.
 
@@ -185,10 +184,10 @@ La respuesta incluye una lista filtrada de documentos, que consta de los que el 
 
 ## <a name="conclusion"></a>Conclusión
 
-En este tutorial, ha aprendido técnicas para usar inicios de sesión de AAD para filtrar documentos en los resultados de Azure Search, recortando los resultados de los documentos que no coinciden con el filtro proporcionado en la solicitud.
+En este tutorial, ha aprendido técnicas para usar inicios de sesión de AAD para filtrar documentos en los resultados de Azure Cognitive Search, recortando los resultados de los documentos que no coinciden con el filtro proporcionado en la solicitud.
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Control de acceso basado en identidades mediante filtros de Azure Search](search-security-trimming-for-azure-search.md)
-+ [Filtros de Azure Search](search-filters.md)
-+ [Control de acceso y seguridad de datos en las operaciones de Azure Search](search-security-overview.md)
++ [Control de acceso basado en identidades mediante filtros de Azure Cognitive Search](search-security-trimming-for-azure-search.md)
++ [Filtros de Azure Cognitive Search](search-filters.md)
++ [Control de acceso y seguridad de datos en las operaciones de Azure Cognitive Search](search-security-overview.md)

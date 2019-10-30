@@ -1,0 +1,363 @@
+---
+title: Migración de Azure AD Domain Services desde una red virtual clásica | Microsoft Docs
+description: Aprenda a migrar una instancia de dominio administrado de Azure AD Domain Services existente desde el modelo de red virtual clásica a una red virtual basada en Resource Manager.
+author: iainfoulds
+manager: daveba
+ms.service: active-directory
+ms.subservice: domain-services
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 10/15/2019
+ms.author: iainfou
+ms.openlocfilehash: 8cba2cbf8fcbad1acae8c36892308c3249fc4181
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674915"
+---
+# <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Versión preliminar: Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager
+
+Azure Active Directory Domain Services (AD DS) admite un único traslado para los clientes que actualmente usan el modelo de red virtual clásica al modelo de red virtual de Resource Manager.
+
+En este artículo se describen las ventajas y consideraciones que hay que tener en cuenta para la migración, así como los pasos necesarios para migrar correctamente una instancia de Azure AD DS existente. Esta funcionalidad actualmente está en su versión preliminar.
+
+## <a name="overview-of-the-migration-process"></a>Introducción al proceso de migración
+
+El proceso de migración toma una instancia de Azure AD DS existente que se ejecuta en una red virtual clásica y la mueve a una red virtual de Resource Manager existente. La migración se realiza mediante PowerShell y tiene dos fases principales de ejecución: *preparación* y *migración*.
+
+![Introducción al proceso de migración de Azure AD DS](media/migrate-from-classic-vnet/migration-overview.png)
+
+En la fase de *preparación*, Azure AD DS realiza una copia de seguridad del dominio para obtener la última instantánea de los usuarios, los grupos y las contraseñas sincronizados con el dominio administrado. A continuación, se deshabilita la sincronización y se elimina el servicio en la nube que hospeda el dominio administrado de Azure AD DS. Durante la fase de preparación, el dominio administrado de Azure AD DS no puede autenticar a los usuarios.
+
+![Fase de preparación para migrar Azure AD DS](media/migrate-from-classic-vnet/migration-preparation.png)
+
+En la fase de *migración* se copian los discos virtuales subyacentes de los controladores de dominio del dominio administrado clásico de Azure AD DS, para crear las máquinas virtuales con el modelo de implementación de Resource Manager. Después se vuelve a crear el dominio administrado de Azure AD DS, que incluye la configuración de LDAPS y DNS. Se reinicia la sincronización con Azure AD y se restauran los certificados LDAP. No es necesario volver a unir ninguna máquina a un dominio administrado de Azure AD DS: continúan unidas al dominio administrado y se ejecutan sin cambios.
+
+![Migración de Azure AD DS](media/migrate-from-classic-vnet/migration-process.png)
+
+## <a name="migration-benefits"></a>Ventajas de la migración
+
+Al mover un dominio administrado de Azure AD DS con este proceso de migración, se evita la necesidad de volver a unir las máquinas al dominio administrado o de eliminar la instancia de Azure AD DS y crear una desde cero. Las máquinas virtuales siguen unidas al dominio administrado de Azure AD DS al final del proceso de migración.
+
+Después de la migración, Azure AD DS proporciona muchas características que solo están disponibles en los dominios que usan redes virtuales de Resource Manager como, por ejemplo:
+
+* Compatibilidad con la directiva de contraseñas específica
+* Protección de bloqueo de cuentas de AD
+* Notificaciones por correo electrónico de alertas en el dominio administrado de Azure AD DS
+* Registros de auditoría mediante Azure Monitor
+* Integración de Azure Files
+* Integración de HD Insights
+
+Los dominios administrados de Azure AD DS que usan una red virtual de Resource Manager ayudan a mantenerse al día con las nuevas características más recientes. En el futuro estará en desuso el soporte para Azure AD DS con redes virtuales clásicas.
+
+## <a name="example-scenarios-for-migration"></a>Escenarios de ejemplo para la migración
+
+En los siguientes ejemplos se incluyen algunos escenarios comunes para migrar un dominio administrado de Azure AD DS.
+
+> [!NOTE]
+> No convierta la red virtual clásica hasta que haya confirmado que la migración se ha realizado correctamente. Al convertir la red virtual, se pierde la opción de revertir o restaurar el dominio administrado de Azure AD DS si hay algún problema durante las fases de migración y comprobación.
+
+### <a name="migrate-azure-ad-ds-to-an-existing-resource-manager-virtual-network-recommended"></a>Migración de Azure AD DS a una red virtual de Resource Manager existente (recomendado)
+
+Un escenario común es aquel en el que ya ha transferido otros recursos clásicos existentes a un modelo de implementación y una red virtual de Resource Manager. Después se usa el emparejamiento de la red virtual de Resource Manager a la red virtual clásica que continúa ejecutando Azure AD DS. Este enfoque permite que las aplicaciones y servicios de Resource Manager usen la funcionalidad de autenticación y administración del dominio administrado de Azure AD DS en la red virtual clásica. Una vez efectuada la migración, todos los recursos se ejecutan con el modelo de implementación y la red virtual de Resource Manager.
+
+![Migración de Azure AD DS a una red virtual de Resource Manager existente](media/migrate-from-classic-vnet/migrate-to-existing-vnet.png)
+
+Los pasos generales implicados en este escenario de migración de ejemplo incluyen las siguientes partes:
+
+1. Eliminación de las puertas de enlace de VPN existentes o del emparejamiento de redes virtuales configurado en la red virtual clásica
+1. Migración del dominio administrado de Azure AD DS siguiendo los pasos descritos en este artículo
+1. Prueba y confirmación de que la migración se realizó correctamente y, a continuación, eliminación de la red virtual clásica
+
+### <a name="migrate-multiple-resources-including-azure-ad-ds"></a>Migración de varios recursos, incluido Azure AD DS
+
+En este escenario de ejemplo se migran Azure AD DS y otros recursos asociados desde el modelo de implementación clásica al modelo de implementación de Resource Manager. Si algunos recursos seguían ejecutándose en la red virtual clásica junto con el dominio administrado de Azure AD DS, pueden beneficiarse de la migración al modelo de implementación de Resource Manager.
+
+![Migración de varios recursos al modelo de implementación de Resource Manager](media/migrate-from-classic-vnet/migrate-multiple-resources.png)
+
+Los pasos generales implicados en este escenario de migración de ejemplo incluyen las siguientes partes:
+
+1. Eliminación de las puertas de enlace de VPN existentes o del emparejamiento de redes virtuales configurado en la red virtual clásica
+1. Migración del dominio administrado de Azure AD DS siguiendo los pasos descritos en este artículo
+1. Configuración del emparejamiento de redes virtuales entre la red virtual clásica y la red de Resource Manager
+1. Prueba y confirmación de que la migración se ha realizado correctamente
+1. [Movimiento de recursos clásicos adicionales, como máquinas virtuales][migrate-iaas]
+
+### <a name="migrate-azure-ad-ds-but-keep-other-resources-on-the-classic-virtual-network"></a>Migración de Azure AD DS con mantenimiento de otros recursos en la red virtual clásica
+
+Con este escenario de ejemplo se consigue el menor tiempo de inactividad en una sesión. Solo se migra Azure AD DS a una red virtual de Resource Manager y se mantienen los recursos existentes en el modelo de implementación y en la red virtual clásicas. En un período de mantenimiento siguiente, se pueden migrar los recursos adicionales del modelo de implementación y la red virtual clásicas según se desee.
+
+![Migración solo de Azure AD DS al modelo de implementación de Resource Manager](media/migrate-from-classic-vnet/migrate-only-azure-ad-ds.png)
+
+Los pasos generales implicados en este escenario de migración de ejemplo incluyen las siguientes partes:
+
+1. Eliminación de las puertas de enlace de VPN existentes o del emparejamiento de redes virtuales configurado en la red virtual clásica
+1. Migración del dominio administrado de Azure AD DS siguiendo los pasos descritos en este artículo
+1. Configuración del emparejamiento de redes virtuales entre la red virtual clásica y la nueva red virtual de Resource Manager
+1. Más adelante, [migre los recursos adicionales][migrate-iaas] de la red virtual clásica según sea necesario.
+
+## <a name="before-you-begin"></a>Antes de empezar
+
+A medida que prepara y después migra un dominio administrado de Azure AD DS, existen algunas consideraciones que se deben tener en cuenta sobre la disponibilidad de los servicios de autenticación y administración. El dominio administrado de Azure AD DS no está disponible durante un período de tiempo de la migración. Asimismo, durante la migración se produce un tiempo de inactividad en las aplicaciones y los servicios que se basan en Azure AD DS.
+
+> [!IMPORTANT]
+> Lea por completo este artículo de migración y orientación antes de iniciar el proceso de migración. El proceso de migración afecta a la disponibilidad de los controladores de dominio de Azure AD DS durante períodos de tiempo. Los usuarios, los servicios y las aplicaciones no se pueden autenticar en el dominio administrado durante el proceso de migración.
+
+### <a name="ip-addresses"></a>Direcciones IP
+
+Las direcciones IP de controlador de dominio para un dominio administrado de Azure AD DS cambian después de la migración. Esto incluye la dirección IP pública para el punto de conexión de LDAP seguro. Las nuevas direcciones IP están dentro del intervalo de direcciones de la nueva subred de la red virtual de Resource Manager.
+
+Si se realiza una reversión, tras ella las direcciones IP pueden cambiar.
+
+Por lo general, Azure AD DS usa las dos primeras direcciones IP disponibles en el intervalo de direcciones, pero esto no se garantiza. Actualmente no se pueden especificar las direcciones IP que se van a usar después de la migración.
+
+### <a name="downtime"></a>Tiempo de inactividad
+
+El proceso de migración implica que los controladores de dominio están sin conexión durante un período de tiempo. No se puede acceder a los controladores de dominio mientras Azure AD DS se migra al modelo de implementación y la red virtual de Resource Manager. El tiempo medio de inactividad es de 1 a 3 horas. Este período de tiempo comienza cuando los controladores de dominio se desconectan y termina en el momento en que el primer controlador de dominio vuelve a estar en línea. Esta media no incluye el tiempo que tarda el segundo controlador de dominio en replicarse ni el tiempo que pueden tardar los recursos adicionales en migrar al modelo de implementación de Resource Manager.
+
+### <a name="account-lockout"></a>Bloqueo de cuenta
+
+Los dominios administrados de Azure AD DS que se ejecutan en redes virtuales clásicas no tienen directivas de bloqueo de cuenta de AD. Si las máquinas virtuales están expuestas a Internet, los atacantes pueden usar métodos de difusión de contraseña para forzar el acceso a las cuentas. No hay ninguna directiva de bloqueo de cuenta para detener esos intentos. En el caso de los dominios administrados de Azure AD DS que usan el modelo de implementación y las redes virtuales de Resource Manager, las directivas de bloqueo de cuenta de AD protegen contra estos ataques de difusión de contraseña.
+
+De forma predeterminada, cinco intentos de contraseña incorrecta en dos minutos bloquean una cuenta durante treinta minutos.
+
+Una cuenta bloqueada no puede iniciar sesión, lo que puede interferir con la capacidad de administrar el dominio administrado de Azure AD DS o las aplicaciones administradas por la cuenta. Después de migrar un dominio administrado de Azure AD DS, las cuentas pueden experimentar lo que parece un bloqueo permanente debido a repetidos intentos erróneos de inicio de sesión. Tras la migración, estos son dos escenarios comunes:
+
+* Una cuenta de servicio que usa una contraseña expirada.
+    * La cuenta de servicio intenta iniciar sesión repetidamente con una contraseña expirada, lo que bloquea la cuenta. Para corregirlo, busque la aplicación o la máquina virtual con credenciales expiradas y actualice la contraseña.
+* Una entidad malintencionada usa intentos de fuerza bruta para iniciar sesión en las cuentas.
+    * Cuando las máquinas virtuales se exponen a Internet, los atacantes suelen probar combinaciones de nombre de usuario y contraseña comunes mientras intentan iniciar sesión. Estos intentos repetidos de inicio de sesión erróneos pueden bloquear las cuentas. No se recomienda usar cuentas de administrador con nombres genéricos como *admin* o *administrador*, por ejemplo, para reducir la posibilidad de que se bloqueen las cuentas administrativas.
+    * Reduzca el número de máquinas virtuales que se exponen a Internet. Puede usar [Azure Bastion (actualmente en versión preliminar)][azure-bastion] para conectarse de forma segura a las máquinas virtuales mediante Azure Portal.
+
+Si sospecha que algunas cuentas pueden estar bloqueadas después de la migración, en los pasos finales de la migración se describe cómo habilitar la auditoría o cómo cambiar la configuración de la directiva de contraseñas específica.
+
+### <a name="roll-back-and-restore"></a>Reversión y restauración
+
+Si la migración no se realiza correctamente, hay un proceso para revertir o restaurar un dominio administrado de Azure AD DS. La reversión es una opción de autoservicio para devolver inmediatamente el estado del dominio administrado a la situación anterior al intento de migración. Como último recurso, los ingenieros de soporte técnico de Azure también pueden restaurar un dominio administrado a partir de una copia de seguridad. Para más información, consulte [Reversión o restauración de una migración errónea](#roll-back-and-restore-from-migration).
+
+### <a name="restrictions-on-available-virtual-networks"></a>Restricciones en las redes virtuales disponibles
+
+Existen algunas restricciones en las redes virtuales a las que se puede migrar un dominio administrado de Azure AD DS. La red virtual de Resource Manager de destino debe cumplir los siguientes requisitos:
+
+* La red virtual de Resource Manager debe estar en la misma suscripción de Azure que la red virtual clásica en la que Azure AD DS está actualmente implementado.
+* La red virtual de Resource Manager debe estar en la misma región que la red virtual clásica en la que Azure AD DS está actualmente implementado.
+* La subred de la red virtual de Resource Manager debe tener al menos de tres a cinco direcciones IP disponibles.
+* La subred de la red virtual de Resource Manager debe ser una subred dedicada para Azure AD DS y no debe hospedar otras cargas de trabajo.
+
+Para más información sobre los requisitos de red virtual, consulte [Consideraciones de diseño y opciones de configuración de redes virtuales][network-considerations].
+
+## <a name="migration-steps"></a>Pasos de migración
+
+La migración al modelo de implementación y la red virtual de Resource Manager se divide en cinco pasos principales:
+
+| Paso    | Se realiza en  | Tiempo estimado  | Tiempo de inactividad  | ¿Reversión o restauración? |
+|---------|--------------------|-----------------|-----------|-------------------|
+| [Paso 1: Actualización y ubicación de la nueva red virtual](#update-and-verify-virtual-network-settings) | Portal de Azure | 15 minutos | No se requiere tiempo de inactividad. | N/D |
+| [Paso 2: Preparación del dominio administrado de Azure AD DS para la migración](#prepare-the-managed-domain-for-migration) | PowerShell | De 15 a 30 minutos como media | El tiempo de inactividad de Azure AD DS comienza una vez finalizado este comando. | Reversión y restauración disponibles. |
+| [Paso 3: Traslado del dominio administrado de Azure AD DS a una red virtual existente](#migrate-the-managed-domain) | PowerShell | De 1 a 3 horas como media | Una vez finalizado este comando está disponible un controlador de dominio; finaliza el tiempo de inactividad. | En caso de error, están disponibles la reversión (autoservicio) y la restauración. |
+| [Paso 4: Prueba y espera del controlador de dominio de réplica](#test-and-verify-connectivity-after-the-migration)| PowerShell y Azure Portal | 1 hora o más, en función del número de pruebas | Ambos controladores de dominio están disponibles y deben funcionar con normalidad. | N/D Una vez que la primera máquina virtual se ha migrado correctamente, no hay ninguna opción de reversión o restauración. |
+| [Paso 5: Pasos de configuración opcionales](#optional-post-migration-configuration-steps) | Azure Portal y máquinas virtuales | N/D | No se requiere tiempo de inactividad. | N/D |
+
+> [!IMPORTANT]
+> Para evitar tiempo de inactividad adicional, lea por completo este artículo de migración y orientación antes de iniciar el proceso de migración. El proceso de migración afecta a la disponibilidad de los controladores de dominio de Azure AD DS durante un período de tiempo. Los usuarios, los servicios y las aplicaciones no se pueden autenticar en el dominio administrado durante el proceso de migración.
+
+## <a name="update-and-verify-virtual-network-settings"></a>Actualización y comprobación de la configuración de red virtual
+
+Antes de comenzar la migración, lleve a cabo las siguientes comprobaciones y actualizaciones iniciales. Estos pasos pueden producirse en cualquier momento antes de la migración y no afectan al funcionamiento del dominio administrado de Azure AD DS.
+
+1. Actualice el entorno de Azure PowerShell local a la versión más reciente. Para completar los pasos de migración, necesita al menos la versión *2.3.2*.
+
+    Para obtener información sobre cómo realizar la comprobación y la actualización, consulte [Introducción a Azure PowerShell][azure-powershell].
+
+1. Cree una red virtual de Resource Manager o seleccione una existente.
+
+    Asegúrese de que la configuración de red no bloquea los puertos necesarios para Azure AD DS. Los puertos deben estar abiertos tanto en la red virtual clásica como en la red virtual de Resource Manager. Esta configuración incluye las tablas de rutas (aunque no se recomienda usarlas) y los grupos de seguridad de red.
+
+    Para ver los puertos necesarios, consulte [Grupos de seguridad de red y puertos necesarios][network-ports]. Para reducir a un mínimo los problemas de comunicación de red, se recomienda esperar y aplicar un grupo de seguridad de red o una tabla de rutas a la red virtual de Resource Manager después de que la migración se haya completado correctamente.
+
+    Tome nota de este grupo de recursos de destino, de la red virtual de destino y de la subred de la red virtual de destino. Estos nombres de recursos se usan durante el proceso de migración.
+
+1. Compruebe el estado del dominio administrado de Azure AD DS en Azure Portal. Si hay alguna alerta para el dominio administrado, resuélvala antes de iniciar el proceso de migración.
+1. Opcionalmente, si tiene previsto trasladar otros recursos al modelo de implementación y la red virtual de Resource Manager, confirme que esos recursos se pueden migrar. Para más información, consulte [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Resource Manager][migrate-iaas].
+
+    > [!NOTE]
+    > No convierta la red virtual clásica a una red virtual de Resource Manager. Si lo hace, no dispondrá de ninguna opción para revertir o restaurar el dominio administrado de Azure AD DS.
+
+## <a name="prepare-the-managed-domain-for-migration"></a>Preparación del dominio administrado para la migración
+
+Para preparar el dominio administrado de Azure AD DS para la migración se utiliza Azure PowerShell. Estos pasos incluyen realizar una copia de seguridad, pausar la sincronización y eliminar el servicio en la nube que hospeda a Azure AD DS. Cuando se completa este paso, Azure AD DS se desconecta durante un período de tiempo. Si se produce un error en el paso de preparación, se puede [revertir al estado anterior](#roll-back).
+
+Para preparar el dominio administrado de Azure AD DS para la migración, realice los siguientes pasos:
+
+1. Instale el script `Migrate-Aaads` de la [Galería de PowerShell][powershell-script]. Este script de migración de PowerShell está firmado digitalmente por el equipo de ingeniería de Azure AD.
+
+    ```powershell
+    Install-Script -Name Migrate-Aadds
+    ```
+
+1. Utilice el cmdlet [Get-Credential][get-credential] para crear una variable que contenga las credenciales que utilizará el script de migración.
+
+    La cuenta de usuario que especifique necesitará privilegios de *administrador global* en el inquilino de Azure AD, para habilitar Azure AD DS, y privilegios de *colaborador* en la suscripción de Azure, para crear los recursos de Azure AD DS necesarios.
+
+    Cuando se le solicite, escriba una cuenta de usuario y una contraseña apropiadas:
+
+    ```powershell
+    $creds = Get-Credential
+    ```
+
+1. Ahora ejecute el cmdlet `Migrate-Aadds` con el parámetro *-Prepare*. Proporcione el valor de *-ManagedDomainFqdn* de su propio dominio administrado de Azure AD DS como, por ejemplo, *contoso.com*:
+
+    ```powershell
+    Migrate-Aadds `
+        -Prepare -ManagedDomainFqdn contoso.com `
+        -Credentials $creds
+    ```
+
+## <a name="migrate-the-managed-domain"></a>Migración del dominio administrado
+
+Ahora que el dominio administrado de Azure AD DS está preparado y se ha efectuado la copia de seguridad, se puede migrar el dominio. Este paso vuelve a crear las máquinas virtuales del controlador de dominio de Azure AD Domain Services con el modelo de implementación de Resource Manager. Este paso puede tardar de 1 a 3 horas en completarse.
+
+Ejecute el cmdlet `Migrate-Aadds` con el parámetro *-Commit*. Proporcione el valor de *-ManagedDomainFqdn* de su propio dominio administrado de Azure AD DS preparado en la sección anterior como, por ejemplo, *contoso.com*:
+
+Especifique el grupo de recursos de destino que contiene la red virtual a la que desea migrar Azure AD DS como, por ejemplo, *myResourceGroup*. Indique la red virtual de destino, por ejemplo *myVnet*, y la subred, por ejemplo *DomainServices*.
+
+Después de ejecutar este comando, ya no se puede revertir:
+
+```powershell
+Migrate-Aadds `
+    -Commit `
+    -ManagedDomainFqdn contoso.com `
+    -VirtualNetworkResourceGroupName myResourceGroup `
+    -VirtualNetworkName myVnet `
+    -VirtualSubnetName DomainServices `
+    -Credentials $creds
+```
+
+Después de que el script valide que el dominio administrado está preparado para la migración, escriba *Y* para iniciar el proceso de migración.
+
+> [!IMPORTANT]
+> No convierta la red virtual clásica a una red virtual de Resource Manager durante el proceso de migración. Si efectúa esta conversión, ya no podrá revertir ni restaurar el dominio administrado de Azure AD DS, puesto que la red virtual original habrá dejado de existir.
+
+Durante el proceso de migración, un indicador de progreso informa cada dos minutos del estado actual, tal como se muestra en la siguiente salida de ejemplo:
+
+![Indicador de progreso de la migración de Azure AD DS](media/migrate-from-classic-vnet/powershell-migration-status.png)
+
+El proceso de migración continúa ejecutándose aunque se cierre el script de PowerShell. En Azure Portal, el estado del dominio administrado aparece como *Migrando*.
+
+Cuando la migración se completa correctamente, puede ver la dirección IP del primer controlador de dominio en Azure Portal o mediante Azure PowerShell. También se muestra una estimación del tiempo que tardará el segundo controlador de dominio en estar disponible.
+
+En esta fase, puede trasladar otros recursos existentes desde el modelo de implementación y la red virtual clásicas. O bien, puede mantener los recursos en el modelo de implementación clásica y emparejar las redes virtuales entre sí una vez finalizada la migración de Azure AD DS.
+
+## <a name="test-and-verify-connectivity-after-the-migration"></a>Prueba y comprobación de la conectividad después de la migración
+
+El segundo controlador de dominio puede tardar un tiempo en implementarse correctamente y estar disponible para su uso en el dominio administrado de Azure AD DS.
+
+Con el modelo de implementación de Resource Manager, los recursos de red para el dominio administrado de Azure AD DS se muestran en Azure Portal o en Azure PowerShell. Para más información sobre qué son y qué hacen estos recursos de red, consulte [Recursos de red usados por Azure AD DS][network-resources].
+
+Cuando haya al menos un controlador de dominio disponible, complete los siguientes pasos de configuración para la conectividad de red con las máquinas virtuales:
+
+* **Actualice la configuración del servidor DNS**. Para permitir que otros recursos de la red virtual de Resource Manager resuelvan y usen el dominio administrado de Azure AD DS, actualice la configuración de DNS con las direcciones IP de los nuevos controladores de dominio. Azure Portal puede configurar automáticamente estos valores. Para más información sobre cómo configurar la red virtual de Resource Manager, consulte [Actualización de la configuración DNS para la red virtual de Azure][update-dns].
+* **Reinicie las máquinas virtuales unidas a los dominios**. Las direcciones IP del servidor DNS para los controladores de dominio de Azure AD DS cambian, por lo que debe reiniciar las máquinas virtuales unidas a los dominios; de este modo usarán la nueva configuración de servidor DNS. Si las aplicaciones o las máquinas virtuales tienen configuraciones de DNS manuales, actualícelas también manualmente con las nuevas direcciones IP del servidor DNS para los controladores de dominio que se muestran en Azure Portal.
+
+Ahora pruebe la conexión y la resolución de nombres de la red virtual. En una máquina virtual conectada a la red virtual de Resource Manager, o emparejada con ella, realice las siguientes pruebas de comunicación de red:
+
+1. Compruebe si puede hacer ping a la dirección IP de uno de los controladores de dominio; por ejemplo, `ping 10.1.0.4`.
+    * Las direcciones IP de los controladores de dominio se muestran en la página **Propiedades** del dominio administrado de Azure AD DS en Azure Portal.
+1. Compruebe la resolución de nombres del dominio administrado; por ejemplo, `nslookup contoso.com`.
+    * Especifique el nombre DNS de su propio dominio administrado de Azure AD DS para comprobar que la configuración de DNS es correcta y se resuelve.
+
+El segundo controlador de dominio debe estar disponible de una a dos horas después de que finalice el cmdlet de migración. Para comprobar si el segundo controlador de dominio está disponible, consulte la página **Propiedades** del dominio administrado de Azure AD DS en Azure Portal. Si se muestran dos direcciones IP, el segundo controlador de dominio está listo.
+
+## <a name="optional-post-migration-configuration-steps"></a>Pasos de configuración opcionales posteriores a la migración
+
+Cuando el proceso de migración se completa correctamente, algunos pasos de configuración opcionales incluyen la habilitación de registros de auditoría o de notificaciones por correo electrónico, o la actualización de la directiva de contraseñas específica.
+
+#### <a name="subscribe-to-audit-logs-using-azure-monitor"></a>Suscripción a los registros de auditoría mediante Azure Monitor
+
+Azure AD DS expone registros de auditoría para ayudar a solucionar problemas y ver eventos en los controladores de dominio. Para más información, consulte [Habilitación y uso de los registros de auditoría][security-audits].
+
+Puede usar plantillas para supervisar información importante expuesta en los registros. Por ejemplo, la plantilla de libro del registro de auditoría puede supervisar posibles bloqueos de cuenta en el dominio administrado de Azure AD DS.
+
+#### <a name="configure-azure-ad-domain-services-email-notifications"></a>Configuración de notificaciones por correo electrónico de Azure AD Domain Services
+
+Para recibir una notificación cuando se detecte un problema en el dominio administrado de Azure AD DS, actualice la configuración de notificaciones por correo electrónico en Azure Portal. Para más información, consulte [Configuración de las opciones de notificación][notifications].
+
+#### <a name="update-fine-grained-password-policy"></a>Actualización de la directiva de contraseñas específica
+
+Si es necesario, puede actualizar la directiva de contraseñas específica para que sea menos restrictiva que la configuración predeterminada. Puede usar los registros de auditoría para determinar si tiene sentido una configuración menos restrictiva y, después, puede configurar la directiva según sea necesario. Use los siguientes pasos generales para revisar y actualizar la configuración de directiva para las cuentas que se bloquean repetidamente después de la migración:
+
+1. [Configure la directiva de contraseñas][password-policy] de modo que haya menos restricciones en el dominio administrado de Azure AD DS y observe los eventos de los registros de auditoría.
+1. Si los registros de auditoría identifican cuentas de servicio que usan contraseñas expiradas, actualice esas cuentas con la contraseña correcta.
+1. Si la máquina virtual está expuesta a Internet, revise los nombres de cuenta genéricos, como *administrador*, *usuario*o *invitado*, con un gran número de intentos de inicio de sesión. Siempre que sea posible, actualice estas máquinas virtuales para que usen cuentas con nombre menos genéricos.
+1. Use un seguimiento de red en la máquina virtual para localizar el origen de los ataques y bloquee esas direcciones IP para que no puedan realizar intentos de inicio de sesión.
+1. Cuando haya problemas mínimos de bloqueo, actualice la directiva de contraseñas específica para que sea tan restrictiva como sea necesario.
+
+#### <a name="creating-a-network-security-group"></a>Creación de un grupo de seguridad de red
+
+Azure AD DS necesita un grupo de seguridad de red para proteger los puertos necesarios para el dominio administrado y bloquear el resto del tráfico entrante. Este grupo de seguridad de red actúa como un nivel de protección adicional para bloquear el acceso al dominio administrado y no se crea automáticamente. Para crear el grupo de seguridad de red y abrir los puertos necesarios, revise los pasos siguientes:
+
+1. En Azure Portal, seleccione el recurso Azure AD DS. En la página Información general se muestra un botón para crear un grupo de seguridad de red si no hay ninguno asociado a Azure AD Domain Services.
+1. Si usa LDAP seguro, agregue una regla al grupo de seguridad de red para permitir el tráfico entrante en el puerto *TCP* *636*. Para más información, consulte [Configuración de LDAP seguro][secure-ldap].
+
+## <a name="roll-back-and-restore-from-migration"></a>Reversión y restauración de la migración
+
+### <a name="roll-back"></a>Reversión
+
+Si se produce un error al ejecutar el cmdlet de PowerShell para preparar la migración en el paso 2 o para la propia migración en el paso 3, el dominio administrado de Azure AD DS puede revertirse a la configuración original. Esta reversión requiere la red virtual clásica original. Tenga en cuenta que las direcciones IP todavía pueden cambiar después de la reversión.
+
+Ejecute el cmdlet `Migrate-Aadds` con el parámetro *-Abort*. Proporcione el valor de *-ManagedDomainFqdn* de su propio dominio administrado de Azure AD DS preparado en una sección anterior como, por ejemplo, *contoso.com*:
+
+```powershell
+Migrate-Aadds `
+    -Abort `
+    -ManagedDomainFqdn contoso.com `
+    -Credentials $creds
+```
+
+### <a name="restore"></a>Restauración
+
+Como último recurso, Azure AD Domain Services se puede restaurar a partir de la última copia de seguridad disponible. En el paso 1 de la migración se realiza una copia de seguridad, para asegurarse de que se dispone de la copia de seguridad más reciente. Esta copia se almacena durante treinta días.
+
+Para restaurar el dominio administrado de Azure AD DS a partir de una copia de seguridad, [abra una incidencia de soporte técnico mediante Azure Portal][azure-support]. Proporcione el identificador de directorio, el nombre de dominio y el motivo para efectuar la restauración. El proceso de soporte y restauración puede tardar varios días en completarse.
+
+## <a name="troubleshooting"></a>solución de problemas
+
+Si tiene problemas después de la migración al modelo de implementación de Resource Manager, revise algunas de las siguientes áreas de solución de problemas comunes:
+
+* [Solución de problemas de unión a un dominio][troubleshoot-domain-join]
+* [Solución de problemas de bloqueo de cuentas][troubleshoot-account-lockout]
+* [Solución de problemas de inicio de sesión de cuentas][troubleshoot-sign-in]
+* [Solución de problemas de conectividad con LDAP seguro][tshoot-ldaps]
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Con el dominio administrado de Azure AD DS migrado al modelo de implementación de Resource Manager, [cree una máquina virtual de Windows y únase a un dominio][join-windows] y, después, [instale las herramientas de administración][tutorial-create-management-vm].
+
+<!-- INTERNAL LINKS -->
+[azure-bastion]: ../bastion/bastion-overview.md
+[network-considerations]: network-considerations.md
+[azure-powershell]: /powershell/azure/overview
+[network-ports]: network-considerations.md#network-security-groups-and-required-ports
+[Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
+[Set-AzContext]: /powershell/module/az.accounts/set-azcontext
+[Get-AzResource]: /powershell/module/az.resources/get-azresource
+[Set-AzResource]: /powershell/module/az.resources/set-azresource
+[network-resources]: network-considerations.md#network-resources-used-by-azure-ad-ds
+[update-dns]: tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[security-audits]: security-audit-events.md
+[notifications]: notifications.md
+[password-policy]: password-policy.md
+[secure-ldap]: tutorial-configure-ldaps.md
+[migrate-iaas]: ../virtual-machines/windows/migration-classic-resource-manager-overview.md
+[join-windows]: join-windows-vm.md
+[tutorial-create-management-vm]: tutorial-create-management-vm.md
+[troubleshoot-domain-join]: troubleshoot-domain-join.md
+[troubleshoot-account-lockout]: troubleshoot-account-lockout.md
+[troubleshoot-sign-in]: troubleshoot-sign-in.md
+[tshoot-ldaps]: tshoot-ldaps.md
+[get-credential]: /powershell/module/microsoft.powershell.security/get-credential
+
+<!-- EXTERNAL LINKS -->
+[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/1.0

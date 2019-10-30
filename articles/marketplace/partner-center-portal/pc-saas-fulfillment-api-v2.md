@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: a2041aefcfdcb1746e64f50c7cb53b3bfaec3299
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 75e806e56fa94916f76f9e7fa6572ae07987e017
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872806"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595560"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API de suministro de SaaS, versión 2 
 
@@ -181,7 +181,11 @@ Se enumeran todas las suscripciones a SaaS para un anunciante.
 
 Código: 200 <br/>
 Obtiene el anunciante y las suscripciones correspondientes para todas las ofertas del anunciante, según el token de autenticación.
-Carga de respuesta:<br>
+
+>[!Note]
+>Las [API simuladas](#mock-apis) se usan cuando se desarrolla por primera vez la oferta, mientras que las API reales deben usarse cuando se publica realmente la oferta.  Las API reales y las API simuladas difieren en la primera línea del código.  En la API real hay una sección `subscription`, mientras que esta sección no existe en la API simulada.
+
+Carga de respuesta de la API simulada:<br>
 
 ```json
 {
@@ -215,7 +219,46 @@ Carga de respuesta:<br>
   "continuationToken": ""
 }
 ```
+Y para la API real: <br>
 
+```json
+{
+  "subscriptions": [
+      {
+          "id": "<guid>",
+          "name": "Contoso Cloud Solution",
+          "publisherId": "contoso",
+          "offerId": "offer1",
+          "planId": "silver",
+          "quantity": "10",
+          "beneficiary": { // Tenant, object id and email address for which SaaS subscription is purchased.
+              "emailId": "<email>",
+              "objectId": "<guid>",                     
+              "tenantId": "<guid>"
+          },
+          "purchaser": { // Tenant, object id and email address that purchased the SaaS subscription. These could be different for reseller scenario
+              "emailId": "<email>",
+              "objectId": "<guid>",                      
+              "tenantId": "<guid>"
+          },
+            "term": {
+                "startDate": "2019-05-31",
+                "endDate": "2019-06-29",
+                "termUnit": "P1M"
+          },
+          "allowedCustomerOperations": [
+              "Read" // Possible Values: Read, Update, Delete.
+          ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
+          "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
+          "isFreeTrial": true, // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.(optional field – default false)
+          "isTest": false, //indicating whether the current subscription is a test asset
+          "sandboxType": "None", // Possible Values: None, Csp (Csp sandbox purchase)
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
+      }
+  ],
+  "@nextLink": ""
+}
+```
 El token de continuación estará presente solo si hay más “páginas” de planes por recuperar. 
 
 Código: 403 <br>

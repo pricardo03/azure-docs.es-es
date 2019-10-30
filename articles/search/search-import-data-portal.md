@@ -1,24 +1,23 @@
 ---
-title: 'Importación de datos en un índice de búsqueda con Azure Portal: Azure Search'
+title: Importación de datos en un índice de búsqueda con Azure Portal
+titleSuffix: Azure Cognitive Search
 description: Aprenda a usar el Asistente para la importación de datos en Azure Portal para rastrear datos de Azure desde Cosmos DB, Blob Storage, Table Storage, SQL Database y SQL Server en máquinas virtuales de Azure.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 89f43227cfca3519a4985c5c961cf0b3c5774177
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 6b4ae076ba08af5514caa09a2e8027a1cbc909dc
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936905"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793672"
 ---
-# <a name="import-data-wizard-for-azure-search"></a>Asistente para la importación de datos de Azure Search
+# <a name="import-data-wizard-for-azure-cognitive-search"></a>Asistente para la importación de datos de Azure Cognitive Search
 
-Azure Portal incluye un asistente para la **importación de datos** en el panel de Azure Search para la creación de prototipos y la carga de datos en un índice. En este artículo se tratan las ventajas y limitaciones del uso del asistente, las entradas y salidas, y la información de uso. Para obtener instrucciones prácticas sobre cómo recorrer paso a paso el asistente con datos de ejemplo integrados, consulte el inicio rápido [Creación de un índice de Azure Search en Azure Portal](search-get-started-portal.md).
+Azure Portal incluye un asistente para la **importación de datos** en el panel de Azure Cognitive Search para la creación de prototipos y la carga de datos en un índice. En este artículo se tratan las ventajas y limitaciones del uso del asistente, las entradas y salidas, y la información de uso. Para obtener instrucciones prácticas sobre cómo recorrer paso a paso el asistente con datos de ejemplo integrados, consulte el inicio rápido [Creación de un índice de Azure Cognitive Search en Azure Portal](search-get-started-portal.md).
 
 Entre las operaciones que realiza este asistente se incluyen:
 
@@ -34,7 +33,7 @@ El asistente genera una serie de objetos, que se guardan en el servicio de búsq
 
 ## <a name="advantages-and-limitations"></a>Ventajas y limitaciones
 
-Antes de escribir cualquier código, puede usar el asistente para crear prototipos y pruebas de concepto. El asistente se conecta a orígenes de datos externos, muestrea los datos para crear un índice inicial y, a continuación, los importa como documentos JSON en un índice de Azure Search. 
+Antes de escribir cualquier código, puede usar el asistente para crear prototipos y pruebas de concepto. El asistente se conecta a orígenes de datos externos, muestrea los datos para crear un índice inicial y, a continuación, los importa como documentos JSON en un índice de Azure Cognitive Search. 
 
 El muestreo es el proceso mediante el cual se infiere un esquema de índice y tiene algunas limitaciones. Al crear el origen de datos, el asistente elige una muestra de documentos para decidir qué columnas forman parte del origen de datos. No se leen todos los archivos, ya que esto podría tardar horas en el caso de orígenes de datos muy grandes. Dada una selección de documentos, los metadatos de origen como, por ejemplo, el nombre o el tipo de campo, se usan para crear una colección de campos en un esquema de índice. En función de la complejidad de los datos de origen, es posible que tenga que modificar el esquema inicial para que sea más preciso, o bien ampliarlo para que sea más exhaustivo. Puede insertar los cambios en la página de definición del índice.
 
@@ -56,7 +55,7 @@ Las limitaciones conocidas se resumen de la siguiente forma:
 
 ## <a name="data-source-input"></a>Entrada de origen de datos
 
-El asistente para la **importación de datos** se conecta a un origen de datos externo mediante la lógica interna que proporcionan los indexadores de Azure Search, que están equipados para muestrear el origen, leer los metadatos, descifrar documentos para leer el contenido y la estructura, y serializar el contenido como JSON para la importación posterior en Azure Search.
+El asistente para la **importación de datos** se conecta a un origen de datos externo mediante la lógica interna que proporcionan los indizadores de Azure Cognitive Search, que están equipados para muestrear el origen, leer los metadatos, descifrar documentos para leer el contenido y la estructura, y serializar el contenido como JSON para la importación posterior en Azure Cognitive Search.
 
 Solo se puede importar desde una única tabla, vista de base de datos o estructura de datos equivalente; sin embargo, la estructura puede incluir subestructuras jerárquicas o anidadas. Para más información, consulte el artículo sobre la [Cómo modelar tipos complejos](search-howto-complex-data-types.md).
 
@@ -64,10 +63,10 @@ Debe crear esta tabla o vista única antes de ejecutar el asistente y debe inclu
 
 |  Número de selección | DESCRIPCIÓN |
 | ---------- | ----------- |
-| **Origen de datos existente** |Si ya tiene indexadores definidos en el servicio de búsqueda, es posible que tenga una definición de origen de datos ya existente que puede volver a utilizar. En Azure Search, solo los indexadores usan objetos de origen de datos. Puede crear un objeto de origen de datos mediante programación o con el asistente para la **importación de datos** y reutilizarlo cuando sea necesario.|
-| **Muestras**| Azure Search proporciona dos orígenes de datos de ejemplo integrados que se usan en tutoriales e inicios rápidos: una base de datos SQL con información inmobiliaria y una base de datos de hoteles hospedada en Cosmos DB. Para ver un tutorial basado en el ejemplo de los hoteles, consulte el inicio rápido [Creación de un índice de Azure Search en Azure Portal](search-get-started-portal.md). |
+| **Origen de datos existente** |Si ya tiene indexadores definidos en el servicio de búsqueda, es posible que tenga una definición de origen de datos ya existente que puede volver a utilizar. En Azure Cognitive Search, solo los indizadores usan objetos de origen de datos. Puede crear un objeto de origen de datos mediante programación o con el asistente para la **importación de datos** y reutilizarlo cuando sea necesario.|
+| **Muestras**| Azure Cognitive Search proporciona dos orígenes de datos de ejemplo integrados que se usan en tutoriales e inicios rápidos: una base de datos SQL con información inmobiliaria y una base de datos de hoteles hospedada en Cosmos DB. Para ver un tutorial basado en el ejemplo de los hoteles, consulte el inicio rápido [Creación de un índice de Azure Search en Azure Portal](search-get-started-portal.md). |
 | [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Se puede especificar el nombre del servicio, las credenciales de un usuario de base de datos con permiso de lectura y un nombre de base de datos en la página o a través de una cadena de conexión de ADO.NET. Elija la opción de cadena de conexión para ver o personalizar las propiedades. <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección.|
-| **SQL Server en máquinas virtuales de Azure** |Especifique un nombre de servicio completo, el identificador de usuario y la contraseña, y la base de datos como una cadena de conexión. Para utilizar este origen de datos, debe haber instalado un certificado en el almacén local que cifra la conexión. Para obtener instrucciones, consulte [Conexión de máquina virtual de SQL a Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
+| **SQL Server en máquinas virtuales de Azure** |Especifique un nombre de servicio completo, el identificador de usuario y la contraseña, y la base de datos como una cadena de conexión. Para utilizar este origen de datos, debe haber instalado un certificado en el almacén local que cifra la conexión. Para obtener instrucciones, consulte [Conexión de máquina virtual de SQL a Azure Cognitive Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Los requisitos incluyen la cuenta, la base de datos y la colección. Todos los documentos de la colección se incluirán en el índice. Puede definir una consulta para aplanar o filtrar el conjunto de filas o dejar en blanco la consulta. No se requiere una consulta en este asistente.|
 | [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Los requisitos incluyen la cuenta de almacenamiento y un contenedor. Opcionalmente, si los nombres de blobs siguen una convención de nomenclatura virtual con fines de agrupación, puede especificar la parte del directorio virtual del nombre como una carpeta en el contenedor. Consulte [Indexación de Blob Storage](search-howto-indexing-azure-blob-storage.md) para más información. |
 | [**Azure Table Storage**](search-howto-indexing-azure-tables.md) |Los requisitos incluyen la cuenta de almacenamiento y un nombre de tabla. Opcionalmente, puede especificar una consulta para recuperar un subconjunto de las tablas. Consulte [Indexación de Table Storage](search-howto-indexing-azure-tables.md) para más información. |
@@ -92,9 +91,9 @@ El asistente para la importación de datos se inicia desde la barra de comandos 
 
 2. En la página de información general del servicio en la parte superior, haga clic en **Importar datos**.
 
-   ![Comando de importación de datos en el portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar el asistente para la importación de datos")
+   ![Comando de importación de datos en el portal](./media/search-import-data-portal/import-data-cmd2.png "Inicio del Asistente para la importación de datos")
 
-Puede iniciar el asistente para la **importación de datos** desde otros servicios de Azure, como Azure Cosmos DB, Azure SQL Database y Azure Blob Storage. Busque **Agregar Azure Search** en el panel de navegación izquierdo en la página de información general del servicio.
+Puede iniciar el asistente para la **importación de datos** desde otros servicios de Azure, como Azure Cosmos DB, Azure SQL Database y Azure Blob Storage. Busque la opción para **agregar Azure Cognitive Search** en el panel de navegación izquierdo en la página de información general del servicio.
 
 <a name="index-definition"></a>
 
@@ -104,7 +103,7 @@ El asistente genera un índice incompleto que se rellena con los documentos que 
 
 1. ¿Se ha completado la lista de campos? Agregue los nuevos campos que omitió el muestreo y quite aquellos que no aporten valor a una experiencia de búsqueda o que no se utilizarán en una [expresión de filtro](search-query-odata-filter.md) o [perfil de puntuación](index-add-scoring-profiles.md).
 
-1. ¿Es el tipo de datos adecuado para los datos entrantes? Azure Search admite los [tipos de datos de Entity Data Model (EDM)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). En el caso de datos SQL de Azure, hay un [gráfico de asignaciones](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-between-sql-and-azure-search-data-types) que muestra valores equivalentes. Para más información, consulte [Transformaciones y asignaciones de campos](search-indexer-field-mappings.md).
+1. ¿Es el tipo de datos adecuado para los datos entrantes? Azure Cognitive Search admite los [tipos de datos de Entity Data Model (EDM)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). En el caso de datos SQL de Azure, hay un [gráfico de asignaciones](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) que muestra valores equivalentes. Para más información, consulte [Transformaciones y asignaciones de campos](search-indexer-field-mappings.md).
 
 1. ¿Tiene un campo que pueda actuar como *clave*? Este campo debe ser Edm.string y debe identificar de forma exclusiva un único documento. En el caso de los datos relacionales, se podría asignar a una clave principal. En el caso de los blobs, esta podría ser `metadata-storage-path`. Si los valores de campo incluyen espacios o guiones, debe establecer la opción **Claves de codificación Base 64** del paso **Crear un indexador** en **Opciones avanzadas**, a fin de suprimir la comprobación de validación para estos caracteres.
 
@@ -134,4 +133,4 @@ El asistente genera un índice incompleto que se rellena con los documentos que 
 La mejor manera de comprender las ventajas y limitaciones del asistente es recorrer sus pasos. El siguiente inicio rápido le guiará a través de cada paso.
 
 > [!div class="nextstepaction"]
-> [Creación de un índice de Azure Search en Azure Portal](search-get-started-portal.md)
+> [Creación de un índice de Azure Cognitive Search en Azure Portal](search-get-started-portal.md)

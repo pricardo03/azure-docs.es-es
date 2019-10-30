@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: d1ff58611278f02d74f064f0536e5f6f77195fb2
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a02228593a9d8efc9fb363232da1cede3c80a8b3
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828876"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592528"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -27,8 +27,11 @@ ms.locfileid: "71828876"
 > [!IMPORTANT]
 > A partir del 30 de abril de 2019, ya no se admite la versión 1.2.* de la aplicación de orquestación de revisiones. Asegúrese de haber actualizado a la última versión.
 
+> [!NOTE]
+> Las obtención de [actualizaciones de imágenes de sistema operativo automáticas en el conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) es el procedimiento recomendado para mantener el sistema operativo revisado en Azure. Las actualizaciones automáticas de imágenes del sistema operativo basadas en un conjunto de escalado de máquinas virtuales requieren una durabilidad Silver o superior en un conjunto de escalado.
+>
 
-Las obtención de [actualizaciones de imágenes de sistema operativo automáticas en el conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) es el procedimiento recomendado para mantener el sistema operativo revisado en Azure. La aplicación de orquestación de revisiones (POA) es un contenedor alrededor del servicio Administrador de reparaciones de Azure Service Fabric, que habilita la programación de revisiones del sistema operativo basada en la configuración para clústeres que no están hospedados en Azure. Aunque no se necesita POA para clústeres hospedados en ubicaciones distintas de Azure, es necesario programar la instalación de revisiones mediante dominio de actualización para aplicar revisiones en los hosts de clúster de Service Fabric sin incurrir en tiempo de inactividad.
+ La aplicación de orquestación de revisiones (POA) es un contenedor alrededor del servicio Administrador de reparaciones de Azure Service Fabric, que habilita la programación de revisiones del sistema operativo basada en la configuración para clústeres que no están hospedados en Azure. Aunque no se necesita POA para clústeres hospedados en ubicaciones distintas de Azure, es necesario programar la instalación de revisiones mediante dominio de actualización para aplicar revisiones en los hosts de clúster de Service Fabric sin incurrir en tiempo de inactividad.
 
 POA es una aplicación de Service Fabric que automatiza la instalación de revisiones de sistema operativo en un clúster de Service Fabric sin instalación en tiempo de inactividad.
 

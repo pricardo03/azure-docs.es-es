@@ -1,24 +1,23 @@
 ---
-title: 'Aptitud personalizada de Cognitive Search: Azure Search'
-description: Extensión de las funcionalidades de los conjuntos de aptitudes de Cognitive Search mediante un llamado a las API web
-services: search
+title: Aptitud API web personalizada en una canalización de enriquecimiento
+titleSuffix: Azure Cognitive Search
+description: Extienda las funcionalidades de los conjuntos de aptitudes de Azure Cognitive Search mediante un llamado a las API web. Use la aptitud API web personalizada para integrar el código personalizado.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 89539d42e9ac9456c7ee971f6ea607b6b2c6befa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266320"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784906"
 ---
-# <a name="custom-web-api-skill"></a>Aptitud API web personalizada
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Aptitud API web personalizada en una canalización de enriquecimiento de Azure Cognitive Search
 
-La aptitud **API web personalizada** permite extender la búsqueda cognitiva al llamar a un punto de conexión de la API web que proporciona operaciones personalizadas. De manera similar a las aptitudes integradas, una aptitud **API web personalizada** tiene entradas y salidas. En función de las entradas, la API web recibe una carga de JSON cuando se ejecuta el indexador y genera una carga de JSON como respuesta, junto con un código de estado correcto. Se espera que la respuesta tenga las salidas especificadas por la aptitud personalizada. Cualquier otra respuesta se considera un error y no se realiza ningún enriquecimiento.
+La aptitud **API web personalizada** permite extender el enriquecimiento con IA al llamar a un punto de conexión de la API web que proporciona operaciones personalizadas. De manera similar a las aptitudes integradas, una aptitud **API web personalizada** tiene entradas y salidas. En función de las entradas, la API web recibe una carga de JSON cuando se ejecuta el indexador y genera una carga de JSON como respuesta, junto con un código de estado correcto. Se espera que la respuesta tenga las salidas especificadas por la aptitud personalizada. Cualquier otra respuesta se considera un error y no se realiza ningún enriquecimiento.
 
 La estructura de las cargas JSON se describen con mayor detalle más adelante en este documento.
 
@@ -202,6 +201,7 @@ En los casos en que la API web no está disponible o devuelve un error HTTP, se 
 
 ## <a name="see-also"></a>Otras referencias
 
++ [Aptitudes avanzadas: un repositorio de aptitudes personalizadas](https://aka.ms/powerskills)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Cómo agregar una aptitud personalizada a una canalización de Cognitive Search](cognitive-search-custom-skill-interface.md)
-+ [Ejemplo: Creación de una aptitud de búsqueda cognitiva personalizada](cognitive-search-create-custom-skill-example.md)
++ [Incorporación de una aptitud personalizada a una canalización de enriquecimiento con IA](cognitive-search-custom-skill-interface.md)
++ [Ejemplo: Creación de una aptitud personalizada para enriquecimiento con IA(cognitive-search-create-custom-skill-example.md)

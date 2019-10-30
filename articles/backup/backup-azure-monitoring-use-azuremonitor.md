@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: ba2288ecebbeda97b3cd9c24ae930be6af193ab8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 2b951c6660143b1bd2f6502a5441aec3ba8d71e1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177717"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792850"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -29,15 +29,15 @@ Azure Backup proporciona [funcionalidades de supervisión y alerta integradas](b
 ## <a name="using-log-analytics-workspace"></a>Uso del área de trabajo de Log Analytics
 
 > [!NOTE]
-> Los datos de las copias de seguridad de VM de Azure, el agente de Azure Backup, System Center Data Protection Manager, las copias de seguridad de SQL de las VM de Azure y las copias de seguridad del recurso compartido de Azure Files se bombean al área de trabajo de Log Analytics a través de la configuración del diagnóstico. 
+> Los datos de las copias de seguridad de VM de Azure, el agente de Azure Backup, System Center Data Protection Manager, las copias de seguridad de SQL de las VM de Azure y las copias de seguridad del recurso compartido de Azure Files se bombean al área de trabajo de Log Analytics a través de la configuración del diagnóstico. La compatibilidad con Microsoft Azure Backup Server (MABS) se agregará próximamente.
 
-Para supervisar o informar a escala, necesita las funcionalidades de dos servicios de Azure. *Configuración de diagnóstico* envía datos de varios recursos de Azure Resource Manager a otro recurso. *Log Analytics* genera alertas personalizadas en las que puede usar grupos de acciones para definir otros canales de notificación. 
+Para supervisar o informar a escala, necesita las funcionalidades de dos servicios de Azure. *Configuración de diagnóstico* envía datos de varios recursos de Azure Resource Manager a otro recurso. *Log Analytics* genera alertas personalizadas en las que puede usar grupos de acciones para definir otros canales de notificación.
 
 En las secciones siguientes se explica cómo usar Log Analytics para supervisar Azure Backup a escala.
 
 ### <a name="configure-diagnostic-settings"></a>Configuración de valores de diagnóstico
 
-Recursos de Azure Resource Manager como, por ejemplo, el almacén de Recovery Services registra información acerca de las operaciones programadas y las operaciones desencadenadas por el usuario como datos de diagnóstico. 
+Recursos de Azure Resource Manager como, por ejemplo, el almacén de Recovery Services registra información acerca de las operaciones programadas y las operaciones desencadenadas por el usuario como datos de diagnóstico.
 
 En la sección de supervisión, seleccione **Configuración de diagnóstico** y especifique el destino de los datos de diagnóstico del almacén de Recovery Services.
 
@@ -66,21 +66,21 @@ Una vez implementada la plantilla, la solución para supervisar e informar en Az
 
 Cuando seleccione cualquiera de los iconos de información general, podrá ver más información. Estos son algunos de los informes que verá:
 
-* Trabajos sin copia de seguridad de registros
+- Trabajos sin copia de seguridad de registros
 
    ![Gráficos de Log Analytics para los trabajos de copia de seguridad](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
 
-* Alertas de copia de seguridad de los recursos de Azure
+- Alertas de copia de seguridad de los recursos de Azure
 
    ![Gráfico de Log Analytics para los trabajos de restauración](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
 Del mismo modo, al hacer clic en los otros iconos, podrá ver informes sobre los trabajos de restauración, el almacenamiento en la nube, los elementos de copia de seguridad, las alertas de copia de seguridad de los recursos locales y los trabajos de copia de seguridad de registros.
- 
+
 Estos gráficos se proporcionan con la plantilla. Puede editar los gráficos o agregar más si es necesario.
 
 ### <a name="create-alerts-by-using-log-analytics"></a>Creación de alertas mediante Log Analytics
 
-En Azure Monitor, puede crear sus propias alertas en un área de trabajo de Log Analytics. En el área de trabajo, usa *grupos de acciones de Azure* para seleccionar su mecanismo de notificación preferido. 
+En Azure Monitor, puede crear sus propias alertas en un área de trabajo de Log Analytics. En el área de trabajo, usa *grupos de acciones de Azure* para seleccionar su mecanismo de notificación preferido.
 
 > [!IMPORTANT]
 > Para obtener información sobre el costo que supone la creación de esta consulta, consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
@@ -115,7 +115,7 @@ Para obtener más información, consulte [Creación, visualización y administra
 
 Los gráficos predeterminados le proporcionan consultas de Kusto para los escenarios básicos en los que se pueden crear alertas. También puede modificar las consultas para obtener los datos de los que desee recibir alertas. Pegue los siguientes ejemplos de consultas de Kusto en la página **Registros** y, a continuación, cree alertas basadas en las consultas:
 
-* Todos los trabajos de copia de seguridad con resultado satisfactorio
+- Todos los trabajos de copia de seguridad con resultado satisfactorio
 
     ````Kusto
     AzureDiagnostics
@@ -124,8 +124,8 @@ Los gráficos predeterminados le proporcionan consultas de Kusto para los escena
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Completed"
     ````
-    
-* Todos los trabajos de copia de seguridad con errores
+
+- Todos los trabajos de copia de seguridad con errores
 
     ````Kusto
     AzureDiagnostics
@@ -134,8 +134,8 @@ Los gráficos predeterminados le proporcionan consultas de Kusto para los escena
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Failed"
     ````
-    
-* Todos los trabajos de copia de seguridad de máquinas virtuales de Azure con resultado satisfactorio
+
+- Todos los trabajos de copia de seguridad de máquinas virtuales de Azure con resultado satisfactorio
 
     ````Kusto
     AzureDiagnostics
@@ -158,7 +158,7 @@ Los gráficos predeterminados le proporcionan consultas de Kusto para los escena
     | project-away Resource
     ````
 
-* Todos los trabajos de copia de seguridad del registro de SQL con resultado satisfactorio
+- Todos los trabajos de copia de seguridad del registro de SQL con resultado satisfactorio
 
     ````Kusto
     AzureDiagnostics
@@ -181,7 +181,7 @@ Los gráficos predeterminados le proporcionan consultas de Kusto para los escena
     | project-away Resource
     ````
 
-* Todos los trabajos del agente de Azure Backup con resultado satisfactorio
+- Todos los trabajos del agente de Azure Backup con resultado satisfactorio
 
     ````Kusto
     AzureDiagnostics
@@ -223,7 +223,7 @@ Los datos de diagnóstico del almacén se bombean al área de trabajo de Log Ana
 Los registros de actividad también se pueden usar para recibir notificaciones de eventos, como copias de seguridad correctas. Para comenzar, siga estos pasos:
 
 1. Inicie sesión en Azure Portal.
-1. Abra el almacén de Recovery Services pertinente. 
+1. Abra el almacén de Recovery Services pertinente.
 1. En las propiedades del almacén, abra la sección **Registro de actividad**.
 
 Para identificar el registro adecuado y crear una alerta:
@@ -233,7 +233,7 @@ Para identificar el registro adecuado y crear una alerta:
    ![Filtrado para buscar los registros de actividad de las copias de seguridad de máquinas virtuales de Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
 1. Seleccione el nombre de la operación para ver los detalles pertinentes.
-1. Seleccione **Nueva regla de alertas** para abrir la página **Crear regla**. 
+1. Seleccione **Nueva regla de alertas** para abrir la página **Crear regla**.
 1. Cree una alerta siguiendo los pasos en [Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
    ![Nueva alerta de reglas](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
@@ -247,7 +247,7 @@ Puede ver todas las alertas creadas a partir de registros de actividad y áreas 
 Aunque puede recibir notificaciones a través de registros de actividad, recomendamos encarecidamente que se use Log Analytics en su lugar para supervisar a escala. Aquí se detallan los motivos:
 
 - **Escenarios limitados**: las notificaciones a través de registros de actividad se aplican solo a las copias de seguridad de máquinas virtuales de Azure. Las notificaciones deben configurarse para todos los almacenes de Recovery Services.
-- **Ajuste de definición**: la actividad de copia de seguridad programada no se ajusta a la definición más reciente de los registros de actividad. En su lugar, se alinea con los [registros de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Esta alineación da lugar a efectos inesperados al cambiar los datos que fluyen a través del canal del registro de actividad.
+- **Ajuste de definición**: la actividad de copia de seguridad programada no se ajusta a la definición más reciente de los registros de actividad. En su lugar, se alinea con los [registros de recursos](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Esta alineación da lugar a efectos inesperados al cambiar los datos que fluyen a través del canal del registro de actividad.
 - **Problemas con el canal del registro de actividad**: en los almacenes de Recovery Services, los registros de actividad que se bombean desde Azure Backup siguen un nuevo modelo. Desafortunadamente, este cambio afecta a la generación de registros de actividad en Azure Government, Azure Alemania y Azure China 21Vianet. Si los usuarios de estos servicios en la nube crean o configuran cualquier alerta de los registros de actividad en Azure Monitor, no se desencadenarán las alertas. Además, en todas las regiones públicas de Azure, si un usuario [recopila los registros de actividad de Recovery Services en un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), estos registros no aparecerán.
 
 Use un área de trabajo de Log Analytics para la supervisión y generación de alertas a escala en todas las cargas de trabajo que Azure Backup protege.

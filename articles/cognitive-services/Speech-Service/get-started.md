@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 41d12013ec7eaa4e2aae59e1b366cc511a41f749
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.custom: seodec18, seo-javascript-october2019
+ms.openlocfilehash: eb4478a435fbfc899055a60e13b318be771652f7
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535099"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527624"
 ---
 # <a name="try-speech-services-for-free"></a>Prueba gratuita de los servicios de Voz
 
@@ -36,15 +36,15 @@ Para registrarse a fin de obtener una evaluación gratuita de 30 días:
 
 1. Seleccione la pestaña **Speech API**.
 
-   ![Pestaña Servicios de voz](media/index/try-speech-api-free-trial1.png)
+   ![Speech API: Pestaña Servicios de voz](media/index/cognitive-services-speech-api-tab.png)
 
 1. En los **servicios de voz**, seleccione **Obtener clave de API**.
 
-   ![Clave de API](media/index/try-speech-api-free-trial2.png)
+   ![Speech API: Obtener clave de API](media/index/speech-api-get-api-key.png)
 
 1. Acepte los términos y seleccione la configuración regional en el menú desplegable.
 
-   ![Aceptación de los términos](media/index/try-speech-api-free-trial3.png)
+   ![Speech API: Aceptación de los términos](media/index/speech-api-agree-to-terms.png)
 
 1. Inicie sesión con su cuenta de Microsoft, Facebook, LinkedIn o GitHub.
 
@@ -73,17 +73,17 @@ Para agregar un recurso de servicios de Voz (plan gratuito o de pago) a la cuent
 
 1. Seleccione **Crear un recurso** en la parte superior izquierda del portal.
 
-    ![Creación de un recurso](media/index/try-speech-api-create-speech1.png)
+    ![Speech API: Creación de un recurso](media/index/speech-api-create-resource.png)
 
 1. En la ventana **Nuevo**, busque **voz**.
 
 1. En los resultados de la búsqueda, seleccione **Voz**.
 
-    ![Selección de Voz](media/index/try-speech-api-create-speech2.png)
+    ![Speech API: Selección de Voz](media/index/speech-api-select-speech.png)
 
 1. En **Voz**, seleccione el botón **Crear**.
 
-    ![Selección del botón Crear](media/index/try-speech-api-create-speech3.png)
+    ![Speech API: Botón Crear](media/index/speech-api-create-button.png)
 
 1. En **Crear**, escriba:
 
@@ -95,11 +95,11 @@ Para agregar un recurso de servicios de Voz (plan gratuito o de pago) a la cuent
    * Para obtener acceso fácilmente a la suscripción en el futuro, active la casilla **Anclar al panel**.
    * Seleccione **Crear**.
 
-     ![Selección del botón Crear](media/index/try-speech-api-create-speech4.png)
+     ![Speech API: Selección de Crear](media/index/speech-api-select-create.png)
 
      La creación e implementación del recurso de voz nuevo puede tardar unos instantes. Seleccione **Inicio rápido** para ver información sobre el recurso nuevo.
 
-     ![Panel Inicio rápido](media/index/try-speech-api-create-speech5.png)
+     ![Speech API: Implementación del recurso](media/index/speech-api-deploy-resource.png)
 
 1. En **Inicio rápido**, seleccione el vínculo **Claves** del paso 1 para mostrar las claves de suscripción. Cada suscripción tiene dos claves; puede usar cualquiera de ellas en la aplicación. Seleccione el botón situado junto a cada clave para copiarla en el Portapapeles a fin de pegarla en el código.
 

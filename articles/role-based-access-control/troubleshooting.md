@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: eb7c2cb4a20c89f3a54f23e354d56e5dc3711ef0
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 158222c256e3efc7ca87d7a3781ca68e1c4307b1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967099"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750185"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solución de problemas del control de acceso basado en rol para recursos de Azure
 
@@ -54,7 +54,7 @@ En este artículo se responden preguntas comunes acerca del control de acceso ba
 - Si recibe el error de permiso "El cliente con el identificador de objeto no está autorizado para realizar la acción sobre el ámbito (código: AuthorizationFailed)" al intentar crear un recurso, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol con permiso de escritura en el recurso y en el ámbito seleccionado. Por ejemplo, para administrar las máquinas virtuales de un grupo de recursos, debe tener el rol [Colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) en el grupo de recursos (o el ámbito primario). Para ver una lista de todos los permisos para cada uno de los roles integrados, consulte [Roles integrados en los recursos de Azure](built-in-roles.md).
 - Si aparece el error de permiso "No tiene permiso para crear una solicitud de soporte técnico" al intentar crear o actualizar una incidencia de soporte técnico, compruebe que ha iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Support/supportTickets/write`, como [Colaborador de solicitud de soporte técnico](built-in-roles.md#support-request-contributor).
 
-## <a name="role-assignments-without-a-security-principal"></a>Asignaciones de roles sin una entidad de seguridad
+## <a name="role-assignments-with-unknown-security-principal"></a>Asignaciones de roles con entidad de seguridad desconocida
 
 Al enumerar las asignaciones de roles con Azure PowerShell, puede que vea asignaciones con un valor de `DisplayName` vacío y un valor de `ObjectType` desconocido. Por ejemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devuelve una asignación de roles que es similar a la siguiente:
 

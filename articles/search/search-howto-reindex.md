@@ -1,26 +1,25 @@
 ---
-title: 'Recompilación de un índice de Azure Search o actualización del contenido que permite búsquedas: Azure Search'
-description: Agregue elementos nuevos, actualice elementos o documentos existentes o elimine documentos obsoletos en una indexación de recompilación completa o incremental parcial para actualizar un índice de Azure Search.
-services: search
-author: HeidiSteen
+title: Recompilación de un índice de Azure Cognitive Search
+titleSuffix: Azure Cognitive Search
+description: Agregue elementos nuevos, actualice elementos o documentos existentes o elimine documentos obsoletos en una indexación de recompilación completa o incremental parcial para actualizar un índice de Azure Cognitive Search.
 manager: nitinme
-ms.service: search
-ms.topic: conceptual
-ms.date: 02/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 863050b2646f6f7b3a3d9ba3487f11729bef22c8
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 26a751924985f94a7d7d12a382d4e6654f36ea48
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719842"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793703"
 ---
-# <a name="how-to-rebuild-an-azure-search-index"></a>Recompilación de un índice de Azure Search
+# <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Recompilación de un índice de Azure Cognitive Search
 
-En este artículo se explica cómo recompilar un índice de Azure Search, las circunstancias en las que las recompilaciones son necesarias y recomendaciones para mitigar el impacto de las recompilaciones en las solicitudes de consulta en curso.
+En este artículo se explica cómo recompilar un índice de Azure Cognitive Search, las circunstancias en las que las recompilaciones son necesarias y recomendaciones para mitigar el impacto de las recompilaciones en las solicitudes de consulta en curso.
 
-Una *recompilación* se refiere a quitar y volver a crear las estructuras de datos físicas asociadas con un índice, incluidos todos los índices invertidos basados en campos. En Azure Search, no se pueden quitar y volver a crear campos individuales. Para recompilar un índice, se debe eliminar todo el almacenamiento de campos, se debe volver a crear según un esquema de índice existente o revisado y, a continuación, se debe volver a completar con los datos insertados en el índice o extraídos de orígenes externos. Es común recompilar los índices durante el desarrollo, pero también es posible que deba recompilar un índice de nivel de producción para dar cabida a cambios estructurales, como la adición de tipos complejos de campos a proveedores de sugerencias.
+Una *recompilación* se refiere a quitar y volver a crear las estructuras de datos físicas asociadas con un índice, incluidos todos los índices invertidos basados en campos. En Azure Cognitive Search, no se pueden quitar y volver a crear campos individuales. Para recompilar un índice, se debe eliminar todo el almacenamiento de campos, se debe volver a crear según un esquema de índice existente o revisado y, a continuación, se debe volver a completar con los datos insertados en el índice o extraídos de orígenes externos. Es común recompilar los índices durante el desarrollo, pero también es posible que deba recompilar un índice de nivel de producción para dar cabida a cambios estructurales, como la adición de tipos complejos de campos a proveedores de sugerencias.
 
 A diferencia de las recompilaciones que aceptan un índice sin conexión, la *actualización de datos* se ejecuta como una tarea en segundo plano. Puede agregar, quitar y reemplazar documentos con una interrupción mínima para las cargas de trabajo de las consultas, aunque las consultas suelen tardar más en completarse. Para obtener más información sobre cómo actualizar el contenido de un índice, consulte [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Agregar, actualizar o eliminar documentos en Azure Search).
 
@@ -33,7 +32,7 @@ A diferencia de las recompilaciones que aceptan un índice sin conexión, la *ac
 | Actualizar o eliminar una definición de analizador en un índice | No puede eliminar ni cambiar una configuración de analizador existente (analizador, tokenizador, filtro de token o filtro de caracteres) en el índice, a menos que recompile todo el índice. |
 | Agregar un campo a un proveedor de sugerencias | Si ya existe un campo y desea agregarlo a una construcción de [proveedor de sugerencias](index-add-suggesters.md), debe recompilar el índice. |
 | Eliminar un campo | Para quitar físicamente todos los rastros de un campo, tendrá que recompilar el índice. Cuando no resulta práctica una recompilación inmediata, puede modificar el código de la aplicación para deshabilitar el acceso al campo "eliminado". Físicamente, el contenido y la definición del campo permanecen en el índice hasta la próxima recompilación, cuando aplica un esquema que omite el campo en cuestión. |
-| Cambiar los niveles | Si necesita más capacidad, no hay ninguna actualización local en Azure Portal. Se debe crear otro servicio y los índices se deben compilar de cero en el servicio nuevo. Para ayudar a automatizar este proceso, puede usar el código de ejemplo **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Search](https://github.com/Azure-Samples/azure-search-dotnet-samples). Esta aplicación hará una copia de seguridad del índice en una serie de archivos JSON y luego volverá a crear el índice en un servicio de búsqueda que especifique.|
+| Cambiar los niveles | Si necesita más capacidad, no hay ninguna actualización local en Azure Portal. Se debe crear otro servicio y los índices se deben compilar de cero en el servicio nuevo. Para ayudar a automatizar este proceso, puede usar el código de ejemplo **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-dotnet-samples). Esta aplicación hará una copia de seguridad del índice en una serie de archivos JSON y luego volverá a crear el índice en un servicio de búsqueda que especifique.|
 
 Cualquier otra modificación puede realizarse sin afectar a las estructuras físicas existentes. En concreto, los siguientes cambios *no* requieren una recompilación del índice:
 
@@ -45,11 +44,11 @@ Cualquier otra modificación puede realizarse sin afectar a las estructuras fís
 + Adición, actualización o eliminación de configuraciones CORS
 + Adición, actualización o eliminación de synonymMaps
 
-Cuando agrega un campo nuevo, a los documentos indexados existentes se les asigna un valor NULL para el campo nuevo. En una futura nueva indexación, valores provenientes de los datos de origen reemplazarán los valores NULL que agregó Azure Search. Para obtener más información sobre cómo actualizar el contenido de un índice, consulte [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Agregar, actualizar o eliminar documentos en Azure Search).
+Cuando agrega un campo nuevo, a los documentos indexados existentes se les asigna un valor NULL para el campo nuevo. En una futura nueva indexación, valores provenientes de los datos de origen reemplazarán los valores NULL que agregó Azure Cognitive Search. Para obtener más información sobre cómo actualizar el contenido de un índice, consulte [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Agregar, actualizar o eliminar documentos en Azure Search).
 
 ## <a name="partial-or-incremental-indexing"></a>Indexación parcial o incremental
 
-En Azure Search, no se puede controlar la indexación por campo, ni se pueden eliminar o volver a crear campos específicos. De forma similar, no hay ningún mecanismo integrado para [indexar documentos en función de criterios](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Los requisitos que tenga para la indexación basada en criterios deben cumplirse mediante código personalizado.
+En Azure Cognitive Search, no se puede controlar la indexación por campo, ni se pueden eliminar o volver a crear campos específicos. De forma similar, no hay ningún mecanismo integrado para [indexar documentos en función de criterios](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Los requisitos que tenga para la indexación basada en criterios deben cumplirse mediante código personalizado.
 
 Sin embargo, lo que puede hacer fácilmente, es *actualizar los documentos* en un índice. Para muchas soluciones de búsqueda, los datos de origen externo son volátiles y la sincronización entre el origen de datos y un índice de búsqueda es una práctica común. En el código, llame a la operación para [agregar, actualizar o eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) o al [equivalente de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) para actualizar el contenido del índice o para agregar valores a un nuevo campo.
 
@@ -79,7 +78,7 @@ El siguiente flujo de trabajo está orientado hacia la API de REST, pero se apli
 
 3. En el cuerpo de la solicitud, proporcione un esquema de índice con las definiciones de campo modificadas o cambiadas. El cuerpo de la solicitud contiene el esquema del índice, así como los constructores para los perfiles de puntuación, los analizadores, los proveedores de sugerencias y las opciones de CORS. Los requisitos del esquema se documentan en [crear un índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-4. Envíe una solicitud de [actualización del índice](https://docs.microsoft.com/rest/api/searchservice/update-index) para recompilar la expresión física del índice en Azure Search. 
+4. Envíe una solicitud de [actualización del índice](https://docs.microsoft.com/rest/api/searchservice/update-index) para recompilar la expresión física del índice en Azure Cognitive Search. 
 
 5. [Cargue documentos en el índice](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) desde un origen de datos externo.
 
@@ -88,7 +87,7 @@ Cuando se crea el índice, se asigna almacenamiento físico para cada campo en e
 Al cargar el índice, el índice invertido de cada campo se rellena con todas las palabras únicas y con tokens de cada documento, con una asignación a los identificadores del documento correspondiente. Por ejemplo, al indizar un conjunto de datos de hoteles, el índice invertido creado para un campo Ciudad podría contener términos para Seattle, Portland y así sucesivamente. El identificador de documento de los documentos que incluyan Seattle o Portland en el campo Ciudad aparecerá junto con el término. En cualquier operación para [agregar, actualizar o eliminar](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), los términos y la lista de identificadores de documento se actualizan en consecuencia.
 
 > [!NOTE]
-> Si tiene requisitos estrictos de Acuerdo de Nivel de Servicio, puede considerar la posibilidad de aprovisionar un nuevo servicio específicamente para esta tarea, para que el desarrollo y la indización se produzcan completamente aislados del índice de producción. Un servicio independiente se ejecuta en su propio hardware, lo que elimina cualquier posibilidad de contención de recursos. Una vez completado el desarrollo, puede dejar el nuevo índice en su lugar, redirigir las consultas hacia el nuevo punto de conexión e índice o puede ejecutar código terminado para publicar un índice revisado en el servicio de Azure Search original. Actualmente no hay ningún mecanismo para mover un índice listo para usarse a otro servicio.
+> Si tiene requisitos estrictos de Acuerdo de Nivel de Servicio, puede considerar la posibilidad de aprovisionar un nuevo servicio específicamente para esta tarea, para que el desarrollo y la indización se produzcan completamente aislados del índice de producción. Un servicio independiente se ejecuta en su propio hardware, lo que elimina cualquier posibilidad de contención de recursos. Una vez completado el desarrollo, puede dejar el nuevo índice en su lugar, redirigir las consultas hacia el nuevo punto de conexión e índice o puede ejecutar código terminado para publicar un índice revisado en el servicio de Azure Cognitive Search original. Actualmente no hay ningún mecanismo para mover un índice listo para usarse a otro servicio.
 
 ## <a name="view-updates"></a>Visualización de actualizaciones
 
@@ -103,4 +102,4 @@ Puede empezar a consultar un índice en cuanto se carga el primer documento. Si 
 + [Indexador de Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Indexador de Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 + [Indexador de Azure Table Storage](search-howto-indexing-azure-tables.md)
-+ [Security in Azure Search](search-security-overview.md) (Seguridad en Azure Search)
++ [Seguridad en Azure Cognitive Search](search-security-overview.md)

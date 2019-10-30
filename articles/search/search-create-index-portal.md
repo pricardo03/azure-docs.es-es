@@ -1,23 +1,23 @@
 ---
-title: 'Creación de un índice de Azure Search en Azure Portal: Azure Search'
-description: Obtenga información sobre cómo crear un índice de Azure Search con un diseñador de índices integrados en el portal.
+title: Creación de un índice de Azure Cognitive Search en Azure Portal
+titleSuffix: Azure Cognitive Search
+description: Obtenga información sobre cómo crear un índice de Azure Cognitive Search con un diseñador de índices integrados en el portal.
 manager: nitinme
-author: heidisteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9340b9c058ba780b8d74587f21c1b9fbe59576d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937265"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792450"
 ---
-# <a name="create-an-azure-search-index-in-the-portal"></a>Creación de un índice de Azure Search en el portal
+# <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>Creación de un índice de Azure Cognitive Search en el portal
 
-Azure Search incluye un diseñador de índices integrado en el portal que resulta útil para prototipos o la creación de un [índice de búsqueda](search-what-is-an-index.md) hospedado en el servicio Azure Search. La herramienta se usa para la construcción del esquema. Cuando se guarda la definición, un índice vacío se expresa completamente en Azure Search. Cómo lo carga con contenido para la búsqueda es decisión suya.
+Azure Cognitive Search incluye un diseñador de índices integrado en el portal que resulta útil para prototipos o la creación de un [índice de búsqueda](search-what-is-an-index.md) hospedado en el servicio Azure Cognitive Search. La herramienta se usa para la construcción del esquema. Cuando se guarda la definición, un índice vacío se expresa completamente en Azure Cognitive Search. Cómo lo carga con contenido para la búsqueda es decisión suya.
 
 El diseñador de índices es solo un enfoque para la creación de un índice. Como alternativa, puede crear y cargar un índice mediante el [Asistente para la importación de datos](search-get-started-portal.md). El asistente solo funciona con los índices que se crean. Mediante programación, cree un índice usando las API [.NET](search-create-index-dotnet.md) o [REST](search-create-index-rest-api.md).
 
@@ -27,9 +27,9 @@ El diseñador de índices es solo un enfoque para la creación de un índice. Co
 
 2. Haga clic en el vínculo **Agregar índice** de la barra de comandos de la parte superior de la página.
 
-   ![Vínculo Agregar índice en la barra de comandos](media/search-create-index-portal/add-index.png "Add index link in the command bar")
+   ![Adición de un vínculo de índice en la barra de comandos](media/search-create-index-portal/add-index.png "Adición de un vínculo de índice en la barra de comandos")
 
-3. Asigne un nombre a su índice de Azure Search. Se hace referencia a los nombres de índice en las operaciones de indexación y consulta. El nombre del índice se convierte en parte de la dirección URL del punto de conexión que se usa en las conexiones al índice y para enviar solicitudes HTTP en la API de REST de Azure Search.
+3. Asigne un nombre al índice de Azure Cognitive Search. Se hace referencia a los nombres de índice en las operaciones de indexación y consulta. El nombre del índice se convierte en parte de la dirección URL del punto de conexión que se usa en las conexiones al índice y para enviar solicitudes HTTP en la API REST de Azure Cognitive Search.
 
    * Empiece con una letra.
    * Use únicamente letras minúsculas, números o guiones ("-").
@@ -43,13 +43,13 @@ La composición del índice incluye una *colección de campos* que define los da
 
 1. Si los datos entrantes son jerárquicos por naturaleza, el esquema debe incluir [tipos complejos](search-howto-complex-data-types.md) para representar las estructuras anidadas. El conjunto de datos de ejemplo integrado, Hotels, muestra tipos complejos mediante una dirección (contiene varios subcampos) que tiene una relación de uno a uno con cada hotel y una colección compleja de habitaciones, en la que hay varias habitaciones asociadas con cada hotel. 
 
-1. Especifique un campo de *clave* de tipo Edm.String. Hay un campo de clave obligatorio para cada índice de Azure Search y debe ser una cadena. Los valores de este campo deben identificar de forma exclusiva cada documento. De forma predeterminada, el campo se denomina *id*, pero se puede cambiar de nombre siempre que la cadena se ajuste a las [reglas de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Por ejemplo, si la colección de campos incluye *id. de hotel*, elegiría ese valor para la clave. 
+1. Especifique un campo de *clave* de tipo Edm.String. Hay un campo de clave obligatorio para cada índice de Azure Cognitive Search y debe ser una cadena. Los valores de este campo deben identificar de forma exclusiva cada documento. De forma predeterminada, el campo se denomina *id*, pero se puede cambiar de nombre siempre que la cadena se ajuste a las [reglas de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Por ejemplo, si la colección de campos incluye *id. de hotel*, elegiría ese valor para la clave. 
 
 1. Defina atributos en cada campo. El diseñador de índices excluye todos los atributos que no son válidos para el tipo de datos, pero no sugiere qué incluir. Revise las instrucciones de la sección siguiente para comprender para qué son los atributos.
 
-    La documentación de la API de Azure Search incluye ejemplos de código con un sencillo índice de *hoteles*. En la captura de pantalla siguiente, puede ver la definición del índice, incluido el analizador de idioma francés especificado durante la definición del índice, que puede volver a crear como ejercicio práctico en el portal.
+    La documentación de la API de Azure Cognitive Search incluye ejemplos de código con un sencillo índice de *hoteles*. En la captura de pantalla siguiente, puede ver la definición del índice, incluido el analizador de idioma francés especificado durante la definición del índice, que puede volver a crear como ejercicio práctico en el portal.
 
-    ![Índice de demostración de hoteles](media/search-create-index-portal/field-definitions.png "Hotels demo index")
+    ![Índice de demostración de hoteles](media/search-create-index-portal/field-definitions.png "Índice de demostración de hoteles")
 
 1. Cuando termine, haga clic en **Crear** para guardar y crear el índice.
 
@@ -76,7 +76,7 @@ Los atributos de campo determinan cómo se usa un campo, por ejemplo, si se usa 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de crear un índice de Azure Search, puede ir al siguiente paso: [cargar datos buscables en el índice](search-what-is-data-import.md).
+Después de crear un índice de Azure Cognitive Search, puede ir al siguiente paso: [cargar datos que se pueden buscar en el índice](search-what-is-data-import.md).
 
 También puede [profundizar en los índices](search-what-is-an-index.md). Además de la colección de campos, un índice también especifica analizadores, proveedores de sugerencias, perfiles de puntuación y configuración de CORS. El portal proporciona pestañas para definir los elementos más comunes: campos, analizadores y proveedores de sugerencias. Para crear o modificar otros elementos, puede usar la API de REST o el SDK de .NET.
 

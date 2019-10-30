@@ -1,22 +1,21 @@
 ---
-title: 'Aptitud de búsqueda cognitiva División de texto: Azure Search'
-description: Divida texto en fragmentos o páginas de texto en función de la longitud de una canalización de enriquecimiento de Azure Search.
-services: search
+title: Aptitud cognitiva División de texto
+titleSuffix: Azure Cognitive Search
+description: Divida texto en fragmentos o páginas de texto en función de la longitud de una canalización de enriquecimiento con IA de Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: a6e46970b6c0fc91c464207049d2dedaaee1afdd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 2172ac30cd5b4251933e5012affdb41a0202a344
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265679"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784844"
 ---
-#   <a name="text-split-cognitive-skill"></a>Aptitud cognitiva División de texto
+# <a name="text-split-cognitive-skill"></a>Aptitud cognitiva División de texto
 
 La aptitud **División de texto** divide el texto en fragmentos de texto. Puede especificar si desea dividir el texto en oraciones o en páginas de una longitud determinada. Esta aptitud es especialmente útil si hay requisitos de longitud de texto máxima en otras aptitudes de bajada. 
 
@@ -133,5 +132,5 @@ Si no se admite un idioma, se genera una advertencia y el texto se divide en lí
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
++ [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

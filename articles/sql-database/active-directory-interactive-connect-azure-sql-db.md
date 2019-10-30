@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
-ms.reviewer: GeneMi
-ms.date: 03/12/2019
-ms.openlocfilehash: 4f36dcc9953134ac5dd24d3d762ac0dde9949ab7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.reviewer: GeneMi, vanto
+ms.date: 10/11/2019
+ms.openlocfilehash: c55fa6d58109345a0c600bd0c1c76c5a229c03bc
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561363"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554472"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Conexión a Azure SQL Database con Azure Multi-factor Authentication
 
@@ -59,7 +59,7 @@ Al completar el registro de una aplicación, se genera y se muestra un **identif
 
 Para registrar y establecer los permisos necesarios para la aplicación:
 
-1. En Azure Portal, seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro de aplicaciones**.
+1. En Azure Portal, seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
 
     ![Registro de aplicación](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
@@ -67,15 +67,15 @@ Para registrar y establecer los permisos necesarios para la aplicación:
 
     ![Identificador de aplicación mostrado](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. Seleccione **Aplicación registrada** > **Configuración** > **Permisos necesarios** > **Agregar**.
+2. Seleccione **Permisos de API** > **Agregar un permiso**.
 
     ![Configuración de permisos para la aplicación registrada](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
-3. Seleccione **Permisos necesarios** > **Agregar** > **Seleccionar una API** > **Azure SQL Database**.
+3. Seleccione **API usadas en mi organización** > escriba **Azure SQL Database** en la búsqueda y seleccione **Azure SQL Database**.
 
     ![Adición de acceso a la API de Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. Seleccione **Acceso de API** > **Seleccionar permisos** > **Permisos delegados**.
+4. Seleccione **Permisos delegados** > **user_impersonation** > **Agregar permisos**.
 
     ![Delegación de permisos en la API de Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 

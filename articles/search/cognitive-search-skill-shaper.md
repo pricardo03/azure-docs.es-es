@@ -1,22 +1,21 @@
 ---
-title: 'Aptitud de búsqueda cognitiva Conformador: Azure Search'
-description: Extraiga metadatos e información estructurada a partir de datos no estructurados y confórmelos como un tipo complejo en una canalización de enriquecimiento de Azure Search.
-services: search
+title: Habilidad cognitiva Conformador
+titleSuffix: Azure Cognitive Search
+description: Extraiga metadatos e información estructurada de datos no estructurados y modélelos como un tipo complejo en una canalización de enriquecimiento de inteligencia artificial de Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 84814c317a945fd22ada580dcc3f64ed2adcff7c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265352"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791874"
 ---
-#   <a name="shaper-cognitive-skill"></a>Habilidad cognitiva Conformador
+# <a name="shaper-cognitive-skill"></a>Habilidad cognitiva Conformador
 
 La aptitud **Conformador** consolida varias entradas en un [tipo complejo](search-howto-complex-data-types.md) al que se puede hacer referencia más adelante en la canalización de enriquecimiento. La aptitud **Conformador** básicamente permite crear una estructura, definir el nombre de los miembros de esa estructura y asignar valores a cada miembro. Los ejemplos de campos consolidados útiles en escenarios de búsqueda incluyen la combinación de un nombre y apellido, de una ciudad y un estado o de un nombre y una fecha de nacimiento en una sola estructura para establecer una identidad exclusiva.
 
@@ -32,7 +31,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>Escenario 1: tipos complejos
 
-Piense en un escenario en el que quiere crear una estructura denominada *analyzedText* con dos miembros: *text* y *sentiment*, respectivamente. En un índice de Azure Search, un campo de búsqueda de varias partes se denomina *tipo complejo* y se suele crear cuando el origen de datos tiene una estructura compleja correspondiente que se asigna a él.
+Piense en un escenario en el que quiere crear una estructura denominada *analyzedText* con dos miembros: *text* y *sentiment*, respectivamente. En un índice, un campo de búsqueda de varias partes se denomina *tipo complejo* y se suele crear cuando los datos de origen tienen asignada una estructura compleja correspondiente.
 
 Pero otro método para crear tipos complejos es mediante la aptitud **Conformador**. Al incluir esta aptitud en un conjunto de aptitudes, las operaciones en memoria durante el procesamiento del conjunto de aptitudes pueden generar formas de datos con estructuras anidadas, que luego pueden asignarse a un tipo complejo del índice. 
 
@@ -110,7 +109,7 @@ Un documento JSON entrante que proporcionara una entrada útil para esta aptitud
 
 ### <a name="skill-output"></a>Salida de aptitud
 
-La aptitud *Conformador* genera un nuevo elemento llamado **analyzedText** con los elementos combinados de *text* y *sentiment*. Esta salida se ajusta al esquema de índice. Se va a importar e indexar en un índice de Azure Search.
+La aptitud *Conformador* genera un nuevo elemento llamado **analyzedText** con los elementos combinados de *text* y *sentiment*. Esta salida se ajusta al esquema de índice. Se importará e indexará en un índice de Azure Cognitive Search.
 
 ```json
 {
@@ -249,8 +248,8 @@ En este caso, el **Conformador** crea un tipo complejo. Esta estructura existe e
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
++ [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Cómo usar tipos complejos](search-howto-complex-data-types.md)
-+ [Información general de Knowledge Store](knowledge-store-concept-intro.md)
++ [Almacén de conocimiento (versión preliminar)](knowledge-store-concept-intro.md)
 + [Introducción a Knowledge Store](knowledge-store-howto.md)

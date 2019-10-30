@@ -1,20 +1,19 @@
 ---
-title: 'Aptitud de búsqueda cognitiva Text Translation: Azure Search'
-description: Evalúa el texto y, para cada registro, devuelve el texto traducido al idioma de destino especificado en una canalización de enriquecimiento de Azure Search.
-services: search
+title: Aptitud cognitiva Text Translation
+titleSuffix: Azure Cognitive Search
+description: Evalúa el texto y devuelve para cada registro el texto traducido al idioma de destino especificado en una canalización de enriquecimiento de inteligencia artificial de Azure Cognitive Search.
 manager: nitinme
 author: careyjmac
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 06/25/2019
 ms.author: chalton
-ms.openlocfilehash: ddfb35cbfcfbc262f3eff0de67f5cedfc31ea27e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c2405fe67b39e016e64efb1b36cc551a00a338fc
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265707"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791851"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Aptitud cognitiva Text Translation
 
@@ -22,12 +21,12 @@ La aptitud **Text Translation** evalúa el texto y, para cada registro, devuelve
 
 Esta funcionalidad es útil si espera que los documentos no estén en un único idioma, en cuyo caso puede normalizar el texto a un solo idioma antes de la indexación para la búsqueda mediante su traducción.  También es útil para los casos de uso de localización, en los que puede que desee tener copias del mismo texto disponibles en varios idiomas.
 
-[Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) es un servicio de Cognitive Services no regional, lo que significa que no se garantiza que los datos permanezcan en la misma región que Azure Search o el recurso de Cognitive Services asociado.
+[Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) es un servicio de Cognitive Services no regional, lo que significa que no se garantiza que los datos permanezcan en la misma región que Azure Cognitive Search o el recurso de Cognitive Services asociado.
 
 > [!NOTE]
-> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
+> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.TranslationSkill
@@ -151,5 +150,5 @@ Si el texto tiene más de 50 000 caracteres, solo se traducirán los primeros 5
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
++ [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

@@ -4,23 +4,22 @@ description: Obtenga información sobre cómo migrar un nombre de dominio DNS pe
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
-editor: jimbe
+manager: gwallace
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 703a151f801f65b968ecf93eaa97640c22a71bd2
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5f11173c7b7f7396a8cf5cda4b9c8975cd7bb38e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073086"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679814"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migración de un nombre de DNS activo a Azure App Service
 
@@ -122,13 +121,19 @@ Para el ejemplo de dominio raíz de `contoso.com`, reasigne el registro A o CNAM
 
 | Ejemplo de FQDN | Tipo de registro | Host | Valor |
 | - | - | - | - |
-| contoso.com (raíz) | Una | `@` | Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
+| contoso.com (raíz) | Una | `@` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
 | www\.contoso.com (sub) | CNAME | `www` | _&lt;nombreaplic&gt;.azurewebsites.net_ |
 | \*.contoso.com (comodín) | CNAME | _\*_ | _&lt;nombreaplic&gt;.azurewebsites.net_ |
 
 Guarde la configuración.
 
 Las consultas DNS deben comenzar resolviéndose en la aplicación de App Service de inmediato después de que se produzca la propagación de DNS.
+
+## <a name="active-domain-in-azure"></a>Dominio activo en Azure
+
+Puede migrar un dominio personalizado activo en Azure, ya sea entre suscripciones o dentro de la misma suscripción. Esta migración sin tiempo de inactividad, sin embargo, requiere que en un momento determinado se asigne el mismo dominio personalizado a la aplicación de origen y la aplicación de destino. Por lo tanto, debe asegurarse de que las dos aplicaciones no se han implementado en la misma unidad de implementación (lo que se conoce internamente como espacio web). Un nombre de dominio solo se puede asignar a una aplicación de cada unidad de implementación.
+
+Puede encontrar la unidad de implementación de la aplicación si examina el nombre de dominio de la dirección URL de FTP/S `<deployment-unit>.ftp.azurewebsites.windows.net`. Compruebe, asegurándose de ello, que la unidad de implementación es diferente entre la aplicación de origen y la aplicación de destino. La unidad de implementación de una aplicación viene determinada por el [plan de App Service](overview-hosting-plans.md) en el que se encuentra. Azure la selecciona aleatoriamente al crear el plan y no se puede cambiar. Azure solo se asegura de que dos planes estén en la misma unidad de implementación cuando se [crean en el mismo grupo de recursos *y* en la misma región](app-service-plan-manage.md#create-an-app-service-plan), pero no tiene ninguna lógica para asegurarse de que los planes se encuentran en unidades de implementación diferentes. La única forma de crear un plan en una unidad de implementación diferente es seguir creando planes en nuevos grupos de recursos o regiones hasta que se obtenga una unidad de implementación diferente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

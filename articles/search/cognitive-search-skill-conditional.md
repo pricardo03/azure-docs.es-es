@@ -1,24 +1,23 @@
 ---
-title: Aptitud de búsqueda cognitiva Condicional (Azure Search) | Microsoft Docs
-description: La aptitud condicional permite el filtrado, la creación de valores predeterminados y la combinación de valores.
-services: search
+title: Aptitud cognitiva condicional
+titleSuffix: Azure Cognitive Search
+description: La aptitud condicional en Búsqueda cognitiva de Azure habilita el filtrado, la creación de valores predeterminados y la combinación de valores en una definición del conjunto de aptitudes.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: ea6113b96e2acf70a877e170651be3daa578e518
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265813"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792042"
 ---
-#   <a name="conditional-skill"></a>Aptitud condicional
+# <a name="conditional-cognitive-skill"></a>Aptitud cognitiva condicional
 
-La *aptitud condicional* habilita los escenarios de Azure Search que requieren una operación booleana para determinar los datos que deben asignarse a una salida. Estos escenarios incluyen el filtrado, la asignación de un valor predeterminado y la combinación de datos según una condición.
+La aptitud **condicional** habilita los escenarios de Búsqueda cognitiva de Azure que requieren una operación booleana para determinar los datos que deben asignarse a una salida. Estos escenarios incluyen el filtrado, la asignación de un valor predeterminado y la combinación de datos según una condición.
 
 El siguiente pseudocódigo muestra lo que lleva a cabo la aptitud condicional:
 
@@ -176,5 +175,5 @@ Algunos parámetros se evalúan, por lo que deberá tener mucho cuidado de segui
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-+ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
++ [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

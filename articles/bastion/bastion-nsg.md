@@ -5,48 +5,60 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4f99b24435998fc4d0c7ab724c66a318586a80d4
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 24279ff81daf0a350aa5234e78f27a99b7e4a03e
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694940"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527999"
 ---
-# <a name="working-with-nsg-access-and-azure-bastion-preview"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion (versión preliminar)
+# <a name="working-with-nsg-access-and-azure-bastion"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion
 
 Al trabajar con Azure Bastion, puede usar grupos de seguridad de red (NSG). Para más información, consulte [Grupos de seguridad](../virtual-network/security-overview.md). 
 
-> [!IMPORTANT]
-> Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-
-![Arquitectura](./media/bastion-nsg/nsg_architecture.png)
+![Arquitectura](./media/bastion-nsg/nsg-architecture.png)
 
 En este diagrama:
 
 * El host de Bastion se implementa en la red virtual.
 * El usuario se conecta a Azure Portal con cualquier explorador HTML5.
-* El usuario selecciona la máquina virtual a la que conectarse.
-* Con un solo clic, la sesión RDP/SSH se abre en el explorador.
+* El usuario va a la máquina virtual de Azure para RDP/SSH.
+* Integración de conexión: sesión de RDP/SSH con un solo clic dentro del explorador
 * No se requiere ninguna dirección IP pública en la máquina virtual de Azure.
 
 ## <a name="nsg"></a>Grupos de seguridad de red
 
-* **AzureBastionSubnet:** Azure Bastion se implementa en la subred AzureBastionSubnet específica.  
-    * **Tráfico de entrada procedente de Internet pública:** Azure Bastion creará una dirección IP pública que necesita el puerto 443 habilitado en la dirección IP pública para el tráfico de entrada. El puerto 3389/22 no tiene que abrirse en la subred AzureBastionSubnet.
-    * **Tráfico de salida a máquinas virtuales de destino:** Azure Bastion se comunicará con las máquinas virtuales de destino a través de la dirección IP privada. Los grupos de seguridad de red tienen que permitir el tráfico de salida a otras subredes de VM de destino.
+En esta sección se muestra el tráfico de red entre el usuario y Azure Bastion, y para dirigirse a las máquinas virtuales de la red virtual:
+
+### <a name="azurebastionsubnet"></a>AzureBastionSubnet
+
+Azure Bastion se implementa en concreto en la subred AzureBastionSubnet.
+
+* **Tráfico de entrada:**
+
+   * **Tráfico de entrada procedente de Internet pública:** Azure Bastion creará una dirección IP pública que necesita el puerto 443 habilitado en la dirección IP pública para el tráfico de entrada. El puerto 3389/22 no tiene que abrirse en la subred AzureBastionSubnet.
+   * **Plano de control del tráfico de entrada procedente de Azure Bastion:** Para la conectividad del plano de control, habilite el puerto 443 entrante desde la etiqueta de servicio de **GatewayManager**. De este modo, se permite que el plano de control, es decir, el administrador de puerta de enlace, pueda comunicarse con Azure Bastion.
+
+* **Tráfico de salida:**
+
+   * **Tráfico de salida a máquinas virtuales de destino:** Azure Bastion se comunicará con las máquinas virtuales de destino a través de la dirección IP privada. Los grupos de seguridad de red tienen que permitir el tráfico de salida a otras subredes de máquinas virtuales de destino para el puerto 3389 y 22.
+   * **Salida del tráfico a otros puntos de conexión públicos de Azure:** Azure Bastion debe ser capaz de conectarse a varios puntos de conexión públicos dentro de Azure (por ejemplo, para almacenar registros de diagnóstico y los registros de medición). Por esta razón, Azure Bastion necesita una salida hacia 443 para la etiqueta de servicio **AzureCloud**.
+
 * **Subred de VM de destino:** Se trata de una subred que contiene la máquina virtual de destino a la que quiere conectarse mediante RDP/SSH.
-    * **Tráfico de entrada procedente de Azure Bastion:** Azure Bastion se comunicará con la máquina virtual de destino a través de la dirección IP privada. Los puertos RDP/SSH (puertos 3389 y 22, respectivamente) tienen que abrirse en la máquina virtual de destino a través de la dirección IP privada.
+
+   * **Tráfico de entrada procedente de Azure Bastion:** Azure Bastion se comunicará con la máquina virtual de destino a través de la dirección IP privada. Los puertos RDP/SSH (puertos 3389/22, respectivamente) tienen que abrirse en la máquina virtual de destino a través de la dirección IP privada. Como procedimiento recomendado, puede agregar el intervalo de direcciones IP de la subred de Azure Bastion en esta regla para permitir que solo Bastion pueda abrir estos puertos en las máquinas virtuales de destino de la subred de la máquina virtual de destino.
 
 ## <a name="apply"></a>Aplicación de grupos de seguridad de red en AzureBastionSubnet
 
-Si aplica grupos de seguridad de red a la subred **AzureBastionSubnet**, permita las dos etiquetas de servicio siguientes para la infraestructura y el plano de control de Azure:
+Si crea y aplica un grupo de seguridad de red a ***AzureBastionSubnet***, asegúrese de que ha agregado las siguientes reglas en él. Si no agrega estas reglas, se producirá un error en la creación o actualización de los grupos de seguridad de red:
 
-* **GatewayManager (solo Resource Manager)** : esta etiqueta denota los prefijos de dirección del servicio Azure Gateway Manager. Si especifica GatewayManager como valor, el tráfico a GatewayManager se permite o se deniega.  Si va a crear grupos de seguridad de red en AzureBastionSubnet, habilite la etiqueta GatewayManager para el tráfico entrante.
+* **Conectividad del plano de control:** entrante en 443 desde GatewayManager
+* **Registro de diagnóstico y otros:** saliente en 443 a AzureCloud. Todavía no se admiten etiquetas regionales dentro de esta etiqueta de servicio.
+* **Máquina virtual de destino:** saliente de 3389 y 22 a VirtualNetwork
 
-* **AzureCloud (solo Resource Manager)** : esta etiqueta denota el espacio de direcciones IP de Azure e incluye todas las direcciones IP públicas del centro de datos. Si especifica AzureCloud como valor, el tráfico a las direcciones IP públicas de Azure se permite o deniega. Si quiere permitir el acceso solo a AzureCloud en una región determinada, puede especificarla. Por ejemplo, si solo quiere permitir el acceso a AzureCloud en la región Este de EE. UU., puede especificar AzureCloud.EastUS como etiqueta de servicio. Si va a crear grupos de seguridad de red en AzureBastionSubnet, habilite la etiqueta AzureCloud para el tráfico saliente. Si abre el puerto 443 de entrada en Internet, no debe habilitar la etiqueta AzureCloud para el tráfico entrante.
+Hay un ejemplo de regla de grupo de seguridad de red disponible como referencia en esta [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

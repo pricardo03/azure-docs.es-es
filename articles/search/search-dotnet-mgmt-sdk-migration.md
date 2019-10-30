@@ -1,22 +1,22 @@
 ---
-title: 'Actualización a la versión 2 del SDK de administración de Azure Search para .NET: Azure Search'
+title: Actualización a la versión 2 del SDK de administración de .NET para Azure Search
+titleSuffix: Azure Cognitive Search
 description: Actualización a la versión 2 del SDK de administración de Azure Search para .NET a partir de versiones anteriores. Obtenga información sobre las novedades y los cambios de código necesarios.
-author: brjohnstmsft
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 2a59cff7f5313b0ac5a060d698950a4c82160f67
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: b81060bc3d8409a9ccb74ba85c85e6f779650ffd
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182259"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792417"
 ---
-# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>Actualización a la versión del SDK de administración de Azure Search para .NET 
+# <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Actualización de las versiones del SDK de administración de .NET para Azure Search
 
 > [!Important]
 > Este contenido todavía está en construcción. La versión 3.0 del SDK de administración de Azure Search para .NET está disponible en NuGet. Estamos trabajando en la actualización de esta guía de migración para explicar cómo actualizar a la nueva versión. 

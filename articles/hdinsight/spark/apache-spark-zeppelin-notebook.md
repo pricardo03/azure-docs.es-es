@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.openlocfilehash: 26634e2fe23e0a23540638c4559af6e11eccbe72
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71180738"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en Azure HDInsight
@@ -36,13 +36,13 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 
 2. Cree un nuevo notebook. En el panel del encabezado, vaya a **Notebook** > **Create new note** (Cuaderno > Crear nueva nota).
 
-    ![Creación de un nuevo cuaderno de Zeppeling](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Creación de un nuevo cuaderno de Zeppeling")
+    ![Creación de un nuevo cuaderno de Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Crear un nuevo cuaderno de Zeppelin")
 
     Especifique un nombre para el cuaderno y haga clic en **Create Note** (Crear nota).
 
 3. Por otro lado, asegúrese de que en el encabezado del cuaderno aparece el estado conectado. Esto estado se indica mediante un punto verde que se encuentra en la esquina superior derecha.
 
-    ![Estado del cuaderno de Zeppeling](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Estado del cuaderno de Zeppeling")
+    ![Estado del cuaderno de Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Estado del cuaderno de Zeppelin")
 
 4. Cargue los datos de ejemplo en una tabla temporal. Cuando cree un clúster de Spark en HDInsight, el archivo de datos de ejemplo `hvac.csv` se copia en la cuenta de almacenamiento asociada en `\HdiSamples\SensorSampleData\hvac`.
 
@@ -74,7 +74,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 
     Presione **MAYÚS+ENTRAR** o haga clic en el botón **Reproducir** del párrafo para ejecutar el fragmento de código. El estado en la esquina derecha del párrafo debería avanzar de READY (Listo), PENDING (Pendiente) o RUNNING (En ejecución) a FINISHED (Finalizado). El resultado se muestra en la parte inferior del mismo párrafo. La captura de pantalla es similar a la siguiente:
 
-    ![Creación de una tabla temporal a partir de datos sin procesar](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Creación de una tabla temporal a partir de datos sin procesar")
+    ![Creación de una tabla temporal de datos sin procesar](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Crear una tabla temporal de datos sin procesar")
 
     También puede proporcionar un título para cada párrafo. Desde la esquina derecha del párrafo, seleccione el ícono **Settings** (Configuración) con forma de rueda dentada y seleccione **Show title** (Mostrar título).  
 
@@ -92,7 +92,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 
 6. Seleccione el icono del **gráfico de barras** para cambiar la visualización.  La **configuración**, que aparece después de haber seleccionado el **gráfico de barras**, le permite elegir las **claves** y los **valores**.  En la captura de pantalla siguiente se muestra el resultado.
 
-    ![Ejecución de una instrucción Spark SQL mediante el cuaderno 1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Run a Spark SQL statement using the notebook1")
+    ![Ejecución de una instrucción Spark SQL mediante el cuaderno 1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Ejecución de una instrucción Spark SQL mediante el cuaderno 1")
 
 7. También puede ejecutar instrucciones Spark SQL usando variables en la consulta. El siguiente fragmento de código muestra cómo definir una variable `Temp` en la consulta con los valores posibles con los que quiere hacer la consulta. Cuando ejecuta la consulta por primera vez, se rellena una lista desplegable automáticamente con los valores especificados para la variable.
 
@@ -110,7 +110,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 
      En la captura de pantalla siguiente se muestra el resultado.
 
-     ![Ejecución de una instrucción Spark SQL mediante el cuaderno 2](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Run a Spark SQL statement using the notebook2")
+     ![Ejecución de una instrucción Spark SQL mediante el cuaderno 2](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Ejecución de una instrucción Spark SQL mediante el cuaderno 2")
 
 9. Reinicie el intérprete de Livy para salir de la aplicación. Para ello, abra la configuración del intérprete haciendo clic en el nombre del usuario conectado que encontrará en la esquina superior derecha y después en **Interpreter** (Intérprete).  
 
@@ -118,7 +118,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 
 10. Desplácese hasta **livy** y seleccione la opción para **reiniciar**.  Seleccione **Aceptar** cuando se le solicite.
 
-    ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete de Zeppelin")
+    ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete Zeppelin")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Uso de paquetes externos con el cuaderno
 Puede configurar el cuaderno de Zeppelin Notebook en un clúster Apache Spark de HDInsight si quiere usar paquetes externos que haya aportado la comunidad y que no estén incluidos en el clúster. Puede buscar el [repositorio de Maven](https://search.maven.org/) para obtener una lista completa de los paquetes que están disponibles. También puede obtener una lista de paquetes disponibles de otras fuentes. Por ejemplo, dispone de la lista completa de los paquetes externos aportados por la comunidad en [Spark Packages](https://spark-packages.org/)(Paquetes Spark).
@@ -131,11 +131,11 @@ En este artículo, aprenderá a utilizar el paquete [spark csv](https://search.m
 
 2. Desplácese hasta **livy** y seleccione la opción de **editar**.
 
-    ![Cambio de la configuración 1 del intérprete](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Change interpreter settings1")
+    ![Modificación de la configuración del intérprete 1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Modificación de la configuración del intérprete 1")
 
 3. Agregue una nueva clave denominada `livy.spark.jars.packages` y establezca su valor con el formato `group:id:version`. Por ejemplo, si desea usar el paquete [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), debe establecer el valor de la clave en `com.databricks:spark-csv_2.10:1.4.0`.
 
-    ![Cambio de la configuración 2 del intérprete](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Change interpreter settings2")
+    ![Modificación de la configuración del intérprete 2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Modificación de la configuración del intérprete 2")
 
     Haga clic en **Save** (Guardar) y reinicie el intérprete de Livy.
 
@@ -145,7 +145,7 @@ En este artículo, aprenderá a utilizar el paquete [spark csv](https://search.m
    
     b. En el repositorio, recopile los valores de **GroupId**, **ArtifactId** y **Version**.
    
-    ![Uso de paquetes externos con cuadernos de Jupyter](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Uso de paquetes externos con cuadernos de Jupyter")
+    ![Uso de paquetes externos con cuadernos de Jupyter Notebook](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Uso de paquetes externos con cuadernos de Jupyter Notebook")
    
     c. Concatene los tres valores separados por dos puntos ( **:** ).
    
@@ -169,7 +169,7 @@ En este caso, debe seguir los pasos que se indican a continuación para poder ej
 
 2. Desplácese hasta **livy** y seleccione la opción para **reiniciar**.
 
-    ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete de Zeppelin")
+    ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete Zeppelin")
 
 3. Ejecute una celda de código desde el cuaderno de Zeppelin Notebook existente. Esto creará una nueva sesión de Livy en el clúster de HDInsight.
 

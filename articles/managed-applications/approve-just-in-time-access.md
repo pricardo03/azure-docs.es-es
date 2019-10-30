@@ -1,17 +1,17 @@
 ---
-title: Configuración y aprobación del acceso Just-In-Time para Azure Managed Applications
+title: 'Aprobación del acceso Just-in-Time: Azure Managed Applications'
 description: Describe cómo los consumidores de Azure Managed Applications aprueban las solicitudes de acceso Just-In-Time a una aplicación administrada.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
-ms.openlocfilehash: 55fbf7292ab894cad3de3de9e96ddc96fe0b79b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd5c3f21b1a4b71d129ccbebeaa7ee66274a672f
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481720"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529127"
 ---
 # <a name="configure-and-approve-just-in-time-access-for-azure-managed-applications"></a>Configuración y aprobación del acceso Just-In-Time para Azure Managed Applications
 

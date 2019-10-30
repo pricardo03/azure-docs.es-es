@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: f468b2afce1609de126859546a72544ba403424e
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838881"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674960"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
@@ -63,7 +63,7 @@ Cuando se modifica cualquiera de los desencadenantes, la infraestructura de Func
 Azure Functions puede realizar automáticamente compilaciones en el código que recibe después de las implementaciones de archivos ZIP. Estas compilaciones se comportan de manera ligeramente diferente en función de si la aplicación se ejecuta en Windows o Linux. Las compilaciones remotas no se realizan cuando una aplicación se ha configurado previamente en el modo [Ejecutar desde paquete](run-functions-from-deployment-package.md). Para obtener más información sobre cómo usar la compilación remota, vaya a [implementación de archivo ZIP](#zip-deploy).
 
 > [!NOTE]
-> Si tiene problemas con la compilación remota, podría deberse a que la aplicación se creó antes de que la característica estuviera disponible (1 de agosto de 2019). Intente crear una nueva aplicación de funciones.
+> Si tiene problemas con la compilación remota, podría deberse a que la aplicación se creó antes de que la característica estuviera disponible (1 de agosto de 2019). Intente crear una nueva aplicación de funciones o ejecute `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` para actualizar la existente. Puede que necesite enviar este comando dos veces para que se ejecute correctamente.
 
 #### <a name="remote-build-on-windows"></a>Compilación remota en Windows
 
@@ -71,19 +71,18 @@ Todas las aplicaciones de funciones que se ejecutan en Windows tienen una peque�
 
 Cuando una aplicación se implementa en Windows, se ejecutan comandos específicos del lenguaje, como `dotnet restore` (C#) o `npm install` (JavaScript).
 
-#### <a name="remote-build-on-linux-preview"></a>Compilación remota en Linux (versión preliminar)
+#### <a name="remote-build-on-linux"></a>Compilación remota en Linux
 
-Para habilitar la compilación remota en Linux, debe establecer las siguientes [opciones de configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings):
+Para habilitar la compilación remota en Linux, se debe establecer la siguiente [configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings):
 
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-Cuando las aplicaciones se compilan de forma remota en Linux, [se ejecutan desde el paquete de implementación](run-functions-from-deployment-package.md).
+De forma predeterminada, tanto [Azure Functions Core Tools](functions-run-local.md) como la [extensión de Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) realizan compilaciones remotas cuando se implementa en Linux. Por este motivo, ambas herramientas crean automáticamente esta configuración en Azure. 
 
-> [!NOTE]
-> La compilación remota en el plan dedicado de Linux (App Service) solo se admite actualmente para Node.js y Python.
+Cuando las aplicaciones se compilan de forma remota en Linux, [se ejecutan desde el paquete de implementación](run-functions-from-deployment-package.md). 
 
-##### <a name="consumption-preview-plan"></a>Plan de consumo (versión preliminar)
+##### <a name="consumption-plan"></a>Plan de consumo
 
 Las aplicaciones de funciones de Linux que se ejecutan en el plan de consumo no tienen un sitio SCM/Kudu, lo que limita las opciones de implementación. Sin embargo, las aplicaciones de funciones en Linux que se ejecutan en el plan de consumo admiten compilaciones remotas.
 
@@ -103,21 +102,13 @@ Puede utilizar la dirección URL del paquete externo para hacer referencia a un 
 >
 >Si usa Azure Blob Storage, utilice un contenedor privado con una [firma de acceso compartido (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para que Functions tenga acceso al paquete. Cada vez que se reinicia la aplicación, se captura una copia del contenido. La referencia debe ser válida durante la vigencia de la aplicación.
 
->__Cuándo se debe usar__: La dirección URL del paquete externo es el único método de implementación compatible con Azure Functions que se ejecuta en Linux en el Plan de consumo, si el usuario específicamente no quiere que se produzca una compilación remota. Al actualizar el archivo de paquete al que hace referencia una aplicación de funciones, debe [sincronizar manualmente los desencadenadores](#trigger-syncing) para indicar a Azure que la aplicación ha cambiado.
+>__Cuándo se debe usar__: si el usuario no quiere que se produzca una [compilación remota](#remote-build), la dirección URL del paquete externo es el único método de implementación compatible con Azure Functions que se ejecuta en Linux en el plan de Consumo. Al actualizar el archivo de paquete al que hace referencia una aplicación de funciones, debe [sincronizar manualmente los desencadenadores](#trigger-syncing) para indicar a Azure que la aplicación ha cambiado.
 
 ### <a name="zip-deploy"></a>Implementación de archivo ZIP
 
 Utilice la implementación de archivo ZIP para insertar un archivo ZIP que contiene la aplicación de funciones de Azure. Si quiere, puede establecer que la aplicación comience a [ejecutarse desde el paquete](run-functions-from-deployment-package.md) o especificar que se produzca una [compilación remota](#remote-build).
 
->__Cómo se debe usar:__ Realice la implementación con su herramienta cliente favorita: [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure) la [CLI de Azure](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Para implementar manualmente un archivo ZIP en la aplicación de funciones, siga las instrucciones que encontrará en [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url) (Implementación desde un archivo ZIP o una dirección URL).
-
-Para realizar una implementación de archivo ZIP con una [compilación remota](#remote-build), use el siguiente comando de [Core Tools](functions-run-local.md):
-
-```bash
-func azure functionapp publish <app name> --build remote
-```
-
-También puede indicar a VS Code que realice una compilación remota durante la implementación al agregar la marca "azureFunctions.scmDoBuildDuringDeployment". Para obtener más información sobre cómo agregar una marca a VS Code, lea las instrucciones de la [wiki sobre la extensión Azure Functions](https://github.com/microsoft/vscode-azurefunctions/wiki).
+>__Cómo se debe usar:__ Realice la implementación con su herramienta cliente favorita: [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), [Azure Functions Core Tools](functions-run-local.md)o la [CLI de Azure](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). De forma predeterminada, estas herramientas usan la implementación desde un archivo ZIP y se [ejecutan desde el paquete](run-functions-from-deployment-package.md). Core Tools y la extensión Visual Studio Code habilitan la [compilación remota](#remote-build) al implementar en Linux. Para implementar manualmente un archivo ZIP en la aplicación de funciones, siga las instrucciones que encontrará en [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url) (Implementación desde un archivo ZIP o una dirección URL).
 
 >Si realiza la implementación mediante la implementación de archivos ZIP, puede establecer la aplicación para que [se ejecute desde el paquete](run-functions-from-deployment-package.md). Para ejecutarla desde el paquete, defina el valor de configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` en `1`. Se recomienda usar la implementación de archivos ZIP. Produce tiempos de carga más rápidos para las aplicaciones, y es el valor predeterminado para VS Code, Visual Studio y la CLI de Azure. 
 

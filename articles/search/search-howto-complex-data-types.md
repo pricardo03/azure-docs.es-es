@@ -1,29 +1,28 @@
 ---
-title: 'Modelado de tipos de datos complejos: Azure Search'
-description: Las estructuras de datos jerárquicas o anidadas se pueden modelar en un índice de Azure Search mediante los tipos de datos ComplexType y Collections.
-author: brjohnstmsft
+title: Modelado de tipos de datos complejos
+titleSuffix: Azure Cognitive Search
+description: Las estructuras de datos jerárquicas o anidadas se pueden modelar en un índice de Azure Cognitive Search mediante los tipos de datos ComplexType y Collections.
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.custom: seodec2018
-ms.openlocfilehash: b9c9b35adc0dde032723c3c60adedf5b2e7b4cb6
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: af68f232c893259747e6ed106eced70fd8b89351
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183198"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792223"
 ---
-# <a name="how-to-model-complex-data-types-in-azure-search"></a>Modelado de tipos de datos complejos en Azure Search
+# <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modelado de tipos de datos complejos en Azure Cognitive Search
 
-Los conjuntos de datos externos usados para rellenar un índice de Azure Search pueden tener muchas formas. A veces, incluyen subestructuras jerárquicas o anidadas. Algunos ejemplos son varias direcciones de un solo cliente, varios tamaños y colores de una única SKU, varios autores de un único libro, etc. En términos de modelado, puede que vea que se hace referencia a estas estructuras como tipos de datos *complejos*, *compuestos* o *agregados* *.* El término que Azure Search usa para este concepto es **tipo complejo**. En Azure Search, los tipos complejos se modelan mediante **campos complejos**. Un campo complejo es un campo que contiene a elementos secundarios (campos secundarios) que pueden ser de cualquier tipo de datos, incluidos otros tipos complejos. Esto funciona de forma similar a los tipos de datos estructurados de un lenguaje de programación.
+Los conjuntos de datos externos usados para rellenar un índice de Azure Cognitive Search pueden tener muchas formas. A veces, incluyen subestructuras jerárquicas o anidadas. Algunos ejemplos son varias direcciones de un solo cliente, varios tamaños y colores de una única SKU, varios autores de un único libro, etc. En términos de modelado, puede que vea que se hace referencia a estas estructuras como tipos de datos *complejos*, *compuestos* o *agregados* *.* El término que Azure Cognitive Search usa para este concepto es **tipo complejo**. En Azure Cognitive Search, los tipos complejos se modelan mediante **campos complejos**. Un campo complejo es un campo que contiene a elementos secundarios (campos secundarios) que pueden ser de cualquier tipo de datos, incluidos otros tipos complejos. Esto funciona de forma similar a los tipos de datos estructurados de un lenguaje de programación.
 
 Los campos complejos representan un único objeto en el documento, o bien una matriz de objetos, en función del tipo de datos. Los campos de tipo `Edm.ComplexType` representan objetos individuales, mientras que los campos de tipo `Collection(Edm.ComplexType)` representan matrices de objetos.
 
-Azure Search admite de forma nativa colecciones y tipos complejos. Estos tipos le permiten modelar casi cualquier estructura JSON en un índice de Azure Search. En versiones anteriores de las API de Azure Search, solo se podían importar conjuntos de filas planas. En la versión más reciente, ahora el índice puede corresponderse de forma más exacta con los datos de origen. En otras palabras, si los datos de origen tienen tipos complejos, el índice también puede tener tipos complejos.
+Azure Cognitive Search admite de forma nativa colecciones y tipos complejos. Estos tipos le permiten modelar casi cualquier estructura JSON en un índice de Azure Cognitive Search. En versiones anteriores de las API de Azure Cognitive Search, solo se podían importar conjuntos de filas planas. En la versión más reciente, ahora el índice puede corresponderse de forma más exacta con los datos de origen. En otras palabras, si los datos de origen tienen tipos complejos, el índice también puede tener tipos complejos.
 
 Para empezar, recomendamos el [conjunto de datos Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), que puede cargarse en el asistente **Importar datos** de Azure Portal. El asistente detecta los tipos complejos en el origen y sugiere un esquema de índice basado en las estructuras detectadas.
 
@@ -68,7 +67,7 @@ Al igual que con cualquier definición de índice, puede usar el portal, la [API
 En el ejemplo siguiente se muestra un esquema de índice JSON con campos simples, colecciones y tipos complejos. Tenga en cuenta que, en un tipo complejo, cada campo secundario tiene un tipo y puede tener atributos, igual que sucede con los campos de nivel superior. El esquema se corresponde con los datos de ejemplo anteriores. `Address` es un campo complejo que no es una colección (un hotel tiene una dirección). `Rooms` es un campo de colección complejo (un hotel tiene varias salas).
 
 <!---
-For indexes used in a [push-model data import](search-what-is-data-import.md) strategy, where you are pushing a JSON data set to an Azure Search index, you can only have the basic syntax shown here: single complex types like `Address`, or a `Collection(Edm.ComplexType)` like `Rooms`. You cannot have complex types nested inside other complex types in an index used for push-model data ingestion.
+For indexes used in a [push-model data import](search-what-is-data-import.md) strategy, where you are pushing a JSON data set to an Azure Cognitive Search index, you can only have the basic syntax shown here: single complex types like `Address`, or a `Collection(Edm.ComplexType)` like `Rooms`. You cannot have complex types nested inside other complex types in an index used for push-model data ingestion.
 
 Indexers are a different story. When defining an indexer, in particular one used to build a knowledge store, your index can have nested complex types. An indexer is able to hold a chain of complex data structures in-memory, and when it includes a skillset, it can support highly complex data forms. For more information and an example, see [How to get started with knowledge store](knowledge-store-howto.md).
 -->
@@ -120,7 +119,7 @@ Las consultas adquieren más matices cuando tiene varios términos y operadores,
 
     search=Address/City:Portland AND Address/State:OR
 
-Las consultas de este tipo *no están correlacionadas*  para la búsqueda de texto completo, a diferencia de los filtros. En los filtros, las consultas a través de campos secundarios de una colección compleja se correlacionan mediante variables de rango en [`any` o `all`](search-query-odata-collection-operators.md). La consulta de Lucene anterior devuelve documentos que contienen "Portland, Maine" y "Portland, Oregon", junto con otras ciudades de Oregón. Esto sucede porque cada cláusula se aplica a todos los valores de su campo en todo el documento, por lo que no hay ningún concepto de un "documento secundario actual". Para obtener más información, vea [Understanding OData collection filters in Azure Search](search-query-understand-collection-filters.md) (Descripción de los filtros de colección de OData en Azure Search).
+Las consultas de este tipo *no están correlacionadas*  para la búsqueda de texto completo, a diferencia de los filtros. En los filtros, las consultas a través de campos secundarios de una colección compleja se correlacionan mediante variables de rango en [`any` o `all`](search-query-odata-collection-operators.md). La consulta de Lucene anterior devuelve documentos que contienen "Portland, Maine" y "Portland, Oregon", junto con otras ciudades de Oregón. Esto sucede porque cada cláusula se aplica a todos los valores de su campo en todo el documento, por lo que no hay ningún concepto de un "documento secundario actual". Para obtener más información, consulte [Descripción de los filtros de colección de OData en Azure Cognitive Search](search-query-understand-collection-filters.md).
 
 ## <a name="selecting-complex-fields"></a>Selección de los campos complejos
 

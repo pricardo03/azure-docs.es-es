@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: juliako
-ms.openlocfilehash: d25596884acdb356779eafa4348240239855ce37
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308463"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675723"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configuración de Postman para llamadas API de REST de Azure Media Services
 
@@ -47,11 +47,9 @@ Clone un repositorio de GitHub que contenga los archivos de recopilación y ento
 
 ## <a name="configure-postman"></a>Configuración de Postman
 
-En esta sección se configura Postman.
-
 ### <a name="configure-the-environment"></a>Configuración del entorno 
 
-1. Abra **Postman**.
+1. Abra la aplicación **Postman**.
 2. A la derecha de la pantalla, seleccione la opción **Manage Environments** (Administrar entornos).
 
     ![Administración del entorno](./media/develop-with-postman/postman-import-env.png)
@@ -80,7 +78,7 @@ En esta sección se configura Postman.
 
 Antes de empezar a manipular recursos de AMS v3, debe obtener y establecer el token de Azure AD para la autenticación de entidad de servicio.
 
-1. En la ventana izquierda de Postman, seleccione "Paso 1: Get AAD Auth token" (Paso 1: Obtención del token de autorización de AAD).
+1. En la ventana izquierda de la aplicación Postman, seleccione "Step 1: Get AAD Auth token" (Paso 1: Obtención del token de autorización de AAD).
 2. A continuación, seleccione "Get Azure AD Token for Service Principal Authentication" (Obtener token de Azure AD para la autenticación de la entidad de servicio).
 3. Presione **Enviar**.
 

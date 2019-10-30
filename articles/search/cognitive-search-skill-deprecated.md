@@ -1,27 +1,26 @@
 ---
-title: 'Aptitudes cognitivas en desuso: Azure Search'
-description: Esta página contiene una lista de aptitudes de Cognitive Search que se consideran en desuso y no se admitirán en un futuro próximo.
-services: search
+title: Aptitudes cognitivas en desuso
+titleSuffix: Azure Cognitive Search
+description: Esta página contiene una lista de aptitudes cognitivas que se consideran en desuso y no se admitirán en un futuro próximo en conjuntos de aptitudes de Búsqueda cognitiva de Azure.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e78852ec8b92f1a9e37a4dbcbbcb371c0ac0f97
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265435"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792031"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>Aptitudes de Cognitive Search en desuso
+# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Aptitudes cognitivas en desuso en Búsqueda cognitiva de Azure
 
 En este documento se describen las aptitudes cognitivas que se consideran en desuso. Use la siguiente guía para el contenido:
 
 * Nombre de aptitud: el nombre de la aptitud que quedará en desuso; se asigna al atributo @odata.type.
-* Última versión de API disponible: la última versión de la API pública de Azure Search a través de la cual se pueden crear o actualizar conjuntos de aptitudes que contienen la correspondiente aptitud en desuso.
+* Última versión de API disponible: la última versión de la API pública de Búsqueda cognitiva de Azure a través de la cual se pueden crear o actualizar conjuntos de aptitudes que contienen la correspondiente aptitud en desuso.
 * Finalización del soporte técnico: el último día después del cual se considera en desuso la aptitud correspondiente. Los conjuntos de habilidades creados anteriormente todavía funcionan, pero se recomienda a los usuarios realizar la migración desde una aptitud en desuso.
 * Recomendaciones: ruta de migración hacia delante para usar una aptitud admitida. Se aconseja a los usuarios seguir las recomendaciones para continuar recibiendo soporte técnico.
 
@@ -148,6 +147,6 @@ Para migrar a la [aptitud de reconocimiento de entidades con nombre](cognitive-s
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
++ [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Aptitud cognitiva Reconocimiento de entidades con nombre](cognitive-search-skill-entity-recognition.md)

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: pafarley
-ms.openlocfilehash: 31b8dfc234ac99d6f04061d6596e3dc8113e8d0f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 06735240729fb2bfd21b87f592e143e9ceabb390
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213830"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753484"
 ---
 # <a name="label-images-faster-with-suggested-tags"></a>Etiquetado más rápido de imágenes con etiquetas sugeridas
 
@@ -27,8 +27,7 @@ Al etiquetar las imágenes para un modelo de Custom Vision, el servicio utiliza 
 
 Tenga presentes las siguientes limitaciones:
 
-* Solo se solicitan etiquetas sugeridas para las imágenes cuyo contenido ya se ha entrenado una vez. No obtenga sugerencias para una nueva etiqueta que acaba de entrenar.
-* Solo puede usar etiquetas sugeridas en imágenes que no estén etiquetadas; no se pueden obtener sugerencias para etiquetas adicionales en una imagen ya etiquetada.
+* Solo debería solicitar etiquetas sugeridas para las imágenes cuyo contenido ya se ha entrenado una vez. No obtenga sugerencias para una nueva etiqueta que acaba de entrenar.
 
 > [!IMPORTANT]
 > La característica de etiquetas sugeridas usa el mismo [modelo de precios](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) que las predicciones normales. La primera vez que desencadene etiquetas sugeridas para un conjunto de imágenes, se le cobrará lo mismo que para las llamadas de predicción. Después, el servicio almacena los resultados de las imágenes seleccionadas en una base de datos durante 30 días y puede acceder a ellas en cualquier momento y de forma gratuita dentro de ese período. Después de 30 días, se le cobrará si solicita de nuevo sus etiquetas sugeridas.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511008"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784829"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -416,7 +416,10 @@ Sí. Puede especificar TCP como el protocolo de supervisión y Traffic Manager p
 
 ### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>¿Qué respuestas específicas se necesitan del punto de conexión cuando se usa la supervisión TCP?
 
-Cuando se usa la supervisión TCP, Traffic Manager inicia un protocolo de enlace TCP de tres direcciones mediante el envío de una solicitud SYN al punto de conexión en el puerto especificado. Después, espera durante un período de tiempo (como se ha especificado en la configuración del tiempo de expiración) para obtener una respuesta del punto de conexión. Si el punto de conexión responde a la solicitud SYN con una respuesta SYN-ACK en el período de tiempo de expiración especificado en la configuración de supervisión, entonces ese punto de conexión se considera correcto. Si se recibe la respuesta SYN-ACK, Traffic Manager restablece la conexión respondiendo de nuevo con un RST.
+Cuando se usa la supervisión TCP, Traffic Manager inicia un protocolo de enlace TCP de tres direcciones mediante el envío de una solicitud SYN al punto de conexión en el puerto especificado. Después, espera durante un período de tiempo (como se ha especificado en la configuración del tiempo de expiración) para obtener una respuesta SYN-ACK del punto de conexión.
+
+- Si se recibe una respuesta SYN-ACK en el período de tiempo de expiración especificado en la configuración de supervisión, ese punto de conexión se considera correcto. Una confirmación de FIN o FIN-ACK es la respuesta esperada de Traffic Manager cuando finaliza un socket de manera normal.
+- Si se recibe una respuesta SYN-ACK después del tiempo de expiración especificado, Traffic Manager responderá con un RST para restablecer la conexión.
 
 ### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>¿Con qué rapidez Traffic Manager mueve mis usuarios de un punto de conexión incorrecto?
 
@@ -496,11 +499,11 @@ En la tabla siguiente se describe el comportamiento de las comprobaciones de est
 
 | Estado de supervisión de perfiles secundarios | Estado de supervisión de extremos principales | Notas |
 | --- | --- | --- |
-| Deshabilitado. Se ha deshabilitado el perfil secundario. |Stopped |El estado del extremo primario es “Detenido”, no “Deshabilitado”. El estado “Deshabilitado” se reserva para indicar que el usuario ha deshabilitado el extremo en el perfil principal. |
+| Deshabilitado. Se ha deshabilitado el perfil secundario. |Detenido |El estado del extremo primario es “Detenido”, no “Deshabilitado”. El estado “Deshabilitado” se reserva para indicar que el usuario ha deshabilitado el extremo en el perfil principal. |
 | Degradado. Al menos un punto de conexión de perfil secundario se encuentra en estado Degradado. |En línea: el número de puntos de conexión en línea en el perfil secundario es, como mínimo, el valor de MinChildEndpoints.<BR>CheckingEndpoint: el número de puntos de conexión en línea más CheckingEndpoint en el perfil secundario es, como mínimo, el valor de MinChildEndpoints.<BR>Degradado: en caso contrario. |El tráfico se enruta a un punto de conexión con estado CheckingEndpoint. Si MinChildEndpoints se establece demasiado alto, el punto de conexión siempre se degradará. |
 | En línea. Al menos un punto de conexión de perfil secundario se encuentra en estado En línea. Ningún punto de conexión está en estado Degradado. |Consulte más arriba. | |
 | CheckingEndpoints. Al menos un punto de conexión de perfil secundario es "CheckingEndpoint". Ningún punto de conexión está "En línea" o "Degradado". |Igual que el anterior. | |
-| Inactivo. Todos los puntos de conexión de perfil secundario están en estado "Deshabilitado" o "Detenido", o bien se trata de un perfil sin ningún punto de conexión. |Stopped | |
+| Inactivo. Todos los puntos de conexión de perfil secundario están en estado "Deshabilitado" o "Detenido", o bien se trata de un perfil sin ningún punto de conexión. |Detenido | |
 
 ## <a name="next-steps"></a>Pasos siguientes:
 

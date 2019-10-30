@@ -1,5 +1,5 @@
 ---
-title: 'Escenario sin servidor: Creación de un panel de Customer Insights con los servicios de Azure | Microsoft Docs'
+title: 'Creación de un panel de Customer Insights: Azure Logic Apps'
 description: Administre los comentarios de clientes, datos de redes sociales, etc. mediante la compilación de un panel de clientes con Azure Logic Apps y Azure Functions
 services: logic-apps
 ms.service: logic-apps
@@ -7,17 +7,16 @@ ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
 ms.reviewer: estfan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: b8ba341252679a07e50f9b276f7f485b08a6acba
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c9c5cf9c56f2e22faa973c983c6fd81733119daa
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164861"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680106"
 ---
-# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creación de un panel de streaming de Customer Insights con Azure Logic Apps y Azure Functions
+# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creación de un panel de streaming de Customer Insights con Azure Logic Apps y Azure Functions
 
 Azure ofrece herramientas [sin servidor](https://azure.microsoft.com/solutions/serverless/) que ayudan a compilar aplicaciones y hospedarlas rápidamente en la nube, sin necesidad de preocuparse de la infraestructura. En este tutorial, puede crear un panel para actuar en función de los comentarios de los clientes, analizarlos con Machine Learning y publicar información en un origen, como Power BI o Azure Data Lake.
 

@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aafeeb59446ac914bba25874f74871fc5f189498
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772898"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693582"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Análisis del informe de Azure Site Recovery Deployment Planner
 En este artículo se describen las hojas que contiene el informe de Excel generado por Azure Site Recovery Deployment Planner en un escenario de Hyper-V en Azure.
@@ -246,7 +246,7 @@ El informe de Excel generado por Azure Site Recovery Deployment Planner proporci
 
 * El valor de IOPS de origen supera el límite de IOPS de almacenamiento admitidas, 80 000 por máquina virtual.
 
-* La actividad de datos media de la máquina virtual de origen supera el límite que admite Site Recovery, 10 MB/s para el tamaño medio de E/S de disco.
+* La actividad de datos media de la máquina virtual de origen supera el límite que admite Site Recovery, 20 MB/s para el tamaño medio de E/S de disco.
 
 * El valor medio de IOPS de escritura efectiva de la máquina virtual de origen supera el límite admitido de Site Recovery de 840.
 

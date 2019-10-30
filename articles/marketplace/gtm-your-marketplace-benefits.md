@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962668"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752405"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
@@ -60,7 +60,10 @@ Puede encontrar descripciones detalladas de todas estas ventajas en la [presenta
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas de Marketplace para asociados de transacciones
 
-Cuando publique su oferta que permite transacciones en Azure Marketplace o en Microsoft AppSource, podrá tener acceso a ventajas adicionales a medida que crezcan sus transacciones de ventas facturadas mediante Marketplace comercial. 
+Cuando publique su oferta que permite transacciones en Azure Marketplace o en Microsoft AppSource, podrá tener acceso a ventajas adicionales a medida que crezcan sus transacciones de ventas facturadas o puestos vendidos mediante Marketplace comercial. 
+
+>[!Note]
+>El umbral de puestos vendidos se aplica solo a las aplicaciones de Microsoft 365 (las aplicaciones SaaS que tienen integraciones con Microsoft Teams, Office, Outlook o SharePoint) y las ventajas deben completarse antes del 30 de junio de 2020.
 
 Estas ventajas están diseñadas para ayudarlo en actividades de marketing, de ventas y técnicas y, por lo tanto, lo ayudan a obtener más visitantes, a recibir más clientes potenciales y a convertir más negocios.
 
@@ -71,6 +74,8 @@ Todos los asociados que tienen una oferta publicada trabajan con un administrado
 ![Ventajas de ventas](./media/marketplace-publishers-guide/sales-benefit.png)
 
 ![Ventajas técnicas](./media/marketplace-publishers-guide/technical-benefit.png)
+
+\* El umbral de puestos vendidos se aplica solo a las aplicaciones de Microsoft 365 (las aplicaciones SaaS que tienen integraciones con Microsoft Teams, Office, Outlook o SharePoint) y las ventajas deben completarse antes del 30 de junio de 2020.
 
 Puede encontrar descripciones detalladas de todas estas ventajas en la [presentación del programa Recompensas de Marketplace](https://aka.ms/marketplacerewards).
 

@@ -1,29 +1,28 @@
 ---
-title: 'Conexión e indexación de contenido de Azure SQL Database mediante indexadores: Azure Search'
-description: Aprenda a rastrear datos en Azure SQL Database mediante indexadores para la búsqueda de texto completo en Azure Search. En este artículo se tratan las conexiones, la configuración del indexador y la ingesta de datos.
-ms.date: 05/02/2019
-author: mgottein
+title: Conexión e indexación de contenido de Azure SQL Database mediante indexadores
+titleSuffix: Azure Cognitive Search
+description: Importe datos en Azure SQL Database mediante indexadores para la búsqueda de texto completo en Búsqueda cognitiva de Azure. En este artículo se tratan las conexiones, la configuración del indexador y la ingesta de datos.
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 4ed218fdc1c6580e9b92364d123b081a1f34b441
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: 012f555f3837086946eb4581dadc74011a3acc09
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656234"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792195"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Conexión e indexación de contenido de Azure SQL Database mediante indexadores de Azure Search
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-cognitive-search-indexers"></a>Conexión e indexación de contenido de Azure SQL Database mediante indexadores de Búsqueda cognitiva de Azure
 
-Antes de poder consultar un [índice de Azure Search](search-what-is-an-index.md) debe rellenarlo con datos. Si los datos residen en una base de datos de Azure SQL, el nuevo **indexador de Azure Search para Azure SQL Database** (o **indexador de Azure SQL**, para abreviar) puede automatizar el proceso de indexación, lo que significa menos código que escribir y menos infraestructura de la que preocuparse.
+Antes de poder consultar un [índice de Búsqueda cognitiva de Azure](search-what-is-an-index.md) debe rellenarlo con datos. Si los datos residen en una base de datos de Azure SQL, un **indexador de Búsqueda cognitiva de Azure para Azure SQL Database** (o **indexador de Azure SQL**, para abreviar) puede automatizar el proceso de indexación, lo que significa menos código que escribir y menos infraestructura de la que preocuparse.
 
 En este artículo se aborda la forma de usar los [indexadores](search-indexer-overview.md), pero también se describen las características que solo están disponibles con bases de datos de Azure SQL (por ejemplo, el seguimiento de cambios integrado). 
 
-Además de las bases de datos de Azure SQL, Azure Search proporciona indexadores para [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) y [Azure Table Storage](search-howto-indexing-azure-tables.md). Para solicitar soporte técnico para otros orígenes de datos, envíe sus comentarios a través del [foro de comentarios de Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
+Además de las bases de datos de Azure SQL, Búsqueda cognitiva de Azure proporciona indexadores para [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) y [Azure Table Storage](search-howto-indexing-azure-tables.md). Para solicitar soporte técnico para otros orígenes de datos, envíe sus comentarios a través del [foro de comentarios de Búsqueda cognitiva de Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexadores y orígenes de datos
 
@@ -40,8 +39,8 @@ Un único indexador solo puede consumir una tabla o vista, pero puede crear vari
 Puede instalar y configurar un indexador de SQL de Azure mediante:
 
 * El asistente para importar datos en [Azure Portal](https://portal.azure.com)
-* [SDK de .NET de Azure Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* [API de REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) de Azure Search
+* [SDK para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) de Búsqueda cognitiva de Azure
+* [API de REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) de Búsqueda cognitiva de Azure
 
 En este artículo, usaremos la API de REST para crear **indexadores** y **orígenes de datos**.
 
@@ -51,12 +50,12 @@ Según varios factores relacionados con los datos, el uso del indizador de SQL A
 | Criterios | Detalles |
 |----------|---------|
 | Los datos proceden de una sola tabla o vista. | Si los datos están distribuidos entre varias tablas, puede crear una única vista de los datos. Pero si usa una vista, no podrá usar la detección de cambios integrada de SQL Server para actualizar un índice con cambios incrementales. Para más información, vea [Capturar filas cambiadas y eliminadas](#CaptureChangedRows) a continuación. |
-| Los tipos de datos son compatibles | En un índice de Azure Search se admite la mayoría de los tipos de SQL, aunque no todos. Para obtener una lista, vea [Asignación de tipos de datos](#TypeMapping). |
+| Los tipos de datos son compatibles | En un índice de Búsqueda cognitiva de Azure se admite la mayoría de los tipos de SQL, aunque no todos. Para obtener una lista, vea [Asignación de tipos de datos](#TypeMapping). |
 | No se requiere la sincronización de datos en tiempo real | Un indexador puede volver a indexar la tabla cada cinco minutos como máximo. Si los datos cambian con frecuencia y los cambios deben reflejarse en el índice en cuestión de segundos o minutos, se recomienda usar la [API de REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) o el [SDK de .NET](search-import-data-dotnet.md) para insertar directamente las filas actualizadas. |
-| Se permite la indexación incremental | Si tiene un conjunto de datos grande y prevé ejecutar el indexador en una programación, Azure Search debe ser capaz de identificar de forma eficaz las filas nuevas, cambiadas y eliminadas. Solo se permite la indexación no incremental si se indexa a petición (no en una programación), o se indexan menos de 100 000 filas. Para más información, vea [Capturar filas cambiadas y eliminadas](#CaptureChangedRows) a continuación. |
+| Se permite la indexación incremental | Si tiene un conjunto de datos grande y prevé ejecutar el indexador en una programación, Búsqueda cognitiva de Azure debe ser capaz de identificar de forma eficaz las filas nuevas, cambiadas o eliminadas. Solo se permite la indexación no incremental si se indexa a petición (no en una programación), o se indexan menos de 100 000 filas. Para más información, vea [Capturar filas cambiadas y eliminadas](#CaptureChangedRows) a continuación. |
 
 > [!NOTE] 
-> Azure Search solo admite la autenticación de SQL Server. Si necesita soporte técnico para la autenticación de contraseña de Azure Active Directory, vote por esta [sugerencia de UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
+> Búsqueda cognitiva de Azure solo admite la autenticación de SQL Server. Si necesita soporte técnico para la autenticación de contraseña de Azure Active Directory, vote por esta [sugerencia de UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## <a name="create-an-azure-sql-indexer"></a>Crear un indexador de Azure SQL
 
@@ -77,7 +76,7 @@ Según varios factores relacionados con los datos, el uso del indizador de SQL A
 
    Puede obtener la cadena de conexión de [Azure Portal](https://portal.azure.com): use la opción `ADO.NET connection string`.
 
-2. Si aún no tiene un índice de Azure Search de destino, créelo. Puede crear un índice mediante el [portal](https://portal.azure.com) o la [API de creación de índices](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Asegúrese de que el esquema del índice de destino sea compatible con el de la tabla de origen; consulte la [asignación entre tipos de datos de SQL y tipos de datos de Azure Search](#TypeMapping) para más información.
+2. Si aún no tiene un índice de Búsqueda cognitiva de Azure de destino, créelo. Puede crear un índice mediante el [portal](https://portal.azure.com) o la [API de creación de índices](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Asegúrese de que el esquema del índice de destino sea compatible con el de la tabla de origen; consulte la [asignación entre tipos de datos de SQL y tipos de datos de Búsqueda cognitiva de Azure](#TypeMapping).
 
 3. Cree el indexador asignándole un nombre y haciendo referencia al índice de origen y destino de datos:
 
@@ -158,16 +157,16 @@ También puede disponer que el indizador se ejecute periódicamente según una p
 
 El parámetro **interval** es obligatorio. El intervalo se refiere al tiempo entre el inicio de dos ejecuciones consecutivas de indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
-Para más información acerca de cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Search](search-howto-schedule-indexers.md).
+Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Búsqueda cognitiva de Azure](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 
 ## <a name="capture-new-changed-and-deleted-rows"></a>Capturar filas nuevas, cambiadas y eliminadas
 
-Azure Search usa la **indexación incremental** para evitar tener que volver a indexar la tabla o vista completa cada vez que se ejecuta un indexador. Azure Search proporciona dos directivas de detección de cambios para admitir la indexación incremental. 
+Búsqueda cognitiva de Azure usa la **indexación incremental** para evitar tener que volver a indexar la tabla o vista completa cada vez que se ejecuta un indexador. Búsqueda cognitiva de Azure proporciona dos directivas de detección de cambios para admitir la indexación incremental. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>Directiva de seguimiento de cambios integrada de SQL
-Si la base de datos SQL admite el [seguimiento de cambios](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), se recomienda usar la **directiva de seguimiento de cambios integrada de SQL**. Esta es la directiva más eficiente. Además, permite que Azure Search identifique las filas eliminadas sin tener que agregar a la tabla una columna de "eliminación temporal" explícita.
+Si la base de datos SQL admite el [seguimiento de cambios](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), se recomienda usar la **directiva de seguimiento de cambios integrada de SQL**. Esta es la directiva más eficiente. Además, permite que Búsqueda cognitiva de Azure identifique las filas eliminadas sin tener que agregar a la tabla una columna de "eliminación temporal" explícita.
 
 #### <a name="requirements"></a>Requisitos 
 
@@ -252,7 +251,7 @@ También puede deshabilitar la cláusula `ORDER BY [High Water Mark Column]`. Si
 ### <a name="soft-delete-column-deletion-detection-policy"></a>Directiva de detección de eliminación de columna de eliminación temporal
 Cuando se eliminan filas de la tabla de origen, probablemente le interesará eliminar dichas filas del índice de búsqueda. Si usa la directiva de seguimiento de cambios integrada de SQL, esto se lleva a cabo automáticamente. Sin embargo, la directiva el seguimiento de cambios de marca de límite superior no le ayuda con las filas eliminadas. ¿Qué debe hacer?
 
-Si las filas se quitaron físicamente de la tabla, Azure Search no tiene forma de deducir la presencia de registros que ya no existen.  Sin embargo, puede utilizar la técnica de "eliminación temporal" para eliminar filas lógicamente sin quitarlas de la tabla. Agregue una columna a la tabla o vista y marque filas como eliminadas mediante esa columna.
+Si las filas se quitaron físicamente de la tabla, Búsqueda cognitiva de Azure no tiene forma de deducir la presencia de registros que ya no existen.  Sin embargo, puede utilizar la técnica de "eliminación temporal" para eliminar filas lógicamente sin quitarlas de la tabla. Agregue una columna a la tabla o vista y marque filas como eliminadas mediante esa columna.
 
 Cuando use la técnica de la eliminación temporal, puede especificar la directiva de eliminación temporal de la manera que se indica a continuación al crear o actualizar el origen de datos:
 
@@ -269,14 +268,14 @@ Cuando use la técnica de la eliminación temporal, puede especificar la directi
 
 <a name="TypeMapping"></a>
 
-## <a name="mapping-between-sql-and-azure-search-data-types"></a>Asignación entre tipos de datos de SQL y de Azure Search
+## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>Asignación entre tipos de datos de SQL y de Búsqueda cognitiva de Azure
 | Tipo de datos de SQL | Tipos de campos de índice de destino permitidos | Notas |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
-| smallmoney, numérico decimal de dinero |Edm.String |Azure Search no admite la conversión de tipos decimales en Edm.Double porque esto podría provocar la pérdida de precisión |
+| smallmoney, numérico decimal de dinero |Edm.String |Búsqueda cognitiva de Azure no admite la conversión de tipos decimales en Edm.Double porque esto podría provocar la pérdida de precisión |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |Una cadena SQL se puede usar para rellenar un campo Collection (EDM.String) si la cadena representa una matriz JSON de cadenas: `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
@@ -290,7 +289,7 @@ El indexador de SQL expone varios valores de configuración:
 | Configuración | Tipo de datos | Propósito | Valor predeterminado |
 | --- | --- | --- | --- |
 | queryTimeout |string |Establece el tiempo de espera para la ejecución de consultas SQL |5 minutos ("00:05:00") |
-| disableOrderByHighWaterMarkColumn |booleano |Hace que la consulta SQL utilizada por la directiva de límite superior omita la cláusula ORDER BY. Consulte [Directiva de detección de cambios de límite superior](#HighWaterMarkPolicy). |false |
+| disableOrderByHighWaterMarkColumn |bool |Hace que la consulta SQL utilizada por la directiva de límite superior omita la cláusula ORDER BY. Consulte [Directiva de detección de cambios de límite superior](#HighWaterMarkPolicy). |false |
 
 Esta configuración se utiliza en el objeto `parameters.configuration` en la definición del indexador. Por ejemplo, para establecer el tiempo de espera de consulta en 10 minutos, cree o actualice el indexador con la siguiente configuración:
 
@@ -304,11 +303,11 @@ Esta configuración se utiliza en el objeto `parameters.configuration` en la def
 
 **P: ¿Puedo usar un indizador de SQL Azure con Bases de datos SQL que se ejecutan en máquinas virtuales de IaaS en Azure?**
 
-Sí. Sin embargo, debe permitir que el servicio de búsqueda se conecte a su base de datos. Consulte el artículo [Configuración de una conexión desde un indexador de Azure Search a SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) para más información.
+Sí. Sin embargo, debe permitir que el servicio de búsqueda se conecte a su base de datos. Consulte el artículo [Configuración de una conexión desde un indexador de Búsqueda cognitiva de Azure a SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) para más información.
 
 **P: ¿Puedo usar un indizador de SQL Azure con Bases de datos SQL que se ejecutan localmente?**
 
-No directamente. No se recomienda ni se admite una conexión directa, ya que requeriría abrir las bases de datos al tráfico de Internet. Los clientes han realizado correctamente este escenario mediante tecnologías de puente como Azure Data Factory. Para más información, vea [Inserción de datos en un índice de Azure Search mediante el uso de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
+No directamente. No se recomienda ni se admite una conexión directa, ya que requeriría abrir las bases de datos al tráfico de Internet. Los clientes han realizado correctamente este escenario mediante tecnologías de puente como Azure Data Factory. Para más información, vea [Inserción de datos en un índice de Búsqueda cognitiva de Azure mediante el uso de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
 **P: P: ¿Puedo usar un indexador de Azure SQL con bases de datos que no son de SQL Server que se ejecutan en IaaS en Azure?**
 
@@ -326,7 +325,7 @@ Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y lo
 
 Depende. Para la indexación completa de una tabla o vista, puede usar una réplica secundaria. 
 
-Para la indexación incremental, Azure Search admite dos directivas de detección de cambios: Directiva de seguimiento de cambios integrada de SQL y directiva de detección de cambios de límite superior.
+Para la indexación incremental, Búsqueda cognitiva de Azure admite dos directivas de detección de cambios: Directiva de seguimiento de cambios integrada de SQL y directiva de detección de cambios de límite superior.
 
 En las réplicas de solo lectura, la base de datos SQL no admite el seguimiento de cambios integrado. Por tanto, debe usar la directiva Marca de límite superior. 
 
@@ -340,6 +339,6 @@ Si intenta usar rowversion en una réplica de solo lectura, verá el siguiente e
 
 No se recomienda. Solo **rowversion** permite la sincronización de datos confiable. Pero según la lógica de aplicación, puede ser seguro si:
 
-+ Se puede asegurar de que, cuando se ejecuta el indexador, no hay ninguna transacción pendiente en la tabla que se indexa (por ejemplo, todas las actualizaciones de tabla tienen lugar como un lote según una programación y la programación del indexador de Azure Search está establecida para evitar la superposición con la programación de las actualizaciones de tabla).  
++ Se puede asegurar de que, cuando se ejecuta el indexador, no hay ninguna transacción pendiente en la tabla que se indexa (por ejemplo, todas las actualizaciones de tabla tienen lugar como un lote según una programación y la programación del indexador de Búsqueda cognitiva de Azure está establecida para evitar la superposición con la programación de las actualizaciones de tabla).  
 
 + Vuelve a indexar periódicamente para seleccionar las filas que faltan. 

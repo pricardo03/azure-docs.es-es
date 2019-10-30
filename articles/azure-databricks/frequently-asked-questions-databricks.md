@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8707aa55c1126af6a7fb2812d4c7314f031209d0
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60784714"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597470"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Preguntas más frecuentes sobre Azure Databricks
 
@@ -27,14 +27,14 @@ Sí. Puede usar Azure Key Vault para almacenar claves o secretos que se usarán 
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>¿Puedo usar Azure Virtual Networks con Databricks?
 Sí. Puede usar una instancia de Azure Virtual Network (red virtual) con Azure Databricks. Para más información, consulte el artículo sobre la [implementación de Azure Databricks en Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
 
-## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>¿Cómo accedo a Azure Data Lake Store desde un bloc de notas? 
+## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>¿Cómo accedo a Azure Data Lake Storage desde un cuaderno? 
 
 Siga estos pasos:
 1. En Azure Active Directory (Azure AD), aprovisione una entidad de servicio y registre su clave.
-1. Asigne los permisos necesarios a la entidad de servicio en Data Lake Store.
-1. Para acceder a un archivo en Data Lake Store, use las credenciales de la entidad de servicio en el Bloc de notas.
+1. Asigne los permisos necesarios a la entidad de servicio en Data Lake Storage.
+1. Para acceder a un archivo en Data Lake Storage, use las credenciales de la entidad de servicio en Notebook.
 
-Para más información, vea [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) (Uso de Data Lake Store con Azure Databricks).
+Para más información, consulte [Use Azure Data Lake Storage with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) (Uso de Azure Data Lake Storage con Azure Databricks).
 
 ## <a name="fix-common-problems"></a>Corrección de problemas comunes
 

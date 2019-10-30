@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 4fd73f528ac823a8e794a880f87dd5f8872e1251
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 97b954ee5e00c13211a3b2a2254b6d34bccb780c
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243273"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674942"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -398,22 +398,15 @@ pip install -r requirements.txt
 
 Cuando esté preparado para la publicación, asegúrese de que todas sus dependencias se muestran en el archivo *requirements.txt*, que se encuentra en la raíz del directorio del proyecto. Azure Functions puede [compilar de forma remota](functions-deployment-technologies.md#remote-build) estas dependencias.
 
-Los archivos de proyecto y las carpetas que se excluyen de la publicación, incluida la carpeta del entorno virtual, se enumeran en el archivo. funcignore.  
+Los archivos de proyecto y las carpetas que se excluyen de la publicación, incluida la carpeta del entorno virtual, se enumeran en el archivo. funcignore. 
 
-Para implementar en Azure y realizar una compilación remota, use el siguiente comando:
+Tanto [Azure Functions Core Tools](functions-run-local.md#v2) como la [Extensión de Azure Functions para VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) realizarán de forma predeterminada una compilación remota. Por ejemplo, use el siguiente comando:
 
 ```bash
-func azure functionapp publish <app name> --build remote
+func azure functionapp publish <app name>
 ```
 
-Si no usa compilación remota, y emplea un paquete que requiere un compilador que no admite la instalación de muchas ruedas compatibles con Linux desde PyPI, se producirá el siguiente error al publicar en Azure sin realizar la compilación localmente:
-
-```
-There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
-The terminal process terminated with exit code: 1
-```
-
-Para compilar localmente y configurar los archivos binarios necesarios, [instale Docker](https://docs.docker.com/install/) en la máquina local y ejecute el siguiente comando para publicar con [Azure Functions Core Tools](functions-run-local.md#v2) (func). Reemplace `<app name>` por el nombre de la aplicación de función de Azure. 
+Si desea compilar localmente la aplicación en lugar de en Azure, [instale Docker](https://docs.docker.com/install/) en la máquina local y ejecute el siguiente comando para publicar con [Azure Functions Core Tools](functions-run-local.md#v2) (func). Reemplace `<app name>` por el nombre de la aplicación de función de Azure. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps

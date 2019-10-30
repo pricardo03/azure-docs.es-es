@@ -1,27 +1,28 @@
 ---
-title: 'Uso de conjuntos de aptitudes: Azure Search'
-description: En los conjuntos de aptitudes es donde se crea una canalización de enriquecimiento de inteligencia artificial en una búsqueda cognitiva. El conocimiento de algunos conceptos y del funcionamiento de los conjuntos de aptitudes le permitirán compilar conjuntos de aptitudes simples o complejos.
-manager: eladz
+title: Uso de conjuntos de aptitudes
+titleSuffix: Azure Cognitive Search
+description: Los conjuntos de aptitudes es donde se crea una canalización de enriquecimiento con inteligencia artificial en Azure Cognitive Search. Aprenda conceptos importantes y detalles sobre la composición del conjunto de aptitudes.
+manager: nitinme
 author: vkurpad
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/05/2019
 ms.author: vikurpad
-ms.openlocfilehash: f75e6dece376076d4aa5e33497aff7e4f9f56857
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 8a783581394de05fff9f0060e124e8dc59c96b60
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265700"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790168"
 ---
-# <a name="working-with-skillsets"></a>Uso de conjuntos de aptitudes
-Este artículo está dirigido a desarrolladores que necesitan una comprensión más profunda de cómo funciona la canalización de enriquecimiento, que ya disponen de un conocimiento conceptual del proceso de búsqueda cognitiva. Si no está familiarizado con la búsqueda cognitiva, comience por lo siguiente:
-+ [¿Qué es la "búsqueda cognitiva" en Azure Search?](cognitive-search-concept-intro.md)
-+ [¿Qué es el almacén de conocimiento en Azure Search?](knowledge-store-concept-intro.md)
+# <a name="working-with-skillsets-in-azure-cognitive-search"></a>Trabajo con aptitudes en Azure Cognitive Search
+
+Este artículo está dirigido a desarrolladores que necesitan una comprensión más profunda de cómo funciona la canalización de enriquecimiento, que ya disponen de un conocimiento conceptual del proceso de enriquecimiento con inteligencia artificial. Si no está familiarizado con este concepto, empiece por:
++ [Enriquecimiento con inteligencia artificial en Azure Cognitive Search](cognitive-search-concept-intro.md)
++ [Almacén de conocimiento (versión preliminar)](knowledge-store-concept-intro.md)
 
 ## <a name="specify-the-skillset"></a>Especificación del conjunto de aptitudes
-Un conjunto de aptitudes es un recurso reutilizable en Azure Search que especifica una colección de aptitudes cognitivas que se usan para analizar, transformar y enriquecer el contenido de texto o imagen durante la indexación. La creación de un conjunto de aptitudes le permite adjuntar enriquecimientos de texto e imagen en la fase de ingesta de datos, extrayendo y creando nueva información y estructuras a partir de contenido sin procesar.
+Un conjunto de aptitudes es un recurso reutilizable en Azure Cognitive Search que especifica una colección de aptitudes cognitivas que se usan para analizar, transformar y enriquecer el contenido de texto o imagen durante la indexación. La creación de un conjunto de aptitudes le permite adjuntar enriquecimientos de texto e imagen en la fase de ingesta de datos, extrayendo y creando nueva información y estructuras a partir de contenido sin procesar.
 
 Un conjunto de aptitudes tiene tres propiedades:
 
@@ -36,7 +37,7 @@ Los conjuntos de aptitudes se crean en JSON. Puede compilar conjuntos de aptitud
 ### <a name="enrichment-tree"></a>Árbol de enriquecimiento
 
 Para imaginar cómo un conjunto de aptitudes enriquece gradualmente el documento, veremos primero el aspecto del documento antes de cualquier enriquecimiento. La salida del descifrado de documentos depende del origen de datos y del modo de análisis específico seleccionado. Este es también el estado del documento desde el que las [asignaciones de campo](search-indexer-field-mappings.md) pueden originar contenido al agregar datos al índice de búsqueda.
-![Diagrama de Knowledge Store en una canalización](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")
+![Almacén de conocimiento en un diagrama de canalización](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "KAlmacén de conocimiento en un diagrama de canalización")
 
 Una vez que un documento se encuentra en la canalización de enriquecimiento, se representa como un árbol de contenido y enriquecimientos asociados. Como salida del descifrado de documentos, se crea una instancia de este árbol. El formato de árbol de enriquecimiento permite que la canalización de enriquecimiento adjunte metadatos incluso a tipos de datos primitivos; no es un objeto JSON válido, pero se puede proyectar en un formato JSON válido. En la tabla siguiente se muestra el estado de un documento que entra en la canalización de enriquecimiento:
 
@@ -86,7 +87,7 @@ Dado que estamos usando el modo de análisis de texto delimitado para el indexad
 
 ### <a name="skill-1-split-skill"></a>Aptitud 1: aptitud de división 
 
-![árbol de enriquecimiento después del descifrado de documentos](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Árbol de enriquecimiento después del descifrado de documentos y antes de la ejecución de la aptitud")
+![Árbol de enriquecimiento después del descifrado de documentos](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Árbol de enriquecimiento después del descifrado de documentos y antes de la ejecución de la aptitud")
 
 Con el contexto de aptitud de ```"/document/reviews_text"```, esta aptitud se ejecutará una vez para `reviews_text`. La salida de la aptitud es una lista donde `reviews_text` se fragmenta en segmentos de 5000 caracteres. La salida de la aptitud de división se denomina `pages` y se agrega al árbol de enriquecimiento. La característica `targetName` permite cambiar el nombre de una salida de aptitud antes de agregarla al árbol de enriquecimiento.
 
@@ -95,11 +96,11 @@ El árbol enriquecimiento tiene ahora un nuevo nodo colocado en el contexto de l
 
 El nodo raíz de todos los enriquecimientos es `"/document"`. Al trabajar con indexadores de blobs, el nodo `"/document"` tendrá nodos secundarios de `"/document/content"` y `"/document/normalized_images"`. Cuando se trabaja con datos CSV, como en este ejemplo, los nombres de columna se asignan a los nodos situados debajo de `"/document"`. Para acceder a cualquiera de los enriquecimientos agregados a un nodo mediante una aptitud, se necesita la ruta de acceso completa para el enriquecimiento. Por ejemplo, si desea utilizar el texto del nodo ```pages``` como una entrada a otra aptitud, deberá especificarlo como ```"/document/reviews_text/pages/*"```.
  
- ![árbol de enriquecimiento después de la aptitud 1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Árbol de enriquecimiento después de la ejecución de la aptitud 1")
+ ![Árbol de enriquecimiento después de la aptitud 1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Árbol de enriquecimiento después de la ejecución de la aptitud 1")
 
 ### <a name="skill-2-language-detection"></a>Aptitud 2: detección de idioma
  Aunque la aptitud de detección de idioma es la tercera (aptitud 3) definida en el conjunto de aptitudes, es la siguiente aptitud que se ejecuta. Dado que no se bloquea al no requerir entradas, se ejecutará en paralelo con la aptitud anterior. Al igual que la aptitud de división que la precedía, la aptitud de detección de idioma también se invoca una vez para cada documento. El árbol de enriquecimiento tiene ahora un nuevo nodo para Language.
- ![árbol de enriquecimiento después de la aptitud 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Árbol de enriquecimiento después de la ejecución de la aptitud 2")
+ ![Árbol de enriquecimiento después de la aptitud 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "EnÁrbol de enriquecimiento después de la ejecución de la aptitud 2
  
  ### <a name="skill-3-key-phrases-skill"></a>Aptitud 3: aptitud de frases clave 
 
@@ -107,13 +108,13 @@ Dado el contexto de ```/document/reviews_text/pages/*```, la aptitud de frases c
 
  Ahora deberá poder observar el resto de las aptitudes del conjunto y visualizar cómo seguirá creciendo el árbol de enriquecimientos con la ejecución de cada una de las aptitudes. Algunas aptitudes, como la aptitud de combinación y la aptitud de conformador, también crean nuevos nodos, pero solo usan datos de los nodos existentes y no crean nuevos enriquecimientos netos.
 
-![árbol de enriquecimiento tras todas las aptitudes](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "árbol de enriquecimiento tras todas las aptitudes")
+![Árbol de enriquecimiento después de todas las aptitudes](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Árbol de enriquecimiento después de todas las aptitudes")
 
 Los colores de los conectores en el árbol anterior indican que los enriquecimientos se crearon mediante distintas aptitudes y que los nodos deben abordarse de forma individual y no formarán parte del objeto devuelto al seleccionar el nodo primario.
 
 ## <a name="save-enrichments-in-a-knowledge-store"></a>Guardar enriquecimientos en el almacén de conocimiento 
 
-Los conjuntos de aptitudes también definen un almacén de conocimiento en el que los documentos enriquecidos se pueden proyectar como tablas u objetos. Para guardar los datos enriquecidos en el almacén de conocimiento, debe definir un conjunto de proyecciones del documento enriquecido. Para más información sobre el almacén de conocimiento, consulte [¿Qué es el almacén de conocimiento en Azure Search?](knowledge-store-concept-intro.md).
+Los conjuntos de aptitudes también definen un almacén de conocimiento en el que los documentos enriquecidos se pueden proyectar como tablas u objetos. Para guardar los datos enriquecidos en el almacén de conocimiento, debe definir un conjunto de proyecciones del documento enriquecido. Para más información sobre el almacén de conocimiento, consulte la [información general del almacén de conocimiento](knowledge-store-concept-intro.md).
 
 ### <a name="slicing-projections"></a>Segmentación de proyecciones
 

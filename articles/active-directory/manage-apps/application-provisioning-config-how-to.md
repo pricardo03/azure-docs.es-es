@@ -16,24 +16,24 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be43f0e100bc96de2be916cbf52bca7d3ba51431
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bcc53b97b1187314404cfe075f6593f437e7bf4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784531"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789042"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Configuración del aprovisionamiento de usuarios en una aplicación de la galería de Azure AD
 
-El *aprovisionamiento de cuentas de usuario* es el acto de crear, actualizar o deshabilitar registros de cuenta de usuario en el almacén de perfiles de usuario local de una aplicación. La mayoría de las aplicaciones SaaS y en la nube almacenan el rol y los permisos de los usuarios en su propio almacén local de perfiles de usuario, y la presencia de tal registro de usuario en su almacén local es *necesaria* para que funcionen el inicio de sesión único y el acceso.
+El *aprovisionamiento de cuentas de usuario* es el acto de crear, actualizar o deshabilitar registros de cuenta de usuario en el almacén de perfiles de usuario local de una aplicación. La mayoría de las aplicaciones SaaS y en la nube almacenan el rol y los permisos de los usuarios en el propio almacén local de perfiles de usuario del usuario y la presencia de tal registro de usuario en el almacén local del usuario es *necesaria* para que funcionen el inicio de sesión único y el acceso.
 
 En Azure Portal, en la pestaña **Aprovisionamiento** del panel de navegación izquierdo para una aplicación empresarial, se muestran los modos de aprovisionamiento admitidos para esa aplicación. Puede ser uno de dos valores:
 
 ## <a name="configuring-an-application-for-manual-provisioning"></a>Configuración de una aplicación para el aprovisionamiento manual
 
-El aprovisionamiento *manual* quiere decir que las cuentas de usuario se deben crear manualmente mediante los métodos proporcionados por esa aplicación. Esto podría suponer iniciar sesión en un portal administrativo para esa aplicación y agregar usuarios mediante una interfaz de usuario basada en Web. O bien, podría tener que cargar una hoja de cálculo con los detalles de las cuentas de usuario, mediante un mecanismo proporcionado por esa aplicación. Consulte la documentación suministrada por la aplicación o póngase en contacto con su desarrollador para determinar qué mecanismos hay disponibles.
+El aprovisionamiento *manual* quiere decir que las cuentas de usuario se deben crear manualmente mediante los métodos proporcionados por la aplicación. Esto podría suponer iniciar sesión en un portal administrativo para esa aplicación y agregar usuarios mediante una interfaz de usuario basada en Web. O bien, podría tener que cargar una hoja de cálculo con los detalles de las cuentas de usuario, mediante un mecanismo proporcionado por esa aplicación. Consulte la documentación suministrada por la aplicación o póngase en contacto con su desarrollador para determinar qué mecanismos hay disponibles.
 
-Si Manual es el único modo que se muestra para una aplicación determinada, significa que aún no se ha creado ningún conector de aprovisionamiento de Azure AD automático para la aplicación. O bien, significa que la aplicación no es compatible con la API de administración de usuarios obligatoria sobre la que se crea un conector de aprovisionamiento automatizado.
+Si *Manual* es el único modo que se muestra para una aplicación determinada, significa que aún no hay ningún conector de aprovisionamiento de Azure AD automático para la aplicación. O bien, significa que la aplicación no es compatible con la API de administración de usuarios obligatoria de Microsoft que se usa para crear un conector de aprovisionamiento automatizado.
 
 Si desea solicitar soporte técnico para el aprovisionamiento automático con una aplicación determinada, puede rellenar una solicitud en [Azure Active Directory Application Requests](https://aka.ms/aadapprequest) (Solicitudes de aplicación de Azure Active Directory).
 
@@ -45,14 +45,12 @@ Para más información sobre cómo aprovisionar usuarios y grupos específicos e
 
 Los pasos que son necesarios para habilitar y configurar el aprovisionamiento automático varían según la aplicación.
 
->[!NOTE]
->Para empezar, debería buscar el tutorial de configuración específico para configurar el aprovisionamiento para su aplicación y seguir esos pasos para configurar la aplicación y Azure AD para crear la conexión de aprovisionamiento. 
->
->
+> [!NOTE]
+> Para empezar, debería buscar el tutorial de configuración específico para configurar el aprovisionamiento para su aplicación y seguir esos pasos para configurar la aplicación y Azure AD para crear la conexión de aprovisionamiento. 
 
 Puede encontrar tutoriales sobre aplicaciones en [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
-Una cuestión importante que tener en cuenta al configurar el aprovisionamiento es revisar y configurar las asignaciones de atributos y los flujos de trabajo que definen qué propiedades de usuario (o de grupo) fluyen de Azure AD a la aplicación. Esto incluye la configuración de la "propiedad de coincidencia" que se usa para identificar de forma exclusiva y emparejar a usuarios y grupos entre ambos sistemas. Para más información acerca de este proceso importante.
+Una cuestión importante que tener en cuenta al configurar el aprovisionamiento es revisar y configurar las asignaciones de atributos y los flujos de trabajo que definen qué propiedades de usuario (o de grupo) fluyen de Azure AD a la aplicación. Esto incluye la configuración de la "propiedad de coincidencia" que se usa para identificar de forma exclusiva y emparejar a usuarios y grupos entre ambos sistemas. Consulte el vínculo en *Pasos siguientes* para más información sobre las asignaciones de atributos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)

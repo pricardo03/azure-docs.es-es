@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6b1782b9822877850f7c223dd80eed008ef706
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8d44b868f2ea92c2d7bb8d7139822112a8545045
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193192"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787456"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -132,11 +132,11 @@ Vea a continuación cómo se pueden rectificar estas acciones.
 
 ### <a name="q-why-are-there-devices-marked-as-pending-under-the-registered-column-in-the-azure-portal"></a>P: ¿Por qué hay dispositivos marcados como "Pendientes" en la columna REGISTRADO en Azure Portal?
 
-**R.** :  Pendiente indica que el dispositivo no está registrado. Este estado indica que un dispositivo se ha sincronizado con Azure AD Connect desde la instancia de AD local y está listo para el registro de dispositivos. Estos dispositivos tienen el TIPO DE UNIÓN establecido en "Unidos a Azure AD híbrido". Para más información, consulte [Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido](hybrid-azuread-join-plan.md).
+**R.** :  Pendiente indica que el dispositivo no está registrado. Este estado indica que un dispositivo se ha sincronizado con Azure AD Connect desde una instancia de AD local y está listo para el registro de dispositivos. Estos dispositivos tienen el TIPO DE UNIÓN establecido en "Unidos a Azure AD híbrido". Para más información, consulte [Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido](hybrid-azuread-join-plan.md).
 
 >[!NOTE]
 >Un dispositivo también puede pasar de tener un estado registrado a "Pendiente".
->* Si se elimina un dispositivo de Azure AD primero y se vuelve a sincronizar desde AD local.
+>* Si se elimina un dispositivo de Azure AD primero y se vuelve a sincronizar desde una instancia de AD local.
 >* Si un dispositivo se quita de un ámbito de sincronización en Azure AD Connect y se vuelve a agregar.
 >
 >En ambos casos, debe volver a registrar el dispositivo manualmente en cada uno de estos dispositivos. Para revisar si el dispositivo se registró anteriormente, puede [solucionar problemas de los dispositivos mediante el comando dsregcmd](troubleshoot-device-dsregcmd.md).

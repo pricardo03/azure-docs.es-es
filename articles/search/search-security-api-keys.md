@@ -1,23 +1,21 @@
 ---
-title: 'Creación, administración y protección de las claves de API de consulta y administración: Azure Search'
+title: Creación, administración y protección de las claves de API de consulta y administración
+titleSuffix: Azure Cognitive Search
 description: Las claves de API controlan el acceso al punto de conexión de servicio. Las claves de administración conceden acceso de escritura. Las claves de consulta se pueden crear para el acceso de solo lectura.
-author: HeidiSteen
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: a148ccccd156b0bf637a134758b3a1c8b9db70a7
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 68a17b8b3587077222a9ed2057927c8f16253c1e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647899"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794370"
 ---
-# <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Crear y administrar claves de API para un servicio de Azure Search
+# <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Creación y administración de claves de API para un servicio de Azure Cognitive Search
 
 Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una clave de API de solo lectura generada de forma específica para el servicio. Dicha clave de API es el único mecanismo para autenticar el acceso del punto de conexión de su servicio de búsqueda y se debe incluir en todas las solicitudes. En las [soluciones REST](search-get-started-postman.md) la clave de API se especifica normalmente en un encabezado de solicitud. En las [soluciones .NET](search-howto-dotnet-sdk.md#core-scenarios), se especifica a menudo una clave como valor de configuración y, posteriormente, se pasa como [Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (clave de administración) o [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (clave de consulta) en [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
 
@@ -39,7 +37,7 @@ Se usan dos tipos de claves para obtener acceso al servicio de búsqueda: admini
  Visualmente, no hay distinción entre las claves de administración y de consulta. Ambas claves son cadenas formadas por 32 caracteres alfanuméricos generados aleatoriamente. Si necesita saber qué tipo de clave se especifica en la aplicación, puede [comprobar los valores de las claves en el portal](https://portal.azure.com) o usar la [API de REST](https://docs.microsoft.com/rest/api/searchmanagement/) para devolver el valor y el tipo de clave.  
 
 > [!NOTE]  
->  Se considera una práctica poco segura pasar datos confidenciales, como una `api-key` en el identificador URI de la solicitud. Por este motivo, Azure Search solo acepta una clave de consulta, como una `api-key`, en la cadena de consulta y debe evitar hacerlo a menos que el contenido del índice deba estar disponible públicamente. Como regla general, se recomienda pasar la `api-key` como un encabezado de solicitud.  
+>  Se considera una práctica poco segura pasar datos confidenciales, como una `api-key` en el identificador URI de la solicitud. Por este motivo, Azure Cognitive Search solo acepta una clave de consulta como `api-key` en la cadena de consulta, y debe evitar hacerlo a menos que el contenido del índice deba estar disponible públicamente. Como regla general, se recomienda pasar la `api-key` como un encabezado de solicitud.  
 
 ## <a name="find-existing-keys"></a>Encontrar las claves existentes
 
@@ -66,7 +64,7 @@ Restringir el acceso y las operaciones en las aplicaciones cliente es esencial p
    ![Creación o uso de una clave de consulta](media/search-security-overview/create-query-key.png) 
 
 > [!Note]
-> Un ejemplo de código que muestra el uso de claves de consulta puede encontrarse en [Consultar un índice de Azure Search en C# ](search-query-dotnet.md).
+> Un ejemplo de código que muestra el uso de claves de consulta puede encontrarse en [Consulta de un índice de Azure Cognitive Search en C#](search-query-dotnet.md).
 
 <a name="regenerate-admin-keys"></a>
 
@@ -97,6 +95,6 @@ Los miembros de los roles siguientes pueden ver y regenerar las claves: Propieta
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Control de acceso basado en rol en Azure Search](search-security-rbac.md)
++ [Control de acceso basado en rol en Azure Cognitive Search](search-security-rbac.md)
 + [Administración mediante PowerShell](search-manage-powershell.md) 
 + [Artículo de rendimiento y optimización](search-performance-optimization.md)
