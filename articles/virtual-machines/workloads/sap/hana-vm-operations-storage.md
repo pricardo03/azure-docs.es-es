@@ -12,22 +12,21 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/11/2019
+ms.date: 10/21/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ab25b7a6d723ed5f2e74ad60ff54f9bf6d0fe4c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: bcd27378039d539e36c72cf6e8fec7e8a1425e54
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300554"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750334"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
-Azure proporciona distintos tipos de almacenamiento adecuados para máquinas virtuales de Azure que ejecutan SAP HANA. Los tipos de almacenamiento de Azure que pueden considerarse para la lista de implementaciones de SAP HANA son: 
+Azure proporciona distintos tipos de almacenamiento adecuados para máquinas virtuales de Azure que ejecutan SAP HANA. Los **tipos de almacenamiento de Azure con certificación de SAP HANA** que pueden considerarse para las implementaciones de SAP HANA, como: 
 
-- Unidades de disco SSD estándar (SSD)
-- Unidades de estado sólido (SSD) prémium
+- SSD Premium de Azure  
 - [Disco Ultra](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
@@ -37,13 +36,13 @@ Azure ofrece dos métodos de implementación de discos duros virtuales en Azure 
 
 Para obtener una lista de tipos de almacenamiento y sus Acuerdos de Nivel de Servicio sobre IOPS y rendimiento del almacenamiento, revise la [documentación de Azure para Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-Para el uso con HANA, estos tres tipos de almacenamiento están certificados con SAP:
+Las condiciones de certificación mínimas de SAP HANA para los diferentes tipos de almacenamiento son: 
 
-- Azure Premium Storage - /hana/log se debe almacenar en caché con el [Acelerador de escritura](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) de Azure
-- Disco Ultra de Azure
-- Volúmenes de NFS v4.1 a partir de Azure NetApp Files para /hana/log y /hana/data
+- SSD Premium de Azure: /hana/log se debe almacenar en caché con el [Acelerador de escritura](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) de Azure. El volumen /hana/data puede colocarse en el SSD Premium sin el Acelerador de escritura de Azure o bien en un disco Ultra.
+- Disco Ultra de Azure al menos para el volumen /hana/log. El volumen /hana/data se puede colocar en el SSD Premium sin el Acelerador de escritura de Azure o en un disco Ultra para obtener un tiempo de reinicio más rápido.
+- Volúmenes de **NFS v4.1** a partir de Azure NetApp Files para /hana/log **y** /hana/data.
 
-Algunos de los tipos de almacenamiento se pueden combinar. Por ejemplo, es posible poner /hana/data en Premium Storage y /hana/log se puede colocar en un almacenamiento en disco Ultra para obtener la baja latencia necesaria. Sin embargo, no se recomienda mezclar volúmenes NFS por ejemplo, /hana/data, y usar uno de los otros tipos de almacenamiento certificados para /hana/log
+Algunos de los tipos de almacenamiento se pueden combinar. Por ejemplo, es posible colocar /hana/data en Premium Storage y /hana/log se puede colocar en un almacenamiento en disco Ultra para obtener la baja latencia necesaria. Sin embargo, no se recomienda mezclar volúmenes NFS por ejemplo, /hana/data, y usar uno de los otros tipos de almacenamiento certificados para /hana/log
 
 En el mundo local, casi nunca ha tenido que preocuparse sobre los subsistemas de E/S y sus funcionalidades. El motivo era que el proveedor de las aplicaciones tenía que asegurarse de que se cumplieran los requisitos de almacenamiento mínimo para SAP HANA. Mientras compila la infraestructura de Azure por su cuenta, debe tener en cuenta algunos de esos requisitos. Algunas de las características de rendimiento mínimas que se piden comportan la necesidad de:
 
@@ -86,7 +85,7 @@ Estas recomendaciones de almacenamiento en caché suponen que las característic
 **Recomendación: Como resultado de estos patrones de E/S observados por SAP HANA, debe establecer el almacenamiento en caché de los diferentes volúmenes con Azure Premium Storage como sigue:**
 
 - **/hana/data**: sin almacenamiento en caché
-- **/hana/log**: sin almacenamiento en caché. Excepción para las máquinas virtuales de las series M y Mv2, en las que el Acelerador de escritura está habilitado como funcionalidad de caché
+- **/hana/log**: sin almacenamiento en caché. Excepción para las máquinas virtuales de las series M y Mv2, en las que el Acelerador de escritura debe estar habilitado sin almacenamiento en caché de lectura. 
 - **/hana/shared**: almacenamiento en caché de lecturas
 
 ### <a name="production-recommended-storage-solution"></a>Solución de almacenamiento recomendada para producción
@@ -147,19 +146,19 @@ En la tabla siguiente se muestra una configuración de tipos de máquina virtual
 | DS14v2 | 112 GiB | 768 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
 | E16v3 | 128 GB | 384 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
-| E64v3 | 432 GiB | 1200 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
-| GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
+| E64v3 | 432 GiB | 1200 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
+| GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
 | M32ts | 192 GiB | 500 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
 | M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
-| M64ls | 512 GB | 1000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 |1 x E30 |
-| M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x E30 | 1 x E6 | 1 x E6 |2 x E30 |
-| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x E30 | 1 x E6 | 1 x E6 | 3 x E30 |
-| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E40 |
-| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E50 |
-| M208s_v2 | 2850 GiB | 1000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 |  3 x E40 |
-| M208ms_v2 | 5700 GiB | 1000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
-| M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
-| M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
+| M64ls | 512 GB | 1000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 |1 x E30 |
+| M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x E30 | 1 x E6 | 1 x E6 |2 x E30 |
+| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x E30 | 1 x E6 | 1 x E6 | 3 x E30 |
+| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E40 |
+| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E50 |
+| M208s_v2 | 2850 GiB | 1000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 |  3 x E40 |
+| M208ms_v2 | 5700 GiB | 1000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
+| M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
+| M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
 
 
 Los tipos de máquina virtual M416xx_v2 no están disponibles todavía por parte de Microsoft para el público. Discos recomendados para los tipos de máquinas virtuales más pequeños con un exceso de tamaño de los volúmenes de 3 x P20 con respecto a las recomendaciones de espacio según las [notas del producto sobre el almacenamiento de TDI de SAP](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). No obstante, la elección que se muestra en la tabla se realizó para proporcionar un rendimiento del disco suficiente para SAP HANA. Si necesitar realizar cambios en el volumen **/hana/backup**, cuyo tamaño se estableció para mantener copias de seguridad que representan el doble del volumen de memoria, puede realizar los ajustes que requiera.   
@@ -174,7 +173,7 @@ Compruebe si el rendimiento del almacenamiento para los diferentes volúmenes su
 >  
 
 ## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Configuración de almacenamiento en el disco Ultra de Azure para SAP HANA
-Microsoft está en proceso de lanzar un nuevo tipo de almacenamiento de Azure denominado [disco Ultra de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk). La gran diferencia entre el almacenamiento de Azure que se ofrecía hasta ahora y el disco Ultra es que las funcionalidades del disco ya no están asociadas a su tamaño. Como un cliente, para el disco Ultra puede definir estas funcionalidades:
+Microsoft está en proceso de lanzar un nuevo tipo de almacenamiento de Azure denominado [disco Ultra de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk). Una diferencia considerable entre el almacenamiento de Azure que se ofrecía hasta ahora y el disco Ultra es que las funcionalidades del disco ya no están asociadas a su tamaño. Como un cliente, para el disco Ultra puede definir estas funcionalidades:
 
 - El tamaño de disco, de 4 GiB a 65 536 GiB
 - Intervalo de 100 operaciones de E/S por segundo a 160 000 operaciones de E/S por segundo (el máximo depende también de los tipos de máquina virtual)
@@ -192,18 +191,18 @@ En esta configuración, puede conservar los volúmenes /hana/data y /hana/log po
 
 | SKU de la máquina virtual | RAM | Máx. E/S de VM<br /> Throughput | Volumen /hana/data | Rendimiento de E/S de /hana/data | Operaciones de E/S por segundo en /hana/data | Volumen /hana/log | Rendimiento de E/S de /hana/log | Operaciones de E/S por segundo en /hana/log |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| E64s_v3 | 432 GiB | 1200 MB/s | 600 GB | 700 Mbps | 7500 | 512 GB | 500 MBps  | 2000 |
-| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 7500 | 256 GB | 250 MBps  | 2000 |
-| M32ls | 256 GiB | 500 MB/s | < 300 GB | 400 MBps | 7500 | 256 GB | 250 MBps  | 2000 |
-| M64ls | 512 GB | 1000 MB/s | 600 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2\.500 |
-| M64s | 1000 GiB | 1000 MB/s |  1200 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2\.500 |
-| M64ms | 1750 GiB | 1000 MB/s | 2100 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2\.500 |
-| M128s | 2000 GiB | 2000 MB/s |2400 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 3000 | 
-| M128ms | 3800 GiB | 2000 MB/s | 4800 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 3000 | 
-| M208s_v2 | 2850 GiB | 1000 MB/s | 3500 GB | 1000 MBps | 9000 | 512 GB | 400 MBps  | 2\.500 | 
-| M208ms_v2 | 5700 GiB | 1000 MB/s | 7200 GB | 1000 MBps | 9000 | 512 GB | 400 MBps  | 2\.500 | 
-| M416s_v2 | 5700 GiB | 2000 MB/s | 7200 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 3000 | 
-| M416ms_v2 | 11400 GiB | 2000 MB/s | 14400 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 3000 |   
+| E64s_v3 | 432 GiB | 1200 MB/s | 600 GB | 700 Mbps | 7500 | 512 GB | 500 MBps  | 2\.000 |
+| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 7500 | 256 GB | 250 MBps  | 2\.000 |
+| M32ls | 256 GiB | 500 MB/s | < 300 GB | 400 MBps | 7500 | 256 GB | 250 MBps  | 2\.000 |
+| M64ls | 512 GB | 1000 MB/s | 600 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2500 |
+| M64s | 1000 GiB | 1000 MB/s |  1200 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2500 |
+| M64ms | 1750 GiB | 1000 MB/s | 2100 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2500 |
+| M128s | 2000 GiB | 2000 MB/s |2400 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 3000 | 
+| M128ms | 3800 GiB | 2000 MB/s | 4800 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 3000 | 
+| M208s_v2 | 2850 GiB | 1000 MB/s | 3500 GB | 1000 MBps | 9000 | 512 GB | 400 MBps  | 2500 | 
+| M208ms_v2 | 5700 GiB | 1000 MB/s | 7200 GB | 1000 MBps | 9000 | 512 GB | 400 MBps  | 2500 | 
+| M416s_v2 | 5700 GiB | 2000 MB/s | 7200 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 3000 | 
+| M416ms_v2 | 11 400 GiB | 2000 MB/s | 14 400 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 3000 |   
 
 Los tipos de máquina virtual M416xx_v2 no están disponibles todavía por parte de Microsoft para el público. Los valores de la lista están diseñados como punto de partida y deben valorarse según las demandas reales. La ventaja del disco Ultra de Azure es que los valores de IOPS y de rendimiento se pueden adaptar sin necesidad de apagar la máquina virtual o detener la carga de trabajo que se aplica al sistema.   
 
@@ -223,10 +222,10 @@ En esta configuración, puede conservar los volúmenes /hana/data y /hana/log en
 | M64ms | 1750 GiB | 1000 MB/s | 2600 GB | 900 MBps | 10 000 | 
 | M128s | 2000 GiB | 2000 MB/s |2900 GB | 1800 MBps |12,000 | 
 | M128ms | 3800 GiB | 2000 MB/s | 5300 GB | 1800 MBps |12,000 |  
-| M208s_v2 | 2850 GiB | 1000 MB/s | 4000 GB | 900 MBps | 10 000 |  
-| M208ms_v2 | 5700 GiB | 1000 MB/s | 7700 GB | 900 MBps | 10 000 | 
-| M416s_v2 | 5700 GiB | 2000 MB/s | 7700 GB | 1800 MBps | 12,000 |  
-| M416ms_v2 | 11400 GiB | 2000 MB/s | 15 000 GB | 1800 MBps | 12,000 |    
+| M208s_v2 | 2850 GiB | 1000 MB/s | 4000 GB | 900 MBps | 10 000 |  
+| M208ms_v2 | 5700 GiB | 1000 MB/s | 7700 GB | 900 MBps | 10 000 | 
+| M416s_v2 | 5700 GiB | 2000 MB/s | 7700 GB | 1800 MBps | 12,000 |  
+| M416ms_v2 | 11 400 GiB | 2000 MB/s | 15 000 GB | 1800 MBps | 12,000 |    
 
 Los tipos de máquina virtual M416xx_v2 no están disponibles todavía por parte de Microsoft para el público. Los valores de la lista están diseñados como punto de partida y deben valorarse según las demandas reales. La ventaja del disco Ultra de Azure es que los valores de IOPS y de rendimiento se pueden adaptar sin necesidad de apagar la máquina virtual o detener la carga de trabajo que se aplica al sistema.  
 
@@ -236,16 +235,64 @@ Azure NetApp Files proporciona recursos compartidos de NFS nativos que se pueden
 > [!IMPORTANT]
 > No se admite el protocolo NFS v3 implementado en Azure NetApp Files para su uso con /hana/shared, /hana/data y /hana/log
 
-Con el fin de cumplir los requisitos de latencia de almacenamiento, es fundamental que las máquinas virtuales que usan esos volúmenes NFS para SAP HANA estén cerca de la infraestructura de ANF. Para lograr esto, las máquinas virtuales deben colocarse con la ayuda de Microsoft en las proximidades de la infraestructura de ANF. Con el fin de permitir que Microsoft realice este tipo de colocación de proximidad, Microsoft publicará un formulario que le pedirá algunos datos y un conjunto de disponibilidad de Azure vacío. Microsoft colocará el conjunto de disponibilidad cerca de la infraestructura de ANF donde sea necesario. 
+### <a name="important-considerations"></a>Consideraciones importantes
+A la hora de considerar Azure NetApp Files para SAP Netweaver y SAP HANA, tenga en cuenta los siguientes aspectos importantes:
 
-La infraestructura de ANF proporciona diferentes categorías de rendimiento. Estas categorías están documentadas en [Niveles de servicio para Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). 
+- El grupo de capacidad mínimo es de 4 TiB.  
+- El tamaño del volumen mínimo es de 100 GiB.
+- Azure NetApp Files y todas las máquinas virtuales en las que los volúmenes de Azure NetApp Files se montarán, se deben implementar en la misma red virtual de Azure o en [redes virtuales emparejadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) de la misma región.  
+- La red virtual seleccionada debe tener una subred delegada en Azure NetApp Files.
+- El rendimiento de un volumen de Azure NetApp es una función de la cuota del volumen y del nivel de servicio, como se documenta en [Nivel de servicio para Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). Al ajustar el tamaño de los volúmenes de Azure NetApp de HANA, asegúrese de que el rendimiento resultante cumple los requisitos del sistema HANA.  
+- Azure NetApp Files ofrece la [directiva de exportación](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): puede controlar los clientes permitidos, el tipo de acceso (lectura y escritura, solo lectura, etc.). 
+- La característica Azure NetApp Files no depende aún de la zona. En la actualidad, la característica Azure NetApp Files no se implementa en todas las zonas de disponibilidad de una región de Azure. Tenga en cuenta las posibles implicaciones de latencia en algunas regiones de Azure.  
+- Es importante que las máquinas virtuales se implementen muy cerca del almacenamiento de Azure NetApp para conseguir una latencia baja. Para las cargas de trabajo de SAP HANA, una baja latencia resulta fundamental. Trabaje con su representante de Microsoft para asegurarse de que las máquinas virtuales y los volúmenes de Azure NetApp Files se implementan en ubicaciones muy cercanas entre sí.  
+- El identificador de usuario para <b>sid</b>adm y el identificador de grupo para `sapsys` en las máquinas virtuales deben coincidir con la configuración de Azure NetApp Files. 
+
+> [!IMPORTANT]
+> Para las cargas de trabajo de SAP HANA, una baja latencia resulta fundamental. Trabaje con su representante de Microsoft para asegurarse de que las máquinas virtuales y los volúmenes de Azure NetApp Files se implementan en ubicaciones muy cercanas entre sí.  
+
+> [!IMPORTANT]
+> Si hay una discrepancia entre el identificador de usuario para <b>sid</b>adm y el identificador de grupo para `sapsys` entre la máquina virtual y la configuración de Azure NetApp, los permisos de archivos en volúmenes de Azure NetApp, montados en máquinas virtuales, aparecerán como `nobody`. Asegúrese de especificar el identificador de usuario correcto para <b>sid</b>adm y el identificador de grupo para `sapsys` al [incorporar un nuevo sistema](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) a Azure NetApp Files.
+
+### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Ajuste del tamaño de la base de datos HANA en Azure NetApp Files
+
+El rendimiento de un volumen de Azure NetApp es una función del tamaño del volumen y del nivel de servicio, como se documenta en [Nivel de servicio para Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). 
+
+Al diseñar la infraestructura de SAP en Azure, debe tener en cuenta los requisitos mínimos de almacenamiento de SAP, que se traducen en características de rendimiento mínimas:
+
+- Habilitación de la lectura o escritura en /hana/log de 250 MB/s con tamaños de E/S de 1 MB  
+- Habilitación de la actividad de lectura de al menos 400 MB/s para /hana/data con tamaños de E/S de 16 MB y 64 MB  
+- Habilitación de la actividad de escritura de al menos 250 MB/s para /hana/data con tamaños de E/S de 16 MB y 64 MB  
+
+Los [límites de rendimiento de Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) por 1 TiB de cuota de volumen son los siguientes:
+- Capa Premium Storage: 64 MiB/s  
+- Capa de almacenamiento Ultra: 128 MiB/s  
+
+Para cumplir los requisitos de rendimiento mínimo de SAP para los datos y el registro, y de acuerdo con las directrices para `/hana/shared`, los tamaños recomendados serían los siguientes:
+
+| Volumen | Size<br /> Capa Premium Storage | Size<br /> Capa de almacenamiento Ultra |
+| --- | --- | --- |
+| /hana/log/ | 4 TiB | 2 TiB |
+| /hana/data | 6,3 TiB | 3,2 TiB |
+| /hana/shared | Max (512 GB, 1xRAM) por cuatro nodos de trabajo | Max (512 GB, 1xRAM) por cuatro nodos de trabajo |
+
+La configuración de SAP HANA para el diseño que se presenta en este artículo, con la capa de almacenamiento Ultra de Azure NetApp Files, tendría el siguiente aspecto:
+
+| Volumen | Size<br /> Capa de almacenamiento Ultra |
+| --- | --- |
+| /hana/log/mnt00001 | 2 TiB |
+| /hana/log/mnt00002 | 2 TiB |
+| /hana/data/mnt00001 | 3,2 TiB |
+| /hana/data/mnt00002 | 3,2 TiB |
+| /hana/shared | 2 TiB |
 
 > [!NOTE]
-> Se recomienda usar la categoría de almacenamiento Ultra de ANF para /hana/data y /hana/log. En el caso de /hana/shared, la categoría Estándar o Premium es suficiente.
+> Las recomendaciones de tamaño de Azure NetApp Files que se han indicado se dirigen a satisfacer los requisitos mínimos que SAP expresa a sus proveedores de infraestructura. En escenarios reales de implementaciones de clientes y de cargas de trabajo, es posible que no sea suficiente. Utilice estas recomendaciones como punto de partida y adáptelas en función de los requisitos de la carga de trabajo específica.  
 
-Pronto se publicarán recomendaciones para el rendimiento recomendado de los volúmenes NFS basados en ANF.
+> [!TIP]
+> Puede cambiar el tamaño de los volúmenes de Azure NetApp Files de manera dinámica, sin necesidad de `unmount` los volúmenes, detener las máquinas virtuales o detener SAP HANA. Esto permite que la aplicación se adapte a las demandas de rendimiento esperadas e imprevistas.
 
-Pronto se publicará la documentación que describe cómo crear configuraciones de escalado horizontal de n + m HANA.
+La documentación sobre cómo implementar una configuración de escalabilidad horizontal de SAP HANA con un nodo de espera mediante los volúmenes de NFS v4.1 hospedados en ANF y publicados en [Escalabilidad horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con Azure NetApp Files en SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

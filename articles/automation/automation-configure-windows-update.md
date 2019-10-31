@@ -1,6 +1,6 @@
 ---
 title: Configuración de Windows Update para trabajar con Azure Update Management
-description: En este artículo se describe los parámetros de Windows Update que se configuran para trabajar con Update Management.
+description: En este artículo se describen los parámetros de Windows Update que se configuran para trabajar con Azure Update Management.
 services: automation
 ms.service: automation
 ms.subservice: update-management
@@ -9,22 +9,22 @@ ms.author: robreed
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f50ca9515f12e8c9b5943904c4d0226f2ca3353c
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 813d34f9c07e6c2909c483f040d4f3bf09b3ad24
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377393"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690837"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Configuración de los parámetros de Windows Update para Update Management
 
-Update Management se basa en Windows Update para descargar e instalar las actualizaciones de Windows. Como resultado, se respetan muchas de las configuraciones usadas por Windows Update. Si usa la configuración para habilitar las actualizaciones que no son de Windows, Update Management también administrará dichas actualizaciones. Si desea habilitar la descarga de actualizaciones antes de que se lleve a cabo la implementación de la actualización, las implementaciones de las actualizaciones pueden ejecutarse más rápido con menos probabilidades de exceder la ventana de mantenimiento.
+Azure Update Management se basa en Windows Update para descargar e instalar las actualizaciones de Windows. Como resultado, Update Management respeta muchas de las configuraciones que usa Windows Update. Si usa la configuración para habilitar las actualizaciones que no son de Windows, Update Management también administrará dichas actualizaciones. Si quiere habilitar la descarga de actualizaciones antes de que se lleve a cabo una implementación de actualizaciones, las implementaciones de actualizaciones pueden ejecutarse de manera más rápida y eficaz, con menos probabilidades de exceder la ventana de mantenimiento.
 
-## <a name="pre-download-updates"></a>Actualizaciones de descarga previa
+## <a name="pre-download-updates"></a>Actualizaciones previas a la descarga
 
-Para configurar la descarga automática de actualizaciones en la directiva de grupo, puede establecer la opción [Configurar actualizaciones automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) en **3**. De esta forma se descargan las actualizaciones necesarias en segundo plano, pero no se instalan. Esto permite que Update Management controle las programaciones, pero permite que las actualizaciones se descarguen fuera de la ventana de mantenimiento de Update Management. Esto puede evitar errores **Ventana de mantenimiento superada** en Update Management.
+Para configurar la descarga automática de actualizaciones en la directiva de grupo, establezca la opción [Configurar actualizaciones automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) en **3**. Esta configuración habilita las descargas de las actualizaciones necesarias en segundo plano, pero no las instala. De este modo, Update Management mantiene el control de las programaciones, pero las actualizaciones se pueden descargar fuera de la ventana de mantenimiento de Update Management. Este comportamiento evita errores de tipo "Ventana de mantenimiento superada" en Update Management.
 
-También puede configurar esto con PowerShell, con la ejecución del siguiente comando de PowerShell en un sistema en el que desee descargar las actualizaciones automáticamente.
+También puede activar esta configuración mediante la ejecución del siguiente comando de PowerShell en un sistema que quiera configurar para la descarga automática de actualizaciones:
 
 ```powershell
 $WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
@@ -34,7 +34,7 @@ $WUSettings.Save()
 
 ## <a name="disable-automatic-installation"></a>Deshabilitar la instalación automática
 
-Las máquinas virtuales de Azure tienen la instalación automática habilitada de forma predeterminada. Esto puede provocar que las actualizaciones se instalen antes de que programe su instalación por medio de Update Management. Puede deshabilitar este comportamiento estableciendo la clave del Registro `NoAutoUpdate` en `1`. El siguiente fragmento de código de PowerShell muestra una forma de hacerlo.
+De forma predeterminada, en las máquinas virtuales (VM) de Azure, la instalación automática de actualizaciones está habilitada. Esto puede provocar que las actualizaciones se instalen antes de que programe su instalación por medio de Update Management. Puede deshabilitar este comportamiento estableciendo la clave del Registro `NoAutoUpdate` en `1`. El siguiente fragmento de código de PowerShell muestra una forma de hacerlo:
 
 ```powershell
 $AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
@@ -43,11 +43,11 @@ Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
 
 ## <a name="configure-reboot-settings"></a>Configuración de las opciones de reinicio
 
-Las claves del Registro que se enumeran en [Configuración de actualizaciones automáticas mediante la edición del Registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) y [Claves del Registro usadas para administrar reinicios](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) pueden hacer que las máquinas se reinicien, incluso si ha especificado **No reiniciar nunca** en la configuración de Implementación de actualizaciones. Debe configurar estas claves del Registro como desee para su entorno.
+Las claves del Registro que se enumeran en [Configuración de actualizaciones automáticas mediante la edición del Registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) y [Claves del Registro usadas para administrar reinicios](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) pueden hacer que las máquinas se reinicien, incluso si ha especificado **No reiniciar nunca** en la configuración de **Implementación de actualizaciones**. Debe configurar estas claves del Registro como desee para su entorno.
 
 ## <a name="enable-updates-for-other-microsoft-products"></a>Habilitar actualizaciones de otros productos de Microsoft
 
-De forma predeterminada, Windows Update solo proporciona actualizaciones para Windows. Si habilita **Ofrecerme actualizaciones para otros productos de Microsoft cuando actualice Windows**, se proporcionan las actualizaciones para otros productos, incluidas las revisiones de seguridad de SQL Server u otro software propio. Esta opción no se puede configurar mediante la directiva de grupo. Ejecute el siguiente comando de PowerShell en los sistemas en los que desea habilitar otras revisiones propias, y Update Management respetará esta configuración.
+De forma predeterminada, Windows Update solo proporciona actualizaciones para Windows. Si habilita la opción **Ofrecerme actualizaciones para otros productos de Microsoft cuando actualice Windows**, también recibirá actualizaciones para otros productos, incluidas las revisiones de seguridad para Microsoft SQL Server u otro software de Microsoft. Esta opción no se puede configurar mediante la directiva de grupo. Ejecute el siguiente comando de PowerShell en los sistemas en los que quiere habilitar otras actualizaciones de Microsoft. Update Management se ajustará a esta configuración.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -58,12 +58,12 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="wsus-configuration-settings"></a>Valores de configuración de WSUS
 
-**Update Management** respeta la configuración de WSUS. A continuación se muestra la lista de opciones de WSUS que puede configurar para trabajar con Update Management.
+Update Management cumple con la configuración de Windows Server Update Services (WSUS). A continuación se muestra la lista de opciones de WSUS que puede configurar para trabajar con Update Management.
 
 ### <a name="intranet-microsoft-update-service-location"></a>Ubicación del servicio Microsoft Update en la intranet
 
-Puede especificar orígenes para examinar y descargar actualizaciones en la [ubicación del servicio Microsoft Update en la intranet](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location).
+Puede especificar orígenes para examinar y descargar actualizaciones en [Ubicación del servicio Microsoft Update en la intranet](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de configurar los parámetros de Windows Update, puede programar una implementación de actualizaciones siguiendo los pasos descritos en [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).
+Después de configurar los parámetros de Windows Update, puede programar una implementación de actualizaciones siguiendo las instrucciones de [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).

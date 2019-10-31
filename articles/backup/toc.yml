@@ -232,6 +232,8 @@
           href: backup-azure-restore-windows-server.md
         - name: Restauración del estado del sistema de Windows Server
           href: backup-azure-restore-system-state.md
+        - name: Administración de la copia de seguridad de carpetas y archivos de Windows Server
+          href: backup-azure-manage-mars.md
     - name: Almacén de Recovery Services
       items:
         - name: Introducción a los almacenes de Recovery Services

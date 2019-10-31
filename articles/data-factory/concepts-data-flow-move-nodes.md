@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2031820843342fb7e6b115865297e08cbee28a0a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 631a103491b70ca016b94af01995aeeb3f29c77a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387331"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754681"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>Nodos de movimiento de flujo de datos de asignación
 
@@ -25,7 +25,7 @@ Por consiguiente, sin un paradigma de arrastrar y colocar, la forma de "mover" u
 
 ## <a name="streams-of-data-inside-of-data-flow"></a>Flujos de datos dentro de Data Flow
 
-En Azure Data Factory Data Flow, las secuencias representan el flujo de datos. En el panel de configuración de la transformación, verá el campo "Incoming Stream" (Secuencia de entrada). En se indica cuál es el flujo de datos de entrada que alimenta la transformación. Puede cambiar la ubicación física del nodo de la transformación en el gráfico. Para ello, solo es preciso hacer clic en el nombre del flujo de entrada y seleccionar otro flujo de datos. A continuación, tanto la transformación actual como todas las transformaciones posteriores de esa secuencia, se moverán a la nueva ubicación.
+En Azure Data Factory Data Flow, las secuencias representan el flujo de datos. En el panel de configuración de la transformación, verá el campo "Incoming Stream" (Flujo de entrada). En se indica cuál es el flujo de datos de entrada que alimenta la transformación. Puede cambiar la ubicación física del nodo de la transformación en el gráfico. Para ello, solo es preciso hacer clic en el nombre del flujo de entrada y seleccionar otro flujo de datos. A continuación, tanto la transformación actual como todas las transformaciones posteriores de esa secuencia, se moverán a la nueva ubicación.
 
 Si va a mover una transformación con una o varias transformaciones posteriores, la nueva ubicación del flujo de datos se conectará mediante una nueva rama.
 

@@ -125,6 +125,8 @@
     - name: Mantenimiento y actualizaciones
       href: ../virtual-machines/windows/maintenance-and-updates.md
       maintainContext: true
+    - name: Modos de orquestación
+      href: orchestration-modes.md
     - name: Almacenamiento en disco
       items:
         - name: Managed Disks

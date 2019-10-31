@@ -119,6 +119,8 @@
                   href: ipv6-configure-standard-load-balancer-template-json.md
             - name: Equilibrador de carga público estándar
               href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+            - name: Conjunto de escalado de máquinas virtuales con IPv6
+              href: ipv6-virtual-machine-scale-set.md
         - name: Grupos de seguridad de red
           items:
             - name: Azure PowerShell

@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ae3350b14ca1073a5fbb1a353b9301c57e7f1ea4
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 7426493a575ceb38211f5e6e3b4f7e2ba558b670
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298324"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754747"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
@@ -32,7 +32,7 @@ En la tabla siguiente se proporciona una lista de entornos de proceso compatible
 | [Análisis con Azure Data Lake](#azure-data-lake-analytics-linked-service) | [U-SQL de análisis con Data Lake](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimiento almacenado](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
-
+| [Función de Azure](#azure-function-linked-service)         | [Actividad de función de Azure](control-flow-azure-function-activity.md)
 >  
 
 ## <a name="on-demand-hdinsight-compute-environment"></a>Entorno de procesos a petición de HDInsight
@@ -293,7 +293,7 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
 | password          | Especifique la contraseña para la cuenta de usuario.                       | Sí      |
 | linkedServiceName | Nombre del servicio vinculado para Azure Storage que hace referencia al almacenamiento Azure Blob Storage que usa el clúster de HDInsight. <p>Actualmente, no se puede especificar un servicio vinculado de Azure Data Lake Store para esta propiedad. Puede acceder a los datos de Azure Data Lake Store desde scripts de Hive o Pig si el clúster de HDInsight tiene acceso a Data Lake Store. </p> | Sí      |
 | isEspEnabled      | Especifique "*true*" si el clúster de HDInsight está habilitado por [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture). El valor predeterminado es "*false*". | Sin       |
-| connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. <br />Para un clúster de HDInsight habilitado por Enterprise Security Package use un runtime de integración autohospedado que tenga una línea de visión al clúster, o debe implementarse dentro de la misma red virtual que el clúster de HDInsight de ESP. | Sin       |
+| connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. <br />Para un clúster de HDInsight habilitado por Enterprise Security Package use un runtime de integración autohospedado que tenga una línea de visión al clúster o deba implementarse dentro de la misma instancia de Virtual Network que el clúster de HDInsight de ESP. | Sin       |
 
 > [!IMPORTANT]
 > HDInsight es compatible con varias versiones de clústeres de Hadoop que se pueden implementar. Cada versión crea una versión específica de la distribución HortonWorks Data Platform (HDP) y un conjunto de componentes que están incluidos en esa distribución. La lista de versiones admitidas de HDInsight se sigue actualizando para proporcionar las correcciones y componentes de ecosistema más recientes de Hadoop. Asegúrese de que siempre hace referencia a la información más reciente de [Versiones compatibles de HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) para asegurarse de que usa una versión compatible de HDInsight. 
@@ -309,10 +309,10 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
 
 Puede crear un servicio vinculado de Azure Batch para registrar un grupo de lotes de máquinas virtuales (VM) en una factoría de datos. Puede ejecutar la actividad personalizada con Azure Batch.
 
-Consulte los temas siguientes si no está familiarizado con el servicio Azure Batch:
+Consulte los artículos siguientes si no está familiarizado con el servicio Azure Batch:
 
 * [Aspectos básicos de Azure Batch](../batch/batch-technical-overview.md) para información general del servicio Azure Batch.
-* Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para crear una cuenta de Azure Batch, o [Azure Portal](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure Portal. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
+* Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para crear una cuenta de Azure Batch, o [Azure Portal](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure Portal. Consulte el artículo [Using PowerShell to manage Azure Batch Account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) (Administración de cuentas de Azure Batch con PowerShell) para instrucciones detalladas sobre el uso del cmdlet.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para crear un grupo de Azure Batch.
 
 ### <a name="example"></a>Ejemplo
@@ -533,14 +533,14 @@ Puede crear un **servicio vinculado de Azure Databricks** para registrar el áre
 | Propiedad             | DESCRIPCIÓN                              | Obligatorio                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | Nombre                 | Nombre del servicio vinculado               | Sí   |
-| Tipo                 | La propiedad type se debe establecer en: **AzureDatabricks**. | Sí                                      |
+| Tipo                 | La propiedad type se debe establecer en: **Azure Databricks**. | Sí                                      |
 | dominio               | Especifica la región de Azure según corresponda en función de la región del área de trabajo de Databricks. Ejemplo: https://eastus.azuredatabricks.net | Sí                                 |
 | accessToken          | El token de acceso es necesario para que Data Factory se autentique en Azure Databricks. El token de acceso debe generarse a partir del área de trabajo de Databricks. [Aquí](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token) encontrará más pasos detallados para encontrar el token de acceso.  | Sí                                       |
 | existingClusterId    | Identificador de un clúster existente para ejecutar todos los trabajos en él. Debe tratarse de un clúster interactivo que ya se haya creado. Debe reiniciar manualmente el clúster si deja de responder. Databricks sugiere la ejecución de trabajos en clústeres nuevos para mayor confiabilidad. Encontrará el identificador del clúster interactivo en el área de trabajo de Databricks -> Clusters -> Interactive Cluster Name -> Configuration -> Tags (Clústeres -> Nombre del clúster interactivo -> Configuración -> Etiquetas). [Más detalles](https://docs.databricks.com/user-guide/clusters/tags.html) | Sin 
 | instancePoolId    | Identificador del grupo de instancias de un grupo existente en el área de trabajo de Databricks.  | Sin  |
 | newClusterVersion    | Versión de Spark del clúster. Creará de un clúster de trabajo en Databricks. | Sin  |
 | newClusterNumOfWorker| Número de nodos de trabajo que debería tener este clúster. Los clústeres tienen un controlador de Spark y num_workers ejecutores para un total de num_workers + 1 nodos de Spark. Una cadena con formato Int32, como "1" significa que numOfWorker es 1 o que "1:10" significa que la escala automática va de 1 como mínimo a 10 como máximo.  | Sin                |
-| newClusterNodeType   | Este campo codifica, mediante un solo valor, los recursos disponibles para cada uno de los nodos de Spark de este clúster. Por ejemplo, los nodos de Spark se pueden aprovisionar y optimizar para cargas de trabajo intensivas de memoria o proceso. Este campo es obligatorio para el nuevo clúster                | Sin               |
+| newClusterNodeType   | Este campo codifica, mediante un solo valor, los recursos disponibles para cada uno de los nodos de Spark de este clúster. Por ejemplo, los nodos de Spark se pueden aprovisionar y optimizar para cargas de trabajo intensivas de memoria o proceso. Este campo es obligatorio para el nuevo clúster.                | Sin               |
 | newClusterSparkConf  | Conjunto de pares de clave-valor de configuración de Spark opcionales especificado por el usuario. Los usuarios también pueden pasar una cadena de opciones adicionales de JVM al controlador y los ejecutores con spark.driver.extraJavaOptions y spark.executor.extraJavaOptions respectivamente. | Sin  |
 | newClusterInitScripts| Conjunto de scripts de inicialización opcional definido por el usuario para el nuevo clúster. Especificación de la ruta de acceso DBFS a los scripts init. | Sin  |
 
@@ -553,6 +553,16 @@ Cree un servicio vinculado de SQL Data Warehouse y úselo con la [actividad de p
 
 ## <a name="sql-server-linked-service"></a>Servicio vinculado de SQL Server
 Cree un servicio vinculado de SQL Server y úselo con la [actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) para invocar un procedimiento almacenado desde una canalización de Data Factory. Consulte el artículo sobre el [conector de SQL Server](connector-sql-server.md#linked-service-properties) para más información acerca de este servicio vinculado.
+
+## <a name="azure-function-linked-service"></a>Servicio vinculado de la función de Azure
+Puede crear un servicio vinculado de la función de Azure y usarlo con la [actividad de la función de Azure](control-flow-azure-function-activity.md) para ejecutar Azure Functions en una canalización de Data Factory. El tipo de valor devuelto de la función de Azure tiene que ser un elemento `JObject` válido. (Tenga en cuenta que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *no* es un `JObject`.) Los tipos de valor devuelto que no sean `JObject` producen un error y generan el error de usuario *El contenido de la respuesta no es un elemento JObject válido*.
+
+| **Propiedad** | **Descripción** | **Obligatorio** |
+| --- | --- | --- |
+| Tipo   | La propiedad type debe establecerse en: **AzureFunction** | Sí |
+| Dirección URL de Function App | Dirección URL de la instancia de Azure Function App. El formato es `https://<accountname>.azurewebsites.net`. Esta dirección URL es el valor que aparece en la sección **URL** al visualizar la instancia de Function App en Azure Portal.  | Sí |
+| Tecla de función | Tecla de acceso de la función de Azure. Haga clic en la sección **Administrar** de la función correspondiente y copie la **tecla de función** o la **tecla del host**. Obtenga más información aquí. [Enlaces y desencadenadores HTTP de Azure Functions](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | Sí |
+|   |   |   |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para una lista de actividades de transformación compatibles con Azure Data Factory, consulte [Transform data](transform-data.md) (Transformación de datos).

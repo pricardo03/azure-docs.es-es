@@ -80,9 +80,9 @@
           items:
             - name: Herramienta Copiar datos
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: Transformación de datos mediante Mapping Data Flow
+    - name: Transformación de datos con Mapping Data Flow
       href: tutorial-data-flow.md
-    - name: Transformación de datos en la nube
+    - name: Transformaciones externas
       items:
         - name: HDInsight Spark
           items:
@@ -94,7 +94,7 @@
           items:
             - name: Interfaz de usuario (UI)
               href: transform-data-using-databricks-notebook.md
-    - name: Transformación de datos en una red virtual
+    - name: Transformación de Hive en una red virtual
       items:
         - name: Interfaz de usuario (UI)
           href: tutorial-transform-data-hive-virtual-network-portal.md
@@ -622,6 +622,8 @@
       items:
         - name: Procesamiento de archivos de texto de ancho fijo
           href: how-to-fixed-width.md
+        - name: Control de filas de errores
+          href: how-to-data-flow-error-rows.md
     - name: Migración de SSIS desde un entorno local
       items:
         - name: Introducción a la migración de SSIS

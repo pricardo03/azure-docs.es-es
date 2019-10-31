@@ -4,15 +4,15 @@ description: AzCopy es una utilidad de línea de comandos que puede usar para co
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f4523b2aa580d0fd237c15e23b06b44593cbf055
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 37d8c483a1ef49a87205dcc848aae974f5b0e47e
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274649"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675860"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -294,6 +294,14 @@ La dirección URL aparece en la salida de este comando. A continuación, el scri
 ### <a name="escape-special-characters-in-sas-tokens"></a>Escape de caracteres especiales en tokens de SAS
 
 En los archivos por lotes con la extensión `.cmd`, tendrá que usar una secuencia de escape en los caracteres `%` que aparezcan en los tokens de SAS. Para ello, agregue un carácter `%` adicional junto a los caracteres `%` existentes en la cadena de token de SAS.
+
+### <a name="run-scripts-by-using-jenkins"></a>Ejecutar scripts mediante Jenkins
+
+Si tiene previsto usar [Jenkins](https://jenkins.io/) para ejecutar scripts, asegúrese de colocar el siguiente comando al principio del script.
+
+```
+/usr/bin/keyctl new_session
+```
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Uso de AzCopy en el Explorador de Storage
 

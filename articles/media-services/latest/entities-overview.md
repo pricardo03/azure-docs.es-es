@@ -12,21 +12,21 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ed509ac8fea43a9c011bbbf76c1dc433cd78d43c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d13ff3944e53f103c03a92e03d217b0066bc97df
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298953"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693308"
 ---
-# <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrado, ordenación y paginación de entidades de Media Services
+# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrado, ordenación y paginación de entidades de Media Services
 
 En este tema se describen las opciones de consulta de OData y la compatibilidad con la paginación disponible al enumerar entidades de Azure Media Services v3.
 
 ## <a name="considerations"></a>Consideraciones
 
-* Las propiedades de entidades que son de tipo Datetime siempre están en formato UTC.
-* El espacio en blanco de la cadena de consulta debe codificarse para URL antes de enviar una solicitud.
+* Las propiedades de entidades que son de tipo `Datetime` siempre están en formato UTC.
+* El espacio en blanco de la cadena de consulta debe codificarse como URL antes de enviar una solicitud.
 
 ## <a name="comparison-operators"></a>Operadores de comparación
 
@@ -34,21 +34,21 @@ Puede usar los operadores siguientes para comparar un campo con un valor constan
 
 Operadores de igualdad:
 
-- `eq`: se comprueba si un campo es **igual a** un valor constante
-- `ne`: se comprueba si campo **no es igual a** un valor constante
+- `eq`: se comprueba si un campo es *igual a* un valor constante.
+- `ne`: se comprueba si un campo *no es igual a* un valor constante.
 
 Operadores de rango:
 
-- `gt`: se comprueba si un campo es **mayor que** un valor constante
-- `lt`: se comprueba si un campo es **menor que** un valor constante
-- `ge`: se comprueba si un campo es **mayor o igual que** un valor constante
-- `le`: se comprueba si un campo es **menor o igual que** un valor constante
+- `gt`: se comprueba si un campo es *mayor que* un valor constante.
+- `lt`: se comprueba si un campo es *menor que* un valor constante.
+- `ge`: se comprueba si un campo es *mayor o igual que* un valor constante. value
+- `le`: se comprueba si un campo es *menor o igual que* un valor constante.
 
 ## <a name="filter"></a>Filtrar
 
-**$filter**: use filter para suministrar un parámetro de filtro de OData que busque únicamente los objetos que le interesen.
+Use `$filter` para suministrar un parámetro de filtro de OData que busque únicamente los objetos que le interesen.
 
-En el siguiente ejemplo de REST se filtra por alternateId en un recurso:
+En el siguiente ejemplo de REST se filtra por el valor `alternateId` de un recurso:
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
@@ -63,28 +63,28 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Ordenar por
 
-**$orderby** : se usa para ordenar los objetos devueltos por el parámetro especificado. Por ejemplo:    
+Use `$orderby` para ordenar los objetos devueltos por el parámetro especificado. Por ejemplo:    
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Para ordenar los resultados de forma ascendente o descendente, anexe `asc` o `desc` al nombre del campo, separados por un espacio. Por ejemplo, `$orderby properties/created desc`.
+Para ordenar los resultados de forma ascendente o descendente, anexe `asc` o `desc` al nombre del campo, separados por un espacio. Por ejemplo: `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>Token de omisión
 
-**$skiptoken**: si la respuesta a una consulta contiene muchos elementos, el servicio devuelve un valor de token de omisión (`@odata.nextLink`) que se usa para obtener la siguiente página de resultados. Esto se puede utilizar para pasar de página en el conjunto de resultados completo.
+Si la respuesta a una consulta contiene muchos elementos, el servicio devuelve un valor de `$skiptoken` (`@odata.nextLink`) que se usa para obtener la siguiente página de resultados. Utilícelo para desplazarse por el conjunto de resultados completo.
 
-En Media Services v3, no se puede configurar el tamaño de página. El tamaño de página varía según el tipo de entidad. Lea las secciones individuales que vienen a continuación para más información.
+En Media Services v3, no se puede configurar el tamaño de página. El tamaño de página varía según el tipo de entidad. Lea las secciones individuales siguientes para obtener más información.
 
-Si se crean o eliminan entidades durante la paginación a través de la colección, los cambios se reflejan en los resultados devueltos (si esos cambios se encuentran en la parte de la colección que no se ha descargado). 
+Si se crean o eliminan entidades al desplazarse por la colección, los cambios se reflejan en los resultados devueltos (si esos cambios se encuentran en la parte de la colección que no se ha descargado). 
 
 > [!TIP]
 > Se debe usar siempre `nextLink` para enumerar la colección y no tener que depender de un tamaño de página determinado.
 >
-> `nextLink` solo estará presente si hay más de una página de entidades.
+> El valor `nextLink` solo estará presente si hay más de una página de entidades.
 
-Analice el siguiente ejemplo de donde se usa $skiptoken. Asegúrese de reemplazar *amstestaccount* con el nombre de cuenta y establezca el valor de *api-version* a la versión más reciente.
+Analice el siguiente ejemplo de dónde se usa `$skiptoken`. Asegúrese de reemplazar *amstestaccount* con el nombre de cuenta y establezca el valor de *api-version* a la versión más reciente.
 
 Si solicita una lista de recursos similar a la siguiente:
 
@@ -94,7 +94,7 @@ x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-Obtendrá una respuesta similar a esta:
+Obtendrá una respuesta similar a la siguiente:
 
 ```
 HTTP/1.1 200 OK
@@ -136,7 +136,7 @@ while (currentPage.NextPageLink != null)
 
 ## <a name="using-logical-operators-to-combine-query-options"></a>Uso de operadores lógicos para combinar las opciones de consulta
 
-Media Services V3 admite los operadores lógicos "or" y "and". 
+Media Services v3 admite los operadores lógicos **OR** y **AND**. 
 
 En el siguiente ejemplo de REST se comprueba el estado del trabajo:
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 09/14/2019
-ms.openlocfilehash: 0465dcba5130f3b2dc5c615c884bfa0d3b138eb7
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.date: 10/10/2019
+ms.openlocfilehash: f5136084530c48815fd6a9f9e25b7358df00af07
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514937"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692548"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>¿Qué son las canalizaciones de Azure Machine Learning?
 
@@ -51,7 +51,7 @@ La nube de Azure proporciona otras canalizaciones, cada una con una finalidad di
 Una canalización de Azure Machine Learning es un flujo de trabajo ejecutable independiente de una tarea de aprendizaje automático completa. Las subtareas se encapsulan como una serie de pasos dentro de la canalización. Una canalización de Azure Machine Learning puede ser tan simple como una llamada a un script de Python, por lo que _puede_ hacer prácticamente de todo. Las canalizaciones _se deben_ centrar en tareas de aprendizaje automático como:
 
 + La preparación de datos incluye la importación, validación y limpieza, manipulación y transformación, normalización y almacenamiento provisional.
-+ La configuración del entrenamiento, incluida la parametrización de argumentos, rutas de archivos y configuraciones de registro o informes.
++ La configuración del entrenamiento, incluida la parametrización de argumentos, rutas de archivos y configuraciones de registros o informes.
 + El entrenamiento y la validación de manera eficaz y repetida, lo que podría incluir la especificación de subconjuntos de datos específicos, distintos recursos de proceso de hardware, procesamiento distribuido y supervisión del progreso.
 + La implementación, incluido el control de versiones, escalado, aprovisionamiento y control de acceso. 
 
@@ -112,6 +112,14 @@ En el [SDK de Python para Azure Machine Learning ](https://docs.microsoft.com/py
 Una canalización de Azure ML está asociada a un área de trabajo de Azure Machine Learning y un paso de la canalización está asociado a un destino de proceso disponible dentro de esa área de trabajo. Para más información, consulte [Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) o [¿Qué son los destinos de proceso en Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target)
 
 En Azure Machine Learning, un destino de proceso es el entorno en el que se produce una fase de ML. El entorno de software puede ser una máquina virtual remota, un Proceso de Azure Machine Learning, Azure Databricks, Azure Batch, etc. El entorno de hardware también puede variar en gran medida, en función de la compatibilidad con la GPU, la memoria, el almacenamiento, etc. Puede especificar el destino de proceso para cada paso, lo que le proporciona un control exhaustivo sobre los costos. Puede usar recursos más o menos eficaces para las necesidades de acción, volumen de datos y rendimiento específicas del proyecto. 
+
+## <a name="how-do-i-build-pipelines-using-the-azure-machine-learning-visual-interface"></a>¿Cómo puedo compilar canalizaciones con la interfaz visual de Azure Machine Learning?
+
+Los desarrolladores que prefieren una superficie de diseño visual pueden usar la interfaz visual de Azure Machine Learning para crear canalizaciones. Puede acceder a esta herramienta desde la selección de **Interfaz visual**  en la página principal del área de trabajo.  La interfaz visual le permite arrastrar y colocar pasos en la superficie de diseño. Para un desarrollo rápido, puede usar los módulos existentes en el espectro de tareas de ML. Los módulos existentes cubren todos los escenarios, desde la transformación de datos hasta la selección de algoritmos y el entrenamiento de la implementación. O bien, puede crear una canalización totalmente personalizada mediante la combinación de sus propios pasos definidos en los scripts de Python.
+
+Al diseñar las canalizaciones visualmente, las entradas y salidas de un paso se muestran de manera visible. Puede arrastrar y colocar conexiones de datos, lo que le permite comprender y modificar rápidamente el flujo de datos de la canalización.
+ 
+![Ejemplo de interfaz visual de Azure Machine Learning](./media/concept-ml-pipelines/visual-design-surface.gif)
 
 ### <a name="understanding-the-execution-graph"></a>Descripción del grafo de ejecución
 
