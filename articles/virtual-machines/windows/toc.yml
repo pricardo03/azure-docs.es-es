@@ -447,7 +447,11 @@
         - name: Alta disponibilidad
           href: manage-availability.md
         - name: Creación de un grupo de selección de ubicación por proximidad
-          href: proximity-placement-groups.md
+          items:
+            - name: Portal
+              href: proximity-placement-groups-portal.md
+            - name: PowerShell
+              href: proximity-placement-groups.md
         - name: Escalado vertical
           items:
             - name: PowerShell

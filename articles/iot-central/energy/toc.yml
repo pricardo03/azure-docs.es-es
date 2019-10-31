@@ -36,8 +36,6 @@
           href: ../core/howto-manage-devices-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Ejecución de un trabajo
           href: ../core/howto-run-a-job.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
-        - name: Uso de grupos de dispositivos
-          href: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Versión de la plantilla del dispositivo
           href: ../core/howto-version-device-template-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Supervisión y análisis
