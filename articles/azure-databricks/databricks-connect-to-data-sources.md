@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: c77d1d1a66d3ee92f5ad3f2016d2160831fa3ad9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9b44db3e8ffc02d211f7f97404f0cdd8d319fe03
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299314"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597500"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Conectarse a orígenes de datos de Azure Databricks
 
@@ -31,9 +31,9 @@ En la lista siguiente se proporcionan los orígenes de datos de Azure que puede 
 - [Azure SQL Database](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
 
     Este vínculo permite que la API de DataFrame se conecte a bases de datos SQL con JDBC e indica cómo controlar el paralelismo de lecturas a través de la interfaz JDBC. En este tema se proporcionan ejemplos detallados con la API de Scala, con ejemplos abreviados de Python y Spark al final.
-- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
+- [Almacén de Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
 
-    En este vínculo se proporcionan ejemplos acerca de cómo utilizar la entidad de servicio de Azure Active Directory para autenticar con Data Lake Store. También proporciona instrucciones acerca de cómo obtener acceso a los datos de Data Lake Store desde Azure Databricks.
+    En este vínculo se proporcionan ejemplos acerca de cómo utilizar la entidad de servicio de Azure Active Directory para autenticarse con Azure Data Lake Storage. También proporciona instrucciones acerca de cómo obtener acceso a los datos de Azure Data Lake Storage desde Azure Databricks.
 
 - [Azure Blob Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html)
 

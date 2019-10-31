@@ -10,18 +10,38 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: f51b9c3032518fb66215126c5a8bf26ab9b59526
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: afad2648ec73b02d4e06ad55f850a518d2488f68
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331571"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756052"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) de Azure Machine Learning. 
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
+
+## <a name="2019-10-21"></a>2019-10-21
+
+### <a name="visual-interface-preview"></a>Interfaz visual (versión preliminar)
+
++ La interfaz visual de Azure Machine Learning (versión preliminar) se ha revisado para ejecutarse en [canalizaciones de Azure Machine Learning](concept-ml-pipelines.md). Las canalizaciones (anteriormente conocidas como experimentos) creadas en la interfaz visual ahora están totalmente integradas con la experiencia principal de Azure Machine Learning.
+  + Experiencia de administración unificada con recursos de SDK
+  + Control de versiones y seguimiento de modelos de interfaz visual, canalizaciones y puntos de conexión 
+  + Interfaz de usuario rediseñada
+  + Agregación de implementación de inferencia de lote
+  + Agregación de compatibilidad con Azure Kubernetes Service (AKS) para la inferencia de destinos de proceso
+  + Nuevo flujo de trabajo de creación de canalizaciones de paso de Python
+  + Nueva [página de aterrizaje](https://ml.azure.com) para herramientas de creación visual
+
++ **Nuevos módulos**
+  + Aplicación de operación matemática
+  + Aplicación de transformaciones de SQL
+  + Recorte de valores
+  + Resumen de datos
+  + Importación desde Azure SQL Database  
 
 ## <a name="2019-10-14"></a>2019-10-14
 
@@ -67,6 +87,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
   + **azureml-train-automl**
     + Ya no se producirá un error en la ejecución primaria cuando se produzca un error en la iteración de instalación, ya que la orquestación se encarga de ello.
     + Se agregó compatibilidad con local-docker y local-conda para los experimentos de AutoML.
+
 
 ## <a name="2019-10-08"></a>2019-10-08
 
@@ -883,7 +904,7 @@ Nota: El SDK de Python de preparación de datos no instalará los paquetes `nump
 
  + **Cambios**
    + El paquete azureml tensorboard reemplaza azureml-contrib-tensorboard.
-   + Con esta versión, puede configurar una cuenta de usuario en el clúster de proceso administrado (amlcompute) al crearlo. Esto puede realizarse usando estas propiedades en la configuración de aprovisionamiento. Encontrará más información en la [documentación de referencia del SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remotelogin-port-public-access--notspecified--).
+   + Con esta versión, puede configurar una cuenta de usuario en el clúster de proceso administrado (amlcompute) al crearlo. Esto puede realizarse usando estas propiedades en la configuración de aprovisionamiento. Encontrará más información en la [documentación de referencia del SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>SDK de preparación de datos de Azure Machine Learning v1.0.17
 

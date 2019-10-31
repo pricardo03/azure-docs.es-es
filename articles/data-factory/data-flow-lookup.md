@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 25d8588f8e2c968dc2516938263aaa7d6ddcff13
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 01a1dba18e21a38695146560bbf85cf1a042ba02
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387869"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596562"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformación Búsqueda del flujo de datos de asignación de Azure Data Factory
 
@@ -29,6 +29,20 @@ La transformación Búsqueda realiza el equivalente de una combinación externa 
 
 Después de la transformación Búsqueda, puede usar las transformaciones posteriores para inspeccionar los resultados de cada fila coincidente mediante la función de expresión `isMatch()` para tomar más decisiones sobre la lógica en función de si la búsqueda dio como resultado una coincidencia o no.
 
+![Patrón de búsqueda](media/data-flow/lookup111.png "Patrón de búsqueda")
+
+Después de usar la transformación Búsqueda, puede agregar una división de transformación del tipo División condicional en la función ```isMatch()```. En el ejemplo anterior, las filas coincidentes pasan por el flujo anterior y las filas no coincidentes fluyen a través del flujo de ```NoMatch```.
+
+## <a name="first-or-last-value"></a>Primer o último valor
+
+Si la Búsqueda devuelve varias coincidencias, puede que quiera reducir el número de filas coincidentes mediante la selección de la primera o la última coincidencia. Puede hacerlo mediante una transformación Agregar después de la de Búsqueda.
+
+En este caso, se usa una transformación Agregar llamada ```PickFirst``` para elegir el primer valor de entre las coincidencias de búsqueda.
+
+![Agregar después de Búsqueda](media/data-flow/lookup333.png "Agregar después de Búsqueda")
+
+![Primer valor de búsqueda](media/data-flow/lookup444.png "Primer valor de Búsqueda")
+
 ## <a name="optimizations"></a>Optimizaciones
 
 En Data Factory, Data Flow se ejecuta en entornos de Spark de escalabilidad horizontal. Si el conjunto de datos puede caber en el espacio de memoria de un nodo de trabajo, podemos optimizar el rendimiento de Búsqueda.
@@ -45,4 +59,5 @@ También puede especificar la creación de particiones de los datos si seleccion
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Las transformaciones [Combinación](data-flow-join.md) y [Existe](data-flow-exists.md) realizan tareas similares en los flujos de datos de asignación de ADF. A continuación, eche un vistazo a esas transformaciones.
+* Las transformaciones [Combinación](data-flow-join.md) y [Existe](data-flow-exists.md) realizan tareas similares en los flujos de datos de asignación de ADF. A continuación, eche un vistazo a esas transformaciones.
+* Use una [División condicional](data-flow-conditional-split.md) con ```isMatch()``` para dividir las filas en valores coincidentes y no coincidentes.

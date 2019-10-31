@@ -4,16 +4,16 @@ description: Este artículo contiene una colección de comandos de ejemplo de Az
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f1b18601629db12d4f9e75f180488e91b6a6857a
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: c65c6b3f6f186e7821ff402eea4494fa60e9c370
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274857"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598076"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferencia de datos con AzCopy y Blob Storage
 
@@ -272,7 +272,7 @@ Para obtener documentos de referencia detallados, consulte [azcopy copy](storage
 
 ## <a name="synchronize-files"></a>Sincronización de archivos
 
-Puede sincronizar el contenido de un sistema de archivos local con un contenedor de blobs. La sincronización es unidireccional. En otras palabras, tendrá que elegir cuál de estos dos puntos de conexión es el origen y cuál es el destino. La sincronización también usa las API de servidor a servidor.
+Puede sincronizar el contenido de un sistema de archivos local con un contenedor de blobs. También puede sincronizar los contenedores y directorios virtuales entre sí. La sincronización es unidireccional. En otras palabras, tendrá que elegir cuál de estos dos puntos de conexión es el origen y cuál es el destino. La sincronización también usa las API de servidor a servidor.
 
 > [!NOTE]
 > En la actualidad, este escenario solo se admite para las cuentas que no tienen un espacio de nombres jerárquico. La versión actual de AzCopy no sincroniza entre otros orígenes y destinos (por ejemplo: Almacenamiento de archivos o cubos de Amazon Web Services (AWS) S3).
@@ -304,6 +304,24 @@ En este caso, el sistema de archivos local es el destino y el contenedor es el o
 | **Sintaxis** | `azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive` |
 | **Ejemplo** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
 |
+
+### <a name="update-a-container-with-changes-in-another-container"></a>Actualización de un contenedor con cambios en otro contenedor
+
+El primer contenedor que aparece en este comando es el contenedor origen. El segundo es el destino.
+
+|    |     |
+|--------|-----------|
+| **Sintaxis** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
+| **Ejemplo** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
+
+### <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>Actualización de un directorio con cambios en un directorio en otro recurso compartido de archivos
+
+El primer directorio que aparece en este comando es el directorio origen. El segundo es el destino.
+
+|    |     |
+|--------|-----------|
+| **Sintaxis** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
+| **Ejemplo** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

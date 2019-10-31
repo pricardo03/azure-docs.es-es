@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 5fc9262dd53f390dbc43646626cc324d8655f1de
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387772"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72596545"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformación del receptor para un flujo de datos
 
@@ -61,6 +61,10 @@ Al desactivar la asignación automática, tendrá la opción de agregar una asig
 Al elegir la asignación basada en reglas, se indica a ADF que evalúe la expresión coincidente para que coincida con las reglas de patrón de entrada y que defina los nombres de los campos salientes. Puede agregar cualquier combinación de asignaciones basadas en campos y en reglas. A continuación, el ADF genera los nombres de campo en el entorno en tiempo de ejecución en función de los metadatos entrantes del origen. Puede ver los nombres de los campos generados durante la depuración y mediante el panel de vista previa de los datos.
 
 Los detalles sobre la coincidencia de patrones se encuentran en la [documentación del patrón de columnas](concepts-data-flow-column-pattern.md).
+
+También puede escribir patrones de expresiones regulares cuando utilice la coincidencia basada en reglas. Para ello, expanda la fila y escriba una expresión regular junto a "El nombre coincide con:".
+
+![Asignación de expresión regular](media/data-flow/scdt1g4.png "Asignación de expresión regular")
 
 ## <a name="file-name-options"></a>Opciones de nombre de archivo
 

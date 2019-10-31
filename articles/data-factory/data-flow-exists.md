@@ -7,24 +7,23 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: bfc2a810d34f03fc0f10c486344c6dccec548305
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 79bdfc84310686b2648e12d73d783de049e9d2fa
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515118"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596508"
 ---
-# <a name="mapping-data-flow-exists-transformation"></a>Transformación Existe de la asignación de Data Flow
+# <a name="exists-transformation-in-mapping-data-flow"></a>Transformación Existe en flujo de datos de asignación
 
 La transformación Existe es una transformación de filtrado de filas que comprueba si los datos existen en otro origen o flujo. El flujo de salida incluye todas las filas del flujo izquierdo que, o bien existen, o bien no existen en el flujo derecho. La transformación Existe es similar a ```SQL WHERE EXISTS``` y ```SQL WHERE NOT EXISTS```.
 
 ## <a name="configuration"></a>Configuración
 
-Elija en la lista desplegable **Right stream** (Flujo derecho) el flujo de datos donde va a comprobar la existencia.
-
-Especifique si busca que los datos existan o no existan en el valor **Exist type** (Tipo de Existe).
-
-Elija las columnas de clave que desea comparar como condiciones de existencia. De forma predeterminada, el flujo de datos busca la igualdad entre una columna de cada flujo. Para comparar a través de un valor de proceso, mantenga el mouse sobre la lista desplegable y seleccione **Computed column** (Columna calculada).
+1. Elija en la lista desplegable **Right stream** (Flujo derecho) el flujo de datos donde va a comprobar la existencia.
+1. Especifique si busca que los datos existan o no existan en el valor **Exist type** (Tipo de Existe).
+1. Seleccione si quiere o no una **expresión personalizada**.
+1. Elija las columnas de clave que desea comparar como condiciones de existencia. De forma predeterminada, el flujo de datos busca la igualdad entre una columna de cada flujo. Para comparar a través de un valor de proceso, mantenga el mouse sobre la lista desplegable y seleccione **Columna calculada**.
 
 ![Configuración de Existe](media/data-flow/exists.png "existe 1")
 
@@ -45,11 +44,11 @@ Para crear una expresión de forma libre que contenga operadores distintos de "y
 ### <a name="syntax"></a>Sintaxis
 
 ```
-<lefttream>, <rightStream>
+<leftStream>, <rightStream>
     exists(
         <conditionalExpression>,
-        negate: true | <false>,
-        broadcast: 'none' | 'left' | 'right' | 'both'
+        negate: { true | false },
+        broadcast: {'none' | 'left' | 'right' | 'both'}
     ) ~> <existsTransformationName>
 ```
 

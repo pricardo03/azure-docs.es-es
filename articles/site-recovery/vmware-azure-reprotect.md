@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: 2f6f865f019b8b2a403865db4e59a7e86f59e509
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331056"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791801"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotección y conmutación por recuperación de máquinas en un sitio local después de la conmutación por error en Azure
 
@@ -34,6 +34,7 @@ Si ha usado una plantilla para crear las máquinas virtuales, asegúrese de que 
 - Si una instancia de vCenter Server administra las máquinas virtuales a las que quiere conmutar por recuperación, asegúrese de tener los [permisos necesarios](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) para la detección de máquinas virtuales en las instancias de vCenter Server.
 - Antes de realizar la reprotección, elimine las instantáneas en el servidor de destino maestro. Si existen instantáneas en el destino maestro local o la máquina virtual, la reprotección no se realiza correctamente. Las instantáneas de la máquina virtual se combinan automáticamente durante un trabajo de reprotección.
 - Todas las máquinas virtuales de un grupo de replicación deben ser del mismo tipo de sistema operativo (todas Windows o todas Linux). Un grupo de replicación con sistemas operativos mezclados no se admite actualmente para reprotección y conmutación por recuperación a local. Esto es porque el destino maestro debe ser del mismo sistema operativo que la máquina virtual. Todas las máquinas virtuales de un grupo de replicación deben tener el mismo destino maestro. 
+- El destino maestro debe tener la misma versión de sistema operativo (o una versión superior) que las versiones de sistema operativo de los elementos replicados.
 - Se necesita un servidor de configuración en local al conmutar por recuperación. Durante la conmutación por recuperación, la máquina virtual debe encontrarse en la base de datos del servidor de configuración. En caso contrario, la conmutación por recuperación no será correcta. Asegúrese de realizar una copia de seguridad programada periódica del servidor de configuración. En caso de desastre, restaure el servidor con la misma dirección IP para que la conmutación por recuperación funcione. 
 - Para replicar los datos, se requiere una VPN de sitio a sitio (S2S) para la reprotección y la conmutación por recuperación. Proporcione la red para que las máquinas virtuales que hayan conmutado por error en Azure puedan alcanzar (ping) el servidor de configuración local. Deberá implementar un servidor de procesos en la red de Azure de la máquina virtual conmutada por error. Este servidor de procesos también debe ser capaz de comunicarse con el servidor de configuración local y el servidor de destino maestro.
 - En caso de que se retuvieran las direcciones IP de los elementos replicados en la conmutación por error, se debería establecer la conectividad S2S o ExpressRoute entre las máquinas virtuales de Azure y la NIC de conmutación por recuperación del servidor de configuración. Tenga en cuenta que para retener las direcciones IP, es necesario que el servidor de configuración tenga dos NIC: una para la conectividad de las máquinas de origen y otra para la conectividad de conmutación por recuperación de Azure. La finalidad de esto es evitar que se superpongan los intervalos de direcciones de la subred del origen y las máquinas virtuales conmutadas por error.

@@ -9,10 +9,10 @@ ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: eba0c6a8932a8c6d50bd98d94712c95516519274
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72300339"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Uso de Azure Data Lake Storage Gen2 para requisitos de macrodatos
@@ -191,7 +191,7 @@ También puede descargar o mover datos de Azure Data Lake Storage Gen2 en escena
 
 * Descargar datos en el equipo local para procesarlos en entornos IDE durante la creación de prototipos de aplicaciones.
 
-![Salida de datos de Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Salida de datos de Data Lake Storage Gen2")
+![Salida datos desde Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Salida datos desde Data Lake Storage Gen2")
 
 Esta es una lista de herramientas que puede usar para descargar datos de Data Lake Storage Gen2.
 

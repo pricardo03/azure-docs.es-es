@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ee57d943016c2d166f3c8469b403b56b1009385c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 26f1360d4ecd336d44f4fc03aabfa9a2c540e781
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387058"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785959"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  
@@ -180,25 +180,24 @@ Puede usar la construcción de `@coalesce` en las expresiones para controlar cor
 
 ## <a name="mapping-data-flows"></a>Asignación de flujos de datos
 
-### <a name="which-data-factory-version-do-i-use-to-create-data-flows"></a>¿Qué versión de Data Factory uso para crear flujos de datos?
-Utilice la versión de Data Factory V2 para crear flujos de datos.
+### <a name="which-data-factory-version-do-i-use-to-create-mapping-data-flows"></a>¿Qué versión de Data Factory uso para crear flujos de datos de asignación?
+Use la versión V2 de Data Factory para crear flujos de datos de asignación.
   
 ### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>Era cliente de una versión preliminar privada anterior que usaba flujos de datos y he usado la versión preliminar de Data Factory V2 para los flujos de datos.
 Esta versión está ahora obsoleta. Use Data Factory V2 para flujos de datos.
   
 ### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>¿Qué ha cambiado desde la versión preliminar privada a la versión preliminar pública limitada con respecto a los flujos de datos?
-Ya no tendrá que traer sus propios clústeres de Azure Databricks. Data Factory administrará la creación de los clústeres y su anulación. Los conjuntos de datos de blobs y los conjuntos de datos de Azure Data Lake Storage Gen2 se dividen en conjuntos de datos de Apache Parquet y texto delimitado. Todavía puede usar Data Lake Storage Gen2 y el almacenamiento de blobs para almacenar esos archivos. Use el servicio vinculado adecuado para los motores de almacenamiento.
+Ya no tendrá que traer sus propios clústeres de Azure Databricks. Data Factory administra la creación y anulación del clúster al ejecutar flujos de datos de asignación. Los conjuntos de datos de blobs y los conjuntos de datos de Azure Data Lake Storage Gen2 se dividen en conjuntos de datos de Apache Parquet y texto delimitado. Todavía puede usar Data Lake Storage Gen2 y el almacenamiento de blobs para almacenar esos archivos. Use el servicio vinculado adecuado para los motores de almacenamiento.
 
 ### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>¿Puedo migrar mis generadores de versión preliminar privada a Data Factory V2?
 
-Sí. [Siga las instrucciones](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
+Sí. [Siga estas instrucciones](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
 
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>Necesito ayuda para solucionar mi lógica de flujo de datos. ¿Qué información tengo que proporcionar para obtener ayuda?
 
-Cuando Microsoft proporciona ayuda o soluciona problemas con los flujos de datos, indique el plan de código DSL. Para ello, siga estos pasos.
+Cuando Microsoft proporciona ayuda o soluciona problemas con los flujos de datos, proporcione el script de flujo de datos. Para ello, siga estos pasos.
 
-1. En el Diseñador de Data Flow, seleccione **Código** en la esquina superior derecha. Se mostrará el código JSON editable para el flujo de datos.
-2. En la vista de código, seleccione **Plan** en la esquina superior derecha. Esta opción cambiará de JSON al plan de script DSL con formato de solo lectura.
+1. En el lienzo de flujo de datos, seleccione **Script** en la esquina superior derecha. Se mostrará el script de flujo de datos editable.
 3. Copie y pegue este script o guárdelo en un archivo de texto.
 
 ### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>¿Cómo accedo a los datos con los otros 80 tipos de conjunto de datos en Data Factory?

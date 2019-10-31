@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 5d69e29c83bcbe433b800d6877ba1c7440eceedc
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387990"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597116"
 ---
 # <a name="monitor-data-flows"></a>Supervisión de flujos de datos
 
@@ -47,6 +47,11 @@ Cuando se ejecuta Data Flow en Spark, Azure Data Factory determina las rutas de 
   * Calculado: Use la columna para el procesamiento condicional o dentro de una expresión en el flujo de datos, pero no la coloque en el receptor.
   * Derivado: La columna es una columna nueva que generó en el flujo, es decir, no estaba presente en el origen.
   * Asignada: La columna se origina desde el origen y la asigna a un campo de receptor.
+  * Estado del flujo de datos: el estado actual de la ejecución.
+  * Tiempo de inicio del clúster: la cantidad de tiempo necesaria para adquirir el entorno de proceso de Spark JIT para la ejecución del flujo de datos.
+  * Número de transformaciones: el número de pasos de transformación que se ejecutan en el flujo
+  
+![Supervisión de Data Flow](media/data-flow/monitornew.png "Nueva supervisión de Data Flow")  
   
 ## <a name="monitor-icons"></a>Iconos de supervisión
 

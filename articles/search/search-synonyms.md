@@ -1,37 +1,35 @@
 ---
-title: Sinónimos para la expansión de consultas a través de un índice de búsqueda - Azure Search
-description: Creación de un mapa de sinónimos para expandir el ámbito de una consulta de búsqueda en un índice de Azure Search. El ámbito se ha ampliado para que incluya los términos equivalentes que proporcione en una lista.
-author: brjohnstmsft
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+title: Sinónimos para la expansión de consultas a través de un índice de búsqueda
+titleSuffix: Azure Cognitive Search
+description: Creación de un mapa de sinónimos para expandir el ámbito de una consulta de búsqueda en un índice de Azure Cognitive Search. El ámbito se ha ampliado para que incluya los términos equivalentes que proporcione en una lista.
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c94ad096cf7d0d01bf2076f6748b49cf4ae1bb4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331174"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794224"
 ---
-# <a name="synonyms-in-azure-search"></a>Sinónimos en Azure Search
+# <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos de Azure Cognitive Search
 
 Los sinónimos de los motores de búsqueda asocian términos equivalentes que expanden implícitamente el ámbito de una consulta, sin que el usuario tenga que proporcionar realmente el término. Por ejemplo, con el término "perro" y las asociaciones de sinónimos de "canino" y "cachorro", los documentos que contengan los términos "perro", "canino" o "cachorro" estarán dentro del ámbito de la consulta.
 
-En Azure Search, la expansión de sinónimos se realiza en el momento de la consulta. Puede agregar asignaciones de sinónimos a un servicio sin que se interrumpan las operaciones existentes. Puede agregar una propiedad **synonymMaps** a una definición de campo sin tener que volver a crear un índice.
+En Azure Cognitive Search, la expansión de sinónimos se realiza en el momento de la consulta. Puede agregar asignaciones de sinónimos a un servicio sin que se interrumpan las operaciones existentes. Puede agregar una propiedad **synonymMaps** a una definición de campo sin tener que volver a crear un índice.
 
 ## <a name="create-synonyms"></a>Creación de sinónimos
 
-No hay ningún soporte técnico del portal para crear sinónimos, pero puede usar la API REST o el SDK de .NET. Para empezar a trabajar con REST, se recomienda hacerlo [mediante Postman](search-get-started-postman.md) y la formulación de solicitudes que usan esta API: [Creación de asignaciones de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). En el caso de los desarrolladores de C#, puede empezar a trabajar con la opción [Agregar sinónimos en Azure Search mediante C# ](search-synonyms-tutorial-sdk.md).
+No hay ningún soporte técnico del portal para crear sinónimos, pero puede usar la API REST o el SDK de .NET. Para empezar a trabajar con REST, se recomienda hacerlo [mediante Postman](search-get-started-postman.md) y la formulación de solicitudes que usan esta API: [Creación de asignaciones de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). En el caso de los desarrolladores de C#, puede empezar a trabajar con la opción [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md) (Adición de sinónimos en Azure Cognitive Search con C#).
 
 Opcionalmente, si usa [claves administradas por el cliente](search-security-manage-encryption-keys.md) para el cifrado en reposo del servicio, puede aplicar dicha protección al contenido de la asignación de sinónimos.
 
 ## <a name="use-synonyms"></a>Usar sinónimos
 
-En Azure Search, la compatibilidad de los sinónimos se basa en las asignaciones de sinónimos que defina y cargue en el servicio. Estas asignaciones constituyen un recurso independiente (como índices u orígenes de datos), y cualquier campo buscable puede usarlas en cualquier índice en el servicio de búsqueda.
+En Azure Cognitive Search, la compatibilidad de los sinónimos se basa en las asignaciones de sinónimos que defina y cargue en el servicio. Estas asignaciones constituyen un recurso independiente (como índices u orígenes de datos), y cualquier campo buscable puede usarlas en cualquier índice en el servicio de búsqueda.
 
 Los índices y asignaciones de sinónimos se mantienen de forma independiente. Una vez que defina una asignación de sinónimos y la cargue en el servicio, podrá habilitar la característica Sinónimos en un campo agregando una nueva propiedad denominada **synonymMaps** en la definición del campo. La creación, carga y eliminación de una asignación de sinónimos es siempre una operación de documento completo, lo que significa que no puede crear, actualizar o eliminar partes de la asignación de sinónimos de forma incremental. La actualización de incluso una entrada única requiere que se vuelva a cargar.
 

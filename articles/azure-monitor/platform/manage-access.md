@@ -1,9 +1,9 @@
 ---
 title: Administración de áreas de trabajo de Log Analytics en Azure Monitor | Microsoft Docs
-description: Puede administrar el acceso a los datos almacenados en un área de trabajo de Log Analytics en Azure Monitor mediante permisos de nivel de recurso, área de trabajo o tabla. En este artículo se muestra cómo completar estas tareas.
+description: Puede administrar el acceso a los datos almacenados en un área de trabajo de Log Analytics en Azure Monitor mediante permisos de nivel de recurso, área de trabajo o tabla. En este artículo se muestra cómo realizarlo.
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.author: magoedte
-ms.openlocfilehash: 010f7bb2f19eed757da3f62011b69e1f09ddadf0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 10/22/2019
+ms.author: bwren
+ms.openlocfilehash: 3b8f5cb2d5c8e7ff80d32b288c041b4f153bf526
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329411"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787505"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -148,7 +148,7 @@ El rol Lector de Log Analytics incluye las siguientes acciones de Azure:
 
 Los miembros del rol *Colaborador de Log Analytics* pueden:
 
-* Leer todos los datos de supervisión que pueda leer el lector de Log Analytics
+* Incluir todos los privilegios del *rol de lector de Log Analytics*, lo que permite al usuario leer todos los datos de supervisión
 * Crear y configurar cuentas de Automation
 * Agregar y eliminar soluciones de administración
 
@@ -187,7 +187,7 @@ Use estos roles para conceder a los usuarios acceso en distintos ámbitos:
 * Grupo de recursos: acceso a todas las áreas de trabajo del grupo de recursos
 * Recurso: acceso solo al área de trabajo especificada
 
-Debe realizar las asignaciones en el nivel de recurso (área de trabajo) para asegurarse de que el control de acceso es preciso.  Use [roles personalizados](../../role-based-access-control/custom-roles.md) para crear roles con los permisos específicos necesarios.
+Se recomienda realizar las asignaciones en el nivel de recurso (área de trabajo) para asegurarse de que el control de acceso es preciso. Use [roles personalizados](../../role-based-access-control/custom-roles.md) para crear roles con los permisos específicos necesarios.
 
 ### <a name="resource-permissions"></a>Permisos de recurso
 
@@ -198,7 +198,7 @@ Cuando los usuarios consulten los registros desde un área de trabajo mediante e
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Ejemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidad para ver todos los datos de registro para el recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Capacidad para configurar diagnósticos a fin de permitir la configuración de registros para este recurso. |
 
-El permiso `/read`se suele conceder desde un rol que incluye los permisos _/read o\*_ _\*_ como los roles [Lector](../../role-based-access-control/built-in-roles.md#reader) y [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) integrados. Tenga en cuenta que los roles personalizados que contienen acciones específicas o roles integrados dedicados no incluyen este permiso.
+El permiso `/read`se suele conceder desde un rol que incluye los permisos _/read o\*_ _\*_ como los roles [Lector](../../role-based-access-control/built-in-roles.md#reader) y [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) integrados. Los roles personalizados que contienen acciones específicas o roles integrados dedicados no incluyen este permiso.
 
 Consulte [Definición del control de acceso por tabla](#table-level-rbac) a continuación, si desea crear un control de acceso diferente para las distintas tablas.
 
@@ -259,20 +259,24 @@ Por ejemplo, para crear un rol con acceso a las tablas _Heartbeat_ y _AzureActiv
 
 ```
 "Actions":  [
-              "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
-              "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
+    "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
   ],
 ```
 
 Para crear un rol con acceso solo a las tablas _SecurityBaseline_ y otras, cree un rol personalizado con las siguientes acciones:
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
-    ],
-    "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+],
+"NotActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
 ```
 
 ### <a name="custom-logs"></a>Registros personalizados
@@ -282,9 +286,11 @@ Para crear un rol con acceso solo a las tablas _SecurityBaseline_ y otras, cree 
  Actualmente no se puede conceder o denegar el acceso a los registros personalizados individuales, pero puede conceder o denegar el acceso a todos los registros personalizados. Para crear un rol con acceso a todos los registros personalizados, cree un rol personalizado con las siguientes acciones:
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
+],
 ```
 
 ### <a name="considerations"></a>Consideraciones
@@ -293,7 +299,7 @@ Para crear un rol con acceso solo a las tablas _SecurityBaseline_ y otras, cree 
 * Si se concede a un usuario el permiso de acceso para cada tabla, pero ningún otro, los usuarios podrían acceder a los datos de registro de la API, pero no desde Azure Portal. Para proporcionar acceso desde Azure Portal, use Lector de Log Analytics como su rol base.
 * Los administradores de la suscripción tendrán acceso a todos los tipos de datos, independientemente de cualquier otra configuración de permisos.
 * Los propietarios del área de trabajo son tratados como cualquier otro usuario para controlar el acceso por tabla.
-* Debe asignar roles a los grupos de seguridad en lugar de usuarios individuales para reducir el número de asignaciones. Esto también le ayudará a usar las herramientas de administración de grupo existentes para configurar y comprobar el acceso.
+* Se recomienda asignar roles a los grupos de seguridad en lugar de usuarios individuales para reducir el número de asignaciones. Esto también le ayudará a usar las herramientas de administración de grupo existentes para configurar y comprobar el acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

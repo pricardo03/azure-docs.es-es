@@ -1,77 +1,127 @@
 ---
-title: Transformación Combinación en el flujo de datos de Azure Data Factory
-description: Transformación Combinación en el flujo de datos de Azure Data Factory
+title: Transformación Combinación en el flujo de datos de asignación de Azure Data Factory | Microsoft Docs
+description: Combine datos de dos orígenes de datos mediante la transformación Combinación en el flujo de datos de asignación de Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.openlocfilehash: da6c3c90ebbeffcf468aad3809da097976d8ef0d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 10/17/2019
+ms.openlocfilehash: 78de9f2bedfc36add567053e1de47e8893bfaf3c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387241"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597011"
 ---
-# <a name="mapping-data-flow-join-transformation"></a>Transformación de combinación de Mapping Data Flow
+# <a name="join-transformation-in-mapping-data-flow"></a>Transformación Combinación en el flujo de datos de asignación
 
-
-
-Use Combinación para combinar datos de dos tablas en su flujo de datos. Haga clic en la transformación que será la relación de la izquierda y agregue una transformación Combinación en el cuadro de herramientas. Dentro de la transformación Combinación, seleccionará otro flujo de datos para que sea la relación adecuada.
-
-![Transformación de combinación](media/data-flow/join.png "Unión")
+Use la transformación Combinación para combinar datos de dos orígenes o flujos en un mismo flujo de datos de asignación. El flujo de salida incluirá todas las columnas de ambos orígenes que coincidan con una condición de combinación. 
 
 ## <a name="join-types"></a>Tipos de combinación
 
-La selección de un tipo de combinación es necesaria para la transformación Combinación.
+La asignación de flujos de datos admite actualmente cinco tipos de combinación diferentes.
 
 ### <a name="inner-join"></a>Combinación interna
 
-La combinación interna pasará solo a través de las filas que cumplen las condiciones de columna de ambas tablas.
+La combinación interna solo genera filas que tienen valores coincidentes en ambas tablas.
 
 ### <a name="left-outer"></a>Externa izquierda
 
-Se pasan todas las filas de la secuencia izquierda que no cumplan la condición de combinación, y las columnas de salida de la otra tabla se establecen en NULL, además de todas las filas devueltas por la combinación interna.
+La combinación externa izquierda devuelve todas las filas del flujo izquierdo y los registros coincidentes del flujo derecho. Si una fila del flujo izquierdo no tiene ninguna coincidencia, las columnas de salida del flujo derecho se establecen en NULL. La salida constará de las filas devueltas por una combinación interna más las filas sin coincidencias del flujo izquierdo.
 
 ### <a name="right-outer"></a>Externa derecha
 
-Se pasan todas las filas de la secuencia derecha que no cumplan la condición de combinación, y las columnas de salida que correspondan a la otra tabla se establecen en NULL, además de todas las filas devueltas por la combinación interna.
+La combinación externa derecha devuelve todas las filas del flujo derecho y los registros coincidentes del flujo izquierdo. Si una fila del flujo derecho no tiene ninguna coincidencia, las columnas de salida del flujo izquierdo se establecen en NULL. La salida constará de las filas devueltas por una combinación interna más las filas sin coincidencias del flujo derecho.
 
 ### <a name="full-outer"></a>Externa completa
 
-Externa completa genera todas las columnas y filas de ambos lados con valores NULL para las columnas que no están presentes en la otra tabla.
+La combinación externa completa devuelve todas las columnas y filas de ambos lados con valores NULL para las columnas no coincidentes.
 
 ### <a name="cross-join"></a>Combinación cruzada
 
-Especifica el producto cruzado de las dos secuencias con una expresión. Se puede usar para crear condiciones de combinación personalizadas.
+La combinación cruzada genera el producto cruzado de los dos flujos en función de una condición. Si utiliza una condición que no es de igualdad, debe especificar una expresión personalizada como condición de combinación cruzada. El flujo de salida constará de todas las filas que cumplan la condición de combinación. Para crear un producto cartesiano que genere la combinación de todas las filas, especifique `true()` como condición de combinación.
 
-## <a name="specify-join-conditions"></a>Especificar condiciones de combinación
+## <a name="configuration"></a>Configuración
 
-La condición de combinación izquierda procede del flujo de datos conectado a la izquierda de su combinación. La condición de combinación derecha es la segunda secuencia de datos conectada a la combinación en la parte inferior, que será un conector directo a otra secuencia o una referencia a otra secuencia.
+1. Elija el flujo de datos que va a combinar en la lista desplegable **Right stream** (Flujo derecho).
+1. Seleccione el **tipo de combinación**
+1. Elija las columnas de clave con las que quiere hacer coincidir la condición de combinación. De forma predeterminada, el flujo de datos busca la igualdad entre una columna de cada flujo. Para comparar a través de un valor de proceso, mantenga el mouse sobre la lista desplegable y seleccione **Columna calculada**.
 
-Es necesario que escriba al menos 1 (1..n) condiciones de combinación. Pueden ser campos a los que se hace referencia directamente, seleccionados desde el menú desplegable, o expresiones.
+![Transformación de combinación](media/data-flow/join.png "Unión")
 
-## <a name="join-performance-optimizations"></a>Optimizaciones de rendimiento de combinación
+## <a name="optimizing-join-performance"></a>Optimización del rendimiento de combinación
 
-A diferencia de la unión de combinación en herramientas como SSIS, la combinación en ADF Data Flow no es una operación de unión de combinación obligatoria. Por lo tanto, no es necesario que las claves de combinación se ordenen primero. La operación de combinación se producirá basándose en la operación de combinación óptima de Spark: Combinación de difusión y del lado del asignación:
+A diferencia de la unión de combinación en herramientas como SSIS, la transformación Combinación no es una operación de unión de combinación obligatoria. No es necesario ordenar las claves de combinación. La operación de combinación se realiza en función de la operación de combinación óptima en Spark, ya sea una combinación de difusión o del lado de la asignación.
 
 ![Optimización de la transformación de combinación](media/data-flow/joinoptimize.png "Optimización de la combinación")
 
-Si el conjunto de datos puede caber en la memoria de nodo de trabajo de Databricks, podemos optimizar el rendimiento de la combinación. También puede especificar la creación de particiones de los datos en la operación de combinación para crear conjuntos de datos que pueden adaptarse mejor a la memoria por trabajo.
+Si uno o ambos flujos de datos caben en la memoria del nodo de trabajo, puede optimizar aún más el rendimiento si habilita **Difusión** en la pestaña Optimizar. También puede volver a particionar los datos en la operación de combinación para que se adapten mejor a la memoria por nodo de trabajo.
 
 ## <a name="self-join"></a>Autocombinación
 
-Puede lograr condiciones de autocombinación en ADF Data Flow mediante la transformación de selección para asignar un alias a una secuencia existente. En primer lugar, cree una "nueva rama" desde una secuencia y, a continuación, agregue una instrucción de selección para asignar un alias a la secuencia original completa.
+Para autocombinar un flujo de datos consigo mismo, asigne un alias a un flujo existente mediante una transformación Selección. Para crear una nueva rama, haga clic en el icono de signo más junto a una transformación y seleccione **Nueva rama**. Agregue una transformación Selección para asignar un alias al flujo original. Agregue una transformación Combinación y elija el flujo original como **Left stream** (flujo izquierdo) y la transformación Selección como el **Right stream** (flujo derecho).
 
 ![Autocombinación](media/data-flow/selfjoin.png "Autocombinación")
 
-En el diagrama anterior, la transformación Selección se encuentra en la parte superior. Todo lo que está haciendo es asignar a la secuencia original el alias "OrigSourceBatting". En la transformación Combinación resaltada a continuación, puede ver que usamos esta secuencia de alias de selección como combinación de la derecha, lo que nos permite hacer referencia a la misma clave tanto en el lado derecho como el izquierdo de la combinación interna.
+## <a name="testing-join-conditions"></a>Condiciones de combinación de pruebas
 
-## <a name="composite-and-custom-keys"></a>Claves compuestas y personalizadas
+Cuando pruebe las transformaciones Combinación con la vista previa de datos en modo de depuración, use un conjunto pequeño de datos conocidos. Cuando se realiza un muestreo de filas de un conjunto de filas grande, no se puede predecir qué filas y claves se leerán para las pruebas. El resultado es no determinista, lo que significa que las condiciones de combinación pueden no devolver ninguna coincidencia.
 
-Puede crear claves compuestas y personalizadas sobre la marcha en la transformación Combinación. Agregue filas para las columnas de combinación adicionales con el signo más (+) situado junto a cada fila de la relación. O bien calcule un nuevo valor de clave en el Generador de expresiones para obtener un valor de combinación sobre la marcha.
+## <a name="data-flow-script"></a>Script de flujo de datos
+
+### <a name="syntax"></a>Sintaxis
+
+```
+<leftStream>, <rightStream>
+    join(
+        <conditionalExpression>,
+        joinType: { 'inner'> | 'outer' | 'left_outer' | 'right_outer' | 'cross' }
+        broadcast: { 'none' | 'left' | 'right' | 'both' }
+    ) ~> <joinTransformationName>
+```
+
+### <a name="inner-join-example"></a>Ejemplo de combinación interna
+
+El ejemplo siguiente es una transformación Combinación denominada `JoinMatchedData` que toma el flujo izquierdo `TripData` y el flujo derecho `TripFare`.  La condición de combinación es la expresión `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` que devuelve true si coinciden las columnas `hack_license`, `medallion`, `vendor_id` y `pickup_datetime` de cada flujo. El valor de `joinType` es `'inner'`. Vamos a habilitar la difusión solo en el flujo izquierdo, por lo que `broadcast` tiene el valor `'left'`.
+
+En la experiencia de usuario de Data Factory, esta transformación es similar a la siguiente imagen:
+
+![Ejemplo de combinación](media/data-flow/join-script1.png "Ejemplo de combinación")
+
+En el siguiente fragmento de código se muestra el script del flujo de datos para esta transformación:
+
+```
+TripData, TripFare
+    join(
+        hack_license == { hack_license}
+        && TripData@medallion == TripFare@medallion
+        && vendor_id == { vendor_id}
+        && pickup_datetime == { pickup_datetime},
+        joinType:'inner',
+        broadcast: 'left'
+    )~> JoinMatchedData
+```
+
+### <a name="cross-join-example"></a>Ejemplo de combinación cruzada
+
+El ejemplo siguiente es una transformación Combinación denominada `CartesianProduct` que toma el flujo izquierdo `TripData` y el flujo derecho `TripFare`. Esta transformación toma dos flujos y devuelve un producto cartesiano de sus filas. La condición de combinación es `true()` porque genera un producto cartesiano completo. El valor de `joinType` es `cross`. Vamos a habilitar la difusión solo en el flujo izquierdo, por lo que `broadcast` tiene el valor `'left'`.
+
+En la experiencia de usuario de Data Factory, esta transformación es similar a la siguiente imagen:
+
+![Ejemplo de combinación](media/data-flow/join-script2.png "Ejemplo de combinación")
+
+En el siguiente fragmento de código se muestra el script del flujo de datos para esta transformación:
+
+```
+TripData, TripFare
+    join(
+        true(),
+        joinType:'cross',
+        broadcast: 'left'
+    )~> CartesianProduct
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de combinar datos, puede [crear nuevas columnas](data-flow-derived-column.md) y [recibir sus datos en un almacén de datos de destino](data-flow-sink.md).
+Después de combinar los datos, puede crear una [columna derivada](data-flow-derived-column.md) y [recibir](data-flow-sink.md) sus datos en un almacén de datos de destino.

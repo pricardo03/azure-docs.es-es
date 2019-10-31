@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 10/17/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1f02cf3abaae7d67ba3d204dc9419d9fbfa4a86d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374480"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597091"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -132,6 +132,7 @@ Las cuentas de facturación de los contratos de cliente de Microsoft tienen los 
 
 A diferencia de los ámbitos de facturación de EA, las cuentas de facturación de los contratos de cliente _están_ enlazadas a un único directorio y no pueden tener suscripciones en varios directorios de Azure AD.
 
+Los ámbitos de facturación de los contratos de cliente no se aplican a los asociados. Los roles y permisos de asociado están documentados en [Asignar roles y permisos de usuarios](/partner-center/permissions-overview).
 
 Los ámbitos de facturación de los contratos de cliente admiten los siguientes roles:
 
@@ -159,7 +160,21 @@ Una vez completada la integración de AWS, consulte [Instalación y configuraci�
 
 ## <a name="cloud-solution-provider-csp-scopes"></a>Ámbitos de Proveedor de soluciones en la nube (CSP)
 
-Los asociados de Proveedor de soluciones en la nube no se admiten en Cost Management actualmente. En su lugar, puede usar el [Centro de partners](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Los siguientes ámbitos se admiten para los proveedores de soluciones en la nube con clientes vinculados por un contrato de cliente de Microsoft:
+
+- **Cuenta de facturación**: representa un contrato de cliente para varios productos y servicios de Microsoft. Las cuentas de facturación de los contratos de cliente no son funcionalmente las mismas que las de las inscripciones de EA. Las inscripciones de EA se alinean más estrechamente a los perfiles de facturación.
+
+    Tipo de recurso: `Microsoft.Billing/billingAccounts (accountType = Organization)`
+
+- **Perfil de facturación**: define las suscripciones que se incluyen en una factura. Los perfiles de facturación son el equivalente funcional de una inscripción de EA, ya que ese es el ámbito en el que se generan las facturas. De manera similar, las compras que no están basadas en uso, como Marketplace y las reservas, solo estarán disponibles en este ámbito.
+
+    Tipo de recurso: `Microsoft.Billing/billingAccounts/billingProfiles`
+
+- **Cliente**: representa un grupo de suscripciones asociadas a un cliente específico que un asociado incorpora a un contrato de cliente de Microsoft.
+
+Solo los usuarios con los roles de *administrador global* y *agente de administrador* pueden administrar y ver los costos de las cuentas de facturación, los perfiles de facturación y los clientes directamente en el inquilino de Azure del asociado. Para más información sobre los roles del Centro de partners, consulte [Asignar roles y permisos de usuario](/partner-center/permissions-overview).
+
+Azure Cost Management solo admite clientes de asociados de CSP si los clientes tienen un contrato de cliente de Microsoft. En el caso de los clientes compatibles con CSP que todavía no participan de un contrato de cliente de Microsoft, consulte el [Centro de partners](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Paso de un ámbito a otro en Cost Management
 

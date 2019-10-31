@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5812cc73fb1da58c591d0593e079851e05bd0940
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f5fe49130742d116775b75f17c726b56150c574f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331954"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792347"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -28,7 +28,7 @@ El servidor de configuración debe configurarse como una máquina virtual de VMw
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En la tabla siguiente se resumen los requisitos mínimos de hardware necesarios para el servidor de configuración.
+En las secciones siguientes se resumen los requisitos mínimos de hardware necesarios para un servidor de configuración.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -37,31 +37,19 @@ En la tabla siguiente se resumen los requisitos mínimos de hardware necesarios 
 Necesita un usuario con **uno de los siguientes** permisos establecidos en AAD (Azure Active Directory) para registrar el servidor de configuración con los servicios de Azure Site Recovery.
 
 1. El usuario debe tener el rol "Desarrollador de aplicaciones" para poder crear la aplicación.
-   1. Para comprobarlo, inicie sesión en Azure Portal.</br>
-   1. Vaya a Azure Active Directory > Roles y administradores.</br>
-   1. Compruebe si el rol "Desarrollador de aplicaciones" está asignado al usuario. Si no lo está, utilice un usuario con este permiso o póngase en contacto con el [administrador para que habilite el permiso](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - Para comprobarlo, inicie sesión en Azure Portal.</br>
+    - Vaya a Azure Active Directory > Roles y administradores.</br>
+    - Compruebe si el rol "Desarrollador de aplicaciones" está asignado al usuario. Si no lo está, utilice un usuario con este permiso o póngase en contacto con el [administrador para que habilite el permiso](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
-1. Si no se puede asignar el rol "Desarrollador de aplicaciones", asegúrese de que la marca "Los usuarios pueden registrar aplicaciones" está establecida en true para que el usuario pueda crear la identidad. Para habilitar los permisos anteriores:
-   1. Inicio de sesión en Azure Portal
-   1. Vaya a Azure Active Directory > Configuración de usuario.
-   1. En "Registros de aplicaciones", "Los usuarios pueden registrar aplicaciones" debe estar establecido en "Sí".
+2. Si no se puede asignar el rol "Desarrollador de aplicaciones", asegúrese de que la marca "Los usuarios pueden registrar aplicaciones" está establecida en true para que el usuario pueda crear la identidad. Para habilitar los permisos anteriores:
+    - Inicio de sesión en Azure Portal
+    - Vaya a Azure Active Directory > Configuración de usuario.
+    - En "Registros de aplicaciones", "Los usuarios pueden registrar aplicaciones" debe estar establecido en "Sí".
 
       ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > Los Servicios de federación de Active Directory (ADFS) **no se admiten**. Use una cuenta administrada mediante [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
-
-## <a name="capacity-planning"></a>Planificación de capacidad
-
-Los requisitos de tamaño para el servidor de configuración dependen de la tasa de cambio de datos potencial. Use esta tabla como guía.
-
-| **CPU** | **Memoria** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
-| --- | --- | --- | --- | --- |
-| 8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz) |16 GB |< 300 GB |500 GB o menos |Replicar menos de 100 máquinas. |
-| 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Replicar 100-150 máquinas. |
-| 16 vCPU (2 sockets * 8 núcleos \@ 2,5 GHz) |32 GB |1 TB |1 TB a 2 TB |Replicar 150-200 máquinas. |
-
-Si replica más de una máquina virtual de VMware, consulte las [consideraciones de planeación de capacidad](site-recovery-plan-capacity-vmware.md). Ejecute la [herramienta Deployment Planner](site-recovery-deployment-planner.md) para la replicación de VMware.
 
 ## <a name="download-the-template"></a>Descarga de la plantilla
 
@@ -149,7 +137,7 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 ## <a name="upgrade-the-configuration-server"></a>Actualización del servidor de configuración
 
-Para actualizar el servidor de configuración a la versión más reciente, siga estos [pasos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para instrucciones detalladas sobre cómo actualizar todos los componentes de Site Recovery, haga clic en [aquí](service-updates-how-to.md).
+Para actualizar el servidor de configuración a la versión más reciente, siga estos [pasos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para instrucciones detalladas sobre cómo actualizar todos los componentes de Site Recovery, consulte la [administración de actualización de servicio](service-updates-how-to.md).
 
 ## <a name="manage-the-configuration-server"></a>Administración del servidor de configuración
 
@@ -159,7 +147,7 @@ Para evitar interrupciones en la replicación en curso, asegúrese de que la dir
 
 1. ¿Cuánto dura la licencia proporcionada en el servidor de configuración implementado a través de OVF? ¿Qué ocurre si no reactivo la licencia?
 
-    La licencia que se proporciona con la plantilla de OVA es una licencia de evaluación válida durante 180 días. Antes de que expire, debe activar la licencia. En caso contrario, esto puede provocar que la configuración del servidor se detenga y, por lo tanto, se entorpezcan las actividades de replicación.
+    La licencia que se proporciona con la plantilla de OVA es una licencia de evaluación válida durante 180 días. Antes de que expire, debe activar la licencia. En caso contrario, puede provocar que la configuración del servidor se detenga y, por lo tanto, se entorpezcan las actividades de replicación. Para más información, consulte el artículo sobre la [administración de la licencia del servidor de configuración](vmware-azure-manage-configuration-server.md#update-windows-license).
 
 2. ¿Puedo usar la máquina virtual, donde está instalado el servidor de configuración, para otros fines?
 

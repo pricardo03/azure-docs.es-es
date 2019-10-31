@@ -1,61 +1,74 @@
 ---
-title: Patrones de columna en flujos de datos de asignación de Azure Data Factory
-description: Cree patrones de transformación de datos generalizados mediante patrones de columna en flujos de datos de asignación de Azure Data Factory.
+title: Patrones de columna en el flujo de datos de asignación de Azure Data Factory
+description: Cree patrones generalizados de transformación de datos mediante patrones de columna en flujos de datos de asignación de Azure Data Factory
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: a95bbb726f8c391270d3f60ed769d9475004b1e4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 10/21/2019
+ms.openlocfilehash: 0c9a3c2ef05f4a11933ca7fc81c7c0f87a612293
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388020"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789909"
 ---
-# <a name="mapping-data-flows-column-patterns"></a>Asignación de patrones de columnas de flujos de datos
+# <a name="using-column-patterns-in-mapping-data-flow"></a>Uso de patrones de columnas en el flujo de datos de asignación
 
+Varias transformaciones de flujo de datos de asignación permiten hacer referencia a columnas de plantilla en función de patrones en lugar de nombres de columna codificados de forma rígida. Esta coincidencia se conoce como *patrones de columna*. Puede definir patrones para que coincidan con las columnas según el nombre, el tipo de datos, la secuencia o la posición, en lugar de requerir nombres de campo exactos. Hay dos escenarios en los que resultan útiles los patrones de columna:
 
+* Si los campos de origen de entrada cambian a menudo, como en el caso de columnas que cambian en los archivos de texto o bases de datos NoSQL. Este escenario se conoce como [desfase de esquema](concepts-data-flow-schema-drift.md).
+* Si desea realizar una operación común en un grupo grande de columnas. Por ejemplo, si desea convertir cada columna que contiene "total" en el nombre de columna en un valor doble.
 
-Varias transformaciones de Azure Data Factory Data Flow admiten la idea de "Patrones de columnas" para que pueda crear columnas de plantilla basadas en patrones, en lugar de nombres de columna codificados de forma rígida. Esta característica se puede usar en Generador de expresiones para definir patrones que coinciden con las columnas para la transformación, en lugar de requerir nombres de campo específicos y exactos. Los patrones son útiles si los campos de origen de entrada cambian a menudo, en concreto en el caso de que cambien columnas en archivos de texto o bases de datos NoSQL. A veces esta condición se denomina "Desviación en el esquema".
+Los patrones de columna están disponibles actualmente en las transformaciones de columna derivada, de agregado, de selección y de receptor.
 
-Este control de "esquema flexible" se encuentra actualmente en la columna derivada y en las transformaciones Agregar, así como en las transformaciones Seleccionar y Receptor como "asignación basada en reglas".
+## <a name="column-patterns-in-derived-column-and-aggregate"></a>Patrones de columna en columna derivada y de agregado
+
+Para agregar un patrón de columna en una columna derivada o en la pestaña Agregados de una transformación de agregado, haga clic en el icono de signo más situado a la derecha de una columna existente. Seleccione **Add column pattern** (Agregar patrón de columna). 
+
+![patrones de columna](media/data-flow/columnpattern.png "Patrones de columnas")
+
+Use el [generador de expresiones](concepts-data-flow-expression-builder.md) para escribir la condición de coincidencia. Cree una expresión booleana que coincida con las columnas en función de los elementos `name`, `type`, `stream` y `position` de la columna. El patrón afectará a cualquier columna, desfasada o definida, donde la condición devuelva true.
+
+Los dos cuadros de expresión situados debajo de la condición de coincidencia especifican los nuevos nombres y valores de las columnas afectadas. Use `$$` para hacer referencia al valor existente del campo coincidente. El cuadro de expresión de la izquierda define el nombre y el cuadro de expresión de la derecha define el valor.
 
 ![patrones de columna](media/data-flow/columnpattern2.png "Patrones de columnas")
 
-## <a name="column-patterns"></a>Patrones de columnas
-Los patrones de columna son útiles para controlar los tanto los escenarios de desviación en el esquema como los escenarios generales. Es bueno en los casos en los que no puede conocer por completo el nombre de todas y cada una de las columnas. Los patrones pueden coincidir por nombre y tipo de datos de columna y crear una expresión para la transformación que ejecutará dicha operación en cualquier campo del flujo de datos que coincida con sus patrones `name` & `type`.
+El patrón de columna anterior coincide con cada columna de tipo de datos doble y crea una columna de agregado por coincidencia. El nombre de la nueva columna es el nombre de la columna coincidente concatenado con "_total". El valor de la nueva columna es la suma redondeada y agregada del valor doble existente.
 
-Cuando agregue una expresión a una transformación que acepta patrones, elija "Agregar columna Pattern" (Agregar patrón de columna). Patrones de columnas permite patrones coincidentes de columna con desplazamiento de esquema.
+Para comprobar que la condición de coincidencia es correcta, puede validar el esquema de salida de las columnas definidas en la pestaña **Inspeccionar** u obtener una instantánea de los datos en la pestaña **Vista previa de los datos**. 
 
-Al crear patrones de las columnas de la plantilla, use `$$` en la expresión para representar una referencia a cada campo coincidente desde el flujo de datos de entrada.
+![patrones de columna](media/data-flow/columnpattern3.png "Patrones de columnas")
 
-Si elige usar una de las funciones de expresión regular del Generador de expresiones, posteriormente podrá usar $1, $2, $3... para hacer referencia a los patrones secundarios que coinciden con su expresión regular.
+## <a name="rule-based-mapping-in-select-and-sink"></a>Asignación basada en reglas en selección y receptor
 
-Un ejemplo de escenario de patrón de columnas usa SUM con una serie de campos de entrada. Los cálculos de SUM de agregados se encuentran en la transformación Agregado. Posteriormente puede usar SUM en todas las coincidencias de tipos de campos que coincidan con "integer" y, después, usar $$ para hacer referencia a cada coincidencia en la expresión.
+Cuando asigna columnas en transformaciones de origen y selección, puede agregar asignación fija o asignación basada en reglas. Si conoce el esquema de los datos y espera que columnas específicas del conjunto de datos de origen coincidan siempre con nombres estáticos específicos, use la asignación fija. Si trabaja con esquemas flexibles, use la asignación basada en reglas para generar una coincidencia de patrones basada en los elementos `name`, `type`, `stream` y `position` de las columnas. Puede usar cualquier combinación de asignaciones basadas en reglas y fijas. 
 
-## <a name="match-columns"></a>Coincidencia de columnas
-![tipos de patrón de columna](media/data-flow/pattern2.png "Tipos de patrón")
-
-Para crear patrones basados en columnas, puede buscar coincidencias en función del nombre, el tipo, la secuencia o la posición de la columna y usar cualquier combinación de estos con funciones de expresión y expresiones regulares.
-
-![posición de la columna](media/data-flow/position.png "Posición de la columna")
-
-## <a name="rule-based-mapping"></a>Asignación basada en reglas
-Cuando asigna columnas a las transformaciones de origen y Seleccionar, tendrá la opción de elegir "Asignación fija" o "Asignación basada en reglas". Si conoce el esquema de los datos y espera columnas específicas del conjunto de datos de origen que siempre coinciden con nombres estáticos específicos, puede usar la asignación fija. Sin embargo, si trabaja con esquemas flexibles, use la asignación basada en reglas. Podrá crear una coincidencia de patrones con las reglas descritas anteriormente.
+Para agregar una asignación basada en reglas, haga clic en **Agregar asignación** y seleccione **Rule based mapping** (Asignación basada en reglas).
 
 ![asignación basada en reglas](media/data-flow/rule2.png "Asignación basada en reglas")
 
-Cree las reglas mediante el generador de expresiones. Las expresiones devolverán un valor booleano que coincide con las columnas (true) o que excluya las columnas (false).
+En el cuadro de expresión de la izquierda, escriba la condición de coincidencia booleana. En el cuadro de expresión de la derecha, especifique a qué se asignará la columna coincidente. Use `$$` para hacer referencia al nombre existente del campo coincidente.
 
-## <a name="pattern-matching-special-columns"></a>Columnas especiales de coincidencia de patrones
+Si hace clic en el icono del botón de contenido adicional hacia abajo, puede especificar una condición de asignación de regex.
 
-* `$$` se traducirá al nombre de cada coincidencia en tiempo de diseño en modo de depuración y tras la ejecución en tiempo de ejecución
+Haga clic en el icono de gafas situado a junto a una asignación basada en reglas para ver qué columnas definidas coinciden y a qué están asignadas.
+
+![asignación basada en reglas](media/data-flow/rule1.png "Asignación basada en reglas")
+
+En el ejemplo anterior, se crean dos asignaciones basadas en reglas. La primera toma todas las columnas que no tienen el nombre "movie" y las asigna a los valores existentes. La segunda regla usa regex para hacer coincidir todas las columnas que comienzan por "movie" y las asigna a la columna "movieId".
+
+Si la regla produce varias asignaciones idénticas, habilite **Skip duplicate inputs** (Omitir entradas duplicadas) o **Skip duplicate outputs** (Omitir salidas duplicadas) para evitar duplicados.
+
+## <a name="pattern-matching-expression-values"></a>Valores de expresión de coincidencia de patrones.
+
+* `$$` traduce al nombre o valor de cada coincidencia en tiempo de ejecución
 * `name` representa el nombre de cada columna de entrada
 * `type` representa el tipo de datos de cada columna de entrada
 * `stream` representa el nombre asociado a cada secuencia o transformación del flujo
 * `position` es la posición ordinal de las columnas en el flujo de datos
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información sobre el [lenguaje de expresiones](https://aka.ms/dataflowexpressions) del flujo de datos de asignación de ADF para las transformaciones de datos.
-* Uso de patrones de columnas en la [transformación de receptor](data-flow-sink.md) y en la [transformación Seleccionar](data-flow-select.md) con asignación basada en reglas
+* Obtenga más información sobre el [lenguaje de expresiones](data-flow-expression-functions.md) del flujo de datos de asignación para las transformaciones de datos.
+* Uso de patrones de columnas en la [transformación de receptor](data-flow-sink.md) y en la [transformación de selección](data-flow-select.md) con asignación basada en reglas.

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/16/2019
+ms.date: 10/21/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99e3cbc157817321e41a273b2bcf31128d71db18
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 11c2c99d4db5578fa8734542be826bfe9aa33b53
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431033"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757439"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -120,7 +120,9 @@ Para obtener información sobre la integración de servicios de Azure en los com
 
 
 ## <a name="change-log"></a>Registro de cambios
-- 16/10/2019: Corrección de vínculos rotos en [Copia de seguridad y restauración](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-backup-restore)
+- Cambios en la sección ANF y la sección de encabezado en [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+- 21/10/2019: Publicación de [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) (Escalabilidad horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con Azure NetApp Files en SLES)
+- 16/10/2019: Corrección de vínculos rotos en [Copia de seguridad y restauración](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)
 - 16/10/2019: Cambio en el sistema operativo mínimo recomendado de SLES 12 SP3 a SLES 12 SP4 en [Alta disponibilidad de IBM Db2 LUW en máquinas virtuales de Azure en SUSE Linux Enterprise Server con Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm)
 - 11/10/2019: Cambios en las configuraciones de almacenamiento de disco Ultra e introducción de ANF en [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 01/10/2019: Cambio en los gráficos de [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) para conseguir mayor claridad.
@@ -129,8 +131,8 @@ Para obtener información sobre la integración de servicios de Azure en los com
 - 17/09/2019: Cambio en la guía de planeación e implementación de NetWeaver para unificar los términos en torno a la extensión de máquina virtual para SAP  
 - 22/08/2019: Cambios en [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) para actualizar las direcciones URL para la creación de roles personalizados.  
 - 16/08/2019: Cambios en [Configuración de Pacemaker en Red Hat Enterprise Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) para recordar a los clientes que si se actualizan a la nueva versión del agente de barrera de Azure, actualicen las acciones en el rol personalizado.  
-- 15/08/2019: Cambios en [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) para reflejar la disponibilidad general de discos Ultra (anteriormente SSD Ultra)
-- 01/08/2019: Cambios en la [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) para integrar los cambios específicamente para SLES 15 
+- 15/08/2019: Cambios en [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) para reflejar la disponibilidad general de discos Ultra (anteriormente SSD Ultra)
+- 01/08/2019: Cambios en la [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) para integrar los cambios específicamente para SLES 15 
 - 23/07/2019: Cambios en [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure](sap-high-availability-guide-wsfc-file-share.md) para reflejar la compatibilidad de Espacio de almacenamiento directo con Azure Site Recovery Services
 - 14/07/2019: Versión de [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md)
 - 11/07/2019: Cambios en varios documentos que tratan HANA Instancias grandes para cubrir la revisión 4 de HANA Instancias grandes

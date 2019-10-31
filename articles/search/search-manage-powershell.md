@@ -1,22 +1,22 @@
 ---
-title: 'Scripts de PowerShell con el módulo Az.Search: Azure Search'
-description: Cree y configure un servicio Azure Search con PowerShell. Puede escalar o reducir un servicio verticalmente, gestionar la administración y las claves de API de consulta y consultar información del sistema.
-author: HeidiSteen
+title: Scripts de PowerShell con el módulo Az.Search
+titleSuffix: Azure Cognitive Search
+description: Cree y configure un servicio Azure Cognitive Search con PowerShell. Puede escalar o reducir un servicio verticalmente, gestionar la administración y las claves de API de consulta y consultar información del sistema.
 manager: nitinme
-services: search
-ms.service: search
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.author: heidist
-ms.openlocfilehash: d56ddcd48f6a1907bed865d391e1d4e64da2999d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/04/2019
+ms.openlocfilehash: efc61f7dc8e9d2caa53c4cbd7d932af9e1a206d1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331240"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793544"
 ---
-# <a name="manage-your-azure-search-service-with-powershell"></a>Administración del servicio Azure Search con PowerShell
+# <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Administre el servicio Azure Cognitive Search con PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -24,7 +24,7 @@ ms.locfileid: "72331240"
 > * [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Puede ejecutar los scripts y cmdlets de PowerShell en o Windows, Linux, o en [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para crear y configurar Azure Search. El módulo **Az.Search** extiende Azure PowerShell con paridad completa a las [API REST de administración de Azure Search](https://docs.microsoft.com/rest/api/searchmanagement). Con Azure PowerShell y **Az.Search**, puede realizar las siguientes tareas:
+Puede ejecutar los scripts y cmdlets de PowerShell en Windows, Linux o en [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para crear y configurar Azure Cognitive Search. El módulo **Az.Search** extiende Azure PowerShell con paridad completa a las [API de REST de administración de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchmanagement). Con Azure PowerShell y **Az.Search**, puede realizar las siguientes tareas:
 
 > [!div class="checklist"]
 > * [Obtener la lista de todos los servicios de búsqueda de su suscripción](#list-search-services)
@@ -92,7 +92,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 <a name="list-search-services"></a>
 
-## <a name="list-all-azure-search-services-in-your-subscription"></a>Obtención de una lista de todos los servicios de Azure Search de su suscripción
+## <a name="list-all-azure-cognitive-search-services-in-your-subscription"></a>Obtención de una lista de todos los servicios de Azure Cognitive Search de su suscripción
 
 Los siguientes comandos son de [**Az.Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), que devuelven información sobre los recursos existentes y servicios ya aprovisionados en su suscripción. Si no sabe cuántos servicios de búsqueda ya se han creado, estos comandos devuelven esa información, lo que le ahorra un viaje al portal.
 
@@ -201,7 +201,7 @@ Solo puede regenerar una en cada momento, especificada como clave `primary` o `s
 
 Como puede imaginar, si regenera las claves sin actualizar el código de cliente, se producirá un error en las solicitudes que usan la clave antigua. La regeneración de todas las claves nuevas no lo bloquea permanentemente para acceder al servicio y puede seguir accediendo a este a través del portal. Después de regenerar las claves principal y secundaria, puede actualizar el código de cliente para utilizar las nuevas claves y las operaciones se reanudarán en consecuencia.
 
-El servicio genera los valores de las claves de API. No puede proporcionar una clave personalizada para que la use Azure Search. De forma similar, no hay ningún nombre definido por el usuario para las claves de API de administración. Las referencias a la clave son cadenas fijas, ya sea `primary` o `secondary`. 
+El servicio genera los valores de las claves de API. No puede proporcionar una clave personalizada para que la use Azure Cognitive Search. De forma similar, no hay ningún nombre definido por el usuario para las claves de API de administración. Las referencias a la clave son cadenas fijas, ya sea `primary` o `secondary`. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
@@ -217,9 +217,9 @@ Primary                    Secondary
 
 ## <a name="create-or-delete-query-keys"></a>Creación o eliminación de claves de consulta
 
-[**New-AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) se usa para crear [claves de API](search-security-api-keys.md) de consulta para el acceso de solo lectura desde las aplicaciones cliente hasta un índice de Azure Search. Las claves de consulta se utilizan para autenticarse en un índice específico con el fin de recuperar los resultados de búsqueda. Las claves de consulta no conceden acceso de solo lectura a otros elementos en el servicio, como un índice, origen de datos o indizador.
+[**New-AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) se usa para crear [claves de API](search-security-api-keys.md) de consulta para el acceso de solo lectura desde las aplicaciones cliente hasta un índice de Azure Cognitive Search. Las claves de consulta se utilizan para autenticarse en un índice específico con el fin de recuperar los resultados de búsqueda. Las claves de consulta no conceden acceso de solo lectura a otros elementos en el servicio, como un índice, origen de datos o indizador.
 
-No puede proporcionar una clave para que la use Azure Search. El servicio genera las claves de API.
+No puede proporcionar una clave para que la use Azure Cognitive Search. El servicio genera las claves de API.
 
 ```azurepowershell-interactive
 New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
@@ -257,7 +257,7 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 
 Cree un [índice](search-what-is-an-index.md) y [consulte un índice](search-query-overview.md) mediante el portal, API REST o el SDK de .NET.
 
-* [Creación de un índice de Azure Search en Azure Portal](search-create-index-portal.md)
+* [Creación de un índice de Azure Cognitive Search en Azure Portal](search-create-index-portal.md)
 * [Configuración de un indexador para cargar datos desde otros servicios](search-indexer-overview.md)
-* [Consulta de un índice de Azure Search mediante el Explorador de búsqueda de Azure Portal](search-explorer.md)
-* [Cómo usar Azure Search en .NET](search-howto-dotnet-sdk.md)
+* [Consulta de un índice de Azure Cognitive Search mediante el Explorador de búsqueda de Azure Portal](search-explorer.md)
+* [Uso de Azure Cognitive Search en .NET](search-howto-dotnet-sdk.md)

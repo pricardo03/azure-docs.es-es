@@ -1,24 +1,24 @@
 ---
-title: Supervisión del uso de recursos y las métricas de consulta para un servicio de búsqueda en Azure Search
-description: Habilite el registro y obtenga métricas de actividades de consulta, uso de recursos y otros datos del sistema de un servicio de Azure Search.
-author: HeidiSteen
+title: Supervisión del uso de recursos y métricas de consultas
+titleSuffix: Azure Cognitive Search
+description: Habilite el registro y obtenga métricas de actividades de consulta, uso de recursos y otros datos del sistema de un servicio de Azure Cognitive Search.
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/16/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+tags: azure-portal
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331207"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793488"
 ---
-# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Supervisión del consumo de recursos y la actividad de consulta en Azure Search
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Supervisión del consumo de recursos y la actividad de consulta en Azure Cognitive Search
 
-En la página de información general del servicio Azure Search, puede ver los datos del sistema sobre el uso de recursos, las métricas de consulta y la cantidad de cuota disponible para crear más índices, indexadores y orígenes de datos. También puede usar el portal para configurar el análisis de registros u otro recurso usado para la recopilación de datos persistentes. 
+En la página de información general del servicio Azure Cognitive Search, puede ver los datos del sistema sobre el uso de recursos, las métricas de consulta y la cantidad de cuota disponible para crear más índices, indexadores y orígenes de datos. También puede usar el portal para configurar el análisis de registros u otro recurso usado para la recopilación de datos persistentes. 
 
 La configuración de registros es útil para el autodiagnóstico y la conservación del historial de operaciones. Internamente, los registros existen en el back-end durante un breve período de tiempo, suficiente para su investigación y análisis si presenta una incidencia de soporte técnico. Si quiere tener control sobre la información de registro y acceder a ella, debe configurar una de las soluciones que se describen en este artículo.
 
@@ -30,8 +30,8 @@ Las secciones **Usage** (Uso) y **Monitoring** (Supervisión) integradas en la p
 
 La pestaña **Usage** (Uso) muestra la disponibilidad de recursos relativa a los [límites](search-limits-quotas-capacity.md) actuales. La siguiente ilustración es del servicio gratuito, que está limitado a 3 objetos de cada tipo y 50 MB de almacenamiento. Un servicio básico o estándar tiene límites más altos y, si aumentan los recuentos de particiones, el almacenamiento máximo aumenta proporcionalmente.
 
-![Estado de uso relativo a los límites efectivos](./media/search-monitor-usage/usage-tab.png
- "Usage status relative to effective limits")
+![Estado de uso en relación con límites efectivos](./media/search-monitor-usage/usage-tab.png
+ "Estado de uso en relación con límites efectivos")
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>Consultas por segundo (QPS) y otras métricas
 
@@ -40,7 +40,7 @@ La pestaña **Monitoring** (Supervisión) muestra las medias acumuladas de métr
 
 Estos números son aproximados y están pensados para proporcionarle una idea general de la capacidad del sistema para atender las solicitudes. El QPS real puede ser mayor o menor que el número notificado en el portal.
 
-![Actividad de consultas por segunda](./media/search-monitor-usage/monitoring-tab.png "Queries per second activity")
+![Actividad de consultas por segundo](./media/search-monitor-usage/monitoring-tab.png "Actividad de consultas por segundo")
 
 ## <a name="activity-logs"></a>Registros de actividad
 
@@ -52,7 +52,7 @@ Para las tareas en servicio, como crear un índice o eliminar un origen de datos
 
 ## <a name="add-on-monitoring-solutions"></a>Soluciones de supervisión complementarias
 
-Azure Search no almacena ningún dato aparte de los objetos que administra, lo que significa que los datos de registro se deben almacenar externamente. Puede configurar cualquiera de los recursos siguientes si desea conservar los datos de registro. 
+Azure Cognitive Search no almacena ningún dato aparte de los objetos que administra, lo que significa que los datos de registro se deben almacenar externamente. Puede configurar cualquiera de los recursos siguientes si desea conservar los datos de registro. 
 
 En la tabla siguiente se comparan las opciones para almacenar registros, agregar supervisión exhaustiva de las operaciones de servicio y consultar las cargas de trabajo mediante Application Insights.
 
@@ -64,27 +64,27 @@ En la tabla siguiente se comparan las opciones para almacenar registros, agregar
 
 Tanto los registros de Azure Monitor como Blob Storage están disponibles como un servicio gratuito, por lo que puede probarlos sin ningún costo el tiempo que dure su suscripción a Azure. La suscripción a Application Insights y su uso son gratuitos siempre y cuando el tamaño de los datos de aplicación esté por debajo de determinados límites (consulte la [página de precios](https://azure.microsoft.com/pricing/details/monitor/) para más información).
 
-La siguiente sección le guía por los pasos necesarios para habilitar y usar Azure Blob Storage para recopilar datos de registro creados por las operaciones de Azure Search, y acceder a ellos.
+La siguiente sección le guía por los pasos necesarios para habilitar y usar Azure Blob Storage para recopilar datos de registro creados por las operaciones de Azure Cognitive Search, y acceder a ellos.
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
-De forma predeterminada, el registro para indexación y consulta de cargas de trabajo está desactivado y la infraestructura de registro y el almacenamiento externo a largo plazo dependen de soluciones complementarias. Por sí solos, los únicos datos persistentes en Azure Search son los objetos que crea y administra, por lo que los registros se deben almacenar en otra parte.
+De forma predeterminada, el registro para indexación y consulta de cargas de trabajo está desactivado y la infraestructura de registro y el almacenamiento externo a largo plazo dependen de soluciones complementarias. Por sí solos, los únicos datos persistentes en Azure Cognitive Search son los objetos que crea y administra, por lo que los registros se deben almacenar en otra parte.
 
 En esta sección, aprenderá a usar Blob Storage para almacenar datos de métricas y eventos registrados.
 
-1. Si aún no tiene una, [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). Puede colocarla en el mismo grupo de recursos que Azure Search para simplificar la limpieza más adelante si quiere eliminar todos los recursos usados en este ejercicio.
+1. Si aún no tiene una, [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). Puede colocarla en el mismo grupo de recursos que Azure Cognitive Search para simplificar la limpieza más adelante si quiere eliminar todos los recursos usados en este ejercicio.
 
-   La cuenta de almacenamiento debe existir en la misma región que Azure Search.
+   La cuenta de almacenamiento debe existir en la misma región que Azure Cognitive Search.
 
 2. Abra la página de información general del servicio de búsqueda. En el panel de navegación izquierdo, desplácese a **Monitoring** (Supervisión) y haga clic en **Enable Monitoring** (Habilitar supervisión).
 
-   ![Habilitar supervisión](./media/search-monitor-usage/enable-monitoring.png "Enable monitoring")
+   ![Habilitar supervisión](./media/search-monitor-usage/enable-monitoring.png "Habilitar supervisión")
 
 3. Elija los datos que quiere exportar: registros, métricas o ambos. Puede copiarlos en una cuenta de almacenamiento, enviarlos a un centro de eventos o exportarlo a los registros de Azure Monitor.
 
    Para el archivado en Blob Storage, solo debe existir la cuenta de almacenamiento. Los contenedores y blobs se crearán a medida que sean necesarios cuando se exporten los datos de registro.
 
-   ![Configuración del archivado de Blob Storage](./media/search-monitor-usage/configure-blob-storage-archive.png "Configure blob storage archive")
+   ![Configurar archivo de Blob Storage](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurar archivo de Blob Storage")
 
 4. Guarde el perfil.
 
@@ -158,14 +158,14 @@ Puede usar cualquier editor de JSON para ver el archivo de registro. Si no tiene
 
 1. En Azure Portal, abra su cuenta de almacenamiento. 
 
-2. En el panel de navegación izquierdo, haga clic en **Blobs**. Verá **insights-logs-operationlogs** e **insights-metrics-pt1m**. Estos contenedores se crean mediante Azure Search cuando se exportan los datos de registro a Blob Storage.
+2. En el panel de navegación izquierdo, haga clic en **Blobs**. Verá **insights-logs-operationlogs** e **insights-metrics-pt1m**. Estos contenedores se crean mediante Azure Cognitive Search cuando se exportan los datos de registro a Blob Storage.
 
 3. Haga clic en la jerarquía de carpetas hasta llegar al archivo .json.  Use el menú contextual para descargar el archivo.
 
 Una vez descargado el archivo, ábralo en un editor de JSON para ver el contenido.
 
 ## <a name="use-system-apis"></a>Uso de las API del sistema
-La API REST de Azure Search y .NET SDK proporcionan acceso mediante programación a información de métricas de servicio, índice e indexadores y recuentos de documentos.
+La API REST de Azure Cognitive Search y .NET SDK proporcionan acceso mediante programación a información de métricas de servicio, índice e indexadores y recuentos de documentos.
 
 * [Get Services Statistics](/rest/api/searchservice/get-service-statistics) (Obtención de estadísticas de servicios)
 * [Obtención de estadísticas de índice](/rest/api/searchservice/get-index-statistics)

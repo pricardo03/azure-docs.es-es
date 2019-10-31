@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6361814a30cc7d1bc9703dae8ddb14d955c1582d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514662"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598043"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -219,13 +219,13 @@ Los recursos compartidos de archivos estándar están disponibles en todas las r
 |Oeste de EE. UU.*        |LRS     |
 |Oeste de EE. UU. 2      |LRS, ZRS|
 
-\* Compatible con cuentas nuevas, no todas las cuentas existentes han completado el proceso de actualización.
+\* Compatible con cuentas nuevas, no todas las cuentas existentes han completado el proceso de actualización. Puede comprobar si las cuentas de almacenamiento existentes han completado el proceso de actualización si intenta [habilitar los recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
 
 Para ayudarnos a clasificar por orden de prioridad las nuevas regiones y características, rellene esta [encuesta](https://aka.ms/azurefilesatscalesurvey).
 
 ### <a name="enable-and-create-larger-file-shares"></a>Habilitación y creación de recursos compartidos de archivos de mayor tamaño
 
-Para empezar a usar recursos compartidos de archivos de mayor tamaño, consulte nuestro artículo [Habilitación de recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
+Para empezar a usar recursos compartidos de archivos grandes, consulte nuestro artículo [Habilitación y creación de recursos compartidos de archivos grandes](storage-files-how-to-create-large-file-share.md).
 
 ## <a name="data-growth-pattern"></a>Patrón de crecimiento de datos
 

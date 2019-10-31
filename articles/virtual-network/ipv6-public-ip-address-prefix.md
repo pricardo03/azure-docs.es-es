@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/15/2019
 ms.author: kumud
-ms.openlocfilehash: 514248446798e8c806252707cc5b332a7d1a4f87
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2d00ccdeb89ba5d983e4a3e089e78a8d748e4092
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518200"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597956"
 ---
-# <a name="reserved-public-ipv6-address-prefix"></a>Prefijo de dirección IPv6 pública reservada
+# <a name="reserved-public-ipv6-address-prefix-preview"></a>Prefijo de dirección IPv6 pública reservada (versión preliminar)
 
 En Azure, las máquinas virtuales (VM) y las redes virtuales (VNet) de pila dual (IPv4+IPv6) son seguras de manera predeterminada, ya que no tienen conectividad a Internet. Puede agregar fácilmente una conectividad a Internet IPv6 a sus máquinas virtuales e instancias de Azure Load Balancer con direcciones IPv6 públicas que obtiene de Azure.
 
@@ -29,6 +29,9 @@ Todas las direcciones IP públicas que reserva están asociadas a una región de
 > Tenga cuidado de no eliminar por accidente las IP públicas. La eliminación de una IP pública la quita de su suscripción y no podrá recuperarla (ni siquiera con la ayuda del Soporte técnico de Azure).
 
 Además de reservar direcciones IPv6 individuales, puede reservar intervalos contiguos de direcciones IPv6 de Azure (conocidos como prefijo IP) para su uso.  De manera similar a las direcciones IP individuales, los prefijos reservados se asocian con una región de Azure de su preferencia y con su suscripción de Azure. La reserva de un intervalo de direcciones contiguo y predecible tiene muchos usos. Por ejemplo, puede simplificar en gran medida la *lista blanca* de direcciones IP de las aplicaciones hospedadas en Azure por su empresa y sus clientes, ya que los intervalos de direcciones IP estáticas se pueden programar fácilmente en los firewalls locales.  Puede crear IP públicas individuales a partir del prefijo IP según sea necesario y, cuando elimine esas IP públicas individuales, se *devuelven* al intervalo reservado para que pueda volver a usarlas más adelante. Todas las direcciones IP del prefijo IP están reservadas para su uso exclusivo hasta que se elimine el prefijo.
+
+> [!Important]
+> La conectividad IPv6 para Azure Virtual Network se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="ipv6-prefix-sizes"></a>Tamaños del prefijo IPv6
 Están disponibles los tamaños de prefijo de IP pública siguientes:

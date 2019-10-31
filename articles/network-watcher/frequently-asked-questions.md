@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: ef46c1a631a79dd1c50b2bf7d263538298de233f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3305590f2d8abf0d894bc1df42b84edcc96a2b2d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333437"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598219"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Preguntas más frecuentes (P+F) sobre Azure Network Watcher
 El servicio [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) proporciona un conjunto de herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure. En este artículo se responde a preguntas habituales sobre el servicio.
@@ -54,16 +54,26 @@ Visite la [página de precios](https://azure.microsoft.com/pricing/details/netwo
 ### <a name="which-regions-is-network-watcher-available-in"></a>¿En qué regiones está Network Watcher disponible?
 Puede ver la última disponibilidad regional en la [página de disponibilidad del servicio de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
+### <a name="what-are-resource-limits-on-network-watcher"></a>¿Cuáles son los límites de recursos en Network Watcher?
+Consulte la página de [límites de servicio](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits) para conocer todos los límites.  
+
+### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>¿Por qué solo se permite una instancia Network Watcher por región?
+Network Watcher solo debe habilitarse una vez para que funcionen las características de la suscripción; no se trata de un límite de servicio.
+
 ## <a name="nsg-flow-logs"></a>Registro de flujo de NSG
 
 ### <a name="what-does-nsg-flow-logs-do"></a>¿Qué hace Registro de flujo de NSG?
 Los recursos de red de Azure se pueden combinar y administrar mediante [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview). Registro de flujo de NSG permite registrar información de flujo de una tupla de 5 sobre todo el tráfico de los grupos de seguridad de red. Los registros de flujo sin procesar se escriben en una cuenta de Azure Storage desde donde se pueden procesar, analizar, consultar o exportar según sea necesario.
 
-### <a name="are-there-caveats-for-using-nsg-flow-logs"></a>¿Existen advertencias de uso de Registro de flujo de NSG?
+### <a name="are-there-any-caveats-to-using-nsg-flow-logs"></a>¿Existen advertencias para el uso de Registro de flujo de NSG?
 No hay requisitos previos para el uso de Registro de flujo de NSG. Sin embargo, hay dos limitaciones
 - **Los puntos de conexión de servicio no deben estar presentes en la red virtual** : Registro de flujo de NSG se emite desde los agentes de las máquinas virtuales a las cuentas de almacenamiento. Sin embargo, actualmente solo puede emitir registros directamente a las cuentas de almacenamiento y no puede usar un punto de conexión de servicio agregado a la red virtual.
 
-Existen dos formas de solucionar este problema:
+- **La cuenta de almacenamiento no debe tener firewall**: Debido a las limitaciones internas, las cuentas de almacenamiento deben ser accesibles desde la red pública de Internet para que Registro de flujo de NSG funcione con ellas. El tráfico se seguirá enrutando por Azure internamente y no se verán cargos de salida adicionales.
+
+Consulte las dos preguntas siguientes para obtener instrucciones sobre cómo solucionar estos problemas. Se espera que las dos limitaciones se solucionen a partir de enero de 2020.
+
+### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints"></a>¿Cómo se usan los registros de flujo de NSG con puntos de conexión de servicio?
 
 *Opción 1: Volver a configurar Registro de flujo de NSG para que emita a la cuenta de Azure Storage sin puntos de conexión de red virtual*
 
@@ -88,8 +98,7 @@ Puede comprobar los registros de almacenamiento después de unos minutos; verá 
 
 Si los puntos de conexión de servicio de Microsoft.Storage son imprescindibles, tendrá que deshabilitar los registros de flujo de NSG.
 
-
-- **Las cuentas de almacenamiento no deben tener firewall**: Debido a las limitaciones internas, las cuentas de almacenamiento deben ser accesibles desde la red pública de Internet para que Registro de flujo de NSG funcione con ellas. El tráfico se seguirá enrutando por Azure internamente y no se verán cargos de salida adicionales.
+### <a name="how-do-i-disable-the--firewall-on-my-storage-account"></a>¿Cómo se deshabilita el firewall en la cuenta de almacenamiento?
 
 Este problema se resuelve permitiendo que "Todas las redes" accedan a la cuenta de almacenamiento:
 
@@ -97,8 +106,6 @@ Este problema se resuelve permitiendo que "Todas las redes" accedan a la cuenta 
 * Para ir a la cuenta de almacenamiento, escriba el nombre de la cuenta de almacenamiento en la búsqueda global del portal.
 * En la sección **CONFIGURACIÓN**, seleccione **Firewalls y redes virtuales**.
 * Seleccione **Todas las redes** y guárdela. Si ya está seleccionada, no hay que hacer ningún cambio.  
-
-Se espera que las dos limitaciones se solucionen a partir de enero de 2020.
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>¿Cuál es la diferencia entre la versión 1 y la versión 2 de los registros de flujo?
 La versión 2 de los registros de flujo presenta el concepto de *estado del flujo* y almacena información sobre los bytes y los paquetes transmitidos. [Más información](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).

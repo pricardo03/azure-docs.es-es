@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: f6323501fc0078677c4c0e2cd0e43a15583df29b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 3e6af57840cf60516aba994a6b5728bfb7b35f09
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513985"
+ms.locfileid: "72553529"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste del rendimiento con la copia en caché del conjunto de resultados  
 Cuando se habilita la copia en caché del conjunto de resultados, Azure SQL Data Warehouse copia automáticamente en caché los resultados de la consulta realizada en la base de datos de usuario para un uso repetido.  Esto permite que las ejecuciones posteriores de la consulta obtengan los resultados directamente de la memoria caché persistente, por lo que no es necesario volver a realizar el proceso.   La copia en caché del conjunto de resultados mejora el rendimiento de las consultas y reduce la utilización de recursos de proceso.  Además, las consultas que usan conjuntos de resultados en la memoria caché no usan ningún espacio de simultaneidad y, por lo tanto, no cuentan para los límites de simultaneidad existentes. Por seguridad, los usuarios solo pueden acceder a los resultados en la memoria caché si tienen los mismos permisos de acceso a los datos que los usuarios que crearon estos resultados.  
@@ -34,11 +34,10 @@ Cuando se habilita la copia en caché del conjunto de resultados, Azure SQL Data
 Una vez activada la copia en caché del conjunto de resultados de una base de datos, se copian en caché los resultados de todas las consultas hasta que la memoria caché está llena, excepto en el caso de las siguientes consultas:
 - Consultas con funciones no deterministas como DateTime.Now()
 - Consultas con funciones definidas por el usuario
+- Consultas que usan tablas con la seguridad de nivel de fila o la seguridad de nivel de columna habilitadas
 - Consultas que devuelven datos con un tamaño de fila superior a 64 kB
 
 Las consultas con conjuntos de resultados de gran tamaño (por ejemplo, más de 1 millón de filas) pueden presentar un rendimiento más lento durante la primera ejecución, cuando se crea la memoria caché de resultados.
-
-La copia en caché del conjunto de resultados no es compatible con la seguridad de nivel de fila.  
 
 ## <a name="when-cached-results-are-used"></a>Uso de los resultados en la memoria caché
 

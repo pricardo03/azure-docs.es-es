@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcf4a0272e21a1fba3cf9adbd9158492e4318578
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452910"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527099"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Gobernanza del acceso de los usuarios externos en la administración de derechos de Azure AD (versión preliminar)
 
@@ -90,12 +90,15 @@ Puede seleccionar lo que ocurre cuando un usuario externo, invitado a su directo
 
 1. Cuando un usuario externo pierde la última asignación de un paquete de acceso, si desea bloquearlos para que no inicien sesión en este directorio, establezca **Impedir que los usuarios externos inicien sesión en este directorio** en **Sí**.
 
-1. Cuando un usuario externo pierde la última asignación de un paquete de acceso, si desea quitar su cuenta de usuario invitado del directorio, establezca **Quitar usuario externo** en **Sí**.
+    > [!NOTE]
+    > Si un usuario tiene bloqueada la capacidad de iniciar sesión en este directorio, el usuario no podrá volver a solicitar el paquete de acceso ni solicitar acceso adicional en este directorio. No configure el bloqueo de inicio de sesión si posteriormente necesitará solicitar acceso a otros paquetes de acceso.
+
+1. Cuando un usuario externo pierde la última asignación de un paquete de acceso, si quiere quitar su cuenta de usuario invitado de este directorio, establezca **Quitar usuario externo** en **Sí**.
 
     > [!NOTE]
-    > La administración de derechos solo quita las cuentas a las que se ha invitado mediante la administración de derechos. Tenga en cuenta también que se impedirá que el usuario inicie sesión y se eliminará del directorio aunque ese usuario se haya agregado a recursos del directorio que no eran asignaciones de paquetes de acceso. Si el invitado estaba presente en el directorio antes de recibir las asignaciones de paquetes de acceso, se mantendrá. Sin embargo, si se le invitó mediante una asignación de paquete de acceso y, después de invitarlo, se ha asignado a un sitio de OneDrive para la Empresa o SharePoint Online, se quitará.
+    > La administración de derechos solo quita las cuentas a las que se ha invitado mediante la administración de derechos. Tenga en cuenta también que se impedirá que el usuario inicie sesión y se eliminará del directorio aunque dicho usuario se haya agregado a recursos del directorio que no eran asignaciones de paquetes de acceso. Si el invitado estaba presente en este directorio antes de recibir las asignaciones de paquetes de acceso, se mantendrá. Sin embargo, si se le invitó mediante una asignación de paquete de acceso y, después de invitarlo, se ha asignado a un sitio de OneDrive para la Empresa o SharePoint Online, se quitará.
 
-1. Si desea quitar la cuenta de usuario invitado de su directorio, puede establecer el número de días antes de que se quite. Si desea quitar la cuenta de usuario invitado en cuanto pierda la última asignación a cualquier paquete de acceso, establezca **Número de días antes de que se quite el usuario externo de este directorio** en **0**.
+1. Si quiere quitar la cuenta de usuario invitado de este directorio, puede establecer el número de días antes de que se quite. Si desea quitar la cuenta de usuario invitado en cuanto pierda la última asignación a cualquier paquete de acceso, establezca **Número de días antes de que se quite el usuario externo de este directorio** en **0**.
 
 1. Haga clic en **Save**(Guardar).
 
@@ -113,6 +116,6 @@ También puede cambiar esta configuración después de crear el catálogo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Para los usuarios que no están en el directorio](entitlement-management-access-package-create.md#for-users-not-in-your-directory)
+- [Para los usuarios que no están en el directorio](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Creación y administración de un catálogo de recursos](entitlement-management-catalog-create.md)
 - [Delegación y roles](entitlement-management-delegate.md)

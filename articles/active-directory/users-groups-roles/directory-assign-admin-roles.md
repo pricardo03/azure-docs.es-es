@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb424866a681316af23e9d2bba28a8da8c3a6f78
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 56e5fb986431ec47a34b81491bc61b4c38a24e31
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286804"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592886"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -49,10 +49,15 @@ Los roles de administrador disponibles son los siguientes:
 
 ### <a name="application-administratorapplication-administrator-permissions"></a>[Administrador de aplicaciones](#application-administrator-permissions)
 
-los usuarios con este rol pueden crear y administrar todos los aspectos de las aplicaciones empresariales, los registros de aplicaciones y la configuración del proxy de aplicación. Este rol proporciona igualmente la capacidad de dar el consentimiento para permisos delegados y permisos de aplicaciones, excepto Microsoft Graph y Azure AD Graph. Los usuarios asignados a este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
+los usuarios con este rol pueden crear y administrar todos los aspectos de las aplicaciones empresariales, los registros de aplicaciones y la configuración del proxy de aplicación. Tenga en cuenta que los usuarios asignados a este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
 
 > [!IMPORTANT]
 > Este rol concede la capacidad de administrar credenciales de la aplicación. Los usuarios asignados a este rol pueden agregar credenciales a una aplicación y usarlas para suplantar la identidad de la aplicación. Si a la identidad de la aplicación se le ha concedido acceso a Azure Active Directory, como la capacidad para crear o actualizar usuarios u otros objetos, un usuario asignado a este rol puede realizar esas acciones mientras suplanta la identidad de la aplicación. Esta capacidad de suplantar la identidad de la aplicación puede ser una elevación de privilegios sobre qué puede hacer el usuario mediante sus asignaciones de roles en Azure AD. Es importante saber que, al asignar a un usuario el rol de Administrador de aplicaciones, se le concede la capacidad de suplantar la identidad de la aplicación.
+
+Este rol proporciona igualmente la capacidad de _dar el consentimiento_ para permisos delegados y permisos de aplicaciones, con la excepción de los permisos relacionados con Microsoft Graph y Azure AD Graph.
+
+> [!IMPORTANT]
+> Esta excepción significa que puede seguir dando su consentimiento a los permisos para _otras_ aplicaciones (por ejemplo, aplicaciones de terceros que haya registrado), pero no a los permisos propios de Azure AD. Todavía puede _solicitar_ estos permisos como parte del registro de la aplicación, pero _conceder_ estos permisos (es decir, dar su consentimiento) requiere un administrador de Azure AD. Esto significa que un usuario malintencionado no puede elevar fácilmente sus permisos. Por ejemplo, no podría crear y dar su consentimiento a una aplicación que pueda escribir en todo el directorio y a través de los permisos de esa aplicación elevar sus permisos para convertirse en administrador global.
 
 ### <a name="application-developerapplication-developer-permissions"></a>[Desarrollador de aplicaciones](#application-developer-permissions)
 
@@ -219,12 +224,14 @@ Los usuarios de este rol pueden leer la configuración y la información adminis
 > [!NOTE]
 > Actualmente, el rol de lector global tiene algunas limitaciones:
 >
->* Centro de administración de SharePoint: el Centro de administración de SharePoint no admite el rol de lector global. No verá "SharePoint" en el panel de la izquierda de [Centro de administración de Microsoft 365](https://admin.microsoft.com/Adminportal/Home#/homepage), en Centros de administración, y se le denegará el acceso cuando intente ir a *https://{nombre de organización de Azure AD}-admin.sharepoint.com*.
+>* Centro de administración de SharePoint: el Centro de administración de SharePoint no admite el rol de lector global. No verá "SharePoint" en el panel izquierdo debajo de Centros de administración en el [Centro de administración de Microsoft 365](https://admin.microsoft.com/Adminportal/Home#/homepage).
+>* [Centro de administración de OneDrive](https://admin.onedrive.com/): el Centro de administración de OneDrive no admite el rol de lector global.
 >* [Portal de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/): el lector global no puede leer el modo de aprovisionamiento de una aplicación empresarial.
 >* [Centro de administración de M365](https://admin.microsoft.com/Adminportal/Home#/homepage): el lector global no puede leer las solicitudes de la Caja de seguridad del cliente. En el panel izquierdo del Centro de administración de M365 no aparecerá la pestaña **Solicitudes de la Caja de seguridad del cliente** bajo **Soporte**.
 >* [Centro de seguridad de M365](https://security.microsoft.com/homepage): el lector global no puede leer las etiquetas de confidencialidad y retención. No encontrará las pestañas **Etiquetas de confidencialidad**, **Etiquetas de retención** ni **Análisis de etiquetas** en el panel izquierdo del Centro de seguridad de M365.
 >* [Centro de administración de Teams](https://admin.teams.microsoft.com): el lector global no puede leer **Ciclo de vida de Teams**, **Análisis e informes**, **Administración de dispositivos de teléfono IP** ni **Catálogo de aplicaciones**.
 >* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) no admite el rol de lector global.
+>* [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection): el lector global solo se admite para la [generación de informes centrales](https://docs.microsoft.com/azure/information-protection/reports-aip) y cuando el inquilino no es parte de la [plataforma unificada de etiquetado](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
 > Estas características están actualmente en desarrollo.
 >

@@ -1,21 +1,21 @@
 ---
-title: Uso de la inteligencia artificial para comprender los datos de los blobs
+title: Uso de la inteligencia artificial para comprender los datos de Blob Storage
 titleSuffix: Azure Search
 description: Agregue análisis de imágenes, procesamiento de lenguaje natural y semántico a los blobs de Azure mediante una canalización de enriquecimiento con inteligencia artificial en Azure Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 192d1a7b3bb10395aa662a4b915fe0189b1306b5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5f65667ac8ffacdd12e57ae0d46e25c586624a31
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434038"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792467"
 ---
-# <a name="use-ai-to-understand-blob-data"></a>Uso de la inteligencia artificial para comprender los datos de los blobs
+# <a name="use-ai-to-understand-blob-storage-data"></a>Uso de la inteligencia artificial para comprender los datos de Blob Storage
 
 Los datos almacenados en Azure Blob Storage suelen ser una variedad de contenido no estructurado, como imágenes, texto largo, archivos PDF y documentos de Office. Puede usar las funcionalidades de inteligencia artificial de Azure Search para comprender y extraer información valiosa de los blobs de varias maneras. Entre los ejemplos de la aplicación de inteligencia artificial al contenido de los blobs se incluyen:
 
@@ -40,7 +40,7 @@ La salida siempre es un índice de Azure Search, que se usa para operaciones rá
 
 En medio, está la propia arquitectura de la canalización. La canalización se basa en la característica *indexador*, a la que puede asignar un *conjunto de aptitudes* compuesto por una o más *aptitudes* que proporcionan la IA. El propósito de la canalización es generar *documentos enriquecidos* que entren como contenido sin procesar y que vaya incorporando una estructura, un contexto e información adicionales mientras se desplaza por la canalización. Los documentos enriquecidos se consumen durante la indexación para crear índices invertidos y otras estructuras que se usan en la búsqueda de texto completo o en la exploración y el análisis.
 
-## <a name="start-with-services-and-data"></a>Comenzar con servicios y datos
+## <a name="start-with-services"></a>Comenzar con servicios
 
 Necesita Azure Search y Azure Blob Storage. En el almacenamiento de blobs, se necesita un contenedor que proporcione el contenido de origen.
 
@@ -68,7 +68,7 @@ El enriquecimiento con inteligencia artificial hace referencia a los módulos qu
 
 En Azure Search, las *aptitudes* son los componentes individuales del procesamiento de la IA que puede usar de forma independiente o en combinación con otras aptitudes. 
 
-+ Las aptitudes integradas cuentan con el respaldo de Cognitive Services, con análisis de imágenes basado en Computer Vision y procesamiento de lenguaje natural basado en Text Analytics. Puede revisar la lista completa de las aptitudes integradas en [Aptitudes predefinidas para el enriquecimiento de contenido](cognitive-search-predefined-skills.md).
++ Las aptitudes integradas cuentan con el respaldo de Cognitive Services, con análisis de imágenes basado en Computer Vision y procesamiento de lenguaje natural basado en Text Analytics. Para obtener la lista completa, consulte las [aptitudes integradas para el enriquecimiento de contenido](cognitive-search-predefined-skills.md).
 
 + Las aptitudes personalizadas son código personalizado, incluido en una [definición de interfaz](cognitive-search-custom-skill-interface.md) que permite su integración en la canalización. En las soluciones de los clientes, es una práctica común usar ambos, con aptitudes personalizadas que proporcionan módulos de IA de código abierto, de terceros o propios.
 
@@ -112,7 +112,8 @@ El documento enriquecido al final de la canalización difiere de la versión de 
 
 Hay muchas más cosas que puede hacer con el enriquecimiento con inteligencia artificial para sacar el máximo partido de los datos en Azure Storage, incluida la combinación de servicios de Cognitive Services de distintas maneras y la creación de aptitudes personalizadas para los casos en los que no haya ningún servicio de Cognitive Services en el escenario. Para más información, siga los vínculos que aparecen a continuación.
 
-> [!div class="nextstepaction"]
-> [Introducción al enriquecimiento con inteligencia artificial ](cognitive-search-concept-intro.md) 
-> [Creación de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-> [Asignación de nodos en un árbol de anotación](cognitive-search-output-field-mapping.md)
++ [Carga, descarga y enumeración de blobs con Azure Portal (Azure Blob Storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Configuración de un indexador de blobs (Azure Search)](search-howto-indexing-azure-blob-storage.md) 
++ [Información general sobre el enriquecimiento de AI (Azure Search)](cognitive-search-concept-intro.md) 
++ [Crear un conjunto de aptitudes (Azure Search)](cognitive-search-defining-skillset.md)
++ [Asignar nodos en un árbol de anotaciones (Azure Search)](cognitive-search-output-field-mapping.md)

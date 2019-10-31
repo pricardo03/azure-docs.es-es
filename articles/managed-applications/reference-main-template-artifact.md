@@ -1,5 +1,5 @@
 ---
-title: Referencia de un artefacto de plantilla de implementación de una aplicación administrada de Azure
+title: Referencia de un artefacto de plantilla de una aplicación administrada de Azure
 description: Proporciona un ejemplo de artefacto de plantilla de implementación para Azure Managed Applications.
 services: managed-applications
 ms.service: managed-applications
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: ec59c9cde4f23b4a9d641d286e152ea737576534
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b260524c7e23e68bf6cd57a88356568faf724605
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330170"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528943"
 ---
 # <a name="reference-deployment-template-artifact"></a>Referencia: Artefacto de plantilla de implementación
 

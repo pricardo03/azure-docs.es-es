@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2201b7701dae90b43a01a6fb45decd94e45bab74
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 40d0cd29452b5473d16851451a88c93e78ef3f36
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430021"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554428"
 ---
 # <a name="authentication-basics"></a>Conceptos básicos sobre autenticación
 
@@ -35,7 +35,7 @@ La **autenticación** es el proceso mediante el que se comprueba que es quien di
 
 La **autorización** es el acto de conceder a una parte autenticada permiso para hacer algo. Especifica a qué datos se puede acceder y qué se puede hacer con ellos. A veces, la autorización se abrevia como AuthZ.
 
-En lugar de crear aplicaciones que tengan un nombre de usuario y una contraseña propios, lo que supone una gran carga administrativa cuando se cuentan con varias aplicaciones y es necesario agregar o quitar usuarios en ellas, las aplicaciones pueden delegar esa responsabilidad en un proveedor de identidades.
+En lugar de crear aplicaciones que tengan un nombre de usuario y una contraseña propios, lo que supone una gran carga administrativa cuando es necesario agregar o quitar usuarios en varias aplicaciones, las aplicaciones pueden delegar esa responsabilidad en un proveedor de identidades.
 
 Azure Active Directory (Azure AD) es un proveedor de identidades centralizado en la nube. Al delegar la autenticación y la autorización en esta solución, se abren otras posibilidades, como el uso de directivas de acceso condicional que requieren que un usuario esté en una ubicación específica, el uso de la autenticación multifactor y la posibilidad de que un usuario solo tenga que iniciar sesión una vez para que, de forma automática, inicie sesión en todas las aplicaciones web que comparten el mismo directorio centralizado. Esta funcionalidad se conoce como "inicio de sesión único" (SSO).
 
@@ -43,7 +43,7 @@ Un proveedor de identidades centralizado es aún más importante para las aplica
 
 La Plataforma de identidad de Microsoft simplifica la autenticación a los desarrolladores de aplicaciones, ya que ofrece la identidad como servicio, con compatibilidad con protocolos estándares del sector, como OAuth 2.0 y OpenID Connect, además de bibliotecas de código abierto para distintas plataformas, lo que le permitirá empezar a programar rápidamente. Permite a los desarrolladores crear aplicaciones que inicien sesión en todas las identidades de Microsoft, obtener tokens para llamar a Microsoft Graph, otras API de Microsoft o API que los desarrolladores hayan creado. Para más información, consulte [Evolución de la Plataforma de identidad de Microsoft](about-microsoft-identity-platform.md).
 
-## <a name="tenants"></a>Inquilinos
+### <a name="tenants"></a>Inquilinos
 
 Los proveedores de identidades en la nube dan servicio a muchas organizaciones. Para mantener separados a los usuarios de las diferentes organizaciones, Azure AD está dividido en inquilinos, con un inquilino por organización.
 
@@ -76,7 +76,7 @@ Los tokens solo son válidos durante un período de tiempo limitado. Normalmente
 
 Los tokens de acceso se pasan a una API web en el encabezado de `Authenticate` como un token de portador. Una aplicación puede proporcionar un token de actualización al STS y, si el acceso del usuario a la aplicación no se ha revocado, recibirá un nuevo token de acceso y un nuevo token de actualización. Así es cómo se administran los casos cuando alguien abandona la empresa. Cuando el STS recibe el token de actualización, si el usuario ya no está autorizado, no emitirá otro token de acceso válido.
 
-### <a name="applications"></a>APLICACIONES
+## <a name="application-model"></a>Modelo de aplicación
 
 Las aplicaciones pueden iniciar por sí mismas la sesión de los usuarios o delegar el inicio de sesión en un proveedor de identidades. Consulte [Flujos de autenticación y escenarios de aplicaciones ](authentication-flows-app-scenarios.md) para más información sobre los escenarios de inicio de sesión admitidos por Azure AD.
 
@@ -90,18 +90,16 @@ Para que un proveedor de identidades sepa que un usuario tiene acceso a una dete
 
 Una vez registrada la aplicación, se le proporcionará un GUID a dicha aplicación que compartirá con Azure AD cuando solicite tokens. Si la aplicación es una aplicación cliente confidencial, también compartirá el secreto o la clave pública, dependiendo de si se utilizaron certificados o secretos.
 
-### <a name="application-model"></a>Modelo de aplicación
-
 La Plataforma de identidad de Microsoft representa a las aplicaciones que usan un modelo que cumple dos funciones principales:
 
-**Identificar la aplicación mediante los protocolos de autenticación que admite y proporcionar todos los identificadores, direcciones URL, secretos e información relacionada que se necesita para la autenticación.**
+Identificar la aplicación mediante los protocolos de autenticación que admite y proporcionar todos los identificadores, direcciones URL, secretos e información relacionada que se necesita para la autenticación.
 La Plataforma de identidad de Microsoft:
 
 * Contiene todos los datos necesarios para admitir la autenticación en tiempo de ejecución.
 * Contiene todos los datos para decidir qué recursos podría necesitar una aplicación para obtener acceso y en qué circunstancias debería cumplimentarse una solicitud.
 * Proporciona la infraestructura necesaria para implementar el aprovisionamiento de la aplicación dentro del inquilino del desarrollador de la aplicación y en cualquier otro inquilino de Azure AD.
 
-**Controle el consentimiento del usuario durante el tiempo de solicitud de tokens y facilite el aprovisionamiento dinámico de aplicaciones entre inquilinos**. El consentimiento es el proceso mediante el que un propietario de recursos concede autorización a una aplicación cliente para acceder a recursos protegidos, con permisos específicos, en nombre del propietario del recurso. La Plataforma de identidad de Microsoft:
+Controlar el consentimiento del usuario durante el tiempo de solicitud de tokens y facilitar el aprovisionamiento dinámico de aplicaciones entre inquilinos. El consentimiento es el proceso mediante el que un propietario de recursos concede autorización a una aplicación cliente para acceder a recursos protegidos, con permisos específicos, en nombre del propietario del recurso. La Plataforma de identidad de Microsoft:
 
 * Permite a los usuarios y administradores conceder o denegar el consentimiento dinámicamente para que la aplicación acceda a recursos en su nombre.
 * Permite a los administradores decidir qué pueden hacer las aplicaciones en última instancia, qué usuarios pueden utilizar aplicaciones específicas y cómo se accede a los recursos de directorio.
@@ -154,7 +152,7 @@ La autenticación del usuario se realiza mediante el explorador. El protocolo Op
 - La aplicación web proporciona el redireccionamiento en forma de un URI de redirección. Este URI de redirección se registra con el objeto de aplicación de Azure AD. Puede haber varios URI de redireccionamiento, ya que la aplicación puede estar implementada en varias direcciones URL. Por lo tanto, la aplicación web también tendrá que especificar el URI de redirección que va a utilizar.
 - Azure AD verifica que el URI de redirección enviado por la aplicación web es uno de los URI de redirección registrados para la aplicación.
 
-## <a name="generalization-to-desktop-and-mobile-apps"></a>Generalización para aplicaciones móviles y de escritorio
+## <a name="desktop-and-mobile-app-sign-in-flow-with-azure-ad"></a>Flujo de inicio de sesión para aplicaciones móviles y de escritorio con Azure AD
 
 El flujo descrito anteriormente se aplica, con ligeras diferencias, tanto a las aplicaciones móviles como a las aplicaciones de escritorio.
 

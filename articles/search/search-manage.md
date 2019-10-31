@@ -1,23 +1,22 @@
 ---
-title: 'Administración de servicios de Azure Search en el portal: Azure Search'
-description: Administrar un servicio de Azure Search, un servicio hospedado de búsqueda en la nube de Microsoft Azure, mediante Azure Portal.
-author: HeidiSteen
+title: Administración de servicios de Azure Cognitive Search en el portal
+titleSuffix: Azure Cognitive Search
+description: Administrar un servicio de Azure Cognitive Search, un servicio hospedado de búsqueda en la nube de Microsoft Azure, mediante Azure Portal.
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 03/08/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 31b005bd76591d8098f119c7aa9b87a68841658c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+tags: azure-portal
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 052d772c8ef885d594146d456ebb3cdcbbc0e383
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331269"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793498"
 ---
-# <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administración de servicios de Azure Search en Azure Portal
+# <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administración de los servicios de Azure Cognitive Search en Azure Portal
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
 > * [API DE REST](https://docs.microsoft.com/rest/api/searchmanagement/)
@@ -25,14 +24,14 @@ ms.locfileid: "72331269"
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure Search es un servicio basado en la nube totalmente administrado que se utiliza para la creación de una experiencia de búsqueda enriquecida en aplicaciones personalizadas. En este artículo se tratan las tareas de administración de servicios que se pueden realizar en [Azure Portal](https://portal.azure.com) para un servicio de búsqueda que ya se haya aprovisionado. Administración de servicios es ligero por diseño y se limita a las siguientes tareas:
+Azure Cognitive Search es un servicio de búsqueda basado en la nube totalmente administrado que se utiliza para la creación de una experiencia de búsqueda enriquecida en aplicaciones personalizadas. En este artículo se tratan las tareas de administración de servicios que se pueden realizar en [Azure Portal](https://portal.azure.com) para un servicio de búsqueda que ya se haya aprovisionado. Administración de servicios es ligero por diseño y se limita a las siguientes tareas:
 
 > [!div class="checklist"]
 > * Administrar el acceso a las *claves de API* que se usan para el acceso de lectura o escritura a su servicio.
 > * Ajustar la capacidad de servicio, mediante el cambio de la asignación de particiones y réplicas.
 > * Supervisar el uso de recursos, en relación con los límites máximos de su nivel de servicio.
 
-Tenga en cuenta que *actualizar* no aparece como una tarea administrativa. Dado que los recursos se asignan cuando se aprovisiona el servicio, mover a otro nivel requiere un nuevo servicio. Consulte [Creación de un servicio Azure Search](search-create-service-portal.md) para más información.
+Tenga en cuenta que *actualizar* no aparece como una tarea administrativa. Dado que los recursos se asignan cuando se aprovisiona el servicio, mover a otro nivel requiere un nuevo servicio. Consulte [Creación de un servicio Azure Cognitive Search](search-create-service-portal.md) para más información.
 
 Puede supervisar el volumen de las consultas y otras métricas y usar esa información para ajustar el servicio y así obtener tiempos de respuesta más rápidos. Para más información, vea [Supervisar el uso y las métricas de consultas](search-monitor-usage.md) y [Rendimiento y optimización](search-performance-optimization.md).
 
@@ -43,12 +42,12 @@ El aprovisionamiento o la retirada del propio servicio los puede realizar un adm
 
 Dentro de un servicio, cualquier persona con acceso a la dirección URL del servicio y una clave de API de administración tiene acceso de lectura y escritura al servicio. El acceso de lectura y escritura ofrece capacidad para agregar, eliminar o modificar objetos de servidor, incluidos claves de API, índices, indizadores, orígenes de datos, programaciones y asignaciones de roles, tal y como se implementa a través de [roles definidos por RBAC](search-security-rbac.md).
 
-Toda la interacción del usuario con Azure Search se encuadra en de uno de estos modos: acceso de lectura y escritura al servicio (derechos de administrador) o acceso de solo lectura al servicio (derechos de consulta). Para más información, consulte [Administración de las claves de API](search-security-api-keys.md).
+Toda la interacción del usuario con Azure Cognitive Search se encuadra en de uno de estos modos: acceso de lectura y escritura al servicio (derechos de administrador) o acceso de solo lectura al servicio (derechos de consulta). Para más información, consulte [Administración de las claves de API](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
 ## <a name="logging-and-system-information"></a>Registro e información del sistema
-Azure Search no expone los archivos de registro de un servicio individual ni a través del portal ni de interfaces de programación. En el nivel básico, y en los superiores, Microsoft supervisa que todos los servicios de Azure Search tengan una disponibilidad del 99,9 % por acuerdo de nivel de servicio (SLA). Si el servicio es lento o el rendimiento de las solicitudes no llega a los umbrales del SLA, los equipos de soporte técnico revisan los archivos de registro a los que pueden acceder y solucionan el problema.
+Azure Cognitive Search no expone los archivos de registro de un servicio individual ni a través del portal ni de interfaces de programación. En el nivel básico, y en los superiores, Microsoft supervisa que todos los servicios de Azure Cognitive Search tengan una disponibilidad del 99,9 % por contrato de nivel de servicio (SLA). Si el servicio es lento o el rendimiento de las solicitudes no llega a los umbrales del SLA, los equipos de soporte técnico revisan los archivos de registro a los que pueden acceder y solucionan el problema.
 
 En términos de información general acerca del servicio, hay varias formas de obtener información:
 
@@ -59,26 +58,26 @@ En términos de información general acerca del servicio, hay varias formas de o
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>Supervisar el uso de recursos
-En el panel, la supervisión de recursos se limita a la información que se muestra en el panel de servicios y algunas métricas que puede obtener al consultar el servicio. En el panel de servicios, en la sección Uso, podrá determinar rápidamente si los niveles de recursos de partición son adecuados para su aplicación. Puede aprovisionar recursos externos, como la supervisión de Azure, si desea capturar y persistir eventos registrados. Para más información, consulte [Supervisión de Azure Search](search-monitor-usage.md).
+En el panel, la supervisión de recursos se limita a la información que se muestra en el panel de servicios y algunas métricas que puede obtener al consultar el servicio. En el panel de servicios, en la sección Uso, podrá determinar rápidamente si los niveles de recursos de partición son adecuados para su aplicación. Puede aprovisionar recursos externos, como la supervisión de Azure, si desea capturar y persistir eventos registrados. Para más información, consulte [Supervisión de Azure Cognitive Search](search-monitor-usage.md).
 
-Al usar la API de REST del servicio de búsqueda, podrá obtener una recuento de los documentos e índices mediante programación: 
+Al usar la API de REST del servicio de búsqueda, puede obtener un recuento de los documentos e índices mediante programación: 
 
 * [Obtención de estadísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Documentos de recuento](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Interrupciones de servicio y recuperación ante desastres
 
-Aunque podemos recuperar los datos, Azure Search no proporciona conmutación por error instantánea del servicio si se produce una interrupción en centro de datos o el clúster. Si se produce un error en un clúster del centro de datos, el equipo de operaciones lo detectará y trabajará para restaurar el servicio. Experimentará tiempo de inactividad durante la restauración del servicio, pero puede solicitar créditos del servicio para compensar la falta de disponibilidad de servicio según el [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Aunque podemos recuperar los datos, Azure Cognitive Search no proporciona conmutación por error instantánea del servicio si se produce una interrupción en centro de datos o el clúster. Si se produce un error en un clúster del centro de datos, el equipo de operaciones lo detectará y trabajará para restaurar el servicio. Experimentará tiempo de inactividad durante la restauración del servicio, pero puede solicitar créditos del servicio para compensar la falta de disponibilidad de servicio según el [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
 Si se requiera continuidad del servicio, en caso de errores catastróficos fuera de control de Microsoft, debe [aprovisionar un servicio adicional](search-create-service-portal.md) en una región diferente e implementar una estrategia de replicación geográfica para asegurarse de que los índices sean totalmente redundantes en todos los servicios.
 
-Los clientes que usen [indizadores](search-indexer-overview.md) para rellenar y actualizar índices pueden controlar la recuperación ante desastres mediante indizadores geográficos que aprovechan el mismo origen de datos. Dos servicios en regiones diferentes, donde cada uno ejecuta un indizador, pueden indexar desde el mismo origen de datos para lograr redundancia geográfica. Si indexa desde orígenes de datos que también tienen redundancia geográfica, tenga en cuenta que los indizadores de Azure Search solo pueden realizar una indización incremental a partir de las réplicas principales. En un evento de conmutación por error, asegúrese de que el indizador apunte de nuevo a la nueva réplica principal. 
+Los clientes que usen [indizadores](search-indexer-overview.md) para rellenar y actualizar índices pueden controlar la recuperación ante desastres mediante indizadores geográficos que aprovechan el mismo origen de datos. Dos servicios en regiones diferentes, donde cada uno ejecuta un indizador, pueden indexar desde el mismo origen de datos para lograr redundancia geográfica. Si indexa desde orígenes de datos que también tienen redundancia geográfica, tenga en cuenta que los indexadores de Azure Cognitive Search solo pueden realizar una indexación incremental a partir de las réplicas principales. En un evento de conmutación por error, asegúrese de que el indizador apunte de nuevo a la nueva réplica principal. 
 
-Si no utiliza indizadores, usaría el código de aplicación para enviar objetos y datos a distintos servicios de búsqueda en paralelo. Para más información, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md).
+Si no utiliza indizadores, usaría el código de aplicación para enviar objetos y datos a distintos servicios de búsqueda en paralelo. Para más información, consulte [Estrategias de implementación y procedimientos recomendados de Azure Cognitive Search](search-performance-optimization.md).
 
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
-Dado que Azure Search no es una solución de almacenamiento de datos principal, no se proporcionan un mecanismo formal para realizar procesos de copias de seguridad y restauración automáticos. Sin embargo, puede usar el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Search](https://github.com/Azure-Samples/azure-search-dotnet-samples) para realizar la copia de seguridad de una definición de índice y una instantánea en una serie de archivos JSON y, después, usar esos archivos para restaurar el índice, en caso de que sea necesario. Esta herramienta también se puede usar para mover índices entre niveles de servicio.
+Dado que Azure Cognitive Search no es una solución de almacenamiento de datos principal, no se proporciona un mecanismo formal para realizar procesos de copias de seguridad y restauración automáticos. Sin embargo, puede usar el ejemplo de código **index-backup-restore** de este [repositorio de ejemplo .NET de Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-dotnet-samples) para realizar la copia de seguridad de la definición de índice y una instantánea en una serie de archivos JSON y, después, usar esos archivos para restaurar el índice, en caso de que sea necesario. Esta herramienta también se puede usar para mover índices entre niveles de servicio.
 
 De lo contrario, el código de aplicación que se usa para crear y rellenar un índice es la opción de restauración de facto si elimina por error un índice. Para volver a generar un índice, elimínelo (si existe), vuelva a crear el índice en el servicio y cárguelo de nuevo recuperando los datos del almacén de datos principal.
 
@@ -113,23 +112,12 @@ No existe un método de detección que indique qué particiones de índice se al
 
 Para ayudar en una futura planificación, es posible que quiera comprobar el espacio de almacenamiento (usando [Obtención de estadísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) para ver cuánto usó en realidad. 
 
-<a id="advanced-deployment"></a>
-
-## <a name="best-practices-on-scale-and-deployment"></a>Prácticas recomendadas de escalado e implementación
-En este vídeo de 30 minutos se analizan las prácticas recomendadas para escenarios de implementación avanzada, entre los que se incluyen las cargas de trabajo distribuidas geográficamente. También puede consultar [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md) , donde encontrará páginas de ayuda que tratan los mismos puntos.
-
-> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
-> 
-> 
-
 <a id="next-steps"></a>
 
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez que comprenda los conceptos de administración del servicio, considere la posibilidad de utilizar [PowerShell](search-manage-powershell.md) para automatizar las tareas.
 
 También se recomienda revisar el [artículo sobre rendimiento y optimización](search-performance-optimization.md).
-
-Otra recomendación es ver el vídeo que se indica en la sección anterior. Proporciona cobertura más detallada de las técnicas mencionadas en esta sección.
 
 <!--Image references-->
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png

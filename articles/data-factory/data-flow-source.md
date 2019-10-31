@@ -1,19 +1,19 @@
 ---
 title: 'Transformación de origen en Mapping Data Flow: Azure Data Factory | Microsoft Docs'
-description: Obtenga información sobre cómo configurar una transformación de origen en la asignación de Data Flow.
+description: Aprenda a configurar una transformación de origen en Mapping Data Flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: c3c24e9dc674ac29c8ca4d0d445cc3f572cda71e
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c7d18ab6e9018511915e9b77ea02ac60b1277c12
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029210"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72596496"
 ---
-# <a name="source-transformation-for-mapping-data-flow"></a>Transformación de origen de asignación de Data Flow 
+# <a name="source-transformation-for-mapping-data-flow"></a>Transformación de origen en Mapping Data Flow 
 
 
 
@@ -39,7 +39,7 @@ Azure Data Factory tiene acceso a más de 80 conectores nativos. Para incluir da
 
 Una vez que haya agregado un origen, configúrelo mediante la pestaña **Configuración de origen**. Aquí puede elegir o crear el conjunto de datos al que apunta el origen. También puede seleccionar las opciones de muestreo y esquema para los datos.
 
-![Pestaña Configuración de origen](media/data-flow/source1.png "Source settings tab")
+![Pestaña de configuración de origen](media/data-flow/source1.png "Pestaña de configuración de origen")
 
 **Desfase de esquema:** El [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad de Data Factory de administrar de forma nativa los esquemas flexibles en los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas.
 
@@ -53,6 +53,8 @@ Una vez que haya agregado un origen, configúrelo mediante la pestaña **Configu
 
 **Muestreo:** Habilite el muestreo para limitar el número de filas del origen. Use esta configuración al probar o muestrear datos del origen con fines de depuración.
 
+**Filas de varias líneas:** seleccione las filas de varias líneas si el archivo de texto de origen contiene valores de cadena que abarcan varias filas; es decir, nuevas líneas dentro de un valor.
+
 Para validar si el origen está configurado correctamente, active el modo de depuración y capture una vista previa de los datos. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
@@ -62,7 +64,7 @@ Para validar si el origen está configurado correctamente, active el modo de dep
 
 Si usa un conjunto de datos basado en archivos como, por ejemplo, Azure Blob Storage o Azure Data Lake Storage, la pestaña **Source options** (Opciones de origen) le permite administrar cómo lee los archivos el origen.
 
-![Source options (Opciones de origen)](media/data-flow/sourceOPtions1.png "Source options")
+![Opciones de origen](media/data-flow/sourceOPtions1.png "Opciones de origen")
 
 **Ruta de acceso de comodín:** El uso de un patrón de caracteres comodín indicará a ADF que recorra todos los archivos y carpetas que coincidan en una única transformación del origen. Se trata de una manera eficaz de procesar varios archivos en un único flujo. Agregue varios patrones de coincidencia de caracteres comodín con el signo + que aparece al desplazar el puntero sobre el patrón de caracteres comodín existente.
 
@@ -83,11 +85,11 @@ Ejemplos de caracteres comodín:
 
 En primer lugar, establezca un comodín que incluya todas las rutas de acceso que sean carpetas con particiones y, además, los archivos de hoja que desee leer.
 
-![Configuración del archivo de origen de la partición](media/data-flow/partfile2.png "Configuración del archivo de la partición")
+![Configuración del archivo de origen de partición](media/data-flow/partfile2.png "Configuración del archivo de partición")
 
 Use el valor de Partition Root Path (Ruta de acceso de la raíz de la partición) para definir cuál es el nivel superior de la estructura de carpetas. Cuando vea el contenido de los datos mediante una vista previa, verá que ADF agregará las particiones resueltas que se encuentran en cada uno de los niveles de las carpetas.
 
-![Ruta de acceso de la raíz de la partición](media/data-flow/partfile1.png "Vista previa de Ruta de acceso de la raíz de la partición")
+![Ruta de acceso raíz de la partición](media/data-flow/partfile1.png "Vista previa de la ruta de acceso raíz de la partición")
 
 **Lista de archivos**: Se trata de un conjunto de archivos. Cree un archivo de texto que incluya una lista de archivos de ruta de acceso relativa para procesar. Apunte a este archivo de texto.
 
@@ -132,20 +134,20 @@ Si el origen está en SQL Database o SQL Data Warehouse, hay configuración adic
 
 **Tamaño del lote**: escriba un tamaño de lote para fragmentar datos grandes en lecturas.
 
-**Nivel de aislamiento**: El valor predeterminado para los orígenes de SQL en Mapping Data Flow es Lectura no confirmada. Puede cambiar el nivel de aislamiento aquí a uno de estos valores:
+**Nivel de aislamiento**: El valor predeterminado de los orígenes de SQL en Mapping Data Flow es de lectura no confirmada. Puede cambiar el nivel de aislamiento aquí a uno de estos valores:
 * Read Committed
 * Read Uncommitted
 * Repeatable Read
 * Serializable
 * Ninguno (ignorar el nivel de aislamiento)
 
-![Nivel de aislamiento](media/data-flow/isolationlevel.png "Nivel de aislamiento")
+![Nivel de aislamiento](media/data-flow/isolationlevel.png "Nivel de aislamiento"):
 
 ## <a name="projection"></a>Proyección
 
 Al igual que los esquemas en los conjuntos de datos, la proyección de un origen define las columnas, los tipos y los formatos de datos de los datos de origen. Para la mayoría de los tipos de conjuntos de datos, como SQL y Parquet, la proyección en un origen se corrige para que refleje el esquema definido en un conjunto de datos. Cuando los archivos de origen no están fuertemente tipados (por ejemplo, archivos sin formato en lugar de archivos Parquet), puede definir los tipos de datos de cada campo en la transformación de origen.
 
-![Configuración de la pestaña Proyección](media/data-flow/source3.png "Proyección")
+![Configuración de la pestaña de proyección](media/data-flow/source3.png "Proyección")
 
 Si el archivo de texto no tiene ningún esquema definido, seleccione **Detectar tipo de datos** para que Data Factory muestree e infiera los tipos de datos. Seleccione **Definir formato predeterminado** para detectar automáticamente los formatos de datos predeterminados. 
 
@@ -167,7 +169,7 @@ En la tabla de origen, seleccione una columna en la que crear una partición. Ta
 
 Puede elegir crear una partición de las conexiones según una consulta. Escriba el contenido de un predicado WHERE. Por ejemplo, escriba año > 1980.
 
-Para más información sobre la optimización en Mapping Data Flow, consulte la [pestaña Optimización](concepts-data-flow-overview.md#optimize).
+Para más información sobre la optimización en Mapping Data Flow, consulte la [pestaña de optimización](concepts-data-flow-overview.md#optimize).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

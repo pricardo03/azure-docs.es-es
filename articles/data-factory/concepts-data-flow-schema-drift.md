@@ -7,16 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 1d6560613294584c77f002e2380065d64ea143f7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8c2764535515d0aeb1eb65a1621148fa58317cac
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387964"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553699"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Desfase de esquema en el flujo de datos de asignación
-
-
 
 El desfase de esquema es el caso en que los orígenes suelen cambiar los metadatos. Los campos, columnas y tipos pueden agregarse, quitarse o cambiarse sobre la marcha. Si no se controla el desfase de esquema, el flujo de datos se vuelve vulnerable a los cambios del origen de datos de nivel superior. Cuando se cambian los campos y las columnas de entrada, los patrones ETL típicos generan un error porque tienden a estar vinculados a los nombres de esos orígenes.
 
@@ -31,6 +29,8 @@ Azure Data Factory admite de forma nativa esquemas flexibles que cambian de una 
 Deberá tomar una decisión de arquitectura en el flujo de datos para aceptar el desfase de esquema en todo el flujo. Al hacerlo, puede protegerse de los cambios de esquema en los orígenes. Sin embargo, se perderá el enlace temprano de las columnas y los tipos a lo largo del flujo de datos. Azure Data Factory trata los flujos de desfase de esquema como flujos de enlace tardío, por lo que, al compilar las transformaciones, los nombres de columnas desfasadas no estarán disponibles en las vistas de esquema en todo el flujo.
 
 ## <a name="schema-drift-in-source"></a>Desfase de esquema en origen
+
+Las columnas que entran en el flujo de datos de la definición de origen se definen como "desplazadas" cuando no están presentes en la proyección de origen. Puede ver la proyección de origen desde la pestaña Proyección en la transformación de origen. Cuando se selecciona un conjunto de datos para el origen, Azure Data Factory toma automáticamente el esquema del conjunto de datos y crea un proyecto a partir de esa definición de esquema de conjunto de datos.
 
 En una transformación de origen, el desfase de esquema se define como columnas de lectura que no están definidas en el esquema del conjunto de los mismos. Para habilitar el desfase de esquema, elija **Allow Schema Drift** (Permitir desfase de esquema) en la transformación de origen.
 
