@@ -16,10 +16,10 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64de004a1d9b3aa011c447fdded51658582586b0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68825784"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configuración de Salesforce para el aprovisionamiento automático de usuarios
@@ -82,15 +82,15 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 6. Para obtener el token de seguridad de Salesforce, abra una nueva pestaña e inicie sesión en la misma cuenta de administrador de Salesforce. En la esquina superior derecha de la página, haga clic en su nombre y, a continuación, haga clic en **Configuración**.
 
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Habilitar aprovisionamiento automático de usuarios")
+    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Habilitar el aprovisionamiento automático de usuarios")
 
 7. En el panel de navegación izquierdo, haga clic en **Mi información personal** para expandir la sección relacionada y haga clic en **Reset My Security Token** (Restablecer mi token de seguridad).
   
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Habilitar aprovisionamiento automático de usuarios")
+    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Habilitar el aprovisionamiento automático de usuarios")
 
 8. En la página **Reset Security Token** (Restablecer token de seguridad), haga clic en el botón **Reset Security Token** (Restablecer token de seguridad).
 
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Habilitar aprovisionamiento automático de usuarios")
+    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Habilitar el aprovisionamiento automático de usuarios")
 
 9. Compruebe la bandeja de entrada de correo electrónico asociada a esta cuenta de administrador. Busque un correo electrónico de Salesforce.com que contenga el nuevo token de seguridad.
 

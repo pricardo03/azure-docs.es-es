@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/22/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a9cf134a3db5b9bc62cd0f9054aefa6092954d9
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 09d2a637099bae414400f49bb89efc5b6652f150
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129548"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692815"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Árbol de decisión ampliado multiclase
 
@@ -31,7 +31,7 @@ En este módulo se crea un modelo de clasificación no entrenado. Dado que la cl
 
 Puede entrenar este tipo de modelo mediante [Entrenar modelo](././train-model.md). 
 
-1.  Agregue el módulo **Multiclass Boosted Decision Tree** (Árbol de decisión ampliado multiclase) al experimento.
+1.  Agregue el módulo **Árbol de decisión ampliado multiclase** a la canalización.
 
 1.  Especifique cómo quiere que se entrene el modelo. Para ello, establezca la opción **Create trainer mode** (Crear modo entrenador).
 

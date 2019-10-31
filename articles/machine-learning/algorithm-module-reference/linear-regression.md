@@ -1,7 +1,7 @@
 ---
-title: 'Regresión lineal: Referencia para los módulos'
+title: 'Regresión lineal: referencia para los módulos'
 titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo de regresión lineal en Azure Machine Learning Service para crear un modelo de regresión lineal para usarlo en un experimento.
+description: Aprenda a usar el módulo de regresión lineal en Azure Machine Learning Service para crear un modelo de regresión lineal para usarlo en una canalización.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,17 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 506f37a2e01f428ccadc0368bd2efb6b58c9106c
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 9c1dc34743d3fe65d50559d1b75aab1a0530d24c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128689"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693712"
 ---
 # <a name="linear-regression-module"></a>Módulo de regresión lineal
 En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
 
-Utilice este módulo para crear un modelo de regresión lineal para usarlo en un experimento.  La regresión lineal intenta establecer una relación lineal entre una o más variables independientes y un resultado numérico o la variable dependiente. 
+Utilice este módulo para crear un modelo de regresión lineal para usarlo en una canalización.  La regresión lineal intenta establecer una relación lineal entre una o más variables independientes y un resultado numérico o la variable dependiente. 
 
 Utilice este módulo para definir un método de regresión lineal y entrenar un modelo con un conjunto de datos etiquetado. El modelo entrenado se podrá usar para realizar predicciones.
 
@@ -63,9 +63,9 @@ Este módulo admite dos métodos de ajuste de un modelo de regresión con distin
 
 ## <a name="bkmk_OrdinaryLeastSquares"></a> Creación de un modelo de regresión mediante mínimos cuadrados
 
-1. Agregue el módulo **Linear Regression Model** (Modelo de regresión lineal) al experimento en la interfaz.
+1. Agregue el módulo **Linear Regression Model** (Modelo de regresión lineal) a la canalización en la interfaz.
 
-    Puede encontrar este módulo en la categoría **Machine Learning**. Expanda **Initialize Model** (Inicializar modelo) y **Regression** (Regresión) y arrastre el módulo **Linear Regression Model** (Modelo de regresión lineal) al experimento.
+    Puede encontrar este módulo en la categoría **Machine Learning**. Expanda **Initialize Model** (Inicializar modelo) y **Regression** (Regresión) y luego arrastre el módulo **Linear Regression Model** (Modelo de regresión lineal) a la canalización.
 
 2. En la lista desplegable **Solution method** (Método de solución) del panel **Propiedades**, seleccione **Ordinary Least Squares** (Mínimos cuadrados). Esta opción especifica el método de cálculo que se utiliza para buscar la recta de regresión.
 
@@ -79,12 +79,12 @@ Este módulo admite dos métodos de ajuste de un modelo de regresión con distin
 
 5. En **Random number seed** (Inicializar número aleatorio) también puede escribir un valor para inicializar el generador de números aleatorios que usa el modelo.
 
-    Utilizar un valor de inicialización es útil si desea mantener los mismos resultados en distintas ejecuciones del mismo experimento. De lo contrario, lo normal es usar un valor del reloj del sistema.
+    Utilizar un valor de inicialización es útil si desea mantener los mismos resultados en distintas ejecuciones de la misma canalización. De lo contrario, lo normal es usar un valor del reloj del sistema.
 
 
-7. Agregue el módulo [Train Model](./train-model.md) (Entrenar modelo) al experimento y conecte un conjunto de datos con etiqueta.
+7. Agregue el módulo [Entrenamiento de modelo](./train-model.md) a la canalización y conecte un conjunto de datos con etiqueta.
 
-8. Ejecute el experimento.
+8. Ejecución de la canalización
 
 ## <a name="results-for-ordinary-least-squares-model"></a>Resultados del modelo de mínimos cuadrados
 
@@ -97,9 +97,9 @@ Una vez completado el entrenamiento:
 
 ## <a name="bkmk_GradientDescent"></a> Creación de un modelo de regresión con gradiente descendiente en línea
 
-1. Agregue el módulo **Linear Regression Model** (Modelo de regresión lineal) al experimento en la interfaz.
+1. Agregue el módulo **Linear Regression Model** (Modelo de regresión lineal) a la canalización en la interfaz.
 
-    Puede encontrar este módulo en la categoría **Machine Learning**. Expanda **Initialize Model** (Inicializar modelo) y **Regression** (Regresión) y arrastre el módulo **Linear Regression Model** (Modelo de regresión lineal) al experimento.
+    Puede encontrar este módulo en la categoría **Machine Learning**. Expanda **Initialize Model** (Inicializar modelo) y **Regression** (Regresión) y luego arrastre el módulo **Linear Regression Model** (Modelo de regresión lineal) a la canalización.
 
 2. En la lista desplegable **Solution method** (Método de solución) del panel **Properties** (Propiedades), elija **Online Gradient Descent** (Gradiente descendiente en línea) como método de cálculo para buscar la recta de regresión.
 
@@ -125,14 +125,14 @@ Una vez completado el entrenamiento:
 
 9. Seleccione la opción **Decrease learning rate** (Reducir velocidad de aprendizaje), si desea que la velocidad de aprendizaje se reduzca con las iteraciones.  
 
-10. En **Random number seed** (Inicializar número aleatorio) también puede escribir un valor para inicializar el generador de números aleatorios que usa el modelo. Utilizar un valor de inicialización es útil si desea mantener los mismos resultados en distintas ejecuciones del mismo experimento.
+10. En **Random number seed** (Inicializar número aleatorio) también puede escribir un valor para inicializar el generador de números aleatorios que usa el modelo. Utilizar un valor de inicialización es útil si desea mantener los mismos resultados en distintas ejecuciones de la misma canalización.
 
 
 12. Agregue un conjunto de datos etiquetados y uno de los módulos de entrenamiento.
 
     Si no utiliza un barrido de parámetros, use el módulo [Train Model](train-model.md) (Entrenar modelo).
 
-13. Ejecute el experimento.
+13. Ejecución de la canalización
 
 ## <a name="results-for-online-gradient-descent"></a>Resultados del gradiente descendiente en línea
 

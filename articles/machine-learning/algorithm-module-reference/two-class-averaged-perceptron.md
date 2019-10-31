@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: f560923b0a5457ac5fd03c7f76fc4315c6ca08e8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 369974e52cb3585e4333b6033573b433e0a1a41a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128435"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693641"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Módulo Perceptrón promedio de dos clases
 
@@ -32,7 +32,7 @@ Los modelos de perceptrón más sencillos son adecuados para aprender patrones s
 
 ## <a name="how-to-configure-two-class-averaged-perceptron"></a>Procedimiento para configurar el perceptrón promedio de dos clases
 
-1.  Agregue el módulo **Perceptrón promedio de dos clases** al experimento.  
+1.  Agregue el módulo **Perceptrón promedio de dos clases** a la canalización.  
 
 2.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).  
   
@@ -46,7 +46,7 @@ Los modelos de perceptrón más sencillos son adecuados para aprender patrones s
   
      Si se detiene pronto proporciona, a menudo, una mejor generalización. Aumentar el número de iteraciones mejora el ajuste, con riesgo de sobreajuste.
   
-5.  En **Random number seed** (Inicialización de número aleatorio), escriba opcionalmente un valor de entero que se usará como inicialización. Se recomienda usar una inicialización si desea garantizar la reproducibilidad del experimento a través de las ejecuciones.  
+5.  En **Random number seed** (Inicialización de número aleatorio), escriba opcionalmente un valor de entero que se usará como inicialización. Se recomienda usar una inicialización si desea garantizar la reproducibilidad de la canalización a través de las ejecuciones.  
   
 1.  Conecte un conjunto de datos de entrenamiento y uno de los módulos de entrenamiento:
   

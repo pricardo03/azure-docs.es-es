@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
 ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71262785"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Plano técnico de seguridad y cumplimiento de Azure: Hospedaje de aplicaciones web PaaS para cargas de trabajo de la clasificación OFFICIAL (Reino Unido)
@@ -45,7 +45,7 @@ Para implementar este plano técnico, se requiere una suscripción de Azure. Si 
 
 Este plano técnico ofrece una solución de hospedaje de aplicaciones web en un entorno en la nube de Azure que admite cargas de trabajo de la clasificación OFFICIAL (Reino Unido). La arquitectura proporciona un entorno seguro que aprovecha las funcionalidades de plataforma como servicio de Azure. En el entorno se implementan dos aplicaciones web de App Service (una para los usuarios públicos y otra para los usuarios del área de operaciones), con una capa de la aplicación de API que proporcionará los servicios empresariales del front-end web. Se implementa una base de datos de Azure SQL como un almacén de datos relacional administrado para la aplicación. La conectividad con estos componentes desde fuera de la plataforma y entre todos estos componentes se cifra mediante TLS 1.2 para asegurar la privacidad de los datos en transporte, con acceso autenticado por Azure Active Directory.
 
-![Diagrama de la arquitectura de referencia del hospedaje de aplicaciones web de PaaS para cargas de trabajo de clasificación OFFICIAL (Reino Unido)](images/ukofficial-paaswa-architecture.png?raw=true "Diagrama de la arquitectura de referencia del hospedaje de aplicaciones web de PaaS para cargas de trabajo de clasificación OFFICIAL (Reino Unido)")
+![Diagrama de arquitectura de referencia de hospedaje de aplicaciones web PaaS para cargas con la clasificación OFFICIAL del Reino Unido](images/ukofficial-paaswa-architecture.png?raw=true "Diagrama de arquitectura de referencia de hospedaje de aplicaciones web PaaS para cargas de trabajo con la clasificación OFFICIAL del Reino Unido")
 
 Como parte de la arquitectura de implementación, se implementan también el aprovisionamiento de almacenamiento seguro, supervisión y registro, administración de seguridad unificada, protección contra amenazas avanzada y funcionalidades de administración para garantizar que los clientes tengan todas las herramientas necesarias para proteger y supervisar su entorno para esta solución.
 
@@ -201,7 +201,7 @@ Esta plantilla usa los siguientes componentes de Application Insights:
 
 El diagrama de flujo de datos de esta arquitectura de referencia está disponible para su [descarga](https://aka.ms/ukofficial-paaswa-tm) y se encuentra a continuación. El modelo puede ayudar a los clientes a comprender los puntos de riesgo potencial de la infraestructura del sistema al realizar modificaciones.
 
-![Modelo de amenazas del hospedaje de aplicaciones web de PaaS para cargas de trabajo de clasificación OFFICIAL (Reino Unido)](images/ukofficial-paaswa-threat-model.png?raw=true "Modelo de amenazas del hospedaje de aplicaciones web de PaaS para cargas de trabajo de clasificación OFFICIAL (Reino Unido)")
+![Modelo de amenazas de hospedaje de aplicaciones web PaaS para cargas de trabajo con la clasificación OFFICIAL del Reino Unido](images/ukofficial-paaswa-threat-model.png?raw=true "Modelo de amenazas de hospedaje de aplicaciones web PaaS para cargas de trabajo de la clasificación OFFICIAL del Reino Unido")
 
 ## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>Documentación de cumplimiento de los Principios de seguridad en la nube del NCSC
 

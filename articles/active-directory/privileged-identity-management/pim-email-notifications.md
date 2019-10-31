@@ -16,20 +16,20 @@ ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0db4828ef7a6d3392ce53b2f2f95b0f7f014d65
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: ee5f2edbae28276f8485ae774a5b1c52e1af2fd1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804550"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756398"
 ---
 # <a name="email-notifications-in-pim"></a>Notificaciones por correo electrónico en PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) le permite saber cuándo se producen eventos importantes, como el momento en que se asigna o se activa un rol. PIM le mantiene informado mediante el envío de notificaciones de correo electrónico, a usted y a otros participantes. Estos mensajes de correo electrónico también podrían incluir vínculos a tareas pertinentes, tales como la activación o renovación de un rol. En este artículo se describe el aspecto de estos correos electrónicos, cuándo se envían y quién los recibe.
+Privileged Identity Management (PIM) le permite saber cuándo se producen eventos importantes en la organización de Azure Active Directory (Azure AD), como el momento en que se asigna o se activa un rol. Privileged Identity Management le mantiene informado mediante el envío de notificaciones de correo electrónico, a usted y a otros participantes. Estos mensajes de correo electrónico también podrían incluir vínculos a tareas pertinentes, tales como la activación o renovación de un rol. En este artículo se describe el aspecto de estos correos electrónicos, cuándo se envían y quién los recibe.
 
 ## <a name="sender-email-address-and-subject-line"></a>Dirección de correo electrónico del remitente y línea de asunto
 
-Los correos electrónicos que se envían desde PIM a Azure AD y los roles de recursos de Azure tienen como remitente la siguiente dirección de correo electrónico :
+Los correos electrónicos que se envían desde Privileged Identity Management a Azure AD y los roles de recursos de Azure tienen como remitente la siguiente dirección de correo electrónico:
 
 - Dirección de correo electrónico:  **azure-noreply\@microsoft.com**
 - Nombre para mostrar: Microsoft Azure
@@ -38,13 +38,13 @@ Estos mensajes de correo electrónico incluyen un prefijo **PIM** en la línea d
 
 - PIM: a Alain Charon se le ha asignado el rol de lector de copias de seguridad de forma permanente
 
-## <a name="pim-emails-for-azure-ad-roles"></a>Correos electrónicos de PIM para roles de Azure AD
+## <a name="notifications-for-azure-ad-roles"></a>Notificaciones para roles de Azure AD
 
-PIM envía mensajes de correo electrónico cuando se producen los eventos siguientes para roles de Azure AD:
+Privileged Identity Management envía mensajes de correo electrónico cuando se producen los eventos siguientes para roles de Azure AD:
 
 - Cuando una activación de roles con privilegios está pendiente de aprobación
 - Cuando se completa una solicitud de activación de roles con privilegios
-- Cuando se habilita Azure AD PIM
+- Cuando se habilita Azure AD Privileged Identity Management
 
 El destinatario de estos correos electrónicos para roles de Azure AD depende de su rol, el evento y las notificaciones de configuración:
 
@@ -58,13 +58,13 @@ El destinatario de estos correos electrónicos para roles de Azure AD depende de
 
 Este es un correo electrónico de ejemplo que se envía cuando un usuario activa un rol de Azure AD para la organización ficticia Contoso.
 
-![Nuevo correo electrónico de PIM para roles de Azure AD](./media/pim-email-notifications/email-directory-new.png)
+![Nuevo correo electrónico de Privileged Identity Management para roles de Azure AD](./media/pim-email-notifications/email-directory-new.png)
 
-### <a name="weekly-pim-digest-email-for-azure-ad-roles"></a>Correo electrónico semanal de resumen de PIM para roles de Azure AD
+### <a name="weekly-privileged-identity-management-digest-email-for-azure-ad-roles"></a>Correo electrónico de resumen semanal de Privileged Identity Management para roles de Azure AD
 
-Se envía un correo electrónico de resumen semanal de PIM para los roles de Azure AD a los administradores de roles con privilegios, los administradores de seguridad y los administradores globales que han habilitado PIM. Este correo electrónico semanal proporciona una instantánea de las actividades de PIM para la semana, así como las asignaciones de roles con privilegios. Solo está disponible para los inquilinos en la nube pública. Este es un ejemplo de correo electrónico:
+Se envía un correo electrónico de resumen semanal de Privileged Identity Management para los roles de Azure AD a los administradores de roles con privilegios, los administradores de seguridad y los administradores globales que han habilitado Privileged Identity Management. Este correo electrónico semanal proporciona una instantánea de las actividades de Privileged Identity Management para la semana, así como las asignaciones de roles con privilegios. Solo está disponible para los inquilinos en la nube pública. Este es un ejemplo de correo electrónico:
 
-![Correo electrónico semanal de resumen de PIM para roles de Azure AD](./media/pim-email-notifications/email-directory-weekly.png)
+![Correo electrónico de resumen semanal de Privileged Identity Management para roles de Azure AD](./media/pim-email-notifications/email-directory-weekly.png)
 
 Este correo electrónico incluye cuatro iconos:
 
@@ -72,14 +72,14 @@ Este correo electrónico incluye cuatro iconos:
 | --- | --- |
 | **Users activated** (Activaciones de usuarios) | Número de veces que los usuarios activaron su rol apto dentro del inquilino. |
 | **Users made permanent** (Usuarios convertidos en permanentes) | Número de veces que los usuarios con una asignación apta se hicieron permanentes. |
-| **Role assignments in PIM** (Asignaciones de roles en PIM) | Número de veces que los usuarios recibieron un rol apto en PIM. |
-| **Role assignments outside of PIM** (Asignaciones de roles fuera de PIM) | Número de veces que los usuarios recibieron un rol permanente fuera de PIM (dentro de Azure AD). |
+| **Asignaciones de roles en Privileged Identity Management** | Número de veces que los usuarios recibieron un rol apto dentro de Privileged Identity Management. |
+| **Role assignments outside of PIM** (Asignaciones de roles fuera de PIM) | Número de veces que a los usuarios se les asigna un rol permanente fuera de Privileged Identity Management (dentro de Azure AD). |
 
 En la sección **Overview of your top roles** (Información general de los roles principales) figuran los cinco principales roles en el inquilino según el número total de administradores permanentes y aptos para cada rol. El vínculo **Realizar acción** abre el [Asistente de PIM](pim-security-wizard.md) donde puede convertir administradores permanentes en administradores aptos en lotes.
 
 ## <a name="pim-emails-for-azure-resource-roles"></a>Correos electrónicos de PIM para roles de recursos de Azure
 
-PIM envía mensajes de correo electrónico a los propietarios y administradores de acceso de usuario cuando se producen los siguientes eventos para los roles de recursos de Azure:
+Privileged Identity Management envía mensajes de correo electrónico a los propietarios y administradores de acceso de usuario cuando se producen los siguientes eventos para los roles de recursos de Azure:
 
 - Cuando una asignación de roles está pendiente de aprobación
 - Cuando se asigna un rol
@@ -88,7 +88,7 @@ PIM envía mensajes de correo electrónico a los propietarios y administradores 
 - Cuando un rol se está renovando por un usuario final
 - Cuando se completa una solicitud de activación de rol
 
-PIM envía mensajes de correo electrónico a los usuarios finales cuando se producen los siguientes eventos para los roles de recursos de Azure:
+Privileged Identity Management envía mensajes de correo electrónico a los usuarios finales cuando se producen los siguientes eventos para los roles de recursos de Azure:
 
 - Cuando se asigna un rol al usuario
 - Cuando expira un rol del usuario
@@ -97,9 +97,9 @@ PIM envía mensajes de correo electrónico a los usuarios finales cuando se prod
 
 Este es un correo electrónico de ejemplo que se envía cuando se asigna a un usuario un rol de recursos de Azure para la organización ficticia Contoso.
 
-![Nuevo correo electrónico de PIM para roles de recursos de Azure](./media/pim-email-notifications/email-resources-new.png)
+![Nuevo correo electrónico de Privileged Identity Management para roles de recursos de Azure](./media/pim-email-notifications/email-resources-new.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de roles de Azure AD en PIM](pim-how-to-change-default-settings.md)
-- [Aprobación o rechazo de solicitudes para los roles de Azure AD en PIM](azure-ad-pim-approval-workflow.md)
+- [Configuración del rol de Azure AD en Privileged Identity Management](pim-how-to-change-default-settings.md)
+- [Aprobación o rechazo de solicitudes para los roles de Azure AD en Privileged Identity Management](azure-ad-pim-approval-workflow.md)

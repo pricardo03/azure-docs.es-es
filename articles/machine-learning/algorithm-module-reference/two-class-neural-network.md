@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 6f0ad3cc6f506efdc0579f7b8949c41b539ade6a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8f38a7b7086e5023eb63e94363301ac5277f7e7c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128363"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693607"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo Red neuronal de dos clases
 
@@ -38,7 +38,7 @@ Para calcular la salida de la red para una entrada determinada, se calcula un va
   
 ## <a name="how-to-configure"></a>Configuración
 
-1.  Agregue el módulo **Red neuronal de dos clases** al experimento. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Clasificación**.  
+1.  Agregue el módulo **Red neuronal de dos clases** a la canalización. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Clasificación**.  
   
 2.  Para especificar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
   
@@ -66,17 +66,17 @@ Para calcular la salida de la red para una entrada determinada, se calcula un va
 
 8.  Para **The momentum** (El momentum), especifique un peso que se debe aplicar durante el aprendizaje a los nodos de iteraciones anteriores.  
 
-10. Seleccione la opción **Shuffle examples** (Ejemplos de orden aleatorio) para ordenar de forma aleatoria los casos entre iteraciones. Si anuló la selección de esta opción, los casos se procesan en el mismo orden exactamente cada vez que ejecuta el experimento.
+10. Seleccione la opción **Shuffle examples** (Ejemplos de orden aleatorio) para ordenar de forma aleatoria los casos entre iteraciones. Si anula la selección de esta opción, los casos se procesan exactamente en el mismo orden cada vez que se ejecuta la canalización.
   
 11. Para **Random number seed** (Inicialización de número aleatorio), escriba un valor que se usará como inicialización.
   
-     Especificar un valor de inicialización es útil cuando desea asegurar la repetibilidad entre ejecuciones del mismo experimento.  En caso contrario, se utiliza un valor de reloj del sistema como la inicialización, lo que puede producir resultados ligeramente diferentes cada vez que ejecute el experimento.
+     Especificar un valor de inicialización es útil cuando desea asegurar la repetibilidad entre ejecuciones de la misma canalización.  En caso contrario, se utiliza un valor de reloj del sistema como la inicialización, lo que puede producir resultados ligeramente diferentes cada vez que ejecute la canalización.
   
-13. Agregue un conjunto de datos etiquetado al experimento y conecte uno de los [módulos de aprendizaje](module-reference.md).  
+13. Agregue un conjunto de datos etiquetado a la canalización y conecte uno de los [módulos de aprendizaje](module-reference.md).  
   
-    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Modelo de entrenamiento](train-model.md).  
+    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](train-model.md).  
   
-14. Ejecute el experimento.
+14. Ejecución de la canalización
 
 ## <a name="results"></a>Results
 
@@ -84,7 +84,7 @@ Una vez completado el entrenamiento:
 
 + Para ver un resumen de los parámetros del modelo, junto con los pesos de característica aprendidos en el entrenamiento y otros parámetros de la red neuronal, haga clic con el botón derecho en la salida de [Train Model](./train-model.md) (Entrenar modelo) y seleccione **Visualizar**.  
 
-+ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado de **Trained model** (Modelo entrenado) y seleccione **Save As Trained Model** (Guardar como modelo entrenado). El modelo no se actualiza en las ejecuciones sucesivas del mismo experimento.
++ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado de **Trained model** (Modelo entrenado) y seleccione **Save As Trained Model** (Guardar como modelo entrenado). Este modelo no se actualiza en las ejecuciones sucesivas de la misma canalización.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

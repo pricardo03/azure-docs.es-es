@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 79cd6fe9156a785d82e303007d02ce58506dcfcf
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fcbf9fae3306c43613ef0b67a79c9c0b53f6b923
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128543"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693751"
 ---
 # <a name="partition-and-sample-module"></a>Módulo Partición y muestra
 
@@ -38,7 +38,7 @@ El muestreo es una herramienta importante en Machine Learning porque permite red
 
 - Creación de un conjunto de datos más pequeño para las pruebas. 
 
-    Si tiene una gran cantidad de datos, puede utilizar solo las *n* primeras filas al configurar el experimento y después cambiar al conjunto de datos completo cuando compile el modelo. También puede usar el muestreo para crear conjuntos de datos más pequeños para su uso en desarrollo.
+    Si tiene una gran cantidad de datos, puede utilizar solo las *n* primeras filas al configurar la canalización y después cambiar al conjunto de datos completo cuando compile el modelo. También puede usar el muestreo para crear conjuntos de datos más pequeños para su uso en desarrollo.
 
 ## <a name="configure-partition-and-sample"></a>Configurar Partición y muestra
 
@@ -51,9 +51,9 @@ Este módulo admite varios métodos para dividir los datos en particiones o para
 
 ### <a name="get-top-n-rows-from-a-dataset"></a>Obtener las N filas superiores de un conjunto de datos
 
-Utilice este modo para obtener solo las *n* primeras filas. Esta opción es útil si desea probar un experimento en un pequeño número de filas y no necesita equilibrar o muestrear los datos en ningún modo.
+Utilice este modo para obtener solo las *n* primeras filas. Esta opción es útil si desea probar una canalización en un pequeño número de filas y no necesita equilibrar o muestrear los datos en ningún modo.
 
-1. Agregue el módulo **Partición y muestra** al experimento en la interfaz y conecte el conjunto de datos.  
+1. Agregue el módulo **Partition and Sample** (Partición y muestra) a la canalización en la interfaz y conecte el conjunto de datos.  
 
 2. **Partition or sample mode** (Modo de partición o muestra): establezca esta opción en **Principal**.
 
@@ -61,7 +61,7 @@ Utilice este modo para obtener solo las *n* primeras filas. Esta opción es úti
 
     El número de filas que especifique debe ser un entero no negativo. Si el número de filas seleccionadas es superior al número de filas del conjunto de datos, se devuelve el conjunto de datos completo.
 
-4. Ejecute el experimento.
+4. Ejecución de la canalización
 
 El módulo genera un único conjunto de datos que contiene solo el número especificado de filas. Las filas siempre se leen desde la parte superior del conjunto de datos.
 
@@ -69,7 +69,7 @@ El módulo genera un único conjunto de datos que contiene solo el número espec
 
 Esta opción es compatible con un muestreo aleatorio simple o un muestreo aleatorio estratificado. Esto es útil si desea crear un conjunto de datos de muestra más pequeño representativo para las pruebas.
 
-1. Agregue el módulo **Partición y muestra** al experimento y conecte el conjunto de datos.
+1. Agregue el módulo **Partition and Sample** (Partición y muestra) a la canalización y conecte el conjunto de datos.
 
 2. **Partition or sample mode** (Modo de partición o muestra): establezca esta opción en **Muestreo**.
 
@@ -81,7 +81,7 @@ Esta opción es compatible con un muestreo aleatorio simple o un muestreo aleato
 
 4. **Random seed for sampling** (Inicialización aleatoria para el muestreo): opcionalmente, escriba un número entero que se usará como valor de inicialización.
 
-    Esta opción es importante si desea que las filas se dividan de la misma manera cada vez. El valor predeterminado es 0, lo que significa que se genera una inicialización inicial basada en el reloj del sistema. Esto puede conducir a resultados ligeramente diferentes cada vez que ejecute el experimento.
+    Esta opción es importante si desea que las filas se dividan de la misma manera cada vez. El valor predeterminado es 0, lo que significa que se genera una inicialización inicial basada en el reloj del sistema. Esto puede conducir a resultados ligeramente diferentes cada vez que ejecute la canalización.
 
 5. **Stratified split for sampling** (División estratificada para el muestreo): seleccione esta opción si es importante que las filas del conjunto de datos se dividan uniformemente por alguna columna de clave antes del muestreo.
 
@@ -94,7 +94,7 @@ Esta opción es compatible con un muestreo aleatorio simple o un muestreo aleato
     3. Cada grupo se agrega de forma selectiva al conjunto de datos de salida para cumplir con la relación especificada.
 
 
-6. Ejecute el experimento.
+6. Ejecución de la canalización
 
     Con esta opción, el módulo genera un único conjunto de datos que contiene una muestra representativa de los datos. La salida no contiene la parte sin muestreo restante del conjunto de datos. 
 
@@ -102,7 +102,7 @@ Esta opción es compatible con un muestreo aleatorio simple o un muestreo aleato
 
 Use esta opción si desea dividir el conjunto de datos en subconjuntos de los datos. Esta opción también es útil cuando desea crear un número personalizado de plegamientos para la validación cruzada o dividir filas en varios grupos.
 
-1. Agregue el módulo **Partición y muestra** al experimento y conecte el conjunto de datos.
+1. Agregue el módulo **Partition and Sample** (Partición y muestra) a la canalización y conecte el conjunto de datos.
 
 2. Para el **Partition or sample mode** (Modo de partición o muestra), seleccione **Assign to Folds** (Asignar a plegamientos).
 
@@ -128,11 +128,11 @@ Use esta opción si desea dividir el conjunto de datos en subconjuntos de los da
 
         - Si escribe números que se suman **menos de 1**, se crea una partición adicional para contener las filas restantes. Por ejemplo, si escribe los valores ,2 y ,3, se crea una tercera partición que contiene el 50 por ciento restante de todas las filas.
 
-        - Si escribe números que se suman a **más de 1**, se produce un error al ejecutar el experimento.
+        - Si escribe números que se suman a **más de 1**, se produce un error al ejecutar la canalización.
 
 7. **Stratified split** (División estratificada): seleccione esta opción si desea que las filas se estratifiquen al dividir y, a continuación, elija la _columna de estratos_.
 
-8. Ejecute el experimento.
+8. Ejecución de la canalización
 
     Con esta opción, el módulo genera varios conjuntos de datos con particiones mediante las reglas que especificó.
 
@@ -140,7 +140,7 @@ Use esta opción si desea dividir el conjunto de datos en subconjuntos de los da
 
 Esta opción se usa cuando ha dividido un conjunto de datos en varias particiones y ahora desea cargar cada partición para su posterior análisis o procesamiento.
 
-1. Agregue el módulo **Partición y muestra** al experimento.
+1. Agregue el módulo **Partition and Sample** (Partición y muestra) a la canalización.
 
 2. Conéctelo a la salida de una instancia anterior de **Partición y muestra**. Esa instancia debe haber usado la opción **Assign to Folds** (Asignar a plegamientos) para generar algunas particiones.
 
@@ -158,7 +158,7 @@ Esta opción se usa cuando ha dividido un conjunto de datos en varias particione
 
     [![Partición y muestra](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
 
-5. Ejecute el experimento.
+5. Ejecución de la canalización
 
     Con esta opción, el módulo genera un único conjunto de datos que contiene solo las filas asignadas a ese subconjunto.
 

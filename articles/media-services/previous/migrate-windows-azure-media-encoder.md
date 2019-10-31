@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 2e9008d039f014c95d473f3197b48651bdaa5a45
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 1f4760713eccd612014f6b75a1623dd9ad0c8c0f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019324"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595498"
 ---
 # <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Migración de Windows Azure Media Encoder a Media Encoder Standard
 
@@ -64,7 +64,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>Escenarios avanzados 
 
-Si ha creado su propio valor preestablecido de codificación para WAME mediante su esquema, hay un [esquema equivalente para Media Encoder Standard](media-services-mes-schema.md). Si tiene alguna pregunta sobre cómo asignar la configuración anterior al nuevo codificador, póngase en contacto con nosotros en mailto:amshelp@microsoft.com  
+Si ha creado su propio valor preestablecido de codificación para WAME mediante su esquema, hay un [esquema equivalente para Media Encoder Standard](media-services-mes-schema.md).
 
 ## <a name="known-differences"></a>Diferencias conocidas 
 
@@ -73,6 +73,10 @@ Media Encoder Standard es más sólido, confiable, tiene un mejor rendimiento y 
 * Media Encoder Standard genera archivos de salida con una convención de nomenclatura diferente de la de WAME.
 * Media Encoder Standard genera artefactos, como archivos, que contienen los [metadatos de archivos de entrada](media-services-input-metadata-schema.md) y los [metadatos de archivos de salida](media-services-output-metadata-schema.md).
 * Tal como se documenta en la [Página de precios](https://azure.microsoft.com/pricing/details/media-services/#encoding) (especialmente en la sección de preguntas más frecuentes), al codificar vídeos mediante Media Encoder Standard, se le facturará en función de la duración de los archivos generados de salida. Con WAME, se le facturará en función de los tamaños de los archivos de vídeo de entrada y de salida.
+
+## <a name="need-help"></a>¿Necesita ayuda?
+
+Puede abrir una incidencia de soporte técnico si se desplaza a la [nueva solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

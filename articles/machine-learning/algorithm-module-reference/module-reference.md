@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 76b70c742289ac98e49338b267660a30abba9557
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 2d81c407c17c50c34afd15a99d2f8ac2f8c5361e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210450"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692835"
 ---
 # <a name="algorithm--module-reference-overview"></a>Información general sobre la referencia de módulos y algoritmos
 
@@ -23,7 +23,7 @@ Este contenido de referencia proporciona la experiencia técnica sobre cada uno 
 Cada módulo representa un conjunto de código que puede ejecutarse de forma independiente y realizar una tarea de aprendizaje automático, dadas las entradas necesarias. Un módulo puede contener un algoritmo en particular o realizar una tarea que sea importante para el aprendizaje automático, como el reemplazo de un valor que falta o análisis estadísticos.
 
 > [!TIP]
-> En cualquier experimento en la interfaz visual, puede obtener información sobre un módulo específico. Seleccione el módulo y luego seleccione el vínculo **más ayuda** en el panel **Ayuda rápida**.
+> En cualquier canalización en la interfaz visual, puede obtener información sobre un módulo específico. Seleccione el módulo y luego seleccione el vínculo **más ayuda** en el panel **Ayuda rápida**.
 
 ## <a name="modules"></a>Módulos
 
@@ -33,7 +33,7 @@ Los módulos se organizan por funcionalidad:
 | --- |--- | ---- |
 | Conversiones de formato de datos | Convierta datos entre diversos formatos de archivo usados en aprendizaje automático. | [Conversión a CSV](convert-to-csv.md) |
 | Entrada y salida de datos | Mueva datos desde orígenes en la nube a su experimento. Escriba los resultados o los datos intermedios en Azure Storage, una base de datos SQL o Hive, mientras ejecuta un experimento, o use el almacenamiento en la nube para intercambiar datos entre experimentos.  | [Import Data](import-data.md)<br/>[Export Data](export-data.md)<br/>[Introducción manual de datos](enter-data-manually.md) |
-| Transformación de datos | Operaciones con los datos que son exclusivas del aprendizaje automático, como la normalización o discretización de datos, la selección de características y la reducción de la dimensionalidad.| [Seleccionar columnas de conjunto de datos](select-columns-in-dataset.md) <br/> [Edición de metadatos](edit-metadata.md) <br/> [Clean Missing Data](clean-missing-data.md) (limpiar datos faltantes) <br/>  [Hash de características](feature-hashing.md) <br/>  [Extracción de características de n-gramas a partir de texto](extract-n-gram-features-from-text.md) <br/> [Adición de columnas](add-columns.md) <br/> [Adición de filas](add-rows.md) <br/> [Supresión de filas duplicadas](remove-duplicate-rows.md) <br/> [Preprocesamiento de texto](preprocess-text.md) <br/> [Combinación de datos](join-data.md) <br/> [División de datos](split-data.md) <br/> [Normalización de datos](normalize-data.md) <br/> [Partición y ejemplo](partition-and-sample.md) |
+| Transformación de datos | Operaciones con los datos que son exclusivas del aprendizaje automático, como la normalización o discretización de datos, la selección de características y la reducción de la dimensionalidad.| [Seleccionar columnas de conjunto de datos](select-columns-in-dataset.md) <br/> [Edición de metadatos](edit-metadata.md) <br/> [Clean Missing Data](clean-missing-data.md) (limpiar datos faltantes) <br/>  [Hash de características](feature-hashing.md) <br/>  [Extracción de características de n-gramas a partir de texto](extract-n-gram-features-from-text.md) <br/> [Adición de columnas](add-columns.md) <br/> [Adición de filas](add-rows.md) <br/> [Supresión de filas duplicadas](remove-duplicate-rows.md) <br/> [Preprocesamiento de texto](preprocess-text.md) <br/> [Combinación de datos](join-data.md) <br/> [División de datos](split-data.md) <br/> [Normalización de datos](normalize-data.md) <br/> [Partición y ejemplo](partition-and-sample.md) <br/> [Recorte de valores](clip-values.md) <br/> [Aplicación de transformaciones de SQL](apply-sql-transformation.md)|
 | Módulos de R y Python | Escriba código e insértelo en un módulo para integrar Python y R en el experimento. | [Ejecución de script de Python](execute-python-script.md)   <br/> [Creación de modelo Python](create-python-model.md) <br/> [Ejecución script de R](execute-r-script.md)
 |  | **Algoritmos de aprendizaje automático**: | |
 | clasificación | Prediga una clase.  Elija en algoritmos binarios (dos clases) o multiclase.| [Bosque de decisión multiclase](multiclass-decision-forest.md) <br/> [Árbol de decisión ampliado multiclase](multiclass-boosted-decision-tree.md) <br/> [Regresión logística multiclase](multiclass-logistic-regression.md)  <br/> [Red neuronal multiclase](multiclass-neural-network.md)  <br/>  [Regresión logística de dos clases](two-class-logistic-regression.md)  <br/>[Perceptrón promedio de dos clases](two-class-averaged-perceptron.md) <br/> [Árbol de&nbsp;decisión&nbsp;ampliado de&nbsp;dos clases](two-class-boosted-decision-tree.md)  <br/> [Bosque de decisión de dos clases](two-class-decision-forest.md)  <br/> [Red neuronal de dos clases](two-class-neural-network.md)  <br/> [Máquina de&nbsp;soporte de&nbsp;vectores de&nbsp;dos clases](two-class-support-vector-machine.md) 
@@ -42,7 +42,8 @@ Los módulos se organizan por funcionalidad:
 |  | **Compilar y evaluar modelos**: | |
 | Train   | Ejecute datos a través del algoritmo. | [Entrenamiento de modelo](train-model.md)  <br/> [Entrenamiento del modelo de agrupación en clústeres](train-clustering-model.md)    |
 | Evaluate Model (Evaluar modelo) | Mida la precisión del modelo entrenado. |  [Evaluación de módulo](evaluate-model.md)
-| Score | Obtenga predicciones del modelo que acaba de entrenar. | [Aplicación de la transformación](apply-transformation.md)<br/>[Asignación de&nbsp;datos&nbsp;a&nbsp;clústeres](assign-data-to-clusters.md) <br/>[Puntuación de modelo](score-model.md)
+| Score | Obtenga predicciones del modelo que acaba de entrenar. | [Aplicación de la transformación](apply-transformation.md)<br/>[Asignación de&nbsp;datos&nbsp;a&nbsp;clústeres](assign-data-to-clusters.md) <br/>[Score Model](score-model.md) (puntuar modelo)
+| Funciones estadísticas | Proporcionan diversos métodos numéricos relacionados con la ciencia de datos. | [Aplicación de operación matemática](apply-math-operation.md) <br/> [Resumen de datos](summarize-data.md)|
 
 ## <a name="error-messages"></a>mensajes de error
 

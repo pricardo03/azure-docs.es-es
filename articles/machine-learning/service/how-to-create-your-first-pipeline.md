@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: af20c9e3a50c0c60135b1e447e7e1cba1fc36526
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: fe4a2082647ef1325d03ce4eec428ed1579704c5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815722"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755982"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -354,7 +354,7 @@ Para obtener más información, consulte la documentación de referencia de la [
 
 ## <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
 
-Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
+Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Para más información, consulte [Integración de Git con Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## <a name="publish-a-pipeline"></a>Publicar una canalización
 

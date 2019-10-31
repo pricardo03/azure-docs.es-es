@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: bee4b108d2747e8c386abe41dc61b5b19aecf4f5
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 87777d3a6abfeaeac74fd69126cc3e71e11be825
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828683"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597852"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Cifrado de discos virtuales en una máquina virtual Windows
-Para mejorar la seguridad y el cumplimiento de las máquinas virtuales, se pueden cifrar los discos virtuales en Azure. Los discos se cifran mediante claves criptográficas que están protegidas en Azure Key Vault. Estas claves criptográficas se pueden controlar y se puede auditar su uso. En este artículo se describe cómo cifrar los discos virtuales en una máquina virtual Windows con Azure PowerShell. También se puede [cifrar una máquina virtual Linux mediante la CLI de Azure](../linux/disk-encryption-overview.md).
+Para mejorar la seguridad y el cumplimiento de las máquinas virtuales, se pueden cifrar los discos virtuales en Azure. Los discos se cifran mediante claves criptográficas que están protegidas en Azure Key Vault. Estas claves criptográficas se pueden controlar y se puede auditar su uso. En este artículo se describe cómo cifrar los discos virtuales en una máquina virtual Windows con Azure PowerShell. También puede [cifrar máquinas virtuales Linux](../linux/disk-encryption-overview.md).
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -146,4 +146,4 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre cómo administrar Azure Key Vault, consulte [Configuración de Key Vault para máquinas virtuales](key-vault-setup.md).
-* Para obtener más información acerca del cifrado de discos, por ejemplo, cómo preparar una máquina virtual personalizada cifrada para cargar en Azure, consulte [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
+* Para obtener más información acerca del cifrado de discos, por ejemplo, cómo preparar una máquina virtual personalizada cifrada para cargar en Azure, consulte [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).

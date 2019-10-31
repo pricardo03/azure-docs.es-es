@@ -6,21 +6,21 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.assetid: ''
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e38b0f4463c2188f0b2da6ebb1b57d08af69b41f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 2ac8acf2193442de5c85e0a1134d46330821c77b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947511"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756442"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Activación de un rol personalizado de Azure AD en Privileged Identity Management
 
@@ -31,7 +31,7 @@ Privileged Identity Management en Azure Active Directory (Azure AD) ahora admite
 
 ## <a name="activate-a-role"></a>Activación de un rol
 
-Cuando necesite activar un rol personalizado de Azure AD, seleccione la opción de navegación Mis roles de PIM para solicitar la activación.
+Cuando necesite activar un rol personalizado de Azure AD, seleccione la opción de navegación Mis roles de Privileged Identity Management para solicitar la activación.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Abra Azure AD [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart).

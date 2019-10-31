@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 642b99e3eaaf73844d30d1cd464ae0b777b0b3fa
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 30398b5f81ac1893129ba222c5f1a2d762ad1e7f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71957800"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595056"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -131,7 +131,7 @@ Sí. Puede especificar direcciones IP de servidor DNS en la configuración de la
 Consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>¿Puedo modificar mis servidores DNS después de haber creado la red?
-Sí. Puede cambiar la lista de servidores DNS de la red virtual en cualquier momento. Si cambia la lista de servidores DNS, deberá reiniciar todas las máquinas virtuales de la red virtual para que puedan elegir el nuevo servidor DNS.
+Sí. Puede cambiar la lista de servidores DNS de la red virtual en cualquier momento. Si cambia la lista de servidores DNS, debe realizar una renovación de la concesión DHCP en todas las máquinas virtuales afectadas de la red virtual para que la nueva configuración de DNS surta efecto. En el caso de las máquinas virtuales que ejecutan el sistema operativo Windows, puede hacerlo escribiendo `ipconfig /renew` directamente en la máquina virtual. Para otros tipos de sistema operativo, consulte la documentación respectiva sobre la renovación de las concesiones DHCP. 
 
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>¿Qué es un DNS proporcionado por Azure? ¿Funciona con las redes virtuales?
 Un DNS proporcionado por Azure es un servicio DNS multiempresa ofrecido por Microsoft. Azure registra en este servicio todas las máquinas virtuales y las instancias de rol de servicio en la nube. Este servicio proporciona la resolución de nombres mediante nombre de host para las máquinas virtuales y las instancias de rol contenidas en el mismo servicio en la nube y mediante FQDN para las máquinas virtuales y las instancias de rol en la misma red virtual. Para más información sobre DNS, consulte [Resolución de nombres para las máquinas virtuales y las instancias de rol de Cloud Services](virtual-networks-name-resolution-for-vms-and-role-instances.md).

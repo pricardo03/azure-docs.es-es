@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b56f08dfd1a14ffedffb612bb8974086ee08ede7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 80d8fc886ec62cf6abea7620f0c5763b619b5de4
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128615"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692778"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo sobre el bosque de decisión multiclase
 
@@ -41,7 +41,7 @@ El clasificador del bosque de decisión en Azure Machine Learning consta de un
 
 
 
-1. Agregue el módulo **Bosque de decisión multiclase** a su experimento en la interfaz. Puede encontrar este módulo en **Machine Learning**, **Inicializar modelo** y **Clasificación**.
+1. Agregue el módulo **Bosque de decisión multiclase** a la canalización en la interfaz. Puede encontrar este módulo en **Machine Learning**, **Inicializar modelo** y **Clasificación**.
 
 2. Haga doble clic en el módulo para abrir el panel **Propiedades**.
 
@@ -76,7 +76,7 @@ El clasificador del bosque de decisión en Azure Machine Learning consta de un
 
     + Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](./train-model.md).
 
-11. Ejecute el experimento.
+11. Ejecución de la canalización
 
 ## <a name="results"></a>Results
 

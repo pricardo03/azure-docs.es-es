@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c886289f098eb41f4b215b4abc2e206db93a27f9
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710135"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756031"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -149,8 +149,9 @@ Para obtener un ejemplo del uso de un experimento, consulte [Tutorial: Entrenami
 
 ### <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
 
-Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial. Esto funciona con ejecuciones enviadas mediante un estimador, una canalización de aprendizaje automático o una ejecución del script. También funciona para las ejecuciones enviadas desde el SDK o la CLI de Machine Learning.
+Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Esto funciona con ejecuciones enviadas mediante un estimador, una canalización de aprendizaje automático o una ejecución del script. También funciona para las ejecuciones enviadas desde el SDK o la CLI de Machine Learning.
 
+Para más información, consulte [Integración de Git con Azure Machine Learning](concept-train-model-git-integration.md).
 
 ### <a name="logging"></a>Registro
 

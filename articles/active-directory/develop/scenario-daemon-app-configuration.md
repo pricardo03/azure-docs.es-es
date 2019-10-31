@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 394137a1b7901a3272e36f6a6d74944b87f30082
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 3a9b1a54725dff8fd7b8a6c5023bc7eb0ba84fc8
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056487"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596756"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicación de demonio que llama a las API web: configuración de código
 
@@ -315,11 +315,25 @@ Para más información, consulte la documentación de referencia de Python de MS
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-msal4j está en versión preliminar pública. Todavía no se admiten las aserciones firmadas
+msal4j está en versión preliminar pública. Todavía no se admiten aserciones firmadas.
 
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [Aplicación de demonio: adquisición de tokens para la aplicación](./scenario-daemon-acquire-token.md)
+> [Aplicación de demonio: adquisición de tokens para la aplicación](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=dotnet)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Aplicación de demonio: adquisición de tokens para la aplicación](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=python)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Aplicación de demonio: adquisición de tokens para la aplicación](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=java)
+
+---

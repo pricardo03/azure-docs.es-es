@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 5f26dfbdd8d3ef094ed380b7bd00ab0169152502
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 4b8ff1c9f5b0f0b04448b950d3ba904ba76927c9
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208169"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693836"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regresión del árbol de decisión potenciado
 
@@ -52,7 +52,7 @@ El método de potenciación de gradientes también se puede usar para clasificar
 
 ## <a name="how-to-configure-boosted-decision-tree-regression"></a>Cómo configurar la regresión del árbol de decisión potenciado
 
-1.  Agregue el módulo **Boosted  Decision Tree** (Árbol de decisión potenciado) al experimento. Puede encontrar este módulo en **Machine Learning**, **Initialize** (Inicializar), en la categoría **Regression** (Regresión). 
+1.  Agregue el módulo **Boosted  Decision Tree** (Árbol de decisión ampliado) al experimento. Puede encontrar este módulo en **Machine Learning**, **Initialize** (Inicializar), en la categoría **Regression** (Regresión). 
   
 2.  Para especificar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
   
@@ -71,7 +71,7 @@ El método de potenciación de gradientes también se puede usar para clasificar
 
 6. **Número de árboles construidos**: indica el número total de árboles de decisión que se va a crear en el conjunto. Al crear más árboles de decisión, puede obtener una mejor cobertura, pero el tiempo de entrenamiento aumenta.
 
-    Este valor también controla el número de árboles que se muestran al visualizar el modelo entrenado. Si desea ver o imprimir un árbol único, puede establecer el valor en 1. Sin embargo, solo se genera un árbol (el árbol con el conjunto inicial de parámetros) y no se llevan a cabo más iteraciones.
+    Este valor también controla el número de árboles que se muestran al visualizar el modelo entrenado. Si desea ver o imprimir un árbol único, puede establecer el valor en 1; sin embargo, solo se genera un árbol (el árbol con el conjunto inicial de parámetros) y no se llevan a cabo más iteraciones.
 
 7. **Número de iniciación aleatorio**: introduzca un número entero no negativo opcional para que se use como valor de inicialización aleatorio. Al especificar un valor, se garantiza la reproducibilidad durante las ejecuciones que tienen los mismos datos y parámetros.
 
@@ -85,7 +85,7 @@ El método de potenciación de gradientes también se puede usar para clasificar
   
     
 
-10. Ejecute el experimento.  
+10. Ejecución de la canalización  
   
 ## <a name="results"></a>Results
 
@@ -96,8 +96,6 @@ Una vez completado el entrenamiento:
      Haga clic en cada árbol para explorar en profundidad las divisiones y ver las reglas de cada nodo.  
 
 + Para usar el modelo para la puntuación, conéctelo a [Score Model](./score-model.md) (Modelo de puntuación) para predecir los valores de ejemplos de nuevas entradas.
-
-+ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado **Trained model** (Modelo entrenado) del módulo de entrenamiento y seleccione **Save As** (Guardar como). La copia del modelo entrenado que guarde no se actualiza en las ejecuciones sucesivas del experimento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

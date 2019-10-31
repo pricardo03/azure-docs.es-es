@@ -4,31 +4,31 @@ description: Procedimiento para asignar un rol personalizado de Azure AD en Priv
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a3f6eb815677133f3d7fe6ce07d6abf23db1f04
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 1c4963e6563db166566cff41d381295a8a9e576b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947521"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756359"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Asignación de un rol personalizado de Azure AD en Privileged Identity Management
 
 En este artículo se explica cómo usar Privileged Identity Management (PIM) para crear la asignación Just-In-Time y de duración limitada a los roles personalizados creados para administrar aplicaciones en la experiencia administrativa de Azure Active Directory (Azure AD).
 
 - Para obtener más información sobre cómo crear roles personalizados para delegar la administración de aplicaciones en Azure AD, vea [Roles de administrador personalizados en Azure Active Directory (versión preliminar)](../users-groups-roles/roles-custom-overview.md).
-- Si aún no ha usado Privileged Identity Management, obtenga más información en [Primer uso de PIM](pim-getting-started.md).
-- Para obtener información sobre cómo conceder acceso a otro administrador para gestionar Privileged Identity Management, consulte [Concesión de acceso a otros administradores para administrar PIM](pim-how-to-give-access-to-pim.md).
+- Si aún no ha usado Privileged Identity Management, obtenga más información en [Primer uso de Privileged Identity Management](pim-getting-started.md).
+- Para información sobre cómo conceder acceso a otro administrador para gestionar Privileged Identity Management, consulte [Concesión de acceso a otros administradores para administrar Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
 > [!NOTE]
 > Los roles personalizados de Azure AD no se integran con los roles de directorio integrados durante la versión preliminar. Una vez que la funcionalidad esté disponible con carácter general, la administración de roles tendrá lugar en la experiencia de roles integrados.

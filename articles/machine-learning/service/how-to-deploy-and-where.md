@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fa0fa6220fd090bf7fcbe14e85556b6010651e0e
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a5674658fa237e44c7caea45c8f6d587a471b981
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675016"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595636"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementación de modelos con Azure Machine Learning
 
@@ -263,11 +263,18 @@ El siguiente código YAML es un ejemplo de un archivo de dependencias de Conda p
 name: project_environment
 dependencies:
   - python=3.6.2
+  - scikit-learn=0.20.0
   - pip:
     - azureml-defaults
-    - scikit-learn==0.20.0
     - inference-schema[numpy-support]
 ```
+
+> [!IMPORTANT]
+> Si la dependencia está disponible tanto a través de Conda como de PIP (de PyPi), Microsoft recomienda usar la versión de Conda, ya que los paquetes de Conda normalmente incluyen archivos binarios pregenerados que hacen que la instalación sea más confiable.
+>
+> Para obtener más información, consulte la [descripción de Conda y PIP](https://www.anaconda.com/understanding-conda-and-pip/).
+>
+> Para comprobar si la dependencia está disponible a través de Conda, use el comando `conda search <package-name>` o los índices de paquetes en [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) y [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo).
 
 Si desea usar la generación automática de esquemas, el script de entrada debe importar los paquetes `inference-schema`.
 
@@ -546,7 +553,7 @@ test_sample = json.dumps({'data': [
 ]})
 
 profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
-profile.wait_for_profiling(true)
+profile.wait_for_profiling(True)
 profiling_results = profile.get_results()
 print(profiling_results)
 ```

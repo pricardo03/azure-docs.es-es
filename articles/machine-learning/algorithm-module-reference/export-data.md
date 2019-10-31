@@ -1,7 +1,7 @@
 ---
-title: 'Exportación de datos: Referencia para los módulos'
+title: 'Exportación de datos: referencia para los módulos'
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Exportación de datos en Azure Machine Learning Service para guardar los resultados, los datos intermedios y los datos de trabajo de los experimentos en los destinos de almacenamiento en la nube fuera de Azure Machine Learning.
+description: Obtenga información sobre cómo usar el módulo Exportación de datos en Azure Machine Learning Service para guardar los resultados, los datos intermedios y los datos de trabajo de las canalizaciones en los destinos de almacenamiento en la nube fuera de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: a4fb539f4c86d27813b60964794fc1f398d3f2a4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b7b4b9de1e91279243e35f1b71f1ef6d2244e9e0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128774"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693725"
 ---
 # <a name="export-data-module"></a>Módulo Exportación de datos
 
 En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
 
-Utilice este módulo para guardar los resultados, los datos intermedios y los datos de trabajo de los experimentos en los destinos de almacenamiento en la nube fuera de Azure Machine Learning.
+Utilice este módulo para guardar los resultados, los datos intermedios y los datos de trabajo de las canalizaciones en los destinos de almacenamiento en la nube fuera de Azure Machine Learning.
 
 Este módulo admite exportar o guardar los datos en los siguientes servicios de datos en la nube:
 
@@ -30,7 +30,7 @@ Este módulo admite exportar o guardar los datos en los siguientes servicios de 
   
 ## <a name="how-to-configure-export-data"></a>Procedimiento para configurar la exportación de datos
 
-1. Agregue el módulo **Exportación de datos** al experimento en la interfaz. Puede encontrar este módulo en la categoría **Entrada y salida**.
+1. Agregue el módulo **Exportación de datos** a la canalización en la interfaz. Puede encontrar este módulo en la categoría **Entrada y salida**.
 
 2. Conecte **Exportación de datos** al módulo que contiene los datos que desea exportar.
 
@@ -51,13 +51,13 @@ Este módulo admite exportar o guardar los datos en los siguientes servicios de 
 
         Formato de archivo, se admiten CSV y TSV.
 
-    3. Para las cuentas privadas, elija **Cuenta**y proporcione el nombre de cuenta y la clave de cuenta, para que el experimento pueda escribir en la cuenta de almacenamiento.
+    3. Para las cuentas privadas, elija **Cuenta**y proporcione el nombre de cuenta y la clave de cuenta, para que la canalización pueda escribir en la cuenta de almacenamiento.
 
          - **Nombre de cuenta**: Escriba o pegue el nombre de la cuenta en la desea guardar los datos. Por ejemplo, si la dirección URL completa de la cuenta de almacenamiento es `http://myshared.blob.core.windows.net`, escribiría `myshared`.
 
         - **Clave de cuenta**: Pegue la clave de acceso de almacenamiento asociada con la cuenta.
 
-        -  **Ruta de acceso al contenedor, directorio o blob**: Escriba el nombre del blob donde se almacenarán los datos exportados. Por ejemplo, para guardar los resultados del experimento en un nuevo blob denominado **results01.csv** del contenedor **predictions** en una cuenta denominada **mymldata**, la dirección URL completa para el blob sería `http://mymldata.blob.core.windows.net/predictions/results01.csv`.
+        -  **Ruta de acceso al contenedor, directorio o blob**: Escriba el nombre del blob donde se almacenarán los datos exportados. Por ejemplo, para guardar los resultados de la canalización en un nuevo blob denominado **results01.csv** del contenedor **predictions** en una cuenta denominada **mymldata**, la dirección URL completa para el blob sería `http://mymldata.blob.core.windows.net/predictions/results01.csv`.
 
             Por lo tanto, en el campo **Ruta de acceso al contenedor, directorio o blob**, debería especificar el contenedor y el nombre de blob como sigue: `predictions/results01.csv`
 
@@ -73,9 +73,9 @@ Este módulo admite exportar o guardar los datos en los siguientes servicios de 
         - **TSV**: El formato de valores separados por tabulaciones (TSV) es compatible con muchas herramientas de Machine Learning. Para exportar los encabezados de columna junto con los datos, seleccione la opción **Write blob header row** (Escribir fila de encabezado de blob).  
 
  
-    5. **Utilizar resultados almacenados en caché**: Seleccione esta opción si desea evitar tener que escribir los resultados en el archivo de blob cada vez que ejecute el experimento. Si no hay ningún otro cambio en los parámetros del módulo, el experimento escribe los resultados solo la primera vez que se ejecuta el módulo, o cuando hay cambios en los datos.
+    5. **Utilizar resultados almacenados en caché**: Seleccione esta opción si no quiere tener que escribir los resultados en el archivo de blob cada vez que ejecute la canalización. Si no hay ningún otro cambio en los parámetros del módulo, la canalización solo escribe los resultados la primera vez que se ejecuta el módulo o cuando hay cambios en los datos.
 
-    6. Ejecute el experimento.
+    6. Ejecución de la canalización
 
 ## <a name="next-steps"></a>Pasos siguientes
 

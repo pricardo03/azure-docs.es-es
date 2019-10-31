@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 6a81f105f9632a7ca7e2bf7188e358274020c78f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1801ca8bd59153de81ef680253da229e2bd4a338
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084765"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597865"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -28,16 +28,11 @@ Azure Disk Encryption aprovecha el subsistema de dm-crypt de Linux para proporci
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para obtener una lista completa de los requisitos previos, consulte [Requisitos previos de Azure Disk Encryption](
-../../security/azure-security-disk-encryption-prerequisites.md).
+Para obtener una lista completa de los requisitos previos, consulte [Azure Disk Encryption para máquinas virtuales Linux](../linux/disk-encryption-overview.md), en concreto las secciones siguientes:
 
-### <a name="operating-system"></a>Sistema operativo
-
-Actualmente, Azure Disk Encryption es compatible con determinadas distribuciones y versiones.  Consulte [Sistemas operativos compatibles con Azure Disk Encryption: Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux) para obtener la lista de distribuciones de Linux que se admiten.
-
-### <a name="internet-connectivity"></a>Conectividad de Internet
-
-Azure Disk Encryption para Linux requiere conectividad a Internet para acceder a Active Directory, Azure Key Vault, Azure Storage y a los puntos de conexión de administración de paquetes.  Para más información, consulte los [requisitos previos de Azure Disk Encryption](../../security/azure-security-disk-encryption-prerequisites.md).
+- [Azure Disk Encryption para máquinas virtuales Linux](../linux/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [Requisitos adicionales de la máquina virtual](../linux/disk-encryption-overview.md#additional-vm-requirements)
+- [Requisitos de red](../linux/disk-encryption-overview.md#networking-requirements)
 
 ## <a name="extension-schemata"></a>Esquema de extensión
 

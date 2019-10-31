@@ -4,11 +4,11 @@ description: Aprenda a aprobar o rechazar solicitudes para los roles de Azure AD
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -16,14 +16,14 @@ ms.date: 04/09/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a8d373a7e6edeaefd933e4f8ec8ee11e3c14ee
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 3245f7343a48d3e54795c14dcb23b836c8d9d988
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804028"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756426"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Aprobación o rechazo de solicitudes para los roles de Azure AD en PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Aprobación o rechazo de solicitudes para los roles de Azure AD en Privileged Identity Management
 
 Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), puede configurar roles para requerir la aprobación para la activación y elegir uno o varios usuarios o grupos como aprobadores delegados. Los aprobadores delegados tienen 24 horas para aprobar las solicitudes. Si no se aprueba una solicitud en un plazo de 24 horas, el usuario apto debe volver a enviar una nueva solicitud. El período de tiempo de aprobación de 24 horas no es configurable.
 
@@ -31,7 +31,7 @@ Siga los pasos que se describen en este artículo para aprobar o denegar solicit
 
 ## <a name="view-pending-requests"></a>Ver solicitudes en espera
 
-Como aprobador delegado, recibirá una notificación por correo electrónico cuando una solicitud de rol de Azure AD está pendiente de su aprobación. Puede ver estas solicitudes pendientes en PIM.
+Como aprobador delegado, recibirá una notificación por correo electrónico cuando una solicitud de rol de Azure AD está pendiente de su aprobación. Puede ver estas solicitudes pendientes en Privileged Identity Management.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
@@ -77,5 +77,5 @@ Como aprobador delegado, recibirá una notificación por correo electrónico cua
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Notificaciones por correo electrónico en PIM](pim-email-notifications.md)
-- [Aprobación o rechazo de solicitudes de roles de recursos de Azure en PIM](pim-resource-roles-approval-workflow.md)
+- [Notificaciones por correo electrónico en Privileged Identity Management](pim-email-notifications.md)
+- [Aprobación o rechazo de solicitudes para los roles de Azure en Privileged Identity Management](pim-resource-roles-approval-workflow.md)

@@ -1,5 +1,5 @@
 ---
-title: Prácticas de implementación segura entre regiones con Azure Deployment Manager
+title: 'Implementación segura entre regiones: Azure Deployment Manager'
 description: Describe cómo implementar un servicio en varias regiones con Azure Deployment Manager. Muestra las prácticas de implementación segura para comprobar la estabilidad de la implementación antes de proceder en todas las regiones.
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 6a25444f0207ec5eceb029c5d31d222a31813e22
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6cbbd2aef1911bdfe64e781a7cad64a64722192d
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066831"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532316"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilitar prácticas de implementación segura con Azure Deployment Manager (versión preliminar pública)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 73887c39ebcee2efc4a31925f4aacfffb3c53ca7
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 087e1cd84aa182a0aae1bef6ba3dd38f369d5189
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828050"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755952"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator
 
@@ -124,7 +124,7 @@ print(run.get_portal_url())
 
 ## <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
 
-Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
+Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Para más información, consulte [Integración de Git con Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## <a name="examples"></a>Ejemplos
 Para obtener un cuaderno que muestre los aspectos básicos de un patrón del objeto Estimator, vea:

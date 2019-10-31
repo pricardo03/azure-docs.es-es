@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: d51bc48944204b4c7c50790949927849869f26fc
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d31329d6d45fd9f137bd6d57a638915e0833ee4a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128635"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692750"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Módulo Multiclass Logistic Regression
 
@@ -34,7 +34,7 @@ En la regresión logística multiclase, el clasificador puede usarse para predec
 
 ## <a name="configure-a-multiclass-logistic-regression"></a>Configurar una regresión logística multiclase
 
-1. Agregue el módulo **Multiclass Logistic Regression** al experimento.
+1. Agregue el módulo **Regresión logística multiclase** a la canalización.
 
 2. Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).
 
@@ -52,13 +52,13 @@ En la regresión logística multiclase, el clasificador puede usarse para predec
 
      Se han diseñado diferentes combinaciones lineales de los términos de L1 y L2 para los modelos de regresión logística: por ejemplo, [regularización elástica neta](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-6. **Número de iniciación aleatorio**: Escriba un valor entero para usar como valor de inicialización para el algoritmo si quiere que los resultados se puedan repetir entre ejecuciones. En caso contrario, como inicialización se usa un valor de reloj del sistema, lo que puede producir resultados ligeramente diferentes cada vez que ejecute el mismo experimento.
+6. **Número de iniciación aleatorio**: Escriba un valor entero para usar como valor de inicialización para el algoritmo si quiere que los resultados se puedan repetir entre ejecuciones. En caso contrario, como inicialización se usa un valor de reloj del sistema, lo que puede producir resultados ligeramente diferentes cada vez que ejecute la misma canalización.
 
 8. Conecte un conjunto de datos etiquetados y uno de los módulos de entrenamiento:
 
     + Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](./train-model.md).
 
-9. Ejecute el experimento.
+9. Ejecución de la canalización
 
 ## <a name="results"></a>Results
 

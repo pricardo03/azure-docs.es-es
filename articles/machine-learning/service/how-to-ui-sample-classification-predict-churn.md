@@ -1,7 +1,7 @@
 ---
 title: 'Ejemplo de interfaz visual n.º 5: clasificación para predecir la deserción de clientes, la apetencia y las ventas adicionales'
 titleSuffix: Azure Machine Learning
-description: Este experimento de ejemplo de interfaz visual muestra la predicción del clasificador binario de la deserción de clientes, una tarea común en administración de relaciones con clientes (CRM).
+description: Esta canalización de ejemplo de interfaz visual muestra la predicción del clasificador binario de la deserción de clientes, una tarea común en administración de relaciones con clientes (CRM).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,45 +9,45 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: 260d94ddf2572979e819ee89dfcbd315ef3c4769
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 82639779dde08bb1f71fb75dba62038dbf34d1b6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131247"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693547"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Ejemplo 5 - Clasificación: predicción de la deserción de clientes, la apetencia y las ventas adicionales 
 
-Aprenda a compilar un experimento de aprendizaje automático sin necesidad de escribir una sola línea de código mediante la interfaz visual.
+Aprenda a compilar una canalización compleja de aprendizaje automático sin tener que escribir una sola línea de código con la interfaz visual.
 
-Este experimento entrena tres clasificadores de **árbol de decisión impulsado de dos clases** para predecir las tareas comunes de los sistemas de administración de relaciones con clientes (CRM): la deserción de clientes, la apetencia y las ventas adicionales. Los valores de datos y las etiquetas se dividen entre varios orígenes de datos y se codifican para anonimizar la información del cliente. No obstante, todavía podemos usar la interfaz visual para combinar conjuntos de datos y entrenar un modelo con valores codificados.
+Esta canalización entrena tres clasificadores de **árbol de decisión impulsado de dos clases** para predecir las tareas comunes de los sistemas de administración de relaciones con clientes (CRM): la deserción de clientes, la apetencia y las ventas adicionales. Los valores de datos y las etiquetas se dividen entre varios orígenes de datos y se codifican para anonimizar la información del cliente. No obstante, todavía podemos usar la interfaz visual para combinar conjuntos de datos y entrenar un modelo con los valores ocultos.
 
-Puesto que está intentando responder a la pregunta "¿Cuál?", esto se denomina un problema de clasificación, pero puede aplicar la misma lógica en este proyecto para abordar cualquier tipo de problema de aprendizaje automático, ya sea una regresión, una clasificación, una agrupación en clústeres, etc.
+Puesto que está intentando responder a la pregunta "¿Cuál?", esto se denomina un problema de clasificación, pero puede aplicar la misma lógica mostrada en este ejemplo para abordar cualquier tipo de problema de aprendizaje automático, ya sea una regresión, una clasificación, una agrupación en clústeres, etc.
 
-A continuación se muestra el gráfico completo del experimento:
+Este es el gráfico completo de la canalización:
 
-![Gráfico del experimento](./media/how-to-ui-sample-classification-predict-churn/experiment-graph.png)
+![Gráfico de la canalización](./media/how-to-ui-sample-classification-predict-churn/pipeline-graph.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Seleccione el botón **Abrir** correspondiente al experimento Ejemplo 5.
+4. Seleccione el botón **Abrir** correspondiente a la canalización del ejemplo 5.
 
-    ![Abrir el experimento](media/how-to-ui-sample-classification-predict-churn/open-sample5.png)
+    ![Apertura de la canalización](media/how-to-ui-sample-classification-predict-churn/open-sample5.png)
 
 ## <a name="data"></a>Datos
 
-Los datos de este experimento son de KDD Cup 2009. Tiene 50 000 filas y 230 columnas de característica. La tarea consiste en predecir la deserción, la apetencia y las ventas adicionales para clientes que usan estas características. Para más información sobre los datos y la tarea, consulte el [sitio web de KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
+Los datos de esta canalización son de KDD Cup 2009. Tiene 50 000 filas y 230 columnas de característica. La tarea consiste en predecir la deserción, la apetencia y las ventas adicionales para clientes que usan estas características. Para más información sobre los datos y la tarea, consulte el [sitio web de KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
-## <a name="experiment-summary"></a>Resumen del experimento
+## <a name="pipeline-summary"></a>Resumen de la canalización
 
-Este experimento de ejemplo de interfaz visual muestra la predicción del clasificador binario de la deserción de clientes, la apetencia y las ventas adicionales, una tarea común en administración de relaciones con clientes (CRM).
+Esta canalización de ejemplo de interfaz visual muestra la predicción del clasificador binario de la deserción de clientes, la apetencia y las ventas adicionales, una tarea común en administración de relaciones con clientes (CRM).
 
 En primer lugar, realice un procesamiento de datos simple.
 
-- El conjunto de datos sin procesar contiene una gran cantidad de valores que faltan. Use el módulo **Limpiar datos que faltan** para reemplazar los valores que faltan por 0.
+- Al conjunto de valores sin formato le faltan muchos valores. Use el módulo **Limpiar datos que faltan** para reemplazar los valores que faltan por 0.
 
     ![Limpieza del conjunto de datos](./media/how-to-ui-sample-classification-predict-churn/cleaned-dataset.png)
 
@@ -57,7 +57,7 @@ En primer lugar, realice un procesamiento de datos simple.
 
 - Use el módulo **Dividir datos** para dividir el conjunto de datos en conjuntos de entrenamiento y prueba.
 
-    A continuación, use el clasificador binario de árbol de decisión impulsado con los parámetros predeterminados para crear los modelos de predicción. Cree un modelo por tarea, es decir, un modelo para predecir ventas adicionales, otro para apetencia y otro para deserción de clientes.
+- A continuación, use el clasificador binario de árbol de decisión impulsado con los parámetros predeterminados para crear los modelos de predicción. Cree un modelo por tarea, es decir, un modelo para predecir ventas adicionales, otro para apetencia y otro para deserción de clientes.
 
 ## <a name="results"></a>Results
 
@@ -80,3 +80,4 @@ Explore otros ejemplos disponibles para la interfaz visual:
 - [Ejemplo 3 - Clasificación: predicción del riesgo crediticio](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 - [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Ejemplo 7 - Clasificación de texto: reseñas de libros](how-to-ui-sample-text-classification.md)

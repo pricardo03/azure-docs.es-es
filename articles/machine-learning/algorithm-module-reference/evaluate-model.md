@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 17263c8e7300f427b7d82aea65e1f83edf6d6fc4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 0ad4ceedf9c1d65339c9e4aabebc0a47475ed568
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128847"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693801"
 ---
 # <a name="evaluate-model-module"></a>Módulo Evaluate Model
 
@@ -44,7 +44,7 @@ Hay tres formas de usar el módulo **Evaluate Model**:
 Para evaluar un modelo, debe conectar un conjunto de datos que contenga un conjunto de puntuaciones y columnas de entrada.  Si no hay otros datos disponibles, puede usar el conjunto de datos original.
 
 1. Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](./score-model.md) (Puntuar modelo) a la entrada de **Evaluate Model**. 
-2. Haga clic en el módulo **Evaluate Model** y ejecute el experimento para generar las puntuaciones de la evaluación.
+2. Haga clic en el módulo **Evaluate Model** (Evaluar modelo) y ejecute el experimento para generar las puntuaciones de la evaluación.
 
 ## <a name="use-testing-data"></a>Usar datos de prueba
 
@@ -76,7 +76,7 @@ El modelo o los datos conectados al puerto izquierdo aparecen en primer lugar en
 
 Por ejemplo, la imagen siguiente representa una comparación de los resultados de dos modelos de agrupación en clústeres que se crearon con los mismos datos, pero con distintos parámetros.  
 
-![AML&#95;Comparing2Models](media/module/aml-comparing2models.png "AML_Comparing2Models")  
+![AML&#95;Comparación de dos modelos](media/module/aml-comparing2models.png "AML_Comparing2Models")  
 
 Debido a que se trata de un modelo de agrupación en clústeres, los resultados de evaluación son diferentes de si compara las puntuaciones de dos modelos de regresión o si compara dos modelos de clasificación. Pero la presentación general es la misma. 
 

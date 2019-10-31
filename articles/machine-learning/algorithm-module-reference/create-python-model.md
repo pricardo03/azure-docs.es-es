@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: c6d7aabd41e9d0e872926adbbcb2d18332cb7d5e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2a035644dc0d3d533aa052217c89968a5692230b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128923"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693889"
 ---
 # <a name="create-python-model"></a>Creación de modelo Python
 
@@ -33,11 +33,11 @@ Después de crear el modelo, puede usar [Train model](train-model.md) (Entrenar 
 El uso de este módulo requiere conocimientos intermedios o expertos de Python. El módulo admite el uso de cualquier aprendiz que se incluya en los paquetes de Python ya instalados en Azure Machine Learning. Consulte la lista de paquetes de Python instalado previamente en [Execute Python Script](execute-python-script.md).
   
 
-En este artículo se mostrará cómo usar **Create Python Model** con un experimento sencillo. A continuación tiene el gráfico del experimento.
+En este artículo se mostrará cómo usar **Create Python Model** (Crear modelo de Python) con una canalización sencilla. A continuación se muestra el gráfico de la canalización.
 
 ![crear-python-model](./media/module/aml-create-python-model.png)
 
-1.  Haga clic en **Create Python Model**, edite el script para implementar el proceso de modelado o de administración de datos. Puede basar el modelo en cualquier aprendiz que se incluya en un paquete de Python en el entorno de Azure Machine Learning.
+1.  Haga clic en **Create Python Model** (Creación de modelo de Python), edite el script para implementar el proceso de modelado o de administración de datos. Puede basar el modelo en cualquier aprendiz que se incluya en un paquete de Python en el entorno de Azure Machine Learning.
 
 
     A continuación encontrará un código de ejemplo de un clasificador bayesiano ingenuo de dos clases con el conocido paquete *sklearn*.

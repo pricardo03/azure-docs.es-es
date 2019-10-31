@@ -1,34 +1,64 @@
 ---
-title: Transformación División condicional en el flujo de datos de asignación de Azure Data Factory
-description: Transformación División condicional de Azure Data Factory Data Flow
+title: Transformación División condicional en el flujo de datos de asignación de Azure Data Factory | Microsoft Docs
+description: Divida los datos en diferentes flujos mediante la transformación División condicional en el flujo de datos de asignación en Azure Data Factory
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/03/2019
-ms.openlocfilehash: d06b5b86737d0940930a3ccea3b6d65be0a802f9
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 10/16/2019
+ms.openlocfilehash: 2d794714f27340e8886843988b6c075dd8d3366e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387902"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72527428"
 ---
-# <a name="mapping-data-flow-conditional-split-transformation"></a>Transformación División condicional de asignación de flujo de datos
+# <a name="conditional-split-transformation-in-mapping-data-flow"></a>Transformación División condicional en el flujo de datos de asignación
 
+La transformación División condicional enruta las filas de datos a diferentes flujos en función de las condiciones coincidentes. La transformación División condicional es similar a una estructura de decisión CASE en un lenguaje de programación. La transformación evalúa las expresiones y, según los resultados, dirige la fila de datos a la secuencia especificada.
 
+## <a name="configuration"></a>Configuración
 
-![cuadro de herramientas de división condicional](media/data-flow/conditionalsplit2.png "cuadro de herramientas de división condicional")
+El valor **Dividir** determina si la fila de datos fluye hacia el primer flujo coincidente o hacia todos los flujos que coincidan.
 
-La transformación División condicional puede redirigir filas de datos a diferentes secuencias según el contenido de los datos. La implementación de la transformación División condicional es similar a una estructura de decisión CASE en un lenguaje de programación. La transformación evalúa las expresiones y, según los resultados, dirige la fila de datos a la secuencia especificada. Esta transformación también proporciona una salida predeterminada, por lo que si una fila no coincide con ninguna expresión, se dirige a la salida predeterminada.
+Utilice el generador de expresiones de flujo de datos para especificar una expresión como condición de división. Para agregar una nueva condición, haga clic en el icono del signo más de una fila existente.También se puede agregar un flujo predeterminada para las filas que no coinciden con ninguna condición. A default stream can be added as well for rows that don't match any condition.
 
 ![división condicional](media/data-flow/conditionalsplit1.png "opciones de división condicional")
 
-## <a name="multiple-paths"></a>Varias rutas de acceso
+## <a name="data-flow-script"></a>Script de flujo de datos
 
-Para agregar condiciones adicionales, seleccione "Agregar secuencia" en el panel de configuración de la parte inferior y haga clic en el cuadro de texto Generador de expresiones para crear la expresión.
+### <a name="syntax"></a>Sintaxis
 
-![división condicional múltiple](media/data-flow/conditionalsplit3.png "división condicional múltiple")
+```
+<incomingStream>
+    split(
+        <conditionalExpression1>
+        <conditionalExpression2>
+        ...
+        disjoint: {true | false}
+    ) ~> <splitTx>@(stream1, stream2, ..., <defaultStream>)
+```
+
+### <a name="example"></a>Ejemplo
+
+El ejemplo siguiente es una transformación División condicional denominada `SplitByYear` que toma el flujo entrante `CleanData`. Esta transformación tiene dos condiciones de división, `year < 1960` y `year > 1980`. `disjoint` es false porque los datos se dirigen a la primera condición de coincidencia. Cada fila que coincide con la primera condición se dirige al flujo de salida `moviesBefore1960`. Todas las filas restantes que coinciden con la segunda condición se dirigen al flujo de salida `moviesAFter1980`. Todas las demás filas pasan a través del flujo predeterminado `AllOtherMovies`.
+
+En la experiencia de usuario de Data Factory, esta transformación es similar a la siguiente imagen:
+
+![división condicional](media/data-flow/conditionalsplit1.png "opciones de división condicional")
+
+En el siguiente fragmento de código se muestra el script del flujo de datos para esta transformación:
+
+```
+CleanData
+    split(
+        year < 1960,
+        year > 1980,
+        disjoint: false
+    ) ~> SplitByYear@(moviesBefore1960, moviesAfter1980, AllOtherMovies)
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Transformaciones de flujo de datos comunes utilizadas con División condicional: [transformación de combinación](data-flow-join.md), [transformación de búsqueda](data-flow-lookup.md), [transformación de selección](data-flow-select.md)
+Las transformaciones de flujo de datos comunes que se usan con la división condicional son la [transformación Combinación](data-flow-join.md), la [transformación Búsqueda](data-flow-lookup.md) y la [transformación Selección](data-flow-select.md)

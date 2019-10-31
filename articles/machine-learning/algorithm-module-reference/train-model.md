@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 08b551e766632949db350478fa8d3725906c8af8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f9717c39388c85ced889744722899b78a5df8453
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128448"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693684"
 ---
 # <a name="train-model-module"></a>Módulo Entrenar modelo
 
@@ -43,7 +43,7 @@ En Azure Machine Learning, crear y usar un modelo suele ser un proceso de tres p
   
 1.  En Azure Machine Learning, configure un modelo de regresión o modelo de clasificación.
     
-2. Agregue el módulo **Entrenar modelo** al experimento.  Puede encontrar este módulo en la categoría **Machine Learning**. Expanda **Entrenar** y, a continuación, arrastre el módulo **Entrenar modelo** al experimento.
+2. Agregue el módulo **Entrenamiento de modelo** a la canalización.  Puede encontrar este módulo en la categoría **Machine Learning**. Expanda **Entrenar** y luego arrastre el módulo **Entrenamiento de modelo** a la canalización.
   
 3.  En la entrada izquierda, adjunte el modo no entrenado. Adjunte el conjunto de datos de entrenamiento a la entrada de la derecha de **Entrenar modelo**.
 
@@ -62,16 +62,16 @@ En Azure Machine Learning, crear y usar un modelo suele ser un proceso de tres p
     > [!TIP] 
     > Si tiene problemas para usar el selector de columnas, consulte el artículo [Select Columns in Dataset](./select-columns-in-dataset.md) (Seleccionar columnas en conjunto de datos) para obtener sugerencias. En él, se describen algunos escenarios y sugerencias comunes para usar las opciones **WITH RULES** (CON REGLAS) y **BY NAME** (POR NOMBRE).
   
-5.  Ejecute el experimento. Si tiene una gran cantidad de datos, puede tardar.
+5.  Ejecución de la canalización Si tiene una gran cantidad de datos, puede tardar.
 
 ## <a name="bkmk_results"></a> Resultados
 
 Cuando el modelo está entrenado:
 
 + Para ver los parámetros del modelo y los pesos de característica, haga clic con el botón derecho en la salida y seleccione **Visualizar**.
-+ Para usar el modelo en otros experimentos, haga clic con el botón derecho en el modelo y seleccione **Guardar modelo**. Escriba un nombre para el modelo. 
++ Para usar el modelo en otras canalizaciones, haga clic con el botón derecho en el modelo y seleccione **Guardar modelo**. Escriba un nombre para el modelo. 
 
-    De este modo se guarda el modelo como una instantánea que las ejecuciones repetidas del experimento no actualizan.
+    De este modo se guarda el modelo como una instantánea que las ejecuciones repetidas de la canalización no actualizan.
 + Para usar el modelo para predecir nuevos valores, conéctelo al módulo [Puntuar modelo](./score-model.md), junto con nuevos datos de entrada.
 
 

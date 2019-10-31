@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e3cc95c908ea81d21b6f32bed8b754feb5d724ff
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: ab8c8a582b90976ada20b1e970c9e9648d14b2a9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874160"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596435"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Inicio de sesión de página única mediante el flujo implícito de OAuth 2.0 con Azure Active Directory B2C
 
@@ -171,7 +171,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_type |Obligatorio |Debe incluir `id_token` para el inicio de sesión en OpenID Connect.  También puede incluir el tipo de respuesta `token`. Si usa `token` aquí, la aplicación puede recibir un token de acceso inmediatamente desde el punto de conexión autorizado sin realizar una segunda solicitud para autorizar el punto de conexión. Si usa el tipo de respuesta `token`, el parámetro `scope` debe contener un ámbito que indica para qué recurso se va a emitir el token. |
 | redirect_uri |Recomendado |El URI de redireccionamiento de la aplicación, adonde la aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los URI de redireccionamiento que ha registrado en el portal, con la excepción de que debe estar codificado como URL. |
 | scope |Obligatorio |Una lista de ámbitos separada por espacios.  Para obtener los tokens, incluya todos los ámbitos que necesita para el recurso previsto. |
-| response_mode |Recomendado |Especifica el método que se usará para enviar el token resultante de nuevo a la aplicación.  Puede ser `query`, `form_post` o `fragment`. |
+| response_mode |Recomendado |Especifica el método que se usará para enviar el token resultante de nuevo a la aplicación. Para los flujos implícitos, use `fragment`. Se pueden especificar otros dos modos, `query` y `form_post`, pero no funcionan en el flujo implícito. |
 | state |Recomendado |Un valor incluido en la solicitud que se devolverá en la respuesta del token.  Puede ser una cadena de cualquier contenido que quiera usar.  Se suele usar un valor único generado de manera aleatoria para evitar los ataques de falsificación de solicitudes entre sitios.  El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación. Por ejemplo, la página o la vista en la que ha estado el usuario. |
 | valor de seguridad |Obligatorio |Un valor incluido en la solicitud, generada por la aplicación, que se incluirá en el token de identificador resultante como una notificación.  La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es una cadena única aleatoria que puede identificar el origen de la solicitud. |
 | símbolo del sistema |Obligatorio |Para actualizar y obtener tokens en un iframe oculto, use `prompt=none` para asegurarse de que el iframe no se bloquea en la página de inicio de sesión y se devuelve inmediatamente. |

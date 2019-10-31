@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: a65e8224b00bb592d6e0e42abdd304cf325d4412
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128936"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693211"
 ---
 # <a name="clean-missing-data-module"></a>Módulo Limpiar datos que faltan
 
@@ -50,7 +50,7 @@ Este módulo permite definir una operación de limpieza. También puede guardar 
 
 Cada vez que se aplica el módulo [Limpiar datos que faltan](./clean-missing-data.md) a un conjunto de datos, se aplica la misma operación de limpieza a todas las columnas que seleccione. Por lo tanto, si tiene que limpiar distintas columnas mediante diferentes métodos, utilice instancias independientes del módulo.
 
-1.  Agregue el módulo [Limpiar los datos que faltan](./clean-missing-data.md) al experimento y conecte el conjunto de datos que tiene valores que faltan.  
+1.  Agregue el módulo [Limpiar los datos que faltan](./clean-missing-data.md) a la canalización y conecte el conjunto de datos al que le faltan valores.  
   
 2.  Para **Columns to be cleaned** (Columnas que se deben limpiar), elija las columnas que contienen los valores que faltan que desee cambiar. Puede elegir varias columnas, pero debe usar el mismo método de reemplazo en todas las columnas seleccionadas. Por lo tanto, normalmente deberá limpiar las columnas de cadena y las columnas numéricas por separado.
 
@@ -63,7 +63,7 @@ Cada vez que se aplica el módulo [Limpiar datos que faltan](./clean-missing-dat
 
     3. Para **Incluir**, seleccione **Tipo de columna** en la lista desplegable y, a continuación, seleccione **Numérico** o un tipo numérico más específico. 
   
-    Cualquier método de limpieza o de reemplazo que elija debe ser aplicable a **todas** las columnas de la selección. Si los datos de cualquier columna no son compatibles con la operación especificada, el módulo devuelve un error y detiene el experimento.
+    Cualquier método de limpieza o de reemplazo que elija debe ser aplicable a **todas** las columnas de la selección. Si los datos de cualquier columna no son compatibles con la operación especificada, el módulo devuelve un error y detiene la canalización.
   
 3.  Para **Minimum missing value ratio** (Índice mínimo de valores que faltan), especifique el número mínimo de valores que faltan necesarios para que realizar la operación.  
   
@@ -113,7 +113,7 @@ Cada vez que se aplica el módulo [Limpiar datos que faltan](./clean-missing-dat
   
 7. **Generate missing value indicator column** (Generar columna de indicador de valores que faltan): Seleccione esta opción si desea producir alguna indicación de si los valores de la columna cumplen los criterios para la limpieza de valores que faltan. Esta opción es especialmente útil cuando va a configurar una nueva operación de limpieza y desea asegurarse de que funciona según lo diseñado.
   
-8. Ejecute el experimento.
+8. Ejecución de la canalización
 
 ### <a name="results"></a>Results
 
@@ -129,11 +129,11 @@ El módulo devuelve dos salidas:
 
 Si necesita repetir operaciones de limpieza a menudo, se recomienda que guarde la receta para la limpieza de datos como una *transformación*, para volverla a usar con el mismo conjunto de datos. Guardar una transformación de limpieza es especialmente útil si debe volver a importar con frecuencia y, a continuación, limpiar datos que tienen el mismo esquema.  
       
-1.  Agregue el módulo [Aplicar transformación](./apply-transformation.md) al experimento.  
+1.  Agregue el módulo [Apply Transformation](./apply-transformation.md) (Aplicar transformación) a la canalización.  
   
 2.  Agregue el conjunto de datos que desea limpiar y conecte el conjunto de datos al puerto de entrada derecho.  
   
-3.  Expanda el grupo **Transformaciones** en el panel izquierdo de la interfaz. Localice la transformación guardada y arrástrela hasta el experimento.  
+3.  Expanda el grupo **Transformaciones** en el panel izquierdo de la interfaz. Localice la transformación guardada y arrástrela hasta la canalización.  
   
 4.  Conecte la transformación guardada al puerto de entrada izquierdo de [Aplicar transformación](./apply-transformation.md). 
 
@@ -141,7 +141,7 @@ Si necesita repetir operaciones de limpieza a menudo, se recomienda que guarde l
 
     Sin embargo, supongamos que ha creado una transformación en un subconjunto de columnas numéricas. Puede aplicar esta transformación a un conjunto de datos de tipos de columna mixtos sin provocar un error, porque se cambian los valores que faltan solo en las columnas numéricas coincidentes.
 
-6.  Ejecute el experimento.  
+6.  Ejecución de la canalización  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,17 +1,17 @@
 ---
-title: 'Creación de grupos de recursos y recursos en la suscripción: plantilla de Azure Resource Manager'
+title: 'Implementación en el nivel de suscripción: plantilla de Azure Resource Manager'
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 913014a9b7e24345cd21979ba20ea1a1a938d022
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001606"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532194"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 

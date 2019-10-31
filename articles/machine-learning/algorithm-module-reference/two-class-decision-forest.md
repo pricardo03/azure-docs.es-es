@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 37a2ce77e438145219df9cb553d1881626e8a2c6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 243f1774069f048d0e8a1ce11e3ac42e4e73f58b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128391"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693621"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de bosque de decisión de dos clases
 
@@ -49,7 +49,7 @@ Para obtener más información, consulte [Bosques de decisión](https://go.micro
 
 ## <a name="how-to-configure"></a>Configuración
   
-1.  Agregue el módulo del **bosque de decisión de dos clases** al experimento en Azure Machine Learning y abra el panel **Propiedades** del módulo. 
+1.  Agregue el módulo **Bosque de decisión de dos clases** a la canalización en Azure Machine Learning y abra el panel **Propiedades** del módulo. 
 
     Puede encontrar el módulo en **Machine Learning**. Expanda **Inicializar** y, a continuación, **Clasificación**.  
   
@@ -97,9 +97,9 @@ Una vez completado el entrenamiento:
   
     Haga clic en cada árbol para explorar en profundidad las divisiones y ver las reglas de cada nodo.
 
-+ Para guardar una instantánea del modelo, haga clic con el botón derecho en el resultado de **Modelo de entrenamiento** y seleccione **Guardar modelo**. El modelo guardado no se actualiza en ejecuciones sucesivas del experimento.
++ Para guardar una instantánea del modelo, haga clic con el botón derecho en el resultado de **Modelo de entrenamiento** y seleccione **Guardar modelo**. El modelo guardado no se actualiza en ejecuciones sucesivas de la canalización.
 
-+ Para usar el modelo de puntuación, agregue el módulo **Modelo de puntuación** a un experimento.
++ Para usar el modelo de puntuación, agregue el módulo **Score Model** (Puntuar modelo) a una canalización.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

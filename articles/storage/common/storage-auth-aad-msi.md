@@ -5,22 +5,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 10/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bed661873b195694c2fd9b30b1d98a3ecf1fc8a4
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 833aa7dcce5c429b3005a378e93e2177df1eb0d4
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671118"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595177"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autorización del acceso a blobs y colas con Azure Active Directory e identidades administradas para los recursos de Azure
 
 El almacenamiento de blobs y colas de Azure admite la autenticación de Azure Active Directory (Azure AD) con [identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Las identidades administradas para recursos de Azure pueden autorizar el acceso a datos de blobs y colas con credenciales de Azure AD desde aplicaciones que se ejecutan en máquinas virtuales (VM) de Azure, aplicaciones de función, conjuntos de escalado de máquinas virtuales y otros servicios. Si usa identidades administradas para recursos de Azure junto con autenticación de Azure AD, puede evitar el almacenamiento de credenciales con las aplicaciones que se ejecutan en la nube.  
 
-En este artículo se muestra cómo autorizar el acceso a datos de blobs y colas con una identidad administrada desde una máquina virtual de Azure.
+En este artículo se muestra cómo autorizar el acceso a los datos de blobs o colas desde una máquina virtual de Azure mediante identidades administradas para recursos de Azure. También se describe cómo probar el código en el entorno de desarrollo.
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Habilitación de identidades administradas en una máquina virtual
 
@@ -32,99 +32,89 @@ Para poder usar identidades administradas para recursos de Azure a fin de autori
 - [Plantilla de Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas cliente de Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="grant-permissions-to-an-azure-ad-managed-identity"></a>Conceder permisos a una identidad administrada de Azure AD
+Para más información sobre las identidades administradas, consulte [Identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Para autorizar una solicitud a Blob Service o Queue Service desde una identidad administrada de la aplicación Azure Storage, primero configure los valores del control de acceso basado en roles (RBAC) de esa identidad administrada. Azure Storage define los roles RBAC que abarcan los permisos para los datos de blobs y colas. Cuando el rol RBAC se asigna a una identidad administrada, a esta se le conceden esos permisos a los datos de blobs o colas en el ámbito adecuado.
+## <a name="authenticate-with-the-azure-identity-library-preview"></a>Autenticación con la biblioteca de identidades de Azure (versión preliminar)
 
-Para obtener más información sobre la asignación de roles RBAC, vea alguno de los siguientes artículos:
+La biblioteca cliente de identidades de Azure para .NET (versión preliminar) autentica una entidad de seguridad. Cuando el código se ejecuta en Azure, la entidad de seguridad es una identidad administrada para los recursos de Azure.
 
-- [Concesión de acceso a datos de blob y cola de Azure con RBAC en Azure Portal](storage-auth-aad-rbac-portal.md)
-- [Concesión de acceso a datos de blob y cola de Azure con RBAC mediante la CLI de Azure](storage-auth-aad-rbac-cli.md)
-- [Conceder acceso a datos de blob y cola de Azure con RBAC mediante PowerShell](storage-auth-aad-rbac-powershell.md)
+Cuando el código se ejecuta en el entorno de desarrollo, la autenticación se puede administrar automáticamente o puede requerir el inicio de sesión en un explorador, según las herramientas que use. Microsoft Visual Studio admite el inicio de sesión único (SSO), de forma que la cuenta de usuario de Azure AD activa se utiliza automáticamente para la autenticación. Para más información sobre el inicio de sesión único, consulte [Inicio de sesión único en las aplicaciones](../../active-directory/manage-apps/what-is-single-sign-on.md).
 
-## <a name="azure-storage-resource-id"></a>Identificador de recurso de Azure Storage
+Otras herramientas de desarrollo pueden pedirle que inicie sesión mediante un explorador web. También puede usar una entidad de servicio para autenticarse desde el entorno de desarrollo. Para más información, consulte [Creación de una identidad para aplicaciones de Azure en el portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-[!INCLUDE [storage-resource-id-include](../../../includes/storage-resource-id-include.md)]
+Después de la autenticación, la biblioteca cliente de identidades de Azure obtiene una credencial de token. Esta credencial de token se encapsula después en el objeto de cliente de servicio que se crea para realizar operaciones en Azure Storage. La biblioteca obtiene la credencial de token adecuada para administrar este escenario sin problemas.
+
+Para más información sobre la biblioteca cliente de Azure Identity, consulte [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) (Biblioteca cliente de Azure Identity para .NET).
+
+## <a name="assign-rbac-roles-for-access-to-data"></a>Asignación de roles RBAC para el acceso a los datos
+
+Cuando una entidad de seguridad de Azure AD intenta acceder a los datos de blobs o colas, dicha entidad debe tener permisos para el recurso. Si la entidad de seguridad es una identidad administrada en Azure o una cuenta de usuario de Azure AD que ejecuta código en el entorno de desarrollo, se le debe asignar un rol de RBAC que conceda acceso a los datos de blobs o colas en Azure Storage. Para información sobre la asignación de permisos a través de RBAC, consulte la sección titulada **Asignación de roles RBAC para derechos de acceso** en [Autorización del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+
+## <a name="install-the-preview-packages"></a>Instalar los paquetes de versión preliminar
+
+En los ejemplos de este artículo se usa la versión preliminar más reciente de la biblioteca cliente de Azure Storage para Blob Storage. Para instalar el paquete de versión preliminar, ejecute el siguiente comando desde la consola del administrador de paquetes NuGet:
+
+```powershell
+Install-Package Azure.Storage.Blobs -IncludePrerelease
+```
+
+En los ejemplos de este artículo también se usa la versión preliminar más reciente de la [biblioteca cliente de Azure Identity para .NET](https://www.nuget.org/packages/Azure.Identity/) para autenticarse con credenciales de Azure AD. Para instalar el paquete de versión preliminar, ejecute el siguiente comando desde la consola del administrador de paquetes NuGet:
+
+```powershell
+Install-Package Azure.Identity -IncludePrerelease
+```
 
 ## <a name="net-code-example-create-a-block-blob"></a>Ejemplo de código .NET: Creación de un blob en bloques
 
-En el ejemplo de código se muestra cómo obtener un token de OAuth 2.0 de Azure AD y usarlo para autorizar una solicitud para crear un blob en bloques. Para que este ejemplo funcione, siga primero los pasos descritos en las secciones anteriores.
-
-[!INCLUDE [storage-app-auth-lib-include](../../../includes/storage-app-auth-lib-include.md)]
-
-### <a name="add-the-callback-method"></a>Adición del método de devolución de llamada
-
-El método de devolución de llamada comprueba la hora de expiración del token y lo renueva en caso necesario:
+Agregue las siguientes directivas `using` al código para usar las versiones preliminares de Azure Identity y las bibliotecas cliente de Azure Storage.
 
 ```csharp
-private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, CancellationToken cancellationToken)
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Azure.Identity;
+using Azure.Storage;
+using Azure.Storage.Sas;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+```
+
+Para obtener una credencial de token que el código pueda usar para autorizar solicitudes para Azure Storage, cree una instancia de la clase [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). En el ejemplo de código siguiente se muestra cómo obtener la credencial de token autenticada y usarla para crear un objeto de cliente de servicio y, luego, usar el cliente de servicio para cargar un nuevo blob:
+
+```csharp
+async static Task CreateBlockBlobAsync(string accountName, string containerName, string blobName)
 {
-    // Specify the resource ID for requesting Azure AD tokens for Azure Storage.
-    // Note that you can also specify the root URI for your storage account as the resource ID.
-    const string StorageResource = "https://storage.azure.com/";  
+    // Construct the blob container endpoint from the arguments.
+    string containerEndpoint = string.Format("https://{0}.blob.core.windows.net/{1}",
+                                                accountName,
+                                                containerName);
 
-    // Use the same token provider to request a new token.
-    var authResult = await ((AzureServiceTokenProvider)state).GetAuthenticationResultAsync(StorageResource);
+    // Get a credential and create a client object for the blob container.
+    BlobContainerClient containerClient = new BlobContainerClient(new Uri(containerEndpoint),
+                                                                    new DefaultAzureCredential());
 
-    // Renew the token 5 minutes before it expires.
-    var next = (authResult.ExpiresOn - DateTimeOffset.UtcNow) - TimeSpan.FromMinutes(5);
-    if (next.Ticks < 0)
+    try
     {
-        next = default(TimeSpan);
-        Console.WriteLine("Renewing token...");
-    }
+        // Create the container if it does not exist.
+        await containerClient.CreateIfNotExistsAsync();
 
-    // Return the new token and the next refresh time.
-    return new NewTokenAndFrequency(authResult.AccessToken, next);
+        // Upload text to a new block blob.
+        string blobContents = "This is a block blob.";
+        byte[] byteArray = Encoding.ASCII.GetBytes(blobContents);
+
+        using (MemoryStream stream = new MemoryStream(byteArray))
+        {
+            await containerClient.UploadBlobAsync(blobName, stream);
+        }
+    }
+    catch (StorageRequestFailedException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
 }
 ```
-
-### <a name="get-a-token-and-create-a-block-blob"></a>Obtención de un token y creación de un blob en bloques
-
-La biblioteca App Authentication proporciona la clase **AzureServiceTokenProvider**. Una instancia de esta clase se puede pasar a una devolución de llamada que obtiene un token y luego renueva el token antes de que expire.
-
-En el ejemplo siguiente se obtiene un token y se usa para crear un nuevo blob; luego se usa el mismo token para leer el blob.
-
-```csharp
-const string blobName = "https://storagesamples.blob.core.windows.net/sample-container/blob1.txt";
-
-// Get the initial access token and the interval at which to refresh it.
-AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-var tokenAndFrequency = await TokenRenewerAsync(azureServiceTokenProvider,CancellationToken.None);
-
-// Create storage credentials using the initial token, and connect the callback function
-// to renew the token just before it expires
-TokenCredential tokenCredential = new TokenCredential(tokenAndFrequency.Token,
-                                                        TokenRenewerAsync,
-                                                        azureServiceTokenProvider,
-                                                        tokenAndFrequency.Frequency.Value);
-
-StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
-
-// Create a blob using the storage credentials.
-CloudBlockBlob blob = new CloudBlockBlob(new Uri(blobName),
-                                            storageCredentials);
-
-// Upload text to the blob.
-await blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
-
-// Continue to make requests against Azure Storage.
-// The token is automatically refreshed as needed in the background.
-do
-{
-    // Read blob contents
-    Console.WriteLine("Time accessed: {0} Blob Content: {1}",
-                        DateTimeOffset.UtcNow,
-                        await blob.DownloadTextAsync());
-
-    // Sleep for ten seconds, then read the contents of the blob again.
-    Thread.Sleep(TimeSpan.FromSeconds(10));
-} while (true);
-```
-
-Para obtener más información sobre la biblioteca App Authentication, vea [Autenticación entre servicios en Azure Key Vault mediante .NET](../../key-vault/service-to-service-authentication.md).
-
-Para obtener más información sobre cómo adquirir un token de acceso, vea [Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 > [!NOTE]
 > Para autorizar solicitudes en datos de blob o cola con Azure AD, debe usar HTTPS para esas solicitudes.

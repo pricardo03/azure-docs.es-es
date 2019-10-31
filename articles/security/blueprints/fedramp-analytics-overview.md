@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: 9850c5f064815315db6f85a931e7e175d605dcc1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71257591"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Plano técnico de seguridad y cumplimiento de Azure: Análisis para FedRAMP
@@ -41,7 +41,7 @@ Para mejorar la seguridad, esta arquitectura administra los recursos con Azure A
 
 Azure SQL Database se administra comúnmente mediante SQL Server Management Studio (SSMS), que se ejecuta desde una máquina local configurada para acceder a Azure SQL Database mediante una conexión segura VPN o ExpressRoute. **Azure recomienda configurar una conexión VPN o de Azure ExpressRoute para la administración y la importación de datos en el grupo de recursos de la arquitectura de referencia.**
 
-![Diagrama de arquitectura de referencia de análisis para FedRAMP](images/fedramp-analytics-reference-architecture.png?raw=true "Analytics for FedRAMP reference architecture diagram")
+![Diagrama de arquitectura de referencia de Analytics para FedRAMP](images/fedramp-analytics-reference-architecture.png?raw=true "Diagrama de arquitectura de referencia de Analytics para FedRAMP")
 
 ### <a name="roles"></a>Roles
 El plano técnico de análisis describe un escenario con tres tipos de usuario general: el usuario operativo, el administrador de datos/SQL y el ingeniero de sistemas. El control de acceso basado en rol de Azure (RBAC) permite la implementación de una administración de acceso precisa mediante roles personalizados integrados. Los recursos están disponibles para configurar el [control de acceso basado en rol](../../role-based-access-control/role-assignments-portal.md) y para describir e implementar [roles predefinidos](../../role-based-access-control/built-in-roles.md).
@@ -71,7 +71,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 ## <a name="deployment-architecture"></a>Arquitectura de implementación
 En la siguiente sección se detallan los elementos de desarrollo e implementación.
 
-![texto alternativo](images/fedramp-analytics-components.png?raw=true "Diagrama de componentes de análisis de FedRAMP")
+![texto alternativo](images/fedramp-analytics-components.png?raw=true "Diagrama de componentes de Analytics para FedRAMP")
 
 **Azure Functions**: [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) son soluciones para ejecutar pequeños fragmentos de código en la nube a través de la mayoría de lenguajes de programación. En esta solución, Functions se integra con Azure Storage para extraer automáticamente los datos de los clientes a la nube, con lo que se facilita la integración con otros servicios de Azure. Functions es fácilmente escalable y solo incurre en un costo cuando se ejecuta.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2018
 ms.author: kumud
-ms.openlocfilehash: 5c964eaf3cae4f4f47724c59caf9ff60d9f4d2cd
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ef2319f18b6df15fd7f33e9344e8506f853f47e6
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336316"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532228"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Introducción a Protección contra DDoS de Azure estándar
 
@@ -41,7 +41,7 @@ Azure DDoS Protection, junto con los procedimientos recomendados de diseño de a
 |Informes de mitigación                              |Sin                                    |Informes sobre mitigación posteriores al ataque                |
 |Registros de flujo de mitigación                            |Sin                                    |Secuencia de registro NRT para la integración de SIEM           |
 |Personalizaciones de las directivas de migración                 |Sin                                    |Interacción con expertos en DDos                           |
-|Soporte técnico                                         |Mejor opción                           |Acceso a expertos en DDOs durante un ataque activo|
+|Soporte técnico                                         |Mejor opción                           |Acceso a expertos en DDos durante un ataque activo|
 |Contrato de nivel de servicio                                             |Región de Azure                          |Garantía de aplicación y protección de costos       |
 |Precios                                         |Gratuito                                  |Mensual y basado en el uso                         |
 

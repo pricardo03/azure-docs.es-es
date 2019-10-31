@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b8bb3285aecb6aff399606e6263f014027a86581
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7b89d08f4621ecde77a60510b05d96decff0cfde
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128881"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693172"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo Decision Forest Regression (Regresión de bosque de decisión)
 
@@ -42,7 +42,7 @@ Para obtener más información sobre el marco teórico de este algoritmo y su im
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Cómo configurar el modelo de regresión de bosque de decisión
 
-1. Agregue el módulo **Decision Forest Regression** (Regresión de bosque de decisión) al experimento. Puede encontrar el módulo en la interfaz, en **Machine Learning**, **Initialize Model** (Inicializar modelo) y **Regresión**.
+1. Agregue el módulo **Regresión de bosque de decisión** a la canalización. Puede encontrar el módulo en la interfaz, en **Machine Learning**, **Initialize Model** (Inicializar modelo) y **Regresión**.
 
 2. Abra las propiedades del módulo y, para **Resampling method** (Método de nuevo muestreo), elija el método utilizado para crear los árboles individuales.  Puede elegir entre **Bagging** (Agregación) o **Replicate** (Replicación).
 
@@ -82,7 +82,7 @@ Para obtener más información sobre el marco teórico de este algoritmo y su im
 
    
 
-10. Ejecute el experimento.
+10. Ejecución de la canalización
 
 ### <a name="results"></a>Results
 
@@ -92,7 +92,7 @@ Una vez completado el entrenamiento:
 
 + Para ver las reglas de cada nodo, haga clic en cada árbol y explore en profundidad las divisiones.
 
-+ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado del módulo de entrenamiento y seleccione **Save As Trained Model** (Guardar como modelo entrenado). Esta copia del modelo no se actualiza en ejecuciones sucesivas del experimento. 
++ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado del módulo de entrenamiento y seleccione **Save As Trained Model** (Guardar como modelo entrenado). Esta copia del modelo no se actualiza en ejecuciones sucesivas de la canalización. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

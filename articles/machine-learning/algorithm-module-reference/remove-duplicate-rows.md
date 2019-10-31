@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b16e745de277d5aa262f1e1624df22f97d0cf29c
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8b3f73c56d85eecd50633085eca0e632abaa6b4c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128539"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693677"
 ---
 # <a name="remove-duplicate-rows-module"></a>Módulo Supresión de filas duplicadas
 
@@ -51,7 +51,7 @@ Al ejecutar el módulo, este crea un conjunto de datos candidato y devuelve un c
 
 ## <a name="how-to-use-remove-duplicate-rows"></a>Cómo usar Supresión de filas duplicadas
 
-1. Agregue el módulo al experimento. Puede encontrar el módulo **Supresión de filas duplicadas** en **Transformación de datos**, **Manipulación**.  
+1. Agregue el módulo a la canalización. Puede encontrar el módulo **Supresión de filas duplicadas** en **Transformación de datos**, **Manipulación**.  
 
 2. Conecte el conjunto de datos para el que desea comprobar las filas duplicadas.
 
@@ -69,7 +69,7 @@ Al ejecutar el módulo, este crea un conjunto de datos candidato y devuelve un c
     + Si se selecciona, se devuelve la primera fila y se descartan las demás. 
     + Si desactiva esta opción, se mantiene la última fila duplicada en los resultados y se descartan las demás. 
 
-5. Ejecute el experimento.
+5. Ejecución de la canalización
 
 6. Para revisar los resultados, haga clic con el botón derecho en el módulo, seleccione **Conjunto de datos de resultados** y haga clic en **Visualizar**. 
 

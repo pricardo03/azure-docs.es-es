@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/22/2019
 ms.author: raynew
-ms.openlocfilehash: 75b2c08ab02ef41ee4d196d8f81c633aeb46a14e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: de9fd8c7cd9470a7ccc9136d1eac91fe373fe03c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390051"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787299"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -50,7 +50,7 @@ RAM | 16 GB
 Número de discos | 3 discos<br/><br/> Los discos incluyen el disco del sistema operativo, el disco de memoria caché del servidor de procesos y la unidad de retención para la conmutación por recuperación.
 Espacio libre en el disco | 600 GB de espacio para la memoria caché del servidor de procesos.
 Espacio libre en el disco | 600 GB de espacio para la unidad de retención.
-Sistema operativo  | Windows Server 2012 R2 o Windows Server 2016 con experiencia de escritorio |
+Sistema operativo  | Windows Server 2012 R2 o Windows Server 2016 con experiencia de escritorio <br/><br> Si tiene previsto usar el destino maestro integrado de este dispositivo para la conmutación por recuperación, asegúrese de que la versión del sistema operativo sea igual o superior a la de los elementos replicados.|
 Configuración regional del sistema operativo | Español (es-es)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | No es necesaria para la configuración la versión [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) u otra posterior del servidor. 
 Roles de Windows Server | No habilite Active Directory Domain Services, Internet Information Services ni Hyper-V. 
@@ -76,8 +76,8 @@ Windows Server 2008 con SP2 o posterior (64 bits/32 bits) |  Se admiten para l
 Windows 10, Windows 8.1, Windows 8 | Se admite.
 Windows 7 con SP1 de 64 bits | Se admite desde el [paquete acumulativo de actualizaciones 36](https://support.microsoft.com/help/4503156) (versión 9.22 de Mobility Service) y versiones posteriores. </br></br> Desde la versión 9.30. x. x (se esperaba la versión inicial a partir de noviembre de 2019) del agente de Mobility Service, necesita la [actualización de la pila de servicio (SSU)](https://support.microsoft.com/help/4490628) y la [actualización de SHA-2](https://support.microsoft.com/help/4474419) instaladas en las máquinas que ejecutan Windows 7 SP1.  SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto. Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
 Linux | Solo se admite un sistema de 64 bits. No se admite uno de 32 bits.<br/><br/>Todos los servidores de Linux deberían tener los [componentes de los servicios de integración de Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) instalados. Es necesario para arrancar el servidor en Azure después de una conmutación por error o de una conmutación por error de prueba. Si faltan componentes de LIS, asegúrese de instalar los [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar la replicación para que las máquinas arranquen en Azure. <br/><br/> Site Recovery organiza la conmutación por error para ejecutar servidores Linux en Azure. Sin embargo, los proveedores de Linux podrían limitar la compatibilidad a solo las versiones de distribución que no hayan alcanzado el final del ciclo de vida.<br/><br/> En las distribuciones de Linux, solo se admiten kernels de stock que forman parte del lanzamiento o la actualización de la versión secundaria de la distribución.<br/><br/> La actualización de máquinas protegidas entre distribuciones de versiones principales de Linux no se admite. Para actualizar, deshabilite la replicación, actualice el sistema operativo y, a continuación, habilite la replicación de nuevo.<br/><br/> [Más información](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre la compatibilidad con Linux y la tecnología de código abierto en Azure.
-Linux Red Hat Enterprise | 5.2 a 5.11</b><br/> 6.1 a 6.10</b><br/> 7.0 a 7.6<br/> <br/> Los servidores que ejecutan Red Hat Enterprise Linux 5.2-5.11 y 6.1-6.10 no incluyen [componentes de los servicios de integración de Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) preinstalados. Asegúrese de instalar los [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar la replicación para que las máquinas arranquen en Azure.
-Linux: CentOS | 5.2 a 5.11</b><br/> 6.1 a 6.10</b><br/> 7.0 a 7.6<br/> <br/> Los servidores que ejecutan CentOS 5.2-5.11 y 6.1-6.10 no incluyen [componentes de los servicios de integración de Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) preinstalados. Asegúrese de instalar los [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar la replicación para que las máquinas arranquen en Azure.
+Linux Red Hat Enterprise | 5.2 a 5.11</b><br/> 6.1 a 6.10</b><br/> 7.0 a 7.7<br/> <br/> Los servidores que ejecutan Red Hat Enterprise Linux 5.2-5.11 y 6.1-6.10 no incluyen [componentes de los servicios de integración de Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) preinstalados. Asegúrese de instalar los [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar la replicación para que las máquinas arranquen en Azure.
+Linux: CentOS | 5.2 a 5.11</b><br/> 6.1 a 6.10</b><br/> 7.0 a 7.7<br/> <br/> Los servidores que ejecutan CentOS 5.2-5.11 y 6.1-6.10 no incluyen [componentes de los servicios de integración de Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) preinstalados. Asegúrese de instalar los [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar la replicación para que las máquinas arranquen en Azure.
 Ubuntu | Servidor Ubuntu 14.04 LTS[ (revise las versiones de kernel admitidas)](#ubuntu-kernel-versions)<br/><br/>Servidor Ubuntu 16.04 LTS[ (revise las versiones de kernel admitidas)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 [(revise versiones de kernel admitidas)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [ (revise versiones de kernel admitidas)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> No se admite la actualización de máquinas replicadas de SUSE Linux Enterprise Server 11 SP3 a SP4. Para actualizar, deshabilite la replicación y habilítela de nuevo después de la actualización.
@@ -276,7 +276,6 @@ Disco Premium P20, P30, P40 o P50 | 16 KB, o más |20 MB/s | 1684 GB por disco
 
 **Actividad de datos de origen** | **Límite máximo**
 ---|---
-Actividad de datos media por máquina virtual| 25 MB/s
 Actividad de datos máxima entre todos los discos de una máquina virtual | 54 MB/s
 Actividad de datos máxima por día admitida por un servidor de procesos | 2 TB
 

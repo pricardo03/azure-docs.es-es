@@ -1,7 +1,7 @@
 ---
 title: 'Ejemplo de interfaz visual n.º 4: clasificación para predecir el riesgo crediticio (sensible a los costos)'
 titleSuffix: Azure Machine Learning
-description: En este artículo se muestra cómo compilar un experimento de aprendizaje automático complejo sin necesidad de usar la interfaz visual. Aprenderá a implementar scripts de Python personalizados y a comparar varios modelos para elegir la mejor opción.
+description: En este artículo se muestra cómo compilar una canalización compleja de aprendizaje automático con la interfaz visual. Aprenderá a implementar scripts de Python personalizados y a comparar varios modelos para elegir la mejor opción.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,41 +9,41 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: c06da0fd325f6b79bc0e14c4e6a246497f86a900
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 7196e9522695a28a5560faa77860073bd08e25ee
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131239"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693514"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)
 
-En este artículo se muestra cómo compilar un experimento de aprendizaje automático complejo sin necesidad de usar la interfaz visual. Aprenderá a implementar lógica personalizada mediante scripts de Python y a comparar varios modelos para elegir la mejor opción.
+En este artículo se muestra cómo compilar una canalización compleja de aprendizaje automático con la interfaz visual. Aprenderá a implementar lógica personalizada mediante scripts de Python y a comparar varios modelos para elegir la mejor opción.
 
 En este ejemplo se entrena un clasificador para que predecir el riesgo crediticio según información de aplicaciones de crédito, como, por ejemplo, el historial de créditos, la edad y el número de tarjetas de crédito. Sin embargo, puede aplicar los conceptos de este artículo para abordar su propios problemas de aprendizaje automático.
 
 Si acaba de empezar a familiarizarse con el aprendizaje automático, puede echar un vistazo primero al [ejemplo de clasificador básico](how-to-ui-sample-classification-predict-credit-risk-basic.md).
 
-A continuación se muestra el gráfico completo del experimento:
+Este es el gráfico completo de la canalización:
 
-[![Gráfico del experimento](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Gráfico de la canalización](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Seleccione el botón **Abrir** correspondiente al experimento Ejemplo 4:
+4. Seleccione el botón **Abrir** correspondiente a la canalización del ejemplo 4:
 
-    ![Abrir el experimento](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
+    ![Apertura de la canalización](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
 ## <a name="data"></a>Datos
 
-En este ejemplo se usa el conjunto de datos German Credit Card del repositorio de UC Irvine. El conjunto de datos contiene 1000 muestras con 20 características y 1 etiqueta. Cada ejemplo representa una persona. Las 20 características incluyen características numéricas y categóricas. Para más información sobre el conjunto de datos, consulte el [sitio web de UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). La última columna es la etiqueta, que denota el riesgo crediticio y solo tiene dos valores posibles: alto = 2 y bajo = 1.
+En este ejemplo se usa el conjunto de datos German Credit Card del repositorio de UC Irvine. El conjunto de datos contiene 1000 muestras con 20 características y 1 etiqueta. Cada ejemplo representa una persona. Las 20 características incluyen características numéricas y categóricas. Para más información sobre el conjunto de datos, consulte el [sitio web de UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). La última columna es la etiqueta, que denota el riesgo crediticio y solo tiene dos valores posibles: alto = 2 y bajo = 1.
 
-## <a name="experiment-summary"></a>Resumen del experimento
+## <a name="pipeline-summary"></a>Resumen de la canalización
 
-En este experimento, se comparan dos enfoques diferentes de generación de modelos para solucionar este problema:
+En esta canalización, se comparan dos enfoques diferentes de generación de modelos para solucionar este problema:
 
 - Entrenar con el conjunto de datos original.
 - Entrenar con un conjunto de datos replicado.
@@ -52,9 +52,9 @@ Con ambos enfoques se evalúan los modelos utilizando el conjunto de datos de pr
 
 El coste derivado de clasificar incorrectamente como alto un ejemplo de riesgo bajo es 1, mientras que, en el caso de clasificar incorrectamente como bajo un ejemplo de riesgo alto, el coste es 5. Usamos un módulo **Execute Python Script** (Ejecutar script de Python) para tener en cuenta el costo de la clasificación incorrecta.
 
-A continuación, el gráfico del experimento:
+Este es el gráfico de la canalización:
 
-[![Gráfico del experimento](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Gráfico de la canalización](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>Procesamiento de datos
 
@@ -108,11 +108,11 @@ En este ejemplo se usa el flujo de trabajo de ciencia de datos estándar para cr
 1. Use **Train Model** (Entrenar modelo) para aplicar el algoritmo a los datos y crear el modelo real.
 1. Use **Score Model** (Puntuar modelo) para generar puntuaciones con los ejemplos de prueba.
 
-En el siguiente diagrama se muestra una parte de este experimento, en que se usan los conjuntos de datos de entrenamiento originales y replicados para entrenar dos modelos SVM diferentes. **Train Model** (Entrenar modelo) está conectado al conjunto de entrenamiento y **Score Model** (Puntuar modelo), al conjunto de prueba.
+En el siguiente diagrama se muestra una parte de esta canalización, en que se usan los conjuntos de datos de entrenamiento originales y replicados para entrenar dos modelos SVM diferentes. **Train Model** (Entrenar modelo) está conectado al conjunto de entrenamiento y **Score Model** (Puntuar modelo), al conjunto de prueba.
 
-![Gráfico del experimento](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Gráfico de la canalización](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-En la fase de evaluación del experimento se calcula la precisión de cada uno de los cuatro modelos. En este experimento, use **Evaluate Model** (Evaluar modelo) para comparar los ejemplos que tienen la misma clasificación incorrecta de costo.
+En la fase de evaluación de la canalización se calcula la precisión de cada uno de los cuatro modelos. En esta canalización, use **Evaluate Model** (Evaluar modelo) para comparar los ejemplos que tienen la misma clasificación incorrecta de costo.
 
 El módulo **Evaluate Model** (Evaluar modelo) puede calcular las métricas de rendimiento de dos modelos de puntuación como máximo. Por lo tanto, puede usar una instancia de **Evaluate Model** (Evaluar modelo) para evaluar los dos modelos SVM y otra para los dos modelos de árbol de decisión promovido.
 
@@ -142,12 +142,14 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>Results
 
-Para ver los resultados del experimento, haga clic con el botón derecho en la salida de Visualize (Visualizar) del último módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos).
+Para ver los resultados de la canalización, haga clic con el botón derecho en la salida de Visualize (Visualizar) del último módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos).
 
 ![Visualización de la salida](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
 La primera columna muestra el algoritmo de aprendizaje automático usado para generar el modelo.
+
 La segunda columna indica el tipo de conjunto de entrenamiento.
+
 La tercera contiene el valor de precisión sensible a los costes.
 
 En estos resultados, puede ver que se proporciona la mejor precisión mediante el modelo que se creó con **Two-Class Support Vector Machine** (Máquina de vectores que admite dos clases) y se entrenó con el conjunto de datos de entrenamiento replicados.
@@ -165,3 +167,4 @@ Explore otros ejemplos disponibles para la interfaz visual:
 - [Ejemplo 3 - Clasificación: predicción del riesgo crediticio](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 - [Ejemplo 5 - Clasificación: predicción de la renovación](how-to-ui-sample-classification-predict-churn.md)
 - [Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Ejemplo 7 - Clasificación de texto: reseñas de libros](how-to-ui-sample-text-classification.md)

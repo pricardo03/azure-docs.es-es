@@ -1,7 +1,7 @@
 ---
-title: 'Importar desde dirección web mediante HTTP: Referencia para los módulos'
+title: 'Importar desde dirección web mediante HTTP: referencia para los módulos'
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Importar desde dirección web mediante HTTP en Azure Machine Learning Service para leer datos de una página web pública para usarlos en un experimento de aprendizaje automático.
+description: Obtenga información sobre cómo usar el módulo Importar desde dirección web mediante HTTP en Azure Machine Learning Service para leer datos de una página web pública y usarlos en una canalización de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 59b8e2e73b9904a503c16d8891e5a5bd771fc87f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: e2521dabdab8e9365019f35514f2d8d235c9c014
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128751"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693134"
 ---
 # <a name="import-from-web-url-via-http-module"></a>Módulo Importar desde dirección web mediante HTTP
 
 En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
 
-Utilice este módulo para leer datos de una página web pública para usarlos en un experimento de aprendizaje automático.
+Utilice este módulo para leer datos de una página web pública para usarlos en una canalización de aprendizaje automático.
 
 Los datos publicados en una página web tienen las siguientes restricciones:
 
@@ -31,7 +31,7 @@ Hay dos maneras de obtener datos: usar el asistente para configurar el origen de
 
 ## <a name="use-the-data-import-wizard"></a>Usar el Asistente para importación de datos
 
-1. Agregue el módulo **Importar datos** al experimento. Puede encontrar el módulo en la interfaz, en la categoría **Entrada y salida de datos**.
+1. Agregue el módulo **Importación de datos** a la canalización. Puede encontrar el módulo en la interfaz, en la categoría **Entrada y salida de datos**.
 
 2. Haga clic en **Iniciar el Asistente para importación de datos** y seleccione Dirección web mediante HTTP.
 
@@ -45,7 +45,7 @@ Para editar una conexión de datos existente, vuelva a iniciar el asistente. El 
 
 En los pasos siguientes se describe cómo configurar manualmente el origen de la importación.
 
-1. Agregue el módulo [Importar datos](import-data.md) al experimento. Puede encontrar el módulo en la interfaz, en la categoría **Entrada y salida de datos**.
+1. Agregue el módulo [Importación de datos](import-data.md) a la canalización. Puede encontrar el módulo en la interfaz, en la categoría **Entrada y salida de datos**.
 
 2. Para **Origen de datos**, seleccione **Dirección web mediante HTTP**.
 
@@ -63,13 +63,13 @@ En los pasos siguientes se describe cómo configurar manualmente el origen de la
 
 5. Si los datos están en formato CSV o TSV, use la opción **El archivo tiene fila de encabezado** para indicar si el origen de datos incluye una fila de encabezado. La fila de encabezado se usa para asignar nombres de columna.
 
-6. Seleccione la opción **Usar resultados en caché** si no prevé que los datos cambien mucho o si desea evitar tener que volver a cargar los datos cada vez que ejecute el experimento.
+6. Seleccione la opción **Usar resultados en caché** si no prevé que los datos cambien mucho o si desea evitar tener que volver a cargar los datos cada vez que ejecute la canalización.
 
-    Cuando se selecciona esta opción, el experimento carga los datos la primera vez que se ejecuta el módulo y, a partir de entonces, usa una versión almacenada en caché del conjunto de datos.
+    Cuando se selecciona esta opción, la canalización carga los datos la primera vez que se ejecuta el módulo y, a partir de entonces, usa una versión almacenada en caché del conjunto de datos.
 
-    Si desea volver a cargar el conjunto de datos en cada iteración del conjunto de datos del experimento, anule la selección de la opción **Usar resultados en caché**. Los resultados también se vuelven a cargar si hay algún cambio en los parámetros de [Importar datos](import-data.md).
+    Si quiere volver a cargar el conjunto de datos en cada iteración del conjunto de datos de la canalización, anule la selección de la opción **Usar resultados en caché**. Los resultados también se vuelven a cargar si hay algún cambio en los parámetros de [Importar datos](import-data.md).
 
-7. Ejecute el experimento.
+7. Ejecución de la canalización
 
 ## <a name="results"></a>Results
 

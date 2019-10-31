@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 8b4ec9e71d9ce932a7b206467db91760f4a4fc47
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: adb2477fe2b7eea0dd0a98c7240843d90411d832
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128981"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693875"
 ---
 # <a name="apply-transformation-module"></a>Módulo Aplicar transformación
 
@@ -32,7 +32,7 @@ Azure Machine Learning proporciona compatibilidad para crear y después aplica
 
 ## <a name="how-to-use-apply-transformation"></a>Cómo se usa Aplicar transformación  
   
-1. Agregue el módulo **Aplicar transformación** al experimento. Puede encontrar este módulo en la categoría **Machine Learning**, en la categoría **Puntuación**. 
+1. Agregue el módulo **Apply Transformation** (Aplicar transformación) a la canalización. Puede encontrar este módulo en la categoría **Machine Learning**, en la categoría **Puntuación**. 
   
 2. Busque una transformación existente para usarla como entrada.  Las transformaciones guardadas anteriormente se pueden encontrar en el grupo **Transformaciones** del panel de navegación izquierdo.  
   
@@ -42,7 +42,7 @@ Azure Machine Learning proporciona compatibilidad para crear y después aplica
   
 4. No hay que establecer ningún parámetro adicional, puesto que toda la personalización se realiza al definir la transformación.  
   
-5. Para aplicar una transformación al nuevo conjunto de datos, ejecute el experimento.  
+5. Para aplicar una transformación al nuevo conjunto de datos, ejecute la canalización.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

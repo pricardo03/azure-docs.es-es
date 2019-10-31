@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 642b2a038ec434584c8af6dd72d58810e136ed57
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b6e28577fefe4892d719e211e16edafed1504e87
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128868"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693827"
 ---
 # <a name="edit-metadata-module"></a>Módulo Editar metadatos
 
@@ -40,7 +40,7 @@ Entre los cambios de metadatos habituales se pueden incluir:
   
 ## <a name="configure-edit-metadata"></a>Configuración del módulo Editar metadatos
   
-1. En Azure Machine Learning, agregue el módulo Editar metadatos al experimento y conecte el conjunto de datos que desea actualizar. Puede encontrar el conjunto de datos en **Transformación de datos**, en la categoría **Manipulación**.
+1. En Azure Machine Learning, agregue el módulo Edit Metadata (Editar metadatos) a la canalización y conecte el conjunto de datos que desea actualizar. Puede encontrar el conjunto de datos en **Transformación de datos**, en la categoría **Manipulación**.
   
 1. Seleccione **Launch the column selector** (Iniciar el selector de columnas) y elija la columna o conjunto de columnas con las que desea trabajar. Puede elegir las columnas individualmente por nombre o por índice, o puede elegir un grupo de columnas por tipo.  
   
@@ -94,7 +94,7 @@ Entre los cambios de metadatos habituales se pueden incluir:
   
     + Se debe cambiar el nombre de todas las columnas seleccionadas. No puede omitir columnas.  
   
-1. Ejecute el experimento.  
+1. Ejecución de la canalización  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

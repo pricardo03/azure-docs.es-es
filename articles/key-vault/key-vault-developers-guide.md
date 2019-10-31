@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1ebf4feb0687d9580bba29cd8213030e542a06da
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 1bfd156f9fbdb69766e4588a342a695fbd79ca3a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268845"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595296"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -84,7 +84,7 @@ En Node.js, la API de administración y la API de objetos de Key Vault son indep
 
 [Azure PowerShell para Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
 
-### <a name="quick-start-guides"></a>Guías de inicio rápido
+### <a name="quickstart-guides"></a>Guías de inicio rápido
 
 - [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Introducción a Key Vault en Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)
@@ -117,7 +117,7 @@ Los artículos y escenarios siguientes proporcionan instrucciones específicas d
 
 En estos artículos se describen otros escenarios y servicios que usan Key Vault o se integran en este servicio.
 
-- [Azure Disk Encryption](../security/azure-security-disk-encryption.md) aprovecha la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) estándar del sector de Windows y la característica [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para ofrecer cifrado de volumen para el sistema operativo y los discos de datos. La solución se integra con Azure Key Vaultpara ayudarle a controlar y administrar las claves y secretos de cifrado de disco en su suscripción del almacén de claves, al mismo tiempo que garantiza que todos los datos de los discos de las máquinas virtuales se cifran en reposo en Azure Storage.
+- [Azure Disk Encryption](../security/fundamentals/encryption-overview.md) aprovecha la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) estándar del sector de Windows y la característica [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para ofrecer cifrado de volumen para el sistema operativo y los discos de datos. La solución se integra con Azure Key Vaultpara ayudarle a controlar y administrar las claves y secretos de cifrado de disco en su suscripción del almacén de claves, al mismo tiempo que garantiza que todos los datos de los discos de las máquinas virtuales se cifran en reposo en Azure Storage.
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) proporciona la opción para el cifrado de datos que se almacenan en la cuenta. Para la administración de claves, Data Lake Store ofrece dos modos de administrar las claves de cifrado maestras (MEK) que son necesarias para descifrar los datos que se almacenan en Data Lake Store. Se puede dejar que Data Lake Store administre las MEK en su lugar o decidir conservar la propiedad de estas mediante su cuenta de Azure Key Vault. Puede especificar el modo de administración de claves durante la creación de una cuenta de Data Lake Store.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) le permite administrar su propia clave de inquilino. Por ejemplo, en lugar de que Microsoft administre su clave de inquilino (la opción predeterminada), puede administrar su propia clave de inquilino para cumplir con las normas específicas que se aplican a su organización. La administración de su propia clave de inquilino también se conoce como "aportar su propia clave", o BYOK.
 

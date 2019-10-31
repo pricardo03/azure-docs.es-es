@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 504224ae586e18fc5bf9294b537e730da37a2423
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c77ebbe8569ffd221fadb5b98a54fc26d0d70893
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128566"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692711"
 ---
 # <a name="normalize-data-module"></a>Módulo Normalize Data
 
@@ -32,7 +32,7 @@ Este módulo ofrece varias opciones para transformar los datos numéricos:
 
 - Puede cambiar todos los valores a la escala de 0 a 1, o transformar los valores para representarlos como percentiles en lugar de como valores absolutos.
 - Puede aplicar la normalización a una sola columna o a varias columnas en el mismo conjunto de datos.
-- Si tiene que repetir el experimento, o aplica los mismos pasos de normalización a otros datos, puede guardar los pasos como transformación de normalización y aplicarla a otros conjuntos de datos que tengan el mismo esquema.
+- Si tiene que repetir la canalización o aplica los mismos pasos de normalización a otros datos, puede guardar los pasos como transformación de normalización y aplicarla a otros conjuntos de datos que tengan el mismo esquema.
 
 > [!WARNING]
 > Algunos algoritmos requieren que se normalicen los datos antes de entrenar un modelo. Otros algoritmos realizan su propio escalado o normalización de datos. Por lo tanto, al elegir un algoritmo de aprendizaje automático para usar en la creación de un modelo predictivo, asegúrese de revisar los requisitos de datos del algoritmo antes de aplicar la normalización a los datos de entrenamiento.
@@ -41,7 +41,7 @@ Este módulo ofrece varias opciones para transformar los datos numéricos:
 
 Con este módulo, puede aplicar solo un método de normalización a la vez. Por lo tanto, se aplica el mismo método de normalización a todas las columnas que seleccione. Para usar los métodos de normalización diferentes, use una segunda instancia de **Normalize Data**.
 
-1. Agregue el módulo **Normalize Data** al experimento. Puede encontrar el módulo de Azure Machine Learning en **Transformación de datos**, en la categoría **Scale and Reduce** (Escalar y reducir).
+1. Agregue el módulo **Normalización de datos** a la canalización. Puede encontrar el módulo de Azure Machine Learning en **Transformación de datos**, en la categoría **Scale and Reduce** (Escalar y reducir).
 
 2. Conecte un conjunto de datos que contenga al menos una columna de todos los números.
 
@@ -72,7 +72,7 @@ Con este módulo, puede aplicar solo un método de normalización a la vez. Por 
       
       Los valores de la columna se transforman mediante la fórmula siguiente:  
   
-      ![normalización con la función min-max](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
+      ![normalización con la función min&#45;max](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
   
     - **Logistic**: Los valores de la columna se transforman mediante la fórmula siguiente:
 
@@ -82,7 +82,7 @@ Con este módulo, puede aplicar solo un método de normalización a la vez. Por 
   
       Los valores de la columna se transforman mediante la fórmula siguiente:
   
-      ![fórmula de distribución logarítmica normal](media/module/aml-normalization-lognormal.png "AML_normalization-lognormal")
+      ![fórmula de distribución log&#45;normal](media/module/aml-normalization-lognormal.png "AML_normalization-lognormal")
     
       Aquí μ y σ son los parámetros de la distribución, calculados empíricamente a partir de los datos como las estimaciones de verosimilitud máxima para cada columna por separado.  
   
@@ -92,7 +92,7 @@ Con este módulo, puede aplicar solo un método de normalización a la vez. Por 
     
       ![normalización con la función tanh](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
-6. Ejecute el experimento, o haga doble clic en el módulo **Normalize Data** y seleccione **Ejecutar seleccionados**. 
+6. Ejecute la canalización o haga doble clic en el módulo **Normalización de datos** y seleccione **Ejecutar seleccionados**. 
 
 ## <a name="results"></a>Results
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: dc383d302fb3e9920ee8ef2d7d908a5b406ea1da
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: a1a6817c08223b360c08804e0595f12f2947ea5f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128659"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693069"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Excepciones y códigos de error para la referencia de módulos y algoritmos
 
@@ -32,7 +32,7 @@ Si el texto del mensaje de error no es útil, envíenos información sobre el co
 ## <a name="error-0001"></a>Error 0001  
  Se produce una excepción si no se encontraron una o más columnas especificadas del conjunto de datos.  
   
- Recibirá este error si se realiza una selección de columnas para un módulo, pero las columnas seleccionadas no existen en el conjunto de datos de entrada. Este error puede producirse si escribió manualmente un nombre de columna o si el selector de columnas sugirió una columna que no existía en el conjunto de datos al realizar el experimento.  
+ Recibirá este error si se realiza una selección de columnas para un módulo, pero las columnas seleccionadas no existen en el conjunto de datos de entrada. Este error puede producirse si escribió manualmente un nombre de columna o si el selector de columnas sugirió una columna que no existía en el conjunto de datos al realizar la canalización.  
   
 **Resolución:** Vuelva a consultar el módulo que genera esta excepción y valide que los nombres de columna son correctos y que todas las columnas referenciadas existen.  
   
@@ -215,7 +215,7 @@ Si se especificó la ruta de acceso completa a un blob, compruebe que la ruta de
   
  Si el módulo requiere que seleccione una columna específica, como una columna de etiqueta, compruebe que está seleccionada la columna correcta.  
   
- Si se seleccionan las columnas incorrectas, quítelas y vuelva a ejecutar el experimento.  
+ Si hay columnas incorrectas seleccionadas, quítelas y vuelva a ejecutar la canalización.  
   
 |Mensajes de excepción|  
 |------------------------|  
@@ -237,7 +237,7 @@ Si se especificó la ruta de acceso completa a un blob, compruebe que la ruta de
 ## <a name="error-0013"></a>Error 0013  
  Se produce una excepción si el aprendiz que se pasa al módulo es de un tipo no válido.  
   
- Este error se produce siempre que un modelo entrenado no es compatible con el módulo de puntuación conectado. <!--For example, connecting the output of [Train Matchbox Recommender](train-matchbox-recommender.md) to [Score Model](score-model.md) (instead of [Score Matchbox Recommender](score-matchbox-recommender.md)) will generate this error when the experiment is run.  -->
+ Este error se produce siempre que un modelo entrenado no es compatible con el módulo de puntuación conectado. <!--For example, connecting the output of [Train Matchbox Recommender](train-matchbox-recommender.md) to [Score Model](score-model.md) (instead of [Score Matchbox Recommender](score-matchbox-recommender.md)) will generate this error when the pipeline is run.  -->
   
 **Resolución:**
 
@@ -969,7 +969,7 @@ Otro motivo por el que puede encontrarse con este error es si intenta utilizar c
 ## <a name="error-0057"></a>Error 0057  
  Se produce una excepción al intentar crear un archivo o blob que ya existe.  
   
- Esta excepción se produce cuando se usa el módulo [Export Data](export-data.md) (exportar datos) u otro módulo para guardar los resultados de un experimento de Azure Machine Learning en Azure Blob Storage, pero se intenta crear un archivo o blob que ya existe.   
+ Esta excepción se produce cuando se usa el módulo [Exportación de datos](export-data.md) u otro módulo para guardar los resultados de una canalización de Azure Machine Learning en Azure Blob Storage, pero se intenta crear un archivo o blob que ya existe.   
   
 **Resolución:**
  
@@ -1066,7 +1066,7 @@ Otro motivo por el que puede encontrarse con este error es si intenta utilizar c
 1. In Azure Machine Learning Studio, right-click the module that has the error, and select **View Log**.
 2. Examine the standard error log of the module, which contains the stack trace.
     + Lines beginning with [ModuleOutput] indicate output from R.
-    + Messages from R marked as **warnings** typically do not cause the experiment to fail.
+    + Messages from R marked as **warnings** typically do not cause the pipeline to fail.
 3. Resolve script issues.  
     + Check for R syntax errors. Check for variables that are defined but never populated.
     + Review the input data and the script to determine if either the data or variables in the script use characters not supported by Azure Machine Learning.
@@ -1074,11 +1074,11 @@ Otro motivo por el que puede encontrarse con este error es si intenta utilizar c
     + Check whether your code loads required libraries that are not loaded by default.
     + Check whether the required packages are the correct version.
     + Make sure that any dataset that you want to output is converted to a data frame.  
-4.  Resubmit the experiment.
+4.  Resubmit the pipeline.
 
  <!--
 > [!NOTE]
-> These topics contains examples of R code that you can use, as well as links to experiments in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com) that use R script.
+> These topics contains examples of R code that you can use, as well as links to pipelines in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com) that use R script.
 > + [Execute R Script](execute-r-script.md)
 > + [Create R Model](create-r-model.md)
 -->  
@@ -1363,7 +1363,7 @@ Se introdujo un control de errores para este evento en una versión anterior de 
   
  Este error de Azure Machine Learning se produce cuando una versión más nueva del runtime de Azure Machine Learning no puede cargar una transformación o modelo de aprendizaje automático guardado como resultado de un cambio importante.  
   
-**Resolución:** El experimento de entrenamiento que generó el modelo o la transformación debe volver a ejecutarse, y el modelo o la transformación se deben volver a guardar.  
+**Resolución:** La canalización de entrenamiento que generó el modelo o la transformación debe volver a ejecutarse, y el modelo o la transformación se deben volver a guardar.  
   
 |Mensajes de excepción|  
 |------------------------|  

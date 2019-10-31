@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 4883b1420913eb4e5f3bd5f13a95e410370d9184
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fc6d889fb9be40c98e1a2a0de6fddb29939f3b5d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128474"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693652"
 ---
 # <a name="train-clustering-model"></a>Entrenamiento del modelo de agrupación en clústeres
 
@@ -29,7 +29,7 @@ El módulo toma un modelo de agrupación en clústeres no entrenado que ya ha co
   
 ## <a name="how-to-use-train-clustering-model"></a>Procedimiento para usar el modelo de entrenamiento de almacenamiento en clúster  
   
-1.  Agregue el módulo **Entrenamiento del modelo de agrupación en clústeres** al experimento en Studio. Puede encontrar el módulo en **Módulos de Machine Learning** de la categoría **Entrenar**.  
+1.  Agregue el módulo **Entrenamiento del modelo de agrupación en clústeres** a la canalización en Studio. Puede encontrar el módulo en **Módulos de Machine Learning** de la categoría **Entrenar**.  
   
 2. Agregue el módulo [Agrupación en clústeres k-means](k-means-clustering.md) u otro módulo personalizado que cree un modelo de agrupación en clústeres compatible y establezca los parámetros del modelo de agrupación en clústeres.  
     
@@ -43,7 +43,7 @@ El módulo toma un modelo de agrupación en clústeres no entrenado que ya ha co
 
     Si anula la selección de esta opción, la salida solo contiene las asignaciones de clúster. 
 
-7. Ejecute el experimento, o haga clic en el módulo **Entrenamiento del modelo de agrupación en clústeres** y seleccione **Ejecutar seleccionados**.  
+7. Ejecute la canalización o haga clic en el módulo **Entrenamiento del modelo de agrupación en clústeres** y seleccione **Ejecutar seleccionados**.  
   
 ### <a name="results"></a>Results
 

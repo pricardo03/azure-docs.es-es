@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 7ca6f1bda2dff9a8a9e54cb9d9ce5fd2d34c7245
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e7de3e8026b15342c06eff9718242c08d33a53a4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428078"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72783781"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -347,6 +347,10 @@ Los siguientes elementos tienen los siguiente prefijos:
 
 ### <a name="pacemaker-configuration"></a>Configuración de pacemaker
 
+> [!IMPORTANT]
+> Las pruebas recientes revelaron situaciones en las que netcat deja de responder a las solicitudes debido al trabajo pendiente y a su limitación de controlar solo una conexión. El recurso netcat deja de escuchar las solicitudes del equilibrador de carga de Azure y la dirección IP flotante deja de estar disponible.  
+> En el caso de los clústeres de Pacemaker existentes, se recomienda reemplazar netcat por socat, siguiendo las instrucciones de [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128) (Protección de la detección del equilibrador de carga de Azure). Tenga en cuenta que el cambio requerirá un breve tiempo de inactividad.  
+
 **[1]**  Configuración de Pacemaker específico de HADR para IBM Db2:
 <pre><code># Put Pacemaker into maintenance mode
 sudo crm configure property maintenance-mode=true
@@ -371,7 +375,7 @@ sudo crm configure primitive rsc_ip_db2ptr_<b>PTR</b> IPaddr2 \
 
 # Configure probe port for Azure load Balancer
 sudo crm configure primitive rsc_nc_db2ptr_<b>PTR</b> anything \
-        params binfile="/usr/bin/nc" cmdline_options="-l -k <b>62500</b>" \
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>62500</b>,backlog=10,fork,reuseaddr /dev/null" \
         op monitor timeout="20s" interval="10" depth="0"
 
 sudo crm configure group g_ip_db2ptr_<b>PTR</b> rsc_ip_db2ptr_<b>PTR</b> rsc_nc_db2ptr_<b>PTR</b>

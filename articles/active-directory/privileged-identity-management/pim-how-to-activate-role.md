@@ -14,12 +14,12 @@ ms.date: 06/28/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9d9b2aff1d196d8b2987d77046831e7200ee2fe
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 6007762c897337170dec69c3486302aa62723480
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804476"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756286"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Activación de mis roles de Azure AD en PIM
 
@@ -27,15 +27,15 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplific
 
 Si se le ha considerado apto para un rol administrativo, significa que puede activar el rol cuando tenga la necesidad de realizar acciones que requieran ciertos privilegios. Por ejemplo, si administra de vez en cuando características de Office 365, los administradores de roles con privilegios de su organización puede que no le hayan asignado el rol de administrador global permanente, ya que ese rol afecta también a otros servicios. En su lugar, pueden asignarle roles de Azure AD como administrador de Exchange Online. Puede solicitar la activación de ese rol cuando necesite sus privilegios y tendrá control de administrador durante un período predeterminado.
 
-Este artículo se dirige a los administradores que necesitan activar su rol de Azure AD en PIM.
+Este artículo está dirigido a los administradores que necesitan activar su rol de Azure AD en Privileged Identity Management.
 
 ## <a name="activate-a-role"></a>Activación de un rol
 
-Cuando necesite asumir un rol de Azure AD, puede solicitar la activación mediante la opción de navegación **Mis roles** de PIM.
+Cuando necesite asumir un rol de Azure AD, puede solicitar la activación mediante la opción de navegación **Mis roles** de Privileged Identity Management.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-1. Abra **Azure AD Privileged Identity Management**. Para obtener información acerca de cómo agregar el icono de PIM al panel, consulte [Comenzar a usar Azure AD Privileged Identity Management](pim-getting-started.md).
+1. Abra **Azure AD Privileged Identity Management**. Para información sobre cómo agregar el icono de Privileged Identity Management en el panel, consulte [Primer uso de PIM](pim-getting-started.md).
 
 1. Haga clic en **Roles de Azure AD**.
 
@@ -129,14 +129,14 @@ Si no necesita activar un rol que requiera aprobación, puede cancelar una solic
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Permisos no concedidos después de activar un rol
 
-Al activar un rol en PIM, la activación podría no propagarse al instante a todos los portales que requieren el rol con privilegios. A veces, incluso si el cambio se propaga, el almacenamiento en caché web en un portal puede provocar que el cambio no surta efecto de inmediato. Esto es lo que debe de hacer si se retrasa la activación.
+Al activar un rol en Privileged Identity Management, la activación podría no propagarse al instante a todos los portales que requieren el rol con privilegios. A veces, incluso si el cambio se propaga, el almacenamiento en caché web en un portal puede provocar que el cambio no surta efecto de inmediato. Esto es lo que debe de hacer si se retrasa la activación.
 
 1. Cierre sesión en Azure Portal y vuelva a iniciar sesión.
 
     Al activar un rol de Azure AD, verá las fases de la activación. Una vez que finalizan todas las fases, verá un vínculo para **Cerrar sesión**. Puede usar este vínculo para cerrar la sesión. Esto solucionará la mayoría de los casos de retraso de activación.
 
-1. En PIM, compruebe que aparece como miembro del rol.
+1. En Privileged Identity Management, compruebe que aparece como miembro del rol.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Activación de mis roles de recursos de Azure en PIM](pim-resource-roles-activate-your-roles.md)
+- [Activación de roles de recursos de Azure en Privileged Identity Management](pim-resource-roles-activate-your-roles.md)

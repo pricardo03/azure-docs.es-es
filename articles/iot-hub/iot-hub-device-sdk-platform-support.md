@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 030ea87018e1a2d438e3e4d728af76e429efda08
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ac5817675d3cfc97a8732ee2e10ec7b9246b12a5
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169013"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693327"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Compatibilidad de plataformas de SDK de dispositivo IoT de Azure
 
@@ -56,11 +56,13 @@ El [SDK de dispositivo Azure IoT Hub para C](https://github.com/Azure/azure-iot-
 
 El [SDK de dispositivo Azure IoT Hub para Python](https://github.com/Azure/azure-iot-sdk-python) admite la siguiente configuración y se prueba con ella.
 
-| OS                  | Compilador                       |
-|---------------------|--------------------------------|
-| Linux               | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
-| MacOS High Sierra   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
-| Familia de productos de Windows 10   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
+| OS                  | Compilador                          |
+|---------------------|-----------------------------------|
+| Linux               | Python 2.7 *, 3.4*, 3.5*, 3.6, 3.7 |
+| MacOS High Sierra   | Python 2.7 *, 3.4*, 3.5*, 3.6, 3.7 |
+| Familia de productos de Windows 10   | Python 2.7 *, 3.4*, 3.5*, 3.6, 3.7 |
+
+*Solo Python versión 3.5.3 o posterior admite las API asincrónicas, se recomienda usar 3,7 o posterior.
 
 ### <a name="net-sdk"></a>.NET SDK
 
@@ -70,6 +72,8 @@ El [SDK de dispositivo Azure IoT Hub para .NET (C#)](https://github.com/Azure/az
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | SKU de Windows 10 Desktop y Server   | .NET Core 2.1, .NET Framework 4.5.1 o .NET Framework 4.7 |
+
+El SDK de .NET también se puede usar con Windows IoT Core con el [Azure Device Agent](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) o [un NTService personalizado que puede usar RPC para comunicarse con aplicaciones de UWP](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
 
 ### <a name="nodejs-sdk"></a>SDK de Node.js
 

@@ -1,7 +1,7 @@
 ---
 title: 'Ejemplo de interfaz visual n.° 3: regresión de precios y comparación de algoritmos'
 titleSuffix: Azure Machine Learning
-description: En este artículo se muestra cómo compilar un experimento de aprendizaje automático complejo sin necesidad de escribir una sola línea de código mediante la interfaz visual. Aprenda a entrenar y comparar varios modelos de regresión para predecir el precio de un automóvil en función de sus características técnicas
+description: En este artículo se muestra cómo compilar una canalización compleja de aprendizaje automático sin tener que escribir una sola línea de código con la interfaz visual. Aprenda a entrenar y comparar varios modelos de regresión para predecir el precio de un automóvil en función de sus características técnicas
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,34 +10,34 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: c40d76b87ca7437e25c567176b0309f08f3ca9f2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 651644eaae910792aac2144531d09afc4cde7153
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131135"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692785"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Ejemplo 2 - Regresión: predicción del precio y comparación de algoritmos
 
-Aprenda a compilar un experimento de aprendizaje automático sin necesidad de escribir una sola línea de código mediante la interfaz visual. En este ejemplo se entrenan y se comparan varios modelos de regresión para predecir el precio de un automóvil en función de sus características técnicas. Le mostraremos la justificación de las opciones elegidas en este experimento de manera que pueda superar los problemas de aprendizaje automático que se le presenten.
+Aprenda a compilar una canalización compleja de aprendizaje automático sin tener que escribir una sola línea de código con la interfaz visual. En este ejemplo se entrenan y se comparan varios modelos de regresión para predecir el precio de un automóvil en función de sus características técnicas. Le mostraremos la justificación de las opciones elegidas en esta canalización de manera que pueda superar los problemas de aprendizaje automático que se le presenten.
 
-Si acaba de empezar a trabajar con el aprendizaje automático, eche un vistazo a la [versión básica](how-to-ui-sample-regression-predict-automobile-price-basic.md) de este experimento.
+Si acaba de empezar a trabajar con el aprendizaje automático, eche un vistazo a la [versión básica](how-to-ui-sample-regression-predict-automobile-price-basic.md) de esta canalización.
 
-A continuación se muestra el gráfico completo del experimento:
+Este es el gráfico completo de la canalización:
 
-[![Gráfico del experimento](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Gráfico de la canalización](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Seleccione el botón **Abrir** correspondiente al experimento Ejemplo 2:
+4. Seleccione el botón **Abrir** correspondiente a la canalización del ejemplo 2:
 
-    ![Abrir el experimento](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
+    ![Apertura de la canalización](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="experiment-summary"></a>Resumen del experimento
+## <a name="pipeline-summary"></a>Resumen de la canalización
 
-Siga los pasos que se indican a continuación para crear el experimento de aprendizaje automático:
+Siga los pasos que se indican a continuación para crear la canalización de aprendizaje automático:
 
 1. Obtenga los datos.
 1. Preprocese los datos.
@@ -60,11 +60,9 @@ Use el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto 
 
 Los problemas del aprendizaje automático son varios. Las tareas de aprendizaje automático habituales incluyen la clasificación, la agrupación en clústeres, la regresión y los sistemas de recomendación, que pueden requerir algoritmos diferentes. La elección del algoritmo a menudo depende de los requisitos del caso de uso. Después de elegir un algoritmo deberá ajustar sus parámetros para entrenar un modelo más preciso. A continuación, deberá evaluar todos los modelos en función de unas métricas, como la precisión, la inteligibilidad y la eficacia.
 
-Dado que el objetivo de este experimento es predecir precios de automóviles y la columna de etiqueta (precio) contiene números reales, un modelo de regresión es una buena elección. Teniendo en cuenta que el número de características es relativamente pequeño (menor que 100) y que estas características no están dispersas, el límite de decisión es probable que sea no lineal.
+Dado que el objetivo de esta canalización es predecir precios de automóviles y la columna de etiqueta (precio) contiene números reales, un modelo de regresión es una buena elección. Teniendo en cuenta que el número de características es relativamente pequeño (menor que 100) y que estas características no están dispersas, el límite de decisión es probable que sea no lineal.
 
-Dado que el objetivo de este experimento es predecir precios de automóviles y la columna de etiqueta (precio) contiene números reales, un modelo de regresión es una buena elección. Teniendo en cuenta que el número de características es relativamente pequeño (menor que 100) y que estas características no están dispersas, el límite de decisión es probable que sea no lineal.
-
-Para comparar el rendimiento de algoritmos diferentes, para compilar modelos usamos dos algoritmos no lineales, **Boosted Decision Tree Regression** (Regresión de árbol de decisión incrementado) y **Decision Forest Regression** (Regresión de bosque de decisión). Ambos algoritmos tienen parámetros que se pueden cambiar, pero se usan los valores predeterminados en este experimento.
+Para comparar el rendimiento de algoritmos diferentes, para compilar modelos usamos dos algoritmos no lineales, **Boosted Decision Tree Regression** (Regresión de árbol de decisión incrementado) y **Decision Forest Regression** (Regresión de bosque de decisión). Ambos algoritmos tienen parámetros que se pueden cambiar, pero se usan los valores predeterminados en esta canalización.
 
 Use el módulo **Split Data** (Dividir datos) para dividir aleatoriamente los datos de entrada de forma que el conjunto de datos de entrenamiento contenga el 70 % de los datos originales y el de prueba el 30 %.
 
@@ -74,7 +72,7 @@ Como se describe en la sección anterior, se usan dos conjuntos de datos diferen
 
 Después de entrenar el modelo, se usan los módulos **Score Model** (Puntuar modelo) y **Evaluate Model** (Evaluar modelo) para generar los resultados de predicción y evaluar los modelos. **Score Model** (Puntuar modelo) genera predicciones del conjunto de datos de prueba mediante el modelo entrenado. Luego, se pasan las puntuaciones a **Evaluate Model** (Evaluar modelo) para generar métricas de evaluación.
 
-En este experimento, se usan dos instancias de **Evaluate Model** (Evaluar modelo) para comparar dos pares de modelos.
+En esta canalización se usan dos instancias de **Evaluate Model** (Evaluar modelo) para comparar dos pares de modelos.
 
 En primer lugar, comparamos dos algoritmos en el conjunto de datos de entrenamiento.
 En segundo lugar, comparamos dos algoritmos en el conjunto de datos de prueba.
@@ -100,3 +98,4 @@ Explore otros ejemplos disponibles para la interfaz visual:
 - [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Ejemplo 5 - Clasificación: predicción de la renovación](how-to-ui-sample-classification-predict-churn.md)
 - [Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Ejemplo 7 - Clasificación de texto: reseñas de libros](how-to-ui-sample-text-classification.md)

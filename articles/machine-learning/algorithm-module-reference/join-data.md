@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 5fdb822a445e8a62cd36e6dd05aa218b9b41ce9e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: ec9de6975931219ae45543833421234c4d71e6af
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128733"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693090"
 ---
 # <a name="join-data"></a>Combinación de datos
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo usar el módulo **Combinación de datos** en
 
 Para realizar una combinación en dos conjuntos de datos, deben estar relacionados por una columna de clave. También se admiten las claves compuestas con varias columnas. 
 
-1. Agregue los conjuntos de datos que quiere combinar y, luego, arrastre el módulo **Combinación de datos** al experimento. 
+1. Agregue los conjuntos de datos que quiere combinar y, luego, arrastre el módulo **Combinación de datos** a la canalización. 
 
     Puede encontrar el módulo en la categoría **Transformación de datos**, en **Manipulación**.
 
@@ -62,7 +62,7 @@ Para realizar una combinación en dos conjuntos de datos, deben estar relacionad
     * active esta opción para ver las claves de ambas tablas de entrada.
     * Anule la selección para devolver solo las columnas de clave de la entrada izquierda.
 
-1. Ejecute el experimento o seleccione el módulo Combinación de datos y seleccione **Ejecutar seleccionado** para realizar la combinación.
+1. Ejecute la canalización o seleccione el módulo Combinación de datos y elija **Ejecutar seleccionados** para realizar la combinación.
 
 1. Para ver los resultados, haga clic con el botón derecho en **Combinación de datos** > **Conjunto de datos de resultados** > **Visualizar**.
 

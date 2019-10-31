@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 01fb3325bed889911c79a4f828afa27b86d746db
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 01d4e3a06b8c6a95374b9ee246864167e6d2ac85
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128802"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693768"
 ---
 # <a name="execute-r-script"></a>Ejecución script de R
 
-En este artículo se describe cómo usar el módulo **Ejecutar script R** para ejecutar código de R en el experimento de interfaz visual.
+En este artículo se describe cómo usar el módulo **Execute R Script** (Ejecutar Script de R) para ejecutar código de R en la canalización de interfaz visual.
 
 Con R, puede realizar tareas que no son compatibles actualmente con los módulos existentes, como: 
 - Crear transformaciones de datos personalizadas
@@ -75,7 +75,7 @@ El módulo **Ejecutar script R** contiene código de ejemplo que puede usar como
 
 Los conjuntos de datos almacenados en la interfaz visual se convierten automáticamente en una trama de datos de R cuando se cargan con este módulo.
 
-1.  Agregue el módulo **Ejecutar script R** al experimento.
+1.  Agregue el módulo **Execute R Script** (Ejecutar script de R) a la canalización.
 
   
 
@@ -119,11 +119,11 @@ azureml_main <- function(dataframe1, dataframe2){
     > Se hace referencia a los datos pasados al módulo **Ejecutar script de R** como `dataframe1` y `dataframe2`, que es distinto de Azure Machine Learning Studio (se hace referencia a Studio como `dataset1`, `dataset2`). Asegúrese de que en el script se haga referencia correctamente a los datos de entrada.  
  
     > [!NOTE]
-    >  Puede que el código de R existente necesite pequeños cambios para ejecutarse en un experimento de interfaz visual. Por ejemplo, los datos de entrada que se proporcionan en formato CSV deben convertirse explícitamente en un conjunto de datos para que pueda usarlos en su código. Los tipos de datos y columnas que se usan en el lenguaje R también difieren en algunos aspectos de los tipos de columnas y datos que se usan en la interfaz visual.
+    >  Puede que el código de R existente necesite pequeños cambios para ejecutarse en una canalización de interfaz visual. Por ejemplo, los datos de entrada que se proporcionan en formato CSV deben convertirse explícitamente en un conjunto de datos para que pueda usarlos en su código. Los tipos de datos y columnas que se usan en el lenguaje R también difieren en algunos aspectos de los tipos de columnas y datos que se usan en la interfaz visual.
 
 1.  **Valor de inicialización aleatorio**: escriba un valor para usarlo en el entorno de R como valor de inicialización aleatorio. Este parámetro equivale a llamar a `set.seed(value)` en el código de R.  
 
-1. Ejecute el experimento.  
+1. Ejecución de la canalización  
 
 ## <a name="results"></a>Results
 
@@ -133,7 +133,7 @@ Los mensajes estándar y los errores de R se devuelven al registro del módulo.
 
 ## <a name="sample-scripts"></a>Scripts de ejemplo
 
-Hay muchas formas de ampliar el experimento mediante el script de R personalizado.  En esta sección se proporciona el código de ejemplo para las tareas comunes.
+Hay muchas formas de ampliar la canalización mediante el script de R personalizado.  En esta sección se proporciona el código de ejemplo para las tareas comunes.
 
 
 ### <a name="add-r-script-as-an-input"></a>Agregar el script de R como entrada
@@ -146,7 +146,7 @@ El módulo **Ejecutar script R** admite archivos de script de R arbitrarios como
 
 1.  Conecte el conjunto de datos al puerto de entrada del **conjunto de scripts**.
 
-1. Todos los archivos que se encuentran en el archivo ZIP están disponibles durante el tiempo de ejecución del experimento. 
+1. Todos los archivos que se encuentran en el archivo ZIP están disponibles durante el tiempo de ejecución de la canalización. 
 
     Si el archivo del conjunto de scripts contiene una estructura de directorios, esta se conserva. Sin embargo, debe modificar el código para anteponer el directorio **./Conjunto de scripts** a la ruta de acceso.
 
@@ -221,7 +221,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 Puede pasar objetos R entre instancias del módulo **Ejecutar script R** mediante el mecanismo de serialización interno. En este ejemplo se da por supuesto que quiere mover el objeto de R denominado `A` entre dos módulos **Ejecutar script R**.
 
-1. Agregue el primer módulo **Ejecutar script R** al experimento y escriba el siguiente código en el cuadro de texto **Script de R** para crear un objeto serializado `A` como columna en la tabla de datos de salida del módulo:  
+1. Agregue el primer módulo **Execute R Script** (Ejecutar script de R) a la canalización y escriba el siguiente código en el cuadro de texto **R Script** (Script de R) para crear un objeto serializado `A` como columna en la tabla de datos de salida del módulo:  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){

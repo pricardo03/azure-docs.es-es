@@ -1,9 +1,9 @@
 ---
-title: Procedimientos recomendados y arquitecturas de referencia para Azure DDoS Protection | Microsoft Docs
+title: 'Azure DDoS Protection: diseño de soluciones resistentes | Microsoft Docs'
 description: Aprenda a usar datos de registro para obtener un conocimiento más profundo sobre su aplicación.
 services: security
 author: barclayn
-manager: barbkess
+manager: RKarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -12,58 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: a5b4451a6d03cec8e100ed67c0ed9333e8a221de
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ac36a4c59dbec8bf27850de1565e86b78643148a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727485"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595419"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: procedimientos recomendados y arquitecturas de referencia
+# <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection: diseño de soluciones resistentes
 
 Este artículo está destinado a los responsables de decisiones de TI y al personal de seguridad. Se presupone que está familiarizado con las redes y la seguridad de Azure.
-
-Diseñar para crear resistencia frente a los ataques de denegación de servicio distribuidos (DDoS) requiere planear y diseñar para una amplia variedad de modos de error. Este artículo proporciona los procedimientos recomendados para diseñar aplicaciones en Azure resistentes a los ataques de DDoS.
-
-## <a name="types-of-attacks"></a>Tipos de ataques
-
-DDoS es un tipo de ataque que intenta agotar los recursos de la aplicación. El objetivo es afectar a la disponibilidad de la aplicación y a su capacidad para administrar solicitudes legítimas. Los ataques son cada vez más sofisticados y mayor en tamaño e impacto. Los ataques DDoS pueden ir dirigidos a cualquier punto de conexión que sea públicamente accesible a través de Internet.
-
-Azure proporciona protección continua contra los ataques de DDoS. Esta protección se integra en la plataforma Azure de forma predeterminada y sin costo adicional. 
+DDoS es un tipo de ataque que intenta agotar los recursos de la aplicación. El objetivo es afectar a la disponibilidad de la aplicación y a su capacidad para administrar solicitudes legítimas. Los ataques son cada vez más sofisticados y mayor en tamaño e impacto. Los ataques DDoS pueden ir dirigidos a cualquier punto de conexión que sea públicamente accesible a través de Internet. Diseñar para crear resistencia frente a los ataques de denegación de servicio distribuidos (DDoS) requiere planear y diseñar para una amplia variedad de modos de error. Azure proporciona protección continua contra los ataques de DDoS. Esta protección se integra en la plataforma Azure de forma predeterminada y sin costo adicional.
 
 Además de la protección contra DDoS en la plataforma, [Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection/) proporciona funcionalidades avanzadas de mitigación contra DDoS ante ataques en la red. Se ajusta automáticamente para proteger los recursos específicos de Azure. La protección se puede habilitar fácilmente durante la creación de nuevas redes virtuales. También puede realizarse después de la creación y no requiere ningún cambio de aplicación o recurso.
 
 ![Función de Azure DDoS Protection a la hora de proteger a los clientes y a una red virtual de un atacante](./media/ddos-best-practices/image1.png)
 
-Los ataques de DDoS se pueden clasificar en tres categorías: volumétricos, a protocolos y a recursos.
-
-### <a name="volumetric-attacks"></a>Ataques volumétricos
-
-Los ataques volumétricos constituyen el tipo más habitual de ataques de DDoS. Los ataques volumétricos son ataques por fuerza bruta dirigidos a los niveles de red y transporte. Intentan agotar los recursos como, por ejemplo, los vínculos de red. 
-
-Estos ataques suelen utilizar varios sistemas infectados para desbordar los niveles de red con tráfico aparentemente legítimo. Utilizan distintos protocolos de nivel de red, como el Protocolo de mensajes de control de Internet (ICMP), el Protocolo de datagramas de usuario (UDP) y el Protocolo de control de transmisión (TCP).
-
-Los ataques de DDoS dirigidos al nivel de red más comunes son desbordamiento SYN de TCP, eco ICMP, desbordamiento UDP, DNS y amplificación de NTP. Este tipo de ataque se puede utilizar no solo para interrumpir el servicio, sino también como cortina de humo para ocultar una intrusión en la red con fines más perversos y malintencionados. Un ejemplo de un ataque volumétrico reciente es la [vulnerabilidad de seguridad Memcached](https://www.wired.com/story/github-ddos-memcached/) que afectó a GitHub. Este ataque se dirigió al puerto UDP 11211 y generó un volumen de ataque de 1,35 Tb/s.
-
-### <a name="protocol-attacks"></a>Ataques a protocolos
-
-Los ataques a protocolos tienen como objetivo los protocolos de aplicación. Intentan consumir todos los recursos disponibles en los dispositivos de infraestructura, tales como firewalls, servidores de aplicaciones y equilibradores de carga. Los ataques a protocolos utilizan paquetes que tienen un formato incorrecto o que contienen anomalías de protocolo. Estos ataques envían un gran número de solicitudes de apertura a servidores y otros dispositivos de comunicación, y esperan una respuesta de paquete. Los intentos del sistema de destino por responder a las solicitudes de apertura llegan a causar el bloqueo del sistema de destino.
-
-El ejemplo más común de un ataque de DDoS basado en protocolo es el desbordamiento SYN de TCP. En este ataque, una sucesión de solicitudes SYN de TCP intenta sobrecargar un destino. El objetivo es lograr que el destino deje de responder. La interrupción de Dyn de 2016, aparte de ser un ataque de nivel de aplicación, contenía desbordamientos SYN de TCP dirigidos al puerto 53 de los servidores DNS de Dyn.
-
-### <a name="resource-attacks"></a>Ataques a recursos
-
-Loa ataques a recursos tienen como objetivo el nivel de aplicación. Activan los procesos back-end en un esfuerzo por sobrecargar un sistema. Los ataques a recursos generan un tráfico abusivo que parece normal pero que transporta consultas que consumen mucha CPU al servidor. El volumen de tráfico necesario para agotar los recursos es menor que en otros tipos de ataques. El tráfico de un ataque a recursos no se distingue del tráfico legítimo, por lo que resulta difícil de detectar. Los ataques a recursos más comunes se encuentran en los servicios HTTP/HTTPS y DNS.
-
-## <a name="shared-responsibility-in-the-cloud"></a>Responsabilidad compartida en la nube
-
-Se necesita una estrategia de defensa en profundidad para luchar contra la variedad y sofisticación de los ataques, que cada vez son mayores. La seguridad es una responsabilidad compartida entre el cliente y Microsoft. Microsoft se refiere a esto como un [modelo de responsabilidad compartida](https://azure.microsoft.com/blog/microsoft-incident-response-and-shared-responsibility-for-cloud-computing/). La siguiente ilustración muestra esta división de la responsabilidad:
-
-![Responsabilidades del cliente y de Azure](./media/ddos-best-practices/image2.png)
-
-Es conveniente que los clientes de Azure revisen nuestros procedimientos recomendados de Microsoft y compilen aplicaciones globalmente distribuidas diseñadas y probadas para resistir a los errores.
 
 ## <a name="fundamental-best-practices"></a>Procedimientos recomendados fundamentales
 
@@ -80,7 +46,7 @@ Es de vital importancia garantizar que una aplicación sea lo suficientemente re
 
 ### <a name="design-for-scalability"></a>Diseño para escalabilidad
 
-La escalabilidad representa el grado en que un sistema puede controlar el aumento de la carga. Debe diseñar sus aplicaciones para que se puedan [escalar horizontalmente](/azure/architecture/guide/design-principles/scale-out) para satisfacer la demanda de una carga mayor, específicamente en caso de un ataque de DDoS. Si la aplicación depende de una única instancia de un servicio, crea un único punto de error. El aprovisionamiento de varias instancias hace que el sistema sea más resistente y más escalable.
+La escalabilidad representa el grado en que un sistema puede controlar el aumento de la carga. Debe diseñar sus aplicaciones de modo que se puedan [escalar horizontalmente](/azure/architecture/guide/design-principles/scale-out) para satisfacer la demanda de una carga mayor, específicamente en caso de un ataque de DDoS. Si la aplicación depende de una única instancia de un servicio, crea un único punto de error. El aprovisionamiento de varias instancias hace que el sistema sea más resistente y más escalable.
 
 Para [Azure App Service](/azure/app-service/app-service-value-prop-what-is), seleccione un [Plan de App Service](/azure/app-service/overview-hosting-plans) que ofrezca varias instancias. Para Azure Cloud Services, configure cada uno de los roles para utilizar [varias instancias](/azure/cloud-services/cloud-services-choose-me). En el caso de [Azure Virtual Machines](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), asegúrese de que la arquitectura de las máquinas virtuales incluya más de una máquina virtual y que cada una de ellas se incluya en un [conjunto de disponibilidad](/azure/virtual-machines/virtual-machines-windows-manage-availability). Se recomienda usar [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) para contar con funcionalidades de escalado automático.
 
@@ -161,7 +127,7 @@ El planeamiento y la preparación son cruciales para entender cómo se comportar
 
 Si dispone de DDoS Protection Standard, asegúrese de que esté habilitado en la red virtual de los puntos de conexión accesibles desde Internet. La configuración de alertas de DDoS le ayuda a vigilar constantemente los posibles ataques contra su infraestructura. 
 
-Debe supervisar sus aplicaciones de forma independiente. Debe conocer el comportamiento normal de una aplicación. Debe estar preparado para actuar si la aplicación no se comporta como está previsto durante un ataque de DDoS.
+Supervise las aplicaciones de forma independiente. Debe conocer el comportamiento normal de una aplicación. Debe estar preparado para actuar si la aplicación no se comporta como está previsto durante un ataque de DDoS.
 
 #### <a name="testing-through-simulations"></a>Pruebas mediante simulaciones
 
@@ -193,7 +159,8 @@ Además, Microsoft Digital Crimes Unit (DCU) adopta estrategias ofensivas frente
 
 ### <a name="risk-evaluation-of-your-azure-resources"></a>Evaluación del riesgo de los recursos de Azure
 
-Es fundamental conocer el alcance del riesgo de un ataque de DDoS de forma continuada. Periódicamente, pregúntese lo siguiente: 
+Es fundamental conocer el alcance del riesgo de un ataque de DDoS de forma continuada. Periódicamente, pregúntese lo siguiente:
+
 - ¿Qué nuevos recursos de Azure que están públicamente disponibles necesitan protección?
 
 - ¿Hay un único punto de error en el servicio? 
@@ -226,7 +193,7 @@ Azure DDoS Protection Standard identifica y mitiga los ataques de DDoS sin inter
 
 - Si alguien ha amenazado con iniciar un ataque de DDoS contra sus recursos.
 
-- Si necesita incluir en la lista de permitidos una dirección IP o un intervalo IP de Azure DDoS Protection Estándar. Un escenario común consiste en incluir en la lista de permitidos una dirección IP si el tráfico se enruta desde una nube externa WAF para Azure. 
+- Si necesita incluir en la lista de permitidos una dirección IP o un intervalo IP de Azure DDoS Protection Estándar. Un escenario común consiste en incluir en la lista de permitidos una dirección IP si el tráfico se enruta desde una nube externa WAF hasta Azure. 
 
 En caso de ataques que afectan a aspectos críticos de su empresa, cree una [incidencia de soporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) de gravedad A.
 
@@ -301,8 +268,8 @@ Para más información acerca de esta arquitectura de referencia, consulte [Exte
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Página del producto Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
+* [Responsabilidad compartida en la nube](shared-responsibility.md)
 
-* [Blog de Azure DDoS Protection](https://aka.ms/ddosblog)
+* [Página del producto Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
 
 * [Documentación de Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview)

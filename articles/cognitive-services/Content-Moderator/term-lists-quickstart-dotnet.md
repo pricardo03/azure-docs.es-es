@@ -3,19 +3,19 @@ title: 'Comprobación del texto con una lista de términos personalizada en C#: 
 titleSuffix: Azure Cognitive Services
 description: Moderación mediante listas de términos personalizadas con el SDK de Content Moderator para C#.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: d1c2f8b06d333be23f25a2d150c23269bf84cd2e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 272063c3fcc77c76536dbd007b1ab0132a565e61
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242841"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757267"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Comprobación del texto con una lista de términos personalizada en C#
 
@@ -274,7 +274,7 @@ Puede filtrar texto mediante una lista de términos con **ContentModeratorClient
 - Un tipo MIME, que puede ser "text/html", "text/xml", "text/markdown" o "text/plain".
 - El texto que se analizará.
 - Un valor booleano. Establezca este campo en **true** para autocorregir el texto antes de filtrarlo.
-- Un valor booleano. Establezca este campo en **true** para detectar información de identificación Personal (PII) en el texto.
+- Un valor booleano. Establezca este campo en **true** para detectar datos personales en el texto.
 - El identificador de la lista de términos.
 
 Para más información, consulte la [referencia de API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).

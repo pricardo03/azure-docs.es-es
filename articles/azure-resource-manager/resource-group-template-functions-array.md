@@ -1,17 +1,17 @@
 ---
-title: 'Funciones de la plantilla de Azure Resource Manager: matrices y objetos | Microsoft Docs'
+title: 'Funciones de la plantilla de Azure Resource Manager: matrices y objetos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con matrices y objetos.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: cd4a74a9e9e9bb1c91a0a7a103a1cfb861fa7770
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 3366a1be88043c792de8efa3b0d0ab735e558e2a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194413"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528489"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funciones de matriz y de objeto para las plantillas de Azure Resource Manager
 

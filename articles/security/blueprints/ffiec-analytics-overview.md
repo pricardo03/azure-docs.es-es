@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: 35c696e47c0a01c2cdb4d91db5a654208f2196e2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71257267"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Plano técnico de seguridad y cumplimiento de Azure: análisis para servicios financieros de FFIEC
@@ -41,7 +41,7 @@ Para mejorar la seguridad, todos los recursos de esta solución se administran c
 
 Azure SQL Database se administra comúnmente mediante SQL Server Management Studio (SSMS), que se ejecuta desde una máquina local configurada para acceder a Azure SQL Database mediante una conexión segura VPN o ExpressRoute. **Microsoft recomienda configurar una conexión VPN o de ExpressRoute para la administración y la importación de datos en el grupo de recursos de la arquitectura de referencia**.
 
-![Diagrama de arquitectura de referencia de análisis para FFIEC](images/ffiec-analytics-architecture.png "Analytics for FFIEC reference architecture diagram")
+![Diagrama de arquitectura de referencia de Analytics para FFIEC](images/ffiec-analytics-architecture.png "Diagrama de arquitectura de referencia de Analytics para FFIEC")
 
 Esta solución usa los siguientes servicios de Azure. Los detalles de la arquitectura de implementación se encuentran en la sección [Arquitectura de implementación](#deployment-architecture).
 
@@ -167,7 +167,7 @@ Como parte de esta arquitectura se incluyen las siguientes [soluciones de superv
 
 El diagrama de flujo de datos de esta arquitectura de referencia está disponible para su [descarga](https://aka.ms/ffiec-analytics-tm) y se encuentra a continuación. El modelo puede ayudar a los clientes a comprender los puntos de riesgo potencial de la infraestructura del sistema al realizar modificaciones.
 
-![Modelo de amenazas de análisis para FFIEC](images/ffiec-analytics-threat-model.png "Analytics for FFIEC threat model")
+![Modelo de amenazas de Analytics para FFIEC](images/ffiec-analytics-threat-model.png "Modelo de amenazas de Analytics para FFIEC")
 
 ## <a name="compliance-documentation"></a>Documentación de cumplimiento
 

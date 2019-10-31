@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 93f27458a2571b2e26a090c06b01d8abe3e79c2a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 54518d21db0c9b14cbb7b4fc4316d1db2b871573
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128588"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692736"
 ---
 # <a name="neural-network-regression-module"></a>Módulo Regresión de red neuronal
 
@@ -52,7 +52,7 @@ Las redes neuronales se pueden personalizar ampliamente. En esta sección se des
 
 ##  <a name="bkmk_DefaultArchitecture"></a>Crear un modelo de red neuronal con la arquitectura predeterminada
   
-1.  Agregue el módulo **Regresión de red neuronal** al experimento en la interfaz. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Regresión**. 
+1.  Agregue el módulo **Regresión de red neuronal** a la canalización en la interfaz. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Regresión**. 
   
 2. Para indicar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
   
@@ -76,16 +76,16 @@ Las redes neuronales se pueden personalizar ampliamente. En esta sección se des
 
 8.  Para **The momentum** (El momentum), escriba el valor que se debe aplicar durante el aprendizaje como peso en los nodos de iteraciones anteriores.
 
-10. Seleccione la opción **Shuffle examples** (Ejemplos de orden aleatorio), para cambiar el orden de los casos entre iteraciones. Si anuló la selección de esta opción, los casos se procesan en el mismo orden exactamente cada vez que ejecuta el experimento.
+10. Seleccione la opción **Shuffle examples** (Ejemplos de orden aleatorio), para cambiar el orden de los casos entre iteraciones. Si anula la selección de esta opción, los casos se procesan exactamente en el mismo orden cada vez que se ejecuta la canalización.
   
-11. Para **Random number seed** (Inicialización de número aleatorio), puede escribir opcionalmente un valor que se usará como inicialización. Especificar un valor de inicialización es útil cuando desea asegurar la repetibilidad entre ejecuciones del mismo experimento.
+11. Para **Random number seed** (Inicialización de número aleatorio), puede escribir opcionalmente un valor que se usará como inicialización. Especificar un valor de inicialización es útil cuando desea asegurar la repetibilidad entre ejecuciones de la misma canalización.
   
 13. Conecte un conjunto de datos de entrenamiento y uno de los [módulos de entrenamiento](module-reference.md): 
   
     -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use [Entrenar modelo](./train-model.md).  
   
    
-14. Ejecute el experimento.  
+14. Ejecución de la canalización  
 
 ## <a name="results"></a>Results
 
@@ -93,7 +93,7 @@ Una vez completado el entrenamiento:
 
 + Para ver un resumen de los parámetros del modelo, junto con los pesos de característica aprendidos en el entrenamiento y otros parámetros de la red neuronal, haga clic con el botón derecho en la salida de [Train Model](./train-model.md) (Entrenar modelo) y seleccione **Visualizar**.  
 
-+ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado de **Trained model** (Modelo entrenado) y seleccione **Save As Trained Model** (Guardar como modelo entrenado). El modelo no se actualiza en las ejecuciones sucesivas del mismo experimento.
++ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado de **Trained model** (Modelo entrenado) y seleccione **Save As Trained Model** (Guardar como modelo entrenado). Este modelo no se actualiza en las ejecuciones sucesivas de la misma canalización.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

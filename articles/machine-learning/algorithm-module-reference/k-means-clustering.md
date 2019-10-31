@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 7de2978fee80cf3acd078ef8ee5f235fab21713e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: bb39a57f565a542e5106b7ba14e58bc39041f53d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128697"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693109"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: Agrupación en clústeres K-Means
 
@@ -28,7 +28,7 @@ K-means es uno de los algoritmos de aprendizaje *supervisados* más sencillos y 
 
 Para crear un modelo de agrupación en clústeres:
 
-* Agregue este módulo al experimento.
+* Agregue este módulo a la canalización.
 * Conéctese a un conjunto de datos.
 * Configure los parámetros, como el número de clústeres que prevé, la métrica de distancia que se usa para crear los clústeres, etc. 
   
@@ -54,7 +54,7 @@ Cuando procesa los datos de entrenamiento, el algoritmo K-means comienza con un 
 
 ## <a name="configure-the-k-means-clustering-module"></a>Configuración del módulo de agrupación en clústeres K-Means
   
-1.  Agregue el módulo **Agrupación en clústeres K-Means** al experimento.  
+1.  Agregue el módulo **Agrupación en clústeres K-Means** a la canalización.  
   
 2.  Para especificar cómo quiere que se entrene el modelo, seleccione la opción **Create trainer mode** (Crear modo entrenador).  
   
@@ -119,7 +119,7 @@ Si usó el módulo [Train Clustering Model clústeres](train-clustering-model.md
 
 2. Seleccione **Trained model** (Modelo entrenado) y, a continuación, seleccione **Save as Trained Mode** (Guardar como modelo entrenado).
 
-El modelo guardado representa los datos de entrenamiento en el momento de guardar el modelo. Si más tarde actualiza los datos de entrenamiento utilizados en el experimento, no actualiza el modelo guardado. 
+El modelo guardado representa los datos de entrenamiento en el momento de guardar el modelo. Si más tarde actualiza los datos de entrenamiento utilizados en la canalización, no actualiza el modelo guardado. 
 
 #### <a name="see-the-clustering-result-dataset"></a>Ver el conjunto de datos de resultado de la agrupación en clústeres 
 

@@ -4,28 +4,28 @@ description: Visualización de la actividad y del historial de auditoría para l
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e1ed018f66d4f5eefd02d587504cf64969f47b
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 0c9a58fb6cd8591f571b4e65c3ab88cc59e38cda
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804047"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756324"
 ---
-# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Visualización de la actividad y del historial de auditoría para los roles de recursos de Azure en PIM
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visualización de la actividad y del historial de auditoría para los roles de recursos de Azure en Privileged Identity Management
 
-Con Privileged Identity Management (PIM) de Azure Active Directory (Azure AD), puede ver la actividad, las activaciones y el historial de auditoría de los roles de recursos de Azure dentro de su organización. Esto incluye las suscripciones, los grupos de recursos e incluso las máquinas virtuales. Todos los recursos de Azure Portal que aprovechan la funcionalidad de control de acceso basado en rol (RBAC) de Azure también pueden aprovechar todas las ventajas de las funcionalidades de seguridad y administración del ciclo de vida que ofrece PIM.
+Con Privileged Identity Management (PIM) de Azure Active Directory (Azure AD), puede ver la actividad, las activaciones y el historial de auditoría de los roles de recursos de Azure dentro de su organización. Esto incluye las suscripciones, los grupos de recursos e incluso las máquinas virtuales. Todos los recursos de Azure Portal que aprovechan la funcionalidad de control de acceso basado en rol (RBAC) de Azure también pueden aprovechar todas las ventajas de las funcionalidades de seguridad y administración del ciclo de vida que ofrece Privileged Identity Management.
 
 ## <a name="view-activity-and-activations"></a>Visualización de la actividad y activaciones
 
@@ -51,7 +51,7 @@ Para ver las acciones que realizó un usuario específico en varios recursos, pu
 
 ## <a name="export-role-assignments-with-children"></a>Exportación de asignaciones de roles con elementos secundarios
 
-Puede tener un requisito de cumplimiento en el que debe proporcionar una lista completa de las asignaciones de roles a los auditores. PIM le permite consultar las asignaciones de roles en un recurso específico, que incluye asignaciones de roles para todos los recursos secundarios. Anteriormente, a los administradores les resultaba difícil obtener una lista completa de asignaciones de roles para una suscripción y tenían que exportar dichas asignaciones para cada recurso específico. Con PIM, puede consultar todas las asignaciones de roles activas y elegibles de una suscripción, incluidas las asignaciones de roles para todos los recursos y grupos de recursos.
+Puede tener un requisito de cumplimiento en el que debe proporcionar una lista completa de las asignaciones de roles a los auditores. Privileged Identity Management le permite consultar las asignaciones de roles en un recurso específico, que incluye asignaciones de roles para todos los recursos secundarios. Anteriormente, a los administradores les resultaba difícil obtener una lista completa de asignaciones de roles para una suscripción y tenían que exportar dichas asignaciones para cada recurso específico. Con Privileged Identity Management, puede consultar todas las asignaciones de roles activas y elegibles de una suscripción, incluidas las asignaciones de roles para todos los recursos y grupos de recursos.
 
 1. Abra **Azure AD Privileged Identity Management**.
 
@@ -111,6 +111,6 @@ Mi auditoría permite ver la actividad del rol personal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Asignación de roles de recursos de Azure en PIM](pim-resource-roles-assign-roles.md)
-- [Aprobación o rechazo de solicitudes de roles de recursos de Azure en PIM](pim-resource-roles-approval-workflow.md)
-- [Visualización del historial de auditorías de Azure AD en PIM](pim-how-to-use-audit-log.md)
+- [Asignación de roles de recursos de Azure en Privileged Identity Management](pim-resource-roles-assign-roles.md)
+- [Aprobación o rechazo de solicitudes para los roles de Azure en Privileged Identity Management](pim-resource-roles-approval-workflow.md)
+- [Visualización del historial de auditoría para los roles de Azure AD en PIM](pim-how-to-use-audit-log.md)

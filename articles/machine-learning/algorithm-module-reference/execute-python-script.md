@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 4bd3433db92767f2d0d733ab71e4298fc5e618f8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: ac68239c12fb284dd3cb5179b5719f3d36acbd34
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128819"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693786"
 ---
 # <a name="execute-python-script-module"></a>Módulo Ejecución de script de Python
 
@@ -79,7 +79,7 @@ os.system(f"pip install scikit-misc")
 
 El módulo **Ejecución de script de Python** contiene código de Python de ejemplo que puede usar como punto de partida. Para configurar el módulo **Ejecución de script de Python**, debe proporcionar un conjunto de entradas y código de Python que se ejecutará en el cuadro de texto **Python script** (Script de Python).
 
-1. Agregue el módulo **Ejecución de script de Python** al experimento.
+1. Agregue el módulo **Execute Python Script** (Ejecutar script de Python) al experimento.
 
 2. Agregue y conecte en **Dataset1** los conjuntos de datos de la interfaz que quiera usar para la entrada. Haga referencia a este conjunto de datos en el script de Python como **DataFrame1**.
 
@@ -93,7 +93,7 @@ El módulo **Ejecución de script de Python** contiene código de Python de ejem
 
 4. Para incluir nuevos paquetes o código de Python, agregue el archivo comprimido que contiene estos recursos personalizados a **Script bundle** (Agrupación de scripts). La entrada para **Script bundle** (Agrupación de scripts) debe ser un archivo comprimido que ya se haya cargado en el área de trabajo. 
 
-    Cualquier archivo incluido en el archivo comprimido cargado puede usarse durante la ejecución del experimento. Si el archivo incluye una estructura de directorios, se conserva la estructura, pero debe anteponerse un directorio llamado **src** a la ruta de acceso.
+    Cualquier archivo incluido en el archivo comprimido cargado puede usarse durante la ejecución de la canalización. Si el archivo incluye una estructura de directorios, se conserva la estructura, pero debe anteponerse un directorio llamado **src** a la ruta de acceso.
 
 5. En el cuadro de texto **Python Script** (Script de Python), escriba o pegue el script de Python válido.
 
@@ -107,13 +107,13 @@ El módulo **Ejecución de script de Python** contiene código de Python de ejem
 
     + Se pueden devolver dos conjuntos de datos a la interfaz, que deben ser una secuencia de tipo `pandas.DataFrame`. Puede crear otras salidas en el código de Python y escribirlas directamente en Azure Storage.
 
-6. Ejecute el experimento, o seleccione el módulo y haga clic en **Ejecutar seleccionados** para ejecutar el script de Python.
+6. Ejecute la canalización, o seleccione el módulo y haga clic en **Run selected** (Ejecutar seleccionados) para ejecutar el script de Python.
 
     Todos los datos y el código se cargan en una máquina virtual y se ejecutan con el entorno de Python especificado.
 
 ## <a name="results"></a>Results
 
-Los resultados de todos los cálculos realizados por el código de Python insertado deben proporcionarse como pandas.DataFrame, que se convierte automáticamente en el formato de conjunto de datos de Azure Machine Learning, por lo que puede usar los resultados con otros módulos en el experimento.
+Los resultados de todos los cálculos realizados por el código de Python insertado deben proporcionarse como pandas.DataFrame, que se convierte automáticamente en el formato de conjunto de datos de Azure Machine Learning, por lo que puede usar los resultados con otros módulos en la canalización.
 
 El módulo devuelve dos conjuntos de datos:  
   

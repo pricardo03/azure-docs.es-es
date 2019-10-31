@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 44d1e7606efd5bc6d2286254dc4863728e3edbfd
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3322f2be3c5c6f819adbc9d83ee9eb6b6577f707
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128591"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692722"
 ---
 # <a name="multiclass-neural-network-module"></a>Módulo Multiclass Neural Network
 
@@ -40,7 +40,7 @@ Para calcular la salida de la red para una entrada determinada, se calcula un va
 
 ## <a name="configure-multiclass-neural-network"></a>Configurar una red neuronal multiclase
 
-1. Agregue el módulo **MultiClass Neural Network** al experimento en la interfaz. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Clasificación**.
+1. Agregue el módulo **Red neuronal multiclase** a la canalización en la interfaz. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Clasificación**.
 
 2. **Create trainer mode** (Crear modo entrenador): Use esta opción para especificar cómo quiere que se entrene al modelo:
 
@@ -73,9 +73,9 @@ Para calcular la salida de la red para una entrada determinada, se calcula un va
   
 11. **Shuffle examples** (Ordenar ejemplos aleatoriamente): Seleccione esta opción para ordenar de forma aleatoria los casos entre iteraciones.
 
-    Si anuló la selección de esta opción, los casos se procesan en el mismo orden exactamente cada vez que ejecuta el experimento.
+    Si anula la selección de esta opción, los casos se procesan exactamente en el mismo orden cada vez que se ejecuta la canalización.
 
-12. **Número de iniciación aleatorio**: Escriba un valor para usar como iniciación si desea asegurar la repetibilidad entre ejecuciones del mismo experimento.
+12. **Número de iniciación aleatorio**: Escriba un valor para usar como inicialización si desea asegurar la repetibilidad entre ejecuciones de la misma canalización.
 
 14. Conecte un conjunto de datos de entrenamiento y uno de los [módulos de entrenamiento](module-reference.md): 
 
@@ -88,7 +88,7 @@ Una vez completado el entrenamiento:
 
 - Para ver un resumen de los parámetros del modelo, junto con los pesos de característica aprendidos en el entrenamiento y otros parámetros de la red neuronal, haga clic con el botón derecho en la salida de [Train Model](./train-model.md) (Entrenar modelo) y seleccione **Visualizar**.  
 
-- Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado de **Trained model** (Modelo entrenado) y seleccione **Save As Trained Model** (Guardar como modelo entrenado). El modelo no se actualiza en las ejecuciones sucesivas del mismo experimento.
+- Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado de **Trained model** (Modelo entrenado) y seleccione **Save As Trained Model** (Guardar como modelo entrenado). Este modelo no se actualiza en las ejecuciones sucesivas de la misma canalización.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,7 +1,7 @@
 ---
 title: 'Import from Azure Blob Storage: referencia para los módulos'
 titleSuffix: Azure Machine Learning service
-description: En este tema se describe cómo usar el módulo Import from Azure Blob Storage (Importación dese Azure Blob Storage) en Azure Machine Learning Service para leer datos de Azure blob Storage, para que puede usar los datos en un experimento de aprendizaje automático.
+description: En este tema se describe cómo usar el módulo Import from Azure Blob Storage (Importación desde Azure Blob Storage) en Azure Machine Learning Service para leer datos de Azure Blob Storage, a fin de que pueda usar los datos en una canalización de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: fea64070c496379351bb75f2a38aba9b4db70dcd
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f8d23bfbee6d3665d770d8cbbcb9440827a88e8e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128715"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693737"
 ---
 # <a name="import-from-azure-blob-storage-module"></a>Módulo Import from Azure Blob Storage
 
 En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
 
-Use este módulo para leer datos de Azure Blob Storage, para poder usar los datos en un experimento de aprendizaje automático.  
+Use este módulo para leer datos de Azure Blob Storage, para poder usar los datos en una canalización de aprendizaje automático.  
 
 Azure Blob Service sirve para almacenar grandes cantidades de datos, incluidos datos binarios. Puede acceder a los blobs de Azure desde cualquier lugar, mediante HTTP o HTTPS. La autenticación puede ser necesaria según el tipo de almacenamiento de blobs. 
 
@@ -38,7 +38,7 @@ Se recomienda encarecidamente generar el perfil de los datos antes de importar, 
 
 En los pasos siguientes se describe cómo configurar manualmente el origen de la importación.
 
-1. Agregue el módulo **Importación de datos** al experimento. Puede encontrar este módulo en la interfaz, en **Entrada y salida de datos**.
+1. Agregue el módulo **Importación de datos** a la canalización. Puede encontrar este módulo en la interfaz, en **Entrada y salida de datos**.
 
 2. En **Origen de datos**, seleccione **Azure Blob Storage**.
 
@@ -77,7 +77,7 @@ En los pasos siguientes se describe cómo configurar manualmente el origen de la
     No puede usar caracteres comodín en nombres de contenedor. Si tiene que importar archivos de varios contenedores, use una instancia independiente del módulo **Importación de datos** para cada contenedor y, luego, combine los conjuntos de datos con el módulo [Add Rows](./add-rows.md) (Agregar filas).
 
     > [!NOTE]
-    > Si ha seleccionado la opción **Use cached results** (Usar resultados en caché), los cambios que haga en los archivos en el contenedor no desencadenan una actualización de los datos en el experimento.
+    > Si ha seleccionado la opción **Use cached results** (Usar resultados en caché), los cambios que haga en los archivos en el contenedor no desencadenan una actualización de los datos en la canalización.
 
 7. Para **Formato de archivo de blob**, seleccione una opción que indique el formato de los datos que se almacenan en el blob, de modo que Azure Machine Learning pueda procesar los datos de forma adecuada. Se admiten los siguientes formatos:
 
@@ -93,7 +93,7 @@ En los pasos siguientes se describe cómo configurar manualmente el origen de la
 
    
 
-8. Ejecute el experimento.
+8. Ejecución de la canalización
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
 ms.openlocfilehash: 9b0478b3e72a759186d7d18ce6f7a885a1098d4b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71259504"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-uk-nhs"></a>Plano técnico de seguridad y cumplimiento de Azure: Aplicación web PaaS para el Sistema sanitario nacional del Reino Unido
@@ -33,7 +33,7 @@ Para mejorar la seguridad, todos los recursos de esta solución se administran c
 
 Un host de tipo bastión de administración proporciona una conexión segura para que los administradores accedan a los recursos implementados. **Microsoft recomienda configurar una conexión VPN o de ExpressRoute para la administración y la importación de datos en la subred de la arquitectura de referencia.**
 
-![Diagrama de una arquitectura de referencia de una aplicación web de IaaS para el Sistema sanitario nacional del Reino Unido](images/uknhs-iaaswa-architecture.png?raw=true "Diagrama de una arquitectura de referencia de una aplicación web de IaaS para el Sistema sanitario nacional del Reino Unido")
+![Diagrama de arquitectura de referencia de aplicaciones web IaaS para el Sistema sanitario nacional del Reino Unido](images/uknhs-iaaswa-architecture.png?raw=true "Diagrama de arquitectura de referencia de aplicaciones web IaaS para el Sistema sanitario nacional del Reino Unido")
 
 Esta solución usa los siguientes servicios de Azure. Los detalles de la arquitectura de implementación se encuentran en la sección [Arquitectura de implementación](#deployment-architecture).
 
@@ -193,7 +193,7 @@ Como parte de esta arquitectura se incluyen las siguientes [soluciones de superv
 
 El diagrama de flujo de datos de esta arquitectura de referencia está disponible para su [descarga](https://aka.ms/uknhs-iaaswa-tm) y se encuentra a continuación. El modelo puede ayudar a los clientes a comprender los puntos de riesgo potencial de la infraestructura del sistema al realizar modificaciones.
 
-![Aplicación web de IaaS para el modelo de amenazas del Sistema sanitario nacional del Reino Unido](images/uknhs-iaaswa-threat-model.png?raw=true "Aplicación web de IaaS para el modelo de amenazas del Sistema sanitario nacional del Reino Unido")
+![Modelo de amenazas de aplicaciones web IaaS para el Sistema sanitario nacional del Reino Unido](images/uknhs-iaaswa-threat-model.png?raw=true "Modelo de amenazas de aplicaciones web IaaS para el Sistema sanitario nacional del Reino Unido")
 
 ## <a name="compliance-documentation"></a>Documentación de cumplimiento
 

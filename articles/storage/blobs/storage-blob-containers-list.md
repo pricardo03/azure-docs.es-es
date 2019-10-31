@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a76b83218a194c2b5cbf3ce582e8094014004123
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: b7e5b0725049fa5de95f435c848502c36a3a1726
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803376"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598120"
 ---
 # <a name="list-blob-containers-with-net"></a>Enumeración de contenedores de blob con .NET
 
@@ -40,9 +40,9 @@ En el código, compruebe el valor del token de continuación para determinar si 
 
 Para filtrar la lista de contenedores, especifique una cadena para el parámetro `prefix`. La cadena de prefijo puede incluir uno o varios caracteres. Después, Azure Storage solo devuelve los contenedores cuyos nombres empiecen por ese prefijo.
 
-### <a name="return-container-metadata"></a>Devolución de metadatos de contenedor
+### <a name="return-metadata"></a>Devolución de metadatos
 
-Para devolver metadatos del contenedor con los resultados, especifique el valor **Metadata** para la enumeración [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails). Azure Storage incluye metadatos con cada contenedor que se devuelve, por lo que no es necesario llamar a uno de los métodos **FetchAttributes** para recuperar los metadatos del contenedor.
+Para devolver metadatos del contenedor con los resultados, especifique el valor **Metadata** con la enumeración [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails). Azure Storage incluye metadatos con cada contenedor que se devuelve, por lo que no es necesario llamar a uno de los métodos **FetchAttributes** para recuperar los metadatos del contenedor.
 
 ## <a name="example-list-containers"></a>Ejemplo: Enumerar contenedores
 

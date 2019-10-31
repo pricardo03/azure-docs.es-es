@@ -9,19 +9,19 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: a91f1446d8aab3db36499a9b5707d48d387b6081
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 861b04203575a6046608cf3fad3117ad2726acab
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131131"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693460"
 ---
 # <a name="sample-1---regression-predict-price"></a>Ejemplo 1 - Regresión: Predicción del precio
 
 Aprenda a compilar un modelo de regresión de Machine Learning sin necesidad de escribir una sola línea de código mediante la interfaz visual.
 
-Este experimento entrena un **regresor de bosque de decisión** para predecir el precio de un automóvil en función de sus características técnicas, como la marca, el modelo, los caballos de potencia y el tamaño. Como estamos intentando responder a la pregunta "¿cuánto?", esto se denomina un problema de regresión. Sin embargo, puede aplicar los mismos pasos fundamentales de este ejemplo para abordar cualquier tipo de problema de aprendizaje automático, ya sea una regresión, una clasificación, una agrupación en clústeres, etc.
+Esta canalización entrena un **regresor de bosque de decisión** para predecir el precio de un automóvil en función de sus características técnicas, como la marca, el modelo, los caballos de potencia y el tamaño. Como estamos intentando responder a la pregunta "¿cuánto?", esto se denomina un problema de regresión. Sin embargo, puede aplicar los mismos pasos fundamentales de este ejemplo para abordar cualquier tipo de problema de aprendizaje automático, ya sea una regresión, una clasificación, una agrupación en clústeres, etc.
 
 Los pasos fundamentales de un modelo de Machine Learning son:
 
@@ -30,21 +30,21 @@ Los pasos fundamentales de un modelo de Machine Learning son:
 1. Entrenamiento del modelo
 1. Evaluación del modelo
 
-Este es el gráfico final y completo del experimento en el que vamos a trabajar. Le presentaremos el razonamiento de todos los módulos para que pueda tomar sus propias decisiones.
+Este es el gráfico final completo de la canalización. Le presentaremos el razonamiento de todos los módulos para que pueda tomar sus propias decisiones.
 
-![Gráfico del experimento](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
+![Gráfico de la canalización](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Seleccione el botón **Abrir** correspondiente al experimento Ejemplo 1:
+4. Seleccione el botón **Abrir** correspondiente a la canalización del ejemplo 1:
 
-    ![Abrir el experimento](media/how-to-ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
+    ![Apertura de la canalización](media/how-to-ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## <a name="get-the-data"></a>Obtener los datos
 
-En este experimento se usa el conjunto de datos **Automobile price data (Raw)** del repositorio de UCI de Machine Learning. Este conjunto de datos contiene 26 columnas con información acerca de automóviles, incluida la marca, el modelo, el precio, las características (como la cilindrada), el consumo de combustible y una puntuación de riesgo para el seguro. El objetivo de este experimento es predecir el precio del automóvil.
+En este experimento se usa el conjunto de datos **Automobile price data (Raw)** del repositorio de UCI de Machine Learning. Este conjunto de datos contiene 26 columnas con información acerca de automóviles, incluida la marca, el modelo, el precio, las características (como la cilindrada), el consumo de combustible y una puntuación de riesgo para el seguro. El objetivo de este ejemplo es predecir el precio del automóvil.
 
 ## <a name="pre-process-the-data"></a>Preprocesar los datos
 
@@ -58,7 +58,7 @@ Use el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto 
 
 Los problemas del aprendizaje automático son varios. Las tareas de aprendizaje automático habituales incluyen la clasificación, la agrupación en clústeres, la regresión y los sistemas de recomendación, que pueden requerir algoritmos diferentes. La elección del algoritmo a menudo depende de los requisitos del caso de uso. Después de elegir un algoritmo deberá ajustar sus parámetros para entrenar un modelo más preciso. A continuación, deberá evaluar todos los modelos en función de unas métricas, como la precisión, la inteligibilidad y la eficacia.
 
-Dado que el objetivo de este experimento es predecir precios de automóviles y la columna de etiqueta (precio) contiene números reales, un modelo de regresión es una buena elección. Teniendo en cuenta que el número de características es relativamente pequeño (menor que 100) y que estas características no están dispersas, el límite de decisión es probable que sea no lineal. Por lo tanto, en este experimento usaremos la **regresión de bosque de decisión**.
+Dado que el objetivo de este ejemplo es predecir precios de automóviles y la columna de etiqueta (precio) contiene números reales, un modelo de regresión es una buena elección. Teniendo en cuenta que el número de características es relativamente pequeño (menor que 100) y que estas características no están dispersas, el límite de decisión es probable que sea no lineal. Por lo tanto, en esta canalización usaremos **Regresión de bosque de decisión**.
 
 Use el módulo **Split Data** (Dividir datos) para dividir aleatoriamente los datos de entrada de forma que el conjunto de datos de entrenamiento contenga el 70 % de los datos originales y el de prueba el 30 %.
 
@@ -89,3 +89,4 @@ Explore otros ejemplos disponibles para la interfaz visual:
 - [Ejemplo 4 - Clasificación: predicción del riesgo crediticio (sensible a los costos)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Ejemplo 5 - Clasificación: predicción de la renovación](how-to-ui-sample-classification-predict-churn.md)
 - [Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Ejemplo 7 - Clasificación de texto: reseñas de libros](how-to-ui-sample-text-classification.md)

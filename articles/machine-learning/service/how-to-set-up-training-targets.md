@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: bce04a14a13d5b3615963f298f35af0d2fc480bb
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 95ded3c184836ac58a0f97d1bf30dd2e3c123ccb
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244434"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755965"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
 
@@ -499,7 +499,7 @@ Para obtener más información sobre estos comandos de la CLI ```az ml``` y el c
 
 ## <a name="git-tracking-and-integration"></a>Integración y seguimiento de Git
 
-Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
+Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Para más información, consulte [Integración de Git con Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## <a name="notebook-examples"></a>Ejemplos de cuadernos
 

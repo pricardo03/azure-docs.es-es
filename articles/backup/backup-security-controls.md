@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: f44be7556b6d741df93faeeab1dbdfc15bc8ebfd
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8170022a3ee4b4b65e8da0d9e5a2f8464675d08f
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211805"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528108"
 ---
 # <a name="security-controls-for-azure-backup"></a>Controles de seguridad para Azure Backup
 
-En este artículo se explican los controles de seguridad integrados en Azure Backup. 
+En este artículo se explican los controles de seguridad integrados en Azure Backup.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
@@ -34,7 +34,7 @@ En este artículo se explican los controles de seguridad integrados en Azure Bac
 
 | Control de seguridad | Sí/No | Notas| | Documentación
 |---|---|--|
-| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Log Analytics se admite a través de los registros de diagnóstico. Para más información, consulte [Monitor Azure Backup protected workloads using Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) (Supervisión de cargas de trabajo protegidas por Azure Backup con Log Analytics). |  |
+| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Log Analytics se admite mediante registros de recursos. Para más información, consulte [Monitor Azure Backup protected workloads using Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) (Supervisión de cargas de trabajo protegidas por Azure Backup con Log Analytics). |  |
 | Registro y auditoría del plano de administración y de control| Sí | Todas las acciones que desencadena el cliente desde Azure Portal se registran en los registros de actividad. |  |
 | Registro y auditoría del plano de datos| Sin | No se puede acceder al plano de datos de Azure Backup directamente.  |  |
 

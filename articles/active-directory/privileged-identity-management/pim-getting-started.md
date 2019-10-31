@@ -14,49 +14,49 @@ ms.date: 04/09/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 018cc54a770a0d18fa9af3d93fec2f5f720ce17b
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: b0ba7846b60ca6649b4342d5096e92dfd8c96601
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804518"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756307"
 ---
-# <a name="start-using-pim"></a>Primer uso de PIM
+# <a name="start-using-privileged-identity-management"></a>Empiece a usar Privileged Identity Management
 
-Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), puede administrar, controlar y supervisar el acceso dentro de la organización. Este ámbito incluye el acceso a los recursos de Azure, a Azure AD y a otros servicios en línea de Microsoft, como Office 365 o Microsoft Intune.
+Con Privileged Identity Management (PIM), puede administrar, controlar y supervisar el acceso dentro de la organización de Azure Active Directory (Azure AD). Este ámbito incluye el acceso a los recursos de Azure, a Azure AD y a otros servicios en línea de Microsoft, como Office 365 o Microsoft Intune.
 
-En este artículo se describe cómo habilitar y empezar a usar PIM.
+En este artículo se describe cómo habilitar y empezar a usar Privileged Identity Management.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar PIM, debe tener una de las siguientes licencias:
+Para usar Privileged Identity Management, debe tener una de las licencias siguientes:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
 
-Para más información, consulte los [Requisitos de licencia para usar PIM](subscription-requirements.md).
+Para más información, consulte [Requisitos de licencia para usar Privileged Identity Management](subscription-requirements.md).
 
 ## <a name="first-person-to-use-pim"></a>Primera persona que usa PIM
 
-Si es la primera persona que usa PIM en el directorio, se le asignarán automáticamente los roles de [Administrador de seguridad](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) y [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) en el directorio. Solo los administradores de rol con privilegios pueden administrar las asignaciones de roles de los usuarios de Azure AD. Además, puede elegir ejecutar el [Asistente para seguridad](pim-security-wizard.md) que le guía por la experiencia inicial de detección y asignación.
+Si es la primera persona que usa Privileged Identity Management en el directorio, se le asignarán automáticamente los roles de [Administrador de seguridad](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) y [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) del directorio. Solo los administradores de rol con privilegios pueden administrar las asignaciones de roles de los usuarios de Azure AD. Además, puede elegir ejecutar el [Asistente para seguridad](pim-security-wizard.md) que le guía por la experiencia inicial de detección y asignación.
 
 ## <a name="enable-pim"></a>Habilitación de PIM
 
-Para empezar a usar PIM en el directorio, primero debe habilitarlo.
+Para empezar a usar Privileged Identity Management en el directorio, primero debe habilitarlo.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global de su directorio.
 
-    Necesita ser un administrador global con una cuenta profesional (por ejemplo, @yourdomain.com), no una cuenta Microsoft (por ejemplo, @outlook.com), para habilitar PIM en un directorio.
+    Necesita ser un administrador global con una cuenta profesional (por ejemplo, @yourdomain.com), no una cuenta Microsoft (por ejemplo, @outlook.com), para habilitar Privileged Identity Management en un directorio.
 
 1. Haga clic en **Todos los servicios** y busque el servicio **Azure AD Privileged Identity Management**.
 
     ![Azure AD Privileged Identity Management en Todos los servicios](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Haga clic para abrir el Inicio rápido de PIM.
+1. Haga clic para abrir el Inicio rápido de Privileged Identity Management.
 
 1. En la lista, haga clic en **Consentimiento para PIM**.
 
-    ![Consentimiento para PIM para habilitar PIM](./media/pim-getting-started/consent-pim.png)
+    ![Consentimiento para que Privileged Identity Management habilite Privileged Identity Management](./media/pim-getting-started/consent-pim.png)
 
 1. Haga clic en **Comprobar mi identidad** para comprobar su identidad con Azure MFA. Se le pedirá que elija una cuenta.
 
@@ -72,35 +72,35 @@ Para empezar a usar PIM en el directorio, primero debe habilitarlo.
 
 1. Una vez que haya completado el proceso de comprobación, haga clic en el botón **Consentir**.
 
-1. En el mensaje que aparece, haga clic en **Sí** para dar su consentimiento al servicio PIM.
+1. En el mensaje que aparece, haga clic en **Sí** para dar su consentimiento al servicio Privileged Identity Management.
 
-    ![Mensaje de consentimiento a PIM para completar el proceso de consentimiento](./media/pim-getting-started/consent-pim-message.png)
+    ![Consentimiento para el mensaje de Privileged Identity Management para completar el proceso de consentimiento](./media/pim-getting-started/consent-pim-message.png)
 
 ## <a name="sign-up-pim-for-azure-ad-roles"></a>Registro de PIM para roles de Azure AD
 
-Una vez que ha habilitado PIM para su directorio, deberá registrarlo para administrar roles de Azure AD.
+Una vez que haya habilitado Privileged Identity Management para su directorio, deberá registrar Privileged Identity Management para administrar los roles de Azure AD.
 
 1. Abra **Azure AD Privileged Identity Management**.
 
 1. Haga clic en **Roles de Azure AD**.
 
-    ![Registro de PIM para roles de Azure AD](./media/pim-getting-started/sign-up-pim-azure-ad-roles.png)
+    ![Registro de Privileged Identity Management para roles de Azure AD](./media/pim-getting-started/sign-up-pim-azure-ad-roles.png)
 
 1. Haga clic en **Registrarse**.
 
-1. En el mensaje que aparece, haga clic en **Sí** para registrar PIM para administrar roles de Azure AD.
+1. En el mensaje que aparece, haga clic en **Sí** para registrar Privileged Identity Management para administrar los roles de Azure AD.
 
-    ![Mensaje de registro de PIM para roles de Azure AD](./media/pim-getting-started/sign-up-pim-message.png)
+    ![Registro de Privileged Identity Management para el mensaje de roles de Azure AD](./media/pim-getting-started/sign-up-pim-message.png)
 
     Cuando finalice el registro, se habilitarán las opciones de Azure AD. Es posible que deba actualizar el portal.
 
-    Para información sobre cómo detectar y seleccionar los recursos de Azure para proteger con PIM, consulte [Detección de recursos de Azure que se administran en PIM](pim-resource-roles-discover-resources.md).
+    Para información sobre cómo detectar y seleccionar los recursos de Azure que se van a proteger con Privileged Identity Management, consulte [Detección de recursos de Azure que se administran en PIM](pim-resource-roles-discover-resources.md).
 
 ## <a name="navigate-to-your-tasks"></a>Navegación a sus tareas
 
-Una vez que se configura PIM, puede realizar las tareas de administración de identidades.
+Una vez que se configuró Privileged Identity Management, puede iniciar las tareas de administración de identidades.
 
-![Ventana de navegación en PIM que muestra opciones de tareas y administración](./media/pim-getting-started/pim-quickstart-tasks.png)
+![Ventana de navegación en Privileged Identity Management que muestra las opciones Tareas y Administrar](./media/pim-getting-started/pim-quickstart-tasks.png)
 
 | Tarea y administrar | DESCRIPCIÓN |
 | --- | --- |
@@ -113,7 +113,7 @@ Una vez que se configura PIM, puede realizar las tareas de administración de id
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>Incorporación de un icono de PIM al panel
 
-Para que abrir PIM sea más fácil, debe agregar un icono de PIM al panel de Azure Portal.
+Para que sea más fácil abrir Privileged Identity Management, debe agregar un icono de Privileged Identity Management al panel de Azure Portal.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
@@ -121,17 +121,17 @@ Para que abrir PIM sea más fácil, debe agregar un icono de PIM al panel de Azu
 
     ![Azure AD Privileged Identity Management en Todos los servicios](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Haga clic para abrir el Inicio rápido de PIM.
+1. Haga clic para abrir el Inicio rápido de Privileged Identity Management.
 
-1. Marque **Anclar hoja al panel** para anclar la hoja Inicio rápido de PIM al panel.
+1. Active la opción **Anclar hoja al panel** para anclar la hoja Inicio rápido de Privileged Identity Management al panel.
 
-    ![Icono de marcador para anclar la hoja PIM al panel](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Icono de marcador para anclar la hoja Privileged Identity Management al panel](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     En el panel de Azure, verá un icono como este:
 
-    ![Icono de inicio rápido de PIM en el panel](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![Icono de Inicio rápido de Privileged Identity Management en el panel](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Asignación de roles de Azure AD en PIM](pim-how-to-add-role-to-user.md)
+- [Asignación de roles de Azure AD en Privileged Identity Management](pim-how-to-add-role-to-user.md)
 - [Detección de recursos de Azure que se administran en PIM](pim-resource-roles-discover-resources.md)

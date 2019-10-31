@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 630f8f7d4561ed6e7e9f943f4b3b123daeee4d67
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cbb1249b529fde1368bfaff0c6c251c93fa6c309
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129018"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693854"
 ---
 # <a name="add-columns-module"></a>Módulo Add Columns
 
@@ -25,7 +25,7 @@ Utilice este módulo para concatenar dos conjuntos de datos. Combina todas las c
 
 
 ## <a name="how-to-configure-add-columns"></a>Cómo configurar Add Columns
-1. Agregue el módulo **Add Columns** al experimento.
+1. Agregue el módulo **Add Columns** (Agregar columnas) a la canalización.
 
 2. Conecte los dos conjuntos de datos que quiere concatenar. Si quiere combinar más de dos conjuntos de datos, puede encadenar varias combinaciones de **Add Columns**.
 
@@ -33,10 +33,10 @@ Utilice este módulo para concatenar dos conjuntos de datos. Combina todas las c
 
     - No puede elegir columnas individuales para agregar. Todas las columnas de cada conjunto de datos se concatenan al usar **Add Columns**. Por lo tanto, si quiere agregar solo un subconjunto de las columnas, utilice Select Columns in Dataset (Seleccionar columnas de conjunto de datos) para crear un conjunto de datos con las columnas que quiere.
 
-3. Ejecute el experimento.
+3. Ejecución de la canalización
 
 ### <a name="results"></a>Results
-Después de haber ejecutado el experimento:
+Una vez ejecutada la canalización:
 
 - Para ver las primeras filas del nuevo conjunto de datos, haga clic con el botón derecho en la salida de **Add Columns** y seleccione Visualizar.
 

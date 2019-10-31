@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70983503"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
@@ -60,7 +60,7 @@ Los registros de aprovisionamiento proporcionan respuestas a las siguientes preg
 
 Se puede tener acceso a los registros de aprovisionamiento si se selecciona **Registros de aprovisionamiento** en la sección **Supervisión** de la hoja **Azure Active Directory** en [Azure Portal](https://portal.azure.com). Algunos registros de aprovisionamiento pueden tardar hasta dos horas en aparecer en el portal.
 
-![Registros de aprovisionamiento](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisioning logs")
+![Registros de aprovisionamiento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registros de aprovisionamiento")
 
 
 Un registro de aprovisionamiento tiene una vista de lista predeterminada que muestra:
@@ -73,19 +73,19 @@ Un registro de aprovisionamiento tiene una vista de lista predeterminada que mue
 - La fecha
 
 
-![Columnas predeterminadas](./media/concept-provisioning-logs/default-columns.png "Default columns")
+![Columnas predeterminadas](./media/concept-provisioning-logs/default-columns.png "Columnas predeterminadas")
 
 Puede personalizar la vista de lista, haga clic en **Columnas** en la barra de herramientas.
 
-![Selector de columnas](./media/concept-provisioning-logs/column-chooser.png "Column chooser")
+![Selector de columnas](./media/concept-provisioning-logs/column-chooser.png "Selector de columnas")
 
 Esto le permite mostrar los campos adicionales o quitar los campos que ya se están mostrando.
 
-![Columnas disponibles](./media/concept-provisioning-logs/available-columns.png "Available columns")
+![Columnas disponibles](./media/concept-provisioning-logs/available-columns.png "Columnas disponibles")
 
 Seleccione un elemento de la vista de lista para obtener información más detallada.
 
-![Información detallada](./media/concept-provisioning-logs/steps.png "Filtro")
+![Información detallada](./media/concept-provisioning-logs/steps.png "Filtrar")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrado de las actividades de aprovisionamiento
@@ -100,7 +100,7 @@ Para restringir los datos del informe a un nivel que se adapte a sus necesidades
 - Date
 
 
-![Filtro](./media/concept-provisioning-logs/filter.png "Filter")
+![Filter](./media/concept-provisioning-logs/filter.png "Filtrar")
 
 El filtro **Identidad** le permite especificar el nombre o la identidad que le interesa. Esta identidad podría ser un usuario, un grupo, un rol u otro objeto. Puede buscar por nombre o por identificador de objeto. El identificador varía según el escenario. Por ejemplo, al aprovisionar un objeto de Azure AD en SalesForce, el identificador de origen es el identificador de objeto del usuario en Azure AD, mientras que el identificador de destino es el identificador del usuario en Salesforce. Al aprovisionar de Workday a Active Directory, el identificador de origen es el identificador de empleado del trabajador de Workday. Tenga en cuenta que el nombre del usuario puede no estar siempre presente en la columna de identidad. Siempre habrá un identificador. 
 
@@ -161,7 +161,7 @@ Los detalles se agrupan en función de las categorías siguientes:
 - Resumen
 
 
-![Pestañas](./media/concept-provisioning-logs/provisioning-tabs.png "para filtrar")
+![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Pestañas")
 
 
 
@@ -176,7 +176,7 @@ En la pestaña **Pasos** se describen los pasos necesarios para aprovisionar un 
 
 
 
-![Filtro](./media/concept-provisioning-logs/steps.png "Filter")
+![Filter](./media/concept-provisioning-logs/steps.png "Filtrar")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Solución de problemas y recomendaciones

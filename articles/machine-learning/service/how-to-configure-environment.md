@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: b4d7a21e8d9b660463f508513c158032be81a35c
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 5080ec4db46f717a9e9ecdcdfbea42fbe43c349d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686977"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598425"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -316,15 +316,17 @@ Espere hasta que el clúster se ejecute antes de continuar.
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Instalación del SDK correcto en una biblioteca de Databricks
 Una vez que se esté ejecutando el clúster, [cree una biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library) para adjuntar al clúster el paquete del SDK adecuado de Azure Machine Learning.
 
+1. Haga clic con el botón derecho en la carpeta del área de trabajo actual en la que quiere almacenar la biblioteca. Seleccione **Crear** > **Biblioteca**.
+
 1. Elija **solo una** opción (no se admite ninguna otra instalación de SDK).
 
    |Elementos adicionales del&nbsp;paquete&nbsp;del SDK|Source|Nombre de&nbsp;PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Para Databricks| Cargar un huevo o PyPi de Python | azureml-sdk[databricks]|
-   |Para Databricks con<br> funcionalidades de ML automatizado| Cargar un huevo o PyPi de Python | azureml-sdk[automl_databricks]|
+   |Para Databricks con<br> funcionalidades de ML automatizado| Cargar un huevo o PyPi de Python | azureml-sdk[automl]|
 
    > [!Warning]
-   > No se pueden instalar otros elementos adicionales del SDK. Elija solo una de las opciones anteriores: [databricks] o [automl_databricks].
+   > No se pueden instalar otros elementos adicionales del SDK. Elija solo una de las opciones anteriores: [databricks] o [automl].
 
    * No seleccione **Attach automatically to all clusters** (Asociar automáticamente a todos los clústeres).
    * Seleccione **Asociar** junto al nombre del clúster.
@@ -351,8 +353,7 @@ SDK para Databricks **CON** aprendizaje automático automatizado ![SDK con apren
 ### <a name="start-exploring"></a>Comienzo de la exploración
 
 Pruebe lo siguiente:
-+ Descargue el [archivo de cuadernos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) para el SDK de Azure Machine Learning o Azure Databricks e [impórtelo](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) en el clúster de Databricks.
-  Aunque hay muchos cuadernos de ejemplo disponibles, **solo [estos cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funcionan con Azure Databricks.**
++ Aunque hay muchos cuadernos de ejemplo disponibles, **solo [estos cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funcionan con Azure Databricks.**
 
 + Obtenga información sobre cómo [crear una canalización con Databricks como proceso de entrenamiento](how-to-create-your-first-pipeline.md).
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 2b8f235014efe440e518f1f9c4d0d454f6918955
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 37c1653b31049dc0142cf8c0c6f6d405338b1d1f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128911"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693195"
 ---
 # <a name="convert-to-csv-module"></a>Módulo Convertir a CSV
 
@@ -36,11 +36,11 @@ Al convertir un conjunto de datos a CSV, el archivo se guarda en el área de tra
 
 ## <a name="how-to-configure-convert-to-csv"></a>Procedimiento para configurar Convertir a CSV
 
-1.  Agregue el módulo [Convertir a CSV](./convert-to-csv.md) al experimento. Puede encontrar este módulo en el grupo **Data Format Conversions** (Conversiones de formato de datos) de la interfaz. 
+1.  Agregue el módulo [Convertir a CSV](./convert-to-csv.md) a la canalización. Puede encontrar este módulo en el grupo **Data Format Conversions** (Conversiones de formato de datos) de la interfaz. 
 
 2. Conéctelo a cualquier módulo que genere un conjunto de datos.   
   
-3.  Ejecute el experimento.
+3.  Ejecución de la canalización
 
 ### <a name="results"></a>Results
   

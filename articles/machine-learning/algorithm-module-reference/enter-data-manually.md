@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: d7e6cede12f5a348f59db83b31b19c89266dfdf7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: bd5fb636dbf79534e84a21a461f8912ceb6d9633
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128832"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693156"
 ---
 # <a name="enter-data-manually-module"></a>Módulo Introducción manual de datos
 
@@ -32,7 +32,7 @@ Este módulo puede ser útil en escenarios como los siguientes:
 
 ## <a name="enter-data-manually"></a>Introducción manual de datos 
   
-1.  Agregue el módulo [Introducción manual de datos](./enter-data-manually.md) al experimento. Puede encontrar el módulo en la categoría **Entrada y salida de datos** de Azure Machine Learning. 
+1.  Agregue el módulo [Introducción manual de datos](./enter-data-manually.md) a la canalización. Puede encontrar el módulo en la categoría **Entrada y salida de datos** de Azure Machine Learning. 
   
 2.  Para **DataFormat**, seleccione una de las siguientes opciones. Estas opciones determinan cómo se deben analizar los datos proporcionados. Los requisitos para cada formato varían en gran medida, por lo que debe asegurarse de leer los temas relacionados.  
   
