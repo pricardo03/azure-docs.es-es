@@ -1,23 +1,18 @@
 ---
 title: Solución de problemas de Application Insights en un proyecto web de Java
 description: 'Guía de solución de problemas: supervisión de aplicaciones activas Java con Application Insights.'
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: a26302b0c0b4361fe3e7aae6aba798f433c72ade
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.date: 03/14/2019
+ms.openlocfilehash: 941dcc268c2af9e011af01d3da224b90e9ee5018
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742198"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820804"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solución de problemas y preguntas y respuestas sobre Application Insights para Java
 Preguntas o problemas relacionados con [Azure Application Insights en Java][java]. a continuación se incluyen algunas sugerencias.

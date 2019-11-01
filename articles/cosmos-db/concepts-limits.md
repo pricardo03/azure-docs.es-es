@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 8e22bf53a81d94c5204a76c58b43fed63e32b136
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 45cf7b7d9383de467f72769465a3ad382fe9d589
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803398"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064046"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Después de crear una cuenta de Azure Cosmos DB en su suscripción a Azure, pued
 
 Un contenedor de Cosmos (o una base de datos de rendimiento compartido) debe tener un rendimiento mínimo de 400 RU. A medida que crece el contenedor, el rendimiento mínimo admitido también depende de los factores siguientes:
 
-* El rendimiento mínimo que se puede establecer en un contenedor depende del rendimiento máximo que se haya aprovisionado alguna vez en el contenedor. El servicio admite la disminución del rendimiento de un contenedor en un 10 % del máximo aprovisionado. Por ejemplo, si el rendimiento aumentó a 10 000 RU, el rendimiento más bajo que se puede aprovisionar sería de 1000 RU.
+* El rendimiento mínimo que se puede establecer en un contenedor depende del rendimiento máximo que se haya aprovisionado alguna vez en el contenedor. Por ejemplo, si el rendimiento aumentó a 10 000 RU, el rendimiento más bajo que se puede aprovisionar sería de 1000 RU.
 * El rendimiento mínimo en una base de datos de rendimiento compartido depende del número total de contenedores que ha creado alguna vez en una base de datos de rendimiento compartido, medido en 100 RU por contenedor. Por ejemplo, si ha creado cinco contenedores dentro de una base de datos de rendimiento compartido, el rendimiento debe ser de 500 RU como mínimo.
 
 El rendimiento actual y mínimo de un contenedor o una base de datos se puede recuperar desde Azure Portal o los SDK. Para obtener más información, consulte [Aprovisionar rendimiento en contenedores y bases de datos](set-throughput.md). 

@@ -1,24 +1,18 @@
 ---
 title: Recopilación de registros personalizados en Azure Monitor | Microsoft Docs
 description: Azure Monitor puede recopilar eventos de archivos de texto en equipos Windows y Linux.  En este artículo se describe cómo definir un nuevo registro personalizado y los detalles de los registros que crean en Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 957df2d03352756c74a5450de240afde2615e50b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 09/26/2019
+ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177614"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932512"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registros personalizados en Azure Monitor
 

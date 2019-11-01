@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 10/29/2019
 ms.author: lahugh
-ms.openlocfilehash: 1b906a9e3ce803b7f319a920f29b5a60f62c47b1
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c85e02b01e11b94d9e23e669bf2f6fcde7f2c1de
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550153"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064015"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 (versión preliminar) en Azure
 
@@ -52,7 +52,7 @@ Las VM de generación 1 son compatibles con todos los tamaños de máquina virtu
 * [Serie NVv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
 
 > [!NOTE]
-> El uso de imágenes de máquina virtual de generación 2 en las máquinas virtuales de la serie Mv2 está disponible con carácter general, ya que esta serie funciona exclusivamente con imágenes de máquina virtual de generación 2. Las imágenes de máquina virtual de generación 1 no se admiten en máquinas virtuales de la serie Mv2. 
+> El uso de imágenes de máquina virtual de generación 2 en las máquinas virtuales de la serie Mv2 está disponible con carácter general, ya que esta serie funciona exclusivamente con imágenes de máquina virtual de generación 2. Las imágenes de máquina virtual de generación 1 no se admiten en máquinas virtuales de la serie Mv2. 
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Imágenes de VM de generación 2 en Azure Marketplace
 
@@ -64,6 +64,8 @@ Las VM de generación 2 admiten las siguientes imágenes de Marketplace:
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
+* Ubuntu Server 16.04+
+
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Máquinas virtuales locales frente a VM de generación 2 de Azure
 

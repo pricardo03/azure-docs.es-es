@@ -1,24 +1,18 @@
 ---
 title: Administración de áreas de trabajo de Log Analytics en Azure Monitor | Microsoft Docs
 description: Puede administrar el acceso a los datos almacenados en un área de trabajo de Log Analytics en Azure Monitor mediante permisos de nivel de recurso, área de trabajo o tabla. En este artículo se muestra cómo realizarlo.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/22/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 3b8f5cb2d5c8e7ff80d32b288c041b4f153bf526
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 10/22/2019
+ms.openlocfilehash: 890e2fb06b9194bba49b94eae4b8ea3f0bfed1d7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787505"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932184"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 

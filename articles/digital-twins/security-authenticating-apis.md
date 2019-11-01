@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: c75db8d1885c8680dd316952a5f67e11dc26edb1
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 53b53fa5185ade87dfdd21f0805641657d49d676
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949796"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800215"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Conexión y autenticación con las API
 
@@ -49,7 +49,7 @@ Cuando los desarrolladores diseñan soluciones de Digital Twins, normalmente cre
 
 1. A continuación, el token adquirido se usa para autenticarse con API o para llamar a API que están en niveles inferiores con el flujo "en nombre de".
 
-Para obtener instrucciones sobre cómo coordinar el flujo en el nombre de otra persona, vea [Flujo en nombre de OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). También puede ver ejemplos de código en [Calling a downstream web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/) (Llamada a una API web de bajada).
+Para obtener instrucciones sobre cómo coordinar el flujo en el nombre de otra persona, vea [Flujo en nombre de OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). También puede ver ejemplos de código en [Calling a downstream web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof) (Llamada a una API web de bajada).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

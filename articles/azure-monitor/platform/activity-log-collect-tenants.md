@@ -1,23 +1,18 @@
 ---
 title: Recopilación de registros de actividad de Azure en un área de trabajo de Log Analytics entre inquilinos de Azure | Microsoft Docs
 description: Use Event Hubs y Logic Apps para recopilar datos del registro de actividad de Azure y enviarlos a un área de trabajo de Log Analytics en Azure Monitor en un inquilino diferente.
-services: log-analytics, logic-apps, event-hubs
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/06/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: d8cea59cd0bbeff410f585693cb7ffed82fd9327
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/06/2019
+ms.openlocfilehash: 98e256dbdc6993ee1aeb8e2ac26809ef849edb91
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248165"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932891"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>Recopilación de registros de actividad de Azure en Azure Monitor en inquilinos de Azure Active Directory
 
@@ -131,7 +126,7 @@ Para obtener el nombre y la cadena de conexión del centro de eventos, siga los 
    | NOMBRE           | Nombre único para la aplicación lógica. |
    | Subscription   | Seleccione la suscripción de Azure que contendrá la aplicación lógica. |
    | Grupo de recursos | Seleccione un grupo de recursos de Azure existente o cree uno para la aplicación lógica. |
-   | Ubicación       | Seleccione la región del centro de datos para implementar la aplicación lógica. |
+   | Location       | Seleccione la región del centro de datos para implementar la aplicación lógica. |
    | Log Analytics  | Seleccione si desea registrar el estado de cada ejecución de la aplicación lógica en el área de trabajo de Log Analytics.  |
 
     

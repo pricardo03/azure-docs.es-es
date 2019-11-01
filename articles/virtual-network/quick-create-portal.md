@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: bbc40ae358a6ac7f58e01de997728db21c7eb3bc
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: f95174efbffedd09946f5910a39285e7bec062c1
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839712"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161485"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Inicio rápido: Creación de una red virtual mediante el Portal de Azure
 
@@ -179,7 +179,7 @@ Después de crear *myVm1*, conéctese a Internet.
 1. Para permitir que *myVm2* haga ping a *myVm1* en un paso posterior, escriba este comando:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     Ese comando permite una conexión entrante de ICMP a través del Firewall de Windows:

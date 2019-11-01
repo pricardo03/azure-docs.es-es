@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 10/16/2019
-ms.openlocfilehash: 82409bbe2f40e42a8331cd801649b93987a923d2
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1dbccf43d03907cefb68315b6908a35735f373ce
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550708"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177639"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configuración y administración de la autenticación de Azure Active Directory con SQL
 
@@ -465,7 +465,7 @@ Para más información, consulte el [blog de seguridad de SQL Server](https://bl
 
 ### <a name="sqlcmd"></a>sqlcmd
 
-Las instrucciones siguientes permiten conectar con la versión 13.1 de sqlcmd, que está disponible en el [Centro de descarga](https://go.microsoft.com/fwlink/?LinkID=825643).
+Las instrucciones siguientes permiten conectar con la versión 13.1 de sqlcmd, que está disponible en el [Centro de descarga](https://www.microsoft.com/download/details.aspx?id=53591).
 
 > [!NOTE]
 > `sqlcmd` con el comando `-G` no funciona con identidades del sistema y requiere un inicio de sesión de entidad de seguridad de usuario.

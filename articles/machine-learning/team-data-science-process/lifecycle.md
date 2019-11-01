@@ -1,6 +1,6 @@
 ---
 title: El ciclo de vida del proceso de ciencia de datos en equipo
-description: Pasos necesarios para ejecutar los proyectos de ciencia de datos.
+description: El Proceso de ciencia de datos en equipo (TDSP) ofrece un ciclo de vida recomendado que se puede usar para estructurar los proyectos de ciencia de datos.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 40d1af6e6258b5026853532f7963a76d4fc389db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00efe89314d4a1a5c3302e820b8609adf194aa59
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837899"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053241"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>El ciclo de vida del proceso de ciencia de datos en equipo
 

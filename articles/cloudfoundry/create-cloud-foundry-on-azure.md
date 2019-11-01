@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: f5ae599b516ac3ce6a9fcc40c0e26d242134e7d7
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226618"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161784"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Creación de un clúster de Pivotal Cloud Foundry en Azure
 
@@ -72,11 +72,11 @@ Para más información, consulte [Uso de claves SSH con Windows en Azure](https:
 
 5. Establezca el rol de permiso de la entidad de servicio como colaborador.
 
-    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor”`
+    `az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"`
 
     O también puede usar
 
-    `az role assignment create --assignee {service-principal-name} --role “Contributor”`
+    `az role assignment create --assignee {service-principal-name} --role "Contributor"`
 
     ![Asignación de rol de la entidad de servicio](media/deploy/svc-princ.png )
 

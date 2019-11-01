@@ -1,24 +1,18 @@
 ---
 title: Funciones en las consultas de registros de Azure Monitor | Microsoft Docs
 description: En este artículo se describe cómo utilizar funciones para llamar a una consulta desde otra consulta de registro de Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 75beb7b66863efd2fb3679f034a3663dca4a6d2f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/15/2018
+ms.openlocfilehash: 8d8473b88327d3d17346a0351d0a9fc510152cd8
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076701"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894186"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Uso de funciones en consultas de registros de Azure Monitor
 
@@ -33,7 +27,7 @@ Para crear una función con Log Analytics en Azure Portal, haga clic en **Guar
 | NOMBRE           | Nombre para mostrar de la consulta en el **Explorador de consultas**. |
 | Guardar como        | Función |
 | Alias de función | Nombre corto para usar la función en otras consultas. No puede contener espacios y debe ser único. |
-| Categoría       | Categoría para organizar las consultas y funciones guardadas en el **Explorador de consultas**. |
+| Category       | Categoría para organizar las consultas y funciones guardadas en el **Explorador de consultas**. |
 
 > [!NOTE]
 > Una función de Azure Monitor no puede contener otra función.

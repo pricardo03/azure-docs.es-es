@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: d34ac159a216c5c77214b4c8b799a233c3671235
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a42763ff47cccfa506acbbbd95d20d41eb0827f
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447374"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965369"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Adición de un dispositivo IoT Edge al acelerador de soluciones de supervisión remota
 
@@ -34,9 +34,9 @@ En el panel **Nuevo dispositivo**, elija **Dispositivo IoT Edge**. Puede dejar l
 
 También es posible registrar un dispositivo IoT Edge directamente con la instancia de IoT Hub en el acelerador de soluciones. Es preciso conocer el nombre del IoT Hub en el acelerador de soluciones antes de seguir cualquiera de estas guías de procedimientos:
 
-- [Registro de un nuevo dispositivo Azure IoT Edge desde Azure Portal](../iot-edge/how-to-register-device-portal.md)
-- [Registro de un nuevo dispositivo Azure IoT Edge con la CLI de Azure](../iot-edge/how-to-register-device-cli.md)
-- [Registrar un nuevo dispositivo de Azure IoT Edge desde Visual Studio Code](../iot-edge/how-to-register-device-vscode.md)
+- [Registro de un nuevo dispositivo Azure IoT Edge desde Azure Portal](../iot-edge/how-to-register-device.md#register-in-the-azure-portal)
+- [Registro de un nuevo dispositivo Azure IoT Edge con la CLI de Azure](../iot-edge/how-to-register-device.md#register-with-the-azure-cli)
+- [Registrar un nuevo dispositivo de Azure IoT Edge desde Visual Studio Code](../iot-edge/how-to-register-device.md#register-with-visual-studio-code)
 
 Al registrar un dispositivo directamente con el centro de IoT en el acelerador de soluciones de supervisión remota, este aparece en la página **Explorador de dispositivos** de la interfaz de usuario web.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f87210cd14570687eebae88896830bb3ee00b74e
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119737"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242996"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico
 
@@ -33,7 +33,7 @@ En esta tabla se resumen los requisitos previos para implementar la máquina del
 | Espacio libre en el disco (disco de retención) | 600 GB|
 | Sistema operativo  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Configuración regional del sistema operativo | Inglés (EE. UU.)|
-| Versión de VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
+| Versión de VMware vSphere PowerCLI | No se requiere|
 | Roles de Windows Server | No habilite estos roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
 | Directivas de grupo| No habilite estas directivas de grupo: <br> - Impedir el acceso al símbolo del sistema <br> - Impedir el acceso a herramientas de edición del Registro <br> - Confiar en la lógica de datos adjuntos de archivos <br> - Activar la ejecución de scripts <br> [Más información](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | - Ningún sitio web predeterminado debe existir previamente <br> - Habilitar la [Autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente<br>|
@@ -108,7 +108,7 @@ Ejecute el archivo de instalación del modo siguiente:
 
 ### <a name="parameters"></a>Parámetros
 
-|Nombre de parámetro| Type | DESCRIPCIÓN| Valores|
+|Nombre de parámetro| type | DESCRIPCIÓN| Valores|
 |-|-|-|-|
 | /ServerMode|Obligatorio|Especifica si se deben instalar los servidores de configuración y de procesos, o solo el servidor de procesos|CS<br>PS|
 |/InstallLocation|Obligatorio|La carpeta donde se instalan los componentes| Cualquier carpeta del equipo|

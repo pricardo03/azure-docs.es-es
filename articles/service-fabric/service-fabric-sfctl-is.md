@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: sfctl is | Microsoft Docs'
 description: Describe los comandos de sfctl is de la CLI Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 998a94350250402d4face64f64e12f32cf5b2a36
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 9a09d8c36fd282450767880a9ad144e1192dcd2e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036492"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901582"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Consulte y envíe comandos al servicio de infraestructura.
@@ -41,7 +42,7 @@ Para los clústeres que tienen una o varias instancias del servicio de infraestr
 | --- | --- |
 | --command [Obligatorio] | El texto del comando que se va a invocar. El contenido del comando es específico de la infraestructura. |
 | --service-id | La identidad del servicio de infraestructura. <br><br> Este es el nombre completo del servicio de infraestructura sin el esquema de URI "fabric\:". Este parámetro solo es obligatorio para el clúster que tiene en ejecución más de una instancia del servicio de infraestructura. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -64,7 +65,7 @@ Para los clústeres que tienen una o varias instancias del servicio de infraestr
 | --- | --- |
 | --command [Obligatorio] | El texto del comando que se va a invocar. El contenido del comando es específico de la infraestructura. |
 | --service-id | La identidad del servicio de infraestructura. <br><br> Este es el nombre completo del servicio de infraestructura sin el esquema de URI "fabric\:". Este parámetro solo es obligatorio para el clúster que tiene en ejecución más de una instancia del servicio de infraestructura. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

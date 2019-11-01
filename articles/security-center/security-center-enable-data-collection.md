@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 6dcb7fd1ae2dc5ca3a950f5055e79d95f779b029
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8aa0adf03aef2085ed2374bcfc7ea774d002061c
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300806"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162677"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y de los equipos que no son de Azure (incluidos los equipos locales) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Log Analytics también copia los archivos de volcado de memoria en el área de trabajo.
@@ -283,7 +283,7 @@ Puede instalar el agente de Log Analytics manualmente para que Security Center p
            }
  
            $PrivateConf = @{
-               "workspaceKey"= "<Primary key value>”
+               "workspaceKey"= "<Primary key value>"
            }
 
       - Cuando se instala en una máquina virtual Windows:

@@ -1,23 +1,18 @@
 ---
 title: Panel de información general de Azure Application Insights | Microsoft Docs
 description: Supervise las aplicaciones con Azure Application Insights y la funcionalidad del panel de información general.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 06/03/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/03/2019
+ms.openlocfilehash: 218ae158512326bcad8efd6c598f68d296fe9370
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497166"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819156"
 ---
 # <a name="application-insights-overview-dashboard"></a>Panel de información general de Application Insights
 

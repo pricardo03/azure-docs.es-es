@@ -1,24 +1,18 @@
 ---
 title: Creación de una canalización de datos con Data Collector API de Azure Monitor | Microsoft Docs
 description: Puede usar Azure Monitor HTTP Data Collector API para agregar datos POST JSON en el área de trabajo de Log Analytics desde cualquier cliente que pueda llamar a la API de REST. En este artículo se describe cómo cargar datos almacenados en archivos de una manera automatizada.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/09/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/09/2018
+ms.openlocfilehash: 8b739d86ec557ca8c7de7e0999c905b51d1d97a7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65603241"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932623"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Creación de una canalización de datos con Data Collector API
 

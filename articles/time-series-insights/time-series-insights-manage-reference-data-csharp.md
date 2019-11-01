@@ -3,21 +3,20 @@ title: Administración de datos de referencia en un entorno de Azure Time Series
 description: En este artículo se describe cómo administrar datos de referencia para un entorno de Azure Time Series Insights mediante la creación de una aplicación personalizada escrita en el lenguaje de .NET C# (c-sharp).
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4f206b63be38c902f93a084889e60184ce03e07
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 4eb8a22ee56203fe84df6ee1cff779e3f3bdf491
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958036"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990046"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Administración de los datos de referencia de GA en un entorno de Azure Time Series Insights con C#
 

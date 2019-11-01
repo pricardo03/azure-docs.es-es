@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.openlocfilehash: aa5329c6321866fd26e393b581702a392f510108
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 0d8890eeba7fcb53517d6ee653c8dd09866805ef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936838"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177371"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimización de trabajos de Apache Spark en HDInsight
 
@@ -74,7 +74,7 @@ Spark proporciona sus propios mecanismos nativos de almacenamiento, que se puede
     * No funciona con la creación de particiones; sin embargo, esto puede cambiar en futuras versiones de Spark.
 
 * Almacenamiento en caché de capas de almacenamiento (recomendado)
-    * Se puede implementar mediante [Alluxio](https://www.alluxio.org/)
+    * Se puede implementar mediante [Alluxio](https://www.alluxio.io/)
     * Se usa en el almacenamiento en caché SSD y en memoria
 
 * HDFS local (recomendado)

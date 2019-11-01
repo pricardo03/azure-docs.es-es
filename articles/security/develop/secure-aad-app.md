@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: v-fehase
-ms.openlocfilehash: 87df7824a182e68d849fdf967f96b2974b7e0c16
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148025"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159834"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Desarrollo de una aplicación segura para una aplicación de Azure AD
 ## <a name="overview"></a>Información general
@@ -235,7 +235,7 @@ $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1
 
 #Configure the HTTP settings for the application gateway back end
 
-$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name "setting01" -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
 
 #Create a load-balancer routing rule that configures the load balancer
 
@@ -443,7 +443,7 @@ Los servicios de Azure proporcionan un registro completo de la actividad de usua
 1.  Vuelva a Azure Portal. En el panel de navegación izquierdo, seleccione el servicio Azure Active Directory y, después, elija Registros de aplicaciones.
 2.  En la pantalla resultante, seleccione la aplicación WebApp-OpenIDConnect-DotNet-code-v2.
 3.  En la pestaña Autenticación o en la sección URI de redirección, seleccione Web en el cuadro combinado y agregue los siguientes URI de redirección.
-    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc. En la sección Configuración avanzada, establezca la URL de cierre de sesión en https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc.
+    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc. En la sección Configuración avanzada, establezca la URL de cierre de sesión en https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc.
 4.  En la pestaña Personalización de marca, actualice la dirección URL de la página principal a la dirección del servicio de aplicación, por ejemplo https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         Guarde la configuración.
 5.  Si la aplicación llama a una API web, asegúrese de aplicar los cambios necesarios en el archivo appsettings.json del proyecto, de forma que llame a la dirección URL de la API publicada en lugar de a localhost.

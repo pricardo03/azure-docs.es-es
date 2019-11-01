@@ -1,24 +1,18 @@
 ---
 title: Ejemplos de análisis inteligente de Log Analytics | Microsoft Docs
 description: Ejemplos que usan las funciones de análisis inteligente en Log Analytics para realizar un análisis de la actividad del usuario.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/15/2019
 ms.author: bwren
-ms.openlocfilehash: f6617a504bbda666ce9ece018ccb0cf02635c360
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/15/2019
+ms.openlocfilehash: 08a93c10a4214696d67f95cb862654d095899630
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61425839"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932963"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Ejemplos de análisis inteligente de Log Analytics
 En este ejemplo se incluyen ejemplos que usan las funciones de análisis inteligente en Log Analytics para realizar un análisis de la actividad del usuario. Puede usar estos ejemplos para analizar sus propias aplicaciones supervisadas por Application Insights o usar los conceptos en estas consultas para realizar un análisis similar en otros datos. 

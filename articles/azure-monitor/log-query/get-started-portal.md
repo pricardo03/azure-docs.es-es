@@ -1,19 +1,18 @@
 ---
 title: Introducción a los análisis de registros de Azure Monitor | Microsoft Docs
 description: En este artículo se proporciona un tutorial de uso de Log Analytics en Azure Portal para escribir consultas.
-services: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: tutorial
 author: bwren
-manager: carmonm
-ms.service: log-analytics
-ms.topic: conceptual
-ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: 950768326228960192f48d99e5c5fa849b2c2bda
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 07/19/2019
+ms.openlocfilehash: 1117ebbb8d2c3b133156c6b63a0ab13185f9f4a5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076821"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933048"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introducción a los análisis de registros de Azure Monitor
 
@@ -77,7 +76,7 @@ Las consultas se ejecutan al hacer clic en el botón **Run** (Ejecutar) o al pre
 ## <a name="understand-the-schema"></a>Información sobre el esquema
 El esquema es una colección de tablas que visualmente se agrupan en una categoría lógica. Varias categorías provienen de las soluciones de supervisión. La categoría _LogManagement_ contiene datos comunes, como eventos de Windows y Syslog, datos de rendimiento y latidos de cliente.
 
-![Esquema](media/get-started-portal/schema.png)
+![Schema](media/get-started-portal/schema.png)
 
 En cada tabla, los datos se organizan en columnas con tipos de datos diferentes, como indican los iconos junto al nombre de la columna. Por ejemplo, la tabla _Event_ que se muestra en la captura de pantalla contiene columnas como _Computer_ (texto), _EventCategory_ (cifra) y  _TimeGenerated_ (fecha y hora).
 
@@ -107,7 +106,7 @@ Ahora vamos a centrarnos en los eventos con gravedad _Error_. Esto se especifica
 
 Haga clic en el icono de filtro junto al título de columna y, en la ventana emergente, seleccione los valores _Start with_ (Empieza por) y el texto _error_:
 
-![Filtrar](media/get-started-portal/filter.png)
+![Filter](media/get-started-portal/filter.png)
 
 
 ## <a name="sort-and-group-results"></a>Filtrado y agrupación de los resultados

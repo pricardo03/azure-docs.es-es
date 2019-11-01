@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 591d8d28be5fc9322de8cf4886dc5924f53b1deb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 615c10357e099b547008b128ca5f5a773ff1aa14
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103776"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158315"
 ---
 # <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>Tutorial: Integración de Azure Active Directory con Dropbox for Business
 
@@ -114,33 +115,33 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 3. Si desea configurar Dropbox for Business manualmente, abra una nueva ventana del explorador web y vaya al inquilino de Dropbox for Business, inicie sesión en él y realice los siguientes pasos:
 
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/ic769509.png "Configurar inicio de sesión único")
+    ![Configuración del inicio de sesión único](./media/dropboxforbusiness-tutorial/ic769509.png "Configurar inicio de sesión único")
 
 4. Haga clic en el **icono de usuario** y seleccione la pestaña **Settings** (Configuración).
 
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure1.png "Configurar inicio de sesión único")
+    ![Configuración del inicio de sesión único](./media/dropboxforbusiness-tutorial/configure1.png "Configurar inicio de sesión único")
 
 5. En el panel de navegación de la izquierda, haga clic en **Admin Console**(Consola de administración).
 
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure2.png "Configurar inicio de sesión único")
+    ![Configuración del inicio de sesión único](./media/dropboxforbusiness-tutorial/configure2.png "Configurar inicio de sesión único")
 
 6. En **Admin Console** (Consola de administración), haga clic en la opción **Settings** (Configuración) del panel de navegación izquierdo.
 
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure3.png "Configurar inicio de sesión único")
+    ![Configuración del inicio de sesión único](./media/dropboxforbusiness-tutorial/configure3.png "Configurar inicio de sesión único")
 
 7. Seleccione la opción **Single sign-on** (Inicio de sesión único) en la sección **Authentication** (Autenticación).
 
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure4.png "Configurar inicio de sesión único")
+    ![Configuración del inicio de sesión único](./media/dropboxforbusiness-tutorial/configure4.png "Configurar inicio de sesión único")
 
 8. En la sección **Single sign-on** (Inicio de sesión único), siga estos pasos:  
 
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure5.png "Configurar inicio de sesión único")
+    ![Configuración del inicio de sesión único](./media/dropboxforbusiness-tutorial/configure5.png "Configurar inicio de sesión único")
 
     a. Seleccione **Required** (Obligatorio) como opción en el menú desplegable para **Single sign-on** (Inicio de sesión único).
 
     b. Haga clic en **Add sign-in URL** (Agregar inicio de sesión único) y en el cuadro de texto **Identity provider sign-in URL** (Dirección URL de inicio de sesión del proveedor de identidades), pegue el valor de **Login URL** (Dirección URL de inicio de sesión) que ha copiado de Azure Portal y luego seleccione **Done** (Listo).
 
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure6.png "Configurar inicio de sesión único")
+    ![Configuración del inicio de sesión único](./media/dropboxforbusiness-tutorial/configure6.png "Configurar inicio de sesión único")
 
     c. Haga clic en **Upload certificate** (Cargar certificado) y, a continuación, vaya al **archivo de certificado codificado en Base64** que ha descargado de Azure Portal.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 894530aa9624af18f2f33a061d5cde683e9f01be
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655498"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880274"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Instrucciones: Planeamiento de la implementación del acceso condicional en Azure Active Directory
 
@@ -24,7 +24,7 @@ Planear la implementación del acceso condicional es fundamental para asegurarse
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 
-Piense en el acceso condicional como un marco que permite controlar el acceso a las aplicaciones y los recursos de su organización, en lugar de como una característica independiente. Por esto, el acceso condicional requiere la configuración de algunas características adicionales. Por ejemplo, puede configurar una directiva que responda a un [nivel de riesgo de inicio de sesión](../identity-protection/howto-sign-in-risk-policy.md#what-is-the-sign-in-risk-policy) determinado. Sin embargo, las directivas basadas en un nivel de riesgo de inicio de sesión requieren la habilitación de [Azure Active Directory Identity Protection](../identity-protection/overview.md).
+Piense en el acceso condicional como un marco que permite controlar el acceso a las aplicaciones y los recursos de su organización, en lugar de como una característica independiente. Por esto, el acceso condicional requiere la configuración de algunas características adicionales. Por ejemplo, puede configurar una directiva que responda a un [nivel de riesgo de inicio de sesión](../identity-protection/howto-identity-protection-configure-risk-policies.md) determinado. Sin embargo, las directivas basadas en un nivel de riesgo de inicio de sesión requieren la habilitación de [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
 
 Si se necesitan otras características, también necesitara las licencias asociadas. Por ejemplo, si bien el acceso condicional es una característica de Azure AD Premium P1, Identity Protection requiere licencia de Azure AD Premium P2.
 

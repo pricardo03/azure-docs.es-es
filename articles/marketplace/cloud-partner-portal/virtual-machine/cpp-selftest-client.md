@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pabutler
-ms.openlocfilehash: 117249feea04381b34f8fc1d95f77c2c1a567dba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46923ecd33a054a36aa6900a415d0b563e5afff0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938718"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163261"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creación de un cliente de prueba automática para la validación previa de una imagen de máquina virtual de Azure
 
@@ -46,8 +46,8 @@ La API de prueba automática contiene un punto de conexión único que solo admi
 ```
 Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
-Request Header:  Content-Type: “application/json”
-Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
+Request Header:  Content-Type: "application/json"
+Authorization:   "Bearer xxxx-xxxx-xxxx-xxxxx"
 Request body:    The Request body parameters should use the following JSON format:
                  {
                    "DNSName":"XXXX.westus.cloudapp.azure.com",
@@ -64,11 +64,11 @@ En la siguiente tabla se describen los campos de la API.
 
 |      Campo         |    DESCRIPCIÓN    |
 |  ---------------   |  ---------------  |
-|  Autorización     |  La cadena "Bearer xxxx-xxxx-xxxx-xxxxx" contiene el token de cliente de Azure Active Directory (AD), el cual se puede crear mediante PowerShell.          |
+|  Authorization     |  La cadena "Bearer xxxx-xxxx-xxxx-xxxxx" contiene el token de cliente de Azure Active Directory (AD), el cual se puede crear mediante PowerShell.          |
 |  DNSName           |  Nombre DNS de la máquina virtual que se va a probar    |
 |  Usuario              |  Nombre de usuario para iniciar sesión en la máquina virtual         |
 |  Contraseña          |  Contraseña para iniciar sesión en la máquina virtual          |
-|  SO                |  Sistema operativo de la máquina virtual: ya sea `Linux` o `Windows`          |
+|  OS                |  Sistema operativo de la máquina virtual: ya sea `Linux` o `Windows`          |
 |  PortNo            |  Número de puerto abierto para conectarse a la máquina virtual. Suele ser el número de puerto `22` para Linux y `5986` para Windows.          |
 |  |  |
 
@@ -87,7 +87,7 @@ Para llamar a la API en PowerShell, siga estos pasos:
 El ejemplo de código siguiente muestra una llamada de PowerShell a la API.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -201,7 +201,7 @@ Para llamar a la API con cURL, siga estos pasos:
 
 ```
 CURL POST -H "Content-Type:application/json"
--H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
+-H "Authorization: Bearer XXXXXX-Token-XXXXXXXX"
 https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 ```

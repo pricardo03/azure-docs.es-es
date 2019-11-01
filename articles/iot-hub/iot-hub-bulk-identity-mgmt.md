@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32c7a2a79c8d6a35008255b3c117f20d04ad7749
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796362"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927420"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importación y exportación de identidades de dispositivo de IoT Hub de forma masiva
 
@@ -91,7 +91,7 @@ Solo se permite un trabajo activo de importación o exportación de dispositivos
 
 ## <a name="export-devices"></a>Exportación de dispositivos
 
-Use el método **ExportDevicesAsync** para exportar la totalidad de un Registro de identidad de IoT Hub a un contenedor de blobs de [Azure Storage](../storage/index.yml) mediante una [firma de acceso compartido](../storage/common/storage-security-guide.md#data-plane-security).
+Use el método **ExportDevicesAsync** para exportar la totalidad de un Registro de identidad de IoT Hub a un contenedor de blobs de [Azure Storage](../storage/index.yml) mediante una [firma de acceso compartido](../storage/common/storage-security-guide.md#authorization).
 
 Este método le permite crear copias de seguridad confiables de la información del dispositivo en un contenedor de blobs que usted controle.
 

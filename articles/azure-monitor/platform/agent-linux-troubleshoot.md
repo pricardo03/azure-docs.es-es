@@ -1,24 +1,18 @@
 ---
 title: Solucionar problemas del agente de Linux de Azure Log Analytics | Microsoft Docs
 description: Se describen los síntomas, las causas y las soluciones de los problemas más comunes que surgen con el agente de Log Analytics para Linux en Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/13/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 732c93688dbc73cb5a4ce21e4669744be61c5925
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 11/13/2018
+ms.openlocfilehash: 5b828f62d5a8c7c518f3d28e92f52aac3b77f65c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299562"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932810"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
 
@@ -418,7 +412,7 @@ Cuando intenta repetir la incorporación de un agente en una nueva área de trab
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge
 ```
-o
+Or
 
 ```
 sudo sh ./onboard_agent.sh --purge

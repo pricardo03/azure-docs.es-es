@@ -10,12 +10,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a52b9ee26aac20d95356db6a280c5feb40023fed
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 8e0e028be6b4a507ba97f9126c791ee77c764c70
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942801"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880507"
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 
@@ -52,7 +52,7 @@ Para mejorar la implementación de Azure AD, también puede agregar funcionalid
 
 - **Azure Active Directory Premium P1.** Además de las características de la versión Free, P1 también permite a los usuarios de entornos híbridos acceder a recursos locales y en la nube. También admite la administración avanzada, como grupos dinámicos, administración de grupos de autoservicio, Microsoft Identity Manager (un conjunto de administración local de identidades y acceso) y funcionalidades de reescritura en la nube, que permiten el restablecimiento de contraseña de autoservicio a los usuarios locales.
 
-- **Azure Active Directory Premium P2.** Además de las características de las licencias Free y P1, la licencia P2 ofrece también [Azure Active Directory Identity Protection](../identity-protection/enable.md), que proporciona acceso condicional basado en riesgos a sus aplicaciones y datos críticos de la compañía, y [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md), que permite detectar, restringir y supervisar los administradores y su acceso a los recursos, además de proporcionar acceso Just-In-Time cuando sea necesario.
+- **Azure Active Directory Premium P2.** Además de las características de las licencias Free y P1, la licencia P2 ofrece también [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md), que proporciona acceso condicional basado en riesgos a sus aplicaciones y datos críticos de la compañía, y [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md), que permite detectar, restringir y supervisar los administradores y su acceso a los recursos, además de proporcionar acceso Just-In-Time cuando sea necesario.
 
 - **Licencias de la característica de "Pago por uso".** También puede obtener licencias de características adicionales, como Azure Active Directory Business-to-Customer (B2C). B2C puede ayudarle a proporcionar soluciones de administración de acceso y de identidad para las aplicaciones orientadas al cliente. Para más información, consulte [Documentación de Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 
@@ -83,7 +83,7 @@ Para conocer mejor Azure AD y su documentación, es aconsejable revisar los tér
 
 Después de elegir su licencia de Azure AD, obtendrá acceso a algunas de las características siguientes para su organización, o a todas ellas:
 
-|Categoría|DESCRIPCIÓN|
+|Category|DESCRIPCIÓN|
 |-------|-----------|
 |Administración de aplicaciones|Administre las aplicaciones en la nube y locales mediante el proxy de aplicación, el inicio de sesión único, el portal Mis aplicaciones (también conocido como Panel de acceso) y aplicaciones de software como servicio (SaaS). Para más información, consulte [Provisión de acceso remoto seguro a aplicaciones locales](../manage-apps/application-proxy.md) y [Documentación sobre la administración de aplicaciones](../manage-apps/index.yml).|
 |Authentication|Administre el restablecimiento de contraseñas de autoservicio de Azure Active Directory, Multi-Factor Authentication, la lista personalizada de contraseñas prohibidas y el bloqueo inteligente. Para más información, consulte la [documentación de Autenticación de Azure AD](../authentication/index.yml).|

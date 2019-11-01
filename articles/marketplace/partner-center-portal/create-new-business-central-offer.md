@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 9376493cdd1a8a9790f4de8ee3769acf8dca5ade
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 16b75a98a5a42c9acf6d9a68330cbf8e005f7179
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595574"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819802"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Creación de una nueva oferta de Dynamics 365 Business Central
 
@@ -101,7 +101,7 @@ Seleccione un mínimo de una y un máximo de tres categorías, que se utilizará
 
 ### <a name="industry"></a>Sector
 
-Opcionalmente, puede seleccionar hasta dos sectores para clasificar su oferta en Marketplace. Si la oferta no es específica para un sector, deje esta sección en blanco. Asegúrese de indicar la forma en que la oferta da soporte a los sectores seleccionados en la descripción de la oferta. 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Versión de la aplicación
 

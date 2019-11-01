@@ -15,25 +15,25 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eaa461dd0c4ef6bd9ed0ae4379a710ee100929d2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343432"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800202"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Recepción de eventos desde Event Hubs mediante Apache Storm
 
 [Apache Storm](https://storm.incubator.apache.org) es un sistema distribuido de cálculo en tiempo real que simplifica el procesamiento confiable de flujos de datos sin enlazar. Esta sección muestra cómo utilizar un spout de Storm para Azure Event Hubs a fin de recibir eventos de Event Hubs. Con Apache Storm, se pueden dividir los eventos en varios procesos hospedados en distintos nodos. La integración de Event Hubs con Storm simplifica el consumo de eventos al comprobar de forma transparente el progreso mediante la instalación de Zookeeper de Storm, la administración de puntos de comprobación persistentes y las recepciones en paralelo de Event Hubs.
 
-Para más información sobre los patrones de recepción de Event Hubs, vea la [información general de Event Hubs][Event Hubs overview].
+Para más información sobre los patrones de recepción de Event Hubs, vea la [Información general de Event Hubs][Event Hubs overview].
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar con el inicio rápido, **cree un espacio de nombres de Event Hubs y un centro de eventos**. Use [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento que se indica en [este artículo](event-hubs-create.md). 
 
 ## <a name="create-project-and-add-code"></a>Creación del proyecto y adición de código
 
-Este tutorial usa una instalación de [HDInsight Storm][HDInsight Storm], que integra el emisor de Event Hubs que ya está disponible.
+Este tutorial usa una instalación de [HDInsight Storm][HDInsight Storm] , que integra el emisor de Event Hubs que ya se encuentra disponible.
 
 1. Siga el procedimiento descrito en [Introducción a HDInsight Storm](../hdinsight/storm/apache-storm-overview.md) para crear un clúster nuevo de HDInsight y conectarlo a través del Escritorio remoto.
 2. Copie el archivo `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` en su entorno de desarrollo local. Contiene events-storm-spout.
@@ -252,7 +252,7 @@ Para más información acerca de Event Hubs, visite los vínculos siguientes:
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[Ejemplo de HDInsight Storm con Event Hubs]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[Ejemplo de HDInsight Storm con Event Hubs]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 
 <!-- Images -->
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c665c65dcda2266a7acd7bc78726179d559f4d64
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61318400"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163917"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integración de entornos en las canalizaciones CI/CD de Azure DevOps
 Puede usar la extensión Azure DevTest Labs Tasks que se instala en Azure DevOps Services (anteriormente conocido como Visual Studio Team Services) para integrar fácilmente la canalización de compilación y versión de integración continua (CI) y entrega continua (CD) con Azure DevTest Labs. Estas extensiones permiten que sea más fácil implementar rápidamente un [entorno](devtest-lab-test-env.md) para una determinada tarea de prueba y, luego, eliminarlo cuando finalice la prueba. 
@@ -62,7 +62,7 @@ La siguiente fase de la implementación es crear el entorno que se usará con fi
 4. En **Nombre de la plantilla**, seleccione el nombre del entorno en el que guardó el repositorio de código fuente*. 
 5. El **nombre del laboratorio**, el **nombre del repositorio** y el **nombre de la plantilla** son las representaciones descriptivas de los identificadores de recursos de Azure. Escribir manualmente el nombre descriptivo provoca errores, así que use las listas desplegables para seleccionar la información.
 6. En **Nombre del entorno**, escriba un nombre para identificar de forma única la instancia del entorno en el laboratorio.  Debe ser único dentro del laboratorio.
-7. Las secciones **Parameter File** (Archivo de parámetro) y **Parameters** (Parámetros) permiten pasar parámetros personalizados al entorno. Se pueden usar una o ambas secciones para establecer los valores de parámetro. En este ejemplo, se usará la sección de parámetros. Use los nombres de las variables que definió en el entorno, por ejemplo: `-administratorLogin “$(administratorLogin)” -administratorLoginPassword “$(administratorLoginPassword)” -databaseName “$(databaseName)” -cacheSKUCapacity 1`
+7. Las secciones **Parameter File** (Archivo de parámetro) y **Parameters** (Parámetros) permiten pasar parámetros personalizados al entorno. Se pueden usar una o ambas secciones para establecer los valores de parámetro. En este ejemplo, se usará la sección de parámetros. Use los nombres de las variables que definió en el entorno, por ejemplo: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
 8. La información dentro de la plantilla de entorno se puede recorrer en la sección de salida de la plantilla. Active la casilla **Create output variables based on the environment template output** (Crear variables de salida según la salida de la plantilla de entorno) para que otras tareas puedan usar los datos. `$(Reference name.Output Name)` es el patrón a seguir. Por ejemplo, si el nombre de referencia era DTL y el nombre de salida de plantilla era ubicación, la variable sería `$(DTL.location)`.
 
 ## <a name="delete-the-environment"></a>Eliminación del entorno

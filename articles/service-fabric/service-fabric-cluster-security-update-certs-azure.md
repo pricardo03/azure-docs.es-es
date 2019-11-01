@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: d84525e869d47fc609ee8aac7feb7feda36a5f23
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 9c14afb22d95493deaf3552cb8c7392c3fc5a679
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599958"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934015"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Agregar o quitar certificados para un clúster de Service Fabric de Azure
 Se recomienda leer [Escenarios de seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md) para familiarizarse con cómo Service Fabric usa los certificados X.509. Debe entender qué es un certificado de clúster y para qué se usa antes de seguir avanzando.
@@ -53,13 +53,13 @@ Si su intención es eliminar el certificado marcado como principal, deberá impl
 En estos pasos se da por hecho que está familiarizado con el funcionamiento de Resource Manager, que ha implementado al menos un clúster de Service Fabric mediante una plantilla de Resource Manager, y que tiene a mano la plantilla que utilizó para configurar el clúster. También se da por hecho que está familiarizado con el uso de JSON.
 
 > [!NOTE]
-> Si necesita una plantilla de ejemplo y parámetros para usar como guía o punto de partida, descárguelos desde este [repositorio de GitHub](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
+> Si necesita una plantilla de ejemplo y parámetros para usar como guía o punto de partida, descárguelos desde este [repositorio de GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample). 
 > 
 > 
 
 ### <a name="edit-your-resource-manager-template"></a>Edición de la plantilla de Resource Manager
 
-Para facilitar las siguientes tareas, el ejemplo 5-VM-1-NodeTypes-Secure_Step2.JSON contiene todas las modificaciones que se van a realizar. El ejemplo está disponible [en el repositorio de GitHub](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
+Para facilitar las siguientes tareas, el ejemplo 5-VM-1-NodeTypes-Secure_Step2.JSON contiene todas las modificaciones que se van a realizar. El ejemplo está disponible [en el repositorio de GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample).
 
 **Asegúrese de seguir todos los pasos**
 
@@ -178,7 +178,7 @@ Para facilitar las siguientes tareas, el ejemplo 5-VM-1-NodeTypes-Secure_Step2.J
 > 
 
 ### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Edición del archivo de plantilla para reflejar los nuevos parámetros agregados anteriormente
-Si está usando el ejemplo del [repositorio de GitHub](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) para seguir el artículo, puede empezar a hacer estos cambios en el ejemplo 5-VM-1-NodeTypes-Secure.parameters_Step2.JSON. 
+Si está usando el ejemplo del [repositorio de GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample) para seguir el artículo, puede empezar a hacer estos cambios en el ejemplo 5-VM-1-NodeTypes-Secure.parameters_Step2.JSON. 
 
 Modifique el parámetro File de la plantilla de Resource Manager, y agregue los dos nuevos parámetros para secCertificateThumbprint y secCertificateUrlValue. 
 

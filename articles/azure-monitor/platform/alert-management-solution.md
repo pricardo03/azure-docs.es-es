@@ -1,24 +1,18 @@
 ---
 title: Solución Alert Management en Log Analytics | Microsoft Azure
 description: La solución Administración de alertas de Log Analytics le ayuda a analizar todas las alertas de su entorno.  Además de consolidar las alertas generadas dentro de Log Analytics, importa las alertas de los grupos de administración conectados de System Center Operations Manager en Log Analytics.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/19/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: e2f195f648f08c31fbfe44543ee763aeed7459f0
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.date: 01/19/2018
+ms.openlocfilehash: fe484d8b5a06946b844acb5e506ec4dcc99ebc23
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702962"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932725"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solución Alert Management en Azure Log Analytics
 

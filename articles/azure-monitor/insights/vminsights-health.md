@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: c9dfd3bfcacc1f50bb9be04c927bf3cbb4895f6d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: e19ba55e48c537974ad4136d40505514b92d387d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555261"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162296"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Descripción del mantenimiento de las máquinas virtuales de Azure
 
@@ -339,7 +339,7 @@ Para identificar el elemento *monitorId* de un criterio de mantenimiento especí
 2. Escriba el siguiente comando para recuperar todos los criterios de mantenimiento activos de una máquina virtual específica e identifique el valor de la propiedad *monitorId*:
 
     ```
-    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
+    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview"
     ```
 
     En el ejemplo siguiente se muestra la salida del comando *armclient GET*. Tome nota del valor del elemento *MonitorId*. Este valor es necesario para el paso siguiente, en el que debemos especificar el identificador de los criterios de mantenimiento y modificar su propiedad para crear una alerta.

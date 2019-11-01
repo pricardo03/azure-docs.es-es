@@ -9,12 +9,12 @@ ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: e5420bbe7f65dcef4997d909b3bc4ede00dd9902
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 603c407f93294f2c9697dcee4c3d5d829033d5d9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844232"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176962"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implementación del módulo de Azure Blob Storage en IoT Edge en el dispositivo
 
@@ -23,7 +23,7 @@ Hay varias maneras de implementar módulos en un dispositivo de IoT Edge, y toda
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure.
-- Un [dispositivo de IoT Edge](how-to-register-device-portal.md) que tenga instalado el entorno de ejecución de Azure IoT Edge.
+- Un [dispositivo de IoT Edge](how-to-register-device.md) que tenga instalado el entorno de ejecución de Azure IoT Edge.
 - [Visual Studio Code](https://code.visualstudio.com/) y las [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) si la implementación se hace desde Visual Studio Code.
 
 ## <a name="deploy-from-the-azure-portal"></a>Implementación desde Azure Portal
@@ -78,7 +78,7 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
 
    - Reemplace `<your storage account name>` por un nombre que pueda recordar. Los nombres de cuenta tener de 3 a 24 caracteres, con letras en minúscula y números. No deben tener espacios.
 
-   - Actualice `<your storage account key>` por una clave base64 de 64 bytes. Puede generar una clave con herramientas como [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Estas credenciales las usará para acceder a Blob Storage desde otros módulos.
+   - Actualice `<your storage account key>` por una clave base64 de 64 bytes. Puede generar una clave con herramientas como [GeneratePlus](https://generate.plus/en/base64). Estas credenciales las usará para acceder a Blob Storage desde otros módulos.
 
    - Reemplace `<storage mount>` según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos. El montaje de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo.
 
@@ -191,7 +191,7 @@ Azure IoT Edge proporciona plantillas de Visual Studio Code que facilitan el des
 
 1. Reemplace `<your storage account name>` por un nombre que pueda recordar. Los nombres de cuenta tener de 3 a 24 caracteres, con letras en minúscula y números. No deben tener espacios.
 
-1. Actualice `<your storage account key>` por una clave base64 de 64 bytes. Puede generar una clave con herramientas como [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Estas credenciales las usará para acceder a Blob Storage desde otros módulos.
+1. Actualice `<your storage account key>` por una clave base64 de 64 bytes. Puede generar una clave con herramientas como [GeneratePlus](https://generate.plus/en/base64). Estas credenciales las usará para acceder a Blob Storage desde otros módulos.
 
 1. Reemplace `<storage mount>` según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos. El montaje de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo.  
 

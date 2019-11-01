@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b5678fb0edcecae9ffa6a3c27f3dc6334ecf505
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: bc06931dd36c9ecd91ec1d748b9463f47f7afafc
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125340"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880589"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guía de implementación de la característica Azure Active Directory
 
@@ -41,7 +41,7 @@ En las páginas siguientes encontrará información adicional sobre las licencia
 
 En esta fase, los administradores habilitan unas características de seguridad como base de referencia para crear una base más segura y fácil de usar en Azure AD antes de importar o crear cuentas de usuario normales. Esta base fundamental garantiza un estado inicial seguro y que a los usuarios finales solo hay que presentarles los conceptos nuevos una vez.
 
-| Tarea | Detalles | Licencia necesaria |
+| Tarea | Detail | Licencia necesaria |
 | ---- | ------ | ---------------- |
 | [Designación de más de un administrador global](../users-groups-roles/directory-emergency-access.md) | Asigne al menos dos cuentas de administrador global permanentes solo en la nube para casos de emergencia. Estas cuentas no son para un uso diario y deben tener contraseña compleja y larga. | Azure AD Free |
 | [Uso de roles de administrador no global siempre que sea posible](../users-groups-roles/directory-assign-admin-roles.md) | Asigne a los administradores solo el acceso que necesitan a las áreas a las que necesitan acceso. No todos los administradores necesitan ser administradores globales. | Azure AD Free |
@@ -54,7 +54,7 @@ En esta fase, los administradores habilitan unas características de seguridad c
 | [Personalización del bloqueo inteligente de Azure Active Directory](../authentication/howto-password-smart-lockout.md) | Deje de tener bloqueos de los usuarios de la nube al replicarlos a usuarios de Active Directory locales. | |
 | [Habilitación del bloqueo inteligente de la extranet para AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | El bloqueo de la extranet de AD FS protege contra los ataques de adivinación de contraseñas por fuerza bruta al tiempo que permite a los usuarios de AD FS válidos continuar usando sus cuentas. | |
 | [Implementación de Azure AD Multi-Factor Authentication mediante directivas de acceso condicional](../authentication/howto-mfa-getstarted.md) | Haga que los usuarios realicen la verificación en dos pasos al acceder a aplicaciones confidenciales mediante directivas de acceso condicional. | Azure AD Premium P1 |
-| [Habilitación de Azure Active Directory Identity Protection](../identity-protection/enable.md) | Habilite el seguimiento de los inicios de sesión de riesgo y de las credenciales en riesgo para los usuarios de su organización. | Azure AD Premium P2 |
+| [Habilitación de Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Habilite el seguimiento de los inicios de sesión de riesgo y de las credenciales en riesgo para los usuarios de su organización. | Azure AD Premium P2 |
 | [Uso de detecciones de riesgos para desencadenar Multi-Factor Authentication y cambios de contraseñas](../authentication/tutorial-risk-based-sspr-mfa.md) | Habilite la automatización que desencadene eventos como la autenticación multifactor, el restablecimiento de contraseña y el bloqueo del inicio de sesión en caso de riesgo. | Azure AD Premium P2 |
 | [Habilitación del registro convergente para autoservicio de restablecimiento de contraseña y Azure AD Multi-Factor Authentication (versión preliminar)](../authentication/concept-registration-mfa-sspr-converged.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. | Azure AD Premium P1 |
 
@@ -62,7 +62,7 @@ En esta fase, los administradores habilitan unas características de seguridad c
 
 A continuación agregaremos la base de la fase 1 mediante la importación de nuestros usuarios y la habilitación de la sincronización, la planeación del acceso de invitados y la preparación de la compatibilidad con otras funcionalidades.
 
-| Tarea | Detalles | Licencia necesaria |
+| Tarea | Detail | Licencia necesaria |
 | ---- | ------ | ---------------- |
 | [Instalación de Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Prepárese para sincronizar usuarios de su directorio local existente con la nube. | Azure AD Free |
 | [Implementación de la sincronización de hash de contraseñas](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Sincronice los hash de contraseña para permitir que se repliquen los cambios de contraseña, la detección y la solución de problemas con la contraseña y los informes de revelación de credenciales. | Azure AD Free |
@@ -78,7 +78,7 @@ A continuación agregaremos la base de la fase 1 mediante la importación de nue
 
 Siguiendo con la compilación de las fases anteriores, identificaremos aplicaciones candidatas para la migración y la integración con Azure AD y completaremos la configuración de esas aplicaciones.
 
-| Tarea | Detalles | Licencia necesaria |
+| Tarea | Detail | Licencia necesaria |
 | ---- | ------ | ---------------- |
 | Identificación de las aplicaciones | Identifique las aplicaciones que se usan en la organización: locales, SaaS en la nube y otras de línea de negocio. Determinar si estas aplicaciones pueden y deben administrarse con Azure AD. | Sin necesidad de licencia |
 | [Integración de aplicaciones SaaS compatibles en la galería](../manage-apps/add-application-portal.md) | Azure AD incluye una galería que contiene miles de aplicaciones previamente integradas. Algunas de las aplicaciones que su organización usa probablemente estén en la galería y se pueda acceder a ellas desde Azure Portal. | Azure AD Free |
@@ -88,7 +88,7 @@ Siguiendo con la compilación de las fases anteriores, identificaremos aplicacio
 
 En la fase 4 los administradores deben aplicar los últimos principios de los permisos de administración, completar sus primeras revisiones de acceso y permitir la automatización de las tareas comunes del ciclo de vida de los usuarios.
 
-| Tarea | Detalles | Licencia necesaria |
+| Tarea | Detail | Licencia necesaria |
 | ---- | ------ | ---------------- |
 | [Inicio del uso de Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Elimine los roles de administrador de las cuentas de usuario diarias normales. Haga que los usuarios administradores puedan usar su rol tras la comprobación de la autenticación multifactor para proporcionar una justificación de negocios o solicitar la autorización de los aprobadores designados. | Azure AD Premium P2 |
 | [Completar una revisión de acceso para los roles de directorio de Azure AD en PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Trabaje con los equipos de seguridad y dirección para crear una directiva de revisión de acceso para revisar el acceso de los administradores de conformidad con las directivas de la organización. | Azure AD Premium P2 |

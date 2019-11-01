@@ -1,24 +1,18 @@
 ---
 title: Consulta de registro de Splunk en Azure Monitor | Microsoft Docs
 description: Ayuda para los usuarios que están familiarizados con Splunk a la hora de obtener información sobre las consultas de registro de Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 03a0d755cf6d099f07a7c6d853e1d747908eec05
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 08/21/2018
+ms.openlocfilehash: e16bf152e739a6145bfabaf8546fa71199f8d732
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177632"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932948"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Consulta de registro de Splunk en Azure Monitor
 
@@ -81,7 +75,7 @@ En Splunk se puede omitir la palabra clave `search` y especifique una cadena sin
 | Azure Monitor | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
-### <a name="filter"></a>Filtrar
+### <a name="filter"></a>Filter
 Las consultas de registro de Azure Monitor comienzan en un conjunto de resultados tabulares donde se establece el filtro. En Splunk, el filtrado es la operación predeterminada del índice actual. En Splunk también se puede usar el operador `where`, pero no es aconsejable.
 
 | |  | |

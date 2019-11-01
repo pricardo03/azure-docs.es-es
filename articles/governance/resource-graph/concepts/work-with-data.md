@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 74a618606fa8f2bdc678e8afc90640b5be8315a7
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bcc272a8189ebb175f546f6a50c2c117a7975216
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752114"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800185"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Uso de grandes conjuntos de datos de recursos de Azure
 
@@ -36,7 +36,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-En la [API REST](/rest/api/azureresourcegraph/resources/resources), el control es **$top** y forma parte de **QueryRequestOptions**.
+En la [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), el control es **$top** y forma parte de **QueryRequestOptions**.
 
 El control que sea _más restrictivo_ ganará. Por ejemplo, si la consulta usa los operadores **top** o **limit** y el resultado va a ser un número de registros superior a **First**, el número máximo de registros devueltos será igual a **First**. Igualmente, si **top** o **limit** son más pequeños que **First**, el conjunto de registros devuelto sería el valor más pequeño configurado por **top** o **limit**.
 
@@ -59,11 +59,11 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-En la [API REST](/rest/api/azureresourcegraph/resources/resources), el control es **$skip** y forma parte de **QueryRequestOptions**.
+En la [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), el control es **$skip** y forma parte de **QueryRequestOptions**.
 
 ## <a name="paging-results"></a>Paginación de resultados
 
-Cuando sea necesario dividir un conjunto de resultados en conjuntos de registros más pequeños para su procesamiento, o porque un conjunto de resultados superaría el valor máximo permitido de _1000_ registros devueltos, use la paginación. La [API REST](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** proporciona valores para indicar que un conjunto de resultados se ha dividido: **resultTruncated** y **$skipToken**.
+Cuando sea necesario dividir un conjunto de resultados en conjuntos de registros más pequeños para su procesamiento, o porque un conjunto de resultados superaría el valor máximo permitido de _1000_ registros devueltos, use la paginación. La [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** proporciona valores para indicar que un conjunto de resultados se ha dividido: **resultTruncated** y **$skipToken**.
 **resultTruncated** es un valor booleano que informa al consumidor si existen registros adicionales no devueltos en la respuesta. Esta condición también se puede identificar cuando la propiedad **count** es menor que la propiedad **totalRecords**. **totalRecords** define cuántos registros coinciden con la consulta.
 
 Cuando **resultTruncated** es **true**, la propiedad **$skipToken** se establece en la respuesta. Este valor se usa con los mismos valores de consulta y suscripción para obtener el siguiente conjunto de registros que coinciden con la consulta.

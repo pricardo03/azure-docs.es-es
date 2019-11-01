@@ -1,24 +1,18 @@
 ---
 title: Inventario de las soluciones de supervisión en Azure | Microsoft Docs
 description: Las soluciones de supervisión de Azure Monitor son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas que giran en torno a una determinada área de problemas.  Este artículo proporciona una lista de las soluciones de supervisión disponibles de Microsoft y los detalles del método y la frecuencia de recopilación de datos.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 9398815ea75c0eacd99a6e40c569254fac671cbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2018
+ms.openlocfilehash: 6012a74c00b64c818434ea1744d86c6cf67dd463
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234029"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931326"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Detalles del inventario y la recopilación de datos para las soluciones de supervisión en Azure
 Las [soluciones de supervisión](solutions.md) aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. Las soluciones de supervisión suelen recopilar datos de registro y proporcionar consultas y vistas para analizar los datos recopilados. Puede agregar soluciones de supervisión a su instancia de Azure Monitor para todas las aplicaciones y los servicios que use. Suelen estar disponibles sin costo, pero la recopilación de datos puede suponer cargos por uso.

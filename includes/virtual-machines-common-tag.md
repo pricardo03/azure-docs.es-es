@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: ccc2b574ea054a1b0ecf32a1e59691050fb66fcf
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f6bd574c83d309ce6d6f54fdb1c7d23cb713420d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67186255"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182281"
 ---
 ## <a name="tagging-a-virtual-machine-through-templates"></a>Etiquetado de una máquina virtual mediante plantillas
 En primer lugar, veamos el etiquetado a través de plantillas. [Esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) coloca etiquetas en los siguientes recursos: proceso (máquina virtual), almacenamiento (cuenta de almacenamiento) y red (dirección IP pública, red virtual e interfaz de red). Esta plantilla es para una máquina virtual Windows, pero se puede adaptar a máquinas virtuales Linux.
@@ -24,9 +24,9 @@ Esta plantilla incluye las siguientes etiquetas: *Departamento*, *Aplicación* y
 
 Como puede ver, las etiquetas se definen como pares de clave-valor, separados por dos puntos (:). Las etiquetas deben definirse con este formato:
 
-        “tags”: {
-            “Key1” : ”Value1”,
-            “Key2” : “Value2”
+        "tags": {
+            "Key1" : "Value1",
+            "Key2" : "Value2"
         }
 
 Guarde el archivo de plantilla cuando termine de modificarlo con las etiquetas que prefiera.

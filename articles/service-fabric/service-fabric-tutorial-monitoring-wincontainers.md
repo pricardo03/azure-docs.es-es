@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 856e2859c778c9f23bc093c2283571a1440ef701
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: b98917e6f3c0ff6570251751a9958b202908ee3e
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68598771"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933912"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutorial: Supervisión de contenedores de Windows en Service Fabric mediante los registros de Azure Monitor
 
@@ -186,7 +186,7 @@ Realice los siguientes cambios en su *template.json*:
     },
     ```
 
-[Esta](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) es una plantilla de ejemplo (usada en la primera parte de este tutorial) que tiene todos estos cambios a los que puede hacer referencia según sea necesario. Estos cambios agregarán un área de trabajo de Log Analytics al grupo de recursos. El área de trabajo se configurará para elegir eventos de plataforma de Service Fabric de las tablas de almacenamiento configuradas con el agente de [Microsoft Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md). El agente de Log Analytics (Microsoft Monitoring Agent) también se ha agregado a cada uno de los nodos del clúster como una extensión de máquina virtual (esto significa que, a medida que escala el clúster, el agente se configura automáticamente en cada máquina y se enlaza a la misma área de trabajo).
+[Esta](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/d2ffa318581fc23ac7f1b0ab2b52db1a0d7b4ba7/5-VM-Windows-OMS-UnSecure/sfclusteroms.json) es una plantilla de ejemplo (usada en la primera parte de este tutorial) que tiene todos estos cambios a los que puede hacer referencia según sea necesario. Estos cambios agregarán un área de trabajo de Log Analytics al grupo de recursos. El área de trabajo se configurará para elegir eventos de plataforma de Service Fabric de las tablas de almacenamiento configuradas con el agente de [Microsoft Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md). El agente de Log Analytics (Microsoft Monitoring Agent) también se ha agregado a cada uno de los nodos del clúster como una extensión de máquina virtual (esto significa que, a medida que escala el clúster, el agente se configura automáticamente en cada máquina y se enlaza a la misma área de trabajo).
 
 Implemente la plantilla con sus nuevos cambios para actualizar su clúster actual. Finalizada la implementación, podrá ver los recursos de Log Analytics en el grupo de recursos. Cuando el clúster esté listo, implemente su aplicación en contenedores en él. En el siguiente paso, configuraremos la supervisión de los contenedores.
 
@@ -242,7 +242,7 @@ En este tutorial aprendió lo siguiente:
 
 Ahora que ha configurado la supervisión de su aplicación en contenedores, pruebe lo siguiente:
 
-* Configure los registros de Azure Monitor para un clúster Linux, siguiendo pasos similares a los anteriores. Haga referencia a [esta plantilla](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) para realizar cambios en su plantilla de Resource Manager.
+* Configure los registros de Azure Monitor para un clúster Linux, siguiendo pasos similares a los anteriores. Haga referencia a [esta plantilla](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) para realizar cambios en su plantilla de Resource Manager.
 * Configure los registros de Azure Monitor para configurar [alertas automáticas](../log-analytics/log-analytics-alerts.md) que ayuden a la detección y el diagnóstico.
 * Explore la lista de Service Fabric de [contadores de rendimiento recomendados](service-fabric-diagnostics-event-generation-perf.md) para configurar sus clústeres.
 * Familiarícese con las característica de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.

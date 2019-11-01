@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 430734878c01d10a4e7dd385dc75d8d502a2d82c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0f879a6389c7a77708e8041dd8b82dc3785679fa
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081637"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162638"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configuración del laboratorio de Azure DevTest Labs para usar una puerta de enlace de Escritorio remoto
 En Azure DevTest Labs, puede configurar una puerta de enlace de Escritorio remoto para el laboratorio con el fin de garantizar el acceso seguro a las máquinas virtuales (VM) del laboratorio sin tener que exponer el puerto RDP. El laboratorio proporciona un lugar central para que los usuarios del laboratorio vean todas las máquinas virtuales a las que tienen acceso y se conecten a ellas. El botón **Connect** (Conectar) de la página **Virtual Machine** (Máquina Virtual) crea un archivo RDP específico de la máquina que se puede abrir para conectarse a ella. Puede personalizar y proteger aún más la conexión RDP si conecta el laboratorio a una puerta de enlace de Escritorio remoto. 
@@ -144,7 +144,7 @@ Siga estos pasos para configurar una solución de ejemplo para la granja de serv
     La plantilla se puede implementar mediante la CLI de Azure con el comando siguiente:
 
     ```azurecli
-    az group deployment create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation=”{storage-account-endpoint}/{container-name}” -–parameters _artifactsLocationSasToken = “?{sas-token}”
+    az group deployment create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
     ```
 
     Estas son las descripciones de los parámetros:

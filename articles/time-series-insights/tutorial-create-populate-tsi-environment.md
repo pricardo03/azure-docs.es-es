@@ -2,19 +2,19 @@
 title: 'Tutorial: Creación de un entorno de Azure Time Series Insights | Microsoft Docs'
 description: Tutorial para aprender a crear un entorno de Time Series Insights que se rellena con datos de dispositivos simulados.
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/16/2019
-ms.author: dpalled
-manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 518847db727c9d8c527d272f9122ef9850ca9135
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9ca60b876272df15d306ac7fba2dc61875db6d06
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553056"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989649"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Creación de un entorno de Azure Time Series Insights
 

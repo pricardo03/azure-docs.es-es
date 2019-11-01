@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: kumud
-ms.openlocfilehash: 23e46290af6bdb4c217d8fa0cd836673652fc81d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24f4b7435c2736527d033aa5ca7a65ad35a3a705
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701372"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73022178"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Incorporación de interfaces de red a máquinas virtuales o su eliminación de ellas
 
@@ -122,7 +122,6 @@ Puede ver las interfaces de red asociadas actualmente a una máquina virtual par
 - Aunque las interfaces de red de la misma máquina virtual se pueden conectar a subredes diferentes dentro de una red virtual, las interfaces de red deben estar todas conectadas a la misma red virtual.
 - Puede agregar cualquier dirección IP para cualquier configuración de IP de cualquier interfaz de red principal o secundaria a un grupo de servidores back-end de Azure Load Balancer. En el pasado, solo la dirección IP principal de la interfaz de red principal podía agregarse a un grupo de servidores back-end. Para más información sobre las direcciones IP y las configuraciones, consulte [incorporación, cambio o eliminación de direcciones IP](virtual-network-network-interface-addresses.md).
 - La eliminación de una máquina virtual no elimina las interfaces de red asociadas a ella. Cuando se elimina una máquina virtual, las interfaces de red se desasocian de ella. Puede agregar las interfaces de red a diferentes máquinas virtuales o eliminarlas.
-- Si una interfaz de red tiene una dirección IPv6 privada asignada, debe agregarla (asociarla) a una máquina virtual en el momento que se cree. Después de crear la máquina virtual, no se podrá agregar una interfaz de red con una dirección IPv6 asignada. Si agrega una interfaz de red con una dirección IPv6 privada asignada al crear una máquina virtual, solo se puede agregar esa interfaz de red a la máquina virtual, independientemente de cuántas interfaces de red admita el tamaño de la máquina virtual. Consulte [Administración de direcciones IP de interfaz de red](virtual-network-network-interface-addresses.md) para más información sobre la asignación de direcciones IP a interfaces de red.
 - De manera similar a IPv6, después de crear una máquina virtual no se le puede asociar una interfaz de red con redes aceleradas habilitadas. Además, para aprovechar las redes aceleradas, también debe completar pasos dentro del sistema operativo de la máquina virtual. Aprenda más sobre las redes aceleradas y otras restricciones cuando la use, en [Windows](create-vm-accelerated-networking-powershell.md) o [Linux](create-vm-accelerated-networking-cli.md).
 
 ## <a name="next-steps"></a>Pasos siguientes

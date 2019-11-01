@@ -1,23 +1,18 @@
 ---
 title: Supervisión de rendimiento de aplicaciones web de Java en Azure Application Insights | Microsoft Docs
 description: Supervisión extendida del rendimiento y el uso de su sitio web de Java con Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/10/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 01/10/2019
+ms.openlocfilehash: 181a1f253157fe112d42753d6f824a327457a2fa
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338090"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819407"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones detectadas y tiempos de ejecución del método en aplicaciones web de Java
 

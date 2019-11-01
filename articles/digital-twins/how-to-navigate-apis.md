@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/29/2019
-ms.openlocfilehash: b01b83ab0e673254da19888210d9678e313acca2
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 10/27/2019
+ms.openlocfilehash: 5df8bb0ba0323692bddf94ae2888e8fcf1ad24a9
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949853"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063264"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Cómo usar las API de administración de Azure Digital Twins
 
@@ -104,11 +104,11 @@ La mayoría de las API que devuelven colecciones, como una llamada GET en /space
 En la lista siguiente se muestran varias consultas con sintaxis válida de OData:
 
 - `YOUR_MANAGEMENT_API_URL/devices?$top=3&$orderby=Name desc`
-- `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,’space’)`
-- `YOUR_MANAGEMENT_API_URL/propertykeys?$filter=Scope ne ‘Spaces’`
-- `YOUR_MANAGEMENT_API_URL/resources?$filter=Size gt ‘M’`
-- `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,’k’)&$orderby=LastName`
-- `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor’,Name)`
+- `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,'space')`
+- `YOUR_MANAGEMENT_API_URL/devices?$filter=TypeId eq 2`
+- `YOUR_MANAGEMENT_API_URL/resources?$filter=StatusId ne 1`
+- `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,'k')&$orderby=LastName`
+- `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor',Name)`
  
 ## <a name="next-steps"></a>Pasos siguientes
 

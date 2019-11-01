@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6c7cf82381dfb895fdaa0f130e33b2dc9a6e7403
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169753"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928489"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)
 
@@ -69,7 +69,11 @@ Para ver las directivas de red en acción, vamos a crear y luego expandir una di
 * Permita el tráfico en función de las etiquetas de pod.
 * Permita el tráfico según el espacio de nombres.
 
-En primer lugar, crearemos un clúster de AKS que admite la directiva de red. La característica de directiva de red solo se puede habilitar cuando se crea el clúster. No se puede habilitar la directiva de red en un clúster de AKS existente.
+En primer lugar, crearemos un clúster de AKS que admite la directiva de red. 
+
+> [!IMPORTANT]
+>
+> La característica de directiva de red solo se puede habilitar cuando se crea el clúster. No se puede habilitar la directiva de red en un clúster de AKS existente.
 
 Para usar la directiva de red de Azure, debe usar el [complemento CNI de Azure][azure-cni] y definir su propia red virtual y subredes. Para más información sobre cómo planear los rangos de subred requeridos, consulte la sección sobre cómo [configurar redes avanzadas][use-advanced-networking]. La directiva de red de Calico se puede usar con este mismo complemento CNI de Azure o con el complemento CNI de Kubenet.
 

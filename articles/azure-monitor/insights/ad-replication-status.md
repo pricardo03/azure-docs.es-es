@@ -1,24 +1,18 @@
 ---
 title: Supervisión de Active Directory Replication Status con Azure Monitor | Microsoft Docs
 description: El paquete de la solución Active Directory Replication Status supervisa con regularidad el entorno de Active Directory para comprobar si existen errores de replicación.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/24/2018
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/24/2018
+ms.openlocfilehash: 04112042c871f5268c64bda374f040f1bba92969
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60495196"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931349"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Supervisión de Active Directory Replication Status con Azure Monitor
 

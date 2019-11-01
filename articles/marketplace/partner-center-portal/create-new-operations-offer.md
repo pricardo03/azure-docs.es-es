@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 4a8a8d7f6004ac32aeb7ce2b8cbffeca9ddf0079
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f3b2a976dc6b2b9e91f046a7f69e3057a7af7d0e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595531"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816988"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Creación de una nueva oferta de Dynamics 365 for Operations
 
@@ -102,7 +102,7 @@ Seleccione un mínimo de una y un máximo de tres categorías. Se usarán para c
 
 ### <a name="industry"></a>Sector
 
-Opcionalmente, puede seleccionar hasta dos sectores para clasificar su oferta en Marketplace. Si la oferta no es específica para un sector, deje esta sección en blanco. Asegúrese de indicar la forma en que la oferta da soporte a los sectores seleccionados en la descripción de la oferta. 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Versión de la aplicación
 

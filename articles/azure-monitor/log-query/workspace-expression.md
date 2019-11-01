@@ -1,24 +1,18 @@
 ---
 title: Expresión workspace() en consultas de registro de Azure Monitor | Microsoft Docs
 description: La expresión workspace se usa en una consulta de registro de Azure Monitor para recuperar datos de un área de trabajo específica en el mismo grupo de recursos, en otro grupo de recursos o en otra suscripción.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/10/2018
+ms.openlocfilehash: f26b9534fbf95cc301ae782d47ab7030988fa469
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60785683"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932851"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Expresión workspace() en consultas de registro de Azure Monitor
 
@@ -37,7 +31,7 @@ La expresión `workspace` se usa en una consulta de Azure Monitor para recuperar
 |:---|:---|:---|
 | Nombre de recurso | Nombre legible del área de trabajo (también denominado "nombre del componente") | workspace("contosoretail") |
 | Nombre completo | Nombre completo del área de trabajo con el siguiente formato: "subscriptionName/resourceGroup/componentName" | workspace("Contoso/ContosoResource/ContosoWorkspace") |
-| ID | GUID del área de trabajo | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| id | GUID del área de trabajo | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
 | Id. de recurso de Azure | Identificador del recurso de Azure | workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 

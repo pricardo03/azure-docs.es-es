@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 37e833e5ba2fcbc9fcfe0a27d5b607a5c6cdd55b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39abe054869bf68a254b9305a680ecc892359300
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079530"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898865"
 ---
 # <a name="download-the-template-for-a-vm"></a>Descargar la plantilla para una máquina virtual
 Cuando se crea una máquina virtual en Azure mediante el portal o PowerShell, se crea automáticamente una plantilla de Resource Manager. Puede usar esta plantilla para duplicar rápidamente una implementación. La plantilla contiene información acerca de todos los recursos de un grupo de recursos. En el caso de una máquina virtual, significa que la plantilla contiene todo lo que se crea para ayudar a la máquina virtual de ese grupo de recursos, incluidos los recursos de red.
@@ -32,10 +32,6 @@ Cuando se crea una máquina virtual en Azure mediante el portal o PowerShell, se
 5. Seleccione **Descargar** en el menú de la parte superior y guarde el archivo .zip en el equipo local.
 6. Abra el archivo .zip y extraiga los archivos en una carpeta. El archivo .zip contiene:
    
-   * deploy.ps1
-   * deploy.sh 
-   * deployer.rb
-   * DeploymentHelper.cs
    * parameters.json
    * template.json
 

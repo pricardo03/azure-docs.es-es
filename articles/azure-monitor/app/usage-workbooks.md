@@ -1,24 +1,19 @@
 ---
 title: Crear informes interactivos con libros de Azure Monitor | Microsoft Docs
 description: Simplifique la creación de informes complejos con libros parametrizados creados previamente y personalizados.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbbf511286c63acf4a939e0a0e7d9c3dc9efa75b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569608"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899390"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crear informes interactivos con libros de Azure Monitor
 
@@ -159,7 +154,7 @@ Hay cuatro tipos diferentes de parámetros que se admiten actualmente:
 
   |         |          |
    | ---------------- |:-----|
-   | **Texto**    | El usuario modificará un cuadro de texto y, si usted quiere, puede proporcionar una consulta para rellenar el valor predeterminado. |
+   | **Text**    | El usuario modificará un cuadro de texto y, si usted quiere, puede proporcionar una consulta para rellenar el valor predeterminado. |
    | **Lista desplegable** | El usuario podrá elegir entre un conjunto de valores. |
    | **Selector de intervalo de tiempo**| El usuario elegirá entre un conjunto predefinido de valores de intervalo de tiempo o seleccionará entre un intervalo de tiempo personalizado.|
    | **Selector de recursos** | El usuario podrá elegir entre los recursos seleccionados para el libro.|

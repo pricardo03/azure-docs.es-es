@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 810e03988fb900325794ea1c1a825c07824b3b08
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d91ac6d50faaadf560ae7ff9e9cce5f7bc4b180a
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755631"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803916"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -41,9 +41,8 @@ En las secciones siguientes se enumeran los sistemas operativos de servidor admi
 
 ### Sistemas operativos Windows Server <a name="os-windows"></a>
 
-[!div class="mx-tableFixed"]
 |OS|Compatible con Azure Security Center|Compatibilidad para la integración con Microsoft Defender ATP|
-|---|---|---|
+|:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
 |Windows Server 2012 R2|✔|✔|

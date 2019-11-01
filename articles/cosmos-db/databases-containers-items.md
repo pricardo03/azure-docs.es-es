@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 0823b4b7e19bec9d8efc83dbb3996076425cb4f1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756880"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176934"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabajar con bases de datos, contenedores y elementos de Azure Cosmos DB
 
@@ -122,7 +122,7 @@ Cada elemento de Azure Cosmos tiene las siguientes propiedades definidas por el 
 |\_etag | Generada por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | Sí | No | No | No | Sin |
 |\_ts | Generada por el sistema | Marca de tiempo de la actualización más reciente del elemento | Sí | No | No | No | Sin |
 |\_self | Generada por el sistema | URI direccionable del elemento | Sí | No | No | No | Sin |
-|id | Es posible usar el | Nombre único que define el usuario en una partición lógica. Si el usuario no especifica el id., el sistema genera uno automáticamente. | Sí | Sí | Sí | Sí | Sí |
+|id | Es posible usar el | Nombre único que define el usuario en una partición lógica. | Sí | Sí | Sí | Sí | Sí |
 |Propiedades arbitrarias que define el usuario | Definidas por el usuario | Propiedades definidas por el usuario que se representan en la representación de la API nativa (incluidos los formatos JSON, BSON y CQL). | Sí | Sí | Sí | Sí | Sí |
 
 > [!NOTE]

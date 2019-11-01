@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46abe367c9047616174a1e43dffd57861e6278e8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 23ecec4d0701f6f55385937f872151a373b2f62e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68811835"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808109"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
 
@@ -146,7 +146,7 @@ Si la organización no tiene clientes heredados, no debe permitir que los usuari
 
 Tanto el envío de mensajes de texto como la recepción de respuestas en SMS bidireccionales no están garantizados, pues hay factores que no se pueden controlar y que podrían afectar a la confiabilidad del servicio. Estos factores incluyen el país o la región de destino, el operador del teléfono móvil y la intensidad de la señal.
 
-Si frecuentemente sus usuarios tienen problemas para recibir mensajes de texto de manera confiable, indíqueles que usen en su lugar el método de llamada de teléfono o aplicación móvil. La aplicación móvil puede recibir notificaciones con conexiones de telefonía móvil y Wi-Fi. Además, la aplicación móvil puede generar códigos de comprobación aunque el dispositivo no tenga señal. La aplicación Microsoft Authenticator está disponible para [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) y [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
+Si frecuentemente sus usuarios tienen problemas para recibir mensajes de texto de manera confiable, indíqueles que usen en su lugar el método de llamada de teléfono o aplicación móvil. La aplicación móvil puede recibir notificaciones con conexiones de telefonía móvil y Wi-Fi. Además, la aplicación móvil puede generar códigos de comprobación aunque el dispositivo no tenga señal. La aplicación Microsoft Authenticator está disponible para [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) y [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
 En la medida de lo posible, recomendamos usar SMS unidireccionales en lugar de bidireccionales si tiene que usar mensajes de texto. Los SMS unidireccionales son más seguros y evitan que los usuarios incurran en cargos SMS globales por responder a un mensaje de texto enviado desde otro país o región.
 

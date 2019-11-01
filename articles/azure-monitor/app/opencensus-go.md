@@ -1,20 +1,18 @@
 ---
 title: Seguimiento de Go en OpenCensus con Azure Application Insights | Microsoft Docs
 description: Este artículo contiene instrucciones acerca de cómo integrar el seguimiento de Go en OpenCensus con el reenviador local y Application Insights.
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/15/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 56e66f17e9ce1d2482463f619e82dfd29d48f191
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 99f26bb2b89ef9642a36aa2be2037d04aafcdcd4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990302"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819271"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Recopilación de seguimientos distribuidos en Go (versión preliminar)
 
@@ -49,7 +47,7 @@ En primer lugar, tiene que crear un recurso de Application Insights. Este recurs
    | ------------- |:-------------|:-----|
    | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights |
-   | **Ubicación** | Este de EE. UU | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
+   | **Ubicación** | East US | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
 2. Haga clic en **Create**(Crear).
 

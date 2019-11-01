@@ -1,24 +1,18 @@
 ---
 title: Recopilación y análisis de contadores de rendimiento en Azure Monitor | Microsoft Docs
 description: Azure Monitor recopila contadores de rendimiento para analizar el rendimiento de los agentes de Windows y Linux.  En este artículo se describe cómo configurar la colección de contadores de rendimiento de los agentes de Windows y Linux, se proporcionan detalles dela ubicación en que se almacenan en área de trabajo y se indica cómo analizarlos en Azure Portal.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2018
+ms.openlocfilehash: d007d3dab1625d58a561d35bb111923fbdeb3482
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205750"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932438"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
@@ -99,7 +93,7 @@ En la tabla siguiente se enumera los objetos y contadores que pueden especificar
 | Disco lógico | Bytes de lectura de disco/s |
 | Disco lógico | Lecturas de disco/s |
 | Disco lógico | Transferencias de disco/s |
-| Disco lógico |  Bytes de escritura en disco/s |
+| Disco lógico | Bytes de escritura en disco/s |
 | Disco lógico | Escrituras en disco/s |
 | Disco lógico | Megabytes libres |
 | Disco lógico | Bytes de disco lógico/s |
@@ -189,7 +183,7 @@ Los registros de rendimiento tienen el tipo **Perf** y sus propiedades son las q
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| Equipo |Nombre del equipo desde el que se recopiló el evento. |
+| Computer |Nombre del equipo desde el que se recopiló el evento. |
 | CounterName |Nombre del contador de rendimiento. |
 | CounterPath |Ruta de acceso completa del contador en el formato \\\\\<Equipo>\\objeto(instancia)\\contador. |
 | CounterValue |Valor numérico del contador. |

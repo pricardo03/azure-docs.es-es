@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0c86f9ad134e9b640d33d1a391c5387af9f9afd
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236360"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965659"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -48,7 +48,7 @@ En el Administrador de recursos de Azure, una dirección [IP pública](virtual-n
 
 ### <a name="ip-address-version"></a>Versión de la dirección IP
 
-Las direcciones IP públicas se crean con una dirección IPv4 o IPv6. Las direcciones IPv6 públicas solo se pueden asignar a los equilibradores de carga accesibles desde Internet.
+Las direcciones IP públicas se crean con una dirección IPv4 o IPv6. 
 
 ### <a name="sku"></a>SKU
 
@@ -148,10 +148,6 @@ En el modelo de implementación de Azure Resource Manager, una dirección IP pri
 * Interfaces de red de máquinas virtuales
 * Equilibradores de carga internos (ILB)
 * Puertas de enlace de aplicaciones
-
-### <a name="ip-address-version"></a>Versión de la dirección IP
-
-Las direcciones IP privadas se crean con una dirección IPv4 o IPv6. Las direcciones IPv6 privadas solo se pueden asignar con el método de asignación dinámico. No se puede comunicar entre las direcciones IPv6 privadas de una red virtual. Se permite la comunicación entrante con una dirección IPv6 privada desde Internet, a través de un equilibrador de carga accesible desde Internet. Consulte [Creación de un equilibrador de carga accesible desde Internet con IPv6](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para más información.
 
 ### <a name="allocation-method"></a>Método de asignación
 

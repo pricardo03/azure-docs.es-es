@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 3a21bff9e4c696063458d5734a579fc7c37258a7
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1d30b35264707c59c899cc3a224e4affa2a4696e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730077"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161525"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Inicio rápido: Creación de una red virtual mediante PowerShell
 
@@ -177,7 +177,7 @@ mstsc /v:<publicIpAddress>
 1. Para permitir que *myVm2* haga ping a *myVm1* en un paso posterior, escriba este comando:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     Ese comando permite una conexión entrante de ICMP a través del Firewall de Windows.

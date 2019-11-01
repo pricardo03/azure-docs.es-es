@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cca4f794fd3f84b991c7882307f74bcfadf6835b
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 3024d77c02f623f8b8dc1a8956e692c208c8c9e5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241050"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72799402"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
 
@@ -35,10 +35,10 @@ Las secciones siguientes ofrecen información general aplicable a la implementac
 
 Las especificaciones de notación de objetos JavaScript (JSON) y de firma y cifrado de objetos JavaScript (JOSE) son fuentes importantes de información general.  
 
--   [Clave web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [Cifrado web JSON (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [Algoritmos web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [Firma web JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [Clave web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
+-   [Cifrado web JSON (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
+-   [Algoritmos web JSON (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
+-   [Firma web JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
 
 ### <a name="data-types"></a>Tipos de datos
 
@@ -162,7 +162,7 @@ Azure Key Vault no admite operaciones de EXPORTACIÓN. Cuando se aprovisiona una
 
 Los usuarios pueden restringir cualquiera de las operaciones criptográficas que admite Key Vault en una base por cada clave mediante la propiedad key_ops del objeto JWK.  
 
-Para más información acerca de los objetos JWK, consulte [Clave web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+Para más información acerca de los objetos JWK, consulte [Clave web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
 
 ###  <a name="key-attributes"></a>Atributos de clave
 
@@ -185,7 +185,7 @@ Las claves todavía no válidas y las expiradas, fuera de la franja *nbf* / *exp
 
 Para más información sobre los tipos de datos, vea [Tipos de datos](#data-types).
 
-Para más información sobre otros posibles atributos, vea [Clave web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+Para más información sobre otros posibles atributos, vea [Clave web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).
 
 ### <a name="key-tags"></a>Etiquetas de la clave
 

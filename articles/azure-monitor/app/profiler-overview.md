@@ -1,23 +1,19 @@
 ---
 title: Generación de perfiles de aplicaciones de producción en Azure con Application Insights Profiler | Microsoft Docs
 description: Identifique la ruta de acceso activa en el código del servidor web con un generador de perfiles de bajo impacto.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: fc152aab6d0e62ac5656b50834ce17278bb6676e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338073"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820524"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Generación de perfiles de aplicaciones de producción en Azure con Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Habilitación de Application Insights Profiler para la aplicación

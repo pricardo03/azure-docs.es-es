@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: da7e41ae77226c2a18b92329507855ac30891058
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0226c9f1b90495cdfd47a5c5c7a415a36761753d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816099"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901594"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Información general de Azure Service Fabric
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetado, la implementación y la administración de microservicios y contenedores escalables y confiables. Service Fabric también aborda los desafíos importantes en el desarrollo y la administración de aplicaciones nativas en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar. Service Fabric representa la plataforma de próxima generación para crear y administrar estas aplicaciones de clase empresarial, escala de nube y nivel 1 que se ejecutan en contenedores.
@@ -36,9 +36,7 @@ Service Fabric le permite compilar y administrar aplicaciones escalables y confi
 
 En la actualidad, Service Fabric se utiliza en muchos servicios Microsoft, como Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Dynamics 365, Skype Empresarial y muchos servicios principales de Azure.
 
-Service Fabric se adapta para crear servicios nativos de la nube que pueden empezar con un tamaño pequeño, según sea necesario, y crecer a gran escala con cientos o miles de máquinas.
-
-Actualmente, los servicios de escala de Internet se crean a partir de microservicios. Entre los ejemplos de microservicios se encuentran las puertas de enlace de protocolo, perfiles de usuario, carros de la compra, procesamiento de inventario, colas y memorias caché. Service Fabric es una plataforma de microservicios que da a cada microservicio (o contenedor) un nombre único con o sin estado.
+Service Fabric se adapta para crear servicios nativos de la nube que pueden empezar con un tamaño pequeño, según sea necesario, y crecer a gran escala con cientos o miles de máquinas. Actualmente, los servicios de escala de Internet se crean a partir de microservicios. Entre los ejemplos de microservicios se encuentran las puertas de enlace de protocolo, perfiles de usuario, carros de la compra, procesamiento de inventario, colas y memorias caché. 
 
 Service Fabric ofrece funciones completas de administración del ciclo de vida y de tiempo de ejecución para las aplicaciones que están compuestas de estos microservicios. Hospeda microservicios dentro de contenedores que se implementan y activan en el clúster de Service Fabric. La migración desde las máquinas virtuales a los contenedores hace posible un aumento de un orden de magnitud en la densidad. De manera similar, se hace posible otro orden de magnitud en la densidad si se migra de contenedores a microservicios en estos contenedores. Por ejemplo, un único clúster de Azure SQL Database se compone de cientos de máquinas que ejecutan decenas de miles de contenedores que hospedan un total de cientos de miles de bases de datos. Cada base de datos es un microservicio con estado de Service Fabric. 
 

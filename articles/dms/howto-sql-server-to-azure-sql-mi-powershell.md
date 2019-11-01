@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 426285340a9401aa6c84a7ee07f172eee6791d9e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233716"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163952"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>Migración de SQL Server local a una instancia administrada de Azure SQL Database mediante Azure PowerShell
 En este artículo, migrará la base de datos **Adventureworks2016** restaurada en una instancia local de SQL Server 2005 o superior a una instancia administrada de Azure SQL Database mediante Microsoft Azure PowerShell. Puede migrar bases de datos desde una instancia de SQL Server local a una instancia administrada de Azure SQL Database mediante el módulo `Az.DataMigration` en Microsoft Azure PowerShell.
@@ -236,7 +236,7 @@ Debe realizar las siguientes tareas de configuración únicamente para las migra
 * **Selección de inicios de sesión**. Cree una lista de inicios de sesión que se van a migrar tal y como se muestra en el ejemplo siguiente:
 
     ```powershell
-    $selectedLogins = @(“user1”, “user2”)
+    $selectedLogins = @("user1", "user2")
     ```
 
     > [!IMPORTANT]
@@ -285,7 +285,7 @@ Independientemente de si está realizando una migración en línea o sin conexi�
 * *ServiceName*. Instancia de Azure Database Migration Service en la que crear la tarea.
 * *ProjectName*. Nombre del proyecto de Azure Database Migration Service en el que se va a crear la tarea. 
 * *TaskName*. Nombre de la tarea que se va a crear. 
-* *SourceConnection*. Objeto AzDmsConnInfo que representa la conexión de origen de SQL Server.
+* *SourceConnection*. Objeto AzDmsConnInfo que representa la conexión de origen de SQL Server.
 * *TargetConnection*. Objeto AzDmsConnInfo que representa la conexión de la instancia administrada de destino de Azure SQL Database.
 * *SourceCred*. Objeto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) para la conexión al servidor de origen.
 * *TargetCred*. Objeto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) para la conexión al servidor de destino.
@@ -376,15 +376,15 @@ Para supervisar la migración, realice las tareas siguientes.
     ```powershell
     if (($CheckTask.ProjectTask.Properties.State -eq "Running") -or ($CheckTask.ProjectTask.Properties.State -eq "Queued"))
     {
-      write-host "migration task running"
+      Write-Host "migration task running"
     }
-    Else if($CheckTask.ProjectTask.Properties.State -eq "Succeeded")
+    else if($CheckTask.ProjectTask.Properties.State -eq "Succeeded")
     { 
-      write-host "Migration task is completed Successfully"
+      Write-Host "Migration task is completed Successfully"
     }
-    Else if($CheckTask.ProjectTask.Properties.State -eq "Failed" -or $CheckTask.ProjectTask.Properties.State -eq "FailedInputValidation"  -or $CheckTask.ProjectTask.Properties.State -eq "Faulted")
+    else if($CheckTask.ProjectTask.Properties.State -eq "Failed" -or $CheckTask.ProjectTask.Properties.State -eq "FailedInputValidation" -or $CheckTask.ProjectTask.Properties.State -eq "Faulted")
     { 
-      write-host “Migration Task Failed”
+      Write-Host "Migration Task Failed"
     }
     ```
 

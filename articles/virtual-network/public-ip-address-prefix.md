@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: d33ad5782b78fc7f9ba4803c85f1b17be60e8561
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 964bc915347d11e087da0b34a8d4160d807a4158
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194891"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965415"
 ---
 # <a name="public-ip-address-prefix"></a>Prefijo de dirección IP pública
 
@@ -46,7 +46,7 @@ Al crear recursos de IP pública, Azure asigna una IP pública disponible de cua
 ## <a name="scenarios"></a>Escenarios
 Puede asociar los siguientes recursos a una dirección IP pública estática desde un prefijo:
 
-|Recurso|Escenario|Pasos|
+|Resource|Escenario|Pasos|
 |---|---|---|
 |Virtual Machines| La asociación de direcciones IP públicas de un prefijo a las máquinas virtuales de Azure reduce la sobrecarga de administración en cuanto a la inclusión de direcciones IP en la lista de permitidos de un firewall. Puede simplemente incluir en la lista de permitidos un prefijo completo con una única regla de firewall. A medida que escala con máquinas virtuales de Azure, puede asociar direcciones IP del mismo prefijo para ahorrar costos, tiempo y sobrecarga de administración.| Para asociar direcciones IP de un prefijo a la máquina virtual: 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) 3. [Asocie la dirección IP a la interfaz de red de la máquina virtual.](virtual-network-network-interface-addresses.md#add-ip-addresses)
 | Standard Load Balancer | La asociación de direcciones IP públicas de un prefijo a la configuración IP de front-end o a la regla de salida de un equilibrador de carga garantiza la simplificación del espacio de direcciones IP públicas de Azure. Puede simplificar su escenario haciendo que las conexiones salientes se originen desde un intervalo de direcciones IP contiguas definido por el prefijo de direcciones IP públicas. | Para asociar direcciones IP de un prefijo al equilibrador de carga: 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) 3. Al crear el equilibrador de carga, seleccione o actualice la dirección IP que creó en el paso 2 anterior como la dirección IP de front-end del equilibrador de carga. |
@@ -58,7 +58,6 @@ Puede asociar los siguientes recursos a una dirección IP pública estática des
 - No se pueden especificar las direcciones IP del prefijo. Azure asigna las direcciones IP para el prefijo, según el tamaño que especifique.
 - Puede crear un prefijo de hasta 16 direcciones IP o un /28. Para más información, consulte [Límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Una vez que se ha creado el prefijo no se puede cambiar el intervalo.
-- El intervalo es solo para direcciones IPv4. El intervalo no contiene direcciones IPv6.
 - Solo se pueden asignar direcciones IP públicas estáticas del intervalo del prefijo creadas con la SKU Estándar. Para más información sobre las SKU de direcciones IP públicas, consulte [Direcciones IP publicas](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Las direcciones del intervalo solo se pueden asignar a recursos de Azure Resource Manager. Las direcciones no se pueden asignar a recursos creados mediante el modelo de implementación clásica.
 - Todas las direcciones IP públicas creadas a partir del prefijo deben existir en la misma región y suscripción de Azure que el prefijo y se deben asignar a recursos de la misma región y suscripción.

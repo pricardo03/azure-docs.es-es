@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 9bc4d60eab0dac80d1b2b524f32bc506a66dee18
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: aca417ebbc6f9af80058ddece32842f38918ce60
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516667"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964757"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian
 
@@ -167,7 +167,7 @@ Un único dispositivo de IoT Edge se puede aprovisionar manualmente mediante una
 
 ### <a name="option-1-manual-provisioning"></a>Opción 1: Aprovisionamiento manual
 
-Para aprovisionar manualmente un dispositivo, debe proporcionarle una [cadena de conexión](how-to-register-device-portal.md), que puede crear mediante el registro de un dispositivo nuevo en su instancia de IoT Hub.
+Para aprovisionar manualmente un dispositivo, debe proporcionarle una [cadena de conexión](how-to-register-device.md#register-in-the-azure-portal), que puede crear mediante el registro de un dispositivo nuevo en su instancia de IoT Hub.
 
 Abra el archivo de configuración.
 

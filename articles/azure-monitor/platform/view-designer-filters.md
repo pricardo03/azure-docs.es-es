@@ -1,24 +1,18 @@
 ---
 title: Filtros en las vistas de Azure Monitor | Microsoft Docs
 description: Un filtro de una vista de Azure Monitor permite a los usuarios filtrar los datos de la vista por el valor de una propiedad determinada sin modificar la vista propiamente dicha.  En este artículo se describe cómo usar un filtro y agregar uno a una vista personalizada.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/22/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/22/2018
+ms.openlocfilehash: 03950c7c87f659c5d1c032b5d3c1f74d136697c7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551743"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931978"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtros en las vistas de Azure Monitor
 Un **filtro** de una [vista de Azure Monitor](view-designer.md) permite a los usuarios filtrar los datos de la vista por el valor de una propiedad determinada sin modificar la vista propiamente dicha.  Por ejemplo, podría permitir que los usuarios de la vista la filtraran por los datos de solo un determinado equipo o conjunto de equipos.  Puede crear varios filtros en una sola vista para permitir que los usuarios filtren por varias propiedades.  En este artículo se describe cómo usar un filtro y agregar uno a una vista personalizada.
@@ -56,9 +50,9 @@ En la tabla siguiente se incluyen algunos ejemplos de filtros comunes.
 
 | Nombre del campo | Consultar valores | Etiqueta |
 |:--|:--|:--|
-| Equipo   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Equipos |
-| EventLevelName | Event &#124; distinct EventLevelName | Gravedad |
-| SeverityLevel | Syslog &#124; distinct SeverityLevel | Gravedad |
+| Computer   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Equipos |
+| EventLevelName | Event &#124; distinct EventLevelName | severity |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | severity |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 

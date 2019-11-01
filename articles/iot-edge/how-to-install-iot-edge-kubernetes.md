@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 66aca7be9a2df93d846d7e78bc64c93279afc2d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a453779ffe4ae20acf55510d0ac9f9483763af21
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160701"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964833"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Cómo instalar IoT Edge en Kubernetes (versión preliminar)
 
@@ -62,7 +62,7 @@ Todos los componentes de la implementación perimetral se limitan a un espacio d
     helm repo update
     ```
 
-1. [Cree un IoT Hub](../iot-hub/iot-hub-create-through-portal.md), [registre un dispositivo de IoT Edge](how-to-register-device-portal.md) y anote su cadena de conexión.
+1. [Cree un IoT Hub](../iot-hub/iot-hub-create-through-portal.md), [registre un dispositivo de IoT Edge](how-to-register-device.md) y anote su cadena de conexión.
 
 1. Instalar iotedged y el agente de IoT Edge en el clúster
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 2601d05c5d2302bedb51e959747939aa3c33db44
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7ba38e1aa7196263b0ac64a6c92984cc3e7416a6
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839635"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964794"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar y supervisar módulos de IoT Edge a escala, mediante la CLI de Azure
 
@@ -28,7 +28,7 @@ En este artículo, configuró la CLI de Azure y la extensión de IoT. A continua
 ## <a name="cli-prerequisites"></a>Requisitos previos de CLI
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure. 
-* [Dispositivos de IoT Edge](how-to-register-device-cli.md) que tengan instalado el entorno de ejecución de IoT Edge.
+* [Dispositivos de IoT Edge](how-to-register-device.md#prerequisites-for-the-azure-cli) que tengan instalado el entorno de ejecución de IoT Edge.
 * La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. La versión mínima de la CLI de Azure es la 2.0.24. Use `az --version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
 * La [extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension).
 

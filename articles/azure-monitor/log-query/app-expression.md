@@ -1,24 +1,18 @@
 ---
 title: Expresión app() de las consultas de registros de Azure Monitor | Microsoft Docs
 description: La expresión app se usa en una consulta de registro de Azure Monitor para recuperar datos de una aplicación de Application Insights específica en el mismo grupo de recursos, en otro grupo de recursos o en otra suscripción.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/25/2019
+ms.openlocfilehash: ffef73f88c8679d0b0be81222b1b61c4eaef5098
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589250"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933080"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Expresión app() de la consulta de Azure Monitor
 
@@ -39,7 +33,7 @@ La expresión `app` se usa en una consulta de Azure Monitor para recuperar datos
 |:---|:---|:---|
 | Nombre de recurso | Nombre legible de la aplicación (también denominado "nombre del componente") | app("fabrikamapp") |
 | Nombre completo | Nombre completo de la aplicación en el formato siguiente: "subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
-| ID | GUID de la aplicación | app("988ba129-363e-4415-8fe7-8cbab5447518") |
+| id | GUID de la aplicación | app("988ba129-363e-4415-8fe7-8cbab5447518") |
 | Id. de recurso de Azure | Identificador del recurso de Azure |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 

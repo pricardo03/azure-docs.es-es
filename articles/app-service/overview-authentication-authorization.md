@@ -15,12 +15,12 @@ ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: e308b44fffff451daa92cbf19209a1bcbfd4bff6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2179f4e7d5350cdf9d82413e4f70647c20c3c399
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087985"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808760"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
 
@@ -28,7 +28,7 @@ ms.locfileid: "70087985"
 > En este momento, AAD V2 (incluido MSAL) no se admite para Azure App Services y Azure Functions. Compruebe si hay actualizaciones.
 >
 
-Azure App Service incluye compatibilidad con autenticación y autorización para que pueda proporcionar inicio de sesión a los usuarios y acceder a los datos escribiendo una cantidad mínima de código o directamente sin código en la aplicación web, API RESTful y back-end móvil, así como [Azure Functions](../azure-functions/functions-overview.md). En este artículo se describe cómo App Service le ayuda a simplificar la autenticación y autorización para la aplicación. 
+Azure App Service incluye compatibilidad con autenticación y autorización para que pueda proporcionar inicio de sesión a los usuarios y acceder a los datos escribiendo una cantidad mínima de código o directamente sin código en la aplicación web, API RESTful y back-end móvil, así como [Azure Functions](../azure-functions/functions-overview.md). En este artículo se describe cómo App Service le ayuda a simplificar la autenticación y autorización para la aplicación.
 
 Para proteger la autenticación y la autorización es necesario entender perfectamente la seguridad, incluida la federación, el cifrado, la administración de [JSON Web Token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token), los [tipos de concesión](https://oauth.net/2/grant-types/), etc. App Service proporciona estas utilidades para que pueda dedicar más tiempo y energía a proporcionar un valor empresarial a su cliente.
 
@@ -87,7 +87,7 @@ App Service usa la [identidad federada](https://en.wikipedia.org/wiki/Federated_
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
 | [Cuenta Microsoft](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
-| [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
+| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
 Cuando habilita la autenticación y autorización con uno de estos proveedores, su punto de conexión de inicio de sesión está disponible para la autenticación de usuarios y para la validación de tokens de autenticación del proveedor. Se puede proporcionar a los usuarios cualquier número de estas opciones de inicio de sesión con facilidad. También puede integrar otro proveedor de identidades o [su propia solución de identidad personalizada][custom-auth].

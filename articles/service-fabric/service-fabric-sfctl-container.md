@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: sfctl container | Microsoft Docs'
 description: Describe los comandos de sfctl container de la CLI de Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 0ce6cf7c627657cf757b0c1ef9aa22428c17a7e7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 13de6ff7b3e5a41eced5ca49a3af38fab60ba0a0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036473"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901308"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Ejecute los comandos relacionados con el contenedor en un nodo de clúster.
@@ -28,7 +29,7 @@ Ejecute los comandos relacionados con el contenedor en un nodo de clúster.
 |Get-Help|DESCRIPCIÓN|
 | --- | --- |
 | invoke-api | Invoca la API de contenedor para el contenedor implementado en un nodo de Service Fabric para el paquete de código especificado. |
-| logs | Obtiene los registros de contenedor para el contenedor implementado en un nodo de Service Fabric para el paquete de código especificado. |
+| logs | Obtiene los registros de contenedor para el contenedor implementado en un nodo de Service Fabric. |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl container invoke-api
 Invoca la API de contenedor para el contenedor implementado en un nodo de Service Fabric para el paquete de código especificado.
@@ -40,13 +41,13 @@ Invoca la API de contenedor para el contenedor implementado en un nodo de Servic
 | --application-id           [obligatorio] | La identidad de la aplicación. <br><br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --code-package-instance-id [obligatorio] | Identificador que de forma exclusiva identifica a una instancia de paquete de código implementada en un nodo de Service Fabric. <br><br> Se puede recuperar con "service code-package-list". |
 | --code-package-name        [obligatorio] | El nombre del paquete de código especificado en un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
-| --container-api-uri-path   [obligatorio] | Ruta acceso de URI de la API REST del contenedor, use "{id}" en lugar de identificador/nombre de contenedor. |
+| --container-api-uri-path   [obligatorio] | Ruta acceso de URI de la API REST del contenedor, use "{ID}" en lugar de identificador/nombre de contenedor. |
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --service-manifest-name [Obligatorio] | El nombre de un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
 | --container-api-body | Cuerpo de la solicitud HTTP para la API REST del contenedor. |
 | --container-api-content-type | Tipo de contenido para la API REST del contenedor, el valor predeterminado es "application/json". |
 | --container-api-http-verb | Verbo HTTP para la API REST del contenedor, el valor predeterminado es GET. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -59,7 +60,7 @@ Invoca la API de contenedor para el contenedor implementado en un nodo de Servic
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-container-logs"></a>sfctl container logs
-Obtiene los registros de contenedor para el contenedor implementado en un nodo de Service Fabric para el paquete de código especificado.
+Obtiene los registros de contenedor para el contenedor implementado en un nodo de Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -71,7 +72,7 @@ Obtiene los registros de contenedor para el contenedor implementado en un nodo d
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --service-manifest-name [Obligatorio] | El nombre de un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
 | --tail | Número de líneas para mostrar desde el final de los registros. El valor predeterminado es 100. "all" para mostrar los registros completos. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

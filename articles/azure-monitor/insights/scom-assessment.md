@@ -1,24 +1,18 @@
 ---
 title: Optimización del entorno de System Center Operations Manager con Azure Log Analytics | Microsoft Docs
 description: Puede usar la solución System Center Operations Manager Health Check para evaluar el riesgo y el estado de los entornos periódicamente.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/25/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/25/2018
+ms.openlocfilehash: 33aa246e21b54aebaa902304ff92d4b74bfaac4b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60401737"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898766"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimización del entorno con la solución System Center Operations Manager Health Check (versión preliminar)
 
@@ -240,7 +234,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    En esta captura de pantalla se muestra la consulta Búsqueda de registros:<br><br> ![búsqueda de registros](./media/scom-assessment/scom-log-search.png)<br>
+    Esta es una captura de pantalla que muestra la consulta de Búsqueda de registros:<br><br> ![búsqueda de registros](./media/scom-assessment/scom-log-search.png)<br>
 
 3. Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
 

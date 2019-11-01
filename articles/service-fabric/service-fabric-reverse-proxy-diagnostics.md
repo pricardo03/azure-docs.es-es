@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6074b799e992371d41de050f68690e450f008789
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726849"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933967"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Supervisión y diagnóstico del procesamiento de solicitudes en el proxy inverso.
 
@@ -200,5 +200,5 @@ Estos son algunos ejemplos sobre cómo interpretar los registros de error comune
 ## <a name="next-steps"></a>Pasos siguientes
 * [Agregación de eventos y recopilación mediante Microsoft Azure Dignostics](service-fabric-diagnostics-event-aggregation-wad.md) para habilitar la recopilación de registros en clústeres de Azure.
 * Para ver los eventos de Service Fabric en Visual Studio, consulte [Supervisión y diagnóstico locales](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-* Consulte [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) (Configuración del proxy inverso para conectarse a servicios seguros) para ver las muestras de plantillas de Azure Resource Manager y para configurar el proxy inverso seguro con diferentes opciones de validación de certificados de servicio.
+* Consulte [Configure reverse proxy to connect to secure services](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services) (Configuración del proxy inverso para conectarse a servicios seguros) para ver las muestras de plantillas de Azure Resource Manager y para configurar el proxy inverso seguro con diferentes opciones de validación de certificados de servicio.
 * Para más información, lea [Proxy inverso de Service Fabric](service-fabric-reverseproxy.md).

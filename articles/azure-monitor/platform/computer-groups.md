@@ -1,24 +1,18 @@
 ---
 title: Grupos de equipos en las consultas de registros de Azure Monitor | Microsoft Docs
 description: Los grupos de equipos en Azure Monitor permiten limitar las consultas de registros a un conjunto concreto de equipos.  En este artículo se describen los distintos métodos que puede utilizar para crear grupos de equipos y cómo usar estos grupos en una consulta de registros.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/05/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: ae423b6fb141cab4038e65ba85c6067f1c23aee0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 02/05/2019
+ms.openlocfilehash: 9ef0f2810252b73921fc0a72f2e523262c760bab
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320690"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932658"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de equipos en las consultas de registros de Azure Monitor
 Los grupos de equipos en Azure Monitor permiten limitar las [consultas de registros](../log-query/log-query-overview.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una consulta de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
@@ -57,7 +51,7 @@ En la tabla siguiente, se describen las propiedades que definen un grupo de equi
 |:---|:---|
 | NOMBRE   | Nombre de la consulta que se va a mostrar en el portal. |
 | Alias de función | Un alias único usado para identificar el grupo de equipos en una consulta. |
-| Categoría       | Categoría para organizar las consultas en el portal. |
+| Category       | Categoría para organizar las consultas en el portal. |
 
 
 ### <a name="active-directory"></a>Active Directory

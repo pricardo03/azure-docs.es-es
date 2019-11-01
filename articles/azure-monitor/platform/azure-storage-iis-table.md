@@ -1,24 +1,18 @@
 ---
 title: Uso de Blob Storage para IIS y Table Storage para eventos en Azure Monitor | Microsoft Docs
 description: Azure Monitor puede leer los registros de los servicios de Azure que escriben los diagnósticos en Table Storage o los registros de IIS escritos en Blob Storage.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 04/12/2017
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 901544886e0a0c90c29e83fc71f7a7a25ffc6862
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/12/2017
+ms.openlocfilehash: 8f70ecc96269783c29c566fb89bd617f034316b1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244880"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932668"
 ---
 # <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>Recopilación de registros de diagnóstico de Azure de Azure Storage
 
@@ -36,7 +30,7 @@ Diagnósticos de Azure es una extensión de Azure que le permite recopilar datos
 
 Para que Azure Monitor recopile estos registros de Azure Diagnostics, deben estar en las siguientes ubicaciones:
 
-| Tipo de registro | Tipo de recurso | Ubicación |
+| Tipo de registro | Tipo de recurso | Location |
 | --- | --- | --- |
 | Registros IIS |Virtual Machines <br> Roles web <br> Roles de trabajo |wad-iis-logfiles (Blob Storage) |
 | syslog |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |

@@ -1,24 +1,18 @@
 ---
 title: Agregaciones en consultas de registros de Azure Monitor | Microsoft Docs
 description: Describe funciones de agregación en consultas de registro de Azure Monitor que ofrecen maneras útiles de analizar los datos.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 86b84e76b4716c1fddda23a6d52c65c0700c5663
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602734"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900426"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agregaciones en consultas de registros de Azure Monitor
 

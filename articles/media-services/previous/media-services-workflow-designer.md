@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: c5aa7af1ca6f4fe0768add47d2037d797e4ef99b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4dceb558532305c6d2e84563e25ab05508423090
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613247"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801942"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Creación de flujos de trabajo de Encoding avanzado con el Diseñador de flujo de trabajo  
 ## <a name="overview"></a>Información general
@@ -79,6 +79,10 @@ El vídeo del día 3 trata de:
 > 
 > 
 
+## <a name="need-help"></a>¿Necesita ayuda?
+
+Puede abrir una incidencia de soporte técnico si se desplaza a la [nueva solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 ## <a name="next-step"></a>Paso siguiente
 Consulte las rutas de aprendizaje de Media Services.
 
@@ -86,8 +90,6 @@ Consulte las rutas de aprendizaje de Media Services.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-Si necesita soporte o tiene alguna pregunta sobre cómo crear flujos de trabajo personalizados en la herramienta del diseñador de flujo de trabajo, envíe un correo electrónico a mepd@microsoft.com. Use el inglés al escribir el correo electrónico.
 
 ## <a name="see-also"></a>Otras referencias
 [Azure Premium Encoder Workflow Designer Training Videos (Vídeos de aprendizaje del Diseñador de flujo de trabajo del codificador de Azure Premium)](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)

@@ -4,14 +4,14 @@ description: En este documento se describen las distintas opciones para migrar l
 author: bharathsreenivas
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 0a2423421c6dfda02646546a6e071c8c78396f2c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 9111193bb441487b9e3c49bc9ee1a296d49f8a31
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170858"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882382"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opciones para migrar los datos locales o en la nube a Azure Cosmos DB
 
@@ -72,8 +72,4 @@ En el caso de las API que no sean SQL API, Mongo API y Cassandra API, se admi
 
 * Puede aprender más si prueba las aplicaciones de ejemplo que usan la biblioteca BulkExecutor en [.NET](bulk-executor-dot-net.md) y [Java](bulk-executor-java.md). 
 * La biblioteca BulkExecutor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](spark-connector.md).  
-* Póngase en contacto con el equipo de producto de Azure Cosmos DB abriendo una incidencia de soporte técnico en el tipo de problema "Asesoramiento general" y en el subtipo "Grandes migraciones (TB+)" para obtener ayuda adicional con las migraciones a gran escala. 
-* Use el [programa de arranque de Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/) para acelerar la creación o migración de aplicaciones en Azure Cosmos DB.
-
-> [!div class="nextstepaction"]
-> [Programa de arranque de Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/)
+* Póngase en contacto con el equipo de producto de Azure Cosmos DB abriendo una incidencia de soporte técnico en el tipo de problema "Asesoramiento general" y en el subtipo "Grandes migraciones (TB+)" para obtener ayuda adicional con las migraciones a gran escala.

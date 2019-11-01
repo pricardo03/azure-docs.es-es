@@ -1,26 +1,20 @@
 ---
 title: Análisis de tendencias en Visual Studio | Microsoft Docs
 description: Analizar, mostrar y explorar las tendencias de la telemetría de Application Insights en Visual Studio.
-services: application-insights
-documentationcenter: .net
-author: NumberByColors
-manager: carmonm
-ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
-ms.service: application-insights
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 2b08dfd87910cbb9f23f6b108a970d160612e1a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: vs-azure
+ms.openlocfilehash: da1cd3ed9d07b1eb1304f6b26999af92d2704537
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255903"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899315"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Análisis de tendencias en Visual Studio
 La herramienta Tendencias de Application Insights muestra cómo los eventos de telemetría importantes de la aplicación web cambian a lo largo del tiempo, lo que ayuda a identificar rápidamente los problemas y las anomalías. Al vincularle a información de diagnóstico más detallada, Tendencias puede ayudarle a mejorar el rendimiento de la aplicación, realizar un seguimiento de las causas de las excepciones y revelar información de los eventos personalizados.
@@ -77,7 +71,7 @@ Para desplazarse entre las burbujas de la visualización:
 > 
 > 
 
-## <a name="filter"></a>Filtrar
+## <a name="filter"></a>Filter
 Detecte tendencias más específicas con los controles de filtro en la parte inferior de la ventana. Para aplicar un filtro, haga clic en su nombre. Puede cambiar rápidamente entre distintos filtros para detectar tendencias que pueden estar ocultas en una determinada dimensión de la telemetría. Si aplica un filtro en una dimensión, como Tipo de excepción, sigue siendo posible hacer clic en los filtros de otras dimensione, aunque aparecen atenuados. Para dejar de aplicar un filtro, vuelva a hacer clic en él. Haga ctrl-clic para seleccionar varios filtros de la misma dimensión.
 
 ![Filtros de tendencia](./media/visual-studio-trends/TrendsFiltering-750.png)

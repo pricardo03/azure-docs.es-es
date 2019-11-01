@@ -1,23 +1,18 @@
 ---
 title: Conexiones compatibles con IT Service Management Connector en Azure Log Analytics | Microsoft Docs
 description: En este artículo, se proporciona información sobre cómo conectar los productos y servicios de ITSM al Conector de Administración de servicios de TI (ITSMC) en Azure Monitor para supervisar y administrar de forma centralizada los elementos de trabajo de ITSM.
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/24/2018
+author: JYOTHIRMAISURI
 ms.author: v-jysur
-ms.openlocfilehash: ffd9c4bfc934faff1664ff39c0e979a9d6c09487
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/24/2018
+ms.openlocfilehash: c7e102b6b8976f8caf7676fd456e6c23488c935a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399776"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932290"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](../../azure-monitor/platform/itsmc-overview.md).
@@ -103,7 +98,7 @@ Ejecute el script proporcionando los siguientes detalles necesarios:
 
 - Detalles de la suscripción de Azure
 - Definición de un nombre de grupo de recursos
-- Ubicación
+- Location
 - Detalles del servidor de Service Manager (nombre del servidor, dominio, nombre de usuario y contraseña)
 - Prefijo de nombre de sitio de la aplicación web
 - Espacio de nombres de ServiceBus.

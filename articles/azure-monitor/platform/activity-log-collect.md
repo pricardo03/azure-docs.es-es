@@ -1,24 +1,18 @@
 ---
 title: Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics | Microsoft Docs
 description: Recopile el registro de actividad de Azure en los registros de Azure Monitor y utilice la solución de supervisión para analizar tal registro y hacer búsquedas en él en todas las suscripciones de Azure.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/30/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: c9fdd0c530ca34305aa3a9197c3bb938d4fb9f1f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.date: 09/30/2019
+ms.openlocfilehash: 514dcf05eaa37bd338ef6359977b9a5508838459
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528702"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932863"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor
 El [registro de actividad de Azure](activity-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Este artículo describe cómo recopilar el registro de actividad de un área de trabajo de Log Analytics y cómo usar la [solución de supervisión](../insights/solutions.md) de Activity Log Analytics, que proporciona vistas y consultas de registros para analizar estos datos. 

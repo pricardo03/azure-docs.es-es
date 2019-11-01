@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5affc9952cfe13ebfeede126051f2236499d1343
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869994"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934287"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de representación de Azure Maps
 
@@ -166,7 +166,6 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | China                     |   | Ø |
 | Islas Cocos (Keeling)   |   | Ø |
 | República Popular Democrática de Corea |   | Ø |
-| Dokdo       |   | Ø |
 | RAE de Hong Kong             | ✓ | ✓ |
 | India                     | Ø | ✓ | 
 | Indonesia                 | ✓ | ✓ |

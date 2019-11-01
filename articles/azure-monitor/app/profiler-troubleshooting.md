@@ -1,23 +1,19 @@
 ---
 title: Solución de problemas relacionados con Azure Application Insights Profiler | Microsoft Docs
 description: Este artículo muestra información y los pasos a seguir para la solución de problema para ayudar a los desarrolladores que tienen dificultades para habilitar o usar Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 7430f04846a1e66680f85f939854fd50a5df41e4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341671"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899973"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solución de problemas de activación o visualización de Application Insights Profiler
 
@@ -111,7 +107,7 @@ Cuando se configura Profiler, se realizan las siguientes actualizaciones en la c
 
 Actualmente, puede habilitar Profiler en hasta cuatro aplicaciones web de Azure y ranuras de implementación que se ejecuten en el mismo plan de servicio. Si tiene más aplicaciones en ejecución en un plan de servicio de una aplicación, Profiler podría iniciar la excepción *Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException*. Profiler se ejecuta por separado en cada aplicación web e intenta iniciar una sesión de ETW (Seguimiento de eventos para Windows ) en cada una de ellas. Sin embargo, hay un número máximo de sesiones de ETW que pueden estar activas al mismo tiempo. Si el WebJob de Profiler notifica que hay demasiadas sesiones de generación de perfiles activas, mueva algunas aplicaciones web a otro plan de servicio.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Error de implementación: El directorio no está vacío "D:\\home\\site\\wwwroot\\App_Data\\jobs"
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Error de implementación: El directorio no está vacío "D:\\home\\site\\wwwroot\\App_Data\\jobs"
 
 Si va a volver a implementar la aplicación web en un recurso de Web Apps con Profiler habilitado, puede que aparezca un mensaje similar al siguiente:
 

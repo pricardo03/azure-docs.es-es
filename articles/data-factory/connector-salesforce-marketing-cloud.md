@@ -1,5 +1,5 @@
 ---
-title: Copiar datos desde Salesforce Marketing Cloud con Azure Data Factory (versión preliminar) | Microsoft Docs
+title: Copia de datos de Salesforce Marketing Cloud con Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos desde Salesforce Marketing Cloud en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,21 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: ddac58129d964f39770e4f8fb37b39625c690603
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 93d875fa67e9954268cec26f7413b6a4a4131f9c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089641"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931023"
 ---
-# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Copiar datos desde Salesforce Marketing Cloud con Azure Data Factory (versión preliminar)
+# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Copia de datos de Salesforce Marketing Cloud con Azure Data Factory
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos Salesforce Marketing Cloud. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
-
-> [!IMPORTANT]
-> Este conector está actualmente en versión preliminar. Puede probarlo y enviarnos sus comentarios. Si desea depender de los conectores de versión preliminar en la solución, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -156,7 +153,7 @@ Para copiar datos desde y hacia Salesforce Marketing Cloud, establezca el tipo d
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
-Para información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
+Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 7ff164b378ac6981fcb9686d6264b0bcf50cfafb
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a01c95cbe9281c915e89572c07fcbc203193b962
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814696"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935497"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON en Azure Data Factory
 
@@ -181,8 +181,13 @@ La actividad de copia puede detectar y analizar automáticamente los siguientes 
     ]
     ```
 
+## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
+
+Obtenga información detallada de la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en la asignación de flujo de datos.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Información general de la actividad de copia](copy-activity-overview.md)
+- [Asignación de Data Flow](concepts-data-flow-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b6dffb46d8c0fd7201079de3e8509ece516d2f8f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967870"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821400"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -95,5 +95,5 @@ Al preparar las unidades de disco duro y copiar los datos mediante la herramient
 
 * [Configuración de la herramienta WAImportExport](storage-import-export-tool-how-to.md)
 * [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
-* [Ejemplo de API de REST de Azure Import/Export](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Ejemplo de API de REST de Azure Import/Export](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
 

@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 8c8dbc8534720189c40624cfda97ce09a612e453
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c1e04cb2bfd5ae532b556ed53d585aae90c312e6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297203"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163048"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Asignación a los controles de la muestra de plano técnico PCI-DSS v3.2.1
 
@@ -134,7 +134,7 @@ Ahora que ha revisado la asignación de controles del plano técnico PCI-DSS v3.
 > [Plano técnico PCI-DSS v3.2.1: introducción](./index.md)
 > [Plano técnico PCI-DSS v3.2.1: pasos para la implementación](./deploy.md)
 
-## <a name="addition-articles-about-blueprints-and-how-to-use-them"></a>Artículos adicionales sobre planos técnicos y cómo utilizarlos:
+Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 
 - Información acerca del [ciclo de vida del plano técnico](../../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../../concepts/parameters.md).

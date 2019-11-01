@@ -1,19 +1,18 @@
 ---
 title: Uso de Application Insights para supervisar Azure Kubernetes Service (AKS) u otras aplicaciones hospedadas de Kubernetes - Azure Monitor | Microsoft Docs
 description: Azure Monitor usa tecnología de malla de servicio, Istio, en el clúster de Kubernetes para proporcionar la supervisión de cualquier aplicación hospedada de Kubernetes. Esto le permite recopilar datos de telemetría de Application Insights pertenecientes a las solicitudes entrantes y salientes relacionadas con los pods que se ejecutan en el clúster.
-services: application-insights
-author: tokaplan
-manager: carmonm
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/25/2019
+author: tokaplan
 ms.author: alkaplan
-ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/25/2019
+ms.openlocfilehash: 3056b6c56be32cf5c054c4526a88157650a3e30b
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65555833"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820767"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Supervisión de aplicaciones sin instrumentación para aplicaciones hospedadas de Kubernetes
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: cd13b3a7a3bc4d5a80e44d146e08c14e81ffdb60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 986371e479f7718fff2e1699401987cb0ca8f623
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730066"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163991"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante PowerShell
 
@@ -275,7 +275,7 @@ mstsc /v:myVmPublic
 Para permitir el uso de ICMP a través del Firewall de Windows, escriba el comando siguiente desde PowerShell en la máquina virtual *myVmPrivate*:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
 ```
 
 Para probar el enrutamiento del tráfico de red desde *myVmPublic* hasta *myVmPrivate*, escriba el siguiente comando de PowerShell en la máquina virtual *myVmPublic*:

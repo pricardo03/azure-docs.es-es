@@ -1,24 +1,18 @@
 ---
 title: Recopilación de datos JSON personalizados en Azure Monitor | Microsoft Docs
 description: Los orígenes de datos JSON personalizados se pueden recopilar en Azure Monitor mediante el agente de Log Analytics para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como curl o uno de los más de 300 complementos de FluentD. En este artículo se describe la configuración necesaria para esta recopilación de datos.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 101719668fee155e84b7a767647a662ca845f0f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2018
+ms.openlocfilehash: c7628badb993c26b989c1fe610d2360ff466de39
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804647"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932469"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Recopilación de orígenes de datos JSON personalizados con el agente de Log Analytics para Linux en Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -86,7 +80,7 @@ Reinicie el servicio del agente de Log Analytics para Linux con el siguiente com
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
-## <a name="output"></a>Salida
+## <a name="output"></a>Output
 Los datos se recopilarán en Azure Monitor con un tipo de registro de `<FLUENTD_TAG>_CL`.
 
 Por ejemplo, la etiqueta personalizada `tag oms.api.tomcat` en Azure Monitor con un tipo de registro de `tomcat_CL`.  Podría recuperar todos los registros de este tipo con la consulta de registros siguiente.

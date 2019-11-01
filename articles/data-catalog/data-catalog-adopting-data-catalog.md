@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 38a9f3a7020e866ccb000ed0c54499258f5e651a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734676"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801886"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Método y proceso de adopción de Azure Data Catalog
 
@@ -125,7 +125,7 @@ Para más información acerca de la herramienta de registro de orígenes de dato
 Como parte del proyecto piloto, el equipo de Nancy también utiliza orígenes de datos que se describen en un libro de Excel que mantienen David y sus colegas. Dado que otros equipos de la empresa también usan libros de Excel para describir los orígenes de datos, el equipo de TI decide crear una herramienta para migrar el libro de Excel a Data Catalog. Mediante el uso de la API de REST de Data Catalog para importar las anotaciones existentes, el equipo del proyecto piloto puede tener un catálogo de datos completo que consta de los metadatos extraídos de los orígenes de datos mediante la herramienta de registro de orígenes de datos, junto con información documentada previamente por parte de los productores y consumidores de datos, sin que sea precisa la reentrada manual. A medida que el catálogo de datos de la empresa crezca, la organización podrá usar la herramienta de registro de orígenes de datos para orígenes de datos comunes y la API de Data Catalog para orígenes personalizados y escenarios no comunes.
 
 > [!NOTE]
-> Hemos creado una herramienta de ejemplo que usa la API de **Azure Data Catalog** para migrar un libro de Excel a Data Catalog. Para información sobre la API de Data Catalog y la herramienta de ejemplo, [descargue el código de ejemplo del libro Ad Hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) y la documentación de la [API de REST de Azure Data Catalog](/rest/api/datacatalog/).
+> Hemos creado una herramienta de ejemplo que usa la API de **Azure Data Catalog** para migrar un libro de Excel a Data Catalog. Para información sobre la API de Data Catalog y la herramienta de ejemplo, [descargue el código de ejemplo del libro Ad Hoc](https://github.com/Azure-Samples/data-catalog-dotnet-excel-register-data-assets) y la documentación de la [API de REST de Azure Data Catalog](/rest/api/datacatalog/).
 
 Cuando el proyecto piloto está en su lugar, es el momento de ejecutar el plan de adopción de Data Catalog.
 

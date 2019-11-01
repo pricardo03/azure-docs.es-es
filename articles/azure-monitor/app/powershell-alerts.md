@@ -1,23 +1,18 @@
 ---
 title: Uso de PowerShell para configurar alertas en Application Insights | Microsoft Docs
 description: Automatice la configuración de Application Insights para recibir correos electrónicos sobre los cambios en las métricas.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/31/2016
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/31/2016
+ms.openlocfilehash: 0771079eb338c2f22cb0b1f31c48b0b9f80a3ff5
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66130974"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819095"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Uso de PowerShell para configurar alertas en Application Insights
 
@@ -132,7 +127,7 @@ Las métricas se envían por módulos de telemetría diferentes:
 | remoteDependencyFailed |[Dependencia](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Solicitud de servidor](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>webhooks
 También puede [automatizar la respuesta ante una alerta](../../azure-monitor/platform/alerts-webhooks.md). Azure llamará a una dirección web de su elección cuando se genere una alerta.
 
 ## <a name="see-also"></a>Otras referencias
