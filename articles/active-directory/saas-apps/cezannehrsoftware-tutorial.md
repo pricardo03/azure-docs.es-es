@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78d259c0354a1519fa57633a68a1dcfa5a183890
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa689e6138f8d965e59f7cfa7a85e0835301086c
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105707"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158703"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integración de Azure Active Directory con el software Cezanne HR
 
@@ -227,11 +228,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en el software Cezann
 
 2. En el panel de navegación de la izquierda, haga clic en **System Setup**(Configuración del sistema). Vaya a **Administrar usuarios**. A continuación, vaya a **Add New User**(Agregar nuevo usuario).
 
-    ![Nuevo usuario](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "nuevo usuario")
+    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Nuevo usuario") (Usuario nuevo)
 
 3. En la sección **PERSON DETAILS** (Datos de la persona), siga estos pasos:
 
-    ![Nuevo usuario](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "nuevo usuario")
+    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Nuevo usuario") (Usuario nuevo)
 
     a. En **Internal User** (Usuario interno), seleccione OFF (Desactivado).
 
@@ -243,7 +244,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en el software Cezann
 
 4. En la sección **Account Information** (Información de la cuenta), siga estos pasos:
 
-    ![Nuevo usuario](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "nuevo usuario")
+    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Nuevo usuario") (Usuario nuevo)
 
     a. En el cuadro de texto **Nombre de usuario**, escriba el correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
 
@@ -255,15 +256,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en el software Cezann
 
 5. Navegue a la pestaña **Single Sign-On** (Inicio de sesión único) y seleccione **Add New** (Agregar nuevo) en el área **SAML 2.0 Identifiers** (Identificadores SAML 2.0).
 
-    ![Usuario](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Usuario")
+    ![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Usuario")
 
 6. Elija el proveedor de identidades en **Identity Provider** (Proveedor de identidades) y en el cuadro de texto **User Identifier** (Identificador de usuario), escriba la dirección de correo electrónico de la cuenta de Britta Simon.
 
-    ![Usuario](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Usuario")
+    ![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Usuario")
 
 7. Haga clic en el botón **Guardar** .
 
-    ![Usuario](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Usuario")
+    ![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Usuario")
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

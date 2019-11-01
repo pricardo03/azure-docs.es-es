@@ -1,142 +1,172 @@
 ---
-title: 'Restablecimiento de contraseña: Azure Active Directory | Microsoft Docs'
-description: Usar el autoservicio de restablecimiento de contraseña para recuperar el acceso a su cuenta de usuario profesional o educativa
+title: 'Restablecimiento de la contraseña con la información de seguridad: Azure Active Directory | Microsoft Docs'
+description: Cómo restablecer la contraseña si la olvida, mediante la información de seguridad y la verificación en dos pasos.
 services: active-directory
 author: eross-msft
 manager: daveba
 ms.reviewer: sahenry
-ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
-ms.subservice: user-help
 ms.workload: identity
+ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 07/30/2018
 ms.author: lizross
-ms.custom: end-user
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d16b54df5b8392a294036978e0b917ecdb3ce1ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60862268"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160786"
 ---
 # <a name="reset-your-work-or-school-password"></a>Restablecimiento de la contraseña profesional o educativa
 
-Si ha olvidado la contraseña, nunca ha recibido ninguna del soporte técnico de su compañía, está bloqueado en su cuenta o quiere cambiarla, podemos ayudarle. Si conoce la contraseña y solo necesita cambiarla, vaya a la sección [Cambiar la contraseña](#change-my-password).
+Si olvidó su contraseña, nunca obtuvo ninguna del servicio de soporte técnico de su empresa o ha sido bloqueado en su cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña.
 
-   > [!NOTE]
-   > Si quiere volver a su cuenta personal, como Xbox, hotmail.com o outlook.com, pruebe las sugerencias que se encuentran en el artículo [Cuando no puedes iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
-   >
+>[!NOTE]
+>Si conoce la contraseña y solo desea cambiarla, puede ir directamente a los pasos de [Modificación de la contraseña](#how-to-change-your-password) de este artículo.<br><br>
+>Si quiere volver a una cuenta personal, como Xbox, hotmail.com o outlook.com, pruebe las sugerencias que se encuentran en el artículo [Cuando no puedes iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
-## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a>Restablecimiento o desbloqueo de mi contraseña en una cuenta profesional o educativa
+## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Restablecimiento o desbloqueo de la contraseña de una cuenta profesional o educativa
 
-Es posible que no pueda obtener acceso a su cuenta de Azure Active Directory (Azure AD) debido a una de las siguientes razones:
+Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo puede ser alguno de estos:
 
-* La contraseña no funciona y desea restablecerla.
-* Conoce la contraseña pero la cuenta está bloqueada y le quiere desbloquearla.
+- La contraseña no funciona y quiere restablecerla.
 
-Realice los pasos siguientes para tener acceso al autoservicio de restablecimiento de contraseña (SSPR) de Azure AD y volver a su cuenta.
+- Conoce la contraseña pero la cuenta está bloqueada y necesita desbloquearla.
 
-1. En cualquier página de **inicio de sesión** profesional o educativa, seleccione el vínculo **¿No puede acceder a su cuenta?** y seleccione **Cuenta profesional o educativa** o vaya directamente a la página [Restablecimiento de contraseña](https://passwordreset.microsoftonline.com/).
+### <a name="to-reset-your-password-and-get-back-into-your-account"></a>Para restablecer la contraseña y volver a su cuenta
 
-    ![¿No puede tener acceso a su cuenta?][Login]
+1. En la pantalla **Escribir contraseña**, seleccione **He olvidado mi contraseña**.
 
-2. Escriba el **Id. de usuario** de la cuenta profesional o educativa, demuestre que no es un robot escribiendo los caracteres que aparecen en la pantalla y luego seleccione **Siguiente**.
+2. En la pantalla **Vuelva a su cuenta**, escriba el **Id. de usuario** profesional o educativo (por ejemplo, la dirección de correo electrónico), demuestre que no es un robot escribiendo los caracteres que observa en la pantalla y luego seleccione **Siguiente**.
 
-   > [!NOTE]
-   > Si el personal de TI no ha habilitado esta funcionalidad, aparecerá un vínculo con el texto "Póngase en contacto con el administrador" para solicitar ayuda al personal de TI por correo electrónico o a través de un portal web de su propiedad.
-   >
-   > Si necesita desbloquear la cuenta, seleccione la opción **Conozco la contraseña, pero aún así no puedo iniciar sesión**.
-   >
+   ![Pantalla Vuelva a su cuenta](media/security-info/security-info-back-into-acct.png)
 
-3. En función de cómo el personal de TI haya configurado SSPR, verá uno o varios de los siguientes métodos de autenticación. El usuario o el personal de TI ya habrán rellenado parte de esta información siguiendo los pasos indicados en el artículo [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md).
+   >[!NOTE]
+   >Si su administrador no ha activado la capacidad para permitirle restablecer su contraseña, verá un vínculo **Póngase en contacto con el administrador** en lugar de la pantalla **Vuelva a su cuenta**. Este vínculo le permite ponerse en contacto con su administrador para que le indique cómo restablecer su contraseña, bien por correo electrónico o en un portal web.
 
-   * **Enviar un mensaje de correo electrónico a mi dirección alternativa**
-   * **Enviar mensaje de texto a mi teléfono móvil**
-   * **Llamar al teléfono móvil**
-   * **Llamar al teléfono del trabajo**
-   * **Responder a mis preguntas de seguridad**
+3. Elija uno de los métodos siguientes para verificar su identidad y cambiar la contraseña. Según cómo el administrador haya configurado su organización, puede que deba realizar este proceso una segunda vez, con la adición de información para un segundo paso de verificación.
 
-   Elija una opción, dé las respuestas correctas y luego seleccione **Siguiente**.
+    ![Vuelva a su cuenta, paso de verificación 1](media/security-info/security-info-back-into-acct2.png)
 
-   ![Compruebe los datos de autenticación][Verification].
+    >[!NOTE]
+    >Según cómo el administrador haya configurado su organización, puede que algunas de estas opciones de verificación no estén disponibles. Debe haber configurado previamente el dispositivo móvil para la verificación al menos con uno de estos métodos.<br><br>Además, puede que la nueva contraseña tenga que cumplir determinados requisitos de seguridad. Normalmente, las contraseñas seguras tienen entre ocho y dieciséis caracteres, incluidos los caracteres en mayúsculas y minúsculas, al menos un número y al menos un carácter especial.
 
-4. Puede que el personal de TI tenga que realizar otra comprobación y haya que repetir el paso 3 con una opción distinta.
-5. En la página **elegir una contraseña nueva**, escriba la nueva contraseña, confírmela y seleccione **Finalizar**. Puede que la contraseña profesional o educativa tenga algunos requisitos que debe cumplir. Se recomienda elegir una contraseña que tenga entre 8 y 16 caracteres e incluya caracteres en mayúsculas y minúsculas, un número y un carácter especial.
-6. Cuando vea el mensaje **Se ha restablecido la contraseña**, puede iniciar sesión con la nueva contraseña.
+- **Restablezca la contraseña con una dirección de correo electrónico.** Envía un correo electrónico a la dirección de correo electrónico que configuró previamente en la verificación en dos pasos o en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar una dirección de correo electrónico en el artículo [Configuración de la información de seguridad para usar el correo electrónico (versión preliminar)](security-info-setup-email.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar una dirección de correo electrónico en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md). 
 
-    ![Se ha restablecido la contraseña][Complete]
+    1. Seleccione **Enviar un mensaje de correo electrónico a mi dirección alternativa** y después seleccione **Correo electrónico**.
 
-Ahora ya debería tener acceso a su cuenta. En caso contrario, debe ponerse en contacto con el personal de TI de la organización para obtener más ayuda.
+    2. Escriba en el cuadro el código de verificación enviado en el correo electrónico y luego seleccione **Siguiente**.
+    
+    3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
 
-Es posible que reciba un correo electrónico de confirmación que procede de una cuenta como "Microsoft en nombre de \<su organización>". Si recibe un correo electrónico como ese y no ha usado el autoservicio de restablecimiento de contraseña para recuperar el acceso a su cuenta, póngase en contacto con el personal de TI de su organización.
+- **Restablezca la contraseña con un mensaje de texto.** Envía un mensaje de texto al número de teléfono que configuró previamente en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar la mensajería de texto en el artículo [Configuración de la información de seguridad para usar la mensajería de texto (versión preliminar)](security-info-setup-text-msg.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar la mensajería de texto en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
-## <a name="change-my-password"></a>Cambio de mi contraseña
+    1. Seleccione **Enviar mensaje de texto a mi teléfono móvil**, escriba el número de teléfono y después seleccione **Texto**.
 
-Si ya conoce la contraseña y quiere cambiarla, realice los pasos siguientes.
+    2. Escriba en el cuadro el código de verificación enviado en el mensaje de texto y luego seleccione **Siguiente**.
 
-### <a name="change-your-password-from-the-office-365-portal"></a>Cambio de la contraseña desde el portal de Office 365
+    3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
 
-Use este método si normalmente obtiene acceso a las aplicaciones mediante el Portal de Office:
+- **Restablezca la contraseña con un número de teléfono.** Envía un mensaje de texto al número de teléfono que configuró previamente en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de la información de seguridad para usar una llamada telefónica (versión preliminar)](security-info-setup-phone-number.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
-1. Inicie sesión en su [cuenta de Office 365](https://www.office.com) con la contraseña existente.
+    1. Seleccione **Llamar al teléfono móvil**, escriba el número de teléfono y después seleccione **Llamar**.
+
+    2. Responda a la llamada telefónica y siga las instrucciones para verificar su identidad y luego seleccione **Siguiente**.
+
+    3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
+
+- **Restablezca su contraseña mediante preguntas de seguridad.** Se muestra la lista de preguntas de seguridad configuradas en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar sus preguntas de seguridad en el artículo [Configuración de la información de seguridad para usar preguntas de seguridad predefinidas (versión preliminar)](security-info-setup-questions.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar pregunta de seguridad en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
+
+    1. Seleccione **Responder a mis preguntas de seguridad**, responda a las preguntas y después seleccione **Siguiente**.
+
+    2. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
+
+- **Restablezca su contraseña mediante una notificación de la aplicación autenticadora.** Envía una notificación de aprobación a la aplicación autenticadora. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora en el artículo [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
+
+    1. Seleccione **Aprobar una notificación en la aplicación autenticadora** y después seleccione **Enviar notificación**.
+
+    2. Apruebe el inicio de sesión desde la aplicación autenticadora.
+
+    3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
+
+- **Restablezca su contraseña mediante un código de la aplicación autenticadora.** Acepta un código aleatorio proporcionado por la aplicación autenticadora. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora para que proporcione un código en el artículo [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora para que proporcione un código en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
+
+  1. Seleccione **Escribir un código de mi aplicación autenticadora** y después seleccione **Enviar notificación**.
+
+  2. Abra la aplicación autenticadora, escriba el código de verificación de la cuenta en el cuadro y después seleccione **Siguiente**.
+
+  3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
+
+  4. Después de obtener el mensaje que confirma que se ha restablecido su contraseña, puede iniciar sesión en su cuenta con la nueva contraseña.
+        
+     Si todavía no puede acceder a su cuenta, debe ponerse en contacto con el administrador de la organización para obtener más ayuda.
+
+Después de restablecer la contraseña, puede que reciba un correo electrónico de confirmación que procede de una cuenta como "Microsoft en nombre de \<*su_organización*>". Si recibe un correo electrónico similar pero no ha restablecido la contraseña recientemente, póngase en contacto de inmediato con el administrador de la organización.
+
+## <a name="how-to-change-your-password"></a>Cambio de la contraseña
+
+Si desea cambiar la contraseña, puede hacerlo mediante el portal de Office 365, el panel de acceso de Azure o la página de inicio de sesión de Windows 10.
+
+### <a name="to-change-your-password-using-the-office-365-portal"></a>Para cambiar la contraseña desde el portal de Office 365
+
+Use este método si normalmente accede a las aplicaciones mediante el Portal de Office:
+
+1. Inicie sesión en su [cuenta de Office 365](https://portal.office.com) con la contraseña existente.
+
 2. Seleccione el perfil que se encuentra en la parte superior derecha y luego elija **Ver cuenta**.
+
 3. Seleccione **Seguridad y privacidad** > **Contraseña**.
+
 4. Escriba la contraseña anterior, establezca la nueva contraseña y confírmela y luego seleccione **Enviar**.
 
-### <a name="change-your-password-from-the-azure-access-panel"></a>Cambio de la contraseña en el panel de acceso de Azure
+### <a name="to-change-your-password-from-the-azure-access-panel"></a>Para cambiar la contraseña en el panel de acceso de Azure
 
-Use este método si normalmente obtiene acceso a las aplicaciones mediante el panel de acceso de Azure (MyApps):
+Use este método si normalmente accede a las aplicaciones mediante el panel de acceso de Azure (MyApps):
 
-1. Inicie sesión en el [panel de acceso de Azure](https://myapps.microsoft.com/) con su contraseña existente.
+1. Inicie sesión en el [panel de acceso de Azure](https://myapps.microsoft.com/) usando su contraseña existente.
+
 2. Seleccione el perfil que se encuentra en la parte superior derecha y luego elija **Perfil**.
+
 3. Seleccione **Cambiar contraseña**.
+
 4. Escriba la contraseña anterior, establezca la nueva contraseña y confírmela y luego seleccione **Enviar**.
 
-## <a name="reset-password-at-sign-in"></a>Restablecer la contraseña en el inicio de sesión
+### <a name="to-change-your-password-at-windows-sign-in"></a>Para cambiar la contraseña en el inicio de sesión de Windows
 
-Si el administrador ha habilitado la funcionalidad, es posible que ahora pueda ver un vínculo a **Restablecer contraseña** en la pantalla de inicio de sesión de Windows 10 Fall Creators Update.
+Si el administrador activa la funcionalidad, puede ver un vínculo a **Restablecer contraseña** en la pantalla de inicio de sesión de Windows 7, Windows 8, Windows 8.1 o Windows 10.
 
-![Pantalla de inicio de sesión][LoginScreen]
+1. Seleccione el vínculo **Restablecer contraseña** para iniciar el proceso de restablecimiento de la contraseña sin tener que usar la experiencia normal basada en Web.
 
-Seleccione el vínculo **Restablecer contraseña** para abrir la experiencia de SSPR en la pantalla de inicio de sesión y poder restablecer la contraseña sin tener que iniciar sesión para tener acceso a la experiencia normal basada en web.
+2. Confirme su identificador de usuario y seleccione **Siguiente**.
 
-1. Confirme su identificador de usuario y seleccione **Siguiente**.
-2. Seleccione un método de contacto para la comprobación y confírmelo. Puede que el personal de TI tenga que realizar otra comprobación y haya que repetir este paso con una opción distinta.
+3. Seleccione un método de contacto para la comprobación y confírmelo. Si es necesario, elija una segunda opción de verificación diferente de la anterior y rellene la información necesaria.
 
-   ![Método de contacto][ContactMethod]
+4. En la página **Crear una nueva contraseña**, escriba la nueva contraseña, confírmela y luego seleccione **Siguiente**.
 
-3. En la página **Crear una nueva contraseña**, escriba la nueva contraseña, confírmela y luego seleccione **Siguiente**. Se recomienda que la contraseña tenga entre 8 y 16 caracteres e incluya caracteres en mayúsculas y minúsculas, números y caracteres especiales.
+    Normalmente, las contraseñas seguras tienen entre ocho y dieciséis caracteres, incluidos los caracteres en mayúsculas y minúsculas, al menos un número y al menos un carácter especial.
 
-   ![Restablecimiento de contraseñas][ResetPassword]
+5. Después de obtener el mensaje que confirma que se ha restablecido su contraseña, puede seleccionar **Finalizar**.
 
-4. Cuando vea el mensaje **Se ha restablecido la contraseña**, seleccione **Finalizar**.
-
-Ahora ya debería tener acceso a su cuenta. Si no es así, póngase en contacto con el personal de TI de la organización para obtener más ayuda.
+    Si todavía no puede acceder a su cuenta, debe ponerse en contacto con el administrador de la organización para obtener más ayuda.
 
 ## <a name="common-problems-and-their-solutions"></a>problemas comunes y sus soluciones
 
- A continuación se presentan algunos casos terror comunes y sus soluciones:
+A continuación se presentan algunos casos terror comunes y sus soluciones:
 
-| Caso de error| ¿Qué tipo de error aparece?| Solución |
+|Problema|DESCRIPCIÓN|Solución|
 | --- | --- | --- |
-| Veo un error al intentar cambiar la contraseña. | Lamentablemente, la contraseña contiene una palabra, frase o patrón que permite adivinar la contraseña fácilmente. Vuelva a intentarlo con una contraseña diferente. | Elija una contraseña que sea más difícil de adivinar. |
-| Al escribir mi identificador de usuario, aparece una página "Póngase en contacto con el administrador". | Póngase en contacto con el administrador. <br> <br> Hemos detectado que la contraseña de su cuenta de usuario no está administrada por Microsoft. Como consecuencia, no podemos restablecer automáticamente su contraseña. <br> <br> Tiene que ponerse en contacto con el personal de TI para obtener más ayuda. | Si ve este mensaje es que el personal de TI administra la contraseña en su entorno local. No puede restablecer la contraseña desde el vínculo "No se puede tener acceso a su cuenta". <br> <br> Para restablecer la contraseña, póngase en contacto directamente con el personal de TI para solicitar ayuda y dígales que quiere restablecer la contraseña para que le puedan habilitar esta característica.|
-| Después de escribir mi identificador de usuario, recibo el error "Su cuenta no está habilitada para el restablecimiento de contraseña". | La cuenta no está habilitada para restablecer la contraseña. <br> <br> Lamentablemente, el personal de TI no ha configurado la cuenta para usar este servicio. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si ve este mensaje es que el personal de TI no ha habilitado el restablecimiento de contraseña para su organización desde el vínculo "No se puede tener acceso a su cuenta", o bien no le ha autorizado para usar la característica. <br> <br> Para restablecer la contraseña, seleccione el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico al personal de TI de la compañía y decirles que quiere restablecer su contraseña para que puedan habilitarle esta característica. |
-| Después de escribir mi identificador de usuario, recibo el error "No se pudo comprobar su cuenta". | No se ha podido comprobar su cuenta. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si ve este mensaje es que está habilitado para el restablecimiento de contraseña, pero no se ha registrado para usar el servicio. Para registrarse para el restablecimiento de contraseña, vaya a https://aka.ms/ssprsetup después de haber recuperado el acceso a su cuenta. <br> <br> Para restablecer la contraseña, seleccione el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico al personal de TI de la compañía. |
+|Cuando intento cambiar la contraseña, me aparece un error. |La contraseña contiene una palabra, frase o patrón que permite adivinar la contraseña fácilmente.| Inténtelo de nuevo con una contraseña más segura.|
+|Después de escribir mi identificador de usuario, se me remite a una página que dice "Póngase en contacto con el administrador".|Microsoft ha determinado que la contraseña de su cuenta de usuario la administra su administrador en un entorno local. Por tanto, no puede restablecer la contraseña desde el vínculo "No se puede tener acceso a su cuenta". |Póngase en contacto con el administrador para obtener más ayuda.|
+|Después de escribir mi identificador de usuario, recibo el error "Su cuenta no está habilitada para el restablecimiento de contraseña".|El administrador no ha configurado su cuenta, por lo que puede restablecer la contraseña.|Su administrador no ha habilitado el restablecimiento de contraseña para su organización desde el vínculo "No se puede tener acceso a su cuenta", o bien no le ha autorizado para usar la característica.<br><br> Para restablecer la contraseña, debe seleccionar el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico al administrador de la compañía y decirle que quiere restablecer su contraseña.|
+|Después de escribir mi identificador de usuario, obtengo un error que dice "No hemos podido verificar su cuenta".|El proceso de inicio de sesión no pudo verificar la información de la cuenta.|Este mensaje puede aparecer por dos motivos.<br><br>1. El administrador activó el restablecimiento de contraseña para la organización, pero no la registró para usar el servicio. Para registrarse para un restablecimiento de contraseña, consulte uno de los siguientes artículos, según su método de verificación: [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md), [Configuración de la información de seguridad para usar una llamada telefónica (versión preliminar)](security-info-setup-phone-number.md), [Configuración de la información de seguridad para usar la mensajería de texto (versión preliminar)](security-info-setup-text-msg.md), [Configuración de la información de seguridad para usar el correo electrónico (versión preliminar)](security-info-setup-email.md) o [Configuración de la información de seguridad para usar preguntas de seguridad (versión preliminar)](security-info-setup-questions.md).<br><br>2. El administrador no activado el restablecimiento de contraseña para su organización. En esta situación, debe seleccionar el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico a la organización, a fin de pedirle que restablezca su contraseña.|
 
 ## <a name="next-steps"></a>Pasos siguientes
+- Consulte los aspectos de la información de seguridad en el artículo [Introducción a la información de seguridad (versión preliminar)](user-help-security-info-overview.md).
 
-* [Cómo registrarse para usar el autoservicio de restablecimiento de la contraseña](active-directory-passwords-reset-register.md)
-* [Página de registro en el restablecimiento de contraseña](https://aka.ms/ssprsetup)
-* [Portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/)
-* [No puede iniciar sesión en su cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+- Obtenga información sobre la verificación en dos pasos en el artículo [Introducción a la verificación en dos pasos](user-help-two-step-verification-overview.md). 
 
-[Login]: ./media/active-directory-passwords-update-your-own-password/reset-1-login.png "Página de inicio: ¿No puede tener acceso a su cuenta?"
-[Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Compruebe los datos de autenticación"
-[Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Cambio de la contraseña"
-[Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Se ha restablecido la contraseña"
-[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Vínculo para el restablecimiento de la contraseña en la página de inicio de sesión de Windows 10 Fall Creators Update"
-[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Compruebe los datos de autenticación"
-[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Cambio de la contraseña"
+- Si ha perdido u olvidado la contraseña, restablézcala en el [portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/).
+
+- Obtenga soluciones de problemas, sugerencias y ayuda para los problemas de inicio de sesión en el artículo [Cuando no puedes iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: fc0b447630b5e1ac360b1d84869cea02186672fc
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 74518fb891c5ecb25e818b9642d31e3daaf828de
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71036622"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162615"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Inserción de widgets de Video Indexer en las aplicaciones
 
@@ -253,7 +253,7 @@ Por ejemplo:
 
 De forma predeterminada, el reproductor de Video Indexer tiene subtítulos cerrados generados automáticamente que se basan en la transcripción del vídeo. La transcripción se extrae del vídeo con el idioma de origen que se seleccionó cuando se cargó el vídeo.
 
-Si desea insertar con un idioma diferente, puede agregar `&captions=< Language | ”all” | “false” >` a la dirección URL del reproductor de inserción. Si desea subtítulos en todos los subtítulos de los idiomas disponibles, use el valor `all`. Si quiere que los subtítulos se muestren de forma predeterminada, puede pasar `&showCaptions=true`.
+Si desea insertar con un idioma diferente, puede agregar `&captions=< Language | "all" | "false" >` a la dirección URL del reproductor de inserción. Si desea subtítulos en todos los subtítulos de los idiomas disponibles, use el valor `all`. Si quiere que los subtítulos se muestren de forma predeterminada, puede pasar `&showCaptions=true`.
 
 La dirección URL para insertar tendrá un aspecto similar al siguiente: 
 

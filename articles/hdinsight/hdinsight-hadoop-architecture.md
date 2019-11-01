@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/27/2019
-ms.openlocfilehash: 3767ea10d777a0ea7ad88a2ffa4793e866ffbe6c
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 10/28/2019
+ms.openlocfilehash: 2da9e41323a308782dad509c628a3677ab0cd21f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091485"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162885"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitectura de Apache Hadoop en HDInsight
 
@@ -24,20 +24,20 @@ ms.locfileid: "71091485"
 
 En este artículo se introduce YARN y cómo coordina la ejecución de aplicaciones en HDInsight.
 
-## <a name="apache-hadoop-yarn-basics"></a>Conceptos básicos de Apache Hadoop y YARN 
+## <a name="apache-hadoop-yarn-basics"></a>Conceptos básicos de Apache Hadoop y YARN
 
-YARN rige y organiza el procesamiento de datos en Hadoop. YARN tiene dos servicios principales que se ejecutan como procesos en nodos del clúster: 
+YARN rige y organiza el procesamiento de datos en Hadoop. YARN tiene dos servicios principales que se ejecutan como procesos en nodos del clúster:
 
-* ResourceManager 
+* ResourceManager
 * NodeManager
 
-ResourceManager concede recursos de proceso de clúster a aplicaciones, como trabajos MapReduce. ResourceManager concede estos recursos como contenedores, y cada contenedor se compone de una asignación de núcleos de CPU y memoria RAM. Si se combinan todos los recursos disponibles en un clúster y, después, los núcleos y la memoria se distribuyen en bloques, cada bloque de recursos es un contenedor. Cada nodo del clúster tiene capacidad para un determinado número de contenedores, por lo tanto, el clúster tiene un límite fijo de número de contenedores disponibles. La asignación de recursos en un contenedor es configurable. 
+ResourceManager concede recursos de proceso de clúster a aplicaciones, como trabajos MapReduce. ResourceManager concede estos recursos como contenedores, y cada contenedor se compone de una asignación de núcleos de CPU y memoria RAM. Si se combinan todos los recursos disponibles en un clúster y, después, los núcleos y la memoria se distribuyen en bloques, cada bloque de recursos es un contenedor. Cada nodo del clúster tiene capacidad para un determinado número de contenedores, por lo tanto, el clúster tiene un límite fijo de número de contenedores disponibles. La asignación de recursos en un contenedor es configurable.
 
-Cuando se ejecuta una aplicación MapReduce en un clúster, ResourceManager proporciona a la aplicación los contenedores en los que se puede ejecutar. ResourceManager realiza un seguimiento del estado de las aplicaciones en ejecución y la capacidad de clúster disponible, y realiza un seguimiento de cuándo se completan las aplicaciones y liberan sus recursos. 
+Cuando se ejecuta una aplicación MapReduce en un clúster, ResourceManager proporciona a la aplicación los contenedores en los que se puede ejecutar. ResourceManager realiza un seguimiento del estado de las aplicaciones en ejecución y la capacidad de clúster disponible, y realiza un seguimiento de cuándo se completan las aplicaciones y liberan sus recursos.
 
 ResourceManager también ejecuta un proceso de servidor web que proporciona una interfaz de usuario web para supervisar el estado de las aplicaciones.
 
-Cuando un usuario envía una aplicación MapReduce para que se ejecute en el clúster, la aplicación se envía a ResourceManager. A su vez, ResourceManager asigna un contenedor en nodos de NodeManager disponibles. Los nodos de NodeManager son la ubicación en que realmente se ejecuta la aplicación. El primer contenedor asignado ejecuta una aplicación especial denominada ApplicationMaster. ApplicationMaster es responsable de adquirir recursos, en forma de contenedores subsiguientes, necesarios para ejecutar la aplicación enviada. ApplicationMaster examina las fases de la aplicación, como la fase de asignación y la de reducción, y considera la cantidad de datos que deben procesarse. A continuación, ApplicationMaster solicita (*negocia*) los recursos de ResourceManager en nombre de la aplicación. ResourceManager concede, a su vez, recursos de NodeManagers del clúster a ApplicationMaster para que los use al ejecutar la aplicación. 
+Cuando un usuario envía una aplicación MapReduce para que se ejecute en el clúster, la aplicación se envía a ResourceManager. A su vez, ResourceManager asigna un contenedor en nodos de NodeManager disponibles. Los nodos de NodeManager son la ubicación en que realmente se ejecuta la aplicación. El primer contenedor asignado ejecuta una aplicación especial denominada ApplicationMaster. ApplicationMaster es responsable de adquirir recursos, en forma de contenedores subsiguientes, necesarios para ejecutar la aplicación enviada. ApplicationMaster examina las fases de la aplicación, como la fase de asignación y la de reducción, y considera la cantidad de datos que deben procesarse. A continuación, ApplicationMaster solicita (*negocia*) los recursos de ResourceManager en nombre de la aplicación. ResourceManager concede, a su vez, recursos de NodeManagers del clúster a ApplicationMaster para que los use al ejecutar la aplicación.
 
 Los servicios NodeManager ejecutan las tareas que componen la aplicación y, a continuación, informan de su progreso y estado a ApplicationMaster. ApplicationMaster, a su vez, informa del estado de la aplicación a ResourceManager. ResourceManager devuelve todos los resultados al cliente.
 

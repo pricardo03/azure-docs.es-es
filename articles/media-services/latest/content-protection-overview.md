@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1d95d14398bc6b5acdec89428ebe22a672551a8a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: c1f1f1b7448fb87135973a596017441ec02d8023
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338794"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73102021"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Protección del contenido mediante el cifrado dinámico de Media Services
 
@@ -109,8 +109,6 @@ Un servicio de token de seguridad (STS) emite JWT como el token de acceso para e
 * Comprobación simétrica o asimétrica para la comprobación de firma
 * Compatibilidad con la sustitución de claves (si es necesario)
 
-Puede usar [esta herramienta STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) para probar el STS. Admite los tres tipos de claves de comprobación: simétrica, asimétrica o Azure Active Directory (Azure AD) con sustitución de claves. 
-
 ## <a name="streaming-protocols-and-encryption-types"></a>Protocolos de streaming y tipos de cifrado
 
 Puede usar Media Services para entregar el contenido cifrado de forma dinámica con la clave sin cifrado AES o el cifrado DRM mediante PlayReady, Widevine o FairPlay. Actualmente puede cifrar los formatos de streaming HTTP Live Streaming (HLS), MPEG DASH y Smooth Streaming. Cada protocolo admite los siguientes métodos de cifrado.
@@ -121,7 +119,7 @@ El protocolo HLS admite los siguientes formatos de contenedor y esquemas de cifr
 
 |Formato de contenedor|Esquema de cifrado|Ejemplo de dirección URL|
 |---|---|---|
-|Todo|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|All|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
 |CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
 |MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
@@ -139,7 +137,7 @@ El protocolo MPEG-DASH admite los siguientes formatos de contenedor y esquemas d
 
 |Formato de contenedor|Esquema de cifrado|Ejemplos de direcciones URL
 |---|---|---|
-|Todo|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|All|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
 |CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
 |CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 

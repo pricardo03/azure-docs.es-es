@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d0bb72361e1bff3615f6785ac4c91a10ea773498
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab9725dd50487cf9df9d6fb967959b276f39979f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825569"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162462"
 ---
 # <a name="widevine-license-template-overview"></a>Información general sobre las plantillas de licencias de Widevine 
 Puede usar Azure Media Services para configurar y solicitar licencias de Widevine de Google. Cuando el reproductor intenta reproducir contenido protegido de Widevine, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencias aprueba la solicitud, el servicio emite la licencia. A continuación, se envía al cliente y se usa para descifrar y reproducir el contenido especificado.
@@ -30,31 +30,31 @@ Una solicitud de licencia de Widevine tiene el formato de un mensaje JSON.
 > Puede crear un mensaje vacío y sin valores usando simplemente "{}". A continuación, se crea una plantilla de licencia con los valores predeterminados. La configuración predeterminada funciona para la mayoría de los casos. Los escenarios de entrega de licencia basados en Microsoft deben utilizar siempre los valores predeterminados. Si tiene que establecer los valores de "provider" y "content_id", el proveedor debe coincidir con las credenciales de Widevine.
 
     {  
-       “payload”:“<license challenge>”,
-       “content_id”: “<content id>” 
-       “provider”: ”<provider>”
-       “allowed_track_types”:“<types>”,
-       “content_key_specs”:[  
+       "payload": "<license challenge>",
+       "content_id": "<content id>" 
+       "provider": "<provider>"
+       "allowed_track_types": "<types>",
+       "content_key_specs": [  
           {  
-             “track_type”:“<track type 1>”
+             "track_type": "<track type 1>"
           },
           {  
-             “track_type”:“<track type 2>”
+             "track_type": "<track type 2>"
           },
           …
        ],
-       “policy_overrides”:{  
-          “can_play”:<can play>,
-          “can persist”:<can persist>,
-          “can_renew”:<can renew>,
-          “rental_duration_seconds”:<rental duration>,
-          “playback_duration_seconds”:<playback duration>,
-          “license_duration_seconds”:<license duration>,
-          “renewal_recovery_duration_seconds”:<renewal recovery duration>,
-          “renewal_server_url”:”<renewal server url>”,
-          “renewal_delay_seconds”:<renewal delay>,
-          “renewal_retry_interval_seconds”:<renewal retry interval>,
-          “renew_with_usage”:<renew with usage>
+       "policy_overrides": {  
+          "can_play": <can play>,
+          "can persist": <can persist>,
+          "can_renew": <can renew>,
+          "rental_duration_seconds": <rental duration>,
+          "playback_duration_seconds": <playback duration>,
+          "license_duration_seconds": <license duration>,
+          "renewal_recovery_duration_seconds": <renewal recovery duration>,
+          "renewal_server_url": "<renewal server url>",
+          "renewal_delay_seconds": <renewal delay>,
+          "renewal_retry_interval_seconds": <renewal retry interval>,
+          "renew_with_usage": <renew with usage>
        }
     }
 

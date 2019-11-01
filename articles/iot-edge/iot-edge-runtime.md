@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 677ff7ffab22eebdace67151d703ba83c2146602
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 49abd9e5ecee8637d830604028463650071c0198
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998602"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163162"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Información del entorno de ejecución de Azure IoT Edge y su arquitectura
 
@@ -62,13 +62,13 @@ Para enviar datos al centro de IoT Edge, un módulo llama al método SendEventAs
    ```csharp
    ModuleClient client = await ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
    await client.OpenAsync(); 
-   await client.SendEventAsync(“output1”, message); 
+   await client.SendEventAsync("output1", message); 
    ```
 
 Para recibir un mensaje, registre una devolución de llamada que procese los mensajes procedentes de una entrada específica. El siguiente seudocódigo registra la función messageProcessor, que se usará para procesar todos los mensajes recibidos en la entrada **input1**:
 
    ```csharp
-   await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
+   await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
 Para más información sobre la clase ModuleClient y sus métodos de comunicación, consulte la referencia de API de su lenguaje preferido para el SDK: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) o [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).

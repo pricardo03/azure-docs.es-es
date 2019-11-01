@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: a5daac9fb34f36620176111e866f493d47f63bba
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 906beabe527db41f41793a7fb1f76aef27487cdd
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513936"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044978"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 
@@ -41,17 +41,17 @@ Los niveles de servicio basados en núcleos virtuales se diferencian en función
 
 | | Tipo de recurso | Uso general |  Hiperescala | Crítico para la empresa |
 |:---:|:---:|:---:|:---:|:---:|
-| **Más adecuado para** |Todo|Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado.|La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal rápido, restauración rápida de bases de datos.|Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|
+| **Más adecuado para** |All|Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado.|La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal rápido, restauración rápida de bases de datos.|Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|
 |  **Tipo de recurso** ||Base de datos única / grupo elástico / instancia administrada | Base de datos única | Base de datos única / grupo elástico / instancia administrada |
 | **Tamaño de proceso**|Base de datos única / grupo elástico * | 1 a 80 núcleos virtuales | 1 a 80 núcleos virtuales* | 1 a 80 núcleos virtuales |
 | |Instancia administrada | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales | N/D | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales |
-| **Tipo de almacenamiento** | Todo |Almacenamiento remoto Premium (por instancia) | Almacenamiento desacoplado con caché de SSD local (por instancia) | Almacenamiento SSD local extremadamente rápido (por instancia) |
-| **Tamaño de almacenamiento** | Base de datos única / grupo elástico | 5 GB – 4 TB | Hasta 100 TB | 5 GB – 4 TB |
+| **Tipo de almacenamiento** | All |Almacenamiento remoto Premium (por instancia) | Almacenamiento desacoplado con caché de SSD local (por instancia) | Almacenamiento SSD local extremadamente rápido (por instancia) |
+| **Tamaño de almacenamiento** | Base de datos única / grupo elástico *| 5 GB – 4 TB | Hasta 100 TB | 5 GB – 4 TB |
 | | Instancia administrada  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
-| **E/S** | Base de datos única** | 500 IOPS por núcleo virtual con 7000 IOPS como máximo | Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo. | 5000 IOPS hasta un máximo de 200 000 IOPS|
+| **E/S** | Base de datos única | 500 IOPS por núcleo virtual con 7000 IOPS como máximo | Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo. | 5000 IOPS hasta un máximo de 200 000 IOPS|
 | | Instancia administrada | Depende del tamaño de archivo | N/D | 1375 IOPS/núcleo virtual |
-|**Disponibilidad**|Todo|1 réplica, sin escalado horizontal de lectura, sin caché local | Varias réplicas, hasta 4 escalados horizontales de lectura, caché local parcial | 3 replicas, 1 escalado horizontal de lectura, alta disponibilidad con redundancia de zona, caché local completa |
-|**Copias de seguridad**|Todo|RA-GRS, retención de 7 a 35 días (7 días de manera predeterminada)| RA-GRS, retención de 7 días, recuperación a un momento dado (PITR) en un tiempo constante | RA-GRS, retención de 7 a 35 días (7 días de manera predeterminada) |
+|**Disponibilidad**|All|1 réplica, sin escalado horizontal de lectura, sin caché local | Varias réplicas, hasta 4 escalados horizontales de lectura, caché local parcial | 3 replicas, 1 escalado horizontal de lectura, alta disponibilidad con redundancia de zona, caché local completa |
+|**Copias de seguridad**|All|RA-GRS, retención de 7 a 35 días (7 días de manera predeterminada)| RA-GRS, retención de 7 días, recuperación a un momento dado (PITR) en un tiempo constante | RA-GRS, retención de 7 a 35 días (7 días de manera predeterminada) |
 
 \* Los grupos elásticos no se admiten en el nivel de servicio Hiperescala
 

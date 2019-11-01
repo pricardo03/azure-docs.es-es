@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 7538e47a1d0bed0c72ff5ed467c98828cc9c18ba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cde565fbafec7f1209d0c65d6f3ebc121f38e6f5
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086638"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991391"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Enlace de salida de Notification Hubs para Azure Functions
 
@@ -254,8 +254,8 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
-|**type** |N/D| Debe establecerse en "notificationHub". |
-|**direction** |N/D| Debe establecerse en "out". | 
+|**type** |N/D| Se debe establecer en `notificationHub`. |
+|**direction** |N/D| Se debe establecer en `out`. | 
 |**name** |N/D| Nombre de variable usado en el código de función para el mensaje del Centro de notificaciones. |
 |**tagExpression** |**TagExpression** | Las expresiones de etiqueta permiten especificar las notificaciones que se entregarán a un conjunto de dispositivos que se registraron para recibir las notificaciones que coincidan con estas expresiones.  Para obtener más información, consulte [Expresiones de etiqueta y enrutamiento](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nombre del recurso del Centro de notificaciones en Azure Portal. |

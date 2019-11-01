@@ -3,7 +3,7 @@ title: Exploración de los datos con el explorador de Azure Time Series Insights
 description: En este artículo se describe cómo usar el explorador de Azure Time Series Insights en el explorador web para tener rápidamente una visión global de los macrodatos y validar el entorno de IoT.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa04b2508f89b9658d904624e884bf9133caf3b7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 25f2c07678217b69699b881d53ee9d5f92f84be1
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299545"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990117"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
 

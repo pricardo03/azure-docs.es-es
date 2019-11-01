@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: a2d13833b60076caa371a7fa8a696ab5964a28e3
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7f62e437d80f023972327d98b4add193eb7b8dd6
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376078"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044416"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
 
@@ -169,7 +169,7 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
   * Si la ventana de mantenimiento se supera en Windows, suele deberse a que una actualización de Service Pack tarda mucho tiempo en instalarse.
 
   > [!NOTE]
-  > A propósito, la información que no es crítica para una tarea evita que las actualizaciones se apliquen fuera de una ventana de mantenimiento en Ubuntu; vuelva a configurar el paquete de actualizaciones desatendidas para deshabilitar las actualizaciones automáticas. Para más información sobre cómo configurar el paquete, consulte el tema [Actualizaciones automáticas](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) en la Guía de Ubuntu Server.
+  > Para evitar que las actualizaciones se apliquen fuera de una ventana de mantenimiento en Ubuntu, vuelva a configurar el paquete de actualizaciones desatendidas para deshabilitar las actualizaciones automáticas. Para más información sobre cómo configurar el paquete, consulte el tema [Actualizaciones automáticas](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) en la Guía de Ubuntu Server.
 
 * **Opciones de reinicio**: este valor determina cómo deben controlarse los reinicios. Las opciones disponibles son la siguientes:
   * Reboot if required (Default) [Reiniciar si es necesario (predeterminada)]

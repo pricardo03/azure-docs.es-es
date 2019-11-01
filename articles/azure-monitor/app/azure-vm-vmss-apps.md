@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/26/2019
-ms.openlocfilehash: 4eb515d63d746e2f1f0b96431848a8b450d09358
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 248dfb83c26d3f49fb492272ee3bd87d1e34fefa
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678212"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161482"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implementación de Azure Application Insights Agent en máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales de Azure
 
@@ -59,14 +59,14 @@ Instalación o actualización de Application Insights Agent como una extensión 
 ```powershell
 $publicCfgJsonString = '
 {
-  "RedfieldConfiguration": {
-    "InstrumentationKeyMap": {
-      "Filters": [
+  "redfieldConfiguration": {
+    "instrumentationKeyMap": {
+      "filters": [
         {
-          "AppFilter": ".*",
-          "MachineFilter": ".*",
-          "InstrumentationSettings" : {
-            "InstrumentationKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          "appFilter": ".*",
+          "machineFilter": ".*",
+          "instrumentationSettings" : {
+            "instrumentationKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           }
         }
       ]
@@ -113,14 +113,14 @@ Instalación o actualización de Application Insights Agent como una extensión 
 ```powershell
 $publicCfgHashtable =
 @{
-  "RedfieldConfiguration"= @{
-    "InstrumentationKeyMap"= @{
-      "Filters"= @(
+  "redfieldConfiguration"= @{
+    "instrumentationKeyMap"= @{
+      "filters"= @(
         @{
-          "AppFilter"= ".*";
-          "MachineFilter"= ".*";
-          "InstrumentationSettings"= @{
-            "InstrumentationKey"= "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; # Application Insights Instrumentation Key, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
+          "appFilter"= ".*";
+          "machineFilter"= ".*";
+          "instrumentationSettings"= @{
+            "instrumentationKey"= "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; # Application Insights Instrumentation Key, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       )

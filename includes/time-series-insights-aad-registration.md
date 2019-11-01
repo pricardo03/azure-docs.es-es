@@ -5,15 +5,16 @@ ms.topic: include
 ms.custom: include file
 services: time-series-insights
 ms.service: time-series-insights
-author: kingdomofends
-ms.author: adgera
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.date: 09/24/2019
-ms.openlocfilehash: ccfbd16f4db770558f1bc0284860a5f8d9fb8b68
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 7e67b9e1c611d14b78db53f8662fb4e1f493a8df
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266949"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990198"
 ---
 > [!IMPORTANT]
 > * La nueva hoja **Azure Active Directory** > **Registros de aplicaciones** sustituye a la hoja heredada **Azure Active Directory** > **Registros de aplicaciones (heredada)** desde mayo de 2019.

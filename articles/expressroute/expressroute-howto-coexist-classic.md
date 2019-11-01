@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 70e7c689acac094890545ac1e65374e9377a0be0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8eb1d7da9c588aedaedb37dc50c69970fe79ac2
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370430"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162714"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configuración de conexiones de ExpressRoute y de sitio a sitio coexistentes (modelo de implementación clásica)
 > [!div class="op_single_selector"]
@@ -200,7 +200,7 @@ Si la puerta de enlace es /27 o mayor y la red virtual está conectada a través
         Remove-AzureVNetGateway –VnetName MyAzureVNET
 3. Exporte el esquema de red virtual. Use el siguiente cmdlet de PowerShell, reemplazando los valores por los suyos propios.
    
-        Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”
+        Get-AzureVNetConfig –ExportToFile "C:\NetworkConfig.xml"
 4. Edite el esquema del archivo de configuración de red para que la subred de puerta de enlace sea /27 o un prefijo más corto (como /26 o /25). Consulte el ejemplo siguiente. 
    
    > [!NOTE]

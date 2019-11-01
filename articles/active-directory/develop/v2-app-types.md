@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6799e604b9e5e2acc3af35e4038ea6f14271d5c8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e07136eed9c14eb4b6eda49ef635171aaf543445
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834716"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809273"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicaciones para la Plataforma de identidad de Microsoft
 
@@ -122,7 +122,7 @@ En este flujo, la aplicación recibe un código de autorización del punto de co
 
 ## <a name="daemons-and-server-side-apps"></a>Demonios y aplicaciones de servidor
 
-Las aplicaciones que contienen procesos de larga duración o que funcionan sin la interacción con un usuario también necesitan un modo de acceder a recursos protegidos, como las API web. Estas aplicaciones pueden autenticarse y obtener tokens mediante la identidad de la aplicación, en lugar de una identidad delegada del usuario, con el flujo de credenciales de cliente de OAuth 2.0. Puede demostrar la identidad de la aplicación mediante un certificado o secreto de cliente. Para más información, consulte el artículo sobre la [autenticación en la Plataforma de identidad de Microsoft en aplicaciones de demonio con certificados](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
+Las aplicaciones que contienen procesos de larga duración o que funcionan sin la interacción con un usuario también necesitan un modo de acceder a recursos protegidos, como las API web. Estas aplicaciones pueden autenticarse y obtener tokens mediante la identidad de la aplicación, en lugar de una identidad delegada del usuario, con el flujo de credenciales de cliente de OAuth 2.0. Puede demostrar la identidad de la aplicación mediante un certificado o secreto de cliente. Para más información, consulte el artículo sobre la [autenticación en la Plataforma de identidad de Microsoft en aplicaciones de demonio con certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/).
 
 En este flujo, la aplicación interactúa directamente con el punto de conexión `/token` para obtener acceso:
 

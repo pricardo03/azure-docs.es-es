@@ -1,5 +1,6 @@
 ---
-title: Descripción de las experiencias de consentimiento de la aplicación de Azure AD | Microsoft Docs
+title: Descripción de las experiencias de consentimiento de la aplicación de Azure AD
+titleSuffix: Microsoft identity platform
 description: Más información sobre las experiencias de consentimiento de Azure AD para ver cómo se pueden usar al administrar y desarrollar aplicaciones en Azure AD
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 012a79969f2fa72589ba6b70aa5398b6f4e7e811
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4356a0a26aa586f99766cc5166c17d301a9a194d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835255"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803907"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Descripción de las experiencias de consentimiento de la aplicación de Azure AD
 

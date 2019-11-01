@@ -3,7 +3,7 @@ title: Supervisión y reducción de la limitación en Azure Time Series Insights
 description: En este artículo se describe cómo supervisar, diagnosticar y mitigar los problemas de rendimiento que causan la latencia y la limitación en Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 389e1472e1e1fcbed6dd3b6c1d155199246d877f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4e82cdf43f568b6415cb7cb00ce0244654559b7d
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332976"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990144"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Supervisión y reducción de la limitación para reducir la latencia en Azure Time Series Insights
 

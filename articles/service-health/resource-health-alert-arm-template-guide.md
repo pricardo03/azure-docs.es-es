@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7ccd84042d11b586d524d4eb76eba03111e0b3c5
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 10a940e43b2ab4dff1b7c90aa7d6d274ddef82d9
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099003"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023913"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
 
@@ -180,12 +180,12 @@ Las alertas a nivel de suscripción o de grupo de recursos tienen distintos tipo
             "anyOf": [
                 {
                     "field": "resourceType",
-                    "equals": "Microsoft.Compute/virtualMachines",
+                    "equals": "MICROSOFT.COMPUTE/VIRTUALMACHINES",
                     "containsAny": null
                 },
                 {
                     "field": "resourceType",
-                    "equals": "Microsoft.Storage/storageAccounts",
+                    "equals": "MICROSOFT.STORAGE/STORAGEACCOUNTS",
                     "containsAny": null
                 },
                 ...
@@ -198,7 +198,7 @@ Las alertas a nivel de suscripción o de grupo de recursos tienen distintos tipo
 Aquí usamos el contenedor `anyOf` para permitir que la alerta de estado de recurso coincida con cualquiera de las condiciones especificadas para las alertas se centren en determinados tipos de recursos.
 
 ### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Ajuste de los eventos de Resource Health con alerta
-Cuando se produce un evento de estado en los recursos, pueden pasar por una serie de fases que representan el estado del evento: `Active`, `InProgress`, `Updated` y `Resolved`.
+Cuando se produce un evento de estado en los recursos, pueden pasar por una serie de fases que representan el estado del evento: `Active`, `In Progress`, `Updated` y `Resolved`.
 
 Quizá solo desee recibir notificaciones en caso de que el estado del recurso sea incorrecto, para lo que querrá configurar la alerta para notificar solo cuando `status` sea `Active`. Sin embargo si desea recibir una notificación también en las otras fases, puede agregar esos detalles de este modo:
 
@@ -214,7 +214,7 @@ Quizá solo desee recibir notificaciones en caso de que el estado del recurso se
                 },
                 {
                     "field": "status",
-                    "equals": "InProgress"
+                    "equals": "In Progress"
                 },
                 {
                     "field": "status",
@@ -409,7 +409,7 @@ Con los distintos ajustes que se describen en la sección anterior, a continuaci
                                 },
                                 {
                                     "field": "status",
-                                    "equals": "InProgress",
+                                    "equals": "In Progress",
                                     "containsAny": null
                                 },
                                 {

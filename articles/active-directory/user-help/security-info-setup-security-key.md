@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac894db42b2b5ee2612e2e3b2906bc2bffcc4c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 47ae7de87efd787b7d3cba14a33688c4b29637e6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717383"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160713"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>Configuración de la información de seguridad para usar una clave de seguridad (versión preliminar)
 
@@ -154,6 +154,6 @@ Para registrar una clave de seguridad, debe tener al menos un método de comprob
 
 - Para obtener información más detallada sobre las [claves de seguridad compatibles con Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
-- Restablezca la contraseña si ha perdido u olvidado la que tenía acudiendo al [portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/) o siga los pasos descritos en el artículo [Restablecimiento de la contraseña profesional o educativa](user-help-reset-password.md).
+- Restablezca la contraseña si ha perdido u olvidado la que tenía acudiendo al [portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/) o siga los pasos descritos en el artículo [Restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md).
 
 - Obtenga soluciones de problemas, sugerencias y ayuda para los problemas de inicio de sesión en el artículo [Cuando no puedes iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

@@ -13,12 +13,12 @@ caps.latest.revision: 55
 author: georgewallace
 ms.author: gwallace
 manager: gwallace
-ms.openlocfilehash: ac1cce61a9b9b22c079066147d6a318f778999db
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 4ecad6ffc1b57feb16583fd95525a456f6e315a5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945871"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162102"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Esquema WorkerRole de definición de Azure Cloud Services
 El rol de trabajo de Azure es un rol que resulta útil para el desarrollo generalizado; además, puede realizar procesamiento en segundo plano para un rol web.
@@ -64,10 +64,10 @@ El formato básico del archivo de definición de servicio que contiene un rol de
       </Environment>
       <EntryPoint>
          <NetFxEntryPoint assemblyName="<name-of-assembly-containing-entrypoint>" targetFrameworkVersion="<.net-framework-version>"/>
-         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]" "/>
+         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]"/>
       </EntryPoint>
     </Runtime>
-    <Startup priority="<for-internal-use-only>”>
+    <Startup priority="<for-internal-use-only>">
       <Task commandLine="" executionContext="[limited|elevated]" taskType="[simple|foreground|background]">
         <Environment>
          <Variable name="<variable-name>" value="<variable-value>">
@@ -206,7 +206,7 @@ En la tabla siguiente se describen los atributos del elemento `InputEndpoint`:
 | Atributo | type | DESCRIPCIÓN |
 | --------- | ---- | ----------- |
 |Nombre|string|Necesario. Un nombre único para el punto de conexión externo.|
-|protocolo|string|Necesario. El protocolo de transporte del punto de conexión externo. Los valores posibles para un rol de trabajo son `HTTP`, `HTTPS`, `UDP` o `TCP`.|
+|protocol|string|Necesario. El protocolo de transporte del punto de conexión externo. Los valores posibles para un rol de trabajo son `HTTP`, `HTTPS`, `UDP` o `TCP`.|
 |port|int|Necesario. El puerto del punto de conexión externo. Puede especificar cualquier número de puerto que elija, pero los números de puerto especificados para cada rol del servicio deben ser únicos.<br /><br /> Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|
 |certificado|string|Obligatorio para un punto de conexión HTTPS. El nombre de un certificado definido por un elemento `Certificate`.|
 |localPort|int|Opcional. Especifica un puerto usado para las conexiones internas del punto de conexión. El atributo `localPort` asigna el puerto externo del punto de conexión a un puerto interno de un rol. Esto resulta de utilidad en escenarios donde un rol debe comunicarse con un componente interno en un puerto diferente del que se expone externamente.<br /><br /> Si no se especifica, el valor de `localPort` es el mismo que el del atributo `port`. Establezca el valor de `localPort` en "*" para asignar automáticamente un puerto sin asignar que se puede detectar mediante la API en tiempo de ejecución.<br /><br /> Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).<br /><br /> El atributo `localPort` solo está disponible mediante la versión 1.3 o posterior de Azure SDK.|
@@ -221,7 +221,7 @@ En la tabla siguiente se describen los atributos del elemento `InternalEndpoint`
 | Atributo | type | DESCRIPCIÓN |
 | --------- | ---- | ----------- |
 |Nombre|string|Necesario. Un nombre único para el punto de conexión interno.|
-|protocolo|string|Necesario. El protocolo de transporte del punto de conexión interno. Los valores posibles son `HTTP`, `TCP`, `UDP` o `ANY`.<br /><br /> Un valor de `ANY` especifica que se permite cualquier protocolo y cualquier puerto.|
+|protocol|string|Necesario. El protocolo de transporte del punto de conexión interno. Los valores posibles son `HTTP`, `TCP`, `UDP` o `ANY`.<br /><br /> Un valor de `ANY` especifica que se permite cualquier protocolo y cualquier puerto.|
 |port|int|Opcional. El puerto usado para las conexiones de carga equilibrada internas del punto de conexión. Un punto de conexión de carga equilibrada usa dos puertos: uno para la dirección IP pública y el otro en la dirección IP privada. Normalmente, estos puertos se establecen en el mismo valor, pero puede elegir usar puertos diferentes.<br /><br /> Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).<br /><br /> El atributo `Port` solo está disponible mediante la versión 1.3 o posterior de Azure SDK.|
 
 ##  <a name="InstanceInputEndpoint"></a> InstanceInputEndpoint
@@ -235,7 +235,7 @@ En la tabla siguiente se describen los atributos del elemento `InstanceInputEndp
 | --------- | ---- | ----------- |
 |Nombre|string|Necesario. Un nombre único para el punto de conexión.|
 |localPort|int|Necesario. Especifica el puerto interno que todas las instancias de rol escucharán para recibir el tráfico de entrada reenviado desde el equilibrador de carga. El intervalo de valores posibles oscila entre 1 y 65535, ambos inclusive.|
-|protocolo|string|Necesario. El protocolo de transporte del punto de conexión interno. Los valores posibles son `udp` o `tcp`. Use `tcp` para el tráfico basado en http/https.|
+|protocol|string|Necesario. El protocolo de transporte del punto de conexión interno. Los valores posibles son `udp` o `tcp`. Use `tcp` para el tráfico basado en http/https.|
 
 ##  <a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom
 El elemento `AllocatePublicPortFrom` describe el intervalo de puertos públicos que pueden usar los clientes externos para acceder a cada punto de conexión de entrada de instancia. El número de puerto público (VIP) se asigna de este intervalo y a cada punto de conexión de instancia de rol individual durante la implementación y la actualización de inquilinos. Este elemento es el elemento primario del elemento `FixedPortRange`.
@@ -401,7 +401,7 @@ En la tabla siguiente se describen los atributos del elemento `Content`:
 
 | Atributo | type | DESCRIPCIÓN |
 | --------- | ---- | ----------- |
-|de destino|string|Necesario. Ubicación en la máquina virtual de Azure en la que se coloca el contenido. Esta ubicación es relativa a la carpeta **%ROLEROOT%\Approot**.|
+|destination|string|Necesario. Ubicación en la máquina virtual de Azure en la que se coloca el contenido. Esta ubicación es relativa a la carpeta **%ROLEROOT%\Approot**.|
 
 Este elemento es el elemento primario del elemento `SourceDirectory`.
 

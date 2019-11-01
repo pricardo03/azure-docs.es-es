@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14146be73de309a7119f5c7b416c4e02f3bb4285
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383086"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160754"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Actualización del perfil y la información de cuenta en el portal Aplicaciones
 
@@ -86,7 +86,7 @@ Si desea cambiar la contraseña de la cuenta profesional o educativa, puede sele
 Si olvidó su contraseña, nunca obtuvo ninguna del servicio de soporte técnico de su empresa o ha sido bloqueado de su cuenta, puede restablecer su propia contraseña.
 
 >[!Important]
->El administrador debe activar esta característica y usted debe registrarse para participar. Para más información sobre cómo registrarse y cómo restablecer la contraseña, consulte [Registro en el autoservicio de restablecimiento de contraseña](active-directory-passwords-reset-register.md) y [Restablecimiento de la contraseña profesional o educativa](user-help-reset-password.md).
+>El administrador debe activar esta característica y usted debe registrarse para participar. Para más información sobre cómo registrarse y cómo restablecer la contraseña, consulte [Registro en el autoservicio de restablecimiento de contraseña](active-directory-passwords-reset-register.md) y [Restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="change-your-security-verification-information"></a>Cambio de la información de comprobación de seguridad
 

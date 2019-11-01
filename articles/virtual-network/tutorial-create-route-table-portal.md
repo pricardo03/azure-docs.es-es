@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 153c692a8fb0fa538ec49c6eafa11815dd794b5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681537"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164006"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Enrutamiento del tráfico de red con una tabla de rutas mediante Azure Portal
 
@@ -56,8 +56,8 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
     | ------- | ----- |
     | NOMBRE | Escriba *myRouteTablePublic*. |
     | Subscription | Seleccione su suscripción. |
-    | Grupos de recursos | Seleccione **Crear nuevo**, escriba *myResourceGroup* y seleccione *Aceptar*. |
-    | Ubicación | Deje el valor predeterminado **Este de EE. UU.**
+    | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y seleccione *Aceptar*. |
+    | Location | Deje el valor predeterminado **Este de EE. UU.**
     | Propagación de rutas BGP | Deje el valor predeterminado **Habilitado**. |
 
 1. Seleccione **Crear**.
@@ -68,7 +68,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 1. Cuando aparezca **myRouteTablePublic** en los resultados de búsqueda, selecciónelo.
 
-1. En **myRouteTablePublic** en **Configuración**, seleccione **Rutas** > **+ Agregar**.
+1. En **myRouteTablePublic** en **Configuración**, seleccione **Rutas** >  **+ Agregar**.
 
     ![Adición de una ruta](./media/tutorial-create-route-table-portal/add-route.png)
 
@@ -98,8 +98,8 @@ Para poder asociar una tabla de rutas a una subred, debe crear una red virtual y
     | NOMBRE | Escriba *myVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.0.0.0/16*. |
     | Subscription | Seleccione su suscripción. |
-    | Grupos de recursos | Seleccione ***Seleccionar existente*** > **myResourceGroup**. |
-    | Ubicación | Deje el valor predeterminado **Este de EE. UU.** |
+    | Resource group | Seleccione ***Seleccionar existente*** > **myResourceGroup**. |
+    | Location | Deje el valor predeterminado **Este de EE. UU.** |
     | Subred: nombre | Escriba *Pública*. |
     | Subred: intervalo de direcciones | Escriba *10.0.0.0/24*. |
 
@@ -111,7 +111,7 @@ Para poder asociar una tabla de rutas a una subred, debe crear una red virtual y
 
 1. Cuando aparezca la opción **myVirtualNetwork** en los resultados de la búsqueda, selecciónela.
 
-1. En **myVirtualNetwork**, en **Configuración**, seleccione **Subredes** > **+ Subred**.
+1. En **myVirtualNetwork**, en **Configuración**, seleccione **Subredes** >  **+ Subred**.
 
     ![Subred agregada](./media/tutorial-create-route-table-portal/add-subnet.png)
 
@@ -155,13 +155,13 @@ Las aplicaciones virtuales de red son máquinas virtuales que ayudan con las fun
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
     | Subscription | Seleccione su suscripción. |
-    | Grupos de recursos | Seleccione **myResourceGroup**. |
+    | Resource group | Seleccione **myResourceGroup**. |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la máquina virtual | Escriba *myVmNva*. |
     | Region | Seleccione **Este de EE. UU**. |
     | Opciones de disponibilidad | Deje el valor predeterminado **No se requiere redundancia de la infraestructura**. |
     | Imagen | Deje el valor predeterminado **Windows Server 2016 Datacenter**. |
-    | Tamaño | Deje el valor predeterminado **Estándar DS1 v2**. |
+    | Size | Deje el valor predeterminado **Estándar DS1 v2**. |
     | **CUENTA DE ADMINISTRADOR** |  |
     | Nombre de usuario | Escriba un nombre de usuario de su elección. |
     | Password | Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -182,7 +182,7 @@ Las aplicaciones virtuales de red son máquinas virtuales que ayudan con las fun
     | Configuración | Valor |
     | ------- | ----- |
     | Virtual network | Deje el valor predeterminado **myVirtualNetwork**. |
-    | Subred | Seleccione **DMZ (10.0.2.0/24)**. |
+    | Subnet | Seleccione **DMZ (10.0.2.0/24)** . |
     | Dirección IP pública | Seleccione **Ninguno**. No necesita una dirección IP pública. La máquina virtual no se conectará a través de Internet.|
 
 1. Deje el resto de valores predeterminados y seleccione **Siguiente: Administración**.
@@ -194,9 +194,9 @@ Las aplicaciones virtuales de red son máquinas virtuales que ayudan con las fun
     | Configuración | Valor |
     | ------- | ----- |
     | NOMBRE | Escriba *mynvastorageaccount*. |
-    | Tipo de cuenta | Deje el valor predeterminado **Storage (uso general v1)**. |
+    | Tipo de cuenta | Deje el valor predeterminado **Storage (uso general v1)** . |
     | Rendimiento | Deje el valor predeterminado **Estándar**. |
-    | Replicación | Deje el valor predeterminado **Almacenamiento con redundancia local (LRS)**.
+    | Replicación | Deje el valor predeterminado **Almacenamiento con redundancia local (LRS)** .
 
 1. Seleccione **Aceptar**.
 
@@ -236,7 +236,7 @@ Realice los pasos 1 a 12 de [Creación de una aplicación virtual de red](#creat
 | ASPECTOS BÁSICOS |  |
 | Nombre de la máquina virtual | Escriba *myVmPublic*. |
 | REDES | |
-| Subred | Seleccione **Pública (10.0.0.0/24)**. |
+| Subnet | Seleccione **Pública (10.0.0.0/24)** . |
 | Dirección IP pública | Acepte el valor predeterminado. |
 | Puertos de entrada públicos | Seleccione **Permitir los puertos seleccionados**. |
 | Selección de puertos de entrada | Seleccione **HTTP** y **RDP**. |
@@ -246,7 +246,7 @@ Realice los pasos 1 a 12 de [Creación de una aplicación virtual de red](#creat
 | ASPECTOS BÁSICOS |  |
 | Nombre de la máquina virtual | Escriba *myVmPrivate*. |
 | REDES | |
-| Subred | Seleccione **Privada (10.0.1.0/24)**. |
+| Subnet | Seleccione **Privada (10.0.1.0/24)** . |
 | Dirección IP pública | Acepte el valor predeterminado. |
 | Puertos de entrada públicos | Seleccione **Permitir los puertos seleccionados**. |
 | Selección de puertos de entrada | Seleccione **HTTP** y **RDP**. |
@@ -265,7 +265,7 @@ Puede crear la máquina virtual *myVmPrivate* mientras Azure crea la máquina vi
 
 1. Seleccione **Conectar** para crear una conexión al Escritorio remoto para la máquina virtual *myVmPrivate*.
 
-1. En **Conectar a máquina virtual**, seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto (*.rdp*) y lo descarga en su equipo.
+1. En **Conectar a máquina virtual**, seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp*) y lo descarga en su equipo.
 
 1. Abra el archivo *.rdp* descargado.
 
@@ -290,7 +290,7 @@ En un paso posterior, usará la herramienta trace route para probar el enrutamie
 1. Escriba este comando:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     Está usando el comando trace route para probar el enrutamiento en este tutorial. Para entornos de producción, no se recomienda permitir ICMP a través del Firewall de Windows.
@@ -311,7 +311,7 @@ Ha [activado el reenvío IP](#turn-on-ip-forwarding) para la interfaz de red de 
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-1. Reinicie la máquina virtual *myVmNva*. En la barra de tareas, seleccione el **botón Inicio** > **botón de encendido**, **Otros (planeado)** > **Continuar**.
+1. Reinicie la máquina virtual *myVmNva*. En la barra de tareas, seleccione el **botón Inicio** > **botón de encendido**, **Otros (planeado)**  > **Continuar**.
 
     Esto también desconecta la sesión de Escritorio remoto.
 
@@ -325,7 +325,7 @@ Ha [activado el reenvío IP](#turn-on-ip-forwarding) para la interfaz de red de 
 1. Habilite ICMP mediante el Firewall de Windows con el comando siguiente:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
 ## <a name="test-the-routing-of-network-traffic"></a>Prueba del enrutamiento del tráfico de red

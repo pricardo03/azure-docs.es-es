@@ -1,5 +1,6 @@
 ---
-title: Configuración del llavero | Plataforma de identidad de Microsoft
+title: Configuración del llavero
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo configurar el llavero para que su aplicación pueda almacenar en caché los tokens en el llavero.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46dc3a44041acd90dbab449215138eeecbda7105
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 69991d105ff3523310f54e65596f2f379b547052
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264185"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803806"
 ---
 # <a name="configure-keychain"></a>Configuración del llavero
 

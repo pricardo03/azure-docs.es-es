@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e4cf8802f9f12774f03199b76b58cb494f1c439
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143301"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162733"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -372,7 +372,7 @@ Memoria disponible | Memoria disponible en un nodo de la puerta de enlace. Este 
 Uso de CPU | Uso de CPU de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real.
 Redes (Entrada/Salida) | Uso de red de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real.
 Trabajos simultáneos (En ejecución / Límite) | Número de trabajos o tareas que se ejecutan en cada nodo. Este valor es una instantánea casi en tiempo real. Límite significa el máximo número de trabajos simultáneos para cada nodo. Este valor se define basándose en el tamaño de la máquina. Puede aumentar el límite para escalar verticalmente la ejecución de trabajos simultáneos en escenarios avanzados, donde la CPU, la memoria o la red están infrautilizadas pero se agota el tiempo de espera de las actividades. Esta funcionalidad también está disponible con una puerta de enlace de un único nodo (incluso cuando no está habilitada la característica de escalabilidad y disponibilidad).
-Rol | Hay dos tipos de roles en una puerta de enlace de varios nodos: distribuidor y trabajo. Todos los nodos son trabajos, lo que significa que pueden usarse para ejecutar los trabajos. Hay solo un nodo distribuidor, que se usa para extraer los trabajos y tareas de los servicios en la nube y enviarlos a los diferentes nodos de trabajo (incluido él mismo).
+Role | Hay dos tipos de roles en una puerta de enlace de varios nodos: distribuidor y trabajo. Todos los nodos son trabajos, lo que significa que pueden usarse para ejecutar los trabajos. Hay solo un nodo distribuidor, que se usa para extraer los trabajos y tareas de los servicios en la nube y enviarlos a los diferentes nodos de trabajo (incluido él mismo).
 
 En esta página, verá que algunos valores de configuración tienen más sentido cuando hay dos o más nodos (escenario de escalado horizontal) en la puerta de enlace. Consulte [Data Management Gateway: alta disponibilidad y escalabilidad](data-factory-data-management-gateway-high-availability-scalability.md) para más información acerca de cómo configurar una puerta de enlace de varios nodos.
 
@@ -496,7 +496,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
     **Ejemplo de comando y salida**:
 
     ```
-    PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description "gateway for walkthrough"
 
     Name              : MyGateway
     Description       : gateway for walkthrough

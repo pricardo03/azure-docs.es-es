@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 56bc8934db86bb03446a6d2637bd54daaf2b5fb9
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6a3d1fb347819015887ffc4fd8089bbc1f3a70de
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254749"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176320"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Cómo usar Azure Policy para Azure Kubernetes Service
 
@@ -164,7 +164,7 @@ Cada 5 minutos, el complemento solicita un examen completo del clúster. Despué
 
 La estructura del lenguaje de Azure Policy para administrar AKS sigue el camino de las directivas existentes. El efecto _EnforceRegoPolicy_ se usa para administrar los clústeres de AKS y recopila propiedades de _detalles_ específicas para trabajar con OPA y el equipo selector. Para obtener detalles y ejemplos, consulte el efecto [EnforceRegoPolicy](effects.md#enforceregopolicy).
 
-Como parte de la propiedad _details.policy_ en la definición de la directiva, Azure Policy pasa el URI de una directiva rego al complemento. Rego es el lenguaje que OPA y el equipo selector admiten para validar o mutar una solicitud al clúster de Kubernetes. Al admitir un estándar existente para la administración de Kubernetes, Azure Policy le permite reutilizar las reglas existentes y vincularlas con Azure Policy para obtener una experiencia de informes de cumplimiento unificada en la nube. Para obtener más información, consulte [¿Qué es Rego?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)
+Como parte de la propiedad _details.policy_ en la definición de la directiva, Azure Policy pasa el URI de una directiva rego al complemento. Rego es el lenguaje que OPA y el equipo selector admiten para validar o mutar una solicitud al clúster de Kubernetes. Al admitir un estándar existente para la administración de Kubernetes, Azure Policy le permite reutilizar las reglas existentes y vincularlas con Azure Policy para obtener una experiencia de informes de cumplimiento unificada en la nube. Para obtener más información, consulte [¿Qué es Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)
 
 ## <a name="built-in-policies"></a>Directivas integradas
 

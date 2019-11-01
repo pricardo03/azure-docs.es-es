@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a5e5f4ab286289e223a2fe10ff8cf45f43309f04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 999e545d49b11eef84d1a03401eb28cde36e82af
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785938"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991364"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificación de Azure Maps
 
@@ -127,7 +127,6 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Pakistán                                            |                 |                |              |      ✓     |          ✓         |
 | Palaos                                               |                 |                |              |      ✓     |          ✓         |
 | Papúa Nueva Guinea                                    |                 |                |              |      ✓     |          ✓         |
-| Paracelso                                     |                 |                |              |      ✓     |                    |
 | Filipinas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Islas Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
@@ -135,7 +134,6 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Singapur                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Islas Salomón                                     |                 |                |              |      ✓     |          ✓         |
 | Islas de Kuriles del Sur                                     |        ✓        |                |              |      ✓     |          ✓         |
-| Islas Spratly                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
 | Taiwán                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tailandia                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |

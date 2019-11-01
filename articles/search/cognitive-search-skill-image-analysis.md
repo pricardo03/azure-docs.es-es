@@ -1,28 +1,29 @@
 ---
-title: Aptitud cognitiva de análisis de imágenes
-titleSuffix: Azure Cognitive Search
-description: Extraiga texto semántico a través del análisis de imágenes mediante la aptitud cognitiva de análisis de imágenes en una canalización de enriquecimiento con inteligencia artificial de Búsqueda cognitiva de Azure.
+title: 'Aptitud de Cognitive Search de análisis de imágenes: Azure Search'
+description: Extraiga texto semántico a través del análisis de imágenes mediante la aptitud cognitiva ImageAnalysis en una canalización de enriquecimiento de Azure Search.
+services: search
 manager: nitinme
 author: luiscabrer
-ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 04114d00f3905675a1794a3875e650661febc832
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 08/28/2019
+ms.author: luisca
+ms.openlocfilehash: e2c8f0519ffcbdbc2445d1fed2725b6f6b948cd1
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791985"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064071"
 ---
-# <a name="image-analysis-cognitive-skill"></a>Aptitud cognitiva de análisis de imágenes
+#   <a name="image-analysis-cognitive-skill"></a>Aptitud cognitiva de análisis de imágenes
 
 La aptitud de **Análisis de imágenes** extrae un amplio conjunto de características visuales en función del contenido de la imagen. Por ejemplo, puede generar una leyenda a partir de una imagen, generar etiquetas o identificar celebridades y lugares de referencia. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) en Cognitive Services. 
 
 > [!NOTE]
-> Los volúmenes pequeños (menos de 20 transacciones) se pueden ejecutar gratis en Búsqueda cognitiva de Azure, pero las cargas de trabajo más grandes requieren la [asociación de un recurso de Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Se acumulan cargos cuando se llama a las API de Cognitive Services y en la extracción de imágenes como parte de la fase de descifrado de documentos de Búsqueda cognitiva de Azure. No hay ningún cargo por la extracción de texto de documentos.
+> Los volúmenes pequeños (menos de 20 transacciones) se pueden ejecutar gratis en Azure Search, pero las cargas de trabajo más grandes requieren la [asociación de un recurso de Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -321,8 +322,8 @@ Puede definir asignaciones de campos de salida para propiedades de nivel inferio
 ```json
     "outputFieldMappings": [
         {
-            "sourceFieldName": /document/normalized_images/*/categories/details/landmarks/*",
-            "targetFieldName": "landmarks"
+            "sourceFieldName": "/document/normalized_images/*/categories/detail/celebrities/*",
+            "targetFieldName": "celebrities"
         }
 ```
 ##  <a name="sample-input"></a>Entrada de ejemplo
@@ -520,6 +521,6 @@ Si recibe el error similar a `"One or more skills are invalid. Details: Error in
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Aptitudes integradas](cognitive-search-predefined-skills.md)
++ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

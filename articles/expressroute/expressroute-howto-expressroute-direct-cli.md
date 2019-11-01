@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a879344fddd6d12ae8a50e109dcaf4a4bb2c1b68
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965912"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161555"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configuración de ExpressRoute Direct mediante la CLI de Azure
 
@@ -272,7 +272,7 @@ Utilice este proceso para llevar a cabo una prueba de capa 1. Asegúrese de que 
    }
    ```
 
-   Use el mismo procedimiento mediante `AdminState = “Disabled”` para deshabilitar los puertos.
+   Use el mismo procedimiento mediante `AdminState = "Disabled"` para deshabilitar los puertos.
 
 ## <a name="circuit"></a>Crear un circuito
 

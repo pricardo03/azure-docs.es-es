@@ -4,7 +4,7 @@ description: " La migración de cargas de trabajo a IaaS de Azure nos brinda la 
 services: security
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: rkarlin
 editor: TomSh
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/26/2019
+ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: fc1657be4dbff1acee186e3a85d9d1e772055f73
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fc72c59721a6f244806bf229ebded1e66341a04d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262740"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177697"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 En este artículo se describen los procedimientos recomendados de seguridad para máquinas virtuales y sistemas operativos.
@@ -28,13 +28,6 @@ En este artículo se describen los procedimientos recomendados de seguridad para
 Los procedimientos recomendados se basan en un consenso de opinión y son válidos para las funcionalidades y conjuntos de características actuales de la plataforma Azure. Puesto que las opiniones y las tecnologías pueden cambiar con el tiempo, este artículo se actualizará para reflejar dichos cambios.
 
 En la mayoría de los escenarios de IaaS (infraestructura como servicio), las [máquinas virtuales de Azure](/azure/virtual-machines/) son la principal carga de trabajo de las organizaciones que usan la informática en la nube. Esto es evidente en los [escenarios híbridos](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx), en los que las organizaciones quieran migrar lentamente las cargas de trabajo a la nube. En estos escenarios, siga las [consideraciones generales de seguridad de IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) y aplique los procedimientos recomendados de seguridad a todas las máquinas virtuales.
-
-## <a name="shared-responsibility"></a>Responsabilidad compartida
-Su responsabilidad de la seguridad se basa en el tipo de servicio en la nube. En el siguiente gráfico se resume cómo se reparte la responsabilidad entre Microsoft y usted.
-
-![Áreas de responsabilidad](./media/iaas/sec-cloudstack-new.png)
-
-Los requisitos de seguridad varían en función de una serie de factores entre los que se encuentran los diferentes tipos de cargas de trabajo. Ninguno de estos procedimientos recomendados puede por sí solo proteger sus sistemas. Al igual que en otros aspectos de la seguridad, es preciso elegir las opciones adecuadas y ver si las soluciones se pueden complementar entre sí y suplir las deficiencias.
 
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Protección de máquinas virtuales mediante la autenticación y el control de acceso
 El primer paso para proteger la máquina virtual es garantizar que solo los usuarios autorizados puedan configurar nuevas máquinas virtuales y obtener acceso a ellas.
@@ -75,7 +68,7 @@ Si la máquina virtual ejecuta aplicaciones esenciales que necesitan tener una a
 Un conjunto de disponibilidad es una agrupación lógica que puede usar en Azure para asegurarse de que los recursos de máquina virtual que coloque en dicho conjunto de disponibilidad estén aislados entre sí cuando se implementen en un centro de datos de Azure. Azure garantiza que las máquinas virtuales colocadas en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. Si se produce un error de hardware o software de Azure, solo un subconjunto de las máquinas virtuales se ve afectado y la aplicación sigue estando disponible para los clientes. Los conjuntos de disponibilidad son una funcionalidad fundamental para compilar soluciones en la nube confiables.
 
 ## <a name="protect-against-malware"></a>Protección frente a malware
-Debe instalar la protección antimalware para ayudar a identificar y eliminar virus, spyware y otro software malintencionado. Puede instalar [Microsoft Antimalware](antimalware.md) o una solución de Endpoint Protection de asociado de Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection) y [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection)).
+Debe instalar la protección antimalware para ayudar a identificar y eliminar virus, spyware y otro software malintencionado. Puede instalar [Microsoft Antimalware](antimalware.md) o una solución de Endpoint Protection de asociado de Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/en-us/search?q=Windows+defender+endpoint+protection&rtc=1) y [System Center Endpoint Protection](https://www.microsoft.com/en-us/search?q=System+Center+endpoint+protection&rtc=1)).
 
 Microsoft Antimalware incluye características como la protección en tiempo real, los análisis programados, la corrección de malware, las actualizaciones de firmas, las actualizaciones del motor, los ejemplos de informes y la colección de eventos de exclusión. En entornos hospedados por separado del entorno de producción, puede usar una extensión de antimalware para ayudar a proteger las máquinas virtuales y los servicios en la nube.
 

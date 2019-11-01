@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 0d132a46db39308911f472941c02f8bb04a44e0d
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249299"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988784"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glosario de términos de la versión preliminar de IoT Plug and Play
 
@@ -117,7 +117,7 @@ Un [desarrollador de dispositivos](#device-developer) usa el [lenguaje de defini
 
 ## <a name="device-provisioning-service"></a>Servicio Device Provisioning
 
-[Azure IoT Central](#azure-iot-central) usa el servicio Device Provisioning para administrar el registro y la conexión de todos los dispositivos. Para obtener más información, consulte [Conectividad de dispositivos en Azure IoT Central](../iot-central/concepts-connectivity-pnp.md). También puede usar el servicio Device Provisioning para administrar el registro y la conexión de dispositivos a la solución de IoT basada en IoT Hub. Para obtener más información, consulte [Aprovisionamiento de dispositivos con el servicio Azure IoT Hub Device Provisioning](../iot-dps/about-iot-dps.md).
+[Azure IoT Central](#azure-iot-central) usa el servicio Device Provisioning para administrar el registro y la conexión de todos los dispositivos. Para obtener más información, consulte [Conectividad de dispositivos en Azure IoT Central](../iot-central/core/overview-iot-central-get-connected-pnp.md). También puede usar el servicio Device Provisioning para administrar el registro y la conexión de dispositivos a la solución de IoT basada en IoT Hub. Para obtener más información, consulte [Aprovisionamiento de dispositivos con el servicio Azure IoT Hub Device Provisioning](../iot-dps/about-iot-dps.md).
 
 ## <a name="device-registration"></a>Registro de dispositivos
 
