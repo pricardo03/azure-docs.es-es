@@ -32,7 +32,7 @@
     - name: 8 - Incorporación de varias versiones
       href: api-management-get-started-publish-versions.md
     - name: 9 - Personalización del portal para desarrolladores
-      href: api-management-customize-styles.md
+      href: api-management-howto-developer-portal-customize.md
 - name: Ejemplos
   items:
     - name: Directivas
@@ -121,17 +121,13 @@
           href: api-management-howto-ca-certificates.md
         - name: Administración de protocolos y cifrados
           href: api-management-howto-manage-protocols-ciphers.md
-    - name: Personalizar la experiencia para desarrolladores
+    - name: Personalización de la experiencia de los desarrolladores
       items:
-        - name: Acceso al nuevo portal para desarrolladores y personalización de este
+        - name: Descripción del portal para desarrolladores
           href: api-management-howto-developer-portal.md
-        - name: Modificación del diseño y contenido de una página
-          href: api-management-modify-content-layout.md
-        - name: Personalización de páginas del sistema mediante plantillas
-          href: api-management-developer-portal-templates.md
-        - name: Autenticación con Azure AD
+        - name: Autenticación mediante Azure Active Directory
           href: api-management-howto-aad.md
-        - name: Autenticación con Azure AD B2C
+        - name: "Autenticación mediante Azure\_AD\_B2C"
           href: api-management-howto-aad-b2c.md
         - name: Autenticación delegada
           href: api-management-howto-setup-delegation.md
@@ -139,6 +135,34 @@
           href: api-management-howto-configure-notifications.md
         - name: Habilitar OAuth en la consola
           href: api-management-howto-oauth2.md
+        - name: 'Portal heredado: personalización del portal'
+          href: api-management-customize-styles.md
+        - name: 'Portal heredado: modificación de páginas y diseños'
+          href: api-management-modify-content-layout.md
+        - name: 'Portal heredado: personalización con plantillas'
+          href: api-management-developer-portal-templates.md
+    - name: Plantillas del portal heredado
+      items:
+        - name: Referencia de modelo de datos
+          href: api-management-template-data-model-reference.md
+        - name: Controles de página
+          href: api-management-page-controls.md
+        - name: Plantillas
+          href: api-management-developer-portal-templates-reference.md
+        - name: API existentes
+          href: api-management-api-templates.md
+        - name: Productos
+          href: api-management-product-templates.md
+        - name: APLICACIONES
+          href: api-management-application-templates.md
+        - name: Issues
+          href: api-management-issue-templates.md
+        - name: Perfil de usuario
+          href: api-management-user-profile-templates.md
+        - name: Páginas
+          href: api-management-page-templates.md
+        - name: Recursos de plantilla
+          href: api-management-template-resources.md
     - name: Definición de directivas
       items:
         - name: Establecimiento o edición de directivas
@@ -167,28 +191,6 @@
           href: api-management-cross-domain-policies.md
         - name: Directivas de transformación
           href: api-management-transformation-policies.md
-    - name: Referencia de plantilla
-      items:
-        - name: Plantillas
-          href: api-management-developer-portal-templates-reference.md
-        - name: API existentes
-          href: api-management-api-templates.md
-        - name: Productos
-          href: api-management-product-templates.md
-        - name: APLICACIONES
-          href: api-management-application-templates.md
-        - name: Issues
-          href: api-management-issue-templates.md
-        - name: Perfil de usuario
-          href: api-management-user-profile-templates.md
-        - name: Páginas
-          href: api-management-page-templates.md
-        - name: Recursos de plantilla
-          href: api-management-template-resources.md
-    - name: Referencia de modelo de datos
-      href: api-management-template-data-model-reference.md
-    - name: Controles de página
-      href: api-management-page-controls.md
     - name: Administración en producción
       items:
         - name: Administrar grupos

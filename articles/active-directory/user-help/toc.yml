@@ -116,3 +116,13 @@
       href: my-apps-portal-end-user-access-reviews.md
     - name: Solución de problemas
       href: my-apps-portal-end-user-troubleshoot.md
+- name: Ayuda del portal de Aplicaciones (versión preliminar)
+  items:
+    - name: Información general
+      href: my-applications-portal-overview.md
+    - name: Acceso y uso del portal Mis aplicaciones
+      href: my-applications-portal-access.md
+    - name: Acceso y uso de áreas de trabajo
+      href: my-applications-portal-workspaces.md
+    - name: Edición o revocación de permisos de aplicación
+      href: my-applications-portal-permissions-saved-accounts.md

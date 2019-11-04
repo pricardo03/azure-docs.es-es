@@ -131,10 +131,14 @@
           items:
             - name: Configuración del consentimiento del usuario
               href: configure-user-consent.md
+            - name: Configuración del flujo de trabajo de consentimiento del administrador (versión preliminar)
+              href: configure-admin-consent-workflow.md
             - name: Métodos para asignar usuarios y grupos a una aplicación
               href: methods-for-assigning-users-and-groups.md
             - name: Asignación de un usuario a una aplicación
               href: assign-user-or-group-access-portal.md
+            - name: Creación de áreas de trabajo en Aplicaciones (versión preliminar)
+              href: access-panel-workspaces.md
             - name: Uso del acceso de autoservicio a las aplicaciones
               href: access-panel-manage-self-service-access.md
             - name: Métodos para quitar el acceso de un usuario a una aplicación
@@ -155,6 +159,8 @@
               href: migration-resources.md
             - name: Migración de una aplicación de ADFS a Azure
               href: migrate-adfs-apps-to-azure.md
+            - name: "Uso del informe de actividad de una aplicación de AD\_FS (versión preliminar)"
+              href: migrate-adfs-application-activity.md
         - name: Solución de problemas
           items:
             - name: Solución de problemas de incorporación de aplicaciones

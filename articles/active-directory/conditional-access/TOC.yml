@@ -31,6 +31,8 @@
       href: location-condition.md
     - name: Controles
       href: controls.md
+    - name: Modo de solo informe
+      href: concept-conditional-access-report-only.md
     - name: Dependencias del servicio
       href: service-dependencies.md
     - name: Herramienta What if
@@ -76,6 +78,8 @@
       href: untrusted-networks.md
     - name: Requerir condiciones de uso
       href: terms-of-use.md
+    - name: Configuración del modo de solo informe
+      href: howto-conditional-access-report-only.md
     - name: Controles de frecuencia de inicio de sesión y de persistencia del explorador
       href: howto-conditional-access-session-lifetime.md
     - name: Migración de directivas clásicas

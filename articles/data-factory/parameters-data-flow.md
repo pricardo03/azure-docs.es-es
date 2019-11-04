@@ -40,9 +40,9 @@ Los parámetros se pueden usar en cualquier expresión de flujo de datos. Los pa
 
 ## <a name="use-parameters-in-your-data-flow"></a>Uso de parámetros en el flujo de datos
 
-* Puede usar valores de parámetro en las expresiones de transformación. Encontrará la lista de parámetros en la pestaña Parámetros del Generador de expresiones. ![Uso de parámetros de Data Flow](media/data-flow/params9.png "UUso de parámetros de Data Flow)
+* Puede usar valores de parámetro en las expresiones de transformación. Encontrará la lista de parámetros en la pestaña Parámetros del Generador de expresiones. ![Uso de parámetros de Data Flow](media/data-flow/params9.png "UUso de parámetros de Data Flow")
 
-* Los parámetros también se usan para configurar valores dinámicos para los valores de configuración de transformación Origen y Receptor. Al hacer clic en los campos configurables, aparece el vínculo Agregar contexto dinámico. Al hacer clic en él, se le dirigirá a un Generador de expresiones donde puede usar parámetros para emplear valores dinámicos. ![Contenido dinámico de flujo de datos](media/data-flow/params6.png "DContenido dinámico de flujo de datos)
+* Los parámetros también se usan para configurar valores dinámicos para los valores de configuración de transformación Origen y Receptor. Al hacer clic en los campos configurables, aparece el vínculo Agregar contexto dinámico. Al hacer clic en él, se le dirigirá a un Generador de expresiones donde puede usar parámetros para emplear valores dinámicos. ![Contenido dinámico de flujo de datos](media/data-flow/params6.png "DContenido dinámico de flujo de datos")
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Establecimiento de parámetros de flujo de datos de asignación desde la canalización
 
