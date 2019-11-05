@@ -55,7 +55,7 @@ En esta sección se proporcionan instrucciones paso a paso para integrar una apl
 En esta guía se crea una aplicación que muestra un botón que consulta Graph API y un botón para cerrar la sesión. También se muestran los cuadros de texto que contienen los resultados de las llamadas.
 
 > [!NOTE]
-> ¿Desea descargar este proyecto de Visual Studio de ejemplo en lugar de crearlo? [Descargue un proyecto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) y vaya al paso [Registro de aplicaciones](#register-your-application "aPaso de registro de aplicaciones) para configurar el código de ejemplo antes de ejecutarlo.
+> ¿Desea descargar este proyecto de Visual Studio de ejemplo en lugar de crearlo? [Descargue un proyecto](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) y vaya al paso [Registro de aplicaciones](#register-your-application "aPaso de registro de aplicaciones") para configurar el código de ejemplo antes de ejecutarlo.
 
 ### <a name="create-your-application"></a>Creación de la aplicación
 
