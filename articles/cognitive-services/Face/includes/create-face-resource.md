@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: dapine
 ms.openlocfilehash: 3886777b283af35e84683480a59097584b537fea
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717149"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523873"
 ---
 ## <a name="create-an-face-resource"></a>Creación de un recurso de Face
 

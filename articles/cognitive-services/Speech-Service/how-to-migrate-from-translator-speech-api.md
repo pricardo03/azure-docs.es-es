@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 7b61aef13b113d9b2502c24e3001da25fa186c76
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 841fa89f2e893052473bb1e2b7e634f1216ab505
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559571"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464599"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar de Translator Speech API al servicio Voz
 
-Use este artículo para obtener información sobre cómo migrar sus aplicaciones de Translator Speech API de Microsoft al [servicio Voz](index.yml). Esta guía describe las diferencias entre Translator Speech API y el servicio Voz, y sugiere estrategias para migrar sus aplicaciones.
+Use este artículo para obtener información sobre cómo migrar sus aplicaciones de Translator Speech API de Microsoft al [servicio Voz](index.md). Esta guía describe las diferencias entre Translator Speech API y el servicio Voz, y sugiere estrategias para migrar sus aplicaciones.
 
 > [!NOTE]
 > El servicio Voz aceptará su clave de suscripción de Translator Speech API. Deberá crear una suscripción de servicios de Voz.
@@ -35,7 +35,7 @@ Use este artículo para obtener información sobre cómo migrar sus aplicaciones
 | Límite de tiempo de conexión                             | 90 minutos                                               | Ilimitado con SDK. 10 minutos con una conexión WebSockets                                                                                                                                                                                                                                                                                   |
 | Clave de autenticación de encabezado                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Varios idiomas que se traducen en una sola solicitud | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| SDK disponibles                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Para ver los SDK disponibles, consulte la [documentación de servicio de Voz](index.yml).                                                                                                                                                    |
+| SDK disponibles                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Para ver los SDK disponibles, consulte la [documentación de servicio de Voz](index.md).                                                                                                                                                    |
 | Conexiones de WebSockets                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | API Languages                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | Los servicios de Voz son compatibles con el mismo conjunto de idiomas que se describe en el artículo de [referencia de idiomas de API Translator](../translator-speech/languages-reference.md). |
 | Marcador y filtro de obscenidad                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -49,7 +49,7 @@ Use este artículo para obtener información sobre cómo migrar sus aplicaciones
 
 ## <a name="migration-strategies"></a>Estrategias de migración
 
-Si su organización o usted tienen aplicaciones en desarrollo o producción que usan la API Translator Speech, deben actualizarlas para que usen el servicio Voz. Vea la documentación del [servicio Voz](index.yml) para obtener información sobre SDK disponibles, ejemplos de código y tutoriales. Tenga en cuenta lo siguiente cuando esté migrando:
+Si su organización o usted tienen aplicaciones en desarrollo o producción que usan la API Translator Speech, deben actualizarlas para que usen el servicio Voz. Vea la documentación del [servicio Voz](index.md) para obtener información sobre SDK disponibles, ejemplos de código y tutoriales. Tenga en cuenta lo siguiente cuando esté migrando:
 
 * Los servicios de Voz no ofrecen un punto de conexión global. Determine si la aplicación funciona eficazmente con un único punto de conexión regional para todo su tráfico. Si no lo hace, use la ubicación geográfica para determinar el punto de conexión más eficaz.
 
@@ -62,7 +62,7 @@ Si su organización o usted tienen aplicaciones en desarrollo o producción que 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Prueba gratuita de los servicios de voz](get-started.md)
-* [Inicio rápido: Reconocimiento de voz en una aplicación de UWP mediante el SDK de Voz](quickstart-csharp-uwp.md)
+* [Inicio rápido: Reconocimiento de voz en una aplicación de UWP mediante el SDK de Voz](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Otras referencias
 

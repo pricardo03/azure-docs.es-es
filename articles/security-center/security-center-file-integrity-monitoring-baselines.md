@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: 116f295365084e7570ed9afc493d9179ea2dfb5a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0e7ef558ec75622b804aef96781b549f1a833e21
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202139"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73518860"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparación de las líneas de base mediante la supervisión de la integridad de los archivos (FIM)
 
@@ -60,7 +60,7 @@ Las líneas de base de FIM comienzan identificando las características de un es
 |Seguridad de redes: restringir NTLM: auditar autenticación NTLM en este dominio|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> Para obtener más información sobre la configuración del registro compatible con las distintas versiones del sistema operativo, consulte la [hoja de cálculo de referencia de configuración de directiva de grupo](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
+> Para obtener más información sobre la configuración del registro compatible con las distintas versiones del sistema operativo, consulte la [hoja de cálculo de referencia de configuración de directiva de grupo](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
 *Para configurar FIM para supervisar las líneas de base del registro:*
 

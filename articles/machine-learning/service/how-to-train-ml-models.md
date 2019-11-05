@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 087e1cd84aa182a0aae1bef6ba3dd38f369d5189
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bb3b9504abcd453977d63a9bfccf77a33da6455a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755952"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489469"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Con Azure Machine Learning, puede enviar fácilmente el script de entrenamiento a [diversos destinos de proceso](how-to-set-up-training-targets.md#compute-targets-for-training), con el [objeto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) y el [objeto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Ese patrón le ofrece mucha flexibilidad y el máximo control.
 

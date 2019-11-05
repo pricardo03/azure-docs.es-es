@@ -5,22 +5,18 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6a063d6c8891133126924bfb934770f7818db71a
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: a8c9cab825644fe797713c80d3a710c7a2d54850
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191255"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498060"
 ---
-# <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion-preview"></a>Cambio a la vista de pantalla completa para una sesión de máquina virtual: Azure Bastion (versión preliminar)
+# <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Cambio a la vista de pantalla completa para una sesión de máquina virtual: Azure Bastion
 
 Este artículo le ayuda a cambiar la vista de la máquina virtual a pantalla completa y de nuevo en el explorador. Antes de trabajar con una máquina virtual, asegúrese de que ha seguido los pasos indicados en [Creación de un host de Bastion](bastion-create-host-portal.md). Después, conéctese a la máquina virtual con la que quiere trabajar mediante [RDP](bastion-connect-vm-rdp.md) o [SSH](bastion-connect-vm-ssh.md).
-
-> [!IMPORTANT]
-> Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="launch-the-clipboard-tool"></a>Inicie la herramienta del Portapapeles
 

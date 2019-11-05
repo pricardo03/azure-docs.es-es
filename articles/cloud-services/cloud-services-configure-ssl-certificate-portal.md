@@ -8,19 +8,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: gwallace
-ms.openlocfilehash: 9e7b7526f13fa6b9ae648c4ddb4004a627d85154
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: cc5b142558a21d1364254e555f3cf8f64bba0e58
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359741"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469019"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configuración de SSL para una aplicación en Azure
 
 El cifrado de Capa de sockets seguros (SSL) es el método más usado para proteger los datos que se envían por Internet. Esta tarea común analiza cómo especificar un punto de conexión HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación.
 
 > [!NOTE]
-> Los procedimientos de esta tarea se aplican a Azure Cloud Services; para App Services consulte [esto](../app-service/app-service-web-tutorial-custom-ssl.md).
+> Los procedimientos de esta tarea se aplican a Azure Cloud Services; para App Services consulte [esto](../app-service/configure-ssl-bindings.md).
 >
 
 Esta tarea utiliza una implementación de producción. Al final de este tema se proporciona información sobre el uso de una implementación de ensayo.

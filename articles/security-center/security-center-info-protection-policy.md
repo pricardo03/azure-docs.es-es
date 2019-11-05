@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: edd415c330656d4cecc42a39d27598a88a1a8d2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: f9b161bbb692c1336083640250b93f9d87f1e0d9
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202094"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520798"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalización de la directiva de SQL Information Protection en Azure Security Center (versión preliminar)
  
@@ -83,8 +83,5 @@ En este artículo, ha aprendido acerca de cómo definir una directiva de SQL Inf
 
 Para obtener más información acerca de las directivas de seguridad y la seguridad de datos en Azure Security Center, consulte los artículos siguientes:
  
-- [Introducción a las directivas de seguridad](security-center-policies-overview.md): Obtenga información general sobre las directivas de seguridad de Security Center.
 - [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 - [Seguridad de datos de Azure Security Center](security-center-data-security.md): Aprenda cómo Security Center administra y protege los datos.
-
-

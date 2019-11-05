@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 11/02/2018
 ms.author: tomfitz
 ms.openlocfilehash: a46c348533468ad037ac092037cb34def2b0405c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038389"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73549288"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>Suscripción a eventos de un tema personalizado con la CLI de Azure
 

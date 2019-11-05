@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: f20661a74397487e141e69681f207418db8ac386
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: adb8941fd60a955a44a04717958c5203b721639a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70388042"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498994"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupación y extracción de datos relacionados
 En este tutorial, agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
@@ -28,6 +28,8 @@ La entidad compuesta es una buena opción para este tipo de datos, ya que los da
 * Están relacionados entre sí. 
 * Usan una variedad de tipos de entidad.
 * Debe estar agrupados y procesados por la aplicación cliente como una unidad de información.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **En este tutorial, aprenderá a:**
 

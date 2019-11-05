@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: f32a67dc6d3b3f869afaa532403c05b218588552
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7d31dd004c879fd3e689f4ba7a8ae58cb223ae70
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786378"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484936"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Uso de puntos de conexión de servicio de red virtual con Azure Service Bus
 
@@ -36,7 +36,6 @@ El resultado es una relación privada y aislada entre las cargas de trabajo enla
 > - Integración con Azure Event Grid
 > - Enrutamientos de Azure IoT Hub
 > - Azure IoT Device Explorer
-> - Explorador de datos de Azure
 >
 > Los siguientes servicios de Microsoft deben estar en una red virtual
 > - Azure App Service

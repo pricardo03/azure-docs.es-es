@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: ae8dc263e08528c6e3b3bae8c779162c96d51f43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24e31bfa916df969368dce736cf841ed4fdfe2c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61324633"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484055"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Conexión de MXChip IoT DevKit al acelerador de la solución de supervisión remota de Azure IoT
 
@@ -135,6 +135,6 @@ Ahora que ha aprendido cómo conectar un dispositivo DevKit al acelerador de la 
 
 * [Introducción a los aceleradores de la solución de Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
 
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](/azure/iot-central/core/howto-connect-devkit) (Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central)
 
 * [Kit para desarrolladores de IoT](https://microsoft.github.io/azure-iot-developer-kit/) 

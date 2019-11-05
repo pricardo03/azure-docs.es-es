@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 11/02/2018
 ms.author: tomfitz
 ms.openlocfilehash: 16c6586939a6dad248cef3abdabd78faf04a2381
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034275"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73549265"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>Creación de un tema personalizado de Event Grid con la CLI de Azure
 

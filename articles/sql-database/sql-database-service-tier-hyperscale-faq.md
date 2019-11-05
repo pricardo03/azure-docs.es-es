@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 906beabe527db41f41793a7fb1f76aef27487cdd
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 379629cfe3c742bd247e02cdf7a891afab08107f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044978"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496174"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 
@@ -127,7 +127,7 @@ No por el momento, pero puede reducir verticalmente el proceso y el número de r
 
 ### <a name="can-i-provision-a-compute-replica-with-extra-ram-for-my-memory-intensive-workload"></a>¿Puedo aprovisionar una réplica de proceso con memoria RAM adicional para mi carga de trabajo con uso intensivo de memoria?
 
-No. Para obtener más memoria RAM, deberá actualizar a un tamaño de proceso mayor. Para más información, consulte los [tamaños de almacenamiento y proceso de Hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
+No. Para obtener más memoria RAM, deberá actualizar a un tamaño de proceso mayor. Para más información, consulte los [tamaños de almacenamiento y proceso de Hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5).
 
 ### <a name="can-i-provision-multiple-compute-replicas-of-different-sizes"></a>¿Puedo aprovisionar varias réplicas de proceso de diferentes tamaños?
 

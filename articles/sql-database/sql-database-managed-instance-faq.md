@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 7ae3eb74b0d0c3f0bd6124362608e14555179697
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 7e341cf8a4ff2a18e44e36d73ad5dbc642582802
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710148"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496286"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL Database
 
@@ -179,7 +179,7 @@ Las cargas de datos suelen ser más lentas en una instancia administrada que en 
 Sí, no es preciso descifrar la base de datos para poder restaurarla en una instancia administrada. Debe especificar la clave o el certificado utilizados como un protector de clave de cifrado en el sistema de origen a la instancia administrada para poder leer los datos desde el archivo de copia de seguridad cifrado. Existen dos formas posibles de hacerlo:
 
 - *Cargar un protector de certificado en la instancia administrada*. Solo se puede hacer mediante PowerShell. El [script de ejemplo](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) describe todo el proceso.
-- *Cargar el protector de clave asimétrica a Azure Key Vault (AKV) y apuntar la instancia administrada hacia él*. Este enfoque es similar al caso de uso del cifrado de datos transparente de Bring Your Own Key (BYOK), que también usa la integración de Azure Key Vault para almacenar la clave de cifrado. Si no quiere usar la clave como un protector de clave de cifrado y solo quiere que esté disponible para la instancia administrada y así poder restaurar las bases de datos cifradas, siga las instrucciones para [configurar BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal), y no seleccione la casilla *Hacer que la clave seleccionada sea el protector de TDE predeterminado*.
+- *Cargar el protector de clave asimétrica a Azure Key Vault (AKV) y apuntar la instancia administrada hacia él*. Este enfoque es similar al caso de uso del cifrado de datos transparente de Bring Your Own Key (BYOK), que también usa la integración de Azure Key Vault para almacenar la clave de cifrado. Si no quiere usar la clave como un protector de clave de cifrado y solo quiere que esté disponible para la instancia administrada y así poder restaurar las bases de datos cifradas, siga las instrucciones para [configurar BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption), y no seleccione la casilla *Hacer que la clave seleccionada sea el protector de TDE predeterminado*.
 
 Una vez que el protector de cifrado está disponible para una instancia administrada, puede continuar con el procedimiento de restauración de base de datos estándar.
 

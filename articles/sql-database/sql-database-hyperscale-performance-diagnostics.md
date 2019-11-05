@@ -9,12 +9,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 92a1fda85e5ee49f12a13123e8a296492fd9eb4b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: fa8b02cf5ee6f24bcc77aae057f41842da721981
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598169"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521147"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnóstico de la solución de problemas de rendimiento de Hiperescala de SQL
 
@@ -101,7 +101,7 @@ Una proporción de las lecturas realizadas en RBPEX a las lecturas agregadas rea
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- En el caso de los límites de recursos de núcleo virtual para una base de datos única de hiperescala, consulte los [límites de núcleos virtuales del nivel de servicio de Hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
+- En el caso de los límites de recursos de núcleo virtual para una base de datos única de hiperescala, consulte los [límites de núcleos virtuales del nivel de servicio de Hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5).
 - Para optimizar el rendimiento de Azure SQL Database, consulte [Ajuste manual del rendimiento de consultas en Azure SQL Database](sql-database-performance-guidance.md).
 - Para optimizar el rendimiento mediante el Almacén de consultas, consulte [Supervisión de rendimiento mediante el Almacén de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/).
 - Para los scripts de supervisión de DMV, consulte [Supervisión del rendimiento en Azure SQL Database con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md).

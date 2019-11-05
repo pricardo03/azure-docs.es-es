@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: d1c7edc2973231607cade89df56906190c2abbcf
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3ad82a1312ccce5029685d903a3c5e3caff50f8a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671144"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495971"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualización a una cuenta de almacenamiento de uso general v2
 
@@ -23,7 +23,7 @@ El proceso de actualizar a una cuenta de almacenamiento de uso general v2 desde
 > [!IMPORTANT]
 > La actualización de una cuenta de uso general v1 o de Blob Storage a una de uso general v2 es permanente y no se puede deshacer.
 
-## <a name="upgrade-using-the-azure-portal"></a>Actualización con Azure Portal
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento.
@@ -34,7 +34,7 @@ El proceso de actualizar a una cuenta de almacenamiento de uso general v2 desde
 
     ![Actualización del tipo de cuenta](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
-## <a name="upgrade-with-powershell"></a>Actualización con PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -45,8 +45,7 @@ Luego, llame al siguiente comando para actualizar la cuenta, pero sustituya el n
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
-
-## <a name="upgrade-with-azure-cli"></a>Actualización con la CLI de Azure
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para actualizar una cuenta de uso general v1 a una cuenta de uso general v2 mediante la CLI de Azure, primero instale la versión más reciente de la CLI de Azure. Para obtener información acerca de cómo instalar la CLI, consulte [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Instalación de la CLI de Azure 2.0).
 
@@ -55,6 +54,8 @@ Luego, llame al siguiente comando para actualizar la cuenta, pero sustituya el n
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```
+
+---
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Especificación de un nivel de acceso para los datos de blob
 

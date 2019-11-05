@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: ac9a62a810a957c67d9c24063d01eff822c8294f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: dbc17cff2347cd86db3296f4aa2de76ef0f75460
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129294"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468081"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 Este artículo sirve de introducción a los servicios de seguridad de Azure que ayudan a proteger los datos, recursos y aplicaciones en la nube, así como a satisfacer las necesidades de seguridad de su negocio.
@@ -309,7 +309,7 @@ Azure dispone también de varias características fáciles de usar que contribuy
 
 - [Configurar la autenticación de Azure Active Directory en la aplicación](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-- [Proteger el tráfico a la aplicación mediante la habilitación de Seguridad de la capa de transporte (TLS/SSL) - HTTPS](../../app-service/app-service-web-tutorial-custom-ssl.md)
+- [Proteger el tráfico a la aplicación mediante la habilitación de Seguridad de la capa de transporte (TLS/SSL) - HTTPS](../../app-service/configure-ssl-bindings.md)
 
   - [Forzar todo el tráfico entrante a través de la conexión HTTPS](http://microsoftazurewebsitescheatsheet.info/)
 

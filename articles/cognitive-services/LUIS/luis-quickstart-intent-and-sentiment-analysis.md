@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: ed403e3d761b32c6837eb8e72edef3f3e6380217
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 07afd197e514adb0f2fc65c11e9fec552aa05b99
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307569"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492652"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Tutorial:  Obtención de opiniones de expresión
 
 En este tutorial va a crear una aplicación que muestra cómo determinar opiniones positivas, negativas y neutrales de expresiones. Las opiniones se determinan a partir de la expresión completa.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **En este tutorial, aprenderá a:**
 

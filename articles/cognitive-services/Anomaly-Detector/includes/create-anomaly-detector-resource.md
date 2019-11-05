@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: dapine
 ms.openlocfilehash: b40f1833f08074cb0a8d45fe3afc6bac7cbac7f0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717090"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523827"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Creación de un recurso de Anomaly Detector
 
@@ -35,7 +35,7 @@ ms.locfileid: "67717090"
 
     |Pestaña de recursos en el portal|Configuración|Valor|
     |--|--|--|
-    |**Información general**|Punto de conexión|Copie el punto de conexión. Es similar a `https://westus2.api.cognitive.microsoft.com/`|
+    |**Información general**|Punto de conexión|Copie el punto de conexión. Tiene un aspecto similar a `https://westus2.api.cognitive.microsoft.com/`.|
     |**Claves**|Clave de API|Copie una de las dos claves. Es una cadena de 32 caracteres alfanuméricos sin espacios ni guiones, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
 
 

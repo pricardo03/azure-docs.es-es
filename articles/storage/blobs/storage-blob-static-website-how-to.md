@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 5664bf1eaee85d2492601ef00968d9b17d857abb
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: d5b8121c7888903f3e4552a21a6ddc175ecc5176
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900483"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489092"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedaje de un sitio web estático en Azure Storage
 
@@ -22,7 +22,7 @@ En este artículo se le muestra cómo habilitar el hospedaje de sitios web está
 
 <a id="portal" />
 
-## <a name="use-the-azure-portal"></a>Uso de Azure Portal
+## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Para ver un tutorial detallado, consulte [Tutorial: Hospedaje de un sitio web estático en Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
@@ -38,7 +38,7 @@ En el panel que aparece junto a la página de información general de la cuenta 
 
 <a id="cli" />
 
-## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
+## <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Puede habilitar el hospedaje de sitios web estáticos mediante la [Interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -102,7 +102,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 <a id="powershell" />
 
-## <a name="use-powershell"></a>Uso de PowerShell
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Puede habilitar el hospedaje de sitios web estáticos con el módulo de Azure PowerShell.
 
@@ -184,6 +184,8 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
 <a id="metrics" />
+
+---
 
 ## <a name="enable-metrics-on-static-website-pages"></a>Habilitación de métricas en páginas del sitio web estático
 

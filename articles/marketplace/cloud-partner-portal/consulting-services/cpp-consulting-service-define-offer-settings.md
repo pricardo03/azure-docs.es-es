@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a89c1c548469b568a34521b240683af285c2342
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942789"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485192"
 ---
 # <a name="offer-settings-tab"></a>Pestaña Configuración de la oferta
 
@@ -59,7 +59,7 @@ En la lista siguiente se proporcionan varios nombres de oferta adecuados:
 -   Fundamentos de los servicios profesionales: Sesión informativa de 1 hora
 -   Plataforma de migración a la nube: Sesión informativa de 1 hora
 -   PowerApps y Microsoft Flow: Taller de 1 día
--   Azure Machine Learning Services: PoC de 3 semanas
+-   Azure Machine Learning: PoC de 3 semanas
 -   Solución de venta para tiendas físicas y virtuales: Sesión informativa de 1 hora
 -   Traiga sus propios datos: Taller de 1 hora
 -   Análisis de la nube: Taller de 3 días

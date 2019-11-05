@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2bac51a86c8acdba0f6c2f03e5a24ab2b133aa8e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985338"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521008"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Inicio de una conmutación por error de la cuenta de almacenamiento (versión preliminar)
 
@@ -44,7 +44,7 @@ Después de la conmutación por error, el tipo de cuenta de almacenamiento se co
 
 Después de volver a habilitar GRS para la cuenta de almacenamiento, Microsoft comienza a replicar los datos de la cuenta en la nueva región secundaria. La hora de la replicación depende de la cantidad de datos que se replican.  
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Para iniciar una conmutación por error de la cuenta desde Azure Portal, siga estos pasos:
 
@@ -60,7 +60,7 @@ Para iniciar una conmutación por error de la cuenta desde Azure Portal, siga es
 
     ![Captura de pantalla que muestra el cuadro de diálogo de confirmación de una conmutación por error de la cuenta](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para usar PowerShell para iniciar una conmutación por error de la cuenta, primero debe instalar el módulo de versión preliminar 6.0.1. Para instalar el módulo, siga estos pasos:
 
@@ -97,7 +97,7 @@ Para iniciar una conmutación por error de la cuenta desde PowerShell, ejecute e
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para usar la CLI de Azure para iniciar una conmutación por error de la cuenta, ejecute los siguientes comandos:
 
@@ -105,6 +105,8 @@ Para usar la CLI de Azure para iniciar una conmutación por error de la cuenta, 
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

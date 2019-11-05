@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 4d7c02d8cf37f155af1fd9c0d5de7fa8ec948c4b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: d7cf46add464a089f15a5bd15a20cea7d17eed37
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703120"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488680"
 ---
 # <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>Inicio rápido: Consulta de un punto de conexión de predicción V2 con el SDK de .NET de C#
 
@@ -77,7 +77,7 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 
 ## <a name="create-a-new-method-for-the-prediction"></a>Creación de un método para la predicción
 
-Cree un método `GetPrediction` para enviar la consulta del punto de conexión de predicción. El método creará y configurará todos los objetos necesarios y devolverá `Task` con los resultados de predicción de [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet). 
+Cree un método `GetPrediction` para enviar la consulta del punto de conexión de predicción. El método creará y configurará todos los objetos necesarios y devolverá `Task` con los resultados de predicción de [`LuisResult`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-python). 
 
 ```csharp
 static async  Task<LuisResult> GetPrediction() {

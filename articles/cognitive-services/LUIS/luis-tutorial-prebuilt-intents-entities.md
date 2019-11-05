@@ -11,18 +11,20 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: diberry
-ms.openlocfilehash: cf0ef1095946b1c8e9479b3cd47fe403baeed7d1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0a59d9783eac122f96b1671f2dba5d0d708e1d83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757122"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499395"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificación de intenciones y entidades habituales
 
 En este tutorial, agregue intenciones y entidades creadas previamente a una aplicación de tutorial de recursos humanos para obtener de manera inmediata predicciones de intenciones y extracciones de datos. No es necesario marcar ninguna expresión con entidades creadas previamente porque la entidad se detecta automáticamente.
 
 Los modelos creados previamente (dominios, intenciones y entidades) ayudan a crear rápidamente el modelo.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **En este tutorial, aprenderá a:**
 

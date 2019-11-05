@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: d00af77a2d502cb534a4ab4a0db9231e5e8748b7
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ad87964216db72cfef447a18d4cd05b8a976491b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69636435"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476964"
 ---
-| Recurso | [Plan de consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plan de App Service](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
+| Resource | [Plan de consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plan de App Service](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Escalado horizontal | Basado en eventos | Basado en eventos | [Manual o escalabilidad automática](../articles/app-service/manage-scale-up.md) | 
 | Instancias máximas | 200 | 20 | 10-20 |
@@ -27,7 +27,7 @@ ms.locfileid: "69636435"
 | [Planes de App Service](../articles/app-service/overview-hosting-plans.md) | 100 por [región](https://azure.microsoft.com/global-infrastructure/regions/) |100 por grupo de recursos |100 por grupo de recursos |
 | Almacenamiento<sup>6</sup> |1 GB |250 GB |50-1000 GB |
 | Dominios personalizados por aplicación</a> |500<sup>7</sup> |500 |500 |
-| Compatibilidad con dominio [Compatibilidad con SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |conexión SNI SSL sin enlazar incluida | conexiones SNI SSL ilimitadas y 1 conexión SSL de IP incluidas |conexiones SNI SSL ilimitadas y 1 conexión SSL de IP incluidas | 
+| Compatibilidad con dominio [Compatibilidad con SSL](../articles/app-service/configure-ssl-bindings.md) |conexión SNI SSL sin enlazar incluida | conexiones SNI SSL ilimitadas y 1 conexión SSL de IP incluidas |conexiones SNI SSL ilimitadas y 1 conexión SSL de IP incluidas | 
 
 <sup>1</sup> Para conocer los límites específicos de las distintas opciones de plan de App Service, consulte [Límites del plan de App Service](../articles/azure-subscription-service-limits.md#app-service-limits).  
 <sup>2</sup> De manera predeterminada, el tiempo de espera para el tiempo de ejecución de Functions 1.x en un plan de App Service no está enlazado.  

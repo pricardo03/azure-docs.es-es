@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 7560f2395447e81dcd01e1d3e092b39b129b4ce3
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 8d285bf60e356f15caf55271b0791e9adc97ac14
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129831"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481748"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Uso de un contenedor de Computer Vision con Kubernetes y Helm
 
@@ -28,7 +28,6 @@ Estos son los requisitos previos para poder usar contenedores de Computer Vision
 |Obligatorio|Propósito|
 |--|--|
 | Cuenta de Azure | Si no tiene una suscripción a Azure, cree una [cuenta gratuita][free-azure-account] antes de empezar. |
-| Acceso a Container Registry | Para incorporar las imágenes de Docker al clúster, Kubernetes necesita acceso al registro de contenedor. En primer lugar tiene que [solicitar acceso al registro de contenedor][vision-preview-access]. |
 | CLI de Kubernetes | La [CLI de Kubernetes][kubernetes-cli] es necesaria para administrar las credenciales compartidas desde el registro de contenedor. Kubernetes también se necesita antes que Helm, que es el administrador de paquetes de Kubernetes. |
 | CLI de Helm | Como parte de la instalación de la [CLI de Helm][helm-install], también tendrá que inicializar Helm, que instalará [Tiller][tiller-install]. |
 | Recurso de Computer Vision |Para poder usar el contenedor, debe tener:<br><br>Un recurso de **Computer Vision** de Azure y la clave de API asociada con el URI del punto de conexión. Ambos valores están disponibles en las páginas de introducción y claves del recurso y son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Información general**.|
@@ -89,8 +88,6 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 ```
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configuración de los valores del gráfico de Helm para la implementación
-
-# <a name="readtabread"></a>[Lectura](#tab/read)
 
 Para empezar, cree una carpeta llamada *lectura* y pegue el siguiente contenido de YAML en un nuevo archivo denominado *Chart.yml*.
 
@@ -168,86 +165,6 @@ spec:
 
 La plantilla especifica un servicio de equilibrador de carga y la implementación del contenedor o la imagen para lectura.
 
-# <a name="recognize-texttabrecognize-text"></a>[Reconocer texto](#tab/recognize-text)
-
-Para empezar, cree una carpeta llamada *text-recognizer* y copie y pegue el siguiente contenido de YAML en un nuevo archivo denominado `Chart.yml`.
-
-```yaml
-apiVersion: v1
-name: text-recognizer
-version: 1.0.0
-description: A Helm chart to deploy the microsoft/cognitive-services-recognize-text to a Kubernetes cluster
-```
-
-Para configurar los valores predeterminados del gráfico de Helm, copie y pegue el contenido de YAML en un archivo denominado `values.yaml`. Reemplace los comentarios `# {ENDPOINT_URI}` y `# {API_KEY}` por sus propios valores.
-
-```yaml
-# These settings are deployment specific and users can provide customizations
-
-recognizeText:
-  enabled: true
-  image:
-    name: cognitive-services-recognize-text
-    registry: containerpreview.azurecr.io/
-    repository: microsoft/cognitive-services-recognize-text
-    tag: latest
-    pullSecret: containerpreview # Or an existing secret
-    args:
-      eula: accept
-      billing: # {ENDPOINT_URI}
-      apikey: # {API_KEY}
-```
-
-> [!IMPORTANT]
-> Si no se proporcionan los valores `billing` y `apikey`, los servicios expiran pasados 15 minutos. Del mismo modo, se produce un error de comprobación, ya que los servicios no están disponibles.
-
-Cree una carpeta *templates* en el directorio *text-recognizer*. Copie y pegue el siguiente YAML en un archivo denominado `deployment.yaml`. El archivo `deployment.yaml` servirá como una plantilla de Helm.
-
-> Las plantillas generan archivos de manifiesto, que son descripciones de recursos con formato YAML que Kubernetes puede entender. [-Guía de plantilla de gráfico de Helm][chart-template-guide]
-
-```yaml
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: text-recognizer
-spec:
-  template:
-    metadata:
-      labels:
-        app: text-recognizer-app
-    spec:
-      containers:
-      - name: {{.Values.recognizeText.image.name}}
-        image: {{.Values.recognizeText.image.registry}}{{.Values.recognizeText.image.repository}}
-        ports:
-        - containerPort: 5000
-        env:
-        - name: EULA
-          value: {{.Values.recognizeText.image.args.eula}}
-        - name: billing
-          value: {{.Values.recognizeText.image.args.billing}}
-        - name: apikey
-          value: {{.Values.recognizeText.image.args.apikey}}
-      imagePullSecrets:
-      - name: {{.Values.recognizeText.image.pullSecret}}
-
---- 
-apiVersion: v1
-kind: Service
-metadata:
-  name: text-recognizer
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 5000
-  selector:
-    app: text-recognizer-app
-```
-
-La plantilla especifica un servicio de equilibrador de carga y la implementación de su contenedor o imagen para el reconocimiento de texto.
-
-***
-
 ### <a name="the-kubernetes-package-helm-chart"></a>Paquete de Kubernetes (gráfico de Helm)
 
 El *gráfico de Helm* contiene la configuración de las imágenes de Docker que se van a extraer del registro de contenedor `containerpreview.azurecr.io`.
@@ -257,8 +174,6 @@ El *gráfico de Helm* contiene la configuración de las imágenes de Docker que 
 Los *gráficos de Helm* proporcionados extraen las imágenes de Docker del servicio Computer Vision y el servicio correspondiente del registro de contenedor `containerpreview.azurecr.io`.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instalación del gráfico de Helm en el clúster de Kubernetes
-
-# <a name="readtabread"></a>[Lectura](#tab/read)
 
 Para instalar el *gráfico de Helm*, es necesario ejecutar el comando [`helm install`][helm-install-cmd]. Asegúrese de ejecutar el comando de instalación desde el directorio situado encima de la carpeta `read`.
 
@@ -297,7 +212,7 @@ kubectl get all
 Debería ver algo parecido al resultado siguiente:
 
 ```console
-λ kubectl get all
+kubectl get all
 NAME                        READY   STATUS    RESTARTS   AGE
 pod/read-57cb76bcf7-45sdh   1/1     Running   0          17s
 
@@ -311,63 +226,6 @@ deployment.apps/read   1/1     1            1           17s
 NAME                              DESIRED   CURRENT   READY   AGE
 replicaset.apps/read-57cb76bcf7   1         1         1       17s
 ```
-
-# <a name="recognize-texttabrecognize-text"></a>[Reconocer texto](#tab/recognize-text)
-
-Para instalar el *gráfico de Helm*, es necesario ejecutar el comando [`helm install`][helm-install-cmd]. Asegúrese de ejecutar el comando de instalación desde el directorio situado encima de la carpeta `text-recognizer`.
-
-```console
-helm install text-recognizer --name text-recognizer
-```
-
-Este es el resultado de ejemplo que se puede ver tras una ejecución de instalación correcta:
-
-```console
-NAME:   text-recognizer
-LAST DEPLOYED: Thu Aug 22 13:24:06 2019
-NAMESPACE: default
-STATUS: DEPLOYED
-
-RESOURCES:
-==> v1/Pod(related)
-NAME                              READY  STATUS             RESTARTS  AGE
-text-recognizer-57cb76bcf7-45sdh  0/1    ContainerCreating  0         0s
-
-==> v1/Service
-NAME             TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)         AGE
-text-recognizer  LoadBalancer  10.110.44.86  localhost    5000:31301/TCP  0s
-
-==> v1beta1/Deployment
-NAME             READY  UP-TO-DATE  AVAILABLE  AGE
-text-recognizer  0/1    1           0          0s
-```
-
-La implementación de Kubernetes puede tardar varios minutos en completarse. Para confirmar que los pods y los servicios se han implementado correctamente y están disponibles, ejecute el siguiente comando:
-
-```console
-kubectl get all
-```
-
-Debería ver algo parecido al resultado siguiente:
-
-```console
-λ kubectl get all
-NAME                                   READY   STATUS    RESTARTS   AGE
-pod/text-recognizer-57cb76bcf7-45sdh   1/1     Running   0          17s
-
-NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-service/kubernetes        ClusterIP      10.96.0.1      <none>        443/TCP          45h
-service/text-recognizer   LoadBalancer   10.110.44.86   localhost     5000:31301/TCP   17s
-
-NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/text-recognizer   1/1     1            1           17s
-
-NAME                                         DESIRED   CURRENT   READY   AGE
-replicaset.apps/text-recognizer-57cb76bcf7   1         1         1       17s
-```
-
-***
-
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -395,7 +253,6 @@ Para obtener más información sobre la instalación de aplicaciones con Helm en
 [chart-template-guide]: https://helm.sh/docs/chart_template_guide
 
 <!-- LINKS - internal -->
-[vision-preview-access]: computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry
 [vision-container-host-computer]: computer-vision-how-to-install-containers.md#the-host-computer
 [installing-helm-apps-in-aks]: ../../aks/kubernetes-helm.md
 [cog-svcs-containers]: ../cognitive-services-container-support.md

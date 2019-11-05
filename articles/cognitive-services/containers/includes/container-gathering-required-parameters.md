@@ -6,21 +6,18 @@ manager: nitinme
 description: Los parámetros de todos los contenedores de Cognitive Services
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/18/2019
+ms.date: 10/15/2019
 ms.author: dapine
-ms.openlocfilehash: 06f68d28d06dec7c9e738ad8cb50ca337fa840be
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: bf4e8f06642a4a764794a75e2b49f15958796c61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102001"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465950"
 ---
 ## <a name="gathering-required-parameters"></a>Recopilación de los parámetros obligatorios
 
 Hay tres parámetros principales para todos los contenedores de Cognitive Services que son necesarios. El contrato de licencia para el usuario final (CLUF) debe estar presente con un valor de `accept`. Además, se necesitan una dirección URL de punto de conexión y una clave de API.
-
-> [!NOTE]
-> La única excepción a estos tres parámetros necesarios es cuando los contenedores se consideran que están "sin conexión". Los contenedores sin conexión no informan del uso, no se miden y siguen una metodología de facturación diferente.
 
 ### <a name="endpoint-uri-endpoint_uri"></a>URI de punto de conexión `{ENDPOINT_URI}`
 

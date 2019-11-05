@@ -1,6 +1,6 @@
 ---
 title: Entrenamiento con azureml-datasets
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Aprenda a usar conjuntos de datos en el entrenamiento.
 services: machine-learning
 ms.service: machine-learning
@@ -11,14 +11,15 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 9ccc5f5721d1ddc8459918913a4f3ce707766dea
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 12c08a95cd43f9f988c98711141b1b1f879e8b3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316689"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489384"
 ---
 # <a name="train-with-datasets-preview-in-azure-machine-learning"></a>Entrenamiento con conjuntos de datos (versión preliminar) en Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, aprenderá las dos maneras de consumir [conjuntos de datos de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) en ejecuciones de entrenamiento de experimentos remotas sin preocuparse por las cadenas de conexión o las rutas de acceso a los datos.
 
@@ -32,9 +33,9 @@ Los conjuntos de datos de Azure Machine Learning proporcionan una integración p
 
 Para crear conjuntos de datos y entrenar con ellos, necesita:
 
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
+* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Un [área de trabajo de Azure Machine Learning Service](how-to-manage-workspace.md).
+* Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 * El [SDK de Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), que incluye el paquete azureml-datasets.
 

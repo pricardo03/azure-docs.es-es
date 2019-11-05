@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638334"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486635"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprender cuáles son las expresiones correctas para la aplicación de LUIS
 
@@ -135,6 +135,20 @@ Una vez que el modelo esté entrenado, publicado y reciba consultas del [punto d
 ## <a name="best-practices"></a>Procedimientos recomendados
 
 Revise los [procedimientos recomendados](luis-concept-best-practices.md) y aplíquelos como parte del ciclo de creación regular.
+
+## <a name="label-for-word-meaning"></a>Etiqueta para el significado de las palabras
+
+Si la elección o la organización de las palabras es la misma pero no significa lo mismo, no la etiquete con la entidad. 
+
+En las siguientes expresiones inglesas, la palabra `fair` es un homógrafo. Es decir, se escribe igual pero tiene un significado diferente:
+
+|Expresión|
+|--|
+|¿Qué tipo de ferias locales se producen en el área de Seattle este verano?|
+|¿La clasificación actual para la revisión de Seattle es razonable?|
+
+Si quiere que una entidad de evento busque todos los datos de eventos, etiquete la palabra `fair` en la primera expresión, pero no en la segunda.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [Agregar expresiones de ejemplo](luis-how-to-add-example-utterances.md) para información sobre cómo entrenar una aplicación de LUIS para comprender las expresiones del usuario.

@@ -10,14 +10,15 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 24ec49a0f23516638d1f525341ea44e204653fea
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b0d7286d96d2fbfa35eb7ce9079413dfd186288c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034590"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496958"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implementación de un modelo de aprendizaje automático en Azure App Service (versión preliminar)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Aprenda a implementar un modelo de Azure Machine Learning como aplicación web en Azure App Service.
 
@@ -28,7 +29,7 @@ Con Azure Machine Learning, puede crear una imagen de Docker a partir de modelos
 
 * [Autenticación](/azure/app-service/configure-authentication-provider-aad) avanzada para mejorar la seguridad. Los métodos de autenticación incluyen Azure Active Directory y la autenticación multifactor.
 * [Escalado automático](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) sin tener que volver a realizar la implementación.
-* [Compatibilidad con SSL](/azure/app-service/app-service-web-ssl-cert-load) para comunicaciones seguras entre los clientes y el servicio.
+* [Compatibilidad con SSL](/azure/app-service/configure-ssl-certificate-in-code) para comunicaciones seguras entre los clientes y el servicio.
 
 Para más información sobre las características proporcionadas por Azure App Service, consulte la [introducción a App Service](/azure/app-service/overview).
 
@@ -267,6 +268,6 @@ print(response.json())
 
 * Aprenda a configurar la aplicación web en la documentación de [App Service en Linux](/azure/app-service/containers/).
 * Obtenga más información sobre el escalado en [Introducción al escalado automático en Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* [Uso de un certificado SSL en Azure App Service](/azure/app-service/app-service-web-ssl-cert-load).
+* [Uso de un certificado SSL en Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
 * [Configuración de una aplicación de App Service para usar la información de inicio de sesión de Azure Active Directory](/azure/app-service/configure-authentication-provider-aad).
 * [Consumir un modelo de ML que está implementado como un servicio web](how-to-consume-web-service.md)

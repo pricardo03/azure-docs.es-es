@@ -11,15 +11,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 77f816400709262fab8cb9bd351bdcde73377e09
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 41b2602e57d295cfd7e475f4b3aa5657bd4e24d7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034288"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489606"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, obtendrá información sobre dónde guardar los archivos de entrada y dónde escribir los archivos de salida de los experimentos para evitar errores de limitación del almacenamiento y la latencia de los experimentos.
 

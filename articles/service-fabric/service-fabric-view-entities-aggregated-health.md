@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 1721f10f8950577080a89ba58a3eb4dd3a25c188
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c4a312654fb54660a229c334071d33a5d6bc172f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249180"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496365"
 ---
 # <a name="view-service-fabric-health-reports"></a>Vista de los informes de estado de Service Fabric
 Azure Service Fabric presenta un [modelo de mantenimiento](service-fabric-health-introduction.md) con entidades de estado en las que componentes y guardianes del sistema pueden notificar las condiciones locales que están supervisando. El [almacén de estado](service-fabric-health-introduction.md#health-store) agrega todos los datos de mantenimiento para determinar si las entidades son correctas.
@@ -32,7 +32,7 @@ Service Fabric proporciona varias maneras de obtener el mantenimiento agregado d
 * Consultas de mantenimiento (a través de PowerShell, API o REST)
 * Consultas generales que devuelven una lista de entidades con el estado como una de las propiedades (a través de PowerShell, API o REST)
 
-Para demostrar estas opciones, vamos a usar un clúster local con los nodos y la [aplicación fabric:/WordCount](https://aka.ms/servicefabric-wordcountapp). La aplicación **fabric:/WordCount** contiene dos servicios predeterminados, uno con estado de tipo `WordCountServiceType` y otro sin estado de tipo `WordCountWebServiceType`. He cambiado el archivo `ApplicationManifest.xml` para requerir siete réplicas de destino para el servicio con estado y una partición. Dado que hay solo cinco nodos en el clúster, los componentes del sistema notifican una advertencia en la partición del servicio porque está por debajo del número de destino.
+Para demostrar estas opciones, vamos a usar un clúster local con los nodos y la [aplicación fabric:/WordCount](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). La aplicación **fabric:/WordCount** contiene dos servicios predeterminados, uno con estado de tipo `WordCountServiceType` y otro sin estado de tipo `WordCountWebServiceType`. He cambiado el archivo `ApplicationManifest.xml` para requerir siete réplicas de destino para el servicio con estado y una partición. Dado que hay solo cinco nodos en el clúster, los componentes del sistema notifican una advertencia en la partición del servicio porque está por debajo del número de destino.
 
 ```xml
 <Service Name="WordCountService">

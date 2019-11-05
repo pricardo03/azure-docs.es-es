@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f4a5ae01376358ca78cd804cc853489ca007217
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 0731510977c01b08d9aa557246dce3bd92b2f826
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264228"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473221"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -107,7 +107,7 @@ Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilida
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Logic Apps (en las regiones donde esté disponible):
 
-- [Azure Portal](/azure/logic-apps/create-managed-service-identity#azure-portal)
+- [Azure Portal](/azure/logic-apps/create-managed-service-identity#azure-portal-system-logic-app)
 - [Plantilla de Azure Resource Manager](/azure/app-service/overview-managed-identity)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2

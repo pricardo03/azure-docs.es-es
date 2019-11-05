@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 2147ca2565d5977e3e47d5182627483aa3d8d1b2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 9a7599cd71c087201b54c594954a6fff377b3e45
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756099"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490787"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Las características son información acerca de las acciones y del contexto
 
@@ -69,7 +69,10 @@ A continuación encontrará ejemplos de espacios de nombres de características 
 Al asignar nombres a los espacios de nombres de las características puede seguir sus propias convenciones, siempre sean claves JSON válidas. Los espacios de nombres se usan para organizar características en conjuntos distintos y para eliminar la ambigüedad de las características con nombres similares. Los espacios de nombres se pueden considerar como un "prefijo" que se agrega a los nombres de las características. Los espacios de nombres no se pueden anidar.
 
 
-En el siguiente JSON, `user`, `state` y `device` son espacios de nombres de características. Nota sobre la versión preliminar pública: Actualmente, le recomendamos que use nombres para los espacios de nombres de características que se basen en el formato UTF-8 y comiencen por letras diferentes. Por ejemplo, los términos `user`, `state` y `device` empiezan por `u`, `s` y `d`. Actualmente, el uso de espacios de nombres con los mismos caracteres iniciales puede provocar colisiones en los índices usados para el aprendizaje automático.
+En el siguiente JSON, `user`, `state` y `device` son espacios de nombres de características. 
+
+> [!Note]
+> Actualmente, le recomendamos que use nombres para los espacios de nombres de características que se basen en el formato UTF-8 y comiencen por letras diferentes. Por ejemplo, los términos `user`, `state` y `device` empiezan por `u`, `s` y `d`. Actualmente, el uso de espacios de nombres con los mismos caracteres iniciales puede provocar colisiones en los índices usados para el aprendizaje automático.
 
 Los objetos JSON pueden incluir objetos JSON anidados y propiedades y valores simples. Solo se puede incluir una matriz si los elementos de la matriz son números. 
 

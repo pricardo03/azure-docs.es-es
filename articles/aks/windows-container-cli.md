@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: ff4367194f06a8a6895c9c16252b01c3b94995d3
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 497dab37f178a9ae7d0ab6cd647a10bac44539f8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241252"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472501"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Versión preliminar: Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
@@ -79,7 +79,6 @@ az provider register --namespace Microsoft.ContainerService
 
 Se aplican las siguientes limitaciones cuando crea y administra clústeres de AKS que admiten varios grupos de nodos:
 
-* Hay varios grupos de nodos disponibles para los clústeres creados después de haber registrado correctamente *WindowsPreview*. También hay varios grupos de nodos disponibles si registra la característica *MultiAgentpoolPreview* en la suscripción. No se pueden agregar ni administrar grupos de nodos con un clúster de AKS existente creado antes de que esta característica se registrara satisfactoriamente.
 * No puede eliminar el primer grupo de nodos.
 
 Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
@@ -141,7 +140,8 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
+    --load-balancer-sku standard \
     --network-plugin azure
 ```
 

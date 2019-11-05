@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: bf2441d5c0947ec94cbee247bdc4634ff9e53bfd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 768e354281aeb5e2143ddb0e190b0f27bf4f4e24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070310"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470697"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Opciones de configuración personalizada para Entornos de App Service
 ## <a name="overview"></a>Información general
@@ -66,7 +66,7 @@ Por ejemplo, si un entorno de App Service tiene cuatro front-ends, tardará apro
 
 ## <a name="disable-tls-10-and-tls-11"></a>Deshabilitación de TLS 1.0 y TLS 1.1
 
-Si desea administrar la configuración de TLS aplicación por aplicación, luego puede usar la guía que se proporciona en el tutorial [Enlazar un certificado SSL personalizado a Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions). 
+Si desea administrar la configuración de TLS aplicación por aplicación, luego puede usar la guía que se proporciona en el tutorial [Enlazar un certificado SSL personalizado a Azure App Service](../configure-ssl-bindings.md#enforce-tls-versions). 
 
 Si desea deshabilitar todos los tráfico de TLS 1.0 y TLS 1.1 entrante de todas las aplicaciones de ASE, puede establecer la siguiente entrada de **clusterSettings**:
 

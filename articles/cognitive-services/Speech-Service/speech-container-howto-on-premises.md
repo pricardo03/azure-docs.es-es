@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 8/26/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 3c8ffcdb08fc99f5d815639e14fb4456fbd035e8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b413bc6d29f1b08949b50570cb5baa2eb758d779
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066503"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491028"
 ---
 # <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Uso del contenedor del servicio de Voz con Kubernetes y Helm
 
@@ -28,7 +28,7 @@ Requisitos previos para poder usar los contenedores de Voz en el entorno local:
 |Obligatorio|Propósito|
 |--|--|
 | Cuenta de Azure | Si no tiene una suscripción a Azure, cree una [cuenta gratuita][free-azure-account] antes de empezar. |
-| Acceso a Container Registry | Para incorporar las imágenes de Docker al clúster, Kubernetes necesita acceso al registro de contenedor. En primer lugar tiene que [solicitar acceso al registro de contenedor][speech-preview-access]. |
+| Acceso a Container Registry | Para incorporar las imágenes de Docker al clúster, Kubernetes necesita acceso al registro de contenedor. |
 | CLI de Kubernetes | La [CLI de Kubernetes][kubernetes-cli] es necesaria para administrar las credenciales compartidas desde el registro de contenedor. Kubernetes también se necesita antes que Helm, que es el administrador de paquetes de Kubernetes. |
 | CLI de Helm | Como parte de la instalación de la [CLI de Helm][helm-install], también tendrá que inicializar Helm, que instalará [Tiller][tiller-install]. |
 |Recurso de Voz |Para usar estos contenedores, debe tener:<br><br>Un recurso de _Voz_ de Azure para obtener la clave de facturación asociada y el URI del punto de conexión de facturación. Ambos valores están disponibles en las páginas de claves y de introducción de **Voz** de Azure Portal y son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : clave de recurso<br><br>**{ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
@@ -48,22 +48,22 @@ Se espera que el equipo host tenga un clúster de Kubernetes disponible. Vea est
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Uso compartido de credenciales de Docker con el clúster de Kubernetes
 
-Para permitir que el clúster de Kubernetes `docker pull` las imágenes configuradas del registro de contenedor `containerpreview.azurecr.io`, debe transferir las credenciales de Docker al clúster. Ejecute el comando [`kubectl create`][kubectl-create] siguiente para crear un *secreto de registro de Docker* basado en las credenciales proporcionadas en el requisito previo de acceso al registro de contenedor.
+Para permitir que el clúster de Kubernetes `docker pull` las imágenes configuradas del registro de contenedor `mcr.microsoft.com`, debe transferir las credenciales de Docker al clúster. Ejecute el comando [`kubectl create`][kubectl-create] siguiente para crear un *secreto de registro de Docker* basado en las credenciales proporcionadas en el requisito previo de acceso al registro de contenedor.
 
 Ejecute el siguiente comando desde la interfaz de la línea de comandos que prefiera. Asegúrese de reemplazar `<username>`, `<password>` y `<email-address>` por las credenciales del registro de contenedor.
 
 ```console
-kubectl create secret docker-registry containerpreview \
-    --docker-server=containerpreview.azurecr.io \
+kubectl create secret docker-registry mcr \
+    --docker-server=mcr.microsoft.com \
     --docker-username=<username> \
     --docker-password=<password> \
     --docker-email=<email-address>
 ```
 
 > [!NOTE]
-> Si ya tiene acceso al registro de contenedor `containerpreview.azurecr.io`, puede crear un secreto de Kubernetes con la marca genérica en su lugar. Tenga en cuenta el siguiente comando que se ejecuta en el JSON de configuración de Docker.
+> Si ya tiene acceso al registro de contenedor `mcr.microsoft.com`, puede crear un secreto de Kubernetes con la marca genérica en su lugar. Tenga en cuenta el siguiente comando que se ejecuta en el JSON de configuración de Docker.
 > ```console
->  kubectl create secret generic containerpreview \
+>  kubectl create secret generic mcr \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
 >      --type=kubernetes.io/dockerconfigjson
 > ```
@@ -71,7 +71,7 @@ kubectl create secret docker-registry containerpreview \
 El siguiente resultado se imprime en la consola una vez que el secreto se ha creado correctamente.
 
 ```console
-secret "containerpreview" created
+secret "mcr" created
 ```
 
 Para comprobar que el secreto se ha creado, ejecute [`kubectl get`][kubectl-get] con la marca `secrets`.
@@ -83,8 +83,8 @@ kuberctl get secrets
 Al ejecutar `kubectl get secrets`, se imprimen todos los secretos configurados.
 
 ```console
-NAME                  TYPE                                  DATA      AGE
-containerpreview      kubernetes.io/dockerconfigjson        1         30s
+NAME    TYPE                              DATA    AGE
+mcr     kubernetes.io/dockerconfigjson    1       30s
 ```
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configuración de los valores del gráfico de Helm para la implementación
@@ -106,11 +106,11 @@ speechToText:
   numberOfConcurrentRequest: 3
   optimizeForAudioFile: true
   image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-speech-to-text
+    registry: mcr.microsoft.com
+    repository: azure-cognitive-services/speech-to-text
     tag: latest
     pullSecrets:
-      - containerpreview # Or an existing secret
+      - mcr # Or an existing secret
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -122,11 +122,11 @@ textToSpeech:
   numberOfConcurrentRequest: 3
   optimizeForTurboMode: true
   image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-text-to-speech
+    registry: mcr.microsoft.com
+    repository: azure-cognitive-services/text-to-speech
     tag: latest
     pullSecrets:
-      - containerpreview # Or an existing secret
+      - mcr # Or an existing secret
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -138,11 +138,11 @@ textToSpeech:
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Paquete de Kubernetes (gráfico de Helm)
 
-El *gráfico de Helm* contiene la configuración de las imágenes de Docker que se van a extraer del registro de contenedor `containerpreview.azurecr.io`.
+El *gráfico de Helm* contiene la configuración de las imágenes de Docker que se van a extraer del registro de contenedor `mcr.microsoft.com`.
 
 > Un [gráfico de Helm][helm-charts] es una colección de archivos que describen un conjunto relacionado de recursos de Kubernetes. Un solo gráfico se podría usar para implementar algo sencillo, como un pod almacenado en memoria, o complejo, como una pila de aplicación web completa con servidores HTTP, bases de datos, memorias caché, etc.
 
-Los *gráficos de Helm* proporcionados extraen las imágenes de Docker del servicio Voz, los servicios de conversión de texto en voz y de voz en texto desde el registro de contenedor `containerpreview.azurecr.io`.
+Los *gráficos de Helm* proporcionados extraen las imágenes de Docker del servicio Voz, los servicios de conversión de texto en voz y de voz en texto desde el registro de contenedor `mcr.microsoft.com`.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instalación del gráfico de Helm en el clúster de Kubernetes
 
@@ -279,7 +279,6 @@ Para obtener más información sobre la instalación de aplicaciones con Helm en
 [helm-install-cmd]: https://helm.sh/docs/helm/#helm-install
 [tiller-install]: https://helm.sh/docs/install/#installing-tiller
 [helm-charts]: https://helm.sh/docs/developing_charts
-[speech-preview-access]: https://aka.ms/speechcontainerspreview
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://helm.sh/docs/helm/#helm-test

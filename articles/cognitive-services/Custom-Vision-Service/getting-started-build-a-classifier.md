@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: dfc137375e35d0d13a34ff45b0c6639bcf6784df
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 12be696c74a32909d79be405144582cd8fc05fb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561057"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "73519152"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Inicio rápido: Cómo crear un clasificador con Custom Vision
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creación de recursos de Custom Vision en Azure Portal
 
-Para usar Custom Vision Service, deberá crear recursos de entrenamiento y predicción de Custom Vision en Azure Portal. Rellene la ventana del cuadro de diálogo de la página [Create Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) (Crear recurso de Custom Vision) para crear un recurso de entrenamiento y predicción. 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="create-a-new-project"></a>Creación de un nuevo proyecto
 
@@ -51,7 +51,7 @@ En el explorador web, vaya a la [página web de Custom Vision](https://customvis
 
 1. A continuación, seleccione uno de los dominios disponibles. Cada dominio optimiza el clasificador para determinados tipos de imágenes, como se describe en la tabla siguiente. Puede cambiar el dominio más adelante si lo desea.
 
-    |Dominio|Propósito|
+    |Domain|Propósito|
     |---|---|
     |__Genérico__| Optimizado para una amplia gama de tareas de clasificación de imágenes. Si ninguno de los otros dominios es adecuado, o no está seguro de qué dominio elegir, seleccione el dominio genérico. |
     |__Alimentos__|Optimizado para fotos de platos tal y como los vería en el menú de un restaurante. Si quiere clasificar fotos de frutas o verduras individuales, use el dominio de alimentos.|

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: 40f30ddece9881f565f45f4ef6c9d0e2ad85fe95
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0ca849e75f01573bbb356105b281f03d267836e6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561139"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "73520461"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Inicio rápido: Creación de un detector de objetos con Custom Vision
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creación de recursos de Custom Vision en Azure Portal
 
-Para usar Custom Vision Service, deberá crear recursos de entrenamiento y predicción de Custom Vision en Azure Portal. Rellene la ventana del cuadro de diálogo de la página [Create Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) (Crear recurso de Custom Vision) para crear un recurso de entrenamiento y predicción. 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="create-a-new-project"></a>Creación de un nuevo proyecto
 
@@ -51,7 +51,7 @@ En el explorador web, vaya a la [página web de Custom Vision](https://customvis
 
 1. A continuación, seleccione uno de los dominios disponibles. Cada dominio optimiza el detector para determinados tipos de imágenes, como se describe en la tabla siguiente. Puede cambiar el dominio más adelante si lo desea.
 
-    |Dominio|Propósito|
+    |Domain|Propósito|
     |---|---|
     |__General__| Optimizado para una amplia variedad de tareas de detección de objetos. Si ninguno de los otros dominios es adecuado, o no está seguro de qué dominio elegir, seleccione el dominio genérico. |
     |__Logotipo__|Optimizado para buscar logotipos de marca en imágenes.|

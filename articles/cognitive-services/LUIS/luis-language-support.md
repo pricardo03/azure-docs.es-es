@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/16/2019
 ms.author: diberry
-ms.openlocfilehash: bd1e665114fff4d5b7b0b2dca267207bdeebab56
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 383cade6e8bb5f66aa240564912056ec345a1ee6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949545"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500170"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -47,15 +47,9 @@ LUIS entiende expresiones en los idiomas siguientes:
 | Español (México)|`es-MX` |-|  -   |✔|✔|
 | Turco | `tr-TR` |✔|-|-|Solo opiniones|
 
-
 La compatibilidad con idiomas varía para las [entidades creadas previamente](luis-reference-prebuilt-entities.md) y los [dominios creados previamente](luis-reference-prebuilt-domains.md).
 
-### <a name="chinese-support-notes"></a>*Notas de compatibilidad para chino
-
- - En la referencia cultural `zh-cn`, LUIS espera el juego de caracteres de chino simplificado en lugar del juego de caracteres tradicional.
- - Los nombres de las intenciones, entidades, características y expresiones regulares pueden estar en caracteres chinos o romanos.
- - Consulte la [referencia de dominios creados previamente](luis-reference-prebuilt-domains.md) para obtener información sobre los dominios creados previamente que se admiten en la referencia cultural `zh-cn`.
-<!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
+[!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
 ### <a name="japanese-support-notes"></a>*Notas de compatibilidad para Japonés
 
@@ -63,8 +57,7 @@ La compatibilidad con idiomas varía para las [entidades creadas previamente](lu
      - でございます no es lo mismo que です.
      - です no es lo mismo que だ.
 
-### <a name="text-analytics-support-notes"></a>\*\*Notas de compatibilidad para el análisis de texto
-El análisis de texto incluye el análisis de opinión y la entidad precompilada de keyPhrase. Solo se admite el portugués para las subreferencias culturales: `pt-PT` y `pt-BR`. Todas las demás referencias culturales se admiten en el nivel de la referencia cultural principal. Obtenga más información sobre los [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) de Text Analytics.
+[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
 ### <a name="speech-api-supported-languages"></a>Idiomas admitidos en Speech API
 Vea los [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) en Voz para obtener los idiomas de modo de dictado de Voz.

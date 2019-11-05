@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: bf8b2551390fa36736f678c756093a55d6ceb0c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a99b2e7097f2abf36f184368b3b4fdaba8f2730b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932870"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467413"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Pruebas por lotes con un conjunto de expresiones de ejemplo
 
  Las pruebas por lotes son una prueba completa en el modelo entrenado actual para medir su rendimiento en LUIS. Los conjuntos de datos que se usan para realizar pruebas de lote no deben incluir expresiones de ejemplo en las intenciones ni en las grabaciones recibidas desde un punto de conexión de tiempo de ejecución de predicción. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="batch-testing"></a>
 
@@ -52,7 +54,7 @@ Para ejecutar la prueba, seleccione el nombre del conjunto de datos. Cuando se c
 
 El conjunto de datos que se puede descargar es el mismo archivo que se cargó para realizar la prueba por lotes.
 
-|Estado|Significado|
+|State|Significado|
 |--|--|
 |![Icono de círculo verde de prueba correcta](./media/luis-how-to-batch-test/batch-test-result-green.png)|Todas las expresiones son correctas.|
 |![Icono de X de color rojo de prueba incorrecta](./media/luis-how-to-batch-test/batch-test-result-red.png)|Al menos una intención de expresión no coincidió con la predicción.|

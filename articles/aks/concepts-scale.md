@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: d2d7508b4f0a2789a0eae5d6c6205475b5795e36
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1972a91e1ed8a39bcd467272108e0e772116344e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097840"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472883"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -56,8 +56,6 @@ Para responder a las cambiantes exigencias de pods, Kubernetes tiene un componen
 ![Cluster Autoscaler de Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
 Cluster Autoscaler se usa normalmente junto con Horizontal Pod Autoscaler. Cuando se combinan, Horizontal Pod Autoscaler aumenta o disminuye el número de pods según la demanda de la aplicación, mientras que Cluster Autoscaler ajusta el número de nodos según sea necesario para ejecutar los pods adicionales en consecuencia.
-
-Solo se debe probar Cluster Autoscaler en versión preliminar en clústeres AKS.
 
 Para empezar a usar Cluster Autoscaler en AKS, consulte [Cluster Autoscaler en AKS][aks-cluster-autoscaler].
 

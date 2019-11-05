@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: ed48a4e5bab807695000fe6cdbecf1c1b7b01e9b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5d852378812d8e69480ceb2c5dcea95f1d5f3770
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325769"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488609"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Tutorial: Supervisión de los cambios en las máquinas virtuales con Azure Event Grid y Logic Apps
 
@@ -101,7 +101,7 @@ Ahora, agregue el desencadenador de Event Grid que usa para supervisar el grupo 
    | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
    | -------- | -------- | ----- | ----------- |
    | **Suscripción** | Sí | <*event-publisher-Azure-subscription-name*> | Seleccione el nombre de la suscripción de Azure asociada con el *publicador de eventos*. Para este tutorial, seleccione el nombre de la suscripción de Azure de la máquina virtual. |
-   | **Tipo de recurso** | Sí | <*event-publisher-Azure-resource-type*> | Seleccione el tipo de recurso de Azure para el publicador de eventos. Para más información sobre los tipos de recursos de Azure, consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/resource-manager-supported-services.md). Para este tutorial, seleccione el valor `Microsoft.Resources.ResourceGroups` para supervisar los grupos de recursos de Azure. Si desea supervisar solo las máquinas virtuales,  |
+   | **Tipo de recurso** | Sí | <*event-publisher-Azure-resource-type*> | Seleccione el tipo de recurso de Azure para el publicador de eventos. Para más información sobre los tipos de recursos de Azure, consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/resource-manager-supported-services.md). Para este tutorial, seleccione el valor `Microsoft.Resources.ResourceGroups` para supervisar los grupos de recursos de Azure. |
    | **Nombre de recurso** |  Sí | <*event-publisher-Azure-resource-name*> | Seleccione el nombre de recurso de Azure para el publicador de eventos. Esta lista varía según el tipo de recurso que ha seleccionado. Para este tutorial, seleccione el nombre del grupo de recursos de Azure que incluye la máquina virtual. |
    | **Elemento de tipo de evento** |  Sin | <*event-types*> | Seleccione uno o varios tipos de evento específicos para filtrar y enviar a Event Grid. Por ejemplo, si lo desea puede agregar estos tipos de eventos para detectar cuándo se cambian o eliminan los recursos: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Para más información, consulte los temas siguientes: <p><p>- [Esquema de eventos de Azure Event Grid para grupos de recursos](../event-grid/event-schema-resource-groups.md) <br>- [Descripción del filtrado de eventos](../event-grid/event-filtering.md) <br>- [Filtrado de eventos para Event Grid](../event-grid/how-to-filter-events.md) |
    | Para agregar propiedades opcionales, seleccione **Agregar nuevo parámetro** y seleccione las propiedades que desee. | Sin | {ver descripciones} | * **Filtro de prefijo**: En este tutorial, deje esta propiedad vacía. El comportamiento predeterminado coincide con todos los valores. Sin embargo, puede especificar una cadena de prefijo como un filtro, por ejemplo, una ruta de acceso y un parámetro para un recurso concreto. <p>* **Filtro de sufijo**: En este tutorial, deje esta propiedad vacía. El comportamiento predeterminado coincide con todos los valores. Sin embargo, puede especificar una cadena de sufijo como un filtro, por ejemplo, una extensión de nombre de archivo, si desea solo determinados tipos de archivos. <p>* **Nombre de la suscripción**: Para este tutorial puede proporcionar un nombre único para la suscripción a eventos. |

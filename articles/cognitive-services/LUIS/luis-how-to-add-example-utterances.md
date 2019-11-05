@@ -9,20 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1e170b86f573112cc5bc8dddd6f080921ef29d2d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ed6321963422cf17c858f43593092f8ffa4a1119
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932950"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467733"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Incorporación de una entidad a expresiones de ejemplo 
 
 Las expresiones de ejemplo son ejemplos de texto de preguntas de los usuarios o de comandos. Para entrenar el servicio Language Understanding (LUIS), debe agregar [expresiones de ejemplo](luis-concept-utterance.md) a una [intención](luis-concept-intent.md).
 
+
 En general, primero se agrega una expresión de ejemplo a una intención y luego se crean expresiones de etiquetas y entidades en la página **Intenciones**. Si prefiere crear primero las entidades, consulte [Agregar entidades](luis-how-to-add-entities.md).
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="marking-entities-in-example-utterances"></a>Marcado de entidades en expresiones de ejemplo
 

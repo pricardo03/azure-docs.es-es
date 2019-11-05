@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 090242cde79f6c31b0f70e1a75240778dca89fa7
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1c9562f413fa0ed52d61d0b38df358f1a2cd03f9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828574"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498685"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Marco de seguridad: seguridad en las comunicaciones | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -102,7 +102,7 @@ ms.locfileid: "71828574"
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | EnvironmentType: Azure |
-| **Referencias**              | [Habilitación de HTTPS para una aplicación en Azure App Service](../../app-service/app-service-web-tutorial-custom-ssl.md) |
+| **Referencias**              | [Habilitación de HTTPS para una aplicación en Azure App Service](../../app-service/configure-ssl-bindings.md) |
 | **Pasos** | De forma predeterminada, Azure ya habilita HTTPS para cada aplicación con un certificado comodín para el dominio *.azurewebsites.net. Sin embargo, al igual que todos los dominios comodín, no es tan seguro como usar un dominio personalizado con su propio certificado. [Más información](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). Se recomienda habilitar SSL para el dominio personalizado a través del que se accederá a la aplicación implementada.|
 
 ## <a id="appservice-https"></a>Direccionamiento forzoso de todo el tráfico a Azure App Service a través de una conexión HTTPS
@@ -113,7 +113,7 @@ ms.locfileid: "71828574"
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | EnvironmentType: Azure |
-| **Referencias**              | [Aplicación de HTTPS en Azure App Service](../../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
+| **Referencias**              | [Aplicación de HTTPS en Azure App Service](../../app-service/configure-ssl-bindings.md#enforce-https) |
 | **Pasos** | <p>Aunque Azure ya habilita HTTPS para Azure App Services con un certificado comodín para el dominio *.azurewebsites.net, no lo exige. Los visitantes pueden seguir accediendo a la aplicación mediante HTTP, lo que puede comprometer la seguridad de la aplicación, por lo que debe exigirse el uso de HTTPS explícitamente. Las aplicaciones de ASP.NET MVC deben utilizar el [filtro RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) que obliga a que una solicitud HTTP no segura se vuelva a enviar a través de HTTPS.</p><p>También es posible utilizar el módulo URL Rewrite, incluido con Azure App Service, para exigir el uso de HTTPS. El módulo URL Rewrite permite a los desarrolladores definir reglas que se aplican a las solicitudes entrantes antes de que las solicitudes lleguen a su aplicación. Las reglas de URL Rewrite se definen en el archivo web.config, que se almacena en la raíz de la aplicación.</p>|
 
 ### <a name="example"></a>Ejemplo

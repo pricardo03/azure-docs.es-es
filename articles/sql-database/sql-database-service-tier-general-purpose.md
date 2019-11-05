@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 1c6bb557c11cf32449b440b0007e1cef929a026f
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: b4c0f88a1a21b0734c1652d19f74dc662d0a7ce1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259412"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496218"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Nivel de servicio Uso general: Azure SQL Database
 
@@ -48,7 +48,7 @@ El nivel de servicio Uso general es un nivel de servicio predeterminado e Azure 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Encontrar características de recursos (número de núcleos, E/S, memoria) del nivel estándar o de uso general en la [instancia administrada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), la base de datos Single en el [modelo de núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) o el [modelo DTU](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes), o el grupo elástico en el [modelo de núcleos virtuales](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) y el [modelo DTU](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
+- Encontrar características de recursos (número de núcleos, E/S, memoria) del nivel estándar o de uso general en la [instancia administrada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), la base de datos Single en el [modelo de núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) o el [modelo DTU](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes), o el grupo elástico en el [modelo de núcleos virtuales](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose---provisioned-compute---gen4) y el [modelo DTU](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
 - Obtenga información sobre los niveles [Crítico para la empresa](sql-database-service-tier-business-critical.md) e [Hiperescala](sql-database-service-tier-hyperscale.md).
 - Obtenga información sobre [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Para conocer más opciones de alta disponibilidad y recuperación ante desastres, consulte [Continuidad del negocio](sql-database-business-continuity.md).

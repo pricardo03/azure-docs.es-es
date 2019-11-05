@@ -9,19 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: c617e4aa62ce2ff468545bef0b2ebe2c4d0e4f03
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: d5652857f2f35e392d3f512001044fd06bc0a0c9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382354"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499071"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Revisión de las expresiones de punto de conexión en el portal de LUIS para aprendizaje activo
 
 El [aprendizaje activo](luis-concept-review-endpoint-utterances.md) captura las consultas de punto de conexión y selecciona las expresiones de punto de conexión del usuario de las que no está seguro. Revise estas expresiones para seleccionar la intención y marque las entidades para estas expresiones de lectura. Acepte estos cambios en sus expresiones de ejemplo, entrene y publique. LUIS identificará después las expresiones con mayor precisión.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="enable-active-learning"></a>Habilitación del aprendizaje activo
 

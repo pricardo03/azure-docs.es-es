@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: b84b503fad951b5a6998bf0b06d466ce41031aa8
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1f08067768f2d4a0a0c2ab31b3db1c9f2c9e1521
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526773"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476911"
 ---
 | Resource | Gratuito | Compartido | Básica | Estándar | Premium (v2) | Aislado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -28,7 +28,7 @@ ms.locfileid: "72526773"
 | Conexiones de depurador [simultáneas](../articles/app-service/troubleshoot-dotnet-visual-studio.md) por aplicación |1 |1 |1 |5 |5 |5 |
 | Instancias de App Service Certificate por suscripción<sup>9</sup>| No compatible | No compatible |10 |10 |10 |10 |
 | Dominios personalizados por aplicación</a> |0 (solo subdominio de azurewebsites.net)|500 |500 |500 |500 |500 |
-| Compatibilidad con dominio [Compatibilidad con SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |No admitido, certificado comodín para *.azurewebsites.net disponible de forma predeterminada.|No admitido, certificado comodín para *.azurewebsites.net disponible de forma predeterminada.|Conexiones SSL SNI ilimitadas |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP | Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP|
+| Compatibilidad con dominio [Compatibilidad con SSL](../articles/app-service/configure-ssl-certificate.md) |No admitido, certificado comodín para *.azurewebsites.net disponible de forma predeterminada.|No admitido, certificado comodín para *.azurewebsites.net disponible de forma predeterminada.|Conexiones SSL SNI ilimitadas |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP | Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP|
 | Conexiones híbridas por plan | | | 5 | 25 | 200 | 200 |
 | Equilibrador de carga integrado | |X |X |X |X |X<sup>10</sup> |
 | [Siempre activado](../articles/app-service/configure-common.md) | | |X |X |X |X |

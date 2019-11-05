@@ -10,15 +10,15 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
-ms.date: 04/19/2019
-ms.openlocfilehash: d8f0f4a8e603a9040d166b00682077cff23abd8d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 11/04/2019
+ms.openlocfilehash: 0413216bc666aff504193d6723d46a6ee26be8ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569703"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500060"
 ---
-# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Administración del cifrado de datos transparente en una instancia administrada con la clave propia desde Azure Key Vault (versión preliminar)
+# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Administración del Cifrado de datos transparente en una instancia administrada con la propia clave desde Azure Key Vault
 
 Este ejemplo de script de PowerShell configura el cifrado de datos transparente (TDE) en el escenario Bring Your Own Key (versión preliminar) para Instancia administrada de Azure SQL Database con una clave de Azure Key Vault. Para más información sobre TDE con compatibilidad con Bring Your Own Key (BYOK), vea [BYOK de TDE con Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
 

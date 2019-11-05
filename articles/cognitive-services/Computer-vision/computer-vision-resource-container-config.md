@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: aba846ade9e2b5e19304df87ea3e29713aacf4ba
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1df8199abbbc195db873ab3da515cb1dd5fe9761
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129965"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484081"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configuración de contenedores de Docker de Computer Vision
 
@@ -106,13 +106,11 @@ Reemplace {_argument_name_} por sus propios valores:
 
 ## <a name="container-docker-examples"></a>Ejemplos de contenedor de Docker
 
-#### <a name="readtabread"></a>[Lectura](#tab/read)
-
 Los siguientes ejemplos de Docker son del contenedor Lectura.
 
 ### <a name="basic-example"></a>Ejemplo básico
 
-  ```
+  ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
@@ -122,7 +120,7 @@ Los siguientes ejemplos de Docker son del contenedor Lectura.
 
 ### <a name="logging-example"></a>Ejemplo de registro 
 
-  ```
+  ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
@@ -130,33 +128,6 @@ Los siguientes ejemplos de Docker son del contenedor Lectura.
   ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
-
-#### <a name="recognize-texttabrecognize-text"></a>[Reconocer texto](#tab/recognize-text)
-
-Los siguientes ejemplos de Docker son del contenedor Reconocer texto.
-
-### <a name="basic-example"></a>Ejemplo básico
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} 
-  ```
-
-### <a name="logging-example"></a>Ejemplo de registro
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} \
-  Logging:Console:LogLevel:Default=Information
-  ```
-
-***
 
 ## <a name="next-steps"></a>Pasos siguientes
 

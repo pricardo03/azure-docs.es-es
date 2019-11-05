@@ -11,16 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 1bee26dc57fd844703e2c9c97b38b9a433227fbf
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ef5f6967b7ad9500672d00d93dd8acaca99e5948
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387952"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499462"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Compilar una aplicación de LUIS mediante programación con Node.js
 
 LUIS proporciona una API de programación que hace lo mismo que el sitio web de [LUIS](luis-reference-regions.md). Esto puede ahorrarle tiempo si tiene datos preexistentes. Además, resultaría más rápido crear una aplicación de LUIS mediante programación que si especifica la información manualmente. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

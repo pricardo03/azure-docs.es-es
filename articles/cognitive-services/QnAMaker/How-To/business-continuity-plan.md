@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 84f13f7e1d83f1ead00303b694b617d3ba1c8931
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0e748e81de39b2bef14b543063adeb51b8b3ecdb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876647"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486716"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Cómo crear un plan de continuidad empresarial para el servicio QnA Maker
 
@@ -33,7 +33,7 @@ La idea de alto nivel como se representa anteriormente es la siguiente:
 
 4. Una vez configuradas las pilas principal y secundaria, use [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) para configurar los dos puntos de conexión y establecer un método de enrutamiento.
 
-5. Debe crear un certificado SSL para el punto de conexión de Traffic Manager. [Enlace el certificado SSL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl) en App Service.
+5. Debe crear un certificado SSL para el punto de conexión de Traffic Manager. [Enlace el certificado SSL](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) en App Service.
 
 6. Por último, use el punto de conexión de Traffic Manager del bot o de la aplicación.
 

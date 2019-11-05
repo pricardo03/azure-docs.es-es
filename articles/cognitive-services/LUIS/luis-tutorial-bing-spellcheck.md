@@ -9,18 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 3bde609c83425d660c867939e034247d7e6898c5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9c8babac8450bdfd170d3d18b338ba3d64383a67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300275"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499014"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corregir palabras incorrectas con Bing Spell Check
 
 Se puede integrar la aplicación de LUIS con [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) para corregir las palabras incorrectas en las expresiones antes de que LUIS prediga la puntuación y las entidades de la expresión. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+
 
 ## <a name="create-first-key-for-bing-spell-check-v7"></a>Crear la primera clave para Bing Spell Check V7
 La [primera clave de Bing Spell Check API v7](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) es gratuita. 
