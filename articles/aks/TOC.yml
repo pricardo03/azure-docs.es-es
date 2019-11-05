@@ -102,6 +102,8 @@
       href: supported-kubernetes-versions.md
     - name: Protección de la seguridad en el sistema operativo del host
       href: security-hardened-vm-host-image.md
+    - name: Introducción a los diagnósticos de Azure Kubernetes Service
+      href: concepts-diagnostics.md
 - name: Guías de procedimientos
   items:
     - name: Operaciones del clúster
@@ -128,11 +130,11 @@
               href: virtual-nodes-portal.md
         - name: Uso de Virtual Kubelet
           href: virtual-kubelet.md
-        - name: Uso de escalador automático de clúster (versión preliminar)
+        - name: Uso de escalador automático de clúster
           href: cluster-autoscaler.md
-        - name: Uso de Availability Zones (versión preliminar)
+        - name: Uso de zonas de disponibilidad
           href: availability-zones.md
-        - name: Uso de varios grupos de nodos (versión preliminar)
+        - name: Uso de grupos de varios nodos
           href: use-multiple-node-pools.md
         - name: Implementación de AKS con Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
@@ -199,7 +201,7 @@
           href: use-network-policies.md
         - name: Uso de directivas de seguridad de pod (versión preliminar)
           href: use-pod-security-policies.md
-        - name: Definición de intervalos IP de servidor de API autorizado (versión preliminar)
+        - name: Definición de intervalos IP de servidor de API autorizado
           href: api-server-authorized-ip-ranges.md
         - name: Implementaciones de control con Azure Policy (versión preliminar)
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
@@ -225,8 +227,8 @@
           href: view-master-logs.md
         - name: Visualización de los registros de kubelet
           href: kubelet-logs.md
-        - name: Visualización de registros de contenedor en tiempo real (versión preliminar)
-          href: ../azure-monitor/insights/container-insights-live-logs.md
+        - name: Visualización de datos de contenedor en tiempo real
+          href: ../azure-monitor/insights/container-insights-livedata-overview.md
           maintainContext: true
     - name: Uso de contenedores de Windows Server (versión preliminar)
       items:

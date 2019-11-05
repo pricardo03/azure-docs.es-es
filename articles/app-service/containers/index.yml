@@ -94,7 +94,7 @@ sections:
         items:
           - html: 'Creación de una aplicación mediante <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core con Azure SQL DB</a>, <a href="/azure/app-service/containers/tutorial-java-enterprise-postgresql-app">Java Enterprise con PostgreSQL</a> o <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js con MongoDB</a>'
           - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Asignación de un dominio personalizado existente a la aplicación </a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Enlace de un certificado SSL existente a la aplicación</a>
+          - html: <a href="/azure/app-service/configure-ssl-bindings">Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service</a>
           - html: <a href="/azure/cdn/cdn-add-to-web-app">Incorporación de una CDN a la aplicación</a>
   - title: Ejemplos
     items:
@@ -114,7 +114,7 @@ sections:
         items:
           - title: Línea de comandos
             html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">CLI de Azure</a></p>
-          - title: Languages
+          - title: Lenguajes
             html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
           - title: REST
             html: <p><a href="/rest/api/appservice">Referencia de API de REST</a></p>

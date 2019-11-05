@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Documentación sobre Azure Bastion (versión preliminar)
+title: Documentación sobre Azure Bastion
 summary: Aprenda a usar Azure Bastion para conectarse a una máquina virtual. Configure una conexión RDP/SSH segura e ininterrumpida a las máquinas virtuales directamente en Azure Portal a través de SSL. Cuando se conecta a través de Azure Bastion, las máquinas virtuales no necesitan una dirección IP pública.
 metadata:
-  title: Documentación sobre Azure Bastion (versión preliminar)
+  title: Documentación sobre Azure Bastion
   description: Aprenda a usar Azure Bastion para conectarse a una máquina virtual. Configure una conexión RDP/SSH segura e ininterrumpida a las máquinas virtuales directamente en Azure Portal a través de SSL.
   services: bastion
   ms.service: bastion
@@ -10,14 +10,14 @@ metadata:
   author: cherylmc
   ms.author: cherylmc
   ms.date: 08/29/2019
-  ms.openlocfilehash: 6854e6ec4bd36ea38fa0e1f9cd46f95e11144be6
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: a60f7d2026bbfae2d52cffa3f3d4229d834631ae
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70128122"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73498849"
 landingContent:
-- title: Acerca de Azure Bastion (versión preliminar)
+- title: Acerca de Azure Bastion
   linkLists:
   - linkListType: overview
     links:

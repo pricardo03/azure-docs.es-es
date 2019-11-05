@@ -20,29 +20,34 @@
           items:
             - name: Información general
               href: sql-database-purchase-models.md
-            - name: Modelo basado en núcleos virtuales
-              href: sql-database-service-tiers-vcore.md
+            - name: Modelo de núcleos virtuales
               items:
-                - name: Nivel de servicio de informática sin servidor
+                - name: Introducción al modelo de núcleos virtuales
+                  href: sql-database-service-tiers-vcore.md
+                - name: Sin servidor
                   href: sql-database-serverless.md
-                - name: Pago por adelantado de capacidad reservada
+                - name: Ventaja híbrida de Azure
+                  href: sql-database-azure-hybrid-benefit.md
+                - name: Capacidad reservada
                   href: sql-database-reserved-capacity.md
-            - name: Niveles de servicio de DTU
+            - name: Introducción al modelo de DTU
               href: sql-database-service-tiers-dtu.md
+            - name: Migración de DTU a núcleo virtual
+              href: sql-database-dtu-to-vcore.md
         - name: Proceso y almacenamiento
           items:
             - name: Información general
               href: sql-database-service-tiers-general-purpose-business-critical.md
               displayName: provisioned compute tier
-            - name: 'Niveles de servicio: Uso general o Estándar'
+            - name: Uso general/Estándar
               href: sql-database-service-tier-general-purpose.md
-            - name: 'Niveles de servicio: Crítico para la empresa / Premium'
+            - name: Crítico para la empresa/Premium
               href: sql-database-service-tier-business-critical.md
-            - name: Nivel de servicio Hiperescala
+            - name: Hiperescala
               href: sql-database-service-tier-hyperscale.md
             - name: Preguntas más frecuentes sobre Hiperescala
               href: sql-database-service-tier-hyperscale-faq.md
-            - name: Migración desde el nivel de servicio Premium RS
+            - name: Migración desde Premium RS
               href: sql-database-service-tiers-prs.md
 - name: Guías de inicio rápido
   expanded: true
@@ -501,17 +506,17 @@
       items:
         - name: Recursos de bases de datos únicas
           items:
-            - name: Límites de los recursos basados en núcleos virtuales
+            - name: Límites de recursos de núcleo virtual
               href: sql-database-vcore-resource-limits-single-databases.md
-            - name: Límites de los recursos basados en DTU
+            - name: Límites de recursos de DTU
               href: sql-database-dtu-resource-limits-single-databases.md
             - name: Escalado de recursos
               href: sql-database-single-database-scale.md
         - name: Recursos de un grupo elástico
           items:
-            - name: Límites de los recursos basados en núcleos virtuales
+            - name: Límites de recursos de núcleo virtual
               href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: Límites de los recursos basados en DTU
+            - name: Límites de recursos de DTU
               href: sql-database-dtu-resource-limits-elastic-pools.md
             - name: Escalado de recursos
               href: sql-database-elastic-pool-scale.md

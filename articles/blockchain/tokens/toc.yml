@@ -1,0 +1,32 @@
+- name: Azure Blockchain Tokens (versión preliminar)
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Azure Blockchain Tokens
+      href: overview.md
+- name: Conceptos
+  items:
+    - name: Administración de cuentas
+      href: account-management.md
+    - name: Plantillas
+      href: templates.md
+    - name: Composición
+      href: composability.md
+- name: Recursos
+  items:
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Extensión para Visual Studio Code del servicio Azure Blockchain
+      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
+    - name: Ejemplos de código
+      href: 'https://github.com/Azure-Samples/blockchain'
+    - name: Comunidad
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Foro
+      href: 'https://aka.ms/workbenchforum'
+    - name: Comentarios sobre el producto
+      href: 'https://feedback.azure.com/forums/586780-blockchain'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/blockchain-tokens'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'

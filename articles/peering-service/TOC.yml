@@ -1,0 +1,50 @@
+- name: Documentación de Peering Service
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Peering Service
+      href: about.md
+- name: Conceptos
+  items:
+    - name: Ubicación y asociados
+      href: location-partners.md
+    - name: Conexión
+      href: connection.md
+    - name: Telemetría de conexión
+      href: connection-telemetry.md
+    - name: Modelo de incorporación
+      href: onboarding-model.md
+- name: Guías de procedimientos
+  items:
+    - name: Registro de Peering Service
+      items:
+        - name: Portal de Azure
+          href: azure-portal.md
+        - name: Azure PowerShell
+          href: powershell.md
+        - name: CLI de Azure
+          href: cli.md
+    - name: Medición de telemetría de conexión
+      href: measure-connection-telemetry.md
+- name: Referencias
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.network
+    - name: CLI de Azure
+      href: /cli/azure/network
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog de redes
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Foro de redes
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Comentarios de redes
+      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/peering-service'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Preguntas más frecuentes
+      href: faq.md

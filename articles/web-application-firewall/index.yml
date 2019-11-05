@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentación del firewall de aplicaciones web
+summary: El firewall de aplicaciones web (WAF) ofrece una protección centralizada de las aplicaciones web contra las vulnerabilidades de seguridad más habituales. Puede implementar WAF en Azure Application Gateway o WAF en Azure Front Door Service.
+metadata:
+  title: Documentación del firewall de aplicaciones web
+  description: Más información sobre el firewall de aplicaciones web, que se puede implementar con Application Gateway y Front Door
+  services: web-application-firewall
+  ms.service: web-application-firewall
+  ms.topic: landing-page
+  author: vhorne
+  ms.author: victorh
+  ms.date: 09/28/2019
+  ms.openlocfilehash: 1fb58cdf0f5c88a560ccbd4140564497745b503e
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508778"
+landingContent:
+- title: Información general
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es el firewall de aplicaciones web?
+      url: overview.md
+    - text: Firewall de aplicaciones web en Application Gateway
+      url: ./ag/ag-overview.md
+    - text: Firewall de aplicaciones web en Front Door
+      url: ./afds/afds-overview.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Firewall de aplicaciones web en Application Gateway
+      url: ./ag/application-gateway-web-application-firewall-portal.md
+    - text: Firewall de aplicaciones web en Front Door
+      url: ./afds/waf-front-door-create-portal.md
+- title: Administración de reglas de WAF en Application Gateway
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Personalización de reglas del firewall de aplicaciones web en Azure Application Gateway
+      url: ./ag/application-gateway-customize-waf-rules-portal.md
+  - linkListType: overview
+    links:
+    - text: Reglas y grupos de reglas de CRS del firewall de aplicaciones web
+      url: ./ag/application-gateway-crs-rulegroups-rules.md
+- title: Configuración de WAF en Front Door
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de protección de bot
+      url: ./afds/waf-front-door-policy-configure-bot-protection.md
+    - text: Configuración de una respuesta personalizada
+      url: ./afds/waf-front-door-configure-custom-response-code.md

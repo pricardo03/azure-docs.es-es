@@ -80,8 +80,12 @@
           items:
             - name: Herramienta Copiar datos
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: Transformación de datos con Mapping Data Flow
-      href: tutorial-data-flow.md
+    - name: Transformación y preparación de datos con flujos de datos
+      items:
+        - name: Transformación de datos con Mapping Data Flow
+          href: tutorial-data-flow.md
+        - name: Preparación de datos con un flujo de datos de limpieza y transformación
+          href: wrangling-data-flow-tutorial.md
     - name: Transformaciones externas
       items:
         - name: HDInsight Spark
@@ -143,28 +147,36 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Tiempo de ejecución de integración
       href: concepts-integration-runtime.md
-    - name: Asignación de flujos de datos
+    - name: Flujos de datos
       items:
-        - name: Introducción a Mapping Data Flow
-          href: concepts-data-flow-overview.md
-        - name: Modo de depuración
-          href: concepts-data-flow-debug-mode.md
-        - name: Administración de JSON
-          href: concepts-data-flow-json.md
-        - name: Desfase de esquema
-          href: concepts-data-flow-schema-drift.md
-        - name: Patrones de columnas
-          href: concepts-data-flow-column-pattern.md
-        - name: Supervisión de Data Flow
-          href: concepts-data-flow-monitoring.md
-        - name: Rendimiento de flujo de datos
-          href: concepts-data-flow-performance.md
-        - name: Traslado de nodos
-          href: concepts-data-flow-move-nodes.md
-        - name: Generador de expresiones
-          href: concepts-data-flow-expression-builder.md
-        - name: Lenguaje de expresiones
-          href: data-flow-expression-functions.md
+        - name: Transformación de datos con Mapping Data Flow
+          items:
+            - name: Introducción a Mapping Data Flow
+              href: concepts-data-flow-overview.md
+            - name: Modo de depuración
+              href: concepts-data-flow-debug-mode.md
+            - name: Administración de JSON
+              href: concepts-data-flow-json.md
+            - name: Desfase de esquema
+              href: concepts-data-flow-schema-drift.md
+            - name: Patrones de columnas
+              href: concepts-data-flow-column-pattern.md
+            - name: Supervisión de Data Flow
+              href: concepts-data-flow-monitoring.md
+            - name: Rendimiento de flujo de datos
+              href: concepts-data-flow-performance.md
+            - name: Traslado de nodos
+              href: concepts-data-flow-move-nodes.md
+            - name: Generador de expresiones
+              href: concepts-data-flow-expression-builder.md
+            - name: Lenguaje de expresiones
+              href: data-flow-expression-functions.md
+        - name: Preparación de datos con un flujo de datos de limpieza y transformación
+          items:
+            - name: Introducción a los flujos de datos de limpieza y transformación
+              href: wrangling-data-flow-overview.md
+            - name: Funciones compatibles
+              href: wrangling-data-flow-functions.md
     - name: Roles y permisos
       href: concepts-roles-permissions.md
     - name: Descripción de los precios
@@ -464,7 +476,7 @@
           href: data-flow-derived-column.md
         - name: Exists
           href: data-flow-exists.md
-        - name: Filtrar
+        - name: Filter
           href: data-flow-filter.md
         - name: Unión
           href: data-flow-join.md

@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Documentación de Azure Internet Analyzer (versión preliminar)
+summary: Internet Analyzer es una plataforma de medición del lado cliente que le permite probar cómo afectarán los cambios en la infraestructura de red al rendimiento de los clientes. Tanto si va a migrar del entorno local a Azure como si va a evaluar un nuevo servicio de Azure, Internet Analyzer le permite obtener información a partir de los datos de sus usuarios y la completa funcionalidad de análisis de Microsoft para comprender mejor y optimizar su arquitectura de red con Azure, antes de llevar a cabo la migración.
+metadata:
+  title: Documentación de Azure Internet Analyzer (versión preliminar)
+  description: Internet Analyzer es una plataforma de medición del lado cliente que le permite probar cómo afectarán los cambios en la infraestructura de red al rendimiento de los clientes. Tanto si va a migrar del entorno local a Azure como si va a evaluar un nuevo servicio de Azure, Internet Analyzer le permite obtener información a partir de los datos de sus usuarios y la completa funcionalidad de análisis de Microsoft para comprender mejor y optimizar su arquitectura de red con Azure, antes de llevar a cabo la migración.
+  services: internet-analyzer
+  ms.service: internet-analyzer
+  ms.topic: landing-page
+  author: megan-beatty
+  ms.author: mebeatty
+  ms.date: 10/16/2019
+  ms.openlocfilehash: 27ad858137901f7cb803b380115f6b55967caef7
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508846"
+landingContent:
+- title: Acerca de Internet Analyzer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Internet Analyzer?
+      url: internet-analyzer-overview.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creación de una instancia de Internet Analyzer mediante el portal
+      url: internet-analyzer-create-test-portal.md
+    - text: Creación de una instancia de Internet Analyzer mediante la CLI
+      url: internet-analyzer-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Inserción del cliente de Internet Analyzer
+      url: internet-analyzer-embed-client.md
+    - text: Configuración de un punto de conexión personalizado
+      url: internet-analyzer-custom-endpoint.md
+- title: Recursos
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Preguntas frecuentes sobre Internet Analyzer
+      url: internet-analyzer-faq.md
+    - text: Interpretación de la puntuación
+      url: internet-analyzer-scorecard.md

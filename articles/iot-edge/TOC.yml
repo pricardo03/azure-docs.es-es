@@ -45,7 +45,7 @@
           href: tutorial-deploy-function.md
         - name: Búsqueda de promedios con Azure Stream Analytics
           href: tutorial-deploy-stream-analytics.md
-        - name: Puntuación de datos con el servicio Azure Machine Learning
+        - name: Puntuación de datos con Azure Machine Learning
           href: tutorial-deploy-machine-learning.md
         - name: Clasificación de imágenes con Custom Vision
           href: tutorial-deploy-custom-vision.md

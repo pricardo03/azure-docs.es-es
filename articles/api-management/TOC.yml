@@ -61,6 +61,8 @@
       href: api-management-error-handling-policies.md
     - name: Restricciones a la importación de API
       href: api-management-api-import-restrictions.md
+    - name: Introducción a la puerta de enlace autohospedada
+      href: self-hosted-gateway-overview.md
 - name: Guías de procedimientos
   items:
     - name: Definición de API
@@ -93,6 +95,16 @@
           href: api-management-howto-autoscale.md
         - name: Configuración de un dominio personalizado
           href: configure-custom-domain.md
+        - name: Implementación en varias regiones de Azure
+          href: api-management-howto-deploy-multi-region.md
+        - name: Aprovisionamiento de una puerta de enlace autohospedada
+          href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Implementación de una puerta de enlace autohospedada en Kubernetes
+          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+        - name: Implementación de una puerta de enlace autohospedada en Docker
+          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+        - name: Configuración de un dominio personalizado para la puerta de enlace autohospedada
+          href: api-management-howto-configure-custom-domain-gateway.md
     - name: Memoria caché
       items:
         - name: Agregar almacenamiento en caché para mejorar el rendimiento
@@ -195,8 +207,6 @@
       items:
         - name: Administrar grupos
           href: api-management-howto-create-groups.md
-        - name: Implementación en varias regiones de Azure
-          href: api-management-howto-deploy-multi-region.md
         - name: Recuperación de direcciones IP
           href: api-management-howto-ip-addresses.md
         - name: Registro de eventos en Azure Event Hubs

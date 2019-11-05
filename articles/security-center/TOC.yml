@@ -37,6 +37,14 @@
       href: security-center-using-recommendations.md
     - name: Administración entre inquilinos
       href: security-center-cross-tenant-management.md
+    - name: Seguridad del contenedor
+      items:
+        - name: Introducción a la seguridad del contenedor
+          href: container-security.md
+        - name: Integración con Azure Container Registry
+          href: azure-container-registry-integration.md
+        - name: Integración con Azure Kubernetes Service
+          href: azure-kubernetes-service-integration.md
     - name: Alertas e incidentes de detección de amenazas
       items:
         - name: Introducción a las alertas de seguridad
@@ -51,7 +59,7 @@
           href: security-center-alerts-compute.md
         - name: Detección de amenazas para Data Services
           href: security-center-alerts-data-services.md
-        - name: Detección de amenazas para la capa de servicios de Azure
+        - name: Detección de amenazas para capas de servicios de Azure
           href: security-center-alerts-service-layer.md
         - name: Integración con productos de seguridad de Azure
           href: security-center-alerts-integration.md
@@ -69,31 +77,45 @@
       href: security-center-onboarding.md
     - name: "Protección de servidores con Microsoft\_Defender\_ATP"
       href: security-center-wdatp.md
-    - name: Seguridad avanzada de datos para SQL en Azure Virtual Machines (versión preliminar pública)
+    - name: Uso de Advanced Data Security para SQL en Azure VM
       href: security-center-iaas-advanced-data.md
     - name: Uso de App Service para proteger las aplicaciones
       href: security-center-app-services.md
     - name: Uso de directivas de seguridad
-      href: tutorial-security-policy.md
+      items:
+        - name: Introducción a las directivas de seguridad
+          href: tutorial-security-policy.md
+        - name: Uso de directivas de seguridad integradas
+          href: security-center-policy-definitions.md
+        - name: Creación de directivas de seguridad personalizadas
+          href: custom-security-policies.md
+        - name: Administración de directivas con la API REST de Azure Policy
+          href: configure-security-policy-azure-policy.md
+    - name: Adición de paquetes de cumplimiento dinámicos
+      href: update-regulatory-compliance-packages.md
     - name: Personalización de la directiva de protección de la información
       href: security-center-info-protection-policy.md
     - name: Administración de soluciones de seguridad
       href: security-center-partner-integration.md
     - name: Automatización de la incorporación mediante PowerShell
       href: security-center-powershell-onboarding.md
-    - name: Configuración de Security Center
-      href: security-center-policies-overview.md
+    - name: Integración con Windows Admin Center
+      href: windows-admin-center-integration.md
     - name: Comparación de las bases de referencia mediante la supervisión de la integridad de los archivos
       href: security-center-file-integrity-monitoring-baselines.md
-    - name: Colección de datos
+    - name: Automatización de respuestas a alertas y recomendaciones
+      href: workflow-automation.md
+    - name: Exportación de alertas y recomendaciones
+      href: continuous-export.md
+    - name: Configuración de la recopilación de datos
       href: security-center-enable-data-collection.md
-    - name: Directivas de seguridad integradas
-      href: security-center-policy-definitions.md
-    - name: Notificaciones por correo electrónico
+    - name: Configuración de Advanced Threat Protection para Azure Key Vault
+      href: advanced-threat-protection-key-vault.md
+    - name: Configuración de notificaciones de correo electrónico
       href: security-center-provide-security-contact-details.md
     - name: Precios
       href: security-center-pricing.md
-    - name: Visibilidad de todos los inquilinos
+    - name: Visibilidad de todo el inquilino
       href: security-center-management-groups.md
     - name: Implementación de recomendaciones de seguridad
       items:
@@ -160,7 +182,7 @@
     - name: Administración de datos del usuario
       href: security-center-privacy.md
     - name: Documentación sobre Azure Security Center para IoT
-      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
+      href: 'https://docs.microsoft.com/azure/asc-for-iot/'
     - name: Preguntas más frecuentes
       href: security-center-faq.md
     - name: Documentación de Azure Security Center

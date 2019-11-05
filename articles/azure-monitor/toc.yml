@@ -612,7 +612,7 @@
               href: platform/activity-log-collect-tenants.md
             - name: Exportación
               href: platform/activity-log-export.md
-            - name: Esquema
+            - name: Schema
               href: platform/activity-log-schema.md
         - name: Configuración de diagnóstico
           items:
@@ -640,7 +640,7 @@
                   items:
                     - name: Historial de versiones
                       href: platform/diagnostics-extension-schema.md
-                    - name: Esquema
+                    - name: Schema
                       href: platform/diagnostics-extension-schema-1dot3.md
                     - name: Envío a Azure Storage
                       href: platform/diagnostics-extension-to-storage.md
@@ -781,20 +781,32 @@
                   href: insights/container-insights-enable-new-cluster.md
                 - name: Habilitar para un clúster ya existente
                   href: insights/container-insights-enable-existing-clusters.md
+                - name: Habilitar para un clúster híbrido
+                  href: insights/container-insights-hybrid-setup.md
                 - name: Asignaciones de regiones
                   href: insights/container-insights-region-mapping.md
             - name: Análisis
               href: insights/container-insights-analyze.md
             - name: Deshabilitar la supervisión
               href: insights/container-insights-optout.md
-            - name: Vista de registros dinámicos
-              href: insights/container-insights-live-logs.md
+            - name: Visualización de datos en directo
+              items:
+                - name: Introducción a los datos en directo (versión preliminar)
+                  href: insights/container-insights-livedata-overview.md
+                - name: Configuración
+                  href: insights/container-insights-livedata-setup.md
+                - name: Visualización de métricas de clúster
+                  href: insights/container-insights-livedata-metrics.md
+                - name: Visualización de implementaciones
+                  href: insights/container-insights-livedata-deployments.md
             - name: Análisis de datos con consultas de registros
               href: insights/container-insights-log-search.md
             - name: Alertas
               href: insights/container-insights-alerts.md
             - name: Administración de agentes
               href: insights/container-insights-manage-agent.md
+            - name: Configuración del recopilación de métricas de Prometheus
+              href: insights/container-insights-prometheus-integration.md
             - name: Configuración de los valores de colección del agente
               href: insights/container-insights-agent-config.md
             - name: Actualización para habilitar las métricas

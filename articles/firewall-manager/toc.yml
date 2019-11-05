@@ -1,0 +1,57 @@
+- name: Documentación de Azure Firewall Manager
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Azure Firewall Manager?
+      href: overview.md
+- name: Tutoriales
+  expanded: true
+  items:
+    - name: Protección de la red en la nube - Portal
+      href: secure-cloud-network.md
+- name: Conceptos
+  items:
+    - name: ¿Qué es un centro virtual protegido?
+      href: secured-virtual-hub.md
+    - name: Proceso de implementación general
+      href: deployment-overview.md
+    - name: Asociados de seguridad de confianza
+      href: trusted-security-partners.md
+    - name: Lógica de procesamiento de reglas
+      href: rule-processing.md
+- name: Guías de procedimientos
+  items:
+    - name: Implementación de asociados de seguridad de confianza
+      href: deploy-trusted-security-partner.md
+    - name: Directiva de migración a firewall
+      href: migrate-to-policy.md
+- name: Referencia
+  items:
+    - name: CLI de Azure
+      href: /cli/azure/ext/azure-firewall/network/firewall
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/new-azfirewall
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/firewall
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+- name: Recursos
+  items:
+    - name: Creación de plantillas
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Plantillas de la comunidad
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/regions/services/'
