@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 633c5944f7d813b78f7a0c9b71266d4012fd72cf
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 0c7e178d520084dbf963c4c7ebaf9b8873a36938
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673397"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521052"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>Almacenamiento inmutable de los datos críticos para la empresa en Azure Blob Storage 
 
@@ -108,7 +108,7 @@ El almacenamiento inmutable solo está disponible en las cuentas de Blob Storage
 
 Las versiones más recientes de [Azure Portal](https://portal.azure.com), la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) admiten el almacenamiento inmutable para Azure Blob Storage. También se proporciona [compatibilidad con bibliotecas cliente](#client-libraries).
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. Cree un nuevo contenedor o seleccione un contenedor existente para almacenar los blobs que se deben conservar en estado inmutable.
  El contenedor debe estar en una cuenta de Blob Storage o GPv2.
@@ -144,11 +144,11 @@ Las versiones más recientes de [Azure Portal](https://portal.azure.com), la [CL
 
 9. Para borrar una suspensión legal, basta con quitar la etiqueta de identificador de suspensión legal aplicada.
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 La característica se incluye en los siguientes grupos de comandos: `az storage container immutability-policy` y `az storage container legal-hold`. Ejecute `-h` en ellos para ver los comandos.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 El módulo Az.Storage admite almacenamiento inmutable.  Para habilitar la característica, siga estos pasos:
 
@@ -157,6 +157,8 @@ El módulo Az.Storage admite almacenamiento inmutable.  Para habilitar la caract
 3. Instale Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
 La sección acerca del [código de PowerShell de ejemplo](#sample-powershell-code), que encontrará en este mismo artículo, muestra el uso de la característica.
+
+---
 
 ## <a name="client-libraries"></a>Bibliotecas de clientes
 
