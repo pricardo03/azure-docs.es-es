@@ -133,20 +133,6 @@
           href: tutorial-restrict-web-traffic-powershell.md
         - name: CLI de Azure
           href: tutorial-restrict-web-traffic-cli.md
-    - name: Configuración de conjuntos de reglas de WAF
-      items:
-        - name: Portal de Azure
-          href: application-gateway-customize-waf-rules-portal.md
-        - name: Azure PowerShell
-          href: application-gateway-customize-waf-rules-powershell.md
-        - name: CLI de Azure
-          href: application-gateway-customize-waf-rules-cli.md
-    - name: Reglas personalizadas del firewall de aplicaciones web
-      items:
-        - name: Ejemplos de reglas personalizadas
-          href: create-custom-waf-rules.md
-        - name: Configuración del firewall de aplicaciones web con reglas personalizadas
-          href: configure-waf-custom-rules.md
     - name: Entrada para AKS
       items:
         - name: Configuración con una instancia existente de Application Gateway
