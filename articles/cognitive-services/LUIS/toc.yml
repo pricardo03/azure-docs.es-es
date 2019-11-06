@@ -42,7 +42,7 @@
     - name: Compilación de una aplicación
       items:
         - name: Determinación de las intenciones del usuario
-          href: luis-quickstart-intents-only.md
+          href: tutorial-intents-only.md
         - name: Identificación de datos de usuario habituales con modelos creados previamente
           href: luis-tutorial-prebuilt-intents-entities.md
         - name: Obtención de opiniones a partir de expresiones del usuario
@@ -116,6 +116,7 @@
           displayName: roles
         - name: Características
           href: luis-concept-feature.md
+          displayName: 'descriptor, phrase list'
     - name: Puntuación de predicción
       href: luis-concept-prediction-score.md
     - name: Procedimientos recomendados

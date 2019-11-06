@@ -100,7 +100,7 @@ El nodo raíz de todos los enriquecimientos es `"/document"`. Al trabajar con in
 
 ### <a name="skill-2-language-detection"></a>Aptitud 2: detección de idioma
  Aunque la aptitud de detección de idioma es la tercera (aptitud 3) definida en el conjunto de aptitudes, es la siguiente aptitud que se ejecuta. Dado que no se bloquea al no requerir entradas, se ejecutará en paralelo con la aptitud anterior. Al igual que la aptitud de división que la precedía, la aptitud de detección de idioma también se invoca una vez para cada documento. El árbol de enriquecimiento tiene ahora un nuevo nodo para Language.
- ![Árbol de enriquecimiento después de la aptitud 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "EnÁrbol de enriquecimiento después de la ejecución de la aptitud 2"
+ ![Árbol de enriquecimiento después de la aptitud 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Enárbol completo después de que se ejecute el #2 de conocimientos ")
  
  ### <a name="skill-3-key-phrases-skill"></a>Aptitud 3: aptitud de frases clave 
 

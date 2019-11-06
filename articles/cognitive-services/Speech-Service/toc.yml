@@ -6,6 +6,8 @@
   items:
     - name: ¿Qué es Speech Service?
       href: overview.md
+    - name: Compatibilidad de idioma y región
+      href: language-support.md
 - name: Voz a texto
   expanded: false
   items:
@@ -38,7 +40,7 @@
         - name: Uso de formatos de entrada de audio comprimidos
           href: how-to-use-codec-compressed-audio-input-streams.md
         - name: Uso de reconocimiento de voz con contenedores de Docker
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=stt
     - name: Referencia
       items:
         - name: API de SDK de voz
@@ -87,7 +89,7 @@
         - name: Síntesis de voz con Long Audio API
           href: long-audio-api.md
         - name: Uso de síntesis de voz con contenedores de Docker
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=tts
     - name: Referencia
       items:
         - name: SDK de voz

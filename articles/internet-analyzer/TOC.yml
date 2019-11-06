@@ -9,7 +9,7 @@
     - name: Creación de una prueba de Internet Analyzer mediante el portal
       href: internet-analyzer-create-test-portal.md
     - name: Creación de una prueba de Internet Analyzer mediante la CLI
-      herf: internet-analyzer-cli.md
+      href: internet-analyzer-cli.md
 - name: Guías de procedimientos
   items:
     - name: Inserción de cliente

@@ -52,7 +52,7 @@ Asegúrese de que la base de datos de Cosmos DB contiene datos. El [Asistente pa
 
 ### <a name="2---start-import-data-wizard"></a>2: Inicio del asistente para la importación de datos
 
-También puede [iniciar el asistente](search-import-data-portal.md) desde la barra de comandos en la página del servicio Azure Cognitive Search o hacer clic en **Add Azure Cognitive Search**** (Agregar Azure Cognitive Search) en la sección **Configuración** del panel de navegación izquierdo de la cuenta de almacenamiento.
+También puede [iniciar el asistente](search-import-data-portal.md) desde la barra de comandos en la página del servicio Azure Cognitive Search o hacer clic en **Add Azure Cognitive Search** (Agregar Azure Cognitive Search) en la sección **Configuración** del panel de navegación izquierdo de la cuenta de almacenamiento.
 
    ![Comando de importación de datos en el portal](./media/search-import-data-portal/import-data-cmd2.png "Inicio del Asistente para la importación de datos")
 
