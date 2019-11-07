@@ -9,16 +9,16 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: a755fe1607e581cb0a25eb9bd90c2ba223829a46
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ac7ae0d7933e1d1b4d716eb157bf74152155a969
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350602"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497345"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
-Azure Machine Learning proporciona varias maneras de entrenar los modelos, desde soluciones en las que se da prioridad al código con el SDK hasta soluciones con poco código, como el aprendizaje automático automatizado y la interfaz visual. Use la lista siguiente para determinar el método de entrenamiento adecuado para usted:
+Azure Machine Learning proporciona varias maneras de entrenar los modelos, desde soluciones en las que se da prioridad al código con el SDK hasta soluciones con poco código, como el aprendizaje automático automatizado y el diseñador visual. Use la lista siguiente para determinar el método de entrenamiento adecuado para usted:
 
 + [SDK de Azure Machine Learning para Python](#python-sdk): el SDK de Python proporciona varias maneras de entrenar modelos, cada una con distintas funcionalidades.
 
@@ -29,7 +29,7 @@ Azure Machine Learning proporciona varias maneras de entrenar los modelos, desde
     | [Estimadores](#estimators) | Las clases de estimador **facilitan el entrenamiento de modelos en función de marcos populares de aprendizaje automático**. Hay clases de estimador para **Scikit-learn**, **PyTorch**, **TensorFlow** y **Chainer**. También hay un estimador genérico que se puede usar con marcos que aún no tienen una clase de estimador dedicada. No tiene que preocuparse de definir una configuración de ejecución al usar estimadores. |
     | [Canalización de aprendizaje automático](#machine-learning-pipeline) | Las canalizaciones no son un método de entrenamiento distinto, sino una **manera de definir un flujo de trabajo con pasos modulares y reutilizables**, que puede incluir el entrenamiento como parte del flujo de trabajo. Las canalizaciones de aprendizaje automático admiten el uso de aprendizaje automático automatizado, estimadores y configuración de ejecución para entrenar modelos. Como las canalizaciones no se centran específicamente en el entrenamiento, las razones para usar una canalización son más variadas que los demás métodos de entrenamiento. Por lo general, puede usar una canalización cuando:<br>* Quiere **programar procesos desatendidos**, como trabajos de entrenamiento de larga duración o la preparación de los datos.<br>* Use **varios pasos** coordinados entre ubicaciones de almacenamiento y recursos de proceso heterogéneos.<br>* Use la canalización como una **plantilla reutilizable** para escenarios específicos, como el reentrenamiento o la puntuación por lotes.<br>* **Haga seguimiento y realice versiones de sus orígenes de datos, entradas y salidas** del flujo de trabajo.<br>* El flujo de trabajo **lo implementan distintos equipos que trabajan en pasos específicos de manera independiente**. Luego, los pasos se pueden reunir en una canalización para implementar el flujo de trabajo. |
 
-+ **Interfaz visual**: la __interfaz visual__ de Azure Machine Learning proporciona un punto de entrada sencillo al aprendizaje automático para crear una prueba de conceptos o para los usuarios que no tengan mucha experiencia en la codificación. Permite entrenar modelos mediante una interfaz de usuario basada en web de arrastrar y colocar. Puede usar el código de Python como parte del diseño o entrenar modelos sin necesidad de escribir nada de código.
++ **Diseñador**: el diseñador de Azure Machine Learning (versión preliminar) proporciona un punto de entrada sencillo al aprendizaje automático para crear una prueba de conceptos o para los usuarios que no tengan mucha experiencia en la codificación. Permite entrenar modelos mediante una interfaz de usuario basada en web de arrastrar y colocar. Puede usar el código de Python como parte del diseño o entrenar modelos sin necesidad de escribir nada de código.
 
 + **CLI**: la CLI de Machine Learning proporciona comandos para tareas comunes con Azure Machine Learning y se usa a menudo para **scripting y automatizar tareas**. Por ejemplo, una vez que haya creado una canalización o un script de entrenamiento, puede usar la CLI para iniciar una ejecución de entrenamiento según una programación o cuando se actualicen los archivos de datos usados para el entrenamiento. En el caso de los modelos de entrenamiento, proporciona comandos que envían trabajos de entrenamiento. Puede enviar trabajos mediante configuraciones de ejecución o canalizaciones.
 
@@ -59,7 +59,7 @@ Puede empezar con una configuración de ejecución para el equipo local y, a con
 Defina las iteraciones, la configuración de hiperparámetros, la caracterización y otras opciones. Durante el entrenamiento, Azure Machine Learning intenta diferentes algoritmos y parámetros en paralelo. El entrenamiento se detiene una vez que alcanza los criterios de salida definidos. No tiene que preocuparse de definir una configuración de ejecución al usar estimadores.
 
 > [!TIP]
-> Además del SDK de Python, también puede usar el aprendizaje automático automatizado a través de la [página de aterrizaje del área de trabajo (versión preliminar) ](https://ml.azure.com).
+> Además del SDK de Python, también puede usar el aprendizaje automático automatizado a través de [Azure Machine Learning Studio](https://ml.azure.com).
 
 * [Descripción del aprendizaje automático](concept-automated-ml.md)
 * [Tutorial: Creación del primer modelo de clasificación con el aprendizaje automático automatizado](tutorial-first-experiment-automated-ml.md)
@@ -67,7 +67,7 @@ Defina las iteraciones, la configuración de hiperparámetros, la caracterizaci�
 * [Ejemplos: ejemplos de Jupyter Notebook para el aprendizaje automático automatizado](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [Uso de Configuración de experimentos de ML automatizado en Python](how-to-configure-auto-train.md)
 * [Uso de Entrenamiento automático de un modelo de previsión de series temporales](how-to-auto-train-forecast.md)
-* [Uso de Cree, explore e implemente experimentos de aprendizaje automático automatizado con la página de aterrizaje del área de trabajo de Azure Machine Learning (versión preliminar)](how-to-create-portal-experiments.md)
+* [Instrucciones: Cree, explore e implemente experimentos de aprendizaje automático automatizado con [Azure Machine Learning Studio](how-to-create-portal-experiments.md)
 
 ### <a name="estimators"></a>Estimadores
 
@@ -89,15 +89,17 @@ Las canalizaciones de aprendizaje automático pueden usar los métodos de entren
 * [Ejemplos: canalización con aprendizaje automático automatizado](https://aka.ms/pl-automl)
 * [Ejemplos: canalización con estimadores](https://aka.ms/pl-estimator)
 
-## <a name="visual-interface"></a>Interfaz visual
+## <a name="azure-machine-learning-designer"></a>Diseñador de Azure Machine Learning
 
-La interfaz visual (versión preliminar) permite entrenar modelos mediante una interfaz de arrastrar y colocar en el explorador web.
+El diseñador permite entrenar modelos mediante una interfaz de arrastrar y colocar en el explorador web.
 
-+ [¿Qué es la interfaz visual?](ui-concept-visual-interface.md)
-+ [Tutorial: Predicción del precio de un automóvil](ui-tutorial-automobile-price-train-score.md)
-+ [Regresión: predicción del precio](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-+ [Clasificación: predicción del riesgo crediticio](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-+ [Clasificación: predicción de la deserción de clientes, la apetencia y la venta vertical](how-to-ui-sample-classification-predict-churn.md)
++ [¿Qué es el diseñador?](concept-designer.md)
++ [Tutorial: Predicción del precio de un automóvil](tutorial-designer-automobile-price-train-score.md)
++ [Regresión: predicción del precio](how-to-designer-sample-regression-automobile-price-basic.md)
++ [Clasificación: Predicción de ingresos](how-to-designer-sample-classification-predict-income.md)
++ [Clasificación: predicción de la deserción de clientes, la apetencia y la venta vertical](how-to-designer-sample-classification-churn.md)
++ [Clasificación con script R personalizado: Predicción de retrasos en los vuelos](how-to-designer-sample-classification-flight-delay.md)
++ [Clasificación de texto: Conjunto de datos de SP 500 de Wikipedia](how-to-designer-sample-text-classification.md)
 
 ## <a name="cli"></a>CLI
 

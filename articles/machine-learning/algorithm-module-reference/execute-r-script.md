@@ -1,7 +1,7 @@
 ---
 title: 'Ejecutar script R: referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Ejecutar script R en Azure Machine Learning Service para ejecutar código de R.
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo Ejecutar script R en Azure Machine Learning para ejecutar código R.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,25 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 01d4e3a06b8c6a95374b9ee246864167e6d2ac85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: f9aae1302f0d83c27d5d8f01745ddecbaeea9467
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693768"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497888"
 ---
 # <a name="execute-r-script"></a>Ejecución script de R
 
-En este artículo se describe cómo usar el módulo **Execute R Script** (Ejecutar Script de R) para ejecutar código de R en la canalización de interfaz visual.
+En este artículo se describe cómo usar el módulo **Ejecutar script R** para ejecutar código R en la canalización del diseñador de Azure Machine Learning (versión preliminar).
 
 Con R, puede realizar tareas que no son compatibles actualmente con los módulos existentes, como: 
 - Crear transformaciones de datos personalizadas
 - Usar sus propias métricas para evaluar las predicciones
-- Generar modelos mediante algoritmos que no se implementan como módulos independientes en la interfaz visual
+- Generar modelos mediante algoritmos que no se implementan como módulos independientes en el diseñador
 
 ## <a name="r-version-support"></a>Compatibilidad con la versión de R
 
-La interfaz visual de Azure Machine Learning Service usa la distribución CRAN (red de archivo de R completa) de R. La versión que se usa actualmente es CRAN 3.5.1.
+El diseñador de Azure Machine Learning usa la distribución CRAN (red de archivo de R completa) de R. La versión que se usa actualmente es CRAN 3.5.1.
 
 ## <a name="supported-r-packages"></a>Paquetes de R admitidos
 
@@ -73,7 +73,7 @@ El módulo **Ejecutar script R** contiene código de ejemplo que puede usar como
 
 ![Módulo de R](media/module/execute-r-script.png)
 
-Los conjuntos de datos almacenados en la interfaz visual se convierten automáticamente en una trama de datos de R cuando se cargan con este módulo.
+Los conjuntos de datos almacenados en el diseñador se convierten automáticamente en una trama de datos R cuando se cargan con este módulo.
 
 1.  Agregue el módulo **Execute R Script** (Ejecutar script de R) a la canalización.
 
@@ -116,10 +116,10 @@ azureml_main <- function(dataframe1, dataframe2){
  * La función de punto de entrada puede contener hasta dos argumentos de entrada: `Param<dataframe1>` y `Param<dataframe2>`
  
    > [!NOTE]
-    > Se hace referencia a los datos pasados al módulo **Ejecutar script de R** como `dataframe1` y `dataframe2`, que es distinto de Azure Machine Learning Studio (se hace referencia a Studio como `dataset1`, `dataset2`). Asegúrese de que en el script se haga referencia correctamente a los datos de entrada.  
+    > Se hace referencia a los datos pasados al módulo **Ejecutar script R** como `dataframe1` y `dataframe2`, que es distinto del diseñador Azure Machine Learning (se hace referencia al diseñador como `dataset1`, `dataset2`). Asegúrese de que en el script se haga referencia correctamente a los datos de entrada.  
  
     > [!NOTE]
-    >  Puede que el código de R existente necesite pequeños cambios para ejecutarse en una canalización de interfaz visual. Por ejemplo, los datos de entrada que se proporcionan en formato CSV deben convertirse explícitamente en un conjunto de datos para que pueda usarlos en su código. Los tipos de datos y columnas que se usan en el lenguaje R también difieren en algunos aspectos de los tipos de columnas y datos que se usan en la interfaz visual.
+    >  Puede que el código R existente necesite pequeños cambios para ejecutarse en una canalización de diseñador. Por ejemplo, los datos de entrada que se proporcionan en formato CSV deben convertirse explícitamente en un conjunto de datos para que pueda usarlos en su código. Los tipos de datos y columnas que se usan en el lenguaje R también difieren en algunos aspectos de los tipos de columnas y datos que se usan en el diseñador.
 
 1.  **Valor de inicialización aleatorio**: escriba un valor para usarlo en el entorno de R como valor de inicialización aleatorio. Este parámetro equivale a llamar a `set.seed(value)` en el código de R.  
 
@@ -127,7 +127,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="results"></a>Results
 
-Los módulos **Ejecutar script R** pueden devolver varias salidas, pero se deben proporcionar como tramas de datos de R. Las tramas de datos se convierten en conjuntos de datos de la interfaz visual para su compatibilidad con otros módulos.
+Los módulos **Ejecutar script R** pueden devolver varias salidas, pero se deben proporcionar como tramas de datos de R. Las tramas de datos se convierten automáticamente en conjuntos de datos en el diseñador para su compatibilidad con otros módulos.
 
 Los mensajes estándar y los errores de R se devuelven al registro del módulo.
 
@@ -235,7 +235,7 @@ Puede pasar objetos R entre instancias del módulo **Ejecutar script R** mediant
     }
     ```
 
-    La conversión explícita al tipo entero se realiza porque la función de serialización devuelve los datos en el formato de R `Raw`, lo que no es compatible con la interfaz visual.
+    La conversión explícita al tipo entero se realiza porque la función de serialización devuelve los datos en el formato de R `Raw`, lo que no es compatible con el diseñador.
 
 1. Agregue una segunda instancia del módulo **Ejecutar script R** y conéctelo al puerto de salida del módulo anterior.
 
@@ -402,4 +402,4 @@ Lista actual de paquetes de R preinstalados disponibles para su uso:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

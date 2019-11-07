@@ -10,15 +10,17 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 10/10/2019
-ms.openlocfilehash: 54f8a1248688a6d62192e4f34cf6b98a94086da8
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.date: 11/04/2019
+ms.openlocfilehash: aabbac60acc53cfccc29fc3dbd06575e09840d83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274765"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497118"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Creación de conjuntos de datos y acceso a ellos (versión preliminar) en Azure Machine Learning
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo aprenderá a crear conjuntos de datos de Azure Machine Learning (versión preliminar) y a acceder a los datos de los experimentos locales o remotos.
 
@@ -80,7 +82,10 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
-#### <a name="create-tabulardatasets"></a>Creación de TabularDatasets
+
+#### <a name="create-a-tabulardataset"></a>Creación de un objeto TabularDataset
+
+Es posible crear TabularDatasets a través del SDK o mediante Azure Machine Learning Studio. Se puede especificar una marca de tiempo desde una columna de los datos o el patrón de la ruta de acceso donde se almacenan los datos para habilitar un rasgo de serie temporal, lo que permite un filtrado por tiempo sencillo y eficaz.
 
 Use el método [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) en la clase `TabularDatasetFactory` para leer archivos en formato csv o tsv y cree una clase TabularDataset sin registrar. Si está leyendo de varios archivos, los resultados se agregarán en una representación tabular.
 
@@ -92,10 +97,16 @@ datastore_paths = [
                   (datastore, 'weather/2019/*.csv')
                  ]
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
+```
 
-# create a TabularDataset from a delimited file behind a public web url
+De forma predeterminada, al crear un elemento TabularDataset, los tipos de datos de columna se deducen automáticamente. Si los tipos deducidos no son los esperados, puede especificar los tipos de columna mediante el código siguiente. Obtenga más información sobre los tipos de datos admitidos [aquí](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+
+```Python
+from azureml.data.dataset_factory import DataType
+
+# create a TabularDataset from a delimited file behind a public web url and convert column "Survived" to boolean
 web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
-titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
+titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_types={'Survived': DataType.to_bool()})
 
 # preview the first 3 rows of titanic_ds
 titanic_ds.take(3).to_pandas_dataframe()
@@ -103,9 +114,9 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 | |PassengerId|Survived|Pclass|NOMBRE|Sex|Edad|SibSp|Parch|Vale|Fare|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|0|3|Braund, Mr. Owen Harris|hombre|22,0|1|0|A/5 21171|7,2500||S
-1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|mujer|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|1|3|Heikkinen, Miss. Laina|mujer|26,0|0|0|STON/O2. 3101282|7,9250||S
+0|1|False|3|Braund, Mr. Owen Harris|hombre|22,0|1|0|A/5 21171|7,2500||S
+1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|mujer|38,0|1|0|PC 17599|71,2833|C85|C
+2|3|True|3|Heikkinen, Miss. Laina|mujer|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Use el método [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) en la clase `TabularDatasetFactory` para leer desde Azure SQL Database.
 
@@ -139,7 +150,7 @@ data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### <a name="create-filedatasets"></a>Crear FileDatasets
+#### <a name="create-a-filedataset"></a>Creación de un objeto FileDataset
 
 Use el método [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) en la clase `FileDatasetFactory` para cargar archivos en cualquier formato y crear un elemento FileDataset sin registrar.
 
@@ -160,15 +171,18 @@ web_paths = [
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
-### <a name="using-the-workspace-landing-page"></a>Uso de la página de aterrizaje del área de trabajo
-
-Inicie sesión en la [página de aterrizaje del área de trabajo](https://ml.azure.com) para crear un conjunto de datos a través de la experiencia web. La página de aterrizaje del área de trabajo admite la creación tanto de TabularDatasets como de FileDatasets.
-
-En la animación siguiente se muestra cómo crear un conjunto de datos en la página de aterrizaje del área de trabajo.
-
-En primer lugar, seleccione **Conjuntos de datos** en la sección **Recursos** del panel de la izquierda. Después, seleccione **+ Crear conjunto de datos** para elegir el origen del conjunto de datos, que puede ser desde archivos locales, almacenes de datos o direcciones URL web públicas. Seleccione el **tipo de conjunto de datos**: *tabular o archivo. Los formularios **Configuración y vista previa** y **Esquema** se rellenan de manera inteligente en función del tipo de archivo. Seleccione **Siguiente** para revisarlos o para seguir configurando el conjunto de datos antes de su creación. Seleccione **Hecho** para completar la creación del conjunto de datos.
+#### <a name="on-the-web"></a>En la Web 
+En los pasos y la animación siguientes se muestra cómo crear un conjunto de datos en Azure Machine Learning Studio, https://ml.azure.com.
 
 ![Creación de un conjunto de datos con la interfaz de usuario](media/how-to-create-register-datasets/create-dataset-ui.gif)
+
+Para crear un conjunto de datos en el estudio:
+1. Inicie sesión en https://ml.azure.com.
+1. Seleccione **Conjuntos de datos** en la sección **Recursos** del panel de la izquierda. 
+1. Seleccione **+ Crear conjunto de datos** para elegir el origen del conjunto de datos, que puede ser archivos locales, almacenes de datos o direcciones URL web públicas.
+1. Seleccione **Tabular** o **Archivo** para el tipo de conjunto de datos.
+1. Seleccione **Siguiente** para revisar los formularios **Settings and preview** (Configuración y vista previa), **Esquema** y **Confirmar detalles**; se rellenan de forma inteligente en función del tipo de archivo. Use estos formularios para comprobar las selecciones y para configurar más el conjunto de datos antes de la creación.  
+1. Seleccione **Crear** para completar la creación del conjunto de datos.
 
 ## <a name="register-datasets"></a>Registro de conjuntos de datos
 
@@ -177,21 +191,65 @@ Para completar el proceso de creación, registre los conjuntos de datos con un �
 Use el método [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) para registrar los conjuntos de datos con el área de trabajo de modo que puedan compartirse con otros usuarios y reutilizarse en varios experimentos.
 
 ```Python
-titanic_ds = titanic_ds.register(workspace = workspace,
-                                 name = 'titanic_ds',
-                                 description = 'titanic training data')
+titanic_ds = titanic_ds.register(workspace=workspace,
+                                 name='titanic_ds',
+                                 description='titanic training data')
 ```
 
->[!Note]
-> Los conjuntos de datos creados a través de la página de aterrizaje del área de trabajo se registran automáticamente en el área de trabajo.
+> [!Note]
+> Los conjuntos de datos creados a través de Azure Machine Learning Studio se registran automáticamente en el área de trabajo.
+
+## <a name="create-datasets-with-azure-open-datasets"></a>Creación de conjuntos de datos con Azure Open Datasets
+
+[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) son conjuntos de datos públicos mantenidos que puede usar para agregar características de escenarios específicos a soluciones de aprendizaje automático a fin de obtener modelos más precisos. Los conjuntos de datos incluyen datos de dominio público para el clima, censos, días festivos, seguridad pública y ubicación, que le ayudarán a entrenar los modelos de Machine Learning y enriquecer las soluciones predictivas. Open Datasets se encuentra en la nube en Microsoft Azure y se incluye en el SDK y en la interfaz de usuario del área de trabajo.
+
+### <a name="using-the-sdk"></a>Uso del SDK
+
+Para crear conjuntos de datos con Azure Open Datasets desde el SDK, asegúrese de que ha instalado el paquete con `pip install azureml-opendatasets`. Cada conjunto de datos discretos se representa mediante su propia clase en el SDK y ciertas clases están disponibles como `TabularDataset`, `FileDataset` o ambos. Consulte la [documentación de referencia](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) para obtener una lista completa de clases.
+
+La mayoría de las clases se heredan y devuelven una instancia de `TabularDataset`. Entre los ejemplos de estas clases se incluyen `PublicHolidays`, `BostonSafety` y `UsPopulationZip`. Para crear un elemento `TabularDataset` a partir de estos tipos de clases, use el constructor sin argumentos. Cuando se registra un conjunto de datos creado desde Open Datasets, los datos no se descargan inmediatamente, pero se tendrá acceso a ellos más adelante cuando se soliciten (durante el entrenamiento, por ejemplo) desde una ubicación de almacenamiento central. 
+
+```python
+from azureml.opendatasets import UsPopulationZip
+
+tabular_dataset = UsPopulationZip()
+tabular_dataset = tabular_dataset.register(workspace=workspace, name="pop data", description="US population data by zip code")
+```
+
+Ciertas clases se pueden recuperar como `TabularDataset` o `FileDataset`, lo que permite manipular y descargar los archivos directamente. Otras clases solo pueden obtener un conjunto de datos mediante las funciones `get_tabular_dataset()` **o** `get_file_dataset()`. En el ejemplo de código siguiente se muestran algunos ejemplos de estos tipos de clases.
+
+```python
+from azureml.opendatasets import MNIST
+
+# MNIST class can return either TabularDataset or FileDataset
+tabular_dataset = MNIST.get_tabular_dataset()
+file_dataset = MNIST.get_file_dataset()
+
+from azureml.opendatasets import Diabetes
+
+# Diabetes class can return ONLY return TabularDataset and must be called from the static function
+diabetes_tabular = Diabetes.get_tabular_dataset()
+```
+
+### <a name="using-the-ui"></a>Uso de la interfaz de usuario
+
+También puede crear conjuntos de datos desde clases de Open Datasets mediante la interfaz de usuario. En el área de trabajo, navegue a la pestaña **Conjunto de datos** en *Recursos*. Haga clic en la lista desplegable **Crear conjunto de datos** y, a continuación, haga clic en **From Open Datasets** (Desde Open Datasets).
+
+![Abrir un conjunto de datos con la interfaz de usuario](media/how-to-create-register-datasets/open-datasets-1.png)
+
+A continuación, seleccione un conjunto de datos seleccionando el icono y, opcionalmente, filtrando con la barra de búsqueda. A continuación, haga clic en **Siguiente**.
+
+![Elegir conjunto de datos](media/how-to-create-register-datasets/open-datasets-2.png)
+
+A continuación, elija un nombre para registrar el conjunto de datos y, opcionalmente, filtre los datos mediante los filtros disponibles. En este caso, para el conjunto de datos de días festivos públicos, filtre el período de tiempo a un año y el código de país a solo EE. UU. A continuación, haga clic en **Crear**.
+
+![Establecer parámetros del conjunto de datos y crear conjunto de datos](media/how-to-create-register-datasets/open-datasets-3.png)
+
+Ahora se crea el conjunto de datos y está disponible en el área de trabajo, en **Conjuntos de datos**, y se puede usar de la misma manera que los demás conjuntos de datos que se hayan creado.
 
 ## <a name="version-datasets"></a>Conjuntos de datos de versión
 
-Puede registrar un nuevo conjunto de datos con el mismo nombre mediante la creación de una nueva versión. La versión del conjunto de datos es una manera de marcar el estado de los datos, por lo que puede aplicar una versión específica del conjunto de datos para experimentación o reproducción futura. Escenarios típicos a tener en cuenta para el control de versiones: 
-
-* Cuando hay nuevos datos disponibles para el reentrenamiento.
-* Cuando se aplican diferentes enfoques de preparación de datos o de ingeniería de características.
-
+Puede registrar un nuevo conjunto de datos con el mismo nombre mediante la creación de una nueva versión. La versión del conjunto de datos es una manera de marcar el estado de los datos, por lo que puede aplicar una versión específica del conjunto de datos para experimentación o reproducción futura. Obtenga más información sobre las [versiones del conjunto de datos](how-to-version-track-datasets.md).
 ```Python
 # create a TabularDataset from Titanic training data
 web_paths = [

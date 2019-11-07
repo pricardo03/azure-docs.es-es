@@ -1,141 +1,183 @@
 ---
-title: 'Servicio Azure SQL Database: núcleos virtuales | Microsoft Docs'
-description: El modelo de compra basado en núcleo virtual permite escalar los recursos de proceso y de almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio.
+title: 'Información general del servicio Azure SQL Database: núcleo virtual | Microsoft Docs'
+description: El modelo de compra de núcleo virtual permite escalar los recursos de proceso y de almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/01/2019
-ms.openlocfilehash: af2e8826c40fb0d16844b6c67f151b0affbf3efd
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 11/04/2019
+ms.openlocfilehash: 2bbdd565a861004014ca4161856bba83ec0be511
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034987"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496049"
 ---
-# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Elija entre los niveles de servicio de núcleo virtual y migre desde los niveles de servicio DTU
+# <a name="vcore-model-overview"></a>Introducción al modelo de núcleos virtuales
 
-El modelo de compra basado en núcleo virtual permite escalar los recursos de proceso y de almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. También le permite elegir la generación de hardware:
+El modelo de núcleo virtual proporciona varias ventajas:
 
-- **Gen4**: hasta 24 CPU lógicas basadas en procesadores Intel E5-2673 v3 (Haswell) a 2,4 GHz, núcleo virtual = 1 PP (núcleo físico), 7 GB por núcleo virtual, SSD conectado
-- **Gen5**: hasta 80 CPU lógicas basadas en procesadores Intel E5-2673 V4 (Broadwell) a 2,3 GHz, núcleo virtual = 1 LP (Hyper-Threading), 5,1 GB por núcleo virtual para proceso aprovisionado y hasta 24 GB por núcleo virtual para proceso sin servidor, SSD de eNVM rápido
+- Mayores límites de proceso, memoria, E/S y almacenamiento.
+- Control sobre la generación de hardware para satisfacer mejor los requisitos de proceso y memoria de la carga de trabajo.
+- Descuentos en los precios de [Ventaja híbrida de Azure (AHB)](sql-database-azure-hybrid-benefit.md) e [Instancia reservada (RI)](sql-database-reserved-capacity.md).
+- Mayor transparencia en los detalles de hardware que potencian el proceso; facilita la planeación de las migraciones desde implementaciones locales.
 
-El hardware de Gen4 ofrece bastante más memoria por núcleo virtual. Sin embargo, el hardware de Gen5 permite escalar verticalmente mucho más alto los recursos de proceso.
+## <a name="service-tiers"></a>Niveles de servicio
 
-> [!IMPORTANT]
-> Las nuevas bases de datos de Gen4 ya no se admiten en las regiones Este de Australia o Sur de Brasil.
-> [!NOTE]
-> Para más información sobre los niveles de servicio basados en DTU, consulte el [Niveles de servicio en el modelo de compra basado en DTU](sql-database-service-tiers-dtu.md). Para información sobre las diferencias entre los niveles de servicio basados en DTU y los modelos de compra basados en núcleos virtuales, consulte [Modelos de compra de Azure SQL Database](sql-database-purchase-models.md).
-
-## <a name="service-tier-characteristics"></a>Características del nivel de servicio
-
-El modelo de compra basado en núcleo virtual ofrece tres niveles de servicio: de uso general, hiperescala y crítico para la empresa. Estos niveles de servicio se diferencian por una variedad de tamaños de proceso, diseños de alta disponibilidad, métodos de aislamiento de errores, tipos y tamaños de almacenamiento e intervalos de E/S.
-
-Debe configurar por separado el periodo necesario de retención y almacenamiento de las copias de seguridad. Para establecer el período de retención de copia de seguridad, abra Azure Portal, vaya al servidor (no a la base de datos) y, a continuación, vaya a **Administrar copias de seguridad** > **Configurar directiva** > **Configuración de restauración a un momento dado** > **7 a 35 días**.
-
-La tabla siguiente explica las diferencias entre los tres niveles:
+Entre las opciones de nivel de servicio del modelo núcleo virtual se incluyen Uso general, Crítico para la empresa e Hiperescala. El nivel de servicio define generalmente la arquitectura de almacenamiento, los límites de espacio y de E/S y las opciones de continuidad empresarial relacionadas con la disponibilidad y la recuperación ante desastres.
 
 ||**Uso general**|**Crítico para la empresa**|**Hiperescala**|
 |---|---|---|---|
-|Más adecuado para|Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado.|Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal fluido, restauración rápida de bases de datos.|
-|Proceso|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales<br/>**Proceso sin servidor**:<br/>Gen5: 0,5 - 16 núcleos virtuales|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales|**Proceso aprovisionado**:<br/>Gen4: 1 a 24 núcleos virtuales<br/>Gen5: 2 a 80 núcleos virtuales|
-|Memoria|**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual<br/>**Proceso sin servidor**:<br/>Gen5: Hasta 24 GB por núcleo virtual|**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual |**Proceso aprovisionado**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual|
-|Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado de base de datos única y de grupo elástico**:<br/>5 GB – 4 TB<br/>**Proceso sin servidor**:<br/>5 GB - 3 TB<br/>**Instancia administrada**: 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado de base de datos única y de grupo elástico**:<br/>5 GB – 4 TB<br/>**Instancia administrada**:<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
-|Rendimiento de E/S (aproximado)|**Grupo elástico y base de datos única**: 500 IOPS por núcleo virtual, hasta 40000 IOPS como máximo.<br/>**Instancia administrada**: Depende del [tamaño del archivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS por núcleo, hasta 200 000 IOPS como máximo|Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo.|
+|Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables pensando en el presupuesto. |Ofrece a las aplicaciones empresariales la mayor resistencia a los errores mediante el uso de varias réplicas aisladas y proporciona el mayor rendimiento de E/S por réplica de base de datos.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos altamente escalables de almacenamiento y escalado de lectura.  Ofrece mayor resistencia a los errores al permitir la configuración de más de una réplica de base de datos aislada. |
+|Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado de base de datos única y de grupo elástico**:<br/>5 GB – 4 TB<br/>**Proceso sin servidor**:<br/>5 GB - 3 TB<br/>**Instancia administrada**: 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado de base de datos única y de grupo elástico**:<br/>5 GB - 8 TB<br/>**Instancia administrada**:<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
+|Rendimiento de E/S (aproximado)|**Grupo elástico y base de datos única**: 500 IOPS por núcleo virtual, hasta 40000 IOPS como máximo.<br/>**Instancia administrada**: Depende del [tamaño del archivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS por núcleo virtual, hasta 320 000 IOPS como máximo|Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. Los IOPS efectivos dependen de la carga de trabajo.|
 |Disponibilidad|1 réplica, sin réplicas de escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](sql-database-read-scale-out.md),<br/>Alta disponibilidad (HA) con redundancia de zona|1 réplica de lectura y escritura, además de 0 a 4 [réplicas de escalado de lectura](sql-database-read-scale-out.md)|
 |Copias de seguridad|[Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|Copias de seguridad basadas en instantáneas en el almacenamiento remoto de Azure. Los procesos de restauración usan estas instantáneas para conseguir una recuperación rápida. Las copias de seguridad son instantáneas y no afectan al rendimiento de E/S del proceso. Las restauraciones son rápidas y no son operaciones relacionadas con el tamaño de los datos (tardan minutos en lugar de horas o días).|
 |En memoria|No compatible|Compatible|No compatible|
 |||
 
-> [!NOTE]
-> Puede obtener una base de datos de Azure SQL gratuita en el nivel de servicio Básico junto con una cuenta gratuita de Azure. Para más información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).
 
-- Para más información, sobre los límites de recurso de un núcleo virtual consulte [Límites de recursos de núcleo virtual para una base de datos única](sql-database-vcore-resource-limits-single-databases.md) y [Límites de recursos de núcleo virtual en una instancia administrada](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- Para más información acerca de los niveles de servicio uso general y crítico para la empresa, consulte [Niveles de servicio de uso general y crítico para la empresa](sql-database-service-tiers-general-purpose-business-critical.md).
-- Para más información sobre el nivel de servicio hiperescala en el modelo de compra basado en núcleo virtual, consulte [Nivel de servicio Hiperescala](sql-database-service-tier-hyperscale.md).  
+### <a name="choosing-a-service-tier"></a>Selección de un nivel de servicio
 
-## <a name="azure-hybrid-benefit"></a>Ventaja híbrida de Azure
+Para obtener información sobre cómo seleccionar un nivel de servicio para una carga de trabajo determinada, consulte los siguientes artículos:
 
-En el nivel de proceso aprovisionado del modelo de compra basado en núcleo virtual, puede intercambiar sus licencias existentes por tarifas de descuento en SQL Database mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esta ventaja de Azure le permite ahorrar hasta un 30 % en Azure SQL Database al utilizar las licencias de SQL Server locales con Software Assurance.
+- [Cuándo elegir el nivel de servicio Uso general](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [Cuándo elegir el nivel de servicio Crítico para la empresa](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
+- [Cuándo elegir el nivel de servicio Hiperescala](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
-![Precios](./media/sql-database-service-tiers/pricing.png)
 
-Con la Ventaja híbrida de Azure, puede elegir pagar solo por la infraestructura subyacente de Azure mediante el uso de la licencia existente de SQL Server para el motor de base de datos SQL (precios de proceso básicos), o pagar tanto por la infraestructura subyacente como por la licencia de SQL Server (precio con licencia incluida).
+## <a name="compute-tiers"></a>Niveles de proceso
 
-Puede elegir o cambiar el modelo de licencia mediante Azure Portal o con una de las siguientes API:
+Entre las opciones de nivel de proceso del modelo de núcleo virtual se incluyen los niveles de proceso aprovisionados y sin servidor.
 
-- Para establecer o actualizar el tipo de licencia mediante PowerShell:
 
-  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
-  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
-  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
-  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
+### <a name="provisioned-compute"></a>Proceso aprovisionado
 
-- Para establecer o actualizar el tipo de licencia mediante la CLI de Azure:
+El nivel de proceso aprovisionado proporciona una cantidad específica de recursos de proceso que se aprovisionan continuamente con independencia de la actividad de carga de trabajo y factura la cantidad de proceso aprovisionado a un precio fijo por hora.
 
-  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
-  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
-- Para establecer o actualizar el tipo de licencia mediante la API REST:
+### <a name="serverless-compute"></a>Proceso sin servidor
 
-  - [Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+El [nivel de proceso sin servidor](sql-database-serverless.md) escala automáticamente los recursos de proceso en función de la actividad de la carga de trabajo y se factura según la cantidad de proceso usado por segundo.
 
-## <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrar desde el modelo basado en DTU al modelo basado en núcleos virtuales
 
-### <a name="migrate-a-database"></a>Migración de una base de datos
 
-La migración de una base de datos del modelo de compra basado en DTU al modelo de compra basado en núcleo virtual es similar a la actualización o degradación entre los niveles de servicio Estándar y Premium en el modelo de compra basado en DTU.
+## <a name="hardware-generations"></a>Generaciones de hardware
 
-### <a name="migrate-databases-with-geo-replication-links"></a>Migración de bases de datos con vínculos de replicación geográfica
+Entre las opciones de generación de hardware del modelo de núcleo virtual se incluyen Gen 4/5, la serie M (versión preliminar) y la serie Fsv2 (versión preliminar). En general, la generación de hardware define los límites de proceso y de memoria, así como otras características que afectan al rendimiento de la carga de trabajo.
 
-La migración desde el modelo basado en DTU al modelo basado en núcleos virtuales es similar a la actualización o degradación de las relaciones de replicación geográfica entre las bases de datos en los niveles de servicio Estándar y Premium. Durante la migración, no tendrá que detener la replicación geográfica, pero tiene que seguir estas reglas de secuenciación:
+### <a name="gen4gen5"></a>Gen4/Gen5
 
-- Al actualizar, debe actualizar primero la base de datos secundaria y luego la principal.
-- Al degradar, invierta el orden; es decir, debe degradar primero la base de datos principal y luego la secundaria.
+- El hardware Gen4/Gen5 proporciona recursos equilibrados de proceso y memoria, y es adecuado para la mayoría de las cargas de trabajo de base de datos que no tienen una memoria mayor, un núcleo virtual superior o unos requisitos de núcleo virtual único más rápidos como los proporcionados por la serie Fsv2 o la serie M.
 
-Cuando se usa la replicación geográfica entre dos grupos elásticos, se recomienda designar un grupo como principal y otro como secundario. En ese caso, cuando migre grupos elásticos debe usar la misma guía de secuenciación. Sin embargo, si tiene grupos elásticos que contienen bases de datos principales y secundarias, trate al grupo con la utilización más alta como principal y siga las reglas de secuenciación como corresponda.  
+Para ver las regiones en las que Gen4/Gen5 está disponible, vea la [disponibilidad de Gen4/Gen5](#gen4gen5-1).
 
-En la tabla siguiente se proporciona una guía para escenarios de migración específicos:
+### <a name="fsv2-seriespreview"></a>Serie Fsv2 (versión preliminar)
 
-|Nivel de servicio actual|Nivel de servicio de destino|Tipo de migración|Acciones del usuario|
-|---|---|---|---|
-|Estándar|Uso general|Lateral|Puede migrar en cualquier orden, pero debe asegurarse de tener un tamaño adecuado de núcleo virtual*|
-|Premium|Crítico para la empresa|Lateral|Puede migrar en cualquier orden, pero debe asegurarse de tener un tamaño adecuado de núcleo virtual*|
-|Estándar|Crítico para la empresa|Actualizar|Debe migrar primero la secundaria|
-|Crítico para la empresa|Estándar|Degradar|Debe migrar primero la principal|
-|Premium|Uso general|Degradar|Debe migrar primero la principal|
-|Uso general|Premium|Actualizar|Debe migrar primero la secundaria|
-|Crítico para la empresa|Uso general|Degradar|Debe migrar primero la principal|
-|Uso general|Crítico para la empresa|Actualizar|Debe migrar primero la secundaria|
-||||
+- La serie Fsv2 es una opción de hardware optimizado para proceso que ofrece una latencia de CPU baja y una velocidad de reloj elevada para las cargas de trabajo más exigentes de CPU.
+- En función de la carga de trabajo, la serie Fsv2 puede ofrecer más rendimiento de CPU por núcleo virtual que Gen5, y el tamaño de 72 núcleos virtuales puede proporcionar más rendimiento de CPU con menos costos que 80 núcleos virtuales en Gen5. 
+- Fsv2 proporciona menos memoria y tempdb por núcleo virtual que otro hardware, por lo que se pueden tomar en consideración las series Gen5 y M para las cargas de trabajo sensibles a esos límites.  
 
-\* Cada 100 DTU en el nivel estándar requieren como mínimo 1 núcleo virtual, y cada 125 DTU en el nivel premium requieren como mínimo 1 núcleo virtual.
+Para las regiones en las que está disponible la serie Fsv2, consulte la [disponibilidad de la serie Fsv2](#fsv2-series).
 
-### <a name="migrate-failover-groups"></a>Migración de grupos de conmutación por error
 
-La migración de grupos de conmutación por error con varias bases de datos requiere la migración individual de las bases de datos principales y secundarias. Durante ese proceso, se aplican las mismas consideraciones y reglas de secuenciación. Después de que las bases de datos se convierten al modelo de compra basado en núcleo virtual, el grupo de conmutación por error permanecerá en vigor con la misma configuración de directiva.
+### <a name="m-seriespreview"></a>Serie M (versión preliminar)
 
-### <a name="create-a-geo-replication-secondary-database"></a>Creación de una base de datos secundaria de replicación geográfica
+- La serie M es una opción de hardware optimizado para memoria para las cargas de trabajo que exigen más memoria y mayores límites de proceso que los proporcionados por Gen5.
+- La serie M proporciona 29 GB por núcleo virtual y 128 núcleos virtuales, lo que aumenta el límite de memoria con respecto a Gen5 por 8x hasta casi 4 TB.
 
-Puede crear una base de datos secundaria de replicación geográfica (geo-secundaria) solo con el mismo nivel de servicio que utilizó para la base de datos principal. Para las bases de datos con una tasa alta de generación de registro, se recomienda crear la replicación geográfica secundaria con el mismo tamaño de proceso que la principal.
+Para habilitar el hardware de la serie M para una suscripción y región, se debe abrir una solicitud de soporte técnico. Si se aprueba la solicitud de soporte técnico, la experiencia de selección y aprovisionamiento de la serie M sigue el mismo patrón que para otras generaciones de hardware. Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series).
 
-Si va a crear una base de datos secundaria de replicación geográfica en el grupo elástico para una única base de datos principal, asegúrese de que el valor `maxVCore` del grupo coincida con el tamaño de proceso de la base de datos principal. Si va a crear una base de datos secundaria de replicación geográfica para una principal en otro grupo elástico, se recomienda que los grupos tengan la misma configuración de `maxVCore`.
 
-### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Uso de una copia de base de datos para convertir una base de datos basada en DTU en una base de datos basada en núcleos virtuales
+### <a name="compute-and-memory-specifications"></a>Especificaciones de memoria y proceso
 
-Puede copiar cualquier base de datos con un tamaño de proceso basado en DTU en una base de datos que tenga un tamaño de proceso basado en núcleos virtuales sin restricciones o secuencias especiales, siempre y cuando el tamaño de proceso de destino admita el tamaño máximo de base de datos de la base de datos de origen. La copia de base de datos crea una instantánea de los datos a partir de la hora de inicio de la operación de copia y no sincroniza los datos entre el origen y el destino.
+
+|Generación de hardware  |Proceso  |Memoria  |
+|:---------|:---------|:---------|
+|Gen4     |- Procesadores Intel E5-2673 v3 (Haswell) 2,4 GHz<br>- Aprovisionamiento de hasta 24 núcleos virtuales (1 núcleo virtual = 1 núcleo físico)  |- 7 GB por núcleo virtual<br>- Aprovisionamiento de hasta 168 GB|
+|Gen5     |**Proceso aprovisionado**<br>- Procesadores Intel E5-2673 v4 (Broadwell) 2,3 GHz<br>- Aprovisionamiento de hasta 80 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)<br><br>**Proceso sin servidor**<br>- Procesadores Intel E5-2673 v4 (Broadwell) 2,3 GHz<br>- Escalado vertical automático de hasta 16 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|**Proceso aprovisionado**<br>- 5,1 GB por núcleo virtual<br>- Aprovisionamiento de hasta 408 GB<br><br>**Proceso sin servidor**<br>- Escalado vertical automático de hasta 24 GB por núcleo virtual<br>- Escalado vertical automático de hasta 48 GB máx.|
+|Serie Fsv2     |- Procesadores Intel Xeon Platinum 8168 (SkyLake)<br>- Presentación de una velocidad de reloj turbo sostenida de todos los núcleos de hasta 3,4 GHz y una velocidad de reloj turbo de un solo núcleo máxima de 3,7 GHz.<br>- Aprovisionamiento de hasta 72 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|1,9 GB por núcleo virtual<br>- Aprovisionamiento de 136 GB|
+|Serie M     |- Procesadores Intel Xeon E7-8890 v3 de 2,5 GHz<br>- Aprovisionamiento de 128 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|29 GB por núcleo virtual<br>- Aprovisionamiento de 3,7 TB|
+
+
+Para obtener más información sobre los límites de recursos, vea [Límites de recursos para bases de datos únicas (núcleo virtual)](sql-database-vcore-resource-limits-single-databases.md) o [Límites de recursos para grupos elásticos (núcleo virtual)](sql-database-vcore-resource-limits-elastic-pools.md).
+
+### <a name="selecting-a-hardware-generation"></a>Selección de una generación de hardware
+
+En Azure Portal, puede seleccionar la generación de hardware para una base de datos o grupo SQL en el momento de la creación o puede cambiar la generación de hardware de una base de datos o grupo SQL existente.
+
+**Seleccionar una generación de hardware al crear una base de datos o un grupo SQL**
+
+Para obtener información detallada, consulte [Creación de una base de datos SQL](sql-database-single-database-get-started.md).
+
+En la pestaña **Básico**, seleccione el vínculo **Configurar base de datos** en la sección **Compute + storage** (Proceso + almacenamiento) y, a continuación, seleccione el vínculo **Cambiar configuración**:
+
+  ![configurar base de datos](media/sql-database-service-tiers-vcore/configure-sql-database.png)
+
+Seleccione la generación de hardware deseada:
+
+  ![seleccionar hardware](media/sql-database-service-tiers-vcore/select-hardware.png)
+
+
+**Cambiar la generación de hardware de una base de datos o grupo SQL existente**
+
+En el caso de una base de datos, en la página de información general, seleccione el vínculo **Plan de tarifa**:
+
+  ![cambiar hardware](media/sql-database-service-tiers-vcore/change-hardware.png)
+
+En la página de información general, seleccione **Configurar**.
+
+Siga los pasos para cambiar la configuración y seleccione la generación de hardware como se describe en los pasos anteriores.
+
+### <a name="hardware-availability"></a>Disponibilidad de hardware
+
+#### <a name="gen4gen5"></a>Gen4/Gen5
+
+Las nuevas bases de datos de Gen4 ya no se admiten en las regiones Este de Australia o Sur de Brasil. 
+
+Gen5 está disponible en la mayoría de las regiones de todo el mundo.
+
+#### <a name="fsv2-series"></a>Serie Fsv2
+
+La serie Fsv2 está disponible en las siguientes regiones: Centro de Australia, Centro de Australia 2, Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Asia Oriental, Asia Pacífico, Centro de Francia, Centro de la India, India occidental, Centro de Corea del Sur, Sur de Corea del Sur, Norte de Europa, Norte de Sudáfrica, Asia Suroriental, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de Europa 2.
+
+
+#### <a name="m-series"></a>Serie M
+
+La serie M está disponible en las siguientes regiones: Este de EE. UU., Norte de Europa, Oeste de Europa, Oeste de EE. UU. 2.
+La serie M también puede tener una disponibilidad limitada en otras regiones. Puede solicitar una región distinta de la que se muestra aquí, pero puede que no sea posible la ejecución en otra región.
+
+Para habilitar la disponibilidad de la serie M en una suscripción, debe solicitarse el acceso mediante la [presentación de una nueva solicitud de soporte técnico](#create-a-support-request-to-enable-m-series).
+
+
+##### <a name="create-a-support-request-to-enable-m-series"></a>Cree una solicitud de soporte técnico para habilitar la serie M: 
+
+1. Seleccione **Ayuda y soporte técnico** en el portal.
+2. Seleccione **Nueva solicitud de soporte técnico**.
+
+En la página **Datos básicos**, proporcione los valores siguientes:
+
+1. En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
+2. En **Suscripción**, seleccione la suscripción para habilitar la serie M.
+3. En **Tipo de cuota**, seleccione **Base de datos SQL**.
+4. Seleccione **Siguiente** para ir a la página **Detalles**.
+
+En la página **Detalles**, proporcione lo siguiente:
+
+5. En la sección **Detalles del problema**, seleccione el vínculo **Proporcionar detalles**. 
+6. En **Tipo de cuota de base de datos SQL**, seleccione **Serie M**.
+7. En **Región**, seleccione la región para habilitar la serie M.
+    Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series).
+
+Normalmente, las solicitudes de soporte técnico aprobadas se cumplimentan en un plazo de 5 días laborables.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Para crear una base de datos SQL, consulte la [creación de una base de datos SQL mediante Azure Portal](sql-database-single-database-get-started.md).
 - Para más información sobre las opciones de tamaños de proceso y de almacenamiento específicas que hay disponibles para las bases de datos únicas, consulte [Límites de recursos basados en núcleos virtuales de SQL Database para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md).
-- Para más información sobre las opciones de tamaño de proceso y de almacenamiento específicas que hay disponibles para los grupos elásticos, consulte [Límites de recursos basados en núcleos virtuales de Azure SQL Database para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Para más información sobre las opciones de tamaño de proceso y de almacenamiento específicas que hay disponibles para los grupos elásticos, consulte [Límites de recursos basados en núcleos virtuales de Azure SQL Database para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
+- Para obtener información detallada acerca de los precios, consulte la [página de precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).

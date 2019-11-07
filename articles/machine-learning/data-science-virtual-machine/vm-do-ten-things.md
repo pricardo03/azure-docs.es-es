@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6af9f2c80915745f995144c24ae1649fb02a31ae
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 75a685dc90db9133ee9bc5d52d046246270ea32a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70192276"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497614"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Diez cosas que puede hacer en Windows Data Science Virtual Machine
 
@@ -85,12 +85,7 @@ Cuando esté en el cuaderno, podrá explorar los datos, así como compilar y pro
 ## <a name="train-and-deploy-models-by-using-azure-machine-learning"></a>Entrenamiento e implementación de modelos mediante Azure Machine Learning
 Una vez compilado y validado el modelo, el paso siguiente suele ser implementarlo en producción. Con este paso, las aplicaciones cliente pueden invocar las predicciones del modelo en tiempo real o en el modo por lotes. Azure Machine Learning proporciona un mecanismo para hacer que un modelo creado en R o Python esté operativo.
 
-Al poner en marcha el modelo en Azure Machine Learning, se expone un servicio web que permite a los clientes realizar llamadas REST que pasan parámetros de entrada y reciben predicciones del modelo como salidas.   
-
-> [!NOTE]
-> Si aún no se ha registrado en Azure Machine Learning, puede obtener un área de trabajo gratuita o estándar si accede a la página principal de [Azure Machine Learning Studio](https://studio.azureml.net/) y selecciona **Comenzar**.   
-> 
-> 
+Al poner en marcha el modelo en Azure Machine Learning, se expone un servicio web que permite a los clientes realizar llamadas REST que pasan parámetros de entrada y reciben predicciones del modelo como salidas.
 
 ### <a name="build-and-operationalize-python-models"></a>Compilación y puesta en marcha de modelos de Python
 Este es un fragmento de código desarrollado en un cuaderno de Jupyter Notebook de Python que compila un modelo simple mediante la biblioteca Scikit-learn:
@@ -809,9 +804,9 @@ pd.read_sql(queryString, connection)
 
 ![Primeras filas de datos de la tabla](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-#### <a name="read-data-from-hdi-by-using-machine-learning-reader-module"></a>Lectura de datos de HDI mediante Machine Learning: módulo lector
+#### <a name="read-data-from-hdi-by-using-azure-machine-learning-studio-classic-reader-module"></a>Lectura de datos de HDI mediante Azure Machine Learning Studio (clásico): módulo lector
 
-También puede usar el módulo lector de Machine Learning Studio para acceder a la base de datos de un clúster de Hadoop. Indique las credenciales de los clústeres de HDI y de la cuenta de Azure Storage para poder crear modelos de Machine Learning con una base de datos en clústeres de HDI.
+También puede usar el módulo de lector de Azure Machine Learning Studio (clásico) para acceder a la base de datos de un clúster de Hadoop. Indique las credenciales de los clústeres de HDI y de la cuenta de Azure Storage para poder crear modelos de Machine Learning con una base de datos en clústeres de HDI.
 
 ![Propiedades del módulo lector](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
 

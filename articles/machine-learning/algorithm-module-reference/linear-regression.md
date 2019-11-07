@@ -1,23 +1,23 @@
 ---
 title: 'Regresión lineal: referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo de regresión lineal en Azure Machine Learning Service para crear un modelo de regresión lineal para usarlo en una canalización.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo de regresión lineal en Azure Machine Learning para crear un modelo de regresión lineal para usarlo en una canalización.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 9c1dc34743d3fe65d50559d1b75aab1a0530d24c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 688bf923c07d9417b002b7cab6e3c0a0c8d20dae
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693712"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497754"
 ---
 # <a name="linear-regression-module"></a>Módulo de regresión lineal
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para crear un modelo de regresión lineal para usarlo en una canalización.  La regresión lineal intenta establecer una relación lineal entre una o más variables independientes y un resultado numérico o la variable dependiente. 
 
@@ -63,7 +63,7 @@ Este módulo admite dos métodos de ajuste de un modelo de regresión con distin
 
 ## <a name="bkmk_OrdinaryLeastSquares"></a> Creación de un modelo de regresión mediante mínimos cuadrados
 
-1. Agregue el módulo **Linear Regression Model** (Modelo de regresión lineal) a la canalización en la interfaz.
+1. Agregue el módulo **Modelo de regresión lineal** a la canalización del diseñador.
 
     Puede encontrar este módulo en la categoría **Machine Learning**. Expanda **Initialize Model** (Inicializar modelo) y **Regression** (Regresión) y luego arrastre el módulo **Linear Regression Model** (Modelo de regresión lineal) a la canalización.
 
@@ -97,7 +97,7 @@ Una vez completado el entrenamiento:
 
 ## <a name="bkmk_GradientDescent"></a> Creación de un modelo de regresión con gradiente descendiente en línea
 
-1. Agregue el módulo **Linear Regression Model** (Modelo de regresión lineal) a la canalización en la interfaz.
+1. Agregue el módulo **Modelo de regresión lineal** a la canalización del diseñador.
 
     Puede encontrar este módulo en la categoría **Machine Learning**. Expanda **Initialize Model** (Inicializar modelo) y **Regression** (Regresión) y luego arrastre el módulo **Linear Regression Model** (Modelo de regresión lineal) a la canalización.
 
@@ -143,4 +143,4 @@ Una vez completado el entrenamiento:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

@@ -1,24 +1,24 @@
 ---
-title: 'Supresión de filas duplicadas: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Supresión de filas duplicadas en Azure Machine Learning Service para eliminar posibles duplicados de un conjunto de datos.
+title: 'Supresión de filas duplicadas: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo Supresión de filas duplicadas en Azure Machine Learning para eliminar posibles duplicados de un conjunto de datos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 8b3f73c56d85eecd50633085eca0e632abaa6b4c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: a0faba895c5717d061bacee2ce724c20464f8150
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693677"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497699"
 ---
 # <a name="remove-duplicate-rows-module"></a>Módulo Supresión de filas duplicadas
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para eliminar posibles duplicados de un conjunto de datos.
 
@@ -78,4 +78,4 @@ Al ejecutar el módulo, este crea un conjunto de datos candidato y devuelve un c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

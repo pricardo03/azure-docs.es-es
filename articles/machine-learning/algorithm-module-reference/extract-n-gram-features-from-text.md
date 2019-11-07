@@ -1,7 +1,7 @@
 ---
 title: Referencia del módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto)
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo de extracción de n-gramas de Azure Machine Learning Service para caracterizar datos de texto.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo de extracción de n-gramas de Azure Machine Learning para caracterizar datos de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 0803627b8d2e9fb3db2c7c96d7dd74e9b275f5d8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 71c1afd294b880f68849b283ea1a4b058d744801
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171006"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497856"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Referencia del módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto)
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service. Use el módulo Extract N-Gram Features from Text (Extracción de características de n-gramas a partir de texto) para *caracterizar* datos de texto no estructurados. 
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar). Use el módulo Extract N-Gram Features from Text (Extracción de características de n-gramas a partir de texto) para *caracterizar* datos de texto no estructurados. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configuración del módulo Extract N-Gram Features from Text (Extracción de características de n-gramas a partir de texto)
 
@@ -32,9 +32,9 @@ El módulo admite los siguientes escenarios de uso de un diccionario de n-gramas
 
 ### <a name="create-a-new-n-gram-dictionary"></a>Creación de un nuevo diccionario de n-gramas
 
-1.  Agregue el módulo Extract N-Gram Features from Text al experimento y conecte el conjunto de datos que contiene el texto que desea procesar.
+1.  Agregue el módulo de extracción de características de n-gramas del texto al experimento y conecte el conjunto de datos que contiene el texto que desea procesar.
 
-1.  Use Text column (Columna de texto) para elegir una columna del tipo string que contiene el texto que desea extraer. Dado que los resultados son detallados, solo se puede procesar una única columna cada vez.
+1.  Use **Columna de texto** para elegir una columna de tipo cadena que contiene el texto que desea extraer. Dado que los resultados son detallados, solo se puede procesar una única columna cada vez.
 
 1. Establezca **Vocabulary mode** (Modo Vocabulario) en **Create** (Crear) para indicar que va a crear una nueva lista de características de n-gramas. 
 
@@ -73,15 +73,15 @@ El módulo admite los siguientes escenarios de uso de un diccionario de n-gramas
 
 1. Seleccione la opción **Normalize n-gram feature vectors** (Normalizar vectores de características de n-gramas) para normalizar los vectores de características. Si esta opción está habilitada, cada vector de características de n-grama se divide por su norma L2.
 
-1. Ejecute el experimento.
+1. Ejecución de la canalización
 
 ### <a name="use-an-existing-n-gram-dictionary"></a>Uso de un diccionario de n-gramas existente
 
-1.  Agregue el módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto) al experimento y conecte el conjunto de datos que contiene el texto que desea procesar al puerto **Dataset** (Conjunto de datos).
+1.  Agregue el módulo de extracción de características de n-gramas del texto al experimento y conecte el conjunto de datos que contiene el texto que desea procesar al puerto **Conjunto de datos**.
 
 1.  Use **Text column** (Columna de texto) para seleccionar la columna que contiene el texto que desea caracterizar. De forma predeterminada, el módulo selecciona todas las columnas de tipo **string**. Para obtener los mejores resultados, procese una sola columna cada vez.
 
-1. Agregue el conjunto de datos guardado que contiene un diccionario de n-gramas que se generó previamente y conéctelo al puerto Input vocabulary (Vocabulario de entrada). También puede conectar la salida **Result vocabulary** (Vocabulario resultante) de una instancia de nivel superior del módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto).
+1. Agregue el conjunto de datos guardado que contiene un diccionario de n-gramas que se generó previamente y conéctelo al puerto **Input vocabulary** (Vocabulario de entrada). También puede conectar la salida **Result vocabulary** (Vocabulario resultante) de una instancia de nivel superior del módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto).
 
 1. En **Vocabulary mode** (Modo Vocabulario), seleccione la opción de actualización **ReadOnly** de la lista desplegable.
 
@@ -92,17 +92,17 @@ El módulo admite los siguientes escenarios de uso de un diccionario de n-gramas
 
 1.  Para todas las demás opciones, consulte las descripciones de las propiedades de la [sección anterior](#create-a-new-n-gram-dictionary).
 
-1.  Ejecute el experimento.
+1.  Ejecución de la canalización
 
 ### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Puntuación o publicación de un modelo que usa n-gramas
 
 1.  Copie el módulo **Extract N-Gram Features from Text** del flujo de datos de entrenamiento al de puntuación.
 
-1.  Conecte la salida Result Vocabulary (Vocabulario resultante) del flujo de datos de entrenamiento a Input Vocabulary (Vocabulario de entrada) en el flujo de datos de puntuación.
+1.  Conecte la salida **Result Vocabulary** (Vocabulario resultante) del flujo de datos de entrenamiento a **Input Vocabulary** (Vocabulario de entrada) en el flujo de datos de puntuación.
 
 1.  En el flujo de trabajo de puntuación, modifique el módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto) y establezca el parámetro **Vocabulary mode** (Modo vocabulario) en **ReadOnly**. Deje todo lo demás igual.
 
-1.  Para publicar el experimento, guarde **Result Vocabulary** (Vocabulario resultante) como un conjunto de datos.
+1.  Para publicar la canalización, guarde **Result Vocabulary** (Vocabulario resultante) como un conjunto de datos.
 
 1.  A continuación, conecte el conjunto de datos guardado al módulo Extract N-Gram Features from Text (Extracción de características de n-gramas del texto) en el gráfico de puntuación.
 
@@ -137,4 +137,4 @@ Puede actualizar manualmente este conjunto de datos, pero podría cometer errore
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

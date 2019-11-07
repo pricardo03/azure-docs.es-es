@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: a0c86f9ad134e9b640d33d1a391c5387af9f9afd
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 40797c1b46bc88ecdaab6e28ef64f05a73e3ba8d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965659"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495911"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -151,7 +151,7 @@ En el modelo de implementación de Azure Resource Manager, una dirección IP pri
 
 ### <a name="allocation-method"></a>Método de asignación
 
-Se asigna una dirección IP privada del intervalo de direcciones de la subred de la red virtual en la que se implementa un recurso. Azure reserva las cuatro primeras direcciones en cada intervalo de direcciones de subred, de modo que las direcciones no se pueden asignar a los recursos. Por ejemplo, si el intervalo de direcciones de la subred es 10.0.0.0/16, las direcciones 10.0.0.0 a 10.0.0.3 no se pueden asignar a los recursos. Las direcciones IP dentro del intervalo de direcciones de la subred solo pueden asignarse a un recurso a la vez. 
+Se asigna una dirección IP privada del intervalo de direcciones de la subred de la red virtual en la que se implementa un recurso. Azure reserva las cuatro primeras direcciones en cada intervalo de direcciones de subred, de modo que las direcciones no se pueden asignar a los recursos. Por ejemplo, si el intervalo de direcciones de la subred es 10.0.0.0/16, las direcciones 10.0.0.0-10.0.0.3 y 10.0.255.255 no se pueden asignar a los recursos. Las direcciones IP dentro del intervalo de direcciones de la subred solo pueden asignarse a un recurso a la vez. 
 
 Hay dos métodos de asignación de direcciones IP privadas:
 

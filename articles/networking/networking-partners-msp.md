@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: bf62e62e1235c7a37c092e79df57ca518e07ff4b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 680d4c90078131b44e39e3f2b3d526ca53b34a95
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828201"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496752"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Acerca de los asociados de MSP de redes de Azure
 
@@ -34,27 +34,41 @@ Use los vínculos de esta sección para obtener más información acerca los ser
 
 [BT](https://www.globalservices.bt.com/en/aboutus/news-press/bt-named-one-of-the-first-global-managed-service-providers-for-a-new-microsoft-azure-networking-virtual-wan-services/)
 
+[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)
+
 [Dimension Data](https://www.dimensiondata.com/)
 
 [Equinix](https://www.equinix.com/)
 
-[InterCloud](https://www.intercloud.com/partners/cloud-service-providers/get-azure-expressroute)
+[InterCloud](https://intercloud.com/partners/microsoft-azure/)
 
 [IIJ](https://www.iij.ad.jp/biz/cloudex/)
 
-[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
+[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/
 
 [ixreach](https://www.ixreach.com/)
 
 [KINX](https://www.kinx.net/service/cloud/?lang=en)
 
+[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/microsoft-azure.html)
+
+[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)
+
 [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
+
+[OmniClouds](https://omniclouds.com/services/)
 
 [Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
 [Orixcom]( https://www.orixcom.com/cloud-solutions/)
 
+[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
+
 [Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
+
+[TCTS](https://www.tatacommunications-ts.com/index.php)
+
+[Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
 
 [Vandis](https://www.vandis.com/microsoft-azure-practice/)
 

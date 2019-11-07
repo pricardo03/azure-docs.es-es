@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/12/2019
+ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756031"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497522"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -28,7 +28,7 @@ Obtenga información sobre la arquitectura, los conceptos y el flujo de trabajo 
 Normalmente, el flujo de trabajo del modelo de Machine Learning sigue estos pasos:
 
 1. **Entrenar**
-    + Desarrolle scripts de entrenamiento de aprendizaje automático en **Python** o con la interfaz visual.
+    + Desarrolle scripts de entrenamiento de aprendizaje automático en **Python** o con el diseñador visual.
     + Se crea y configura un **destino de proceso**.
     + **Se envían los scripts** al destino de proceso configurado para ejecutarse en ese entorno. Durante el entrenamiento, los scripts pueden leer o escribir en el **almacén de datos**. Y los registros de ejecución se guardan como **ejecuciones** en el **área de trabajo**, agrupados en **experimentos**.
 
@@ -45,23 +45,26 @@ Normalmente, el flujo de trabajo del modelo de Machine Learning sigue estos paso
 Utilice estas herramientas para Azure Machine Learning:
 
 +  Interactúe con el servicio en cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ Interactúe con el servicio en cualquier entorno de R con el [SDK de Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Automatice las actividades de aprendizaje automático con la [CLI de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Escribir código en Visual Studio Code con la [extensión VS Code para Azure Machine Learning](how-to-vscode-tools.md)
-+ Use la [interfaz visual (versión preliminar) de Azure Machine Learning](ui-concept-visual-interface.md) para realizar los pasos del flujo de trabajo sin escribir código.
++ Use el [diseñador de Azure Machine Learning (versión preliminar)](concept-designer.md) para realizar los pasos del flujo de trabajo sin escribir código.
+
 
 > [!NOTE]
 > Aunque en este artículo se definen los términos y conceptos que usa Azure Machine Learning, no se definen los términos y conceptos de la plataforma Azure. Para obtener más información sobre la terminología de la plataforma Azure, consulte el [glosario de Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="glossary"></a>Glosario
 + <a href="#activities">Actividad</a>
++ <a href="#compute-instance">Instancia de proceso</a>
 + <a href="#compute-targets">Destinos de proceso</a>
 + <a href="#datasets-and-datastores">Conjunto de datos y almacenes de datos</a>
-+ <a href="#deployment">Implementación</a>
++ <a href="#endpoints">Extremos</a>
 + <a href="#environments">Entornos</a>
 + [Estimadores](#estimators)
 + <a href="#experiments">Experimentos</a>
 + <a href="#github-tracking-and-integration">Seguimiento de GIT</a>
-+ <a href="#iot-module-deployments">Módulos de IoT</a>
++ <a href="#iot-module-endpoints">Módulos de IoT</a>
 + <a href="#logging">Logging</a>
 + <a href="#ml-pipelines">Canalizaciones de Machine Learning</a>
 + <a href="#models">Modelos</a>
@@ -69,7 +72,7 @@ Utilice estas herramientas para Azure Machine Learning:
 + <a href="#run-configurations">Configuración de ejecución</a>
 + <a href="#snapshots">Instantánea</a>
 + <a href="#training-scripts">Script de entrenamiento</a>
-+ <a href="#web-service-deployments">Servicios web</a>
++ <a href="#web-service-endpoint">Servicios web</a>
 + <a href="#workspaces">Área de trabajo</a>
 
 ### <a name="activities"></a>Actividades
@@ -81,9 +84,19 @@ Una actividad representa una operación de larga ejecución. Las operaciones sig
 
 Las actividades pueden proporcionar notificaciones a través del SDK o la interfaz de usuario web para que pueda supervisar fácilmente el progreso de estas operaciones.
 
+### <a name="compute-instance"></a>Instancia de proceso
+
+> [!NOTE]
+> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro y norte de EE. UU.** o **Sur de Reino Unido**.
+>Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar. 
+
+Una **instancia de proceso de Azure Machine Learning** (anteriormente máquina virtual de cuadernos) es una estación de trabajo basada en la nube totalmente administrada que incluye varias herramientas y entornos instalados para el aprendizaje automático. Las instancias de proceso se pueden usar como destino de proceso para los trabajos de entrenamiento e inferencia. En el caso de tareas de gran tamaño, los [clústeres de procesos de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con las funcionalidades de escalado de varios nodos es una mejor opción de destino de proceso.
+
+Más información sobre las [instancias de procesos](concept-compute-instance.md).
+
 ### <a name="compute-targets"></a>Destinos de proceso
 
-Un [destino de proceso](concept-compute-target.md) le permite especificar el recurso de proceso en el que se ejecuta el script de entrenamiento o se hospeda la implementación del servicio web. Esta ubicación puede ser su equipo local o un recurso de proceso en la nube. Los destinos de proceso facilitan el cambio entorno de proceso sin cambiar el código.
+Un [destino de proceso](concept-compute-target.md) le permite especificar el recurso de proceso en el que se ejecuta el script de entrenamiento o se hospeda la implementación del servicio web. Esta ubicación puede ser su equipo local o un recurso de proceso en la nube.
 
 Obtenga más información sobre los [destinos de proceso disponibles para el entrenamiento y la implementación](concept-compute-target.md).
 
@@ -97,23 +110,23 @@ Para obtener más información, consulte [Creación y registro de los conjuntos 
 
 Un **almacén de datos** es una abstracción de almacenamiento en una cuenta de Azure Storage. El almacén de datos puede usar un contenedor de blobs de Azure o un recurso compartido de archivos de Azure como almacenamiento back-end. Cada área de trabajo tiene un almacén de datos predeterminado en el que puede registrar almacenes de datos adicionales. Use la API del SDK de Python o la CLI de Azure Machine Learning para almacenar y recuperar archivos desde el almacén de datos.
 
-### <a name="deployment"></a>Implementación
+### <a name="endpoints"></a>Puntos de conexión
 
-Una implementación es una instancia del modelo en un servicio web que puede hospedarse en la nube o un módulo de IoT para las implementaciones de dispositivos integrados.
+Un punto de conexión es la creación de una instancia del modelo en un servicio web que puede hospedarse en la nube o un módulo de IoT para las implementaciones de dispositivos integrados.
 
-#### <a name="web-service-deployments"></a>Implementaciones del servicio web
+#### <a name="web-service-endpoint"></a>Punto de conexión de servicio web
 
-Un servicio web implementado puede usar Azure Container Instances, Azure Kubernetes Service o FPGA. El servicio se crea a partir del modelo, el script y los archivos asociados. Estos están encapsulados en una imagen, que proporciona el entorno de tiempo de ejecución para el servicio web. La imagen tiene un punto de conexión HTTP de carga equilibrada que recibe solicitudes de puntuación que se envían al servicio web.
+Al implementar un modelo como un servicio web, el punto de conexión se puede implementar en Azure Container Instances, Azure Kubernetes Service o FPGA. El servicio se crea a partir del modelo, el script y los archivos asociados. Estos se colocan en una imagen de contenedor base que contiene el entorno de ejecución para el modelo. La imagen tiene un punto de conexión HTTP de carga equilibrada que recibe solicitudes de puntuación que se envían al servicio web.
 
-Azure le ayuda a supervisar la implementación del servicio web mediante la recopilación de telemetría de Application Insight o telemetría de modelos, si es que ha optado por habilitar esta característica. Solo usted puede obtener acceso a los datos de telemetría, que se almacenan en las instancias de su cuenta de almacenamiento y Application Insights.
+Azure le ayuda a supervisar el servicio web mediante la recopilación de telemetría de Application Insight o telemetría de modelos, si es que ha optado por habilitar esta característica. Solo usted puede obtener acceso a los datos de telemetría, que se almacenan en las instancias de su cuenta de almacenamiento y Application Insights.
 
 Si ha habilitado el ajuste automático de escala, Azure ajustará automáticamente la escala de su implementación.
 
 Para obtener un ejemplo de implementación de un modelo como servicio web, consulte [Implementación de un modelo de clasificación de imágenes en Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
-#### <a name="iot-module-deployments"></a>Implementaciones de módulo de IoT
+#### <a name="iot-module-endpoints"></a>Puntos de conexión del módulo de IoT
 
-Un módulo de IoT implementado es un contenedor de Docker que incluye el modelo y el script asociado o la aplicación y las dependencias adicionales. Estos módulos se implementan con Azure IoT Edge en dispositivos Edge.
+Un punto de conexión del módulo de IoT implementado es un contenedor de Docker que incluye el modelo y el script asociado o la aplicación y las dependencias adicionales. Estos módulos se implementan con Azure IoT Edge en dispositivos Edge.
 
 Si ha habilitado la supervisión, Azure recopila datos de telemetría desde el modelo que está en el módulo de Azure IoT Edge. Solo usted puede obtener acceso a los datos de telemetría, que se almacenan en las instancias de su cuenta de almacenamiento.
 
@@ -188,7 +201,6 @@ No se puede eliminar un modelo registrado que esté usando una implementación a
 
 Para obtener un ejemplo de registro de un modelo, consulte [Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-
 ### <a name="runs"></a>Ejecuciones
 
 Una ejecución hace referencia a una única ejecución de un script de entrenamiento. Azure Machine Learning registra todas las ejecuciones y almacena la siguiente información:
@@ -223,7 +235,6 @@ Si quiere ver un ejemplo, consulte [Tutorial: Entrenamiento de un modelo de clas
 ### <a name="workspaces"></a>Áreas de trabajo
 
 [El área de trabajo](concept-workspace.md) es el recurso de nivel superior de Azure Machine Learning. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree al usar Azure Machine Learning. Puede compartir un área de trabajo con otros usuarios. Para una descripción detallada de las áreas de trabajo, consulte [¿Qué es un área de trabajo de Azure Machine Learning?](concept-workspace.md)
-
 
 ### <a name="next-steps"></a>Pasos siguientes
 

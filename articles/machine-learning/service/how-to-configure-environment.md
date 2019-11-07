@@ -1,7 +1,7 @@
 ---
 title: Configurar un entorno de desarrollo de Python
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo configurar un entorno de desarrollo al trabajar con Azure Machine Learning. En este artículo aprenderá a usar entornos de Conda, crear archivos de configuración y configurar su propio servidor de cuadernos basado en la nube, Jupyter Notebook, Azure Databricks, IDE, editores de código y Data Science Virtual Machine.
+description: Obtenga información sobre cómo configurar un entorno de desarrollo para Azure Machine Learning. Use entornos Conda para crear archivos de configuración y configurar su propio servidor de cuadernos basado en la nube, Jupyter Notebook, Azure Databricks, IDE, editores de código y Data Science Virtual Machine.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -9,16 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5080ec4db46f717a9e9ecdcdfbea42fbe43c349d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: eae1ac9c4e4b5a5a8927aa45e898c6f1c47a052d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598425"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497294"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo obtendrá información acerca de cómo configurar un entorno de desarrollo para trabajar con Azure Machine Learning. Azure Machine Learning es independiente de la plataforma. El único requisito imprescindible para el entorno de desarrollo es Python 3. También se recomienda un entorno aislado, como Anaconda o Virtualenv.
 
@@ -26,21 +27,21 @@ En la tabla siguiente se muestra cada entorno de desarrollo que se trata en este
 
 | Entorno | Ventajas | Desventajas |
 | --- | --- | --- |
-| [Máquina virtual de cuadernos basada en la nube](#notebookvm) | Manera más fácil de empezar. El SDK completo ya está instalado en la máquina virtual del área de trabajo y los tutoriales de cuaderno están clonados previamente y listos para ejecutarse. | Falta de control sobre el entorno de desarrollo y las dependencias. Costo adicional por la máquina virtual Linux (la máquina virtual se puede detener cuando no se use para evitar cargos). Consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [Instancia de proceso de Azure Machine Learning basado en la nube](#compute-instance) | Manera más fácil de empezar. El SDK completo ya está instalado en la máquina virtual del área de trabajo y los tutoriales de cuaderno están clonados previamente y listos para ejecutarse. | Falta de control sobre el entorno de desarrollo y las dependencias. Costo adicional por la máquina virtual Linux (la máquina virtual se puede detener cuando no se use para evitar cargos). Consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Entorno local](#local) | Control total del entorno de desarrollo y las dependencias. Funciona con cualquier herramienta de compilación, entorno o IDE de su elección. | Tarda más tiempo en comenzar. Se deben instalar los paquetes de SDK necesarios y también debe instalarse un entorno si aún no tiene uno. |
 | [Azure Databricks](#aml-databricks) | Perfecto para ejecutar flujos de trabajo de aprendizaje automático intensivos y a gran escala en la plataforma escalable de Apache Spark. | Excesivo para aprendizaje automático experimental o experimentos y flujos de trabajo a pequeña escala. Costo adicional por Azure Databricks. Consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/databricks/). |
-| [Data Science Virtual Machine (DSVM)](#dsvm) | De forma parecida a la máquina virtual de cuadernos basada en la nube (con Python y el SDK preinstalados), pero con herramientas adicionales de ciencia de datos y aprendizaje automático conocidas instaladas previamente. Fácil de escalar y combinar con otras herramientas y flujos de trabajo personalizados. | Una experiencia de inicio más lenta en comparación con la máquina virtual de cuadernos basada en la nube. |
+| [Data Science Virtual Machine (DSVM)](#dsvm) | De forma parecida a la instancia de proceso basada en la nube (con Python y el SDK preinstalados), pero con herramientas adicionales de ciencia de datos y aprendizaje automático conocidas instaladas previamente. Fácil de escalar y combinar con otras herramientas y flujos de trabajo personalizados. | Una experiencia de inicio más lenta en comparación con la instancia de proceso basada en la nube. |
 
 
 En este artículo también se proporcionan sugerencias de uso adicionales para las siguientes herramientas:
 
 * [Jupyter Notebooks](#jupyter): si ya usa instancias de Jupyter Notebook, el SDK incluye algunos elementos adicionales que debe instalar.
 
-* [Visual Studio Code](#vscode): Si usa Visual Studio Code, la [extensión Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) incluye un amplio soporte de lenguaje para Python, así como características para que trabajar con Azure Machine Learning Service sea mucho más cómodo y productivo.
+* [Visual Studio Code](#vscode): Si usa Visual Studio Code, la [extensión de Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) incluye un amplio soporte de lenguaje para Python, así como características para que trabajar con Azure Machine Learning sea mucho más cómodo y productivo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md). Un área de trabajo es todo lo que necesita para empezar a trabajar con su propio [servidor de cuadernos basado en la nube](#notebookvm), una instancia de [DSVM](#dsvm) o [Azure Databricks](#aml-databricks).
+Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md). Un área de trabajo es todo lo que necesita para empezar a trabajar con su propio [servidor de cuadernos basado en la nube](#compute-instance), una instancia de [DSVM](#dsvm) o [Azure Databricks](#aml-databricks).
 
 Para instalar el entorno de SDK para el [equipo local](#local), el [servidor de Jupyter Notebook](#jupyter) o [Visual Studio Code](#vscode), también necesita:
 
@@ -53,30 +54,20 @@ Para instalar el entorno de SDK para el [equipo local](#local), el [servidor de 
 
 - En Windows, se necesita el símbolo del sistema o la solicitud de Anaconda (que se instala con Anaconda y Miniconda).
 
-## <a id="notebookvm"></a>Su propia máquina virtual de cuadernos basada en la nube
+## <a id="compute-instance"></a>Su propia instancia de proceso basada en la nube
 
-La máquina virtual de cuadernos (versión preliminar) es una estación de trabajo de Azure segura y basada en la nube que proporciona a los científicos de datos un servidor de Jupyter Notebook, JupyterLab y un entorno de aprendizaje automático completamente preparado.
+La [instancia de proceso](concept-compute-instance.md) de Azure Machine Learning es una estación de trabajo de Azure segura y basada en la nube que proporciona a los científicos de datos un servidor de Jupyter Notebook, JupyterLab y un entorno de aprendizaje automático completamente preparado.
 
-La máquina virtual de cuadernos se distingue por ser un elemento:
+> [!NOTE]
+> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro y norte de EE. UU.** o **Sur de Reino Unido**.
+>Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar.
 
-+ **Seguro**. Puesto que el acceso a la máquina virtual y los cuadernos está protegido con HTTPS y Azure Active Directory de forma predeterminada, los profesionales de TI pueden aplicar fácilmente el inicio de sesión único y otras características de seguridad, como la autenticación multifactor.
-
-+ **Preconfigurado**. Este entorno de aprendizaje automático de Python completamente preparado tiene su origen en la popular Data Science VM de IaaS e incluye lo siguiente:
-  + SDK de Python de Azure ML (versión más reciente)
-  + Configuración automática para que funcione con el área de trabajo
-  + Servidor de Jupyter Notebook
-  + IDE de JupyterLab Notebook
-  + Controladores de GPU preconfigurados
-  + Selección de marcos de aprendizaje profundo
+No hay nada que instalar o configurar para una instancia de proceso.  Cree una en cualquier momento desde el área de trabajo de Azure Machine Learning. Basta con que proporcione un nombre y especifique un tipo de máquina virtual de Azure. Pruébelo ahora con este [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
 
 
-  Si le interesa el código, la máquina virtual incluye tutoriales y ejemplos que le ayudarán a obtener información sobre el uso de Azure Machine Learning. Los cuadernos de ejemplo se almacenan en la cuenta de Azure Blob Storage del área de trabajo, de modo que pueden compartirse entre máquinas virtuales. Cuando se ejecutan, también tienen acceso a los almacenes de datos y recursos de proceso del área de trabajo.
+Más información sobre las [instancias de procesos](concept-compute-instance.md).
 
-+ **Configuración simple**. Cree una en cualquier momento desde el área de trabajo de Azure Machine Learning. Basta con que proporcione un nombre y especifique un tipo de máquina virtual de Azure. Pruébelo ahora con este [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
-
-+ **Personalizable**. Aunque es una oferta de máquina virtual administrada y segura, usted conservará el acceso completo a las capacidades de hardware y podrá personalizarlo todo lo que quiera. Por ejemplo, puede crear rápidamente una máquina virtual con la tecnología NVidia V100 más reciente para llevar a cabo la depuración paso a paso de la novedosa arquitectura de red neuronal.
-
-[Detenga la máquina virtual de cuadernos](tutorial-1st-experiment-sdk-train.md#clean-up-resources) para dejar de incurrir en cargos por su uso.
+Para detener los cargos de proceso generados, [detenga la instancia de proceso](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -305,7 +296,7 @@ Use estos valores de configuración:
 | Configuración |Se aplica a| Valor |
 |----|---|---|
 | Nombre del clúster |Siempre| nombredelclúster |
-| Entorno de tiempo de ejecución de Databricks |Siempre| Cualquier entorno de tiempo de ejecución que no sea de Machine Learning (no ML 4.x, 5.x) |
+| Entorno de tiempo de ejecución de Databricks |Siempre|Tiempo de ejecución no de ML 6.0 (Scala 2.11, Spark 2.4.3) |
 | Versión de Python |Siempre| 3 |
 | Trabajos |Siempre| 2 o más |
 | Tipos de máquinas virtuales con nodos de trabajo <br>(determina el número máximo de iteraciones simultáneas) |Machine Learning Automatizado<br>solo| Se prefieren las máquinas virtuales optimizadas para memoria |
@@ -348,12 +339,15 @@ Si la instalación fue correcta, la biblioteca importada debería tener un aspec
 
 SDK para Databricks **_sin_** aprendizaje automático automatizado ![SDK de Azure Machine Learning para Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK para Databricks **CON** aprendizaje automático automatizado ![SDK con aprendizaje automático automatizado instalado en Databricks](./media/how-to-configure-environment/automlonadb.jpg)
+SDK para Databricks **CON** aprendizaje automático automatizado ![SDK con aprendizaje automático automatizado instalado en Databricks](./media/how-to-configure-environment/automlonadb.png)
 
 ### <a name="start-exploring"></a>Comienzo de la exploración
 
 Pruebe lo siguiente:
 + Aunque hay muchos cuadernos de ejemplo disponibles, **solo [estos cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funcionan con Azure Databricks.**
+
++ Importe estos ejemplos directamente desde el área de trabajo. Observe a continuación: ![Selección de Importar](media/how-to-configure-environment/azure-db-screenshot.png)
+![Panel Importar](media/how-to-configure-environment/azure-db-import.png)
 
 + Obtenga información sobre cómo [crear una canalización con Databricks como proceso de entrenamiento](how-to-create-your-first-pipeline.md).
 

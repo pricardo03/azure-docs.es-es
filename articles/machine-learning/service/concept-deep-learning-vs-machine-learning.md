@@ -1,20 +1,20 @@
 ---
 title: Aprendizaje profundo frente a aprendizaje automático
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre aprendizaje profundo frente al aprendizaje automático y sepa cómo se relacionan ambos conceptos con la inteligencia artificial. El aprendizaje profundo se puede aplicar en distintos escenarios, como la detección de fraudes, el reconocimiento facial y de voz, el análisis de opiniones y la previsión de series temporales.
+description: Obtenga información sobre cómo se relaciona el aprendizaje profundo con el aprendizaje automático y la inteligencia artificial. El aprendizaje profundo se usa en distintos escenarios, como la detección de fraudes, el reconocimiento facial y de voz, el análisis de opiniones y la previsión de series temporales.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 08/07/2019
-ms.openlocfilehash: 791566dc65b41bf3124e84544390d7d843e51273
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 11/04/2019
+ms.openlocfilehash: cc98e620194c5bf67d2efa12d61af44d5527bafc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123136"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497493"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático
 
@@ -113,6 +113,11 @@ Las redes neuronales circunvolucionadas se han usado en áreas como el reconocim
 En los siguientes artículos se muestra cómo usar la tecnología de aprendizaje profundo en [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri):
 
 - [Clasificación de dígitos manuscritos mediante un modelo TensorFlow](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+
 - [Clasificación de dígitos manuscritos mediante un estimador de TensorFlow y Keras](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+
 - [Clasificación de imágenes mediante un modelo Pytorch](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+
 - [Clasificación de dígitos manuscritos mediante un modelo Chainer](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+
+Además, use la [Hoja de referencia rápida de algoritmos de Machine Learning](../algorithm-cheat-sheet.md) para elegir los algoritmos del modelo.

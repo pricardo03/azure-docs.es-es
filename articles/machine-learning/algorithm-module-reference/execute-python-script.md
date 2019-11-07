@@ -1,24 +1,24 @@
 ---
-title: 'Ejecución de script de Python: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Ejecución de script de Python en Azure Machine Learning Service para ejecutar código de Python.
+title: 'Ejecución de script de Python: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo Ejecución de script de Python en Azure Machine Learning para ejecutar código de Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: ac68239c12fb284dd3cb5179b5719f3d36acbd34
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 1ba10bf682d900a45f345f2ebe2707ba1275e94e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693786"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497866"
 ---
-# <a name="execute-python-script-module"></a>Módulo Ejecución de script de Python
+# <a name="execute-python-script-module"></a>Módulo Ejecutar script de Python
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para ejecutar código de Python. Para obtener más información acerca de los principios de diseño y arquitectura de Python, consulte [el siguiente artículo.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
 
@@ -81,7 +81,7 @@ El módulo **Ejecución de script de Python** contiene código de Python de ejem
 
 1. Agregue el módulo **Execute Python Script** (Ejecutar script de Python) al experimento.
 
-2. Agregue y conecte en **Dataset1** los conjuntos de datos de la interfaz que quiera usar para la entrada. Haga referencia a este conjunto de datos en el script de Python como **DataFrame1**.
+2. Agregue y conecte en **Dataset1** los conjuntos de datos del diseñador que quiera usar para la entrada. Haga referencia a este conjunto de datos en el script de Python como **DataFrame1**.
 
     El uso de un conjunto de datos es opcional, si desea generar datos mediante Python, o usar código de Python para importar los datos directamente al módulo.
 
@@ -97,7 +97,7 @@ El módulo **Ejecución de script de Python** contiene código de Python de ejem
 
 5. En el cuadro de texto **Python Script** (Script de Python), escriba o pegue el script de Python válido.
 
-    El cuadro de texto **Python Script** (Script de Python) se rellena previamente con algunas instrucciones de comentarios y código de ejemplo para el acceso a datos y salida. **Debe editar o reemplazar este código.** Asegúrese de seguir las convenciones de Python sobre la aplicación de sangría y mayúsculas y minúsculas.
+    El cuadro de texto **Python Script** (Script de Python) se rellena previamente con algunas instrucciones de comentarios y código de ejemplo para el acceso a datos y salida. Debe editar o reemplazar este código. Asegúrese de seguir las convenciones de Python sobre la aplicación de sangría y mayúsculas y minúsculas.
 
     + El script debe contener una función denominada `azureml_main` como punto de entrada para este módulo.
     + La función de punto de entrada puede contener hasta dos argumentos de entrada: `Param<dataframe1>` y `Param<dataframe2>`
@@ -105,7 +105,7 @@ El módulo **Ejecución de script de Python** contiene código de Python de ejem
 
     Por lo tanto, si el archivo ZIP contiene `mymodule.py`, impórtelo mediante `import mymodule`.
 
-    + Se pueden devolver dos conjuntos de datos a la interfaz, que deben ser una secuencia de tipo `pandas.DataFrame`. Puede crear otras salidas en el código de Python y escribirlas directamente en Azure Storage.
+    + Se pueden devolver dos conjuntos de datos al diseñador, que deben ser una secuencia de tipo `pandas.DataFrame`. Puede crear otras salidas en el código de Python y escribirlas directamente en Azure Storage.
 
 6. Ejecute la canalización, o seleccione el módulo y haga clic en **Run selected** (Ejecutar seleccionados) para ejecutar el script de Python.
 
@@ -124,4 +124,4 @@ El módulo devuelve dos conjuntos de datos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

@@ -1,7 +1,7 @@
 ---
 title: Referencia del módulo Feature Hashing
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo Feature Hashing de Azure Machine Learning Service para caracterizar datos de texto.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Feature Hashing de Azure Machine Learning para caracterizar datos de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: bbcab6e94783583c7e13ae482d68fd013ba4c91d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 48960eae4941bb744a937639e1308e1b5f6aaf9f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170880"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497826"
 ---
 # <a name="feature-hashing-module-reference"></a>Referencia del módulo Feature Hashing
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo incluido en el diseñador de Azure Machine Learning (versión preliminar).
 
 Use el módulo Feature Hashing para transformar un flujo de texto en inglés en un conjunto de características de enteros. Después, puede pasar este conjunto de características con hash a un algoritmo de aprendizaje automático para entrenar un modelo de análisis de texto.
 
@@ -73,7 +73,7 @@ Las salidas numéricas también permiten usar métodos de aprendizaje automátic
 
 ## <a name="configure-the-feature-hashing-module"></a>Configurar el módulo Feature Hashing
 
-1.  Agregue el módulo Feature Hashing al experimento en una interfaz visual.
+1.  Agregue el módulo Feature Hashing a la canalización en el diseñador.
 
 1. Conecte el conjunto de datos que contiene el texto que desea analizar.
 
@@ -94,7 +94,7 @@ Las salidas numéricas también permiten usar métodos de aprendizaje automátic
 
     Por ejemplo, si escribe 3, se crearán unigramas, bigramas y trigramas.
 
-1. Ejecute el experimento.
+1. Ejecución de la canalización
 
 ## <a name="results"></a>Results
 
@@ -127,8 +127,8 @@ Los siguientes procedimientos recomendados pueden ayudarle a sacar el máximo pa
     * Eliminación de caracteres especiales y de puntuación
     * Raíz  
 
-El conjunto óptimo de métodos de preprocesamiento que se aplican en cualquier solución depende del dominio, del vocabulario y de la necesidad empresarial. Experimente con los datos para ver qué métodos de procesamiento de texto son más eficaces.
+El conjunto óptimo de métodos de preprocesamiento que se aplican en cualquier solución depende del dominio, del vocabulario y de la necesidad empresarial. Canalice los datos para ver qué métodos de procesamiento de texto son más eficaces.
 
 ## <a name="next-steps"></a>Pasos siguientes
             
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

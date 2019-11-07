@@ -1,24 +1,24 @@
 ---
 title: 'Editar metadatos: Referencia del módulo'
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo Editar metadatos de Azure Machine Learning Service para cambiar los metadatos que están asociados con las columnas de un conjunto de datos.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Editar metadatos de Azure Machine Learning para cambiar los metadatos que están asociados con las columnas de un conjunto de datos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: b6e28577fefe4892d719e211e16edafed1504e87
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 2c8224edbe95c8185e390c2ce48cbb4263f97586
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693827"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497949"
 ---
 # <a name="edit-metadata-module"></a>Módulo Editar metadatos
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo incluido en el diseñador de Azure Machine Learning (versión preliminar).
 
 Use el módulo Editar metadatos para cambiar los metadatos asociados con las columnas de un conjunto de datos. El valor y el tipo de datos del conjunto de datos cambiará después de usar el módulo Editar metadatos.
 
@@ -98,4 +98,4 @@ Entre los cambios de metadatos habituales se pueden incluir:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service.
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

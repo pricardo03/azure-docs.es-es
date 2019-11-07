@@ -9,15 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: eb13e6d279ffd8efc0cdb5ce675b77aac5be9c18
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 11/04/2019
+ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436634"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497355"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo aprenderá a entrenar un modelo de regresión de previsión de series temporales con aprendizaje automático automatizado en Azure Machine Learning. La configuración de un modelo de previsión es similar a la configuración de un modelo de regresión estándar mediante aprendizaje automático automatizado, pero existen algunas opciones de configuración y pasos previos de procesamiento para trabajar con los datos de series temporales. En los siguientes ejemplos se indica cómo:
 
@@ -34,6 +35,27 @@ Este enfoque, a diferencia de los métodos clásicos de series temporales, tiene
 También puede [configurar](#config) hasta qué punto en el futuro debe extenderse la previsión (el horizonte de previsión), así como los retrasos y mucho más. El aprendizaje automático automatizado aprende un modelo único, pero a menudo internamente bifurcado para todos los elementos en el conjunto de datos y horizontes de predicción. Por tanto, hay más datos disponibles para calcular los parámetros del modelo, y se hace posible la generalización hasta series no antes vistas.
 
 Las características que se extraen de los datos de entrenamiento desempeñan un papel fundamental. Y el aprendizaje automático automatizada lleva a cabo los pasos previos al procesamiento estándares y genera características adicionales de series temporales para capturar los efectos de temporada y maximizar la precisión de predicción.
+
+## <a name="time-series-and-deep-learning-models"></a>Modelos de serie temporal y aprendizaje profundo
+
+
+ML automatizado proporciona a los usuarios modelos nativos de serie temporal y de aprendizaje profundo como parte del sistema de recomendaciones. Estos aprendizajes incluyen:
++ Prophet
++ Auto-ARIMA
++ ForecastTCN
+
+El aprendizaje profundo de ML automatizado permite pronosticar datos de series temporales de variable única y de varias variables.
+
+Los modelos de aprendizaje profundo tienen tres capacidades intrínsecas:
+1. Pueden aprender de las asignaciones arbitrarias de las entradas a las salidas.
+1. Admiten varias entradas y salidas.
+1. Pueden extraer automáticamente patrones en datos de entrada que abarquen secuencias largas.
+
+En el caso de datos de mayor tamaño, los modelos de aprendizaje profundo, como ForecastTCN de Microsoft, pueden mejorar las puntuaciones del modelo resultante. 
+
+Los aprendizajes de series temporales nativos también se proporcionan como parte de ML automatizado. Prophet funciona mejor con series temporales que tienen efectos estacionales fuertes y varias estaciones de datos históricos. Prophet es preciso y rápido, sólido para valores atípicos, datos que faltan y cambios drásticos en la serie temporal. 
+
+La media móvil integrada autorregresiva (ARIMA) es un método estadístico popular para la previsión de series temporales. Esta técnica de previsión se usa normalmente en escenarios de previsión a corto plazo en los que los datos muestran evidencia de tendencias como ciclos, que pueden ser imprevisibles y difíciles de modelar o predecir. Auto-ARIMA transforma los datos en datos estacionarios para recibir resultados coherentes y confiables.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -98,6 +120,7 @@ El objeto `AutoMLConfig` define la configuración y los datos necesarios para un
 |`max_horizon`|Define el horizonte de previsión máximo deseado en unidades de frecuencia de la serie temporal. Las unidades se basan en el intervalo de tiempo de los datos de entrenamiento, p. ej., semanales, mensuales, que debe predecir el pronosticador.|✓|
 |`target_lags`|Número de filas para retrasar los valores de destino en función de la frecuencia de los datos. Se representa como una lista o un entero único. El retardo se debe usar cuando la relación entre las variables independientes y la variable dependiente no coincide o está en correlación de forma predeterminada. Por ejemplo, al intentar pronosticar la demanda de un producto, la demanda de cualquier mes puede depender del precio de determinados artículos 3 meses antes. En este ejemplo, es posible que desee retrasar el destino (demanda) negativamente en 3 meses para que el modelo esté entrenando en la relación correcta.||
 |`target_rolling_window_size`|*n* períodos históricos que se utilizarán para generar valores previstos, < = tamaño del conjunto de entrenamiento. Si se omite, *n* es el tamaño total del conjunto de entrenamiento. Especifique este parámetro si solo desea tener en cuenta una determinada cantidad de historial al entrenar el modelo.||
+|`enable_dnn`|Habilite las DNN de previsión.||
 
 Vea la [documentación de referencia](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) para más información.
 
@@ -129,7 +152,8 @@ import logging
 
 automl_config = AutoMLConfig(task='forecasting',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=15,
+                             enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -148,7 +172,18 @@ Consulte el [cuaderno de demanda energética](https://github.com/Azure/MachineLe
 * detección y caracterización de festividades;
 * validación cruzada de origen variable
 * retardos configurables
-* características de agregado en periodos acumulados.
+* características de agregado en periodos acumulados
+
+### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Configuración de un experimento de previsión con DNN habilitada
+
+> [!NOTE]
+> La compatibilidad con DNN de la previsión en el aprendizaje automático automatizado se encuentra en versión preliminar.
+
+Con el fin de usar las DNN para la previsión, deberá establecer el parámetro `enable_dnn` de AutoMLConfig en true. 
+
+Para usar las DNN, se recomienda usar un clúster de proceso AML con las SKU de GPU y al menos 2 nodos como destino de proceso. Consulte la [documentación del proceso de AML](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) para más información. Vea [Tamaños de máquinas virtuales optimizadas para GPU](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu) para más información sobre los tamaños de máquina virtual que incluyen GPU.
+
+Para permitir el tiempo suficiente para que se complete el entrenamiento de DNN, se recomienda establecer el tiempo de espera del experimento en al menos un par de horas.
 
 ### <a name="view-feature-engineering-summary"></a>Visualización del resumen de ingeniería de las características
 

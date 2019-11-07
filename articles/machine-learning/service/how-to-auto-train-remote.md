@@ -3,22 +3,24 @@ title: Destinos de proceso remoto de ML automatizado
 titleSuffix: Azure Machine Learning
 description: Aprenda a crear modelos mediante el aprendizaje automático automatizado en un destino de proceso remoto de Azure Machine Learning con Azure Machine Learning.
 services: machine-learning
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 7/12/2019
-ms.openlocfilehash: 9eab21fe6b5269229de186a7553e11a147c1033e
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 4276a713e62f96cc5340fc7be0e8391939d32342
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034989"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497329"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entrenamiento de modelos con aprendizaje automático automatizado en la nube
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En Azure Machine Learning, puede entrenar un modelo en los diferentes tipos de recursos de proceso que administra. El destino de proceso podría ser un equipo local o un recurso en la nube.
 
@@ -278,7 +280,7 @@ Imprimir las variables de resumen de explicación `best_run` genera la siguiente
 
 ![Salida de la consola de explicación de modelos](./media/how-to-auto-train-remote/expl-print.png)
 
-También puede visualizar la importancia de las características mediante la UI del widget, la UI web en Azure Portal o la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com). 
+También puede visualizar la importancia de características mediante la UI del widget o en el área de trabajo de [Azure Machine Learning Studio](https://ml.azure.com). 
 
 ![UI de explicación de modelos](./media/how-to-auto-train-remote/model-exp.png)
 

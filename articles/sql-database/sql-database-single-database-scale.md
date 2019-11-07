@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: e03c68854d9150c25019fe198fe855a011750844
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d2571b04f10bbbd3a461e553a56904abb3b46588
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566543"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496034"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
-En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para una base de datos única en el nivel de proceso aprovisionado. Como alternativa, el [nivel de proceso sin servidor (versión preliminar)](sql-database-serverless.md) proporciona escalado automático de proceso y factura por segundo el proceso que se usa.
+En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para una instancia de Azure SQL Database en el nivel de proceso aprovisionado. Como alternativa, el [nivel de proceso sin servidor](sql-database-serverless.md) proporciona escalado automático de proceso y factura por segundo el proceso que se usa.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -40,18 +40,18 @@ El vídeo siguiente muestra cómo cambiar de manera dinámica el nivel de servic
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto de cambiar el nivel de servicio o la escala del tamaño de proceso
 
-El cambio en el nivel de servicio o el tamaño de proceso de una base de datos única principalmente implica que el servicio realice los pasos siguientes:
+El cambio en el nivel de servicio o el tamaño de proceso implica principalmente que el servicio realice los pasos siguientes:
 
 1. Creación de una instancia de proceso nueva para la base de datos  
 
-    Se crea una instancia de proceso nueva para la base de datos con el tamaño de proceso y el nivel de servicio solicitados. Para algunas combinaciones de cambios en el nivel de servicio y el tamaño de proceso, se debe crear una réplica de la base de datos en la nueva instancia de proceso que implique copiar los datos y pueda influir en gran medida en la latencia general. En cualquier caso, la base de datos permanece en línea durante este paso y las conexiones se continúan dirigiendo a la base de datos en la instancia de proceso original.
+    Se crea una instancia de proceso nueva con el tamaño de proceso y el nivel de servicio solicitados. Para algunas combinaciones de cambios en el nivel de servicio y el tamaño de proceso, se debe crear una réplica de la base de datos en la nueva instancia de proceso que implique copiar los datos y pueda influir en gran medida en la latencia general. En cualquier caso, la base de datos permanece en línea durante este paso y las conexiones se continúan dirigiendo a la base de datos en la instancia de proceso original.
 
 2. Cambio en el enrutamiento de conexiones a la nueva instancia de proceso
 
     Se colocan las conexiones existentes en la base de datos en la instancia de proceso original. En la nueva instancia de proceso las nuevas conexiones se establecen en la base de datos. Para algunas combinaciones de cambios de nivel de servicio y de tamaño de proceso, los archivos de base de datos se desasocian y se vuelven a asociar durante la modificación.  No obstante, el modificador puede provocar una breve interrupción del servicio cuando la base de datos no esté disponible de forma general durante menos de 30 segundos y, a menudo, durante solo unos segundos. Si hay transacciones de larga duración que se ejecutan cuando se colocan las conexiones, la duración de este paso puede ser mayor con el fin de recuperar las transacciones anuladas. La [Recuperación de base de datos acelerada](sql-database-accelerated-database-recovery.md) puede reducir el impacto de la anulación de transacciones de larga duración.
 
 > [!IMPORTANT]
-> Durante los pasos del flujo de trabajo no se pierden datos.
+> Durante los pasos del flujo de trabajo no se pierden datos. Asegúrese de que ha implementado alguna [lógica de reintento](sql-database-connectivity-issues.md) en las aplicaciones y los componentes que utilizan Azure SQL Database mientras se cambia el nivel de servicio.
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latencia de cambiar el nivel de servicio o la escala del tamaño de proceso
 

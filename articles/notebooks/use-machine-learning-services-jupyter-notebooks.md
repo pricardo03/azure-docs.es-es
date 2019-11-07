@@ -1,6 +1,6 @@
 ---
-title: Uso de Azure Machine Learning Services en Azure Notebooks
-description: Información general de los cuadernos de ejemplo para Azure Machine Learning Services que puede usar con Azure Notebooks.
+title: Uso de Azure Machine Learning en Azure Notebooks
+description: Información general de los cuadernos de ejemplo para Azure Machine Learning que puede usar con Azure Notebooks.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: f591758fa6e51c420a090aa62d5160320fe15fe8
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 6eac5d77404c85d5481ded7e58b0cd9fab0de083
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973030"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496645"
 ---
-# <a name="use-azure-machine-learning-service-in-a-notebook"></a>Uso de Azure Machine Learning Service en un cuaderno
+# <a name="use-azure-machine-learning-in-a-notebook"></a>Uso de Azure Machine Learning en un cuaderno
 
-Azure Notebooks viene preconfigurado con el entorno necesario para que funcione con [Azure Machine Learning Service](/azure/machine-learning/service/). Puede clonar fácilmente un proyecto de ejemplo en su cuenta de Notebooks para explorar una variedad de escenarios de Machine Learning.
+Azure Notebooks viene preconfigurado con el entorno necesario para que funcione con [Azure Machine Learning](/azure/machine-learning/service/). Puede clonar fácilmente un proyecto de ejemplo en su cuenta de Notebooks para explorar una variedad de escenarios de Machine Learning.
 
 ## <a name="clone-the-sample-into-your-account"></a>Clonación del ejemplo en su cuenta
 
 1. Inicie sesión en [Azure Notebooks](https://notebooks.azure.com/).
 1. Seleccione **Mis proyectos** para ir al panel de proyectos.
 1. Seleccione el botón **Cargar repositorio de GitHub** (la flecha arriba) para abrir la ventana emergente **Upload GitHub Repository** (Cargar repositorio de GitHub).
-1. En la ventana emergente, escriba `Azure/MachineLearningNotebooks` en **Repositorio de GitHub**, proporcione un nombre para el proyecto en **Nombre del proyecto**, como "Azure Machine Learning Service", proporcione un identificador en **Id. de proyecto**, desactive **Público** si lo desea y seleccione **Importar**.
+1. En la ventana emergente, escriba `Azure/MachineLearningNotebooks` en **Repositorio de GitHub**, proporcione un nombre para el proyecto en **Nombre del proyecto**, como "Azure Machine Learning", proporcione un identificador en **Id. de proyecto**, desactive **Público** si lo desea y seleccione **Importar**.
 
     ![Importar el ejemplo de Azure Machine Learning en su cuenta de Notebooks](media/azureml-import-project.png)
 
@@ -44,11 +44,11 @@ Azure Notebooks viene preconfigurado con el entorno necesario para que funcione 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La documentación de Azure Machine Learning Services contiene una variedad de otros recursos que le guían a través del trabajo con Machine Learning Services dentro de cuadernos:
+La documentación de Azure Machine Learning contiene una variedad de otros recursos que le guían a través del trabajo con Machine Learning dentro de cuadernos:
 
-- [Guía de inicio rápido: Uso de Python para empezar a usar Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
-- [Tutorial 1: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [Inicio rápido: Uso de Python para empezar a usar Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Tutorial 1: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
 - [Tutorial 2: Implementación de un modelo de clasificación de imágenes en Azure Container Instances (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
-- [Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático en Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
+- [Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
 Consulte también la documentación del [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

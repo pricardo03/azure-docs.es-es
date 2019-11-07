@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: f1450399dc027a6977f4c99507e2e15b301272c4
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 62ec5d4e85a6e72982b49872af59e7b579c4fd77
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249389"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496263"
 ---
 # <a name="sql-database-release-notes"></a>Notas de la versión de SQL Database
 
@@ -26,6 +26,7 @@ En este artículo se enumeran las características de SQL Database que se encuen
 
 | Característica | Detalles |
 | ---| --- |
+| Nuevas generaciones de hardware de las series Fsv2 y M| Para obtener más información, vea [Hardware generations](sql-database-service-tiers-vcore.md#hardware-generations) (Generaciones de hardware).|
 | [Azure Private Link](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link simplifica la arquitectura de red y protege la conexión entre los puntos de conexión en Azure manteniendo los datos en la red de Azure, lo que elimina la exposición de datos a Internet pública. Private Link también le permite crear y representar sus propios servicios en Azure. |
 | Recuperación de base de datos acelerada con bases de datos únicas y grupos elásticos | Para más información, consulte [Recuperación de base de datos acelerada](sql-database-accelerated-database-recovery.md).|
 |Número aproximado de valores no nulos únicos|Para más información, consulte [Procesamiento de consultas aproximado](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
@@ -37,7 +38,6 @@ En este artículo se enumeran las características de SQL Database que se encuen
 |Comentarios sobre la concesión de memoria (modo de fila) (en el nivel de compatibilidad 150)|Para más información, consulte [Comentarios de concesión de memoria del modo de fila](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Editor de consultas de Azure Portal |Para más información, consulte [Uso del editor de consultas SQL de Azure Portal para conectarse a datos y consultarlos](sql-database-connect-query-portal.md).|
 | R services o aprendizaje automático con bases de datos únicas y grupos elásticos |Para más información, consulte [Machine Learning Services en Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
-| Nivel de servicio de informática sin servidor | Para más información, consulte [Azure SQL Database sin servidor (versión preliminar)](sql-database-serverless.md).|
 |SQL Analytics|Para más información, consulte [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).|
 |Compilación diferida de variables de tabla (en el nivel de compatibilidad 150)|Para más información, consulte [Compilación diferida de variables de tabla](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | &nbsp; |

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/07/2019
-ms.openlocfilehash: 309cef6ec058d8192bc7a6341b49a59c0000a305
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: e834c55ec35195ff627176603c7611abbf6adf1c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035556"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497514"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Seguridad de empresa para Azure Machine Learning
 
@@ -100,6 +100,7 @@ En la tabla siguiente se muestran algunas de las principales operaciones de Azur
 | ---- |:----:|:----:|:----:|
 | Creación del espacio de trabajo | ✓ | ✓ | |
 | Compartir área de trabajo | ✓ | |  |
+| Actualizar el área de trabajo de Enterprise Edition | ✓ | |
 | Crear el destino de proceso | ✓ | ✓ | |
 | Asociar el destino de proceso | ✓ | ✓ | |
 | Asociar almacenes de datos | ✓ | ✓ | |
@@ -121,7 +122,7 @@ Cada área de trabajo también tiene una identidad administrada asignada por el 
 
 Para más información sobre las identidades administradas, consulte [Identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-| Recurso | Permisos |
+| Resource | Permisos |
 | ----- | ----- |
 | Área de trabajo | Colaborador |
 | Cuenta de almacenamiento | Colaborador de datos de blobs de almacenamiento |

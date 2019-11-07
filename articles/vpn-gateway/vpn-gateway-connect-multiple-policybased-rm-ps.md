@@ -6,14 +6,14 @@ documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: 9085d5ee21b1e955b7d9416a379ee730ba26ad3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c753320b8d525e0c3ac031777bee15ba2050fcc0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150088"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495679"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conexión de puertas de enlace Azure VPN Gateway a varios dispositivos VPN locales basados en directivas con PowerShell
 
@@ -39,12 +39,12 @@ Los diagramas siguientes resaltan los dos modelos:
 ### <a name="azure-support-for-policy-based-vpn"></a>Compatibilidad de Azure con VPN basada en directivas
 Actualmente, Azure admite los dos modos de puertas de enlace de VPN: puertas de enlace de VPN basadas en directivas y puertas de enlace de VPN basadas en rutas. Se crean en distintas plataformas internas, lo que da lugar a diferentes especificaciones:
 
-|                          | **VPN Gateway PolicyBased** | **VPN Gateway RouteBased**               |
-| ---                      | ---                         | ---                                      |
-| **SKU de puerta de enlace de Azure**    | Básica                       | Básica, Estándar, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
-| **Versión de IKE**          | IKEv1                       | IKEv2                                    |
-| **Máx. de conexiones de sitio a sitio** | **1**                       | Básica o Estándar: 10<br> HighPerformance: 30 |
-|                          |                             |                                          |
+|                          | **VPN Gateway PolicyBased** | **VPN Gateway RouteBased**       |**VPN Gateway RouteBased**                          |
+| ---                      | ---                         | ---                              |---                                                 |
+| **SKU de puerta de enlace de Azure**    | Básica                       | Básica                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
+| **Versión de IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                                    |
+| **Máx. de conexiones de sitio a sitio** | **1**                       | 10                               |Estándar: 10<br> Otras SKU: 30                     |
+|                          |                             |                                  |                                                    |
 
 Con la directiva IPsec/IKE personalizada, ahora puede configurar puertas de enlace Azure VPN Gateway basadas en rutas para usar selectores de tráfico basados en prefijo con la opción "**PolicyBasedTrafficSelectors**" para conectarse a dispositivos VPN locales basados en directivas. Esta capacidad le permite conectarse desde una red virtual de Azure y una puerta de enlace Azure VPN Gateway a varios dispositivos VPN/firewall locales basados en directivas y quitar el límite de conexión único de las actuales puertas de enlace Azure VPN Gateway basadas en directivas.
 

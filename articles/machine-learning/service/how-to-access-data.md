@@ -9,16 +9,17 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 08/2/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3576f7cc0297ff1e9b10373ccc27b09e1a0ae8ae
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: eac10c8c680caf834bbe4be18ca22a5af936c7a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436699"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497405"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acceso a los datos en los servicios de almacenamiento de Azure
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, aprenderá a acceder fácilmente a los datos en los servicios de almacenamiento de Azure a través de almacenes de datos de Azure Machine Learning. Los almacenes de datos se usan para almacenar información de conexión, como el identificador de suscripción y la autorización de token. El uso de almacenes de datos permite acceder al almacenamiento sin tener que codificar de forma rígida la información de conexión en los scripts. Puede crear almacenes de datos a partir de estas [soluciones de Azure Storage](#matrix). En el caso de las soluciones de almacenamiento no compatibles, para ahorrar el costo de salida de datos durante los experimentos de aprendizaje automático, se recomienda mover los datos a nuestras soluciones de Azure Storage compatibles. [Obtenga información sobre cómo mover los datos](#move). 
 
@@ -35,7 +36,7 @@ En este procedimiento se muestran ejemplos de las tareas siguientes:
 
 - Una cuenta de Azure Storage con un [contenedor de blobs de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) o un [recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
-- [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o acceso a la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com/).
+- [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o acceso a [Azure Machine Learning Studio](https://ml.azure.com/).
 
 - Un área de trabajo de Azure Machine Learning. 
     - [Cree un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) o use una existente mediante el SDK de Python.
@@ -51,13 +52,13 @@ En este procedimiento se muestran ejemplos de las tareas siguientes:
 
 ## <a name="create-and-register-datastores"></a>Creación y registro de almacenes de datos
 
-Cuando se registra una solución de Azure Storage como un almacén de datos, se crea automáticamente ese almacén de datos en un área de trabajo específica. Puede crear y registrar almacenes de datos en un área de trabajo mediante el SDK de Python o la página de aterrizaje del área de trabajo.
+Cuando se registra una solución de Azure Storage como un almacén de datos, se crea automáticamente ese almacén de datos en un área de trabajo específica. Puede crear y registrar almacenes de datos en un área de trabajo mediante el SDK de Python o Azure Machine Learning Studio.
 
 ### <a name="using-the-python-sdk"></a>Uso del SDK de Python
 
 Todos los métodos de registro están en la clase [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) y tienen la forma register_azure_*.
 
-La información necesaria para rellenar el método register() se puede encontrar a través de [Azure Portal](https://ms.portal.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. Para obtener información de autenticación, como la clave de cuenta o el token de SAS, vaya a **Claves de cuenta** en la opción **Configuración** del panel izquierdo. 
+La información necesaria para rellenar el método register() se puede encontrar mediante [Azure Machine Learning Studio](https://ml.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. Para obtener información de autenticación, como la clave de cuenta o el token de SAS, vaya a **Claves de cuenta** en la opción **Configuración** del panel izquierdo. 
 
 Los ejemplos siguientes le muestran cómo registrar una instancia de Azure Blob Container o un recurso compartido de archivos de Azure como un almacén de datos.
 
@@ -73,6 +74,7 @@ Los ejemplos siguientes le muestran cómo registrar una instancia de Azure Blob 
                                                           account_key='your storage account key',
                                                           create_if_not_exists=True)
     ```
+    Si la cuenta de almacenamiento se encuentra en una red virtual, solo se admite la creación del almacén de datos de blobs de Azure. Establezca el parámetro `grant_workspace_access` en `True` para conceder a su cuenta de almacenamiento acceso a su área de trabajo.
 
 + Para un **almacén de datos de un recurso compartido de archivos de Azure**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
@@ -91,16 +93,16 @@ Los ejemplos siguientes le muestran cómo registrar una instancia de Azure Blob 
 
 Recomendamos el contenedor de blobs de Azure. El almacenamiento Estándar y Premium están disponibles para blobs. Aunque sea más costoso, se recomienda el almacenamiento premium debido a que la velocidad de rendimiento es mayor y puede mejorar la velocidad de las ejecuciones de entrenamiento, sobre todo si usa un gran conjunto de datos. Consulte la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) para obtener información sobre el costo de la cuenta de almacenamiento.
 
-### <a name="using-the-workspace-landing-page"></a>Uso de la página de aterrizaje del área de trabajo 
+### <a name="using-azure-machine-learning-studio"></a>Utilización de Azure Machine Learning Studio 
 
-Cree un nuevo almacén de datos en unos pocos pasos en la página de aterrizaje del área de trabajo.
+Cree un nuevo almacén de datos en unos cuantos pasos en Azure Machine Learning Studio.
 
-1. Inicie sesión en la [página de aterrizaje del área de trabajo](https://ml.azure.com/).
+1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Seleccione **Almacenes de datos** en el panel izquierdo en **Administrar**.
 1. Seleccione **+ Nuevo almacén de datos**.
 1. Complete el nuevo formulario de almacén de datos. El formulario se actualiza de forma inteligente según el tipo de almacenamiento de Azure y las selecciones de tipo de autenticación.
   
-La información necesaria para rellenar el formulario se puede encontrar a través de [Azure Portal](https://ms.portal.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. Para los elementos de autenticación, como la clave de cuenta o el token de SAS, vaya a **Claves de cuenta** en la opción **Configuración** del panel izquierdo.
+La información necesaria para rellenar el formulario se puede encontrar mediante [Azure Machine Learning Studio](https://ml.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. Para los elementos de autenticación, como la clave de cuenta o el token de SAS, vaya a **Claves de cuenta** en la opción **Configuración** del panel izquierdo.
 
 En el ejemplo siguiente se muestra el aspecto que tendría el formulario para crear un almacén de datos de Azure Blob. 
     
@@ -280,10 +282,10 @@ En situaciones en las que el SDK no proporciona acceso a los almacenes de datos,
 <a name="move"></a>
 ## <a name="move-data-to-supported-azure-storage-solutions"></a>Movimiento de datos a soluciones de Azure Storage compatibles
 
-El servicio Azure Machine Learning admite el acceso a datos desde Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. En el caso del almacenamiento no compatible, para ahorrar el costo de salida de datos durante los experimentos de aprendizaje automático, se recomienda mover los datos a nuestras soluciones de Azure Storage compatibles con Azure Data Factory. Azure Data Factory proporciona una transferencia de datos eficaz y resistente con más de 80 conectores precompilados, como los servicios de datos de Azure, los orígenes de datos locales, Amazon S3 y Redshift, y Google BigQuery, sin costo adicional. [Siga la guía paso a paso para mover los datos mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
+Azure Machine Learning admite el acceso a datos desde Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. En el caso del almacenamiento no compatible, para ahorrar el costo de salida de datos durante los experimentos de aprendizaje automático, se recomienda mover los datos a nuestras soluciones de Azure Storage compatibles con Azure Data Factory. Azure Data Factory proporciona una transferencia de datos eficaz y resistente con más de 80 conectores precompilados, como los servicios de datos de Azure, los orígenes de datos locales, Amazon S3 y Redshift, y Google BigQuery, sin costo adicional. [Siga la guía paso a paso para mover los datos mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Entrenamiento de un modelo](how-to-train-ml-models.md)
+* [Entrenamiento de un modelo](how-to-train-ml-models.md).
 
-* [Implementar un modelo](how-to-deploy-and-where.md)
+* [Implementación de un modelo](how-to-deploy-and-where.md).

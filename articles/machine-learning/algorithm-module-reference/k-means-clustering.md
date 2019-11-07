@@ -1,7 +1,7 @@
 ---
-title: 'Agrupación en clústeres K-Means: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo Agrupación en clústeres K-Means en Azure Machine Learning Service para entrenar modelos de agrupación en clústeres.
+title: 'Agrupación en clústeres K-Means: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Agrupación en clústeres K-Means en Azure Machine Learning para entrenar modelos de agrupación en clústeres.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: bb39a57f565a542e5106b7ba14e58bc39041f53d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 4634519f55582a3184472d28acfd98fa849be86a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693109"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497770"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: Agrupación en clústeres K-Means
 
-En este artículo se describe cómo usar el módulo *Agrupación en clústeres K-Means* en Azure Machine Learning Studio para crear un modelo de agrupación en clústeres K-means no entrenado. 
+En este artículo se describe cómo usar el módulo *Agrupación en clústeres K-Means* en el diseñador de Azure Machine Learning Studio (versión preliminar) para crear un modelo de agrupación en clústeres K-means no entrenado. 
  
 K-means es uno de los algoritmos de aprendizaje *supervisados* más sencillos y el más conocido. Puede usar el algoritmo para diversas tareas de aprendizaje automático, como son: 
 
@@ -60,7 +60,7 @@ Cuando procesa los datos de entrenamiento, el algoritmo K-means comienza con un 
   
     -   **Parámetro único**: si conoce los parámetros exactos que desea usar en el modelo de agrupación en clústeres, puede proporcionar un conjunto específico de valores como argumentos.  
   
-3.  En **Number of Centroids** (Número de centroides), escriba el número de clústeres con que desea que el algoritmo comience.  
+3.  En **Number of centroids** (Número de centroides), escriba el número de clústeres con el que desea que comience el algoritmo.  
   
      No se garantiza que el modelo genere exactamente este número de clústeres. El algoritmo comienza con este número de puntos de datos e itera para buscar la configuración óptima.  
   

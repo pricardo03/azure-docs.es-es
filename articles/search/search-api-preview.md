@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a4daaac6abababcedb5d6dd7eb2122ef29846ef4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: dff6473fd01fc2d41c5bb100eefd583afe4175b0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792531"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496479"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>API REST del servicio Azure Cognitive Search, versión 2019-05-06-Preview
 
@@ -24,6 +24,8 @@ En este artículo se describe la versión `api-version=2019-05-06-Preview` de la
 
 
 ## <a name="new-in-2019-05-06-preview"></a>Novedades de 2019-05-06, versión preliminar
+
+[**La indexación incremental](cognitive-search-incremental-indexing-conceptual.md) es un nuevo modo de indexación que agrega el estado y el almacenamiento en caché, lo que le permite reutilizar los resultados existentes cuando no se modifican las definiciones de los datos, el indexador y los conjuntos de aptitudes. Esta característica se aplica únicamente a los enriquecimientos a través de un conjunto de aptitudes cognitivas.
 
 El [**almacén de conocimiento**](knowledge-store-concept-intro.md) es un nuevo destino de una canalización de enriquecimiento basada en inteligencia artificial. Además de un índice, ahora puede conservar las estructuras de datos rellenadas que se crean durante la indexación en Azure Storage. Igualmente, controla las estructuras físicas de los datos a través de los elementos de un conjunto de aptitudes, incluido cómo se forman los datos, si estos se almacenan en Table Storage o Blob Storage, y si hay varias vistas.
 
@@ -50,7 +52,7 @@ El servicio Azure Cognitive Search está disponible en varias versiones. Para ob
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise la documentación de referencia de la API REST del servicio Search. Si tiene algún problema, puede solicitar ayuda en [StackOverflow](https://stackoverflow.com/) o [ponerse en contacto con el servicio de soporte técnico](https://azure.microsoft.com/support/community/?product=search).
+Revise la documentación de referencia de la API de REST del servicio Search. Si tiene algún problema, puede solicitar ayuda en [StackOverflow](https://stackoverflow.com/) o [ponerse en contacto con el servicio de soporte técnico](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Referencia de la API de REST del servicio Search](https://docs.microsoft.com/rest/api/searchservice/)

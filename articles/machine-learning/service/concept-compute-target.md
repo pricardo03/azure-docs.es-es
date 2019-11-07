@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/10/2019
-ms.openlocfilehash: fe60b740312ee49510ea931bba1346ceaef9f31a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: c3791946ee31183e4b3c5131a8e62934bf87dfee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035532"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497468"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning? 
 
@@ -46,16 +46,31 @@ Aprenda [dónde y cómo implementar el modelo en un destino de proceso](how-to-d
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Proceso de Azure Machine Learning (administrado)
 
-Azure Machine Learning crea y administra un recurso de proceso administrado. Dicho proceso está optimizado para cargas de trabajo de Machine Learning. Proceso de Azure Machine Learning es el único destino de proceso administrado desde el 30 de mayo de 2019. En el futuro podrán agregarse recursos de proceso administrados adicionales.
+Azure Machine Learning crea y administra un recurso de proceso administrado. Dicho proceso está optimizado para cargas de trabajo de Machine Learning. Los clústeres de procesos y las [instancias de procesos](concept-compute-instance.md) de Azure Machine Learning son los únicos procesos administrados. En el futuro podrán agregarse recursos de proceso administrados adicionales.
 
-Puede usar Proceso de Azure Machine Learning para el entrenamiento y para inferencia de lotes (versión preliminar).  Con este recurso de proceso, debe:
+Puede crear instancias de procesos o clústeres de procesos de Azure Machine Learning con cualquiera de las siguientes acciones:
+
+| | Azure Machine Learning Studio | Portal de Azure | SDK | Plantilla de Resource Manager | CLI |
+|---| ----- | ----- | ----- | ----- | ----- |
+| Instancia de proceso | Sí | Sí | Sí | Sí |  |
+| Clúster de proceso | Sí | Sí | Sí | Sí | Sí |
+
+Cuando se crean, estos recursos de proceso forman parte automáticamente del área de trabajo, a diferencia de otros tipos de destinos de proceso.
+
+> [!NOTE]
+> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro y norte de EE. UU.** o **Sur de Reino Unido**.
+>Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar. 
+
+### <a name="compute-clusters"></a>Clústeres de proceso
+
+Puede usar clústeres de procesos de Azure Machine Learning para el entrenamiento y para inferencia de lotes (versión preliminar).  Con este recurso de proceso, debe:
 
 * Clúster de uno o varios nodos
 * Se escala automáticamente cada vez que se envía una ejecución 
 * Administración del clúster automático y programación de trabajos 
 * Es compatible con recursos de CPU y GPU
 
-Puede crear instancias de Proceso de Azure Machine Learning en Azure Portal o su [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com), con el SDK o la CLI. Cuando se crea, forma parte automáticamente del área de trabajo, a diferencia de otros tipos de destinos de proceso.
+
 
 ## <a name="unmanaged-compute"></a>Proceso no administrado
 

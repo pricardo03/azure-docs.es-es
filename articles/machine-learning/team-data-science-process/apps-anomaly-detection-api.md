@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 25b08bf78de61e556bab790869b45131a01ce6b8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "64926183"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495110"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detección de anomalías de Machine Learning
 
@@ -46,7 +46,7 @@ La oferta de detección de anomalías incluye herramientas útiles para comenzar
 -->
 
 ## <a name="api-deployment"></a>Implementación de la API
-Para poder usar la API, debe implementarla en su suscripción de Azure, donde se hospedará como un servicio web Machine Learning.  Puede hacerlo desde la [Galería de Azure AI](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con esta acción se implementarán dos servicios web de Azure Machine Learning Studio (y sus recursos relacionados) en su suscripción de Azure: uno para la detección de anomalías con detección de estacionalidad y otro sin detección de estacionalidad.  Una vez que la implementación haya finalizado, podrá administrar las API desde la página [Azure Machine Learning Studio web services](https://services.azureml.net/webservices/) (Servicios web de Azure Machine Learning Studio).  En esta página podrá buscar sus ubicaciones de punto de conexión y las claves de API, así como código de ejemplo para llamar a la API.  Puede encontrar instrucciones más detalladas [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Para poder usar la API, debe implementarla en su suscripción de Azure, donde se hospedará como un servicio web Machine Learning.  Puede hacerlo desde la [Galería de Azure AI](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con esta acción se implementarán dos servicios web de Azure Machine Learning Studio (clásico) (y sus recursos relacionados) en su suscripción de Azure: uno para la detección de anomalías con detección de estacionalidad y otro sin detección de estacionalidad.  Una vez que la implementación haya finalizado, podrá administrar las API desde la página [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) (Servicios web de Azure Machine Learning Studio [clásico]).  En esta página podrá buscar sus ubicaciones de punto de conexión y las claves de API, así como código de ejemplo para llamar a la API.  Puede encontrar instrucciones más detalladas [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Escalado de la aplicación
 De forma predeterminada, la implementación tendrá un plan de facturación de desarrollo y pruebas gratuito que incluye 1000 transacciones al mes y 2 horas de proceso al mes.  Puede actualizar a otro plan según sus necesidades.  La información de precios de los distintos planes está disponibles [aquí](https://azure.microsoft.com/pricing/details/machine-learning/) en "Precios de API web de producción".
@@ -58,7 +58,7 @@ Puede administrar el plan de facturación [aquí](https://services.azureml.net/p
 El servicio web proporciona API basadas en REST a través de HTTPS que se pueden consumir de varias formas, como una aplicación web o móvil, R, Python, Excel, etc.  Los datos de la serie temporal se envían a este servicio mediante una llamada a la API de REST, y se ejecuta una combinación de los tres tipos de anomalías descritos a continuación.
 
 ## <a name="calling-the-api"></a>Llamada a la API
-Para poder llamar a la API, debe conocer la ubicación del punto de conexión y la clave de API.  Estos dos elementos, junto con el código de ejemplo para llamar a la API, están disponibles en la página [Azure Machine Learning Studio web services](https://services.azureml.net/webservices/) (Servicios web de Azure Machine Learning Studio).  Navegue a la API deseada y, a continuación, haga clic en la pestaña "Consume" (Usar) para buscarlos.  Tenga en cuenta que se puede llamar a la API como una API de Swagger (es decir, con el parámetro de dirección URL `format=swagger`) o como una API no Swagger (es decir, sin el parámetro de dirección URL `format`).  El código de ejemplo utiliza el formato de Swagger.  A continuación se muestra una solicitud de ejemplo y una respuesta en formato no Swagger.  Estos ejemplos son para el punto de conexión de estacionalidad.  El punto de conexión de no estacionalidad es similar.
+Para poder llamar a la API, debe conocer la ubicación del punto de conexión y la clave de API.  Estos dos elementos, junto con el código de ejemplo para llamar a la API, están disponibles en la página [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) (Servicios web de Azure Machine Learning Studio [clásico]).  Navegue a la API deseada y, a continuación, haga clic en la pestaña "Consume" (Usar) para buscarlos.  Tenga en cuenta que se puede llamar a la API como una API de Swagger (es decir, con el parámetro de dirección URL `format=swagger`) o como una API no Swagger (es decir, sin el parámetro de dirección URL `format`).  El código de ejemplo utiliza el formato de Swagger.  A continuación se muestra una solicitud de ejemplo y una respuesta en formato no Swagger.  Estos ejemplos son para el punto de conexión de estacionalidad.  El punto de conexión de no estacionalidad es similar.
 
 ### <a name="sample-request-body"></a>Cuerpo de solicitud de ejemplo
 La solicitud contiene dos objetos: `Inputs` y `GlobalParameters`.  En la solicitud de ejemplo siguiente, algunos parámetros se envían explícitamente mientras que otros no (desplácese hacia abajo para obtener una lista completa de parámetros para cada punto de conexión).  Los parámetros que no se envían explícitamente en la solicitud utilizarán los valores predeterminados que se indican a continuación.

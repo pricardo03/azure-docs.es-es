@@ -1,24 +1,24 @@
 ---
-title: 'Introducción manual de datos: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Introducción manual de datos en Azure Machine Learning Service para crear un conjunto de datos pequeño escribiendo valores. El conjunto de datos puede tener varias columnas.
+title: 'Introducción manual de datos: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo Introducción manual de datos en Azure Machine Learning para crear un conjunto de datos pequeño escribiendo valores. El conjunto de datos puede tener varias columnas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: bd5fb636dbf79534e84a21a461f8912ceb6d9633
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693156"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497929"
 ---
 # <a name="enter-data-manually-module"></a>Módulo Introducción manual de datos
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para crear un conjunto de datos pequeño escribiendo valores. El conjunto de datos puede tener varias columnas.
   
@@ -102,4 +102,4 @@ Este módulo puede ser útil en escenarios como los siguientes:
      Para ver el conjunto de datos, haga clic en el puerto de salida y seleccione **Visualizar**.  
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

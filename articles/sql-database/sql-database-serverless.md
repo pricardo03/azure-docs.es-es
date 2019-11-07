@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database sin servidor (versión preliminar)| Microsoft Docs
+title: Azure SQL Database sin servidor | Microsoft Docs
 description: En este artículo se describe el nuevo nivel de proceso sin servidor y se compara con el nivel de proceso aprovisionado existente.
 services: sql-database
 ms.service: sql-database
@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/04/2019
+ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173398"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496242"
 ---
-# <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database sin servidor (versión preliminar)
+# <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 
-Azure SQL Database sin servidor (versión preliminar) es un nivel de proceso para las bases de datos únicas que se escala automáticamente según la demanda de carga de trabajo y factura según la cantidad de proceso que se usa por segundo. El nivel de proceso sin servidor también detiene automáticamente las bases de datos durante períodos inactivos cuando solo se factura el almacenamiento y reanuda automáticamente las bases de datos cuando finaliza la actividad.
+Azure SQL Database sin servidor es un nivel de proceso para las bases de datos únicas que se escala automáticamente según la demanda de carga de trabajo y factura según la cantidad de proceso que se usa por segundo. El nivel de proceso sin servidor también detiene automáticamente las bases de datos durante períodos inactivos cuando solo se factura el almacenamiento y reanuda automáticamente las bases de datos cuando finaliza la actividad.
 
 ## <a name="serverless-compute-tier"></a>Nivel de servicio de informática sin servidor
 
@@ -171,7 +171,7 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
 
    |Parámetro|Opciones de valores|Valor predeterminado|
    |---|---|---|---|
-   |Número mínimo de núcleos virtuales|Depende de la cantidad máxima de núcleos virtuales configurada; consulte [Límites de los recursos](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 núcleos virtuales|
+   |Número mínimo de núcleos virtuales|Depende de la cantidad máxima de núcleos virtuales configurada; consulte [Límites de los recursos](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 núcleos virtuales|
    |Demora de pausa automática|Mínimos: 60 minutos (1 hora)<br>Máximo: 10 080 minutos (7 días)<br>Incrementos: 60 minutos<br>Deshabilitar pausa automática: -1|60 minutos|
 
 > [!NOTE]
@@ -288,7 +288,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Límites de recursos
 
-Para ver los límites de recursos, consulte [Nivel de proceso sin servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+Para ver los límites de recursos, consulte [Nivel de proceso sin servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
 
 ## <a name="billing"></a>Facturación
 
@@ -331,4 +331,4 @@ El nivel de proceso sin servidor está disponible en todas las regiones excepto 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para comenzar, consulte [Inicio rápido: Creación de una base de datos única en Azure SQL Database con Azure Portal](sql-database-single-database-get-started.md).
-- Para ver los límites de recursos, consulte [Límites de recursos del nivel de proceso sin servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+- Para ver los límites de recursos, consulte [Límites de recursos del nivel de proceso sin servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 88fe73988f6a90fd5041445a561c0f77f25eddc1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75568cf3c88c02968b3e3e95971f81cf1b9285d3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060504"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496347"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualización del clúster mediante el Explorador de Service Fabric
 
@@ -128,7 +128,16 @@ El visor del almacén de imágenes es una característica que se ofrece si se us
 
 ![Mapa de clúster del Explorador de Service Fabric][sfx-imagestore]
 
+## <a name="backup-and-restore"></a>Copia de seguridad y restauración
+Service Fabric Explorer ofrece la posibilidad de interactuar con [Copia de seguridad y restauración](./service-fabric-reliable-services-backup-restore.md). Son posibles las siguientes operaciones:
 
+* Crear, editar y eliminar una directiva de copia de seguridad.
+* Habilitar y deshabilitar la copia de seguridad para una aplicación, un servicio o una partición.
+* Suspender y reanudar la copia de seguridad para una aplicación, un servicio o una partición.
+* Desencadenar y hacer seguimiento de la copia de seguridad de una partición.
+* Desencadenar y hacer seguimiento de la restauración de una partición.
+
+Para más información sobre el servicio de copia de seguridad y restauración, consulte la [referencia de la API de REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Implementación de aplicaciones de Service Fabric con PowerShell](service-fabric-deploy-remove-applications.md)

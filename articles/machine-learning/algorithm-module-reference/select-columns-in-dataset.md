@@ -1,24 +1,24 @@
 ---
-title: 'Seleccionar columnas de conjunto de datos: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Seleccionar columnas de conjunto de datos en Azure Machine Learning Service para elegir un subconjunto de columnas para usarlas en operaciones descendentes.
+title: 'Seleccionar columnas de conjunto de datos: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo Seleccionar columnas de conjunto de datos en Azure Machine Learning para elegir un subconjunto de columnas para usarlas en operaciones descendentes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 097477fb9fc10d954954815c7f4b0fef8947a526
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.date: 10/22/2019
+ms.openlocfilehash: 3511c448298aa96c95dc970d1d192869c127eb0d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128490"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497659"
 ---
 # <a name="select-columns-in-dataset-module"></a>Módulo Seleccionar columnas de conjunto de datos
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Use este módulo para elegir un subconjunto de columnas para usarlas en operaciones descendentes. El módulo no elimina físicamente las columnas del conjunto de datos de origen; en su lugar, crea un subconjunto de columnas, muy similar a una *vista* o *proyección* de una base de datos.
 
@@ -112,4 +112,4 @@ Por ejemplo, en un conjunto de datos con las columnas Col1, Col2, Col3 y Col4, p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

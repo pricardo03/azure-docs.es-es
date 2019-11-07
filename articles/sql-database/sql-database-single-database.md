@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: c5de4277915e71763f034596d372554e4f88e204
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 2f55ad795cc76d59581b25ca60a1c89e7db96b04
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316655"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496019"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Bases de datos únicas en Azure SQL Database
 
@@ -29,7 +29,7 @@ La opción de implementación de una base de datos única crea una base de datos
 
 ## <a name="dynamic-scalability"></a>Escalabilidad dinámica
 
-Puede compilar su primera aplicación en una base de datos pequeña a bajo coste en el nivel de proceso sin servidor (versión preliminar) o en un tamaño de proceso pequeño en el nivel de proceso aprovisionado. Puede cambiar el [nivel de servicio o de proceso](sql-database-single-database-scale.md) de forma manual o mediante programación en cualquier momento para adecuarlo a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
+Puede compilar su primera aplicación en una base de datos pequeña a bajo coste en el nivel de proceso sin servidor o en un tamaño de proceso pequeño en el nivel de proceso aprovisionado. Puede cambiar el [nivel de servicio o de proceso](sql-database-single-database-scale.md) de forma manual o mediante programación en cualquier momento para adecuarlo a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
 
 ## <a name="single-databases-and-elastic-pools"></a>Bases de datos únicas y grupos elásticos
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 42ce8bfa78cfa40e147ee90de28c1ac1430070f1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 67870cdfcf92bb49d6e4f954b7001a8a705dcc42
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259744"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496399"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-pci-dss"></a>Plano técnico de seguridad y cumplimiento de Azure: Análisis de PCI DSS
 
@@ -29,7 +29,7 @@ Para cumplir con los requisitos de PCI DSS, debe conseguir que un asesor de segu
 
 Este plano técnico Azure Security and Compliance Blueprint proporciona una plataforma analítica sobre la cual los clientes pueden crear sus propias herramientas de análisis. La arquitectura de referencia esboza un caso de uso genérico en el que los clientes introducen datos ya sea a través de importaciones de datos masivos por parte del administrador de datos/SQL o mediante actualizaciones de datos operativos a través de un usuario operativo. Ambos flujos de trabajo incorporan Azure Functions para importar datos en Azure SQL Database. El cliente debe configurar Azure Functions en Azure Portal para controlar las tareas de importación únicas a los requisitos de análisis propios de cada cliente.
 
-Azure ofrece una variedad de servicios de informes y análisis para el cliente. Esta solución incorpora los servicios de Azure Machine Learning en conjunto con Azure SQL Database para examinar rápidamente los datos y entregar resultados más rápidos mediante un modelado más inteligente. Azure Machine Learning aumenta la velocidad de las consultas mediante el descubrimiento de nuevas relaciones entre conjuntos de datos. Una vez que los datos se han entrenado mediante varias funciones estadísticas, se pueden sincronizar hasta siete grupos de consulta adicionales (ocho en total incluido el servidor del cliente) con los mismos modelos tabulares para distribuir las cargas de trabajo de la consulta y reducir el tiempo de respuesta.
+Azure ofrece una variedad de servicios de informes y análisis para el cliente. Esta solución incorpora Azure Machine Learning junto con Azure SQL Database para examinar rápidamente los datos y entregar resultados más rápidos mediante un modelado más inteligente. Azure Machine Learning aumenta la velocidad de las consultas mediante el descubrimiento de nuevas relaciones entre conjuntos de datos. Una vez que los datos se han entrenado mediante varias funciones estadísticas, se pueden sincronizar hasta siete grupos de consulta adicionales (ocho en total incluido el servidor del cliente) con los mismos modelos tabulares para distribuir las cargas de trabajo de la consulta y reducir el tiempo de respuesta.
 
 Para mejorar el análisis y los informes, las bases de datos de Azure SQL pueden configurarse con índices de almacén de columnas. Tanto Azure Machine Learning como las bases de datos de Azure SQL se pueden escalar o reducir verticalmente o apagarse por completo en respuesta al uso del cliente. Todo el tráfico SQL se cifra con SSL mediante la inclusión de certificados autofirmados. Como procedimiento recomendado, Azure recomienda el uso de una entidad de certificación de confianza para mejorar la seguridad.
 
@@ -41,7 +41,7 @@ Para mejorar la seguridad, todos los recursos de esta solución se administran c
 
 Azure SQL Database se administra comúnmente mediante SQL Server Management Studio (SSMS), que se ejecuta desde una máquina local configurada para acceder a Azure SQL Database mediante una conexión segura VPN o ExpressRoute. **Microsoft recomienda configurar una conexión VPN o de ExpressRoute para la administración y la importación de datos en el grupo de recursos de la arquitectura de referencia**.
 
-![Diagrama de arquitectura de referencia de análisis para PCI DSS](images/pcidss-analytics-architecture.png "Analytics for PCI DSS reference architecture diagram")
+![Diagrama de arquitectura de referencia de Analytics para PCI DSS](images/pcidss-analytics-architecture.png "Diagrama de arquitectura de referencia de Analytics para PCI DSS")
 
 Esta solución usa los siguientes servicios de Azure. Los detalles de la arquitectura de implementación se encuentran en la sección [Arquitectura de implementación](#deployment-architecture).
 
@@ -71,7 +71,7 @@ En la siguiente sección se detallan los elementos de desarrollo e implementaci�
 
 **Azure Functions**: [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) es un servicio de proceso sin servidor que permite ejecutar código a petición sin necesidad de aprovisionar ni administrar explícitamente la infraestructura. Use Azure Functions para ejecutar un script o un fragmento de código en respuesta a diversos eventos.
 
-**Azure Machine Learning Service**: [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) es una técnica de ciencia de datos que permite a los equipos utilizar datos existentes para prever tendencias, resultados y comportamientos futuros.
+**Azure Machine Learning**: [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) es una técnica de ciencia de datos que permite a los equipos utilizar datos existentes para prever tendencias, resultados y comportamientos futuros.
 
 **Azure Data Catalog**: [Data Catalog](../../data-catalog/overview.md) facilita que los usuarios que administran los datos puedan detectar y comprender los orígenes de datos. En los orígenes de datos comunes se pueden registrar, etiquetar y buscar datos financieros. Los datos permanecen en la ubicación existente, pero se agrega una copia de sus metadatos a Data Catalog, junto con una referencia a la ubicación del origen de datos. Los metadatos también se indexan no solo para que todos los orígenes de datos se puedan detectar fácilmente a través de la búsqueda, sino también para que los usuarios que los detecten puedan comprenderlos.
 
@@ -167,7 +167,7 @@ Como parte de esta arquitectura se incluyen las siguientes [soluciones de superv
 
 El diagrama de flujo de datos de esta arquitectura de referencia está disponible para su [descarga](https://aka.ms/PCIAnalyticsTM) y se encuentra a continuación. El modelo puede ayudar a los clientes a comprender los puntos de riesgo potencial de la infraestructura del sistema al realizar modificaciones.
 
-![Diagrama de arquitectura de referencia de análisis para PCI DSS](images/pcidss-analytics-threat-model.png "Analytics for PCI DSS threat model")
+![Diagrama de arquitectura de referencia de Analytics para PCI DSS](images/pcidss-analytics-threat-model.png "Modelo de amenazas de Analytics para PCI DSS")
 
 ## <a name="compliance-documentation"></a>Documentación de cumplimiento
 En [Azure Security and Compliance Blueprint: matriz de responsabilidades de clientes para PCI DSS](https://aka.ms/pcidss-analytics-tm) se enumeran las responsabilidades para todos los requisitos de PCI DSS 3.2.

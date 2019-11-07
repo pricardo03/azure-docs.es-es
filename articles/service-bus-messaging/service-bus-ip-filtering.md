@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45415af479c9581ee04b97af4fb5297d09c5769d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704586"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496343"
 ---
 # <a name="use-firewall-rules"></a>Uso de las reglas de firewall
 
@@ -24,7 +24,7 @@ En los escenarios en los que solo se puede acceder a Azure Service Bus desde sit
 
 ## <a name="when-to-use"></a>Cuándo se deben usar
 
-Si desea configurar Service Bus de forma que reciba tráfico solo de un rango especificado de direcciones IP y rechace todo lo demás, puede aprovechar un *Firewall* para bloquear los puntos de conexión de Service Bus desde otras direcciones IP. Por ejemplo, usará Service Bus con [Azure ExpressRoute][express-route] para crear conexiones privadas a la infraestructura local. 
+Si desea configurar Service Bus de forma que reciba tráfico solo de un rango especificado de direcciones IP y rechace todo lo demás, puede aprovechar un *Firewall* para bloquear los puntos de conexión de Service Bus desde otras direcciones IP. Por ejemplo, usará Service Bus con [Azure Express Route][express-route] para crear conexiones privadas a la infraestructura local. 
 
 ## <a name="how-filter-rules-are-applied"></a>Cómo se aplican las reglas de filtro
 
@@ -51,7 +51,6 @@ Las reglas de filtro IP se aplican en orden y la primera regla que coincida con 
 > - Integración con Azure Event Grid
 > - Enrutamientos de Azure IoT Hub
 > - Azure IoT Device Explorer
-> - Explorador de datos de Azure
 >
 > Los siguientes servicios de Microsoft deben estar en una red virtual
 > - Azure App Service
@@ -143,7 +142,7 @@ Parámetros de plantilla:
   }
 ```
 
-Para implementar la plantilla, siga las instrucciones relativas a [Azure Resource Manager][lnk-deploy].
+Para implementar la plantilla, siga las instrucciones para [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Pasos siguientes
 

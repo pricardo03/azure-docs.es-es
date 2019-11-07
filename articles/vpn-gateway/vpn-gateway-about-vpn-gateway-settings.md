@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa08ea44722b2def684c269c3f9a0a30a4890a12
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 64a162b9d2f83b4bc703f5912116fd302fcb601c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970902"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495736"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 
@@ -79,9 +79,9 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 Si tiene una puerta de enlace VPN y desea usar una SKU de puerta de enlace distinta, las opciones son o cambiar el tamaño de la SKU de puerta de enlace o cambiar a otra SKU. Al cambiar a otra SKU de puerta de enlace, se elimina completamente la puerta de enlace existente y se crea otra. La creación de una puerta de enlace puede tardar hasta 45 minutos. En cambio, al cambiar el tamaño de la SKU de puerta de enlace, el tiempo de inactividad será corto, ya que no tiene que eliminar y volver crear la puerta de enlace. Si tiene la opción de cambiar el tamaño de la SKU de puerta de enlace, en lugar de cambiarla, aprovéchela. Sin embargo, hay reglas en relación con el cambio de tamaño:
 
-1. Puede cambiar el tamaño entre las SKU de VpnGw1, VpnGw2 y VpnGw3.
+1. A excepción de la SKU básica, puede cambiar el tamaño de una SKU de VPN Gateway a otra SKU de VPN Gateway dentro de la misma generación (Generation1 o Generation2). Por ejemplo, se puede cambiar el tamaño de VpnGw1 de Generation1 a VpnGw2 de Generation1, pero no a VpnGw2 de Generation2.
 2. Si trabaja con las SKU de puerta de enlace antiguas, puede cambiar el tamaño entre las SKU Básica, Estándar y HighPerformance.
-3. Sin embargo **no puede** cambiar el tamaño de las SKU de Básica/Estándar/HighPerformance a las nuevas SKU de VpnGw1/VpnGw2/VpnGw3. En su lugar, debe [cambiar](#change) a las SKU nuevas.
+3. Sin embargo, **no puede** cambiar el tamaño de las SKU de Básica/Estándar/HighPerformance a las SKU de VpnGw. En su lugar, debe [cambiar](#change) a las SKU nuevas.
 
 #### <a name="resizegwsku"></a>Cambiar el tamaño de una puerta de enlace
 

@@ -1,7 +1,7 @@
 ---
 title: Puesta en marcha de los experimentos a partir de ejemplos
-titleSuffix: Azure Machine Learning Studio
-description: Aprenda a usar experimentos de aprendizaje automático de ejemplo para crear nuevos experimentos con Azure AI Gallery y Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Aprenda a usar experimentos de aprendizaje automático de ejemplo para crear nuevos experimentos con Azure AI Gallery y Azure Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: f88323069ed23f4a038ffa4a030b1c4d4541ec42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 547cd7c97ddf7aa08ef94f6aeea82e16119c7135
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61460384"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496776"
 ---
-# <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Crear experimentos de Azure Machine Learning Studio a partir de ejemplos de trabajo en Azure AI Gallery
+# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Crear experimentos de Azure Machine Learning Studio (clásico) a partir de ejemplos de trabajo en Azure AI Gallery
 
 Aprenda cómo comenzar con experimentos de ejemplo desde la [galería de inteligencia artificial de Azure](https://gallery.azure.ai/) en lugar de crear experimentos de aprendizaje automático desde cero. Puede usar los ejemplos para crear su propia solución de aprendizaje automático.
 
-En la galería hay experimentos de ejemplo creados por el equipo Microsoft Azure Machine Learning Studio, así como ejemplos compartidos por la comunidad de Machine Learning. También puede plantear preguntas o publicar comentarios acerca de experimentos.
+En la galería hay experimentos de ejemplo creados por el equipo Microsoft Azure Machine Learning Studio (clásico), así como ejemplos compartidos por la comunidad de Machine Learning. También puede plantear preguntas o publicar comentarios acerca de experimentos.
 
 Para ver cómo usar la galería, vea el vídeo de 3 minutos [Copia del trabajo de otras personas para realizar ciencia de datos](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) de la serie [Ciencia de datos para principiantes](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
@@ -48,18 +48,13 @@ Para examinar todos los experimentos:
 
     ![Experimento de ejemplo](./media/sample-experiments/example-experiment.png)
 
-    > [!NOTE]
-    > Cuando abra un experimento en Machine Learning Studio por primera vez, puede probarlo de forma gratuita o comprar una suscripción a Azure. [Vea información sobre la diferencia entre la prueba gratuita de Machine Learning Studio y el servicio de pago](https://azure.microsoft.com/pricing/details/machine-learning/)
-    >
-    >
-
 ## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Creación de un nuevo experimento usando un ejemplo como plantilla
-También puede crear un nuevo experimento en Machine Learning Studio tomando un ejemplo de la galería como plantilla.
+También puede crear un nuevo experimento en la versión clásica de Machine Learning Studio tomando un ejemplo de la galería como plantilla.
 
 1. Inicie sesión con las credenciales de su cuenta de Microsoft en [Studio](https://studio.azureml.net) y haga clic en **Nuevo** para crear un experimento.
 2. Examine el contenido de ejemplo y haga clic en uno.
 
-Se crea un nuevo experimento en su área de trabajo de Machine Learning Studio tomando como plantilla el experimento de ejemplo.
+Se crea un nuevo experimento en su área de trabajo de Machine Learning Studio (clásico) tomando como plantilla el experimento de ejemplo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Importación de datos desde varios orígenes](import-data.md)

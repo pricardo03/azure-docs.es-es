@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
-ms.openlocfilehash: dfaa39b33839406ffdf484299cb520aebf011c7d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/25/2019
+ms.openlocfilehash: 45d76328f4a5de4a5cf26b0a126825c1b0a906c7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299689"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496945"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Aprenda a usar Azure Machine Learning para implementar un modelo como un servicio web en Azure Kubernetes Service (AKS). Azure Kubernetes Service se recomienda para implementaciones de producción a gran escala. Úselo si necesita una o varias de las siguientes funcionalidades:
 
@@ -30,8 +31,8 @@ Aprenda a usar Azure Machine Learning para implementar un modelo como un servici
 
 En Azure Kubernetes Service, la implementación se realiza en un clúster de AKS que está __conectado a su área de trabajo__. Hay dos formas de conectar un clúster de AKS a un área de trabajo:
 
-* Cree el clúster de AKS mediante el SDK de Azure Machine Learning, la CLI de Machine Learning, [Azure Portal](https://portal.azure.com) o la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com). Este proceso conecta automáticamente el clúster al área de trabajo.
-* Conecte el clúster de AKS existente a un área de trabajo de Azure Machine Learning. Un clúster se puede conectar mediante el SDK de Azure Machine Learning, la CLI de Machine Learning o Azure Portal.
+* Cree el clúster de AKS mediante el SDK de Azure Machine Learning, la CLI de Machine Learning o [Azure Machine Learning Studio](https://ml.azure.com). Este proceso conecta automáticamente el clúster al área de trabajo.
+* Conecte el clúster de AKS existente a un área de trabajo de Azure Machine Learning. Un clúster se puede conectar mediante el SDK de Azure Machine Learning, la CLI de Machine Learning o Azure Machine Learning Studio.
 
 > [!IMPORTANT]
 > El proceso de creación o de conexión es una tarea que se realiza una sola vez. Una vez que un clúster de AKS está conectado al área de trabajo, puede usarlo para las implementaciones. Cuando deje de necesitar el clúster de AKS puede desasociarlo o eliminarlo. Una vez que lo haga, ya no podrá implementar realizar ninguna implementación en el clúster.
@@ -93,7 +94,7 @@ aks_target.wait_for_completion(show_output = True)
 > [!IMPORTANT]
 > Para [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), si elige valores personalizados para `agent_count` y `vm_size`, y `cluster_purpose` no es `DEV_TEST`, deberá asegurarse de que `agent_count` multiplicado por `vm_size` sea mayor o igual que 12 CPU virtuales. Por ejemplo, si usa un valor de `vm_size` de "Standard_D3_v2", que tiene cuatro CPU virtuales, debe elegir un valor de `agent_count` de 3 o mayor.
 >
-> El SDK de Azure Machine Learning no admite escalar un clúster de AKS. Para escalar los nodos en el clúster, use la interfaz de usuario para el clúster de AKS en Azure Portal. Solo puede cambiar el número de nodos, no el tamaño de máquina virtual del clúster.
+> El SDK de Azure Machine Learning no admite escalar un clúster de AKS. Para escalar los nodos en el clúster, use la interfaz de usuario para el clúster de AKS en Azure Machine Learning Studio. Solo puede cambiar el número de nodos, no el tamaño de máquina virtual del clúster.
 
 Para más información acerca de las clases, los métodos y los parámetros que se usan en este ejemplo, consulte los siguientes documentos de referencia:
 
@@ -226,6 +227,69 @@ Para obtener información acerca del uso de Visual Studio Code, consulte cómo s
 
 > [!IMPORTANT] 
 > La implementación a través de Visual Studio Code requiere que el clúster de AKS se cree o se adjunte al área de trabajo de antemano.
+
+## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Implementación de modelos en AKS mediante el lanzamiento controlado (versión preliminar)
+Analice y promocione las versiones del modelo de un modo controlado mediante puntos de conexión. Implemente hasta 6 versiones detrás de un solo punto de conexión y configure el porcentaje de tráfico de puntuación para cada versión implementada. Puede habilitar App Insights para ver las métricas operativas de los puntos de conexión y las versiones implementadas.
+
+### <a name="create-an-endpoint"></a>Creación de un extremo
+Cuando esté listo para implementar los modelos, cree un punto de conexión de puntuación e implemente la primera versión. En el paso siguiente se muestra cómo implementar y crear el punto de conexión mediante el SDK. La primera implementación se definirá como la versión predeterminada, lo que significa que el percentil de tráfico sin especificar en todas las versiones irá a la versión predeterminada.  
+
+```python
+import azureml.core,
+from azureml.core.webservice import AksEndpoint
+from azureml.core.compute import AksCompute
+from azureml.core.compute import ComputeTarget
+# select a created compute
+compute = ComputeTarget(ws, 'myaks')
+namespace_name= endpointnamespace 
+# define the endpoint and version name
+endpoint_name = "mynewendpoint",
+version_name= "versiona",
+# create the deployment config and define the scoring traffic percentile for the first deployment
+endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
+                                                              enable_app_insights = true, 
+                                                              tags = {'sckitlearn':'demo'},
+                                                              decription = testing versions,
+                                                              version_name = version_name,
+                                                              traffic_percentile = 20)
+ # deploy the model and endpoint
+ endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
+ ```
+
+### <a name="update-and-add-versions-to-an-endpoint"></a>Actualizar y agregar versiones a un punto de conexión
+
+Agregue otra versión al punto de conexión y configure el percentil de tráfico de puntuación que va a la versión. Hay dos tipos de versiones, una versión control y otra de tratamiento. Pueden haber varias versiones de tratamiento para ayudar a comparar con una versión de control única. 
+
+ ```python
+from azureml.core.webservice import AksEndpoint
+
+# add another model deployment to the same endpoint as above
+version_name_add = "versionb" 
+endpoint.create_version(version_name = version_name_add, 
+                        inference_config=inference_config,
+                        models=[model], 
+                        tags = {'modelVersion':'b'}, 
+                        description = "my second version", 
+                        traffic_percentile = 10)
+```
+
+Actualice las versiones existentes o elimínelas en un punto de conexión. Puede cambiar el tipo predeterminado de la versión, el tipo de control y el percentil de tráfico. 
+ 
+ ```python
+from azureml.core.webservice import AksEndpoint
+
+# update the version's scoring traffic percentage and if it is a default or control type 
+endpoint.update_version(version_name=endpoint.versions["versionb"].name, 
+                        description="my second version update", 
+                        traffic_percentile=40,
+                        is_default=True,
+                        is_control_version_type=True)
+
+# delete a version in an endpoint 
+endpoint.delete_version(version_name="versionb")
+
+```
+
 
 ## <a name="web-service-authentication"></a>Autenticación de servicio web
 

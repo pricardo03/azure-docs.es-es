@@ -1,7 +1,7 @@
 ---
 title: 'Preprocess Text (Preprocesamiento de texto): referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo Preprocess Text en Azure Machine Learning Service para limpiar y simplificar texto.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Preprocesamiento de texto en Azure Machine Learning para limpiar y simplificar texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 2213d26e6d3b2b6a7aca9d65e74a4499ff0da6c1
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9bf81b4e4c305c864592c32a8737d1a5eeb18651
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692688"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497673"
 ---
 # <a name="preprocess-text"></a>preprocesamiento de texto
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Use el módulo **Preprocess Text** para limpiar y simplificar texto. Admite estas operaciones de procesamiento de texto habituales:
 
@@ -33,7 +33,7 @@ El módulo **Preprocess Text** solo admite actualmente texto en inglés.
 
 ## <a name="configure-text-preprocessing"></a>Configuración de Preprocess Text  
 
-1.  Agregue el módulo **Preprocess Text** al experimento en Azure Machine Learning Service. Puede encontrar este módulo en **Text Analytics**.
+1.  Agregue el módulo **Preprocesamiento de texto** al experimento en Azure Machine Learning. Puede encontrar este módulo en **Text Analytics**.
 
 1. Conecte un conjunto de datos que incluya al menos una columna que contenga texto.
 
@@ -83,8 +83,8 @@ El módulo **Preprocess Text** solo admite actualmente texto en inglés.
 
     Por ejemplo, la cadena `MS---WORD` se dividiría en tres tokens `MS`, `-` y `WORD`.
 
-1. Ejecute el experimento.
+1. Ejecución de la canalización
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

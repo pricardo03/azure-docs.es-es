@@ -1,7 +1,7 @@
 ---
 title: Uso de la interfaz de ML automatizado de Azure para entrenar e implementar modelos
 titleSuffix: Azure Machine Learning
-description: Cree, administre e implemente experimentos de aprendizaje automático automatizado en la página de aterrizaje del área de trabajo de Azure Machine Learning (versión preliminar).
+description: Cree, administre e implemente experimentos de aprendizaje automático automatizado en Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,18 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 09/09/2019
-ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 11/04/2019
+ms.openlocfilehash: 05bae18d35eafc47eddc7c1450eb06af5bbe5562
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350554"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497179"
 ---
-# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Cree, explore e implemente experimentos de aprendizaje automático automatizado con la página de aterrizaje del área de trabajo de Azure Machine Learning (versión preliminar).
+# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Cree, explore e implemente experimentos de aprendizaje automático automatizado con Azure Machine Learning Studio
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
- En este artículo, aprenderá a crear, explorar e implementar experimentos de aprendizaje automático automatizado en la página de aterrizaje del área de trabajo de Machine Learning sin una sola línea de código. El aprendizaje automático automatizado automatiza el proceso de selección del mejor algoritmo que se usará para datos específicos, por lo que puede generar un modelo de Machine Learning rápidamente. [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md).
+ En este artículo, aprenderá a crear, explorar e implementar experimentos de aprendizaje automático automatizado en Azure Machine Learning Studio sin una sola línea de código. El aprendizaje automático automatizado automatiza el proceso de selección del mejor algoritmo que se usará para datos específicos, por lo que puede generar un modelo de Machine Learning rápidamente. [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md).
 
  Si prefiere una experiencia más basada en código, también puede [configurar los experimentos de aprendizaje automático automatizado de Python](how-to-configure-auto-train.md) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -28,51 +29,34 @@ ms.locfileid: "71350554"
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
+* Un área de trabajo de Azure Machine Learning con un tipo de **Enterprise Edition**. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).  Para actualizar un área de trabajo existente a Enterprise Edition, consulte [Actualización a Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
 ## <a name="get-started"></a>Primeros pasos
 
-1. Inicie sesión en la [página de aterrizaje del área de trabajo](https://ml.azure.com/workspaceportal/). 
+1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com). 
 
 1. Seleccione su suscripción y área de trabajo. 
 
 1. Navegue al panel izquierdo. Seleccione **Automated ML** (ML automatizado) en la sección **Creación**.
 
-[![Panel de navegación de Azure Portal](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+[![Panel de navegación de Azure Machine Learning Studio](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
- Si es la primera vez que realiza algún experimento, verá la pantalla **Introducción**. 
+ Si es la primera vez que realiza algún experimento, verá una lista vacía y vínculos a la documentación. 
 
-En caso contrario, verá el panel de **Machine Learning automatizado** con una introducción de todos sus experimentos de aprendizaje automático, incluidos aquellos creados con el SDK. Aquí puede filtrar y explorar las ejecuciones por la fecha, el nombre de experimento y el estado de la ejecución.
+De lo contrario, verá una lista de los experimentos de aprendizaje automático automatizado recientes, incluidos los creados con el SDK. 
 
 ## <a name="create-and-run-experiment"></a>Creación y ejecución de un experimento
 
-1. Seleccione **Create Experiment** (Crear experimento) y rellene el formulario.
+1. Seleccione **+ Create Experiment** (+ Crear experimento) y rellene el formulario.
 
-1. Escriba un nombre único para el experimento.
-
-1. Seleccione un proceso para la generación de perfiles de los datos y el trabajo de entrenamiento. Hay una lista de los procesos existentes disponible en la lista desplegable. Para crear un nuevo proceso, siga las instrucciones del paso 4.
-
-1. Seleccione **Create a new compute** (Crear un proceso) para configurar el contexto del proceso de este experimento.
-
-    Campo|DESCRIPCIÓN
-    ---|---
-    Nombre del proceso| Escriba un nombre único que identifique el contexto del proceso.
-    Tamaño de la máquina virtual| Seleccione el tamaño de la máquina virtual para el proceso.
-    Número máximo y mínimo de nodos (en Configuración avanzada)| Para generar perfiles de datos, debe especificar uno o más nodos. escriba el número máximo de nodos para el proceso. El valor predeterminado es seis nodos para un proceso de AML.
-    
-    Seleccione **Crear**. La creación de un nuevo proceso puede tardar unos minutos.
-
-    >[!NOTE]
-    > Su nombre de proceso indicará si el proceso que selecciona o crea *admite la generación de perfiles* . (Consulte la sección sobre la [generación de perfiles de los datos](#profile) para más detalles ).
-
-1. Seleccione un conjunto de datos en el contenedor de almacenamiento o cree uno cargando un archivo desde el equipo local al contenedor. La versión preliminar pública solo admite cargas de archivos locales y cuentas de Azure Blob Storage.
+1. Seleccione un conjunto de datos del contenedor de almacenamiento o cree un nuevo conjunto de datos. Los conjuntos de datos se pueden crear a partir de archivos locales, direcciones URL web, almacenes de datos o Azure Open Datasets. 
 
     >[!Important]
     > Requisitos para los datos de entrenamiento:
     >* Los datos deben estar en formato tabular.
     >* El valor que quiere predecir (columna de destino) debe estar presente en los datos.
 
-    1. Para crear un nuevo conjunto de datos a partir de un archivo en el proceso local, seleccione **Examinar** y seleccione el archivo. 
+    1. Para crear un nuevo conjunto de datos a partir de un archivo del equipo local, seleccione **Examinar** y seleccione el archivo. 
 
     1. Asigne un nombre único al conjunto de datos y proporcione una descripción opcional. 
 
@@ -94,25 +78,51 @@ En caso contrario, verá el panel de **Machine Learning automatizado** con una i
             
         Seleccione **Siguiente**.
 
-1. Seleccione el tipo de trabajo de entrenamiento: clasificación, regresión o previsión.
+    1. En el formulario **Confirmar detalles** se muestra un resumen de la información que se ha rellenado anteriormente en los formularios **Información básica** y **Settings and preview** (Configuración y vista previa). También tiene la opción de generar perfiles del conjunto de datos mediante un proceso habilitado para la generación de perfiles. Más información acerca de la [generación de perfiles de datos](#profile).
+
+        Seleccione **Next** (Siguiente).
+1. Seleccione el conjunto de datos recién creado cuando aparezca. También puede ver una vista previa del conjunto de datos y las estadísticas de ejemplo. 
+
+1. En el formulario **Ejecutar la configuración**, escriba un nombre único para el experimento.
 
 1. Seleccione una columna de destino; esta es la columna en la que realizará las predicciones.
 
-1. Para la previsión:
-    1. Seleccione la columna de tiempo: esta columna contiene los datos de tiempo que desea usar.
+1. Seleccione un proceso para la generación de perfiles de los datos y el trabajo de entrenamiento. Hay una lista de los procesos existentes disponible en la lista desplegable. Para crear un nuevo proceso, siga las instrucciones del paso 7.
 
-    1. Seleccione el horizonte de previsión: Indique cuántas unidades de tiempo (minutos, horas, días, semanas, meses o años) será capaz predecir el modelo en el futuro. Cuanto más se exija al modelo que prediga en el futuro, menos preciso será. [Más información sobre la previsión y el horizonte de previsión](how-to-auto-train-forecast.md).
+1. Seleccione **Create a new compute** (Crear un proceso) para configurar el contexto del proceso de este experimento.
 
-1. (Opcional) Configuración avanzada: configuración adicional que puede usar para controlar mejor el trabajo de entrenamiento. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento. 
+    Campo|DESCRIPCIÓN
+    ---|---
+    Nombre del proceso| Escriba un nombre único que identifique el contexto del proceso.
+    Tamaño de la máquina virtual| Seleccione el tamaño de la máquina virtual para el proceso.
+    Número máximo y mínimo de nodos (en Configuración avanzada)| Para generar perfiles de datos, debe especificar uno o más nodos. escriba el número máximo de nodos para el proceso. El valor predeterminado es seis nodos para un proceso de AML.
+    
+    Seleccione **Crear**. La creación de un nuevo proceso puede tardar unos minutos.
 
-    Configuración avanzada|DESCRIPCIÓN
+    >[!NOTE]
+    > Su nombre de proceso indicará si el proceso que selecciona o crea *admite la generación de perfiles* . (Consulte la sección sobre la [generación de perfiles de los datos](#profile) para más detalles ).
+
+    Seleccione **Next** (Siguiente).
+
+1. En el formulario **Task type and settings** (Tipo de tarea y configuración), seleccione el tipo de tarea: clasificación, regresión o previsión. 
+
+    1. Para la clasificación, también puede habilitar el aprendizaje profundo, que se usa para las características de texto.
+
+    1. Para la previsión:
+        1. Seleccione la columna de tiempo: esta columna contiene los datos de tiempo que desea usar.
+
+        1. Seleccione el horizonte de previsión: Indique cuántas unidades de tiempo (minutos, horas, días, semanas, meses o años) será capaz predecir el modelo en el futuro. Cuanto más se exija al modelo que prediga en el futuro, menos preciso será. [Más información sobre la previsión y el horizonte de previsión](how-to-auto-train-forecast.md).
+
+1. (Opcional) Adición de configuraciones: configuración adicional que puede usar para controlar mejor el trabajo de entrenamiento. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento. 
+
+    Configuraciones adicionales|DESCRIPCIÓN
     ------|------
     Métrica principal| Métrica principal usada para puntuar el modelo. [Más información sobre las métricas del modelo](how-to-configure-auto-train.md#explore-model-metrics).
-    Exit criteria (Criterios de salida)| Cuando se cumple alguno de estos criterios, se detiene el trabajo de entrenamiento. <br> *Training job time (minutes)* (Tiempo de trabajo de entrenamiento [minutos]): cantidad de tiempo para permitir que el trabajo de entrenamiento se ejecute.  <br> *Max number of iterations* (Número máximo de iteraciones): número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas. <br> *Metric score threshold* (Umbral de puntuación de métrica):  puntuación mínima de métrica para todas las canalizaciones. Esto garantiza que si tiene una métrica objetivo definida que desee alcanzar, no dedicará más tiempo en el trabajo de entrenamiento que el necesario.
-    Preprocessing (Preprocesamiento)| Seleccione esta opción para habilitar o deshabilitar el preprocesamiento que el aprendizaje automático automatizado realiza. El preprocesamiento incluye la limpieza, preparación y transformación automáticas de los datos para generar características sintéticas. [Más información sobre el preprocesamiento](#preprocess).
-    Validación| Seleccione una de las opciones de validación cruzada en el trabajo de entrenamiento. [Más información sobre la validación cruzada](how-to-configure-auto-train.md).
-    Simultaneidad| Seleccione los límites de varios núcleos que le gustaría usar cuando se usa un proceso de varios núcleos.
+    Características automáticas| Seleccione esta opción para habilitar o deshabilitar el preprocesamiento que el aprendizaje automático automatizado realiza. El preprocesamiento incluye la limpieza, preparación y transformación automáticas de los datos para generar características sintéticas. [Más información sobre el preprocesamiento](#preprocess).
     Blocked algorithms (Algoritmos bloqueados)| Seleccione los algoritmos que desea excluir del trabajo de entrenamiento.
+    Criterio de salida| Cuando se cumple alguno de estos criterios, se detiene el trabajo de entrenamiento. <br> *Tiempo de trabajo de entrenamiento (horas)* : cantidad de tiempo para permitir que el trabajo de entrenamiento se ejecute. <br> *Metric score threshold* (Umbral de puntuación de métrica):  puntuación mínima de métrica para todas las canalizaciones. Esto garantiza que si tiene una métrica objetivo definida que desee alcanzar, no dedicará más tiempo en el trabajo de entrenamiento que el necesario.
+    Validación| Seleccione una de las opciones de validación cruzada en el trabajo de entrenamiento. [Más información sobre la validación cruzada](how-to-configure-auto-train.md).
+    Simultaneidad| *Número máximo de iteraciones simultáneas*: número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas. <br> *Número máximo de núcleos por iteración*: Seleccione los límites de varios núcleos que le gustaría usar cuando se usa un proceso de varios núcleos.
 
 <a name="profile"></a>
 
@@ -130,7 +140,7 @@ Perfil| Visualización en línea según el tipo inferido. Por ejemplo, las caden
 Distribución de tipo| Recuento de valor en línea de los tipos dentro de una columna. Los valores Null son su propio tipo, por lo que esta visualizaicón es útil para detectar los valores impares o que faltan.
 type|Tipo inferido de la columna. Los valores posibles incluyen: cadenas, valores booleanos, fechas y decimales.
 Min| Valor mínimo de la columna. Aparecen entradas en blanco para características cuyo tipo no tiene una ordenación inherente (por ejemplo, valores booleanos).
-max| Valor máximo de la columna. 
+Max| Valor máximo de la columna. 
 Count| Número total de entradas que faltan y que no faltan en la columna.
 No falta el recuento| Número de entradas de la columna que no faltan. Las cadenas vacías y los errores se tratan como valores, por lo que no contribuirán a la lista "No falta el recuento".
 Cuantiles| Valores aproximados en cada cuantil para proporcionar una idea de la distribución de los datos.
@@ -160,19 +170,22 @@ Al configurar los experimentos, puede habilitar la configuración avanzada `Prep
 
 ## <a name="run-experiment-and-view-results"></a>Ejecución del experimento y visualización de los resultados
 
-Seleccione **Start** (Iniciar) para ejecutar el experimento. El proceso de preparación del experimento tarda unos minutos.
+Seleccione **Start** (Iniciar) para ejecutar el experimento. El proceso de preparación del experimento puede tardar hasta 10 minutos. Los trabajos de entrenamiento pueden tardar de 2 a 3 minutos más para que cada canalización termine de ejecutarse.
 
 ### <a name="view-experiment-details"></a>Visualización de los detalles del experimento
 
-Una vez que se realiza la fase de preparación del experimento, verá que la pantalla Run Detail (Detalles de la ejecución) empieza a llenarse. Esta pantalla proporciona una lista completa de los modelos creados. De forma predeterminada, el modelo que puntúa más alto en función de las métricas seleccionadas aparece en la parte superior de la lista. A medida que el trabajo de entrenamiento prueba más modelos, se agregan a la lista de iteración y al gráfico. Para obtener una comparación rápida de las métricas para los modelos generados hasta ahora, utilice el gráfico de iteración.
+>[!NOTE]
+> Seleccione **Actualizar** periódicamente para ver el estado de la ejecución. 
 
-Los trabajos de entrenamiento pueden tardar un tiempo para que cada canalización termine de ejecutarse.
+Se abre la pantalla **Detalles de ejecución** en la pestaña **Detalles**. En esta pantalla se muestra un resumen de la ejecución del experimento, incluido el **Estado de la ejecución**. 
+
+La pestaña **Modelos** contiene una lista de los modelos creados ordenados por la puntuación de la métrica. De forma predeterminada, el modelo que puntúa más alto en función de las métricas seleccionadas aparece en la parte superior de la lista. A medida que el trabajo de entrenamiento prueba más modelos, se agregan a la lista. Utilice esto para obtener una comparación rápida de las métricas para los modelos generados hasta ahora.
 
 [![Panel de detalles de ejecución](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### <a name="view-training-run-details"></a>Ver detalles de ejecución del entrenamiento
 
-Explorar en profundidad en cualquiera de los modelos de salida para ver los detalles de ejecución del entrenamiento, como las métricas de rendimiento y los gráficos de distribución. [Más información sobre los gráficos](how-to-understand-automated-ml.md).
+Explore en profundidad los modelos completados para ver los detalles de la ejecución de entrenamiento, como las métricas de ejecución en la pestaña **Detalles del modelo** o gráficos de rendimiento en la pestaña **Visualizaciones**. [Más información sobre los gráficos](how-to-understand-automated-ml.md).
 
 [![Detalles de la iteración](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
@@ -184,9 +197,9 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Tiene unas par de opciones de implementación. 
 
-    + Opción 1: Para implementar el mejor modelo (según los criterios de métrica que definió), seleccione Deploy Best Model (Implementar el mejor modelo) en la página Run Detail (Detalles de ejecución).
+    + Opción 1: Para implementar el mejor modelo (según los criterios de métrica que definió), seleccione la opción para implementar el mejor modelo en la página Detalles.
 
-    + Opción 2: Si quiere implementar una iteración de modelo específica de este experimento, explore en profundidad el modelo para abrir su página de detalles de ejecución específicos y seleccione Deploy Model (Implementar modelo).
+    + Opción 2: Si quiere implementar una iteración de modelo específica de este experimento, explore en profundidad el modelo para abrir su pestaña Detalles del modelo y seleccione Implementar modelo.
 
 1. Rellene el panel **Deploy Model** (Implementar modelo).
 
@@ -201,11 +214,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Seleccione **Implementar**. La implementación puede tardar unos 20 minutos en completarse.
 
-    El siguiente mensaje aparece cuando la implementación se completa correctamente.
-
-    ![Implementación completada](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
-
-Ya tiene un servicio web operativo para generar predicciones.
+Ya tiene un servicio web operativo para generar predicciones. Puede probar las predicciones consultando el servicio de [soporte técnico de Azure Machine Learning de Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

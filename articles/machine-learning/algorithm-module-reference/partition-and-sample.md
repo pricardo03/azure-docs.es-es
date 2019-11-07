@@ -1,24 +1,24 @@
 ---
-title: 'Partición y muestra: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Partición y muestra de Azure Machine Learning Service para realizar un muestreo en un conjunto de datos o para crear particiones del conjunto de datos.
+title: 'Partición y muestra: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo Partición y muestra de Azure Machine Learning para realizar un muestreo en un conjunto de datos o para crear particiones del conjunto de datos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: fcbf9fae3306c43613ef0b67a79c9c0b53f6b923
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 659dcae0bee0fe1015ba6225797c31bad438013f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693751"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497715"
 ---
 # <a name="partition-and-sample-module"></a>Módulo Partición y muestra
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para realizar un muestreo en un conjunto de datos o para crear particiones del conjunto de datos.
 
@@ -44,7 +44,7 @@ El muestreo es una herramienta importante en Machine Learning porque permite red
 
 Este módulo admite varios métodos para dividir los datos en particiones o para el muestreo. Elija el método en primer lugar y, a continuación, establezca las opciones adicionales necesarias para el método.
 
-- Principal
+- Head
 - muestreo
 - Asignar a plegamientos
 - Seleccionar plegamiento
@@ -167,4 +167,4 @@ Esta opción se usa cuando ha dividido un conjunto de datos en varias particione
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
