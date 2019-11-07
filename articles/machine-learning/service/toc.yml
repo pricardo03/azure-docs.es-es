@@ -58,11 +58,13 @@
       href: tutorial-train-deploy-model-cli.md
 - name: Ejemplos
   items:
-    - name: Notebooks
+    - name: Jupyter Notebooks
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
     - name: Conjuntos de datos abiertos de Azure
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+    - name: Ejemplos de MLOps de un extremo a otro
+      href: 'https://github.com/microsoft/MLOps'
 - name: Conceptos
   items:
     - name: Área de trabajo
@@ -84,9 +86,6 @@
     - name: Automated Machine Learning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Instancia de proceso
-      displayName: 'resource, dsvm, Data Science Virtual Machine'
-      href: concept-compute-instance.md
     - name: Destino de proceso
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
@@ -112,12 +111,11 @@
               href: how-to-change-storage-access-key.md
         - name: Supervisión de Azure Machine Learning
           href: monitor-azure-machine-learning.md
+        - name: Integración con Event Grid
+          href: concept-event-grid-integration.md
     - name: Aprendizaje profundo
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
-    - name: Integración de Git
-      displayName: git github gitlab
-      href: concept-train-model-git-integration.md
 - name: Guías de procedimientos
   items:
     - name: Creación y administración de áreas de trabajo
@@ -146,6 +144,9 @@
         - name: Uso de la extensión de VS Code
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md
+        - name: Integración de Git
+          displayName: github gitlab
+          href: concept-train-model-git-integration.md
     - name: Trabajar con datos
       items:
         - name: Obtención de datos desde un almacén de datos
@@ -163,6 +164,12 @@
         - name: Creación de versión y seguimiento de conjuntos de datos
           displayName: 'data, data set'
           href: how-to-version-track-datasets.md
+        - name: Obtención de datos etiquetados
+          displayName: 'data, dataset, labeling'
+          href: how-to-create-labeling-projects.md
+        - name: Etiquetado de imágenes
+          displayName: 'data, dataset, labeling'
+          href: how-to-label-images.md
     - name: Entrenamiento de modelos
       items:
         - name: Uso del diseñador
@@ -227,11 +234,14 @@
         - name: Uso de Machine Learning automatizado (Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
-        - name: Uso de Machine Learning automatizado (página de aterrizaje del área de trabajo)
+        - name: Uso de ML automatizado (interfaz)
           href: how-to-create-portal-experiments.md
         - name: Uso de destinos de proceso remoto
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
+        - name: Definición de tareas de ML
+          displayName: 'machine learning, task type'
+          href: how-to-define-task-type.md
         - name: Entrenamiento automático de un modelo de previsión
           displayName: time series
           href: how-to-auto-train-forecast.md
@@ -270,7 +280,7 @@
         - name: Azure App Service
           displayName: web app
           href: how-to-deploy-app-service.md
-        - name: Instancias de proceso
+        - name: Máquinas virtuales de Notebook
           href: how-to-deploy-local-container-notebook-vm.md
         - name: Uso de una imagen personalizada de Docker
           href: how-to-deploy-custom-docker-image.md
@@ -317,21 +327,22 @@
     - name: Exportación y eliminación de datos
       displayName: GDPR
       href: how-to-export-delete-data.md
+    - name: Creación de flujos de trabajo controlados por eventos
+      displayName: event grid
+      href: how-to-use-event-grid.md
 - name: Referencia
   items:
-    - name: SDK de Machine Learning (Python)
+    - name: SDK de Python
       displayName: 'api, core, package, python, class'
       href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
-    - name: SDK de Machine Learning (R)
+    - name: SDK de R
       displayName: 'api, core, package, R, class'
       href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
-    - name: CLI de Machine Learning
+    - name: CLI
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
-    - name: Supervisión de referencia de datos
-      href: monitor-resource-reference.md
-    - name: Referencia de YAML de la canalización del aprendizaje automático
-      href: reference-pipeline-yaml.md
+    - name: API DE REST
+      href: 'https://docs.microsoft.com/rest/api/azureml/'
     - name: Módulos de diseñador
       displayName: 'module, reference, algorithm, studio'
       items:
@@ -465,6 +476,12 @@
               href: ../algorithm-module-reference/summarize-data.md
         - name: Códigos y mensajes de error
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
+    - name: Machine Learning a escala
+      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
+    - name: Supervisión de referencia de datos
+      href: monitor-resource-reference.md
+    - name: Referencia de YAML de la canalización del aprendizaje automático
+      href: reference-pipeline-yaml.md
 - name: Recursos
   items:
     - name: Notas de la versión
