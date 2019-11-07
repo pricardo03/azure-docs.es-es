@@ -17,8 +17,6 @@
       href: quick-create-cli.md
 - name: Tutoriales
   items:
-    - name: Habilitar firewall de aplicaciones web
-      href: application-gateway-web-application-firewall-portal.md
     - name: Protección con SSL
       href: create-ssl-portal.md
     - name: Hospedar varios sitios
@@ -127,12 +125,6 @@
           items:
             - name: Configuración de la directiva SSL
               href: application-gateway-configure-ssl-policy-powershell.md
-    - name: Configuración del firewall de aplicaciones web
-      items:
-        - name: Azure PowerShell
-          href: tutorial-restrict-web-traffic-powershell.md
-        - name: CLI de Azure
-          href: tutorial-restrict-web-traffic-cli.md
     - name: Entrada para AKS
       items:
         - name: Configuración con una instancia existente de Application Gateway
