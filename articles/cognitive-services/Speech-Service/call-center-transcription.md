@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 4f5163ba448e4cc7e18b0e794a44003ce5ab1dce
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 858ca114ca4c4b469ce4a5dd5275c9ac9874feb5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516766"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464996"
 ---
 # <a name="speech-services-for-telephony-data"></a>Servicios de voz para datos de telefonía
 
@@ -38,7 +38,7 @@ Más allá del aspecto funcional de los servicios de voz, su objetivo principal 
 
 * Análisis posterior a la llamada, es decir, procesamiento por lotes de grabaciones de llamada
 * Procesamiento de análisis en tiempo real de la señal de audio para extraer varias informaciones a medida que se realiza la llamada (siendo la opinión un caso de uso principal) y
-* Asistentes virtuales (bots), ya sea conduciendo el diálogo entre el cliente y el bot en un intento de resolver el problema del cliente sin la participación del agente, o siendo la aplicación de protocolos de inteligencia artificial para ayudar al agente.
+* Asistentes de voz (bots), ya sea conduciendo el diálogo entre el cliente y el bot en un intento de resolver el problema del cliente sin la participación del agente, o como aplicación de protocolos de inteligencia artificial para ayudar al agente.
 
 Un diagrama de arquitectura típico de la implementación de un escenario por lotes se muestra en la siguiente ilustración ![Arquitectura de transcripción para el centro de llamadas](media/scenarios/call-center-transcription-architecture.png).
 

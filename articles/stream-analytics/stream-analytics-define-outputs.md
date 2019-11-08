@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: 20da8abff943e71deb5d5ec8b7bd6411c176e2e3
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6f04ccf216edb4e6a654c83c6220451bfccfe6ac
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244549"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488560"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 
@@ -69,11 +69,11 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Blob Storage y Azure Data Lake Gen2
 
-La salida a Azure Data Lake Gen2 se ofrece como una característica en versión preliminar previa en regiones limitadas en todo el mundo. Puede solicitar acceso a la versión preliminar proporcionando detalles adicionales en el [formulario de solicitud](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).
+Data Lake Storage Gen2 convierte a Azure Storage en los cimientos para crear lagos de datos empresariales en Azure. Diseñado desde el principio para servir varios petabytes de información y mantener cientos de gigabits de rendimiento, Data Lake Storage Gen2 le ofrece una forma fácil de administrar cantidades masivas de datos. Una parte fundamental de Data Lake Storage Gen2 es la incorporación de un espacio de nombres jerárquico a Blob Storage.
 
 Azure Blob Storage ofrece una solución rentable y escalable para almacenar grandes cantidades de datos no estructurados en la nube. Para obtener una introducción a Blob Storage y su uso, consulte [Carga, descarga y enumeración de blobs con Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-En la siguiente tabla se enumeran los nombres de propiedad y su descripción para crear una salida de blob.
+En la siguiente tabla se enumeran los nombres de propiedad y su descripción para crear un blob o una salida de ADLS Gen2.
 
 | Nombre de propiedad       | DESCRIPCIÓN                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|

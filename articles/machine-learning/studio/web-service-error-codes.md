@@ -1,9 +1,8 @@
 ---
-title: 'Códigos de error de API REST: Azure Machine Learning Studio | Microsoft Docs'
+title: 'Códigos de error de API REST: Azure Machine Learning Studio (clásico) | Microsoft Docs'
 description: Estos códigos de error podrían ser devueltos por una operación en un servicio web Azure Machine Learning.
 keywords: ''
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -11,21 +10,18 @@ editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 8e91d0cd68997dee9bb00cceeaa6b697f6644ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15e73740f5d932d0fa4cfb9a56c9fe7b155555cc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736571"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468157"
 ---
-# <a name="azure-machine-learning-studio-rest-api-error-codes"></a>Códigos de error de API REST de Azure Machine Learning Studio
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Códigos de error de API REST de Azure Machine Learning Studio (clásico)
  
-Los siguientes códigos de error podría devolverlos una operación en un servicio web de Azure Machine Learning Studio.
+Una operación en un servicio web de Azure Machine Learning Studio (clásico) podría devolver los siguientes códigos de error.
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (código de estado HTTP 400)
  
@@ -55,7 +51,7 @@ Esta clase de errores significa que un argumento proporcionado en alguna parte n
 | InvalidBlobExtension | La referencia de blob {0} tiene una extensión de archivo no válida o no está presente. Las extensiones de archivo admitidas para este tipo de salida son: "{1}". |
 | InvalidInputNames | Nombres de entrada de servicio no válidos especificados en la solicitud: {0}. Asigne los datos de entrada a las entradas de servicio correctas e inténtelo de nuevo. |
 | InvalidOutputOverrideName | Nombre de invalidación de salida no válida: {0}. El servicio no tiene un nodo de salida con este nombre. Pase un nombre de nodo de salida correcto para invalidar (se aplica distinción entre mayúsculas y minúsculas). |
-| InvalidQueryParameter | Parámetro de consulta no válido "{0}". {1} |
+| InvalidQueryParameter | Parámetro de consulta no válido "{0}". [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/]({1}) |
 | MissingInputBlobInformation | Falta información de Azure Storage Blob. Proporcione una cadena de conexión y una ruta de acceso relativa o URI válidos e inténtelo de nuevo. |
 | MissingJobId | No se proporcionó un identificador de trabajo. Se devolvió un identificador de trabajo cuando un trabajo se envió por primera vez. Compruebe que el identificador de trabajo es correcto e inténtelo de nuevo. |
 | MissingKeys | No hay claves proporcionadas o no se proporcionó una clave primaria o secundaria. |

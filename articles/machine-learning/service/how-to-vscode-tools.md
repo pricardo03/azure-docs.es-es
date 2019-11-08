@@ -10,20 +10,20 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a93c71a97cdb1f6296919a248cf7ef545f7b307f
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: df23c41629dfe86058f0f2fb6602e85fd5a6d494
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269234"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489298"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introducción a Azure Machine Learning para Visual Studio Code
 
 En este artículo, aprenderá a usar la extensión **Azure Machine Learning para Visual Studio Code** para entrenar e implementar los modelos de Machine Learning.
 
-[Azure Machine Learning Service](overview-what-is-azure-ml.md) simplifica la creación, el entrenamiento y la implementación de los modelos de Machine Learning.
+[Azure Machine Learning](overview-what-is-azure-ml.md) simplifica la creación, el entrenamiento y la implementación de los modelos de Machine Learning.
 + Para el entrenamiento, proporciona compatibilidad para ejecutar experimentos localmente o de forma remota. En cada experimento, puede registrar métricas personalizadas de varias ejecuciones para ajustar los hiperparámetros.
-+ Asimismo, también puede usar Azure Machine Learning Service para implementar fácilmente modelos de Machine Learning para sus necesidades de prueba y producción.
++ Asimismo, también puede usar Azure Machine Learning para implementar fácilmente modelos de Machine Learning para sus necesidades de prueba y producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -58,7 +58,7 @@ Para instalar la extensión Azure Machine Learning:
 > También puede descargar el instalador de la extensión directamente desde [Azure  Machine Learning para la extensión de Visual Studio Code (versión preliminar)](https://aka.ms/vscodetoolsforai).
 
 ## <a name="quickstart-with-azure-machine-learning"></a>Inicio rápido con Azure Machine Learning
-Existen varias maneras de ejecutar los scripts de entrenamiento mediante Azure Machine Learning Service. Si acaba de empezar, veremos primero cómo enviar rápidamente un script de entrenamiento para que se ejecute en Azure.
+Existen varias maneras de ejecutar los scripts de entrenamiento mediante Azure Machine Learning. Si acaba de empezar, veremos primero cómo enviar rápidamente un script de entrenamiento para que se ejecute en Azure.
 
 Si ya está familiarizado con los conceptos de Azure Machine Learning y quiere obtener más información sobre cómo administrarlos y usarlos con la extensión, consulte los [detalles de Azure Machine Learning con VS Code](./how-to-vscode-tools.md#azure-machine-learning-in-depth-with-vs-code) a continuación.
 
@@ -155,9 +155,9 @@ Después de hacer clic en el botón para ejecutar experimento, responda a los me
 
     [![Entrenamiento en la nube](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
 
-En unos segundos, se le notificará que el experimento se ha enviado a Azure; en ese momento puede ver su progreso en Azure Portal haciendo clic en el vínculo **Ver ejecución del experimento** en la notificación de VS Code o en VS Code, si pulsa el botón de actualización de la pestaña de Azure.
+En unos segundos, se le notificará que el experimento se ha enviado a Azure; en ese momento puede ver su progreso en Azure Machine Learning Studio haciendo clic en el vínculo **Ver ejecución del experimento** en la notificación de VS Code o en VS Code, si pulsa el botón de actualización de la pestaña de Azure.
 
-Por el momento, la visualización de métricas en ejecución solo se admite en Azure Portal. El vínculo **Ver ejecución del experimento** mencionado anteriormente le llevará al proceso de ejecución donde verá las métricas que registró.
+Por el momento, la visualización de métricas en ejecución solo se admite en Studio. El vínculo **Ver ejecución del experimento** mencionado anteriormente le llevará al proceso de ejecución donde verá las métricas que registró.
 [![ Experimento ejecutado en el portal](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
 
 ## <a name="azure-machine-learning-in-depth-with-vs-code"></a>Detalles de Azure Machine Learning con VS Code

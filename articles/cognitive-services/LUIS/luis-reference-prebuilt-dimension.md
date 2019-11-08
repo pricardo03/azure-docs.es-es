@@ -9,122 +9,87 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 15ba8ad4d3bcf00024a0c7b14b004de08d37621a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 6699b1617ccd1fef9a507e71fdd73a02b0e98bea
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677663"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465040"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada Dimension para una aplicación de LUIS
 La entidad de dimensión precompilada detecta varios tipos de dimensiones, con independencia de la referencia cultural de la aplicación LUIS. Dado que esta entidad ya está entrenada, no se necesita agregar expresiones de ejemplo que contengan dimensiones en las intenciones de la aplicación. La entidad de dimensión se admite en [muchas referencias culturales](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-dimension"></a>Tipos de dimensión
 
-La dimensión se administra desde el repositorio de GitHub [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml).
-
+La dimensión se administra desde el repositorio [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) de GitHub.
 
 ## <a name="resolution-for-dimension-entity"></a>Resolución de la entidad de dimensión
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+La consulta devuelve los siguientes objetos de entidad:
+
+`10 1/2 miles of cable`
+
+#### <a name="v3-responsetabv3"></a>[Respuesta de V3](#tab/V3)
+
+El siguiente JSON es con el parámetro `verbose` establecido en `false`:
+
+```json
+"entities": {
+    "dimension": [
+        {
+            "number": 10.5,
+            "units": "Mile"
+        }
+    ]
+}
+```
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[Respuesta detallada de V3](#tab/V3-verbose)
+El siguiente JSON es con el parámetro `verbose` establecido en `true`:
+
+```json
+"entities": {
+    "dimension": [
+        {
+            "number": 10.5,
+            "units": "Mile"
+        }
+    ],
+    "$instance": {
+        "dimension": [
+            {
+                "type": "builtin.dimension",
+                "text": "10 1/2 miles",
+                "startIndex": 0,
+                "length": 12,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+#### <a name="v2-responsetabv2"></a>[Respuesta de V2](#tab/V2)
 
 En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.ordinal**.
 
 ```json
 {
-  "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.762141049
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.762141049
-    }
-  ],
-  "entities": [
-    {
-      "entity": "10 1/2 miles",
-      "type": "builtin.dimension",
-      "startIndex": 19,
-      "endIndex": 30,
-      "resolution": {
-        "unit": "Mile",
-        "value": "10.5"
-      }
-    }
-  ]
-}
-```
-
-
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
-
-El siguiente JSON es con el parámetro `verbose` establecido en `false`:
-
-```json
-{
-    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-    "prediction": {
-        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.400049
-            }
-        },
-        "entities": {
-            "dimension": [
-                {
-                    "number": 10.5,
-                    "unit": "Mile"
-                }
-            ]
-        }
+    "entity": "10 1/2 miles",
+    "type": "builtin.dimension",
+    "startIndex": 0,
+    "endIndex": 11,
+    "resolution": {
+    "unit": "Mile",
+    "value": "10.5"
     }
 }
 ```
-
-El siguiente JSON es con el parámetro `verbose` establecido en `true`:
-
-```json
-{
-    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-    "prediction": {
-        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.400049
-            }
-        },
-        "entities": {
-            "dimension": [
-                {
-                    "number": 10.5,
-                    "unit": "Mile"
-                }
-            ],
-            "$instance": {
-                "dimension": [
-                    {
-                        "type": "builtin.dimension",
-                        "text": "10 1/2 miles",
-                        "startIndex": 19,
-                        "length": 12,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
 * * * 
 
 ## <a name="next-steps"></a>Pasos siguientes
