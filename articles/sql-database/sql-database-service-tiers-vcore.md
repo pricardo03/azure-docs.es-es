@@ -1,5 +1,5 @@
 ---
-title: 'Información general del servicio Azure SQL Database: núcleo virtual | Microsoft Docs'
+title: Introducción al modelo de núcleos virtuales
 description: El modelo de compra de núcleo virtual permite escalar los recursos de proceso y de almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: 2bbdd565a861004014ca4161856bba83ec0be511
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b9de02bf0836727ac88b78194641238621e87a79
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496049"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821056"
 ---
 # <a name="vcore-model-overview"></a>Introducción al modelo de núcleos virtuales
 

@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/08/2019
+ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 034d322b31b2704e5f9351912f46c2b0ccb0e8b8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 468ae6f249f21f04681d56c660d03a8cd7806634
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100826"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719092"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamaños de las máquinas virtuales Linux en Azure
 En este artículo se describen los tamaños y las opciones disponibles para las máquinas virtuales de Azure que puede usar para ejecutar las aplicaciones y cargas de trabajo de Linux. También ofrece consideraciones de implementación que hay que tener en cuenta siempre que planee usar estos recursos. Este artículo también está disponible para [máquinas virtuales Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

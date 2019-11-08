@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 00710183828892c81d3ea887e4394237288eb6bb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 156f2e95913dffd88de0b4669b13a5af5fc9605c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303543"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684688"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase de implementación del ciclo de vida del proceso de ciencia de datos en equipos
 
@@ -50,7 +50,7 @@ Cuando ya disponga de un conjunto de modelos que funcionan bien, los puede hacer
    * Aplicaciones de línea de negocio 
    * Aplicaciones de back-end 
 
-Para obtener información sobre cómo crear e implementar un servicio web de Azure Machine Learning, consulte [Implementación de un servicio web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md). Es un procedimiento recomendado compilar la telemetría y la supervisión en el modelo de producción y la canalización de datos que se implementan. Este procedimiento ayuda con las posteriores tareas de solución de problemas e informes de estado del sistema.  
+Para obtener información sobre cómo crear e implementar un servicio web de Azure Machine Learning, consulte [Implementación de un servicio web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md). Es un procedimiento recomendado compilar la telemetría y la supervisión en el modelo de producción y la canalización de datos que se implementan. Este procedimiento ayuda con las posteriores tareas de solución de problemas e informes de estado del sistema.  
 
 ## <a name="artifacts"></a>Artefactos
 

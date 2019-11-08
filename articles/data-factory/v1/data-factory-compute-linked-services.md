@@ -1,5 +1,5 @@
 ---
-title: Entornos de proceso compatibles con Azure Data Factory | Microsoft Docs
+title: Entornos de proceso compatibles con Azure Data Factory
 description: Obtenga información sobre los entornos de proceso que puede usar en las canalizaciones de Azure Data Factory (como Azure HDInsight) para transformar o procesar datos.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 12d12e96616d94360e5d193cf2b778a9ae389062
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140249"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667762"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 > [!NOTE]

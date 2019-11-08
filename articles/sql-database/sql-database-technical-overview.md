@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es el servicio Azure SQL Database? | Microsoft Docs
+title: ¿Qué es el servicio Azure SQL Database?
 description: 'Obtenga una introducción a SQL Database: detalles técnicos y funcionalidades del sistema de administración de bases de datos relacionales (RDBMS) de Microsoft en la nube.'
 keywords: introducción a sql,introducción a sql,qué es base de datos sql
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: e5782ba016cf58335de17cdacabbcca95914f59a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066278"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820742"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database?
 

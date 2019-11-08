@@ -1,5 +1,5 @@
 ---
-title: Conjuntos de datos en Azure Data Factory | Microsoft Docs
+title: Conjuntos de datos en Azure Data Factory
 description: Obtenga información sobre los conjuntos de datos en Data Factory. Los conjuntos de datos representan datos de entrada y salida.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: c4daa5989013ba8d5c5a7136fe0878fae64f0357
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 74c35d5de74fbf8ecc04cfec336bfeb4a8e669fd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030557"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681526"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

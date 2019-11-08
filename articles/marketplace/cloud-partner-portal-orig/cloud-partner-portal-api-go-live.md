@@ -4,15 +4,16 @@ description: Go Live API inicia el proceso de publicación de la oferta.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ac56f86bad132f3e00a4b5c2507d65c0722c628c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30500e9dfae9411563fc727290d0569998ba3550
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935488"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819683"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -38,7 +39,7 @@ Esta API inicia el proceso para insertar una aplicación en producción. Esta op
 |  **Nombre**       |     **Valor**       |
 |  ---------      |     ----------      |
 | Content-Type    | `application/json`  |
-| Autorización   | `Bearer YOUR_TOKEN` |
+| Authorization   | `Bearer YOUR_TOKEN` |
 |  |  |
 
 

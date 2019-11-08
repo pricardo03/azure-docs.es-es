@@ -1,5 +1,5 @@
 ---
-title: Copia de archivos nuevos y cambiados por LastModifiedDate con Azure Data Factory | Microsoft Docs
+title: Copia de archivos nuevos y cambiados por LastModifiedDate con Azure Data Factory
 description: Aprenda a usar una plantilla de solución para copiar archivos nuevos y cambiados por LastModifiedDate con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: a2a8f0478d1ae4fb19cb911b02572145ff59839b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030073"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684234"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copia de archivos nuevos y cambiados por LastModifiedDate con Azure Data Factory
 

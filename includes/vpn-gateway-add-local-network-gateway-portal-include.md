@@ -8,17 +8,19 @@ ms.topic: include
 ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6c59513c2c84b5f280e8200411b53848768eaf29
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 9648f4c16e8d266bbdd504d4a7599b67a5c846b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970827"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523802"
 ---
-1. En el portal, haga clic en **+Crear un recurso**.
-2. En el cuadro de búsqueda, escriba **puerta de enlace de red local**, a continuación, presione **Entrar** para buscar. Se devolverá una lista de resultados. Haga clic en **Puerta de enlace de red local** y haga clic en el botón **Crear** para abrir la página **Crear puerta de enlace de red local**.
+1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso**. 
 
-   ![Creación de la puerta de enlace de red local](./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-network-gateway.png "Create the local network gateway")
+   ![Crear un recurso en Azure Portal](./media/vpn-gateway-add-local-network-gateway-portal-include/azure-portal-create-resource.png)
+2. En el campo **Buscar en Marketplace**, escriba **Puerta de enlace de red local** y presione **Entrar** para comenzar la búsqueda. Se devolverá una lista de resultados. Haga clic en **Puerta de enlace de red local** y haga clic en el botón **Crear** para abrir la página **Crear puerta de enlace de red local**.
+
+   ![Creación de la puerta de enlace de red local](./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-network-gateway.png "Creación de la puerta de enlace de red local")
 
 3. En la página **Crear puerta de enlace de red local**, especifique los valores de la puerta de enlace de red local.
 

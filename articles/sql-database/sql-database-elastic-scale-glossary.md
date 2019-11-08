@@ -1,5 +1,5 @@
 ---
-title: Glosario de las herramientas de Elastic Database | Microsoft Docs
+title: Glosario de las herramientas de Elastic Database
 description: Explicación de los términos usados en las herramientas de bases de datos elásticas
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 3ed0cc9dce312cb9736b3e32ba46d2cb1cca3ef8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ab972db78cd213497fb96486b3e16b01f2c4c6eb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568462"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823625"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glosario de las herramientas de Elastic Database
 

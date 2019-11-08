@@ -1,5 +1,5 @@
 ---
-title: Actividad de webhook en Azure Data Factory | Microsoft Docs
+title: Actividad de webhook en Azure Data Factory
 description: La actividad de webhook no continúa la ejecución de la canalización hasta que valida el conjunto de datos adjunto con determinados criterios que el usuario especifica.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: c11fb800dba06ab5566647489f020f727860a7ff
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3734472d9026d4e355c08b36d5ba58974288daac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142401"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678225"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Actividad de webhook en Azure Data Factory
 Puede usar una actividad de webhook para controlar la ejecución de canalizaciones a través de su código personalizado. Con la actividad de webhook, los clientes pueden llamar a un punto de conexión y pasar una dirección URL de devolución de llamada. La ejecución de canalización espera a que la devolución de llamada se invoque antes de continuar con la siguiente actividad.

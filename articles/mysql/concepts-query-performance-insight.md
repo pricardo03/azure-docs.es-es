@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: b7395a8ab71e860c2e584339dcd581077a4f4020
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: 38299a8ffd72722c2d2c1dda9227b7fbf76c0386
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595495"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603125"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Información de rendimiento de consultas en Azure Database for MySQL
 
 **Se aplica a:** Azure Database for MySQL 5.7
-
-> [!IMPORTANT]
-> Información de rendimiento de consultas está en versión preliminar.
 
 Query Performance Insight le ayuda a identificar rápidamente cuáles son las consultas que más tardan en ejecutarse, cómo cambian con el tiempo y qué esperas están afectándoles.
 

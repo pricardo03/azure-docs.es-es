@@ -7,6 +7,7 @@ author: qianw211
 manager: evansma
 editor: ''
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
@@ -14,12 +15,12 @@ ms.workload: identity
 ms.date: 08/13/2019
 ms.author: v-qiwe
 ms.custom: include file
-ms.openlocfilehash: ee4d253eaa50b4299f4b912ccacbd50307d6fdc5
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 831e3330126d82795cece128c28cb96b7199d69a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72601137"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825523"
 ---
 La pestaña **Versión de prueba** permite configurar una demostración (o "versión limitada de prueba") que permitirá a los clientes probar su oferta antes de comprarla. Puede encontrar más información al respecto en el artículo [¿Qué es la versión de prueba?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Si ya no quiere ofrecer una versión de prueba de la oferta, vuelva a la página **Configuración de la oferta** y desactive **Habilitar versión de prueba**.
 

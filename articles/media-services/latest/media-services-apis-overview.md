@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 574b1591669cc32ce30677cad5158e13b944486f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0c263e1353a07ca388ea9a7fb48ebcf99be07fc1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750202"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820636"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desarrollo con API de Media Services v3
 
@@ -75,7 +75,7 @@ Los nombres de recursos de Azure Media Services v3 (por ejemplo, recursos, traba
 
 Los nombres de recursos de Media Services no pueden incluir: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', el carácter de comilla simple o cualquier carácter de control. Todos los demás caracteres se permiten. La longitud máxima de un nombre de recurso es de 260 caracteres. 
 
-Para más información sobre la nomenclatura de Azure Resource Manager, consulte: [Requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) y [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+Para más información sobre la nomenclatura de Azure Resource Manager, consulte: [Requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) y [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Nombres de archivos o blobs dentro de un recurso
 

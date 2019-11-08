@@ -1,5 +1,5 @@
 ---
-title: 'Azure Portal: Creación de una Instancia administrada de SQL Database | Microsoft Docs'
+title: 'Azure Portal: Creación de una instancia administrada'
 description: Cree una instancia administrada de SQL Database, un entorno de red y una máquina virtual cliente para el acceso.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 4f9ea699bd6d09f902a3ff97c95ff3455926a9d8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 578ab250d0759aa7216327124417019f2e5f1fc7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350924"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825464"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Inicio rápido: Creación de una Instancia administrada de Azure SQL Database
 
@@ -54,10 +54,10 @@ En los pasos siguientes se muestra cómo crear una instancia administrada:
    | Configuración| Valor sugerido | DESCRIPCIÓN |
    | ------ | --------------- | ----------- |
    | **Suscripción** | Su suscripción. | Una suscripción en la que tenga permiso para crear recursos. |
-   | **Grupos de recursos** | un grupo de recursos nuevo o existente.|Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   | **Nombre de la instancia administrada** | Cualquier nombre válido.|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Grupos de recursos** | un grupo de recursos nuevo o existente.|Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
+   | **Nombre de la instancia administrada** | Cualquier nombre válido.|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
    | **Región** |La región en la que desea crear la instancia administrada.|Para obtener información sobre las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
-   | **Inicio de sesión de administrador de la instancia administrada** | Cualquier nombre de usuario válido. | Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.|
+   | **Inicio de sesión de administrador de la instancia administrada** | Cualquier nombre de usuario válido. | Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.|
    | **Contraseña** | Cualquier contraseña válida.| La contraseña debe tener al menos 16 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 
 - Seleccione **Configurar instancia administrada**  para cambiar el tamaño de los recursos de almacenamiento y de proceso, así como para revisar los planes de tarifa. Utilice los controles deslizantes o cuadros de texto para especificar la cantidad de almacenamiento y el número de núcleos virtuales. Cuando haya terminado, seleccione **Aplicar** para guardar las opciones que haya elegido. 

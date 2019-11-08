@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ccab7e59eaa925df4ba46447cef458111dc7e60a
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c4f51adbcaa5e5b750169f53a1333544365fd4f3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869343"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825491"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>Preguntas más frecuentes sobre las API del servicio de medición de Marketplace
 
@@ -51,4 +52,4 @@ Sí, cuando se llama a la API `GET /saas/subscriptions`, se incluye una lista de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [API del servicio de medición de Marketplace](./marketplace-metering-service-apis.md) para obtener más información.
+- Consulte [Marketplace metering service APIs](./marketplace-metering-service-apis.md) (API del servicio de medición de Marketplace) para más información.

@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 10/15/2019
 ms.author: aahi
-ms.openlocfilehash: 04d788160f1bdfd772f48b40b35f6db54cbf87b7
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 67d6bb0bf880de0b4bf6878128e2ed27e130b18d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554791"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719009"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Anomaly Detector para .NET
 
@@ -143,12 +143,6 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI de Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-También puede ejecutar el siguiente comando de Cloud Shell para quitar el grupo de recursos y sus recursos asociados. Esta operación puede tardar algunos minutos en completarse. 
-
-```azurecli-interactive
-az group delete --name example-anomaly-detector-resource-group
-```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

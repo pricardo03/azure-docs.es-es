@@ -1,5 +1,5 @@
 ---
-title: Copia de datos desde Cassandra mediante Azure Data Factory | Microsoft Docs
+title: Copia de datos desde Cassandra mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde Cassandra a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 1531f2530af9c2fbc90d1bf25f04962fb4148a8d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 9068874704233b3bbb5f38345648bc3455433768
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090482"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681108"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copia de datos desde Cassandra mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

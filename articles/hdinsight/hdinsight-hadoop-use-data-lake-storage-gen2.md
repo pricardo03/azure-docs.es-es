@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f6bee53268ea99e99d79e218eaf7a5ae9fcb1d05
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: d8e23188aa07b1b271c3adc7c5550b18c0c60977
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104459"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827683"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
@@ -57,7 +57,7 @@ Cree una cuenta de almacenamiento de Azure Data Lake Storage Gen2.
 1. Haga clic en **Create**(Crear).
 1. En la pantalla **Crear la cuenta de almacenamiento**:
     1. Seleccione la suscripción y el grupo de recursos correctos.
-    1. Escriba un nombre para la cuenta de Data Lake Storage Gen2. Para más información sobre las convenciones de nomenclatura de la cuenta de almacenamiento, consulte [Convenciones de nomenclatura para los recursos de Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage).
+    1. Escriba un nombre para la cuenta de Data Lake Storage Gen2. Para más información sobre las convenciones de nomenclatura de la cuenta de almacenamiento, consulte [Convenciones de nomenclatura para los recursos de Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage).
     1. Haga clic en la pestaña **Avanzado**.
     1. Haga clic en **Habilitado** junto a **Espacio de nombres jerárquico** en **Data Lake Storage Gen2**.
     1. Haga clic en **Revisar + crear**.

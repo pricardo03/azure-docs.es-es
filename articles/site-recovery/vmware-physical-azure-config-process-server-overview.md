@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: d835eda044c2a6d1e0e7c678073711e45fde7395
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a70400a1d0c710b939b4dd6d157cb06e729f53cb
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972144"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747821"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Acerca de los componentes de Site Recovery (configuración, proceso y destino maestro)
 
@@ -27,7 +27,7 @@ Para la recuperación ante desastres de servidores físicos y máquinas virtuale
 **Componentes**  | La máquina del servidor de configuración ejecuta todos los componentes locales de Site Recovery, incluidos el servidor de configuración, el servidor de procesos y el servidor de destino maestro.<br/><br/> Al configurar el servidor de configuración, todos los componentes se instalan automáticamente. | [Lea](vmware-azure-common-questions.md#configuration-server) las preguntas más frecuentes sobre el servidor de configuración.
 **Rol** | El servidor de configuración coordina la comunicación entre el entorno local y Azure, además de administrar la replicación de datos. | Obtenga más información sobre la arquitectura de recuperación ante desastres de [VMware](vmware-azure-architecture.md) y [servidor físico](physical-azure-architecture.md) en Azure.
 **Requisitos de VMware** | Para la recuperación ante desastres de máquinas virtuales locales de VMware, debe instalar y ejecutar el servidor de configuración como una máquina virtual de VMware local de alta disponibilidad. | [Obtenga información](vmware-azure-deploy-configuration-server.md#prerequisites) sobre los requisitos previos.
-**Implementación de VMware** | Se recomienda implementar el servidor de configuración con una plantilla OVA descargada. Este método permite configurar de manera sencilla un servidor de configuración que cumpla todos los requisitos y requisitos previos.<br/><br/> Si por algún motivo no puede implementar una máquina virtual de VMware mediante una plantilla OVA, puede configurar las máquinas del servidor de configuración manualmente, tal como se describe a continuación para la recuperación ante desastres de máquinas físicas. | [Implementación](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) con una plantilla OVA.
+**Implementación de VMware** | Se recomienda implementar el servidor de configuración con una plantilla OVA descargada. Este método permite configurar de manera sencilla un servidor de configuración que cumpla todos los requisitos y requisitos previos.<br/><br/> Si por algún motivo no puede implementar una máquina virtual de VMware mediante una plantilla OVA, puede configurar las máquinas del servidor de configuración manualmente, tal como se describe a continuación para la recuperación ante desastres de máquinas físicas. | [Implementación](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template) con una plantilla OVA.
 **Requisitos del servidor físico** | Para la recuperación ante desastres en servidores físicos locales, debe implementar manualmente el servidor de configuración. | [Obtenga información](physical-azure-set-up-source.md#prerequisites) sobre los requisitos previos.
 **Implementación de servidor físico** | Si no se puede instalar como una máquina virtual de VMware, se puede instalar en un servidor físico. | [Implemente](physical-azure-set-up-source.md#set-up-the-source-environment) el servidor de configuración manualmente.
 

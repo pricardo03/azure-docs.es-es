@@ -1,5 +1,5 @@
 ---
-title: Migración de bases de datos existentes al escalado horizontal | Microsoft Docs
+title: Migración de bases de datos existentes al escalado horizontal
 description: Conversión de bases de datos particionadas para usar herramientas para bases de datos elásticas creando un administrador de mapas de particiones
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2d6d5c51cb381c089633ba010a1d64c8486ddcd8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7d4eab7546a488bf2d4ede8f7c71143e823ba493
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568724"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823928"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migración de bases de datos existentes al escalado horizontal
 Administre fácilmente sus bases de datos existentes particionadas con escalado horizontal mediante las herramientas de Azure SQL Database (como la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md)). Primero convierta un conjunto existente de bases de datos para utilizar [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md). 

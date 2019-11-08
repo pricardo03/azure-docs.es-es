@@ -1,5 +1,5 @@
 ---
-title: Actividad de eliminación en Azure Data Factory | Microsoft Docs
+title: Actividad de eliminación en Azure Data Factory
 description: Obtenga información sobre cómo eliminar archivos en varios almacenes de archivo con la actividad de eliminación en Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d9a1c76e8ac386b954c68f16e2189df4e6c0e1b7
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 8efbf5cd6003781450afe70b8019b39d75290546
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996319"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675619"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Actividad de eliminación en Azure Data Factory
 
@@ -117,7 +117,7 @@ Hay dos lugares donde puede ver y supervisar los resultados de la actividad de e
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Archivo de registro de ejemplo de la actividad de eliminación
 
-| NOMBRE | Categoría | Status | Error |
+| NOMBRE | Category | Status | Error |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.json | Archivo | Deleted |  |
 | test2/hello789.txt | Archivo | Deleted |  |

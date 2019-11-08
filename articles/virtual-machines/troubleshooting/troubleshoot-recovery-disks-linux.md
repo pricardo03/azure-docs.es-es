@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: faa15e9cf6288bcd4014cbc03dcf9d82a2047bde
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1b91a39e1297d8952da67a4f8d3b8568cefe04ce
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088369"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620560"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure
 Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar la CLI de Azure para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original. 
@@ -126,7 +126,7 @@ az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 
 > [!NOTE]
 > Los siguientes ejemplos detallan los pasos necesarios en una máquina virtual Ubuntu. Si usas una distribución de Linux diferente como Red Hat Enterprise Linux o SUSE, el registro de ubicaciones del archivo de registro y los comandos `mount` pueden ser ligeramente diferentes. Consulte la documentación para su distribución específica para los cambios apropiados en los comandos.
 
-1. SSH en la máquina virtual de solución de problemas con las credenciales apropiadas. Si este disco es el primer disco de datos conectado a la máquina virtual de solución de problemas, es probable que el disco se conecte a `/dev/sdc`. Use `dmseg` para ver los discos conectados:
+1. SSH en la máquina virtual de solución de problemas con las credenciales apropiadas. Si este disco es el primer disco de datos conectado a la máquina virtual de solución de problemas, es probable que el disco se conecte a `/dev/sdc`. Use `dmesg` para ver los discos conectados:
 
     ```bash
     dmesg | grep SCSI

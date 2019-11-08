@@ -1,5 +1,5 @@
 ---
-title: Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory | Microsoft Docs
+title: Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde SAP Business Warehouse (BW) con Open Hub a almacenes de datos receptores compatibles mediante una actividad de copia en una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a35246aff99ec78e665e3be4afd47409959bef63
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f4ee4ec40aeecdb902be3cf93beb9ee25350e262
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089723"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680318"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory
 
@@ -241,7 +241,7 @@ Al copiar datos desde Open Hub para SAP BW, se usan las siguientes asignaciones 
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
-Para información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
+Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

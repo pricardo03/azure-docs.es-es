@@ -1,5 +1,5 @@
 ---
-title: Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory | Microsoft Docs
+title: Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory
 description: Uso de Azure Data Factory para copiar datos en Azure SQL Data Warehouse
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a7e0a27d3cda4193a04467d541f851a9e57fa46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 538751b1e93dfec66c35ea3768bde603c198df32
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549090"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672758"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory
 

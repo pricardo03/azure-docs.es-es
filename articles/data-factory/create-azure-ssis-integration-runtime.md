@@ -1,5 +1,5 @@
 ---
-title: Creación un entorno de ejecución de integración de Azure-SSIS en Azure Data Factory | Microsoft Docs
+title: Crear una instancia de Integration Runtime de Azure SSIS en Azure Data Factory
 description: Obtenga información sobre cómo crear un entorno de ejecución de integración de Azure SSIS en Azure Data Factory para que pueda implementar y ejecutar paquetes SSIS en Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,18 +12,18 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ddc91a3317d362f6b56e486556f2edf6cdb85131
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ce688248a205981f4a4c60ad01231c0b8f6bae3d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326691"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677355"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Crear una instancia de Integration Runtime de Azure SSIS en Azure Data Factory
 
 En este artículo se describen los pasos para aprovisionar un entorno de ejecución de integración (IR) de Azure-SQL Server Integration Services (SSIS) en Azure Data Factory. Una instancia de Azure-SSIS IR admite lo siguiente:
 
-- La ejecución de paquetes implementados en el catálogo de SSIS (SSISDB) hospedado por un servidor o una instancia administrada de Azure SQL Database (modelo de implementación de proyectos).
+- La ejecución de paquetes implementados en el catálogo de SSIS (SSISDB) hospedados en un servidor de Azure SQL Database o una instancia administrada (modelo de implementación de proyectos).
 - La ejecución de paquetes implementados en sistemas de archivos, recursos compartidos de archivos o Azure Files (modelo de implementación de paquetes). 
 
 Después de aprovisionar una instancia de Azure-SSIS IR, puede usar herramientas conocidas para implementar y ejecutar los paquetes en Azure. Algunas de estas herramientas son SQL Server Data Tools, SQL Server Management Studio y herramientas de línea de comandos como `dtinstall`, `dtutil` y `dtexec`.
@@ -114,11 +114,11 @@ Después de crear la factoría de datos, abra su página de información general
 
     h. Seleccione **Next** (Siguiente).
 
-3. En la página **SQL Settings** (Configuración de SQL), haga lo siguiente:
+3. En la página **SQL Settings** (Configuración de SQL), haga lo siguiente.
 
    ![Configuración de SQL](./media/tutorial-create-azure-ssis-runtime-portal/sql-settings.png)
 
-   a. Active la casilla **Create SSIS catalog...** (Crear catálogo de SSIS...) para seleccionar el modelo de implementación de paquetes que se ejecutará en Azure-SSIS IR. Elegirá entre el modelo de implementación de proyectos, donde los paquetes se implementan en la instancia de SSISDB que hospeda el servidor de bases de datos, o el modelo de implementación de paquetes, donde los paquetes se implementan en sistemas de archivos, recursos compartidos de archivos o Azure Files. 
+   a. Seleccione la casilla **Create SSIS catalog...** (Crear catálogo de SSIS...) para seleccionar el modelo de implementación de paquetes que se ejecutará en Azure-SSIS IR. Elegirá entre el modelo de implementación de proyectos, donde los paquetes se implementan en la instancia de SSISDB que hospeda el servidor de bases de datos, o el modelo de implementación de paquetes, donde los paquetes se implementan en sistemas de archivos, recursos compartidos de archivos o Azure Files. 
     
    Si activa la casilla, deberá traer su propio servidor de bases de datos para hospedar la instancia de SSISDB que se creará y administrará en su nombre.
    
@@ -132,7 +132,7 @@ Después de crear la factoría de datos, abra su página de información general
     
    Si selecciona un servidor de Azure SQL Database con puntos de conexión de servicio de red virtual o una instancia administrada con un punto de conexión privado para hospedar SSISDB, o si necesita acceder a los datos locales sin configurar IR autohospedado, debe unir la instancia de Azure-SSIS IR a una red virtual. Para más información, consulte [Unión de una instancia de Azure-SSIS IR a una red virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
-   e. Active la casilla **Use AAD authentication with the managed identity for your ADF** (Usar la autenticación de AAD con la identidad administrada en su ADF) para seleccionar el método de autenticación del servidor de bases de datos para hospedar SSISDB. Elegirá la autenticación de SQL o la autenticación de Azure AD con la identidad administrada para su factoría de datos. 
+   e. Seleccione la casilla **Use AAD authentication with the managed identity for your ADF** (Usar la autenticación de AAD con la identidad administrada en su ADF) para seleccionar el método de autenticación del servidor de bases de datos para hospedar SSISDB. Elegirá la autenticación de SQL o la autenticación de Azure AD con la identidad administrada para su factoría de datos. 
     
    Si activa la casilla, deberá agregar la identidad administrada de la factoría de datos a un grupo de Azure AD con permisos de acceso al servidor de bases de datos. Para más información, consulte [Habilitar la autenticación de Azure AD para una instancia de Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
@@ -140,11 +140,11 @@ Después de crear la factoría de datos, abra su página de información general
 
    g. En **Admin Password** (Contraseña del administrador), escriba la contraseña de la autenticación de SQL del servidor de bases de datos para hospedar SSISDB. 
 
-   h. En **Catalog Database Service Tier** (Nivel de servicio de bases de datos de catálogo), seleccione el nivel de servicio del servidor de bases de datos para hospedar SSISDB: Seleccione el nivel de servicio Basic, Standard o Premium, o seleccione un nombre de grupo elástico. 
+   h. En **Catalog Database Service Tier** (Nivel de servicio de bases de datos de catálogo), seleccione el nivel de servicio del servidor de bases de datos para hospedar SSISDB. Seleccione el nivel de servicio Basic, Standard o Premium, o seleccione un nombre de grupo elástico. 
 
    i. Seleccione **Test Connection** (Probar conexión). Si la prueba se realiza correctamente, seleccione **Next** (Siguiente). 
 
-4. En la página **Advanced Settings** (Configuración avanzada), haga lo siguiente:
+4. En la página **Advanced Settings** (Configuración avanzada), haga lo siguiente.
 
    ![Configuración avanzada](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
@@ -191,7 +191,7 @@ Después de crear la factoría de datos, abra su página de información general
     >
     > Si usa SSISDB, el servicio Data Factory se conectará al servidor de bases de datos para prepararlo. También configura los permisos o los valores de la red virtual, si se especifica, y une la instancia de Azure-SSIS IR a la red virtual.
     > 
-    > Al aprovisionar Azure-SSIS IR, también se instalan el acceso redistribuible y el paquete de característica de Azure para SSIS. Estos componentes proporcionan conectividad a archivos de Excel y Access, y a diversos orígenes de datos de Azure, además de a aquellos que ya admiten los componentes integrados. Para información sobre otros componentes que puede instalar, consulte [Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure](how-to-configure-azure-ssis-ir-custom-setup.md).
+    > Al aprovisionar Azure-SSIS IR, también se instalan el acceso redistribuible y el paquete de característica de Azure para SSIS. Estos componentes proporcionan conectividad a archivos de Excel y Access, y a diversos orígenes de datos de Azure, además de a aquellos que ya admiten los componentes integrados. Para información sobre otros componentes que puede instalar, consulte [Instalación personalizada de Azure-SSIS IR](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 7. En la pestaña **Connections** (Conexiones), cambie a **Integration Runtimes**, si es necesario. Seleccione **Refresh** (Actualizar) para actualizar el estado.
 

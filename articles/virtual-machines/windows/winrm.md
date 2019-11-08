@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: f7f57a43697a9376062bdd3baa2d5f7333bf4a7f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 25091e8e58fbdba908fb00ece3cd2d3d296c5ab1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100151"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749055"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configuración de acceso a WinRM para máquinas virtuales en Azure Resource Manager
 
@@ -31,7 +31,7 @@ Estos son los pasos que debe seguir para configurar una máquina virtual con con
 4. Obtención de la dirección URL para el certificado autofirmado en el almacén de claves.
 5. Referencia a la dirección URL de los certificados autofirmados durante la creación de una máquina virtual
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="step-1-create-a-key-vault"></a>Paso 1: Creación de un almacén de claves
 Puede utilizar el siguiente comando para crear el almacén de claves:

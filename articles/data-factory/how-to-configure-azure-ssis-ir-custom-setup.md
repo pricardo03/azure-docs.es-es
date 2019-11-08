@@ -1,5 +1,5 @@
 ---
-title: Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure | Microsoft Docs
+title: 'Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure '
 description: En este artículo se describe cómo usar la interfaz de instalación personalizada en el entorno de ejecución para la integración de SSIS en Azure a fin de instalar componentes adicionales o cambiar opciones de configuración.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f7b09dcbd474debc08b79599e9e2dfaaca52285a
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 222672a93ccde7464ec1f37212f18996033a1460
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754699"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674865"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure
 

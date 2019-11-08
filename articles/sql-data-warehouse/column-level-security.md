@@ -1,21 +1,22 @@
 ---
-title: Seguridad de nivel de columna de Azure SQL Data Warehouse | Microsoft Docs
+title: Seguridad de nivel de columna
 description: La seguridad de nivel de columna (CLS) permite a los clientes controlar el acceso a columnas de la tabla de la base de datos según el contexto de ejecución del usuario o su pertenencia a grupos. CLS simplifica el diseño y la codificación de la seguridad de la aplicación. CLS permite implementar restricciones de acceso a columnas.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/02/2019
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: aa91bd586e064239d0e05c754427947963c9ee3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 605dfadaf4cd1686b124b120151e6a88a43f1a68
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61082807"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693089"
 ---
 # <a name="column-level-security"></a>Seguridad de nivel de columna
 La seguridad de nivel de columna (CLS) permite a los clientes controlar el acceso a columnas de la tabla de la base de datos según el contexto de ejecución del usuario o su pertenencia a grupos.

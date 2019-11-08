@@ -1,5 +1,5 @@
 ---
-title: Transformación de datos mediante la actividad de Hadoop MapReduce en Azure Data Factory | Microsoft Docs
+title: Transformación de datos mediante la actividad de Hadoop MapReduce en Azure Data Factory
 description: Aprenda a procesar datos mediante la ejecución de programas Hadoop MapReduce en un clúster de HDInsight de Azure desde una factoría de datos de Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49e00d9a47f92fb30a29e7051cba35f54bde3700
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60611501"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683851"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hadoop MapReduce en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -62,7 +62,7 @@ Consulte [Pig](transform-data-using-hadoop-pig.md) y [Hive](transform-data-using
 
 | Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
-| Nombre              | Nombre de la actividad                     | Sí      |
+| name              | Nombre de la actividad                     | Sí      |
 | description       | Texto que describe para qué se usa la actividad. | Sin       |
 | Tipo              | Para la actividad MapReduce, el tipo de actividad es HDinsightMapReduce. | Sí      |
 | linkedServiceName | Referencia al clúster de HDInsight registrado como servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
@@ -72,7 +72,7 @@ Consulte [Pig](transform-data-using-hadoop-pig.md) y [Hive](transform-data-using
 | jarlibs           | Matriz de cadenas de la ruta de acceso a los archivos de la biblioteca Jar a la que hace referencia el trabajo almacenado en el almacenamiento de Azure Storage definido en jarLinkedService. El nombre del archivo distingue mayúsculas de minúsculas. | Sin       |
 | getDebugInfo      | Especifica si se copian los archivos de registro en el almacenamiento de Azure Storage que usa el clúster de HDInsight o que está especificado por jarLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | Sin       |
 | argumentos         | Especifica una matriz de argumentos para un trabajo de Hadoop. Los argumentos se pasan a cada tarea como argumentos de la línea de comandos. | Sin       |
-| define los campos           | Especifique parámetros como pares clave-valor para hacer referencia en el script de Hive. | Sin       |
+| defines           | Especifique parámetros como pares clave-valor para hacer referencia en el script de Hive. | Sin       |
 
 
 

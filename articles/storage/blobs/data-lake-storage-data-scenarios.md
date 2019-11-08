@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: eba0c6a8932a8c6d50bd98d94712c95516519274
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d6347d75e0a3883f23fdf76016080c8b7b330163
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72300339"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580803"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Uso de Azure Data Lake Storage Gen2 para requisitos de macrodatos
 
@@ -27,7 +27,7 @@ Hay cuatro fases principales en el procesamiento de macrodatos:
 
 Para comenzar, cree una cuenta de almacenamiento y un contenedor. Después, conceda acceso a los datos. Las primeras secciones de este artículo le ayudan a realizar esas tareas. En las secciones restantes, destacaremos las opciones y herramientas para cada fase del procesamiento.
 
-Para obtener una lista completa de los servicios de Azure que puede usar con Azure Data Lake Storage Gen2, consulte [Integración de Azure Data Lake Storage con los servicios de Azure](data-lake-store-integrate-with-azure-services.md).
+Para obtener una lista completa de los servicios de Azure que puede usar con Azure Data Lake Storage Gen2, consulte [Integración de Azure Data Lake Storage con los servicios de Azure](data-lake-storage-integrate-with-azure-services.md).
 
 ## <a name="create-a-data-lake-storage-gen2-account"></a>Creación de una cuenta de Data Lake Storage Gen2
 

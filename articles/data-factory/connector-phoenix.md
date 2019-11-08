@@ -1,5 +1,5 @@
 ---
-title: Copia de datos de Phoenix con Azure Data Factory | Microsoft Docs
+title: Copiar datos de Phoenix con Azure Data Factory
 description: Obtenga información sobre cómo copiar datos de Phoenix en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 3095c78a439a9d706aa91bcd3e0f62edf910baa4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 128946562fb3976bcb98de6c0911b7f89805b149
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089865"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680442"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar datos de Phoenix con Azure Data Factory 
 

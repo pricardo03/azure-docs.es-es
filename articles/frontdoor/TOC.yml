@@ -48,16 +48,6 @@
       href: front-door-url-rewrite.md
     - name: Redirección de direcciones URL
       href: front-door-url-redirect.md
-    - name: WAF
-      items:
-        - name: Información general
-          href: waf-overview.md
-        - name: Reglas personalizadas
-          href: waf-front-door-custom-rules.md
-        - name: Configuración de directiva
-          href: waf-front-door-policy-settings.md
-        - name: Supervisión y registro
-          href: waf-front-door-monitor.md
 - name: Guías de procedimientos
   items:
     - name: Redirección del tráfico
@@ -74,26 +64,10 @@
           href: front-door-troubleshoot-routing.md
         - name: Entidades de certificación permitidas
           href: front-door-troubleshoot-allowed-ca.md
-    - name: Configuración de WAF
-      items:
-        - name: 'Configuración de la directiva WAF: Portal'
-          href: waf-front-door-create-portal.md
-        - name: 'Configuración de la directiva de WAF: Azure PowerShell'
-          href: waf-front-door-custom-rules-powershell.md
-        - name: Configuración de protección de bot
-          href: waf-front-door-policy-configure-bot-protection.md
-        - name: Configuración de código de respuesta personalizado
-          href: waf-front-door-configure-custom-response-code.md
-        - name: Configuración de restricciones de IP
-          href: waf-front-door-configure-ip-restriction.md
-        - name: 'Configuración de límite de velocidad: Azure PowerShell'
-          href: waf-front-door-rate-limit-powershell.md
 - name: Preguntas más frecuentes
   items:
     - name: Preguntas más frecuentes sobre Front Door
       href: front-door-faq.md
-    - name: Preguntas más frecuentes sobre el firewall de aplicaciones web
-      href: waf-faq.md
 - name: Referencia
   items:
     - name: CLI de Azure

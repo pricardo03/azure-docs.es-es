@@ -1,5 +1,5 @@
 ---
-title: 'Script de PowerShell: implementación de Integration Runtime de SSIS de Azure | Microsoft Docs'
+title: 'Script de PowerShell: implementación de Integration Runtime de SSIS de Azure'
 description: Este script de PowerShell crea una instancia de Integration Runtime de SSIS de Azure que puede ejecutar paquetes SSIS en la nube.
 services: data-factory
 ms.service: data-factory
@@ -10,12 +10,12 @@ ms.date: 09/12/2017
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a2d53ddb9f55942cd6ad396d42cc926f20c2d396
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: beba0a8d01d7d10910716f03602116fe7673ffc8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66166351"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684359"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>Script de PowerShell: implementación de Integration Runtime de SSIS de Azure
 

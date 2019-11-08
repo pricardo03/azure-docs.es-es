@@ -1,5 +1,5 @@
 ---
-title: Importancia de la carga de trabajo de Azure SQL Data Warehouse | Microsoft Docs
+title: Importancia de la carga de trabajo
 description: Directrices para establecer la importancia de las consultas en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,12 +10,13 @@ ms.subservice: workload-management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2a78f342d7e4b14700224bb63598f41ca95322a5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: fea35325f11878373db8dd52b9b2bf08a25b81d1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595411"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692369"
 ---
 # <a name="azure-sql-data-warehouse-workload-importance"></a>Importancia de la carga de trabajo de Azure SQL Data Warehouse
 

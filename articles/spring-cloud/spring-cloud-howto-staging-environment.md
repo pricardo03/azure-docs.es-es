@@ -1,20 +1,17 @@
 ---
 title: Configuración de un entorno de ensayo en Azure Spring Cloud | Microsoft Docs
 description: Aprenda a usar la implementación blue-green con Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 454eeaa2568891ec35fe698cdb20c5448e10887e
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.topic: conceptual
+ms.date: 10/31/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 24ce4dee04e4daf3eaee4144f8dc56de5867bbca
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038304"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607218"
 ---
 # <a name="how-to-set-up-a-staging-environment"></a>Configuración de un entorno de ensayo
 
@@ -26,26 +23,18 @@ En este artículo se da por hecho que ya ha implementado la aplicación PiggyMet
 
 Si desea usar otra aplicación en este ejemplo, deberá realizar un sencillo cambio en una parte pública de la aplicación.  Con este cambio se diferencia la implementación de ensayo de la producción.
 
->[!NOTE]
-> Antes de comenzar este inicio rápido, asegúrese de que la suscripción de Azure tiene acceso a Azure Spring Cloud.  Al ser un servicio en versión preliminar, le pedimos que se ponga en contacto con nosotros para que podamos agregar su suscripción a la lista de permitidos.  Si desea explorar las funcionalidades de Azure Spring Cloud, póngase en contacto con nosotros por correo electrónico: azure-spring-cloud@service.microsoft.com.
-
 >[!TIP]
 > Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo.  Incluye herramientas comunes de Azure preinstaladas, entre las que se incluyen las versiones más recientes de Git, JDK, Maven y la CLI de Azure. Si ha iniciado sesión en su suscripción de Azure, inicie [Azure Cloud Shell](https://shell.azure.com) desde shell.azure.com.  Para más información acerca de Azure Cloud Shell, [lea la documentación](../cloud-shell/overview.md).
 
 Para completar este artículo:
 
-1. [Instalación de Git](https://git-scm.com/)
-1. [Instalación de JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-1. [Instalación de Maven 3.0, o cualquier versión superior](https://maven.apache.org/download.cgi)
-1. [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-1. [Registro para obtener una suscripción a Azure](https://azure.microsoft.com/free/)
 
 ## <a name="install-the-azure-cli-extension"></a>Instalación de la extensión de la CLI de Azure
 
 Instale la extensión de Azure Spring Cloud para la CLI de Azure, para lo cual debe usar el siguiente comando
 
 ```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
     
 ## <a name="view-all-deployments"></a>Visualización de todas las implementaciones

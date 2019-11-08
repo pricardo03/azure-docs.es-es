@@ -1,5 +1,5 @@
 ---
-title: Copia de datos desde MySQL mediante Azure Data Factory | Microsoft Docs
+title: Copia de datos desde MySQL mediante Azure Data Factory
 description: Obtenga información sobre el conector MySQL de Azure Data Factory que permite copiar los datos desde una base de datos MySQL a un almacén de datos admitido como receptor.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 433160054dd653e1389c3d8c13faadb93782d7c0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ecc6bdb9f46b5dbc544f5a9c74bdec4a58c1fd72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090033"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680620"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copia de datos desde MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

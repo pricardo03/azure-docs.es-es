@@ -1,5 +1,5 @@
 ---
-title: Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch | Microsoft Docs
+title: Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 description: Se describe cómo procesar grandes cantidades de datos en una canalización de Azure Data Factory mediante la funcionalidad de procesamiento paralelo de Azure Batch.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fe015e2ffa371c0c31f7f5f43c433d44f3ca3c42
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140037"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682664"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]

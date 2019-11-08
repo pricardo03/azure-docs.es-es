@@ -1,5 +1,5 @@
 ---
-title: Limpieza de los registros de SSISDB con trabajos de Azure Elastic Database | Microsoft Docs
+title: 'Limpieza de los registros de SSISDB con trabajos de Azure Elastic Database '
 description: En este artículo se describe cómo limpiar los registros de SSISDB mediante el uso de trabajos de Azure Elastic Database para desencadenar el procedimiento almacenado que existe para este propósito.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 1afc40bd601c06def57ae59797d31a5edf4095bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0697addb14894855f554c1d82f59f3798e63d03b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61345564"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674737"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpieza de los registros de SSISDB con trabajos de Azure Elastic Database
 

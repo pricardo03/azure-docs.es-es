@@ -1,5 +1,5 @@
 ---
-title: Guía para el ajuste del rendimiento de Azure SQL Database | Microsoft Docs
+title: Guía para el ajuste del rendimiento
 description: Obtenga información acerca del uso de las recomendaciones para ajustar manualmente el rendimiento de las consultas de su base de datos de Azure SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 4ea5d6c734659d36822f62237a42a8fbe332c996
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6e42911d05f387ea47b56b913e9a1868100c1b3c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567111"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821361"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajuste manual del rendimiento de consultas en Azure SQL Database
 

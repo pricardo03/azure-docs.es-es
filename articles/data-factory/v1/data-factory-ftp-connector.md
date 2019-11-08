@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos de un servidor de FTP mediante Azure Data Factory | Microsoft Docs
+title: Movimiento de datos de un servidor FTP mediante Azure Data Factory
 description: Aprenda a mover datos de un servidor FTP mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5d043072244ede5b1d7bd28d4628ffe3cf4961d8
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e5a6485e93e8f617883a7dfef511709ec857b411
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836322"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682595"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

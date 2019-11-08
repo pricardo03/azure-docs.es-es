@@ -1,5 +1,5 @@
 ---
-title: Copia de datos con SQL Server como origen o destino mediante Azure Data Factory | Microsoft Docs
+title: Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
 description: Aprenda a trasladar los datos hacia y desde una base de datos SQL Server en un entorno local o en una máquina virtual de Azure mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: b87676e773c4b7714a3b5ef21a6be703e0e3761a
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 424007c6bd34c0d582af8cd4df00ce7f5fc7fb0f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001381"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680143"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que está usando:"]

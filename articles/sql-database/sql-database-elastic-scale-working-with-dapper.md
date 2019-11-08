@@ -1,5 +1,5 @@
 ---
-title: Uso de la biblioteca de cliente de bases de datos elásticas con Dapper | Microsoft Docs
+title: Uso de la biblioteca de cliente de bases de datos elásticas con Dapper
 description: Uso de la biblioteca de cliente de bases de datos elásticas con Dapper.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 1eafb123014effad9daca89dc1b852367d9cbbf1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 83d24d45d7628a2e02068c8757fa6568d6d3fc37
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568271"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823468"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Uso de la biblioteca de cliente de bases de datos elásticas con Dapper
 Este documento está dirigido a desarrolladores que utilizan Dapper para compilar aplicaciones, pero que también desean adaptar las [herramientas de bases de datos elásticas](sql-database-elastic-scale-introduction.md) para crear aplicaciones que implementen el particionamiento para escalar horizontalmente su capa de datos.  Este documento muestra los cambios que es necesario realizar en las aplicaciones basadas en Dapper para su integración con las herramientas de bases de datos elásticas. Nuestro enfoque se centra en componer la administración de particiones de bases de datos elásticas y el enrutamiento dependiente de los datos con Dapper. 

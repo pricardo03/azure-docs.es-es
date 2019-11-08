@@ -1,5 +1,5 @@
 ---
-title: Reconfiguración de un entorno de ejecución para la integración de SSIS en Azure | Microsoft Docs
+title: Reconfiguración de un entorno de ejecución para la integración de SSIS en Azure
 description: Aprenda a reconfigurar una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory después de haberlo aprovisionado.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 3c1178a20debc36fbdbbd374eaf9adb6005a93a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09ef8560edc47a6bb12fad782ae3d34987471127
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152387"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672545"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfiguración de un entorno de ejecución para la integración de SSIS en Azure
 En este artículo se describe cómo reconfigurar un entorno de ejecución existente para la integración de SSIS en Azure. Para crear una instancia de Integration Runtime (IR) para la integración de SSIS en Azure Data Factory, vea [Creación de una instancia de Integration Runtime para la integración de SSIS en Azure](create-azure-ssis-integration-runtime.md).  

@@ -1,5 +1,5 @@
 ---
-title: Optimización del rendimiento con las vistas materializadas de Azure SQL Data Warehouse | Microsoft Docs
+title: Optimización del rendimiento con vistas materializadas
 description: Recomendaciones y consideraciones que debe conocer al usar vistas materializadas para mejorar el rendimiento de las consultas.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c1cfd3b4c365a04c3d4704f37e4ed4177fa74619
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338913"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692986"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas 
 Las vistas materializadas de Azure SQL Data Warehouse proporcionan un método de bajo mantenimiento para que las consultas analíticas complejas puedan tener un rendimiento rápido sin cambiar la consulta. En este artículo se describe la guía general sobre el uso de vistas materializadas.

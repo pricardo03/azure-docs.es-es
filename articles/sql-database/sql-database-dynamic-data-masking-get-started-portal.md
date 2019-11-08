@@ -1,5 +1,5 @@
 ---
-title: 'Azure Portal: Enmascaramiento dinámico de datos en SQL Database | Microsoft Docs'
+title: 'Azure Portal: Enmascaramiento de datos dinámicos'
 description: Cómo empezar a usar el enmascaramiento dinámico de datos de SQL Database en Azure Portal
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 03/04/2018
-ms.openlocfilehash: 1400a21c3fee51bb26a3271546a7553a3429b42d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0053958c0681e98ee225232249b050583d4e13b2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568803"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826564"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introducción al enmascaramiento dinámico de datos de SQL Database con Azure Portal
 

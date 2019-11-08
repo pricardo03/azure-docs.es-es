@@ -1,5 +1,5 @@
 ---
-title: Replicación transaccional con Azure SQL Database | Microsoft Docs
+title: Replicación transaccional
 description: Aprenda a usar la replicación transaccional de SQL Server con bases de datos únicas, agrupadas y de instancia en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 86bd479eff48a7feb42557eb1d175345728f0a69
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a57d1c85384204c26e75f7138b9514f2b3297bef
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879054"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823309"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicación transaccional con bases de datos únicas, agrupadas y de instancia en Azure SQL Database
 

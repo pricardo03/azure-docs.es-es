@@ -4,14 +4,14 @@ description: Aprenda a configurar directivas de control de acceso por IP para la
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: d4fab572f31d3187135ea3ac406431ced98828b1
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 8522a537301c1d35da2a2eb46b4374fa4daf6a27
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815926"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580681"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configuración del firewall de IP en Azure Cosmos DB
 
@@ -100,7 +100,7 @@ Para configurar el control de acceso a su cuenta de Azure Cosmos DB, asegúrese 
 {
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "name": "[variables('accountName')]",
-  "apiVersion": "2016-03-31",
+  "apiVersion": "2019-08-01",
   "location": "[parameters('location')]",
   "kind": "GlobalDocumentDB",
   "properties": {
@@ -108,8 +108,7 @@ Para configurar el control de acceso a su cuenta de Azure Cosmos DB, asegúrese 
     "locations": "[variables('locations')]",
     "databaseAccountOfferType": "Standard",
     "enableAutomaticFailover": "[parameters('automaticFailover')]",
-    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
-    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+    "ipRangeFilter":"40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
   }
 }
 ```

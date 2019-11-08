@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a57681cc9f44593ceea6b2c1795274c1b16d3a94
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 01ec721fb7e7dea0e4e31e0c3052cc4246cf14b0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64726200"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748196"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute (clásica)
 > [!div class="op_single_selector"]
@@ -35,9 +35,6 @@ Estas instrucciones se aplican solo a los circuitos que se crean con proveedores
 **Información sobre los modelos de implementación de Azure**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>Requisitos previos de configuración
 

@@ -4,15 +4,16 @@ description: Este artículo de CPP está en desuso, vinculado al artículo de PC
 services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: 1854f0d9098fdda03e5f17a61125a3e1f67e33ed
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 1121a021b580d23006e3aaff5da4c6a2a58dca73
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034201"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824694"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico para Dynamics 365 for Customer Engagement
 

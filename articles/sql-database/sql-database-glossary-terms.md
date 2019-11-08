@@ -1,5 +1,5 @@
 ---
-title: Glosario de términos de Azure SQL Database | Microsoft Docs
+title: Glosario de términos
 description: Glosario de términos de Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/26/2019
-ms.openlocfilehash: f23ef5506027a5de9f4189a11636d323679707f3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 86da4ecab387da80954c2267ddeabe32a723474c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488478"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802738"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glosario de términos de Azure SQL Database
 

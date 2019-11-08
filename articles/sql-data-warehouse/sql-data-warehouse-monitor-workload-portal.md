@@ -1,5 +1,5 @@
 ---
-title: Supervisión de la carga de trabajo - Azure Portal | Microsoft Docs
+title: Supervisión de la carga de trabajo - Azure Portal
 description: Supervisión de Azure SQL Data Warehouse mediante Azure Portal
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 176762e0d1c007f924d779a1b77dd52c7ed56e01
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 73d837c34dd5a480cae08a41c89939414899052a
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981482"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645631"
 ---
 # <a name="monitor-workload---azure-portal"></a>Supervisión de la carga de trabajo - Azure Portal
 

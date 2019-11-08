@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database: ajuste automático | Microsoft Docs'
+title: Introducción al ajuste automático
 description: Azure SQL Database analiza una consulta SQL y se adapta automáticamente a la carga de trabajo del usuario.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: b6c2885f0919752f7ede7f5a15121be2f8a953ca
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 179bb5c9d718a556b829af8f860cb284597835aa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162318"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821887"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático en Azure SQL Database
 

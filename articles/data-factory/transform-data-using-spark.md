@@ -1,5 +1,5 @@
 ---
-title: Transformación de datos mediante la actividad de Spark en Azure Data Factory | Microsoft Docs
+title: Transformación de datos mediante la actividad de Spark en Azure Data Factory
 description: Obtenga información sobre cómo transformar datos mediante la ejecución de programas de Spark desde una canalización de Azure Data Factory mediante la actividad de Spark.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: c493dbc99edc794dd5a261dfc004c2c8c1cb6d52
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 5f3bb88d3a2e43abe1776a4b46e4ab35490db8ec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312089"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683752"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Spark en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -60,7 +60,7 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 
 | Propiedad              | DESCRIPCIÓN                              | Obligatorio |
 | --------------------- | ---------------------------------------- | -------- |
-| Nombre                  | Nombre de la actividad en la canalización.    | Sí      |
+| name                  | Nombre de la actividad en la canalización.    | Sí      |
 | description           | Texto que describe para qué se usa la actividad.  | Sin       |
 | Tipo                  | Para la actividad de Spark, el tipo de actividad es HDInsightSpark. | Sí      |
 | linkedServiceName     | Nombre del servicio vinculado de HDInsight Spark en el que se ejecuta el programa de Spark. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |

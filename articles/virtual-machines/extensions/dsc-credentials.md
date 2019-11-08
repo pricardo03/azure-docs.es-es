@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: b0625e3ac14e28cb4d43313bf1d9bc8b7afa08b1
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f7edbd0fd8791829a2d9ffaa4e7c0ee0e561cc5d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176708"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748978"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Pasar credenciales al controlador de extensiones DSC de Azure
 
 En este artículo se trata la extensión Desired State Configuration (DSC) de Azure. Para ver información general sobre el controlador de extensiones de DSC, consulte [Introducción al controlador de extensiones de configuración de Azure Desired State](dsc-overview.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="pass-in-credentials"></a>Pase de credenciales
 

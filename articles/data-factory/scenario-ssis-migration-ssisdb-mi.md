@@ -1,5 +1,5 @@
 ---
-title: Migración de SSIS con Instancia administrada de Azure SQL Database como destino de la carga de trabajo de base de datos | Microsoft Docs
+title: Migración de SSIS con Instancia administrada de Azure SQL Database como destino de la carga de trabajo de base de datos
 description: Migración de SSIS con Instancia administrada de Azure SQL Database como destino de la carga de trabajo de base de datos.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: c1bb056909641ad0b8654e84f35c4fbd5b38db82
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 6ea9134085812b99d59ad64aa2c9ec1b2ff827d9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968446"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684407"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>Migración de SSIS con Instancia administrada de Azure SQL Database como destino de la carga de trabajo de base de datos
 

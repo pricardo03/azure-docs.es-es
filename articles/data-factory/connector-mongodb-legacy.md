@@ -1,5 +1,5 @@
 ---
-title: Copia de datos desde MongoDB mediante Azure Data Factory | Microsoft Docs
+title: Copia de datos desde MongoDB mediante Azure Data Factory de Azure
 description: Obtenga información sobre cómo copiar datos desde MongoDB en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 77d0f632c763651004efa46edf027719040f4760
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c2c2d9ad78bb09a37faaa5825f8dae3e27370ea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967478"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680672"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copia de datos desde MongoDB mediante Azure Data Factory de Azure
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que se usa:"]

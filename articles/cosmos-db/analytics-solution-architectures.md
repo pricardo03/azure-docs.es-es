@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d50b946e67bbcc171850b71021165356011f58e3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d0b5042c1401a95cc75f4c01ace843659b6babfe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755197"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681718"
 ---
 # <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Soluciones que usan análisis distribuido globalmente en Azure Cosmos DB
 
@@ -34,12 +34,12 @@ Puede usar la compatibilidad con Spark en Azure Cosmos DB para ofrecer recomend
 
 La siguiente imagen muestra cómo se usa la compatibilidad de Spark con Azure Cosmos DB para optimizar los precios y las promociones:
 
-![Compatibilidad de Spark con Azure Cosmos DB para optimizar los precios y las promociones](./media/spark-api-introduction/optimize-pricing-and-promotions.png)
+![Compatibilidad de Spark con Azure Cosmos DB para optimizar los precios y las promociones](./media/analytics-solution-architectures/optimize-pricing-and-promotions.png)
 
 
 La siguiente imagen muestra cómo se usa la compatibilidad de Spark con Azure Cosmos DB en el motor de recomendaciones en tiempo real:
 
-![Compatibilidad de Spark con Azure Cosmos DB en el motor de recomendaciones en tiempo real](./media/spark-api-introduction/real-time-recommendation-engine.png)
+![Compatibilidad de Spark con Azure Cosmos DB en el motor de recomendaciones en tiempo real](./media/analytics-solution-architectures/real-time-recommendation-engine.png)
 
 ## <a name="manufacturing-and-iot"></a>Fabricación y IoT
 
@@ -49,7 +49,7 @@ La plataforma de análisis incorporada de Azure Cosmos DB permite habilitar el 
 
 La siguiente imagen muestra cómo se usa la compatibilidad de Spark con Azure Cosmos DB para leer métricas de dispositivos IoT y aplicar el análisis de red de distribución inteligente de electricidad:
 
-![Compatibilidad de Spark con Azure Cosmos DB para leer métricas de dispositivos IoT](./media/spark-api-introduction/read-metrics-from-iot-devices.png)
+![Compatibilidad de Spark con Azure Cosmos DB para leer métricas de dispositivos IoT](./media/analytics-solution-architectures/read-metrics-from-iot-devices.png)
 
 ## <a name="predictive-maintenance"></a>Mantenimiento predictivo
 
@@ -59,11 +59,11 @@ La siguiente imagen muestra cómo se usa la compatibilidad de Spark con Azure Co
 
 La siguiente imagen muestra cómo se usa la compatibilidad de Spark con Azure Cosmos DB para crear un sistema de mantenimiento predictivo:
 
-![Compatibilidad de Spark con Azure Cosmos DB para crear un sistema de mantenimiento predictivo](./media/spark-api-introduction/predictive-maintenance-system.png)
+![Compatibilidad de Spark con Azure Cosmos DB para crear un sistema de mantenimiento predictivo](./media/analytics-solution-architectures/predictive-maintenance-system.png)
 
 La siguiente imagen muestra cómo se usa la compatibilidad de Spark con Azure Cosmos DB para crear un sistema de diagnóstico de vehículos en tiempo real:
 
-![Compatibilidad de Spark con Azure Cosmos DB para crear un sistema de diagnóstico de vehículos en tiempo real](./media/spark-api-introduction/real-time-vehicle-diagnostic-system.png)
+![Compatibilidad de Spark con Azure Cosmos DB para crear un sistema de diagnóstico de vehículos en tiempo real](./media/analytics-solution-architectures/real-time-vehicle-diagnostic-system.png)
 
 ## <a name="gaming"></a>Juegos
 
@@ -75,7 +75,7 @@ La siguiente imagen muestra cómo se usa la compatibilidad de Spark con Azure Co
 
 La siguiente imagen muestra cómo se usa la compatibilidad de Spark con Azure Cosmos DB en los análisis de juego:
 
-![Compatibilidad de Spark de Azure Cosmos DB en el análisis de juegos](./media/spark-api-introduction/gaming-analytics.png)
+![Compatibilidad de Spark de Azure Cosmos DB en el análisis de juegos](./media/analytics-solution-architectures/gaming-analytics.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,16 +4,17 @@ description: Preguntas más frecuentes sobre la creación de discos duros virtua
 services: Azure Marketplace
 author: HannibalSII
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: hascipio
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: bb7e62138dbefdd8ff4933ef10602986a5da2bf6
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1d4224d8f1f735ecef3d4551e3032b916e81dc3c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874993"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826610"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comunes durante la creación de discos duros virtuales (P+F)
 

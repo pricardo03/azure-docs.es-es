@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 8ca24e8556ee53e9d12eaea8fd9eddb07ebed490
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873028"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826391"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Creación de una tabla de clasificación cache-aside en ASP.NET
 
@@ -671,7 +671,7 @@ En esta sección, aprovisionará una nueva base de datos SQL de Azure para que l
 
    | Configuración       | Valor sugerido | DESCRIPCIÓN |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+   | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Convenciones de nomenclatura). |
    | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
    | **Contraseña** | Cualquier contraseña válida | La contraseña debe tener un mínimo de 8 caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
    | **Ubicación** | *Este de EE. UU.* | Seleccione la región en la que creó la caché y la instancia de App Service. |

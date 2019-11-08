@@ -4,15 +4,16 @@ description: Recupera todas las operaciones en la oferta u obtiene una determina
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3eb77744d61322ca0aed20bb2b3f486cc02ac70
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935778"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819592"
 ---
 <a name="retrieve-operations"></a>Retrieve operations
 ===================
@@ -47,7 +48,7 @@ Recupera todas las operaciones en la oferta u obtiene una determinada operación
 |  **Nombre**          |  **Valor**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
-|  Autorización     | `Bearer YOUR_TOKEN`  |
+|  Authorization     | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 

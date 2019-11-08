@@ -1,5 +1,5 @@
 ---
-title: Supervisión visual de las factorías de datos de Azure | Microsoft Docs
+title: Supervise visualmente las factorías de datos de Azure
 description: Aprenda a supervisar visualmente las factorías de datos de Azure
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f7c27bde3806684045bc43f8ff99eefb14c8d04a
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7b79fd9c87e97e624cce567b57c1c65fefcc151e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029146"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684643"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Supervise visualmente las factorías de datos de Azure
 Azure Data Factory es un servicio de integración de datos en la nube. Puede usarlo para crear flujos de trabajo controlados por datos para orquestar y automatizar tanto el movimiento de datos como la transformación de datos. Mediante Azure Data Factory puede:

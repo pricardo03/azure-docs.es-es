@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75a685dc90db9133ee9bc5d52d046246270ea32a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dc8a870d692108f3a33b89a1c3826d421dfd1f63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497614"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824394"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Diez cosas que puede hacer en Windows Data Science Virtual Machine
 
@@ -826,7 +826,7 @@ Siga estos pasos de requisitos previos para acceder a Azure Cosmos DB desde DSVM
 
 1. El SDK de Python de Azure Cosmos DB ya está instalado en DSVM. Para actualizarlo, ejecute ```pip install pydocumentdb --upgrade``` desde un símbolo del sistema.
 2. Cree una base de datos y una cuenta de Azure Cosmos DB en [Azure Portal](https://portal.azure.com).
-3. Descargue la herramienta de migración de datos de Azure Cosmos DB desde el [Centro de descarga de Microsoft](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) y extráigala en el directorio que quiera.
+3. Descargue la herramienta de migración de datos de Azure Cosmos DB desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=53595) y extráigala en el directorio que quiera.
 4. Importe los datos JSON (datos de volcanes) almacenados en un [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) en Azure Cosmos DB con los siguientes parámetros de comando en la herramienta de migración. (Use dtui.exe desde el directorio en el que ha instalado la herramienta de migración de datos de Azure Cosmos DB). Especifique las ubicaciones de origen y destino con estos parámetros:
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`

@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: e45346ce8bd23ea8431faf8a123d57ecdee71606
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9a2e8b37f746eb86b2e0fe6a7304cd888a293e1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937891"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823027"
 ---
 # <a name="requirements-by-listing-type"></a>Requisitos por tipo de publicación  
 Los requisitos de contenido de marketing y técnicos varían en función del escaparate, el tipo de oferta y el tipo de anuncio. Revise las siguientes especificaciones para verificar el cumplimiento.  
@@ -53,7 +54,7 @@ A continuación, se indican los requisitos previos para los tipos de publicació
 ## <a name="non-transact-listings"></a>Publicaciones que no son de tipo transacción  
 En esta sección se describen todos los tipos de ofertas que no utilizan el tipo de publicación de transacción. 
 
-### <a name="list"></a>Enumerar  
+### <a name="list"></a>List  
 El tipo de publicación de anuncio incluye los siguientes tipos de oferta en los escaparates del Marketplace.  
 
 | Tipo de oferta | Escaparate | Detalles |  

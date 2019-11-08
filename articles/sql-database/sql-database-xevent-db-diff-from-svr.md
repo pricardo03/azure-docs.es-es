@@ -1,5 +1,5 @@
 ---
-title: Eventos extendidos en SQL Database | Microsoft Docs
+title: Eventos extendidos
 description: Describe los eventos extendidos (XEvents) en Azure SQL Database y cómo las sesiones de eventos difieren ligeramente de las sesiones de eventos en Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: f9af487e2eb35e7dc94e1b70945d5c03ffdde2ba
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cab5b5baf318eb9eadc398ce525e0de716d0df2d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566068"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822299"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos extendidos en SQL Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]

@@ -1,5 +1,5 @@
 ---
-title: Actividad de obtención de metadatos en Azure Data Factory | Microsoft Docs
+title: Actividad de obtención de metadatos en Azure Data Factory
 description: Obtenga información sobre cómo usar la actividad de obtención de metadatos en una canalización de Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 081d7219407decac5dd36a06f289436aa0da627b
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: e891f6675920e7bb90d2a6d007676cdd65f19917
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061536"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679902"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
 

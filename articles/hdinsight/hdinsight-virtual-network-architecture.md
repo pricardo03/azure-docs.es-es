@@ -2,17 +2,17 @@
 title: Arquitectura de red virtual de Azure HDInsight
 description: Obtenga información sobre los recursos disponibles al crear un clúster de HDInsight en una red virtual de Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: 340974201d62f97669db442f4a95439a6ac90a5e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.date: 10/31/2019
+ms.openlocfilehash: 0a1139f7bf1711a5f6d980e67a8a9027bfd3af52
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960614"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665318"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitectura de red virtual de Azure HDInsight
 
@@ -74,4 +74,4 @@ Las direcciones IP públicas también se proporcionan a los dos puntos de conexi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Protección del tráfico entrante a los clústeres de HDInsight en una red virtual con un punto de conexión privado](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
+- [Protección del tráfico entrante a los clústeres de HDInsight en una red virtual con un punto de conexión privado](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

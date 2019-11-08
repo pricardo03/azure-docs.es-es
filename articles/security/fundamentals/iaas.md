@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: fc72c59721a6f244806bf229ebded1e66341a04d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 7558ad2e5a4404db140daff89171af92c6072ef6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177697"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805975"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 En este artículo se describen los procedimientos recomendados de seguridad para máquinas virtuales y sistemas operativos.
@@ -68,7 +68,7 @@ Si la máquina virtual ejecuta aplicaciones esenciales que necesitan tener una a
 Un conjunto de disponibilidad es una agrupación lógica que puede usar en Azure para asegurarse de que los recursos de máquina virtual que coloque en dicho conjunto de disponibilidad estén aislados entre sí cuando se implementen en un centro de datos de Azure. Azure garantiza que las máquinas virtuales colocadas en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. Si se produce un error de hardware o software de Azure, solo un subconjunto de las máquinas virtuales se ve afectado y la aplicación sigue estando disponible para los clientes. Los conjuntos de disponibilidad son una funcionalidad fundamental para compilar soluciones en la nube confiables.
 
 ## <a name="protect-against-malware"></a>Protección frente a malware
-Debe instalar la protección antimalware para ayudar a identificar y eliminar virus, spyware y otro software malintencionado. Puede instalar [Microsoft Antimalware](antimalware.md) o una solución de Endpoint Protection de asociado de Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/en-us/search?q=Windows+defender+endpoint+protection&rtc=1) y [System Center Endpoint Protection](https://www.microsoft.com/en-us/search?q=System+Center+endpoint+protection&rtc=1)).
+Debe instalar la protección antimalware para ayudar a identificar y eliminar virus, spyware y otro software malintencionado. Puede instalar [Microsoft Antimalware](antimalware.md) o una solución de Endpoint Protection de asociado de Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) y [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 Microsoft Antimalware incluye características como la protección en tiempo real, los análisis programados, la corrección de malware, las actualizaciones de firmas, las actualizaciones del motor, los ejemplos de informes y la colección de eventos de exclusión. En entornos hospedados por separado del entorno de producción, puede usar una extensión de antimalware para ayudar a proteger las máquinas virtuales y los servicios en la nube.
 

@@ -4,15 +4,16 @@ description: Cree los recursos técnicos de un módulo IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
-ms.openlocfilehash: 9f40e2272388e6f467b8c3d0b01a6639bf652e80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57bc2f789836a7d3453004cdacc59029c4b24129
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942382"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827622"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparar los recursos técnicos del módulo IoT Edge
 

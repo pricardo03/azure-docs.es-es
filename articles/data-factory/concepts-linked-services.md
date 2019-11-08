@@ -1,5 +1,5 @@
 ---
-title: Servicios vinculados en Azure Data Factory | Microsoft Docs
+title: Servicios vinculados en Azure Data Factory
 description: Obtenga información sobre los servicios vinculados en Data Factory. Los servicios vinculados vinculan almacenes de datos o servicios de proceso a una factoría de datos.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 80e9cee0d973dc8575e9645c537b6b69fbeef700
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9dd81484d8afab66fcb76f8fccdea348ef6a34c4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137115"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681498"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Servicios vinculados en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

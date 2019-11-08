@@ -1,5 +1,5 @@
 ---
-title: 'Optimización de la supervisión y el rendimiento: Azure SQL Database | Microsoft Docs'
+title: Optimización de la supervisión y el rendimiento
 description: Sugerencias para la optimización del rendimiento de Azure SQL Database a través de la evaluación y la mejora.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 5df9df1474489d7f1b1fb4e1089143cca63a3e42
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: e77af00dc3352af3265da90685e58b34c96bee81
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935602"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825155"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Optimización de la supervisión y el rendimiento
 

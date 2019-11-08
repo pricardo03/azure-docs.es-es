@@ -1,5 +1,5 @@
 ---
-title: Copia de datos desde SAP HANA mediante Azure Data Factory | Microsoft Docs
+title: Copia de datos de SAP HANA mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde SAP HANA en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a5592c0c5fa06d8319b91c6d624a74c83bdeb1f
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6b7f41f53ea743f8e3914512b40d3f69f595b7c8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010427"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680248"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copia de datos de SAP HANA mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

@@ -1,5 +1,5 @@
 ---
-title: Copiar datos de PayPal con Azure Data Factory (versión preliminar) | Microsoft Docs
+title: Copiar datos de PayPal con Azure Data Factory (versión preliminar)
 description: Obtenga información sobre cómo copiar datos desde PayPal a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 9c15f942d10b0535540bdd03ec6d64aa4d99f528
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 106fa42fc7c9feb51ab6bf7f1be5a13a08d234a0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089811"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680486"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copiar datos de PayPal con Azure Data Factory (versión preliminar)
 
@@ -151,7 +151,7 @@ Para copiar datos desde PayPal, establezca el tipo de origen de la actividad de 
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
-Para información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
+Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

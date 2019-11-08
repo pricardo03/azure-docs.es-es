@@ -1,5 +1,5 @@
 ---
-title: Copia de datos de ServiceNow con Azure Data Factory (beta) | Microsoft Docs
+title: Copia de datos de ServiceNow con Azure Data Factory
 description: Obtenga información sobre cómo copiar datos de ServiceNow en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: a76baf65b2dc7d0cdb444b79e697930188417748
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 933b12f852fcbcc20e50f3c89d597bbe6b84bd8e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089486"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680213"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copia de datos de ServiceNow con Azure Data Factory
 
@@ -172,7 +172,7 @@ El índice de la tabla de ServiceNow puede ayudarle a mejorar el rendimiento de 
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
-Para información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
+Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

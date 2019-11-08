@@ -1,5 +1,5 @@
 ---
-title: Trabajo con datos JSON en Azure SQL Database | Microsoft Docs
+title: Trabajo con datos JSON
 description: Azure SQL Database permite analizar datos, consultarlos y darles formato en notación de objetos JavaScript (JSON).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 01/15/2019
-ms.openlocfilehash: 3a09fba3f01eec6c712bad67ef10b8b5c55fb33e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 958d937ad85fd62249c7ce3f0e0ab2f8cc1d1b80
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567846"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819937"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introducción a las características de JSON en Azure SQL Database
 Azure SQL Database permite analizar y consultar datos representados en formato de notación de objetos JavaScript [(JSON)](https://www.json.org/), y exportar los datos relacionales como texto JSON. Los escenarios JSON siguientes están disponibles en Azure SQL Database:

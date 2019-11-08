@@ -4,15 +4,16 @@ description: Se ha dejado de utilizar y se ha vinculado a los artículos de PC c
 services: Dynamics 365 Business Central, AppSource Marketplace,
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: pabutler
-ms.openlocfilehash: 66ba5a6a54f22b6b76d94e8d29f72dda8895c9c5
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 772f96f4e8d5c3c87c2e62cd01500075a5327210
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105212"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819554"
 ---
 # <a name="dynamics-365-business-central-offer"></a>Oferta de Dynamics 365 Business Central
 

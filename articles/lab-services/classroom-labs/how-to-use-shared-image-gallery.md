@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: e9073e7cba97c4f5e2d550e5e49a6655ec76abbe
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f438c32deb7e923f08396b0580d807d6e5b5e69a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332076"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585003"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Usar una galería de imágenes compartidas en Azure Lab Services
 En este artículo se explica cómo los profesores y administradores del laboratorio cómo pueden guardar una imagen de máquina virtual de plantilla para que otros usuarios puedan reutilizarla. Estas imágenes se guardan en una [galería de imágenes compartidas](../../virtual-machines/windows/shared-image-galleries.md) de Azure. Como primer paso, el administrador del laboratorio asocia una galería de imágenes compartidas existente a la cuenta de laboratorio. Una vez que se ha asociado la galería de imágenes compartidas, los laboratorios creados en la cuenta de laboratorio pueden guardar imágenes en la galería de imágenes compartidas. Otros profesores pueden seleccionar esta imagen de la galería de imágenes compartidas para crear una plantilla para sus clases. 

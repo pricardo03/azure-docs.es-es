@@ -4,15 +4,16 @@ description: La API recupera una lista resumida de ofertas de un espacio de nomb
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c94c03a63936be2b086085a1e52064dedf214b0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935341"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819622"
 ---
 <a name="retrieve-offers"></a>Recuperación de ofertas
 ===============
@@ -38,7 +39,7 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 |  **Nombre**        |         **Valor**       |
 |  --------------- |       ----------------  |
 |  Content-Type    | `application/json`      |
-|  Autorización   | `Bearer YOUR_TOKEN`     |
+|  Authorization   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
 

@@ -1,5 +1,5 @@
 ---
-title: Usuarios e inicios de sesión de SQL Azure | Microsoft Docs
+title: Inicios de sesión y usuarios
 description: Obtenga información acerca de la administración de seguridad de SQL Database y SQL Data Warehouse, específicamente el modo de administrar la seguridad del inicio de sesión y el acceso a la base de datos con la cuenta de entidad de seguridad a nivel de servidor.
 keywords: seguridad de la Base de datos SQL, administración de seguridad de la base de datos, seguridad de inicio de sesión, seguridad de la base de datos, acceso a la base de datos
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: 9dae1e3864f5f1cf745bfe9b0872f15f61471a1c
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: a33c653199ae21b551acadfb4503eae029ddc5e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014498"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822823"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Control y concesión de acceso de la base de datos a SQL Database y SQL Data Warehouse
 

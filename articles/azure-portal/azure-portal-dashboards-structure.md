@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dccf1550052910269efe156b999882234669d7dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551521"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815703"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>La estructura de los paneles de Azure
 Este documento le guía a través de la estructura de un panel de Azure con el panel siguiente como ejemplo:
@@ -295,7 +295,7 @@ Vamos a desglosar las secciones relevantes de JSON.  Las propiedades de nivel su
 
 ### <a name="the-id-property"></a>La propiedad id
 
-El identificador de recurso de Azure está sujeto a las [convenciones de nomenclatura de recursos de Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Cuando el portal crea un panel, elige generalmente un id. en forma de identificador único pero se puede utilizar cualquier nombre válido cuando se crean mediante programación. 
+El identificador de recurso de Azure está sujeto a las [convenciones de nomenclatura de recursos de Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Cuando el portal crea un panel, elige generalmente un id. en forma de identificador único pero se puede utilizar cualquier nombre válido cuando se crean mediante programación. 
 
 ### <a name="the-name-property"></a>La propiedad name
 El nombre es el segmento del identificador de recurso que no incluye la suscripción, el tipo de recurso o la información del grupo de recursos. Básicamente, es el último segmento del identificador de recurso.

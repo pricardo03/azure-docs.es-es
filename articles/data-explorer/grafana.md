@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 6/30/2019
-ms.openlocfilehash: 0f148a97b25afb9135223ff92afb898d4734c586
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: f1eb9fb0d81d1e9cdf3dd8628a6d7ad1f0ccce92
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537797"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581970"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualización de datos desde Azure Data Explorer en Grafana
 
@@ -36,108 +36,7 @@ Necesita lo siguiente para completar este procedimiento:
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-## <a name="configure-the-data-source"></a>Configuración del origen de datos
-
-Realice los pasos siguientes para configurar Azure Data Explorer como origen de datos de Grafana. Trataremos estos pasos con más detalle en esta sección:
-
-1. Cree una entidad de servicio de Azure Active Directory (Azure AD). Grafana usa la entidad de servicio para acceder al servicio de Azure Data Explorer.
-
-1. Agregue la entidad de servicio de Azure AD al rol *visores* en la base de datos de Azure Data Explorer.
-
-1. Especifique las propiedades de conexión de Grafana en función de la información de la entidad de servicio de Azure AD y, a continuación, pruebe la conexión.
-
-### <a name="create-a-service-principal"></a>Creación de una entidad de servicio
-
-Puede crear la entidad de servicio en [Azure Portal](#azure-portal) o mediante la experiencia de línea de comandos de la [CLI de Azure](#azure-cli). Independientemente del método que utilice, después de crear la entidad, obtendrá los valores de cuatro propiedades de conexión que usará en pasos posteriores.
-
-#### <a name="azure-portal"></a>Portal de Azure
-
-1. Para crear la entidad de servicio, siga las instrucciones de la [documentación de Azure Portal](/azure/active-directory/develop/howto-create-service-principal-portal).
-
-    1. En la sección [Asignación de la aplicación a un rol](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), asigne un tipo de rol de **lector** al clúster de Azure Data Explorer.
-
-    1. En la sección [Obtención de valores para iniciar sesión](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), copie los tres valores de propiedad indicados en los pasos: **Id. de directorio** (Id. de inquilino), **Id. de aplicación** y **Contraseña**.
-
-1. En Azure Portal, seleccione **Suscripciones** y copie el identificador de la suscripción en la que creó la entidad de servicio.
-
-    ![Id. de suscripción (Azure Portal)](media/grafana/subscription-id-portal.png)
-
-#### <a name="azure-cli"></a>CLI de Azure
-
-1. Crear una entidad de servicio. Establezca un ámbito adecuado y un tipo de rol de `reader`.
-
-    ```azurecli
-    az ad sp create-for-rbac --name "https://{UrlToYourGrafana}:{PortNumber}" --role "reader" \
-                             --scopes /subscriptions/{SubID}/resourceGroups/{ResourceGroupName}
-    ```
-
-    Para más información, vea [Creación de una entidad de servicio de Azure con la CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
-
-1. El comando devuelve un conjunto de resultados similar al siguiente. Copie los tres valores de propiedad: **id_aplicación**, **contraseña** e **inquilino**.
-
-    ```json
-    {
-      "appId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-      "displayName": "{UrlToYourGrafana}:{PortNumber}",
-      "name": "https://{UrlToYourGrafana}:{PortNumber}",
-      "password": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-      "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-    }
-    ```
-
-1. Obtenga una lista de las suscripciones.
-
-    ```azurecli
-    az account list --output table
-    ```
-
-    Copie el identificador de suscripción apropiado.
-
-    ![Id. de suscripción (CLI)](media/grafana/subscription-id-cli.png)
-
-### <a name="add-the-service-principal-to-the-viewers-role"></a>Adición de la entidad de servicio al rol visores
-
-Ahora que ya tiene una entidad de servicio, agréguela al rol *visores* en la base de datos de Azure Data Explorer. Puede realizar esta tarea en **Permisos** en Azure Portal o en **Consulta** mediante un comando de administración.
-
-#### <a name="azure-portal---permissions"></a>Azure Portal (Permisos)
-
-1. En Azure Portal, vaya al clúster de Azure Data Explorer.
-
-1. En la sección **Introducción**, seleccione la base de datos con los datos de ejemplo de StormEvents.
-
-    ![Seleccionar base de datos](media/grafana/select-database.png)
-
-1. Seleccione **Permisos** y luego **Agregar**.
-
-    ![Permisos de base de datos](media/grafana/database-permissions.png)
-
-1. En **Add database permissions** (Agregar permisos de base de datos), seleccione el rol **Visor** y después **Select principals** (Seleccionar entidades).
-
-    ![Incorporación de permisos de base de datos](media/grafana/add-permission.png)
-
-1. Busque la entidad de servicio que creó (en el ejemplo se muestra la entidad **mb-grafana**). Seleccione la entidad y después **Seleccionar**.
-
-    ![Administración de permisos en Azure Portal](media/grafana/new-principals.png)
-
-1. Seleccione **Guardar**.
-
-    ![Administración de permisos en Azure Portal](media/grafana/save-permission.png)
-
-#### <a name="management-command---query"></a>Comando de administración (Consulta)
-
-1. En Azure Portal, vaya al clúster de Azure Data Explorer y seleccione **Consulta**.
-
-    ![Consultar](media/grafana/query.png)
-
-1. Ejecute el comando siguiente en la ventana de consulta. Use el identificador de la aplicación y el identificador de inquilino de Azure Portal o la CLI.
-
-    ```kusto
-    .add database {TestDatabase} viewers ('aadapp={ApplicationID};{TenantID}')
-    ```
-
-    El comando devuelve un conjunto de resultados similar al siguiente. En este ejemplo, la primera fila es para un usuario existente en la base de datos y la segunda fila es para la entidad de servicio que se acaba de agregar.
-
-    ![Conjunto de resultados](media/grafana/result-set.png)
+[!INCLUDE [data-explorer-configure-data-source](../../includes/data-explorer-configure-data-source.md)]
 
 ### <a name="specify-properties-and-test-the-connection"></a>Especificar propiedades y probar la conexión
 
@@ -162,7 +61,7 @@ Con la entidad de servicio asignada al rol *visores*, ahora puede especificar pr
     | Id. de suscripción | ID. DE SUSCRIPCIÓN | SubscriptionId |
     | Identificador de inquilino | Identificador de directorio | tenant |
     | Id. de cliente | Identificador de aplicación | appId |
-    | Secreto del cliente | Contraseña | contraseña |
+    | Secreto del cliente | Contraseña | password |
     | | | |
 
 1. Seleccione **Guardar y probar**.

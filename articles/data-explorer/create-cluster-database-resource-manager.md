@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 34f5daaf074e011176610caed883cef9d1dbb2ea
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 49c55b580abdaea6c876a0fac4e7dd4e73d496af
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152044"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643822"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Creación de un clúster y una base de datos de Azure Data Explorer mediante una plantilla de Azure Resource Manager
 
@@ -104,7 +104,7 @@ Puede implementar la plantilla de Azure Resource Manager [mediante Azure Portal]
 
 1. Con el fin de crear un clúster y una base de datos, use el botón siguiente para iniciar la implementación. Haga clic con el botón derecho y seleccione **Abrir en una ventana nueva** para seguir el resto de los pasos de este artículo.
 
-    [![Implementación en Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-kusto-cluster-database/azuredeploy.json)
+    [![Implementación en Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
 
     El botón **Deploy to Azure** (Implementar en Azure) le lleva a Azure Portal para rellenar un formulario de implementación.
 
