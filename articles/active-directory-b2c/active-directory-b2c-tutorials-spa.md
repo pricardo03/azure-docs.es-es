@@ -10,12 +10,12 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: f6a417e33ac9c60c978d8638539a1e5a0772a034
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f9e4f25c5750ae5c48130140f49f986e20adc745
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475048"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641772"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación de página única mediante Azure Active Directory B2C (Azure AD B2C)
 
@@ -48,7 +48,7 @@ También necesita los siguientes elementos en su entorno de desarrollo:
 
 En el segundo tutorial que completó como parte de los requisitos previos, registró una aplicación web en Azure AD B2C. Para habilitar la comunicación con el ejemplo en este tutorial, deberá agregar un identificador URI de redirección a la aplicación en Azure AD B2C.
 
-Para actualizar la aplicación, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información sobre la experiencia en versión preliminar](http://aka.ms/b2cappregintro).
+Para actualizar la aplicación, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
 

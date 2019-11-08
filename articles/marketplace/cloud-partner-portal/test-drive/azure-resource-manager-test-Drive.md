@@ -5,15 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Patrick .Butler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03783424544588a4bc147b232d41b103fb2e5b3e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606439"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827561"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -89,7 +90,7 @@ También es importante tener en cuenta que **todos los parámetros son opcionale
 | **password**    | cadena segura    | Nueva contraseña aleatoria. | Lp!ACS\^2kh     |
 | **Id. de sesión**   | string          | Identificador único (GUID) de sesión de la versión de prueba    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-#### <a name="username"></a>nombre de usuario
+#### <a name="username"></a>username
 
 La versión de prueba inicializa este parámetro con un identificador **Uri base** del paquete de implementación, por lo que puede usar este parámetro para construir el Uri de los archivos incluidos en el paquete.
 
@@ -116,7 +117,7 @@ En la plantilla, puede usar este parámetro para construir un Uri de cualquier a
 }
 ```
 
-#### <a name="username"></a>nombre de usuario
+#### <a name="username"></a>username
 
 La versión de prueba inicializa este parámetro con un nuevo nombre de usuario aleatorio:
 
@@ -140,7 +141,7 @@ Valor de ejemplo:
 
 Puede usar nombres de usuario aleatorios o constantes en la solución.
 
-#### <a name="password"></a>contraseña
+#### <a name="password"></a>password
 
 La versión de prueba inicializa este parámetro con una nueva contraseña aleatoria:
 

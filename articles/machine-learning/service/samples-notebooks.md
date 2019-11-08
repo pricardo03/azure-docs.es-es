@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 145ab994bbd2ac2445947968ccdeadbb730eb76a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 16066ceeb7196bb181d144cc9529d6db627ed828
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476094"
+ms.locfileid: "73582527"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Exploración de Azure Machine Learning con cuadernos de Jupyter
 
@@ -24,7 +24,7 @@ El repositorio de [cuadernos de Azure Machine Learning](https://github.com/azure
 
 Este artículo le muestra cómo acceder al repositorio desde los siguientes entornos:
 
-- [Instancia de proceso de Azure Machine Learning](#notebookvm)
+- [Máquina virtual de Azure Machine Learning Notebook](#notebookvm)
 - [Servidor de Notebook propio](#byo)
 - [Data Science Virtual Machine](#dsvm)
 
@@ -32,7 +32,7 @@ Este artículo le muestra cómo acceder al repositorio desde los siguientes ento
 > Una vez que haya clonado el repositorio, encontrará los cuadernos del tutorial en la carpeta **tutorials** y los cuadernos de características específicas en la carpeta **how-to-use-azureml**.
 
 <a name="notebookvm"></a>
-## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Obtener ejemplos de la instancia de proceso de Azure Machine Learning
+## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Obtener ejemplos de la máquina virtual de Azure Machine Learning
 
 La manera más de fácil de empezar a trabajar con los ejemplos es realizar el [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md). Una vez completado, tendrá un servidor de cuadernos en el que se habrá cargado previamente el SDK y el repositorio de ejemplos. No es necesario realizar ninguna descarga ni instalación.
 

@@ -6,14 +6,14 @@ manager: nitinme
 description: Dos tablas que representan los registros de contenedor, los repositorios y los nombres de imagen de todas las ofertas de Cognitive Service.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: c1593cb3dad7ee1370a66747fa3fe47e93c19957
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c2e1707c6d757b2bf568f413ce2ab9f7a28ab6e4
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499197"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604433"
 ---
 ### <a name="container-repositories-and-images"></a>Repositorios e imágenes de contenedor
 
@@ -40,5 +40,9 @@ La versión preliminar del registro de contenedor hospeda todos los contenedores
 | [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Lectura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
 | [Face](../../face/face-how-to-install-containers.md) | Caras | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Form Recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
-<<<<<<< HEAD | [Speech Service API](../../speech-service/speech-container-howto.md?tab=stt) | Conversión de voz en texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` | | [Speech Service API](../../speech-service/speech-container-howto.md?tab=cstt) | Conversión de voz en texto personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` | | [Speech Service API](../../speech-service/speech-container-howto.md?tab=tts) | Conversión de texto en voz | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` | | [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Conversión de texto en voz personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` | ======= | [Speech Service API](../../speech-service/speech-container-howto.md) | Conversión de voz en texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` | | [Speech Service API](../../speech-service/speech-container-howto.md) | Conversión de texto en voz | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` | | [Translator Text](../../translator/how-to-install-containers.md) | Translator Text | `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` |
->>>>>>> refs/remotes/MicrosoftDocs/master
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=stt) | Voz a texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=cstt) | Conversión de voz a texto personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=tts) | Texto a voz | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Conversión de texto a voz personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
+| [Translator Text](../../translator/how-to-install-containers.md) | Translator Text | `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` |
+

@@ -5,14 +5,14 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: bdc9c8f5a782704ec7f8cbaa31dd4cc27ed376cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b5c5fdddeea961858a2c3b8cd69c365bb28f26e
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468970"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73800108"
 ---
-Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información sobre la experiencia en versión preliminar](https://aka.ms/b2cappregintro).
+Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
 

@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Creación de un experimento de ciencia de datos'
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: Este inicio rápido de aprendizaje automático le guiará a través de un sencillo experimento de ciencia de datos. Podremos predecir el precio de un automóvil mediante un algoritmo de regresión.
 services: machine-learning
 ms.service: machine-learning
@@ -10,16 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 99cc453387ed32c4d7cbba31c1fec2ff24a8255f
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515109"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621888"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Inicio rápido: Crear el primer experimento de ciencia de datos en Azure Machine Learning Studio
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Inicio rápido: Creación del primer experimento de ciencia de datos en Azure Machine Learning Studio (clásico)
 
-En este inicio rápido, se va a crear un experimento de aprendizaje automático en [Azure Machine Learning Studio](what-is-ml-studio.md) que predice el precio de un coche en función de diferentes variables, como la marca y las especificaciones técnicas.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+En este inicio rápido se crea un experimento de aprendizaje de automático en [Azure Machine Learning Studio (clásico)](what-is-ml-studio.md) que predice el precio de un coche en función de diferentes variables, como la marca y las especificaciones técnicas.
 
 Si no está familiarizado con el aprendizaje automático, la serie de vídeos [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) (Ciencia de datos para principiantes) le puede brindar una excelente introducción al aprendizaje automático con un lenguaje y conceptos de uso diario.
 
@@ -40,20 +42,18 @@ En este inicio rápido se sigue el flujo de trabajo predeterminado para un exper
 [Elegir y aplicar un algoritmo]: #choose-and-apply-an-algorithm
 [Predecir los precios de los automóviles nuevos]: #predict-new-automobile-prices
 
-Si no tiene una cuenta de Studio, vaya a la [página principal de Studio](https://studio.azureml.net) y seleccione **Regístrese aquí** para crear una cuenta gratuita. El área de trabajo gratuita tendrá todas las características que necesita para este inicio rápido.
-
 ## <a name="get-the-data"></a>Obtener los datos
 
 Lo primero que necesita en el aprendizaje automático son datos.
-En Studio hay varios conjuntos de datos que puede usar; otra opción es importarlos de diversos orígenes. En este ejemplo, usaremos el conjunto de datos de ejemplo, **Automobile price data (Raw)** , que se incluye en el área de trabajo.
+La versión clásica de Studio incluye varios conjuntos de datos que puede usar, pero también puede importarlos de muchos orígenes. En este ejemplo, usaremos el conjunto de datos de ejemplo, **Automobile price data (Raw)** , que se incluye en el área de trabajo.
 Este conjunto de datos incluye entradas para diversos automóviles individuales, por ejemplo, información sobre la marca, el modelo, las especificaciones técnicas y el precio.
 
 > [!TIP]
-> Puede encontrar una copia de trabajo del experimento siguiente en la [galería de Azure AI](https://gallery.azure.ai). Vaya a **[Your first data science experiment - Automobile price prediction](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Su primer experimento de ciencia de los datos: predicción de los precios de automóviles) y haga clic en **Abrir en Studio** para descargar una copia del experimento en su área de trabajo de Machine Learning Studio.
+> Puede encontrar una copia de trabajo del experimento siguiente en la [galería de Azure AI](https://gallery.azure.ai). Vaya a **[Su primer experimento de ciencia de los datos: predicción de los precios de automóviles](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** y haga clic en **Abrir en Studio** para descargar una copia del experimento en su área de trabajo de Machine Learning Studio (clásico).
 
 Aquí se muestra cómo obtener el conjunto de datos en el experimento.
 
-1. Cree un experimento nuevo; para ello, haga clic en **+NUEVO** en la parte inferior de la ventana de Machine Learning Studio. Seleccione **EXPERIMENT** >  **Blank Experiment** (Experimento > Experimento en blanco).
+1. Cree un experimento nuevo, para lo que debe hacer clic en **+NUEVO** en la parte inferior de la ventana de Machine Learning Studio (clásico). Seleccione **EXPERIMENT** >  **Blank Experiment** (Experimento > Experimento en blanco).
 
 1. El experimento recibe un nombre predeterminado que puede ver en la parte superior del lienzo. Seleccione este texto y cambie su nombre por algo significativo, por ejemplo, **predicción de precios de automóviles**. No es necesario que el nombre sea único.
 
@@ -107,7 +107,7 @@ Primero, se agrega un módulo que quita completamente la columna **normalized-lo
      ![El panel de propiedades muestra que la columna "normalized-losses" se ha excluido](./media/create-experiment/showing-excluded-column.png)
 
      > [!TIP] 
-     > Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) y escriba el comentario "Exclude normalized-losses" (Excluir normalized-losses).
+     > Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba algún texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) y escriba el comentario "Exclude normalized-losses" (Excluir normalized-losses).
 
      ![Hacer doble clic en un módulo para agregar un comentario](./media/create-experiment/add-comment.png)
 
@@ -240,7 +240,7 @@ Para cada una de las estadísticas de errores, cuanto menor sea el valor, mejor.
 En este inicio rápido, ha creado un experimento sencillo con un conjunto de datos de ejemplo. Para explorar el proceso de creación e implementación de un modelo en mayor profundidad, continúe con el tutorial de soluciones predictivas.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Desarrollo de una solución predictiva en Studio](tutorial-part1-credit-risk.md)
+> [Tutorial: Desarrollo de una solución predictiva en Studio (clásico)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

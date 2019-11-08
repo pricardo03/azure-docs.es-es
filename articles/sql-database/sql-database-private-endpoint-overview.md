@@ -1,18 +1,19 @@
 ---
-title: Private Link para Azure SQL Database y Data Warehouse | Microsoft Docs
+title: Private Link
 description: Información general de la característica de punto de conexión privado
 author: rohitnayakmsft
 ms.author: rohitna
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 3adcccde89823f865535c9e1350ac4c3e541eef6
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fcb89cbcadb5e101ab2b4bfd18d0b7b91c63c92a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71066250"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821302"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Private Link para Azure SQL Database y Data Warehouse (versión preliminar)
 
@@ -146,7 +147,7 @@ El resultado muestra que una dirección IP está activa, la cual corresponde a l
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Comprobación de la conectividad mediante SQL Server Management Studio (SSMS)
 
-El último paso es usar [SSMS para conectarse a SQL Database.](sql-database-connect-query-ssms.md). Tras conectarse a SQL Database mediante SSMS, compruebe que ha establecido la conexión desde la dirección IP de la máquina virtual de Azure, para lo que debe ejecutar la siguiente consulta:
+El último paso es usar [SSMS para conectarse a SQL Database](sql-database-connect-query-ssms.md). Tras conectarse a SQL Database mediante SSMS, compruebe que ha establecido la conexión desde la dirección IP de la máquina virtual de Azure, para lo que debe ejecutar la siguiente consulta:
 
 ````
 select client_net_address from sys.dm_exec_connections 

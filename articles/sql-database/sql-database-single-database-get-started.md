@@ -1,5 +1,5 @@
 ---
-title: Creación de una base de datos única en Azure SQL Database | Microsoft Docs
+title: Crear una base de datos única
 description: Cree y consulte una base de datos única en Azure SQL Database con Azure Portal, PowerShell o la CLI de Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 482fc3f08fb986908efcab83a82338ced36ee689
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845300"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821007"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Inicio rápido: Creación de una base de datos única en Azure SQL Database con Azure Portal, PowerShell o la CLI de Azure
 
@@ -28,7 +28,7 @@ Para seguir todos los pasos de este artículo de inicio rápido debe iniciar ses
 
 ## <a name="create-a-single-database"></a>Crear una base de datos única
 
-Una base de datos única se puede crear en el nivel de proceso aprovisionado o sin servidor (versión preliminar).
+Se puede crear una base de datos única en el nivel de proceso aprovisionado o sin servidor.
 
 - Una base de datos única en el nivel de proceso aprovisionado tiene asignada previamente una cantidad fija de recursos de proceso, como memoria y CPU con uno o dos [modelos de compra](sql-database-purchase-models.md).
 - Una base de datos única en el nivel de proceso sin servidor tiene una variedad de recursos de proceso, como memoria y CPU que se escalan automáticamente, y solo está disponible en los [modelos de compra basados en núcleo virtual](sql-database-service-tiers-vcore.md).
