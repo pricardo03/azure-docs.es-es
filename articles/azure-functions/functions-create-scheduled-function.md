@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 13aa1f8cd643d579734cc603bbc81519a690fe59
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a070a7da48af8abe138900dd0221bace2149aa20
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085858"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469227"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Cree una función en Azure que se desencadena mediante un temporizador
 
@@ -42,7 +42,7 @@ Después, cree una función en la nueva Function App.
 
 ## <a name="create-a-timer-triggered-function"></a>Creación de una función desencadenada por un temporizador
 
-1. Expanda su instancia de Function App y haga clic en el botón **+** , que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal** y, después, **Continuar**. En caso contrario, vaya al paso tres.
+1. Expanda su instancia de Function App y haga clic en el botón **+** , que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal** y, después, **Continuar**. En caso contrario, vaya al paso 3.
 
    ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Exportación y eliminación de sus datos
-titleSuffix: Azure Machine Learning Studio
-description: Los datos integrados almacenados por Azure Machine Learning Studio están disponibles para su exportación y eliminación en Azure Portal y también mediante las API REST autenticadas. Se puede acceder a los datos de telemetría en el Portal de privacidad de Azure. Este artículo le muestra cómo.
+titleSuffix: ML Studio (classic) Azure
+description: Los datos integrados almacenados por Azure Machine Learning Studio (clásico) están disponibles para su exportación y eliminación en Azure Portal y también mediante las API REST autenticadas. Se puede acceder a los datos de telemetría en el Portal de privacidad de Azure. Este artículo le muestra cómo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,34 +10,34 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 827714fea9618724ef058e1f76dc099f692482bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69e36ea83f308c4aee4bbd1dcfbfe55df3d275de
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60750130"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619303"
 ---
-# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportar y eliminar datos de usuario integrados de Machine Learning Studio
+# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportar y eliminar datos de usuario integrados de Machine Learning Studio (clásico)
 
-Puede eliminar o exportar los datos integrados almacenados por Azure Machine Learning Studio mediante Azure Portal, la interfaz de Studio, PowerShell y las API REST autenticadas. Este artículo le indica cómo. 
+Puede eliminar o exportar los datos integrados almacenados por Azure Machine Learning Studio (clásico) mediante Azure Portal, la interfaz de Studio (clásico), PowerShell y las API REST autenticadas. En este artículo se indica cómo hacerlo. 
 
-Se puede acceder a los datos de telemetría en el Portal de privacidad de Azure. 
+Se puede acceder a los datos de telemetría mediante el portal de privacidad de Azure. 
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="what-kinds-of-user-data-does-studio-collect"></a>¿Qué tipo de datos de usuario recopila Studio?
+## <a name="what-kinds-of-user-data-does-studio-classic-collect"></a>¿Qué tipo de datos de usuario recopila Studio (clásico)?
 
 Para este servicio, los datos de usuario constan de información acerca de los usuarios autorizados a acceder a las áreas de trabajo y de los registros de telemetría de las interacciones del usuario con el servicio.
 
-Hay dos tipos de datos de usuario en Machine Learning Studio:
+Hay dos tipos de datos de usuario en Machine Learning Studio (clásico):
 - **Datos de la cuenta personal:** identificadores de cuenta y direcciones de correo electrónico asociados a una cuenta.
 - **Datos del cliente:** los datos que se han cargado para analizar.
 
-## <a name="studio-account-types-and-how-data-is-stored"></a>Tipos de cuenta de Studio y cómo se almacenan los datos
+## <a name="studio-classic-account-types-and-how-data-is-stored"></a>Tipos de cuenta de Studio (clásico) y cómo se almacenan los datos
 
-Hay tres tipos de cuentas en Machine Learning Studio. El tipo de cuenta que posea determina cómo se almacenan los datos y cómo se pueden eliminar o exportar.
+Hay tres tipos de cuentas en Machine Learning Studio (clásico). El tipo de cuenta que posea determina cómo se almacenan los datos y cómo se pueden eliminar o exportar.
 
 - Un **área de trabajo de invitado** es una cuenta gratuita y anónima. Puede registrarse sin proporcionar credenciales, como una dirección de correo electrónico o una contraseña.
     -  Los datos se purgan después de que expira el área de trabajo de invitado.
@@ -53,13 +53,13 @@ Hay tres tipos de cuentas en Machine Learning Studio. El tipo de cuenta que pose
     - Puede exportar los datos personales y de cliente mediante la interfaz de usuario, las API REST o el paquete de PowerShell.
     - Puede eliminar los datos en Azure Portal.
 
-## <a name="delete"></a>Eliminación de los datos del área de trabajo en Studio 
+## <a name="delete"></a>Eliminación de los datos del área de trabajo en Studio (clásico) 
 
 ### <a name="delete-individual-assets"></a>Eliminación de recursos individuales
 
 Los usuarios pueden eliminar recursos de un área de trabajo; para ello, selecciónelos y, a continuación, seleccione el botón Eliminar.
 
-![Eliminación de recursos en Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-asset.png)
+![Eliminación de recursos en Machine Learning Studio (clásico)](./media/export-delete-personal-data-dsr/delete-studio-asset.png)
 
 ### <a name="delete-an-entire-workspace"></a>Eliminación de un área de trabajo completa
 
@@ -67,11 +67,11 @@ Los usuarios también pueden eliminar todo el área de trabajo:
 - Área de trabajo de pago: eliminar mediante Azure Portal.
 - Área de trabajo gratuita: use el botón Eliminar en el panel **Configuración**.
 
-![Eliminación de un área de trabajo gratuita en Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
+![Eliminación de un área de trabajo gratuita en Machine Learning Studio (clásico)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
-## <a name="export-studio-data-with-powershell"></a>Exportación de datos de Studio con PowerShell
-Puede usar PowerShell para exportar toda la información en un formato portátil desde Azure Machine Learning Studio mediante comandos. Para más información, consulte el artículo [módulo de PowerShell para Azure Machine Learning Studio](powershell-module.md).
+## <a name="export-studio-classic-data-with-powershell"></a>Exportación de datos de Studio (clásico) con PowerShell
+Puede usar PowerShell para exportar toda la información en un formato portátil desde la versión clásica de Azure Machine Learning Studio mediante comandos. Para más información, consulte el artículo [módulo de PowerShell para Azure Machine Learning Studio (clásico)](powershell-module.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener documentación sobre los servicios web y el plan de compromiso de facturación, consulte [Referencia de la API REST de Azure Machine Learning Studio](https://docs.microsoft.com/rest/api/machinelearning/). 
+Para documentación sobre los servicios web y el plan de compromiso de facturación, consulte [Referencia de la API REST de Azure Machine Learning Studio (clásico)](https://docs.microsoft.com/rest/api/machinelearning/). 

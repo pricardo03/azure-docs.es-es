@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 43d39039d01b22e7d918755e9557d6a1030ef7a8
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: d01a28e1b4cbd9b2dacef8059d46ea72e789094d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302866"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490435"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Creación y administración de directivas para aplicar el cumplimiento
 
@@ -29,9 +29,9 @@ Si desea asignar una directiva para identificar el estado de cumplimiento actual
 
 El primer paso para aplicar cumplimientos con Azure Policy es asignar una definición de directiva. Una definición de directiva precisa en qué condiciones se aplica una directiva y qué efecto debe tener. En este ejemplo, asigne una definición de directiva integrada denominada *Require SQL Server version 12.0* (Requerir SQL Server 12.0), para aplicar la condición de que todas las bases de datos SQL Server tengan que ser v12.0 para que satisfagan los requisitos de cumplimiento.
 
-1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
+1. Vaya a Azure Portal para asignar directivas. Busque y seleccione **Directiva**.
 
-   ![Búsqueda de la directiva en todos los servicios](../media/create-and-manage/search-policy.png)
+   ![Búsqueda de Directiva en la barra de búsqueda](../media/create-and-manage/search-policy.png)
 
 1. Seleccione **Asignaciones** en el panel izquierdo de la página de Azure Policy. Una asignación es una directiva que se asignó para que se lleve a cabo dentro de un ámbito específico.
 
@@ -41,7 +41,7 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
    ![Asignación de una definición de directiva en la página Asignaciones](../media/create-and-manage/select-assign-policy.png)
 
-1. En la página **Asignar directiva**, haga clic en los puntos suspensivos para seleccionar una opción de **Ámbito** y seleccione una suscripción y un grupo de administración. Opcionalmente, seleccione un grupo de recursos. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva. Después, haga clic en **Seleccionar** en la parte inferior de la página **Ámbito**.
+1. En la página **Asignar directiva**, seleccione los puntos suspensivos para seleccionar una opción de **Ámbito** y seleccione una suscripción y un grupo de administración. Opcionalmente, seleccione un grupo de recursos. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva. Luego elija **Seleccionar** en la parte inferior de la página **Ámbito**.
 
    En este ejemplo se usa la suscripción de **Contoso**. Su suscripción variará.
 
@@ -49,7 +49,7 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
 1. Seleccione los puntos suspensivos de **Definición de directiva** para abrir la lista de definiciones disponibles. Puede filtrar el campo **Tipo** de la definición de directiva por *Integrada* para verlas todas y leer sus descripciones.
 
-1. Seleccione **Require SQL Server version 12.0** (Requerir SQL Server 12.0). Si no la encuentra inmediatamente, escriba **require sql server** en el cuadro de búsqueda y, a continuación, presione ENTRAR o haga clic fuera del cuadro de búsqueda. Haga clic en **Seleccionar** en la parte inferior de la página **Definiciones disponibles** después de encontrar y seleccionar la definición de directiva.
+1. Seleccione **Require SQL Server version 12.0** (Requerir SQL Server 12.0). Si no la encuentra inmediatamente, escriba **require sql server** en el cuadro de búsqueda y, a continuación, presione ENTRAR o seleccione fuera del cuadro de búsqueda. Elija **Seleccionar** en la parte inferior de la página **Definiciones disponibles** después de encontrar y seleccionar la definición de directiva.
 
    ![Uso de un filtro de búsqueda para buscar una directiva](../media/create-and-manage/select-available-definition.png)
 
@@ -58,7 +58,7 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
 1. Deje desactivada la casilla **Crear una identidad administrada**. Esta casilla se _debe_ activar cuando la directiva o la iniciativa que se asigna incluye una directiva con el efecto [deployIfNotExists](../concepts/effects.md#deployifnotexists). Como no es el caso de la directiva usada en este tutorial, déjela en blanco. Para más información, consulte las [identidades administradas](../../../active-directory/managed-identities-azure-resources/overview.md) y [cómo funciona la seguridad de corrección](../how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Haga clic en **Asignar**.
+1. Seleccione **Asignar**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implementación de una nueva directiva personalizada
 
@@ -340,7 +340,7 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
 1. En **Categoría**, elija entre las opciones existentes o cree una nueva categoría.
 
-1. Examine la lista **Definiciones disponibles** [mitad derecha de la página **Initiative definition** (definición de iniciativa)] y seleccione las definiciones de directiva que le gustaría agregar a esta iniciativa. En el caso de la iniciativa **Get secure** (Estar protegido), para agregar las siguientes definiciones de directiva integradas, haga clic en **+** junto a la información de definición de directiva o en una fila de definición de directiva y, a continuación, en la opción **+ Agregar** de la página de detalles:
+1. Examine la lista **Definiciones disponibles** [mitad derecha de la página **Initiative definition** (definición de iniciativa)] y seleccione las definiciones de directiva que le gustaría agregar a esta iniciativa. En el caso de la iniciativa **Get secure** (Estar protegido), para agregar las siguientes definiciones de directiva integradas, seleccione **+** junto a la información de definición de directiva o seleccione una fila de definición de directiva y, a continuación, la opción **+ Agregar** de la página de detalles:
 
    - Requisito de la versión 12.0 de SQL Server
    - [Preview]: Monitor unprotected web applications in Security Center.
@@ -357,19 +357,19 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
    ![Cambie los parámetros de definición de iniciativa desde los valores permitidos](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
-   > En el caso de algunos parámetros `strongType`, la lista de valores no se puede determinar automáticamente. En estos casos, se muestran puntos suspensivos a la derecha de la fila de parámetros. Al hacer clic en estos puntos suspensivos se abre la página "Ámbito de parámetro (&lt;nombre del parámetro&gt;)". En esta página, seleccione la suscripción que se usará para proporcionar las opciones de valor. Este ámbito de parámetro solo se usa durante la creación de la definición de iniciativa y no influye en la evaluación de directivas ni en el ámbito de la iniciativa cuando se asigna.
+   > En el caso de algunos parámetros `strongType`, la lista de valores no se puede determinar automáticamente. En estos casos, se muestran puntos suspensivos a la derecha de la fila de parámetros. Al seleccionarlos se abre la página "Ámbito de parámetro (&lt;nombre del parámetro&gt;)". En esta página, seleccione la suscripción que se usará para proporcionar las opciones de valor. Este ámbito de parámetro solo se usa durante la creación de la definición de iniciativa y no influye en la evaluación de directivas ni en el ámbito de la iniciativa cuando se asigna.
 
-1. Haga clic en **Save**(Guardar).
+1. Seleccione **Guardar**.
 
 ### <a name="assign-an-initiative-definition"></a>Asignación de una definición de iniciativa
 
 1. Seleccione **Definiciones** en **Creación** en el lado izquierdo de la página de Azure Policy.
 
-1. Busque la definición de directiva **Get Secure** (Estar protegido) que creó anteriormente y haga clic en ella. Seleccione **Asignar** en la parte superior de la página para abrir la página **Get Secure: Assign initiative** (Estar protegido: asignar iniciativa).
+1. Busque la definición de directiva **Get Secure** (Estar protegido) que creó anteriormente y selecciónela. Seleccione **Asignar** en la parte superior de la página para abrir la página **Get Secure: Assign initiative** (Estar protegido: asignar iniciativa).
 
    ![Asigne una definición desde la página de definición de iniciativa](../media/create-and-manage/assign-definition.png)
 
-   También puede hacer clic con el botón derecho en la fila seleccionada o hacer clic en los puntos suspensivos al final de la fila de un menú contextual. A continuación, seleccione **Asignar**.
+   También puede hacer clic con el botón derecho en la fila seleccionada o seleccionar los puntos suspensivos al final de la fila de un menú contextual. A continuación, seleccione **Asignar**.
 
    ![Opciones alternativas para una iniciativa](../media/create-and-manage/select-right-click.png)
 
@@ -384,14 +384,14 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
 1. Deje desactivada la casilla **Crear una identidad administrada**. Esta casilla se _debe_ activar cuando la directiva o la iniciativa que se asigna incluye una directiva con el efecto [deployIfNotExists](../concepts/effects.md#deployifnotexists). Como no es el caso de la directiva usada en este tutorial, déjela en blanco. Para más información, consulte las [identidades administradas](../../../active-directory/managed-identities-azure-resources/overview.md) y [cómo funciona la seguridad de corrección](../how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Haga clic en **Asignar**.
+1. Seleccione **Asignar**.
 
 ## <a name="check-initial-compliance"></a>Comprobación del cumplimiento inicial
 
 1. Seleccione **Cumplimiento** en el panel izquierdo de la página de Azure Policy.
 
 1. Busque la iniciativa **Get Secure** (Estar protegido). Es probable que _Estado de compatibilidad_ se encuentre aún como **No iniciado**.
-   Haga clic en la iniciativa para obtener información detallada sobre el progreso de la asignación.
+   Seleccione la iniciativa para obtener información detallada sobre el progreso de la asignación.
 
    ![Página de compatibilidad de iniciativas: evaluaciones no iniciadas](../media/create-and-manage/compliance-status-not-started.png)
 
@@ -399,7 +399,7 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
    ![Página de compatibilidad de iniciativas: recursos compatibles](../media/create-and-manage/compliance-status-compliant.png)
 
-1. Al hacer clic en cualquier directiva de la página de cumplimiento de la iniciativa se abre la página de detalles de cumplimiento de la directiva. Esta página proporciona los detalles de cumplimiento a nivel de recurso.
+1. Al seleccionar cualquier directiva de la página de cumplimiento de la iniciativa se abre la página de detalles de cumplimiento de la directiva. Esta página proporciona los detalles de cumplimiento a nivel de recurso.
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Exclusión de un recurso no conforme o denegado mediante Exclusión
 
@@ -408,11 +408,12 @@ En el ejemplo siguiente se permite cualquier versión de SQL Server en un único
 
 Una implementación impedida debido a una directiva o una iniciativa asignada puede verse en dos ubicaciones:
 
-- En el grupo de recursos de destino de la implementación: seleccione **Implementaciones** en el lado izquierdo de la página y haga clic en el valor de **Nombre de la implementación** de la implementación con errores. El recurso denegado se muestra con el estado _Prohibido_. Para determinar la directiva o iniciativa y la asignación que denegaron el recurso, haga clic en **Failed. Click here for details ->** (Error. Haga clic aquí para ver los detalles ->) en la página de información general de la implementación. Una ventana se abre en el lado derecho de la página con la información sobre el error. En **Detalles del error** se muestran los identificadores únicos globales de los objetos de directiva relacionados.
+- En el grupo de recursos de destino de la implementación: seleccione **Implementaciones** en el lado izquierdo de la página y luego seleccione el valor de **Nombre de la implementación** de la implementación con errores. El recurso denegado se muestra con el estado _Prohibido_. Para determinar la directiva o iniciativa y la asignación que denegaron el recurso, seleccione **Failed. Click here for details ->** (Error. Haga clic aquí para ver los detalles ->) en la página de información general de la implementación.
+  Una ventana se abre en el lado derecho de la página con la información sobre el error. En **Detalles del error** se muestran los identificadores únicos globales de los objetos de directiva relacionados.
 
   ![Implementación denegada por la asignación de directiva](../media/create-and-manage/rg-deployment-denied.png)
 
-- En la página de Azure Policy: seleccione **Cumplimiento** en el lado izquierdo de la página y haga clic en la directiva **Require SQL Server version 12.0** (Requerir SQL Server 12.0). En la página que se abre, debería ver un aumento en el recuento de **Denegar**. En la pestaña **Eventos**, también debería ver quién trató realizar la implementación denegada por la directiva.
+- En la página de Azure Policy: seleccione **Cumplimiento** en el lado izquierdo de la página y luego seleccione la directiva **Requiere SQL Server versión 12.0**. En la página que se abre, debería ver un aumento en el recuento de **Denegar**. En la pestaña **Eventos**, también debería ver quién trató realizar la implementación denegada por la directiva.
 
   ![Información general del cumplimiento de una directiva asignada](../media/create-and-manage/compliance-overview.png)
 
@@ -424,14 +425,14 @@ En este ejemplo, Trent Baker, uno de los especialistas en virtualización sénio
 
 1. Examine todas las asignaciones de directiva y abra la asignación *Require SQL Server version 12.0* (Requerir SQL Server 12.0).
 
-1. Para establecer la **exclusión**, haga clic en los puntos suspensivos y seleccione el grupo de recursos que quiere excluir, *SQLServers_Excluded*, en este ejemplo.
+1. Para establecer la **exclusión**, seleccione los puntos suspensivos y luego seleccione el grupo de recursos que quiere excluir, *SQLServers_Excluded* en este ejemplo.
 
    ![Agregue un grupo de recursos excluido a la asignación de directiva.](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > Dependiendo de la directiva y de su efecto, es posible que la exclusión también se conceda a los recursos específicos dentro de un grupo de recursos dentro del ámbito de la asignación. Dado que se usó un efecto **Denegar** en este tutorial, no tendría sentido establecer la exclusión en un recurso concreto que ya existe.
 
-1. Haga clic en **Seleccionar** y después en **Guardar**.
+1. Elija **Seleccionar** y, a continuación, **Guardar**.
 
 En esta sección, resolvió la solicitud denegada creando una exclusión en un único grupo de recursos.
 

@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5100af99046a03345230ed0468071766aae1c77b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 30b0649f23403363ca4ab4101a2d5cf7a42d505b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389621"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473689"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web
 
@@ -57,7 +57,8 @@ Antes de configurar la aplicación, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones**.
+1. Busque y seleccione **Azure Active Directory**. 
+1. En el panel izquierdo, seleccione **Registros de aplicaciones**.
 1. Busque y seleccione la aplicación que desea configurar. Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación o la de registro principal.
 1. Siga los pasos para configurar la aplicación para acceder a las API web:
     * [Adición de identificadores URI de redireccionamiento a la aplicación](#add-redirect-uris-to-your-application)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 5fb1050fed2ab7318ad5b4ecafec7a96a9324575
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: cf0332909e053a0875d41a00d15f196b193ba15e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792069"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466720"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentación para el enriquecimiento con inteligencia artificial en Azure Cognitive Search
 
@@ -22,8 +22,8 @@ El enriquecimiento con inteligencia artificial es una funcionalidad de indexaci�
 Los artículos siguientes son la documentación completa que trata sobre el enriquecimiento con inteligencia artificial.
 
 ## <a name="getting-started"></a>Introducción
-+ [Introducción al enriquecimiento con inteligencia artificial en Azure Cognitive Search](cognitive-search-concept-intro.md)
-+ [Inicio rápido: Prueba del enriquecimiento con inteligencia artificial en el portal](cognitive-search-quickstart-blob.md)
++ [Introducción a la inteligencia artificial en Azure Cognitive Search](cognitive-search-concept-intro.md)
++ [Inicio rápido: Creación de un conjunto de aptitudes cognitivo en Azure Portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Indexación con inteligencia artificial](cognitive-search-tutorial-blob.md)
 + [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento con inteligencia artificial](cognitive-search-create-custom-skill-example.md)
 
@@ -49,6 +49,7 @@ Los artículos siguientes son la documentación completa que trata sobre el enri
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md)
+  + [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Aptitudes personalizadas

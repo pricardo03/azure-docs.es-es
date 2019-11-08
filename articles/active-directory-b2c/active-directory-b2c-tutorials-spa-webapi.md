@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9ac95896e67338437325e8290a96b8e42b2fa3a7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 30e7059605ef86e6afd86251db0e416c9143a9ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374246"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475103"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de ASP.NET Core desde una aplicación de página única mediante Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Los ámbitos proporcionan una manera de controlar el acceso a los recursos prote
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Registre el **VALOR DE ÁMBITO COMPLETO** para el ámbito `demo.read`, que se usará en un paso posterior al configurar la aplicación de página única. El valor de ámbito completo es similar a `https://yourtenant.onmicrosoft.com/api/demo.read`.
+Anote el valor indicado bajo **ÁMBITOS** correspondiente al ámbito `demo.read`; lo usará en un paso posterior al configurar la aplicación de página única. El valor de ámbito completo es similar a `https://contosob2c.onmicrosoft.com/api/demo.read`.
 
 ## <a name="grant-permissions"></a>Concesión de permisos
 
@@ -133,8 +133,8 @@ Para cambiar la configuración en la aplicación de página única:
 
 1. Abra el archivo *index.html* del proyecto [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] que descargó o clonó en el tutorial anterior.
 1. Configure el ejemplo con el URI para el ámbito *demo.read* que creó anteriormente y la dirección URL de la API web.
-    1. En la definición de `appConfig`, reemplace el valor `b2cScopes` por el URI completo para el ámbito (el **VALOR DE ÁMBITO COMPLETO** que registró anteriormente).
-    1. Cambie el valor `webApi` por el valor `applicationURL` que especificó en la sección anterior.
+    1. En la definición de `appConfig`, reemplace el valor `b2cScopes` por el URI completo del ámbito (el valor **ÁMBITO** que anotó anteriormente).
+    1. Cambie el valor `webApi` por el URI de redirección que agregó al registrar la API web en un paso anterior.
 
     La definición de `appConfig` debe ser similar al siguiente bloque de código (con el nombre del inquilino en el lugar de `<your-tenant-name>`):
 

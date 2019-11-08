@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146621"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469750"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -52,6 +52,13 @@ Firewall de aplicaciones web (WAF) es una característica de Application Gateway
 Las aplicaciones web son cada vez más los objetivos de ataques malintencionados que aprovechan vulnerabilidades comunes conocidas, como ataques por inyección de código SQL o ataques de scripts de sitios, por nombrar unos pocos. Impedir tales ataques en el código de aplicación puede ser un verdadero desafío y requerir tareas rigurosas de mantenimiento, aplicación de revisiones y supervisión en varias capas de la topología de aplicación. Un firewall de aplicaciones web centralizado facilita enormemente la administración de la seguridad y proporciona mayor protección a los administradores de la aplicación frente a amenazas o intrusiones. Las soluciones de WAF también pueden reaccionar más rápido ante una amenaza de la seguridad aplicando revisiones que aborden una vulnerabilidad conocida en una ubicación central en lugar de proteger cada una de las aplicaciones web por separado. Las puertas de enlace de aplicaciones existentes pueden transformarse rápidamente en puertas de enlace con un firewall de aplicaciones web habilitado.
 
 Para más información, consulte [Firewall de aplicaciones web (WAF) en Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+
+## <a name="ingress-controller-for-aks"></a>Controlador de entrada para AKS
+El controlador de entrada de Application Gateway (AGIC) le permite utilizar Application Gateway como entrada para un clúster de [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/). 
+
+El controlador de entrada se ejecuta como un pod en el clúster de AKS y consume [recursos de entrada de Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) y los convierte en una configuración de Application Gateway que permite a la puerta de enlace equilibrar la carga de tráfico en los pods de Kubernetes. El controlador de entrada solo admite la SKU de Application Gateway V2. 
+
+Para más información, consulte [Application Gateway Ingress Controller](ingress-controller-overview.md) (Controlador de entrada de Azure Application Gateway).
 
 ## <a name="url-based-routing"></a>Enrutamiento basado en dirección URL
 
@@ -97,12 +104,6 @@ Los protocolos WebSocket y HTTP/2 permiten una comunicación dúplex completa en
 
 Para más información, consulte [Compatibilidad con WebSocket
 ](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) y [Compatibilidad con HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
-
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Versión preliminar del controlador de entrada de Azure Kubernetes Service (AKS) 
-
-El controlador de entrada de Application Gateway se ejecuta como un pod en el clúster de AKS y permite a Application Gateway actuar como entrada para un clúster de AKS. Este es compatible solo con Application Gateway v2.
-
-Para más información, consulte [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) (Controlador de entrada de Azure Application Gateway).
 
 ## <a name="connection-draining"></a>Purga de la conexión
 

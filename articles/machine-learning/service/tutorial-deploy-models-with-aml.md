@@ -10,14 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 988f91d9ab644df4ecb375114abf4245440cbf13
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ae657daca86c979495ca14d9df845e2a7a769e0a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162522"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476153"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementación de un modelo de clasificación de imágenes en Azure Container Instances
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este tutorial es la **segunda parte de dos**. En el [tutorial anterior](tutorial-train-models-with-aml.md), entrenó modelos de aprendizaje automático y registró un modelo en su área de trabajo en la nube.  
 
@@ -39,9 +40,15 @@ Container Instances es una excelente solución para probar y conocer el flujo de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para ejecutar el cuaderno, complete primero el entrenamiento del modelo en [Tutorial (parte 1): Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md).   A continuación, abra el cuaderno **tutorials/img-clasificación-part2-deploy.ipynb** con el mismo servidor de cuadernos.
+Para ejecutar el cuaderno, complete primero el entrenamiento del modelo en [Tutorial (parte 1): Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md).   A continuación, abra el cuaderno **img-clasificación-part2-deploy.ipynb** de la carpeta **tutorials** clonada.
 
 Este tutorial también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si quiere usarlo en su propio [entorno local](how-to-configure-environment.md#local).  Asegúrese de que ha instalado `matplotlib` y `scikit-learn` en su entorno. 
+
+> [!Important]
+> El resto de este artículo contiene el mismo contenido que se ve en el cuaderno.  
+>
+> Cambie ahora al cuaderno de Jupyter Notebook si desea leer a medida que ejecuta el código.
+> Para ejecutar una sola celda de código en un cuaderno, haga clic en la celda y presione **Mayús + Entrar**. O bien, ejecute el cuaderno completo, para lo que debe elegir **Ejecutar todo** en la barra de herramientas superior.
 
 ## <a name="start"></a>Configuración del entorno
 

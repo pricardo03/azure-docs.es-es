@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 00e717202116cf9a48c2c2d889374d451b8e4d45
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4753cc9a98cd59c0c5d446b3d92280aabfb72c12
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754369"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474705"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Unión de una máquina virtual de Windows Server a un dominio administrado
 
@@ -54,12 +54,13 @@ Para ver cómo unir un equipo a un dominio administrado de Azure AD DS, vamos 
 
 Si ya tiene una máquina virtual que quiera unir a un dominio, vaya a la sección sobre cómo [unir la máquina virtual al dominio administrado de Azure AD DS](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
-1. En la esquina superior izquierda de Azure Portal, seleccione **+ Crear un recurso**.
-2. En **Introducción**, elija **Windows Server 2016 Datacenter**.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
+
+1. En **Introducción**, elija **Windows Server 2016 Datacenter**.
 
     ![Elija crear una máquina virtual de Windows Server 2016 Datacenter en Azure Portal.](./media/join-windows-vm/select-vm-image.png)
 
-3. En la ventana **Datos básicos**, configure las opciones básicas para la máquina virtual. Deje la configuración predeterminada en *Opciones de disponibilidad*, *Imagen* y *Tamaño*.
+1. En la ventana **Datos básicos**, configure las opciones básicas para la máquina virtual. Deje la configuración predeterminada en *Opciones de disponibilidad*, *Imagen* y *Tamaño*.
 
     | Parámetro            | Valor sugerido   |
     |----------------------|-------------------|
@@ -69,17 +70,17 @@ Si ya tiene una máquina virtual que quiera unir a un dominio, vaya a la secció
     | Nombre de usuario             | Escriba un nombre de usuario para la cuenta de administrador local que se va a crear en la máquina virtual, como *usuarioazure*. |
     | Contraseña             | Escriba una contraseña segura para el administrador local que se va a crear en la máquina virtual y, a continuación, confírmela. No especifique las credenciales de una cuenta de usuario del dominio. |
 
-4. De forma predeterminada, las máquinas virtuales creadas en Azure no son accesibles desde Internet. Esta configuración ayuda a mejorar la seguridad de la máquina virtual y reduce el área de posibles ataques. En el siguiente paso de este tutorial, debe conectarse a la máquina virtual mediante el protocolo de escritorio remoto (RDP) y, a continuación, unir el servidor de Windows al dominio administrado de Azure AD DS.
+1. De forma predeterminada, las máquinas virtuales creadas en Azure no son accesibles desde Internet. Esta configuración ayuda a mejorar la seguridad de la máquina virtual y reduce el área de posibles ataques. En el siguiente paso de este tutorial, debe conectarse a la máquina virtual mediante el protocolo de escritorio remoto (RDP) y, a continuación, unir el servidor de Windows al dominio administrado de Azure AD DS.
 
     Cuando RDP está habilitado, es probable que se produzcan ataques de inicio de sesión automatizado, lo que puede deshabilitar las cuentas con nombres comunes como *admin* o *administrador* si hubo varios intentos de inicio de sesión sucesivos con error. RDP solo se debe habilitar cuando sea necesario y limitarse a un conjunto de intervalos IP autorizados. Como parte de Azure Security Center, el [acceso a máquinas virtuales Just-in-Time de Azure][jit-access] puede habilitar estas sesiones RDP limitadas y de corta duración. También puede [crear y usar un host de Azure Bastion (actualmente en versión preliminar)][azure-bastion] para permitir el acceso solo mediante Azure Portal a través de SSL.
 
     Para este tutorial, habilite manualmente las conexiones RDP a la máquina virtual.
 
-    En **Reglas de puerto de entrada**, seleccione la opción **Permitir los puertos seleccionados**. En el menú desplegable **Seleccionar puertos de entrada**, elija *RDP*.
+    En **Reglas de puerto de entrada**, seleccione la opción **Permitir los puertos seleccionados**. En el menú desplegable de **Seleccionar puertos de entrada**, elija *RDP (3389)* .
 
-5. Cuando termine, seleccione **Siguiente: Discos**.
-6. En el menú desplegable **Tipo de disco de sistema operativo**, elija *SSD estándar* y, a continuación, seleccione **Siguiente: Redes**.
-7. La máquina virtual debe conectarse a una subred de red virtual de Azure que pueda comunicarse con la subred en la que está implementado el dominio administrado de Azure AD DS. Se recomienda implementar un dominio administrado de Azure AD DS en su propia subred dedicada. No implemente la máquina virtual en la misma subred que el dominio administrado de Azure AD DS.
+1. Cuando termine, seleccione **Siguiente: Discos**.
+1. En el menú desplegable **Tipo de disco de sistema operativo**, elija *SSD estándar* y, a continuación, seleccione **Siguiente: Redes**.
+1. La máquina virtual debe conectarse a una subred de red virtual de Azure que pueda comunicarse con la subred en la que está implementado el dominio administrado de Azure AD DS. Se recomienda implementar un dominio administrado de Azure AD DS en su propia subred dedicada. No implemente la máquina virtual en la misma subred que el dominio administrado de Azure AD DS.
 
     Hay dos formas principales de implementar la máquina virtual y conectarse a una subred de red virtual adecuada:
     
@@ -88,20 +89,30 @@ Si ya tiene una máquina virtual que quiera unir a un dominio, vaya a la secció
     
     Si selecciona una subred de red virtual que no esté conectada a la subred de su instancia de Azure AD DS, no puede unir la máquina virtual al dominio administrado. En este tutorial, vamos a crear una nueva subred en la red virtual de Azure.
 
-    En el panel **Redes**, seleccione la red virtual en la que se implementa el dominio administrado de Azure AD DS, como *miVnet*.
-8. En este ejemplo, la subred *DomainServices* existente muestra que está conectado el dominio administrado de Azure AD DS. No conecte la máquina virtual a esta subred. Para crear una subred para la máquina virtual, seleccione **Administrar configuración de subred**.
+    En el panel **Redes**, seleccione la red virtual en la que se implementa el dominio administrado de Azure AD DS, como *aaads-vnet*.
+1. En este ejemplo, se muestra la subred *aaads-subnet* existente a la que está conectado el dominio administrado de Azure AD DS. No conecte la máquina virtual a esta subred. Para crear una subred para la máquina virtual, seleccione **Administrar configuración de subred**.
 
     ![Elija esta opción para administrar la configuración de la subred en Azure Portal](./media/join-windows-vm/manage-subnet.png)
 
-9. Seleccione **+ Subred** y, a continuación, escriba un nombre para la subred, como *VMadministradas*. Proporcione un **intervalo de direcciones (bloque CIDR)** , como *10.1.1.0/24*. Asegúrese de que este intervalo de direcciones IP no se superponga con otros en el entorno local o de Azure existentes. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Aceptar**.
+1. En el menú de la izquierda de la ventana de la red virtual, seleccione **Espacio de direcciones**. La red virtual se crea con un solo espacio de direcciones *10.0.1.0/24*, que la subred predeterminada utiliza.
+
+    Agregue un intervalo de direcciones IP adicional a la red virtual. El tamaño de este intervalo de direcciones y el intervalo de direcciones IP real que se usará dependerán de otros recursos de red ya implementados. El intervalo de direcciones IP no debe solaparse con los intervalos de direcciones existentes en el entorno de Azure o local. Asegúrese de que el intervalo de direcciones IP sea lo suficientemente grande para el número de máquinas virtuales que espera implementar en la subred.
+
+    En el ejemplo siguiente, se agrega un intervalo de direcciones IP adicional *10.0.2.0/24*. Cuando esté preparado, seleccione **Guardar**.
+
+    ![Adición de un intervalo de direcciones IP de red virtual adicional en Azure Portal](./media/tutorial-configure-networking/add-vnet-address-range.png)
+
+1. A continuación, en el menú de la izquierda de la ventana de la red virtual, seleccione **Subredes** y, a continuación, seleccione **+ Subred** para agregar una subred.
+
+1. Seleccione **+ Subred** y, a continuación, escriba un nombre para la subred como, por ejemplo, *management*. Proporcione un **Intervalo de direcciones (bloque CIDR)** como, por ejemplo, *10.0.2.0/24*. Asegúrese de que este intervalo de direcciones IP no se superponga con otros en el entorno local o de Azure existentes. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Aceptar**.
 
     ![Creación de la configuración de una subred en Azure Portal](./media/join-windows-vm/create-subnet.png)
 
-10. La subred tarda unos segundos en crearse. Una vez creada, seleccione la *X* para cerrar la ventana de la subred.
-11. De nuevo en el panel **Redes** para crear una máquina virtual, elija la subred que creó en el menú desplegable, como *VMadministradas*. De nuevo, asegúrese de elegir la subred correcta y no implemente la máquina virtual en la misma que el dominio administrado de Azure AD DS.
-12. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Administración**.
-13. Establezca **Diagnósticos de arranque** en *Desactivado*. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Revisar y crear**.
-14. Revise la configuración de la máquina virtual y seleccione **Crear**.
+1. La subred tarda unos segundos en crearse. Una vez creada, seleccione la *X* para cerrar la ventana de la subred.
+1. De nuevo en el panel **Redes** para crear una máquina virtual, elija la subred que creó en el menú desplegable como, por ejemplo, *management*. De nuevo, asegúrese de elegir la subred correcta y no implemente la máquina virtual en la misma que el dominio administrado de Azure AD DS.
+1. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Administración**.
+1. Establezca **Diagnósticos de arranque** en *Desactivado*. Deje las restantes opciones con sus valores predeterminados y, después, seleccione **Revisar y crear**.
+1. Revise la configuración de la máquina virtual y seleccione **Crear**.
 
 La operación de creación de la máquina virtual tarda unos minutos. En Azure Portal, se muestra el estado de la implementación. Cuando la máquina virtual esté lista, seleccione **Ir al recurso**.
 
@@ -124,7 +135,7 @@ Ahora vamos a conectarnos a la máquina virtual Windows Server recién creada m
 
 Una vez que se ha creado la máquina virtual y se ha establecido una conexión RDP, vamos a unir la máquina virtual Windows Server al dominio administrado de Azure AD DS. Este proceso es el mismo que el de un equipo que se conecta a un dominio de Active Directory Domain Services en el entorno local normal.
 
-1. **Administrador del servidor** debe abrirse de forma predeterminada al iniciar sesión en la máquina virtual. Si no es así, en el menú **Inicio**, seleccione **Administrador del servidor**.
+1. Si **Administrador del servidor** no se abre de forma predeterminada al iniciar sesión en la máquina virtual, seleccione el menú **Inicio** y, a continuación, elija **Administrador del servidor**.
 1. En el panel izquierdo de la ventana **Administrador del servidor**, seleccione **Servidor local**. En **Propiedades**, en el panel derecho, elija **Grupo de trabajo**.
 
     ![Abra Administrador del servidor en la máquina virtual y edite la propiedad del grupo de trabajo.](./media/join-windows-vm/server-manager.png)
@@ -137,7 +148,7 @@ Una vez que se ha creado la máquina virtual y se ha establecido una conexión 
 
     ![Especificación del dominio administrado de Azure AD DS al que unirse](./media/join-windows-vm/join-domain.png)
 
-1. Escriba las credenciales de dominio para unirse al dominio. Use las credenciales de un usuario que pertenezca al grupo de *administradores de Azure AD DC*. Solo los miembros de este grupo tienen privilegios para unir máquinas al dominio administrado de Azure AD DS. Las credenciales de la cuenta se pueden especificar de una de las siguientes maneras:
+1. Escriba las credenciales de dominio para unirse al dominio. Use las credenciales de un usuario que pertenezca al grupo de *administradores de Azure AD DC*. Solo los miembros de este grupo tienen privilegios para unir máquinas al dominio administrado de Azure AD DS. La cuenta debe formar parte del dominio administrado de Azure AD DS o del inquilino de Azure AD; las cuentas de directorios externos asociadas al inquilino de Azure AD no se pueden autenticar correctamente durante el proceso de unión al dominio. Las credenciales de la cuenta se pueden especificar de una de las siguientes maneras:
 
     * **Formato UPN**  (recomendado): escriba el sufijo del nombre principal de usuario (UPN) de la cuenta de usuario, según esté configurado en Azure AD. Por ejemplo, el sufijo UPN del usuario *contosoadmin* sería `contosoadmin@contoso.onmicrosoft.com`. Hay un par de casos de uso comunes en los que el formato UPN se puede usar de forma confiable para iniciar sesión en el dominio en lugar del formato *SAMAccountName*:
         * Si el prefijo UPN de un usuario es demasiado largo, por ejemplo *deehasareallylongname*, el valor de *SAMAccountName* (nombre de cuenta SAM) puede generarse automáticamente.
@@ -157,7 +168,7 @@ Una vez que se ha creado la máquina virtual y se ha establecido una conexión 
 >
 > `Add-Computer -DomainName CONTOSO -Restart`
 >
-> Para unirse a un dominio de una máquina virtual sin conectarse a ella y configurar manualmente la conexión, también puede considerar el uso del cmdlet de Azure PowerShell [Set-AzVmAdDomainExtension][set-azvmaddomainextension].
+> Para unirse a un dominio de una máquina virtual sin conectarse a ella y configurar manualmente la conexión, puede usar el cmdlet de Azure PowerShell [Set-AzVmAdDomainExtension][set-azvmaddomainextension].
 
 Una vez que se haya reiniciado la máquina virtual de Windows Server, las directivas aplicadas en el dominio administrado de Azure AD DS se insertarán en la máquina virtual. Ahora también puede iniciar sesión en la máquina virtual de Windows Server con las credenciales de dominio apropiadas.
 
@@ -212,6 +223,7 @@ Si recibe un mensaje que solicita credenciales para unirse al dominio, pero desp
 Después de probar cada uno de estos pasos de solución de problemas, intente unir de nuevo la máquina virtual Windows Server al dominio administrado.
 
 * Asegúrese de que la cuenta de usuario que especifique pertenece al grupo *Administradores de DC de AAD*.
+* Confirme que la cuenta forma parte del dominio administrado de Azure AD DS o del inquilino de Azure AD. Las cuentas de directorios externos asociadas al inquilino de Azure AD no se pueden autenticar correctamente durante el proceso de unión al dominio.
 * Pruebe a usar el formato UPN para especificar las credenciales, por ejemplo `contosoadmin@contoso.onmicrosoft.com`. El atributo *SAMAccountName* de su cuenta se puede generar automáticamente si hay varios usuarios con el mismo prefijo UPN en el inquilino o si el prefijo UPN es demasiado largo. En estos casos, el formato *SAMAccountName* de su cuenta puede que no sea el mismo que espera o que usa en su dominio en el entorno local.
 * Compruebe que [habilitó la sincronización de contraseñas][password-sync] en el dominio administrado. Sin este paso de configuración, los hashes de contraseña necesarios no estarán presentes en el dominio administrado de Azure AD DS para autenticar correctamente el intento de inicio de sesión.
 * Espere a que se complete la sincronización de contraseñas. Cuando se cambia la contraseña de una cuenta de usuario, una sincronización automática en segundo plano de Azure AD actualiza la contraseña en Azure AD DS. La contraseña tarda un tiempo en estar disponible para usarla en la unión al dominio.

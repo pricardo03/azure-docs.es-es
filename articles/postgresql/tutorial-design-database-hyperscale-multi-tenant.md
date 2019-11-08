@@ -1,6 +1,6 @@
 ---
-title: Tutorial Diseño de una base de datos multiinquilino con Azure Database for PostgreSQL Hiperscala (Citus) (versión preliminar)
-description: Este tutorial muestra cómo crear, rellenar y consultar tablas distribuidas en Azure Database for PostgreSQL Hiperscala (Citus) (versión preliminar).
+title: 'Tutorial Diseño de una base de datos multiinquilino con Azure Database for PostgreSQL: Hiperescala (Citus)'
+description: Este tutorial muestra cómo crear, rellenar y consultar tablas distribuidas en Azure Database for PostgreSQL Hiperescala (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: ba20a048faecc9e37a2bfbe750de0fbeba88d538
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 130c3e9f5abb24ffcc4e0c4ad6b96af5fca62090
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70163982"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496535"
 ---
-# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: Diseño de una base de datos multiinquilino con Azure Database for PostgreSQL Hiperscala (Citus) (versión preliminar)
+# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Diseño de una base de datos multiinquilino con Azure Database for PostgreSQL Hiperescala (Citus)
 
-En este tutorial, usará Azure Database for PostgreSQL Hiperscala (Citus) (versión preliminar) para aprender lo siguiente:
+En este tutorial, usará Azure Database for PostgreSQL Hiperescala (Citus) para aprender lo siguiente:
 
 > [!div class="checklist"]
 > * Creación de un grupo de servidores Hiperescala (Citus)
@@ -35,7 +35,7 @@ En este tutorial, usará Azure Database for PostgreSQL Hiperscala (Citus) (versi
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Uso de la utilidad psql para crear un esquema
 
-Una vez conectado a Azure Database for PostgreSQL Hiperescala (Citus) (versión preliminar) mediante psql, puede completar algunas tareas básicas. Este tutorial explica cómo crear una aplicación web que permite a los anunciantes realizar un seguimiento de sus campañas.
+Una vez conectado a Azure Database for PostgreSQL Hiperescala (Citus) mediante psql, puede completar algunas tareas básicas. Este tutorial explica cómo crear una aplicación web que permite a los anunciantes realizar un seguimiento de sus campañas.
 
 Varias empresas pueden usar la aplicación, así que crearemos una tabla que contenga las empresas y otra para sus campañas. En la consola de psql, ejecute estos comandos:
 

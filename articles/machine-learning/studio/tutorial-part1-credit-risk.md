@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial 1: Predicción del riesgo de crédito'
-titleSuffix: Azure Machine Learning Studio
-description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio. Este tutorial es el primero de una serie de tres partes.  Muestra cómo crear un área de trabajo, cargar datos y crear un experimento.
+titleSuffix: ML Studio (classic) Azure
+description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo crediticio en la versión clásica de Azure Machine Learning Studio. Este tutorial es el primero de una serie de tres partes.  Muestra cómo crear un área de trabajo, cargar datos y crear un experimento.
 keywords: riesgo de crédito, solución de análisis predictivo, evaluación de riesgos
 author: sdgilley
 ms.author: sgilley
@@ -10,59 +10,58 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f9746dae4cdf10a10922be41602f4ecd7f032f5b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 78092bd4ad4da896cd2fd36768f181764335ee85
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949794"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619177"
 ---
-# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Tutorial 1: Predicción del riesgo de crédito en Azure Machine Learning Studio
+# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Predicción del riesgo crediticio en Azure Machine Learning Studio (clásico)
 
-En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio.  Después va a implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Este tutorial es el **primero de una serie de tres partes**.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio (clásico).  Después puede implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Este tutorial es el **primero de una serie de tres partes**.
 
 Suponga que necesita predecir el riesgo de crédito de un individuo en función de la información que se proporcionó en una solicitud de crédito.  
 
-La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. La usaremos como ejemplo de cómo puede crear una solución de análisis predictivo con Microsoft Azure Machine Learning Studio. Vamos a usar Azure Machine Learning Studio y un servicio web de Machine Learning para esta solución.  
+La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. Se utilizará como ejemplo de cómo puede crear una solución de análisis predictivo con Microsoft Azure Machine Learning Studio (clásico). En esta solución, se usa la versión clásica de Azure Machine Learning Studio y un servicio web de Machine Learning.  
 
 En este tutorial de tres partes, vamos a comenzar con los datos de riesgo crediticio disponibles públicamente.  Después, desarrollaremos y entrenaremos un modelo predictivo.  Finalmente, vamos a implementar el modelo como servicio web.
 
 En esta parte del tutorial, se va a ver lo siguiente: 
  
 > [!div class="checklist"]
-> * Creación de un área de trabajo de Machine Learning Studio
+> * Creación de un área de trabajo de Machine Learning Studio (clásico)
 > * Carga de datos existentes
 > * Creación de un experimento
 
 Después, puede usar este experimento para [entrenar modelos en la parte 2](tutorial-part2-credit-risk-train.md) y, finalmente, [implementarlos en la parte 3](tutorial-part3-credit-risk-deploy.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial, se presupone que usó Machine Learning Studio con anterioridad al menos una vez y que tiene ciertos conocimientos sobre los conceptos de aprendizaje automático. Pero no se asume de que sea un experto.
+En este tutorial, se presupone que usó Machine Learning Studio (clásico) con anterioridad al menos una vez y que tiene ciertos conocimientos sobre los conceptos de aprendizaje automático. Pero no se asume de que sea un experto.
 
-Si nunca ha utilizado **Azure Machine Learning Studio**, sería conveniente que realizara primero el inicio rápido [Creación del primer experimento de ciencia de datos en Azure Machine Learning Studio](create-experiment.md). Este inicio rápido lo guiará por primera vez por Machine Learning Studio. Aquí se muestran los conceptos básicos de cómo arrastrar y colocar módulos en el experimento, conectarlos, ejecutar el experimento y examinar los resultados.
+Si nunca ha utilizado **Azure Machine Learning Studio (clásico)** , sería conveniente que realizara primero el inicio rápido [Creación del primer experimento de ciencia de datos en Azure Machine Learning Studio (clásico)](create-experiment.md). Este inicio rápido lo guiará por primera vez por Machine Learning Studio (clásico). Aquí se muestran los conceptos básicos de cómo arrastrar y colocar módulos en el experimento, conectarlos, ejecutar el experimento y examinar los resultados.
 
 
 > [!TIP] 
-> Puede encontrar una copia de trabajo del experimento que se ha desarrollado en este tutorial en [Azure AI Gallery](https://gallery.azure.ai). Vaya al tutorial **[Walkthrough - Credit risk prediction](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** (Tutorial: Predicción de riesgos de crédito) y haga clic en **Open in Studio** (Abrir en Studio) para descargar una copia del experimento en el área de trabajo de Machine Learning Studio.
+> Puede encontrar una copia de trabajo del experimento que se ha desarrollado en este tutorial en [Azure AI Gallery](https://gallery.azure.ai). Vaya **[Tutorial: predicción de riesgos de crédito](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** y haga clic en **Abrir en Studio** para descargar una copia del experimento en el área de trabajo de Machine Learning Studio (clásico).
 > 
 
 
-## <a name="create-a-machine-learning-studio-workspace"></a>Creación de un área de trabajo de Machine Learning Studio
+## <a name="create-a-machine-learning-studio-classic-workspace"></a>Creación de un área de trabajo de Machine Learning Studio (clásico)
 
-Para usar Machine Learning Studio, debe tener un área de trabajo de Microsoft Azure Machine Learning Studio. Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.  
+Para usar Machine Learning Studio (clásico), debe tener un área de trabajo de Microsoft Azure Machine Learning Studio. Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.  
 
-Para crear un área de trabajo, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning Studio](create-workspace.md).
+Para crear un área de trabajo, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning Studio (clásico)](create-workspace.md).
 
-Una vez haya creado el área de trabajo, abra Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Si tiene más de un área de trabajo, puede seleccionar la que desee en la barra de herramientas de la esquina superior derecha de la ventana.
+Una vez haya creado el área de trabajo, abra Machine Learning Studio (clásico) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Si tiene más de un área de trabajo, puede seleccionar la que desee en la barra de herramientas de la esquina superior derecha de la ventana.
 
-![Selección del área de trabajo en Studio](./media/tutorial-part1-credit-risk/open-workspace.png)
+![Selección del área de trabajo en Studio (clásico)](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> Si es el propietario del área de trabajo, puede compartir los experimentos en los que esté trabajando invitando a otros al área. Para ello, en Machine Learning Studio, vaya a la página **CONFIGURACIÓN** . Solo necesita la cuenta Microsoft o la cuenta de organización de cada usuario.
+> Si es el propietario del área de trabajo, puede compartir los experimentos en los que esté trabajando invitando a otros al área. Para ello, en Machine Learning Studio (clásico), vaya a la página **SETTINGS** (CONFIGURACIÓN). Solo necesita la cuenta Microsoft o la cuenta de organización de cada usuario.
 > 
 > En la página **CONFIGURACIÓN**, haga clic en **USUARIOS** y, después, haga clic en **INVITE MORE USERS** (INVITAR A MÁS USUARIOS) en la parte inferior de la ventana.
 > 
@@ -96,7 +95,7 @@ A continuación, si el modelo clasifica erróneamente a una persona como de ries
 
 ### <a name="convert-the-dataset-format"></a>Conversión del formato del conjunto de datos
 
-El conjunto de datos original utiliza un formato separado por espacios en blanco. Machine Learning Studio funciona mejor con un archivo de valores delimitados por comas (CSV), así que se va a convertir el conjunto de datos y reemplazar los espacios por comas.  
+El conjunto de datos original utiliza un formato separado por espacios en blanco. La versión clásica de Machine Learning Studio funciona mejor con un archivo de valores delimitados por comas (CSV), así que se va a convertir el conjunto de datos y reemplazar los espacios por comas.  
 
 Hay muchas maneras de convertir los datos. En primer lugar, es posible convertirlos con el siguiente comando de Windows PowerShell:   
 
@@ -108,11 +107,11 @@ También se puede hacer con el comando sed de Unix:
 
 En cualquier caso, se creará una versión separada por comas de los datos en un archivo denominado **german.csv** que se puede usar en el experimento.
 
-### <a name="upload-the-dataset-to-machine-learning-studio"></a>Carga del conjunto de datos en Machine Learning Studio
+### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Carga del conjunto de datos en Machine Learning Studio (clásico)
 
-Una vez que los datos se han convertido al formato CSV, hay que cargarlos en Machine Learning Studio. 
+Una vez que los datos se han convertido al formato CSV, hay que cargarlos en la versión clásica de Machine Learning Studio. 
 
-1. Abra la página principal de Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net)). 
+1. Abra la página principal de Machine Learning Studio (clásico) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
 2. Haga clic en el ![menú](./media/tutorial-part1-credit-risk/menu.png) de la esquina superior izquierda de la ventana, haga clic en **Azure Machine Learning**, seleccione **Studio** e inicie sesión.
 
@@ -138,17 +137,17 @@ Una vez que los datos se han convertido al formato CSV, hay que cargarlos en Mac
 
 De esta manera los datos se cargan en un módulo de conjunto de datos que se pueden usar en un experimento.
 
-Para administrar los conjuntos de datos que cargó en Studio, haga clic en la pestaña **CONJUNTOS DE DATOS** a la izquierda de la ventana de Studio.
+Para administrar los conjuntos de datos que cargó en Studio (clásico), haga clic en la pestaña **CONJUNTOS DE DATOS** a la izquierda de la ventana de Studio (clásico).
 
 ![Administración de conjuntos de datos](./media/tutorial-part1-credit-risk/dataset-list.png)
 
-Para obtener más información sobre la importación de diversos tipos de datos a un experimento, consulte [Importar datos de entrenamiento en Azure Machine Learning Studio](import-data.md).
+Para más información sobre la importación de diversos tipos de datos a un experimento, consulte [Importación de datos de entrenamiento en Azure Machine Learning Studio (clásico)](import-data.md).
 
 ## <a name="create-an-experiment"></a>Creación de un experimento
 
-El siguiente paso de este tutorial es crear un experimento en Machine Learning Studio que utilice el conjunto de datos cargado.  
+El siguiente paso de este tutorial es crear un experimento en la versión clásica de Machine Learning Studio que utilice el conjunto de datos cargado.  
 
-1. En Estudio, haga clic en **+NUEVO** en la parte inferior de la ventana.
+1. En Studio (clásico), haga clic en **+NUEVO** en la parte inferior de la ventana.
 1. Seleccione **EXPERIMENTO** y luego ''Experimento en blanco''. 
 
     ![Creación de un nuevo experimento](./media/tutorial-part1-credit-risk/create-new-experiment.png)
@@ -174,7 +173,7 @@ El siguiente paso de este tutorial es crear un experimento en Machine Learning S
 
 Puede ver los 100 primeros registros de los datos e información estadística de todo el conjunto: Haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior) y seleccione **Visualizar**.  
 
-Dado que el archivo de datos no incluye encabezados de columna, Estudio de aprendizaje automático ha proporcionado encabezados genéricos (Col1, Col2, *etc.* ). No es esencial que los encabezados sean perfectos para crear un modelo, pero facilitan el trabajo con los datos del experimento. Además, cuando finalmente se publique este modelo en un servicio web, los encabezados ayudarán al usuario del servicio a identificar las columnas.  
+Dado que el archivo de datos no incluye encabezados de columna, la versión clásica de Studio ha proporcionado encabezados genéricos (Col1, Col2, *etc.* ). No es esencial que los encabezados sean perfectos para crear un modelo, pero facilitan el trabajo con los datos del experimento. Además, cuando finalmente se publique este modelo en un servicio web, los encabezados ayudarán al usuario del servicio a identificar las columnas.  
 
 Se pueden agregar encabezados de columna mediante el módulo [Edit Metadata][edit-metadata] (Editar metadatos).
 
@@ -200,7 +199,7 @@ Para usar [Edit Metadata][edit-metadata] (Editar metadatos), especifique primero
     > ![Modificación del módulo de metadatos con el comentario agregado](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
     > 
 
-1. Seleccione [Editar metadatos][edit-metadata] y, en el panel **Propiedades** a la derecha del lienzo, haga clic en **Launch column selector** (Iniciar el selector de columnas).
+1. Seleccione [Edit Metadata][edit-metadata] (Editar metadatos) y, en el panel **Propiedades** a la derecha del lienzo, haga clic en **Launch column selector** (Iniciar el selector de columnas).
 
 1. En el cuadro de diálogo **Seleccionar columnas**, elija todas las filas de **Columnas disponibles** y haga clic en > para moverlas a **Columnas seleccionadas**.
    El cuadro de diálogo debe ser similar al siguiente:
@@ -221,7 +220,7 @@ Para usar [Edit Metadata][edit-metadata] (Editar metadatos), especifique primero
    ![Propiedades de los metadatos de edición](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
    > [!TIP]
-   > Si desea comprobar los encabezados de columna, ejecute el experimento (haga clic en **EJECUTAR** debajo del lienzo del experimento). Cuando termine de ejecutarse —aparece una marca de verificación verde en [Edit Metadata][edit-metadata] (Editar metadatos)—, haga clic en el puerto de salida del módulo [Edit Metadata][edit-metadata] (Editar metadatos) y seleccione **Visualizar**. Puede ver el resultado de cualquier módulo de la misma manera, para visualizar el progreso de los datos a lo largo del experimento.
+   > Si desea comprobar los encabezados de columna, ejecute el experimento (haga clic en **EJECUTAR** debajo del lienzo del experimento). Cuando termine de ejecutarse —aparece una marca de verificación verde en [Edit Metadata][edit-metadata] (Editar metadatos)—, haga clic en el puerto de salida del módulo [Edit Metadata][edit-metadata] (Editar metadatos) y seleccione **Visualize** (Visualizar). Puede ver el resultado de cualquier módulo de la misma manera, para visualizar el progreso de los datos a lo largo del experimento.
    > 
    > 
 
@@ -234,14 +233,14 @@ Para ello, se usa el módulo [Split Data][split] (Dividir datos).
 
 1. Busque el módulo [Split Data][split] (Dividir datos), arrástrelo al lienzo y conéctelo al módulo [Edit Metadata][edit-metadata] (Editar metadatos).
 
-1. De manera predeterminada, la proporción de división es 0,5 y se establece el parámetro **División aleatoria** . Esto significa que una mitad aleatoria de los datos sale a través de un puerto del módulo [Split Data][split] (Dividir datos) y la otra mitad, por el otro. Puede cambiar estos parámetros, así como el parámetro **Valor de inicialización aleatorio**, para cambiar la división entre datos de entrenamiento y de prueba. En este ejemplo, se dejan tal cual.
+1. De manera predeterminada, la proporción de división es 0,5 y se establece el parámetro **División aleatoria** . Esto significa que una mitad aleatoria de los datos sale por un puerto del módulo [Split Data][split] (Dividir datos) y la otra mitad, por el otro. Puede cambiar estos parámetros, así como el parámetro **Valor de inicialización aleatorio**, para cambiar la división entre datos de entrenamiento y de prueba. En este ejemplo, se dejan tal cual.
    
    > [!TIP]
    > La propiedad **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) determina la cantidad de datos que salen a través del puerto de salida de la *izquierda*. Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.  
    > 
    > 
 
-1. Haga doble clic en el módulo [Split Data][split] (Dividir datos) y escriba el comentario "Dividir 50% de los datos de entrenamiento y pruebas". 
+1. Haga doble clic en el módulo [Split Data][split] (Dividir datos) y escriba el comentario "Dividir 50 % de los datos de entrenamiento y pruebas". 
 
 Se pueden utilizar las salidas del módulo [Split Data][split] (Dividir datos) como se quiera, pero se va a optar por utilizar la salida de la izquierda como datos de entrenamiento y la salida de la derecha como datos de pruebas.  
 
@@ -251,9 +250,9 @@ Podemos conseguir esta replicación mediante el código R:
 
 1. Busque el módulo [Execute R Script][execute-r-script] (Ejecutar script R) y arrástrelo al lienzo del experimento. 
 
-1. Conecte el puerto de salida de la izquierda del módulo [Split Data][split] (Dividir datos) al primer puerto de entrada ("Dataset1") del módulo [Execute R Script][execute-r-script] (Ejecutar script R).
+1. Conecte el puerto de salida de la izquierda del módulo [Split Data][split](Dividir datos) al primer puerto de entrada ("Dataset1") del módulo [Execute R Script][execute-r-script] (Ejecutar script R).
 
-1. Haga doble clic en el módulo [Execute R Script][execute-r-script] (Ejecutar script R) y escriba el comentario "Establecer ajuste de costos".
+1. Haga doble clic en el módulo [Execute R Script][execute-r-script] (Ejecutar script R) y escriba el comentario "Establecer ajuste de costos".
 
 1. En el panel **Propiedades**, elimine el texto predeterminado del parámetro **Script R** y escriba este script:
    
@@ -267,11 +266,11 @@ Podemos conseguir esta replicación mediante el código R:
 
 Hay que hacer esta misma operación de replicación para cada salida del módulo [Split Data][split] (Dividir datos) para que los datos de entrenamiento y prueba tengan el mismo ajuste con relación al costo. La forma más sencilla de hacerlo consiste en duplicar el módulo [Execute R Script][execute-r-script] (Ejecutar script R) que se acaba de crear y conectarlo al otro puerto de salida del módulo [Split Data][split] (Dividir datos).
 
-1. Haga clic con el botón derecho en el módulo [Execute R Script][execute-r-script] (Ejecutar script R) y seleccione **Copiar**.
+1. Haga clic con el botón derecho en el módulo [Execute R Script][execute-r-script] (Ejecutar script R) y seleccione **Copy** (Copiar).
 
 1. Haga clic con el botón derecho en el lienzo del experimento y seleccione **Pegar**.
 
-1. Arrastre el nuevo módulo a la posición correspondiente y luego conecte el puerto de salida de la derecha del módulo [Split Data][split] (Dividir datos) al primer puerto de entrada de este nuevo módulo [Execute R Script][execute-r-script] (Ejecutar script R). 
+1. Arrastre el nuevo módulo a la posición correspondiente y luego conecte el puerto de salida de la derecha del módulo [Split Data][split] (Dividir datos) al primer puerto de entrada de este nuevo módulo [Execute R Script][execute-r-script] (Ejecutar script R). 
 
 1. En la parte inferior del lienzo, haga clic en **Ejecutar**. 
 
@@ -296,7 +295,7 @@ Para obtener más información sobre cómo usar los scripts de R en sus experime
 En este tutorial ha completado estos pasos: 
  
 > [!div class="checklist"]
-> * Creación de un área de trabajo de Machine Learning Studio
+> * Creación de un área de trabajo de Machine Learning Studio (clásico)
 > * Carga de datos existentes en el área de trabajo
 > * Creación de un experimento
 

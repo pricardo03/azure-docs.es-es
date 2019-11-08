@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: a700cc83c6bd34f5f726b9cc1c97bd7e1476963b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984903"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519294"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrado del tráfico de red con un grupo de seguridad de red mediante Azure Portal
 
@@ -41,7 +41,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**. 
 2. Seleccione **Redes** y **Red virtual**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Crear**:
 
@@ -59,7 +59,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones similares, como servidores web.
 
-1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**. 
 2. En el cuadro **Buscar en Marketplace**, escriba *Grupo de seguridad de aplicaciones*. Cuando **Grupo de seguridad de aplicaciones** aparezca en los resultados de la búsqueda, selecciónelo, vuelva a seleccionar **Grupo de seguridad de aplicaciones** en **Todo** y, después, haga clic en **Crear**.
 3. Especifique o seleccione los siguientes datos y haga clic en **Crear**:
 
@@ -81,7 +81,7 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
 
 ## <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
 
-1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**. 
 2. Seleccione **Redes** y **Grupo de seguridad de red**.
 3. Especifique o seleccione los siguientes datos y haga clic en **Crear**:
 
@@ -111,7 +111,7 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
 
     | Configuración                 | Valor                                                                                                           |
     | ---------               | ---------                                                                                                       |
-    | Destino             | Seleccione **Grupo de seguridad de la aplicación** y, a continuación, seleccione **myAsgWebServers** para **Grupo de seguridad de la aplicación**.  |
+    | Destination             | Seleccione **Grupo de seguridad de la aplicación** y, a continuación, seleccione **myAsgWebServers** para **Grupo de seguridad de la aplicación**.  |
     | Intervalos de puertos de destino | Escriba 80,443                                                                                                    |
     | Protocolo                | Selección de TCP                                                                                                      |
     | NOMBRE                    | Allow-Web-All                                                                                                   |
@@ -120,7 +120,7 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
 
     | Configuración                 | Valor                                                                                                           |
     | ---------               | ---------                                                                                                       |
-    | Destino             | Seleccione **Grupo de seguridad de la aplicación** y, a continuación, seleccione **myAsgMgmtServers** para **Grupo de seguridad de la aplicación**. |
+    | Destination             | Seleccione **Grupo de seguridad de la aplicación** y, a continuación, seleccione **myAsgMgmtServers** para **Grupo de seguridad de la aplicación**. |
     | Intervalos de puertos de destino | Escriba 3389                                                                                                      |
     | Protocolo                | Selección de TCP                                                                                                      |
     | Priority                | Escriba 110                                                                                                       |
@@ -138,7 +138,7 @@ Cree dos máquinas virtuales en la red virtual.
 
 ### <a name="create-the-first-vm"></a>Creación de la primera máquina virtual
 
-1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**. 
 2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**.
 3. Escriba o seleccione la siguiente información y acepte los valores predeterminados para el resto de la configuración:
 

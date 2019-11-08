@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 0e09d541cb84ef7857e4d68f776b92f845488771
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 89bb7014ddb04b63a83dc8c5b520bcf500bdc707
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329886"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472700"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante Azure Portal
 
@@ -31,27 +31,29 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
-En la esquina superior izquierda de Azure Portal, seleccione **+ Crear un recurso** > **Contenedores** >  **Servicio de Kubernetes**.
-
 Para crear un clúster de AKS, realice los siguientes pasos:
 
-1. En la página **Datos básicos**, configure las siguientes opciones:
-   - *DETALLES DEL PROYECTO*: seleccione una suscripción de Azure y, a continuación, seleccione o cree un grupo de recursos de Azure, como *myResourceGroup*. Escriba un **Nombre del clúster de Kubernetes**, como *myAKSCluster*.
-   - *DETALLES DEL CLÚSTER*: seleccione la región, la versión de Kubernetes y el prefijo del nombre DNS para el clúster de AKS.
-   - **GRUPO DE NODOS PRINCIPAL**: seleccione un tamaño de máquina virtual para los nodos de AKS. El tamaño de VM **no** puede cambiarse una vez que se ha implementado un clúster de AKS. 
-       - Seleccione el número de nodos que se van a implementar en el clúster. En esta guía de inicio rápido, establezca **Número de nodos** en *1*. El número de nodos **puede** ajustarse después de implementar el clúster.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
+
+2. Seleccione **Containers** >  **Kubernetes Service**.
+
+3. En la página **Datos básicos**, configure las siguientes opciones:
+    - **Detalles del proyecto**: seleccione una **suscripción** de Azure y, a continuación, seleccione o cree un **grupo de recursos** de Azure, como *myResourceGroup*.
+    - **Detalles del clúster**: Escriba un **Nombre del clúster de Kubernetes**, como *myAKSCluster*. seleccione la **región**, la **versión de Kubernetes** y el **prefijo del nombre DNS** para el clúster de AKS.
+    - **Grupo de nodos principal**: seleccione un **tamaño de nodo** de máquina virtual para los nodos de AKS. El tamaño de máquina virtual *no puede* cambiarse una vez que se ha implementado un clúster de AKS. 
+            Seleccione el número de nodos que se van a implementar en el clúster. En esta guía de inicio rápido, establezca **Número de nodos** en *1*. El número de nodos *puede* ajustarse después de implementar el clúster.
     
-     ![Creación de un clúster de AKS: proporcionar información básica](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+    ![Creación de un clúster de AKS: proporcionar información básica](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Seleccione **Siguiente: Escala** cuando haya terminado.
+    Seleccione **Siguiente: Escala** cuando haya terminado.
 
-2. En la página **Escala**, deje las opciones predeterminadas. En la parte inferior de la pantalla, haga clic en **Siguiente: Autenticación**.
-> [!CAUTION]
-> La creación de entidades de servicio de AAD puede tardar varios minutos en propagarse y estar disponible, lo que provoca errores de "no encontrado" en la entidad de servicio y de validación en Azure Portal. Si es el caso, visite [este artículo](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) para conocer mitigaciones.
+4. En la página **Escala**, deje las opciones predeterminadas. En la parte inferior de la pantalla, haga clic en **Siguiente: Autenticación**.
+    > [!CAUTION]
+    > La creación de entidades de servicio de AAD puede tardar varios minutos en propagarse y estar disponible, lo que provoca errores de "no encontrado" en la entidad de servicio y de validación en Azure Portal. Si es el caso, visite [este artículo](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) para conocer mitigaciones.
 
-3. En la página **Autenticación**, configure las siguientes opciones:
-   - Cree una entidad de servicio; para ello, deje el campo **Entidad de servicio** con **Entidad de servicio predeterminada (nueva)** . También puede elegir *Configurar la entidad de servicio* para usar una existente. Si usa una existente, deberá proporcionar el identificador de cliente y el secreto de SPN.
-   - Habilite la opción para los controles de acceso basado en roles (RBAC) de Kubernetes. Esta opción proporciona un control más pormenorizado sobre el acceso a los recursos de Kubernetes implementado en el clúster de AKS.
+5. En la página **Autenticación**, configure las siguientes opciones:
+    - Cree una entidad de servicio; para ello, deje el campo **Entidad de servicio** con **Entidad de servicio predeterminada (nueva)** . También puede elegir *Configurar la entidad de servicio* para usar una existente. Si usa una existente, deberá proporcionar el identificador de cliente y el secreto de SPN.
+    - Habilite la opción para los controles de acceso basado en roles (RBAC) de Kubernetes. Esta opción proporciona un control más pormenorizado sobre el acceso a los recursos de Kubernetes implementado en el clúster de AKS.
 
 De forma predeterminada, se usa la red *Básica* y está habilitado Azure Monitor para contenedores. Haga clic en **Revisar y crear** y, luego, en **Crear** cuando finalice la validación.
 

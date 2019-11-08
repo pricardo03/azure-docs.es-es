@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bc3e3bb178efbbc8f4cee6d81417ce70bd7a662
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c8310b6fc33f1d03e1ccc9ccddfcd7b9e6c35d37
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562071"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473372"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Inicio rápido: Creación de un inquilino en Azure Active Directory
 Puede hacer todas las tareas administrativas mediante el portal de Azure Active Directory (Azure AD), incluida la creación de un inquilino para su organización. 
@@ -26,22 +26,24 @@ En este tutorial, obtendrá información sobre cómo acceder a Azure Portal y a 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
-Inicie sesión en [Azure Portal](https://portal.azure.com/) en su organización con una cuenta de administrador global.
-
-![Pantalla de Azure Portal, con la opción de Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
-
 ## <a name="create-a-new-tenant-for-your-organization"></a>Creación de un inquilino para la organización
 Después de iniciar sesión en Azure Portal, puede crear un inquilino para su organización. El nuevo inquilino representa a su organización y le ayuda a administrar una instancia específica de Servicios en la nube de Microsoft para los usuarios internos y externos.
 
 ### <a name="to-create-a-new-tenant"></a>Para crear un inquilino
-1. Seleccione **Crear un recurso**, **Identidad** y **Azure Active Directory**.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) en su organización con una cuenta de administrador global.
+
+1. En el menú de Azure Portal, seleccione **Crear un recurso**.  
+
+    ![Página Crear un recurso de Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+
+1. Seleccione **Identidad** y después seleccione **Azure Active Directory**.
 
     Aparece la página **Crear directorio**.
 
     ![Página Crear de Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
 
-2.  En la página **Crear directorio**, escriba la información siguiente:
+1.  En la página **Crear directorio**, escriba la información siguiente:
     
     - Escriba _Contoso_ en el cuadro **Nombre de la organización**.
 
@@ -49,7 +51,7 @@ Después de iniciar sesión en Azure Portal, puede crear un inquilino para su or
 
     - Deje la opción _Estados Unidos_ en el cuadro **País o región**.
 
-3. Seleccione **Crear**.
+1. Seleccione **Crear**.
 
 El nuevo inquilino se crea con el dominio contoso.onmicrosoft.com.
 

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0892bde09891d2edbd7f8cc8715ccc0d2f047ed4
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 124a87728a8d201c329b15d94ae7e61a225646ab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113473"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468454"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -57,8 +57,8 @@ En primer lugar, cree un grupo de recursos para que contenga los recursos necesa
 El grupo de recursos contiene todos los recursos necesarios para el tutorial.
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-2. En la página principal de Azure Portal, seleccione **Grupos de recursos** > **Agregar**.
-3. En **Nombre del grupo de recursos**, escriba **Test-FW-RG**.
+2. En el menú de Azure Portal, seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos* desde cualquier página. A continuación, seleccione **Agregar**.
+3. En **Nombre del grupo de recursos**, escriba *Test-FW-RG*.
 4. En **Suscripción**, seleccione la suscripción.
 5. En **Ubicación del grupo de recursos**: seleccione una ubicación. Todos los recursos posteriores que cree deben estar en la misma ubicación.
 6. Seleccione **Crear**.
@@ -70,22 +70,22 @@ Esta red virtual contiene tres subredes.
 > [!NOTE]
 > El tamaño de la subred AzureFirewallSubnet es /26. Para más información sobre el tamaño de la subred, consulte [Preguntas más frecuentes sobre Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
-1. En la página principal de Azure Portal, seleccione **Crear un recurso**.
-2. En **Redes**, seleccione **Red virtuales**.
-4. En **Nombre**, escriba **Test-FW-VN**.
-5. En **Espacio de direcciones**, escriba **10.0.0.0/16**.
-6. En **Suscripción**, seleccione la suscripción.
-7. En **Grupo de recursos**, seleccione **Test-FW-RG**.
-8. En **Ubicación**, seleccione la misma ubicación que usó anteriormente.
-9. En **Subred**, como **Nombre** escriba **AzureFirewallSubnet**. El firewall estará en esta subred y el nombre de la subred **debe** ser AzureFirewallSubnet.
-10. En **Intervalo de direcciones**, escriba **10.0.1.0/26**.
-11. Acepte los restantes valores predeterminados y seleccione **Crear**.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
+1. Seleccione **Redes** > **Red virtual**.
+1. En **Nombre**, escriba **Test-FW-VN**.
+1. En **Espacio de direcciones**, escriba **10.0.0.0/16**.
+1. En **Suscripción**, seleccione la suscripción.
+1. En **Grupo de recursos**, seleccione **Test-FW-RG**.
+1. En **Ubicación**, seleccione la misma ubicación que usó anteriormente.
+1. En **Subred**, como **Nombre** escriba **AzureFirewallSubnet**. El firewall estará en esta subred y el nombre de la subred **debe** ser AzureFirewallSubnet.
+1. En **Intervalo de direcciones**, escriba **10.0.1.0/26**.
+1. Acepte los restantes valores predeterminados y seleccione **Crear**.
 
 ### <a name="create-additional-subnets"></a>Creación de subredes adicionales
 
 A continuación, cree las subredes para el servidor de salto y una subred para los servidores de cargas de trabajo.
 
-1. En la página principal de Azure Portal, seleccione **Grupos de recursos** > **Test-FW-RG**.
+1. En el menú de Azure Portal, seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos* desde cualquier página. A continuación, seleccione **Test-FW-RG**.
 2. Seleccione la red virtual **Test-FW-VN**.
 3. Seleccione **Subredes** >  **+Subred**.
 4. En **nombre**, escriba **Workload-SN**.
@@ -98,7 +98,7 @@ Cree otra subred denominada **Jump-SN**, con un intervalo de direcciones **10.0.
 
 Ahora cree las máquinas virtuales de salto y de cargas de trabajo, y colóquelas en las subredes adecuadas.
 
-1. En Azure Portal, seleccione **Crear un recurso**.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
 2. Haga clic en **Compute** y, a continuación, seleccione **Windows Server 2016 Datacenter** en la lista de destacados.
 3. Especifique estos valores para la máquina virtual:
 
@@ -133,7 +133,7 @@ Use la información de la tabla siguiente para configurar otra máquina virtual 
 
 Implemente el firewall en la red virtual.
 
-1. En la página principal de Azure Portal, seleccione **Crear un recurso**.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
 2. Escriba **firewall** en el cuadro de búsqueda y presione **Entrar**.
 3. Seleccione **Firewall** y después **Crear**.
 4. En la página **Creación de un firewall**, utilice la tabla siguiente para configurar el firewall:
@@ -158,7 +158,7 @@ Implemente el firewall en la red virtual.
 
 En la subred **Workload-SN**, configure la ruta predeterminada de salida que pase por el firewall.
 
-1. En la página principal de Azure Portal, seleccione **Todos los servicios**.
+1. En el menú de Azure Portal, seleccione **Todos los servicios** o busque y seleccione *Todos los servicios* desde cualquier página.
 2. En **Redes**, seleccione **Tablas de rutas**.
 3. Seleccione **Agregar**.
 4. En **Nombre**, escriba **Firewall-route**.
@@ -209,19 +209,20 @@ Se trata de la regla de red que permite el acceso saliente a dos direcciones IP 
 3. En **Nombre**, escriba **Net-Coll01**.
 4. En **Priority**, escriba **200**.
 5. En **Acción**, seleccione **Permitir**.
-
 6. En **Reglas**, en **Nombre**, escriba **Allow-DNS**.
 7. En **Protocolo**, seleccione **UDP**.
 8. En **Direcciones de origen**, escriba **10.0.2.0/24**.
 9. Como dirección de destino, escriba **209.244.0.3,209.244.0.4**
-10. En **Puertos de destino**, escriba **53**.
-11. Seleccione **Agregar**.
+
+   Estos son servidores DNS públicos ofrecidos por CenturyLink.
+1. En **Puertos de destino**, escriba **53**.
+2. Seleccione **Agregar**.
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Cambio de la dirección DNS principal y secundaria para la interfaz de red **Srv-Work**
 
 Con fines de prueba para este tutorial, configure las direcciones DNS principal y secundaria del servidor. Esto no es un requisito general de Azure Firewall.
 
-1. En Azure Portal, abra el grupo de recursos **Test-FW-RG**.
+1. En el menú de Azure Portal, seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos* desde cualquier página. Seleccione el grupo de recursos **Test-FW-RG**.
 2. Seleccione la interfaz de red de la máquina virtual **Srv-Work**.
 3. En **Configuración**, seleccione **Servidores DNS**.
 4. En **Servidores DNS**, seleccione **Personalizado**.
@@ -235,7 +236,6 @@ Ahora, pruebe el firewall para confirmar que funciona según lo previsto.
 
 1. En Azure Portal, revise la configuración de red de la máquina virtual **Srv-Work** y anote la dirección IP privada.
 2. Conecte un escritorio remoto a la máquina virtual **Srv-Jump** e inicie sesión. Desde ahí, abra una conexión del escritorio remoto a la dirección IP privada de **Srv-Work**.
-
 3. Abra Internet Explorer y vaya a https://www.google.com.
 4. Seleccione **Aceptar** > **Cerrar** en las alertas de seguridad de Internet Explorer.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a863c8fe81a08f00385cb267bf360994918fe82
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9adf083f8e4c8c269b895dac87b4e4613ec1b023
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212110"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474390"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Guía de inicio rápido: Restablecimiento de la contraseña de autoservicio
 
@@ -33,7 +33,7 @@ En esta guía de inicio rápido aprenderá a configurar el autoservicio de resta
 
 [Vea este proceso en vídeo en YouTube](https://youtu.be/Pa0eyqjEjvQ).
 
-1. Desde el inquilino de Azure AD existente, en **Azure Portal**, en **Azure Active Directory**, seleccione **Restablecimiento de contraseña**.
+1. Desde el inquilino de Azure AD existente, en el menú de Azure Portal o desde la página **principal**, seleccione **Azure Active Directory**. Después, seleccione **Restablecimiento de contraseña**.
 
 2. En la página **Propiedades**, bajo la opción **Se habilitó el restablecimiento de contraseña del autoservicio**, elija **Seleccionados**.
     * En **Seleccionar grupo**, seleccione el grupo piloto creado como parte de la sección de requisitos previos de este artículo.

@@ -1,0 +1,53 @@
+### YamlMime:Hub
+title: Documentación de la industria para Azure
+summary: Aprenda a usar Azure para crear soluciones para casos de uso comunes de la industria.
+brand: azure
+metadata:
+  title: Documentación de la industria para Azure
+  description: Aprenda a usar Azure para crear soluciones para casos de uso comunes de la industria.
+  ms.service: azure-industry
+  ms.topic: hub-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 2777093db7486f17cf19b45db08bbd0168a4e2a8
+  ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73797081"
+highlightedContent:
+  items:
+  - title: FarmBeats de Azure
+    itemType: overview
+    url: ./agriculture/overview.md
+  - title: Foro de la comunidad
+    itemType: concept
+    url: https://aka.ms/FarmBeatsMSDN
+  - title: UserVoice (comentarios)
+    itemType: get-started
+    url: https://aka.ms/FarmBeatsForum
+productDirectory:
+  title: Áreas de soluciones de la industria
+  items:
+  - title: FarmBeats de Azure
+    imageSrc: ../media/index/industry-agriculture-farmbeats.svg
+    summary: Crea rápidamente soluciones de agricultura digital en la nube.
+    url: ./agriculture/overview.md
+  - title: Servicios financieros
+    imageSrc: ../media/index/industry-financial.png
+    summary: Soluciones y casos de uso para el sector de servicios financieros.
+    url: /azure/industry-marketing/financial/
+  - title: Servicios biosanitarios
+    imageSrc: ../media/index/industry-health.png
+    summary: Soluciones y casos de uso para el sector de ciencias biosanitarias.
+    url: /azure/industry-marketing/health/
+  - title: Fabricación
+    imageSrc: ../media/index/industry-manufacturing.png
+    summary: Soluciones y casos de uso para el sector manufacturero.
+    url: /azure/industry-marketing/manufacturing/
+  - title: Minoristas
+    imageSrc: ../media/index/industry-retail.png
+    summary: Soluciones y casos de uso para el sector del comercio minorista.
+    url: /azure/industry-marketing/retail/

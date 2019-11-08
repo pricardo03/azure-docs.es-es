@@ -1,6 +1,6 @@
 ---
 title: Galería de Azure AI
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: Comparta y descubra recursos de análisis, entre otras cosas, en la Galería de Azure AI. Aprenda de otros y realice sus propias contribuciones a la comunidad.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f02c7377242dc031cd2d21d2b57bbd5f839eec3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811557"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619138"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Comparta y descubra recursos en la Galería de Azure AI.
 
@@ -26,10 +26,10 @@ La Galería contiene una variedad de recursos que puede usar para desarrollar su
 
 Azure AI Gallery contiene una serie de diferentes recursos aportados por Microsoft y miembros de la comunidad de ciencia de datos. Entre ellas se incluyen las siguientes:
 
-* **Experimentos** la galería contiene una gran variedad de experimentos que se han desarrollado en Azure Machine Learning Studio. Estos van desde experimentos rápidos de prueba de concepto que muestran una técnica específica de aprendizaje automático, hasta soluciones totalmente desarrolladas para problemas de aprendizaje automático complejos.
+* **Experimentos** la galería contiene una gran variedad de experimentos que se han desarrollado en Azure Machine Learning Studio (clásico). Estos van desde experimentos rápidos de prueba de concepto que muestran una técnica específica de aprendizaje automático, hasta soluciones totalmente desarrolladas para problemas de aprendizaje automático complejos.
 * **Tutoriales**: hay disponibles tutoriales que le guiarán por los conceptos y las tecnologías del aprendizaje automático, o que describen métodos avanzados para solucionar diversos problemas de aprendizaje automático.
 * **Colecciones**: una colección permite agrupar experimentos, API y otros recursos de la galería que se refieren a una solución o un concepto específico.
-* **Módulos personalizados**: puede descargar módulos personalizados en el área de trabajo de Studio para usarlos en sus propios experimentos.
+* **Módulos personalizados**: puede descargar módulos personalizados en el área de trabajo de Studio (clásico) para usarlos en sus propios experimentos.
 * **Jupyter Notebook**: los cuadernos de Jupyter Notebook incluyen código, visualizaciones de datos y documentación en un único lienzo interactivo. Los cuadernos de notas en la Galería proporcionan tutoriales y explicaciones detalladas de las técnicas y las soluciones avanzadas de aprendizaje automático.
 
 ## <a name="discover-and-contribute"></a>Descubrir y contribuir
@@ -50,7 +50,7 @@ Puede aportar **experimentos**, **tutoriales** y **colecciones** a la galería.
 
 ## <a name="download-experiments-modules-notebooks"></a>Descargar experimentos, módulos y cuadernos
 
-Puede descargar **experimentos**, **módulos personalizados** y **cuadernos de Jupyter Notebook** en su área de trabajo de Machine Learning Studio para usarlos para desarrollar sus propias soluciones de análisis.
+Puede descargar **experimentos**, **módulos personalizados** y **cuadernos de Jupyter Notebook** en su área de trabajo de Machine Learning Studio (clásico) para usarlos para desarrollar sus propias soluciones de análisis.
 
 Para descargar un recurso de AI Gallery:
 
@@ -59,15 +59,15 @@ Para descargar un recurso de AI Gallery:
 
 ![Abrir un elemento en AI Gallery](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
-Para descargar un recurso de Studio:
+Para descargar un recurso desde la versión clásica de Studio:
 
-1. En Studio, seleccione **NEW** (NUEVO).
+1. En la versión clásica de Studio, seleccione **NUEVO**.
 1. Seleccione **Module** (Módulo), **Experiment** (Experimento) o **Notebook** (Cuaderno).
 1. Examine o busque un recurso de la galería.
 1. Sitúe el ratón en el recurso y luego seleccione **Open in Studio** (Abrir en Studio).
-    ![Abrir el experimento de la galería desde dentro de Machine Learning Studio](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
+    ![Abrir el experimento de la galería desde dentro de Machine Learning Studio (clásico)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
 
-Una vez que el recurso está en el área de trabajo, puede personalizarlo y usarlo como cualquier otro elemento creado en Studio.
+Una vez que el recurso está en el área de trabajo, puede personalizarlo y usarlo como cualquier otro elemento creado en la versión clásica de Studio.
 
 Para usar un módulo personalizado importado:
 
@@ -77,12 +77,12 @@ Para usar un módulo personalizado importado:
 
 ## <a name="contribute-experiments"></a>Contribuir con experimentos
 
-Para demostrar técnicas de análisis o para ofrecer soluciones a otros usuarios, puede aportar **experimentos** que haya desarrollado en Studio.
+Para demostrar técnicas de análisis o para ofrecer soluciones a otros usuarios, puede aportar **experimentos** que haya desarrollado en la versión clásica de Studio.
 Cuando otros usuarios vean su contribución en la galería, puede seguir el número de visitas y las descargas de su contribución.
 Los usuarios también pueden agregar comentarios y compartir su contribución con otros miembros de la comunidad de ciencia de datos.
 Además, puede iniciar sesión con una herramienta de análisis como Disqus para recibir notificaciones de los comentarios de sus contribuciones.
 
-1. Abra el experimento en Studio.
+1. Abra el experimento en la versión clásica de Studio.
 
 1. En la lista de acciones debajo del lienzo del experimento, seleccione **Publish to Gallery** (Publicar en la galería).
 
@@ -114,7 +114,7 @@ Además, puede iniciar sesión con una herramienta de análisis como Disqus para
 
 ### <a name="update-your-experiment"></a>Actualizar el experimento
 
-Si lo necesita, puede realizar cambios en el flujo de trabajo (módulos, parámetros, etc.) de un experimento que haya publicado en la Galería. En Machine Learning Studio, realice los cambios que quiera en el experimento y luego vuelva a publicarlo. El experimento publicado se actualizará con los cambios.
+Si lo necesita, puede realizar cambios en el flujo de trabajo (módulos, parámetros, etc.) de un experimento que haya publicado en la Galería. En Machine Learning Studio (clásico), realice los cambios que quiera en el experimento y luego vuelva a publicarlo. El experimento publicado se actualizará con los cambios.
 
 Puede cambiar cualquiera de la siguiente información del experimento directamente en la Galería:
 

@@ -1,18 +1,35 @@
 ---
 author: mmacy
 ms.service: active-directory-b2c
+ms.subservice: B2C
 ms.topic: include
-ms.date: 10/01/2019
+ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 1b2753f190bc5c5d2dc3305436f7a090a5571100
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 462c1fca0ecd706c1bf04ac5a0ef8561321e05bc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694584"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474825"
 ---
+#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+
 1. Seleccione **Aplicaciones** y, después, seleccione la aplicación web que debe tener acceso a la API. Por ejemplo, *webapp1*.
 1. Seleccione **Acceso de API** y, a continuación, seleccione **Agregar**.
 1. En la lista desplegable **Seleccionar API** , seleccione la API a la que se debe conceder acceso a la aplicación web. Por ejemplo, *webapi1*.
 1. En la lista desplegable **Seleccionar ámbitos**, seleccione los ámbitos que ha definido anteriormente. Por ejemplo, *demo.read* y *demo.write*.
 1. Seleccione **Aceptar**.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+
+1. Seleccione **Registros de aplicaciones (versión preliminar)** y, después, seleccione la aplicación web que debe tener acceso a la API. Por ejemplo, *webapp1*.
+1. En **Administrar**, seleccione **Permisos de API**.
+1. En **Permisos configurados**, seleccione **Agregar un permiso**.
+1. Seleccione la pestaña **Mis API**.
+1. Seleccione la API a la que la aplicación web debe tener acceso. Por ejemplo, *webapi1*.
+1. En **Permiso**, expanda **demo** y, a continuación, seleccione los ámbitos que definió anteriormente. Por ejemplo, *demo.read* y *demo.write*.
+1. Seleccione **Agregar permisos**. Como se indicó, espere unos minutos antes de continuar con el paso siguiente.
+1. Seleccione **Conceder consentimiento de administrador para (el nombre de inquilino)** .
+1. Seleccione la cuenta de administrador que ha iniciado sesión o inicie sesión con una cuenta en el inquilino de Azure AD B2C que tenga asignado al menos el rol *Administrador de aplicaciones en la nube*.
+1. Seleccione **Aceptar**.
+1. Seleccione **Actualizar** y, a continuación, compruebe que aparece "Concedido para..." bajo **Estado** en ambos ámbitos. Los permisos pueden tardar unos minutos en propagarse.

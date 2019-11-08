@@ -1,6 +1,6 @@
 ---
 title: Creación de varios puntos de conexión para un modelo
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: Use PowerShell para crear varios modelos de Machine Learning y puntos de conexión de servicio web con el mismo algoritmo pero con conjuntos de datos de entrenamiento distintos.
 services: machine-learning
 ms.service: machine-learning
@@ -10,24 +10,24 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 337b90e68d0c88f6d6c0325431e963a3276dc42e
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773712"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619587"
 ---
-# <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Uso de PowerShell para crear varios modelos y puntos de conexión de servicio web a partir de un experimento
+# <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>Uso de PowerShell para crear varios modelos y puntos de conexión de servicio web de Studio (clásico) a partir de un experimento
 
-El siguiente es un problema de aprendizaje automático habitual: quiere crear muchos modelos que tienen el mismo flujo de trabajo de entrenamiento y utilizan el mismo algoritmo. Pero desea que tengan conjuntos de datos de entrenamiento distintos como entrada. Este artículo muestra cómo hacer esto a escala en Azure Machine Learning Studio simplemente con un solo experimento.
+El siguiente es un problema de aprendizaje automático habitual: quiere crear muchos modelos que tienen el mismo flujo de trabajo de entrenamiento y utilizan el mismo algoritmo. Pero desea que tengan conjuntos de datos de entrenamiento distintos como entrada. Este artículo muestra cómo hacer esto a escala en Azure Machine Learning Studio (clásico) simplemente con un solo experimento.
 
 Por ejemplo, digamos que posee una empresa de franquicias de alquiler de bicicletas global. Desea crear un modelo de regresión para predecir la demanda de alquiler basada en datos históricos. Dispone de mil ubicaciones de alquiler en todo el mundo y ha recopilado un conjunto de datos para cada ubicación. Incluyen características importantes como la fecha, la hora e información meteorológica y sobre el tráfico que son específicas de cada ubicación.
 
 Puede entrenar el modelo una vez usando una versión combinada de todos los conjuntos de datos en todas las ubicaciones. Sin embargo, cada una de las ubicaciones tiene un entorno único. Por tanto, un mejor enfoque sería entrenar el modelo de regresión por separado mediante el conjunto de datos de cada ubicación. De este modo, cada modelo entrenado podría tener en cuenta los diferentes tamaños de tienda, el volumen, la geografía, la población, el entorno de tráfico preparado para bicicletas, etc.
 
-Ese puede que sea el mejor enfoque, pero no desea crear 1000 experimentos de entrenamiento en Azure Machine Learning Studio, y cada uno de ellos representa una ubicación única. Además de ser una tarea abrumadora, también parece ineficaz, ya que cada experimento tendría exactamente los mismos componentes, excepto el conjunto de datos de entrenamiento.
+Ese puede que sea el mejor enfoque, pero no desea crear 1000 experimentos de entrenamiento en la versión clásica de Azure Machine Learning Studio, y cada uno de ellos representa una ubicación única. Además de ser una tarea abrumadora, también parece ineficaz, ya que cada experimento tendría exactamente los mismos componentes, excepto el conjunto de datos de entrenamiento.
 
-Por suerte, puede lograrlo con la [API para volver a entrenar de Azure Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model) y automatizando la tarea con [PowerShell de Azure Machine Learning Studio](powershell-module.md).
+Por suerte, puede lograrlo con la [API para volver a entrenar de Azure Machine Learning Studio (clásico)](/azure/machine-learning/studio/retrain-machine-learning-model) y automatizando la tarea con [PowerShell de Azure Machine Learning Studio (clásico)](powershell-module.md).
 
 > [!NOTE]
 > Para que nuestro ejemplo se ejecute más rápido, reduzca el número de ubicaciones de mil a diez. Pero se aplican los mismos principios y procedimientos a 1000 ubicaciones. Sin embargo, si desea entrenar mil conjuntos de datos, puede ejecutar los siguientes scripts de PowerShell en paralelo. Cómo hacerlo queda fuera del ámbito de este artículo, pero puede encontrar ejemplos de subprocesamiento múltiple de PowerShell en Internet.  
@@ -35,10 +35,10 @@ Por suerte, puede lograrlo con la [API para volver a entrenar de Azure Machine L
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configuración del experimento de entrenamiento
-Use el [experimento de entrenamiento](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) de ejemplo que se encuentra en la [Galería de Cortana Intelligence](https://gallery.azure.ai). Abra este experimento en su área de trabajo [Azure Machine Learning Studio](https://studio.azureml.net).
+Use el [experimento de entrenamiento](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) de ejemplo que se encuentra en la [Galería de Cortana Intelligence](https://gallery.azure.ai). Abra este experimento en su área de trabajo [Azure Machine Learning Studio (clásico)](https://studio.azureml.net).
 
 > [!NOTE]
-> Para seguir este ejemplo, puede que le interese usar un área de trabajo estándar en lugar de un área de trabajo gratis. Cree un punto de conexión para cada cliente (para un total de diez puntos de conexión) y que requiere un área de trabajo estándar, ya que un área de trabajo gratis se limita a tres puntos de conexión. Si solo tiene un área de trabajo gratis, simplemente tiene que cambiar los scripts para permitir solo las ubicaciones.
+> Para seguir este ejemplo, puede que le interese usar un área de trabajo estándar en lugar de un área de trabajo gratis. Cree un punto de conexión para cada cliente (para un total de diez puntos de conexión) y que requiere un área de trabajo estándar, ya que un área de trabajo gratis se limita a tres puntos de conexión.
 > 
 > 
 

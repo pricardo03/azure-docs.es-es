@@ -1,23 +1,23 @@
 ---
 title: Trabajos del servicio Azure Batch
-titleSuffix: Azure Machine Learning Studio
-description: Información general sobre los servicios Azure Batch para trabajos de Machine Learning Studio. El procesamiento de grupo de lote permite crear grupos en los que se pueden enviar trabajos por lotes.
+titleSuffix: ML Studio (classic) Azure
+description: Información general sobre los servicios Azure Batch para trabajos de Machine Learning Studio (clásico). El procesamiento de grupo de lote permite crear grupos en los que se pueden enviar trabajos por lotes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 24efa3caba3918a38c09b1c921c600b117dedbc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0e829f61117df25f8643301a0acdadeafd7c267
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751165"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684801"
 ---
-# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Servicio Azure Batch para trabajos de Azure Machine Learning Studio
+# <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Servicio Azure Batch para trabajos de Azure Machine Learning Studio (clásico)
 
 El procesamiento de grupo de lote de Machine Learning proporciona una escala administrada por el cliente para el servicio de ejecución de lotes de Azure Machine Learning. El procesamiento por lotes clásico para aprendizaje automático tiene lugar en un entorno de varios inquilinos, lo que limita el número de trabajos simultáneos que se pueden enviar, y los trabajos se ponen en una cola que funciona según el principio de "el primero en entrar es el primero en salir". Esta incertidumbre significa que no se puede predecir con exactitud cuándo se ejecutará el trabajo.
 
@@ -43,7 +43,7 @@ Cree grupos mediante una llamada a la operación Create Pool (Crear grupo) en la
 
 Puede usar cualquier servicio web basado en el nuevo Resource Manager, pero tenga en cuenta que la facturación de los trabajos se cobra con respecto al plan de facturación asociado a ese servicio. Es posible que desee crear un servicio web y un nuevo plan de facturación específicamente para ejecutar trabajos de grupo de Batch.
 
-Para más información sobre la implementación de servicios web, vea el artículo [Implementar un servicio web de Azure Machine Learning](publish-a-machine-learning-web-service.md).
+Para más información sobre la implementación de servicios web, vea el artículo [Implementar un servicio web de Azure Machine Learning](deploy-a-machine-learning-web-service.md).
 
 Una vez que ha creado un grupo, envíe el trabajo BES usando la dirección URL de las solicitudes de lote para el servicio web. Puede optar por enviarlo a un grupo o al procesamiento por lotes clásico. Para enviar un trabajo para procesamiento en un grupo de lote, agregue el siguiente parámetro en el cuerpo de la solicitud de envío del trabajo:
 
@@ -111,4 +111,4 @@ Se recomienda sondear el estado del trabajo para determinar cuándo se completan
 
 | **Use procesamiento de grupo de lote cuando**    | **Use procesamiento por lotes clásico cuando**  |
 |---|---|
-|Tiene que ejecutar un gran número de trabajos<br>o<br/>Tiene que asegurarse de que los trabajos se ejecutarán inmediatamente<br/>o<br/>Necesita rendimiento garantizado. Por ejemplo, tiene que ejecutar una serie de trabajos en un determinado período de tiempo y desea escalar horizontalmente los recursos de proceso para satisfacer sus necesidades.    | Tiene unos pocos trabajos para ejecutar<br/>y<br/> No necesita que los trabajos se ejecuten inmediatamente |
+|Tiene que ejecutar un gran número de trabajos<br>Or<br/>Tiene que asegurarse de que los trabajos se ejecutarán inmediatamente<br/>Or<br/>Necesita rendimiento garantizado. Por ejemplo, tiene que ejecutar una serie de trabajos en un determinado período de tiempo y desea escalar horizontalmente los recursos de proceso para satisfacer sus necesidades.    | Tiene unos pocos trabajos para ejecutar<br/>And<br/> No necesita que los trabajos se ejecuten inmediatamente |

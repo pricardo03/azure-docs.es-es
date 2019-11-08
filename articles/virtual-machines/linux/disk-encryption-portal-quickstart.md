@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 83446d30de17973352e836d6107ad545b2da63e3
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a480e459fdbbf135b00ee46d1513eddb0f36e09e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550320"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479604"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Inicio rápido: Creación y cifrado de una máquina virtual desde Azure Portal
 
@@ -55,8 +55,8 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 1. En la página Nuevo, en Popular, seleccione **Ubuntu Server 18.04 LTS**.
 1. En la pestaña **Datos básicos**, en **Detalles del proyecto**, asegúrese de que está seleccionada la suscripción correcta.
-1. En **Grupo de recursos**, seleccione el grupo de recursos que creó al crear el almacén de claves (p.ej., **myResourceGroup**)
-1. En **Nombre de máquina virtual** , escriba *MyVM* y elija 
+1. En **Grupo de recursos**, seleccione el grupo de recursos que creó al preparar el almacén de claves (p.ej., **myResourceGroup**).
+1. En **Nombre de máquina virtual** , escriba *MyVM*.
 1. En **Región**, seleccione la misma región que usó al crear el almacén de claves (p.ej., **Este de EE. UU.** ).
 1. Asegúrese de que el valor de **Tamaño** es *Estándar D2s v3*.
 1. En **Cuenta de administrador** , seleccione **Contraseña**. Escriba un nombre de usuario y una contraseña.

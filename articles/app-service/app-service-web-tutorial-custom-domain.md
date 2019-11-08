@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bbb064c358eba2dd64ba9ae86540a30cb56adb66
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595027"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471350"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -60,9 +60,13 @@ Para asignar un nombre DNS personalizado a una aplicación web, el [plan de App 
 
 Abra [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navegue hasta la aplicación en Azure Portal
+### <a name="select-the-app-in-the-azure-portal"></a>Selección de la aplicación en Azure Portal
 
-En el menú izquierdo, seleccione **App Services** y, después, el nombre de la aplicación.
+Busque y seleccione **App Services**.
+
+![Selección de App Services](./media/app-service-web-tutorial-custom-domain/app-services.png)
+
+En la página **App Services**, seleccione el nombre de la aplicación de Azure.
 
 ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -156,7 +160,7 @@ El nuevo dominio personalizado puede tardar algo en reflejarse en la página **D
 ![Registro CNAME agregado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Si un dominio personalizado contiene la etiqueta **Not Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Si un dominio personalizado contiene la etiqueta **Not Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md).
 
 Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteriormente, verá un error de comprobación en la parte inferior de la página.
 
@@ -240,7 +244,7 @@ El nuevo dominio personalizado puede tardar algo en reflejarse en la página **D
 ![Registro D agregado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Si un dominio personalizado contiene la etiqueta **Not Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Si un dominio personalizado contiene la etiqueta **Not Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md).
 
 Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteriormente, verá un error de comprobación en la parte inferior de la página.
 
@@ -295,7 +299,7 @@ Vuelva a seleccionar el icono **+** de nuevo para agregar otro dominio personali
 ![Registro CNAME agregado](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> Si un dominio personalizado contiene la etiqueta **Nota Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Si un dominio personalizado contiene la etiqueta **Nota Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md).
 
 ## <a name="test-in-browser"></a>Probar en el explorador
 
@@ -374,4 +378,4 @@ En este tutorial aprendió lo siguiente:
 Pase al siguiente tutorial para aprender a enlazar un certificado SSL personalizado a una aplicación web.
 
 > [!div class="nextstepaction"]
-> [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md)
+> [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md)

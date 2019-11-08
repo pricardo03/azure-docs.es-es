@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 7f62e437d80f023972327d98b4add193eb7b8dd6
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044416"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469734"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
 
@@ -47,8 +47,9 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 En primer lugar, habilite Update Management en la máquina virtual de este tutorial:
 
-1. En el menú izquierdo de Azure Portal, seleccione **Máquinas virtuales**. Seleccione una máquina virtual de la lista.
-2. En la página de la máquina virtual, en **Operaciones**, seleccione **Update Management**. Se abre el panel **Habilitar Update Management**.
+1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Máquinas virtuales** o busque y seleccione **Máquinas virtuales** en la **página principal**.
+1. Seleccione la máquina virtual para la que desea habilitar Update Management.
+1. En la página de la máquina virtual, en **Operaciones**, seleccione **Update Management**. Se abre el panel **Habilitar Update Management**.
 
 Se realiza la validación para determinar si Update Management está habilitado para esta máquina virtual. Esta validación incluye comprobaciones de un área de trabajo de Azure Log Analytics y la cuenta de Automation vinculada, y si la solución Update Management está en el área de trabajo.
 

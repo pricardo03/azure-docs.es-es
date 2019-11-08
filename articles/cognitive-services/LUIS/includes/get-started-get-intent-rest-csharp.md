@@ -1,66 +1,181 @@
 ---
-title: Obtención de intención con la llamada a REST en C#
+title: Obtención de la predicción con la llamada de REST en C#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: e6ae9590cee3a2ddc3b8e121161fcf84815da28a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 81c95dc58e8cfaddf981e3911e88310cea508115
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838549"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499642"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Visual Studio Community Edition 2017](https://visualstudio.microsoft.com/vs/community/)
-* Lenguaje de programación de C# (incluido con Visual Studio Community 2017)
+* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * Identificador de la aplicación pública: df67dcdb-c37d-46af-88e1-8b97951ca1c2
-
-
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## <a name="get-luis-key"></a>Obtención de la clave de LUIS
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 ## <a name="get-intent-programmatically"></a>Obtención de la intención mediante programación
 
-Utilice C# para consultar el punto de conexión de predicción GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) para obtener los mismos resultados que vio en la ventana del explorador en la sección anterior. 
+Use C# para consultar la [API](https://aka.ms/luis-apim-v3-prediction) GET del punto de conexión de predicción y obtener el resultado de la predicción. 
 
-1. Cree una aplicación de consola en Visual Studio. 
+1. Cree una aplicación de consola con C# como lenguaje de destino, con `predict-with-rest` como nombre del proyecto y de la carpeta. 
 
-    ![Creación de una aplicación de consola en Visual Studio](../media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ```console
+    dotnet new console -lang C# -n predict-with-rest
+    ```
 
-2. En el proyecto de Visual Studio, en el Explorador de soluciones, seleccione **Agregar referencia**, a continuación, seleccione **System.Web** en la pestaña Ensamblados.
+1. Instale las dependencias necesarias con los siguientes comandos de la CLI de dotnet.
 
-    ![Seleccionar Agregar referencia y luego seleccionar System.Web en la pestaña Ensamblados](../media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
-
-3. Sobrescriba Program.cs con el código siguiente:
+    ```console
+    dotnet add package System.Net.Http
+    ```
+1. Sobrescriba Program.cs con el código siguiente:
     
-   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
+   ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Web;
+    
+    namespace predict_with_rest
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // YOUR-KEY: for example, the starter key
+                var key = "YOUR-KEY";
+                
+                // YOUR-ENDPOINT: example is westus2.api.cognitive.microsoft.com
+                var endpoint = "YOUR-ENDPOINT";
 
-4. Reemplace el valor de `YOUR_KEY` con su clave de LUIS.
+                // //public sample app
+                var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"; 
+    
+                var utterance = "turn on all lights";
+    
+                MakeRequest(key, endpoint, appId, utterance);
+    
+                Console.WriteLine("Hit ENTER to exit...");
+                Console.ReadLine();
+            }
+            static async void MakeRequest(string key, string endpoint, string appId, string utterance)
+            {
+                var client = new HttpClient();
+                var queryString = HttpUtility.ParseQueryString(string.Empty);
+    
+                // The request header contains your subscription key
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+    
+                // The "q" parameter contains the utterance to send to LUIS
+                queryString["query"] = utterance;
+    
+                // These optional request parameters are set to their default values
+                queryString["verbose"] = "true";
+                queryString["show-all-intents"] = "true";
+                queryString["staging"] = "false";
+                queryString["timezoneOffset"] = "0";
+    
+                var endpointUri = String.Format("https://{0}/luis/prediction/v3.0/apps/{1}/slots/production/predict?query={2}", endpoint, appId, queryString);
+    
+                var response = await client.GetAsync(endpointUri);
+    
+                var strResponseContent = await response.Content.ReadAsStringAsync();
+                
+                // Display the JSON result from LUIS
+                Console.WriteLine(strResponseContent.ToString());
+            }
+        }
+    }
 
-5. Compilación y ejecución de la aplicación de consola. Muestra el mismo código JSON que vio anteriormente en la ventana del explorador.
+   ```
 
-    ![Ventana de la consola que muestra el resultado JSON de LUIS](../media/luis-get-started-cs-get-intent/console-turn-on.png)
+1. Reemplace los valores siguientes:
 
+    * `YOUR-KEY` por la clave de inicio.
+    * `YOUR-ENDPOINT` por el punto de conexión, por ejemplo, `westus2.api.cognitive.microsoft.com`.
 
+1. Compile la aplicación de la consola. 
+
+    ```console
+    dotnet build
+    ```
+
+1. Ejecución de la aplicación de consola. La salida de la consola muestra el mismo código JSON que vio anteriormente en la ventana del explorador.
+
+    ```console
+    dotnet run
+    ```
+
+1. Revise la respuesta de predicción en formato JSON:
+
+    ```console
+    Hit ENTER to exit...
+    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
+    ```
+
+    Respuesta JSON con formato para mejorar la legibilidad: 
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
 
 ## <a name="luis-keys"></a>Claves de LUIS
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando haya terminado con esta guía de inicio rápido, cierre el proyecto de Visual Studio y quite el directorio del proyecto desde el sistema de archivos. 
+Cuando haya terminado con este inicio rápido, elimine el archivo del sistema de archivos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Incorporación de expresiones y entrenamiento con C#](../luis-get-started-cs-add-utterance.md)
+> [Adición de expresiones y entrenamiento](../luis-get-started-cs-add-utterance.md)

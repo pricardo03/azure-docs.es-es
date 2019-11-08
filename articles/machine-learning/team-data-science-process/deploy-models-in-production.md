@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1a75c842989cfbaf7bb1880831fda2bc6994622b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6f371d07fdf09aae6ce4396f0916758f8588506b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238342"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670302"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Implementación de modelos en producción para desempeñar un papel activo en la toma de decisiones empresariales
 
@@ -25,7 +25,7 @@ La implementación de producción permite que un modelo desempeñe un rol activo
 
 Hay varios enfoques y plataformas para poner los modelos en producción. Estas son algunas opciones:
 
-- [Implementación de modelos con el servicio Azure Machine Learning](../service/how-to-deploy-and-where.md)
+- [Implementación de modelos con Azure Machine Learning](../service/how-to-deploy-and-where.md)
 - [Implementación de un modelo en SQL-Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -34,7 +34,7 @@ Hay varios enfoques y plataformas para poner los modelos en producción. Estas s
 >
 
 >[!NOTE]
->Para implementar mediante Azure Machine Learning Studio, consulte [Implementar un servicio web de Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+>Para implementar mediante Azure Machine Learning Studio, consulte [Implementar un servicio web de Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 >
 
 ## <a name="ab-testing"></a>Pruebas A/B

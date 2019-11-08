@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial Diseño de un panel en tiempo real con Azure Database for PostgreSQL: hiperescala (Citus) (versión preliminar)'
-description: En este tutorial se muestra cómo crear, rellenar y consultar tablas distribuidas en hiperescala (Citus) (versión preliminar) de Azure Database for PostgreSQL.
+title: 'Tutorial Diseño de un panel en tiempo real con Azure Database for PostgreSQL: Hiperescala (Citus)'
+description: Este tutorial muestra cómo crear, rellenar y consultar tablas distribuidas en Azure Database for PostgreSQL Hiperescala (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: a5e4b2073a29785ee851b2733c12d6331afe59d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 32487d65397a96d9e96ae3bf3476eed23ddb8adc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791333"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482870"
 ---
-# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: Diseño de un panel de análisis en tiempo real on Azure Database for PostgreSQL: hiperescala (Citus) (versión preliminar)
+# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Diseño de un panel de análisis en tiempo real on Azure Database for PostgreSQL: Hiperescala (Citus)
 
-En este tutorial, usa Azure Database for PostgreSQL: hiperescala (Citus) (versión preliminar) para obtener información sobre lo siguiente:
+En este tutorial, usará Azure Database for PostgreSQL Hiperescala (Citus) para aprender lo siguiente:
 
 > [!div class="checklist"]
 > * Creación de un grupo de servidores Hiperescala (Citus)
@@ -34,7 +34,7 @@ En este tutorial, usa Azure Database for PostgreSQL: hiperescala (Citus) (ver
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Uso de la utilidad psql para crear un esquema
 
-Una vez conectado a Azure Database for PostgreSQL: hiperescala (Citus) (versión preliminar) mediante psql, puede completar algunas tareas básicas. Este tutorial lo guiará a través de la ingesta de datos de tráfico provenientes del análisis web y posterior acumulación de los datos para proporcionar paneles en tiempo real basados en esos datos.
+Una vez conectado a Azure Database for PostgreSQL Hiperescala (Citus) mediante psql, puede completar algunas tareas básicas. Este tutorial lo guiará a través de la ingesta de datos de tráfico provenientes del análisis web y posterior acumulación de los datos para proporcionar paneles en tiempo real basados en esos datos.
 
 Vamos a crear una tabla que consumirá todos los datos de tráfico web sin procesar. Ejecute los comandos siguientes en el terminal psql:
 

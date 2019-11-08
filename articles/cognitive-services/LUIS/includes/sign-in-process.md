@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 09/02/2018
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 00eb6f40e77cbdb64249600e35ca8531f1a744a8
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1effd07cef439a6257028549b7b7114b742eb478
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258126"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488815"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Inicio de sesión en el portal de LUIS
 
@@ -30,7 +30,7 @@ Un nuevo usuario de LUIS debe seguir este procedimiento:
 
     ![Creación de un recurso de creación](../media/migrate-authoring-key/choose-authoring-resource-form.png)
 
-    Al **crear un nuevo recurso de creación**, proporcione la siguiente información: 
+    Al **crear un nuevo recurso de creación**, proporcione la información siguiente: 
 
     * **Nombre del recurso**: el nombre personalizado que elija, que se usa como parte de la dirección URL para las consultas de punto de conexión de creación y predicción.
     * **Inquilino**: el inquilino con el que está asociada la suscripción de Azure. 
@@ -41,8 +41,8 @@ Un nuevo usuario de LUIS debe seguir este procedimiento:
 
 1. Se muestra un resumen del recurso que se va a crear. Seleccione **Next** (Siguiente).
 
-    ![Creación de un recurso de creación](./media/sign-in-confirm-key-selection.png)
+    ![Creación de un recurso de creación](../media/sign-in/sign-in-confirm-key-selection.png)
 
-1. El paso 3 es una confirmación. Para confirmar la selección, seleccione **Continuar**. 
+1. Para confirmar, seleccione **Continuar**. 
 
-    ![Creación de un recurso de creación](./media/sign-in-confirm-continue.png)
+    ![Creación de un recurso de creación](../media/sign-in/sign-in-confirm-continue.png)

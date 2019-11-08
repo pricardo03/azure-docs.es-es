@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/24/2019
+ms.date: 10/14/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9b3d18a7f59415b27b1a70067c9a8a610140ca25
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: f6a417e33ac9c60c978d8638539a1e5a0772a034
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672936"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475048"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación de página única mediante Azure Active Directory B2C (Azure AD B2C)
 
@@ -48,6 +48,10 @@ También necesita los siguientes elementos en su entorno de desarrollo:
 
 En el segundo tutorial que completó como parte de los requisitos previos, registró una aplicación web en Azure AD B2C. Para habilitar la comunicación con el ejemplo en este tutorial, deberá agregar un identificador URI de redirección a la aplicación en Azure AD B2C.
 
+Para actualizar la aplicación, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información sobre la experiencia en versión preliminar](http://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
 1. Seleccione **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
@@ -55,6 +59,19 @@ En el segundo tutorial que completó como parte de los requisitos previos, regis
 1. En **URL de respuesta**, agregue `http://localhost:6420`.
 1. Seleccione **Guardar**.
 1. En la página de propiedades, registre el **identificador de aplicación**. Dicho identificador se usará en un paso posterior para actualizar el código de la aplicación web de una página.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. Seleccione **Registros de aplicaciones (versión preliminar)** , seleccione la pestaña **Aplicaciones propias** y, a continuación, seleccione la aplicación *webapp1*.
+1. Seleccione **Autenticación** y, después, seleccione **Probar la nueva experiencia** (si se muestra).
+1. En **Web**, seleccione el vínculo **Agregar URI**, escriba `http://localhost:6420` y, a continuación, seleccione **Guardar**.
+1. Seleccione **Información general**.
+1. Anote el **Id. de aplicación (cliente)** ; lo usará en un paso posterior al actualizar el código en la aplicación web de página única.
+
+* * *
 
 ## <a name="get-the-sample-code"></a>Obtención del código de ejemplo
 
@@ -115,13 +132,16 @@ El ejemplo admite el registro, inicio de sesión, edición de un perfil y restab
 
 ### <a name="sign-up-using-an-email-address"></a>Registro con una dirección de correo electrónico
 
+> [!WARNING]
+> Después del registro o el inicio de sesión, es posible que se muestre un [error de permisos insuficientes](#error-insufficient-permissions). Este error está previsto, debido a la implementación actual del código de ejemplo. Este problema se resolverá en una versión futura del código de ejemplo, momento en el que se quitará esta advertencia.
+
 1. Seleccione **Iniciar sesión** para iniciar el flujo de usuario *B2C_1_signupsignin1* que especificó en un paso anterior.
 1. Azure AD B2C presenta una página de inicio de sesión con un vínculo de registro. Como no tiene aún una cuenta, seleccione el vínculo **Registrarse ahora**.
 1. El flujo de trabajo del registro presenta una página para recopilar y verificar la identidad del usuario con una dirección de correo electrónico. El flujo de trabajo de registro también recopila la contraseña del usuario y los atributos requeridos definidos en el flujo de usuario.
 
     Utilice una dirección de correo electrónico válida y valídela mediante el código de verificación. Establezca una contraseña. Especifique valores para los atributos solicitados.
 
-    ![Página de registro presentada por el flujo de usuario de inicio de sesión o registro](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![Página de registro presentada por el flujo de usuario de inicio de sesión o registro](./media/active-directory-b2c-tutorials-spa/azure-ad-b2c-sign-up-workflow.png)
 
 1. Seleccione **Crear** para crear una cuenta local en el directorio de Azure AD B2C.
 
@@ -131,7 +151,7 @@ Ahora puede usar su dirección de correo electrónico y contraseña para iniciar
 
 ### <a name="error-insufficient-permissions"></a>Error: permisos insuficientes
 
-Tras iniciar sesión, la aplicación muestra el error "permisos insuficientes". Este es el comportamiento **previsto**.
+Después de iniciar sesión, es posible que la aplicación devuelva un error de permisos insuficientes:
 
 ```Output
 ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
@@ -139,7 +159,7 @@ Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
 Timestamp: 2019-07-20 22:17:27Z
 ```
 
-Recibirá este error porque la aplicación web está intentando acceder a una API web protegida por el directorio de demostración *fabrikamb2c*. Como el token de acceso solamente es válido para su directorio de Azure AD, la llamada API no tiene autorización.
+Recibirá este error porque la aplicación web está intentando acceder a una API web protegida por el directorio de demostración *fabrikamb2c*. Como el token de acceso solamente es válido para el directorio de Azure AD, la llamada a la API no tiene autorización.
 
 Para corregir este error, continúe en el siguiente tutorial de la serie (consulte [Siguientes pasos](#next-steps)) para crear una API web protegida para el directorio.
 

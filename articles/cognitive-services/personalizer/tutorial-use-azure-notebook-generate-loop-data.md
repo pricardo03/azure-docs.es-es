@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c0dc40ee2d748b1f48c3254a3e3a6e197069c08
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515176"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467248"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Uso de Personalizer en Azure Notebook
 
@@ -170,7 +170,7 @@ def get_last_updated(currentModifiedDate):
 
 Compruebe el estado del servicio con estas dos llamadas a REST.
 
-Estas celdas no tienen ninguna salida. Cuando se llama a la función, la salida indica la configuración del servicio.
+Estas celdas no tienen ninguna salida. Cuando se llama a la función, la salida indica los valores del servicio.
 
 ```python
 def get_service_settings():
@@ -574,11 +574,11 @@ Este gráfico muestra el éxito del modelo para la directiva de aprendizaje pred
 ![Este gráfico muestra el éxito de la directiva de aprendizaje actual para la duración de la prueba.](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
 
-El objetivo ideal es que, al final de la prueba, el bucle ofrezca una tasa de éxito media próxima al 100 % menos la exploración. La configuración predeterminada de la exploración es del 20 %. 
+El objetivo ideal es que, al final de la prueba, el bucle ofrezca una tasa de éxito media próxima al 100 % menos la exploración. El valor predeterminado de exploración es 20 %. 
 
 `100-20=80`
 
-Este valor de exploración se encuentra en Azure Portal, para el recurso Personalizer, en la página **Configuración**. 
+Este valor de exploración se encuentra en la página **Configuración** del recurso Personalizer de Azure Portal. 
 
 Si quiere encontrar una directiva de aprendizaje mejor, en función de los datos de la API Rank, ejecute una [evaluación sin conexión](how-to-offline-evaluation.md) en el portal para el bucle de Personalizer.
 

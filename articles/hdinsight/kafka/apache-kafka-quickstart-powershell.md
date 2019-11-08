@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Configuración de Apache Kafka en HDInsight mediante Azure PowerShell'
+title: 'Inicio rápido: Creación de Apache Kafka con Azure PowerShell: HDInsight'
 description: En esta guía de inicio rápido, aprenderá a crear un clúster de Apache Kafka en Azure HDInsight con Azure PowerShell. También aprenderá sobre los temas, los suscriptores y los consumidores de Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 79224879dc0f23c7ad022134c6add087b90304b7
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: d14d8f38ff8a2bed01584d5c5fec56d254cede05
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123164"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494751"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante PowerShell
 
@@ -28,6 +28,8 @@ Solo los recursos dentro de la misma red virtual pueden tener acceso a la API de
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Instalación del [módulo Az](https://docs.microsoft.com/powershell/azure/overview) de PowerShell.
 

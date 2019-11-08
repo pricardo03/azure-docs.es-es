@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9531e86e63fa8d944aa216fddd0c8215b73038a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307610"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492712"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obtener datos coincidentes con el texto exacto de una expresión
 
 En este tutorial, aprenderá cómo obtener datos de entidad que coincidan con una lista de elementos predefinida. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **En este tutorial, aprenderá a:**
 
@@ -78,7 +80,7 @@ Una entidad de lista es una buena opción para este tipo de datos cuando:
     |Steve Standish to 1234 (Steve Standish a 1234)|
     |Tanner Thompson to 3456 (Tanner Thompson a 3456)|
 
-    [![Captura de pantalla de intención con expresiones de ejemplo](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Screenshot of intent with example utterances")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
+    [![Captura de pantalla de una intención con expresiones de ejemplo](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Captura de pantalla de una intención con expresiones de ejemplo")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
@@ -104,7 +106,7 @@ El nombre principal _canónico_ de cada elemento es el nombre de departamento. L
 
 1. En el cuadro de diálogo emergente de la entidad, escriba `Department` para el nombre de la entidad y **List** (Lista) para el tipo de entidad. Seleccione **Listo**.  
 
-    [![Captura de pantalla del cuadro de diálogo emergente para crear una entidad nueva](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Captura de pantalla del cuadro de diálogo emergente para crear una entidad nueva")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
+    [![Captura de pantalla del cuadro de diálogo emergente de creación de una entidad](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Captura de pantalla del cuadro de diálogo emergente de creación de una entidad")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
 1. En la página de la entidad Department, escriba `Accounting` como el nuevo valor.
 

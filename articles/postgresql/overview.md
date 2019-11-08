@@ -7,15 +7,15 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 05/06/2019
-ms.openlocfilehash: 5194cf51fd7f1debeba76edb48e8377919ae448a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 9d4389ed2c0cc5d7b632380fba691ae2e9a6b257
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177966"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466757"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>¿Qué es Azure Database for PostgreSQL?
-Azure Database for PostgreSQL es un servicio de base de datos relacional en la nube de Microsoft diseñado para desarrolladores. Se basa en la versión de comunidad del motor de base de datos [PostgreSQL](https://www.postgresql.org/) de código abierto y está disponible en dos opciones de implementación: Un solo servidor y Citus (versión preliminar).
+Azure Database for PostgreSQL es un servicio de base de datos relacional en la nube de Microsoft diseñado para desarrolladores. Se basa en la versión de comunidad del motor de base de datos [PostgreSQL](https://www.postgresql.org/) de código abierto y está disponible en dos opciones de implementación: Un solo servidor e Hiperescala (Citus)
 
 ## <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL: Un solo servidor
 La opción de implementación Un solo servidor ofrece:
@@ -32,7 +32,7 @@ Todas estas funcionalidades apenas requieren tareas de administración y todas s
 
 La opción de implementación Un solo servidor ofrece tres planes de tarifa: Básico, De uso general y Optimizado para memoria. Cada plan ofrece capacidades de recursos diferente para admitir sus cargas de trabajo de la base de datos. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Para obtener más información, consulte los  [planes de tarifa](concepts-pricing-tiers.md).
 
-## <a name="azure-database-for-postgresql---hyperscale-citus-preview"></a>Azure Database for PostgreSQL: Citus (versión preliminar)
+## <a name="azure-database-for-postgresql---hyperscale-citus"></a>Hiperescala (Citus) de Azure Database for PostgreSQL
 La opción Citus escala horizontalmente las consultas entre varias máquinas mediante particionamiento. Su motor de consultas paraleliza las consultas SQL entrantes en estos servidores para agilizar las respuestas en conjuntos de datos grandes. Sirve aplicaciones que requieren mayor escala y mejor rendimiento, por lo general cargas de trabajo que se aproximan a los 100 GB de datos (o que ya los superan).
 
 La opción de implementación Citus ofrece:
@@ -42,8 +42,6 @@ La opción de implementación Citus ofrece:
 - Una excelente compatibilidad con aplicaciones de varios inquilinos, análisis operativos en tiempo real y cargas de trabajo transaccionales de alto rendimiento
 
 Las aplicaciones compiladas para PostgreSQL puede ejecutar consultas distribuidas en Citus con las [bibliotecas de conexiones](./concepts-connection-libraries.md) estándar y unos cambios mínimos.
-
-Tenga en cuenta que Citus está en versión preliminar pública y, por tanto, aún no ofrece un contrato de nivel de servicio.
 
 ## <a name="data-security"></a>Seguridad de los datos
 Azure Database for PostgreSQL mantiene la tradicional seguridad de datos de los servicios de base de datos de Azure. Tiene características que limitan el acceso, protegen los datos en reposo y en movimiento, y le ayudan a supervisar la actividad. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://azure.microsoft.com/overview/trusted-cloud/).
@@ -59,5 +57,5 @@ Además, tenga en cuenta estos puntos de contacto según corresponda:
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte la [página de precios](https://azure.microsoft.com/pricing/details/postgresql/) para ver comparaciones de costos y calculadoras.
-- Comience por crear su primera base de datos de Azure Database for PostgreSQL [Un solo servidor](./quickstart-create-server-database-portal.md) o [Citus (versión preliminar)](./quickstart-create-hyperscale-portal.md)
+- Comience por crear su primera base de datos de [un solo servidor](./quickstart-create-server-database-portal.md) o [Hiperescala (Citus)](./quickstart-create-hyperscale-portal.md) de Azure Database for PostgreSQL.
 - Compile la primera aplicación en Python, PHP, Ruby, C\#, Java, Node.js: [Bibliotecas de conexiones](./concepts-connection-libraries.md)

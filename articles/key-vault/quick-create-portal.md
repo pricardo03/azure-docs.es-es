@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3c0b9ad774d336da9bc60d2ef9f7ff2645602b6c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2530fb0bd27cd98b702d804b0cb5a1dc60419f2f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259212"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490408"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
@@ -29,9 +29,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Creación de un almacén
 
-1. Seleccione la opción **Crear un recurso** de la esquina superior izquierda de Azure Portal.
-
-    ![Salida tras completarse la creación de Key Vault](./media/quick-create-portal/search-services.png)
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
 2. En el cuadro de búsqueda, escriba **Key Vault**.
 3. En la lista de resultados, elija **Key Vault**.
 4. En la sección Key Vault, elija **Crear**.
@@ -84,7 +82,7 @@ Cuando ya no lo necesite, elimine el grupo de recursos; de este modo se eliminar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado una instancia de Key Vault y ha almacenado un secreto en ella. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
+En este inicio rápido ha creado una instancia de Key Vault y ha almacenado un secreto en ella. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
 - Lea una [introducción a Azure Key Vault](key-vault-overview.md).
 - Consulte la [guía del desarrollador de Azure Key Vault](key-vault-developers-guide.md).

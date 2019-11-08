@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 10/11/2019
 ms.author: hamusa
-ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952096"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521226"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Evaluación de máquinas virtuales de VMware con Azure Migrate: Server Assessment
 
@@ -104,7 +104,7 @@ Compruebe que el archivo OVA es seguro, antes de implementarlo.
 2. Ejecute el siguiente comando para generar el código hash para el archivo OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. En el caso de la versión 2.19.07.30, el código hash generado debe coincidir con estos valores. 
+3. En el caso de la versión 2.19.07.30, el código hash generado debe coincidir con estos valores.
 
   **Algoritmo** | **Valor del código hash**
   --- | ---
@@ -166,17 +166,30 @@ Para configurar el dispositivo, siga estos pasos:
 3. Escriba un nombre para el dispositivo. Este nombre debe ser alfanumérico y no puede tener más de 14 caracteres.
 4. Haga clic en **Registrar**.
 
-
 ## <a name="start-continuous-discovery"></a>Inicio de detección continua
 
-Ahora, conéctese desde el dispositivo a vCenter Server e inicie la detección de máquinas virtuales.
+El dispositivo necesita conectarse a vCenter Server para detectar los datos de configuración y rendimiento de las máquinas virtuales.
 
+### <a name="specify-vcenter-server-details"></a>Especificar los detalles de vCenter Server
 1. En **Specify vCenter Server details** (Especificar detalles de vCenter Server), especifique el nombre (nombre de dominio completo) o la dirección IP de vCenter Server. Puede dejar el puerto predeterminado o especificar un puerto personalizado en el que vCenter Server escuche.
 2. En **User name** (Nombre de usuario) y **Password** (Contraseña), especifique las credenciales de la cuenta de solo lectura que el dispositivo utilizará para detectar las máquinas virtuales en vCenter Server. Asegúrese de que la cuenta tenga los [permisos necesarios para la detección](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Puede limitar el ámbito de la detección. Para ello, debe limitar el acceso a la cuenta de vCenter en consecuencia; [aquí](tutorial-assess-vmware.md#scoping-discovery)encontrará más información acerca del ámbito de la detección.
-3. Haga clic en**Validate connection** (Validar conexión) para asegurarse de que el dispositivo puede conectarse a vCenter Server.
-4. Una vez establecida la conexión, haga clic en **Save and start discovery** (Guardar e iniciar detección).
+3. Haga clic en **Validate connection** (Validar conexión) para asegurarse de que el dispositivo puede conectarse a vCenter Server.
 
-De esta forma comienza la detección. Los metadatos de las máquinas virtuales detectadas tardan unos 15 minutos en aparecer en el portal.
+### <a name="specify-vm-credentials"></a>Especificación de credenciales de máquina virtual
+Para la detección de aplicaciones, roles y características, y la visualización de las dependencias de las máquinas virtuales, puede proporcionar una credencial de máquina virtual que tenga acceso a las máquinas virtuales de VMware. Puede agregar una credencial para máquinas virtuales Windows y otra para máquinas virtuales Linux. [Más información](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sobre los privilegios de acceso necesarios.
+
+> [!NOTE]
+> Esta entrada es opcional y necesaria para habilitar la detección de aplicaciones y la visualización de dependencias sin agente.
+
+1. En **Discover applications and dependencies on VMs** (Detectar aplicaciones y dependencias en máquinas virtuales) haga clic en **Agregar credenciales**.
+2. En **Operating System** (Sistema operativo) seleccione el sistema operativo.
+3. Proporcione un nombre descriptivo para la credencial.
+4. En **Username** (Nombre de usuario) y **Password** (Contraseña), especifique una cuenta que tenga al menos acceso de invitado en las máquinas virtuales.
+5. Haga clic en **Agregar**.
+
+Cuando haya especificado las credenciales de las máquinas virtuales y de vCenter Server (este paso es opcional), haga clic en **Save and start discovery** (Guardar e iniciar detección) para iniciar la detección del entorno local.
+
+Los metadatos de las máquinas virtuales detectadas tardan unos 15 minutos en aparecer en el portal. La detección de las aplicaciones, las características y los roles instalados lleva tiempo, el cual depende del número de máquinas virtuales que se detectan. En el caso de 500 máquinas virtuales, el inventario de la aplicación tarda aproximadamente 1 hora en aparecer en el portal de Azure Migrate.
 
 ### <a name="scoping-discovery"></a>Ámbito de detección
 
@@ -205,18 +218,18 @@ Para establecer el ámbito, tiene que realizar los siguientes pasos:
 **Asignación de permisos de objetos de vCenter**
 
 Hay dos enfoques para asignar permisos de objetos de inventario en vCenter a la cuenta de usuario de vCenter con un rol asignado.
-- En Server Assesment, el rol de **solo lectura** debe aplicarse a la cuenta de usuario de vCenter para todos los objetos primarios en los que se hospedan las máquinas virtuales que se van a detectar. Se incluyen todos los objetos primarios (host, carpeta de hosts, clúster, carpeta de clústeres) de la jerarquía hasta el centro de datos. Estos permisos se propagan a los objetos secundarios en la jerarquía. 
+- En Server Assesment, el rol de **solo lectura** debe aplicarse a la cuenta de usuario de vCenter para todos los objetos primarios en los que se hospedan las máquinas virtuales que se van a detectar. Se incluyen todos los objetos primarios (host, carpeta de hosts, clúster, carpeta de clústeres) de la jerarquía hasta el centro de datos. Estos permisos se propagan a los objetos secundarios en la jerarquía.
 
     De forma similar en Server Migration, debe aplicarse un rol definido por el usuario (se puede llamar <em>Azure _Migrate</em>) con estos [privilegios](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) asignados a la cuenta de usuario de vCenter para todos los objetos primarios donde se hospeden las máquinas virtuales que se van a migrar.
 
 ![Asignación de permisos](./media/tutorial-assess-vmware/assign-perms.png)
 
 - La alternativa consiste en asignar la cuenta y el rol de usuario en el nivel de centro de datos y propagarlos a los objetos secundarios. A continuación, conceda a la cuenta un rol **Sin acceso** para cada objeto (como las máquinas virtuales) que no quiera detectar o migrar. Esta configuración es complicada. Expone controles de acceso accidental, ya que cada nuevo objeto secundario también concede automáticamente el acceso que se hereda del objeto primario. Por lo tanto, se recomienda usar el primer enfoque.
- 
+
 > [!NOTE]
 > En la actualidad, Server Assessment no puede detectar máquinas virtuales si a la cuenta de vCenter se le ha concedido acceso en el nivel de carpeta de máquina virtual de vCenter. Si tiene intención de limitar el ámbito de detección por carpetas de máquina virtual, asegúrese de que la cuenta de vCenter tiene asignado acceso de solo lectura asignado a nivel de máquina virtual.  A continuación se proporcionan instrucciones para hacerlo:
 >
-> 1. Asigne permisos de solo lectura en todas las máquinas virtuales de las carpetas de las máquinas virtuales en las que desea limitar el ámbito de la detección. 
+> 1. Asigne permisos de solo lectura en todas las máquinas virtuales de las carpetas de las máquinas virtuales en las que desea limitar el ámbito de la detección.
 > 2. Conceda acceso de solo lectura a todos los objetos primarios en los que se hospeden las máquinas virtuales. Se incluyen todos los objetos primarios (host, carpeta de hosts, clúster, carpeta de clústeres) de la jerarquía hasta el centro de datos. No es necesario propagar los permisos a todos los objetos secundarios.
 > 3. Use las credenciales para la detección al seleccionar el centro de datos como *Ámbito del grupo*. La configuración de RBAC garantiza que el usuario correspondiente de vCenter solo tenga acceso a las máquinas virtuales específicas del inquilino.
 >

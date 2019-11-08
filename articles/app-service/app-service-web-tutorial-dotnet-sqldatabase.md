@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f010e7564f097f28269070d85e2895e73f454054
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2f815d99c32c2dcaa1fd35d00110b27a90f53ab4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415570"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471214"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Compilación de una aplicación ASP.NET en Azure con SQL Database
 
@@ -201,7 +201,7 @@ Una vez que Visual Studio termina de crear la configuración de firewall para su
 
 Aquí, puede realizar las operaciones de base de datos más comunes, como ejecutar consultas, crear vistas y procedimientos almacenados, entre otras. 
 
-Expanda la conexión > **Bases de datos** > **&lt;base de datos >** > **Tablas**. Haga clic con el botón derecho en la tabla `Todoes` y seleccione **Ver datos**. 
+Expanda la conexión > **Bases de datos** >  **&lt;base de datos >**  > **Tablas**. Haga clic con el botón derecho en la tabla `Todoes` y seleccione **Ver datos**. 
 
 ![Exploración de objetos de SQL Database](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
@@ -311,7 +311,7 @@ Haga clic en **Configurar** para abrir la configuración de publicación.
 
 En el asistente, haga clic en **Siguiente**.
 
-Asegúrese de que la cadena de conexión de su instancia de SQL Database se rellena en **MyDatabaseContext (MyDbConnection)**. Debe seleccionar la base de datos **myToDoAppDb** en la lista desplegable. 
+Asegúrese de que la cadena de conexión de su instancia de SQL Database se rellena en **MyDatabaseContext (MyDbConnection)** . Debe seleccionar la base de datos **myToDoAppDb** en la lista desplegable. 
 
 Seleccione **Ejecutar Migraciones de Code First (se ejecuta al iniciar la aplicación)** y luego haga clic en **Guardar**.
 
@@ -364,7 +364,7 @@ Para cambiar los niveles de seguimiento para generar otros mensajes de seguimien
 
 Haga clic de nuevo con el botón derecho en la aplicación de Azure y seleccione **Ver configuración**.
 
-En la lista desplegable **Registro de la aplicación (sistema de archivos)**, seleccione **Detallado**. Haga clic en **Save**(Guardar).
+En la lista desplegable **Registro de la aplicación (sistema de archivos)** , seleccione **Detallado**. Haga clic en **Save**(Guardar).
 
 ![Cambiar el nivel de seguimiento a Detallado](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -392,11 +392,11 @@ Para detener el servicio de secuencias de registros, haga clic en el botón **De
 
 ## <a name="manage-your-azure-app"></a>Administración de la aplicación de Azure
 
-Vaya a [Azure Portal](https://portal.azure.com) para ver la aplicación que ha creado. 
+Vaya a [Azure Portal](https://portal.azure.com) para administrar la aplicación web. Busque y seleccione **App Services**. 
 
+![Búsqueda de Azure App Services](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
-
-En el menú izquierdo, haga clic en **App Service** y luego haga clic en el nombre de la aplicación de Azure.
+Seleccione el nombre de la aplicación de Azure.
 
 ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 

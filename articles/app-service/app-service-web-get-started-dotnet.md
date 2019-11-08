@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 82a1dc293a019e4a48760ccbce830d067f2d620d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 919e717811b3b04ca7407772fcf11f293d58508c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240934"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471577"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Creación de una aplicación web ASP.NET Core en Azure
 
@@ -139,17 +139,19 @@ Cuando se completa la publicación, Visual Studio inicia un explorador en la dir
 
 ## <a name="manage-the-azure-app"></a>Administración de la aplicación de Azure
 
-1. Vaya a <a href="https://portal.azure.com" target="_blank">Azure Portal</a> para administrar la aplicación web.
+Para administrar la aplicación web, vaya a [Azure Portal](https://portal.azure.com) y busque y seleccione **App Services**.
 
-1. En el menú izquierdo, seleccione **App Services** y, después, el nombre de la aplicación de Azure.
+![Selección de App Services](./media/app-service-web-get-started-dotnet/app-services.png)
 
-   ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
+En la página **App Services**, seleccione el nombre de la aplicación web.
 
-   Podrá ver la página de información general de la aplicación web. En ella, puede realizar una administración básica como examinar, detener, iniciar, reiniciar y eliminar.
+![Navegación en el portal a la aplicación de Azure](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
 
-   ![App Service en Azure Portal](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+Podrá ver la página de información general de la aplicación web. En ella, puede realizar una administración básica como examinar, detener, iniciar, reiniciar y eliminar.
 
-   El menú izquierdo proporciona distintas páginas para configurar la aplicación.
+![App Service en Azure Portal](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+
+El menú izquierdo proporciona distintas páginas para configurar la aplicación.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

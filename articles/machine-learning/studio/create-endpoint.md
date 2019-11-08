@@ -1,7 +1,7 @@
 ---
 title: Creación de puntos de conexión de servicio web
-titleSuffix: Azure Machine Learning Studio
-description: Cree puntos de conexión de servicio web en Azure Machine Learning Studio. Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente.
+titleSuffix: ML Studio (classic) Azure
+description: Cree puntos de conexión de servicio web en Azure Machine Learning Studio (clásico). Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: ac434a696f6e77e5ce61b430232166e7727eda38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca7061171eb68b7473f3bf72423e481f6c5dfee1
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751185"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619569"
 ---
-# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Creación de puntos de conexión para los servicios web de Azure Machine Learning Studio implementados
+# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Creación de puntos de conexión para los servicios web de Azure Machine Learning Studio (clásico) implementados
 
 > [!NOTE]
 > En este tema se describen técnicas que se aplican a un servicio web de Machine Learning **Clásico**.
@@ -32,14 +32,14 @@ Puede agregar un punto de conexión a un servicio web mediante el portal de serv
 > [!NOTE]
 > Si ha agregado más puntos de conexión al servicio web, no podrá eliminar el predeterminado.
 
-1. En Machine Learning Studio, en la columna de navegación izquierda, haga clic en Servicios web.
+1. En Machine Learning Studio (clásico), en la columna de navegación izquierda, haga clic en Servicios web.
 2. En la parte inferior del panel de servicios web, haga clic en **Manage endpoints**(Administrar puntos de conexión). El portal de servicios web de Azure Machine Learning se abre en la página de puntos de conexión del servicio web.
 3. Haga clic en **Nuevo**.
 4. Escriba un nombre y una descripción para el nuevo punto de conexión. Los nombres de los puntos de conexión deben tener 24 caracteres o menos y deben estar formados por letras en minúsculas o números. Seleccione el nivel de registro y si los datos de ejemplo están habilitados. Para más información sobre los registros, vea [Habilitar el registro para los servicios web de Machine Learning](web-services-logging.md).
 
 ## <a id="scaling"></a> Escalado de un servicio web mediante la incorporación de puntos de conexión adicionales
 
-De manera predeterminada, cada servicio web publicado está configurado para admitir 20 solicitudes simultáneas y 200 solicitudes simultáneas como máximo. Azure Machine Learning Studio optimiza automáticamente este valor con el fin de brindar el mejor rendimiento al servicio web, por lo que se omite el valor del portal.
+De manera predeterminada, cada servicio web publicado está configurado para admitir 20 solicitudes simultáneas y 200 solicitudes simultáneas como máximo. La versión clásica de Azure Machine Learning Studio optimiza automáticamente este valor con el fin de brindar el mejor rendimiento al servicio web, por lo que se omite el valor del portal.
 
 Si tiene previsto llamar a la API con una carga mayor que un máximo de 200 llamadas simultáneas, debe crear varios puntos de conexión en el mismo servicio web. Acto seguido, podrá distribuir aleatoriamente la carga entre todos ellos.
 

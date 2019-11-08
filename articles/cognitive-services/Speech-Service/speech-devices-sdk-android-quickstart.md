@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f7039b525cf0d52670b8d76a24d8ec3ea5115772
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: acb041ce29d0340686a09764158063ad8d000c7c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559107"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491317"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Inicio rápido: Ejecución de la aplicación de ejemplo de Speech Devices SDK en Android
 
@@ -102,14 +102,14 @@ Para validar la configuración del kit de desarrollo, compile e instale la aplic
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. La palabra de activación predeterminada (palabra clave) es "Equipo". Además, puede probar una de las otras palabras de activación proporcionadas, como "Máquina" o "Asistente". Los archivos de recursos de estas palabras de activación alternativas pueden encontrarse en el SDK de dispositivos de voz en la carpeta de palabras clave. Por ejemplo, C:\SDSDK\Android-Sample-Release\keyword\Computer contiene los archivos que se usan para la palabra de activación "Equipo".
+1. La palabra clave predeterminada es "Equipo". Además, puede probar una de las otras palabras clave proporcionadas, como "Máquina" o "Asistente". Los archivos de recursos de estas palabras clave alternativas pueden encontrarse en Speech Devices SDK en la carpeta de palabras clave. Por ejemplo, C:\SDSDK\Android-Sample-Release\keyword\Computer contiene los archivos que se usan para la palabra clave "Equipo".
 
    > [!TIP]
-   > También puede [crear una palabra de activación personalizada](speech-devices-sdk-create-kws.md).
+   > También puede [crear una palabra clave personalizada](speech-devices-sdk-create-kws.md).
 
-    Para usar una nueva palabra de reactivación, actualice las dos líneas siguientes en `MainActivity.java` y copie el paquete de palabras de reactivación en la aplicación. Por ejemplo, para usar la palabra de reactivación "Máquina" desde el paquete de palabras de reactivación kws-machine.zip:
+    Para usar una nueva palabra clave, actualice las dos líneas siguientes en `MainActivity.java` y copie el paquete de palabras clave en la aplicación. Por ejemplo, para usar la palabra clave "Máquina" desde el paquete de palabras clave kws-machine.zip:
 
-   * Copie el paquete de palabras de reactivación en la carpeta "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
+   * Copie el paquete de palabras clave en la carpeta "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
    * Actualice `MainActivity.java` con la palabra clave y el nombre del paquete:
 
      ```java

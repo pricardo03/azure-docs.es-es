@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8a6bc8b71f5f8edda76faa1a8d1b20417dfba1d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 84af496a92bd3c7b30062e965335782f7661aa4a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478660"
+ms.locfileid: "73575651"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
@@ -49,7 +49,7 @@ Azure Maps genera un *identificador único (Id. de cliente)* para cada cuenta de
 | Azure Government    | https://login.microsoftonline.us |
 
 
-Para más información sobre cómo configurar Azure AD y solicitar tokens para Azure Maps, consulte [Administración de la autenticación en Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Para más información sobre cómo configurar Azure AD y solicitar tokens para Azure Maps, consulte [Administración de la autenticación en Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 Para información general sobre la solicitud de tokens de Azure AD, consulte [¿Qué es la autenticación?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
@@ -92,6 +92,6 @@ Las [identidades administradas para recursos de Azure](https://docs.microsoft.co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre la autenticación de una aplicación con Azure AD y Azure Maps, consulte [Administración de la autenticación en Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+* Para más información sobre la autenticación de una aplicación con Azure AD y Azure Maps, consulte [Administración de la autenticación en Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 * Para más información sobre la autenticación del Control mapa de Azure Maps y Azure AD, consulte [Uso del Control de mapa de Azure Maps](https://aka.ms/amaadmc).

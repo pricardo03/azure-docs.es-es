@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/09/2019
-ms.openlocfilehash: 3f969fb346ce341e694458dcc38bf193f012226b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f7cdfb8b9edbce5ef2b094cf6a603904d39a7404
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792656"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493630"
 ---
 Una canalización se ejecuta en un destino de proceso que es un recurso de proceso asociado al área de trabajo. Una vez creado un destino de proceso, puede volver a utilizarlo para futuras ejecuciones.
 
@@ -25,7 +25,7 @@ Una canalización se ejecuta en un destino de proceso que es un recurso de proce
     Si ya tiene un destino de proceso disponible, puede seleccionarlo para ejecutar esta canalización.
 
     > [!NOTE]
-    > La interfaz visual solo puede ejecutar experimentos en destinos de proceso de Machine Learning. Otros destinos de proceso no aparecerán.
+    > En el diseñador solo se pueden ejecutar experimentos en destinos de proceso de Machine Learning. Otros destinos de proceso no aparecerán.
 
 1. Proporcione un nombre para el recurso de proceso.
 

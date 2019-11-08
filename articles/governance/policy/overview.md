@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
-ms.openlocfilehash: b8628d60110818fe64e5b09b400a1396213147b6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 46d78ca9f82017e1a11642af6e5dcdc68e239c8a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980769"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498266"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Introducción al servicio Azure Policy
 
@@ -48,12 +48,11 @@ El proceso de creación e implementación de una directiva en Azure Policy comie
 
 En Azure Policy, se ofrecen varias directivas integradas que están disponibles de manera predeterminada. Por ejemplo:
 
-- **Requerir SQL Server 12.0**: valida que todos los servidores SQL usan la versión 12.0. Su efecto es denegar todos los servidores que no cumplen estos criterios.
 - **SKU permitidas de cuentas de almacenamiento**: determina si una cuenta de almacenamiento que se va a implementar se engloba dentro de un conjunto de tamaños de SKU. Su efecto es denegar todas las cuentas de almacenamiento que no cumplen el conjunto de tamaños de SKU definidos.
 - **Tipo de recurso permitido**: define los tipos de recursos que se pueden implementar. Su efecto es denegar todos los recursos que no forman parte de esta lista definida.
 - **Ubicaciones permitidas**: restringe las ubicaciones disponibles para los nuevos recursos. Su efecto se utiliza para exigir los requisitos de cumplimiento de replicación geográfica.
 - **SKU de máquina virtual permitidas**: especifica un conjunto de SKU de máquina virtual que se pueden implementar.
-- **Aplicar etiqueta y su valor predeterminado**: aplica una etiqueta obligatoria y su valor predeterminado si la solicitud de implementación no la especifica.
+- **Agregar una etiqueta a los recursos**: aplica una etiqueta obligatoria y su valor predeterminado si la solicitud de implementación no la especifica.
 - **Aplicar una etiqueta y su valor**: aplica una etiqueta obligatoria y su valor a un recurso.
 - **Tipos de recursos no permitidos**: impide la implementación de una lista de tipos de recursos.
 

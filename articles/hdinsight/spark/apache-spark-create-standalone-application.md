@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Aplicación de Scala Maven para Spark con IntelliJ (Azure HDInsight)'
+title: 'Tutorial: Aplicación de Scala Maven para Spark e IntelliJ en Azure HDInsight'
 description: 'Tutorial: Creación de una aplicación de Spark escrita en Scala con Apache Maven como sistema de compilación y con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA.'
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 667590120bba4676cbedf3d3bb2ff08e31656e1d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 156892a4785bf1644d29b82e98c3b2ae202c5a49
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71147018"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494707"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Creación de una aplicación de Scala Maven para Apache Spark en HDInsight mediante IntelliJ
 
@@ -220,7 +220,7 @@ Si no va a seguir usando esta aplicación, elimine el clúster que creó mediant
 
 1. Seleccione **Eliminar**. Seleccione **Sí**.
 
-![Eliminación de un clúster de HDInsight en Azure Portal](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "Eliminación de un clúster de HDInsight")
+![Eliminación de clúster de HDInsight en Azure Portal](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "Eliminación de un clúster de HDInsight")
 
 ## <a name="next-step"></a>Paso siguiente
 

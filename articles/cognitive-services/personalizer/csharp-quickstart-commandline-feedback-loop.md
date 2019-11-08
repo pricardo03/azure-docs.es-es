@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 4308ed6d00bd3900986f08a93a686f0d7d00bcfb
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: b86a8df86b7f9b8a5936752a5f0413aa863ae85f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515600"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490806"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Personalizer para .NET
 
@@ -38,19 +38,18 @@ Introducción a la biblioteca de cliente de Personalizer para .NET. Siga estos p
 Hay que dar varios pasos para usar este inicio rápido:
 
 * En Azure Portal, cree un recurso de Personalizer
-* En Azure Portal, en el recurso Personalizer de la página **Configuración**, cambie la frecuencia de actualización del modelo
+* En la página **Configuración** del recurso Personalizer de Azure Portal, cambie la frecuencia de actualización del modelo.
 * En un editor de código, cree un archivo de código y edítelo
 * En la línea de comandos o en el terminal, instale el SDK desde la línea de comandos
 * En la línea de comandos o en el terminal, ejecute el archivo de código
 
 ## <a name="create-a-personalizer-azure-resource"></a>Creación de un recurso de Azure para Personalizer
 
-Los servicios de Azure Cognitive Services se representan por medio de recursos de Azure a los que se suscribe. Cree un recurso para Personalizer mediante [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede:
+Cree un recurso para Personalizer mediante [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o la [CLI de Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) en la máquina local. También puede:
 
 * Obtener una [clave de prueba](https://azure.microsoft.com/try/cognitive-services) válida durante siete días de forma gratuita. Después de registrarse, estará disponible en el [sitio web de Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Ver el recurso en [Azure Portal](https://portal.azure.com/)
 
-<!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
 Después de obtener una clave del recurso o la suscripción de evaluación, cree dos [variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
 * `PERSONALIZER_RESOURCE_KEY` para la clave de recurso.
@@ -60,7 +59,7 @@ En Azure Portal, los valores de clave y punto de conexión están disponibles en
 
 ## <a name="change-the-model-update-frequency"></a>Cambio de la frecuencia de actualización del modelo
 
-En Azure Portal, en el recurso Personalizer de la página **Configuración**, cambie el valor de **Model update frequency** (Frecuencia de actualización del modelo) a 10 segundos. Así se entrenará el servicio rápidamente, lo que permite ver cómo cambia la acción principal en cada iteración.
+En la página **Configuración** del recurso Personalizer de Azure Portal, cambie el valor de **Model update frequency** (Frecuencia de actualización del modelo) a 10 segundos. Con esta duración breve, el modelo se entrenará rápidamente, lo que permite ver cómo cambia la acción principal en cada iteración.
 
 ![Cambiar la frecuencia de actualización del modelo](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -110,11 +109,11 @@ Para solicitar una clasificación del contenido, cree un [RankRequest](https://d
 
 Para enviar una recompensa a Personalizer, cree un [RewardRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest?view=azure-dotnet-preview) y, a continuación, páselo al método [client.Reward](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward?view=azure-dotnet-preview). 
 
-La determinación de la recompensa en este inicio rápido es trivial. En un sistema de producción, la determinación de lo que afecta a la [puntuación de recompensa](concept-rewards.md) y cuánto le afecta, puede ser un proceso complejo que decida cambiar con el tiempo. Esta debe ser una de las decisiones de diseño principales en la arquitectura de su instancia de Personalizer. 
+La determinación de la recompensa en este inicio rápido es trivial. En un sistema de producción, la determinación de lo que afecta a la [puntuación de recompensa](concept-rewards.md) y cuánto le afecta, puede ser un proceso complejo que decida cambiar con el tiempo. Esta debe ser una de las decisiones de diseño principales en la arquitectura de Personalizer. 
 
 ## <a name="code-examples"></a>Ejemplos de código
 
-Estos fragmentos de código muestran cómo realizar las siguientes acciones con la biblioteca cliente de Personalizer para .NET:
+Estos fragmentos de código muestran cómo realizar las siguientes tareas con la biblioteca cliente de Personalizer para .NET:
 
 * [Creación de un cliente de Personalizer](#create-a-personalizer-client)
 * [Solicitud de una clasificación](#request-a-rank)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 0a2bf306ccfa3a4a4fc80d0d55493f284185bba9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 26793c91c85ba4cc33a07358ab8ff318becb325f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648369"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490703"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -42,8 +42,10 @@ En esta guía de inicio rápido, use una cuenta de almacenamiento de Azure (en c
 En este inicio rápido necesitará el nombre de su cuenta de Azure Storage. El siguiente procedimiento especifica los pasos necesarios para obtener el nombre de una cuenta de almacenamiento: 
 
 1. En un explorador web, vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con su nombre de usuario y contraseña de Azure.
-2. Seleccione **Todos los servicios** > **Almacenamiento** > **Cuentas de almacenamiento**.
+2. En el menú de Azure Portal, seleccione **Todos los servicios** y, a continuación, seleccione **Almacenamiento** > **Cuentas de almacenamiento**. También puede buscar y seleccionar *cuentas de almacenamiento* desde cualquier página.
 3. En la página **Cuentas de Storage**, filtre por su cuenta de almacenamiento (si fuera necesario) y, después, seleccione su cuenta de Storage. 
+
+También puede buscar y seleccionar *cuentas de almacenamiento* desde cualquier página.
 
 #### <a name="create-a-blob-container"></a>Creación de un contenedor de blobs
 En esta sección se crea un contenedor de blobs denominado **adftutorial** en la instancia de Azure Blob Storage.
@@ -64,7 +66,12 @@ Jane, Doe
 
 Guarde el archivo en la carpeta **C:\ADFv2QuickStartPSH**. (Si la carpeta no existe, créela). A continuación, vuelva a Azure Portal y siga estos pasos:
 
-1. En la página *\<Nombre de cuenta>*  - **Blobs** donde lo dejó, seleccione **adftutorial** en la lista actualizada de contenedores. (Si ha cerrado la ventana o cambiado de página, vuelva a iniciar sesión en [Azure Portal](https://portal.azure.com), seleccione**Todos los servicios** > **Storage** > **Cuentas de Storage**, seleccione su cuenta de Storage y, a continuación, seleccione **Blobs** > **adftutorial**.)
+1. En la página *\<Nombre de cuenta>*  - **Blobs** donde lo dejó, seleccione **adftutorial** en la lista actualizada de contenedores.
+
+   1. Si ha cerrado la ventana o ha pasado a otra página; inicie sesión de nuevo en [Azure Portal](https://portal.azure.com).
+   1. En el menú de Azure Portal, seleccione **Todos los servicios** y, a continuación, seleccione **Almacenamiento** > **Cuentas de almacenamiento**. También puede buscar y seleccionar *cuentas de almacenamiento* desde cualquier página.
+   1. Seleccione la cuenta de almacenamiento y, después, seleccione **Blobs** > **adftutorial**.
+
 2. En la barra de herramientas de la página del contenedor **adftutorial**, seleccione **Cargar**.
 3. En la página **Cargar blob**, seleccione **Archivos** y, a continuación, busque y seleccione el archivo **emp.txt**.
 4. Expanda el título **Avanzado**. La página aparece ahora como a continuación:

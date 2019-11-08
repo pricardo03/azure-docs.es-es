@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: 3b60a6da1e7961c7709bb0b19e91dc6f15a51a1c
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: fc3c7ea2f0060fc6ab20fa821c9e45d6e5173d4f
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316777"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795797"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -260,10 +260,10 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 
 |                                  |                    | **Modelo de cifrado y administración de claves** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Lado servidor mediante claves administradas por el cliente**             | **Lado cliente mediante claves administradas por el cliente**      |
+|                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Lado servidor mediante claves administradas por el cliente**             | **Lado cliente mediante clave administrada por el cliente**      |
 | **Inteligencia artificial y aprendizaje automático**      |                    |                    |                    |
-| Azure Search                     | Sí                | Vista previa            | -                  |
-| Servicio Azure Machine Learning   | Sí                | -                  | -                  |
+| Azure Cognitive Search                     | Sí                | Vista previa            | -                  |
+| Azure Machine Learning   | Sí                | -                  | -                  |
 | Azure Machine Learning Studio    | Sí                | Versión preliminar, RSA de 2048 bits | -               |
 | Power BI                         | Sí                | Versión preliminar, RSA de 2048 bits | -                  |
 | **Analytics**                    |                    |                    |                    |

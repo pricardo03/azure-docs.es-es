@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9e51249bdcfa3cf506700cd3032b1ca39b773d82
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7c31c04137a8d36adfe41a18cbc276a45483b05b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73102364"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467181"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Autenticación en Key Vault con una directiva de control de acceso
 
@@ -162,7 +162,7 @@ Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys
 
 Puede crear un grupo de Azure AD, agregar aplicaciones y usuarios al grupo y conceder al grupo acceso al almacén de claves.  Esto permite agregar una serie de aplicaciones a un almacén de claves como una sola entrada de directiva de acceso y elimina la necesidad de proporcionar a los usuarios acceso directo al almacén de claves (procedimiento no recomendado). Para más detalles, consulte [Administración del acceso a recursos y aplicaciones con grupos en Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md).
 
-### <a name="addition-prerequisites"></a>Otros requisitos previos
+### <a name="additional-prerequisites"></a>Requisitos previos adicionales
 
 Además de los [requisitos previos anteriores](#prerequisites), necesitará permisos de creación/edición de grupos en el inquilino de Azure Active Directory. Si no tiene permisos, debe ponerse en contacto con el administrador de Azure Active Directory.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: cf5bf3dfd7b6a408179bb267156433168e562a8e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 7f42d5914a2ec7f479a8b3d1df1b8672f318036b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326829"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464628"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#
 
@@ -45,11 +45,12 @@ Asegúrese de disponer de los siguientes elementos antes de empezar este tutoria
 
 LUIS se integra con los servicios de voz para reconocer las intenciones a partir de contenido de voz. No necesita una suscripción a los servicios de voz, solo LUIS.
 
-LUIS usa dos tipos de claves:
+LUIS usa tres tipos de claves:
 
 |Tipo de clave|Propósito|
 |--------|-------|
 |Creación|Le permite crear y modificar aplicaciones de LUIS mediante programación|
+|Inicio|Permite probar la aplicación de LUIS mediante el uso solo de texto.|
 |Punto de conexión |Autoriza el acceso a una aplicación de LUIS concreta|
 
 Para este tutorial, necesitará el tipo de clave de punto de conexión. Este tutorial utiliza la aplicación de LUIS Home Automation de ejemplo, que se puede crear siguiendo el inicio rápido [Uso de automatización del hogar compilada previamente](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si ha creado su propia aplicación de LUIS, puede usarla si lo prefiere.
@@ -195,4 +196,4 @@ Busque el código de este artículo en la carpeta **samples/csharp/sharedcontent
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Reconocimiento de voz](quickstart-csharp-dotnetcore-windows.md)
+> [Reconocimiento de voz](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

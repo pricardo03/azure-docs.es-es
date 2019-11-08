@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: b17b7088276aca6d7d8ed8f2d1cb554479b4de2b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 391cddbbd1b69fb7cb5422adbaea2f3378e273bf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506735"
+ms.locfileid: "73580161"
 ---
 # <a name="long-audio-api-preview"></a>Long Audio API (versión preliminar)
 
@@ -75,7 +75,3 @@ Hay un ejemplo de código para Long Audio API disponible en GitHub.
 * [Código de ejemplo: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
 * [Código de ejemplo: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
 * [Código de ejemplo: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
-
-## <a name="see-also"></a>Otras referencias
-
-* [Referencia de Long Audio API](https://aka.ms/long-audio-ref)

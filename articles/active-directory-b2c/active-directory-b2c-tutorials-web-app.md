@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 09/19/2019
+ms.date: 10/14/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b42634aa86f210382adb1ae224c847a92d89109b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 587848c6718a003bf781f81d0298c73ef1549bb3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103303"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474883"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación web mediante Azure Active Directory B2C
 
@@ -33,11 +33,17 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [Cree flujos de usuario](tutorial-create-user-flows.md) para habilitar las experiencias de usuario en la aplicación.
-* Instalar [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
+* Instalar [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
 
-## <a name="update-the-application"></a>Actualizar la aplicación
+## <a name="update-the-application-registration"></a>Actualización del registro de la aplicación
 
-En el tutorial que completó como parte de los requisitos previos, agregó una aplicación web en Azure AD B2C. Para habilitar la comunicación con el ejemplo en este tutorial, deberá agregar un identificador URI de redirección a la aplicación en Azure AD B2C.
+En el tutorial que completó como parte de los requisitos previos, registró una aplicación web en Azure AD B2C. Para habilitar la comunicación con el ejemplo de este tutorial, debe agregar un URI de redirección y crear un secreto de cliente (clave) para la aplicación registrada.
+
+### <a name="add-a-redirect-uri-reply-url"></a>Adición de un URI de redirección (URL de respuesta)
+
+Para actualizar la aplicación, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información sobre la experiencia en versión preliminar](http://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
@@ -45,8 +51,26 @@ En el tutorial que completó como parte de los requisitos previos, agregó una a
 1. Seleccione **Aplicaciones** y, a continuación, seleccione la aplicación *webapp1*.
 1. En **URL de respuesta**, agregue `https://localhost:44316`.
 1. Seleccione **Guardar**.
-1. En la página de propiedades, registre el identificador de la aplicación que usará cuando configure la aplicación web.
-1. Seleccione **Claves**, después, **Generar clave** y, finalmente, **Guardar**. Registre la clave que usará cuando configure la aplicación web.
+1. En la página de propiedades, anote el identificador de la aplicación; lo usará en un paso posterior al configurar la aplicación web.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. Seleccione **Registros de aplicaciones (versión preliminar)** , seleccione la pestaña **Aplicaciones propias** y, a continuación, seleccione la aplicación *webapp1*.
+1. Seleccione **Autenticación** y, después, seleccione **Probar la nueva experiencia** (si se muestra).
+1. En **Web**, seleccione el vínculo **Agregar URI**, escriba `https://localhost:44316` y, a continuación, seleccione **Guardar**.
+1. Seleccione **Información general**.
+1. Anote el **Id. de aplicación (cliente)** ; lo usará en un paso posterior al configurar la aplicación web.
+
+* * *
+
+### <a name="create-a-client-secret"></a>Creación de un secreto de cliente
+
+A continuación, cree un secreto de cliente para la aplicación web registrada. El código de ejemplo de la aplicación web lo usa para demostrar su identidad al solicitar tokens.
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 ## <a name="configure-the-sample"></a>Configuración del ejemplo
 

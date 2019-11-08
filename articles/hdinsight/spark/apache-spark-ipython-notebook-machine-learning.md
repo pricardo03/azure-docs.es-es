@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Compilación de aplicaciones de aprendizaje automático de Spark en Azure HDInsight'
+title: 'Tutorial: Creación de una aplicación de aprendizaje automático de Spark en Azure HDInsight'
 description: 'Tutorial: Instrucciones detalladas acerca de cómo compilar una aplicación de aprendizaje automático de Apache Spark en clústeres Spark de HDInsight mediante Jupyter Notebook.'
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: e77414da964d548b64250bbf98f86bee1529f2ab
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327011"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494565"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Compilación de aplicaciones de aprendizaje automático de Apache Spark en Azure HDInsight
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 
 La aplicación usa los datos de ejemplo de **HVAC.csv**, que están disponibles en todos los clústeres de manera predeterminada. El archivo se encuentra en `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Los datos muestran la temperatura objetivo y la temperatura real de algunos edificios que tienen sistemas de calefacción, ventilación y aire acondicionado instalados. La columna **System** representa el identificador del sistema y la columna **SystemAge**, el número de años que lleva el sistema HVAC instalado en el edificio. Mediante los datos se puede predecir si un edificio será más cálido o frío en función de la temperatura objetivo, dados un identificador del sistema y la antigüedad del sistema.
 
-![Instantánea de datos usados para el ejemplo de aprendizaje automático de Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Instantánea de datos usados para el ejemplo de aprendizaje automático de Spark")
+![Instantánea de los datos usados para el ejemplo de aprendizaje automático de Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Instantánea de los datos usados para el ejemplo de aprendizaje automático de Spark")
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Desarrollo de una aplicación de aprendizaje automático de Spark mediante Spark MLlib
 
@@ -141,7 +141,7 @@ En esta aplicación se usa una [canalización ML](https://spark.apache.org/docs/
 
     La comparación de la salida con el archivo CSV sin procesar. Por ejemplo, la primera fila del archivo CSV tiene estos datos:
 
-    ![Instantánea de datos de salida para el ejemplo de aprendizaje automático de Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Instantánea de datos de salida para el ejemplo de aprendizaje automático de Spark")
+    ![Instantánea de los datos de salida para el ejemplo de aprendizaje automático de Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Instantánea de los datos de salida para el ejemplo de aprendizaje automático de Spark")
 
     Observe que la temperatura real es menor que la temperatura objetivo, lo que indica que el edificio está frío. Por lo tanto, en la salida de aprendizaje, el valor de **label** en la primera fila es **0.0**, lo que significa que la temperatura del edificio no es cálida.
 
@@ -202,7 +202,7 @@ Si no va a seguir usando esta aplicación, elimine el clúster que creó mediant
 
 1. Seleccione **Eliminar**. Seleccione **Sí**.
 
-![Eliminación en Azure Portal de un clúster de HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Eliminación de un clúster de HDInsight")
+![Azure Portal: eliminación de un clúster de HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Eliminación de un clúster de HDInsight")
 
 ## <a name="next-steps"></a>Pasos siguientes
 

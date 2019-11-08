@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 27578e50c56a9c7dac3d74b88e14d0f8fbe9d402
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 97622df578b6c1357601b32a22c806e9eef77c96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784984"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466875"
 ---
-# <a name="introduction-to-ai-enrichment-in-azure-cognitive-search"></a>Introducción al enriquecimiento con inteligencia artificial en Azure Cognitive Search
+# <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introducción a la inteligencia artificial en Azure Cognitive Search
 
-El enriquecimiento con inteligencia artificial es una funcionalidad de la indexación de Azure Cognitive Search que se usa para extraer texto de imágenes, blobs y otros orígenes de datos no estructurados, enriqueciendo el contenido para facilitar la realización de búsquedas en un índice o en un almacén de conocimiento. La extracción y el enriquecimiento se implementan a través de *conocimientos cognitivos* adjuntados a una canalización de indexación. Las aptitudes cognitivas se encuadran en estas categorías: 
+El enriquecimiento con inteligencia artificial es una funcionalidad de la indexación de Azure Cognitive Search que se usa para extraer texto de imágenes, blobs y otros orígenes de datos no estructurados, enriqueciendo el contenido para facilitar la realización de búsquedas en un índice o en un almacén de conocimiento. La extracción y el enriquecimiento se implementan a través de *conocimientos cognitivos* adjuntados a una canalización de indexación. Las aptitudes cognitivas integradas en el servicio se dividen en estas categorías: 
 
 + Las aptitudes del **procesamiento de lenguaje natural** incluyen [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), [detección de idioma](cognitive-search-skill-language-detection.md), [extracción de frases clave](cognitive-search-skill-keyphrases.md), manipulación de texto y [detección de opiniones](cognitive-search-skill-sentiment.md). Con estas aptitudes, un texto no estructurado puede asumir nuevas formas, asignado e a campos que se pueden buscar y filtrar en un índice.
 
@@ -30,11 +30,17 @@ Las aptitudes cognitivas de Azure Cognitive Search se basan en los modelos de Ma
 Tanto el lenguaje natural como el procesamiento de imágenes se aplican durante la fase de ingesta de datos, con resultados que forman parte de la composición de un documento en un índice en el que se pueden realizar búsquedas en Azure Cognitive Search. Los datos se obtienen como un conjunto de datos de Azure y luego se insertan a través de una canalización de indexación mediante las [aptitudes integradas](cognitive-search-predefined-skills.md) que necesite. La arquitectura es extensible, por lo que si las aptitudes integradas no son suficientes, puede crear y adjuntar [aptitudes personalizadas](cognitive-search-create-custom-skill-example.md) para integrar el procesamiento personalizado. Algunos ejemplos pueden ser un módulo de entidad personalizado o un clasificador de documentos que tiene como destino un dominio específico, como finanzas, publicaciones científicas o medicina.
 
 > [!NOTE]
-> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Se acumulan cargos cuando se llama a las API de Cognitive Services y en la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
+> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
 > La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="when-to-use-cognitive-skills"></a>Cuándo se usan las aptitudes cognitivas
+
+Considere la posibilidad de usar las aptitudes cognitivas integradas si el contenido sin procesar es texto no estructurado, contenido de imagen o contenido que requiere la detección y traducción de idiomas. La aplicación de inteligencia artificial a través de las aptitudes cognitivos integradas puede desbloquear este contenido, lo que aumenta su valor y utilidad en las aplicaciones de ciencia de datos y búsqueda. 
+
+Además, puede considerar la posibilidad de agregar una aptitud personalizada si tiene código de código abierto, de terceros o de otro fabricante que le gustaría integrar en la canalización. Los modelos de clasificación que identifican las características destacadas de varios tipos de documento se encuentran en esta categoría, pero también se puede usar cualquier paquete que agregue valor al contenido.
+
+### <a name="more-about-built-in-skills"></a>Más información sobre las aptitudes integradas
 
 Los conjuntos de aptitudes que se ensamblan mediante aptitudes integradas son apropiados para los siguientes escenarios de la aplicación:
 
@@ -49,6 +55,8 @@ Los conjuntos de aptitudes que se ensamblan mediante aptitudes integradas son ap
   Los blobs a menudo contienen un cuerpo de contenido grande que se empaqueta en un "campo" único. Al adjuntar aptitudes de procesamiento de imágenes y de lenguaje natural a un indizador, puede crear información que exista en el contenido sin procesar, pero que no se expone como campos distintos. Algunas aptitudes cognitivas integradas listas para usar que pueden servidor de ayuda: extracción de frases clave, análisis de opiniones y reconocimiento de entidades (personas, organizaciones y ubicaciones).
 
   Además, las aptitudes integradas también se pueden usar para reestructurar el contenido mediante operaciones de división de texto, combinación y modelado de forma.
+
+### <a name="more-about-custom-skills"></a>Más información sobre las aptitudes personalizadas
 
 Las aptitudes personalizadas pueden admitir escenarios más complejos, como el reconocimiento de formularios o la detección de entidades personalizadas mediante un modelo que se proporciona y se encapsula en la [interfaz web de aptitudes personalizadas](cognitive-search-custom-skill-interface.md). Entre los ejemplos de aptitudes personalizadas se incluyen [Form Recognizer](/azure/cognitive-services/form-recognizer/overview), la integración de [Bing Entity Search API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) y el [reconocimiento de entidades personalizadas](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 

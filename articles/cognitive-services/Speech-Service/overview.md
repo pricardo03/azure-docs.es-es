@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 07/05/2019
+ms.date: 11/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 993064a36bd12c95e83ffb7c9635c3e4dfcec0f0
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 46e9182d9660729dbf65367f52483d96428760ff
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803344"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467389"
 ---
 # <a name="what-are-the-speech-services"></a>¿Qué son los servicios Voz?
 
@@ -35,7 +35,7 @@ Estas características conforman los servicios de voz de Azure. Use los vínculo
 | [Texto a voz](text-to-speech.md) | Texto a voz | Texto a voz convierte el texto de entrada en voz sintetizada similar a la humana mediante el [Lenguaje de marcado de síntesis de voz (SSML)](text-to-speech.md#speech-synthesis-markup-language-ssml). Elija entre voces estándar y voces neuronales (consulte [Compatibilidad de idioma](language-support.md)). | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Creación de voces personalizadas](#customize-your-speech-experience) | Cree fuentes de voz personalizadas únicas para su marca o producto. | Sin | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Traducción de voz](speech-translation.md) | Traducción de voz | La traducción de voz habilita la traducción de voz en varios idiomas en tiempo real en sus aplicaciones, herramientas y dispositivos. Use este servicio para la traducción de voz a voz y voz a texto. | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Sin |
-| [Asistentes virtuales por voz](voice-first-virtual-assistants.md) | Asistentes virtuales por voz | Los asistentes virtuales personalizadas que utilizan los servicios de voz de Azure permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El canal de voz Direct Line de Bot Framework mejora estas funcionalidades porque proporciona un punto de entrada coordinado y organizado a un bot compatible que permite la interacción de entrada y salida de voz con baja latencia y alta confiabilidad. | [Sí](voice-first-virtual-assistants.md) | Sin |
+| [Asistentes de voz](voice-assistants.md) | Asistentes de voz | Los asistentes de voz que utilizan los servicios de voz de Azure permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y una implementación de asistente que usa el canal de voz de Direct Line Speech de Bot Framework o el servicio integrado de comandos personalizados (versión preliminar) para la finalización de tareas. | [Sí](voice-assistants.md) | Sin |
 
 ## <a name="news-and-updates"></a>Noticias y actualizaciones
 
@@ -48,7 +48,7 @@ Obtenga información sobre las novedades con los servicios de voz de Azure.
   * Se ha agregado un nuevo estilo de habla, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), para la voz `en-US-JessaNeural`. 
 * Junio de 2019
   * El SDK de Voz versión 1.6.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
-* Mayo de 2019: ya hay documentación disponible para [Transcripción de conversaciones](conversation-transcription-service.md), [Transcripción de centros de llamadas](call-center-transcription.md) y [Asistentes virtuales por voz](voice-first-virtual-assistants.md).
+* Mayo de 2019: ya hay documentación disponible para [Transcripción de conversaciones](conversation-transcription-service.md), [Transcripción de centros de llamadas](call-center-transcription.md) y [Asistentes de voz](voice-assistants.md).
 * Mayo de 2019
   * Speech SDK versión 1.5.1 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
   * Speech SDK versión 1.5.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
@@ -59,10 +59,9 @@ Ofrecemos guías de inicio rápido en los lenguajes de programación más popula
 
 | Voz a texto (SDK) | Texto a voz (SDK) | Traducción (SDK) |
 |----------------------|----------------------|-------------------|
-| [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) |
-| [JavaScript (Explorador)](quickstart-js-browser.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) |
-| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) |
-| [Java (Windows, Linux)](quickstart-java-jre.md) | | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) |
+| [Reconocimiento de voz de un archivo de audio](quickstarts/speech-to-text-from-file.md) | [Síntesis de voz en un archivo de audio](quickstarts/text-to-speech-audio-file.md) | [Traducción de voz a texto](quickstarts/translate-speech-to-text.md) |
+| [Reconocimiento de voz con un micrófono](quickstarts/speech-to-text-from-microphone.md) | [Síntesis de voz en un altavoz](quickstarts/text-to-speech.md) | [Traducción de voz a varios idiomas de destino](quickstarts/translate-speech-to-text-multiple-languages.md) |
+| [Reconocimiento de voz almacenada en Blob Storage](quickstarts/from-blob.md) | [Síntesis asincrónica para audio de formato largo](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Traducción de voz a voz](quickstarts/translate-speech-to-speech.md) |
 
 > [!NOTE]
 > Voz a texto y texto a voz también tienen asociados puntos de conexión REST e inicios rápidos.
@@ -80,7 +79,7 @@ El código de ejemplo está disponible en GitHub para cada uno de los servicios 
 * [Ejemplos de conversión de voz a texto, texto a voz y traducción de voz (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Ejemplos de transcripción de Azure Batch (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Ejemplos de texto a voz (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
-* [Ejemplos del asistente virtual por voz (SDK)](https://aka.ms/csspeech/samples)
+* [Ejemplos del asistente de voz (SDK)](https://aka.ms/csspeech/samples)
 
 ## <a name="customize-your-speech-experience"></a>Personalización de su experiencia de voz
 

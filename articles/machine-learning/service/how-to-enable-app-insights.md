@@ -11,14 +11,15 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 10/11/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c16b6d769aa191b0e8ac86768a7eafd35ccbc3b9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c02c502dc2ab85a6ae1c602c53723e9b5a758250
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301032"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576737"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Supervisión y recopilación de datos de los puntos de conexión del servicio web ML
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, aprenderá a recopilar datos y a supervisar los modelos implementados en los puntos de conexión de servicio en Azure Kubernetes Service (AKS) o Azure Container Instances (ACI) habilitando Azure Application Insights. Además de recopilar los datos de entrada y la respuesta de un punto de conexión, puede supervisar:
 * Tasas de solicitudes, tiempos de respuesta y tasas de error.
@@ -111,11 +112,11 @@ Para deshabilitar Azure Application Insights, use el siguiente código:
 ## replace <service_name> with the name of the web service
 <service_name>.update(enable_app_insights=False)
 ```
-    
+
 ## <a name="evaluate-data"></a>Evaluación de los datos
 Los datos del servicio se almacenan en la cuenta de Azure Application Insights en el mismo grupo de recursos de Azure Machine Learning.
 Para verlo:
-1. En [Azure Portal](https://portal.azure.com), vaya al área de trabajo del servicio Machine Learning. Haga clic en el vínculo de Azure Application Insights.
+1. Vaya al área de trabajo de Machine Learning Service en [Azure Machine Learning Studio](https://ml.azure.com) y haga clic en el vínculo de Application Insights.
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
@@ -138,7 +139,7 @@ Para más información sobre el uso de Azure Application Insights, consulte [¿Q
 
 ## <a name="export-data-for-further-processing-and-longer-retention"></a>Exportación de datos para su posterior procesamiento y una retención más duradera
 
-Puede usar la [exportación continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) de Azure Application Insights para enviar mensajes a una cuenta de almacenamiento admitida, donde se pueda establecer una retención más larga. Los mensajes de `"model_data_collection"` se almacenan en formato JSON y se pueden analizar fácilmente para extraer los datos del modelo. Se puede usar Azure Data Factory, canalizaciones de Azure Machine Learning u otras herramientas de procesamiento de datos para transformar los datos según sea necesario. Una vez transformados los datos, puede registrarlos en el área de trabajo de Azure Machine Learning Service como un conjunto de datos.
+Puede usar la [exportación continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) de Azure Application Insights para enviar mensajes a una cuenta de almacenamiento admitida, donde se pueda establecer una retención más larga. Los mensajes de `"model_data_collection"` se almacenan en formato JSON y se pueden analizar fácilmente para extraer los datos del modelo. Se puede usar Azure Data Factory, canalizaciones de Azure Machine Learning u otras herramientas de procesamiento de datos para transformar los datos según sea necesario. Una vez transformados los datos, puede registrarlos en el área de trabajo de Azure Machine Learning como un conjunto de datos. Para ello, vea [Creación de conjuntos de datos y acceso a ellos (versión preliminar) en Azure Machine Learning](how-to-create-register-datasets.md).
 
    [![Exportación continua](media/how-to-enable-app-insights/continuous-export-setup.png)](./media/how-to-enable-app-insights/continuous-export-setup.png)
 

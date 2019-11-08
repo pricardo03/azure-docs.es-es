@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6d12b006583c004d12c50bda171c82397ff7949f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 565620f477382ff81f854336dbee7bdb1ad06f01
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276604"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469717"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure Portal
 
@@ -30,7 +30,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-1. Seleccione **Crear un recurso** en el menú de la izquierda de Azure Portal. Aparece la ventana **Nuevo**.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**. Aparece la ventana **Nuevo**.
 
 2. Seleccione **Redes** y **Application Gateway** en la lista **Destacados**.
 
@@ -43,7 +43,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
 
      ![Crear una nueva puerta de enlace de aplicaciones: Aspectos básicos](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2.  Para que Azure se comunique entre los recursos que se crean, se necesita una red virtual. Puede crear una red virtual o usar una existente. En este ejemplo, creará una nueva red virtual a la vez que crea la puerta de enlace de aplicaciones. Se crean instancias de Application Gateway en subredes independientes. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end.
+2. Para que Azure se comunique entre los recursos que se crean, se necesita una red virtual. Puede crear una red virtual o usar una existente. En este ejemplo, creará una nueva red virtual a la vez que crea la puerta de enlace de aplicaciones. Se crean instancias de Application Gateway en subredes independientes. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end.
 
     En **Configurar la red virtual**, seleccione **Crear nuevo** para crear una nueva red virtual. En la ventana **Crear red virtual** que se abre, escriba los valores siguientes para crear la red virtual y dos subredes:
 
@@ -133,9 +133,9 @@ Para ello, necesitará lo siguiente:
 2. Instalar IIS en las máquinas virtuales para comprobar que la puerta de enlace de aplicaciones se ha creado correctamente.
 3. Agregar los servidores back-end al grupo de back-end.
 
-### <a name="create-a-virtual-machine"></a>de una máquina virtual
+### <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
-1. En Azure Portal, seleccione **Crear un recurso**. Aparece la ventana **Nuevo**.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**. Aparece la ventana **Nuevo**.
 2. Haga clic en **Compute** y, a continuación, seleccione **Windows Server 2016 Datacenter** en la lista **Popular**. Aparecerá la página **Creación de una máquina virtual**.<br>Application Gateway puede enrutar el tráfico a cualquier tipo de máquina virtual que se use en el grupo de back-end. En este ejemplo se usa un Windows Server 2016 Datacenter.
 3. Especifique estos valores en la pestaña **Datos básicos** de la siguiente configuración de máquina virtual:
 
@@ -176,7 +176,7 @@ En este ejemplo se instala IIS en las máquinas virtuales con el fin de comproba
 
 ### <a name="add-backend-servers-to-backend-pool"></a>Incorporación de servidores back-end a un grupo de back-end
 
-1. Seleccione **Todos los recursos** y, después, seleccione **myAppGateway**.
+1. En el menú de Azure Portal, seleccione **Todos los recursos** o busque y seleccione *Todos los recursos*. A continuación, seleccione **myAppGateway**.
 
 2. Seleccione los **grupos back-end** en el menú de la izquierda.
 
@@ -205,7 +205,8 @@ No es necesario instalar IIS para crear la puerta de enlace de aplicaciones, per
 Cuando ya no necesite los recursos que ha creado con la puerta de enlace de aplicaciones, elimine el grupo de recursos. Mediante la eliminación del grupo de recursos también elimina la puerta de enlace de aplicaciones y todos sus recursos relacionados. 
 
 Para eliminar el grupo de recursos:
-1. En el menú de la izquierda de Azure Portal, seleccione **Grupos de recursos**.
+
+1. En el menú de Azure Portal, seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos*.
 2. En la página **Grupos de recursos**, busque **myResourceGroupAG** en la lista y selecciónelo.
 3. En la **página del grupo de recursos**, seleccione **Eliminar grupo de recursos**.
 4. Escriba *myResourceGroupAG* en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**.

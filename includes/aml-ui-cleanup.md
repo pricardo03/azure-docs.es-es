@@ -7,16 +7,16 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 10/16/2019
-ms.openlocfilehash: 0071b0df2c2e173eced1722372f88b1de2708afa
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 5a66212122745d0f4426e48e9487e9d674cec53f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692295"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489943"
 ---
 >[!IMPORTANT]
->Los recursos que creó pueden usarse como requisitos previos de otros tutoriales y artículos de procedimientos de Azure Machine Learning Service.
+>Los recursos que creó pueden usarse como requisitos previos de otros tutoriales y artículos de procedimientos de Azure Machine Learning.
 
 ### <a name="delete-everything"></a>Eliminar todo el contenido
 
@@ -32,7 +32,7 @@ Si no va a usar nada de lo que ha creado, elimine el grupo de recursos completo 
 
 1. Seleccione **Eliminar grupo de recursos**.
 
-Al eliminar el grupo de recursos también se eliminan todos los recursos que creó en la interfaz visual.  
+Al eliminar el grupo de recursos también se eliminan todos los recursos que creó en el diseñador.  
 
 ### <a name="delete-only-the-compute-target"></a>Eliminación solo del destino de proceso
 
@@ -48,6 +48,12 @@ El destino de proceso que ha creado aquí se *escala automáticamente* a cero no
 
 ### <a name="delete-individual-assets"></a>Eliminación de recursos individuales
 
-En la interfaz visual donde creó el experimento, elimine recursos individuales; para ello, selecciónelos y, luego, haga clic en el botón **Eliminar**. Se puede anular el registro de los conjuntos de datos del área de trabajo seleccionando cada conjunto de datos y **Anular el registro**.
+En diseñador donde creó el experimento, elimine recursos individuales; para ello, selecciónelos y, luego, haga clic en el botón **Eliminar**.
 
 ![Eliminación de recursos](./media/aml-ui-cleanup/delete-asset.png)
+
+Se puede anular el registro de los conjuntos de datos del área de trabajo seleccionando cada conjunto de datos y **Anular el registro**.
+
+![Anulación del registro de conjunto de datos](./media/aml-ui-cleanup/unregister-dataset.png)
+
+

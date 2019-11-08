@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 96c346db74c1e6c43c3501b657621d09e019309c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 584fb7b97b8342289d7ca2f23b0479eb1169867a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469205"
+ms.locfileid: "73575887"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referencia de host.json para Azure Functions 2.x  
 
@@ -182,23 +182,7 @@ Configuración del [monitor de estado de host](https://github.com/Azure/azure-we
 
 ## <a name="http"></a>http
 
-Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces http](functions-bindings-http-webhook.md).
-
-```json
-{
-    "extensions": {
-        "http": {
-            "routePrefix": "api",
-            "maxOutstandingRequests": 200,
-            "maxConcurrentRequests": 100,
-            "dynamicThrottlesEnabled": true
-        }
-    }
-}
-```
-
-
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
+Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces http](functions-bindings-http-webhook.md#hostjson-settings).
 
 ## <a name="logging"></a>logging
 
@@ -206,7 +190,7 @@ Controla los comportamientos de registro de la aplicación de función, Applicat
 
 ```json
 "logging": {
-    "fileLoggingMode": "debugOnly",
+    "fileLoggingMode": "debugOnly"
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"

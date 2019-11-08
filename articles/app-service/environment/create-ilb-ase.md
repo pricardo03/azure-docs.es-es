@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 08a18dc115990ad7d44a8b20412e07995c9af390
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069505"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470560"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creación y uso de un entorno de una instancia de Azure App Service Environment de Load Balancer 
 
@@ -31,7 +31,7 @@ Este artículo muestra cómo crear un ASE con un ILB. Para obtener información 
 
 ## <a name="overview"></a>Información general 
 
-Puede implementar un ASE con un punto de conexión accesible por Internet o con una dirección IP en la red virtual. Para establecer la dirección IP en una dirección de red virtual, el ASE debe implementarse con un ILB. Al implementar el ASE con un ILB, debe proporcionar el nombre del ASE. El nombre de la instancia de ASE se usa en el sufijo de dominio para las aplicaciones de ASE.  El sufijo de dominio de ASE de ILB es &lt;nombre de ASE&gt;.appservicewebsites.net. Las aplicaciones que se crean en una instancia de ASE de ILB no se colocan en el DNS público. 
+Puede implementar un ASE con un punto de conexión accesible por Internet o con una dirección IP en la red virtual. Para establecer la dirección IP en una dirección de red virtual, el ASE debe implementarse con un ILB. Al implementar el ASE con un ILB, debe proporcionar el nombre del ASE. El nombre de la instancia de ASE se usa en el sufijo de dominio para las aplicaciones de ASE.  El sufijo de dominio de ASE de ILB es &lt;nombre de ASE&gt;.appserviceenvironment.net. Las aplicaciones que se crean en una instancia de ASE de ILB no se colocan en el DNS público. 
 
 Con las versiones anteriores de la instancia de ASE de ILB era necesario proporcionar un sufijo de dominio y un certificado predeterminado para las conexiones HTTPS. El sufijo de dominio ya no se recopila durante la creación de la instancia de ASE de ILB ni tampoco se recopila ya un certificado predeterminado. Ahora, cuando se crea una instancia de ASE de ILB, Microsoft proporciona el certificado predeterminado y el explorador confía en él. Todavía puede establecer nombres de dominio personalizados en aplicaciones de la instancia de ASE y establecer certificados en esos nombres de dominio personalizados. 
 
@@ -107,9 +107,10 @@ Cuando se utiliza una dirección VIP externa, Azure se encarga de administrar el
 Para configurar el DNS:
 
 - Cree una zona para *&lt;nombre de ASE&gt;.appserviceenvironment.net*.
-- Cree un registro D en esa zona que apunte * a la dirección IP de ILB. 
+- Cree un registro D en esa zona que apunte * a la dirección IP de ILB.
+- Cree un registro D en esa zona que apunte a la dirección IP de ILB.
 - Cree una zona en *&lt;nombre de ASE&gt;.appserviceenvironment.net* llamada SCM.
-- Cree un registro D en la zona SCM que apunte a la dirección IP de ILB.
+- Cree un registro D en la zona SCM que apunte * a la dirección IP de ILB.
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicación con un ASE con un ILB
 
@@ -156,7 +157,7 @@ Con las instancias de ASE de ILB que se crearon antes de mayo de 2019, había qu
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

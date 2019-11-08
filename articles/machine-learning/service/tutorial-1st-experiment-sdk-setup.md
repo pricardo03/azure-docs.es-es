@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Creación de su primer experimento de Machine Learning: Configuración'
 titleSuffix: Azure Machine Learning
-description: En esta serie de tutoriales, realizará los pasos completos para empezar a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter.  La primera parte cubre la creación de un entorno de servidor de cuaderno en la nube, así como la creación de un área de trabajo para administrar los experimentos y los modelos de aprendizaje automático.
+description: En este tutorial empezará a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter.  En la parte 1 se crea un área de trabajo en la que se administran los experimentos y los modelos de Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,23 +10,25 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 3bbda22689bb330acc836173162a64b840f1bbd8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 891615ea301348b83124823b10403964d394c224
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828033"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476018"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Creación del primer experimento de ML con el SDK de Python
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este tutorial, realizará los pasos de un extremo a otro para empezar a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter. Este tutorial es la **parte uno de una serie de tutoriales de dos partes**, y abarca la instalación y la configuración del entorno de Python, así como la creación de un área de trabajo para administrar los experimentos y los modelos de aprendizaje automático. En la [**segunda parte**](tutorial-1st-experiment-sdk-train.md) se usa este área de trabajo para entrenar varios modelos de aprendizaje automático e introducir el proceso de administración de modelos mediante Azure Portal y el SDK.
+En este tutorial, realizará los pasos de un extremo a otro para empezar a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter. Este tutorial es la **parte uno de una serie de tutoriales de dos partes**, y abarca la instalación y la configuración del entorno de Python, así como la creación de un área de trabajo para administrar los experimentos y los modelos de aprendizaje automático. En la [**segunda parte**](tutorial-1st-experiment-sdk-train.md) se usa este área de trabajo para entrenar varios modelos de aprendizaje automático e introducir el proceso de administración de modelos mediante Azure Machine Learning Studio y el SDK.
 
 En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
 > * Crear un [área de trabajo de Azure Machine Learning](concept-workspace.md) para usarla en el siguiente tutorial.
 > * Clone el cuaderno de tutoriales en su carpeta en el área de trabajo.
-> * Cree una VM de Jupyter Notebook basada en la nube que tenga instalado y preconfigurado el SDK de Python de Azure Machine Learning.
+> * Cree una instancia de proceso basada en la nube que tenga instalado y preconfigurado el SDK de Python para Azure Machine Learning.
+
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -46,23 +48,27 @@ Puede crear un área de trabajo mediante Azure Portal, una consola basada en web
 
 En este ejemplo se usa el servidor de cuadernos en la nube en el área de trabajo para obtener una experiencia sin instalación y configurada previamente. Si prefiere tener control sobre su entorno, los paquetes y las dependencias, use [su propio entorno](how-to-configure-environment.md#local).
 
-Complete los siguientes pasos de configuración y ejecución del experimento en la página de aterrizaje del área de trabajo (versión preliminar), una interfaz consolidada que incluye herramientas de aprendizaje automático para realizar escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de aptitud.
+Complete los siguientes pasos de configuración y ejecución del experimento en Azure Machine Learning Studio, una interfaz consolidada que incluye herramientas de aprendizaje automático para realizar escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de conocimiento.
 
-1. Inicie sesión en la [página de aterrizaje del área de trabajo](https://ml.azure.com/).
+1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/).
 
 1. Seleccione la suscripción y el área de trabajo que ha creado.
 
-1. Seleccione **Notebooks and Files** (Cuadernos y archivos) en la parte izquierda.
+1. Seleccione **Notebooks** en la parte izquierda.
 
-1. Abra la carpeta **samples** (ejemplos).
+1. Abra la carpeta **Samples** (Muestras).
+
+1. Abra la carpeta **Python**.
+
+1. Abra la carpeta con un número de versión.  Este número representa la versión actual del SDK de Python.
 
 1. Seleccione **"..."** a la derecha de la carpeta **tutorials** (tutoriales) y seleccione **Clone** (Clonar).
 
     ![Carpeta clonada](media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
 
-1. Se muestra una carpeta para cada usuario que accede al área de trabajo.  Seleccione la carpeta donde se va a clonar la carpeta **tutorial**.
+1. Aparece una lista de las carpetas que muestran los usuarios con acceso al área de trabajo.  Seleccione la carpeta donde se va a clonar la carpeta **tutorials**.
 
-## <a name="a-nameopenselect-a-vm-to-run-the-notebook"></a><a name="open">Selección de una máquina virtual para ejecutar el cuaderno
+## <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">Apertura del cuaderno clonado
 
 1. En **User files** (Archivos de usuario), abra su carpeta y, después, la carpeta clonada **tutorials** (tutoriales).
 
@@ -73,11 +79,9 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
     
 1. Seleccione el archivo **tutorial-1st-experiment-sdk-train.ipynb** de la carpeta **tutorials** (tutoriales).
 
-1. En la barra superior, seleccione una máquina virtual de Notebook para ejecutar el cuaderno. Estas máquinas virtuales están configuradas previamente con todo lo necesario para ejecutar Azure Machine Learning. Puede seleccionar una máquina virtual creada por cualquier usuario del área de trabajo. 
+1. En la barra superior, seleccione una instancia de proceso para usarla para ejecutar el cuaderno. Estas máquinas virtuales están configuradas previamente con [todo lo necesario para ejecutar Azure Machine Learning](concept-compute-instance.md#contents). Puede seleccionar una máquina virtual creada por cualquier usuario del área de trabajo. 
 
-1. Si no encuentra ninguna máquina virtual, seleccione **+ New VM** (+ Nueva VM) para crearla.
-
-    ![Crear una VM](media/tutorial-1st-experiment-sdk-setup/no-vm.png)
+1. Si no encuentra ninguna máquina virtual, seleccione **+ Add Compute** (+ Agregar proceso) para crearla.
 
     1. Al crear una máquina virtual, proporciónele un nombre;  este debe tener entre 2 y 16 caracteres. Los caracteres válidos son letras, dígitos y el guion (-), y también deben ser únicos en toda la suscripción de Azure.
 
@@ -85,6 +89,9 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
 
 1. Una vez disponible, se mostrará en la barra de herramientas superior.  Ahora puede ejecutar el cuaderon con **Run all** (Ejecutar todo) de la barra de herramientas o **Mayús + Entrar** en las celdas de código del cuaderno.
 
+> [!NOTE]
+> Las instancias de proceso solo están disponibles para las áreas de trabajo en las regiones **Centro-norte de EE. UU.** o **Sur de Reino Unido**.
+>Si el área de trabajo se encuentra en otra región, puede continuar con la creación y el uso de una [máquina virtual de Notebook](concept-compute-instance.md#notebookvm) en su lugar.  Puede usar una máquina virtual de Notebook o una instancia de proceso para ejecutar el cuaderno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

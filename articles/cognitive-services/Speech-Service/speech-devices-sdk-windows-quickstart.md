@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ad90a6443cc1c94bcdb730e783b82dfdd4798676
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b1f23ffac26cb48493f013290654189162861a27
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553014"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468742"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Inicio rápido: Ejecución de la aplicación de ejemplo de Speech Devices SDK en Windows
 
@@ -89,14 +89,14 @@ Si tiene previsto usar intenciones necesitará una suscripción a [Language Unde
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. La palabra de activación predeterminada (palabra clave) es "Equipo". Además, puede probar una de las otras palabras de activación proporcionadas, como "Máquina" o "Asistente". Los archivos de recursos de estas palabras de activación alternativas pueden encontrarse en el SDK de dispositivos de voz en la carpeta de palabras clave. Por ejemplo, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contiene los archivos utilizados para la palabra de reactivación "Equipo".
+1. La palabra clave predeterminada (palabra clave) es "Equipo". Además, puede probar una de las otras palabras clave proporcionadas, como "Máquina" o "Asistente". Los archivos de recursos de estas palabras clave alternativas pueden encontrarse en Speech Devices SDK en la carpeta de palabras clave. Por ejemplo, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contiene los archivos utilizados para la palabra clave "Equipo".
 
    > [!TIP]
-   > También puede [crear una palabra de activación personalizada](speech-devices-sdk-create-kws.md).
+   > También puede [crear una palabra clave personalizada](speech-devices-sdk-create-kws.md).
 
-    Para usar una nueva palabra de reactivación, actualice las dos líneas siguientes en `FunctionsList.java` y copie el paquete de palabras de reactivación en la aplicación. Por ejemplo, para usar la palabra de reactivación "Máquina" desde el paquete de palabras de reactivación `kws-machine.zip`:
+    Para usar una nueva palabra clave, actualice las dos líneas siguientes en `FunctionsList.java` y copie el paquete de palabras clave en la aplicación. Por ejemplo, para usar la palabra clave "Máquina" desde el paquete de palabras clave `kws-machine.zip`:
 
-   * Copie el paquete de palabras de reactivación en la carpeta de proyecto **target/classes**.
+   * Copie el paquete de palabras clave en la carpeta de proyecto **target/classes**.
 
    * Actualice `FunctionsList.java` con la palabra clave y el nombre del paquete:
 

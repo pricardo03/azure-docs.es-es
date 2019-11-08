@@ -1,5 +1,5 @@
 ---
-title: Arquitectura de Azure Synapse Analytics (anteriormente SQL DW) | Microsoft Docs
+title: Arquitectura de Azure Synapse Analytics (anteriormente SQL DW)
 description: Aprenda cómo Azure Synapse Analytics (anteriormente SQL DW) combina el procesamiento paralelo masivo (MPP) con el almacenamiento de Azure para lograr alto rendimiento y escalabilidad.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b463b0806d39ba20ae714c8785e5c0d227ce481b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ea9629c63fcab97ba8ba83cd88592c37ae41818a
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466387"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646404"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitectura de Azure Synapse Analytics (anteriormente SQL DW) 
 

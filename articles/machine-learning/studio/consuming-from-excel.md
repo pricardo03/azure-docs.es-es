@@ -1,7 +1,7 @@
 ---
 title: Consumo de un servicio web en Excel
-titleSuffix: Azure Machine Learning Studio
-description: Azure Machine Learning Studio facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
+titleSuffix: ML Studio (classic) Azure
+description: Azure Machine Learning Studio (clásico) facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: ef1d8f1a72c5936ff661636c4c51acf439a0a5ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa1e457cf401e74ffb8a7a02b5eba5f4c4f0c334
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773797"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621861"
 ---
-# <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Consumir un servicio web de Azure Machine Learning Studio en Excel
+# <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>Consumir un servicio web de Azure Machine Learning Studio (clásico) en Excel
 
- Azure Machine Learning Studio facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
+ Azure Machine Learning Studio (clásico) facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
 
 Si utiliza Excel 2013 (o posterior) o Excel Online, le recomendamos que use el [complemento de Excel](excel-add-in-for-web-services.md).
 
@@ -34,7 +34,7 @@ Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** qu
 
 1. En la pestaña **PANEL** del servicio web se encuentra una fila para el servicio **SOLICITUD/RESPUESTA**. Si este servicio tenía una salida única, deberá consultar el vínculo **Descargar el libro de Excel** de esa fila.
 
-    ![Descarga del libro de Excel mediante el portal de servicio web de Studio](./media/consuming-from-excel/excellink.png)
+    ![Descarga del libro de Excel mediante el portal de servicio web de Studio (clásico)](./media/consuming-from-excel/excellink.png)
 2. Haga clic en **Descargar el libro de Excel**.
 
 **Servicio web nuevo**

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b0adc75d2da1a8ef053edf0078746df8f36ed5e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 329e4b262731ae1b23fb94da7b937c9c1549185f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430325"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473646"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
@@ -34,7 +34,7 @@ En este inicio rápido se muestra cómo agregar y registrar una aplicación medi
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee.
-1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones > Nuevo registro**.
+1. Busque y seleccione **Azure Active Directory**. En la página **Active Directory**, seleccione **Registros de aplicaciones** y **Nuevo registro**.
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
 
    - **Nombre**: escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación.

@@ -1,7 +1,7 @@
 ---
 title: ¿Qué es Speaker Recognition API?
 titleSuffix: Azure Cognitive Services
-description: Use los algoritmos avanzados para la verificación e identificación del hablante con Speaker Recognition API en Cognitive Services.
+description: Verificación e identificación del hablante con Speaker Recognition API en Cognitive Services.
 services: cognitive-services
 author: dwlin
 manager: nitinme
@@ -11,50 +11,59 @@ ms.topic: overview
 ms.date: 10/01/2018
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9cdfd5d09451968487bafbcad643e179ffe82aa7
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f354793e3779f4d9f7be9bae8a21545a15ed1c4c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707161"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464920"
 ---
-# <a name="speaker-recognition-api"></a>Speaker Recognition API
+# <a name="speaker-recognition-api---preview"></a>Speaker Recognition API (versión preliminar)
 
-Le damos la bienvenida a las Speaker Recognition API de Azure Cognitive Services. Las Speaker Recognition API son API basadas en la nube que proporcionan los algoritmos más avanzados para la comprobación e identificación del hablante. Speaker Recognition puede dividirse en dos categorías: verificación del hablante y la identificación del hablante.
-
+Las Speaker Recognition API son API basadas en la nube que proporcionan los algoritmos de inteligencia artificial más avanzados para la verificación y la identificación del hablante. Speaker Recognition se divide en dos categorías: verificación del hablante e identificación del hablante.
 
 ## <a name="speaker-verification"></a>Verificación del hablante
 
-La voz tiene características únicas que se pueden usar para identificar a una persona, de manera similar a una huella digital.  La utilización de la voz como señal para el control de acceso y los escenarios de autenticación ha emergido como una nueva herramienta innovadora; que ofrece, en esencia, un nivel de seguridad superior que simplifica la experiencia de autenticación de los clientes.
+La voz tiene características únicas que se pueden asociar con una persona.  Las aplicaciones pueden usar la voz como factor de verificación adicional en escenarios como centros de llamadas y servicios web.
 
-Las Speaker Verification API pueden comprobar y autenticar automáticamente los usuarios a través de su voz.
+Las Speaker Verification API sirven como herramienta inteligente para ayudar en la verificación de los usuarios tanto con su voz como con frases de contraseña habladas.
 
 ### <a name="enrollment"></a>Inscripción
 
-La inscripción de la comprobación del hablante depende del texto, lo que significa que los hablantes deben elegir una frase de contraseña específica para usar durante las fases de inscripción y comprobación.
+La inscripción para la verificación del hablante depende del texto, lo que significa que los hablantes deben elegir una frase de contraseña específica que usarán durante las fases de inscripción y verificación.
 
-En la inscripción, la voz del hablante se graba diciendo una frase específica y, luego, se extraen diversas características y se reconoce la frase elegida. En conjunto, las características extraídas y la frase elegida conforman una firma de voz única.
+En la fase de inscripción, se graba la voz del hablante con una frase determinada. Se extraen las características de voz para formar una firma de voz única mientras se reconoce la frase elegida. Estos datos de inscripción del hablante se usan juntos para verificar su identidad. Los datos de inscripción del hablante se almacenan en un sistema protegido. El cliente controla cuánto tiempo se deben conservar. Los clientes pueden crear, actualizar y quitar los datos de inscripción de un hablante mediante las llamadas API.  Cuando se elimine la suscripción, todos los datos de inscripción del hablante asociados a la suscripción también se eliminarán.
+
+Los clientes deben asegurarse de haber recibido los permisos adecuados de los usuarios para la verificación del hablante.
 
 ### <a name="verification"></a>Comprobación
 
-En la comprobación, se compara una frase y una voz de entrada con la firma de voz y la frase de la inscripción, con el fin de comprobar si pertenecen o no a la misma persona y si se dice la frase correcta.
+En la fase de verificación, el cliente debe llamar a la API de verificación del hablante con el identificador asociado al individuo que se va a verificar.  El servicio extrae las características de voz y la frase de contraseña de la grabación de voz de entrada. Luego, compara las características con los elementos correspondientes de los datos de inscripción del hablante que quiere verificar el cliente y determina las posibles coincidencias.  La respuesta devuelve "aceptar" o "rechazar" con distintos niveles de confianza.  Después, el cliente determina cómo usar los resultados para decidir si esta persona es el hablante inscrito.
 
-Para más información acerca de la verificación del hablante, consulte  [Speaker API: verificación](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
+El umbral de nivel de confianza debe establecerse según el escenario y otros factores de verificación que use. Se recomienda experimentar con el nivel de confianza y tener en cuenta la configuración adecuada para cada aplicación. Las API no están pensadas para determinar si el audio proviene de una persona de carne y hueso, una imitación o una grabación de un hablante inscrito.
+
+El servicio no conserva la grabación de voz ni las características de voz extraídas que se le envían durante la fase de verificación.
+
+Para obtener más información sobre la verificación del hablante, consulte la API [Speaker - Verification](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
 ## <a name="speaker-identification"></a>Identificación del hablante
 
-Las Speaker Identification API pueden identificar automáticamente a la persona que habla en un archivo de audio dentro de un grupo de posibles hablantes. El audio de entrada se compara con el grupo de hablantes proporcionado y, en caso de que exista una coincidencia, se devuelve la identidad del hablante.
-
-Todos los hablantes deben someterse primero a un proceso de inscripción para grabar su voz en el sistema y para que se cree una huella de voz.
-
+Las aplicaciones pueden usar la voz para identificar "quién habla" dado un grupo de hablantes inscritos. Las Speaker Identification API se pueden usar en escenarios como productividad de reuniones, personalización y transcripción del centro de llamadas.
 
 ### <a name="enrollment"></a>Inscripción
 
-La inscripción para la identificación del hablante depende del texto, lo que significa que no hay restricciones con respecto a lo que el hablante dice en el audio. Se graba la voz del hablante y se extraen diversas características para confirmar una firma de voz única.
+La inscripción para la identificación del hablante depende del texto, lo que significa que no hay restricciones con respecto a lo que el hablante dice en el audio. No se requiere ninguna frase de contraseña.
 
+En la fase de inscripción, se graba la voz del hablante y se extraen las características de voz para formar una firma de voz única. Las características y el audio de voz extraídos se almacenan en un sistema protegido. El cliente controla cuánto tiempo se deben conservar. Los clientes pueden crear, actualizar y quitar estos datos de inscripción de un hablante mediante las llamadas API. Cuando se elimine la suscripción, todos los datos de inscripción del hablante asociados a la suscripción también se eliminarán.
 
-### <a name="recognition"></a>Reconocimiento
+Los clientes deben asegurarse de haber recibido los permisos adecuados de los usuarios para la identificación del hablante.
 
-Durante la fase de reconocimiento, se proporciona el audio del hablante desconocido, junto con el grupo de posibles hablantes. La voz de entrada se compara con todos los hablantes a fin de determinar a quién pertenece la voz y, en caso de que se encuentre una coincidencia, se devuelve la identidad del hablante.
+### <a name="identification"></a>Identificación
+
+En la fase de identificación, el servicio de identificación del hablante extrae las características de voz de la grabación de voz de entrada. Luego, las compara con los datos de inscripción de la lista de hablantes especificada. Cuando encuentra una coincidencia con un hablante inscrito, la respuesta devuelve el identificador del hablante con un nivel de confianza.  Cuando ninguno de los hablantes coincide con uno de los inscritos, la respuesta devuelve "rechazar".
+
+El umbral de nivel de confianza debe establecerse en función del escenario. Se recomienda experimentar con el nivel de confianza y tener en cuenta la configuración adecuada para cada aplicación. Las API no están pensadas para determinar si el audio proviene de una persona de carne y hueso, una imitación o una grabación de un hablante inscrito.
+
+El servicio no conserva la grabación de voz ni las características de voz extraídas que se le envían durante la fase de identificación.
 
 Para más información acerca de la identificación del hablante, consulte  [Speaker API: identificación](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).

@@ -9,18 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 69f853b77e3fbab149dbf163ed5cccb08578aa4e
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 4e4f1787db86378eaeff9df196cc061c42d0ab1e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390335"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499003"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Incorporación de formatos comunes de expresión de plantilla de patrón
 
 En este tutorial se usan patrones para aumentar la predicción de intención y entidad a la vez que se proporcionan menos expresiones de ejemplo. El patrón se proporciona por medio de un ejemplo de expresión de plantilla, que incluye la sintaxis para identificar las entidades y el texto que se puede pasar por alto. Un patrón es una combinación de coincidencia de expresión y aprendizaje automático.  El ejemplo de expresión de plantilla junto con las expresiones de intención permiten que LUIS comprenda mejor qué expresiones se ajustan a la intención. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **En este tutorial, aprenderá a:**
 
@@ -69,7 +71,7 @@ Para ello, siga los pasos que se describen a continuación:
     |¿De quién depende directamente de Jill Jones?|
     |¿Quién es el supervisor de Jill Jones?|
 
-    [![Captura de pantalla de LUIS, agregar nuevas expresiones a una intención](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Captura de pantalla de LUIS, agregar nuevas expresiones a una intención")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    [![Captura de pantalla de cómo LUIS agrega nuevas expresiones a la intención](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Captura de pantalla de cómo LUIS agrega nuevas expresiones a la intención")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
     No se preocupe si la entidad keyPhrase está etiquetada las expresiones de la intención en lugar de la entidad employee. Ambas se predicen correctamente en el panel de prueba y en el punto de conexión. 
 

@@ -1,0 +1,89 @@
+---
+title: 'Inicio rápido: Configuración de la plataforma del SDK de Voz para C++ (Linux): servicio Voz'
+titleSuffix: Azure Cognitive Services
+description: Use esta guía para configurar la plataforma para utilizar C++ en Linux con el SDK de servicios de voz.
+services: cognitive-services
+author: markamos
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: quickstart
+ms.date: 10/14/2019
+ms.author: erhopf
+ms.openlocfilehash: 96e4c12d7b0aaceea3d652a81f2df8721c43954c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73504551"
+---
+En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para Linux.
+
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
+
+## <a name="system-requirements"></a>Requisitos del sistema
+
+Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9)
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Para realizar este inicio rápido, necesita lo siguiente:
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+
+* Las plataformas Linux admitidas requerirán la instalación de determinadas bibliotecas (`libssl` para la compatibilidad con la Capa de sockets seguros y `libasound2` para la compatibilidad con el audio). Consulte a continuación su distribución para saber cuáles son los comandos necesarios para instalar las versiones correctas de estas bibliotecas.
+
+   * En Ubuntu:
+
+     ```sh
+     sudo apt-get update
+     sudo apt-get install build-essential libssl1.0.0 libasound2 wget
+     ```
+
+   * En Debian 9:
+
+     ```sh
+     sudo apt-get update
+     sudo apt-get install build-essential libssl1.0.2 libasound2 wget
+     ```
+
+## <a name="install-speech-sdk"></a>Instalación del SDK de Voz
+
+El SDK de Voz para Linux se puede usar para crear aplicaciones de 64 bits y 32 bits. Las bibliotecas y los archivos de encabezado necesarios se pueden descargar como un archivo tar desde https://aka.ms/csspeech/linuxbinary.
+
+Descargue e instale el SDK de la forma siguiente:
+
+1. Seleccione el directorio al que desea extraer los archivos del SDK de Voz y configure la variable de entorno `SPEECHSDK_ROOT` para que apunte a ese directorio. Esta variable facilita la referencia al directorio en futuros comandos. Por ejemplo, si desea usar el directorio `speechsdk` en el directorio principal, use un comando similar al siguiente:
+
+   ```sh
+   export SPEECHSDK_ROOT="$HOME/speechsdk"
+   ```
+
+1. Cree el directorio si aún no existe.
+
+   ```sh
+   mkdir -p "$SPEECHSDK_ROOT"
+   ```
+
+1. Descargue y extraiga el archivo `.tar.gz` que contienen los archivos binarios del SDK de Voz:
+
+   ```sh
+   wget -O SpeechSDK-Linux.tar.gz https://aka.ms/csspeech/linuxbinary
+   tar --strip 1 -xzf SpeechSDK-Linux.tar.gz -C "$SPEECHSDK_ROOT"
+   ```
+
+1. Valide el contenido del directorio de nivel superior del paquete extraído:
+
+   ```sh
+   ls -l "$SPEECHSDK_ROOT"
+   ```
+
+   La lista de directorios debe contener los archivos de avisos y licencias de terceros, así como un directorio `include` que contenga archivos de encabezado (`.h`) y un directorio `lib` que contenga bibliotecas.
+
+   [!INCLUDE [Linux Binary Archive Content](~/includes/cognitive-services-speech-service-linuxbinary-content.md)]
+
+Ahora puede continuar con la sección [Pasos siguientes](#next-steps).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[!INCLUDE [windows](../quickstart-list.md)]

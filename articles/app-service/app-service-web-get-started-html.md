@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ac0fe7a77496a0dae8606e4599bcb262a191196c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 12c034e6521a1afd25e2390502faec39461bf5b5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067319"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471535"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creación de una aplicación web HTML estática en Azure
 
@@ -117,9 +117,11 @@ Una vez que la implementación haya finalizado, vuelva a la ventana del explorad
 
 ## <a name="manage-your-new-azure-app"></a>Administración de la nueva aplicación de Azure
 
-Vaya a <a href="https://portal.azure.com" target="_blank">Azure Portal</a> para administrar la aplicación web que ha creado.
+Para administrar la aplicación web que ha creado, en [Azure Portal](https://portal.azure.com), busque y seleccione **App Services**. 
 
-En el menú izquierdo, haga clic en **App Services** y, luego, en el nombre de la aplicación de Azure.
+![Selección de App Services en Azure Portal](./media/app-service-web-get-started-html/portal0.png)
+
+En la página **App Services**, seleccione el nombre de la aplicación de Azure.
 
 ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-get-started-html/portal1.png)
 

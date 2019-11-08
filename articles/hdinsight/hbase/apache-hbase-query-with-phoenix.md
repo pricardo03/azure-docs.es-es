@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Consulta de Apache HBase en Azure HDInsight: Apache Phoenix'
+title: 'Inicio rápido: Apache HBase y Apache Phoenix: Azure HDInsight'
 description: En este tutorial, aprenderá a usar Apache Phoenix en HDInsight. Además, conozca cómo instalar y configurar SQLLine en el equipo para conectarse a un clúster de HBase en HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 20af6d32d03ae5d4fe37b1a37198ef1f2c50ec95
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: a6896eaad86c5e361c50cd81257131ee75a8d6a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312255"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467047"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Inicio rápido: Consulta de Apache HBase en Azure HDInsight con Apache Phoenix
 

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: bde0c483eacec7fb8e076530bba594eb33a32a12
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2590b9851b654990795f111e76f6cc5ea6c96723
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553435"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491941"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Inicio rápido: Creación y cifrado de una máquina virtual Windows desde Azure Portal
 
@@ -55,8 +55,8 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 1. En la página Nuevo, en Popular, seleccione **Windows Server 2016 Datacenter**.
 1. En la pestaña **Datos básicos**, en **Detalles del proyecto**, asegúrese de que está seleccionada la suscripción correcta.
-1. En **Grupo de recursos**, seleccione el grupo de recursos que creó al crear el almacén de claves (p.ej., **myResourceGroup**)
-1. En **Nombre de máquina virtual** , escriba *MyVM* y elija 
+1. En **Grupo de recursos**, seleccione el grupo de recursos que creó al preparar el almacén de claves (p.ej., **myResourceGroup**).
+1. En **Nombre de máquina virtual** , escriba *MyVM*.
 1. En **Región**, seleccione la misma región que usó al crear el almacén de claves (p.ej., **Este de EE. UU.** ).
 1. Asegúrese de que el valor de **Tamaño** es *Estándar D2s v3*.
 1. En **Cuenta de administrador** , seleccione **Contraseña**. Escriba un nombre de usuario y una contraseña.

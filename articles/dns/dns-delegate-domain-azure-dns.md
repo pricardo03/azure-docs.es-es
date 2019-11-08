@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 99a3ca0115611f45ed080c39767d13e087b8efb8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779783"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464223"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Hospedaje del dominio en Azure DNS
 
@@ -40,11 +40,11 @@ El dominio en el ejemplo que se usa en este tutorial es contoso.net, pero debe u
 
 ## <a name="create-a-dns-zone"></a>Creación de una zona DNS
 
-1. Inicie sesión en el Portal de Azure.
-1. En la parte superior izquierda, seleccione **Crear un recurso** > **Redes** > **Zona DNS** para abrir la página **Crear zona DNS**.
+1. Vaya a [Azure Portal](https://portal.azure.com/) para crear una zona DNS. Busque y seleccione **Zonas DNS**.
 
    ![Zona DNS](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
+1. Seleccione **Crear zona DNS**.
 1. En la página **Crear zona DNS**, escriba los valores siguientes y seleccione **Crear**:
 
    | **Configuración** | **Valor** | **Detalles** |
@@ -52,7 +52,7 @@ El dominio en el ejemplo que se usa en este tutorial es contoso.net, pero debe u
    |**Nombre**|[el nombre de dominio] |El nombre de dominio que compró. Este tutorial usa como ejemplo contoso.net.|
    |**Suscripción**|[Su suscripción]|Seleccione una suscripción en la que crear la zona.|
    |**Grupos de recursos**|**Crear nuevo:** contosoRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción que ha seleccionado.<br>La ubicación del grupo de recursos no tiene efecto alguno sobre la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra.|
-   |**Ubicación**|Este de EE. UU||
+   |**Ubicación**|East US||
 
 ## <a name="retrieve-name-servers"></a>Recuperación de los servidores de nombres
 

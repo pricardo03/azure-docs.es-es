@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: fc5a974273cbc0398e9fee7b60b424a46ef5dd30
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: f041381534dfe59036ce1b9d91792f9e78d0dace
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949729"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523795"
 ---
 ## <a name="benefits-of-managed-disks"></a>Ventajas de los discos administrados
 
@@ -51,11 +51,11 @@ Puede usar el [control de acceso basado en rol de Azure (RBAC)](../articles/role
 
 ## <a name="encryption"></a>Cifrado
 
-Los discos administrados ofrecen dos tipos diferentes de cifrado. El primero de ellos es Storage Service Encryption (SSE), que se realiza mediante el servicio Storage. El segundo es Azure Disk Encryption (ADE), que se puede habilitar en los discos de datos y del sistema operativo de las máquinas virtuales.
+Los discos administrados ofrecen dos tipos diferentes de cifrado. El primero de ellos es Storage Service Encryption (SSE), que se realiza mediante el servicio de almacenamiento. El segundo es Azure Disk Encryption (ADE), que se puede habilitar en los discos de datos y del sistema operativo de las máquinas virtuales.
 
-### <a name="storage-service-encryption-sse"></a>cifrado del servicio de almacenamiento (SSE)
+### <a name="server-side-encryption"></a>Cifrado del servidor
 
-[Azure Storage Service Encryption](../articles/storage/common/storage-service-encryption.md) proporciona cifrado en reposo y protege sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. SSE está habilitado de forma predeterminada para todos los discos administrados, instantáneas e imágenes en todas las regiones donde hay discos administrados. Visite la [página de preguntas más frecuentes sobre discos administrados](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obtener más detalles.
+[Azure Storage Service Encryption](../articles/storage/common/storage-service-encryption.md) proporciona cifrado en reposo y protege sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. Storage Service Encryption está habilitado de forma predeterminada para todos los discos administrados, instantáneas e imágenes en todas las regiones donde hay discos administrados. Visite la [página de preguntas más frecuentes sobre discos administrados](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obtener más detalles.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -85,12 +85,12 @@ Cada máquina virtual contiene un disco temporal, que no es un disco administrad
 
 Una instantánea de disco administrado es una copia completa de solo lectura coherente frente a bloqueos de un disco administrado que, de forma predeterminada, se almacena como disco administrado estándar. Con las instantáneas, puede realizar una copia de seguridad de sus discos administrados en cualquier momento. Estas instantáneas existen independientemente del disco de origen y se pueden usar para crear discos administrados. 
 
-Las instantáneas se facturan en función del tamaño utilizado. Por ejemplo, si crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GiB y el tamaño de datos usado real es de 10 GiB, solo se le cobra por el tamaño de datos usado de 10 GiB. El tamaño usado de las instantáneas se puede ver en el [informe de uso de Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Por ejemplo, si el tamaño de datos usado de una instantánea es de 10 GiB, el informe de uso mostrará 10 GiB/(31 días x 24 horas) = 0,013441 GiB como cantidad consumida.
+Las instantáneas se facturan en función del tamaño utilizado. Por ejemplo, si crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GiB y el tamaño de datos usado real es de 10 GiB, solo se le cobra por el tamaño de datos usado de 10 GiB. El tamaño usado de las instantáneas se puede ver en el [informe de uso de Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Por ejemplo, si el tamaño de datos usado de una instantánea es de 10 GiB, el informe de uso **diario** mostrará 10 GiB/(31 días) = 0,3226 como cantidad consumida.
 
-Para más información sobre cómo crear instantáneas con discos administrados, consulte los siguientes recursos:
+Para más información sobre cómo crear instantáneas para discos administrados, consulte los siguientes recursos:
 
-* [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Creación de una instantánea de un disco administrado en Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Creación de una instantánea de un disco administrado en Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Imágenes
 

@@ -5,19 +5,19 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/01/2019
+ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 3dc893ea10e47e867110f674a458498a6bd24a4f
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 022780f2b37c8bed49c81774d443b69bae41e5e7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560723"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476760"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Inicio rápido: Creación de un salón de chat con SignalR Service
 
 
-Azure SignalR Service es un servicio de Azure que ayuda a los desarrolladores a compilar fácilmente aplicaciones web con características en tiempo real. Este servicio se basa en [SignalR para ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
+Azure SignalR Service es un servicio de Azure que ayuda a los desarrolladores a compilar fácilmente aplicaciones web con características en tiempo real. Este servicio se basa en [SignalR para ASP.NET Core 2.1](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-2.1), pero también admite [SignalR para ASP.NET Core 3.0](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.0).
 
 En este artículo se muestra cómo empezar a trabajar con Azure SignalR Service. En este inicio rápido, creará una aplicación de chat con una aplicación web de ASP.NET Core MVC. Esta aplicación establecerá una conexión con el recurso de Azure SignalR Service para habilitar las actualizaciones de contenido en tiempo real. Hospedará la aplicación web localmente y se conectará con varios clientes de explorador. Cada cliente podrá insertar actualizaciones de contenido en todos los demás clientes. 
 
@@ -95,7 +95,7 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
     A este secreto se accede con la API de configuración. Un signo de dos puntos (:) funciona en el nombre de configuración con la API de configuración en todas las plataformas compatibles. Consulte [Configuración en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
-4. Abra *Startup.cs* y actualice el método `ConfigureServices` para usar Azure SignalR Service mediante una llamada al método `services.AddSignalR().AddAzureSignalR()`:
+4. Abra *Startup.cs* y actualice el método `ConfigureServices` para usar Azure SignalR Service mediante una llamada al método `services.AddSignalR().AddAzureSignalR()` solo para ASP.NET Core 2:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -104,10 +104,11 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
         services.AddSignalR().AddAzureSignalR();
     }
     ```
+    Para ASP.NET Core 3 y versiones posteriores, no se requiere ningún cambio en el método `ConfigureServices`.
 
     Al no pasar un parámetro a `AddAzureSignalR()`, este código usa la clave de configuración predeterminada para la cadena de conexión del recurso de SignalR Service. La clave de la configuración predeterminada es *Azure:SignalR:ConnectionString*.
 
-5. También en *Startup.cs*, actualice el método `Configure` sustituyendo la llamada a `app.UseStaticFiles()` con el código siguiente y guarde el archivo.
+5. También en *Startup.cs*, actualice el método `Configure` sustituyendo la llamada a `app.UseStaticFiles()` con el código siguiente y guarde el archivo (solo para ASP.NET Core 2).
 
     ```csharp
     app.UseFileServer();
@@ -116,6 +117,18 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
         routes.MapHub<Chat>("/chat");
     });
     ```            
+    Para ASP.NET Core 3 y versiones posteriores, reemplace el código anterior por:
+
+    ```csharp
+    app.UseFileServer();
+    app.UseRouting();
+    app.UseAuthorization();
+
+    app.UseEndpoints(routes =>
+    {
+        routes.MapHub<Chat>("/chat");
+    });
+    ```
 
 ### <a name="add-a-hub-class"></a>Adición de una clase de hub
 

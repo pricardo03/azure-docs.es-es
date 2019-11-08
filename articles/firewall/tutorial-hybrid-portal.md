@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 11/02/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 50f1d0bca958ef4504394cad1d771459cc8be27d
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018974"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468470"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure Portal
 
@@ -107,14 +107,6 @@ Ahora, cree la red virtual:
 9. En **Subred**, en **Nombre** escriba **SN-Workload**.
 10. En **Intervalo de direcciones**, escriba **10.6.0.0/24**.
 11. Acepte los restantes valores predeterminados y seleccione **Crear**.
-
-Ahora cree una segunda subred para la puerta de enlace.
-
-1. En la página **VNet-Spoke**, seleccione **Subredes**.
-2. Seleccione **+Subred**.
-3. En **Nombre**, escriba **GatewaySubnet.**
-4. En **Intervalo de direcciones (bloque CIDR)** , escriba **10.6.1.0/24**.
-5. Seleccione **Aceptar**.
 
 ## <a name="create-the-on-premises-virtual-network"></a>Crear la red virtual local
 
@@ -341,7 +333,7 @@ Ahora, cree la ruta predeterminada desde la subred radial.
 2. Una vez creada la tabla de rutas, selecciónela para abrir la página de la tabla de rutas.
 3. Seleccione **Rutas** en la columna izquierda.
 4. Seleccione **Agregar**.
-5. En el nombre de ruta, escriba **ToSpoke**.
+5. En el nombre de ruta, escriba **ToHub**.
 6. En el prefijo de dirección, escriba **0.0.0.0/0**.
 7. En el tipo del próximo salto, seleccione **Aplicación virtual**.
 8. En la dirección del próximo salto, escriba la dirección IP privada del firewall que anotó anteriormente.
@@ -384,7 +376,7 @@ Cree una máquina virtual en la red virtual radial, que ejecute IIS, sin ninguna
 ### <a name="install-iis"></a>Instalación de IIS
 
 1. En Azure Portal, abra Cloud Shell y asegúrese de que está establecido en **PowerShell**.
-2. Ejecute el siguiente comando para instalar IIS en la máquina virtual:
+2. Ejecute el siguiente comando para instalar IIS en la máquina virtual; cambie la ubicación si es necesario:
 
    ```azurepowershell-interactive
    Set-AzVMExtension `
@@ -420,7 +412,7 @@ Se trata de una máquina virtual con una dirección IP pública a la que se pued
 
 ## <a name="test-the-firewall"></a>Probar el firewall
 
-1. En primer lugar, obtenga y anote la dirección IP privada de la máquina virtual **VM-spoke-01**.
+1. En primer lugar, anote la dirección IP privada de la máquina virtual **VM-spoke-01**.
 
 2. En Azure Portal, conéctese a la máquina virtual **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.

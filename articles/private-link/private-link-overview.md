@@ -7,15 +7,15 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 0c5541d7a80c3b6157ccadd979412163122ca8a2
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9e6206e6f7e09ebe03659eb6e515a9b26d3469bd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300746"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475945"
 ---
 # <a name="what-is-azure-private-link-preview"></a>¿Qué es Azure Private Link? (versión preliminar)
-Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios de asociados o clientes hospedados en Azure a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. También puede crear su propio [servicio Private Link](private-link-service-overview.md) en la red virtual y enviarlo de forma privada a los clientes. La experiencia de configuración y consumo con Azure Private Link es coherente en los servicios compartidos de PaaS de Azure, de propiedad del cliente y de asociados.
+Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage, Azure Cosmos DB y SQL Database) y a los servicios de asociados o clientes hospedados de cliente o asociado mediante un [punto de conexión privado](private-endpoint-overview.md) de la red virtual. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. También puede crear su propio [servicio Private Link](private-link-service-overview.md) en la red virtual y enviarlo de forma privada a los clientes. La experiencia de configuración y consumo con Azure Private Link es coherente en los servicios compartidos de PaaS de Azure, de propiedad del cliente y de asociados.
 
 > [!IMPORTANT]
 > Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obtener información sobre las limitaciones conocidas, consulte [Punto de conexión privado](private-endpoint-overview.md#limitations) y [Servicio Private Link](private-link-service-overview.md#limitations).
@@ -45,8 +45,9 @@ Azure Private Link proporciona las ventajas siguientes:
 |  | Azure Data Lake Storage Gen2        |  Este de EE. UU., Oeste de EE. UU., Centro-oeste de EE. UU.       | Vista previa         |
 |  |  Azure SQL Database         | Centro-oeste de EE. UU., Oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU. y Centro-norte de EE. UU.      |   Vista previa      |
 ||Azure SQL Data Warehouse| Centro-oeste de EE. UU., Oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU. y Centro-norte de EE. UU. |Vista previa|
+||Azure Cosmos DB| Centro-oeste de EE. UU., Oeste de EE. UU., Este de EE. UU., Centro-norte de EE. UU., Este de EE. UU 2; Oeste de EE. UU. 2 |Vista previa|
 
-Para conocer las notificaciones más actualizadas, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network). 
+Para conocer las notificaciones más actualizadas, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="logging-and-monitoring"></a>Registro y supervisión
 
@@ -71,6 +72,7 @@ Para conocer los límites, consulte [Límites de Azure Private Link](../azure-su
 - [Creación de un punto de conexión privado para el servidor de SQL Database mediante PowerShell](create-private-endpoint-powershell.md)
 - [Creación de un punto de conexión privado para el servidor de SQL Database mediante la CLI](create-private-endpoint-cli.md)
 - [Creación de un punto de conexión privado para la cuenta de almacenamiento mediante el portal](create-private-endpoint-storage-portal.md)
+- [Creación de un punto de conexión privado para la cuenta de Azure Cosmos mediante el portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creación del propio servicio Private Link con Azure PowerShell](create-private-link-service-powershell.md)
 
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 947ca0b603483479479285ff14636240d2ac7433
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 02c4e0142ed7b3719cc07306f089769c532d6653
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515192"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494453"
 ---
 # <a name="quickstart-personalizer-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Personalizer para Python
 
@@ -39,7 +39,7 @@ Introducción a la biblioteca de cliente de Personalizer para Python Siga estos 
 Hay que dar varios pasos para usar este inicio rápido:
 
 * En Azure Portal, cree un recurso de Personalizer
-* En Azure Portal, en el recurso Personalizer de la página **Configuración**, cambie la frecuencia de actualización del modelo
+* En la página **Configuración** del recurso Personalizer de Azure Portal, cambie la frecuencia de actualización del modelo.
 * En un editor de código, cree un archivo de código y edítelo
 * En la línea de comandos o en el terminal, instale el SDK desde la línea de comandos
 * En la línea de comandos o en el terminal, ejecute el archivo de código
@@ -70,7 +70,7 @@ pip install azure-cognitiveservices-personalizer
 
 ## <a name="change-the-model-update-frequency"></a>Cambio de la frecuencia de actualización del modelo
 
-En Azure Portal, en el recurso Personalizer de la página **Configuración**, cambie el valor de **Model update frequency** (Frecuencia de actualización del modelo) a 10 segundos. Así se entrenará el servicio rápidamente, lo que permite ver cómo cambia la acción principal en cada iteración.
+En la página **Configuración** del recurso Personalizer de Azure Portal, cambie el valor de **Model update frequency** (Frecuencia de actualización del modelo) a 10 segundos. Así se entrenará el servicio rápidamente, lo que permite ver cómo cambia la acción principal en cada iteración.
 
 ![Cambiar la frecuencia de actualización del modelo](./media/settings/configure-model-update-frequency-settings.png)
 

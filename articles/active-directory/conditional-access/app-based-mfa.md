@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36cb3b1555a339249528e290e376454dd78f1e53
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 7a23f8fc10e0e5a19be1f93cc6d6e5e8e301f86d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509063"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474016"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Inicio rápido: Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory
 
@@ -66,7 +66,7 @@ En la directiva, establezca:
 **Para configurar la directiva de acceso condicional:**
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global, administrador de seguridad o administrador de acceso condicional.
-1. En Azure Portal, en la barra de navegación izquierda, haga clic en **Azure Active Directory**.
+1. En Azure Portal, busque y seleccione **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-based-mfa/02.png)
 

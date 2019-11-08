@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial 2: Entrenamiento de modelos de riesgo crediticio'
-titleSuffix: Azure Machine Learning Studio
-description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio. Este tutorial es el segundo de una serie de tres partes. Muestra cómo entrenar y evaluar modelos.
+titleSuffix: ML Studio (classic) Azure
+description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo crediticio en la versión clásica de Azure Machine Learning Studio. Este tutorial es el segundo de una serie de tres partes. Muestra cómo entrenar y evaluar modelos.
 keywords: riesgo de crédito, solución de análisis predictivo, evaluación de riesgos
 author: sdgilley
 ms.author: sgilley
@@ -10,24 +10,24 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 45407e183c70fe67e6bd59e3fd86a50a31844c47
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 375fdf9b64afcce2d521008d353949e650f9df5e
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453494"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622072"
 ---
-# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>Tutorial 2: Entrenamiento de modelos de riesgo crediticio: Azure Machine Learning Studio
+# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutorial 2: Entrenamiento de modelos de riesgo crediticio: Azure Machine Learning Studio (clásico)
 
-En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio.  Después puede implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Se trata de la **segunda parte de un tutorial de tres**.
+En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en la versión clásica de Machine Learning Studio.  Después puede implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Se trata de la **segunda parte de un tutorial de tres**.
 
 Suponga que necesita predecir el riesgo de crédito de un individuo en función de la información que se proporcionó en una solicitud de crédito.  
 
-La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. La usaremos como ejemplo de cómo puede crear una solución de análisis predictivo con Microsoft Azure Machine Learning Studio. Vamos a usar Azure Machine Learning Studio y un servicio web de Machine Learning para esta solución.  
+La evaluación de riesgos crediticios es un problema complejo, pero en este tutorial se simplificará un poco. Se utilizará como ejemplo de cómo puede crear una solución de análisis predictivo con Microsoft Azure Machine Learning Studio (clásico). En esta solución, se usa la versión clásica de Azure Machine Learning Studio y un servicio web de Machine Learning.  
 
 En este tutorial de tres partes, vamos a comenzar con los datos de riesgo crediticio disponibles públicamente.  Después, desarrollaremos y entrenaremos un modelo predictivo.  Finalmente, vamos a implementar el modelo como servicio web.
 
-En la [parte uno del tutorial](tutorial-part1-credit-risk.md) creó un área de trabajo de Machine Learning Studio, cargó datos y creó un experimento.
+En la [parte uno del tutorial](tutorial-part1-credit-risk.md), creó un área de trabajo de Machine Learning Studio (clásico), cargó datos y creó un experimento.
 
 En esta parte del tutorial, se va a ver lo siguiente:
  
@@ -38,39 +38,36 @@ En esta parte del tutorial, se va a ver lo siguiente:
 
 En la [parte tres del tutorial](tutorial-part3-credit-risk-deploy.md) se implementará el modelo como servicio web.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 Completar la [parte uno del tutorial](tutorial-part1-credit-risk.md).
 
 ## <a name="train"></a>Entrenamiento de varios modelos
 
-Una de las ventajas del uso de Azure Machine Learning Studio para crear modelos de aprendizaje automático es la capacidad para probar más de un tipo de modelo a la vez en un solo experimento y comparar los resultados. Este tipo de experimentación ayuda a encontrar la mejor solución al problema.
+Una de las ventajas del uso de la versión clásica de Azure Machine Learning Studio para crear modelos de aprendizaje automático es la capacidad para probar más de un tipo de modelo a la vez en un solo experimento y comparar los resultados. Este tipo de experimentación ayuda a encontrar la mejor solución al problema.
 
 En el experimento que vamos a crear en este tutorial, crearemos dos tipos diferentes de modelos y después compararemos los resultados de su puntuación para decidir qué algoritmo usar en nuestro experimento final.  
 
-Existen varios modelos entre los que se puede elegir. Para ver cuáles están disponibles, expanda el nodo **Machine Learning** de la paleta de módulos y luego expanda **Initialize Model** (Inicializar modelo) y los nodos que incluye. Teniendo en cuenta el objetivo de este experimento, seleccione los módulos [Two-Class Support Vector Machine][two-class-support-vector-machine] (Máquina de vectores de soporte de dos clases, SVM) y [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión ampliados de dos clases).
+Existen varios modelos entre los que se puede elegir. Para ver cuáles están disponibles, expanda el nodo **Machine Learning** de la paleta de módulos y luego expanda **Initialize Model** (Inicializar modelo) y los nodos que incluye. Teniendo en cuenta el objetivo de este experimento, seleccione los módulos [Two-Class Support Vector Machine][two-class-support-vector-machine] (Máquina de vectores de soporte de dos clases, SVM) y [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión promovido por dos clases).
 
 > [!TIP]
-> Si necesita ayuda para decidir qué algoritmo de Machine Learning se ajusta mejor a un problema concreto que trata de solucionar, vea [Cómo elegir algoritmos para Microsoft Azure Machine Learning Studio](algorithm-choice.md).
+> Si necesita ayuda para decidir qué algoritmo de Machine Learning se ajusta mejor a un problema concreto que trata de solucionar, vea [Cómo elegir algoritmos para Microsoft Azure Machine Learning Studio (clásico)](algorithm-choice.md).
 > 
 > 
 
-Agregará tanto el módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión ampliados de dos clases) como el módulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Máquina de vectores de soporte de dos clases) en este experimento.
+Agregará tanto el módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión promovido por dos clases) como el módulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Máquina de vectores dos clases) en este experimento.
 
 ### <a name="two-class-boosted-decision-tree"></a>Two-Class Boosted Decision Tree (Árbol de decisión ampliado de dos clases).
 
 En primer lugar, configure el modelo del árbol de decisión ampliado.
 
-1. Busque el módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión ampliados de dos clases) en la paleta de módulos y arrástrelo al lienzo.
+1. Busque el módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión promovido por dos clases) en la paleta de módulos y arrástrelo al lienzo.
 
-1. Busque el módulo [Train Model][train-model] (Entrenar modelo), arrástrelo al lienzo y conecte la salida del módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión ampliados de dos clases) al puerto de entrada izquierdo del módulo [Train Model][train-model] (Entrenar modelo).
+1. Busque el módulo [Entrenar modelo][train-model], arrástrelo al lienzo y conecte la salida del módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión promovido por dos clases) al puerto de entrada izquierdo del módulo [Entrenar modelo][train-model].
    
-   El módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión ampliados de dos clases) inicializa el modelo genérico, y [Train Model][train-model] (Entrenar modelo) usa los datos de entrenamiento para entrenar el modelo. 
+   El módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión promovido por dos clases) inicializa el modelo genérico, y [Entrenar modelo][train-model] usa los datos de entrenamiento para entrenar el modelo. 
 
-1. Conecte la salida izquierda del módulo [Execute R Script (Ejecutar script R)][execute-r-script] izquierdo al puerto de entrada de la derecha del módulo [Train Model (Entrenar modelo)][train-model] (en este tutorial [usó los datos procedentes del lado izquierdo](#train) del módulo Split Data [Dividir datos] para el entrenamiento).
+1. Conecte la salida izquierda del módulo [Ejecutar script R][execute-r-script] izquierdo al puerto de entrada de la derecha del módulo [Entrenar modelo][train-model] (en este tutorial [usó los datos procedentes del lado izquierdo](#train) del módulo Split Data [Dividir datos] para el entrenamiento).
    
    > [!TIP]
    > No necesita dos de las entradas y una de las salidas del módulo [Execute R Script][execute-r-script] (Ejecutar script R) para este experimento, así que las puede dejar desconectadas. 
@@ -101,15 +98,15 @@ Para configurar el modelo SVM, realice lo siguiente:
 
 1. Busque el módulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Máquina de vectores de soporte de dos clases) en la paleta de módulos y arrástrelo al lienzo.
 
-1. Haga clic con el botón derecho en el módulo [Train Model][train-model] (Entrenar modelo), seleccione **Copiar**, haga clic con el botón derecho en el lienzo y seleccione **Pegar**. La copia del módulo [Train Model][train-model] (Entrenar modelo) tiene la misma selección de columnas que el original.
+1. Haga clic con el botón derecho en el módulo [Train Model][train-model] (Entrenar modelo), seleccione **Copy** (Copiar), haga clic con el botón derecho en el lienzo y seleccione **Paste** (Pegar). La copia del módulo [Train Model][train-model] (Entrenar modelo) tiene la misma selección de columnas que el original.
 
-1. Conecte la salida del módulo [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine] al puerto de entrada izquierdo del módulo [Entrenar modelo][train-model].
+1. Conecte la salida del módulo [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine] al puerto de entrada izquierdo del módulo [Train Model][train-model] (Entrenar modelo).
 
 1. Busque el módulo [Normalizar datos][normalize-data] y arrástrelo al lienzo.
 
-1. Conecte la salida de la izquierda del módulo [Ejecutar script R][execute-r-script] de la izquierda a la entrada de este módulo (tenga en cuenta que el puerto de salida de un módulo puede estar conectado a más de un módulo distinto).
+1. Conecte la salida de la izquierda del módulo [Ejecutar script R][execute-r-script] de la izquierda a la entrada de este módulo (tenga en cuenta que el puerto de salida de un módulo puede estar conectado a más de un módulo distinto).
 
-1. Conecte el puerto de salida izquierdo del módulo [Normalize Data (Normalizar datos)][normalize-data] al puerto de entrada derecho del segundo módulo [Train Model (Entrenar modelo)][train-model].
+1. Conecte el puerto de salida izquierdo del módulo [Normalize Data][normalize-data] (Normalizar datos) al puerto de entrada derecho del segundo módulo [Entrenar modelo][train-model].
 
 Esta parte de nuestro experimento debería tener ahora un aspecto similar al siguiente:  
 
@@ -138,20 +135,20 @@ Se utilizan los datos de prueba que se separaron mediante el módulo [Split Data
 
 1. Busque el módulo [Score Model][score-model] (Puntuar modelo) y arrástrelo al lienzo.
 
-1. Conecte el módulo [Train Model][train-model] (Entrenar modelo) que está conectado al módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión ampliado de dos clases) al puerto de entrada izquierdo del módulo [Score Model][score-model] (Puntuar modelo).
+1. Conecte el módulo [Entrenar modelo][train-model] que está conectado al módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión promovido por dos clases) al puerto de entrada izquierdo del módulo [Score Model][score-model] (Puntuar modelo).
 
-1. Conecte el módulo derecho [Execute R Script][execute-r-script] (Ejecutar script R) (los datos de prueba) al puerto de entrada derecho del módulo [Score Model][score-model] (Puntuar modelo).
+1. Conecte el módulo derecho [Ejecutar script R][execute-r-script] (los datos de prueba) al puerto de entrada derecho del módulo [Score Model][score-model] (Puntuar modelo).
 
     ![Módulo Score Model (Puntuar modelo) conectado](./media/tutorial-part2-credit-risk-train/score-model-connected.png)
 
    
-   El módulo [Score Model][score-model] (Puntuar modelo) ahora puede utilizar la información de crédito de los datos de prueba, ejecutarla a través del modelo y comparar las predicciones que el modelo genera con la columna de riesgo de crédito real de los datos de prueba.
+   El módulo [Score Model][score-model] (Puntuar modelo) ahora puede utilizar la información de crédito de los datos de prueba, ejecutarla con el modelo y comparar las predicciones que el modelo genera con la columna de riesgo de crédito real de los datos de prueba.
 
 1. Copie y pegue el módulo [Score Model][score-model] (Puntuar modelo) para crear una segunda copia.
 
-1. Conecte la salida del modelo SVM; es decir, el puerto de salida del módulo [Train Model][train-model] (Entrenar modelo) que está conectado al módulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Máquina de vectores de soporte de dos clases), al puerto de entrada del segundo módulo [Score Model][score-model] (Puntuar modelo).
+1. Conecte la salida del modelo SVM; es decir, el puerto de salida del módulo [Entrenar modelo][train-model] que está conectado al módulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Máquina de vectores de soporte de dos clases) al puerto de entrada del segundo módulo [Score Model][score-model] (Puntuar modelo).
 
-1. En cuanto al modelo SVM, tiene que realizar la misma transformación en los datos de prueba que la que realizó con los datos de entrenamiento. Así pues, copie y pegue el módulo [Normalize Data][normalize-data] (Normalizar datos) para crear una segunda copia y conéctelo al módulo derecho [Execute R Script][execute-r-script] (Ejecutar script R).
+1. En cuanto al modelo SVM, tiene que realizar la misma transformación en los datos de prueba que la que realizó con los datos de entrenamiento. Así pues, copie y pegue el módulo [Normalize Data][normalize-data] (Normalizar datos) para crear una segunda copia y conéctelo al módulo derecho [Ejecutar script R][execute-r-script].
 
 1. Conecte la salida izquierda del segundo módulo [Normalize Data][normalize-data] (Normalizar datos) al puerto de salida derecho del segundo módulo [Score Model][score-model] (Puntuar modelo).
 
@@ -191,9 +188,9 @@ A la derecha del gráfico, haga clic en **Scored dataset** (Conjunto de datos pu
 Si examina estos valores, podrá decidir cuál es el modelo que más se acerca a ofrecerle los resultados que busca. Puede volver y repetir el experimento cambiando valores de parámetros en los diferentes modelos. 
 
 La ciencia y el arte de interpretar estos resultados y de ajustar el rendimiento del modelo están fuera del ámbito de este tutorial. Para obtener ayuda adicional, puede leer los artículos siguientes:
-- [Evaluación del rendimiento de un modelo en Azure Machine Learning Studio](evaluate-model-performance.md)
-- [Elegir parámetros para optimizar los algoritmos de Azure Machine Learning Studio](algorithm-parameters-optimize.md)
-- [Interpretar los resultados del modelo en Azure Machine Learning Studio](interpret-model-results.md)
+- [Evaluación del rendimiento de un modelo en Azure Machine Learning Studio (clásico)](evaluate-model-performance.md)
+- [Elegir parámetros para optimizar los algoritmos de Azure Machine Learning Studio (clásico)](algorithm-parameters-optimize.md)
+- [Interpretar los resultados del modelo en Azure Machine Learning Studio (clásico)](interpret-model-results.md)
 
 > [!TIP]
 > Cada vez que ejecute el experimento, se guardará un registro de esa iteración en el Historial de ejecuciones. Puede ver estas iteraciones y volver a cualquiera de ellas haciendo clic en **VER HISTORIAL DE EJECUCIÓN** bajo el lienzo. También puede hacer clic en **Prior Run** (Ejecución anterior) en el panel **Propiedades** para volver a la iteración inmediatamente anterior a la que ha abierto.
@@ -201,7 +198,7 @@ La ciencia y el arte de interpretar estos resultados y de ajustar el rendimiento
 > Puede hacer una copia de cualquier iteración de su experimento si hace clic en **GUARDAR COMO** bajo el lienzo. 
 > Utilice las propiedades **Resumen** y **Descripción** para mantener un registro de lo que ha tratado de hacer en las iteraciones del experimento.
 > 
-> Para más información, consulte [Administrar iteraciones de experimentos en Azure Machine Learning Studio](manage-experiment-iterations.md).  
+> Para más información, consulte [Administrar iteraciones de experimentos en Azure Machine Learning Studio (clásico)](manage-experiment-iterations.md).  
 > 
 > 
 

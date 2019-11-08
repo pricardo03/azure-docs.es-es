@@ -5,85 +5,92 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 10/24/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: edf5e04b7cf9b5c79666c54fbeca49858cf21079
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ad86280eab3041667bf9d1713ae2b4bc82a4c9e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077506"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491463"
 ---
-# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN (versión preliminar)
+# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN
 
-En este tutorial se muestra cómo usar Virtual WAN para conectarse a los recursos de Azure mediante una asociación y un circuito de ExpressRoute. Para más información sobre Virtual WAN, consulte la [Introducción a Virtual WAN](virtual-wan-about.md)
+En este tutorial se muestra cómo usar Virtual WAN para conectarse a los recursos de Azure mediante un circuito de ExpressRoute. Para más información sobre Virtual WAN y sus recursos, consulte el artículo de [introducción a Virtual WAN](virtual-wan-about.md).
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una WAN virtual
-> * Crear un concentrador
-> * Buscar y asociar un circuito con el centro
-> * Asociar el circuito a un centro, o a varios
+> * Creación de una instancia de Virtual WAN
+> * Crear un centro de conectividad y una puerta de enlace
 > * Conectar una red virtual a un concentrador
-> * Visualizar la instancia de Virtual WAN
-> * Visualizar el estado de los recursos
-> * Supervisar una conexión
-
-> [!IMPORTANT]
-> Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+> * Conectar un circuito a una puerta de enlace de centro de conectividad
+> * Comprobación de la conectividad
+> * Cambiar el tamaño de una puerta de enlace
+> * Anunciar una ruta predeterminada
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Antes de comenzar con la configuración, compruebe que se cumplen los criterios siguientes:
 
-[!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+* Tiene una red virtual a la que desea conectarse. Compruebe que ninguna de las subredes de sus redes locales se superpone a las redes virtuales a las que desea conectarse. Para crear una red virtual en Azure Portal consulte este [Inicio rápido](../virtual-network/quick-create-portal.md).
 
-## <a name="register"></a>Registro de esta característica
+* Su red virtual no tiene ninguna puerta de enlace de red virtual. Si la red virtual tiene alguna puerta de enlace (ya sea VPN o ExpressRoute), tiene que quitarla. Esta configuración requiere que las redes virtuales estén conectadas a la puerta de enlace del centro de conectividad de Virtual WAN.
 
-Para poder configurar una instancia de Virtual WAN, primero hay que inscribir una suscripción en la versión preliminar. En caso contrario, no podrá trabajar con Virtual WAN en el portal. Para inscribirse, envíe un correo electrónico a **azurevirtualwan\@microsoft.com** con el identificador de suscripción. Recibirá un correo electrónico una vez inscrita la suscripción.
+* Obtenga un intervalo de direcciones IP para la región del concentrador. El centro de conectividad es una red virtual que Virtual WAN crea y usa. El intervalo de direcciones que especifique para el centro de conectividad no se puede superponer a ninguna de las redes virtuales existentes a las que ya esté conectado. Igualmente no se puede superponer a los intervalos de direcciones con las que esté conectadas en el entorno local. Si no está familiarizado con los intervalos de direcciones IP ubicados en la configuración de la red local, póngase de acuerdo con alguien que pueda proporcionarle estos detalles.
 
-**Consideraciones de la versión preliminar**
+* Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-  * El circuito ExpressRoute debe estar habilitado en un país o región que admita [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
-  * El circuito ExpressRoute debe ser un circuito Premium para conectarse al centro de la red de Virtual WAN. 
+## <a name="openvwan"></a>Creación de una instancia de Virtual WAN
 
-## <a name="vnet"></a>1. Creación de una red virtual
+Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
+1. Vaya a la página de Virtual WAN. En el portal, haga clic en **+Crear un recurso**. Escriba **Virtual WAN** en el cuadro de búsqueda y seleccione ENTRAR.
+2. Seleccione **Virtual WAN** en los resultados. En la página Virtual WAN, haga clic en **Crear** para abrir la página Crear una red WAN.
+3. Dentro de la página **Crear una red WAN**, en la pestaña **Aspectos básicos** rellene los campos siguientes:
 
-## <a name="openvwan"></a>2. Creación de una instancia de Virtual WAN
+   ![Creación de una red WAN](./media/virtual-wan-expressroute-portal/createwan.png)
 
-En un explorador, vaya a [Azure Portal (versión preliminar)](https://aka.ms/azurevirtualwanpreviewfeatures) e inicie sesión con su cuenta de Azure.
+   * **Suscripción**: seleccione la suscripción que quiere usar.
+   * **Grupo de recursos**: cree uno nuevo o utilice uno ya existente.
+   * **Ubicación del grupo de recursos**: elija una ubicación para los recursos en la lista desplegable. Una red WAN es un recurso global y no reside en una región determinada. De todas formas, tiene que seleccionar una región con el fin de administrar y ubicar más fácilmente el recurso WAN que cree.
+   * **Nombre**: escriba el nombre que desea dar a la WAN.
+   * **Tipo**: seleccione **Estándar**. No se puede crear una puerta de enlace de ExpressRoute con la SKU básica.
+4. Cuando termine de rellenar los campos, haga clic en **Revisión y creación**.
+5. Una vez que se haya superado la validación, seleccione **Crear** para crear la WAN virtual.
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
+## <a name="hub"></a>Creación de un centro de conectividad virtual y una puerta de enlace
 
-### <a name="getting-started-page"></a>Página de introducción
+Un centro de conectividad virtual es una red virtual que Virtual WAN crea y usa. Puede contener varias puertas de enlace, como VPN y ExpressRoute. En esta sección, creará una puerta de enlace de ExpressRoute para el centro de conectividad virtual. Puede crear la puerta de enlace cuando [cree un nuevo centro de conectividad virtual](#newhub), o puede crear la puerta de enlace en un [centro de conectividad ya existente](#existinghub) editándolo. 
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-gettingstarted-include.md)]
+Las puertas de enlace de ExpressRoute se aprovisionan en unidades de 2 Gbps. 1 unidad de escalado = 2 Gbps con capacidad para hasta 10 unidades de escalado = 20 Gbps. El proceso completo de creación de un centro de conectividad virtual y una puerta de enlace lleva aproximadamente 30 minutos.
 
-## <a name="hub"></a>3. Crear un concentrador
+### <a name="newhub"></a>Para crear un nuevo centro de conectividad virtual y una puerta de enlace
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
+Cree un nuevo centro de conectividad virtual. Una vez que haya creado el centro de conectividad, se le cobrará por él, aunque no lo conecte a ningún sitio.
 
-## <a name="hub"></a>4. Buscar y asociar un circuito con el centro
+[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
 
-1. Seleccione su WAN virtual y en **Virtual WAN Architecture** (Arquitectura de WAN virtual), seleccione **ExpressRoute Circuits** (Circuitos de ExpressRoute)
-1. Si el circuito de ExpressRoute se encuentra en la misma suscripción que su WAN virtual, haga clic en **Select ExpressRoute circuit** (Seleccionar circuito de ExpressRoute) de sus suscripciones. 
-1. Mediante la lista desplegable, seleccione la instancia de ExpressRoute que desea asociar al centro.
-1. Si el circuito de ExpressRoute no está en la misma suscripción o si se le ha proporcionado [una clave de autorización y un identificador de par ](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), seleccione **Find a circuit redeeming an authorization key** (Buscar un circuito que canjee una clave de autorización)
-1. Escriba la siguiente información:
-1. **Clave de autorización** : generada por el propietario del circuito como se describió anteriormente
-1. **URI de circuito del mismo nivel**: identificador URI del circuito que proporciona el propietario del circuito y es el identificador único del circuito
-1. **Ponderación del enrutamiento** - [Routing Weight](../expressroute/expressroute-optimize-routing.md) permite elegir ciertas rutas de acceso cuando varios circuitos de diferentes ubicaciones de emparejamiento están conectados al mismo centro
-1. Haga clic en **Find circuit** (Buscar circuito) y seleccione el circuito, si lo encuentra.
-1. Seleccione uno o varios centros en la lista desplegable y haga clic en **Guardar**.
+### <a name="existinghub"></a>Para crear una puerta de enlace en un centro de conectividad existente
 
-## <a name="vnet"></a>5. Conexión de la red virtual a un concentrador
+También puede crear una puerta de enlace en un centro de conectividad ya existente, editándolo.
 
-En este paso, creará la conexión de emparejamiento entre una red virtual y el concentrador. Repita estos pasos para cada red virtual que desee conectar.
+1. Vaya hasta el centro de conectividad virtual que desea editar y selecciónelo.
+2. En la página **Editar centro de conectividad virtual**, seleccione la casilla **Incluir la puerta de enlace de ExpressRoute**.
+3. Seleccione **Confirmar** para confirmar los cambios. El proceso completo de creación del centro de conectividad y de los recursos del mismo lleva aproximadamente 30 minutos.
+
+   ![centro de conectividad existente](./media/virtual-wan-expressroute-portal/edithub.png "editar un centro de conectividad")
+
+### <a name="to-view-a-gateway"></a>Para ver una puerta de enlace
+
+Una vez que haya creado una puerta de enlace de ExpressRoute, puede ver los detalles de la misma. Vaya al centro de conectividad, seleccione **ExpressRoute** y verá la puerta de enlace.
+
+![Ver puerta de enlace](./media/virtual-wan-expressroute-portal/viewgw.png "ver la puerta de enlace")
+
+## <a name="connectvnet"></a>Conexión de la red virtual al centro de conectividad
+
+En esta sección, creará la conexión de emparejamiento entre el centro de conectividad y una red virtual. Repita estos pasos para cada red virtual que desee conectar.
 
 1. En la página de la red virtual WAN, haga clic en **Conexión de red virtual**.
 2. En la página de conexión de red virtual, haga clic en **+ Agregar conexión**.
@@ -92,44 +99,58 @@ En este paso, creará la conexión de emparejamiento entre una red virtual y el 
     * **Nombre de la conexión**: asigne un nombre a la conexión.
     * **Centros**: seleccione el concentrador que desea asociar a esta conexión.
     * **Suscripción**: compruebe la suscripción.
-    * **Red virtual**: seleccione la red virtual que quiere conectar con este concentrador. La red virtual no puede tener una puerta de enlace de red virtual ya existente.
+    * **Red virtual**: seleccione la red virtual que quiere conectar con este concentrador. La red virtual no puede tener una puerta de enlace de red virtual ya existente (ni VPN, ni ExpressRoute).
 
+## <a name="connectcircuit"></a>Conexión del circuito a la puerta de enlace del centro de conectividad
 
-## <a name="viewwan"></a>6. Visualizar la instancia de Virtual WAN
+Una vez que se crea la puerta de enlace, puede conectarle un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Tenga en cuenta que los circuitos Premium de ExpressRoute que se encuentran en las ubicaciones compatibles de ExpressRoute Global Reach, pueden conectarse a una puerta de enlace de ExpressRoute de Virtual WAN.
 
-1. Vaya a la instancia de Virtual WAN.
-2. En la página Información general, cada punto del mapa representa un concentrador. Mantenga el mouse sobre cualquier punto para ver el resumen de estado del concentrador.
-3. En la sección de concentradores y conexiones, puede ver estado del concentrador, sitio, región, estado de la conexión VPN y bytes de entrada y salida.
+### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Para conectar el circuito a la puerta de enlace del centro de conectividad
 
-## <a name="viewhealth"></a>7. Visualización del estado de los recursos
+En el portal, vaya a la página **Centro virtual-> Conectividad-> ExpressRoute**. Si tiene acceso a un circuito ExpressRoute en su suscripción, verá el circuito que desea usar en la lista de circuitos. Si no ve ningún circuito, pero se le ha proporcionado una clave de autorización y un URI de circuito del mismo nivel, puede canjear y conectar un circuito. Consulte [Para conectar canjeando una clave de autorización](#authkey).
 
-1. Vaya a su red WAN.
-2. En la página de la WAN, en la sección de **Soporte técnico y solución de problemas**, haga clic en **Mantenimiento** y visualice los recursos.
+1. Seleccione el circuito.
+2. Seleccione **Conectar los circuitos**.
 
-## <a name="connectmon"></a>8. Supervisar una conexión
+   ![conectar los circuitos](./media/virtual-wan-expressroute-portal/cktconnect.png "conectar los circuitos")
 
-Cree una conexión para supervisar la comunicación entre una máquina virtual de Azure y un sitio remoto. Para información acerca de cómo configurar una supervisión de conexión, consulte [Supervisar la comunicación de red](~/articles/network-watcher/connection-monitor.md). El campo de origen es la IP de la máquina virtual en Azure y la dirección IP de destino es la dirección IP del sitio.
+### <a name="authkey"></a>Para conectar canjeando una clave de autorización
 
-## <a name="cleanup"></a>9. Limpieza de recursos
+Para conectar use la clave de autorización y el URI del circuito que se le proporcionaron.
 
-Cuando ya no necesite estos recursos, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
+1. En la página ExpressRoute, haga clic en **Canjear la clave de autorización**
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+   ![canjear](./media/virtual-wan-expressroute-portal/redeem.png "canjear")
+2. En la página Canjear l clave de autorización, rellene los valores.
+
+   ![canjear los valores de clave](./media/virtual-wan-expressroute-portal/redeemkey2.png "canjear los valores de clave")
+3. Seleccione **Agregar** para agregar la clave.
+4. Vea el circuito. Un circuito canjeado solo muestra el nombre (sin tipo, proveedor, ni más información) porque está en una suscripción diferente a la del usuario.
+
+## <a name="to-test-connectivity"></a>Para probar la conectividad
+
+Una vez establecida la conexión del circuito, el estado de la conexión del centro de conectividad indicará "este centro", lo que implica que la conexión está establecida en la puerta de enlace de ExpressRoute del centro de conectividad. Espere unos 5 minutos antes de probar la conectividad de un cliente que se encuentre detrás del circuito ExpressRoute, por ejemplo, una máquina virtual en la red virtual que haya creado anteriormente.
+
+Si tiene sitios conectados a una puerta de enlace de VPN Virtual WAN en el mismo centro de conectividad que la puerta de enlace de ExpressRoute, puede tener conectividad bidireccional entre los puntos de conexión de VPN y ExpressRoute. Se admite el enrutamiento dinámico (BGP). El ASN de las puertas de enlace en el centro de conectividad es fijo y en este momento no se puede editar.
+
+## <a name="to-change-the-size-of-a-gateway"></a>Para cambiar el tamaño de una puerta de enlace
+
+Si desea cambiar el tamaño de la puerta de enlace de ExpressRoute, busque la puerta de enlace de ExpressRoute dentro del centro de conectividad y seleccione las unidades de escalado en la lista desplegable. Guarde el cambio. Se tardará aproximadamente unos 30 minutos en actualizar la puerta de enlace del centro de conectividad.
+
+![cambiar el tamaño de una puerta de enlace](./media/virtual-wan-expressroute-portal/changescale.png "cambiar el tamaño de una puerta de enlace")
+
+## <a name="to-advertise-default-route-00000-to-endpoints"></a>Para anunciar la ruta predeterminada 0.0.0.0/0 a los puntos de conexión
+
+Si desea que el centro de conectividad virtual de Azure anuncie la ruta predeterminada 0.0.0.0/0 a los puntos de conexión de ExpressRoute, tendrá que habilitar "Propagar la ruta predeterminada".
+
+1. Seleccione su **Circuito >...-> Editar conexión**.
+
+   ![Editar la conexión](./media/virtual-wan-expressroute-portal/defaultroute1.png "Edición de la conexión")
+
+2. Seleccione **Habilitar** para propagar la ruta predeterminada.
+
+   ![Propagar la ruta predeterminada](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propagar la ruta predeterminada")
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Crear una WAN virtual
-> * Crear un concentrador
-> * Buscar y asociar un circuito con el centro
-> * Asociar el circuito a un centro, o a varios
-> * Conectar una red virtual a un concentrador
-> * Visualizar la instancia de Virtual WAN
-> * Visualizar el estado de los recursos
-> * Supervisar una conexión
 
 Para más información sobre Virtual WAN, consulte la página [Introducción a Virtual WAN](virtual-wan-about.md).

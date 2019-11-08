@@ -1,6 +1,6 @@
 ---
 title: Administración de servicios web mediante API Management
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: Una guía que muestra cómo administrar los servicios web de AzureML mediante la Administración de API. Administre los puntos de conexión de la API REST mediante la definición del acceso del usuario, la limitación de uso y la supervisión del panel.
 services: machine-learning
 ms.service: machine-learning
@@ -10,26 +10,26 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 5b6ece20f67258391e31b941edfc1ec0aa5db98f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 227a7205788194cc507dcd9dab7e5cad57abc7f9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279262"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671571"
 ---
-# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio con API Management
+# <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio (clásico) con API Management
 ## <a name="overview"></a>Información general
-En esta guía, se explica cómo empezar a usar rápidamente API Management para administrar los servicios web de Azure Machine Learning Studio.
+En esta guía, se explica cómo empezar a usar rápidamente API Management para administrar los servicios web de Azure Machine Learning Studio (clásico).
 
 ## <a name="what-is-azure-api-management"></a>¿Qué es la Azure API Management?
-Azure API Management es un servicio de Azure que le permite administrar los extremos de la API de REST al definir el acceso del usuario, el límite de uso y la supervisión de panel. Haga clic [aquí](https://azure.microsoft.com/services/api-management/) para obtener más información sobre Azure API Management. Haga clic [aquí](/azure/api-management/import-and-publish) para obtener una guía sobre cómo empezar a trabajar con Azure API Management. Esta otra guía, en la que está basada esta guía, aborda más temas, incluidos las configuraciones de notificación, el nivel de precios, el control de respuestas, la autenticación de los usuarios, la creación de productos, las suscripciones de desarrollador y los paneles de uso.
+Azure API Management es un servicio de Azure que le permite administrar los extremos de la API de REST al definir el acceso del usuario, el límite de uso y la supervisión de panel. Consulte el [sitio de Azure API Management](https://azure.microsoft.com/services/api-management/) para más información. Para empezar a trabajar con Azure API Management, consulte [la guía de importación y publicación](/azure/api-management/import-and-publish). Esta otra guía, en la que está basada esta guía, aborda más temas, incluidos las configuraciones de notificación, el nivel de precios, el control de respuestas, la autenticación de los usuarios, la creación de productos, las suscripciones de desarrollador y los paneles de uso.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar a esta guía, necesita:
 
-* Una cuenta de Azure. Si no tiene una cuenta de Azure, haga clic [aquí](https://azure.microsoft.com/pricing/free-trial/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
-* Una cuenta de AzureML. Si no dispone de una cuenta de Aprendizaje automático de Azure, haga clic [aquí](https://studio.azureml.net/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
-* El área de trabajo, el servicio y la api_key para un experimento de Aprendizaje automático de Azure implementado como un servicio web. Haga clic [aquí](create-experiment.md) para obtener más información sobre cómo crear un experimento de Aprendizaje automático de Azure. Haga clic [aquí](publish-a-machine-learning-web-service.md) para obtener más información sobre cómo implementar un experimento de Aprendizaje automático de Azure como un servicio web. Además, el Apéndice A contiene instrucciones sobre cómo crear y probar un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web.
+* Una cuenta de Azure.
+* Una cuenta de AzureML.
+* El área de trabajo, el servicio y la api_key para un experimento de Aprendizaje automático de Azure implementado como un servicio web. Para más información sobre cómo crear un experimento de Aprendizaje automático de Azure consulte el [inicio rápido de Studio](create-experiment.md). Para información sobre cómo implementar un experimento de Studio (clásico) como servicio web, vea el [procedimiento de implementación de Studio](deploy-a-machine-learning-web-service.md) sobre cómo implementar un experimento de Aprendizaje automático de Azure como un servicio web. Además, el Apéndice A contiene instrucciones sobre cómo crear y probar un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web.
 
 ## <a name="create-an-api-management-instance"></a>Creación de una instancia de API Management
 
@@ -55,7 +55,7 @@ Una vez creada la instancia de servicio, el paso siguiente es crear la API. Una 
 
 Para crear la API:
 
-1. En Azure Portal, abra la instancia del servicio que acaba de crear.
+1. En Azure Portal, abra la instancia del servicio que creó.
 2. En el panel de navegación izquierdo, haga clic en **API**.
 
    ![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management.png)
@@ -134,7 +134,7 @@ En primer lugar, cree una operación para el servicio RRS de AzureML:
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>Llamada a una operación desde el portal para desarrolladores
 
-Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API. En este paso llamará al método **RRS Execute** que se agregó a la **API de demostración de AzureML**. 
+Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API. En este paso, llamará al método **RRS Execute** que se agregó a la **API de demostración de AzureML**. 
 
 1. Haga clic en **Portal para desarrolladores**.
 

@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390156"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499239"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
@@ -125,7 +125,7 @@ Los descuentos por reserva solo se aplican a los recursos asociados con Enterpri
 
 ## <a name="when-the-reservation-term-expires"></a>Cuando expira el plazo de reserva
 
-Al final del plazo de reserva, el descuento de facturación expira. La máquina virtual, la base de datos SQL y Azure Cosmos DB u otros recursos se factura según el precio de pago por uso. Azure Reservations no se renueva de manera automática. Para seguir disfrutando del descuento de facturación, debe comprar una reserva nueva para los servicios y el software aplicables.
+Al final del plazo de reserva, el descuento de facturación expira y los recursos se facturan según los precios de pago por uso. De forma predeterminada, las reservas no se establecen para renovarse automáticamente. Puede optar por habilitar la renovación automática de una reserva mediante la selección de la opción de la configuración de renovación. Con la renovación automática, se comprará una reserva de reemplazo cuando expire la reserva existente. De forma predeterminada, la reserva de reemplazo tiene los mismos atributos que la reserva que expira y, opcionalmente, puede cambiar la frecuencia de facturación, el plazo o la cantidad en la configuración de renovación. Cualquier usuario con acceso de propietario en la reserva y la suscripción que se usa para la facturación puede configurar la renovación.  
 
 ## <a name="discount-applies-to-different-sizes"></a>El descuento se aplica a los diferentes tamaños
 

@@ -1,6 +1,6 @@
 ---
 title: Ciencia de datos para principiantes
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: Ciencia de datos para principiantes explica los conceptos básicos en 5 vídeos breves, empezando por las 5 preguntas a las que responde la ciencia de datos. De Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2a91f3df3bab6a2ba10090719d0e614b9d652a3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751389"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621774"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciencia de datos para principiantes, vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
 Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en elaborar ciencia de datos o trabajar con científicos de datos.
@@ -135,5 +135,5 @@ Los algoritmos de aprendizaje reforzado recopilan datos a medida que avanzan, ap
 Eso es todo: las cinco preguntas a las que puede responder la ciencia de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio](create-experiment.md)
+* [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio (clásico)](create-experiment.md)
 * [Introducción a Machine Learning en Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

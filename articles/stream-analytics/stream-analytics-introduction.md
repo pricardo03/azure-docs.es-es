@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: c50ad2b045f32daf53033318123b68e4b2d58db5
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 0982cc90d26c9f04e8d547c7d634e09280d7fca2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329315"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467900"
 ---
 # <a name="what-is-azure-stream-analytics"></a>¿Qué es Azure Stream Analytics?
 
@@ -61,7 +61,7 @@ Azure Stream Analytics usa un lenguaje de consulta simple basado en SQL que se h
 
 El lenguaje de consulta de Stream Analytics ofrece una amplia matriz de funciones para analizar y procesar los datos de streaming. Este lenguaje de consulta admite la manipulación simple de datos, la agregación de funciones y las complejas funciones geoespaciales. Las consultas se pueden editar en el portal y se pueden probar con datos de ejemplo que se extraen de la secuencia en directo.
 
-Puede ampliar la funcionalidad del lenguaje de consulta si define e invoca funciones adicionales. Puede definir que las llamadas a funciones de Azure Machine Learning Service saquen provecho de las soluciones de Azure Machine Learning e integren las funciones definidas por el usuario (UDF) de JavaScript o C#, así como los agregados definidos por el usuario, para realizar cálculos complejos como parte de una consulta de Stream Analytics.
+Puede ampliar la funcionalidad del lenguaje de consulta si define e invoca funciones adicionales. Puede definir que las llamadas a funciones de Azure Machine Learning se aprovechen de las soluciones de Azure Machine Learning e integren las funciones definidas por el usuario (UDF) de JavaScript o C#, así como los agregados definidos por el usuario, para realizar cálculos complejos como parte de una consulta de Stream Analytics.
 
 ## <a name="fully-managed"></a>Completamente administrada
 

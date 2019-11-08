@@ -1,7 +1,7 @@
 ---
 title: Extender el experimento con R
-titleSuffix: Azure Machine Learning Studio
-description: Cómo extender la funcionalidad de Azure Machine Learning Studio mediante el lenguaje R con el módulo Ejecutar script de R.
+titleSuffix: ML Studio (classic) Azure
+description: Cómo extender la funcionalidad de Azure Machine Learning Studio (clásico) mediante el lenguaje R con el módulo Ejecutar script de R.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,15 +10,15 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 8c1292d0d36874892a286d91b1e367c7336b99aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a64303702ffa5ccff9c79e0946d5df45eac9479
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811431"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621645"
 ---
-# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio: Extender el experimento con R 
-Puede extender la funcionalidad de Azure Machine Learning Studio mediante el lenguaje R con el módulo [Ejecutar script de R][execute-r-script].
+# <a name="azure-machine-learning-studio-classic-extend-your-experiment-with-r"></a>Azure Machine Learning Studio (clásico): Extender el experimento con R 
+Puede extender la funcionalidad de Azure Machine Learning Studio (clásico) mediante el lenguaje R con el módulo [Ejecutar script de R][execute-r-script].
 
 Este módulo acepta varios conjuntos de datos de entrada y genera un solo conjunto de datos como salida. Puede escribir un script de R en el parámetro **Script de R** del módulo [Ejecutar script de R][execute-r-script].
 
@@ -27,7 +27,7 @@ Para tener acceso a cada puerto de entrada del módulo, se usa un código simila
     dataset1 <- maml.mapInputPort(1)
 
 ## <a name="listing-all-currently-installed-packages"></a>Enumeración de todos los paquetes actualmente instalados
-La lista de paquetes instalados puede cambiar. Puede encontrar una lista de los paquetes instalados actualmente en [R Packages Supported by Azure Machine Learning Studio](https://msdn.microsoft.com/library/azure/mt741980.aspx) (Paquetes de R compatibles con Azure Machine Learning Studio).
+La lista de paquetes instalados puede cambiar. Puede encontrar una lista de los paquetes instalados actualmente en [Paquetes de R compatibles con Azure Machine Learning Studio (clásico)](https://msdn.microsoft.com/library/azure/mt741980.aspx).
 
 También puede obtener la lista completa y actual de los paquetes instalados especificando el código siguiente en el módulo [Ejecutar script de R][execute-r-script]:
 

@@ -1,5 +1,5 @@
 ---
-title: Modelos de compra de Azure SQL Database | Microsoft Docs
+title: Modelos de compra
 description: Información acerca de los modelos de compra que están disponibles para Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 98d257c28ab5ff2cf902c0b8205ac8918ccf4d45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: be223245c634b8e38dc5e4c89df4c265c22c0b57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567006"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821261"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Elija entre los modelos de compra de núcleo virtual y de DTU
 
 Azure SQL Database le permite comprar fácilmente motores de base de datos de plataforma como servicio (PaaS) totalmente administrados, que se ajusten a sus necesidades de rendimiento y costos. Según el modelo de implementación que haya elegido para Azure SQL Database, puede seleccionar el modelo de compra que más se adapte a sus necesidades:
 
-- [Modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) (recomendado). Este modelo de compra permite elegir entre un nivel de proceso aprovisionado y un nivel de proceso sin servidor (versión preliminar). Con el nivel de proceso aprovisionado, elige la cantidad exacta de recursos de proceso que se aprovisionan siempre para la carga de trabajo. Con el nivel de proceso sin servidor, debe especificar el escalado automático de los recursos de proceso mediante un rango de procesos configurables. Con este nivel de proceso, también puede pausar y reanudar automáticamente la base de datos en función de la actividad de carga de trabajo. El precio unitario de un núcleo virtual por unidad de tiempo es inferior en el nivel de proceso aprovisionado que en el nivel de proceso sin servidor.
+- [Modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) (recomendado). Este modelo de compra permite elegir entre un nivel de proceso aprovisionado y un nivel de proceso sin servidor. Con el nivel de proceso aprovisionado, elige la cantidad exacta de recursos de proceso que se aprovisionan siempre para la carga de trabajo. Con el nivel de proceso sin servidor, debe especificar el escalado automático de los recursos de proceso mediante un rango de procesos configurables. Con este nivel de proceso, también puede pausar y reanudar automáticamente la base de datos en función de la actividad de carga de trabajo. El precio unitario de un núcleo virtual por unidad de tiempo es inferior en el nivel de proceso aprovisionado que en el nivel de proceso sin servidor.
 - [Modelo de compra basado en unidad de transacción de base de datos (DTU)](sql-database-service-tiers-dtu.md). Este modelo de compra proporciona paquetes de proceso y almacenamiento agrupados y equilibrados para cargas de trabajo habituales.
 
 Hay disponibles distintos modelos de compra para los diferentes modelos de implementación de Azure SQL Database:
@@ -53,7 +53,7 @@ El costo del almacenamiento de copia de seguridad es el mismo para el nivel de s
 
 ### <a name="serverless-compute-costs"></a>Costos de proceso sin servidor
 
-Para una descripción de cómo se define la capacidad de proceso y cómo se calculan los costos para el nivel de proceso sin servidor, consulte [SQL Database sin servidor (versión preliminar)](sql-database-serverless.md).
+Para una descripción de cómo se define la capacidad de proceso y cómo se calculan los costos para el nivel de proceso sin servidor, consulte [SQL Database sin servidor](sql-database-serverless.md).
 
 ## <a name="storage-costs"></a>Costos de almacenamiento
 

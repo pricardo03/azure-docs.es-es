@@ -4,15 +4,16 @@ description: Se explica cómo registrar una aplicación SaaS mediante Azure Port
 services: Azure, Marketplace, Cloud Partner Portal, Azure portal
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: 1f644dca7a057667fb37f5a79a4683c592059e7a
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: b2e02e42ab63f893574ca5217fd2f36c7481aabd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331598"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827936"
 ---
 # <a name="register-a-saas-application"></a>Registro de una aplicación SaaS
 
@@ -97,7 +98,7 @@ Método HTTP
 |  Grant_type         | True         | Tipo de concesión. El valor predeterminado es `client_credentials`.                    |
 |  Client_id          | True         |  Identificador de cliente o aplicación asociado a la aplicación de Azure AD.                  |
 |  client_secret      | True         |  Contraseña asociada a la aplicación de Azure AD.                               |
-|  Recurso           | True         |  Recurso de destino para el que se solicita el token. El valor predeterminado es `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
+|  Resource           | True         |  Recurso de destino para el que se solicita el token. El valor predeterminado es `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
 |  |  |  |
 
 

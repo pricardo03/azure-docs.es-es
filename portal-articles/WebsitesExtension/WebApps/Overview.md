@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bc013469610d5535c89870947fe094da93660012
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60530876"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488427"
 ---
 # <a name="app-service-documentation"></a>Documentación de App Service
 Azure App Service le permite crear y hospedar aplicaciones web en el lenguaje de programación de su elección sin tener que administrar la infraestructura, el lenguaje o el entorno de ejecución del marco web. Ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux, y permite implementaciones automatizadas desde GitHub, Azure DevOps Services o cualquier repositorio Git. Aprenda a usar Azure App Service con nuestras guías de inicio rápido, tutoriales y ejemplos.
@@ -42,7 +42,7 @@ Aprenda a implementar, administrar y supervisar aplicaciones web seguras en Azur
   - [Java con MySQL](/app-service/app-service-web-tutorial-java-mysql)
   - [Python con PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Asignación de un dominio personalizado existente a una aplicación ](/azure/app-service/app-service-web-tutorial-custom-domain)
-- [Enlace de un certificado SSL existente a la aplicación](/azure/app-service/app-service-web-tutorial-custom-SSL)
+- [Enlace de un certificado SSL a la aplicación](/azure/app-service/configure-ssl-bindings)
 
 ## <a name="free-pluralsight-video-training"></a>Vídeo gratuito de aprendizaje de PluralSight
 
