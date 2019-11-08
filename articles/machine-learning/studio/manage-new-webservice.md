@@ -1,6 +1,6 @@
 ---
 title: Administración de servicios web
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: Administre los servicios web nuevos y clásicos de Machine Learning mediante el portal de servicios web de Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf24c45cb00dfcffa085272a26e401abf78524c2
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861742"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618925"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Administración de un servicio web mediante el portal de servicios web de Azure Machine Learning Studio
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Administración de un servicio web mediante el portal de servicios web de Azure Machine Learning Studio (clásico)
 Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
 
 En el portal Servicios web Machine Learning, puede realizar las siguientes acciones:
@@ -29,7 +29,7 @@ En el portal Servicios web Machine Learning, puede realizar las siguientes accio
 * Agregar y eliminar puntos de conexión (solo en los clásicos)
 
 >[!NOTE]
->También puede administrar los servicios web clásicos en [Machine Learning Studio](https://studio.azureml.net), en la pestaña de **servicios web**.
+>También puede administrar los servicios web clásicos en [Machine Learning Studio (clásico)](https://studio.azureml.net), en la pestaña de **servicios web**.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permisos para administrar el administrador de nuevos recursos basados en servicios web
 
@@ -39,7 +39,7 @@ Si el usuario no tiene los permisos correctos para acceder a recursos en el port
 
 *Error de implementación de servicio web. Esta cuenta no tiene suficientes derechos de acceso a la suscripción de Azure que contiene el área de trabajo. Para implementar un servicio web en Azure, la misma cuenta debe estar invitada al área de trabajo y tener acceso a la suscripción de Azure que contiene el área de trabajo*.
 
-Para más información sobre cómo crear un área de trabajo, consulte cómo [crear y compartir un área de trabajo de Azure Machine Learning Studio](create-workspace.md).
+Para más información sobre cómo crear un área de trabajo, consulte cómo [crear y compartir un área de trabajo de Azure Machine Learning Studio (clásico)](create-workspace.md).
 
 Para más información acerca de cómo establecer los permisos de acceso, consulte [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
@@ -86,7 +86,7 @@ Puede actualizar las propiedades siguientes:
 * **Título** permite escribir un título para el servicio web
 * **Claves** permite alternar las claves de API primarias y secundarias.
 * **Clave de cuenta de almacenamiento** permite actualizar la clave de la cuenta de almacenamiento asociada con los cambios del servicio web. 
-* **Habilitar datos de ejemplo** permite ofrecer datos de ejemplo que pueden usarse para probar el servicio de solicitud-respuesta. Si ha creado el servicio web en Machine Learning Studio de Microsoft Azure, los datos de ejemplo se toman de los utilizados para entrenar el modelo. Si ha creado el servicio mediante programación, los datos se extraen de los datos de ejemplo ofrecidos como parte del paquete JSON.
+* **Habilitar datos de ejemplo** permite ofrecer datos de ejemplo que pueden usarse para probar el servicio de solicitud-respuesta. Si ha creado el servicio web en Machine Learning Studio (clásico) de Microsoft Azure, los datos de ejemplo se toman de los utilizados para entrenar el modelo. Si ha creado el servicio mediante programación, los datos se extraen de los datos de ejemplo ofrecidos como parte del paquete JSON.
 
 ### <a name="managing-billing-plans"></a>Administración de planes de facturación
 Haga clic en la opción de menú **Planes** de la página Inicio rápido de los servicios web. También puede hacer clic en el plan asociado con el servicio web específico para administrar dicho plan.
@@ -108,7 +108,7 @@ El panel de planes proporciona la siguiente información:
 
 ## <a name="manage-classic-web-services"></a>Administración de servicios web clásicos
 > [!NOTE]
-> Los procedimientos de esta sección son pertinentes para la administración de los servicios web clásicos a través del portal Servicios web Azure Machine Learning. Para más información sobre cómo administrar servicios web clásicos mediante Machine Learning Studio y Azure Portal, consulte [Administración de un área de trabajo de Azure Machine Learning Studio](manage-workspace.md).
+> Los procedimientos de esta sección son pertinentes para la administración de los servicios web clásicos a través del portal Servicios web Azure Machine Learning. Para más información sobre cómo administrar servicios web clásicos mediante Machine Learning Studio (clásico) y Azure Portal, consulte [Administración de un área de trabajo de Azure Machine Learning Studio (clásico)](manage-workspace.md).
 > 
 > 
 
@@ -151,6 +151,6 @@ Puede actualizar las propiedades siguientes:
 
 * **Descripción** permite escribir una descripción del servicio web. La descripción es un campo obligatorio.
 * **Registro** permite habilitar o deshabilitar el registro de errores en el punto de conexión. Para obtener más información sobre el registro, consulte [Habilitación del registro para los servicios web Machine Learning](web-services-logging.md).
-* **Habilitar datos de ejemplo** permite ofrecer datos de ejemplo que pueden usarse para probar el servicio de solicitud-respuesta. Si ha creado el servicio web en Machine Learning Studio de Microsoft Azure, los datos de ejemplo se toman de los utilizados para entrenar el modelo. Si ha creado el servicio mediante programación, los datos se extraen de los datos de ejemplo ofrecidos como parte del paquete JSON.
+* **Habilitar datos de ejemplo** permite ofrecer datos de ejemplo que pueden usarse para probar el servicio de solicitud-respuesta. Si ha creado el servicio web en Machine Learning Studio (clásico) de Microsoft Azure, los datos de ejemplo se toman de los utilizados para entrenar el modelo. Si ha creado el servicio mediante programación, los datos se extraen de los datos de ejemplo ofrecidos como parte del paquete JSON.
 
 

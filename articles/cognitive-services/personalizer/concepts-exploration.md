@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: cfecea6a64301d86aa657420dc300c26d4ed6f1e
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 0b69c1fb070431ad61858322dce461f6496c35d7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663397"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490822"
 ---
 # <a name="exploration-and-exploitation"></a>Exploración y explotación
 
@@ -25,9 +25,6 @@ Cuando Personalizer recibe una llamada de Rank, devuelve un RewardActionID que h
 * Utiliza la explotación para buscar una coincidencia con el comportamiento más probable del usuario en función del modelo de Machine Learning actual.
 * Utiliza la exploración, que no coincide con la acción que tiene la mayor probabilidad en la clasificación.
 
-<!--
-Returning the most probable action is called *exploit* behavior. Returning a different action is called *exploration*.
--->
 Personalizer usa actualmente un algoritmo llamado *epsilon-greedy* para explorar. 
 
 ## <a name="choosing-an-exploration-setting"></a>Selección de un ajuste de exploración
@@ -37,10 +34,6 @@ Configure el porcentaje de tráfico para usar en la exploración en la página *
 Personalizer determina si explorar o explotar con esta probabilidad en cada llamada a Rank. Esto es diferente del comportamiento en algunos marcos A/B que bloquean un tratamiento en determinados identificadores de usuario.
 
 ## <a name="best-practices-for-choosing-an-exploration-setting"></a>Procedimiento recomendado para seleccionar un ajuste de exploración
-
-<!--
-@edjez - you say what not to do, but make no recommendations of what **to** do. 
--->
 
 Elegir una configuración de exploración es una decisión empresarial sobre la proporción de interacciones de los usuarios con las que explorar a fin de mejorar el modelo. 
 

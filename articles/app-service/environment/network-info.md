@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7c63639eea7176af36593983b08ad0c5213613
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073235"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470645"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
@@ -144,7 +144,7 @@ Todas estas direcciones IP estarán visibles en Azure Portal desde la interfaz d
 
 ### <a name="app-assigned-ip-addresses"></a>Direcciones IP asignadas a la aplicación ###
 
-Con un ASE externo, puede asignar direcciones IP a las aplicaciones individuales. No puede hacer eso con un ASE de ILB. Para más información acerca de cómo configurar la aplicación para que tenga su propia dirección IP, consulte [Enlace de un certificado SSL personalizado a Azure App Service](../app-service-web-tutorial-custom-ssl.md).
+Con un ASE externo, puede asignar direcciones IP a las aplicaciones individuales. No puede hacer eso con un ASE de ILB. Para obtener más información sobre cómo configurar la aplicación para que tenga su propia dirección IP, consulte [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](../configure-ssl-bindings.md).
 
 Cuando una aplicación tiene su propia dirección SSL basada en IP, el ASE reserva dos puertos para asignar a esa dirección IP. Un puerto es para el tráfico HTTP y el otro es para HTTPS. Estos puertos se muestran en la interfaz de usuario de ASE en la sección de direcciones IP. El tráfico tiene que poder conectar con esos puertos desde la dirección IP virtual o las aplicaciones no serán accesibles. Es importante recordar este requisito al configurar grupos de seguridad de red (NSG).
 
@@ -251,7 +251,7 @@ Cuando los puntos de conexión de servicio se habilitan en una subred con una in
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

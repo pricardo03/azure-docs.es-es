@@ -1,5 +1,6 @@
 ---
-title: Flujos de autenticación (biblioteca de autenticación de Microsoft) | Azure
+title: Flujos de autenticación (biblioteca de autenticación de Microsoft)
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre los flujos y concesiones de autenticación utilizados por la biblioteca de autenticación de Microsoft (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41e011fd58c20cbe6d2dc8d9029e645f8851bd9
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513032"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473817"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 
@@ -202,7 +203,7 @@ Esto significa que una de las siguientes condiciones es verdad:
 - Se ha proporcionado una manera para que los usuarios den su consentimiento a la aplicación (consulte [Solicitud de consentimiento de usuario individual](v2-permissions-and-consent.md#requesting-individual-user-consent)).
 - Se ha proporcionado una forma para que el administrador de inquilinos dé su consentimiento para la aplicación (consulte [Consentimiento de administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)).
 
-El flujo de IWA está habilitado para el escritorio. NET, .NET Core y aplicaciones de la Plataforma universal de Windows. En .NET Core, solo está disponible la sobrecarga que toma el nombre de usuario. La plataforma .NET Core no puede pedir el nombre de usuario al sistema operativo.
+El flujo de IWA está habilitado para el escritorio. NET, .NET Core y aplicaciones de la Plataforma universal de Windows. En .NET Core, debe proporcionar el nombre de usuario a IWA, porque .NET Core no puede obtener los nombres de usuario del sistema operativo.
   
 Para más información sobre el consentimiento, consulte [Permiso y consentimiento de v2.0](v2-permissions-and-consent.md).
 

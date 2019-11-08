@@ -1,6 +1,6 @@
 ---
-title: Límites de recursos basados en DTU de Azure SQL Database para bases de datos únicas| Microsoft Docs
-description: En esta página se describen algunos límites de recursos basados en DTU comunes para bases de datos únicas en Azure SQL Database.
+title: Límites de recursos de DTU de Azure SQL Database para bases de datos únicas| Microsoft Docs
+description: En esta página se describen algunos límites de recursos de DTU comunes para bases de datos únicas en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 84e39a727d5be842b356e5bd30333cb154df86aa
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 37cda6dec3f98a195e704808244656f3182b4c2a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568777"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520990"
 ---
-# <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra basado en DTU
+# <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Límites de recursos para bases de datos únicas que usan el modelo de compra de DTU
 
-En este artículo se proporcionan los límites de recursos detallados para bases de datos únicas de Azure SQL Database que utilizan el modelo de compra basado en DTU.
+En este artículo se proporcionan los límites de recursos detallados para bases de datos únicas de Azure SQL Database que usan el modelo de compra de DTU.
 
-Para los límites de recursos del modelo de compra basado en DTU para grupos elásticos, vea [DTU-based resource limits - elastic pools ](sql-database-dtu-resource-limits-elastic-pools.md) (Límites de recursos basados en DTU: grupos elásticos). Para los límites de recursos basados en núcleo virtual, vea [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos basados en núcleo virtual: una sola base de datos) y [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) (Límites de recursos basados en núcleo virtual: grupos elásticos). Para obtener más información sobre los diferentes modelos de compra, consulte los [niveles de servicio y modelos de compra](sql-database-purchase-models.md).
+Para saber más sobre los límites de recursos del modelo de compra de DTU para grupos elásticos, consulte [Límites de recursos de DTU: grupos elásticos](sql-database-dtu-resource-limits-elastic-pools.md). En cuanto a los límites de recursos del núcleo virtual, consulte [Límites de recursos del núcleo virtual: bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md) y [Límites de recursos del núcleo virtual: grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md). Para obtener más información sobre los diferentes modelos de compra, consulte los [niveles de servicio y modelos de compra](sql-database-purchase-models.md).
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de datos única: tamaños de almacenamiento y tamaños de proceso
 
@@ -88,9 +88,9 @@ Las siguientes tablas muestran los recursos disponibles para una base de datos �
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para conocer los límites de recursos de núcleos virtuales para una base de datos única, consulte los [límites de recursos para bases de datos únicas con el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-single-databases.md).
-- Para conocer los límites de recursos de núcleos virtuales para grupos elásticos, consulte los [límites de recursos para grupos elásticos con el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md).
-- Para conocer los límites de recursos de DTU para grupos elásticos, consulte los [límites de recursos para grupos elásticos con el modelo de compra basado en DTU](sql-database-dtu-resource-limits-elastic-pools.md).
+- Para conocer los límites de recursos de los núcleos virtuales de una sola base de datos, consulte los [límites de recursos para bases de datos únicas con el modelo de compra del núcleo virtual](sql-database-vcore-resource-limits-single-databases.md).
+- Para conocer los límites de recursos de núcleos virtuales para grupos elásticos, consulte los [límites de recursos para grupos elásticos con el modelo de compra del núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md).
+- Para conocer los límites de recursos de DTU para grupos elásticos, consulte los [límites de recursos para grupos elásticos que usan el modelo de compra de DTU](sql-database-dtu-resource-limits-elastic-pools.md).
 - Para conocer los límites de recursos para instancias administradas, consulte los [límites de recursos para instancias administradas](sql-database-managed-instance-resource-limits.md).
 - Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 - Para más información sobre los límites de recursos en un servidor de bases de datos, consulte [Límites de recursos en un servidor de SQL Database](sql-database-resource-limits-database-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.

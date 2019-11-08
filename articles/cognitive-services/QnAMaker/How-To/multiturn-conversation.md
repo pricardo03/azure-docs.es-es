@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: dc99626e2341e180ba0ab191003cf3a6ba9b72e9
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 06b16af941004f6506b43fb36b4d79297b403595
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695143"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486869"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Uso de avisos de seguimiento para crear múltiples turnos de una conversación
 
@@ -42,12 +42,10 @@ En la imagen anterior, un usuario ha iniciado una conversación escribiendo **Mi
 
 Cuando el usuario selecciona una opción (3), se presenta la siguiente lista de opciones de mejora (4). Esta secuencia continúa (5) hasta que el usuario determina la respuesta correcta, final (6).
 
-> [!NOTE]
-> En la imagen anterior, se ha seleccionado la casilla **Enable multi-turn** (Habilitar multiturno) para asegurarse de que se muestran las preguntas de seguimiento. 
 
 ### <a name="use-multi-turn-in-a-bot"></a>Uso del multiturno en un bot
 
-Para administrar la conversación contextual, cambie la aplicación cliente mediante la [adición de código al bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting). La adición de código permite a los usuarios ver las preguntas.  
+Después de publicar la base de conocimiento, puede seleccionar el botón **Create Bot** (Crear bot) para implementar el bot QnA Maker en el servicio de bots de Azure. Los mensajes aparecerán en los clientes de chat que haya habilitado para el bot.
 
 ## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>Creación de una conversación multiturno a partir de la estructura de un documento
 
@@ -55,23 +53,23 @@ Cuando crea una base de conocimiento, la sección **Populate your KB** (Rellenar
 
 ![Casilla para habilitar la extracción multiturno](../media/conversational-context/enable-multi-turn.png)
 
-Cuando selecciona esta opción, recuerde que la conversación de varios turnos puede estar implícita en la estructura del documento. Si esa estructura existe, QnA Maker crea la opción de seguimiento que empareja las preguntas y respuestas en su lugar como parte del proceso de importación. 
+Cuando se selecciona esta opción, QnA Maker extrae la jerarquía presente en la estructura del documento. La jerarquía se convierte para hacer un seguimiento de las solicitudes y la raíz de la jerarquía actúa como las preguntas y respuestas principales. En algunos documentos, la raíz de la jerarquía no tiene contenido que podría servir como respuesta, puede proporcionar el "texto de respuesta predeterminado" que se usará como texto sustituto de la respuesta para extraer dichas jerarquías.   
 
-Solo se puede inferir la estructura multiturno a partir de direcciones URL y de archivos PDF o DOCX. Para obtener un ejemplo de estructura, vea una imagen de un [archivo PDF de manual de usuario de Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). Debido al tamaño de este archivo PDF, el recurso de QnA Maker requiere un **plan de tarifa de Search** **B** (15 índices) o superior. 
+Solo se puede inferir la estructura multiturno a partir de direcciones URL y de archivos PDF o DOCX. Para obtener un ejemplo de estructura, vea una imagen de un [archivo PDF de manual de usuario de Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). 
 
 ![![Ejemplo de estructura en un manual de usuario](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-### <a name="determine-multi-turn-structure-from-format"></a>Determinar la estructura multiturno a partir del formato
+### <a name="building-your-own-multi-turn-document"></a>Creación del propio documento multiturno
 
-QnA Maker determina la estructura multiturno a partir de:
+Si va a crear un documento multiturno, tenga en cuenta las siguientes directrices:
 
-* Tamaño de fuente del encabezado: si usa el estilo, el color u otro mecanismo para inferir la estructura en su documento, QnA Maker no extraerá las indicaciones multiturno. 
-
-Las reglas de los encabezados incluyen:
+* Use encabezados y subtítulos para denotar la jerarquía. Por ejemplo, puede agregar h1 para indicar las preguntas y respuestas principales y h2 para las que se deben tomar como aviso. Use el tamaño de encabezado pequeño para indicar la jerarquía subsiguiente. No utilice el estilo, el color u otro mecanismo para inferir la estructura en el documento, QnA Maker no extraerá las indicaciones multiturno. 
 
 * No termine un encabezado con un signo de interrogación, `?`. 
 
-### <a name="add-file-with-multi-turn-prompts"></a>Agregar un archivo con indicaciones multiturno
+* Puede usar el [documento de ejemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) como ejemplo para crear su propio documento multiturno.
+
+### <a name="adding-files-to-a-multi-turn-kb"></a>Adición de archivos a una base de conocimiento multiturno
 
 Al agregar un documento multiturno, QnA Maker determina los avisos de seguimiento a partir de la estructura para crear un flujo de conversación. 
 
@@ -91,7 +89,7 @@ Puede crear una base de conocimiento con avisos multiturno mediante [Create API 
 
 Reduzca los pares de preguntas y respuestas que aparecen a solo aquellos con conversaciones contextuales. 
 
-Seleccione **Ver opciones** y, a continuación, seleccione **Mostrar contexto (VERSIÓN PRELIMINAR)** . La lista muestra los pares de preguntas y respuestas que contienen avisos de seguimiento. 
+Seleccione **View options** (Opciones de vista) y, después, seleccione **Show context** (Mostrar contexto). La lista muestra los pares de preguntas y respuestas que contienen avisos de seguimiento. 
 
 ![Filtrar pares de preguntas y respuestas por conversaciones contextuales](../media/conversational-context/filter-question-and-answers-by-context.png)
 
@@ -111,7 +109,7 @@ Agregue una opción de seguimiento a un par de pregunta y respuesta que no esté
 
 1. Para vincular un par de pregunta y respuesta existente como opción de seguimiento, seleccione la fila del par de pregunta y respuesta. Para el manual de Surface, busque **Sign out** (Cerrar sesión) para reducir la lista.
 1. En la fila de **Signout** (Cerrar sesión), en la columna **Respuesta**, seleccione **Add follow-up prompt** (Agregar opción de seguimiento).
-1. En los campos de la ventana emergente **Follow-up prompt (PREVIEW)** [Aviso de seguimiento (VERSIÓN PRELIMINAR)], escriba los siguientes valores:
+1. En los campos de la ventana emergente **Follow-up prompt** (Aviso de seguimiento), escriba los siguientes valores:
 
     |Campo|Valor|
     |--|--|
@@ -355,11 +353,8 @@ La respuesta JSON _GenerateAnswer_ de QnA Maker incluye los avisos de seguimient
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Consulta de la base de conocimiento con el identificador de QnA Maker
 
-En la respuesta de la pregunta inicial, se devuelven los avisos de seguimiento y sus identificadores `qnaId` asociados. Ahora que tiene el identificador, puede pasarlo en el cuerpo de la solicitud del aviso de seguimiento. Si el cuerpo de la solicitud contiene el identificador `qnaId` y el objeto de contexto (que contiene las propiedades anteriores de QnA Maker), GenerateAnswer devolverá la pregunta exacta por identificador en lugar de usar el algoritmo de clasificación para encontrar la respuesta por el texto de la pregunta. 
+Si va a compilar una aplicación personalizada mediante la característica multiturno. En la respuesta de la pregunta inicial, se devuelven los avisos de seguimiento y sus identificadores `qnaId` asociados. Ahora que tiene el identificador, puede pasarlo en el cuerpo de la solicitud del aviso de seguimiento. Si el cuerpo de la solicitud contiene el identificador `qnaId` y el objeto de contexto (que contiene las propiedades anteriores de QnA Maker), GenerateAnswer devolverá la pregunta exacta por identificador en lugar de usar el algoritmo de clasificación para encontrar la respuesta por el texto de la pregunta. 
 
-## <a name="display-prompts-and-send-context-in-the-client-application"></a>Mostrar avisos y enviar contexto en la aplicación cliente 
-
-Ha agregado avisos en la base de conocimiento y probado el flujo en el panel de prueba. Ahora deberá usar estos avisos en la aplicación cliente. Para Bot Framework, los avisos no se muestran automáticamente en las aplicaciones cliente. Puede mostrar los avisos como botones o acciones sugeridas como parte de la respuesta a la consulta del usuario en aplicaciones cliente mediante la inclusión de este [ejemplo de Bot Framework](https://aka.ms/qnamakermultiturnsample) en el código. La aplicación cliente almacenará el identificador de QnA Maker actual y la consulta del usuario y los pasará en el [objeto de contexto de GenerateAnswer API](#a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts) para la siguiente consulta de usuario. 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>Update API admite el orden de presentación
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: aabcb0b0d01d821c529803927dacec448c923745
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 41edcc40bae7915e321a278592dd2f73621aae05
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998011"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482420"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -22,7 +22,7 @@ PostgreSQL ofrece la capacidad de ampliar la funcionalidad de la base de datos m
 
 Para poder usar las extensiones de PostgreSQL, es preciso que estén instaladas en su base de datos. Para instalar una extensión específica, ejecute el comando  [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html)  desde la herramienta psql para cargar los objetos empaquetados en la base de datos.
 
-Azure Database for PostgreSQL - Hiperescala (Citus) (versión preliminar) admite actualmente un subconjunto de extensiones clave, que se enumeran a continuación. No se admiten extensiones distintas de las que se incluyen. No puede crear su propia extensión con Azure Database for PostgreSQL.
+Hiperescala (Citus) de Azure Database for PostgreSQL admite actualmente un subconjunto de extensiones clave, que se enumeran a continuación. No se admiten extensiones distintas de las que se incluyen. No puede crear su propia extensión con Azure Database for PostgreSQL.
 
 ## <a name="extensions-supported-by-azure-database-for-postgresql"></a>Extensiones admitidas por Azure Database for PostgreSQL
 

@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b962fc32cdcde0509cfa60d105022bb208633ae3
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639292"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487732"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Pruebas por lotes con 1 000 expresiones en el portal de LUIS
 
-Las pruebas por lotes validan el modelo entrenado [activo](luis-concept-version.md#active-version) para medir la precisión de la predicción. Una prueba por lotes ayuda a ver la precisión de cada intención y entidad en el modelo entrenado actual, mostrando los resultados en un gráfico. Revise los resultados de la prueba por lotes para adoptar las medidas apropiadas para mejorar la precisión, como agregar más expresiones de ejemplo a una intención si la aplicación presenta errores frecuentes de identificación de la intención correcta.
+Las pruebas por lotes validan la versión entrenada activa para medir la precisión de la predicción. Una prueba por lotes ayuda a ver la precisión de cada intención y entidad en la versión activa, mostrando los resultados en un gráfico. Revise los resultados de la prueba por lotes para adoptar las medidas apropiadas para mejorar la precisión, como agregar más expresiones de ejemplo a una intención si la aplicación presenta errores frecuentes de identificación de la intención correcta o etiquetar entidades dentro de la expresión.
 
 ## <a name="group-data-for-batch-test"></a>Agrupación de datos para pruebas por lotes
 

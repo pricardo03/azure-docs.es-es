@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5f11173c7b7f7396a8cf5cda4b9c8975cd7bb38e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 172003b13807720df2431a3610947b36d8303fed
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679814"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470366"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migración de un nombre de DNS activo a Azure App Service
 
@@ -140,4 +140,4 @@ Puede encontrar la unidad de implementación de la aplicación si examina el nom
 Obtenga información sobre cómo vincular un certificado SSL a App Service.
 
 > [!div class="nextstepaction"]
-> [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md)
+> [Enlace de un certificado SSL a Azure App Service](configure-ssl-bindings.md)

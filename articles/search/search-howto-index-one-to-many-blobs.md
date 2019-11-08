@@ -1,5 +1,6 @@
 ---
 title: Indexación de un blob en varios documentos de índice de búsqueda del indizador de blobs de Azure para la búsqueda de texto completo
+titleSuffix: Azure Cognitive Search
 description: Rastree el contenido de texto de los blobs de Azure mediante el indizador de blobs de Azure Cognitive Search. Cada blob puede contener uno o varios documentos de índice de búsqueda.
 manager: nitinme
 author: arv100kri
@@ -8,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ec7796f19df8d58831b442adeae02b54223799c1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 863d38f6ea0f071a1c1a6678d025ec5b37a306dc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793726"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466431"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexación de blobs para producir varios documentos de búsqueda
 De manera predeterminada, un indexador de blobs tratará el contenido de un blob como un único documento de búsqueda. Determinados valores de **parsingMode** admiten escenarios donde un blob individual puede dar lugar a varios documentos de búsqueda. A continuación, se muestran los diferentes tipos de **parsingMode** que permiten que un indexador extraiga más de un documento de búsqueda de un blob:
@@ -98,7 +99,7 @@ Si quiere configurar la asignación de campos explícita, asegúrese de que _sou
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si aún no está familiarizado con la estructura y el flujo de trabajo básicos de la indexación de blobs, revise primero [Indexación de Azure Blob Storage con Azure Congitive Search](search-howto-index-json-blobs.md). Para obtener más información sobre los modos de análisis para los distintos tipos de contenido de blobs, revise los artículos siguientes.
+Si aún no está familiarizado con la estructura y el flujo de trabajo básicos de la indexación de blobs, revise primero [Indexación de Azure Blob Storage con Azure Search](search-howto-index-json-blobs.md). Para más información sobre los modos de análisis de los distintos tipos de contenido de blobs, revise los artículos siguientes.
 
 > [!div class="nextstepaction"]
 > [Indexación de blobs CSV](search-howto-index-csv-blobs.md)

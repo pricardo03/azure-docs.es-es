@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9d7336fb933ee5e9781d15214fa3e59446aa5b6a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515217"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490716"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Análisis del bucle de aprendizaje con una evaluación sin conexión
 
 Aprenda a realizar una evaluación sin conexión y entender los resultados.
 
-Las evaluaciones sin conexión le permiten medir la eficacia de Personalizer en comparación con el comportamiento predeterminado de la aplicación, conocer las características que más contribuyen a la personalización y descubrir automáticamente las nuevas configuraciones de aprendizaje automático.
+Las evaluaciones sin conexión le permiten medir la eficacia de Personalizer en comparación con el comportamiento predeterminado de la aplicación, conocer las características que más contribuyen a la personalización y descubrir automáticamente los valores nuevos de aprendizaje automático.
 
 Consulte [Evaluaciones sin conexión](concepts-offline-evaluation.md) para más información.
 
@@ -36,10 +36,10 @@ Consulte [Evaluaciones sin conexión](concepts-offline-evaluation.md) para más 
 1. En [Azure Portal](https://azure.microsoft.com/free/), busque el recurso de personalización.
 1. En Azure Portal, vaya a la sección **Evaluaciones** y seleccione **Crear evaluación**.
     ![En Azure Portal, vaya a la sección **Evaluaciones** y seleccione **Crear evaluación**.](./media/offline-evaluation/create-new-offline-evaluation.png)
-1. Seleccione la siguiente configuración:
+1. Configure los valores siguientes:
 
     * Un nombre de evaluación.
-    * Fecha de inicio y finalización: son fechas en el pasado, que especifican el intervalo de datos que se va a utilizar en la evaluación. Estos datos deben estar presentes en los registros, como se especifica en la configuración [Retención de datos](how-to-settings.md).
+    * Fecha de inicio y finalización: son fechas en el pasado, que especifican el intervalo de datos que se va a utilizar en la evaluación. Estos datos deben estar presentes en los registros, como se especifica en el valor [Retención de datos](how-to-settings.md).
     * Detección de optimización establecida en **sí**.
 
     ![Elección de la configuración de evaluación sin conexión](./media/offline-evaluation/create-an-evaluation-form.png)

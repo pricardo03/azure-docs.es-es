@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 22e8fa8fb6999828076ea5f8f34b1f601b920013
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638295"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499566"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio de API de LUIS.
@@ -39,16 +39,20 @@ Las pruebas por lotes son la capacidad de validar el modelo de la aplicación de
 Consulte también: 
 * [Conceptos](luis-concept-batch-test.md)
 * [Procedimiento](luis-how-to-batch-test.md)
-* [Tutorial]luis-tutorial-batch-testing.md)
+* [Tutorial](luis-tutorial-batch-testing.md)
 
 
 ## <a name="collaborator"></a>Colaborador
 
 Un colaborador no es el [propietario](#owner) de la aplicación, pero tiene los mismos permisos para agregar, editar y eliminar las intenciones, entidades y expresiones.
 
-## <a name="currently-editing"></a>En edición
+## <a name="contributor"></a>Colaborador
 
-Es lo mismo que la [versión activa](#active-version).
+Un colaborador de este tipo funciona de la misma forma que un [colaborador](#collaborator).
+
+## <a name="descriptor"></a>Descriptor
+
+Un descriptor es una [característica](#features) aplicada a un modelo al momento de entrenarlo, incluidas las [listas de frases](#phrase-list) y las [entidades](#entity). 
 
 ## <a name="domain"></a>Dominio
 
@@ -57,18 +61,6 @@ En el contexto de LUIS, un **dominio** es un área de conocimiento. El dominio e
 ## <a name="endpoint"></a>Punto de conexión
 
 La dirección URL del [punto de conexión de LUIS](https://go.microsoft.com/fwlink/?linkid=2092356) es donde se envían las consultas de LUIS después de crear y publicar la [aplicación de LUIS](#luis-app). La dirección URL del punto de conexión contiene la región de la aplicación publicada, así como el identificador de la aplicación. Puede encontrar el punto de conexión en la página **[Claves y puntos de conexión](luis-how-to-azure-subscription.md)** de la aplicación o bien puede obtener la dirección URL del punto de conexión desde la API [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
-
-Un punto de conexión de ejemplo tiene el siguiente aspecto:
-
-`https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
-
-|Parámetro Querystring|description|
-|--|--|
-|region| [región publicada](luis-reference-regions.md#publishing-regions) |
-|appID | Identificador de la aplicación de LUIS |
-|subscriptionID | Clave de punto de conexión (suscripción) de LUIS creada en Azure Portal |
-|q | expresión |
-|timezoneOffset| minutes|
 
 ## <a name="entity"></a>Entidad
 
@@ -100,7 +92,7 @@ El etiquetado (o marcado) es el proceso de asociar una palabra o frase en la [ex
 
 ## <a name="luis-app"></a>Aplicación de LUIS
 
-Una aplicación de LUIS es un modelo de datos entrenado para el procesamiento del lenguaje natural e incluye [intenciones](#intent), [entidades](#entity) y [expresiones](#utterance) etiquetadas.
+Una aplicación de LUIS es una colección de modelos de lenguaje para el procesamiento del lenguaje natural e incluye [intenciones](#intent), [entidades](#entity) y [expresiones](#utterance) etiquetadas.
 
 ## <a name="owner"></a>Propietario
 
@@ -111,7 +103,7 @@ La característica Patrón anterior se reemplaza con [Patrones](luis-concept-pat
 
 ## <a name="phrase-list"></a>Lista de frases
 
-Una [lista de frases](luis-concept-feature.md#what-is-a-phrase-list-feature) incluye un grupo de valores (palabras o frases) que pertenecen a la misma clase y que se deben tratar de forma similar (por ejemplo, nombres de ciudades o productos). Una lista intercambiable se trata como si fueran sinónimos.
+Una [lista de frases](luis-concept-feature.md) incluye un grupo de valores (palabras o frases) que pertenecen a la misma clase y que se deben tratar de forma similar (por ejemplo, nombres de ciudades o productos). Una lista intercambiable se trata como si fueran sinónimos.
 
 ## <a name="prebuilt-domains"></a>Dominio creado previamente
 
@@ -130,7 +122,7 @@ Ha cambiado de nombre, ahora es la [clave de creación](#authoring-key).
 
 ## <a name="publish"></a>Publicar
 
-Publicar significa poner una [versión activa](#active-version) de LUIS a disposición del [punto de conexión](#endpoint) del almacenamiento provisional o de producción.  
+Publicar significa poner una versión activa de LUIS a disposición del [punto de conexión](#endpoint) del almacenamiento provisional o de producción.  
 
 ## <a name="quota"></a>Cuota
 
@@ -155,11 +147,15 @@ Habilite el corrector ortográfico de Bing para corregir las palabras incorrecta
 
 ## <a name="starter-key"></a>Clave de inicio
 
-Al igual que la [clave de programación](#programmatic-key), su nombre ha cambiado a clave de creación.
+Una clave gratuita que se usará al empezar a usar LUIS por primera vez.
+
+## <a name="structure"></a>Estructura
+
+Agregue una estructura a una entidad de aprendizaje automático para proporcionar subcomponentes con descriptores (características) y restricciones (expresiones regulares o entidades de lista).
 
 ## <a name="subscription-key"></a>Clave de suscripción
 
-La clave de suscripción es la clave de **punto de conexión** asociada con el servicio de LUIS que [ha creado en Azure](luis-how-to-azure-subscription.md). Esta no es la [clave de creación](#programmatic-key). Si tiene una clave de punto de conexión, se debe usar para las solicitudes de punto de conexión en lugar de la clave de creación. Puede ver la clave de punto de conexión actual en la dirección URL del punto de conexión, en la parte inferior de la página [**Claves y puntos de conexión**](luis-how-to-azure-subscription.md) del sitio web de [LUIS](luis-reference-regions.md). Es el valor del par nombre/valor **subscription-key**.
+La clave de suscripción es la clave de **punto de conexión de predicción** asociada con el servicio de LUIS que [ha creado en Azure](luis-how-to-azure-subscription.md). Esta no es la [clave de creación](#programmatic-key). Si tiene una clave de punto de conexión, se debe usar para las solicitudes de punto de conexión en lugar de la clave de creación. Puede ver la clave de punto de conexión actual en la dirección URL del punto de conexión, en la parte inferior de la página [**Claves y puntos de conexión**](luis-how-to-azure-subscription.md) del sitio web de [LUIS](luis-reference-regions.md). Es el valor del par nombre/valor **subscription-key**.
 
 ## <a name="test"></a>Probar
 
@@ -176,7 +172,7 @@ Un token es la unidad más pequeña que se puede etiquetar en una entidad. La to
 
 ## <a name="train"></a>Entrenar
 
-Entrenar es el proceso de enseñar a LUIS los cambios de la [versión activa](#active-version) desde el último aprendizaje.
+Entrenar es el proceso de enseñar a LUIS los cambios de la versión activa desde el último aprendizaje.
 
 ## <a name="true-negative"></a>Verdadero negativo (TN)
 

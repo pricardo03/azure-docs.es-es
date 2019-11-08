@@ -1,5 +1,6 @@
 ---
-title: Creación de la identidad de la aplicación de Azure en el portal | Microsoft Docs
+title: Creación de la identidad de la aplicación de Azure en el portal
+titleSuffix: Microsoft identity platform
 description: Describe cómo crear una nueva aplicación de Azure Active Directory y una entidad de servicio que puede utilizarse con el control de acceso basado en rol en Azure Resource Manager para administrar el acceso a los recursos.
 services: active-directory
 documentationcenter: na
@@ -16,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9f8163a3695260234107ad41cc7be125adc9091
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 03ae780f86512ac401fcb7f6936e8f74cb595ca7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324717"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473853"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos para: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -50,7 +51,7 @@ Para acceder a los recursos de la suscripción, debe asignarle a la aplicación 
 
 Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores del ámbito. Por ejemplo, el hecho de agregar una aplicación al rol Lector para un grupo de recursos significa que esta puede leer el grupo de recursos y los recursos que contenga.
 
-1. Desplácese hasta el nivel de ámbito al que desea asignar la aplicación. Por ejemplo, para asignar un rol en el ámbito de suscripción, seleccione **Todos los servicios** y **Suscripciones**.
+1. En Azure Portal, seleccione el nivel de ámbito al que desea asignar la aplicación. Por ejemplo, para asignar un rol en el ámbito de la suscripción, busque y seleccione **Suscripciones**, o seleccione **Suscripciones** en la página **Inicio**.
 
    ![Por ejemplo, asigne un rol en el ámbito de la suscripción](./media/howto-create-service-principal-portal/select-subscription.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Creación de una canalización de aprendizaje automático de Apache Spark en Azure HDInsight
+title: 'Creación de una canalización de aprendizaje automático de Apache Spark: Azure HDInsight'
 description: Utilice la biblioteca de aprendizaje automático de Apache Spark para crear canalizaciones de datos en Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 22583d82d8e422d8176fdb7cd70a98d229e8b6bb
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: b0de9103fd022dc74e7c75017a602eb6701686fe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736382"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494670"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Creación de una canalización de aprendizaje automático de Apache Spark
 

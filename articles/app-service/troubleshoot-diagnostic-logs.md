@@ -12,18 +12,23 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b0fab51e002ecb431bf68f58984290889296b2a9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4f5344259767aaad9ed58ded1da86ae7ee3c03e7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097555"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470114"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
 Azure integra diagnósticos para ayudar a depurar [aplicaciones de App Service](overview.md). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnóstico, agregar instrumentación a la aplicación y obtener acceso a la información que registra Azure.
 
 En este artículo se usa [Azure Portal](https://portal.azure.com) y la CLI de Azure para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](troubleshoot-dotnet-visual-studio.md).
+
+> [!NOTE]
+> Además de las instrucciones de registro de este artículo, hay una nueva funcionalidad de registro integrada con Supervisión de Azure. Encontrará esta funcionalidad en las [Registros y Configuración de diagnóstico (versión preliminar)](https://aka.ms/appsvcblog-azmon). 
+>
+>
 
 |type|Plataforma|Location|DESCRIPCIÓN|
 |-|-|-|-|

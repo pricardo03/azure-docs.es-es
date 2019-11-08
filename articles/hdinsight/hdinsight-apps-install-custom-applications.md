@@ -1,5 +1,5 @@
 ---
-title: Instalación de sus propias aplicaciones de Apache Hadoop en Azure HDInsight
+title: Instalación de aplicaciones personalizadas de Apache Hadoop en Azure HDInsight
 description: Aprenda a instalar aplicaciones de HDInsight para clústeres de Apache Hadoop en Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: b96f08ab03b6db73cfae413b42a4c7a1d75177a0
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: e3211e799b0c2cb4c4c9aa2aabcd40d237875b3c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076194"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498006"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Apache Hadoop propias en Azure HDInsight
 

@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f96c25dbb85ed92141636487f10d861a8c5e5f28
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821673"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468427"
 ---
 # <a name="use-firewall-rules"></a>Usar las reglas de firewall
 
@@ -24,7 +24,7 @@ En los escenarios en los que solo se puede acceder a Azure Event Hubs desde siti
 
 ## <a name="when-to-use"></a>Cuándo se deben usar
 
-Si desea configurar el espacio de nombres Event Hubs de forma que solamente reciba tráfico de un determinado intervalo de direcciones IP y rechace todo lo demás, puede utilizar una *regla de firewall* para bloquear los puntos de conexión de Event Hubs de otras direcciones IP. Por ejemplo, si utiliza Event Hubs con [Azure Express Route][express-route], puede crear una *regla de firewall* para restringir el tráfico procedente de las direcciones IP de la infraestructura local.
+Si desea configurar el espacio de nombres Event Hubs de forma que solamente reciba tráfico de un determinado intervalo de direcciones IP y rechace todo lo demás, puede utilizar una *regla de firewall* para bloquear los puntos de conexión de Event Hubs de otras direcciones IP. Por ejemplo, si usa Event Hubs con [Azure ExpressRoute][express-route], puede crear una *regla de firewall* para restringir el tráfico procedente de las direcciones IP de la infraestructura local.
 
 ## <a name="how-filter-rules-are-applied"></a>Cómo se aplican las reglas de filtro
 
@@ -51,7 +51,6 @@ Las reglas de filtro IP se aplican en orden y la primera regla que coincida con 
 > - Integración con Azure Event Grid
 > - Enrutamientos de Azure IoT Hub
 > - Azure IoT Device Explorer
-> - Explorador de datos de Azure
 >
 > Los siguientes servicios de Microsoft deben estar en una red virtual
 > - Azure Web Apps
@@ -143,7 +142,7 @@ Parámetros de plantilla:
   }
 ```
 
-Para implementar la plantilla, siga las instrucciones relativas a [Azure Resource Manager][lnk-deploy].
+Para implementar la plantilla, siga las instrucciones para [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Pasos siguientes
 

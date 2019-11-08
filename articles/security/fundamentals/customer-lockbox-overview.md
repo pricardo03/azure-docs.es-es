@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 06/20/2019
-ms.openlocfilehash: 7ca5c890b1f3161923cd808c5ecec0ccf0165d64
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727513"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466409"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 
@@ -91,7 +91,7 @@ Por ejemplo:
 
 ![Caja de seguridad del cliente de Azure: registros de actividad](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="supported-services-and-scenarios"></a>Servicios y escenarios admitidos
+## <a name="supported-services-and-scenarios-in-general-availability"></a>Servicios y escenarios admitidos con disponibilidad general
 
 Los siguientes servicios y escenarios ya están disponibles con carácter general para la Caja de seguridad del cliente.
 
@@ -108,6 +108,23 @@ La Caja de seguridad del cliente está actualmente habilitada para poder acceder
 #### <a name="detailed-audit-logs"></a>Registros de auditoría detallados
 
 En cuanto a los escenarios que usan el acceso al escritorio remoto, puede usar los registros de eventos de Windows para revisar las acciones del ingeniero de Microsoft. Asimismo, puede usar Azure Security Center para recopilar sus registros de eventos y copiar los datos a su área de trabajo para analizarlos. Para obtener más información, consulte [Recolección de datos en Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+
+## <a name="supported-services-and-scenarios-in-preview"></a>Servicios y escenarios admitidos en versión preliminar
+
+Los siguientes servicios están actualmente en versión preliminar para Caja de seguridad del cliente:
+
+- Azure Storage 
+
+- Azure SQL DB 
+
+- Explorador de datos de Azure 
+
+- Máquinas virtuales (que ahora también abarcan el acceso a volcados de memoria y discos administrados) 
+
+- Transferencias de suscripciones de Azure
+
+Para habilitar estas ofertas en versión preliminar de Caja de seguridad del cliente para su organización, regístrese en la [versión preliminar pública de Azure de Caja seguridad del cliente](https://aka.ms/customerlockbox/insiderprogram).
+
 
 ## <a name="exclusions"></a>Exclusiones
 

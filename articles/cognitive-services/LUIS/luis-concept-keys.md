@@ -9,108 +9,65 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 70e58077fa40ce685324cd24b447886ec3411034
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 973a8dd56437506d907159f212164ff147ba975c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703181"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487504"
 ---
 # <a name="authoring-and-runtime-keys"></a>Creación y claves en tiempo de ejecución
 
+Language Understanding (LUIS) tiene dos servicios y conjuntos de API: 
 
->[!NOTE]
->[Migre](luis-migration-authoring.md) cualquier aplicación que no use el recurso de creación de Azure antes de continuar.
+* Creación (conocido anteriormente como de _programación_)
+* Tiempo de ejecución de predicción
 
-LUIS usa dos tipos de recursos de Azure, y cada tipo tiene estas claves: 
+Hay varios tipos clave, según el servicio con el que desea trabajar y cómo desea trabajar con ellos.
+
+## <a name="non-azure-resources-for-luis"></a>Recursos que no son de Azure para LUIS
+
+### <a name="starter-key"></a>Clave de inicio
+
+Cuando empiece a usar LUIS por primera vez, se creará una **clave de inicio**. Este recurso proporciona lo siguiente:
+
+* solicitudes de servicio de creación gratuitas mediante el portal o las API de LUIS (incluidos los SDK)
+* 1000 solicitudes de punto de conexión de predicción gratuitas al mes mediante un explorador, una API o SDK
+
+## <a name="azure-resources-for-luis"></a>Recursos de Azure para LUIS
+
+<a name="programmatic-key" ></a>
+<a name="endpoint-key"></a>
+<a name="authoring-key"></a>
+
+LUIS permite tres tipos de recursos de Azure: 
  
-* [Creación](#programmatic-key) para crear intenciones y entidades, etiquetar expresiones, entrenar y publicar contenido. Cuando esté listo para publicar la aplicación de LUIS, necesitará una [clave de punto de conexión de predicción para el tiempo de ejecución](luis-how-to-azure-subscription.md) asignado a la aplicación.
-* [Clave de punto de conexión de predicción para el tiempo de ejecución](#prediction-endpoint-runtime-key). Las aplicaciones cliente, como un bot de chat, necesitan obtener acceso al **punto de conexión de predicción de consulta** del tiempo de ejecución a través de esta clave. 
-
 |Clave|Propósito|Cognitive Service `kind`|Cognitive Service `type`|
 |--|--|--|--|
-|[Clave de creación](#programmatic-key)|Creación, entrenamiento, publicación, pruebas.|`LUIS.Authoring`|`Cognitive Services`|
-|[Clave de tiempo de ejecución del punto de conexión de predicción](#prediction-endpoint-runtime-key)| Tiempo de ejecución del punto de conexión de predicción de consulta con una expresión de usuario para determinar las intenciones y las entidades.|`LUIS`|`Cognitive Services`|
+|[Clave de creación](#programmatic-key)|Acceda y administre los datos de la aplicación con la creación, el entrenamiento, la publicación y las pruebas. Cree una clave de creación de LUIS si tiene previsto crear aplicaciones de LUIS mediante programación.<br><br>El propósito de la clave de `LUIS.Authoring` es permitirle:<br>* administrar mediante programación las aplicaciones y los modelos de Language Understanding, incluido el entrenamiento y la publicación<br> * controlar los permisos para el recurso de creación mediante la asignación de usuarios al [rol de colaborador](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
+|[Clave de predicción](#prediction-endpoint-runtime-key)| Consulte las solicitudes del punto de conexión de predicción. Cree una clave de predicción de LUIS antes de que la aplicación cliente solicite predicciones más allá de las 1000 solicitudes proporcionadas por el recurso de inicio. |`LUIS`|`Cognitive Services`|
+|[Clave de recursos de varios servicios de Cognitive Services](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Consulte las solicitudes de punto de conexión de predicción compartidas con LUIS y otros servicios de Cognitive Services admitidos.|`CognitiveServices`|`Cognitive Services`|
 
-LUIS también proporciona una [clave de inicio](luis-how-to-azure-subscription.md#starter-key) con una cuota de punto de conexión de predicción de 1000 transacciones al mes. 
-
-Aunque no es necesario crear ambas claves al mismo tiempo, es mucho más fácil si lo hace.
+Cuando finalice el proceso de creación de recursos, [asigne la clave](luis-how-to-azure-subscription.md) a la aplicación del portal de LUIS.
 
 Es importante crear las aplicaciones de LUIS en [regiones](luis-reference-regions.md#publishing-regions) en las que también quiera publicar y consultar contenido.
 
-<a name="programmatic-key" ></a>
-
-## <a name="authoring-key"></a>Clave de creación
-
-Una clave de creación se crea automáticamente al crear una cuenta de LUIS y es gratuita. Cuando empiece a usar LUIS, tendrá una clave de inicio en todas las aplicaciones de LUIS para cada [región](luis-reference-regions.md) de creación. El propósito de la clave de creación es proporcionar una autenticación para administrar la aplicación de LUIS o para probar las consultas de punto de conexión de predicción. 
-
-La creación de claves de creación en Azure Portal le permite controlar los permisos para el recurso de creación mediante la asignación de usuarios al [rol de colaborador](#contributions-from-other-authors). Necesita permiso en el nivel de suscripción de Azure para agregar colaboradores. 
-
-Para encontrar la clave de creación, inicie sesión en [LUIS](luis-reference-regions.md#luis-website) y haga clic en el nombre de cuenta en la barra de navegación superior derecha para abrir **Configuración de la cuenta**.
-
-![Clave de creación](./media/luis-concept-keys/authoring-key.png)
-
-Si quiere realizar **consultas de tiempo de ejecución**, cree el [recurso de LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) de Azure. 
-
 > [!CAUTION]
-> Para mayor comodidad, en muchos de los ejemplos se usa la [clave de inicio](#starter-prediction-endpoint-runtime-key), ya que ofrece algunas llamadas de punto de conexión de predicción en su [cuota](luis-boundaries.md#key-limits).  
+> Para mayor comodidad, en muchos de los ejemplos se usa la [clave de inicio](#starter-key), ya que ofrece algunas llamadas de punto de conexión de predicción en su [cuota](luis-boundaries.md#key-limits).  
 
-<a name="endpoint-key"></a>
 
-## <a name="prediction-endpoint-runtime-key"></a>Clave de tiempo de ejecución del punto de conexión de predicción 
-
-Cuando necesite usar las **consultas de puntos de conexión de tiempo de ejecución**, cree un recurso de Language Understanding (LUIS) y asígnelo a la aplicación de LUIS. 
-
-[!INCLUDE [Azure runtime resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
-
-Cuando finalice el proceso de creación del recurso, [asigne la clave](luis-how-to-azure-subscription.md) a la aplicación. 
-
-* La clave (punto de conexión de predicción de consulta) de tiempo de ejecución, le permite tener una cuota de visitas de punto de conexión basada en el plan de uso que especificó al crear la clave de tiempo de ejecución. Vea [Precios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) para obtener información sobre los precios.
+### <a name="query-prediction-resources"></a>Consulta de recursos de predicción
 
 * La clave de tiempo de ejecución se puede usar en todas las aplicaciones de LUIS o en aplicaciones de LUIS específicas. 
 * No use la clave de tiempo de ejecución para crear aplicaciones de LUIS. 
 
-### <a name="starter-prediction-endpoint-runtime-key"></a>Clave de tiempo de ejecución del punto de conexión de predicción de inicio
-
-La clave de punto de conexión de predicción de **inicio** se proporciona de forma gratuita e incluye 1000 consultas de punto de conexión de predicción. Después de usar estas consultas, debe crear su propio recurso de punto de conexión de predicción para Language Understanding.  
-
-Se trata de un recurso especial creado para usted. No aparece en la lista de recursos de Azure porque está pensado como una clave inicial temporal. 
-
-<a name="use-endpoint-key-in-query"></a>
-
-### <a name="use-runtime-key-in-query"></a>Uso de la clave de tiempo de ejecución en la consulta
 El punto de conexión de tiempo de ejecución de LUIS acepta dos estilos de consulta y ambos usan la clave de tiempo de ejecución del punto de conexión, pero en distintos lugares.
 
 El punto de conexión que se usa para obtener acceso al tiempo de ejecución, usa un subdominio que es único en la región del recurso, que se indica con `{region}` en la tabla siguiente. 
 
-
-#### <a name="v2-prediction-endpointtabv2"></a>[Punto de conexión de predicción de V2](#tab/V2)
-
-|Verbo|Ejemplo de URL y ubicación de la clave|
-|--|--|
-|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`|
-|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`|
-
-#### <a name="v3-prediction-endpointtabv3"></a>[Punto de conexión de predicción de V3](#tab/V3)
-
-|Verbo|Ejemplo de URL y ubicación de la clave|
-|--|--|
-|[GET](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a91e54c9db63d589f433)|`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?runtime-key=your-endpoint-key-here&query=turn%20on%20the%20lights`|
-|[POST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a5830f741b27cd03a061)| `https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict`| 
-
-Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
-
-* * * 
-
-**GET**. Cambie el valor de la consulta de punto de conexión de `runtime-key` de la clave de creación (inicio) a la nueva clave de punto de conexión para usar la tasa de cuota de la clave de punto de conexión de LUIS. Si crea la clave y la asigna, pero no cambia el valor de la consulta de punto de conexión de `runtime-key`, no está usando la cuota de la clave de punto de conexión.
-
-**POST**: Cambie el valor de encabezado de `Ocp-Apim-Subscription-Key`.<br>Si crea la clave de tiempo de ejecución y la asigna, pero no cambia el valor de la consulta de punto de conexión de `Ocp-Apim-Subscription-Key`, no estará usando la clave de tiempo de ejecución.
-
-El identificador de la aplicación que se usó en las direcciones URL anteriores, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, es la aplicación de IoT pública que se usa para la [demostración interactiva](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
-
-## <a name="assignment-of-the-runtime-key"></a>Asignación de la clave de tiempo de ejecución
+## <a name="assignment-of-the-key"></a>Asignación de la clave
 
 Puede [asignar](luis-how-to-azure-subscription.md) la clave de tiempo de ejecución en el [portal de LUIS](https://www.luis.ai) o a través de las API correspondientes. 
 
@@ -127,19 +84,11 @@ Si supera su cuota de transacciones por segundo (TPS), recibirá un error HTTP 4
 
 ## <a name="contributions-from-other-authors"></a>Contribuciones de otros autores
 
-
-
-La administración de las contribuciones de los colaboradores depende del estado actual de la aplicación.
-
 **Para la [creación de aplicaciones migradas](luis-migration-authoring.md) de recursos**: los _colaboradores_ se administran en Azure Portal para el recurso de creación, mediante la página del **control de acceso (IAM)** . Obtenga información acerca de [cómo agregar un usuario](luis-how-to-collaborate.md) mediante la dirección de correo electrónico del colaborador y el rol del _colaborador_. 
 
 **En el caso de las aplicaciones que no se han migrado todavía**: todos los _colaboradores_ se administran en el portal de LUIS desde la página **Manage -> Collaborators** (Administrar -> Colaboradores).
 
-### <a name="contributor-roles-vs-entity-roles"></a>Roles de colaborador frente a roles de entidad
-
-Los [roles de entidad](luis-concept-roles.md) se aplican al modelo de datos de la aplicación de LUIS. Los roles de colaborador se aplican a los niveles de acceso de creación. 
-
-## <a name="moving-or-changing-ownership"></a>Mover o cambiar la propiedad
+## <a name="move-transfer-or-change-ownership"></a>Movimiento, transferencia o cambio de propiedad
 
 Una aplicación se define mediante sus recursos de Azure, que se determinan en función de la suscripción del propietario. 
 
@@ -148,7 +97,12 @@ Puede mover la aplicación de LUIS. Use los siguientes recursos de documentació
 * [Mover la aplicación entre los recursos de creación de LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
 * [Mover los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/resource-group-move-resources.md)
 * [Mueve el recurso dentro de la misma suscripción o entre suscripciones](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
-* [Transferencia de la propiedad](../../billing/billing-subscription-transfer.md) de la suscripción 
+
+Para transferir la [propiedad](../../billing/billing-subscription-transfer.md) de la suscripción: 
+
+**Para los usuarios que han migrado: [creación de aplicaciones de recursos migradas](luis-migration-authoring.md)** : Como propietario del recurso, puede agregar un `contributor`.
+
+**Para los usuarios que no han migrado todavía**: Exporte la aplicación como un archivo JSON. Otro usuario de LUIS puede importar la aplicación y, por tanto, se convierte en el propietario de la aplicación. La nueva aplicación tendrá un identificador de aplicación diferente.  
 
 ## <a name="access-for-private-and-public-apps"></a>Acceso para aplicaciones públicas y privadas
 
@@ -173,11 +127,11 @@ El propietario y todos los colaboradores tienen acceso a la creación de la apli
 |Revisar las expresiones de punto de conexión para un [aprendizaje activo](luis-how-to-review-endpoint-utterances.md)|
 |Train|
 
+<a name="prediction-endpoint-runtime-key"></a>
+
 ### <a name="prediction-endpoint-runtime-access"></a>Acceso de tiempo de ejecución del punto de conexión de predicción
 
 El acceso para consultar el punto de conexión de predicción se controla mediante una opción de configuración de la página **Application Information** (Información de la aplicación) en la sección **Manage** (Administrar). 
-
-![Configurar la aplicación como pública](./media/luis-concept-security/set-application-as-public.png)
 
 |[Punto de conexión privado](#runtime-security-for-private-apps)|[Punto de conexión público](#runtime-security-for-public-apps)|
 |:--|:--|
@@ -205,9 +159,7 @@ Una aplicación pública se pone a disposición de los usuarios en todas las reg
 
 ## <a name="transfer-of-ownership"></a>Transferencia de propiedad
 
-**Para [crear aplicaciones migradas](luis-migration-authoring.md) de recursos**: Como propietario del recurso, puede agregar un `contributor`.
-
-**En el caso de las aplicaciones que no se han migrado todavía**: Exporte la aplicación como un archivo JSON. Otro usuario de LUIS puede importar la aplicación y, por tanto, se convierte en el propietario de la aplicación. La nueva aplicación tendrá un identificador de aplicación diferente.  
+LUIS no tiene el concepto de transferir la propiedad de un recurso. 
 
 ## <a name="securing-the-endpoint"></a>Proteger el punto de conexión 
 

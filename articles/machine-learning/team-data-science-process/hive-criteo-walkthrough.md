@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eca19b3774ad285cb143ffc2b6c53360bec85fa4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306009"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492347"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB
 
@@ -65,7 +65,7 @@ Configure su entorno de ciencia de datos de Azure para crear soluciones de anál
 
    * Hay que vincular la cuenta de almacenamiento que creó en el paso 1 con el clúster de HDInsight en el momento de su creación. Esta cuenta de almacenamiento se utiliza para tener acceso a datos que se pueden procesar en el clúster.
    * Debe habilitar el acceso remoto en el nodo principal del clúster después de crearlo. Recuerde las credenciales de acceso remoto que especifique aquí (distintas de las especificadas para el clúster durante su creación), ya que las necesitará para realizar los procedimientos a continuación.
-3. [Creación de un área de trabajo de Azure Machine Learning Studio](../studio/create-workspace.md): esta área de trabajo de Azure Machine Learning se usa para generar modelos de Machine Learning después de una exploración de datos inicial y una reducción de su tamaño en el clúster de HDInsight.
+3. [Creación de un área de trabajo de Azure Machine Learning Studio (clásico)](../studio/create-workspace.md): esta área de trabajo de Azure Machine Learning se usa para generar modelos de Machine Learning después de una exploración de datos inicial y una reducción de su tamaño en el clúster de HDInsight.
 
 ## <a name="getdata"></a>Obtención y consumo de datos desde un origen público
 Para acceder al conjunto de datos de [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) , haga clic en el vínculo, acepte las condiciones de uso y especifique un nombre. Aquí se muestra una instantánea de esta pantalla:
@@ -459,7 +459,7 @@ Para seleccionar el conjunto de datos guardado para usarlo en un experimento de 
 >
 
 ### <a name="step2"></a> Paso 2: creación de un experimento sencillo en Azure Machine Learning Studio para predecir los clics y los "no clics"
-El experimento de Azure Machine Learning Studio tiene el siguiente aspecto:
+El experimento de Azure Machine Learning Studio (clásico) tiene el aspecto siguiente:
 
 ![Experimento de Machine Learning](./media/hive-criteo-walkthrough/xRpVfrY.png)
 

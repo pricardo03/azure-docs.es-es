@@ -1,24 +1,24 @@
 ---
 title: 'Multiclass Logistic Regression: referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Multiclass Logistic Regression en Azure Machine Learning Service para crear un modelo de regresión logística que pueda usarse para predecir varios valores.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Multiclass Logistic Regression (Regresión logística multiclase) de Azure Machine Learning para crear un modelo de regresión logística para la predicción de varios valores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: d31329d6d45fd9f137bd6d57a638915e0833ee4a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 9d6e6c11f0e2a8fb7e08385f7abf26fb4a8d21c8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692750"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465972"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Módulo Multiclass Logistic Regression
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Use este módulo para crear un modelo de regresión logística que pueda usarse para predecir varios valores.
 
@@ -67,4 +67,4 @@ Después de completar el entrenamiento, puede ver un resumen de los parámetros 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

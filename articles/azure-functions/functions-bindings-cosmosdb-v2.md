@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 419241bf1e8511dd6015cd3f791099d6959c3e34
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d8aee88f6ef3f6a73beadfdf242d79d9b361de0a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086754"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469398"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Enlaces de Azure Cosmos DB para Azure Functions 2.x
 
@@ -274,7 +274,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**leaseExpirationInterval**| **LeaseExpirationInterval**| (Opcional) Al establecerse, define, en milisegundos, el intervalo para el que se toma la concesión en una concesión que representa una partición. Si la concesión no se renueva dentro de este intervalo, expirará y la propiedad de la partición se moverá a otra instancia. El valor predeterminado es 60 000 (60 segundos).
 |**leaseRenewInterval**| **LeaseRenewInterval**| (Opcional) Al establecerse, define, en milisegundos, el intervalo de renovación para todas las concesiones para las particiones que mantiene una instancia actualmente. El valor predeterminado es 17 000 (17 segundos).
 |**checkpointFrequency**| **CheckpointFrequency**| (Opcional) Al establecerse, define, en milisegundos, el intervalo entre los puntos de comprobación de las concesiones. El valor predeterminado siempre se encuentra después de una llamada de función.
-|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Opcional) Al establecerse, personaliza la cantidad máxima de elementos recibidos por la llamada de función.
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| Al establecerse, esta propiedad establece la cantidad máxima de elementos recibidos por la llamada de función (opcional). Si las operaciones de la colección supervisada se realizan a través de procedimientos almacenados, el [ámbito de transacción](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) se conserva al leer los elementos de la fuente de cambios. Como resultado, es posible que la cantidad de elementos recibidos sea mayor que el valor especificado, de modo que los elementos que cambian la misma transacción se devuelvan como parte de un lote atómico.
 |**startFromBeginning**| **StartFromBeginning**| (Opcional) Cuando se establece, indica al desencadenador que comience a leer los cambios desde el principio del historial de la colección en lugar de desde la hora actual. Esto solo funciona la primera vez que se inicia el desencadenador, ya que en las ejecuciones posteriores, los puntos de control ya están almacenados. Si esta opción se establece en `true` cuando hay concesiones creadas no tiene ningún efecto.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

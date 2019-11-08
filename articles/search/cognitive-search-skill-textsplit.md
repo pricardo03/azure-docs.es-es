@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2172ac30cd5b4251933e5012affdb41a0202a344
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3f80169808b1e6420f04b786d2bb06bde9c96231
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784844"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479654"
 ---
 # <a name="text-split-cognitive-skill"></a>Aptitud cognitiva División de texto
 
@@ -33,7 +33,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 |--------------------|-------------|
 | textSplitMode      | "pages" o "sentences" | 
 | maximumPageLength | Si textSplitMode se establece en "pages", se refiere a la longitud de página máxima medida por `String.Length`. El valor mínimo es 100.  Si textSplitMode se establece en "pages", el algoritmo intentará dividir el texto en fragmentos con un tamaño máximo definido en "maximumPageLenth". En este caso, el algoritmo hará todo lo posible para dividir el texto con un límite de oraciones con lo que el tamaño del fragmento puede ser ligeramente menor que "maximumPageLength". | 
-| defaultLanguageCode   | (Opcional) Uno de los siguientes códigos de idioma: `da, de, en, es, fi, fr, it, ko, pt`. El valor predeterminado es inglés (en). Aspectos que se deben tener en cuenta:<ul><li>Si se pasa un formato “código de idioma-código de país”, solo se usa la parte “código de idioma” del formato.</li><li>Si el idioma no está en la lista anterior, la aptitud de división divide el texto en límites de carácter.</li><li>Proporcionar un código de idioma es útil para evitar cortar una palabra por la mitad para idiomas sin espacios como el chino, japonés y coreano.</li></ul>  |
+| defaultLanguageCode   | (Opcional) Uno de los siguientes códigos de idioma: `da, de, en, es, fi, fr, it, ko, pt`. El valor predeterminado es inglés (en). Aspectos que se deben tener en cuenta:<ul><li>Si se pasa un formato “código de idioma-código de país”, solo se usa la parte “código de idioma” del formato.</li><li>Si el idioma no está en la lista anterior, la aptitud de división divide el texto en límites de carácter.</li><li>Proporcionar un código de idioma es útil para evitar cortar una palabra por la mitad para idiomas sin espacios como el chino, japonés y coreano.</li><li>Si no conoce el idioma (es decir, debe dividir el texto de la entrada en [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), el valor predeterminado de inglés (en) debe ser suficiente. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
@@ -41,7 +41,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Nombre de parámetro       | DESCRIPCIÓN      |
 |----------------------|------------------|
 | text  | Texto que se dividirá en subcadenas. |
-| languageCode  | (Opcional) Código de idioma para el documento.  |
+| languageCode  | (Opcional) Código de idioma para el documento. Si no conoce el idioma (es decir, debe dividir el texto de la entrada en [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), es seguro quitar esta entrada.  |
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud 
 

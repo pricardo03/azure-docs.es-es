@@ -8,14 +8,14 @@ manager: xdh
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: af5bb7126af65a755cb1d58788d39cb8bdcbbb3b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6ec31df7cef8391728eae7845f64f55bb1c6466a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959022"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491342"
 ---
 # <a name="scenario-availability"></a>Disponibilidad de escenarios
 
@@ -31,13 +31,13 @@ El SDK del servicio Voz presenta muchos escenarios en una amplia variedad de len
   - Swift
   - Objective-C
   - La API REST de TTS puede usarse en todas las demás situaciones.
-- **Palabra de reactivación (observador de palabras clave/KWS)**
+- **Detección de palabras clave (KWS)**
   - C++/Windows y Linux
   - C#/Windows & Linux
   - Python/Windows y Linux
   - Java/Windows, Linux y Android (SDK de dispositivos de voz)
-  - La funcionalidad de palabra de reactivación (observador de palabras clave/KWS) podría funcionar con cualquier tipo de micrófono; no obstante, la compatibilidad oficial de KWS está limitada actualmente a las matrices de micrófonos que se encuentran en el hardware de Azure Kinect DK o el SDK de dispositivos de voz.
-- **Asistente virtual por voz**
+  - La funcionalidad de detección de palabras clave (KWS) podría funcionar con cualquier tipo de micrófono; no obstante, la compatibilidad oficial de KWS está limitada actualmente a las matrices de micrófonos que se encuentran en el hardware de Azure Kinect DK o el SDK de dispositivos de voz.
+- **Asistentes de voz**
   - C++/Windows, Linux y macOS
   - C#/Windows
   - Java/Windows, Linux, macOS y Android (SDK de dispositivos de voz)

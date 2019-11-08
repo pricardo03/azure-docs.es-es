@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 9cc06df5d2a66ede18af52c13201c731c12e2049
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 719f45aeeb5c7aa7e9b5e597ed461808c9d2b005
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614502"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472591"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Escalación del número de nodos en un clúster de Azure Kubernetes Service (AKS)
 
@@ -74,7 +74,7 @@ La siguiente salida de ejemplo muestra que el clúster ha escalado correctamente
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, escaló manualmente un clúster de AKS para aumentar o disminuir el número de nodos. También puede usar [Cluster Autoscaler][cluster-autoscaler] (actualmente en la versión preliminar de AKS) para escalar automáticamente el clúster.
+En este artículo, escaló manualmente un clúster de AKS para aumentar o disminuir el número de nodos. También puede usar el [escalador automático del clúster][cluster-autoscaler] para escalar automáticamente el clúster.
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

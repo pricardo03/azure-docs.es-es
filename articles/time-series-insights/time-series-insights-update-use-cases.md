@@ -1,21 +1,21 @@
 ---
 title: Casos de uso de la versión preliminar de Azure Time Series Insights | Microsoft Docs
 description: Obtenga más información para comprender los casos de uso de la versión preliminar de Azure Time Series Insights.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 437f93e35040a93fb0c3098d6ec53883c3f856a7
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: b2c1aec7f5b653824ab999da2706549e54d47e3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553282"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492062"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casos de uso de la versión preliminar de Azure Time Series Insights
 
@@ -43,12 +43,12 @@ Explore y analice al instante miles de millones de eventos para detectar anomal�
 La mayoría de los clientes aceptan que la cantidad de tiempo mínima necesaria para obtener información es una de las principales características de Time Series Insights:
 
 * Además, Azure Time Series Insights no requiere la preparación inicial de los datos. 
-* Funciona rápido para conectarse en minutos a miles de millones de eventos en Azure IoT Hub o Azure Event Hubs. 
+* Funciona rápido para conectarse en minutos a miles de millones de eventos en instancias de Azure IoT Hub o de Azure Event Hubs. 
 * Una vez esté conectado, puede visualizar y analizar al instante miles de millones de eventos para detectar anomalías y tendencias ocultas en sus datos.
 
 Time Series Insights es intuitivo y fácil de usar. Además, puede interactuar con sus datos sin tener que escribir una sola línea de código. Tampoco se le exige que aprenda ningún lenguaje nuevo, aunque Time Series Insights proporciona un lenguaje de consulta basado en texto granular para usuarios avanzados familiarizados con SQL. En cuanto a los principiantes, también proporciona la opción de explorar seleccionando y haciendo clic en el contenido.
 
-Los clientes pueden aprovechar esta velocidad para poder diagnosticar rápidamente problemas relacionados con los recursos. Asimismo, pueden realizar análisis de operaciones de DevOps para llegar a la raíz de un error en una solución de IoT. También pueden identificar las áreas que se van a marcar para una investigación más exhaustiva como parte de sus iniciativas de ciencia de datos.  
+Los clientes pueden aprovechar esta velocidad para poder diagnosticar rápidamente problemas relacionados con los recursos. Asimismo, pueden realizar análisis de operaciones de DevOps para llegar a la raíz de un error en una solución de IoT. También pueden identificar las áreas que se van a marcar para una investigación más exhaustiva como parte de sus iniciativas de ciencia de datos. 
 
 Existen tres formas principales de interactuar con los datos almacenados en Time Series Insights:
 
@@ -70,7 +70,7 @@ Use Time Series Insights para supervisar el mantenimiento, el uso y el rendimien
 
 La transmisión y el procesamiento continuo de datos provenientes de procesos operativos pueden transformar con éxito cualquier negocio si se combinan con la tecnología o la solución adecuada. A menudo, estas soluciones son una combinación de varios sistemas. Permiten la exploración y el análisis de datos que cambian constantemente, especialmente en el ámbito de IoT, y comparten un patrón común.
 
-Estos patrones a menudo comienzan con plataformas habilitadas para IoT que ingieren miles de millones de eventos de dispositivos y sensores que abarcan varias configuraciones regionales. Asimismo, estos sistemas procesan y analizan los datos de streaming para obtener detalles y acciones en tiempo real. Los datos normalmente se archivan mediante un almacenamiento en frío e intermedio para realizar un análisis casi en tiempo real y por lotes.
+Estos patrones a menudo comienzan con plataformas habilitadas para IoT que ingieren miles de millones de eventos de dispositivos y sensores que abarcan varias configuraciones regionales. Asimismo, estos sistemas procesan y analizan los datos de streaming para obtener detalles y acciones en tiempo real. Los datos normalmente se archivan mediante un almacenamiento en reposo e intermedio para realizar un análisis casi en tiempo real y por lotes.
 
 Los datos que se recopilan pasan por una serie de procesos de limpieza y contextualización para agregarlos a escenarios de análisis y consultas posteriores. Azure ofrece sofisticados servicios que se pueden aplicar a los escenarios de IoT, como el mantenimiento y la fabricación de recursos. Estos servicios incluyen: Time Series Insights, IoT Hub, Event Hubs, Azure Stream Analytics, Azure Functions, Azure Logic Apps, Azure Databricks, Azure Machine Learning y Power BI.
 
@@ -96,7 +96,7 @@ Time Series Insights cierra esta brecha entre los datos de IoT y el análisis av
 
     Time Series Insights puede servir como fuente de datos para todos los datos de toda la organización. Crea un repositorio central para que las cargas de trabajo analíticas descendentes se consuman. Como Time Series Insights es un servicio de almacenamiento casi en tiempo real, los modelos analíticos avanzados pueden aprender continuamente de los datos de telemetría entrantes de IoT. Gracias a ello, los modelos pueden hacer predicciones más precisas.
 
-- En segundo lugar, Time Series Insights puede beneficiarse de la salida del aprendizaje automático y los modelos de predicción para visualizar y almacenar sus resultados. Este procedimiento permite que las organizaciones tengan la oportunidad de optimizar y ajustar sus modelos. Time Series Insights simplifica la visualización de los datos de telemetría de streaming en el mismo plano que las salidas del modelo entrenado. De esta manera, ayuda a los equipos de ciencia de datos a detectar anomalías e identificar patrones.  
+- En segundo lugar, Time Series Insights puede beneficiarse de la salida del aprendizaje automático y los modelos de predicción para visualizar y almacenar sus resultados. Este procedimiento permite que las organizaciones tengan la oportunidad de optimizar y ajustar sus modelos. Time Series Insights simplifica la visualización de los datos de telemetría de streaming en el mismo plano que las salidas del modelo entrenado. De esta manera, ayuda a los equipos de ciencia de datos a detectar anomalías e identificar patrones. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

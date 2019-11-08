@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab1caeb59cf7fc0a6baef5ba0001e734a75fccd2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757839"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473340"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
 
@@ -63,7 +63,7 @@ En este artículo se usan los términos siguientes:
 
 * Sistema de destino: el repositorio de los usuarios hacia donde se aprovisiona Azure AD. Por lo general, el sistema de destino es una aplicación SaaS como ServiceNow, Zscaler y Slack. El sistema de destino también puede ser un sistema local, como AD.
 
-* [Sistema para la administración de identidades entre dominios (SCIM)](http://www.simplecloud.info/): un estándar abierto que permite la automatización del aprovisionamiento de usuarios. SCIM comunica datos de identidades de usuario entre proveedores de identidades, como Microsoft, y proveedores de servicios como Salesforce u otras aplicaciones SaaS que requieren información de identidad de usuario.
+* [Sistema para la administración de identidades entre dominios (SCIM)](https://aka.ms/scimoverview): un estándar abierto que permite la automatización del aprovisionamiento de usuarios. SCIM comunica datos de identidades de usuario entre proveedores de identidades, como Microsoft, y proveedores de servicios como Salesforce u otras aplicaciones SaaS que requieren información de identidad de usuario.
 
 ### <a name="training-resources"></a>Recursos de aprendizaje
 
@@ -281,6 +281,8 @@ Después de un [ciclo inicial](https://docs.microsoft.com/azure/active-directory
 * El proceso de aprovisionamiento entra en cuarentena debido a una alta tasa de errores y permanece en ese estado durante más de cuatro semanas, cuando se deshabilitará automáticamente.
 
 Para revisar estos eventos y todas las demás actividades realizadas por el servicio de aprovisionamiento, consulte los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD.
+
+Para saber cuánto tiempo tardan los ciclos de aprovisionamiento y supervisar el progreso del trabajo de aprovisionamiento, puede [comprobar el estado de aprovisionamiento de usuarios](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
 
 ### <a name="gain-insights-from-reports"></a>Obtención de información a partir de los datos
 

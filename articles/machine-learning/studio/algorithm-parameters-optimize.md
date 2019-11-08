@@ -1,7 +1,7 @@
 ---
 title: Optimización de algoritmos
-titleSuffix: Azure Machine Learning Studio
-description: Aquí se explica cómo elegir el parámetro óptimo establecido para un algoritmo de Azure Machine Learning Studio.
+titleSuffix: ML Studio (classic) Azure
+description: Aquí se explica cómo elegir el parámetro óptimo establecido para un algoritmo de Azure Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,20 +10,20 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 6dc9476f603d5664b7ea23489042b69f86647cf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a0434b0f0768447f9922e651297924ad86f63c8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60752239"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621920"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Elegir parámetros para optimizar los algoritmos de Azure Machine Learning Studio
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Elegir parámetros para optimizar los algoritmos de Azure Machine Learning Studio (clásico)
 
-En este tema se describe cómo elegir el hiperparámetro adecuado establecido para un algoritmo en Azure Machine Learning Studio. La mayoría de los algoritmos de aprendizaje automático tienen parámetros para configurar. Cuando entrena un modelo, tiene que especificar valores para esos parámetros. La eficacia del modelo entrenado depende de los parámetros del modelo que elija. El proceso de encontrar el conjunto óptimo de parámetros se conoce como *selección del modelo*.
+En este tema se describe cómo elegir el hiperparámetro adecuado establecido para un algoritmo en Azure Machine Learning Studio (clásico). La mayoría de los algoritmos de aprendizaje automático tienen parámetros para configurar. Cuando entrena un modelo, tiene que especificar valores para esos parámetros. La eficacia del modelo entrenado depende de los parámetros del modelo que elija. El proceso de encontrar el conjunto óptimo de parámetros se conoce como *selección del modelo*.
 
 
 
-Existen varias maneras de realizar la selección del modelo. En Machine Learning, la validación cruzada es uno de los métodos más utilizados para la selección de modelos y es el mecanismo de selección de modelos predeterminado en Azure Machine Learning Studio. Como R y Python son compatibles con Azure Machine Learning Studio, siempre puede implementar sus propios mecanismos de selección de modelos mediante R o Python.
+Existen varias maneras de realizar la selección del modelo. En Machine Learning, la validación cruzada es uno de los métodos más utilizados para la selección de modelos y es el mecanismo de selección de modelos predeterminado en la versión clásica de Azure Machine Learning Studio. Como R y Python son compatibles con la versión clásica de Azure Machine Learning Studio, siempre puede implementar sus propios mecanismos de selección de modelos mediante R o Python.
 
 Hay cuatro pasos en el proceso de encontrar el mejor conjunto de parámetros:
 
@@ -32,7 +32,7 @@ Hay cuatro pasos en el proceso de encontrar el mejor conjunto de parámetros:
 3. **Definir la métrica**: Decida qué métrica se va a usar para determinar el mejor conjunto de parámetros; por ejemplo, la precisión, el error cuadrático medio, la precisión, la recuperación o la puntuación f.
 4. **Formar, evaluar y comparar**: Para cada combinación única de los valores de parámetro, se lleva a cabo la validación cruzada y se basa en la métrica de error que defina. Después de la evaluación y la comparación, puede elegir el modelo de máximo rendimiento.
 
-En la imagen siguiente se muestra cómo se puede hacer en Azure Machine Learning Studio.
+En la imagen siguiente se muestra cómo se puede hacer en la versión clásica de Azure Machine Learning Studio.
 
 ![Encontrar el mejor conjunto de parámetros](./media/algorithm-parameters-optimize/fig1.png)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 11a29a980fbbbafad850daeda5af11b78580bcaa
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c22f88487fd8b34d48d3012c706bb0415760b21e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067003"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470947"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar una aplicación de App Service en Azure Portal
 
@@ -176,7 +176,7 @@ En este caso, puede configurar algunas opciones comunes para la aplicación. Alg
     - **Versión de canalización administrada**: el [modo de canalización] IIS. Establézcalo en **Clásico** si tiene una aplicación heredada que requiere una versión anterior de IIS.
     - **Versión de HTTP**: Establézcala en **2.0** para habilitar la compatibilidad con el protocolo [HTTPS/2](https://wikipedia.org/wiki/HTTP/2).
     > [!NOTE]
-    > Los exploradores más modernos admiten el protocolo HTTP/2 sobre TLS únicamente, mientras que el tráfico no cifrado sigue usando HTTP/1.1. Para asegurarse de que los exploradores del cliente se conectan a la aplicación con HTTP/2, [compre un certificado App Service Certificate](web-sites-purchase-ssl-web-site.md) para el dominio personalizado de la aplicación o [enlace con un certificado de terceros](app-service-web-tutorial-custom-ssl.md).
+    > Los exploradores más modernos admiten el protocolo HTTP/2 sobre TLS únicamente, mientras que el tráfico no cifrado sigue usando HTTP/1.1. Para asegurarse de que los exploradores de cliente se conectan a la aplicación con HTTP/2, [proteja el nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md).
     - **Afinidad ARR**: en una implementación de varias instancias, asegúrese de que el cliente esté enrutado a la misma instancia de la vida de la sesión. Puede establecer esta opción en **Desactivada** para las aplicaciones sin estado.
 - **Depuración**: habilite la depuración remota para las aplicaciones [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) o [Node.js](containers/configure-language-nodejs.md#debug-remotely). Esta opción se desactiva automáticamente después de 48 horas.
 - **Certificados de cliente entrantes**: requiera certificados de cliente en [autenticación mutua](app-service-web-configure-tls-mutual-auth.md).
@@ -251,7 +251,7 @@ Consulte [Configuración de un contenedor de Linux personalizado para Azure App 
 
 - [Configuración de un nombre de dominio personalizado en Azure App Service]
 - [Configuración de entornos de ensayo en Azure App Service]
-- [Habilitación de HTTPS para una aplicación en Azure App Service]
+- [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md)
 - [Habilitar los registros de diagnóstico](troubleshoot-diagnostic-logs.md)
 - [Escalado de una aplicación en Azure App Service]
 - [Aspectos básicos de supervisión en Azure App Service]
@@ -263,7 +263,6 @@ Consulte [Configuración de un contenedor de Linux personalizado para Azure App 
 [Azure Portal]: https://portal.azure.com/
 [Configuración de un nombre de dominio personalizado en Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Configuración de entornos de ensayo en Azure App Service]: ./deploy-staging-slots.md
-[Habilitación de HTTPS para una aplicación en Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Aspectos básicos de supervisión en Azure App Service]: ./web-sites-monitor.md
 [modo de canalización]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application

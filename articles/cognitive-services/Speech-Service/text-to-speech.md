@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: d12b952d298b41c8d06f0fcac141a45749de9051
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d3d4777d54e3ef6b20ab0ac0f0890da958411297
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799958"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468666"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
 La opción de texto a voz de los servicios de voz de Azure es un servicio que permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada natural similar a la humana. Puede elegir entre voces estándar y neuronales, o puede crear su propia voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales que están disponibles en 4 idiomas y configuraciones regionales. Para ver una lista completa, consulte los [idiomas admitidos](language-support.md#text-to-speech).
 
-La tecnología de texto a voz permite a los creadores de contenido interactuar con sus usuarios de diferentes maneras. La conversión de texto a voz puede mejorar la accesibilidad al ofrecer a los usuarios la opción de interactuar con el contenido de manera audible. Si el usuario tiene dificultades visuales, problemas de aprendizaje o requiere información de navegación mientras conduce, el texto a voz puede mejorar una experiencia ya existente. Asimismo, el texto a voz también es un complemento valioso para los robots de voz y los asistentes virtuales.
+La tecnología de texto a voz permite a los creadores de contenido interactuar con sus usuarios de diferentes maneras. La conversión de texto a voz puede mejorar la accesibilidad al ofrecer a los usuarios la opción de interactuar con el contenido de manera audible. Si el usuario tiene dificultades visuales, problemas de aprendizaje o requiere información de navegación mientras conduce, el texto a voz puede mejorar una experiencia ya existente. También, la conversión de texto a voz es un complemento valioso para los bots y los asistentes de voz.
 
 
 Al aprovechar el lenguaje de marcado de síntesis de voz (SSML), que es un lenguaje de marcado basado en XML, los desarrolladores que usan el servicio de texto a voz pueden especificar cómo se convierte el texto de entrada en una voz sintetizada. Con SSML, puede ajustar el tono, la pronunciación, la velocidad del habla, el volumen y muchas cosas más. Para obtener más información, consulte [SSML](#speech-synthesis-markup-language-ssml).
@@ -34,7 +34,7 @@ Las voces estándar se crean mediante técnicas de Síntesis paramétrica estad�
 
 Las voces neuronales usan redes neuronales profundas para superar los límites de los sistemas tradicionales de texto a voz y así poder hacer coincidir los patrones de acentuación y entonación en el lenguaje hablado y sintetizar las unidades del habla en una voz del equipo. La conversión de texto a voz estándar divide la prosodia en análisis lingüísticos separados y pasos de predicción acústica que se rigen por modelos independientes, lo que puede resultar en una síntesis de voz que se oye amortiguada. La capacidad neuronal se encarga de la predicción de la prosodia y la síntesis de voz simultáneamente, lo que resulta en una voz más fluida y natural.
 
-Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes virtuales sean más naturales y atractivas, para convertir textos digitales, como los libros electrónicos, en audiolibros y para mejorar los sistemas de navegación de los automóviles. Gracias a su prosodia natural similar a la humana y a la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga al escucharlas que suele aparecer cuando los usuarios interactúan con sistemas de inteligencia artificial.
+Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes de voz sean más naturales y atractivas, para convertir textos digitales (por ejemplo, los libros electrónicos) en audiolibros y para mejorar los sistemas de navegación de los automóviles. Gracias a su prosodia natural similar a la humana y a la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga al escucharlas que suele aparecer cuando los usuarios interactúan con sistemas de inteligencia artificial.
 
 Las voces neuronales admiten diferentes estilos, como el neutral y el alegre. Por ejemplo, la voz Jessa (en-US) puede hablar alegremente, lo que está optimizado para tener una conversación cálida y feliz. Puede ajustar la salida de voz, como el tono, el timbre y la velocidad mediante el [Lenguaje de marcado de síntesis de voz](speech-synthesis-markup.md). Hay una lista completa de voces disponibles en [Idiomas admitidos](language-support.md#text-to-speech).
 
@@ -87,25 +87,25 @@ Le ofrecemos inicios rápidos diseñados para que ejecute el código en menos de
 
 | Inicio rápido (SDK) | Plataforma | Referencia de API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
-| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
-| [Java](quickstart-text-to-speech-java-jre.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
-| [Java](quickstart-text-to-speech-java-android.md) | Android | [Browse](https://aka.ms/csspeech/javaref) |
-| [Objective-C](quickstart-text-to-speech-objectivec-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Objective-C](quickstart-text-to-speech-objectivec-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Swift](quickstart-text-to-speech-swift-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Swift](quickstart-text-to-speech-swift-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Python](quickstart-text-to-speech-python.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/pythonref) |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, Unity](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=unity) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/pythonref) |
 
 ### <a name="rest-quickstarts"></a>Inicios rápidos de REST
 
 | Inicio rápido (REST) | Plataforma | Referencia de API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Node.js](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 

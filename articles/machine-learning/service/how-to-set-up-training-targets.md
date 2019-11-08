@@ -3,26 +3,27 @@ title: Creación y uso de destinos de proceso para el entrenamiento del modelo
 titleSuffix: Azure Machine Learning
 description: Configurar los entornos de entrenamiento (destinos de proceso) del entrenamiento del modelo de Machine Learning. Es fácil cambiar entre entornos de entrenamiento. Inicie el entrenamiento de forma local. Si necesita escalar horizontalmente, cambie a un destino de proceso basado en la nube.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 46a212719846eddc7d21f3aeb0815dfbf4119e15
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935363"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489578"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Con Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-targets). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
 
-Los destinos de proceso se pueden crear y administrar mediante el SDK de Azure Machine Learning, Azure Portal, la página de aterrizaje de su área de trabajo, la CLI de Azure o la extensión de VS Code de Azure Machine Learning. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo de Azure Machine Learning.
+Los destinos de proceso se pueden crear y administrar mediante el SDK de Azure Machine Learning, Azure Machine Learning Studio, la CLI de Azure o la extensión de VS Code de Azure Machine Learning. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo de Azure Machine Learning.
  
 En este artículo, aprenderá a usar diversos destinos de proceso para el entrenamiento de modelos.  Los pasos para todos los destinos de proceso siguen el mismo flujo de trabajo:
 1. __Crear__ un destino de proceso si aún no tiene uno.
@@ -132,7 +133,7 @@ Se puede reutilizar una instancia de Proceso de Azure Machine Learning persisten
    Cuando cree una instancia de Proceso de Azure Machine Learning, puede configurar también varias propiedades avanzadas. Estas propiedades permiten crear un clúster persistente de tamaño fijo o dentro de una instancia existente de Azure Virtual Network de su suscripción.  Consulte la [clase AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) para más información.
     
-   O bien puede crear y adjuntar un recurso persistente de Proceso de Azure Machine Learning [en Azure Portal](#portal-create).
+   O bien puede crear y adjuntar un recurso persistente de Proceso de Azure Machine Learning en [Azure Machine Learning Studio](#portal-create).
 
 1. **Configurar**: Cree una configuración de ejecución para el destino de proceso persistente.
 
@@ -179,7 +180,7 @@ Utilice Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure
    compute.wait_for_completion(show_output=True)
    ```
 
-   O bien puede asociar la instancia de DSVM al área de trabajo [mediante Azure Portal](#portal-reuse).
+   O bien puede asociar la instancia de DSVM al área de trabajo [mediante Azure Machine Learning Studio](#portal-reuse).
 
 1. **Configurar**: Cree una configuración de ejecución para el destino de proceso de Data Science Virtual Machine. Docker y Conda se utilizan para crear y configurar el entorno de entrenamiento en la DSVM.
 
@@ -220,7 +221,7 @@ Azure HDInsight es una plataforma popular para el análisis de macrodatos. La pl
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   O bien puede asociar el clúster de HDInsight al área de trabajo [mediante Azure Portal](#portal-reuse).
+   O bien puede asociar el clúster de HDInsight al área de trabajo [mediante Azure Machine Learning Studio](#portal-reuse).
 
 1. **Configurar**: Cree una configuración de ejecución para el destino de proceso de HDI. 
 
@@ -270,9 +271,9 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-in-azure-portal"></a>Configuración en Azure Portal
+## <a name="set-up-in-azure-machine-learning-studio"></a>Configuración de Azure Machine Learning Studio
 
-Desde Azure Portal, puede acceder a destinos de proceso que están asociados con el área de trabajo.  Puede usar el portal para:
+Desde Azure Machine Learning Studio, puede acceder a destinos de proceso que están asociados con el área de trabajo.  Puede usar Studio para:
 
 * [Ver los destinos de proceso](#portal-view) asociados a un área de trabajo
 * [Crear un destino de proceso](#portal-create) en el área de trabajo
@@ -291,7 +292,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 Para ver los destinos de proceso del área de trabajo, use los pasos siguientes:
 
-1. Navegue hasta [Azure Portal](https://portal.azure.com) y abra el área de trabajo. También puede tener acceso a estos mismos pasos en la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com), aunque en las imágenes siguientes se muestra Azure Portal.
+1. Vaya a [Azure Machine Learning Studio](https://ml.azure.com).
  
 1. En __Aplicaciones__, seleccione __Proceso__.
 
@@ -310,7 +311,7 @@ Siga los pasos anteriores para ver la lista de destinos de proceso. A continuaci
 1. Seleccione **Proceso de Machine Learning** como tipo de proceso que se usará en __Entrenamiento__. 
 
     >[!NOTE]
-    >Proceso de Azure Machine Learning es el único recurso de proceso administrado que se puede crear en Azure Portal.  Todos los demás recursos de proceso se pueden asociar después de su creación.
+    >Proceso de Azure Machine Learning es el único recurso de proceso administrado que se puede crear en Azure Machine Learning Studio.  Todos los demás recursos de proceso se pueden asociar después de su creación.
 
 1. Rellene el formulario. Proporcione valores para las propiedades necesarias, especialmente para **Familia de máquinas virtuales** y **Nodos máximos** que se van a utilizar para acelerar el proceso.  
 
@@ -336,7 +337,7 @@ Siga los pasos descritos previamente para ver la lista de destinos de proceso. L
 1. Seleccione el tipo de proceso que va a adjuntar para __Entrenamiento__:
 
     > [!IMPORTANT]
-    > No todos los tipos de proceso se pueden adjuntar desde Azure Portal. Los tipos de proceso que se pueden adjuntar actualmente para entrenamiento incluyen:
+    > No todos los tipos de proceso se pueden adjuntar desde Azure Machine Learning Studio. Los tipos de proceso que se pueden adjuntar actualmente para entrenamiento incluyen:
     >
     > * Una máquina virtual remota
     > * Azure Databricks (para su uso en las canalizaciones de aprendizaje automático)
@@ -446,6 +447,8 @@ El archivo de configuración de ejecución tiene un formato YAML y las siguiente
  * Detalles de configuración específicos del marco seleccionado.
  * Detalles de la referencia de datos y del almacén de datos.
  * Detalles de configuración específicos para el Proceso de Machine Learning para crear un nuevo clúster.
+
+Vea el [archivo JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) de ejemplo para obtener un esquema runconfig completo.
 
 ### <a name="create-an-experiment"></a>Creación de un experimento
 

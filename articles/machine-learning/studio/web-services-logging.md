@@ -1,8 +1,7 @@
 ---
-title: 'Registro de servicios web: Azure Machine Learning Studio | Microsoft Docs'
-description: Aprenda cómo habilitar el registro para los servicios web de Machine Learning Studio. El registro proporciona información adicional para ayudar a solucionar las API.
+title: 'Registro de servicios web: Azure Machine Learning Studio (clásico) | Microsoft Docs'
+description: Aprenda cómo habilitar el registro para servicios web de Machine Learning Studio (clásico). El registro proporciona información adicional para ayudar a solucionar las API.
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -10,26 +9,23 @@ editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 90ee036275e13b209d9f6c37aba6d16ed564cf5d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345658"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466947"
 ---
-# <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Habilitación del registro para los servicios web de Azure Machine Learning Studio
-En este documento se proporciona información sobre la funcionalidad de registro de los servicios web de Machine Learning Studio. El registro ofrece información adicional, más allá de un número de error y un mensaje, que puede ayudar a solucionar problemas con las llamadas a las API de Machine Learning Studio.  
+# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Habilitación del registro para servicios web de Azure Machine Learning Studio (clásico)
+En este documento se proporciona información sobre la funcionalidad de registro de los servicios web de Machine Learning Studio (clásico). El registro ofrece información adicional, más allá de un número de error y un mensaje, que puede ayudar a solucionar problemas con las llamadas a las API de Machine Learning Studio (clásico).  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Habilitación del registro para un servicio web
 
-El registro se habilita en el portal de [Servicios web de Azure Machine Learning Studio](https://services.azureml.net). 
+El registro se habilita en el portal de [Servicios web de Azure Machine Learning Studio (clásico)](https://services.azureml.net). 
 
-1. Inicie sesión en el portal de Servicios web de Azure Machine Learning Studio en [https://services.azureml.net](https://services.azureml.net). Para ver los servicios web clásicos, también puede llegar al portal haciendo clic en **New Web Services Experience** (Nueva experiencia de servicios web) en la página Servicios web de Machine Learning Studio, en Machine Learning Studio.
+1. Inicie sesión en el portal de servicios web de Azure Machine Learning Studio (clásico) en [https://services.azureml.net](https://services.azureml.net). Otra manera de llegar al portal de un servicio web clásico es hacer clic en **New Web Services Experience** (Nueva experiencia de servicios web) en la página de servicios web de Machine Learning Studio (clásico) de la versión clásica de Machine Learning Studio.
 
    ![Nuevo vínculo a la experiencia de servicios web](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -61,7 +57,7 @@ El registro se habilita en el portal de [Servicios web de Azure Machine Learning
 
 > [!TIP]
 >
-> En servicios web clásicos, el panel de servicios web de Machine Learning Studio tiene también un conmutador para habilitar el registro. Sin embargo, puesto que el registro se administra ahora mediante el portal de servicios web, deberá habilitarlo en dicho portal, como se describe en este artículo. Si ya habilitó el registro en Studio, en el portal de servicios web deshabilítelo y vuelva a habilitarlo.
+> El panel de servicios web de un servicio web clásico de la versión clásica de Machine Learning Studio tiene también un conmutador para habilitar el registro. Sin embargo, puesto que el registro se administra ahora mediante el portal de servicios web, deberá habilitarlo en dicho portal, como se describe en este artículo. Si ya habilitó el registro en Studio (clásico), deshabilítelo y vuelva a habilitarlo en el portal de servicios web.
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Consecuencias de habilitar el registro

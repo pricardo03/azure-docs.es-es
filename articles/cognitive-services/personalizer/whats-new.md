@@ -8,20 +8,25 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: d223bcbb13c29d74c1b6a038e5ce88766f61e766
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 1ec0c83655574cb09724bcf97be19519e1f6d72f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886057"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467074"
 ---
 # <a name="whats-new-in-personalizer"></a>Novedades en Personalizer
 
 Conozca las novedades del servicio. Estos elementos pueden incluir notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.  
 
 ## <a name="release-notes"></a>Notas de la versión 
+
+### <a name="november-2019---ignite-conference"></a>Noviembre de 2019: Conferencia Ignite
+
+* Personalizer está disponible con carácter general (GA)
+* [Tutorial](tutorial-use-azure-notebook-generate-loop-data.md) de Azure Notebooks con todo el ciclo de vida
 
 ### <a name="may-6-2019---build-conference"></a>6 de mayo de 2019: conferencia Build
 

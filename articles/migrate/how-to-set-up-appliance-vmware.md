@@ -4,14 +4,14 @@ description: Describe cómo configurar un dispositivo para la detección, la val
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: fe190381df346278e75a3e6fd9876b80c33bd86b
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 77bf9a0f73519aa979da49614475daf70f582a9e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810199"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467124"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configuración de un dispositivo para máquinas virtuales de VMware
 
@@ -29,7 +29,7 @@ El dispositivo de máquina virtual de VMware es un dispositivo ligero que Azure 
 
 Para configurar el dispositivo:
 - Descargue una plantilla OVA e impórtela en vCenter Server.
-- Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment. 
+- Crear el dispositivo y comprobar que se puede conectar a Azure Migrate Server Assessment.
 - Configurar el dispositivo por primera vez y registrarlo en el proyecto de Azure Migrate.
 
 ## <a name="download-the-ova-template"></a>Descarga de la plantilla OVA
@@ -48,7 +48,7 @@ Compruebe que el archivo OVA es seguro, antes de implementarlo.
 2. Ejecute el siguiente comando para generar el código hash para el archivo OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. El código hash generado debe coincidir con esta configuración para la versión 1.0.0.5 del dispositivo. 
+3. El código hash generado debe coincidir con esta configuración para la versión 1.0.0.5 del dispositivo.
 
   **Algoritmo** | **Valor del código hash**
   --- | ---
@@ -98,7 +98,7 @@ Configure el dispositivo por primera vez.
 ## <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
 1. Haga clic en **Iniciar sesión**. Si no aparece, asegúrese de que ha deshabilitado el bloqueador de elementos emergentes en el explorador.
-2. En la pestaña nueva, inicie sesión con sus credenciales de Azure. 
+2. En la pestaña nueva, inicie sesión con sus credenciales de Azure.
     - Inicie sesión con su nombre de usuario y contraseña.
     - No se admite el inicio de sesión con un PIN.
 3. Después de iniciar sesión correctamente, vuelva a la aplicación web.
@@ -107,18 +107,30 @@ Configure el dispositivo por primera vez.
 4. Haga clic en **Registrar**.
 
 
-## <a name="start-continuous-discovery"></a>Inicio de detección continua
+## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>Inicio de la detección continua con la credencial de máquina virtual y vCenter Server proporcionada
 
-Ahora, conéctese desde el dispositivo a vCenter Server e inicie la detección de máquinas virtuales. 
+El dispositivo necesita conectarse a vCenter Server para detectar los datos de configuración y rendimiento de las máquinas virtuales.
 
+### <a name="specify-vcenter-server-details"></a>Especificar los detalles de vCenter Server
 1. En **Specify vCenter Server details** (Especificar detalles de vCenter Server), especifique el nombre (nombre de dominio completo) o la dirección IP de vCenter Server. Puede dejar el puerto predeterminado o especificar un puerto personalizado en el que vCenter Server escuche.
-2. En **User name** (Nombre de usuario) y **Password** (Contraseña), especifique las credenciales de la cuenta de solo lectura que el dispositivo utilizará para detectar las máquinas virtuales en vCenter Server. Asegúrese de que la cuenta tenga los [permisos necesarios para la detección](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
+2. En **User name** (Nombre de usuario) y **Password** (Contraseña), especifique las credenciales de la cuenta de solo lectura que el dispositivo utilizará para detectar las máquinas virtuales en vCenter Server. Asegúrese de que la cuenta tenga los [permisos necesarios para la detección](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Para definir el ámbito de la detección, puede limitar el acceso a la cuenta de vCenter según corresponda; puede encontrar más información sobre el ámbito de la detección [aquí](tutorial-assess-vmware.md#scoping-discovery).
 3. Haga clic en **Validate connection** (Validar conexión) para asegurarse de que el dispositivo puede conectarse a vCenter Server.
-4. Una vez establecida la conexión, haga clic en **Save and start discovery** (Guardar e iniciar detección).
 
+### <a name="specify-vm-credentials"></a>Especificación de las credenciales de máquina virtual
+Para la detección de aplicaciones, roles y características y la visualización de las dependencias de las máquinas virtuales, puede proporcionar una credencial de máquina virtual que tenga acceso a las máquinas virtuales de VMware. Puede agregar una credencial para máquinas virtuales Windows y otra para máquinas virtuales Linux. [Más información](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sobre los privilegios de acceso necesarios.
 
-De esta forma comienza la detección. Los metadatos de las máquinas virtuales detectadas tardan unos 15 minutos en aparecer en el portal. 
+> [!NOTE]
+> Esta entrada es opcional y es necesaria para habilitar la detección de aplicaciones y la visualización de dependencias sin agente.
 
+1. En **Discover applications and dependencies on VMs** (Detectar aplicaciones y dependencias en máquinas virtuales) haga clic en **Add credentials** (Agregar credenciales).
+2. En **Operating System** (Sistema operativo) seleccione el sistema operativo.
+3. Proporcione un nombre descriptivo para la credencial.
+4. En **Username** (Nombre de usuario) y **Password** (Contraseña), especifique una cuenta que tenga al menos acceso de invitado en las máquinas virtuales.
+5. Haga clic en **Agregar**.
+
+Cuando haya especificado las credenciales de las máquinas virtuales y de vCenter Server (este paso es opcional), haga clic en **Save and start discovery** (Guardar e iniciar la detección) para iniciar la detección del entorno local.
+
+Los metadatos de las máquinas virtuales detectadas tardan unos 15 minutos en aparecer en el portal. La detección de las aplicaciones, las características y los roles instalados lleva tiempo, que depende del número de máquinas virtuales que se detectan. En el caso de 500 máquinas virtuales, el inventario de la aplicación tarda aproximadamente 1 hora en aparecer en el portal de Azure Migrate.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 9279f97d5260eae698d5dbee10e077b71ab01992
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c225be5a1123c89d8a470a8dea48b3c57eb893b5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612338"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474574"
 ---
 # <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Administración de DNS en un dominio administrado con Azure AD Domain Services
 
@@ -23,7 +23,9 @@ En Azure Active Directory Domain Services (Azure AD DS), un componente clave e
 
 Cuando ejecute sus propias aplicaciones y servicios, podría tener que crear registros de DNS para las máquinas que no están unidas al dominio, configurar direcciones IP virtuales para los equilibradores de carga o configurar reenviadores DNS externos. Los usuarios que pertenecen al grupo *Administradores del controlador de dominio de AAD* reciben privilegios de administración de DNS en el dominio administrado con Azure AD DS y pueden crear y editar registros de DNS personalizados.
 
-En este artículo se muestra cómo se instalan las herramientas del servidor DNS y cómo se usa la consola DNS para administrar registros.
+En un entorno híbrido, las zonas DNS y los registros configurados en un entorno de AD DS local no se sincronizan con Azure AD DS. Para definir y usar sus propias entradas DNS, cree registros en el servidor DNS de Azure AD DS o use reenviadores condicionales que apunten a los servidores DNS existentes en el entorno.
+
+En este artículo se muestra cómo se instalan las herramientas del servidor DNS y cómo se usa la consola DNS para administrar registros en Azure AD DS.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -33,9 +35,9 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 
 * Una suscripción de Azure activa.
     * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio local o con un directorio solo en la nube.
+* Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
-* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
+* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, complete el tutorial para [crear y configurar una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Una máquina virtual de administración de Windows Server que esté unida al dominio administrado con Azure AD DS.
     * Si es necesario, complete el tutorial para [crear una máquina virtual de Windows Server y unirla a un dominio administrado][create-join-windows-vm].
@@ -43,20 +45,20 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 
 ## <a name="install-dns-server-tools"></a>Instalación de las herramientas del servidor DNS
 
-Para crear y modificar DNS, debe instalar las herramientas del servidor DNS. Estas herramientas se pueden instalar como una característica en Windows Server. Para obtener más información sobre cómo instalar las herramientas administrativas en un cliente de Windows, consulte cómo se instalan las [herramientas de administración remota del servidor (RSAT)][install-rsat].
+Para crear y modificar registros DNS en Azure AD DS, debe instalar las herramientas del servidor DNS. Estas herramientas se pueden instalar como una característica en Windows Server. Para obtener más información sobre cómo instalar las herramientas administrativas en un cliente de Windows, consulte cómo se instalan las [herramientas de administración remota del servidor (RSAT)][install-rsat].
 
 1. Inicie sesión en la máquina virtual de administración. Si quiere conocer los pasos para conectarse mediante Azure Portal, consulte [Conexión a una máquina virtual de Windows Server][connect-windows-server-vm].
-1. El **Administrador del servidor** debería abrirse de forma predeterminada al iniciar sesión en la máquina virtual. Si no es así, en el menú **Inicio**, seleccione **Administrador del servidor**.
-1. En el *Panel* de la ventana **Administrador del servidor**, seleccione **Agregar roles y características**.
+1. Si **Administrador del servidor** no se abre de forma predeterminada al iniciar sesión en la máquina virtual, seleccione el menú **Inicio** y, a continuación, elija **Administrador del servidor**.
+1. En el *Panel de información* de la ventana **Administrador del servidor**, seleccione **Agregar roles y características**.
 1. En la página **Antes de comenzar** del *Asistente para agregar roles y características*, seleccione **Siguiente**.
 1. En *Tipo de instalación*, deje activada la opción **Instalación basada en características o en roles** y seleccione **Siguiente**.
-1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, como *myvm.contoso.com*, y seleccione **Siguiente**.
+1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, por ejemplo *mivm.contoso.com*, y seleccione **Siguiente**.
 1. En la página **Roles de servidor**, haga clic en **Siguiente**.
 1. En la página **Características**, expanda el nodo **Herramientas de administración remota del servidor** y el nodo **Herramientas de administración de roles**. Seleccione la característica **Herramientas del servidor DNS** en la lista de herramientas de administración de roles.
 
     ![Selección para instalar las herramientas del servidor DNS en la lista de herramientas de administración de roles disponibles](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
 
-1. En la página **Confirmación**, seleccione **Instalar**. Las herramientas de administración de directivas de grupo pueden tardar un minuto o dos en instalarse.
+1. En la página **Confirmación**, seleccione **Instalar**. Las herramientas de Administración de directivas de grupo pueden tardar un minuto o dos en instalarse.
 1. Cuando finalice la instalación de la característica, haga clic en **Cerrar** para salir del Asistente para **Agregar roles y características**.
 
 ## <a name="open-the-dns-management-console-to-administer-dns"></a>Apertura de la consola de administración de DNS para administrar DNS

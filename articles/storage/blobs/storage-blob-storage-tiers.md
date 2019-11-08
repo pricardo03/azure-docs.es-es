@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 642fcc9ac2513329e9223f59a33d51ac5005e1fd
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 5ba2255cfe0d5c4220ec2215ac837649af1ba896
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802175"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521177"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -79,7 +79,7 @@ El cambio del nivel de acceso de cuenta se aplica a todos los objetos _access ti
 
 El almacenamiento por niveles de blob permite cambiar el nivel de los datos en el nivel de objeto mediante una única operación denominada [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (establecimiento de nivel de blob). Puede cambiar fácilmente el nivel de acceso de un blob entre el nivel de archivo, esporádico o frecuente a medida que cambien los patrones de uso, sin tener que mover los datos entre las cuentas. Todos los cambios de nivel se realizan de inmediato. Sin embargo, al rehidratar un blob de un nivel de acceso de archivo puede tardar varias horas.
 
-La hora del último cambio de nivel de blob se expone a través de la propiedad de blob **access tier change time**. Si un blob está en el nivel de archivo, no se puede sobrescribir y, por tanto, la carga del mismo blob no se permite en este escenario. Al sobrescribir un blob en un nivel frecuente o esporádico, el nuevo blob hereda el nivel del blob que se ha sobrescrito.
+La hora del último cambio de nivel de blob se expone a través de la propiedad de blob **access tier change time**. Si un blob está en el nivel de archivo, no se puede sobrescribir y, por tanto, la carga del mismo blob no se permite en este escenario. Al sobrescribir un blob en el nivel de acceso frecuente o esporádico, el blob recién creado hereda el nivel del blob que se ha sobrescrito a menos que el nuevo nivel de acceso del blob se establezca explícitamente en la creación.
 
 > [!NOTE]
 > El almacenamiento de archivo y el almacenamiento por niveles de blob solo admiten blobs en bloques. Actualmente tampoco se puede cambiar el nivel de un blob en bloques que tiene instantáneas.
@@ -192,7 +192,7 @@ Sí, puede cambiar el nivel de cuenta predeterminado mediante la definición del
 
 **¿Puedo establecer el nivel de acceso de cuenta predeterminado en archivo?**
 
-No. Los niveles de acceso frecuente y esporádico se pueden establecer como el nivel de acceso de cuenta predeterminado. El nivel de acceso de archivo solo puede establecerse en el nivel de objeto.
+No. Los niveles de acceso frecuente y esporádico se pueden establecer como el nivel de acceso de cuenta predeterminado. El nivel de acceso de archivo solo puede establecerse en el nivel de objeto. En la carga de blobs, se especifica el nivel de acceso de su elección para que sea frecuente, esporádico o de archivo, independientemente del nivel de cuenta predeterminado. Esta funcionalidad permite escribir datos directamente en el nivel de archivo para ahorrar en costos desde el momento en que se crean los datos en el almacenamiento de blobs.
 
 **¿En qué regiones están disponibles los niveles de acceso frecuente, esporádico y de archivo?**
 

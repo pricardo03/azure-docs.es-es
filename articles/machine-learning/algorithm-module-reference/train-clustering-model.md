@@ -1,7 +1,7 @@
 ---
-title: 'Entrenamiento del modelo de agrupación en clústeres: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo Entrenamiento del modelo de agrupación en clústeres en Azure Machine Learning Service para entrenar un modelo de clasificación o regresión.
+title: 'Entrenamiento del modelo de agrupación en clústeres: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Entrenamiento del modelo de agrupación en clústeres en Azure Machine Learning para entrenar un modelo de clasificación o regresión.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: fc6d889fb9be40c98e1a2a0de6fddb29939f3b5d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 1b26fc251aeb527041b1e648f19f9dd67f7701b7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693652"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490386"
 ---
 # <a name="train-clustering-model"></a>Entrenamiento del modelo de agrupación en clústeres
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para entrenar un modelo de agrupación en clústeres.
 
@@ -28,8 +28,8 @@ El módulo toma un modelo de agrupación en clústeres no entrenado que ya ha co
 > No se puede entrenar un modelo de agrupación en clústeres con el módulo [Entrenar modelo](train-model.md), que es el módulo genérico para el entrenamiento de modelos de Machine Learning. Es debido a que [Entrenar modelo](train-model.md) solo funciona con algoritmos de aprendizaje supervisado. K-means y otros algoritmos de agrupación en clústeres permiten el aprendizaje no supervisado, lo que significa que el algoritmo puede aprender de los datos sin etiqueta.  
   
 ## <a name="how-to-use-train-clustering-model"></a>Procedimiento para usar el modelo de entrenamiento de almacenamiento en clúster  
-  
-1.  Agregue el módulo **Entrenamiento del modelo de agrupación en clústeres** a la canalización en Studio. Puede encontrar el módulo en **Módulos de Machine Learning** de la categoría **Entrenar**.  
+
+1.  Agregue el módulo **Entrenamiento del modelo de agrupación en clústeres** a la canalización en el diseñador. Puede encontrar el módulo en **Módulos de Machine Learning** de la categoría **Entrenar**.  
   
 2. Agregue el módulo [Agrupación en clústeres k-means](k-means-clustering.md) u otro módulo personalizado que cree un modelo de agrupación en clústeres compatible y establezca los parámetros del modelo de agrupación en clústeres.  
     
@@ -60,4 +60,4 @@ Una vez completado el entrenamiento:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

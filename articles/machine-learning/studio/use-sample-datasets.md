@@ -1,7 +1,7 @@
 ---
 title: Uso de los conjuntos de datos de ejemplo
-titleSuffix: Azure Machine Learning Studio
-description: Descripciones de los conjuntos de datos que se usan en los modelos de ejemplo incluidos en Machine Learning Studio. Puede usar estos conjuntos de datos de ejemplo para los experimentos.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Descripciones de los conjuntos de datos que se usan en los modelos de ejemplo incluidos en Machine Learning Studio (clásico). Puede usar estos conjuntos de datos de ejemplo para los experimentos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,21 +10,21 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c44fd4fcc6672d81332d79d1f5cc6845868a09d5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736622"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466964"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Uso de conjuntos de datos de ejemplo en Azure Machine Learning Studio
+# <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Uso de los conjuntos de datos de ejemplo en Azure Machine Learning Studio (clásico)
 [top]: #machine-learning-sample-datasets
 
-Cuando se crea un área de trabajo nueva en Azure Machine Learning Studio, de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de ejemplo. Los modelos de ejemplo de la [Galería de Azure AI](https://gallery.azure.ai/) utilizan muchos de estos conjuntos de datos de ejemplo. Otros se incluyen como ejemplos de distintos tipos de datos que se usan normalmente en el aprendizaje automático.
+Cuando se crea un área de trabajo en Azure Machine Learning Studio (clásico), de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de ejemplo. Los modelos de ejemplo de la [Galería de Azure AI](https://gallery.azure.ai/) utilizan muchos de estos conjuntos de datos de ejemplo. Otros se incluyen como ejemplos de distintos tipos de datos que se usan normalmente en el aprendizaje automático.
 
 Algunos de estos conjuntos de datos están disponibles en Azure Blob Storage. Para dichos conjuntos de datos, la tabla siguiente proporciona un vínculo directo. Puede usar estos conjuntos de datos en sus experimentos mediante el módulo [Import Data][import-data] (Importar datos).
 
-El resto de estos conjuntos de datos de ejemplo están disponibles en el área de trabajo en **Conjuntos de datos guardados**. Puede encontrar esto en la paleta del módulo a la izquierda del lienzo del experimento en Machine Learning Studio.
+El resto de estos conjuntos de datos de ejemplo están disponibles en el área de trabajo en **Conjuntos de datos guardados**. Puede encontrar esta opción en la paleta del módulo a la izquierda del lienzo del experimento en Machine Learning Studio (clásico).
 Para usar cualquiera de estos conjuntos de datos en su propio experimento, arrástrelo a su lienzo de experimentos.
 
 ## <a name="datasets"></a>Conjuntos de datos
@@ -169,7 +169,7 @@ Colección de perfiles energéticos simulados, con base en 12 formas de edificio
   <td>
 Datos de rendimiento sobre puntualidad en vuelos de pasajeros recopilados en TranStats por el Departamento  de Transporte de EE.UU. (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).
 <p></p>
-El conjunto de datos abarca el periodo comprendido entre abril y octubre de 2013. Antes de cargarlo a Azure Machine Learning Studio, el conjunto de datos se ha procesado como sigue:
+El conjunto de datos abarca el periodo comprendido entre abril y octubre de 2013. Antes de cargarlo en la versión clásica de Azure Machine Learning Studio, el conjunto de datos se ha procesado de la manera siguiente:
 <ul>
   <li>Se filtró el conjunto de datos para centrarse en los 70 aeropuertos con más tráfico del territorio continental de EE. UU.</li>
   <li>Los vuelos cancelados se etiquetaron como retrasados más de 15 minutos.</li>
@@ -329,7 +329,7 @@ Además, tenga en cuenta que el número de eventos de fondo (h, para las duchas 
   <td>
 Observaciones meteorológicas en tierra por hora de la NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">datos combinados del 201304 al 201310</a>).
 <p></p>
-Los datos meteorológicos abarcan las observaciones de las estaciones meteorológicas de los aeropuertos, durante el período que comprende desde abril hasta octubre de 2013. Antes de cargarlo a Azure Machine Learning Studio, el conjunto de datos se ha procesado como sigue:
+Los datos meteorológicos abarcan las observaciones de las estaciones meteorológicas de los aeropuertos, durante el período que comprende desde abril hasta octubre de 2013. Antes de cargarlo en la versión clásica de Azure Machine Learning Studio, el conjunto de datos se ha procesado de la manera siguiente:
 <ul>
   <li>Se asignaron los identificadores de las estaciones meteorológicas a los identificadores de aeropuerto correspondientes.</li>
   <li>Se excluyeron las estaciones meteorológicas no asociadas a los 70 aeropuertos con mayor tráfico.</li>
@@ -344,7 +344,7 @@ Los datos meteorológicos abarcan las observaciones de las estaciones meteoroló
   <td>
 Los datos se han extraído de Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) y se basan en artículos de cada empresa del índice S&P 500, almacenados como datos XML.
 <p></p>
-Antes de cargarlo a Azure Machine Learning Studio, el conjunto de datos se ha procesado como sigue:
+Antes de cargarlo en la versión clásica de Azure Machine Learning Studio, el conjunto de datos se ha procesado de la manera siguiente:
 <ul>
   <li>Se extrajo el contenido de texto para cada empresa específica.</li>
   <li>Se eliminó el formato wiki.</li>

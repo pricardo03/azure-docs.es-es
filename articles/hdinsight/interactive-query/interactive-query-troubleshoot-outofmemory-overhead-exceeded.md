@@ -1,5 +1,5 @@
 ---
-title: Las combinaciones de Apache Hive conducen a un error de OutOfMemory en Azure HDInsight
+title: 'Las combinaciones de Apache Hive conducen a un error de OutOfMemory: Azure HDInsight'
 description: Tratamiento de los errores de OutOfMemory "límite de sobrecarga de GC superado"
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: e1f41b6e1e5f51cb7e6e0af1e99184cdfbd373e1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 182ca8243b2e6050a72c22f52b9fcd0d2cef37c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091404"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494231"
 ---
 # <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>Escenario: Las combinaciones de Apache Hive conducen a un error de OutOfMemory en Azure HDInsight
 

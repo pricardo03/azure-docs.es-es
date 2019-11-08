@@ -9,36 +9,45 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 9919b6d07e874bd306bdba9da2cd3357bedc48f0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9dc26e50e1c0f43e816e422f0fee91a246ea04a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563997"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487604"
 ---
-# <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidad y sus propósitos en LUIS
+# <a name="entities-and-their-purpose-in-luis"></a>Entidades y su finalidad en LUIS
 
-Las entidades extraen datos de la expresión. Los tipos de entidad realizan una extracción predecible de datos. Hay dos tipos de entidades: con aprendizaje automático y sin aprendizaje automático. Es importante saber qué tipo de entidad se usa en las expresiones. 
+El objetivo principal de las entidades es proporcionar a la aplicación cliente la extracción predecible de los datos. Un propósito _opcional_ y secundario es impulsar la predicción de la intención con los descriptores. 
+
+Existen dos tipos de entidades: 
+
+* Con aprendizaje automático: desde el contexto
+* Sin aprendizaje automático: para coincidencias de texto exactas
+
+Comience siempre con una entidad con aprendizaje automático porque proporciona la gama más amplia de opciones de extracción de datos.
 
 ## <a name="entity-compared-to-intent"></a>Comparación entre entidades e intenciones
 
-La entidad representa una palabra o frase dentro de la expresión que quiere extraer. Una expresión puede incluir varias o ninguna entidad. Una aplicación cliente puede necesitar la entidad para realizar su tarea o utilizarla como guía para las distintas opciones que presenta al usuario. 
+La entidad representa un concepto de datos dentro de la expresión que quiere extraer. 
 
-Una entidad:
+Considere las tres expresiones siguientes:
 
-* Representa una clase que incluye una colección de objetos parecidos (lugares, cosas, personas, eventos o conceptos). 
-* Describe información relevante para la intención
+|Expresión|Datos extraídos|Explicación|
+|--|--|--|
+|`Help`|-|No hay nada que extraer.|
+|`Send Bob a present`|Bob, regalo|Bob es definitivamente importante para completar la tarea. El regalo puede ser suficiente información o el bot puede necesitar aclarar cuál es el regalo con una pregunta de seguimiento.|
+|`Send Bob a box of chocolates.`|Los dos fragmentos importantes de datos, Bob y la caja de chocolate, son importantes para completar la solicitud del usuario.|
 
+Una expresión puede incluir varias o ninguna entidad. _Es posible_ que una aplicación cliente necesite la entidad para realizar su tarea. 
 
-Por ejemplo, una aplicación de búsqueda de noticias podría incluir entidades como "tema", "fuente", "palabra clave" o "fecha de publicación", que son datos clave para buscar noticias. En una aplicación de reserva de viajes, "ubicación", "fecha", "aerolínea", "clase de viaje" y "billetes" representan información clave para reservar vuelos (relevante para la intención "reservar vuelo").
+En comparación, se _requiere_ la predicción de la intención para una expresión y representa toda la expresión. LUIS requiere que las expresiones de ejemplo estén contenidas en una intención. Si la intención principal de la expresión no es importante para la aplicación cliente, agregue todas las expresiones a la intención None. 
 
-En comparación, la intención representa la predicción de toda la expresión. 
+Si más adelante en el ciclo de vida de la aplicación quiere dividir la expresión, puede hacerlo fácilmente. Esto puede ser para organizar las expresiones mientras se crea, o puede ser para usar la intención prevista en la aplicación cliente. 
 
-## <a name="entities-help-with-data-extraction-only"></a>Las entidades solo ayudan con la extracción de datos
-
-Las entidades se marcan o etiquetan solo con el propósito de extracción de entidades, esta acción no ayuda con la predicción de la intención.
+No es necesario utilizar la intención prevista en la aplicación cliente, pero se devuelve como parte de la respuesta del punto de conexión de la predicción.
 
 ## <a name="entities-represent-data"></a>Las entidades representan datos
 
@@ -57,163 +66,58 @@ Si las expresiones no tienen información detallada, el bot deberá continuar (n
 
 Si no está seguro de cómo usar la información, agregue algunas entidades comunes creadas previamente, como [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinal](luis-reference-prebuilt-ordinal.md), [correo electrónico](luis-reference-prebuilt-email.md) y [número de teléfono](luis-reference-prebuilt-phonenumber.md).
 
-## <a name="label-for-word-meaning"></a>Etiqueta para el significado de las palabras
+## <a name="design-entities-for-decomposition"></a>Diseño de entidades para la descomposición
 
-Si la elección o la organización de las palabras es la misma pero no significa lo mismo, no la etiquete con la entidad. 
+Comience el diseño de la entidad con una entidad con aprendizaje automático. Esto permite un fácil crecimiento del diseño y cambios de la entidad a lo largo del tiempo. Agregue **subcomponentes** (entidades secundarias) con **restricciones** y **descriptores** para completar el diseño de la entidad. 
 
-En las siguientes expresiones inglesas, la palabra `fair` es un homógrafo. Es decir, se escribe igual pero tiene un significado diferente:
+El diseño de la descomposición permite a LUIS devolver un grado profundo de resolución de la entidad a la aplicación cliente. Esto permite a la aplicación cliente centrarse en reglas de negocios y dejar a LUIS la resolución de datos.
 
-|Expresión|
-|--|
-|¿Qué tipo de ferias locales se producen en el área de Seattle este verano?|
-|¿La clasificación actual para la revisión de Seattle es razonable?|
+### <a name="machine-learned-entities-are-primary-data-collections"></a>Las entidades con aprendizaje automático son colecciones de datos principales.
 
-Si quiere que una entidad de evento busque todos los datos de eventos, etiquete la palabra `fair` en la primera expresión, pero no en la segunda.
+Las entidades con aprendizaje automático constituyen la unidad de datos de nivel superior. Los subcomponentes son entidades secundarias de las entidades con aprendizaje automático. 
 
-## <a name="entities-are-shared-across-intents"></a>Las entidades se comparten entre las intenciones
+Las **restricciones** son entidades que coinciden con el texto exacto y que aplican reglas para identificar y extraer datos. Los **descriptores** son características aplicadas para aumentar la relevancia de las palabras o frases de la predicción.
 
-Las entidades se comparten entre las intenciones. No pertenecen a ninguna intención. Las intenciones y las entidades pueden asociarse semánticamente, pero no se trata de una relación exclusiva.
-
-En la expresión "Resérvame un billete a París", "París" es una entidad que se refiere a la ubicación. Al reconocer las entidades que se mencionan en la expresión del usuario, LUIS ayuda a la aplicación cliente a elegir las acciones específicas que se deben llevar a cabo para satisfacer la solicitud del cliente.
-
-## <a name="mark-entities-in-none-intent"></a>Marcar entidades en la intención None
-
-Siempre que sea posible, todas las intenciones, incluida la intención **None** (Ninguno), deben tener entidades marcadas. De esta manera, LUIS puede obtener más información sobre la ubicación de las entidades dentro de las expresiones y las palabras que hay alrededor de las entidades. 
-
-## <a name="entity-status-for-predictions"></a>Estado de la entidad para predicciones
-
-El portal de LUIS le indica si la entidad en una declaración de ejemplo es diferente de la entidad marcada o está demasiado cerca de otra y, por tanto, no es clara. Esto se indica con un subrayado rojo en la declaración de ejemplo. 
-
-Para más información, consulte [Predicciones de estado de entidad](luis-how-to-add-example-utterances.md#entity-status-predictions). 
+<a name="composite-entity"></a>
+<a name="list-entity"></a>
+<a name="patternany-entity"></a>
+<a name="prebuilt-entity"></a>
+<a name="regular-expression-entity"></a>
+<a name="simple-entity"></a>
 
 ## <a name="types-of-entities"></a>Tipos de entidades
 
-LUIS ofrece muchos tipos de entidades. Elija la entidad en función de cómo se deben extraer los datos y cómo se deben representar una vez que se extraen.
+Elija la entidad en función de cómo se deben extraer los datos y cómo se deben representar una vez que se extraen.
 
-Las entidades se pueden extraer con aprendizaje automático, lo que permite que LUIS siga aprendiendo cómo aparece la entidad en la declaración. Las entidades se pueden extraer sin aprendizaje automático, haciendo coincidir el texto exacto o una expresión regular. Las entidades se pueden extraer de patrones con una implementación mixta. 
+|Tipo de entidad|Propósito|
+|--|--|
+|[**Con aprendizaje automático**](#composite-entity)|Agrupación primaria de entidades, independientemente del tipo de entidad. Las entidades con aprendizaje automático aprenden del contexto de la expresión. Esto hace que la variación de la colocación de las expresiones en el ejemplo sea importante. |
+|[**Lista**](#list-entity)|Lista de elementos y sus sinónimos extraída con **coincidencia de texto exacta**.|
+|[**Pattern.any**](#patternany-entity)|Entidad cuyo final es difícil de determinar. |
+|[**Creada previamente**](#prebuilt-entity)|Ya entrenado para extraer un tipo específico de datos, como la dirección URL o el correo electrónico. Algunas de estas entidades precompiladas se definen en el proyecto de código abierto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si su referencia cultural o entidad específica no se admite actualmente, colabore en el proyecto.|
+|[**Expresión regular**](#regular-expression-entity)|Usa una expresión regular para la **coincidencia de texto exacta**.|
 
-Una vez que se extrae la entidad, sus datos pueden representarse como una sola unidad de información o combinados con otras entidades para formar una unidad de información que puede usar la aplicación cliente.
+### <a name="entity-role-defines-context"></a>El rol de la entidad define el contexto.
 
-|Con aprendizaje automático|Se puede marcar|Tutorial|Ejemplo<br>Response|Tipo de entidad|Propósito|
-|--|--|--|--|--|--|
-|✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Compuesta**](#composite-entity)|Agrupación de entidades, independientemente del tipo de entidad.|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Lista**](#list-entity)|Lista de elementos y sus sinónimos extraída con coincidencia de texto exacta.|
-|Mixta||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entidad cuyo final es difícil de determinar.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Creada previamente**](#prebuilt-entity)|Entidad entrenada para extraer distintos tipos de datos.|
-|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Expresión regular**](#regular-expression-entity)|Usa una expresión regular que coincide con el texto.|
-|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Contiene un único concepto en una palabra o frase.|
+El rol de una entidad es el alias con nombre basado en el contexto dentro de la expresión. Un ejemplo es una expresión para reservar un vuelo que tiene dos ubicaciones, origen y destino.
 
-En las expresiones de ejemplo solo es preciso marcar las entidades con aprendizaje automático. Las entidades de aprendizaje automático funcionan mejor cuando se prueban con [consultas de punto de conexión](luis-concept-test.md#endpoint-testing) y con [expresiones de punto de conexión de revisión](luis-how-to-review-endoint-utt.md). 
+`Book a flight from Seattle to Cairo`
 
-Las entidades Pattern.Any deben marcarse en los ejemplos de la plantilla de [patrón](luis-how-to-model-intent-pattern.md), y no en los ejemplos de la intención del usuario. 
+Deben extraerse los dos ejemplos de una entidad `location`. La aplicación cliente tiene que conocer el tipo de ubicación de cada una de ellas para completar la compra de entradas. La entidad `location` necesita dos roles de `origin` y `destination`, y ambos deben marcarse en las expresiones de ejemplo. 
 
-Las entidades mixtas usan una combinación de métodos de detección de entidades.
+Si LUIS encuentra `location` pero no puede determinar el rol, se seguirá devolviendo la entidad de ubicación. La aplicación cliente tendría que hacer un seguimiento con una pregunta para determinar qué tipo de ubicación quería decir el usuario. 
 
-## <a name="machine-learned-entities-use-context"></a>Las entidades con aprendizaje automático usan contexto
+Puede haber varias entidades en una expresión y extraerse sin usar roles. Si el contexto de la frase indica el valor de la entidad, se debe usar un rol.
 
-Las entidades con aprendizaje automático aprenden del contexto de la expresión. Esto hace que la variación de la colocación de las expresiones en el ejemplo sea importante. 
-
-## <a name="non-machine-learned-entities-dont-use-context"></a>Las entidades sin aprendizaje automático no usan contexto
-
-Las siguientes entidades sin aprendizaje automático no tienen en cuenta el contexto de la expresión al hacer corresponder entidades: 
-
-* [Entidades precompiladas](#prebuilt-entity)
-* [Entidades Regex](#regular-expression-entity)
-* [Listar entidades](#list-entity) 
-
-Estas entidades no requieren etiquetar ni entrenar el modelo. Una vez que agregue o configure la entidad, se extraen las entidades. El inconveniente es que estas entidades se hacen coincidir en exceso, en ocasiones en que si el contexto se tuviera en cuenta, la coincidencia no se habría realizado. 
-
-Esto sucede con frecuencia con las entidades de lista de los modelos nuevos. El modelo se compila y se prueba con una entidad de lista, pero al publicarlo y recibir consultas desde el punto de conexión, se da cuenta de que hay demasiadas coincidencias debido a la falta de contexto. 
-
-Si desea que coincidan palabras o frases, y tener en cuenta el contexto, tiene dos opciones. La primera es utilizar una entidad sencilla emparejada con una lista de frases. La lista de frases no se usará para encontrar coincidencias, sino que ayudará a señalar palabras relativamente similares (lista intercambiable). Si debe tener una coincidencia exacta, en lugar de variaciones de una lista de frases, utilice una entidad de la lista con un rol, lo que se describe a continuación.
-
-### <a name="context-with-non-machine-learned-entities"></a>Contexto con entidades sin aprendizaje automático
-
-Si desea que el contexto de la expresión sea de relevancia para las entidades sin aprendizaje automático, debe usar [roles](luis-concept-roles.md).
-
-Si tiene una entidad sin aprendizaje automático, como las [entidades precompiladas](#prebuilt-entity), las entidades [regex](#regular-expression-entity) o las entidades de [lista](#list-entity), que coincide más allá de la instancia que desee, considere la posibilidad de crear una entidad con dos roles. Un rol capturará lo que busca y el otro capturará lo que no busca. Ambas versiones deberán tener una etiqueta las expresiones de ejemplo.  
-
-## <a name="composite-entity"></a>Entidad compuesta
-
-Una [entidad compuesta](reference-entity-composite.md) consta de otras entidades, como las entidades precompiladas, expresiones simples y regulares, y entidades de lista. Las entidades independientes forman una entidad completa. 
-
-## <a name="list-entity"></a>Entidad de lista
-
-Las [entidades de lista](reference-entity-list.md) representan un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. LUIS no detecta valores adicionales para las entidades de lista. Use la característica **Recommend** (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual. Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión. 
-
-## <a name="patternany-entity"></a>Entidad Pattern.any
-
-[Pattern.any](reference-entity-pattern-any.md) es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad.  
-
-## <a name="prebuilt-entity"></a>Entidad creada previamente
-
-Las entidades creadas previamente son tipos integrados que representan conceptos comunes, como el número de teléfono, la dirección URL y el correo electrónico. Los nombres de las entidades creadas previamente están reservados. [Todas las entidades creadas previamente](luis-prebuilt-entities.md) que se agregan a la aplicación se devuelven en la consulta de un punto de conexión de predicción si se encuentran en la expresión. 
-
-La entidad es la opción ideal cuando:
-
-* Los datos coinciden con un caso de uso común compatible con las entidades creadas previamente para su referencia cultural del idioma. 
-
-Las entidades precompiladas se pueden agregar y quitar en cualquier momento.
-
-![Entidad creada previamente de número](./media/luis-concept-entities/number-entity.png)
-
-[Tutorial](luis-tutorial-prebuilt-intents-entities.md)<br>
-[Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#prebuilt-entity-data)
-
-Algunas de estas entidades precompiladas se definen en el proyecto de código abierto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si su referencia cultural o entidad específica no se admite actualmente, colabore en el proyecto. 
-
-### <a name="troubleshooting-prebuilt-entities"></a>Solución de problemas de entidades precompiladas
-
-En el portal de LUIS, si se marca una entidad precompilada, en lugar de su entidad personalizada, hay varias opciones para solucionarlo.
-
-Las entidades precompiladas agregadas a la aplicación _siempre_ se devolverán, aunque la expresión deba extraer entidades personalizadas para el mismo texto. 
-
-#### <a name="change-tagged-entity-in-example-utterance"></a>Cambio de una entidad con etiquetas en la expresión de ejemplo
-
-Si la entidad precompilada es el mismo texto o los mismos tokens que la entidad personalizada, seleccione el texto en la expresión de ejemplo y cambie la expresión con la etiqueta. 
-
-Si la entidad precompilada se etiqueta con más texto o tokens que la entidad personalizada, tiene un par de opciones para solucionarlo:
-
-* [Quitar la expresión de ejemplo](#remove-example-utterance-to-fix-tagging) (método)
-* [Quitar la entidad precompilada](#remove-prebuilt-entity-to-fix-tagging) (método)
-
-#### <a name="remove-example-utterance-to-fix-tagging"></a>Eliminación de la expresión de ejemplo para solucionar el etiquetado 
-
-La primera opción es quitar la expresión de ejemplo. 
-
-1. Elimine la expresión de ejemplo.
-1. Vuelva a entrenar la aplicación. 
-1. Vuelva a agregar únicamente la palabra o frase que sea la entidad, que está marcada como una entidad precompilada, como una expresión de ejemplo completa. La palabra o frase seguirá teniendo la entidad precompilada marcada. 
-1. Seleccione la entidad en la expresión de ejemplo en la página **Intención** y cambie a una entidad personalizada y vuelva a entrenar. Esto evitará que LUIS marque este texto exactamente como la entidad precompilada en las expresiones de ejemplo que usen dicho texto. 
-1. Vuelva a agregar la expresión de ejemplo original a la intención. La entidad personalizada debe seguir marcada, en lugar de la entidad precompilada. Si no se marca la entidad personalizada, debe agregar más ejemplos de dicho texto en las grabaciones de voz.
-
-#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Eliminación de una entidad precompilada para corregir el etiquetado
-
-1. Quite la entidad precompilada de la aplicación. 
-1. En la página **Intención**, marque la entidad personalizada en la expresión de ejemplo.
-1. Entrene la aplicación.
-1. Vuelva a agregar la entidad precompilada a la aplicación y entrene esta última. Esta solución asume que la entidad precompilada no forma parte de una entidad compuesta.
-
-## <a name="regular-expression-entity"></a>Entidad de expresión regular 
-
-Una [entidad de expresión regular](reference-entity-regular-expression.md) extrae una entidad basada en un patrón de expresión regular que se proporciona.
-
-## <a name="simple-entity"></a>Entidad simple
-
-Una [entidad simple](reference-entity-simple.md) es un valor de aprendizaje automático. Puede ser una palabra o frase.
-## <a name="entity-limits"></a>Límites de entidad
-
-Consulte los [límites](luis-boundaries.md#model-boundaries) para saber cuántas entidades de cada tipo puede agregar a un modelo.
+Si la expresión incluye una lista de ubicaciones, `I want to travel to Seattle, Cairo, and London.`, esta es una lista donde cada elemento no tiene un significado adicional. 
 
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Si necesita más del número máximo de entidades 
 
-Es posible que necesite usar entidades compuestas en combinación con roles de entidad.
+Si necesita más que el límite, póngase en contacto con el soporte técnico. Para ello, recopile información detallada sobre el sistema, vaya al sitio web de [LUIS](luis-reference-regions.md#luis-website) y seleccione **Support** (Soporte). Si la suscripción a Azure incluye servicios de soporte técnico, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/). 
 
-Las entidades compuestas representan partes de un total. Por ejemplo, una entidad compuesta denominada PedidoBilleteAvión podría tener las entidades secundarias Aerolínea, Destino, CiudadSalida, FechaSalida y ClaseBilleteAvión.
+## <a name="entity-prediction-status"></a>Estado de predicción de entidades
 
-LUIS también proporciona el tipo de entidad de lista que no es de aprendizaje automático, pero permite a la aplicación de LUIS especificar una lista fija de valores. Vea la referencia de [LUIS Boundaries](luis-boundaries.md) (Límites de LUIS) para revisar los límites del tipo de entidad de lista. 
-
-Si ha tenido en cuenta estas entidades y aun así necesita más del límite, póngase en contacto con el soporte técnico. Para ello, recopile información detallada sobre el sistema, vaya al sitio web de [LUIS](luis-reference-regions.md#luis-website) y seleccione **Support** (Soporte). Si la suscripción a Azure incluye servicios de soporte técnico, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/). 
+El portal de LUIS muestra cuando la entidad, en una expresión de ejemplo, tiene una predicción de entidad diferente a la que se ha seleccionado. Esta puntuación diferente se basa en el modelo entrenado actual. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

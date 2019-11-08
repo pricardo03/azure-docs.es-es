@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b18e1b755b4e1339bf00380d8228fc28e355d3e1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 577a76b628e40b7651345698a46cba255b16a828
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802515"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464560"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Custom Speech
 
@@ -94,7 +94,7 @@ Para abordar problemas como la eliminación o sustitución de palabras, se neces
 > [!NOTE]
 > La transcripción debería estar codificada como una marca BOM UTF-8.
 
-Las transcripciones son texto normalizado para que el sistema pueda procesarlas. Sin embargo, hay algunas normalizaciones importantes que debe hacer el usuario _antes_ para cargar los datos a Custom Speech Service. Para conocer el idioma que debe usar al preparar las transcripciones, consulte [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) (Creación de una transcripción con etiqueta humana).
+Las transcripciones son texto normalizado para que el sistema pueda procesarlas. Sin embargo, hay algunas normalizaciones importantes que debe hacer el usuario _antes_ de cargar los datos en el estudio de voz. Para conocer el idioma que debe usar al preparar las transcripciones, consulte [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) (Creación de una transcripción con etiqueta humana).
 
 Cuando haya reunido los archivos de audio y las transcripciones correspondientes, deben empaquetarse como un único archivo .zip antes de cargarlos en el [portal de Custom Speech](https://speech.microsoft.com/customspeech). Este es un conjunto de datos de ejemplo con tres archivos de audio y un archivo de transcripción con etiqueta humana:
 

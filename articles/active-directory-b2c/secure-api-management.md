@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c5fb79fc3aa3297068f93b631d11e967c9345f4c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 531f6d86d57be550d0a1147e131d93ae6e298406
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71717163"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474751"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Protección de una API de Azure API Management con Azure AD B2C
 
@@ -35,11 +35,25 @@ Necesitará los siguientes recursos antes de continuar con los pasos de este art
 
 Cuando se protege una API en Azure API Management con Azure AD B2C, se necesitan varios valores para la [directiva de entrada](../api-management/api-management-howto-policies.md) que se crea en APIM. En primer lugar, anote el identificador de una aplicación que haya creado anteriormente en el inquilino de Azure AD B2C. Si usa la aplicación que creó en los requisitos previos, utilice el identificador de aplicación de *webbapp1*.
 
-1. Vaya al inquilino de Azure AD B2C en [Azure Portal](https://portal.azure.com).
-1. En **Administrar**, seleccione **Aplicaciones**.
-1. Anote el valor de **Identificador de aplicación** de *webapp1* u otra aplicación que haya creado previamente.
+Para obtener el identificador de aplicación, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la experiencia en versión preliminar](http://aka.ms/b2cappregintro).
 
-  ![Ubicación del identificador de aplicación de una aplicación B2C en Azure Portal](media/secure-apim-with-b2c-token/portal-02-app-id.png)
+#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. En **Administrar**, seleccione **Aplicaciones**.
+1. Anote el valor de la columna **Identificador de aplicación** de *webapp1* u otra aplicación que haya creado previamente.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. Seleccione **Registros de aplicaciones (versión preliminar)** y, a continuación, la pestaña **Aplicaciones propias**.
+1. Anote el valor de la columna **Id. de aplicación (cliente)** de *webapp1* u otra aplicación que haya creado previamente.
+
+* * *
 
 ## <a name="get-token-issuer-endpoint"></a>Obtención del punto de conexión del emisor del token
 

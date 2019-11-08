@@ -1,7 +1,7 @@
 ---
 title: Depuración del modelo
-titleSuffix: Azure Machine Learning Studio
-description: Cómo depurar los errores producidos por los módulos Entrenar modelo y Puntuar modelo en Azure Machine Learning Studio.
+titleSuffix: ML Studio (classic) Azure
+description: Cómo depurar los errores producidos por los módulos Entrenar modelo y Puntuar modelo en Azure Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2017
-ms.openlocfilehash: 9c505262030e5b5aa13b8d221cf1e39c4a9c7833
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ab7f041da63731706742547a53df47462bc584a
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751134"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619436"
 ---
-# <a name="debug-your-model-in-azure-machine-learning-studio"></a>Depuración del modelo en Azure Machine Learning Studio
+# <a name="debug-your-model-in-azure-machine-learning-studio-classic"></a>Depuración del modelo en Azure Machine Learning Studio (clásico)
 
 Al ejecutar un modelo, pueden surgir los siguientes errores:
 
@@ -33,7 +33,7 @@ En este artículo se explican las posibles causas de estos errores.
 
 El módulo [Entrenar modelo][train-model] espera dos entradas:
 
-1. El tipo de modelo de aprendizaje automático de la colección de modelos que proporciona Azure Machine Learning Studio.
+1. El tipo de modelo de aprendizaje automático de la colección de modelos que proporciona Azure Machine Learning Studio (clásico).
 2. Los datos de aprendizaje con una columna de etiqueta que especifica la variable de predicción (se da por hecho que las otras columnas son de características).
 
 Este módulo puede producir un error en los siguientes casos:

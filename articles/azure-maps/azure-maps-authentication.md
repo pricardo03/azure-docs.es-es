@@ -3,18 +3,18 @@ title: Autenticación con Azure Maps | Microsoft Docs
 description: Autenticación para usar los servicios de Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 8a6bc8b71f5f8edda76faa1a8d1b20417dfba1d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838053"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478660"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
@@ -41,11 +41,14 @@ Azure Maps acepta tokens de acceso de **OAuth 2.0** para inquilinos de Azure AD 
 * Aplicaciones de asociados que usan permisos delegados por los usuarios
 * Identidades administradas de recursos de Azure.
 
-Azure Maps genera un *identificador único (Id. de cliente)* para cada cuenta de Azure Maps. Cuando este identificador de cliente se combina con otros parámetros, puede solicitar tokens de Azure AD mediante la especificación del siguiente valor:
+Azure Maps genera un *identificador único (Id. de cliente)* para cada cuenta de Azure Maps. Cuando este identificador de cliente se combina con otros parámetros, puede solicitar tokens de Azure AD mediante la especificación de valores de la siguiente tabla, en función de su entorno de Azure.
 
-```
-https://login.microsoftonline.com
-```
+| Entorno de Azure   | Punto de conexión del token de Azure AD |
+| --------------------|-------------------------|
+| Azure Public        | https://login.microsoftonline.com |
+| Azure Government    | https://login.microsoftonline.us |
+
+
 Para más información sobre cómo configurar Azure AD y solicitar tokens para Azure Maps, consulte [Administración de la autenticación en Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 Para información general sobre la solicitud de tokens de Azure AD, consulte [¿Qué es la autenticación?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).

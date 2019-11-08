@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 96221ffc8249f722268ea5778bee4b4389ded26e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 0fb5341c2e7ee55391cb38251b0ea66b55b93301
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326603"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469160"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Inicio de sesión con una aplicación iOS
 
@@ -33,11 +33,13 @@ Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directori
 
 ## <a name="create-an-application"></a>Creación de una aplicación
 
-A continuación, registre una aplicación en el inquilino de Azure AD B2C. Esto proporciona a Azure AD la información que necesita para comunicarse de forma segura con la aplicación.
+A continuación, registre una aplicación en el inquilino de Azure AD B2C. De esta forma, se proporciona a Azure AD la información que necesita para comunicarse de forma segura con la aplicación.
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Anote el valor de **ID. DE APLICACIÓN** para usarlo en un paso posterior. Después, seleccione la aplicación en la lista y registre el **URI de redireccionamiento personalizado**, también para su uso en un paso posterior. Por ejemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Anote el **Id. de aplicación (cliente)** para usarlo en un paso posterior.
+
+Registre también el URI de redireccionamiento personalizado para usarlo en un paso posterior. Por ejemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Creación de flujos de usuario
 En Azure AD B2C, cada experiencia del usuario se define mediante un [flujo de usuario](active-directory-b2c-reference-policies.md). Esta aplicación contiene una experiencia de identidad: una combinación de inicio de sesión y registro. Cuando cree el flujo de usuario, asegúrese de hacer lo siguiente:

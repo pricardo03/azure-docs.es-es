@@ -1,5 +1,5 @@
 ---
-title: 'Uso del servidor del historial de Spark extendido para depurar aplicaciones de Spark: Azure HDInsight'
+title: 'Servidor de historial de Spark extendido para depurar aplicaciones: Azure HDInsight'
 description: 'Use el Servidor de historial de Spark extendido para depurar y diagnosticar aplicaciones Spark: Azure HDInsight.'
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9398745cb240e7b7dff45ff5d6d9cdf064239bfd
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1320764687f3eb2f033ca70703a9bcb16ab616ea
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130349"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494731"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uso del servidor de historial de Apache Spark extendido para depurar y diagnosticar las aplicaciones de Spark
 
@@ -28,7 +28,7 @@ El servidor de historial de Apache Spark es la interfaz de usuario web para apli
 1. En [Azure Portal](https://portal.azure.com/), abra el clúster de Spark. Para obtener más información, consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. En **Vínculos rápidos**, haga clic en **Panel de clúster** y después en **Servidor de historial de Spark**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
 
-    ![Servidor de historial de Spark: inicio del portal](./media/apache-azure-spark-history-server/launch-history-server.png "Servidor de historial de Spark")
+    ![Inicio del portal del servidor de historial de Spark](./media/apache-azure-spark-history-server/launch-history-server.png "Servidor de historial de Spark")
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Apertura de la interfaz de usuario web del Servidor de historial de Spark por la dirección URL
 

@@ -1,5 +1,5 @@
 ---
-title: Unidades de almacenamiento de datos (DWU y cDWU) en Azure SQL Data Warehouse | Microsoft Docs
+title: Unidades de almacenamiento de datos (DWU, cDWU) en Azure Synapse Analytics (anteriormente SQL DW) | Microsoft Docs
 description: Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades de almacenamiento de datos (DWUs, cDWUs) para optimizar el precio y el rendimiento y cómo cambiar el número de unidades.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 05/30/2019
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 mscustom: sqlfreshmay19
-ms.openlocfilehash: 282fab70e3b6d1fcf81814b2dd599259e2396fb3
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 32e75b78b8a5c304fc65a9c20d16fb85b4f8307b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036054"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475755"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades de almacenamiento de datos (DWU) y Unidades de almacenamiento de datos de proceso (cDWU)
 
@@ -24,11 +24,11 @@ Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades 
 
 ## <a name="what-are-data-warehouse-units"></a>Qué son las unidades de almacenamiento de datos
 
-La CPU, la memoria y la E/S de Azure SQL Data Warehouse están agrupadas en unidades de escala de procesos llamadas unidad de almacenamiento de datos (DWU). Una DWU representa una medida abstracta y normalizada de recursos de proceso y rendimiento. Un cambio en el nivel de servicio modifica el número de DWU que están disponibles en el sistema, lo que a su vez ajusta el rendimiento y el costo del sistema.
+El grupo de SQL representa una colección de recursos de análisis que se aprovisionan al usar [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse). Los recursos analíticos se definen como una combinación de CPU, memoria y E/S. Estos tres recursos se agrupan en unidades de escalado de proceso denominadas Unidades de almacenamiento de datos (DWU). Una DWU representa una medida abstracta y normalizada de recursos de proceso y rendimiento. Un cambio en el nivel de servicio modifica el número de DWU que están disponibles en el sistema, lo que a su vez ajusta el rendimiento y el costo del sistema.
 
 Para obtener un mayor rendimiento, puede aumentar el número de unidades de almacenamiento de datos. Para obtener un menor rendimiento, reduzca las unidades de almacenamiento de datos. Los costos de almacenamiento y de proceso se facturan por separado, por lo que cambiar las unidades de almacenamiento de datos no afecta a los costos de almacenamiento.
 
-El rendimiento de las unidades de almacenamiento de datos se basa en estas métricas de carga de trabajo de almacenamiento de datos:
+El rendimiento de las unidades de almacenamiento de datos se basa en estas métricas de carga de trabajo:
 
 - Con qué rapidez una consulta de almacenamiento de datos estándar puede examinar un gran número de filas y, después, realizar una agregación compleja. Esta es una operación de gran consumo de E/S y de CPU.
 - Con qué rapidez el almacenamiento de datos puede ingerir datos de Azure Storage Blob o de Azure Data Lake. Esta es una operación de gran consumo de red y CPU.
@@ -42,11 +42,11 @@ Aumentar las DWU:
 
 ## <a name="service-level-objective"></a>Objetivo de nivel de servicio
 
-El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determina el nivel de costo y el rendimiento del almacenamiento de datos. Los niveles de servicio de Gen2 se miden en unidades de almacenamiento de datos de proceso (cDWU); por ejemplo, DW2000c. Los niveles de servicio de Gen1 se miden en DWU; por ejemplo, DW2000.
+El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determina el nivel de costo y el rendimiento del almacenamiento de datos. Los niveles de servicio del grupo SQL Gen2 se miden en unidades de almacenamiento de datos de proceso (cDWU); por ejemplo, DW2000c. Los niveles de servicio del grupo SQL Gen1 se miden en DWU; por ejemplo, DW2000.
   > [!NOTE]
-  > Azure SQL Data Warehouse Gen2 ha agregado recientemente funcionalidades de escalado adicionales compatibles con niveles de proceso tan bajos como 100 cDWU. Los almacenes de datos existentes actualmente en Gen1 que requieren los niveles de proceso más bajos ahora pueden actualizarse a Gen2 en las regiones que están actualmente disponibles sin ningún costo adicional.  Si esto no se admite aún en su región, aún puede actualizar a una región admitida. Para obtener más información, vea [Actualización a Gen2](upgrade-to-latest-generation.md).
+  > El grupo SQL Gen2 ha agregado recientemente funcionalidades de escalado adicionales compatibles con niveles de proceso tan bajos como 100 cDWU. Los grupos SQL existentes actualmente en Gen1 que requieren los niveles de proceso más bajos ahora pueden actualizarse a Gen2 en las regiones que están actualmente disponibles sin ningún costo adicional.  Si esto no se admite aún en su región, aún puede actualizar a una región admitida. Para obtener más información, vea [Actualización a Gen2](upgrade-to-latest-generation.md).
 
-En T-SQL, el valor de SERVICE_OBJECTIVE determina el nivel de servicio y el nivel de rendimiento del almacenamiento de datos.
+En T-SQL, el valor de SERVICE_OBJECTIVE determina el nivel de servicio y el nivel de rendimiento del grupo SQL.
 
 ```sql
 --Gen1
@@ -68,10 +68,10 @@ CREATE DATABASE myComputeSQLDW
 
 Cada nivel de rendimiento usa una unidad de medida ligeramente diferente para sus unidades de almacenamiento de datos. Esta diferencia se refleja en la factura, ya que la unidad de escala se traduce directamente en la facturación.
 
-- Los almacenamientos de datos de Gen1 se miden en unidades de almacenamiento de datos (DWU).
-- Los almacenamientos de datos de Gen2 se miden en unidades de almacenamiento de datos de proceso (cDWU).
+- Los grupos SQL Gen1 se miden en unidades de almacenamiento de datos (DWU).
+- Los grupos SQL Gen2 se miden en unidades de almacenamiento de datos de proceso (cDWU).
 
-Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertical del proceso, así como pausar el proceso cuando no es necesario usar el almacén de datos. Estas operaciones son a petición. El nivel Gen2 usa una memoria caché basada en disco local en los nodos de proceso para mejorar el rendimiento. Al escalar o pausar el sistema, se invalida la memoria caché y es necesario un período de calentamiento de la memoria caché para conseguir un rendimiento óptimo.  
+Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertical del proceso, así como pausar el proceso cuando no es necesario usar el grupo SQL. Estas operaciones son a petición. El nivel Gen2 usa una memoria caché basada en disco local en los nodos de proceso para mejorar el rendimiento. Al escalar o pausar el sistema, se invalida la memoria caché y es necesario un período de calentamiento de la memoria caché para conseguir un rendimiento óptimo.  
 
 A medida que aumente unidades de almacenamiento de datos, también se aumentan linealmente los recursos informáticos. Gen2 proporciona el mejor rendimiento de consultas y la mayor escalabilidad. Los sistemas Gen2 también aprovechan al máximo el uso de la memoria caché.
 
@@ -89,7 +89,7 @@ Pasos para encontrar la mejor DWU para la carga de trabajo:
 2. Supervise el rendimiento de su aplicación a medida que prueba cargas de datos en el sistema, observando el número de DWU seleccionadas en comparación con el rendimiento que observe.
 3. Identifique los requisitos adicionales para períodos de máxima actividad periódicos. Puede que las cargas de trabajo que muestran picos y aumentos de actividad significativos se deban escalar con frecuencia.
 
-SQL Data Warehouse es un sistema de escalado horizontal que puede aprovisionar grandes cantidades de procesos y consultar cantidades considerables de datos. Para ver sus verdaderas capacidades de escalado, especialmente en DWU más grandes, se recomienda escalar el conjunto de datos para asegurar que tiene suficientes datos como para alimentar las CPU. Para probar la escala, se recomienda usar al menos 1 TB.
+SQL Analytics es un sistema de escalado horizontal que puede aprovisionar grandes cantidades de procesos y consultar cantidades considerables de datos. Para ver sus verdaderas capacidades de escalado, especialmente en DWU más grandes, se recomienda escalar el conjunto de datos para asegurar que tiene suficientes datos como para alimentar las CPU. Para probar la escala, se recomienda usar al menos 1 TB.
 
 > [!NOTE]
 >
@@ -185,25 +185,26 @@ No se puede comprobar el estado de la base de datos para las operaciones de esca
 Para comprobar el estado de los cambios de DWU:
 
 1. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
-2. Envíe la consulta siguiente para comprobar el estado de la base de datos.
 
-```sql
-SELECT    *
-FROM      sys.databases
-;
-```
+1. Envíe la consulta siguiente para comprobar el estado de la base de datos.
 
+    ```sql
+    SELECT    *
+    FROM      sys.databases
+    ;
+    ```
+    
 1. Envíe la consulta siguiente para comprobar el estado de la operación.
 
-```sql
-SELECT    *
-FROM      sys.dm_operation_status
-WHERE     resource_type_desc = 'Database'
-AND       major_resource_id = 'MySQLDW'
-;
-```
-
-Esta DMV devuelve información sobre varias operaciones de administración en SQL Data Warehouse, como la operación y el estado de esta, que es IN_PROGRESS o COMPLETED.
+    ```sql
+    SELECT    *
+    FROM      sys.dm_operation_status
+    WHERE     resource_type_desc = 'Database'
+    AND       major_resource_id = 'MySQLDW'
+    ;
+    ```
+    
+Esta DMV devuelve información sobre varias operaciones de administración en el grupo SQL, como la operación y el estado de esta, que es IN_PROGRESS o COMPLETED.
 
 ## <a name="the-scaling-workflow"></a>Flujo de trabajo de escalado
 

@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: fd4eef9771ae89e330c99b398ad6d473356213f5
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858534"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470076"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -72,7 +73,7 @@ Si usa una dirección IP pública como punto de conexión, encontrará la inform
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>¿Cambia la dirección IP o el nombre DNS durante la vigencia de Application Gateway?
 
-La dirección IP virtual puede cambiar si se detiene o inicia Application Gateway. Sin embargo, el nombre DNS asociado a Application Gateway no cambia durante la vigencia de la puerta de enlace. Como el nombre DNS no cambia, se debe usar un alias de CNAME y apuntarlo hacia la dirección DNS de Application Gateway.
+En la SKU de la versión 1 de Application Gateway, la IP virtual puede cambiar si se detiene o inicia la puerta de enlace de aplicaciones. Sin embargo, el nombre DNS asociado a Application Gateway no cambia durante la vigencia de la puerta de enlace. Como el nombre DNS no cambia, se debe usar un alias de CNAME y apuntarlo hacia la dirección DNS de Application Gateway. En la SKU de la versión 2 de Application Gateway, puede establecer la dirección IP como estática, por lo que el nombre de IP y DNS no cambiará durante la vigencia de la puerta de enlace de aplicaciones. 
 
 ### <a name="does-application-gateway-support-static-ip"></a>¿Admite Application Gateway direcciones IP estáticas?
 
@@ -269,7 +270,7 @@ Application Gateway admite hasta 100 certificados SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>¿Cuántos certificados de autenticación de recifrado de back-end admite Application Gateway?
 
-Application Gateway admite hasta 10 certificados de autenticación. El valor predeterminado es 5.
+Application Gateway admite hasta 100 certificados de autenticación.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>¿Se integra Application Gateway con Azure Key Vault de forma nativa?
 
@@ -326,6 +327,19 @@ Sí. Puede habilitar la protección contra DDos en la red virtual donde se imple
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>¿Hay instrucciones disponibles para migrar de la SKU v1 a la SKU v2?
 
 Sí. Para más información, consulte [Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2](migrate-v1-v2.md).
+
+## <a name="configuration---ingress-controller-for-aks"></a>Configuración: controlador de entrada para AKS
+
+### <a name="what-is-an-ingress-controller"></a>¿Qué es un controlador de entrada?
+
+Kubernetes permite la creación de los recursos `deployment` y `service` para exponer un grupo de pods internamente en el clúster. Para exponer el mismo servicio externamente, se define un recurso [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) que proporciona equilibrio de carga, terminación SSL y hospedaje virtual basado en nombres.
+Para satisfacer este recurso `Ingress`, se requiere un controlador de entrada que realice escuchas de los cambios en los recursos `Ingress` y que configure las directivas del equilibrador de carga.
+
+El controlador de entrada de Application Gateway permite que [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) se utilice como entrada para una instancia de [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) llamada "clúster de AKS".
+
+### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>¿Puede una única instancia del controlador de entrada administrar varias puertas de enlace de aplicaciones?
+
+Actualmente, una instancia del controlador de entrada solo se puede asociar a una puerta de enlace de aplicaciones.
 
 ## <a name="diagnostics-and-logging"></a>Diagnósticos y registro
 

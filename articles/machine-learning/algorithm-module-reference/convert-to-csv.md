@@ -1,24 +1,24 @@
 ---
-title: 'Convertir a CSV: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Convertir a CSV en Azure Machine Learning Service para convertir un conjunto de datos a un formato CSV que se pueda descargar, exportar o compartir con módulos de script de R o Python.
+title: 'Convertir a CSV: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo Convertir a CSV en Azure Machine Learning para convertir un conjunto de datos a un formato CSV que se pueda descargar, exportar o compartir con módulos de script de R o Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 37c1653b31049dc0142cf8c0c6f6d405338b1d1f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 999f78ab08e1a2c9dd6b28d853e49fbb559fab83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693195"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493847"
 ---
 # <a name="convert-to-csv-module"></a>Módulo Convertir a CSV
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Use este módulo para convertir un conjunto de datos a un formato CSV que se pueda descargar, exportar o compartir con módulos de script de R o Python.
 
@@ -36,7 +36,8 @@ Al convertir un conjunto de datos a CSV, el archivo se guarda en el área de tra
 
 ## <a name="how-to-configure-convert-to-csv"></a>Procedimiento para configurar Convertir a CSV
 
-1.  Agregue el módulo [Convertir a CSV](./convert-to-csv.md) a la canalización. Puede encontrar este módulo en el grupo **Data Format Conversions** (Conversiones de formato de datos) de la interfaz. 
+
+1.  Agregue el módulo [Convertir a CSV](./convert-to-csv.md) a la canalización. Puede encontrar este módulo en el grupo **Conversiones de formato de datos** del diseñador. 
 
 2. Conéctelo a cualquier módulo que genere un conjunto de datos.   
   
@@ -56,4 +57,4 @@ Haga doble clic en la salida de [Convertir a CSV](./convert-to-csv.md) y selecci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

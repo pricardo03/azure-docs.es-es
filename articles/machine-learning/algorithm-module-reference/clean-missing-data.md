@@ -1,24 +1,24 @@
 ---
-title: 'Limpiar datos que faltan: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Limpiar datos que faltan en Azure Machine Learning Service para quitar, reemplazar o deducir los valores que faltan.
+title: 'Limpiar datos que faltan: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo Limpiar datos que faltan en Azure Machine Learning para quitar, reemplazar o deducir los valores que faltan.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: fef8cb0c29eac4b26b93abee54faa4fe1078678d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693211"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493809"
 ---
 # <a name="clean-missing-data-module"></a>Módulo Limpiar datos que faltan
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para quitar, reemplazar o deducir los valores que faltan. 
 
@@ -133,8 +133,8 @@ Si necesita repetir operaciones de limpieza a menudo, se recomienda que guarde l
   
 2.  Agregue el conjunto de datos que desea limpiar y conecte el conjunto de datos al puerto de entrada derecho.  
   
-3.  Expanda el grupo **Transformaciones** en el panel izquierdo de la interfaz. Localice la transformación guardada y arrástrela hasta la canalización.  
-  
+3.  Expanda el grupo **Transformaciones** en el panel izquierdo del diseñador. Localice la transformación guardada y arrástrela hasta la canalización.  
+
 4.  Conecte la transformación guardada al puerto de entrada izquierdo de [Aplicar transformación](./apply-transformation.md). 
 
     Al aplicar una transformación guardada, no puede seleccionar las columnas a las que se aplica la transformación. Eso es porque la transformación ya se ha definido y se aplica automáticamente a las columnas especificadas en la operación original.
@@ -145,4 +145,4 @@ Si necesita repetir operaciones de limpieza a menudo, se recomienda que guarde l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

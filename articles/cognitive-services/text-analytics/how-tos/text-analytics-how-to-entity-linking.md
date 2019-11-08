@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: 642b21624ce3ffc993d5f29a413845044d703fd7
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: e51e5945df8b08ec81db0c85416b31b3ec788ffd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984277"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488650"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -29,15 +29,75 @@ El punto de conexión `entities` de Text Analytics admite el reconocimiento de e
 La vinculación de entidad es la capacidad de identificar y desambiguar la identidad de una entidad que se encuentra en el texto (por ejemplo, determinar si se está usando "Marte" como el planeta o como el dios romano de la guerra). Este proceso requiere la presencia de una knowledge base a la que se vinculan las entidades reconocidas (Wikipedia se usa como knowledge base del punto de conexión `entities` de Text Analytics).
 
 ### <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
-El reconocimiento de entidades con nombre (NER) es la capacidad de identificar diferentes entidades en el texto y clasificarlas en clases predefinidas. Las clases de entidades admitidas se enumeran a continuación.
+El reconocimiento de entidades con nombre (NER) es la capacidad de identificar diferentes entidades en el texto y clasificarlas en clases predefinidas o tipos. 
 
-En Text Analytics [versión 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), están disponibles la vinculación de entidades y el reconocimiento de entidades con nombre (NER) para varios idiomas. Consulte el artículo sobre la [compatibilidad con idiomas](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para más información.
+## <a name="named-entity-recognition-v3-public-preview"></a>Versión preliminar pública de reconocimiento de entidades con nombre v3
 
-### <a name="language-support"></a>Compatibilidad con idiomas
+La [siguiente versión del reconocimiento de entidades con nombre](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) ahora está disponible en versión preliminar pública. Proporciona actualizaciones para la vinculación de entidad y el reconocimiento de entidades con nombre. 
 
-El uso de la vinculación de entidad en distintos idiomas requiere una knowledge base correspondiente en cada idioma. Para la vinculación de entidad en Text Analytics, esto significa que cada idioma compatible con el punto de conexión `entities` se vinculará al corpus de Wikipedia correspondiente en dicho idioma. Dado que el tamaño del corpus varía según el idioma, se espera que la coincidencia de la funcionalidad de vinculación de entidad también varíe.
+:::row:::
+    :::column span="":::
+        **Característica**
+    :::column-end:::
+    ::: column span="":::
+        **Descripción** 
+    :::column-end:::
+:::row-end:::
+<!-- expanded types and subtypes row-->
+:::row:::
+    :::column span="":::
+        Subtipos y tipos de entidad expandidos
+    :::column-end:::
+    :::column span="":::
+     Clasificación y detección expandidas para varios tipos de entidad con nombre.
+    :::column-end:::
+:::row-end:::
+<!-- separate endpoints row-->
+:::row:::
+    :::column span="":::
+        Separación de los puntos de conexión independientes 
+    :::column-end:::
+    :::column span="":::
+        Separe los puntos de conexión independientes para enviar las solicitudes de vinculación de entidad y de NER.
+    :::column-end:::
+:::row-end:::
+<!-- model-version row -->
+:::row:::
+    :::column span="":::
+        Parámetro `model-version`
+    :::column-end:::
+    :::column span="":::
+        Un parámetro opcional para elegir una versión del modelo de Text Analytics. Actualmente, solo está disponible el modelo predeterminado para su uso.
+    :::column-end:::
+:::row-end:::
 
-## <a name="supported-types-for-named-entity-recognition"></a>Tipos admitidos para el reconocimiento de entidades con nombre
+### <a name="entity-types"></a>Tipos de entidades
+
+El reconocimiento de entidades con nombre v3 proporciona detección expandida en varios tipos. Actualmente, NER v3 puede reconocer las siguientes categorías de entidades. Para una lista detallada de las entidades y los lenguajes compatibles, consulte el artículo [Tipos de entidades con nombre](../named-entity-types.md).
+
+* General
+* Información personal 
+
+### <a name="request-endpoints"></a>Puntos de conexión de solicitud
+
+El reconocimiento de entidades con nombre v3 usa puntos de conexión independientes para las solicitudes de NER y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud:
+
+NER
+* Entidades generales: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+
+* Entidades de información personal: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+
+Vinculación de entidad
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+### <a name="model-versioning"></a>Control de versiones de los modelos
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+
+## <a name="supported-types-for-named-entity-recognition-v2"></a>Tipos admitidos para el reconocimiento de entidades con nombre v2
+
+> [!NOTE]
+> Las entidades siguientes son compatibles con la versión 2 del reconocimiento de entidades con nombre (NER). [NER v3](#named-entity-recognition-v3-public-preview) se encuentran en versión preliminar pública y expande en gran medida el número y la profundidad de las entidades que se reconocen en el texto.   
 
 | type  | SubType | Ejemplo |
 |:-----------   |:------------- |:---------|
@@ -63,7 +123,9 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 
 \* En función de las entidades de entrada y extraídas, algunas entidades pueden omitir el valor `SubType`.  Todos los tipos de entidad admitidos enumerados solo están disponibles para los idiomas inglés, chino simplificado, francés, alemán y español.
 
+### <a name="language-support"></a>Compatibilidad con idiomas
 
+El uso de la vinculación de entidad en distintos idiomas requiere una knowledge base correspondiente en cada idioma. Para la vinculación de entidad en Text Analytics, esto significa que cada idioma compatible con el punto de conexión `entities` se vinculará al corpus de Wikipedia correspondiente en dicho idioma. Dado que el tamaño del corpus varía según el idioma, se espera que la coincidencia de la funcionalidad de vinculación de entidad también varíe. Consulte el artículo sobre la [compatibilidad con idiomas](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para más información.
 
 ## <a name="preparation"></a>Preparación
 

@@ -1,24 +1,24 @@
 ---
-title: 'Entrenar modelo: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Aprenda a usar el módulo **Entrenar modelo** en Azure Machine Learning Service para entrenar un modelo de clasificación o regresión.
+title: 'Entrenar modelo: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo **Entrenar modelo** en Azure Machine Learning para entrenar un modelo de clasificación o regresión.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: f9717c39388c85ced889744722899b78a5df8453
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693684"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490371"
 ---
 # <a name="train-model-module"></a>Módulo Entrenar modelo
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para entrenar un modelo de clasificación o regresión. El entrenamiento tiene lugar después de definir un modelo y establecer sus parámetros y requiere datos etiquetados. También puede usar **Entrenar modelo** para volver a entrenar un modelo existente con datos nuevos. 
 
@@ -77,4 +77,4 @@ Cuando el modelo está entrenado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

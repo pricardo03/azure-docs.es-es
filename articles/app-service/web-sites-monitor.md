@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: b9e910f24503f6bbf86e8ed8cdcb6f422d2490d9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073996"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470121"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada para aplicaciones web, back ends móviles y aplicaciones de API en [Azure Portal](https://portal.azure.com).
@@ -70,7 +70,7 @@ Para una aplicación, estas son las métricas disponibles:
 
 | Métrica | DESCRIPCIÓN |
 | --- | --- |
-| **Tiempo de respuesta promedio** | Tiempo promedio necesario para que la aplicación atienda solicitudes, en milisegundos. |
+| **Tiempo de respuesta promedio** | Tiempo promedio en segundos necesario para que la aplicación atienda solicitudes. |
 | **Espacio de trabajo de memoria promedio** | Cantidad media de memoria que utiliza la aplicación, en megabytes (MiB). |
 | **Conexiones** | Número de sockets enlazados existente en el espacio aislado (w3wp.exe y sus procesos secundarios).  Un socket enlazado se crea mediante una llamada a las API bind()/connect() y permanece hasta que el socket se cierra con CloseHandle()/closesocket(). |
 | **Tiempo de CPU** | Cantidad de CPU consumida por la aplicación, en segundos. Para más información sobre esta métrica, consulte [Tiempo de CPU y porcentaje de CPU](#cpu-time-vs-cpu-percentage). |

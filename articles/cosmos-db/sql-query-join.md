@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 408ee11b318143b3128833a741e04dd68f3816ed
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d78904fde53da0e800a69d2148a9c4e3acf57307
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343174"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494413"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Combinaciones en Azure Cosmos DB
 
@@ -103,7 +103,7 @@ Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN
   
 ## <a name="examples"></a>Ejemplos
 
-En los ejemplos siguientes se muestra cómo funciona la cláusula JOIN. En el siguiente ejemplo, el resultado está vacío porque tanto el producto cruzado de cada elemento del origen como un conjunto vacío están vacíos:
+En los ejemplos siguientes se muestra cómo funciona la cláusula JOIN. Antes de ejecutar estos ejemplos, cargue los [datos de familia](sql-query-getting-started.md#upload-sample-data) de ejemplo. En el siguiente ejemplo, el resultado está vacío porque tanto el producto vectorial de cada elemento del origen como un conjunto vacío están vacíos:
 
 ```sql
     SELECT f.id
@@ -118,7 +118,7 @@ El resultado es el siguiente:
     }]
 ```
 
-En el ejemplo siguiente, la combinación es un producto cruzado entre dos objetos JSON, la raíz del elemento `id` y la subraíz `children`. El hecho de que `children` sea una matriz no es eficaz en la combinación, porque se trata de una sola raíz que es la matriz `children`. El resultado contiene únicamente dos resultados, ya que el producto cruzado de cada elemento con la matriz genera exactamente solo un elemento.
+En el ejemplo siguiente, la combinación es un producto vectorial entre dos objetos JSON, la raíz del elemento `id` y la subraíz `children`. El hecho de que `children` sea una matriz no es eficaz en la combinación, porque se trata de una sola raíz que es la matriz `children`. El resultado contiene únicamente dos resultados, ya que el producto vectorial de cada elemento con la matriz genera exactamente solo un elemento.
 
 ```sql
     SELECT f.id
@@ -166,12 +166,12 @@ Los resultados son:
 El origen FROM de la cláusula JOIN es un iterador. Por tanto, en el ejemplo anterior, el flujo es:  
 
 1. Amplíe cada elemento secundario `c` en la matriz.
-2. Aplique un producto cruzado con la raíz del elemento `f` con cada elemento hijo `c` del que se quitó el formato en el primer paso.
-3. Por último, proyecte solo la propiedad `f` `id` del objeto raíz.
+2. Aplique un producto vectorial con la raíz del elemento `f` con cada elemento hijo `c` cuyo formato se quitó en el primer paso.
+3. Por último, proyecte solo la propiedad `id` `f` del objeto raíz.
 
-El primer elemento, `AndersenFamily`, contiene solo un elemento `children`, por lo que el conjunto de resultados contiene solo un objeto único. El segundo elemento, `WakefieldFamily`, contiene dos `children`, por lo que el producto cruzado genera dos objetos, uno para cada elemento `children`. Los campos de raíz de ambos elementos son los mismos, tal como se esperaría en un cruce de productos.
+El primer elemento, `AndersenFamily`, contiene solo un elemento `children`, por lo que el conjunto de resultados contiene solo un objeto único. El segundo elemento, `WakefieldFamily`, contiene dos `children`, por lo que el producto vectorial genera dos objetos, uno para cada elemento `children`. Los campos de raíz de ambos elementos son los mismos, tal como se esperaría en un cruce de productos.
 
-La utilidad real de la cláusula JOIN es la formación de tuplas a partir del producto cruzado con una forma que, de otro modo, es difícil de proyectar. En el siguiente ejemplo se filtra por la combinación de una tupla que permite que el usuario elija una condición satisfecha por las tuplas en general.
+La utilidad real de la cláusula JOIN es la formación de tuplas a partir del producto vectorial con una forma que, de otro modo, es difícil de proyectar. En el siguiente ejemplo se filtra por la combinación de una tupla que permite que el usuario elija una condición satisfecha por las tuplas en general.
 
 ```sql
     SELECT 
@@ -206,7 +206,7 @@ Los resultados son:
     ]
 ```
 
-La extensión siguiente del ejemplo anterior realiza una combinación doble. Puede ver el producto cruzado como el pseudocódigo siguiente:
+La extensión siguiente del ejemplo anterior realiza una combinación doble. Puede ver el producto vectorial como el pseudocódigo siguiente:
 
 ```
     for-each(Family f in Families)
@@ -224,7 +224,7 @@ La extensión siguiente del ejemplo anterior realiza una combinación doble. Pue
     }
 ```
 
-`AndersenFamily` tiene un hijo que tiene una mascota, entonces, el producto cruzado genera una fila (1\*1\*1) a partir de esta familia. `WakefieldFamily` tiene dos hijos, solo uno de los cuales tiene mascotas, pero ese hijo tiene dos mascotas. El producto cruzado para esta familia genera 1\*1\*2 = 2 filas.
+`AndersenFamily` tiene un hijo que tiene una mascota, entonces, el producto vectorial genera una fila (1\*1\*1) a partir de esta familia. `WakefieldFamily` tiene dos hijos, solo uno de los cuales tiene mascotas, pero ese hijo tiene dos mascotas. El producto vectorial para esta familia genera 1\*1\*2 = 2 filas.
 
 En el ejemplo siguiente, hay un filtro adicional en `pet`, que excluye todas las tuplas en las que el nombre de la mascota no sea `Shadow`. Puede crear tuplas a partir de matrices, filtrar por cualquiera de los elementos de la tupla y proyectar cualquier combinación de los elementos.
 

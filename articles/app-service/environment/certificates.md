@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f40043b920fab4cb38f935618c7aaecc6bf40a87
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a8b8e7270851c71869b1a67f0f0f0ba2187f0e87
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069709"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470676"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados y App Service aislado 
 
@@ -64,7 +64,7 @@ Las aplicaciones hospedadas en una instancia de App Service aislado pueden usar 
 - SSL basada en IP, que solo es compatible con una instancia de App Service aislado externo.  Una instancia de App Service aislado con ILB no es compatible con la SSL basada en IP.
 - Certificados hospedados en Key Vault 
 
-Las instrucciones para cargar y administrar dichos certificados están disponibles en el tutorial https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl de SSL de App Service.  Si está configurando los certificados simplemente para que coincidan con un nombre de dominio personalizado que ha asignado a la aplicación web, esas instrucciones serán suficientes. Si va a cargar el certificado para una aplicación web de App Service aislado con ILB con el nombre de dominio predeterminado, a continuación, especifique el sitio de SCM en la SAN del certificado como se indicó anteriormente. 
+Las instrucciones para cargar y administrar dichos certificados están disponibles en [Adición de un certificado SSL en Azure App Service](../configure-ssl-certificate.md).  Si está configurando los certificados simplemente para que coincidan con un nombre de dominio personalizado que ha asignado a la aplicación web, esas instrucciones serán suficientes. Si va a cargar el certificado para una aplicación web de App Service aislado con ILB con el nombre de dominio predeterminado, a continuación, especifique el sitio de SCM en la SAN del certificado como se indicó anteriormente. 
 
 ## <a name="tls-settings"></a>Configuración de TLS 
 

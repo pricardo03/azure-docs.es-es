@@ -1,7 +1,7 @@
 ---
-title: Protección de servicios web con SSL
+title: Proteger un servicio web mediante SSL
 titleSuffix: Azure Machine Learning
-description: Aprenda a proteger un servicio web implementado con Azure Machine Learning habilitando HTTPS. HTTPS protege los datos de los clientes mediante el uso de Seguridad de capa de transporte (TLS), un sustituto de Capas de sockets seguros (SSL). Los clientes también usan HTTPS para comprobar la identidad del servicio web.
+description: Aprenda a habilitar HTTPS para proteger un servicio web implementado con Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,15 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce60806c26359ae682f5ab468e4f4265d3572c87
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1455ec17898e82ed0f39fea66c44d2e9b4f57280
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034375"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489541"
 ---
-# <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Use SSL para proteger un servicio web con Azure Machine Learning
+# <a name="use-ssl-to-secure-a--through-azure-machine-learning"></a>Use SSL para proteger un servicio web con Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo se muestra cómo proteger un servicio web implementado con Azure Machine Learning.
 
@@ -42,7 +43,7 @@ Este es el proceso general para proteger un servicio web:
 
 3. Implemente o actualice el servicio con el protocolo SSL habilitado.
 
-4. Actualice el DNS para que apunte al servicio web.
+4. Actualice su DNS para que apuntar al servicio.
 
 > [!IMPORTANT]
 > Si va a implementar en Azure Kubernetes Service (AKS), puede adquirir su propio certificado o usar un certificado proporcionado por Microsoft. Si usa un certificado de Microsoft, no es necesario obtener un nombre de dominio ni un certificado SSL. Para más información, consulte la sección [Habilitación de SSL e implementación](#enable) de este artículo.
@@ -75,7 +76,7 @@ Para implementar (o volver a implementar) el servicio con el protocolo SSL habil
 ### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>Implementación en AKS y en una matriz de puertas programables (FPGA)
 
   > [!NOTE]
-  > La información de esta sección también se aplica al implementar un servicio web seguro para la interfaz visual. Si no está familiarizado con el uso del SDK para Python, consulte [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) (¿Qué es el SDK de Azure Machine Learning para Python?).
+  > La información de esta sección también se aplica al implementar un servicio web seguro para el diseñador. Si no está familiarizado con el uso del SDK para Python, consulte [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) (¿Qué es el SDK de Azure Machine Learning para Python?).
 
 Cuando se implementa en AKS, puede crear un nuevo clúster de AKS o asociar uno existente. Para más información sobre cómo crear o adjuntar un clúster, consulte [Implementación de un modelo en un clúster de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
   
@@ -151,7 +152,7 @@ Después, debe actualizar el DNS para que apunte al servicio web.
 
   Actualice el DNS de la Dirección IP pública del clúster de AKS en la pestaña **Configuración** debajo de **Configuración** en el panel izquierdo. (Vea la siguiente imagen). La dirección IP pública es uno de los tipos de recurso creados bajo el grupo de recursos que contiene los nodos del agente de AKS y otros recursos de red.
 
-  [![Azure Machine Learning: protección de servicios web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning: Protección del servicio web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>Actualizar el certificado SSL
 

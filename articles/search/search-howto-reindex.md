@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 26a751924985f94a7d7d12a382d4e6654f36ea48
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793703"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466448"
 ---
 # <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Recompilación de un índice de Azure Cognitive Search
 
@@ -46,7 +46,7 @@ Cualquier otra modificación puede realizarse sin afectar a las estructuras fís
 
 Cuando agrega un campo nuevo, a los documentos indexados existentes se les asigna un valor NULL para el campo nuevo. En una futura nueva indexación, valores provenientes de los datos de origen reemplazarán los valores NULL que agregó Azure Cognitive Search. Para obtener más información sobre cómo actualizar el contenido de un índice, consulte [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Agregar, actualizar o eliminar documentos en Azure Search).
 
-## <a name="partial-or-incremental-indexing"></a>Indexación parcial o incremental
+## <a name="partial-indexing"></a>Indexación parcial
 
 En Azure Cognitive Search, no se puede controlar la indexación por campo, ni se pueden eliminar o volver a crear campos específicos. De forma similar, no hay ningún mecanismo integrado para [indexar documentos en función de criterios](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Los requisitos que tenga para la indexación basada en criterios deben cumplirse mediante código personalizado.
 

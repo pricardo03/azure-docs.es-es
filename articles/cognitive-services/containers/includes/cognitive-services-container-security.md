@@ -7,18 +7,18 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 09/30/2019
 ms.author: dapine
-ms.openlocfilehash: 7322d356d972635b81bc1bdd4b329bd3d5ac02df
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 35f5cffdc644370082e229c88d67db33e853c446
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842561"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499174"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Protección de los contenedores en Azure Cognitive Services
 
-La seguridad debe ser parte central al desarrollar aplicaciones. La importancia de la seguridad es una métrica del éxito. Al diseñar una solución de software que incluye contenedores de Cognitive Services, es fundamental comprender las limitaciones y las funcionalidades disponibles. Para más información, consulte el artículo sobre la [seguridad en Azure][az-security].
+La seguridad debe ser parte central al desarrollar aplicaciones. La importancia de la seguridad es una métrica del éxito. Al diseñar una solución de software que incluye contenedores de Cognitive Services, es fundamental comprender las limitaciones y las funcionalidades disponibles. Para obtener más información sobre la seguridad de red, consulte [Configure Azure Cognitive Services virtual networks][az-security] (configuración de las redes virtuales de Azure Cognitive Services).
 
 > [!IMPORTANT]
 > De forma predeterminada, *no hay seguridad* en la API de contenedor de Cognitive Services. Esto es así porque la mayoría de las veces el contenedor se ejecuta como parte de un pod que está protegido desde fuera por un puente de red. Sin embargo, es posible habilitar la autenticación, que funciona de forma idéntica a la autenticación que se usa al acceder a [Cognitive Services en la nube][request-authentication].
@@ -51,4 +51,4 @@ Deshabilite DPI en los canales seguros que los contenedores de Cognitive Service
 [istio]: https://istio.io/
 [nginx]: https://www.nginx.com
 [request-authentication]: ../../authentication.md
-[az-security]: ../../../security/fundamentals/overview.md
+[az-security]: ../../cognitive-services-virtual-networks.md

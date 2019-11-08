@@ -1,21 +1,21 @@
 ---
-title: Terminología de Azure Data Share, versión preliminar
-description: Obtenga información sobre los términos comunes que se usan para describir los recursos usados en la versión preliminar de Azure Data Share (proveedor de datos, consumidor de datos, recurso compartido de datos, suscripción de recurso compartido, instantánea, invitación, destinatario).
+title: Terminología de Azure Data Share
+description: Conozca los términos comunes que se usan para describir los recursos empleados en Azure Data Share (proveedor de datos, consumidor de datos, recurso compartido de datos, suscripción a recurso compartido, instantánea, invitación, destinatario).
+ms.service: data-share
 author: joannapea
 ms.author: joanpo
-ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166272"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468557"
 ---
-# <a name="azure-data-share-preview-concepts"></a>Conceptos de Azure Data Share (versión preliminar) 
+# <a name="azure-data-share-concepts"></a>Conceptos de Azure Data Share 
 
-La versión preliminar de Azure Data Share presenta nueva terminología relacionada con el uso compartido de datos. En este artículo se explican algunos términos frecuentemente utilizados que puede ver en este servicio. 
+Azure Data Share presenta nueva terminología relacionada con el uso compartido de datos. En este artículo se explican algunos términos frecuentemente utilizados que puede ver en este servicio. 
 
 ## <a name="data-provider"></a>Proveedor de datos
 
@@ -64,4 +64,3 @@ Un destinatario es alguien que recibe una invitación a un recurso compartido de
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información acerca de cómo empezar a compartir datos, vaya al tutorial que cubre cómo [compartir sus datos](share-your-data.md).
-

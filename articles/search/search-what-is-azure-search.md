@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 51d7cf270a0df665fdcf5bc90cae283c85ae5d22
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1df8bb293834fca123b2573f02871410754a6bdc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794174"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479641"
 ---
 # <a name="what-is-azure-cognitive-search"></a>¿Qué es Azure Cognitive Search?
 
@@ -67,8 +67,8 @@ Azure Cognitive Search es adecuado en los siguientes escenarios de aplicación:
 |-------------------|----------|
 | Herramientas para la creación de prototipos y la inspección | En el portal, puede usar el [**Asistente para importación de datos**](search-import-data-portal.md) para configurar los indexadores, el diseñador de índices para crear un índice y el [**Explorador de búsqueda**](search-explorer.md) para probar consultas y perfeccionar los perfiles de puntuación. También puede abrir cualquier índice para ver su esquema. |
 | Supervisión y diagnóstico | [**Habilite las características de supervisión**](search-monitor-usage.md) para ir más allá de las "métricas de un vistazo" que están siempre disponibles en el portal. Las métricas sobre consultas por segundo, latencia y limitación se capturan y notifican en páginas del portal sin que sea necesaria ninguna configuración adicional.|
-| Cifrado del servidor | El [**cifrado en reposo administrado por Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) está integrado en la capa de almacenamiento interno y es irrevocable. Si lo desea, puede complementar el cifrado predeterminado con [ **claves de cifrado administradas por el cliente (versión preliminar)** ](search-security-manage-encryption-keys.md). Las claves que se crean y administran en Azure Key Vault se usan para cifrar los índices y asignaciones de sinónimos en Azure Search. |
-| Infraestructura | La **plataforma de alta disponibilidad** garantiza una experiencia de servicio de búsqueda muy confiable. Cuando se escala correctamente, [Azure Search ofrece un contrato de nivel de servicio del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Totalmente administrada y escalable** como cualquier solución completa, Azure Search no requiere ninguna administración de la infraestructura en absoluto. El servicio se puede adaptar a sus necesidades mediante el escalado en dos dimensiones para controlar un mayor almacenamiento de documentos, mayores cargas de consultas o ambos.<br/><br/>|
+| Cifrado del servidor | El [**cifrado en reposo administrado por Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) está integrado en la capa de almacenamiento interno y es irrevocable. Si lo desea, puede complementar el cifrado predeterminado con [ **claves de cifrado administradas por el cliente (versión preliminar)** ](search-security-manage-encryption-keys.md). Las claves que se crean y administran en Azure Key Vault se usan para cifrar los índices y asignaciones de sinónimos en Azure Cognitive Search. |
+| Infraestructura | La **plataforma de alta disponibilidad** garantiza una experiencia de servicio de búsqueda muy confiable. Cuando se escala correctamente, [Azure Cognitive Search ofrece un contrato de nivel de servicio del 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Totalmente administrada y escalable** como cualquier solución completa, Azure Cognitive Search no requiere ninguna administración de la infraestructura en absoluto. El servicio se puede adaptar a sus necesidades mediante el escalado en dos dimensiones para controlar un mayor almacenamiento de documentos, mayores cargas de consultas o ambos.<br/><br/>|
 
 ## <a name="how-to-use-azure-cognitive-search"></a>Uso de Azure Cognitive Search
 ### <a name="step-1-provision-service"></a>Paso 1: Servicio de aprovisionamiento

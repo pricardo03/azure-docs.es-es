@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: ccc3da6f2dd49775ff4d4486fcd2af9f08a396d6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592377"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475913"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
-Un punto de conexión privado de Azure es una interfaz de red que le conecta de forma privada y segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual, colocando el servicio de manera eficaz en su red virtual. El servicio podría ser un servicio de Azure como Azure Storage, SQL, etc. o su propio servicio [Private Link](private-link-service-overview.md).
+Un punto de conexión privado de Azure es una interfaz de red que le conecta de forma privada y segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual, colocando el servicio de manera eficaz en su red virtual. El servicio podría ser un servicio de Azure como Azure Storage, Azure Cosmos DB, SQL, etc. o su propio [servicio Private Link](private-link-service-overview.md).
   
 ## <a name="private-endpoint-properties"></a>Propiedades del punto de conexión privado 
  Un punto de conexión privado especifica las siguientes propiedades: 
@@ -57,7 +57,7 @@ Un recurso de vínculo privado es el destino de un punto de conexión privado de
 |**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Tabla (table, table_secondary)<BR> Cola (queue, queue_secondary)<BR> Archivo (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)       |
- 
+|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table|
  
 ## <a name="network-security-of-private-endpoints"></a>Seguridad de red de los puntos de conexión privados 
 Cuando se usan puntos de conexión privados para los servicios de Azure, el tráfico se protege en un recurso de vínculo privado específico. La plataforma realiza un control de acceso para validar las conexiones de red que solo alcanzan el recurso de vínculo privado especificado. Para acceder a recursos adicionales dentro del mismo servicio de Azure, se requieren puntos de conexión privados adicionales. 
@@ -81,7 +81,7 @@ El propietario del recurso de vínculo privado puede realizar las siguientes acc
 > Solo un punto de conexión privado en un estado aprobado puede enviar tráfico a un recurso de vínculo privado determinado. 
 
 ### <a name="connecting-using-alias"></a>Conexión mediante alias
-El alias es un moniker único que se genera cuando el propietario del servicio crea el servicio de vínculo privado detrás de un equilibrador de carga estándar. El propietario del servicio puede compartir este alias con sus consumidores sin conexión. Los consumidores pueden solicitar una conexión al servicio de vínculo privado mediante el URI de recurso o el alias. Si desea conectarse mediante el alias, debe crear un punto de conexión privado mediante el método de aprobación de conexión manual. Para usar el método de aprobación de conexión manual, establezca el parámetro solicitud manual en true durante el flujo de creación del punto de conexión privado. Consulte [New-AzPrivateEndpoint](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) y [az network private-endpoint create](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) para obtener más información. 
+El alias es un moniker único que se genera cuando el propietario del servicio crea el servicio de vínculo privado detrás de un equilibrador de carga estándar. El propietario del servicio puede compartir este alias con sus consumidores sin conexión. Los consumidores pueden solicitar una conexión al servicio de vínculo privado mediante el URI de recurso o el alias. Si desea conectarse mediante el alias, debe crear un punto de conexión privado mediante el método de aprobación de conexión manual. Para usar el método de aprobación de conexión manual, establezca el parámetro solicitud manual en true durante el flujo de creación del punto de conexión privado. Consulte [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) y [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) para obtener más información. 
 
 ## <a name="dns-configuration"></a>Configuración de DNS 
 Al conectarse a un recurso de vínculo privado mediante un nombre de dominio completo (FQDN) como parte de la cadena de conexión, es importante establecer correctamente la configuración de DNS para que se resuelva en la dirección IP privada asignada. Es posible que los servicios de Azure existentes ya tengan una configuración de DNS que usar al conectarse a través de un punto de conexión público. Este se debe invalidar para conectarse con el punto de conexión privado. 
@@ -91,7 +91,7 @@ La interfaz de red asociada con el punto de conexión privado contiene el conjun
 Puede usar las siguientes opciones para establecer la configuración de DNS para los puntos de conexión privados: 
 - **Use el archivo de host (solo se recomienda para pruebas)** . Puede usar el archivo de host en una máquina virtual para invalidar el DNS.  
 - **Use una zona DNS privada**. Puede usar zonas DNS privadas para invalidar la resolución DNS de un punto de conexión privado determinado. Una zona DNS privada se puede vincular a la red virtual para resolver dominios específicos.
-- **Use el servidor DNS personalizado**. Puede usar su propio servidor DNS para invalidar la resolución DNS para un recurso de vínculo privado determinado. Si el servidor DNS se hospeda en una red virtual, puede crear una regla de reenvío de DNS para usar una zona DNS privada con el fin de simplificar la configuración de todos los recursos de vínculo privado.
+- **Use el servidor DNS personalizado**. Puede usar su propio servidor DNS para invalidar la resolución DNS para un recurso de vínculo privado determinado. Si el [servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) se hospeda en una red virtual, puede crear una regla de reenvío de DNS para usar una zona DNS privada con el fin de simplificar la configuración de todos los recursos de vínculo privado.
  
 > [!IMPORTANT]
 > No se recomienda invalidar una zona que esté en uso activamente para resolver puntos de conexión públicos. Las conexiones a los recursos no podrán resolverse correctamente sin el reenvío de DNS al DNS público. Para evitar problemas, cree un nombre de dominio diferente o siga el nombre sugerido para cada servicio que aparece a continuación. 
@@ -107,9 +107,12 @@ En el caso de los servicios de Azure, use los nombres de zona recomendados tal y
 |Cuenta de almacenamiento (Microsoft.Storage/storageAccounts)   |    Archivo (file, file_secondary)      |    privatelink.file.core.windows.net      |
 |Cuenta de almacenamiento (Microsoft.Storage/storageAccounts)     |  Web (web, web_secondary)        |    privatelink.web.core.windows.net      |
 |Sistema de archivos Data Lake Gen2 (Microsoft.Storage/storageAccounts)  |  Sistema de archivos Data Lake Gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-||||
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|SQL |privatelink.documents.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|MongoDB |privatelink.mongo.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Tabla|privatelink.table.cosmos.azure.com|
  
-
 Azure creará un registro DNS de nombre canónico (CNAME) en el DNS público para redirigir la resolución a los nombres de dominio sugeridos. Podrá invalidar la resolución con la dirección IP privada de los puntos de conexión privados. 
  
 No es necesario que las aplicaciones cambien la dirección URL de conexión. Al intentar resolver mediante un DNS público, el servidor DNS se resolverá ahora en los puntos de conexión privados. El proceso no afecta a las aplicaciones. 
@@ -122,8 +125,6 @@ En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar
 |Limitación |DESCRIPCIÓN |Mitigación  |
 |---------|---------|---------|
 |Las reglas de grupo de seguridad de red (NSG) y las rutas definidas por el usuario no se aplican al punto de conexión privado.    |El grupo de seguridad de red no se admite en los puntos de conexión privados. Si bien las subredes que contienen el punto de conexión privado pueden tener un grupo de seguridad de red asociado, las reglas no serán efectivas en el tráfico procesado por el punto de conexión privado. Debe tener la [aplicación de directivas de red deshabilitada](disable-private-endpoint-network-policy.md) para implementar puntos de conexión privados en una subred. El grupo de seguridad de red se sigue aplicando en otras cargas de trabajo hospedadas en la misma subred. Las rutas de cualquier subred de cliente utilizarán un prefijo /32, lo que cambia el comportamiento de enrutamiento predeterminado requiere un UDR similar.  | Controle el tráfico mediante el uso de reglas del grupo de seguridad de red para el tráfico saliente en los clientes de origen. Implementación de rutas individuales con un prefijo /32 para invalidar rutas de punto de conexión privado.        |
-|No se pueden crear puntos de conexión privados en subredes habilitadas para el punto de conexión de servicio o cargas de trabajo especializadas.    |No se pueden implementar puntos de conexión privados en subredes habilitadas para puntos de conexión de servicio o subredes delegadas en cargas de trabajo especializadas.|  Cree una subred independiente para implementar los puntos de conexión privados.        |
-|El punto de conexión privado solo se puede asignar a un servicio de vínculo privado (propiedad del cliente) en la misma región.    |   No se admite la conexión a un servicio de vínculo privado (de su propiedad) desde una región diferente.       |  Durante la versión preliminar, debe implementar el servicio Private Link en la misma región.        |
 |  No se admiten las redes virtuales emparejadas solo con puntos de conexión privados   |   No se admite la conexión a puntos de conexión privados en una red virtual emparejada sin ninguna otra carga de trabajo.       | Implemente una única máquina virtual en la red virtual emparejada para habilitar la conectividad. |
 |Las cargas de trabajo especializadas no pueden acceder a los puntos de conexión privados.    |   Los siguientes servicios implementados en la red virtual no pueden tener acceso a ningún recurso de vínculo privado mediante puntos de conexión privados:<br>Plan de servicio de aplicación</br>Azure Container Instances</br>Azure NetApp Files</br>Azure Dedicated HSM<br>       |   No hay mitigación durante la versión preliminar.       |
 
@@ -133,4 +134,5 @@ En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar
 - [Creación de un punto de conexión privado para el servidor de SQL Database mediante PowerShell](create-private-endpoint-powershell.md)
 - [Creación de un punto de conexión privado para el servidor de SQL Database mediante la CLI](create-private-endpoint-cli.md)
 - [Creación de un punto de conexión privado para la cuenta de almacenamiento mediante el portal](create-private-endpoint-storage-portal.md)
+- [Creación de un punto de conexión privado para la cuenta de Azure Cosmos mediante el portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creación del propio servicio Private Link con Azure PowerShell](create-private-link-service-powershell.md)

@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad de Azure para máquinas virtuales de generación 2 (versión preliminar) | Microsoft Docs
+title: Compatibilidad de Azure para máquinas virtuales de generación 2 | Microsoft Docs
 description: Información general de compatibilidad de Azure para máquinas virtuales de generación 2
 services: virtual-machines-linux
 documentationcenter: ''
@@ -11,31 +11,26 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: afec40216695ed19cddb4e93b6523cf30251f2e4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 6d90075f866cb65e5428a1641ebd4cf77dd2a887
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063146"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479570"
 ---
-# <a name="support-for-generation-2-vms-preview-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 (versión preliminar) en Azure
+# <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
-> [!IMPORTANT]
-> La compatibilidad de Azure para máquinas virtuales de generación 2 está actualmente en versión preliminar.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+La compatibilidad para las máquinas virtuales (VM) de generación 2 ahora está disponible en Azure. No se puede cambiar la generación de una máquina virtual después de haberla creado, así que revise las consideraciones de esta página antes de elegir una generación.
 
-La compatibilidad para las máquinas virtuales (VM) de generación 2 ahora está disponible en Azure en versión preliminar. No se puede cambiar la generación de una máquina virtual después de haberla creado, así que revise las consideraciones de esta página antes de elegir una generación.
-
-Las máquinas virtuales de generación 2 admiten características clave que no se admiten en las VM de generación 1. Estas características incluyen una memoria mayor, Intel Software Guard Extensions (SGX Intel) y memoria persistente virtualizada (vPMEM). Las VM de generación 2 también tienen algunas características que aún no se admiten en Azure. Para obtener más información, consulte la sección [Características y funcionalidades](#features-and-capabilities).
+Las máquinas virtuales de generación 2 admiten características clave que no se admiten en las VM de generación 1. Estas características incluyen una memoria mayor, Intel Software Guard Extensions (SGX Intel) y memoria persistente virtualizada (vPMEM). Las VM de generación 2 que se ejecutan en el entorno local también tienen algunas características que aún no se admiten en Azure. Para obtener más información, consulte la sección [Características y funcionalidades](#features-and-capabilities).
 
 Las VM de generación 2 usan la nueva arquitectura de arranque basado en UEFI en lugar de la arquitectura basada en BIOS que utilizan las VM de generación 1. En comparación con las VM de generación 1, es posible las de generación 2 tengan tiempos de arranque e instalación mejorados. Para obtener una visión general de las VM de generación 2 y algunas de las diferencias entre la generación 1 y la generación 2, consulte [¿Debo crear una máquina virtual de generación 1 o 2 en Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 
 ## <a name="generation-2-vm-sizes"></a>Tamaños de VM de generación 2
 
-Las VM de generación 1 son compatibles con todos los tamaños de máquina virtual en Azure. Azure ahora ofrece compatibilidad de generación 2 en vista previa para las siguientes series de VM seleccionadas:
+Las VM de generación 1 son compatibles con todos los tamaños de máquina virtual en Azure. Azure ahora ofrece compatibilidad de generación 2 para las siguientes series de VM seleccionadas:
 
 * [Serie B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
 * [Serie DC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
@@ -50,7 +45,6 @@ Las VM de generación 1 son compatibles con todos los tamaños de máquina virtu
 * [Serie NCv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) y [serie NCv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
 * [Serie ND](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
 * [Serie NVv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
-
 
 > [!NOTE]
 > El uso de imágenes de máquina virtual de generación 2 en las máquinas virtuales de la serie Mv2 está disponible con carácter general, ya que esta serie funciona exclusivamente con imágenes de máquina virtual de generación 2. Las imágenes de máquina virtual de generación 1 no se admiten en máquinas virtuales de la serie Mv2. 

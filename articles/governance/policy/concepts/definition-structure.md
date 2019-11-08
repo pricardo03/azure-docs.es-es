@@ -3,15 +3,15 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo Azure Policy usa la definición de directiva de recursos para establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué efecto tiene.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fe0f16fd4c07eac92ab3c1ae2c6f78b0bd1595eb
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: d415075bda4ff58d4a3a633fe820f22d8a157459
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053494"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464031"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -81,12 +81,17 @@ Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Toda
 
 `indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md). Para obtener una lista de los recursos que admiten etiquetas, consulte [Compatibilidad con etiquetas de los recursos de Azure](../../../azure-resource-manager/tag-support.md).
 
-### <a name="resource-provider-modes"></a>Modos del proveedor de recursos
+### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modos del proveedor de recursos (versión preliminar)
 
-Es el único modo del proveedor de recursos admitido actualmente es `Microsoft.ContainerService.Data` para administrar las reglas del controlador de admisión en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+Actualmente se admiten los siguientes modos del proveedor de recursos durante la versión preliminar:
+
+- `Microsoft.ContainerService.Data` para administrar reglas del controlador de admisión en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Las políticas que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceRegoPolicy](./effects.md#enforceregopolicy).
+- `Microsoft.Kubernetes.Data` para administrar clústeres de Kubernetes del motor de AKS autoadministrados en Azure.
+  Las políticas que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
+- `Microsoft.KeyVault.Data` para administrar almacenes y certificados en [Azure Key Vault](../../../key-vault/key-vault-overview.md).
 
 > [!NOTE]
-> [Azure Policy para Kubernetes](rego-for-aks.md) está en versión preliminar pública y solo admite definiciones de directivas integradas.
+> Los modos del proveedor de recursos solo admiten definiciones de directivas integradas y no admiten iniciativas durante la versión preliminar.
 
 ## <a name="parameters"></a>Parámetros
 
@@ -134,7 +139,7 @@ Por ejemplo, podría definir una definición de directiva para limitar las ubica
 
 ### <a name="using-a-parameter-value"></a>Uso de un valor de parámetro
 
-En la regla de directiva, se hace referencia a los parámetros con la siguiente sintaxis de función con el valor de implementación `parameters`:
+En la regla de directiva, se hace referencia a los parámetros con la siguiente sintaxis de función `parameters`:
 
 ```json
 {
@@ -272,7 +277,7 @@ Se admiten los siguientes campos:
 - `tags['''<tagName>''']`
   - Esta sintaxis con corchetes admite nombres de etiquetas con apóstrofos mediante secuencias de escape con dobles apóstrofos.
   - Donde **\<tagName\>** es el nombre de la etiqueta para validar la condición.
-  - Ejemplo: `tags['''My.Apostrophe.Tag''']` donde **'\<tagName\>'** es el nombre de la etiqueta.
+  - Ejemplo: `tags['''My.Apostrophe.Tag''']` donde **'My.Apostrophe.Tag'** es el nombre de la etiqueta.
 - alias de propiedad: para obtener una lista, vea [Alias](#aliases).
 
 > [!NOTE]
@@ -282,7 +287,7 @@ Se admiten los siguientes campos:
 
 Un valor de parámetro se puede pasar a un campo de etiqueta. Al pasar un parámetro a un campo de etiqueta aumenta la flexibilidad de la definición de directiva durante la asignación de directivas.
 
-En el ejemplo siguiente, `concat` se usa para crear una búsqueda de campos de etiquetas para la etiqueta denominada con el valor del parámetro **tagName**. Si esa etiqueta no existe, se usa el efecto **append** para agregarla con el valor de la misma etiqueta con nombre establecida en el grupo de recursos principal de los recursos auditados mediante la función de búsqueda `resourcegroup()`.
+En el ejemplo siguiente, `concat` se usa para crear una búsqueda de campos de etiquetas para la etiqueta denominada con el valor del parámetro **tagName**. Si esa etiqueta no existe, se usa el efecto **modify** para agregarla con el valor de la misma etiqueta con nombre establecida en el grupo de recursos principal de los recursos auditados mediante la función de búsqueda `resourcegroup()`.
 
 ```json
 {
@@ -291,11 +296,17 @@ En el ejemplo siguiente, `concat` se usa para crear una búsqueda de campos de e
         "exists": "false"
     },
     "then": {
-        "effect": "append",
-        "details": [{
-            "field": "[concat('tags[', parameters('tagName'), ']')]",
-            "value": "[resourcegroup().tags[parameters('tagName')]]"
-        }]
+        "effect": "modify",
+        "details": {
+            "operations": [{
+                "operation": "add",
+                "field": "[concat('tags[', parameters('tagName'), ']')]",
+                "value": "[resourcegroup().tags[parameters('tagName')]]"
+            }],
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+            ]
+        }
     }
 }
 ```
@@ -390,42 +401,15 @@ Con la regla de directivas revisada, `if()` comprueba la longitud del **nombre**
 
 Azure Policy admite los siguientes tipos de efecto:
 
-- **Deny**: genera un evento en el registro de actividad y genera un error en la solicitud.
-- **Audit**: genera un evento de advertencia en el registro de actividad pero no genera un error en la solicitud.
 - **Append**: agrega el conjunto de campos definido a la solicitud.
-- **AuditIfNotExists**: habilita la auditoría si un recurso no existe.
-- **DeployIfNotExists**: implementa un recurso si todavía no existe.
+- **Audit**: genera un evento de advertencia en el registro de actividad pero no genera un error en la solicitud.
+- **AuditIfNotExists**: genera un evento de advertencia en el registro de actividad en caso de no existir un recurso relacionado.
+- **Deny**: genera un evento en el registro de actividad y genera un error en la solicitud.
+- **DeployIfNotExists**: implementa un recurso relacionado si todavía no existe.
 - **Disabled**: no se evalúa el cumplimiento de la regla de directivas en los recursos.
-- **EnforceRegoPolicy**: configura el controlador de admisiones Open Policy Agent en Azure Kubernetes Service (versión preliminar)
+- **EnforceOPAConstraint** (versión preliminar): configura el controlador de admisiones Open Policy Agent con Gatekeeper v3 para clústeres de Kubernetes autoadministrados en Azure (versión preliminar)
+- **EnforceRegoPolicy** (versión preliminar): configura el controlador de admisiones Open Policy Agent con Gatekeeper v2 en Azure Kubernetes Service
 - **Modify**: agrega, actualiza o quita las etiquetas definidas de un recurso.
-
-En el caso de **append**, debe proporcionar los detalles tal y como se muestra a continuación:
-
-```json
-"effect": "append",
-"details": [{
-    "field": "field name",
-    "value": "value of the field"
-}]
-```
-
-El valor puede ser una cadena o un objeto con formato JSON.
-
-**AuditIfNotExists** y **DeployIfNotExists** evalúan la existencia de un recurso relacionado y aplican una regla. Si el recurso no coincide con la regla, se implementa el efecto. Por ejemplo, puede requerir que un monitor de red se implemente para todas las redes virtuales. Para obtener más información, vea el ejemplo [Auditar si la extensión no existe](../samples/audit-ext-not-exist.md).
-
-El efecto de **DeployIfNotExists** requiere la propiedad **roleDefinitionId** en la parte **details** de la regla de directivas. Para obtener más información, vea [Remediation - Configure policy definition](../how-to/remediate-resources.md#configure-policy-definition) (Corrección: configurar la definición de directiva).
-
-```json
-"details": {
-    ...
-    "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-    ]
-}
-```
-
-Igualmente **Modify** requiere la propiedad **roleDefinitionId** en la parte **details** de la regla de directivas para la [tarea de corrección](../how-to/remediate-resources.md). **Modify** también requiere una matriz **operations** para definir las acciones que deben realizarse en las etiquetas de recursos.
 
 Para obtener información detallada sobre cada efecto, el orden de evaluación, las propiedades y algunos ejemplos, consulte [Descripción de los efectos de Azure Policy](effects.md).
 

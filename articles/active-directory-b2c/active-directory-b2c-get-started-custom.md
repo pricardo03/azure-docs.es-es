@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8e858869d742120138e7997ce21d9e4cca93ed9b
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: b8ce4565a2df3ad5f144508010265c1029a6856d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264360"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468864"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -67,9 +67,15 @@ Agregue el [secreto de la aplicación](active-directory-b2c-setup-fb-app.md) de 
 
 ## <a name="register-identity-experience-framework-applications"></a>Registro de las aplicaciones del marco de experiencia de identidad
 
-Azure AD B2C requiere que registre dos aplicaciones que se usen para registrar usuarios e iniciar su sesión: IdentityExperienceFramework (una aplicación web) y ProxyIdentityExperienceFramework (una aplicación nativa) con permiso delegado de la aplicación IdentityExperienceFramework. Las cuentas locales solo existen en su inquilino. Los usuarios se registran con una combinación única de dirección de correo electrónico/contraseña para obtener acceso a las aplicaciones registradas en el inquilino.
+Azure AD B2C requiere que registre dos aplicaciones que se usen para registrar usuarios e iniciar su sesión con cuentas locales: *IdentityExperienceFramework* (una API web) y *ProxyIdentityExperienceFramework* (una aplicación nativa) con permiso delegado de la aplicación IdentityExperienceFramework. Los usuarios pueden registrarse con una dirección de correo electrónico o un nombre de usuario y una contraseña para acceder a las aplicaciones registradas en el inquilino, lo que crea una "cuenta local". Las cuentas locales solo existen en el inquilino de Azure AD B2C.
+
+Solo tiene que registrar estas dos aplicaciones en el inquilino de Azure AD B2C una vez.
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrar la aplicación IdentityExperienceFramework
+
+Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información sobre la experiencia en versión preliminar](https://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
 
 1. Seleccione **Todos los servicios** en la esquina superior izquierda de Azure Portal.
 1. En el cuadro de búsqueda, escriba `Azure Active Directory`.
@@ -81,7 +87,31 @@ Azure AD B2C requiere que registre dos aplicaciones que se usen para registrar u
 1. En **URL de inicio de sesión**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el nombre de dominio del inquilino de Azure AD B2C. Todas las direcciones URL ahora deberían estar utilizando [b2clogin.com](b2clogin.md).
 1. Seleccione **Crear**. Una vez creada, copie el identificador de aplicación y guárdelo para usarlo más adelante.
 
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+
+1. Seleccione **Registros de aplicaciones (versión preliminar)** y luego **Nuevo registro**.
+1. En **Nombre**, escriba `IdentityExperienceFramework`.
+1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
+1. En **URI de redirección**, seleccione **Web** y, a continuación, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el nombre de dominio del inquilino de Azure AD B2C.
+1. En **Permisos**, active la casilla *Conceda permiso del administrador a los permisos openid y offline_access*.
+1. Seleccione **Registrar**.
+1. Anote el **Id. de aplicación (cliente)** para usarlo en un paso posterior.
+
+A continuación, exponga la API agregando un ámbito:
+
+1. En **Administrar**, seleccione **Exponer una API**.
+1. Seleccione **agregar un ámbito** y, a continuación, **Guardar y continuar** para aceptar el URI de identificador de aplicación predeterminado.
+1. Escriba los valores siguientes para crear un ámbito que permita la ejecución de la directiva personalizada en el inquilino de Azure AD B2C:
+    * **Nombre de ámbito**: `user_impersonation`
+    * **Nombre para mostrar del consentimiento del administrador**: `Access IdentityExperienceFramework`
+    * **Descripción del consentimiento del administrador**: `Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
+1. Seleccione **Agregar ámbito**.
+
+* * *
+
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrar la aplicación ProxyIdentityExperienceFramework
+
+#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
 
 1. En **Registros de aplicaciones (característica heredada)** , seleccione **Nuevo registro de aplicaciones**.
 1. En **Nombre**, escriba `ProxyIdentityExperienceFramework`.
@@ -92,6 +122,38 @@ Azure AD B2C requiere que registre dos aplicaciones que se usen para registrar u
 1. Elija **Seleccionar una API**, busque y seleccione **IdentityExperienceFramework** y, después, haga clic en **Seleccionar**.
 1. Active la casilla situada junto a **Access IdentityExperienceFramework** (Acceder a IdentityExperienceFramework), haga clic en **Seleccionar** y luego en **Listo**.
 1. Seleccione **Conceder permisos** y, después, seleccione **Sí** para confirmar.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+
+1. Seleccione **Registros de aplicaciones (versión preliminar)** y luego **Nuevo registro**.
+1. En **Nombre**, escriba `ProxyIdentityExperienceFramework`.
+1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
+1. En **URI de redirección**, use la lista desplegable para seleccionar **Cliente público o nativo (móvil y escritorio)** .
+1. En **URI de redirección**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el inquilino de Azure AD B2C.
+1. En **Permisos**, active la casilla *Conceda permiso del administrador a los permisos openid y offline_access*.
+1. Seleccione **Registrar**.
+1. Anote el **Id. de aplicación (cliente)** para usarlo en un paso posterior.
+
+A continuación, especifique que la aplicación se debe tratar como un cliente público:
+
+1. En **Administrar**, seleccione **Autenticación**.
+1. Seleccione **Probar la nueva experiencia** (si se muestra).
+1. En **Configuración avanzada**, habilite **Trate la aplicación como cliente público** (seleccione **Sí**).
+1. Seleccione **Guardar**.
+
+Ahora, conceda permisos al ámbito de la API que expuso anteriormente en el registro de *IdentityExperienceFramework*:
+
+1. En **Administrar**, seleccione **Permisos de API**.
+1. En **Permisos configurados**, seleccione **Agregar un permiso**.
+1. Seleccione la pestaña **Mis API** y, después, seleccione la aplicación **IdentityExperienceFramework**.
+1. En **Permiso**, seleccione el ámbito **user_impersonation** que definió anteriormente.
+1. Seleccione **Agregar permisos**. Como se indicó, espere unos minutos antes de continuar con el paso siguiente.
+1. Seleccione **Conceder consentimiento de administrador para (el nombre de inquilino)** .
+1. Seleccione la cuenta de administrador que tiene actualmente la sesión iniciada o inicie sesión con una cuenta en el inquilino de Azure AD B2C que tenga asignado al menos el rol *Administrador de aplicaciones en la nube*.
+1. Seleccione **Aceptar**.
+1. Seleccione **Actualizar** y, a continuación, compruebe que aparece "Concedido para..." en **ESTADO** en ambos ámbitos. Los permisos pueden tardar unos minutos en propagarse.
+
+* * *
 
 ## <a name="custom-policy-starter-pack"></a>Paquete de inicio de directivas personalizadas
 

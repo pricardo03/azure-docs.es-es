@@ -4,37 +4,37 @@ description: Obtenga información sobre cómo el entorno de ejecución de Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/06/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 49abd9e5ecee8637d830604028463650071c0198
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 94e33c855327e70f486746bcd781491823324dec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163162"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490421"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Información del entorno de ejecución de Azure IoT Edge y su arquitectura
 
-El runtime de IoT Edge es una colección de programas que convierten un dispositivo en un dispositivo IoT Edge. Colectivamente, los componentes del runtime de IoT Edge permiten que los dispositivos IoT Edge reciban el código para ejecutarse en el perímetro y comunicar los resultados. 
+El runtime de IoT Edge es una colección de programas que convierten un dispositivo en un dispositivo IoT Edge. Colectivamente, los componentes del entorno de ejecución de Azure IoT Edge permiten que los dispositivos IoT Edge reciban el código para ejecutarse en el perímetro y comunicar los resultados. 
 
-La instancia de IoT Edge en tiempo de ejecución realiza las siguientes funciones en los dispositivos IoT Edge:
+El entorno de ejecución de Azure IoT Edge es el responsable de las siguientes funciones en los dispositivos IoT Edge:
 
 * Instalación y actualización de las cargas de trabajo en el dispositivo.
 * Mantenimiento de los estándares de seguridad de Azure IoT Edge en el dispositivo.
 * Garantía de que los [módulos de IoT Edge](iot-edge-modules.md) están siempre en ejecución.
 * Notificación del mantenimiento del módulo a la nube para la supervisión remota.
-* Facilitación de la comunicación entre los dispositivos del nodo hoja de flujo descendente y los dispositivos IoT Edge.
-* Facilitación de la comunicación entre módulos en el dispositivo IoT Edge.
-* Facilitación de la comunicación entre el dispositivo IoT Edge y la nube.
+* Administre la comunicación entre los dispositivos de bajada y los dispositivos IoT Edge.
+* Administre la comunicación entre módulos en el dispositivo IoT Edge.
+* Administre la comunicación entre el dispositivo IoT Edge y la nube.
 
 ![El entorno de ejecución comunica la información y el estado del módulo a IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
 Las responsabilidades del entorno de ejecución de IoT Edge se dividen en dos categorías: comunicación y administración de los módulos. Estos dos roles los realizan dos componentes que forman parte del runtime de IoT Edge. El *centro de IoT Edge* es responsable de la comunicación, mientras que el *agente de IoT Edge* implementa y supervisa los módulos. 
 
-El agente y el centro de IoT Edge son módulos, como cualquier otro que se ejecuta en un dispositivo de IoT Edge. 
+El agente y el centro de IoT Edge son módulos, como cualquier otro que se ejecuta en un dispositivo de IoT Edge. A veces se denominan *módulos del entorno de ejecución*. 
 
 ## <a name="iot-edge-hub"></a>Centro de IoT Edge
 
@@ -45,7 +45,7 @@ El centro de IoT Edge es uno de los dos módulos que componen el entorno de ejec
 
 El centro de IoT Edge no se trata de una versión completa del centro de IoT Hub que se ejecuta localmente. Hay algunos procesos que el centro de IoT Edge delega silenciosamente en IoT Hub. Por ejemplo, el centro de IoT Edge reenvía las solicitudes de autenticación a IoT Hub la primera vez que un dispositivo trata de conectarse. Una vez establecida la primera conexión, el centro de IoT Edge almacena la información de seguridad en caché localmente. Las conexiones posteriores desde dicho dispositivo se permiten sin tener que autenticarse en la nube. 
 
-Para reducir el ancho de banda que usa la solución IoT Edge, el centro de IoT Edge optimiza el número real de conexiones a la nube. El centro de IoT Edge toma las conexiones lógicas de clientes, como módulos o dispositivos de hoja, y las combina para crear una sola conexión física a la nube. Los detalles de este proceso son transparentes para el resto de la solución. Los clientes creen que tienen su propia conexión a la nube, aunque todos los datos van a enviarse a través de la misma. 
+Para reducir el ancho de banda que usa la solución IoT Edge, el centro de IoT Edge optimiza el número real de conexiones a la nube. El centro de IoT Edge toma las conexiones lógicas de clientes, como módulos o dispositivos de bajada, y las combina para crear una sola conexión física a la nube. Los detalles de este proceso son transparentes para el resto de la solución. Los clientes creen que tienen su propia conexión a la nube, aunque todos los datos van a enviarse a través de la misma. 
 
 ![El centro de IoT Edge es una puerta de enlace entre los dispositivos físicos e IoT Hub](./media/iot-edge-runtime/Gateway.png)
 
@@ -73,13 +73,13 @@ Para recibir un mensaje, registre una devolución de llamada que procese los men
 
 Para más información sobre la clase ModuleClient y sus métodos de comunicación, consulte la referencia de API de su lenguaje preferido para el SDK: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) o [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
-El desarrollador de soluciones es responsable de especificar las reglas que determinan cómo el centro de IoT Edge pasa los mensajes entre los módulos. Las reglas de enrutamiento se definen en la nube y se envían al centro de IoT Edge de su dispositivo gemelo. Se utiliza la misma sintaxis de las rutas de IoT Hub para definir las rutas entre módulos de Azure IoT Edge. Para más información, consulte [Aprenda a implementar módulos y establecer rutas en IoT Edge](module-composition.md).   
+El desarrollador de soluciones es responsable de especificar las reglas que determinan cómo el centro de IoT Edge pasa los mensajes entre los módulos. Las reglas de enrutamiento se definen en la nube y se envían al centro de IoT Edge de su módulo gemelo. Se utiliza la misma sintaxis de las rutas de IoT Hub para definir las rutas entre módulos de Azure IoT Edge. Para más información, consulte [Aprenda a implementar módulos y establecer rutas en IoT Edge](module-composition.md).   
 
 ![Las rutas entre los módulos pasan por el centro de IoT Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
 ## <a name="iot-edge-agent"></a>Agente de IoT Edge
 
-El agente de IoT Edge es el otro módulo que constituye el entorno de ejecución de Azure IoT Edge. Es responsable de crear instancias de los módulos, lo que garantiza que continúen ejecutándose y notificando el estado de los módulos a IoT Hub. Al igual que cualquier otro módulo, el agente de IoT Edge usa su módulo gemelo para almacenar estos datos de configuración. 
+El agente de IoT Edge es el otro módulo que constituye el entorno de ejecución de Azure IoT Edge. Es responsable de crear instancias de los módulos, lo que garantiza que continúen ejecutándose y notificando el estado de los módulos a IoT Hub. Estos datos de configuración se escriben como una propiedad del módulo gemelo del agente de IoT Edge. 
 
 El [demonio de seguridad de IoT Edge](iot-edge-security-manager.md) inicia el agente de IoT Edge durante el inicio del dispositivo. El agente recupera su módulo gemelo de IoT Hub e inspecciona el manifiesto de implementación. El manifiesto de implementación es un archivo JSON que declara al módulo que debe iniciarse. 
 

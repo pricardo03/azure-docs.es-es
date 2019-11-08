@@ -5,18 +5,16 @@ services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 26f1360d4ecd336d44f4fc03aabfa9a2c540e781
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7ebcf865ad23e75b2aa9070fe14fc3ee8f1397c7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785959"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481132"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  
@@ -180,31 +178,95 @@ Puede usar la construcción de `@coalesce` en las expresiones para controlar cor
 
 ## <a name="mapping-data-flows"></a>Asignación de flujos de datos
 
-### <a name="which-data-factory-version-do-i-use-to-create-mapping-data-flows"></a>¿Qué versión de Data Factory uso para crear flujos de datos de asignación?
-Use la versión V2 de Data Factory para crear flujos de datos de asignación.
-  
-### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>Era cliente de una versión preliminar privada anterior que usaba flujos de datos y he usado la versión preliminar de Data Factory V2 para los flujos de datos.
-Esta versión está ahora obsoleta. Use Data Factory V2 para flujos de datos.
-  
-### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>¿Qué ha cambiado desde la versión preliminar privada a la versión preliminar pública limitada con respecto a los flujos de datos?
-Ya no tendrá que traer sus propios clústeres de Azure Databricks. Data Factory administra la creación y anulación del clúster al ejecutar flujos de datos de asignación. Los conjuntos de datos de blobs y los conjuntos de datos de Azure Data Lake Storage Gen2 se dividen en conjuntos de datos de Apache Parquet y texto delimitado. Todavía puede usar Data Lake Storage Gen2 y el almacenamiento de blobs para almacenar esos archivos. Use el servicio vinculado adecuado para los motores de almacenamiento.
-
-### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>¿Puedo migrar mis generadores de versión preliminar privada a Data Factory V2?
-
-Sí. [Siga estas instrucciones](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
-
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>Necesito ayuda para solucionar mi lógica de flujo de datos. ¿Qué información tengo que proporcionar para obtener ayuda?
 
-Cuando Microsoft proporciona ayuda o soluciona problemas con los flujos de datos, proporcione el script de flujo de datos. Para ello, siga estos pasos.
+Cuando Microsoft facilita ayuda o soluciona problemas con los flujos de datos, proporcione el script de flujo de datos. Este es el script de código subyacente del gráfico de flujo de datos. En la interfaz de usuario de ADF, abra el flujo de datos y, a continuación, haga clic en el botón "Script" en la esquina superior derecha. Copie y pegue este script o guárdelo en un archivo de texto.
 
-1. En el lienzo de flujo de datos, seleccione **Script** en la esquina superior derecha. Se mostrará el script de flujo de datos editable.
-3. Copie y pegue este script o guárdelo en un archivo de texto.
-
-### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>¿Cómo accedo a los datos con los otros 80 tipos de conjunto de datos en Data Factory?
+### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>¿Cómo accedo a los datos con los otros 90 tipos de conjunto de datos en Data Factory?
 
 Actualmente, la característica de flujo de datos de asignación permite los archivos de texto delimitados, Azure SQL Database, Azure SQL Data Warehouse desde Azure Blob Storage o Azure Data Lake Storage Gen2 y los archivos Parquet desde Blob Storage o Data Lake Storage Gen2 de forma nativa para el origen y el receptor. 
 
 Utilice la actividad de copia para almacenar provisionalmente los datos desde cualquiera de los demás conectores y, a continuación, ejecutar una actividad de Data Flow para transformar los datos después de haberlos almacenado provisionalmente. Por ejemplo, la canalización se copiará en primer lugar al almacenamiento de blobs y, a continuación, una actividad de Data Flow utilizará un conjunto de datos del origen para transformar los datos.
+
+### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>¿Está disponible el entorno de ejecución de integración autohospedado para flujos de datos?
+
+E entorno de ejecución de integración autohospedado es una construcción de canalización de ADF que se puede usar con la actividad de copia para adquirir o trasladar datos hacia y desde orígenes locales o receptores de datos basados en máquinas virtuales. Almacene temporalmente primero los datos con una copia, después cree el flujo de datos para la transformación y, a continuación, una copia posterior si necesita trasladar los datos transformados de nuevo al almacén local.
+
+## <a name="wrangling-data-flows"></a>Flujos de datos de limpieza y transformación
+
+### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>¿Cuáles son las regiones admitidas para el flujo de datos de limpieza y transformación?
+
+El flujo de datos de limpieza y transformación se admite actualmente en las factorías de datos creadas en las siguientes regiones:
+
+* Este de Australia
+* Centro de Canadá
+* India Central
+* Centro de EE. UU.
+* East US
+* Este de EE. UU. 2
+* Este de Japón
+* Europa del Norte
+* Sudeste asiático
+* Centro-Sur de EE. UU
+* Sur de Reino Unido 2
+* Centro occidental de EE.UU.
+* Europa occidental
+* Oeste de EE. UU.
+* Oeste de EE. UU. 2
+
+### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>¿Cuáles son las limitaciones y restricciones con el flujo de datos de limpieza y transformación?
+
+Los nombres de los conjuntos de datos solo pueden contener caracteres alfanuméricos. Se admiten los siguientes almacenes de datos:
+
+* Conjunto de datos DelimitedText en Azure Blob Storage mediante la autenticación de clave de cuenta
+* Conjunto de datos DelimitedText de Azure Data Lake Storage gen2 con la clave de cuenta o autenticación de la entidad de servicio
+* Conjunto de datos de DelimitedText en Azure Data Lake Storage gen1 mediante la autenticación de la entidad de servicio
+* Azure SQL Database y Data Warehouse mediante la autenticación de SQL. Consulte los tipos de SQL admitidos a continuación. No hay compatibilidad con PolyBase o ensayo para el almacenamiento de datos.
+
+En este momento, la integración de Key Vault de servicio vinculado no se admite en los flujos de datos de limpieza y transformación.
+
+### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>¿Cuál es la diferencia entre los flujos de datos de asignación y de limpieza y transformación?
+
+Los flujos de datos de asignación proporcionan una manera de transformar los datos a escala sin necesidad de programar. Puede diseñar un trabajo de transformación de datos en el lienzo de flujos de datos realizando una serie de transformaciones. Comience realice todas las transformaciones que desee en el origen y, después, continúe con los pasos de transformación de datos. Complete el flujo de datos con un receptor para enviar los resultados a un destino. El flujo de datos de asignación es excelente para asignar y transformar datos con esquemas conocidos y desconocidos en los receptores y orígenes.
+
+Los flujos de datos de limpieza y transformación permite realizar tareas de preparación y exploración de datos ágiles mediante el editor de mashup de Power Query en línea a escala a través de la ejecución de Spark. Con el aumento de los lagos de datos, a veces solo necesita explorar un conjunto de datos o crear un conjunto de datos en el lago. No está asignando a un destino conocido. Los flujos de datos de limpieza y transformación se usan a menudo para escenarios de análisis basados en modelos menos formales.
+
+### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>¿Cuál es la diferencia entre los flujos de datos de Power Platform y los flujos de datos de limpieza y transformación?
+
+Los flujos de datos de Power Platform permiten a los usuarios importar y transformar datos de una amplia gama de orígenes de datos en Common Data Service y Azure Data Lake para crear aplicaciones de PowerApps, informes de Power BI o automatizaciones de flujo. Los flujos de datos de Power Platform usan las experiencias de preparación de datos de Power Query establecidas, similares a Power BI y Excel. Los flujos de entrada de Power Platform también permiten una reutilización sencilla dentro de una organización y controlan automáticamente la orquestación (por ejemplo, la actualización automática de los flujos de datos que dependen de otro flujo de entrada cuando se actualiza el primero).
+
+Azure Data Factory (ADF) es un servicio de integración de datos administrado que permite a los ingenieros de datos y al integrador de datos de componentes para crear flujos de trabajo de extracción, transformación y carga de datos (ETL) híbridos complejos y de extracción, carga y transformación (ELT). El flujo de datos de limpieza y transformación en ADF permite a los usuarios un entorno sin servidor ni código que simplifica la preparación de datos en la nube y lo escala a cualquier tamaño de datos, sin la necesidad de administración de infraestructura. Usa la tecnología de preparación de datos de Power Query (también utilizada en flujos de datos de Power Platform, Excel y Power BI) para preparar y dar forma a los datos. Creados para tratar todas las complejidades y desafíos a escala de la integración de macrodatos, los flujos de datos de limpieza y transformación permiten a los usuarios transformar rápidamente los datos a gran escala mediante la ejecución de Spark. Los usuarios pueden crear canalizaciones de datos resistentes en un entorno visual accesible con nuestra interfaz basada en el explorador y permitir que ADF se haga cargo de las complejidades de la ejecución de Spark. Cree programaciones para sus canalizaciones y supervise las ejecuciones del flujo de datos desde el portal de supervisión de ADF. Administre fácilmente los Acuerdo de Nivel de Servicio de la disponibilidad de los datos con la supervisión y las alertas de disponibilidad enriquecidas de ADF, y aproveche las funcionalidades integradas de integración continua e implementación para guardar y administrar sus flujos en un entorno administrado. Establezca alertas y vea planes de ejecución para validar que su lógica tenga el rendimiento esperado mientras optimiza sus flujos de datos.
+
+### <a name="supported-sql-types"></a>Tipos de SQL admitidos
+
+El flujo de datos de limpieza y transformación admite los siguientes tipos de datos en SQL. Obtendrá un error de validación para usar un tipo de datos que no se admite.
+
+* short
+* double
+* real
+* float
+* char
+* nchar
+* varchar
+* nvarchar
+* integer
+* int
+* bit
+* boolean
+* smallint
+* tinyint
+* bigint
+* long
+* text
+* date
+* datetime
+* datetime2
+* smalldatetime
+* timestamp
+* uniqueidentifier
+* Xml
+
+En el futuro se admitirán otros tipos de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener instrucciones paso a paso para crear una factoría de datos, consulte los siguientes tutoriales:

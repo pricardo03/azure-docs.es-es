@@ -1,5 +1,5 @@
 ---
-title: 'Nodos en Azure Database for PostgreSQL: Hiperescala (Citus) (versión preliminar)'
+title: 'Nodos de Azure Database for PostgreSQL: Hiperescala (Citus)'
 description: Obtenga información acerca de los dos tipos de nodos, coordinador y trabajadores, en un grupo de servidores de Azure Database for PostgreSQL.
 author: jonels-msft
 ms.author: jonels
@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 097fcdb3a7e53bb63db9dc2d352d754062df7be6
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 5348c8bbe432cd024a8da93ca866ae4458f956e4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947556"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468096"
 ---
-# <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Nodos en Azure Database for PostgreSQL: Hiperescala (Citus) (versión preliminar)
+# <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Nodos de Azure Database for PostgreSQL: Hiperescala (Citus)
 
-El tipo de hospedaje Hiperescala (Citus) (versión preliminar) permite a los servidores de Azure Database for PostgreSQL (denominados "nodos") coordinar entre sí en una arquitectura de "nada compartido". Los nodos de un grupo de servidores almacenan colectivamente más datos y usan más núcleos de CPU de lo que sería posible en un único servidor. La arquitectura también permite escalar la base de datos al agregar más nodos al grupo de servidores.
+El tipo de hospedaje Hiperescala (Citus) permite a los servidores de Azure Database for PostgreSQL (llamados "nodos") coordinarse entre sí en una arquitectura "nada compartido". Los nodos de un grupo de servidores almacenan colectivamente más datos y usan más núcleos de CPU de lo que sería posible en un único servidor. La arquitectura también permite escalar la base de datos al agregar más nodos al grupo de servidores.
 
 ## <a name="coordinator-and-workers"></a>Coordinación y trabajos
 

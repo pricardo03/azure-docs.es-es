@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 49bab338f559b1b43389e12d98c75bbffbb25a85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694308"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493934"
 ---
 # <a name="apply-math-operation"></a>Aplicación de operación matemática
 
-En este artículo se describe un módulo de la interfaz visual de Azure Machine Learning.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Use el módulo Aplicación de operación matemática para crear cálculos que se aplican a columnas numéricas del conjunto de datos de entrada. 
 
@@ -95,7 +95,7 @@ Si genera los resultados con las opciones **Append** (Anexión) o **ResultOnly**
 -   **Equals(Col2_Col1)** , que indica que ha contrastado la columna Col2 con Col1.  
 -   **Equals(Col2_$10)** , que indica que ha comparado la columna 2 con la constante 10.  
 
-Aunque use la opción **Inplace**, los datos de origen no se eliminan ni se cambian; la columna del conjunto de datos original sigue estando disponible en la interfaz visual. Para ver los datos originales, puede conectar el módulo [Agregar columnas](add-columns.md) y combinarlo con la salida de **Aplicación de operación matemática**.  
+Aunque use la opción **Inplace**, los datos de origen no se eliminan ni se cambian; la columna del conjunto de datos original sigue estando disponible en el diseñador. Para ver los datos originales, puede conectar el módulo [Agregar columnas](add-columns.md) y combinarlo con la salida de **Aplicación de operación matemática**.  
     
 ## <a name="basic-math-operations"></a>Operaciones matemáticas básicas 
 
@@ -162,7 +162,7 @@ Devuelve el logaritmo natural de los valores de la columna seleccionada.
 
 Devuelve el logaritmo natural más uno de los valores de la columna seleccionada.  
 
-### <a name="log"></a>Registro
+### <a name="log"></a>Log
 
 Devuelve el logaritmo de los valores de la columna seleccionada, dada la base especificada.  
 
@@ -208,7 +208,7 @@ Eleva al cuadrado los valores de la columna seleccionada.
 
 ## <a name="comparison-operations"></a>Operaciones de comparación  
 
-Use las funciones de comparación de la interfaz visual de Azure Machine Learning siempre que necesite contrastar dos conjuntos de valores. Por ejemplo, en una canalización podría necesitar realizar las siguientes operaciones de comparación:  
+Use las funciones de comparación del diseñador de Azure Machine Learning siempre que necesite contrastar dos conjuntos de valores. Por ejemplo, en una canalización podría necesitar realizar las siguientes operaciones de comparación:  
 
 - Evaluar una columna de modelo de puntuaciones de probabilidad con un valor de umbral.
 - Determinar si dos conjuntos de resultados son iguales. Para cada fila que sea diferente, se agrega una marca FALSE, que puede resultar útil para posteriores operaciones de procesamiento o de filtrado.  
@@ -280,7 +280,7 @@ Especifique la columna de valores en la que operar (el *minuendo*); para ello, e
 
 ##  <a name="rounding-operations"></a>Operaciones de redondeo 
 
-La interfaz visual de Azure Machine Learning admite diversas operaciones de redondeo. Para muchas operaciones, debe especificar la cantidad de precisión que se va a utilizar al redondear. Puede usar un nivel de precisión estática, especificado como una constante, o puede aplicar un valor de precisión dinámica obtenido a partir de una columna de valores.  
+El diseñador de Azure Machine Learning admite diversas operaciones de redondeo. Para muchas operaciones, debe especificar la cantidad de precisión que se va a utilizar al redondear. Puede usar un nivel de precisión estática, especificado como una constante, o puede aplicar un valor de precisión dinámica obtenido a partir de una columna de valores.  
 
 - Si usa una constante, establezca **Precision Type** (Tipo de precisión) en **Constant** (Constante) y, a continuación, escriba el número de dígitos como un entero en el cuadro de texto **Constant Precision** (Precisión de constante). Si escribe un valor no entero, el módulo no genera un error, pero los resultados pueden ser inesperados.  
 
@@ -294,7 +294,7 @@ Devuelve el valor superior de los valores de **Column set** (Conjunto de columna
 
 Devuelve el valor superior al cuadrado de los valores de **Column set** (Conjunto de columnas).  
 
-### <a name="floor"></a>Planta
+### <a name="floor"></a>Floor
 
 Devuelve el valor inferior de los valores de **Column set** (Conjunto de columnas), a la precisión especificada.  
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ: depuración de aplicaciones de forma remota en HDInsight Spark '
+title: 'Azure Toolkit: Depuración remota de aplicaciones Apache Spark: Azure HDInsight'
 description: Aprenda a usar las herramientas de HDInsight de Azure Toolkit for IntelliJ para depurar de forma remota aplicaciones Spark que se ejecutan en clústeres de HDInsight mediante VPN.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: a558c0e767610f1fefdf29ca461a476c7bfcee59
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ac8ef620948048ae26ef6f408b4bc86b2a2bfbdc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327337"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494586"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Uso del Kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones de Apache Spark en HDInsight mediante VPN
 

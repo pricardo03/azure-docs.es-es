@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: d6063daa649b507057fd2a4468c32dad1cd35eec
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d97470494af0d64cc20d78d69957d84a8acebc16
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030431"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494903"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar el cliente de Apache Beeline con Apache Hive
 
@@ -62,16 +62,18 @@ Reemplace `<username>` con el nombre de una cuenta en el dominio con permisos pa
 Al conectarse a un clúster mediante los puntos de conexión públicos o privados, debe proporcionar el nombre de la cuenta de inicio de sesión (valor predeterminado `admin`) y la contraseña del clúster. Por ejemplo, al usar Beeline desde un sistema cliente para conectarse a la dirección `<clustername>.azurehdinsight.net`. Esta conexión se realiza a través del puerto `443` y se cifra mediante SSL:
 
 ```bash
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
 ```
 
 o para el punto de conexión privado:
 
 ```bash
-beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
 ```
 
-Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `admin` por la cuenta de inicio de sesión del clúster. Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
+Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `<username>` por la cuenta de inicio de sesión del clúster. Nota: Para los clústeres de ESP, use el UPN completo (por ejemplo, user@domain.com). Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
+
+Los puntos de conexión privados apuntan a un equilibrador de carga básico al que solo se puede acceder desde las redes virtuales emparejadas en la misma región. Consulte cuáles son las [restricciones relacionadas con Emparejamiento de VNet global y los equilibradores de carga](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. Puede usar el comando `curl` con la opción `-v` para solucionar cualquier problema de conectividad con puntos de conexión públicos o privados antes de usar Beeline.
 
 ---
 
@@ -84,16 +86,18 @@ Apache Spark proporciona su propia implementación de HiveServer2 que, en alguna
 La cadena de conexión usada es ligeramente distinta. En lugar de contener `httpPath=/hive2`, es `httpPath/sparkhive2`:
 
 ```bash 
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
 o para el punto de conexión privado:
 
 ```bash 
-beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
-Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `admin` por la cuenta de inicio de sesión del clúster. Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
+Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `<username>` por la cuenta de inicio de sesión del clúster. Nota: Para los clústeres de ESP, use el UPN completo (por ejemplo, user@domain.com). Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
+
+Los puntos de conexión privados apuntan a un equilibrador de carga básico al que solo se puede acceder desde las redes virtuales emparejadas en la misma región. Consulte cuáles son las [restricciones relacionadas con Emparejamiento de VNet global y los equilibradores de carga](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. Puede usar el comando `curl` con la opción `-v` para solucionar cualquier problema de conectividad con puntos de conexión públicos o privados antes de usar Beeline.
 
 ---
 

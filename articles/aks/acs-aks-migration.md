@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: 66f76a8a706f60df786786cbd1ce00b7eafd8d7e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 84e0af89e2b3247bc922ab84286a79a0934323a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097896"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472993"
 ---
 # <a name="migrate-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migrar Azure Container Service (ACS) a Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ ACS y AKS difieren en algunas áreas clave que afectan a la migración. Antes de
     * Los discos no administrados se deben convertir para poder conectarlos a los nodos de AKS.
     * Los objetos `StorageClass` personalizados para discos de Azure deben que cambiarse de `unmanaged` a `managed`.
     * Cualquier elemento `PersistentVolumes` debe usar `kind: Managed`.
-* AKS admite [varios grupos de nodos](https://docs.microsoft.com/azure/aks/use-multiple-node-pools) (actualmente en versión preliminar).
+* AKS admite [varios grupos de nodos](https://docs.microsoft.com/azure/aks/use-multiple-node-pools).
 * Los nodos basados en Windows Server están actualmente [en versión preliminar en AKS](https://azure.microsoft.com/blog/kubernetes-on-azure/).
 * AKS admite un conjunto limitado de [regiones](https://docs.microsoft.com/azure/aks/quotas-skus-regions).
 * AKS es un servicio administrado con un plano de control hospedado de Kubernetes. Es posible que tenga que modificar las aplicaciones si previamente ha modificado la configuración de los maestros de ACS.

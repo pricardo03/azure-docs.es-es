@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfa8e8c570b47eb6437ed6ca6a53f6c8188e18a2
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 5e2328bcd2b2d9fe957df82c46730091ffdf9366
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71314988"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474287"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementación de la protección de contraseñas de Azure AD
 
@@ -65,6 +65,8 @@ Después de que la característica se haya ejecutado en modo de auditoría duran
   El servicio de actualización de Agent Updater de Microsoft Azure AD Connect se instala junto con el servicio Proxy de protección de contraseña de Azure AD. Se requiere una configuración adicional para que el servicio de Agent Updater de Microsoft Azure AD Connect pueda funcionar:
 
   Si su entorno utiliza un servidor proxy http, debe seguir las pautas especificadas en [Trabajar con servidores proxy locales existentes](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
+
+  El servicio Agent Updater de Microsoft Azure AD Connect también requiere los pasos de TLS 1.2 especificados en [Requisitos de TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
 
   El acceso a la red debe estar habilitado para el conjunto de puertos y URL especificados en los [procedimientos de configuración del entorno de Proxy de aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
 

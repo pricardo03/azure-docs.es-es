@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc70e2e6475620bfb8842fc740772e326f8ee8d0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478858"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480342"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Data Warehouse
 En este tutorial le guiaremos a través de la creación e implementación de un modelo de aprendizaje automático mediante SQL Data Warehouse (SQL DW) para un conjunto de datos disponible públicamente: el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . El modelo de clasificación binaria construido predice si se va a pagar o no una propina para la carrera, y también se describen los modelos de clasificación y regresión multiclase que predicen la distribución de los importes pagados en concepto de propina.
@@ -376,7 +376,7 @@ Esta consulta de ejemplo identifica las licencias (números de taxi) que han com
 
 **Salida:** la consulta debe devolver una tabla con filas en las que se especifiquen las 13 369 licencias (taxis) y el número de carreras completadas por ellos en 2013. La última columna contiene el recuento del número de carreras realizadas.
 
-### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploración: distribución de carreras por medallion y hack_license
+### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Exploración: distribución de carreras por medallion y hack_license
 Este ejemplo identifica las licencias (números de taxi) y los números de hack_license (conductores) que han completado más de 100 carreras dentro de un período de tiempo.
 
     SELECT medallion, hack_license, COUNT(*)
@@ -615,7 +615,7 @@ Esta es la cadena de conexión que crea la conexión a la base de datos.
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>Informe con el número de filas y columnas de la tabla <nyctaxi_trip>
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Informe con el número de filas y columnas de la tabla <nyctaxi_trip>
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
@@ -633,7 +633,7 @@ Esta es la cadena de conexión que crea la conexión a la base de datos.
 * Número total de filas = 173179759
 * Número total de columnas = 14
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxifare"></a>Informe con el número de filas y columnas de la tabla <nyctaxi_fare>
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_fare"></a>Informe con el número de filas y columnas de la tabla <nyctaxi_fare>
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_fare>')
@@ -807,9 +807,9 @@ Ya está todo listo para pasar a la creación del modelo y la implementación de
 
 1. **Clasificación binaria**: permite predecir si se dio propina en una carrera o no.
 2. **Clasificación multiclase**: permite predecir el rango de la propina dada, según las clases definidas anteriormente.
-3. **Tarea de regresión**: permite predecir el importe de la propina pagada por una carrera.
+3. **Tarea de regresión**: Permite predecir el importe de la propina pagada por una carrera.
 
-Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de **Azure Machine Learning** . Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning Studio](../studio/create-workspace.md).
+Para comenzar el ejercicio de modelado, inicie sesión en el área de trabajo de **Azure Machine Learning (clásico)** . Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación de un área de trabajo de Azure Machine Learning Studio (clásico)](../studio/create-workspace.md).
 
 1. Para empezar a usar Azure Machine Learning, consulte [¿Qué es Microsoft Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
 2. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net).
@@ -830,7 +830,7 @@ Un experimento de entrenamiento típico consta de los pasos siguientes:
 
 En este ejercicio, ya se han explorado y diseñado los datos en SQL Data Warehouse, y también se ha decidido el tamaño de la muestra para la ingesta en Azure Machine Learning Studio. Este es el procedimiento para crear uno o varios de los modelos de predicción:
 
-1. Proporcione los datos a Azure Machine Learning Studio con el módulo [Importar datos][import-data], disponible en la sección **Entrada y salida de datos**. Para obtener más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
+1. Proporcione los datos a Azure Machine Learning Studio (clásico) con el módulo [Importar datos][import-data], disponible en la sección **Entrada y salida de datos**. Para más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
 
     ![Datos de importación de Aprendizaje automático de Azure][17]
 2. Seleccionar **Azure SQL Database** como **Origen de datos** en el panel **Propiedades**.

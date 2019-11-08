@@ -1,5 +1,6 @@
 ---
-title: Credenciales de certificado en Azure AD | Microsoft Docs
+title: Credenciales de certificado en Azure AD
+titleSuffix: Microsoft identity platform
 description: Este artículo describe el registro y el uso de credenciales de certificados para la autenticación de aplicaciones
 services: active-directory
 documentationcenter: .net
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aa63a8f06b71455b7f00d2ce5842f0da851789b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 3fca872d639ab5c2d4053656cdd3e68a59fdc1e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835476"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473963"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciales de certificado para la autenticación de aplicaciones
 
@@ -132,5 +133,8 @@ En el registro de aplicación de Azure para la aplicación cliente:
    La propiedad `keyCredentials` es multivalor, por lo que puede cargar varios certificados para una administración de claves más eficaz.
    
 ## <a name="code-sample"></a>Código de ejemplo
+
+> [!NOTE]
+> Debe calcular el encabezado X5T usando el hash del certificado y convirtiéndolo a una cadena Base64. En C#, el resultado será similar al siguiente: `System.Convert.ToBase64String(cert.GetCertHash());`
 
 En el ejemplo de código de [Authenticating to Azure AD in daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) (Autenticación en Azure AD en aplicaciones de demonio con certificado) se muestra cómo una aplicación utiliza sus propias credenciales para la autenticación. También se muestra cómo se puede [crear un certificado autofirmado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) mediante el comando de PowerShell `New-SelfSignedCertificate`. También puede usar los [scripts de creación de aplicaciones](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) para crear los certificados, calcular la huella digital, etc.

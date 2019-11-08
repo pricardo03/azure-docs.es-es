@@ -1,24 +1,24 @@
 ---
 title: 'Split Data: referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Split Data (Dividir datos) en Azure Machine Learning Service para dividir un conjunto de datos en dos conjuntos distintos.
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo Dividir datos en Azure Machine Learning para dividir un conjunto de datos en dos conjuntos distintos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 3fa6b61b1b1761756339d6a7f05c74eb4a968777
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 0f6ba3c608c90d8634309a1843dc803b98be3d6d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692647"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492646"
 ---
 # <a name="split-data-module"></a>Módulo Split Data
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Use este módulo para dividir un conjunto de datos en dos conjuntos distintos.
 
@@ -30,7 +30,7 @@ Este módulo es especialmente útil cuando necesita separar los datos en conjunt
 > Antes de elegir el modo de división, lea todas las opciones para determinar el tipo de división que necesita.
 > Si cambia el modo de división, se podrían restablecer todas las demás opciones.
 
-1. Agregue el módulo **Split Data** a la canalización en la interfaz. Puede encontrar este módulo en **Transformación de datos**, en la categoría **Sample and Split** (Muestrear y dividir).
+1. Agregue el módulo **Split Data** a la canalización en el diseñador. Puede encontrar este módulo en **Transformación de datos**, en la categoría **Sample and Split** (Muestrear y dividir).
 
 2. **Splitting mode** (Modo de división): Elija uno de los modos siguientes, según el tipo de datos que tenga y cómo quiera dividirlos. Cada modo de división tiene distintas opciones. Haga clic en los temas siguientes para obtener instrucciones detalladas y ejemplos. 
 
@@ -45,7 +45,8 @@ Este módulo es especialmente útil cuando necesita separar los datos en conjunt
     - **Relative Expression Split** (División de expresión relativa):  Use esta opción siempre que quiera aplicar una condición a una columna de números. El número podría ser un campo de fecha y hora, una columna que contiene edades o importes monetarios, incluso un porcentaje. Por ejemplo, es posible que quiera dividir el conjunto de datos según el costo de los artículos, agrupar personas por intervalos de edad, o separar datos por una fecha del calendario.
 
 ### <a name="split-rows"></a>Dividir filas
-1.  Agregue el módulo [Split Data](./split-data.md) a la canalización en la interfaz y conecte el conjunto de datos que quiera dividir.
+
+1.  Agregue el módulo [Dividir datos](./split-data.md) a la canalización en el diseñador y conecte el conjunto de datos que quiera dividir.
   
 2.  Para **Splitting mode**, elija **Split rows**. 
 
@@ -114,4 +115,4 @@ Este módulo es especialmente útil cuando necesita separar los datos en conjunt
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

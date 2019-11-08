@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 2647a8c33bf777cb2d97dcfe89799097ad719ac3
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 61b929756cbc4cf13103faa67a667128eaffeec8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077022"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498174"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planificación de una red virtual para Azure HDInsight
 
@@ -248,6 +248,10 @@ Si planifica usar un **firewall** para obtener acceso al clúster fuera de deter
 Para una lista de puertos para servicios específicos, consulte el documento [Puertos utilizados por los servicios Apache Hadoop en HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Para más información sobre las reglas de firewall para aplicaciones virtuales, vea el documento [Escenario de aplicación virtual](../virtual-network/virtual-network-scenario-udr-gw-nva.md).
+
+## <a name="load-balancing"></a>Equilibrio de carga
+
+Al crear un clúster de HDInsight, también se crea un equilibrador de carga. El tipo de este equilibrador de carga se encuentra en el [nivel de SKU básico](../load-balancer/load-balancer-overview.md#skus), que tiene ciertas restricciones. Una de estas restricciones es que si tiene dos redes virtuales en diferentes regiones, no puede conectarse a equilibradores de carga básicos. Consulte las [P+F sobre redes virtuales: restricciones en el emparejamiento de VNET global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obtener más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

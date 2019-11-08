@@ -3,17 +3,17 @@ title: Administración de la autenticación en Azure Maps | Microsoft Docs
 description: Puede usar Azure Portal para administrar la autenticación en Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f4a3d791e6b5d6ff20c09408d1a0bf5995c32fd
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 496edb4f3528daa5bd06193383f0277922e8a93a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756555"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478780"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Administración de la autenticación en Azure Maps
 
@@ -91,7 +91,12 @@ Después de registrar su aplicación y asociarla a Azure Maps, puede solicitar l
 
 * Si su aplicación usa una autenticación de token de usuario con el SDK web de Azure Maps, debe configurar su página HTML con el id. de cliente de Azure Maps y el id. de aplicación de Azure AD.
 
-* Si su aplicación usa una autenticación de servidor o aplicación, debe solicitar un token del punto de conexión de inicio de sesión de Azure AD `https://login.microsoftonline.com` con el id. del recurso de Azure AD `https://atlas.microsoft.com/`, el id. de cliente de Azure Maps, el id. de la aplicación de Azure AD y la contraseña o certificado de registro de la aplicación de Azure AD.
+* Si su aplicación usa una autenticación de servidor o aplicación, debe solicitar un token del punto de conexión de token de Azure AD `https://login.microsoftonline.com` con el identificador del recurso de Azure AD `https://atlas.microsoft.com/`, el identificador de cliente de Azure Maps, el identificador de la aplicación de Azure AD y la contraseña o certificado de registro de la aplicación de Azure AD.
+
+| Entorno de Azure   | Punto de conexión del token de Azure AD | Id. de recurso de Azure |
+| --------------------|-------------------------|-------------------|
+| Azure Public        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
+| Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
 Para obtener más información sobre la solicitud de tokens de acceso de Azure AD para usuarios y entidades de servicio, consulte el artículo sobre los [escenarios de autenticación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 

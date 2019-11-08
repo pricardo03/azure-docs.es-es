@@ -1,33 +1,28 @@
 ---
 title: Administración del uso y los costos de Azure Application Insights | Microsoft Docs
 description: Administre los volúmenes de telemetría y supervise los costos en Application Insights.
-services: application-insights
-documentationcenter: ''
-author: DaleKoetke
-manager: carmonm
-ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 10/03/2019
+author: DaleKoetke
 ms.author: dalek
-ms.openlocfilehash: f9d92f03b1f55ad9d1f1e272886095ae48033266
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 10/28/2019
+ms.reviewer: mbullwin
+ms.openlocfilehash: eedb9d811e35d606f4d3e1df55d9303d68678b3c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750396"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478747"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
 > [!NOTE]
 > En este artículo se describe cómo entender y controlar los costos de Application Insights.  En un artículo relacionado, [Supervisión del uso y costos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs), se describe cómo ver el uso y los costos estimados mediante varias características de supervisión de Azure para los distintos modelos de precios.
 
-Application Insights está diseñado para obtener todo lo que necesita para supervisar la disponibilidad, el rendimiento y el uso de las aplicaciones web, tanto si están hospedadas en Azure como en un entorno local. Application Insights admite lenguajes y plataformas populares, como .NET, Java y Node.js, y se integra con procesos y herramientas DevOps como Azure DevOps, Jira y PagerDuty. Es importante comprender lo que determina los costos de la supervisión de aplicaciones. En este artículo se revisan los costos de supervisión de aplicaciones y cómo puede supervisarlas y controlarlas de forma activa.
+Application Insights está diseñado para obtener todo lo que necesita para supervisar la disponibilidad, el rendimiento y el uso de las aplicaciones web, tanto si están hospedadas en Azure como en un entorno local. Application Insights admite lenguajes y plataformas populares, como .NET, Java y Node.js, y se integra con procesos y herramientas DevOps como Azure DevOps, Jira y PagerDuty. Es importante comprender lo que determina los costos de la supervisión de aplicaciones. En este artículo se revisan los costos de supervisión de las aplicaciones y cómo puede supervisarlas y controlarlas de forma activa.
 
-Si tiene preguntas sobre cómo funcionan los precios para Application Insights, no dude en publicar una pregunta en nuestro [foro](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
+Si tiene preguntas sobre cómo funcionan los precios para Application Insights, no dude en publicar una pregunta en nuestro [foro](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
 
 ## <a name="pricing-model"></a>Modelo de precios
 
@@ -39,7 +34,7 @@ Las [pruebas web de varios pasos](../../azure-monitor/app/availability-multistep
 
 Si aún no usa Application Insights, puede usar la [calculadora de precios de Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) para calcular el costo del uso de Application Insights. Comience escribiendo "Azure Monitor" en el cuadro de búsqueda y haciendo clic en el icono de Azure Monitor resultante. Desplácese hacia abajo en la página hasta Azure Monitor y seleccione Application Insights en la lista desplegable Tipo.  Aquí puede especificar el número de GB de datos que espera recopilar al mes, por lo que la pregunta es cuántos datos recopilará Application Insights supervisando la aplicación. 
 
-Hay dos enfoques para abordar esta cuestión: usar la supervisión predeterminada y el muestreo adaptable, que está disponible en el SDK de ASP.NET, o calcular la probable ingesta de datos en función de lo que han visto otros clientes similares. 
+Hay dos enfoques para abordar esta cuestión: usar la supervisión predeterminada y el muestreo adaptable, que está disponible en el SDK de ASP.NET, o calcular la probable ingesta de datos en función de lo que han visto otros clientes similares.
 
 ### <a name="data-collection-when-using-sampling"></a>Colección de datos al usar el muestreo
 
@@ -49,7 +44,7 @@ En el caso de los SDK que no admiten el muestreo adaptable, puede emplear el [mu
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Más información sobre qué recopilan los clientes similares
 
-En la calculadora de precios de Azure Monitor para Application Insights, si habilita la funcionalidad "Estimar el volumen de datos en función de la actividad de la aplicación", puede proporcionar entradas sobre la aplicación (solicitudes por mes y vistas de página al mes, en caso de que se recopile la telemetría del lado cliente) y, a continuación, la calculadora le indicará el valor medio y la cantidad de percentil 90 de los datos recopilados por aplicaciones similares. Por supuesto, estas aplicaciones abarcan el intervalo de configuración de Application Insights (por ejemplo, algunas tienen el [muestreo](../../azure-monitor/app/sampling.md) predeterminado, otras no tienen muestreo, etc.), por lo que todavía tiene el control para reducir el volumen de datos que ingiere muy por debajo del nivel medio con muestreo. Pero se trata de un punto de partida para comprender lo que ven otros clientes similares. 
+En la calculadora de precios de Azure Monitor para Application Insights, si habilita la funcionalidad "Estimar el volumen de datos en función de la actividad de la aplicación", puede proporcionar entradas sobre la aplicación (solicitudes por mes y vistas de página al mes, en caso de que se recopile la telemetría del lado cliente) y, a continuación, la calculadora le indicará el valor medio y la cantidad de percentil 90 de los datos recopilados por aplicaciones similares. Estas aplicaciones abarcan el intervalo de configuración de Application Insights (por ejemplo, algunas tienen el [muestreo](../../azure-monitor/app/sampling.md) predeterminado, otras no tienen muestreo, etc.), por lo que todavía tiene el control para reducir el volumen de datos que ingiere muy por debajo del nivel medio con muestreo. Pero se trata de un punto de partida para comprender lo que ven otros clientes similares. 
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Información útil del uso y los costos estimados
 
@@ -71,30 +66,68 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
 ![En el menú de la izquierda, seleccione Facturación](./media/pricing/02-billing.png)
 
-## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visualización del uso de Application Insights en la factura de Azure 
+### <a name="using-data-volume-metrics"></a>Uso de métricas de volumen de datos
+<a id="understanding-ingested-data-volume"></a>
 
-Azure proporciona una gran cantidad de funcionalidades útiles en el concentrador [Azure Cost Management + Facturación](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json). Por ejemplo, la funcionalidad de "Análisis de costos" le permite ver los gastos de los recursos de Azure. Al agregar un filtro por tipo de recurso (en microsoft.insights/components para Application Insights), podrá realizar un seguimiento de los gastos.
+Para obtener más información sobre los volúmenes de datos, seleccione **Métricas** para el recurso de Application Insights y agregue un nuevo gráfico. En la métrica del gráfico, en **Métricas basadas en registros**, seleccione **Volumen de puntos de datos**. Haga clic en **Aplicar separación** y seleccione el grupo mediante el **tipo de elemento de telemetría**.
 
-Puede obtener información sobre el uso mediante la [descarga del uso desde Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). En la hoja de cálculo descargada puede ver el uso por recurso de Azure al día. En esta hoja de cálculo de Excel, el uso de los recursos de Application Insights se puede encontrar filtrando, en primer lugar, la columna "Categoría de medición" para mostrar "Application Insights" y "Log Analytics" y, a continuación, agregando un filtro en la columna "Id. de instancia", que es "contiene microsoft.insights/components".  La mayor parte del uso de Application Insights se muestra en medidores con la Categoría de medición de Log Analytics, ya que hay un back-end de registros único para todos los componentes de Azure Monitor.  Con una Categoría de medición de Application Insights, solo se muestran recursos de Application Insights de los planes de tarifa heredados y las pruebas web de varios pasos.  El uso se muestra en la columna "Cantidad consumida" y la unidad de cada entrada se muestra en la columna "Unidad de medida".  Hay más detalles disponibles para ayudarle a [entender la factura de Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+![Uso de métricas para examinar el volumen de datos](./media/pricing/10-billing.png)
 
-## <a name="managing-your-data-volume"></a>Administración del volumen de datos 
+### <a name="queries-to-understand-data-volume-details"></a>Consultas para comprender los detalles del volumen de datos
 
-Para comprender la cantidad de datos que envía la aplicación, puede:
-
-* Vaya al panel **Uso y costos estimados** para ver el gráfico de volumen de datos diario. 
-* En el Explorador de métricas, agregue un nuevo gráfico. En la métrica del gráfico, seleccione **volumen de punto de datos**. Activa la **agrupación** y, a continuación, agrupe por **Tipo de datos**.
-* Use el tipo de datos `systemEvents`. Por ejemplo, para ver el volumen de datos ingerido en el último día, la consulta sería:
+Por ejemplo, puede usar la tabla `systemEvents` para ver el volumen de datos ingerido en las últimas 24 horas con la consulta:
 
 ```kusto
 systemEvents 
-| where timestamp >= ago(1d)
+| where timestamp >= ago(24h)
 | where type == "Billing" 
 | extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
 | extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
 | summarize sum(BillingTelemetrySizeInBytes)
 ```
 
-Esta consulta se puede usar en una [alerta de registro de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) para configurar las alertas en los volúmenes de datos. 
+O bien, para ver un gráfico de volumen de datos (en bytes) por tipo de datos de los últimos 30 días, puede usar:
+
+```kusto
+systemEvents 
+| where timestamp >= startofday(ago(30d))
+| where type == "Billing" 
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
+```
+
+Tenga en cuenta que esta consulta se puede usar en una [alerta de registro de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) para configurar las alertas en los volúmenes de datos.  
+
+Para obtener más información sobre los cambios en los datos de telemetría, vamos a comprobar el número de eventos por tipo mediante la consulta:
+
+```kusto
+systemEvents 
+| where timestamp >= startofday(ago(30d))
+| where type == "Billing" 
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| summarize count() by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
+```
+
+Si se ven cambios en los recuentos similares al volumen en bytes, podemos centrarnos en los tipos de datos de eventos, que muestran recuentos aumentados.  Por ejemplo, si se observa que el número de dependencias ha aumentado, aquí se muestra una consulta para comprender qué operaciones son responsables del aumento:
+
+```kusto
+dependencies 
+| where timestamp >= startofday(ago(30d))
+| summarize count() by operation_Name, bin(timestamp, 1d)  
+| render barchart  
+```
+
+
+## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visualización del uso de Application Insights en la factura de Azure 
+
+Azure proporciona una gran cantidad de funcionalidades útiles en el concentrador [Azure Cost Management + Facturación](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json). Por ejemplo, la funcionalidad de "Análisis de costos" le permite ver los gastos de los recursos de Azure. Al agregar un filtro por tipo de recurso (en microsoft.insights/components para Application Insights), podrá realizar un seguimiento de los gastos.
+
+Puede obtener información sobre el uso mediante la [descarga del uso desde Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
+En la hoja de cálculo descargada puede ver el uso por recurso de Azure al día. En esta hoja de cálculo de Excel, el uso de los recursos de Application Insights se puede encontrar filtrando, en primer lugar, la columna "Categoría de medición" para mostrar "Application Insights" y "Log Analytics" y, a continuación, agregando un filtro en la columna "Id. de instancia", que es "contiene microsoft.insights/components".  La mayor parte del uso de Application Insights se muestra en medidores con la Categoría de medición de Log Analytics, ya que hay un back-end de registros único para todos los componentes de Azure Monitor.  Con una Categoría de medición de Application Insights, solo se muestran recursos de Application Insights de los planes de tarifa heredados y las pruebas web de varios pasos.  El uso se muestra en la columna "Cantidad consumida" y la unidad de cada entrada se muestra en la columna "Unidad de medida".  Hay más detalles disponibles para ayudarle a [entender la factura de Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+
+
+## <a name="managing-your-data-volume"></a>Administración del volumen de datos 
 
 El volumen de datos que envíe se puede administrar con las técnicas siguientes:
 
@@ -172,8 +205,6 @@ Para cambiar la retención, en el recurso de Application Insights, vaya a la pá
 
 La retención también se puede [establecer mediante programación con PowerShell](powershell.md#set-the-data-retention) mediante el parámetro `retentionInDays`. Además, si configura la retención de datos en 30 días, puede desencadenar una purga inmediata de los datos más antiguos mediante el parámetro `immediatePurgeDataOn30Days`, que puede serle útil en los escenarios relacionados con el cumplimiento. Esta funcionalidad de purga solo se expone con Azure Resource Manager y debe utilizarse con extrema precaución. 
 
-Cuando la facturación comienza con una retención más prolongada a principios de diciembre de 2019, los datos que se mantengan más de 90 días se facturarán con la misma tarifa que actualmente se factura por la retención de datos de Azure Log Analytics. Obtenga más información sobre la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Para mantener se al día con el progreso de la retención de variables, [vote por esta sugerencia](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
-
 ## <a name="data-transfer-charges-using-application-insights"></a>Cargos por transferencia de datos al usar Application Insights
 
 Al enviar datos a Application Insights se pueden aplicar ciertos cargos debido al ancho de banda de datos. Tal como se describe en la [página de precios de Azure Bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/), la transferencia de datos entre los servicios de Azure ubicados en dos regiones se cobra como transferencia de datos salientes a precio normal. La transferencia de datos entrantes es gratuita. Sin embargo, este cargo es muy pequeño (un tanto por ciento mínimo) en comparación con los costos de la ingesta de datos de registro de Application Insights. En consecuencia, para controlar los costos de Log Analytics, debe centrarse en el volumen de datos ingeridos; para ello, le ofrecemos información [ aquí ](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume).   
@@ -198,7 +229,7 @@ El nivel Por nodo (anteriormente Enterprise) tiene un cargo por nodo y cada nodo
 Para ver los precios vigentes actualmente en su moneda y región, consulte [Precios de Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
 > [!NOTE]
-> En abril de 2018, [introdujimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuevo modelo de precios para la supervisión de Azure. Este modelo adopta un modelo de "pago por uso" sencillo en toda la cartera de servicios de supervisión. Más información sobre el [nuevo modelo de precios](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), cómo [evaluar el impacto de pasar a este modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) en función de los patrones de uso y [cómo participar en el nuevo modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model).
+> En abril de 2018, [introdujimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuevo modelo de precios para la supervisión de Azure. Este modelo adopta un modelo de "pago por uso" sencillo en toda la cartera de servicios de supervisión. Más información sobre el [nuevo modelo de precios](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), cómo [evaluar el impacto de pasar a este modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#understanding-your-azure-monitor-costs) en función de los patrones de uso y [cómo participar en el nuevo modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#azure-monitor-pricing-model).
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Derechos del nivel Por nodo y la suscripción a Operations Management Suite
 
@@ -236,7 +267,7 @@ Dado que este nivel solo se aplica a clientes con una suscripción a Operations 
   * En las versiones 2.2 y posteriores del SDK, tanto el [SDK básico](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) como el [SDK web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) de Application Insights cuentan cada host de aplicación como un nodo. Algunos ejemplos son el nombre de equipo del servidor físico y los hosts de máquina virtual, o el nombre de instancia de los servicios en la nube.  La única excepción es una aplicación que solamente usa [.NET Core](https://dotnet.github.io/) y el SDK básico de Application Insights. En ese caso, solo se cuenta un nodo para todos los hosts porque el nombre de host no está disponible. 
   * En las versiones anteriores del SDK, el [SDK web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comporta del mismo modo que las versiones más nuevas. Sin embargo, el [SDK básico](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) solo cuenta un nodo, independientemente del número real de hosts de la aplicación. 
   * Si la aplicación utiliza el SDK para establecer **roleInstance** en un valor personalizado, ese mismo valor se usará de manera predeterminada para calcular el número de nodos. 
-  * Si utiliza una nueva versión del SDK con una aplicación que se ejecuta desde equipos cliente o dispositivos móviles, es posible que el recuento de nodos devuelva un número muy grande (debido a la gran cantidad de equipos cliente o de dispositivos móviles). 
+  * Si utiliza una nueva versión del SDK con una aplicación que se ejecuta desde equipos cliente o dispositivos móviles, es posible que el recuento de nodos devuelva un número grande (debido a la gran cantidad de equipos cliente o de dispositivos móviles). 
 
 ## <a name="automation"></a>Automation
 
@@ -250,4 +281,5 @@ Puede escribir un script para establecer el plan de tarifa mediante Azure Resour
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: ../../azure-monitor/app/app-insights-overview.md
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/

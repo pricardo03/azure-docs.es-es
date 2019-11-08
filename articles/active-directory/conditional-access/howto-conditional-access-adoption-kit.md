@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c34f59c3e9f679adf8ae410f648cb7de6dba6447
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: daaced0aae595e839f2b2476562fc5caffb63640
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430040"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473934"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Adopción del acceso condicional de Azure AD
 
@@ -104,7 +104,7 @@ Consulte los siguientes cursos de acceso condicional y mucho más en [Pluralsigh
 * O'Reilly: [Implementing Azure Solutions - Second Edition](https://www.oreilly.com/library/view/implementing-azure-solutions/9781789343045/b7ead3db-eb1c-4ace-897e-86ee25ea86be.xhtml) (Implementación de soluciones de Azure, segunda edición).
    * "Empezar a trabajar con los servicios de Azure e información sobre cómo implementarlos en su organización". El acceso condicional de Azure AD se trata en el capítulo [Deploying and Synchronizing Azure Active Directory](https://learning.oreilly.com/library/view/implementing-azure-solutions/9781789343045/02ca8bba-08cf-4691-a7d0-1b96e286e7ea.xhtml) (Implementación y sincronización de Azure Active Directory).
 
-* Wiley: [Mastering Microsoft Azure Infrastructure Services](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298) (Dominar los servicios de infraestructura de Microsoft Azure)
+* Wiley: [Microsoft Azure Infrastructure Services for Architects: Designing Cloud Solutions](https://www.wiley.com/Microsoft+Azure+Infrastructure+Services+for+Architects%3A+Designing+Cloud+Solutions-p-9781119596547) (Servicios de infraestructura de Microsoft Azure for Architects: diseño de soluciones en la nube)
    * "Aquí encontrará todo lo que necesita para entender, evaluar, implementar y mantener entornos que usan Microsoft Azure".
 
 ## <a name="white-papers"></a>Notas del producto

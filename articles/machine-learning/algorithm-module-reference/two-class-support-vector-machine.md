@@ -1,24 +1,24 @@
 ---
-title: 'Máquina de vectores de soporte de dos clases: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo de **Máquina de vectores de soporte de dos clases** en Azure Machine Learning Service para crear un modelo basado en el algoritmo de máquina de vectores de soporte.
+title: 'Máquina de vectores de soporte de dos clases: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo de **Máquina de vectores de soporte de dos clases** en Azure Machine Learning para crear un modelo basado en el algoritmo de máquina de vectores de soporte.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: c58e66070f137f9c5d713a45682afac5f30bbd1e
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 0ab4a0ebf2844d064e40c8417ab22162d2d0ded6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692605"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485870"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Máquina de vectores de soporte de dos clases
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Use este módulo para crear un modelo basado en el algoritmo de máquina de vectores de soporte. 
 
@@ -80,4 +80,4 @@ Una vez completado el entrenamiento:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

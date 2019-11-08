@@ -1,7 +1,7 @@
 ---
 title: Creación de un modelo de análisis de opiniones
-titleSuffix: Azure Machine Learning Studio
-description: Cómo crear modelos de análisis de texto en Azure Machine Learning Studio mediante módulos de preprocesamiento de texto, n-gramas o hash de características
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Creación de modelos de análisis de texto en Azure Machine Learning Studio (clásico) mediante módulos de preprocesamiento de texto, n-gramas o hash de características
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 08d62e7a6c9503d415fe144da57eee72ce3bfafd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d24e4f98e987cb911a8bc0ffcd1b49e1bed8b920
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60636611"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467151"
 ---
-# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Creación de un modelo de análisis de opiniones en Azure Machine Learning Studio
+# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Creación de un modelo de análisis de opinión en Azure Machine Learning Studio (clásico)
 
-Puede usar Azure Machine Learning Studio para generar y aplicar modelos de análisis de texto. Estos modelos pueden ayudarle a resolver, por ejemplo, problemas de clasificación de documentos o de análisis de opinión.
+Puede usar Azure Machine Learning Studio (clásico) para generar y aplicar modelos de análisis de texto. Estos modelos pueden ayudarle a resolver, por ejemplo, problemas de clasificación de documentos o de análisis de opinión.
 
 En un experimento de análisis de texto, normalmente debería:
 
@@ -66,7 +66,7 @@ Como alternativa al uso del módulo de extracción de características de n-gram
 ## <a name="step-3-train-classification-or-regression-model"></a>Paso 3: Entrenar un modelo de clasificación o regresión
 El texto se ha transformado ya en columnas de características numéricas. El conjunto de datos todavía contiene columnas de cadenas de las fases anteriores, por lo que se utilizará la opción Select Columns in Dataset (Seleccionar columnas en el conjunto de datos) para excluirlas.
 
-A continuación, se utilizará la [regresión logística de dos clases](https://msdn.microsoft.com/library/azure/dn905994.aspx) para predecir el destino: puntuación de revisión alta o baja. En este punto, el problema de análisis de texto se ha convertido en un problema de clasificación normal. Puede utilizar las herramientas disponibles en Azure Machine Learning Studio para mejorar el modelo. Por ejemplo, puede experimentar con diferentes clasificadores para averiguar el grado de precisión de los resultados que proporcionan o usar el ajuste de hiperparámetros para mejorar la precisión.
+A continuación, se utilizará la [regresión logística de dos clases](https://msdn.microsoft.com/library/azure/dn905994.aspx) para predecir el destino: puntuación de revisión alta o baja. En este punto, el problema de análisis de texto se ha convertido en un problema de clasificación normal. Puede usar las herramientas disponibles en la versión clásica de Azure Machine Learning Studio para mejorar el modelo. Por ejemplo, puede experimentar con diferentes clasificadores para averiguar el grado de precisión de los resultados que proporcionan o usar el ajuste de hiperparámetros para mejorar la precisión.
 
 ![Entrenar y puntuar](./media/text-analytics-module-tutorial/scoring-text.png)
 

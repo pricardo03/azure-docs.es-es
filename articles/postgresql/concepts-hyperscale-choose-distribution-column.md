@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 0b29567dcd22c79c30e70594066f7ff87c18fdb0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: a61c52773c4c6036a76d7b233988c713c1da861f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947592"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482862"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Selección de las columnas de distribución en Azure Database for PostgreSQL: Hiperescala (Citus) (versión preliminar)
 
-Elegir la columna de distribución de cada tabla es una de las decisiones de modelado más importantes que se tiene que adoptar. Azure Database for PostgreSQL: Hiperescala (Citus) (versión preliminar) almacena filas en particiones de base de datos basándose en el valor de la columna de distribución de las filas.
+Elegir la columna de distribución de cada tabla es una de las decisiones de modelado más importantes que se tiene que adoptar. Hiperescala (Citus) de Azure Database for PostgreSQL almacena filas en particiones de base de datos basándose en el valor de la columna de distribución de las filas.
 
 La elección correcta agrupa los datos relacionados en los mismos nodos físicos, lo que agiliza las consultas y agrega compatibilidad con todas las características de SQL. Si elige de forma incorrecta, el sistema se ejecutará lentamente y no admitirá todas las características de SQL en los nodos.
 

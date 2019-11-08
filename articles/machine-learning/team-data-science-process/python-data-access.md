@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf0e679ab46752d71ba4f5ef2b014e0cb2b4c6ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e9daf1be1f931bb13cda446cbb9d6e37acce3bcf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593860"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498109"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Azure Machine Learning
 La versión preliminar de la biblioteca de cliente de Python de Microsoft Azure Machine Learning puede permitir un acceso seguro a los conjuntos de datos de Azure Machine Learning desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
@@ -27,8 +27,6 @@ Este tema proporciona instrucciones sobre cómo realizar las siguientes acciones
 * obtener acceso y cargar conjuntos de datos, con instrucciones sobre cómo obtener autorización para el acceso a conjuntos de datos de Azure Machine Learning desde el entorno local de Python;
 * obtener acceso a los conjuntos de datos intermedios de experimentos;
 * usar la biblioteca de cliente de Python para enumerar conjuntos de datos, obtener acceso a los metadatos, leer el contenido de un conjunto de datos, crear nuevos conjuntos de datos y actualizar conjuntos de datos existentes.
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 La biblioteca de cliente de Python se ha probado en los siguientes entornos:
@@ -66,7 +64,7 @@ Desde la interfaz de web del Estudio, puede generar fragmentos de código que in
 ### <a name="security"></a>Seguridad de acceso a datos
 Los fragmentos de código proporcionados por el Estudio para su uso con la biblioteca de cliente de Python incluyen el identificador de área de trabajo y el token de autorización. Estos proporcionan acceso completo a su área de trabajo y se deben proteger, como una contraseña.
 
-Por motivos de seguridad, la funcionalidad de fragmento de código solo está disponible para los usuarios que tengan su rol definido como **Propietario** para el área de trabajo. Su rol se muestra en la página **USUARIOS** de Azure Machine Learning Studio, en **Configuración**.
+Por motivos de seguridad, la funcionalidad de fragmento de código solo está disponible para los usuarios que tengan su rol definido como **Propietario** para el área de trabajo. Su rol se muestra en la página **USUARIOS** de Azure Machine Learning Studio (clásico), en **Configuración**.
 
 ![Seguridad][security]
 
@@ -125,7 +123,7 @@ Los pasos siguientes muestran un ejemplo que crea un experimento, lo ejecuta y t
 1. Cree un experimento nuevo.
 2. Inserte un módulo **Conjunto de datos de clasificación binaria de ingresos en el censo de adultos** .
 3. Inserte un módulo [División][split] y conecte su entrada a la salida del módulo del conjunto de datos.
-4. Inserte un módulo [Convertir a CSV][convert-to-csv] y conecte su entrada a una de las salidas del módulo [División][split].
+4. Inserte un módulo [Convertir en CSV][convert-to-csv] y conecte su entrada a una de las salidas del módulo [División][split].
 5. Guarde el experimento, ejecútelo y espere a que finalice su ejecución.
 6. Haga clic en el nodo de salida del módulo [Convertir en CSV][convert-to-csv].
 7. Cuando aparezca el menú contextual, seleccione **Generar código de acceso a datos**.
@@ -193,7 +191,7 @@ Los demás son valores asignados por el Aprendizaje automático de Azure:
 Vea la clase `SourceDataset` para obtener más información sobre los metadatos disponibles.
 
 ### <a name="read-contents"></a>Leer contenido
-Los fragmentos de código que proporciona Machine Learning Studio descargan y deserializan automáticamente el conjunto de datos a un objeto pandas DataFrame. Esto se hace en el método `to_dataframe` :
+Los fragmentos de código que proporciona Machine Learning Studio (clásico) descargan y deserializan automáticamente el conjunto de datos a un objeto DataFrame de Pandas. Esto se hace en el método `to_dataframe` :
 
     frame = ds.to_dataframe()
 

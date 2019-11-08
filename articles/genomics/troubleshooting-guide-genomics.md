@@ -1,7 +1,7 @@
 ---
 title: Guía de solución de problemas
 titleSuffix: Microsoft Genomics
-description: Obtenga información sobre las estrategias de solución de problemas para usar Microsoft Genomics.
+description: Obtenga información sobre las estrategias de solución de problemas para usar Microsoft Genomics, incluidos los mensajes de error y cómo resolverlos.
 keywords: solución de problemas, error, depuración
 services: genomics
 author: ruchir
@@ -11,12 +11,12 @@ ms.service: genomics
 ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: ce8af4d444e642a8f67f43f8cf403ce9b2cb08ab
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: f6ef56e4188a7541036db096e4ab35a1b95fc141
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248514"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486000"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 

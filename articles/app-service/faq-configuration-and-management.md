@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 68d0f693d0cc7d8db8e6f697ff8907400a7aca50
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 111ee6cda46677b3b0fc39f5a84268e6ac192da9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121329"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470533"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -43,12 +43,12 @@ Para saber cómo comprar y configurar un dominio personalizado para su aplicaci�
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>¿Cómo se carga y configura un certificado SSL existente para una aplicación web?
 
-Para saber cómo cargar y configurar un certificado SSL personalizado existente, consulte [Enlazar un certificado SSL personalizado a Azure Web Apps](app-service-web-tutorial-custom-ssl.md#upload).
+Para obtener información sobre cómo cargar y configurar un certificado SSL personalizado, consulte [Incorporación de un certificado SSL a la aplicación App Service](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>¿Cómo se compra y configura un nuevo certificado SSL en Azure para una aplicación web?
 
-Para saber cómo comprar y configurar un certificado SSL para la aplicación web de App Service, consulte [Adición de un certificado SSL a la aplicación de App Service](web-sites-purchase-ssl-web-site.md).
+Para saber cómo comprar y configurar un certificado SSL para la aplicación web de App Service, consulte [Adición de un certificado SSL a la aplicación de App Service](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>¿Cómo se mueven los recursos de Application Insights?

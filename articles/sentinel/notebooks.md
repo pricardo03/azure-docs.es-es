@@ -14,80 +14,130 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5b90ecc1db686b698668b07bd839304b425445ca
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: ba22cc3db0ca50a292ddef4d0d646f8578c15cd4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240525"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489136"
 ---
-# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Uso de cuadernos de Jupyter Notebook para buscar amenazas de seguridad
+# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Uso de cuadernos de Jupyter para buscar amenazas de seguridad
 
-La base de Azure Sentinel es el almacén de datos; combina consultas de alto rendimiento y esquemas dinámicos, y tiene capacidad para escalar a volúmenes de datos masivos. El portal de Azure Sentinel y todas las herramientas de Azure Sentinel emplean una API común para acceder a este almacén de datos. Esta misma API está disponible también para herramientas externas, como los cuadernos de [Jupyter](https://jupyter.org/) y Python. Mientras que muchas tareas comunes pueden llevarse a cabo en el portal, Jupyter amplía las posibilidades de lo que se puede hacer con estos datos. Combina una programación completa con una vasta colección de bibliotecas pensadas para el análisis de datos, la visualización y Machine Learning. Estas características hacen que Jupyter sea una herramienta fascinante para la búsqueda e investigación relacionadas con cuestiones de seguridad.
+La base de Azure Sentinel es el almacén de datos; combina consultas de alto rendimiento y esquemas dinámicos, y tiene capacidad para escalar a volúmenes de datos masivos. Azure Portal y todas las herramientas de Azure Sentinel emplean una API común para acceder a este almacén de datos. Esta misma API está disponible también para herramientas externas, como los cuadernos de [Jupyter](https://jupyter.org/) y Python. Mientras que muchas tareas comunes pueden llevarse a cabo en el portal, Jupyter amplía las posibilidades de lo que se puede hacer con estos datos. Combina una programación completa con una vasta colección de bibliotecas pensadas para el análisis de datos, la visualización y Machine Learning. Estas características hacen que Jupyter sea una herramienta fascinante para la búsqueda e investigación relacionadas con cuestiones de seguridad.
 
 ![Cuaderno de ejemplo](./media/notebooks/sentinel-notebooks-map.png)
 
-Hemos integrado la experiencia de Jupyter en el portal de Azure Sentinel, lo que facilita el proceso para crear y ejecutar cuadernos para analizar los datos. La biblioteca *Kqlmagic* actúa como el elemento aglutinador que permite realizar consultas desde Azure Sentinel y ejecutarlas directamente en un cuaderno. En las consultas se usa el [lenguaje de consulta Kusto](https://kusto.azurewebsites.net/docs/query/index.html). Azure Sentinel viene con varios cuadernos, desarrollados por algunos de los analistas de seguridad de Microsoft. Algunos de estos cuadernos se crean para escenarios concretos y se pueden usar tal cual; otros se incluyen como ejemplos para ilustrar las técnicas y características que se pueden copiar o adaptar para usarlas en sus propios cuadernos, y otros se pueden importar desde la comunidad GitHub de Azure Sentinel.
+Hemos integrado la experiencia de Jupyter en Azure Portal, lo que facilita el proceso para crear y ejecutar cuadernos para analizar los datos. La biblioteca *Kqlmagic* actúa como el elemento aglutinador que permite realizar consultas desde Azure Sentinel y ejecutarlas directamente en un cuaderno. En las consultas se usa el [lenguaje de consulta Kusto](https://kusto.azurewebsites.net/docs/query/index.html). Azure Sentinel viene con varios cuadernos, desarrollados por algunos de los analistas de seguridad de Microsoft. Algunos de estos cuadernos se crean para escenarios concretos y se pueden usar tal cual; otros se incluyen como ejemplos para ilustrar las técnicas y características que se pueden copiar o adaptar para usarlas en sus propios cuadernos, y otros se pueden importar desde la comunidad GitHub de Azure Sentinel.
 
-La experiencia de Jupyter integrada usa [Azure Notebooks](https://notebooks.azure.com/) para almacenar, compartir y ejecutar cuadernos. Estos cuadernos también se pueden ejecutar localmente (si tiene Jupyter y un entorno de Python en el equipo), o en otros entornos de JupyterHub como Azure Databricks.
+La experiencia de Jupyter integrada usa [Azure Notebooks](https://notebooks.azure.com/) para almacenar, compartir y ejecutar cuadernos. Estos cuadernos también se pueden ejecutar localmente si tiene Jupyter y un entorno de Python en el equipo o en otros entornos de JupyterHub como Azure Databricks.
 
 Los cuadernos constan de dos componentes:
 
 - La interfaz basada en explorador donde se escriben y ejecutan las consultas y el código, y donde se muestran los resultados de la ejecución.
 - Un *kernel*, responsable de analizar y ejecutar el código en sí. 
 
-En Azure Notebooks, este kernel se ejecuta de forma predeterminada en la *informática en la nube y almacenamiento gratuitos* de Azure. Si los cuadernos incluyen visualizaciones o modelos de Machine Learning complejos, conviene considerar la posibilidad de usar recursos de proceso dedicados más eficaces, como [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (DSVM). Los cuadernos de su cuenta son privados, a menos que prefiera compartirlos.
+En Azure Notebooks, de forma predeterminada, este kernel se ejecuta en el *almacenamiento y la informática en la nube gratuitos* de Azure. Si los cuadernos incluyen visualizaciones o modelos de Machine Learning complejos, conviene considerar la posibilidad de usar recursos de proceso dedicados más eficaces, como [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (DSVM). Los cuadernos de su cuenta son privados, a menos que prefiera compartirlos.
 
 Los cuadernos de Azure Sentinel usan muchas bibliotecas de Python conocidas, como pandas, matplotlib y bokeh, entre otras. Existen otros muchos paquetes de Python que se pueden elegir, que cubren áreas como las siguientes:
 
 - Visualizaciones y gráficos
 - Procesamiento de datos y análisis
 - Estadísticas y computación numérica
-- Machine Learning y aprendizaje profundo
+- Aprendizaje automático y aprendizaje profundo
 
 También hemos lanzado una serie de herramientas de seguridad de Jupyter de código abierto en un paquete denominado [msticpy](https://github.com/Microsoft/msticpy/). Este paquete se usa en muchos de los cuadernos incluidos en el producto. Las herramientas de Msticpy están diseñadas expresamente para ayudar a crear cuadernos que se puedan usar en búsquedas e investigaciones, y estamos trabajando activamente en nuevas características y mejoras.
 
 Estos son los cuadernos que se incluyen inicialmente:
 
 - **Investigación guiada - Procesar alertas**: permite evaluar alertas rápidamente analizando la actividad en los hosts afectados.
-- **Búsqueda guiada - Explorador de host de Windows**: permite explorar la actividad de la cuenta, las ejecuciones de procesos, la actividad de la red y otros eventos de un host.  
-- **Búsqueda guiada - Exploración de Office 365**: busca las actividades sospechosas de Office 365 en varios conjuntos de datos de Office 365.
+- **Búsqueda guiada - Explorador de host de Windows**: permite explorar la actividad de la cuenta, las ejecuciones de procesos, la actividad de la red y otros eventos de un host.
+- **Búsqueda guiada - Exploración de Office 365**: busca las actividades sospechosas de Office 365 en varios conjuntos de datos de Office 365.
 
 El [repositorio de la comunidad GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel) es la ubicación de los futuros cuadernos de Azure Sentinel creados por Microsoft o procedentes de contribuciones de la comunidad.
 
-## <a name="run-a-notebook"></a>Ejecutar un cuaderno
+Para usar los cuadernos, debe tener una cuenta de Azure Notebooks. Para más información, consulte [Inicio rápido: Inicie sesión y establezca un identificador de usuario](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) en la documentación de Azure Notebooks. Para crear esta cuenta, puede usar la opción **Sign up for Azure Notebooks** (Registrarse en Azure Notebooks) de la barra de comandos de **Azure Sentinel - Notebooks** (Cuadernos):
 
-En el siguiente ejemplo, crearemos un proyecto de Azure Notebooks desde el portal de Azure Sentinel e incluiremos en él algunos cuadernos. Antes de usar estos cuadernos, es aconsejable hacer una copia de estos y trabajar en ellas. Trabajar en la copia permite actualizar sin riesgos a versiones futuras de los cuadernos, sin sobrescribir ningún dato.
+> [!div class="mx-imgBorder"]
+>![Opción Registrarse en Azure Notebooks](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
 
-1. En el portal de Azure Sentinel, haga clic en **Notebooks** (Cuadernos) en el menú de navegación. Para crear un proyecto de Azure Notebooks, haga clic en **Clone Azure Sentinel Notebooks** (Clonar cuadernos de Azure Sentinel) o, para abrir un proyecto de cuaderno existente, haga clic en **Go to your Notebooks** (Ir a sus cuadernos).
+## <a name="view-available-notebooks-from-azure-sentinel"></a>Visualización de cuadernos disponibles de Azure Sentinel
+ 
+1. En Azure Portal, vaya a **Azure Sentinel** > **Threat management (Administración de amenazas)**  > **Notebooks** (Cuadernos), donde puede ver los cuadernos que proporciona Azure Sentinel. 
+
+2. Seleccione cuadernos individuales para leer sus descripciones, los tipos de datos necesarios y los orígenes de datos. Por ejemplo:
+    
+    > [!div class="mx-imgBorder"]
+    > ![iniciar cuaderno](./media/notebooks/sentinel-azure-notebooks-nolaunch.png)
+
+3. Seleccione **Launch Notebook** (Iniciar cuaderno) para examinar los cuadernos en el [repositorio de GitHub de la comunidad de Azure Sentinel](https://github.com/Azure/Azure-Sentinel).
+
+Actualmente, no se puede iniciar un cuaderno directamente desde Azure Sentinel. En su lugar, use el procedimiento siguiente que le guiará a través de la clonación de los cuadernos en GitHub en un proyecto de Azure Notebooks.
+
+## <a name="clone-azure-sentinel-notebooks-to-a-new-azure-notebooks-project"></a>Clonación de cuadernos de Azure Sentinel en un nuevo proyecto de Azure Notebooks
+
+Este procedimiento crea un proyecto de Azure Notebooks que contiene los cuadernos de Azure Sentinel. Después, puede ejecutar los cuadernos tal cual, o realizar cambios en ellos y luego ejecutarlos.
+
+1. En Azure Portal, vaya a **Azure Sentinel** > **Threat management (Administración de amenazas)**  > **Notebooks** (Cuadernos) y seleccione **Clone Notebooks** (Clonar cuadernos) en la barra de comandos:
   
-   ![Seleccionar cuadernos](./media/notebooks/sentinel-azure-notebooks-home.png)
+    > [!div class="mx-imgBorder"]
+    >![Opción Clonar cuadernos](./media/notebooks/sentinel-azure-clone-notebooks.png)
 
-2. Si eligió **Clone Azure Sentinel Notebooks** (Clonar cuadernos de Azure Sentinel) en el paso anterior, se abrirá el siguiente cuadro de diálogo. Haga clic en **Import** (Importar) para clonar el repositorio de GitHub en el proyecto de Azure Notebooks. Si no tiene una cuenta de Azure Notebooks existente, se le pedirá que cree una e inicie sesión en ella.
+2. Cuando aparezca el siguiente cuadro de diálogo, seleccione **Import** (Importar) para clonar el repositorio de GitHub en el proyecto de Azure Notebooks. Si no tiene una cuenta de Azure Notebooks existente, se le pedirá que cree una e inicie sesión en ella.
 
    ![Importar cuaderno](./media/notebooks/sentinel-notebooks-clone.png)
 
-3. Al crear un proyecto, deberá darle un nombre; use el nombre predeterminado o indique uno nuevo. No seleccione la opción **Clone Recursively** (Clonar de forma recursiva), ya que está relacionada con repositorios de GitHub vinculados. Al hacer clic en **Import** (Importar), el contenido de GitHub empieza a clonarse, lo que puede tardar unos minutos en finalizar.
+3. En el cuadro de diálogo **Upload GitHub Repository**, no seleccione **Clone recursively** (Clonar de forma recursiva) porque esta opción hace referencia a repositorios de GitHub vinculados. Para el nombre del proyecto, use el nombre predeterminado o escriba uno nuevo. Después, haga clic en **Import** (Importar) para iniciar la clonación del contenido de GitHub, lo que puede tardar unos minutos en finalizar.
 
    ![Importar cuaderno](./media/notebooks/sentinel-create-project.png)
 
-4. Abra la carpeta **Notebooks** (Cuadernos) para ver los cuadernos. En cada cuaderno se le guiará por el proceso para llevar a cabo una búsqueda o una investigación. Las bibliotecas y otras dependencias necesarias para el cuaderno se pueden instalar desde el propio cuaderno o a través de un sencillo procedimiento de configuración. La configuración que vincula el proyecto del cuaderno con su suscripción de Azure Sentinel se aprovisiona automáticamente en los pasos anteriores. Los cuadernos están listos para ejecutarse en el área de trabajo de Log Analytics de Azure Sentinel.
+4. Abra el proyecto que acaba de crear y abra la carpeta **Notebooks** (Cuadernos) para ver los cuadernos. Por ejemplo:
 
    ![Importar repositorio](./media/notebooks/sentinel-open-notebook1.png)
 
-5. Abra un cuaderno. La opción Free Compute (Proceso gratis), aquí resaltada, está seleccionada de forma predeterminada para ejecutar los cuadernos. Si ha configurado una instancia de DSVM para usarla (vea arriba), selecciónela y autentíquese antes de abrir el primer cuaderno. Haga clic en un cuaderno para abrirlo.
+A continuación, puede ejecutar los cuadernos desde Azure Notebooks. Para volver a estos cuadernos desde Azure Sentinel, seleccione **Go to your Notebooks** (Ir a sus cuadernos) en la barra de comandos de **Azure Sentinel - Notebooks** (Cuadernos):
 
+> [!div class="mx-imgBorder"]
+>![Opción Ir a sus cuadernos](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+
+
+## <a name="using-notebooks-to-hunt"></a>Uso de cuadernos para la búsqueda
+
+En cada cuaderno se le guiará por el proceso para llevar a cabo una búsqueda o una investigación. Las bibliotecas y otras dependencias necesarias para el cuaderno se pueden instalar desde el propio cuaderno o a través de un sencillo procedimiento de configuración. La configuración que vincula el proyecto del cuaderno con su suscripción de Azure Sentinel se aprovisiona automáticamente en los pasos anteriores.
+
+1. Si ya no está en Azure Notebooks, puede usar la opción **Go to your Notebooks** (Ir a sus cuadernos) de la barra de comandos de **Azure Sentinel - Notebooks** (Cuadernos):
+    
+    > [!div class="mx-imgBorder"]
+    >![Opción Ir a sus cuadernos](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+    
+    En Azure Notebooks, seleccione **My Projects** (Mis proyectos), después el proyecto que contiene los cuadernos de Azure Sentinel y, por último, la carpeta **Notebooks** (Cuadernos).
+    
+2. Antes de abrir un cuaderno, tenga en cuenta que, de forma predeterminada, se selecciona Free Compute (Proceso libre) para ejecutar los cuadernos:
+    
    ![Seleccionar cuaderno](./media/notebooks/sentinel-open-notebook2.png)
+    
+    Si ha configurado instancias de Data Science Virtual Machine (DSVM) para usarlas como se explica en la introducción, seleccione la instancia de DSVM y realice la autenticación antes de abrir el primer cuaderno. 
 
-6. Seleccione la versión de Python. Cuando abra un cuaderno por primera vez, puede que se le pida que seleccione una versión de kernel. Si no es así, seleccione el kernel como se indica aquí. Python 3.6 o posterior debe ser el kernel seleccionado (en la parte superior derecha de la ventana del cuaderno).
-
+3. Seleccione un cuaderno para abrirlo.
+    
+    La primera vez que abra un cuaderno, es posible que se le pida que seleccione una versión del kernel. Si no se le solicita, puede seleccionar la versión de kernel en **Kernel** >  **Change kernel** (Cambiar kernel) y luego seleccionar una versión no inferior a la 3.6. La versión de kernel seleccionada se muestra en la parte superior derecha de la ventana del cuaderno:
+    
    ![Seleccionar cuaderno](./media/notebooks/sentinel-select-kernel.png)
 
-Para obtener una introducción rápida sobre cómo consultar datos en Azure Sentinel, eche un vistazo al cuaderno [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) en la carpeta principal Notebooks (Cuadernos). En la subcarpeta **Sample-Notebooks** (Cuadernos de ejemplo) hay más cuadernos de ejemplo. Los cuadernos de ejemplo se han guardado con datos, así será más fácil ver los resultados previstos (se recomienda verlos en la aplicación [nbviewer](https://nbviewer.jupyter.org/)). La carpeta **HowTos** (Procedimientos) contiene cuadernos que describen tareas como, entre otras muchas, configurar la versión de Python predeterminada, configurar una instancia de DSVM o crear marcadores de Azure Sentinel desde un cuaderno.
+4. Antes de realizar cambios en el cuaderno que ha descargado, es aconsejable realizar una copia del cuaderno original y trabajar en la copia. Para ello, seleccione **Archivo** > **Crear una copia**. Trabajar en la copia permite actualizar sin riesgos a versiones futuras de los cuadernos, sin sobrescribir ningún dato.
+    
+    Ahora está listo para ejecutar o editar el cuaderno seleccionado.
 
-Estos cuadernos están diseñados como herramientas útiles, pero también como ilustraciones y códigos de ejemplo que los usuarios pueden utilizar para desarrollar sus propios cuadernos.
+Recomendaciones:
+
+- Para una introducción rápida sobre cómo consultar datos en Azure Sentinel, eche un vistazo al cuaderno [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) en la carpeta principal **Notebooks** (Cuadernos). 
+
+- Encontrará más cuadernos de ejemplo en la subcarpeta **Sample-Notebooks** (Cuadernos de ejemplo). Los cuadernos de ejemplo se han guardado con datos, así será más fácil ver los resultados previstos. Se recomienda ver estos cuadernos en [nbviewer](https://nbviewer.jupyter.org/). 
+
+- La carpeta **HowTos** (Procedimientos) contiene cuadernos que describen tareas como, entre otras muchas, configurar la versión de Python predeterminada, configurar una instancia de DSVM o crear marcadores de Azure Sentinel desde un cuaderno.
+
+Estos cuadernos proporcionados están diseñados como herramientas útiles, pero también como ilustraciones y códigos de ejemplo que los usuarios pueden utilizar para desarrollar sus propios cuadernos.
 
 Agradecemos cualquier comentario, sean sugerencias, peticiones de características, contribuciones de cuadernos, informes de errores o mejoras y adiciones a cuadernos ya existentes. Vaya a la [comunidad GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel) para abrir una incidencia, crear una bifurcación y cargar una contribución.
 

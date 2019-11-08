@@ -1,5 +1,5 @@
 ---
-title: Visualización de datos de Interactive Query Hive con Power BI en Azure HDInsight
+title: Visualización de datos de Interactive Query Hive con Power BI en Azure HDInsight
 description: Uso de Microsoft Power BI para visualizar datos de Interactive Query Hive desde Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 0f273f75c33362bc99efbd7ac6bc46c3778ae88b
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ea63b0784c0f8680e544179dfcd927f59336b3ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123014"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467134"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Visualización de datos de Interactive Query Apache Hive con Microsoft Power BI mediante consulta directa en HDInsight
 

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: ff50619d7b3d5bc803e8ee8d9e4cbf4389a4191f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: bd65fcf6ebff931fbb408ca8337a37d355221dfe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978083"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480256"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -131,9 +131,16 @@ Dado que una directiva o iniciativa se puede asignar a distintos ámbitos, la ta
 La lista de recursos de la pestaña **Compatibilidad de recursos** muestra el estado de evaluación de los recursos existentes para la asignación actual. El valor predeterminado de la pestaña es **No compatible**, pero se puede filtrar.
 Los eventos (anexar, auditar, denegar, implementar) que desencadena la solicitud para crear un recurso se muestran en la pestaña **Eventos**.
 
+> [!NOTE]
+> En el caso de una directiva del motor de AKS, el recurso que se muestra es el grupo de recursos.
+
 ![Ejemplo de eventos de cumplimiento de Azure Policy](../media/getting-compliance-data/compliance-events.png)
 
-Haga clic con el botón derecho en la fila del evento sobre el que quiere recopilar información más detallada y seleccione **Mostrar los registros de actividad**. Se abre la página de registro de actividad y se filtra previamente para mostrar detalles de la asignación y los eventos. El registro de actividad proporciona contexto e información adicionales sobre esos eventos.
+Para los recursos del [modo de proveedor de recursos](../concepts/definition-structure.md#resource-provider-modes), en la pestaña **Resource compliance** (Compatibilidad de recursos), si selecciona el recurso o hace clic con el botón derecho en la fila y selecciona **View compliance details** (Ver detalles de cumplimiento), se abren los detalles de cumplimiento de componentes. Esta página también ofrece pestañas para ver las directivas que se asignan a este recurso, eventos, eventos de componentes e historial de cambios.
+
+![Ejemplo de los detalles de cumplimiento del componente de Azure Policy](../media/getting-compliance-data/compliance-components.png)
+
+De vuelta a la página de cumplimiento de recursos, haga clic con el botón derecho en la fila del evento sobre el que quiere recopilar información más detallada y seleccione **Show activity logs** (Mostrar los registros de actividad). Se abre la página de registro de actividad y se filtra previamente para mostrar detalles de la asignación y los eventos. El registro de actividad proporciona contexto e información adicionales sobre esos eventos.
 
 ![Ejemplo de registro de actividad de cumplimiento de Azure Policy](../media/getting-compliance-data/compliance-activitylog.png)
 
@@ -145,32 +152,10 @@ Cuando se determina que un recurso no es **compatible**, hay muchas razones posi
 
 ## <a name="command-line"></a>Línea de comandos
 
-La misma información que está disponible en el portal se puede recuperar mediante la API REST (incluso con [ARMClient](https://github.com/projectkudu/ARMClient)) o Azure PowerShell. Para detalles completos sobre la API REST, consulte la referencia de [Azure Policy Insights](/rest/api/policy-insights/). Las páginas de referencia de la API de REST tienen un botón verde en cada operación para realizar una prueba en el explorador.
+La misma información que está disponible en el portal se puede recuperar mediante la API REST (incluso con [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell y la CLI de Azure (versión preliminar).
+Para detalles completos sobre la API REST, consulte la referencia de [Azure Policy Insights](/rest/api/policy-insights/). Las páginas de referencia de la API de REST tienen un botón verde en cada operación para realizar una prueba en el explorador.
 
-Para usar los siguientes ejemplos en Azure PowerShell, cree un token de autenticación con este código de ejemplo. A continuación, reemplace el $restUri por la cadena en los ejemplos para recuperar un objeto JSON que, a continuación, se puede analizar.
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-
-$azContext = Get-AzContext
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token.AccessToken
-}
-
-# Define the REST API to communicate with
-# Use double quotes for $restUri as some endpoints take strings passed in single quotes
-$restUri = "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04"
-
-# Invoke the REST API
-$response = Invoke-RestMethod -Uri $restUri -Method POST -Headers $authHeader
-
-# View the response object (as JSON)
-$response
-```
+Use ARMClient o una herramienta similar para tratar la autenticación en Azure para los ejemplos de la API REST.
 
 ### <a name="summarize-results"></a>Resumen de resultados
 

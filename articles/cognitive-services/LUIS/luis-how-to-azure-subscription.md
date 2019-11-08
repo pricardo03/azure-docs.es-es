@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1fb57a7c6cc694c56667d589eae39442ee9e82ac
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 957b12ad00f53a5aed7ff2a1ecd4afd21e58eb93
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984378"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467454"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Uso de las claves de recursos de creación y de tiempo de ejecución
 
 Los recursos de creación y de tiempo de ejecución proporcionan autenticación a la aplicación LUIS y al punto de conexión de predicción.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
@@ -28,7 +30,7 @@ Los recursos de creación y de tiempo de ejecución proporcionan autenticación 
 Al iniciar sesión en el portal de LUIS, puede continuar usando:
 
 * una [clave de evaluación](#trial-key) gratuita que proporciona la creación y algunas consultas de puntos de conexión de predicción.
-* un nuevo recurso de creación de LUIS de Azure para crear un nuevo recurso. Esto no es lo mismo que un recurso de punto de conexión de predicción. 
+* un recurso de [creación de LUIS](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) de Azure. 
 
 
 <a name="starter-key"></a>
@@ -52,10 +54,7 @@ Cuando esté listo para publicar el punto de conexión de predicción, cree y as
 
 ## <a name="create-resources-in-the-azure-portal"></a>Creación de recursos en Azure Portal
 
-1. Inicie sesión en el [Azure Portal](https://azure.microsoft.com/free/). 
-1. Seleccione **+ Crear un recurso**.
-1. En el cuadro de búsqueda, escriba `Language understanding`.
-1. Seleccione **Crear** para iniciar el proceso de creación. 
+1. Use [este vínculo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) para abrir Azure Portal y crear recursos.
 1. Seleccione **Ambos** para crear una clave de tiempo de ejecución de punto de conexión de predicción y de creación. 
 1. Escriba la información necesaria para crear el recurso y seleccione **Crear** para finalizar el proceso.
 

@@ -1,20 +1,18 @@
 ---
 title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 96c346db74c1e6c43c3501b657621d09e019309c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596872"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469205"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referencia de host.json para Azure Functions 2.x  
 
@@ -73,6 +71,9 @@ El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opcion
             }
         }
     },
+    "managedDependency": {
+        "enabled": true
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -80,10 +81,7 @@ El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opcion
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ],
-    "managedDependency": {
-        "enabled": true
-    }
+    "watchDirectories": [ "Shared", "Test" ]
 }
 ```
 
@@ -150,9 +148,7 @@ Lista de las funciones que el host de trabajo ejecuta. Una matriz vacía signifi
 ## <a name="functiontimeout"></a>functionTimeout
 
 Indica la duración del tiempo de espera para todas las funciones. Sigue el formato de cadena TimeSpan. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos.  
-En un plan dedicado (App Service), no hay límite total y el valor predeterminado depende de la versión del entorno de ejecución: 
-+ En la versión 1.x, el valor predeterminado es *null*, lo que indica que no hay tiempo de espera.   
-+ En la versión 2.x, el tiempo de espera predeterminado es de 30 minutos. Un valor de `-1` indica una ejecución sin enlazar.
+En un plan de App Service dedicado, no hay ningún límite general y el valor predeterminado es 30 minutos. Un valor de `-1` indica una ejecución sin enlazar.
 
 ```json
 {
@@ -251,6 +247,18 @@ Esta configuración es un elemento secundario de [logging](#logging). Controla e
 |---------|---------|---------| 
 |isEnabled|false|Habilita o deshabilita el registro de la consola.| 
 
+## <a name="manageddependency"></a>managedDependency
+
+La dependencia administrada es una característica en versión preliminar que actualmente solo se admite con funciones basadas en PowerShell. Permite que el servicio administre de forma automática las dependencias. Cuando la propiedad `enabled` está establecida en `true`, se procesa el archivo `requirements.psd1`. Las dependencias se actualizarán cuando se publique alguna versión secundaria. Para obtener más información, lea [Dependencia administrada](functions-reference-powershell.md#dependency-management) en el artículo de PowerShell.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
+}
+```
+
 ## <a name="queues"></a>queues
 
 Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces de la cola de Storage](functions-bindings-storage-queue.md#host-json).  
@@ -298,18 +306,6 @@ Conjunto de [directorios de código compartido](functions-reference-csharp.md#wa
 ```json
 {
     "watchDirectories": [ "Shared" ]
-}
-```
-
-## <a name="manageddependency"></a>managedDependency
-
-La dependencia administrada es una característica en vista previa que actualmente solo se admite con funciones basadas en PowerShell. Permite que el servicio administre de forma automática las dependencias. Cuando se establezca en true la propiedad enabled, se procesará el archivo [requirements.psd1](functions-reference-powershell.md#dependency-management). Las dependencias se actualizarán cuando se publique alguna versión secundaria.
-
-```json
-{
-    "managedDependency": {
-        "enabled": true
-    }
 }
 ```
 

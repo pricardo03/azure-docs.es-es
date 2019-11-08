@@ -7,91 +7,45 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: c1b372dbeaea31e83c8ff42a84fc39d762b2ebdb
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8a78c854e9c842915700d4a20c1a57e4f1594a2e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212266"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472461"
 ---
-# <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Versión preliminar: Creación y administración de grupos de varios nodos para un clúster de Azure Kubernetes Service (AKS).
+# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
 En Azure Kubernetes Service, los nodos de la misma configuración se agrupan en *grupos de nodos*. Estos grupos de nodos contienen las máquinas virtuales subyacentes que ejecutan las aplicaciones. El número de nodos y su tamaño (SKU) inicial se definen al crear un clúster de AKS, lo cual crea un *grupo de nodos predeterminado*. Para admitir aplicaciones con diferentes necesidades de proceso o almacenamiento, puede crear grupos de nodos adicionales. Por ejemplo, puede usar estos grupos de nodos adicionales para proporcionar GPU para aplicaciones de proceso intensivo o acceso a almacenamiento SSD de alto rendimiento.
 
 > [!NOTE]
 > Esta característica le permite obtener un mayor control sobre cómo crear y administrar varios grupos de nodos. Como resultado, se requieren comandos separados para crear, actualizar y eliminar elementos. Anteriormente, las operaciones de clúster a través de `az aks create` o `az aks update` usaban la API managedCluster y eran la única opción para cambiar el plano de control y un grupo de nodo único. Esta característica expone un conjunto de operaciones independiente para los grupos de agentes a través de la API agentPool y requiere el uso del conjunto de comandos `az aks nodepool` para ejecutar operaciones en un grupo de nodos individual.
 
-Este artículo le muestra cómo crear y administrar grupos de varios nodos en un clúster de AKS. Esta funcionalidad actualmente está en su versión preliminar.
-
-> [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para obtener información adicional, consulte los siguientes artículos de soporte:
->
-> * [Directivas de soporte técnico para AKS][aks-support-policies]
-> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
+Este artículo le muestra cómo crear y administrar grupos de varios nodos en un clúster de AKS.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
-
-### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
-
-Para usar grupos de varios nodos, necesitará la versión 0.4.16 de la extensión de la CLI *aks-preview* o una posterior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### <a name="register-multiple-node-pool-feature-provider"></a>Registro del proveedor de características de grupos de varios nodos
-
-Para crear un clúster de AKS que pueda usar grupos de varios nodos, primero hay que habilitar una marca de características en la suscripción. Para registrar la marca de característica *MultiAgentpoolPreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
-
-> [!CAUTION]
-> Actualmente, al registrar una característica en una suscripción, no se puede anular el registro de esa característica. Después de habilitar algunas características en vista previa, se pueden usar los valores predeterminados en todos los clústeres de AKS y, luego, se pueden crear en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
-
-```azurecli-interactive
-az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
-```
-
-> [!NOTE]
-> Todos los clústeres de AKS que cree una vez que haya registrado satisfactoriamente la marca de característica *MultiAgentpoolPreview* usarán la versión preliminar de esta experiencia de clúster. Para seguir creando clústeres normales, totalmente compatibles, no habilite características en versión preliminar en las suscripciones de producción. Utilice una suscripción independiente de prueba o de desarrollo de Azure para probar características en versión preliminar.
-
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
-```
-
-Cuando todo esté listo, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de Azure, o cualquier otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="limitations"></a>Limitaciones
 
 Se aplican las siguientes limitaciones cuando crea y administra clústeres de AKS que admiten varios grupos de nodos:
 
-* Los grupos de varios nodos solo están disponibles para los clústeres creados después de registrar correctamente la característica *MultiAgentpoolPreview* en la suscripción. No se pueden agregar ni administrar grupos de nodos con un clúster de AKS existente creado antes de que esta característica se registrara satisfactoriamente.
 * No puede eliminar el primer grupo de nodos.
 * El complemento de enrutamiento de aplicación HTTP no se puede utilizar.
 * No pueden agregar ni eliminar grupos de nodos mediante una plantilla de Resource Manager como sucede con la mayoría de las operaciones. En su lugar, [use una plantilla de Resource Manager independiente](#manage-node-pools-using-a-resource-manager-template) para realizar cambios en los grupos de nodos de un clúster de AKS.
 * El nombre de un grupo de nodos debe empezar con una letra minúscula y solo puede contener caracteres alfanuméricos. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. Para los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
-
-Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
-
 * El clúster de AKS puede tener un máximo de ocho grupos de nodos.
 * El clúster de AKS puede tener un máximo de 400 nodos distribuidos entre esos ocho grupos de nodos.
 * Todos los grupos de nodos deben residir en la misma subred.
+* El clúster de AKS debe usar conjuntos de escalado de máquinas virtuales para los nodos.
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
 Para empezar, cree un clúster de AKS con un grupo de nodo único. El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *eastus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create]. Se emplea la línea de código *--kubernetes-version* con el valor *1.13.10* para mostrar cómo actualizar un grupo de nodos en un paso posterior. Puede especificar cualquier [versión admitida de Kubernetes][supported-versions].
 
-Se recomienda usar el equilibrador de carga de SKU estándar al utilizar varios grupos de nodos. Lea [este documento](load-balancer-standard.md) para más información sobre el uso de equilibradores de carga estándar con AKS.
+> [!NOTE]
+> No se admite la SKU *Básico* del equilibrador de carga cuando se usan varios grupos de nodos. De forma predeterminada, los clústeres de AKS se crean con la SKU *Estándar* del equilibrador de carga.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -244,20 +198,20 @@ Se recomienda que actualice todos los grupos de nodos de un clúster de AKS a la
 
 Un clúster de AKS tiene dos objetos de recursos de clúster con las versiones de Kubernetes asociadas. La primera es una versión de Kubernetes del plano de control. El segundo es un grupo de agentes con una versión de Kubernetes. Un plano de control se asigna a uno o varios grupos de nodos. El comportamiento de una operación de actualización depende del comando de la CLI de Azure que se use.
 
-1. La actualización del plano de control requiere el uso de `az aks upgrade`
+* La actualización del plano de control requiere el uso de `az aks upgrade`
    * Esto actualiza la versión del plano de control y todos los grupos de nodos del clúster.
-   * Al pasar `az aks upgrade` con la marca `--control-plane-only` solo se actualiza el plano de control de clúster y no se cambia ninguno de los grupos de nodos asociados. La marca `--control-plane-only` está disponible en **AKS-preview extension v0.4.16** o superior.
-1. La actualización de grupos de nodos individuales requiere el uso de `az aks nodepool upgrade`.
+   * Al pasar `az aks upgrade` con la marca `--control-plane-only` solo se actualiza el plano de control de clúster y no se cambia ninguno de los grupos de nodos asociados.
+* La actualización de grupos de nodos individuales requiere el uso de `az aks nodepool upgrade`.
    * Esto actualiza solo el grupo de nodos de destino con la versión de Kubernetes especificada.
 
 La relación entre las versiones de Kubernetes que contienen los grupos de nodos también debe seguir un conjunto de reglas.
 
-1. No se puede cambiar a la versión anterior de Kubernetes en el plano de control ni en el grupo de nodos.
-1. Si no se especifica una versión de Kubernetes del grupo de nodos, el comportamiento depende del cliente que se use. Para la declaración de la plantilla ARM, se usa la versión existente definida para el grupo de nodos. Si no se establece ninguna, se usa la versión del plano de control.
-1. Se puede actualizar o escalar un plano de control o un grupo de nodos en un momento dado, pero no se pueden enviar ambas operaciones simultáneamente.
-1. La versión de Kubernetes de un grupo de nodos debe tener la misma versión principal que el plano de control.
-1. La versión de Kubernetes de un grupo de nodos puede ser, como máximo, dos (2) versiones secundarias menores que la del plano de control, nunca mayor.
-1. Un grupo de nodos puede ser de cualquier versión de revisión de Kubernetes menor o igual que la del plano de control, nunca mayor.
+* No se puede cambiar a la versión anterior de Kubernetes en el plano de control ni en el grupo de nodos.
+* Si no se especifica una versión de Kubernetes del grupo de nodos, el comportamiento depende del cliente que se use. Para la declaración de la plantilla de Resource Manager, se usa la versión existente definida para el grupo de nodos. Si no se establece ninguna, se usa la versión del plano de control.
+* Se puede actualizar o escalar un plano de control o un grupo de nodos en un momento dado, pero no se pueden enviar ambas operaciones simultáneamente.
+* La versión de Kubernetes de un grupo de nodos debe tener la misma versión principal que el plano de control.
+* La versión de Kubernetes de un grupo de nodos puede ser, como máximo, dos (2) versiones secundarias menores que la del plano de control, nunca mayor.
+* Un grupo de nodos puede ser de cualquier versión de revisión de Kubernetes menor o igual que la del plano de control, nunca mayor.
 
 ## <a name="scale-a-node-pool-manually"></a>Escalado manual de un grupo de nodos
 
@@ -313,7 +267,7 @@ La operación de escalado tarda unos minutos en completarse.
 
 ## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>Escalar un grupo de nodos específico automáticamente habilitando para ello la escalabilidad automática del clúster
 
-AKS ofrece una característica independiente en la versión preliminar para escalar automáticamente grupos de nodos con una característica denominada [cluster autocaler](cluster-autoscaler.md). Esta característica es un complemento de AKS que se puede habilitar en función del grupo de nodos con recuentos de escala mínimos y máximos únicos por grupo de nodos. Aprenda a [ usar la escalabilidad automática del clúster en función del grupo de nodos](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
+AKS ofrece una característica independiente para escalar automáticamente grupos de nodos con una característica denominada [cluster autocaler](cluster-autoscaler.md). Esta característica se puede habilitar en función del grupo de nodos con recuentos de escala mínimos y máximos únicos por grupo de nodos. Aprenda a [ usar la escalabilidad automática del clúster en función del grupo de nodos](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
 ## <a name="delete-a-node-pool"></a>Eliminación de un grupo de nodos
 
@@ -637,11 +591,6 @@ Para crear y usar grupos de nodos de contenedores de Windows Server, consulte [C
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
-[azure-cli-install]: /cli/azure/install-azure-cli
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
@@ -659,7 +608,3 @@ Para crear y usar grupos de nodos de contenedores de Windows Server, consulte [C
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
-[aks-support-policies]: support-policies.md
-[aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update

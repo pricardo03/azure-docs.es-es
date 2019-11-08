@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: e235116ab77159a0e2e9c66ad09cdb86ce6da1e9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71007709"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466934"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Procedimientos recomendados para crear evaluaciones
 
@@ -41,13 +41,19 @@ Como ejemplo, si tiene una máquina virtual local con cuatro núcleos con un uso
 
 ## <a name="best-practices-for-creating-assessments"></a>Procedimientos recomendados para crear evaluaciones
 
-El dispositivo Azure Migrate genera perfiles continuamente de su entorno local y envía metadatos y datos de rendimiento a Azure. Consulte los procedimientos recomendados para crear evaluaciones:
+El dispositivo Azure Migrate genera perfiles continuamente de su entorno local y envía metadatos y datos de rendimiento a Azure. Siga estos procedimiento recomendado para evaluar los servidores detectados mediante un dispositivo:
 
 - **Crear evaluaciones tal cual**: puede crear evaluaciones tal cual inmediatamente después de que se muestren las máquinas en el portal de Azure Migrate.
 - **Crear una evaluación basada en el rendimiento**: después de configurar la detección, le recomendamos esperar al menos un día antes de ejecutar una evaluación basada en el rendimiento:
     - La recopilación de datos de rendimiento lleva tiempo. El hecho de esperar al menos un día garantiza que haya suficientes puntos de datos de rendimiento antes de ejecutar la evaluación.
     - Cuando ejecuta evaluaciones basadas en el rendimiento, asegúrese de generar un perfil del entorno para la duración de la evaluación. Por ejemplo, si crea una evaluación con la duración de rendimiento establecida en una semana, debe esperar al menos una semana después de iniciar la detección para que se recopilen todos los puntos de datos. Si no lo hace, la evaluación no obtendrá una clasificación de cinco estrellas.
 - **Recalcular evaluaciones**: dado que las evaluaciones son instantáneas de un momento dado, no se actualizan automáticamente con los datos más recientes. Para actualizar una evaluación con los datos más recientes, debe recalcularla.
+
+Siga estos procedimientos recomendados para evaluar los servidores importados en Azure Migrate mediante un archivo .CSV:
+
+- **Crear evaluaciones tal cual**: puede crear evaluaciones tal cual inmediatamente después de que se muestren las máquinas en el portal de Azure Migrate.
+- **Crear una evaluación basada en el rendimiento**: ayuda a obtener una mejor estimación de los costos, en especial si se ha aprovisionado en exceso la capacidad del servidor en el entorno local. Sin embargo, la precisión de la evaluación basada en el rendimiento depende de los datos de rendimiento que se especifiquen para los servidores. 
+- **Recalcular evaluaciones**: dado que las evaluaciones son instantáneas de un momento dado, no se actualizan automáticamente con los datos más recientes. Para actualizar una evaluación con los datos importados más recientes, debe volver a calcularla.
 
 ## <a name="best-practices-for-confidence-ratings"></a>Procedimientos recomendados para las clasificaciones de confianza
 

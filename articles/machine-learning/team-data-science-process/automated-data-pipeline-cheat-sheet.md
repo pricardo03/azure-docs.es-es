@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: 1245255e65412f9bbcba3c8d9caa76b9ffd2dcc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c7011991deb632110264233ea0e7aeabe793fbb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826207"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670482"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Hoja de referencia rápida de una canalización de datos automatizada para las predicciones de Azure Machine Learning
 La **hoja de referencia rápida de canalización de datos automatizada de Microsoft Azure Machine Learning** le ayuda a navegar por la tecnología que puede usar para obtener sus datos para su servicio web de Machine Learning donde se puede puntuar por su modelo de análisis predictivo.
@@ -29,15 +29,13 @@ Cuando descargue la hoja de referencia rápida, puede imprimirla en tamaño tabl
 
 Descargue aquí la hoja de referencia rápida: **[Hoja de referencia rápida de canalización de datos automatizada Microsoft Azure Machine Learning](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
-![Información general de las funcionalidades de Microsoft Azure Machine Learning Studio][op-cheat-sheet]
+![Información general de las funcionalidades de Microsoft Azure Machine Learning Studio (clásico)][op-cheat-sheet]
 
 [op-cheat-sheet]: ./media/automated-data-pipeline-cheat-sheet/machine-learning-automated-data-pipeline-cheat-sheet_v1.1.png
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Más ayuda con Machine Learning Studio
 * Para información general sobre Microsoft Azure Machine Learning, vea [Introducción al aprendizaje automático en Microsoft Azure](../studio/what-is-machine-learning.md).
-* Para una explicación de cómo implementar un servicio web de puntuación, vea [Implementación de un servicio web de Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+* Para una explicación de cómo implementar un servicio web de puntuación, vea [Implementación de un servicio web de Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 * Para obtener una explicación de cómo utilizar un servicio web de puntuación, vea [Cómo consumir un servicio web Azure Machine Learning](../studio/consume-web-services.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

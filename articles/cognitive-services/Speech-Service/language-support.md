@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/15/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: abff902dc62ad7ae48f2ecedfbd52aeb96719093
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: af8bb24862c05b232b7bb5d831b1eb3b1add3a7f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970385"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468808"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Compatibilidad con regiones e idiomas para los servicios de Voz
 
@@ -24,11 +24,15 @@ Se admiten diferentes idiomas para distintas funciones de los servicios de voz. 
 
 ## <a name="speech-to-text"></a>Voz a texto
 
-El SDK de reconocimiento de voz de Microsoft y la API REST admiten los siguientes idiomas (locales). Para mejorar la precisión, se ofrece la personalización para un subconjunto de idiomas mediante la carga de audio y transcripciones con etiqueta humana o texto relacionado: Oraciones.  La personalización de la pronunciación solo está disponible actualmente para en-US y de-DE. Aprenda más sobre la personalización [aquí](how-to-custom-speech.md).
+El SDK de Voz de Microsoft y la API REST admiten los siguientes idiomas (configuraciones regionales). Para mejorar la precisión, se ofrece la personalización para un subconjunto de idiomas mediante la carga de audio y transcripciones con etiqueta humana o texto relacionado: Oraciones.  La personalización de la pronunciación solo está disponible actualmente para en-US y de-DE. Aprenda más sobre la personalización [aquí](how-to-custom-speech.md).
 
-  Código | Idioma | Compatible | Personalizable
+  Configuración regional | Idioma | Compatible | Personalizable
  ------|----------|---------------------|---------------------
  ar-EG | Árabe (Egipto), estándar moderno | Sí | Sí
+ ar-SA | Árabe (Arabia Saudí) | Sí | Sí
+ ar-AE | Árabe (Emiratos Árabes Unidos) | Sí | Sí
+ ar-KW | Árabe (Kuwait) | Sí | Sí
+ ar-QA | Árabe (Qatar) | Sí | Sí
  ca-ES | Catalán | Sí | Sin
  da-DK | Danés (Dinamarca) | Sí | Sin
  de-DE | Alemán (Alemania) | Sí | Sí
@@ -43,10 +47,12 @@ El SDK de reconocimiento de voz de Microsoft y la API REST admiten los siguiente
  fi-FI | Finés (Finlandia) | Sí | Sin
  fr-CA | Francés (Canadá) | Sí | Sí
  fr-FR | Francés (Francia) | Sí | Sí
+ gu-IN | Gujarati (India) | Sí | Sí
  hi-IN | Hindi (India) | Sí | Sí
  it-IT | Italiano (Italia) | Sí | Sí
  ja-JP | Japonés (Japón) | Sí | Sí
  ko-KR | Coreano (Corea) | Sí | Sí
+ mr-IN | Maratí (India) | Sí | Sí
  nb-NO | Noruego, Bokmål (Noruego) | Sí | Sin
  nl-NL | Neerlandés (Países Bajos) | Sí | Sí
  pl-PL | Polaco (Polonia) | Sí | Sin
@@ -54,15 +60,18 @@ El SDK de reconocimiento de voz de Microsoft y la API REST admiten los siguiente
  pt-PT | Portugués (Portugal) | Sí | Sí
  ru-RU | Ruso (Rusia) | Sí | Sí
  sv-SE | Sueco (Suecia) | Sí | Sin
+ ta-IN | Tamil (India) | Sí | Sí
+ te-IN | Telugu (India) | Sí | Sí
  zh-CN | Chino (mandarín, simplificado) | Sí | Sí
  zh-HK | Chino (cantonés, tradicional) | Sí | Sí
  zh-TW | Chino (mandarín, Taiwán) | Sí | Sí
- th-TH | Tailandés (Tailandia) | Sí | Sin 
+ th-TH | Tailandés (Tailandia) | Sí | Sin
+ tr-TR | Turquía | Sí | Sí |
 
 
 ## <a name="text-to-speech"></a>Texto a voz
 
-Text to Speech REST API admite las siguientes voces, y cada una de ellas admite un idioma y un dialecto específicos, que se identifican mediante la configuración regional.
+Tanto el SDK de Voz de Microsoft como la API REST admiten estas voces, y cada una de ellas admite un idioma y un dialecto específicos, que se identifican mediante la configuración regional.
 
 > [!IMPORTANT]
 > Los precios son distintos para voces estándar, personalizadas y neuronales. Consulte la página de [precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para más información.
@@ -71,7 +80,7 @@ Text to Speech REST API admite las siguientes voces, y cada una de ellas admite 
 
 Texto a voz neuronal es un nuevo tipo de síntesis de voz con tecnología de redes neuronales profundas. Cuando se usa una voz neuronal, es prácticamente imposible distinguir la voz sintetizada de las grabaciones humanas.
 
-Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes virtuales sean más naturales y atractivas, para convertir textos digitales, como los libros electrónicos, en audiolibros y para mejorar los sistemas de navegación de los automóviles. Con su prosodia natural similar a la humana y la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga de la escucha que aparece cuando los usuarios interactúan con sistemas de inteligencia artificial.
+Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes de voz sean más naturales y atractivas, para convertir textos digitales (por ejemplo, los libros electrónicos) en audiolibros y para mejorar los sistemas de navegación de los automóviles. Con su prosodia natural similar a la humana y la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga de la escucha que aparece cuando los usuarios interactúan con sistemas de inteligencia artificial.
 
 Para obtener una lista completa de las voces neuronales y la disponibilidad regional, consulte las [regiones](regions.md#standard-and-neural-voices).
 
@@ -261,4 +270,4 @@ La personalización de voz está disponible para de-DE, en-GB, en-IN, en-US, es-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtenga su suscripción de evaluación gratuita de Speech Service](https://azure.microsoft.com/try/cognitive-services/)
-* [Vea cómo funciona el reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)
+* [Vea cómo funciona el reconocimiento de voz en C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

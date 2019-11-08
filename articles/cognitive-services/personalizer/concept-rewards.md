@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: bb9a9c1d67e52c21d2cb039832d27547a023da9f
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a47d6014e51dce81c9caf82f8624896c439f050d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154665"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490892"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Las puntuaciones de recompensa reflejan el éxito de la personalización.
 
@@ -73,7 +73,7 @@ A continuación, puede enviar la recompensa total a la API.
 
 También puede llamar a Reward API con el mismo identificador de evento, enviando diferentes puntuaciones de recompensa. Cuando Personalizer obtiene esas recompensas, determina la recompensa final para ese evento sumándolas tal y como se especifica en la configuración de Personalizer.
 
-Configuración de la suma:
+Valores de agregación:
 
 *  **Primero**: Toma la primera puntuación de recompensa recibida para el evento y descarta el resto.
 * **Suma**: Toma todas las puntuaciones de recompensa recopiladas para el parámetro eventId y las suma.
@@ -81,10 +81,6 @@ Configuración de la suma:
 Todas las recompensas de un evento, que se reciben después del **Tiempo de espera de las recompensas**, se descartan y no afectan al entrenamiento de los modelos.
 
 Al sumar las puntuaciones de recompensa, su recompensa final puede estar fuera del intervalo de puntuación esperado. Esto no provocará un error del servicio.
-
-<!--
-@edjez - is the number ignored if it is outside the acceptable range?
--->
 
 ## <a name="best-practices-for-calculating-reward-score"></a>Procedimientos recomendados para calcular la puntuación de recompensa
 
@@ -106,13 +102,11 @@ Personalizer correlacionará la información de una llamada a Rank con las recom
 
 Si se agota el **Tiempo de espera de las recompensas** y no se ha producido ninguna información de recompensa, se aplica una recompensa predeterminada a ese evento con fines de entrenamiento. La duración de espera máxima es de 6 días.
 
-## <a name="best-practices-for-setting-reward-wait-time"></a>Procedimientos recomendados para establecer el tiempo de espera de la recompensa
+## <a name="best-practices-for-reward-wait-time"></a>Procedimientos recomendados para el tiempo de espera de la recompensa
 
 Siga estas recomendaciones para mejorar los resultados.
 
 * Configure un tiempo de espera de las recompensas lo más corto posible, dejando tiempo suficiente para la interactuación del usuario. 
-
-<!--@Edjez - storage quota? -->
 
 * No elija una duración que sea más corta que el tiempo necesario para obtener esta interactuación. Por ejemplo, si algunas de las recompensas llegan una vez que un usuario haya visto 1 minuto de un vídeo, la longitud del experimento debe ser al menos el doble de ese tiempo.
 

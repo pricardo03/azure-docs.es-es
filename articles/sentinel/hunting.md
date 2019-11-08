@@ -16,16 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: edba2a18e3b086a132f0bba7622df5df389671c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372409"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489184"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel"></a>Búsqueda de amenazas con Azure Sentinel
-
-
+# <a name="hunt-for-threats-with-azure-sentinel"></a>Búsqueda de amenazas con Azure Sentinel
 
 Si es un investigador que quiere ser proactivo a la hora de buscar amenazas de seguridad, use las eficaces herramientas de búsqueda y consulta de Azure Sentinel para encontrar amenazas de seguridad en cualquier origen de datos de la organización. Pero los sistemas y dispositivos de seguridad generan infinidad de datos que pueden ser difíciles de analizar y filtrar para hallar eventos significativos. Para ayudar a los analistas de seguridad a buscar proactivamente nuevas anomalías que las aplicaciones de seguridad no han sido capaces de identificar, las consultas de búsqueda integradas de Azure Sentinel servirán de guía para formular las preguntas adecuadas para detectar problemas en los datos que ya hay en la red. 
 

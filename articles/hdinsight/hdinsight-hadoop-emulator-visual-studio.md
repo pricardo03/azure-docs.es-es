@@ -1,5 +1,5 @@
 ---
-title: Herramientas de Data Lake para Visual Studio con Sandbox de Hortonworks en Azure HDInsight
+title: 'Herramientas de Data Lake para Visual Studio y Hortonworks: Azure HDInsight'
 description: Aprenda a usar las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks en ejecución en una máquina virtual local. Con estas herramientas puede crear y ejecutar trabajos de Hive y Pig en el espacio aislado, así como ver la salida de los trabajos y el historial.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 1edab776ec93f057ebf7e37ac887747f86a27db9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: e128aaf6e1726b7a1341fefc6df3cdafd3beb880
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098769"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500165"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Uso de las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks
 

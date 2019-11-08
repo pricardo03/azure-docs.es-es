@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: afa6c5e40918906eb9fe0e40ed633715e3f2741d
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 5a65ee27d5175887b7bf0d9146afa025e665657c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844801"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488415"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-boundaries), que controla las intenciones, entidades y características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS. 
@@ -35,11 +35,12 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 | Entidades externas | sin límites |
 | [Intenciones][intents]|500 por aplicación: 499 intenciones personalizadas y la intención _Ninguno_ necesaria.<br>La aplicación [basada en la distribución](https://aka.ms/dispatch-tool) tiene 500 orígenes de distribución correspondientes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Elemento principal: 50, elemento secundario: 20 000 elementos. El nombre canónico es *Máximo de caracteres predeterminado. Los valores de los sinónimos no tienen ninguna restricción de longitud. |
-| [Entidades con aprendizaje automático y roles](./luis-concept-entity-types.md):<br> compuesta,<br>simple,<br>rol de entidad|Un límite de 100 entidades primarias o 330 entidades, el que sea que alcance primero el usuario. Un rol cuenta como una entidad para los fines de este límite. Un ejemplo es una composición con una entidad sencilla que tiene 2 roles: 1 compuesta + 1 simple + 2 roles = 4 de las 330 entidades.|
+| [Entidades con aprendizaje automático y roles](./luis-concept-entity-types.md):<br> compuesta,<br>simple,<br>rol de entidad|Un límite de 100 entidades primarias o 330 entidades, el que sea que alcance primero el usuario. Un rol cuenta como una entidad para los fines de este límite. Un ejemplo es una composición con una entidad sencilla que tiene dos roles: 1 compuesta + 1 simple + 2 roles = 4 de las 330 entidades.|
+|Modelo como característica| El número máximo de modelos que se pueden usar como descriptor (característica) para un modelo específico es de diez modelos. El número máximo de listas de frases utilizadas como descriptor (característica) para un modelo específico es de diez listas de frases.|
 | [Versión preliminar: entidades de lista dinámica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~1 K por solicitud de punto de conexión de predicción de consulta|
 | [Patrones](luis-concept-patterns.md)|500 patrones por aplicación.<br>El patrón puede contener 400 caracteres como máximo.<br>3 entidades Pattern.any por patrón<br>Máximo de 2 textos opcionales anidados en el patrón|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicación, 3 entidades Pattern.any por patrón |
-| [Lista de frases][phrase-list]|10 listas de frases, 5000 elementos por lista|
+| [Lista de frases][phrase-list]|500 listas de frases. La lista de frases no intercambiable tiene un máximo de 5000 frases. La lista de frases intercambiable tiene un máximo de 50 000 frases. Número máximo de frases totales por aplicación de 500 000 frases.|
 | [Entidades precompiladas](./luis-prebuilt-entities.md) | ilimitado|
 | [Entidades de expresión regular](./luis-concept-entity-types.md)|20 entidades<br>Máximo de 500 caracteres por patrón de la entidad de expresiones regulares|
 | [Roles](luis-concept-roles.md)|300 roles por aplicación. 10 roles por entidad|
@@ -51,6 +52,21 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 *El valor máximo predeterminado de caracteres es 50. 
 
 <a name="intent-and-entity-naming"></a>
+
+## <a name="name-uniqueness"></a>Exclusividad del nombre
+
+Use las siguientes reglas de exclusividad de nomenclatura.
+
+Los siguientes elementos deben ser únicos en una aplicación de LUIS:
+
+* nombre de versión
+* intención
+* Entidad
+* roles
+
+Los siguientes elementos deben ser únicos en el ámbito aplicado:
+
+* lista de frases 
 
 ## <a name="object-naming"></a>Denominación de objeto
 

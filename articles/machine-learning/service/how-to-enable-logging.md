@@ -10,14 +10,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 80508a31db8d86569c52df98697ceb62520059d2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: a47ce44a325720fb1b6df919a0a324a4d3319d86
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002748"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489886"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Habilitación del registro en Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 El SDK de Python de Azure Machine Learning le permite habilitar el registro mediante el paquete de registros de Python predeterminado y mediante la funcionalidad específica del SDK, en el registro local y en el registro en el área de trabajo del portal. Los registros proporcionan a los desarrolladores información en tiempo real sobre el estado de la aplicación y pueden ayudarles a diagnosticar los errores o advertencias. En este artículo aprenderá diferentes formas de habilitar registros en las siguientes áreas:
 
@@ -117,7 +118,7 @@ También puede registrar seguimientos de la pila personalizados para el servicio
 service.update(enable_app_insights=True)
 ```
 
-Consulte los [procedimientos](how-to-enable-app-insights.md) para más información sobre cómo trabajar con Application Insights en Azure Portal.
+Consulte los [procedimientos](how-to-enable-app-insights.md) para más información sobre cómo trabajar con Application Insights en Azure Machine Learning Studio.
 
 ## <a name="python-native-logging-settings"></a>Configuración del registro nativo de Python
 

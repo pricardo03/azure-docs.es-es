@@ -1,21 +1,21 @@
 ---
-title: Supervisión de Azure Data Share (versión preliminar)
-description: Aprenda a supervisar el estado de las invitaciones, las suscripciones de recursos compartidos y el historial de instantáneas en la versión preliminar de Azure Data Share.
+title: Supervisión de Azure Data Share
+description: Aprenda a supervisar el estado de las invitaciones, las suscripciones de recursos compartidos y el historial de instantáneas en Azure Data Share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 22c95f1ac541e1288494ed85cc9654d42780ea60
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169121"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490517"
 ---
-# <a name="monitor-azure-data-share-preview"></a>Supervisión de Azure Data Share (versión preliminar) 
+# <a name="monitor-azure-data-share"></a>Supervisión de Azure Data Share  
 
-En este artículo se explica cómo puede supervisar los recursos compartidos de datos mediante Azure Data Share (versión preliminar). Como proveedor de datos, puede supervisar diversos aspectos de las relaciones del uso compartido de datos. Aspectos como saber si los consumidores de datos han aceptado la invitación al recurso compartido de datos, si han creado una suscripción al mismo o si han empezado a utilizar los datos, están todos disponibles para su supervisión. 
+En este artículo se explica cómo puede supervisar los recursos compartidos de datos mediante Azure Data Share. Como proveedor de datos, puede supervisar diversos aspectos de las relaciones del uso compartido de datos. Aspectos como saber si los consumidores de datos han aceptado la invitación al recurso compartido de datos, si han creado una suscripción al mismo o si han empezado a utilizar los datos, están todos disponibles para su supervisión. 
 
 Como consumidor de datos, puede supervisar las instantáneas que se han desencadenado en la suscripción de Azure. 
 
@@ -23,7 +23,7 @@ Como consumidor de datos, puede supervisar las instantáneas que se han desencad
 
 Vea el estado de las invitaciones a los recursos compartidos de datos. Para ello vaya a Sent shares (Recursos compartidos enviados) -> Invitaciones. 
 
-![Estado de la invitación](./media/invitation-status.png "Invitation status") 
+![Estado de la invitación](./media/invitation-status.png "Estado de la invitación") 
 
 La invitación puede tener uno de los tres estados siguientes:
 
@@ -42,7 +42,7 @@ Vea el estado de las suscripciones a recursos compartidos de datos. Para ello va
 
 En la pestaña de historial, es posible ver las instantáneas que se han copiado en el inquilino del consumidor de los datos. Es posible supervisar la frecuencia y duración de cada intervalo de instantánea. 
 
-![Historial de instantáneas](./media/sent-shares.png "Snapshot history") 
+![Historial de instantáneas](./media/sent-shares.png "Historial de instantáneas") 
 
 Para ver más información sobre la ejecución de cada instantánea, haga clic en la fecha de inicio de la ejecución. 
 

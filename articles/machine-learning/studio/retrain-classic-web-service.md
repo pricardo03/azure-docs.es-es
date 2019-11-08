@@ -1,7 +1,7 @@
 ---
 title: Volver a entrenar e implementar un servicio web clásico
-titleSuffix: Azure Machine Learning Studio
-description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio web clásico para que utilice este modelo en Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio web clásico para que utilice este modelo en Azure Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 477e099bb759e09402a245b693d95f3b3980699e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234050"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480207"
 ---
-# <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Volver a entrenar e implementar un servicio web de Studio
+# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Repetición del entrenamiento e implementación de un servicio web de Studio (clásico)
 
-Una forma de garantizar que los modelos de Machine Learning siguen siendo precisos y se basan en los datos más adecuados disponibles, es volver a entrenarlos. En este artículo se muestra cómo volver a entrenar un servicio web de Studio clásico. Para obtener información acerca de cómo volver a entrenar un nuevo servicio web de Studio, [vea este artículo de procedimientos](retrain-machine-learning-model.md).
+Una forma de garantizar que los modelos de Machine Learning siguen siendo precisos y se basan en los datos más adecuados disponibles, es volver a entrenarlos. En este artículo se muestra cómo volver a entrenar un servicio web de Studio clásico. Para más información acerca de cómo volver a entrenar un nuevo servicio web de Studio (clásico), [consulte este artículo de procedimientos](retrain-machine-learning-model.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,7 +44,7 @@ También puede agregar puntos de conexión de puntuación mediante el código de
 
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Uso del portal de Azure Web Services para agregar un punto de conexión
 
-1. En Machine Learning Studio, en la columna de navegación izquierda, haga clic en Servicios web.
+1. En Machine Learning Studio (clásico), en la columna de navegación izquierda, haga clic en Servicios web.
 1. En la parte inferior del panel de servicios web, haga clic en **Manage endpoints preview**(Administrar versión preliminar de puntos de conexión).
 1. Haga clic en **Agregar**.
 1. Escriba un nombre y una descripción para el nuevo punto de conexión. Seleccione el nivel de registro y si los datos de ejemplo están habilitados. Para más información sobre los registros, vea [Habilitar el registro para los servicios web de Machine Learning](web-services-logging.md).

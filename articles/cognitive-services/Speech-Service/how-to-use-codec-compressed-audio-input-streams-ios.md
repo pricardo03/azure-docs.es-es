@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 9a66e4ecf2230caad233a4eff12c0fadc95409d5
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 45b45c6c9afd43b711fc548f470ce0f0acd04a0a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803793"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464285"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Uso de entradas de audio comprimido con códec con Speech SDK en iOS
 
@@ -64,4 +64,4 @@ El siguiente fragmento de código muestra cómo se pueden leer los datos de audi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Vea cómo funciona el reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)
+* [See how to recognize speech in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java) (Vea cómo funciona el reconocimiento de voz en Java)

@@ -9,16 +9,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb4023be41377846ed209b3d6702188f5d79ba00
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: a7b0276ca41e1b9342b3602a67dea0517c60f66a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999387"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489337"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ajuste de los hiperparámetros de un modelo mediante Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Ajuste de forma eficaz los hiperparámetros de un modelo mediante Azure Machine Learning.  El ajuste de hiperparámetros incluye los siguientes pasos:
 
@@ -95,6 +96,12 @@ Este código define un espacio de búsqueda con dos parámetros: `learning_rate`
 ### <a name="sampling-the-hyperparameter-space"></a>Muestreo del espacio de hiperparámetros
 
 También puede especificar el método de muestreo de parámetros que se usará durante la definición del espacio de hiperparámetros. Azure Machine Learning admite muestreo aleatorio, muestreo de cuadrícula y muestreo bayesiano.
+
+#### <a name="picking-a-sampling-method"></a>Selección de un método de muestreo
+
+* El muestreo de cuadrícula se puede usar si el espacio de hiperparámetros se puede definir como una opción entre valores discretos y si tiene el presupuesto suficiente para buscar de forma exhaustiva todos los valores en el espacio de búsqueda definido. Además, se puede usar la finalización anticipada automatizada de las ejecuciones de bajo rendimiento, lo que reduce el desperdicio de los recursos.
+* El muestreo aleatorio permite que el espacio de hiperparámetros incluya tanto hiperparámetros discretos como continuos. En la práctica, se generan buenos resultados la mayoría de las veces y también se permite el uso de la finalización anticipada automatizada de las ejecuciones de bajo rendimiento. Algunos usuarios realizan una búsqueda inicial mediante el muestreo aleatorio y luego refinan el espacio de búsqueda de forma iterativa para mejorar los resultados.
+* El muestreo bayesiano aprovecha el conocimiento de las muestras anteriores al elegir los valores de hiperparámetro, intentando mejorar de forma eficaz la métrica principal indicada. El muestreo bayesiano se recomienda cuando se tiene el presupuesto suficiente para explorar el espacio de hiperparámetros. Para obtener los mejores resultados con el muestreo bayesiano, se recomienda usar un número máximo de ejecuciones mayor o igual que veinte veces el número de hiperparámetros que se está optimizando. Tenga en cuenta que el muestreo bayesiano no admite actualmente ninguna directiva de terminación anticipada.
 
 #### <a name="random-sampling"></a>Muestreo aleatorio
 
@@ -248,8 +255,10 @@ policy=None
 
 Si no se especifica ninguna directiva, el servicio de ajuste de hiperparámetros permitirá que todas las series de entrenamiento se ejecuten hasta completarse.
 
->[!NOTE] 
->Si está buscando una directiva conservadora que proporcione ahorros sin finalizar trabajos prometedores, puede usar una Directiva de mediana de detención con `evaluation_interval` 1 y `delay_evaluation` 5. Se trata de una configuración conservadora que puede proporcionar unos ahorros de entre un 25 % y un 35 % sin pérdidas de la métrica principal (según nuestros datos de evaluación).
+### <a name="picking-an-early-termination-policy"></a>Selección de una directiva de terminación anticipada
+
+* Si está buscando una directiva conservadora que proporcione ahorros sin finalizar trabajos prometedores, puede usar una Directiva de mediana de detención con `evaluation_interval` 1 y `delay_evaluation` 5. Se trata de una configuración conservadora que puede proporcionar unos ahorros de entre un 25 % y un 35 % sin pérdidas de la métrica principal (según nuestros datos de evaluación).
+* Si busca un ahorro más agresivo a partir de la terminación anticipada, puede usar la directiva de bandidos con una directiva de selección de truncamiento o demora permisible más estricta (menor) con un porcentaje de truncamiento mayor.
 
 ## <a name="allocate-resources"></a>Asignación de recursos
 
@@ -305,6 +314,46 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
 `experiment_name` es el nombre que quiere asignar a su experimento de ajuste de hiperparámetros y `workspace` es el área de trabajo en la que quiere crear el experimento (para más información sobre los experimentos, consulte [¿Cómo funciona Azure Machine Learning?](concept-azure-machine-learning-architecture.md)).
+
+## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>Inicio en caliente del experimento de ajuste de hiperparámetros (opcional)
+
+A menudo, buscar los mejores valores de hiperparámetros para el modelo puede ser un proceso iterativo, que necesita varias ejecuciones de optimización que aprenden de las ejecuciones de optimización de hiperparámetros anteriores. La reutilización del conocimiento de estas ejecuciones anteriores acelerará el proceso de ajuste de hiperparámetros, con lo que se reduce el costo de optimizar el modelo y se mejora potencialmente la métrica principal del modelo resultante. Cuando se inicia en caliente un experimento de optimización de hiperparámetros con el muestreo bayesiano, se usarán las pruebas de la ejecución anterior como conocimiento previo para elegir de forma inteligente nuevas muestras, con el fin de mejorar la métrica principal. Además, cuando se usa el muestreo aleatorio o de cuadrícula, cualquier decisión de terminación anticipada aprovechará las métricas de las ejecuciones anteriores para determinar las ejecuciones de entrenamiento de bajo rendimiento. 
+
+Azure Machine Learning permite iniciar en caliente la ejecución de optimización de hiperparámetros aprovechando el conocimiento de hasta cinco ejecuciones primarias de optimización de hiperparámetros previamente completadas o canceladas. Puede especificar la lista de ejecuciones principales que desea iniciar en caliente utilizando este fragmento de código:
+
+```Python
+from azureml.train.hyperdrive import HyperDriveRun
+
+warmstart_parent_1 = HyperDriveRun(experiment, "warmstart_parent_run_ID_1")
+warmstart_parent_2 = HyperDriveRun(experiment, "warmstart_parent_run_ID_2")
+warmstart_parents_to_resume_from = [warmstart_parent_1, warmstart_parent_2]
+```
+
+Además, puede haber ocasiones en las que se cancelan las ejecuciones de entrenamiento individuales de un experimento de optimización de hiperparámetros a causa de limitaciones de presupuesto o errores debidos a otras razones. Ahora es posible reanudar estas ejecuciones de entrenamiento individuales a partir del último punto de control (suponiendo que el script de entrenamiento controla los puntos de control). Al reanudar una ejecución de entrenamiento individual, se usará la misma configuración de hiperparámetros y se montará la carpeta de salidas que se usa para esa ejecución. El script de entrenamiento debe aceptar el argumento `resume-from`, que contiene los archivos de punto de control o de modelo a partir de los que se reanuda la ejecución de entrenamiento. Puede reanudar las ejecuciones de entrenamiento individuales mediante el siguiente fragmento de código:
+
+```Python
+from azureml.core.run import Run
+
+resume_child_run_1 = Run(experiment, "resume_child_run_ID_1")
+resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
+child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
+```
+
+Puede configurar el experimento de optimización de hiperparámetros para que se inicie en caliente a partir de un experimento anterior o para reanudar las ejecuciones de entrenamiento individuales usando los parámetros opcionales `resume_from` y `resume_child_runs` de la configuración:
+
+```Python
+from azureml.train.hyperdrive import HyperDriveConfig
+
+hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
+                          hyperparameter_sampling=param_sampling, 
+                          policy=early_termination_policy,
+                          resume_from=warmstart_parents_to_resume_from, 
+                          resume_child_runs=child_runs_to_resume,
+                          primary_metric_name="accuracy", 
+                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                          max_total_runs=100,
+                          max_concurrent_runs=4)
+```
 
 ## <a name="visualize-experiment"></a>Visualización del experimento
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for Eclipse: creación de aplicaciones Scala para HDInsight Spark '
+title: 'Azure Toolkit for Eclipse: Creación de aplicaciones de Scala para HDInsight Spark'
 description: Use las herramientas de HDInsight del Kit de herramientas de Azure para Eclipse para desarrollar aplicaciones de Spark escritas en Scala y enviarlas a un clúster de HDInsight Spark, directamente desde el IDE de Eclipse.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 5336153a776f3324e5f73564ba2804389cd96938
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7e320b4a0166ffad3ba62c80ad7667c626acb136
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257566"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494675"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Uso de Azure Toolkit for Eclipse para crear aplicaciones de Apache Spark para un clúster de HDInsight
 
@@ -312,9 +312,9 @@ Al vincular un clúster, es aconsejable especificar las credenciales de almacena
 
 Hay dos formas de enviar los trabajos. Si se proporcionan credenciales de almacenamiento, se utilizará el modo por lotes para enviar el trabajo. De lo contrario, se utilizará el modo interactivo. Si el clúster está ocupado, puede aparecer el siguiente error.
 
-![Se produce un error en Eclipse cuando el clúster está ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "Se produce un error en Eclipse cuando el clúster está ocupado")
+![Eclipse presenta errores si el clúster está ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "Eclipse presenta errores si el clúster está ocupado")
 
-![Se produce un error en Eclipse cuando el clúster está ocupado - YARN](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "Se produce un error en Eclipse cuando el clúster está ocupado - YARN")
+![Eclipse presenta errores si el clúster está ocupado - YARN](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "Eclipse presenta errores si el clúster está ocupado - YARN")
 
 ## <a name="seealso"></a>Consulte también
 

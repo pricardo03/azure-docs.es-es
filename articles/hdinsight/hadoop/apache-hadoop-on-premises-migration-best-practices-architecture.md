@@ -1,5 +1,5 @@
 ---
-title: 'Migración de clústeres locales de Apache Hadoop a Azure HDInsight: Arquitectura'
+title: 'Arquitectura: Apache Hadoop local a Azure HDInsight'
 description: Obtenga información acerca de los procedimientos recomendados de arquitectura para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4243100d74515576463a6812e31625ddc0ca1f48
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 4ef3cded9aba7bd95ecc48e1feadf6c55acd7bdc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735883"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499265"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Procedimientos recomendados de arquitectura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 

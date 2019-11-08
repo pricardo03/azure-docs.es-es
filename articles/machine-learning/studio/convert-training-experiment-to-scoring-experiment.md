@@ -1,7 +1,7 @@
 ---
 title: Preparación del modelo para la implementación
-titleSuffix: Azure Machine Learning Studio
-description: Se describe cómo preparar el modelo entrenado de implementación como un servicio web mediante la conversión del experimento de entrenamiento de Machine Learning Studio en un experimento de predicción.
+titleSuffix: ML Studio (classic) Azure
+description: Se describe cómo preparar el modelo entrenado de implementación como un servicio web mediante la conversión del experimento de entrenamiento de Machine Learning Studio (clásico) en un experimento de predicción.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 2a318edada5cdc4124e221fdc8c441ab323a9289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e24393783dac0f918009f3138f31bdda98bbd22e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60752000"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684862"
 ---
-# <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Preparación del modelo de implementación en Azure Machine Learning Studio
+# <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Preparación del modelo de implementación en Azure Machine Learning Studio (clásico)
 
-Azure Machine Learning Studio ofrece las herramientas necesarias para desarrollar un modelo de análisis predictivo y después hacerlo operativo mediante la implementación como un servicio web de Azure.
+Azure Machine Learning Studio (clásico) ofrece las herramientas necesarias para desarrollar un modelo de análisis predictivo y después hacerlo operativo mediante la implementación como un servicio web de Azure.
 
-Para ello, utilice Studio para crear un experimento, denominado *experimento de entrenamiento*, donde puede entrenar, puntuar y editar el modelo. Cuando esté satisfecho, el modelo estará listo para implementarlo mediante la conversión del experimento de entrenamiento en un *experimento predictivo* que está configurado para puntuar los datos de usuario.
+Para ello, utilice la versión clásica de Studio para crear un experimento, denominado *experimento de entrenamiento*, donde puede entrenar, puntuar y editar el modelo. Cuando esté satisfecho, el modelo estará listo para implementarlo mediante la conversión del experimento de entrenamiento en un *experimento predictivo* que está configurado para puntuar los datos de usuario.
 
 Puede ver un ejemplo de este proceso en el [Tutorial 1: Predicción del riesgo de crédito](tutorial-part1-credit-risk.md).
 
@@ -105,7 +105,7 @@ Un ejemplo común es la configuración de un módulo [Importar datos][import-dat
 
 Puede definir parámetros de servicio web y asociarlos con uno o más parámetros de módulo, y puede especificar si son obligatorios u opcionales. El usuario del servicio web proporciona valores para estos parámetros cuando se tiene acceso al servicio y las acciones del módulo se modifican en consecuencia.
 
-Para más información sobre los parámetros del servicio web y cómo usarlos, vea [Usar parámetros de servicio web Azure Machine Learning][webserviceparameters].
+Para más información sobre los parámetros del servicio web y cómo usarlos, consulte [Usar parámetros de servicio web Azure Machine Learning][webserviceparameters].
 
 [webserviceparameters]: web-service-parameters.md
 
@@ -113,9 +113,9 @@ Para más información sobre los parámetros del servicio web y cómo usarlos, v
 ## <a name="deploy-the-predictive-experiment-as-a-web-service"></a>Implementar el experimento predictivo como servicio web
 Ahora que ha preparado el experimento predictivo suficientemente, puede implementarlo como servicio web de Azure. Mediante el servicio web, los usuarios pueden enviar datos a su modelo y el modelo devolverá las predicciones.
 
-Para más información sobre el proceso de implementación completo, consulte [Implementar un servicio web Azure Machine Learning][deploy]
+Para más información sobre el proceso de implementación completo, consulte [Implementar un servicio web Azure Machine Learning][deploy].
 
-[deploy]: publish-a-machine-learning-web-service.md
+[deploy]: deploy-a-machine-learning-web-service.md
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

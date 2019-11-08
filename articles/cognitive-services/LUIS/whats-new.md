@@ -9,20 +9,39 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3a32499a85b1cd782c808166c516be7ad9c78913
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0788df1c05d70c01d4de7f7a6ba62a476252f75a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813286"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498911"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novedades de Language Understanding
 
-Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.  
+Conozca las novedades del servicio. Estos elementos incluyen notas de la versión, vídeos, entradas de blogs y otros tipos de información. Marque esta página para mantenerse actualizado con el servicio.  
 
 ## <a name="release-notes"></a>Notas de la versión 
+
+### <a name="november-4-2019---ignite"></a>4 de noviembre de 2019: Ignite
+
+* Mayor productividad de los desarrolladores
+    * Disponibilidad general de nuestro [punto de conexión de predicción V3](luis-migration-api-v3.md). 
+    * Capacidad de importar y exportar aplicaciones con el formato .lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). Esto prepara el camino para un proceso de CI/CD efectivo. 
+* Expansión de idioma
+    * [Árabe e hindi](luis-language-support.md) en versión preliminar pública.
+* Modelos precompilados
+    * Los [dominios precompilados](luis-reference-prebuilt-domains.md) ya están disponibles con carácter general (GA)
+    * [Entidades precompiladas](luis-reference-prebuilt-entities.md#japanese-entity-support) en japonés: edad, moneda, número y porcentaje no se admiten en la versión V3.
+    * [Entidades precompiladas](luis-reference-prebuilt-entities.md#italian-entity-support) en italiano: edad, moneda, dimensión, número y resolución porcentual se cambiaron desde la versión V2.
+* Mejore la experiencia del usuario en el [portal de preview.luis.ai](https://preview.luis.ai): una experiencia de etiquetado renovada para habilitar la compilación y depuración de modelos complejos.
+* Funcionalidades de comprensión del lenguaje avanzadas: [cree modelos de lenguaje sofisticados](luis-concept-entity-types.md) con menos esfuerzo. 
+* Defina características de aprendizaje automático en el nivel de modelo y permita que los modelos se usen como señales para otro modelo; por ejemplo, use entidades como características para las intenciones y otras entidades.
+* [Límites](luis-boundaries.md) nuevos y ampliados: un límite máximo más elevado para las listas de frases y las frases totales, nuevos límites de modelo como característica
+* Extraiga información de texto en el formato de la estructura de jerarquía profunda, lo que permite que las aplicaciones de conversación sean más eficaces.
+
+    ![Imagen de entidad de aprendizaje automático](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 de septiembre de 2019
 

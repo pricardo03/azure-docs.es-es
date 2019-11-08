@@ -1,5 +1,5 @@
 ---
-title: 'Error de depuración de trabajos de Spark con Azure Toolkit for IntelliJ (versión preliminar) '
+title: 'Depuración de trabajos de Spark con Azure Toolkit para IntelliJ (versión preliminar): HDInsight'
 description: Guía para usar las herramientas de HDInsight en Azure Toolkit for IntelliJ con el fin de depurar aplicaciones
 keywords: depurar remotamente intellij, depuración remota intellij, ssh, intellij, hdinsight, depurar intellij, depuración
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 0275cd6ff83fd5fdcc75c8b88602e8943f9504dd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266160"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494592"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Error de depuración de trabajos de Spark con Azure Toolkit for IntelliJ (versión preliminar)
 

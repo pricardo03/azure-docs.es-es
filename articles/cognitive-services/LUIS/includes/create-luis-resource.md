@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad con los contenedores
+title: Creación de un recurso de LUIS
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist
@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: dapine
-ms.openlocfilehash: ecb172aec37fdab21bed8373ac7484dc52a54829
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a765ac27936da9da5a2f41464c17491e3561f44b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72822036"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465934"
 ---
 ## <a name="create-a-luis-resource"></a>Creación de un recurso de LUIS
 
@@ -30,9 +30,6 @@ ms.locfileid: "72822036"
     |Grupo de recursos|Seleccione un grupo de recursos disponible.|
 
 1. Haga clic en **Crear** y espere a que el recurso se cree. Una vez creado, vaya a la página de recursos.
-1. Recopile el elemento `endpoint` configurado y una clave de API:
+1. Recopile el valor de `endpoint` y una clave de API; consulte [Recopilación de los parámetros obligatorios](#gathering-required-parameters).
 
-    |Pestaña de recursos en el portal|Configuración|Valor|
-    |--|--|--|
-    |**Información general**|Punto de conexión|Copie el punto de conexión. Tiene un aspecto similar a `https://luis.cognitiveservices.azure.com/luis/v2.0`.|
-    |**Claves**|Clave de API|Copie una de las dos claves. Es una cadena de 32 caracteres alfanuméricos sin espacios ni guiones, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]

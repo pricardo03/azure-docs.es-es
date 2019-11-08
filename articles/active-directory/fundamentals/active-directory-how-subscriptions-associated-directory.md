@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb4fa92d8b3c174cdf9b3695f8564cc11c1ad291
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f6bce05b99c14fb464cd1a17587d9cf254909d87
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851757"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473403"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -29,7 +29,9 @@ Si su suscripción expira, se pierde el acceso a los otros recursos asociados a 
 Todos los usuarios tienen un único directorio *particular* para la autenticación. Sin embargo, los usuarios también pueden ser invitados en otros directorios. Puede ver los directorios principales e invitados para cada usuario en Azure AD.
 
 > [!Important]
-> Al asociar una suscripción a un directorio diferente, los usuarios que tengan roles asignados mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderán el acceso. Los administradores de suscripciones clásicas (el administrador y los coadministradores del servicio) también perderán el acceso.
+> Al asociar una suscripción a un directorio diferente, los usuarios que tengan roles asignados mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderán el acceso. Los administradores de suscripciones clásicas (el administrador y los coadministradores del servicio) también perderán el acceso. 
+>
+> También se quitan las asignaciones de directivas de una suscripción cuando dicha suscripción está asociada a un directorio diferente.
 > 
 > Además, mover el clúster de Azure Kubernetes Service (AKS) a otra suscripción, o mover la suscripción propietaria del clúster a un nuevo inquilino, provoca que el clúster pierda funcionalidad debido a la pérdida de asignaciones de roles y derechos de entidades de servicio. Para obtener más información sobre AKS, consulte [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
 

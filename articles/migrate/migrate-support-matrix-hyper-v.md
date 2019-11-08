@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0964dac6b4f381e2ec52bd9ec078741d0ee85712
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802181"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498691"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de Hyper-V
 
@@ -35,26 +35,7 @@ En la tabla se resumen los escenarios admitidos para las VM de Hyper-V.
 --- | ---
 Permisos de Azure | Necesita permisos de Colaborador o Propietario en la suscripción para crear un proyecto de Azure Migrate.
 Máquinas virtuales de Hyper-V | Evalúe hasta 35 000 máquinas virtuales de Hyper-V en un único proyecto. Puede tener varios proyectos en una suscripción a Azure. Un proyecto puede incluir máquinas virtuales de VMware y máquinas virtuales de Hyper-V, hasta los límites de evaluación.
-Geography | Puede crear proyectos de Azure Migrate en varias zonas geográficas. Aunque puede crear proyectos en geografías específicas, puede migrar máquinas o acceder a ellas, para otras ubicaciones de destino. La geografía del proyecto solo se usa para almacenar los metadatos detectados.
-
-  **Geografía** | **Ubicación de almacenamiento de metadatos**
-  --- | ---
-  Azure Government | Gobierno de EE. UU. - Virginia
-  Asia Pacífico | Asia Oriental o Sudeste Asiático
-  Australia | Este de Australia o Sudeste de Australia
-  Brasil | Sur de Brasil
-  Canadá | Centro de Canadá o Este de Canadá
-  Europa | Norte de Europa y Oeste de Europa
-  Francia | Centro de Francia
-  India | India central o India meridional
-  Japón |  Este de Japón u Oeste de Japón
-  Corea | Centro de Corea del Sur o Sur de Corea del Sur
-  Reino Unido | Sur de Reino Unido u Oeste de Reino Unido
-  Estados Unidos | Centro de EE. UU. u Oeste de EE. UU. 2
-
-
- > [!NOTE]
- > La compatibilidad con Azure Government solo está disponible actualmente para la [versión anterior](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) de Azure Migrate.
+Geography | [Revisión](migrate-support-matrix.md#supported-geographies) de las ubicaciones geográficas admitidas.
 
 
 ## <a name="assessment-hyper-v-host-requirements"></a>Evaluación de los requisitos del host de Hyper-V

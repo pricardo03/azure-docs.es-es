@@ -1,22 +1,22 @@
 ---
-title: Solución de problemas de Azure Data Share, versión preliminar
-description: Obtenga información sobre cómo solucionar problemas con invitaciones y errores al crear o recibir recursos compartidos de datos con la versión preliminar de Azure Data Share.
+title: Solución de problemas de Azure Data Share
+description: Obtenga información sobre cómo solucionar problemas con invitaciones y errores al crear o recibir recursos compartidos de datos con Azure Data Share.
 services: data-share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 592a2d464aed8c39dfd11734beccbd0399d75fd9
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6ad612d56b25da9e092070198e321e7fca8ad96b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169221"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490566"
 ---
-# <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Solución de problemas habituales de Azure Data Share, versión preliminar
+# <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solución de problemas habituales de Azure Data Share 
 
-En este artículo se muestra cómo solucionar problemas habituales de Azure Data Share, versión preliminar. 
+En este artículo se muestra cómo solucionar problemas habituales de Azure Data Share. 
 
 ## <a name="azure-data-share-invitations"></a>Invitaciones de Azure Data Share 
 
@@ -55,6 +55,20 @@ Si aparece cualquiera de los errores anteriores tanto al crear como al recibir u
 1. Seleccione **Access Control (IAM)**
 1. Haga clic en **Agregar**.
 1. Agréguese como propietario.
+
+## <a name="troubleshooting-sql-based-sharing"></a>Solución de problemas de uso compartido basado en SQL
+
+"Error: x conjuntos de datos no se han agregado porque no tiene los permisos necesarios para compartir."
+
+Si recibe este error al agregar un conjunto de datos desde un origen basado en SQL, puede deberse a que no ha creado un usuario para el MSI de Azure Data Share en SQL Server.  Para resolver este problema, ejecute el siguiente script:
+
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```      
+Tenga en cuenta que *<share_acc_name>* es el nombre de la cuenta de Data Share. Si aún no ha creado una cuenta de Data Share, puede volver a este requisito previo en otro momento.         
+
+Asegúrese de que ha seguido todos los requisitos previos que se enumeran en el tutorial [Uso compartido de datos](share-your-data.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

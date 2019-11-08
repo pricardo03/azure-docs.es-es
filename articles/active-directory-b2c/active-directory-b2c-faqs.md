@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 91f07b8da2cbc9beaa24730f2ec9f2ddb4639f37
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: e6e4c0018f11e216afd5a8c295fc336036885e68
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302546"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468947"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes
 
@@ -130,15 +130,20 @@ Actualmente, no. Esta característica está en nuestro mapa de ruta. Comprobar e
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>¿Cómo puedo eliminar al inquilino de Azure AD B2C?
 
-Siga estos pasos para eliminar al inquilino de Azure AD B2C:
+Siga estos pasos para eliminar el inquilino de Azure AD B2C.
 
+Puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información sobre la experiencia en versión preliminar](http://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como *administrador de la suscripción*. Use la misma cuenta profesional o educativa o la misma cuenta de Microsoft que ha usado para registrarse en Azure.
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. Elimine todos los **flujos de usuario (directivas)** del inquilino de Azure AD B2C.
 1. Elimine todas las **aplicaciones** que haya registrado en el inquilino de Azure AD B2C.
-1. Después, inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de la suscripción. Use la misma cuenta profesional o educativa o la misma cuenta de Microsoft que ha usado para registrarse en Azure.
-1. Cambie al inquilino de Azure AD B2C que desea eliminar.
 1. Seleccione **Azure Active Directory** en el menú de la izquierda.
 1. En **Administrar**, seleccione **Usuarios**.
-1. Seleccione cada usuario de uno en uno (excluya al administrador de suscripciones con el que inició sesión). Seleccione **Eliminar** en la parte inferior de la página y seleccione **SÍ** cuando se le pida confirmación.
+1. Seleccione cada usuario de uno en uno (excluya al *administrador de suscripciones* con el que inició sesión). Seleccione **Eliminar** en la parte inferior de la página y seleccione **SÍ** cuando se le pida confirmación.
 1. En **Administrar**, seleccione **Registros de aplicaciones** (o **Registros de aplicaciones (característica heredada)** ).
 1. Seleccione **Ver todas las aplicaciones**.
 1. Seleccione la aplicación denominada **b2c-extensions-app**, seleccione **Eliminar** y después **Sí** cuando se le pida.
@@ -149,6 +154,28 @@ Siga estos pasos para eliminar al inquilino de Azure AD B2C:
 1. Cierre la sesión de Azure Portal y vuelva a iniciar sesión para actualizar el acceso.
 1. Seleccione **Azure Active Directory** en el menú de la izquierda.
 1. En la página **Información general**, seleccione **Eliminar directorio**. Siga las instrucciones que aparecen en pantalla para completar el proceso.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como *administrador de la suscripción*. Use la misma cuenta profesional o educativa o la misma cuenta de Microsoft que ha usado para registrarse en Azure.
+1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. Elimine todos los **flujos de usuario (directivas)** del inquilino de Azure AD B2C.
+1. Seleccione **Registros de aplicaciones (versión preliminar)** y, a continuación, la pestaña **Todas las aplicaciones**.
+1. Elimine todas las aplicaciones que ha registrado.
+1. Elimine **b2c-extensions-app**.
+1. En **Administrar**, seleccione **Usuarios**.
+1. Seleccione cada usuario de uno en uno (excluya al *administrador de suscripciones* con el que inició sesión). Seleccione **Eliminar** en la parte inferior de la página y seleccione **Sí** cuando se le pida confirmación.
+1. Seleccione **Azure Active Directory** en el menú de la izquierda.
+1. En **Administrar**, seleccione **Configuración del usuario**.
+1. Si está presente, en **Conexiones de cuenta de LinkedIn**, seleccione **No** y, a continuación, seleccione **Guardar**.
+1. En **Administrar**, seleccione **Propiedades**.
+1. En **Administración del acceso para los recursos de Azure**, seleccione **Sí** y luego **Guardar**.
+1. Cierre la sesión de Azure Portal y vuelva a iniciar sesión para actualizar el acceso.
+1. Seleccione **Azure Active Directory** en el menú de la izquierda.
+1. En la página **Información general**, seleccione **Eliminar directorio**. Siga las instrucciones que aparecen en pantalla para completar el proceso.
+
+* * *
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>¿Puedo obtener Azure AD B2C como parte de Enterprise Mobility Suite?
 

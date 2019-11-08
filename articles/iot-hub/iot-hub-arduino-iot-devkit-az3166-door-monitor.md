@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: a620b592a33f9de11de53d623d257f203da2157b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cbf3f906b511d9d76319f57f5508a2c584213cb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61370363"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484064"
 ---
 # <a name="door-monitor"></a>Supervisión de puertas          
 
@@ -185,9 +185,9 @@ El programa se inicializa por primera vez cuando DevKit está en presencia de un
 
 Una vez que se ha inicializado, aparece `Door closed` en la pantalla. Cuando se produce un cambio en el campo magnético, el estado pasa a `Door opened`. Cada vez que la puerta cambie de estado, recibirá una notificación por correo electrónico (puede tardar hasta cinco minutos en llegar).
 
-![Imanes cerca del sensor: Puerta cerrada](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Magnets close to the sensor: Door Closed")
+![Imanes cerca del sensor: Door Closed](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Imanes cerca del sensor: Door Closed")
 
-![Imán alejado del sensor: Puerta abierta](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Magnet moved away from the sensor: Door Opened")
+![Imán alejado del sensor: Door Opened](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Imán alejado del sensor: Door Opened")
 
 ## <a name="problems-and-feedback"></a>Problemas y comentarios
 
@@ -201,4 +201,4 @@ Si tiene algún problema, consulte las [preguntas más frecuentes de DevKit de I
 Ha aprendido a conectar un dispositivo de DevKit al acelerador de soluciones de supervisión remota de Azure IoT y a utilizar el servicio SendGrid para enviar un correo electrónico. Estos son los siguientes pasos que le sugerimos:
 
 * [Información general sobre el acelerador de la solución de supervisión remota de Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](/azure/iot-central/core/howto-connect-devkit) (Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central)

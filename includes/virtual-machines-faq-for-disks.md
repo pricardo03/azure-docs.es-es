@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523794"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612178"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -170,15 +170,6 @@ La reserva de discos de Azure se compra para una región específica y una SKU (
 Recibirá notificaciones por correo electrónico 30 días antes de la expiración y también en la fecha de expiración. Una vez que expire la reserva, los discos implementadas seguirán ejecutándose y se facturarán mediante una [cuota de pago por uso](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="ultra-disks"></a>Discos Ultra
-
-**¿En qué regiones se admiten actualmente discos Ultra?**
-- Este de EE. UU. 2
-- Sudeste Asiático
-- Europa del Norte
-
-**¿Qué series de máquinas virtuales admiten actualmente discos Ultra?**
-- ESv3
-- DSv3
 
 **¿Qué rendimiento del disco Ultra se debe establecer?**
 Si no está seguro de qué rendimiento de disco establecer, se recomienda que comience asumiendo un tamaño de E/S de 16 KiB y ajuste el rendimiento a partir de ahí mientras supervisa la aplicación. La fórmula es: Rendimiento en MBps = n.º de IOPS * 16/1000.

@@ -7,65 +7,24 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: e8ffb9051220cc80aa12adaa9dc9b1fcc6ddfc20
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: eb48afb15e1314dcf670ba04afd9609876dc9539
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839978"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472826"
 ---
-# <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Versión preliminar: cree un clúster de Azure Kubernetes Service (AKS) que use zonas de disponibilidad
+# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creación de un clúster de Azure Kubernetes Service (AKS) que use zonas de disponibilidad
 
 Un clúster de Azure Kubernetes Service (AKS) distribuye recursos como los nodos y el almacenamiento en secciones lógicas de la infraestructura de procesos subyacente de Azure. Este modelo de implementación garantiza que los nodos se ejecuten en dominios de actualización y error separados en un solo centro de datos de Azure. Los clústeres de AKS implementados con este comportamiento predeterminado proporcionan un alto nivel de disponibilidad para protegerle contra un error de hardware o un evento de mantenimiento planeado.
 
 Para proporcionar un mayor nivel de disponibilidad a sus aplicaciones, los clústeres de AKS se pueden distribuir en zonas de disponibilidad. Estas zonas son centros de datos físicamente separados dentro de una región determinada. Cuando los componentes del clúster se distribuyen entre varias zonas, su clúster de AKS puede tolerar un error en una de esas zonas. Sus aplicaciones y operaciones de administración continuarán disponibles incluso si todo un centro de datos tiene problemas.
 
-En este artículo le mostraremos cómo crear un clúster de AKS y distribuir los componentes del nodo en las zonas de disponibilidad. Esta funcionalidad actualmente está en su versión preliminar.
-
-> [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para obtener información adicional, consulte los siguientes artículos de soporte:
->
-> * [Directivas de soporte técnico para AKS][aks-support-policies]
-> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
+En este artículo le mostraremos cómo crear un clúster de AKS y distribuir los componentes del nodo en las zonas de disponibilidad.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Es necesario tener instalada y configurada la versión 2.0.66 de la CLI de Azure o una versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
-
-### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
-
-Para crear clústeres de AKS que usen zonas de disponibilidad, necesita la versión 0.4.12 o superior de la extensión de CLI *aks-preview*. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### <a name="register-the-availabilityzonepreview-feature-flag-for-your-subscription"></a>Registro de la marca de características de AvailabilityZonePreview para la suscripción
-
-Para crear un clúster de AKS con zonas de disponibilidad, primero debe habilitar la marca de características *AvailabilityZonePreview* en su suscripción. Para registrar la marca de características *AvailabilityZonePreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
-
-> [!CAUTION]
-> Actualmente, al registrar una característica en una suscripción, no se puede anular el registro de esa característica. Después de habilitar algunas características en vista previa, se pueden usar los valores predeterminados en todos los clústeres de AKS y, luego, se pueden crear en la suscripción. No habilite características en vista previa en las suscripciones de producción. Use una suscripción independiente para probar las características en vista previa y recopilar comentarios.
-
-```azurecli-interactive
-az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-```
-
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-```
-
-Cuando todo esté listo, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de Azure, o cualquier otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
 ## <a name="limitations-and-region-availability"></a>Limitaciones y disponibilidad de región
 
@@ -91,7 +50,7 @@ Las siguientes limitaciones se aplican cuando crea un clúster de AKS mediante z
 * Los clústeres con zonas de disponibilidad habilitadas requieren el uso de equilibradores de carga estándar de Azure para la distribución entre zonas.
 * Debe usar la versión 1.13.5 o superior de Kubernetes para implementar los equilibradores de carga estándar.
 
-Los clústeres de AKS que usan zonas de disponibilidad deben usar el SKU *estándar* del equilibrador de carga de Azure. La SKU *básica* predeterminada del equilibrador de carga de Azure no admite la distribución entre zonas de disponibilidad. Para obtener más información y las limitaciones del equilibrador de carga estándar, consulte las [limitaciones de la SKU estándar del equilibrador de carga de Azure][standard-lb-limitations].
+Los clústeres de AKS que usan zonas de disponibilidad deben usar la SKU *Estándar* de Azure Load Balancer, que es el valor predeterminado para el tipo de equilibrador de carga. Este tipo de equilibrador de carga solo se puede definir en el momento de la creación del clúster. Para obtener más información y las limitaciones del equilibrador de carga estándar, consulte las [limitaciones de la SKU estándar del equilibrador de carga de Azure][standard-lb-limitations].
 
 ### <a name="azure-disks-limitations"></a>Limitaciones de los discos de Azure
 
@@ -113,9 +72,9 @@ Cuando se produce una interrupción en una zona, los nodos se pueden reequilibra
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Crear un clúster de AKS en zonas de disponibilidad
 
-Cuando crea un clúster con el comando [az aks create][az-aks-create], el parámetro `--node-zones` define en qué zonas se implementan los nodos de agente. Los componentes del plano de control de AKS del clúster también se extienden a través de las zonas de la configuración más alta disponible, cuando crea un clúster que especifique el parámetro `--node-zones`.
+Cuando crea un clúster con el comando [az aks create][az-aks-create], el parámetro `--zones` define en qué zonas se implementan los nodos de agente. Los componentes del plano de control de AKS del clúster también se extienden a través de las zonas de la configuración más alta disponible, cuando crea un clúster que especifique el parámetro `--zones`.
 
-Si no define ninguna zona para el grupo de agentes predeterminado cuando crea un clúster de AKS, los componentes del plano de control AKS del clúster no usarán las zonas de disponibilidad. Puede agregar grupos de nodos adicionales (actualmente en versión preliminar en AKS) mediante el comando [az aks nodepool add][az-aks-nodepool-add] y especificar `--node-zones` para esos nuevos nodos de agente; sin embargo, los componentes del plano de control permanecen sin conocimiento de la zona de disponibilidad. No puede cambiar el reconocimiento de zona para un grupo de nodos o los componentes del plano de control de AKS una vez que se implementan.
+Si no define ninguna zona para el grupo de agentes predeterminado cuando crea un clúster de AKS, los componentes del plano de control AKS del clúster no usarán las zonas de disponibilidad. Puede agregar grupos de nodos adicionales mediante el comando [az aks nodepool add][az-aks-nodepool-add] y especificar `--zones` para esos nuevos nodos de agente; sin embargo, los componentes del plano de control permanecen sin conocimiento de la zona de disponibilidad. No puede cambiar el reconocimiento de zona para un grupo de nodos o los componentes del plano de control de AKS una vez que se implementan.
 
 En el ejemplo siguiente se crea un clúster de AKS denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*. Se crean un total de *3* nodos: un agente en la zona *1*, uno en la *2* y otro en la *3*. Los componentes del plano de control de AKS también se distribuyen a través de zonas en la configuración más alta disponible, ya que se definen como parte del proceso de creación del clúster.
 
@@ -129,7 +88,7 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --node-count 3 \
-    --node-zones 1 2 3
+    --zones 1 2 3
 ```
 
 El clúster de AKS tarda unos minutos en crearse.

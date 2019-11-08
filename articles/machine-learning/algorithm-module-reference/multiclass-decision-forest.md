@@ -1,24 +1,24 @@
 ---
 title: 'Bosque de decisión multiclase: referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo de bosque de decisión multiclase en Azure Machine Learning Service para crear un modelo de Machine Learning basado en el algoritmo de *bosques de decisión*.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Multiclass Decision Forest (Bosque de decisión multiclase) en Azure Machine Learning para crear un modelo de aprendizaje automático basado en el algoritmo de *bosques de decisión*.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 80d8fc886ec62cf6abea7620f0c5763b619b5de4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 85459fe586ccbb5adb1e86b153ec63252c0cce2d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692778"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466027"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo sobre el bosque de decisión multiclase
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para crear un modelo de Machine Learning basado en el algoritmo de *bosques de decisión*. Un bosque de decisión es un modelo de conjunto que genera rápidamente una serie de árboles de decisión, al mismo tiempo que aprende de los datos etiquetados.
 
@@ -39,9 +39,7 @@ El clasificador del bosque de decisión en Azure Machine Learning consta de un
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Cómo configurar un bosque de decisión multiclase
 
-
-
-1. Agregue el módulo **Bosque de decisión multiclase** a la canalización en la interfaz. Puede encontrar este módulo en **Machine Learning**, **Inicializar modelo** y **Clasificación**.
+1. Agregue el módulo **Multiclass Decision Forest** (Bosque de decisión multiclase) a la canalización del diseñador. Puede encontrar este módulo en **Machine Learning**, **Inicializar modelo** y **Clasificación**.
 
 2. Haga doble clic en el módulo para abrir el panel **Propiedades**.
 
@@ -88,4 +86,4 @@ Una vez completado el entrenamiento:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

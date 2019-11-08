@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 188db5e89097542b5a47b43e7bc8bbb2ce30b072
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1354f48843f8006b4a6180a2cea60e735413e446
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073127"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470404"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar un nombre de dominio personalizado para Azure App Service
 
@@ -64,7 +64,7 @@ El nivel actual de la aplicación aparece resaltado con un cuadro azul. Asegúre
 
 Si el plan de App Service no es **F1**, cierre la página **Escalar verticalmente** y vaya directamente a [Buy the domain](#buy-the-domain) (Comprar el dominio).
 
-### <a name="scale-up-the-app-service-plan"></a>Escalado verticalmente del plan de App Service
+### <a name="scale-up-the-app-service-plan"></a>Escalado vertical del plan de App Service
 
 Seleccione cualquiera de los niveles no gratuitos (**D1**, **B1**, **B2**, **B3**, o cualquier nivel de la categoría **Producción**). Para ver opciones adicionales, haga clic en **Ver opciones adicionales**.
 
@@ -146,7 +146,7 @@ También verá los nombres de host seleccionados en la página **Dominios person
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> Si un dominio personalizado contiene la etiqueta **Not Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para configurar el enlace SSL, consulte [Compra y configuración de un certificado SSL para Azure App Service](web-sites-purchase-ssl-web-site.md).
+> Si un dominio personalizado contiene la etiqueta **Not Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para configurar un enlace SSL, consulte [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md).
 >
 
 Para probar los nombres de host, vaya a los nombres de host enumerados en el explorador. En el ejemplo de la captura de pantalla anterior, intente navegar a _kontoso.net_ y _www\.kontoso.net_.

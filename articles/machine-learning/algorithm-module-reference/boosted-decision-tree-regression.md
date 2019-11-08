@@ -1,24 +1,24 @@
 ---
 title: 'Regresión del árbol de decisión potenciado: referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo de regresión del árbol de decisión potenciado en Azure Machine Learning Service para crear un conjunto de árboles de regresión mediante la potenciación.
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo de regresión del árbol de decisión potenciado en Azure Machine Learning para crear un conjunto de árboles de regresión mediante la potenciación.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 4b8ff1c9f5b0f0b04448b950d3ba904ba76927c9
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b04a44a82f793f39b24ffd94083ca8fd5e66cfb8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693836"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493888"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regresión del árbol de decisión potenciado
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para crear un conjunto de árboles de regresión mediante la potenciación. *Potenciación* significa que cada árbol depende de árboles anteriores. El algoritmo aprende ajustando el valor residual de los árboles que le preceden. Por lo tanto, la potenciación de un conjunto de árboles de decisión tiende a mejorar la precisión a pesar de correr el riesgo de tener menor cobertura.  
   
@@ -97,6 +97,8 @@ Una vez completado el entrenamiento:
 
 + Para usar el modelo para la puntuación, conéctelo a [Score Model](./score-model.md) (Modelo de puntuación) para predecir los valores de ejemplos de nuevas entradas.
 
++ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado **Trained model** (Modelo entrenado) del módulo de entrenamiento y seleccione **Save As** (Guardar como). La copia del modelo entrenado que guarde no se actualiza en las ejecuciones sucesivas de la canalización.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

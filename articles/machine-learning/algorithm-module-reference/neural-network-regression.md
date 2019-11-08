@@ -1,20 +1,20 @@
 ---
-title: 'Regresión de red neuronal: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Regresión de red neuronal en Azure Machine Learning Service para crear un modelo de regresión usando un algoritmo de red neuronal personalizable.
+title: 'Regresión de red neuronal: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Neural Network Regression (Regresión de red neuronal) de Azure Machine Learning para crear un modelo de regresión mediante un algoritmo de red neuronal personalizable.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 54518d21db0c9b14cbb7b4fc4316d1db2b871573
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: d5cc0f06e9fb95894df30af1322d47337f51e314
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692736"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465994"
 ---
 # <a name="neural-network-regression-module"></a>Módulo Regresión de red neuronal
 
@@ -24,7 +24,7 @@ ms.locfileid: "72692736"
   
 ## <a name="module-overview"></a>Información general sobre el módulo  
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para crear un modelo de regresión usando un algoritmo de red neuronal personalizable.
   
@@ -51,8 +51,8 @@ Las redes neuronales se pueden personalizar ampliamente. En esta sección se des
     Esta opción es mejor si ya está un poco familiarizado con las redes neuronales. Use el lenguaje Net# para definir la arquitectura de red.  
 
 ##  <a name="bkmk_DefaultArchitecture"></a>Crear un modelo de red neuronal con la arquitectura predeterminada
-  
-1.  Agregue el módulo **Regresión de red neuronal** a la canalización en la interfaz. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Regresión**. 
+
+1.  Agregue el módulo **Neural Network Regression** (Regresión de red neuronal) a la canalización del diseñador. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Regresión**. 
   
 2. Para indicar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
   
@@ -98,4 +98,4 @@ Una vez completado el entrenamiento:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

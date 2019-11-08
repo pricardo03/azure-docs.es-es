@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c163dacae24749dbe309bca33bac016a3be7aa5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 902bf84ebf090cf9f0f886ad1e774ff7bdfeca93
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002887"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490756"
 ---
 # <a name="how-personalizer-works"></a>Funcionamiento de Personalizer
 
@@ -39,7 +39,7 @@ La API **Reward**:
 
 La siguiente imagen muestra el flujo arquitectónico de realizar las llamadas a Rank y Reward:
 
-![alt text](./media/how-personalizer-works/personalization-how-it-works.png "Funcionamiento de Personalization")
+![texto alternativo](./media/how-personalizer-works/personalization-how-it-works.png "Funcionamiento de la personalización")
 
 1. Personalizer utiliza un modelo de inteligencia artificial interno para determinar la clasificación de la acción.
 1. El servicio decide si va a explorar el modelo actual o a explorar nuevas opciones para el modelo.  

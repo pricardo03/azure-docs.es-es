@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 894396686a54ed3a685366fcf3e933fa8f03bee8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958559"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474527"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administración de directivas de grupo en un dominio administrado con Azure AD Domain Services
 
 La configuración de los objetos de usuario y de equipo en Azure Active Directory Domain Services (Azure AD DS) se suele administrar con objetos de directiva de grupo (GPO). Azure AD DS incluye GPO integrados para los contenedores de *usuarios del controlador de dominio de AAD* y *equipos del controlador de dominio de AAD*. Puede personalizar estos GPO integrados para configurar la directiva de grupo según las necesidades del entorno. Los miembros del grupo de *administradores de Azure AD DC* tienen privilegios de administración de directivas de grupo en el dominio de Azure AD DS y también pueden crear GPO personalizados y unidades organizativas (UO). Para obtener más información sobre qué es la directiva de grupo y cómo funciona, consulte [Introducción a la directiva de grupo][group-policy-overview].
+
+En un entorno híbrido, las directivas de grupo configuradas en un entorno de AD DS local no se sincronizan con Azure AD DS. Para definir los valores de configuración de los usuarios o equipos en Azure AD DS, edite uno de los GPO predeterminados o cree un GPO personalizado.
 
 En este artículo se muestra cómo se instalan las herramientas de Administración de directivas de grupo y, posteriormente, cómo se editan los GPO integrados y se crean otros personalizados.
 

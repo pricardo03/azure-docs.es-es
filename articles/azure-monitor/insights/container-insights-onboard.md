@@ -6,17 +6,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/12/2019
-ms.openlocfilehash: 44cdc2d6b93ac9a62f96875ca6c679fbb97d85a9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: dd58ec08c6ec372cf53a79b75162748cfe336b23
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555403"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477120"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Cómo habilitar Azure Monitor para contenedores
 
-En este artículo se proporciona información general acerca de las opciones disponibles para configurar la solución para contenedores de Azure Monitor para supervisar el rendimiento de las cargas de trabajo que se implementan en entornos de Kubernetes y se hospedan en [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
+En este artículo se proporciona información general acerca de las opciones disponibles para configurar la solución para contenedores de Azure Monitor para supervisar el rendimiento de las cargas de trabajo que se implementan en entornos de Kubernetes y se hospedan en [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/), AKS Engine en [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) o Kubernetes implementado de forma local.
 
 Azure Monitor para contenedores puede habilitarse para implementaciones de AKS nuevas, o en una o más existentes, mediante los siguientes métodos compatibles:
 
@@ -26,6 +26,7 @@ Azure Monitor para contenedores puede habilitarse para implementaciones de AKS n
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 * **Un área de trabajo de Log Analytics.**
@@ -40,7 +41,41 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-* Las métricas de Prometheus no se recopilan de forma predeterminada. Antes de [configurar el agente](container-insights-agent-config.md) para recopilarlas, es importante revisar la [documentación](https://prometheus.io/) de Prometheus para comprender lo que se puede definir.
+* Las métricas de Prometheus no se recopilan de forma predeterminada. Antes de [configurar el agente](container-insights-prometheus-integration.md) para recopilarlas, es importante revisar la [documentación](https://prometheus.io/) de Prometheus para comprender lo que se puede definir.
+
+## <a name="network-firewall-requirements"></a>Requisitos de firewall de red
+
+La información de la tabla siguiente muestra la configuración de proxy y firewall requerida para que el agente en contenedor se comunique con Azure Monitor para contenedores. Todo el tráfico de red del agente se enlaza a Azure Monitor.
+
+|Recurso del agente|Puertos |
+|--------------|------|
+| \* .ods.opinsights.azure.com | 443 |  
+| \* .oms.opinsights.azure.com | 443 | 
+| \* .blob.core.windows.net | 443 |
+| dc.services.visualstudio.com | 443 |
+| *.microsoftonline.com | 443 |
+| *.monitoring.azure.com | 443 |
+| login.microsoftonline.com | 443 |
+
+En la información de la tabla siguiente se muestra la información de configuración de proxy y firewall para Azure China.
+
+|Recurso del agente|Puertos |DESCRIPCIÓN | 
+|--------------|------|-------------|
+| *.ods.opinsights.azure.cn | 443 | Ingesta de datos |
+| *.oms.opinsights.azure.cn | 443 | Incorporación de OMS |
+| \* .blob.core.windows.net | 443 | Se usa para supervisar la conectividad saliente. |
+| microsoft.com | 80 | Se usa para la conectividad de red. Solo es necesario si la versión de la imagen del agente es ciprod09262019 o anterior. |
+| dc.services.visualstudio.com | 443 | Para la telemetría del agente que usa Application Insights en la nube pública de Azure. |
+
+En la información de la tabla siguiente se muestra la información de configuración de proxy y firewall para Azure US Government.
+
+|Recurso del agente|Puertos |DESCRIPCIÓN | 
+|--------------|------|-------------|
+| *.ods.opinsights.azure.us | 443 | Ingesta de datos |
+| *.oms.opinsights.azure.us | 443 | Incorporación de OMS |
+| \* .blob.core.windows.net | 443 | Se usa para supervisar la conectividad saliente. |
+| microsoft.com | 80 | Se usa para la conectividad de red. Solo es necesario si la versión de la imagen del agente es ciprod09262019 o anterior. |
+| dc.services.visualstudio.com | 443 | Para la telemetría del agente que usa Application Insights en la nube pública de Azure. |
 
 ## <a name="components"></a>Componentes
 
@@ -67,6 +102,7 @@ Para habilitar Azure Monitor para contenedores, puede usar uno de los métodos 
 | | [Habilitación desde Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Puede habilitar la supervisión de uno o varios clústeres de AKS ya implementados desde la página de varios clústeres de AKS en Azure Monitor. |
 | | [Habilitación desde el clúster de AKS](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| Puede habilitar la supervisión directamente desde un clúster de AKS en Azure Portal. |
 | | [Habilitación mediante una plantilla de Azure Resource Manager](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| Puede habilitar la supervisión de un clúster de AKS con una plantilla preconfigurada de Azure Resource Manager. |
+| | [Habilitación para un clúster de Kubernetes híbrido](container-insights-hybrid-setup.md) | Puede habilitar la supervisión de una instancia de AKS Engine hospedada en Azure Stack o para Kubernetes hospedado de forma local. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

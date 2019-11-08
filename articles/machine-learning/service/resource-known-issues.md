@@ -9,35 +9,34 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.custom: seodec18
-ms.openlocfilehash: a3ba28960327f1e0a56b1ac838b2cb90ab6ac72a
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c52adfb919586fc590ef60215592a5b5c1c1cb3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675647"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476123"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conocidos y soluciones de Azure Machine Learning
 
 Este artículo le ayuda a buscar y corregir los errores que se producen al usar el servicio Azure Machine Learning.
 
-## <a name="upcoming-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Próxima actualización de SR-IOV para máquinas NCv3 en AmlCompute
+## <a name="outage-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Interrupción: Actualización de SR-IOV para máquinas NCv3 en AmlCompute
 
-Azure Compute actualizará las SKU de NCv3 a partir de principios de noviembre para admitir todas las implementaciones y versiones de MPI, así como los verbos RDMA para las máquinas virtuales equipadas con InfiniBand. Esto requerirá un breve tiempo de inactividad ([obtenga más información sobre la actualización de SR-IOV](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku)).
+Azure Compute actualizará las SKU de NCv3 a partir de principios de noviembre de 2019 para admitir todas las implementaciones y versiones de MPI, así como los verbos RDMA para las máquinas virtuales equipadas con InfiniBand. Esto requerirá un breve tiempo de inactividad ([obtenga más información sobre la actualización de SR-IOV](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku)).
 
 Como cliente de la oferta de proceso administrada de Azure Machine Learning (AmlCompute), no es necesario realizar ningún cambio en este momento. En función de la [programación de actualización](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku), deberá planear una interrupción breve del entrenamiento. El servicio adquirirá la responsabilidad de actualizar las imágenes de VM en los nodos del clúster y de escalar verticalmente el clúster de forma automática. Una vez completada la actualización, es posible que pueda usar todas las demás distribuciones de MPI (como OpenMPI con Pytorch) además de obtener un mayor ancho de banda de InfiniBand, menores latencias y un mejor rendimiento de la aplicación distribuida.
 
-## <a name="visual-interface-issues"></a>Problemas de la interfaz visual
+## <a name="azure-machine-learning-designer-issues"></a>Problemas del diseñador de Azure Machine Learning
 
-Problemas de la interfaz visual para Machine Learning Service.
+Problemas conocidos con el diseñador.
 
 ### <a name="long-compute-preparation-time"></a>Tiempo prolongado de preparación de un proceso
 
 Crear un nuevo proceso o evocar un proceso saliente lleva tiempo, puede ser de minutos o incluso más. El equipo está trabajando para optimizarlo.
 
 
-### <a name="cannot-run-an-experiment-only-contains-dataset"></a>No se puede ejecutar un experimento que solo contiene un conjunto de datos 
+### <a name="cannot-run-an-experiment-only-contains-a-dataset"></a>No se puede ejecutar un experimento que solo contiene un conjunto de datos. 
 
 Puede querer ejecutar un experimento que solo contenga un conjunto de datos para visualizar el conjunto de datos. Sin embargo, en este momento no se permite ejecutar un experimento que solo contiene un conjunto de datos. Estamos corrigiendo este problema.
  
@@ -86,6 +85,16 @@ El aprendizaje automático automatizado de TensorFlow no admite actualmente la v
 ### <a name="experiment-charts"></a>Gráficos de experimento
 
 Los gráficos de clasificación binaria (precisión-retirada, ROC, curva de ganancia, etc.) que se muestran en las iteraciones de experimentos de ML automatizados no se representan correctamente en la interfaz de usuario desde el 12/04. Los trazados de los gráficos actualmente muestran resultados inversos, donde los modelos con mejor rendimiento se muestran con resultados inferiores. Se está investigando una resolución.
+
+## <a name="datasets-and-data-preparation"></a>Conjuntos de datos y preparación de datos
+
+### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>No se puede leer el archivo Parquet desde HTTP o ADLS Gen 2
+
+Existe un problema conocido en la versión 1.1.25 del SDK de DataPrep de AzureML que produce un error al crear un conjunto de archivos mediante la lectura de archivos Parquet desde HTTP o ADLS Gen2. Para corregir este problema, actualice a una versión superior a 1.1.26 o cambie a una versión anterior a 1.1.24.
+
+```python
+pip install --upgrade azureml-dataprep
+```
 
 ## <a name="databricks"></a>Databricks
 
@@ -140,13 +149,20 @@ Si ve un error `FailToSendFeather` al leer datos en un clúster de Azure Databri
 * Agregue `azure-dataprep` versión 1.1.8 o superior.
 * Agregue `pyarrow` versión 0.11 o superior.
 
+
+## <a name="datasets"></a>Conjuntos de datos
+
+Estos son problemas conocidos de los conjuntos de datos de Azure Machine Learning.
+
++ **No se pudieron leer los archivos de Parquet en Azure Data Lake Storage Gen2** La lectura de archivos de Parquet desde almacenes de archivos de Azure Data Lake Storage Gen2 no funciona si tiene `azureml-dataprep==1.1.25` instalado. Se producirá un error con `Cannot seek once reading started.`. Si ve este error, puede instalar `azureml-dataprep<=1.1.24` o instalar `azureml-dataprep>=1.1.26`.
+
 ## <a name="azure-portal"></a>Portal de Azure
 
-Si ve directamente el área de trabajo desde un vínculo de recurso compartido desde el SDK o el portal, no podrá ver la página de información general normal con la información de suscripción en la extensión. Tampoco será capaz de cambiar a otra área de trabajo. Si necesita ver otra área de trabajo, la solución consiste en ir directamente a [Azure Portal](https://portal.azure.com) y buscar el nombre de la misma.
+Si ve directamente el área de trabajo desde un vínculo de recurso compartido desde el SDK o el portal, no podrá ver la página de información general normal con la información de suscripción en la extensión. Tampoco será capaz de cambiar a otra área de trabajo. Si necesita ver otra área de trabajo, la solución consiste en ir directamente a [Azure Machine Learning Studio](https://ml.azure.com) y buscar el nombre su nombre.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
-A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda. Para ver algunos registros, visite [Azure Portal](https://portal.azure.com), vaya al área de trabajo y seleccione **Área de trabajo > Experimento > Ejecutar > Registros**.  Esta información también se puede encontrar en la sección **Experimentos** de la [página de aterrizaje de su área de trabajo (versión preliminar)](https://ml.azure.com).
+A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda. Para ver algunos registros, visite [Azure Machine Learning Studio](https://ml.azure.com), vaya al área de trabajo y seleccione **Área de trabajo > Experimento > Ejecutar > Registros**.  
 
 > [!NOTE]
 > Azure Machine Learning registra información de varios orígenes durante el entrenamiento, como AutoML o el contenedor de Docker que ejecuta el trabajo de entrenamiento. Muchos de estos registros no están documentados. Si encuentra problemas y se pone en contacto con el soporte técnico de Microsoft, es posible que puedan usar estos registros durante la resolución de problemas.
@@ -232,12 +248,12 @@ En función de la observación general, a continuación se incluyen las recomend
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (ningún módulo con nombre)
 Si está ejecutando ModuleErrors mientras envía experimentos en Azure ML, significa que el script de entrenamiento espera que se instale un paquete pero no se agrega. Una vez que proporcione el nombre del paquete, Azure ML instalará el paquete en el entorno que se usa para el entrenamiento. 
 
-Si usa [Estimadores](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) para enviar experimentos, puede especificar un nombre de paquete mediante el parámetro `pip_packages` o `conda_packages` en el estimador basado en el origen desde el que desea instalar el paquete. También puede especificar un archivo yml con todas sus dependencias mediante `conda_dependencies_file` o enumerar todos sus requisitos de pip en un archivo txt con el parámetro `pip_requirements_file`.
+Si usa [Estimadores](concept-azure-machine-learning-architecture.md#estimators) para enviar experimentos, puede especificar un nombre de paquete mediante el parámetro `pip_packages` o `conda_packages` en el estimador basado en el origen desde el que desea instalar el paquete. También puede especificar un archivo yml con todas sus dependencias mediante `conda_dependencies_file` o enumerar todos sus requisitos de pip en un archivo txt con el parámetro `pip_requirements_file`.
 
 Azure ML también proporciona estimadores específicos del marco para Tensorflow, PyTorch, Chainer y SKLearn. El uso de estos estimadores asegurará que las dependencias del marco se instalen en su nombre en el entorno utilizado para el entrenamiento. Tiene la opción de especificar dependencias adicionales como se describe anteriormente. 
  
  Azure ML mantuvo las imágenes acopladas y su contenido se puede ver en [Contenedores AzureML](https://github.com/Azure/AzureML-Containers).
-Las dependencias específicas del marco se enumeran en la documentación del marco respectivo: [Chainer](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+Las dependencias específicas del marco se enumeran en la documentación del marco respectivo: [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
 >[Nota] Si cree que un paquete en particular es lo suficientemente común como para agregarlo en imágenes y entornos mantenidos por Azure ML, plantee un problema de GitHub en [Contenedores AzureML](https://github.com/Azure/AzureML-Containers). 
  

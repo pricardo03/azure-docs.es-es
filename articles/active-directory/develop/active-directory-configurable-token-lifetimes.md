@@ -1,5 +1,6 @@
 ---
-title: Vigencia de tokens configurable en Azure Active Directory | Microsoft Docs
+title: Vigencia de tokens configurable en Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Aprenda a establecer la vigencia de los tokens emitidos por Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be2e9d7657d621a285f7177dc6cdd3a01b83470d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 23cdf7887d6d0812a9e991580e2095b603a4b4df
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024445"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473943"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Vigencia de tokens configurable en Azure Active Directory (versión preliminar)
 
@@ -44,11 +45,19 @@ Puede designar una directiva como la directiva predeterminada para su organizaci
 
 ## <a name="token-types"></a>Tipos de token
 
-Las directivas de vigencia del token se pueden establecer para tokens de actualización, tokens de acceso, tokens de sesión y tokens de identificador.
+Las directivas de vigencia del token se pueden establecer para tokens de actualización, tokens de acceso, tokens SAML, tokens de sesión y tokens de identificador.
 
 ### <a name="access-tokens"></a>Tokens de acceso
 
 Los clientes utilizan tokens de acceso para acceder a un recurso protegido. Solo se puede utilizar un token de acceso para una combinación específica de usuario, cliente y recurso. Los tokens de acceso no se pueden revocar y son válidos hasta que caducan. Un individuo maltintencionado que haya obtenido un token de acceso puede usarlo durante toda su vigencia. El ajuste de la vigencia de un token de acceso es un balance entre la mejora del rendimiento del sistema y el aumento de la cantidad de tiempo que el cliente conserva el acceso después de que la cuenta de usuario está deshabilitada. Se consigue un rendimiento mejorado del sistema al reducir el número de veces que un cliente necesita adquirir un token de acceso nuevo.  El valor predeterminado es 1 hora. Después de 1 hora, el cliente debe usar el token de actualización para adquirir un nuevo token de actualización (normalmente en modo silencioso) y un token de acceso. 
+
+### <a name="saml-tokens"></a>Tokens de SAML
+
+Muchas aplicaciones SAAS basadas en web usan tokens SAML, que se obtienen mediante el punto de conexión del protocolo SAML2 de Azure Active Directory.  También las usan las aplicaciones mediante WS-Federation.    La duración predeterminada del token es de 1 hora. Después de Desde y la perspectiva de aplicaciones, el período de validez del token se especifica mediante el valor NotOnOrAfter del elemento <conditions...> en el token.  Después del período de validez del token, el cliente debe iniciar una nueva solicitud de autenticación, que a menudo se satisfará sin iniciar sesión de forma interactiva como resultado del token de sesión de inicio de sesión único (SSO).
+
+El valor de NotOnOrAfter se puede cambiar mediante el parámetro AccessTokenLifetime en una directiva TokenLifetimePolicy.  Se establecerá en la duración configurada en la directiva, si la hay, más un factor de sesgo de reloj de cinco minutos.
+
+Tenga en cuenta que la confirmación de asunto NotOnOrAfter especificada en el elemento <SubjectConfirmationData> no se ve afectada por la configuración de la duración del token. 
 
 ### <a name="refresh-tokens"></a>Tokens de actualización
 
@@ -62,6 +71,9 @@ Los clientes confidenciales son aplicaciones que pueden almacenar de forma segur
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Vigencia de los tokens de actualización de cliente público
 
 Los clientes públicos no pueden almacenar de forma segura una contraseña (secreto) de cliente. Por ejemplo, una aplicación de iOS o Android no puede ofuscar un secreto del propietario del recurso y, por ello, se considera a la aplicación un cliente público. Se pueden establecer directivas sobre los recursos para evitar que los tokens de actualización de clientes públicos anteriores a un período especificado obtengan un nuevo par de tokens de acceso/actualización. Para ello, utilice la propiedad de tiempo máximo de inactividad del token de actualización (`MaxInactiveTime`). También puede utilizar directivas para establecer un período más allá del cual ya no se aceptan los tokens de actualización. (Para ello, utilice la propiedad de antigüedad máxima del token de actualización). Puede ajustar la vigencia del token de actualización para controlar cuándo y con qué frecuencia es necesario que el usuario vuelva a escribir las credenciales en lugar de volver a autenticarse de forma silenciosa al usar una aplicación cliente pública.
+
+> [!NOTE]
+> La propiedad Max Age es el período de tiempo que se puede usar un token único. 
 
 ### <a name="id-tokens"></a>Tokens de identificador
 Los tokens de identificador se pasan a los clientes nativos y de sitios web. Los tokens de identificador contienen información de perfil de un usuario. Un token de identificador se enlaza a una combinación específica de usuario y cliente. Los tokens de identificador se consideran válidos hasta que expiran. Normalmente, una aplicación web relaciona la vigencia de la sesión de un usuario en la aplicación con la vigencia del token de identificador emitido para el usuario. Puede ajustar la vigencia del token de identificador para controlar la frecuencia con la que la aplicación web expirará la sesión de la aplicación y requerirá que el usuario se vuelva a autenticar en Azure AD (de forma silenciosa o interactiva).
@@ -89,7 +101,7 @@ Una directiva de vigencia del token es un tipo de objeto de directiva que contie
 | Antigüedad máxima del token de sesión (varios factores) |MaxAgeSessionMultiFactor |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 
 * <sup>1</sup>365 días es la vigencia explícita máxima que se puede establecer para estos atributos.
-* <sup>2</sup>Para que funcione el cliente web de Microsoft Teams, se recomienda establecer AccessTokenLifetime en un valor superior a 15 minutos para Microsoft Teams.
+* <sup>2</sup>Para que funcione el cliente web de Microsoft Teams, se recomienda establecer AccessTokenLifetime en un valor superior a 15 minutos para Microsoft Teams.
 
 ### <a name="exceptions"></a>Excepciones
 | Propiedad | Afecta a | Valor predeterminado |
@@ -139,7 +151,7 @@ Todos los intervalos de tiempo usados aquí tienen formato según el objeto [Tim
 ### <a name="access-token-lifetime"></a>Vigencia del token de acceso
 **Cadena:** AccessTokenLifetime
 
-**Afecta a:** Tokens de acceso, tokens de identificador
+**Afecta a:** Tokens de acceso, tokens de identificador, tokens de SAML2
 
 **Resumen:** esta directiva controla cuánto tiempo se consideran válidos los token de acceso y de identificador para este recurso. Reducir la vigencia de los tokens de acceso disminuye el riesgo de que un individuo malintencionado use un token de acceso o de identificador durante un período de tiempo prolongado. (Estos tokens no se pueden revocar). El inconveniente es que afecta negativamente al rendimiento, ya que los tokens tendrán que reemplazarse con más frecuencia.
 

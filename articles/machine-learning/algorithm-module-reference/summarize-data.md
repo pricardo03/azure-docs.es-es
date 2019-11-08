@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 54d7235ef56a94c9c0e7b780c53cbd9791bf4f53
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694292"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492568"
 ---
 # <a name="summarize-data"></a>Resumen de datos
 
-En este artículo se describe un módulo de la interfaz visual de Azure Machine Learning.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Use el módulo Summarize Data (Resumen de datos) para crear un conjunto de medidas estadísticas estándar que describan cada columna de la tabla de entrada.
 
@@ -32,7 +32,7 @@ El módulo calcula las puntuaciones importantes de cada columna y devuelve una f
 
 ## <a name="how-to-configure-summarize-data"></a>Configuración de Summarize Data (Resumen de datos)  
 
-1. Agregue el módulo **Summarize Data** (Resumen de datos) a la canalización. Puede encontrar este módulo en la categoría **Funciones estadísticas** de la interfaz visual.
+1. Agregue el módulo **Summarize Data** (Resumen de datos) a la canalización. Puede encontrar este módulo en la categoría **Funciones estadísticas** del diseñador.
 
 1. Seleccione el conjunto de datos para el que desea generar un informe.
 

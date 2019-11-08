@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8eed4f2425cdbfec7d3addad11ddaba57e5370e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46d0e8aa1fa934f778e950f0187a853ba46772d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704483"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495038"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Identificación de escenarios y planeamiento del procesamiento analítico avanzado de datos
 
@@ -30,8 +30,6 @@ Responder preguntas clave en las áreas siguientes para identificar su escenario
 * características de datos
 * calidad del conjunto de datos
 * herramientas y lenguajes preferidos
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="logistic-questions-data-locations-and-movement"></a>Cuestiones de logística: movimiento y ubicaciones de los datos
 
@@ -68,7 +66,7 @@ Es posible que tenga que mover los datos varias veces durante el proceso de aná
 Para los procedimientos y los recursos para ingerir o cargar datos en una variedad de entornos de almacenamiento y procesamiento diferentes, consulte:
 
 * [Carga de datos en entornos de almacenamiento para el análisis](ingest-data.md)
-* [Importación de datos de entrenamiento en Azure Machine Learning Studio desde varios orígenes de datos](../studio/import-data.md)
+* [Importación de datos de entrenamiento en Azure Machine Learning Studio (clásico) desde varios orígenes de datos](../studio/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>¿Necesitan moverse los datos siguiendo una programación regular o modificarse durante la migración?
 
@@ -81,7 +79,7 @@ Para más información, consulte [Movimiento de datos desde un servidor SQL Serv
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>¿Qué cantidad de datos se va a mover a Azure?
 
-Los conjuntos de datos sumamente grandes pueden superar la capacidad de almacenamiento de ciertos entornos. Para ver un ejemplo, consulte la explicación de los límites de tamaño para Machine Learning Studio en la sección siguiente. En tales casos, podría usarse una muestra de los datos durante el análisis. Para obtener más información sobre cómo reducir la muestra de un conjunto de datos en diversos entornos de Azure, consulte [Muestreo de datos del proceso de ciencia de datos en equipos](sample-data.md).
+Los conjuntos de datos sumamente grandes pueden superar la capacidad de almacenamiento de ciertos entornos. Para ver un ejemplo, consulte la explicación de los límites de tamaño para Machine Learning Studio (clásico) en la sección siguiente. En tales casos, podría usarse una muestra de los datos durante el análisis. Para obtener más información sobre cómo reducir la muestra de un conjunto de datos en diversos entornos de Azure, consulte [Muestreo de datos del proceso de ciencia de datos en equipos](sample-data.md).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Cuestiones sobre las características de los datos: tipo, formato y tamaño
 
@@ -108,7 +106,7 @@ Estas cuestiones son clave para planear los entornos de almacenamiento y procesa
 * Medio: más de 2 GB y menos de 10 GB
 * Grande: más de 10 GB
 
-Veamos por ejemplo Azure Machine Learning Studio:
+Veamos por ejemplo Azure Machine Learning Studio (clásico):
 
 * Para obtener una lista de los formatos de datos y los tipos admitidos por Azure Machine Learning Studio, consulte la sección [Tipos y formatos de datos admitidos](../studio/import-data.md#supported-data-formats-and-data-types) .
 * Para obtener más información sobre las limitaciones de otros servicios de Azure usados en el proceso de análisis, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-subscription-service-limits.md).

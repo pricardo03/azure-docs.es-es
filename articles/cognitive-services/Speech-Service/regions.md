@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: c0414277b4851891911908ba4f42e92abedc86e4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 469dab093ed7a62171d232695af3258cc874b5f3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553215"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481309"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio Voz
 
@@ -74,9 +74,9 @@ Las regiones disponibles para el **reconocimiento de la intención** mediante el
 
 Se trata de un subconjunto de las regiones de publicación compatibles con el [servicio Language Understanding (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
 
-### <a name="voice-first-virtual-assistants"></a>Asistentes virtuales por voz
+### <a name="voice-assistants"></a>Asistentes de voz
 
-El [SDK de Voz](speech-sdk.md) admite capacidades **de asistente virtual de voz en primer lugar** en estas regiones:
+El [SDK de Voz](speech-sdk.md) admite funcionalidades de **asistente de voz** en estas regiones:
 
 Region | Parámetro del SDK de Voz
 -------|---------------------

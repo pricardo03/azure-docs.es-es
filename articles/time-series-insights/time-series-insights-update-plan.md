@@ -1,21 +1,21 @@
 ---
 title: Planeamiento del entorno de versión preliminar de Azure Time Series Insights | Microsoft Docs
 description: Planee el entorno de versión preliminar de Azure Time Series Insights.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: b97db5fcebeea67cc593a4d2c1fd677a55ad8559
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: f5a12ca2bdccee1d2f738aa3c810577caf3d8eac
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550179"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491958"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planeamiento del entorno de versión preliminar de Azure Time Series Insights
 
@@ -26,7 +26,7 @@ En este artículo se describen los procedimientos recomendados para planear y co
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Procedimientos recomendados para el planeamiento y la preparación
 
-Para empezar a trabajar con Time Series Insights, es importante que comprenda:
+En los artículos siguientes se describen con más detalles los procedimientos recomendados para planear y preparar el entorno:
 
 * Lo que se obtiene cuando se [aprovisiona un entorno de versión preliminar de Time Series Insights](#the-preview-environment).
 * Cuáles son las [propiedades IDs y Timestamp de Times Series](#configure-time-series-ids-and-timestamp-properties).
@@ -43,11 +43,22 @@ Al aprovisionar un entorno de versión preliminar de Time Series Insights, crear
 * Un entorno de la versión preliminar de Azure Time Series Insights.
 * Una cuenta de uso general V1 de Azure Storage.
 
+Como parte del proceso de aprovisionamiento, especifique si desea habilitar un almacenamiento intermedio. El almacenamiento intermedio proporciona una experiencia de consulta en niveles. Cuando esté habilitado, debe especificar un período de retención entre 7 y 30 días. Las consultas que se ejecutan dentro del período de retención del almacenamiento intermedio generalmente proporcionan tiempos de respuesta más rápidos. Cuando una consulta abarca el período de retención de almacenamiento intermedio, se sirve desde el almacenamiento en reposo.
+
+Las consultas que están en el almacenamiento intermedio son gratuitas, mientras que las del almacenamiento en reposo generan costos. Es importante comprender los modelos de consulta y planear la configuración del almacenamiento intermedio correspondiente. Se recomienda que los análisis interactivos de los datos más recientes residan en el almacenamiento intermedio y el análisis de patrones y las tendencias a largo plazo residan en reposo.
+
+> [!NOTE]
+> Actualmente se admite un máximo de 1000 propiedades con el almacenamiento intermedio.
+
 Para empezar, necesita tres elementos adicionales:
 
 * Un [modelo de Time Series](./time-series-insights-update-tsm.md)
 * Un [origen de eventos conectado a Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
 * [Eventos que fluyen hacia el origen del evento](./time-series-insights-send-events.md) que se asignan al modelo y están en formato JSON válido
+
+## <a name="review-preview-limits"></a>Revisión de los límites de la versión preliminar
+
+[!INCLUDE [Review Time Series Insights Preview limits](../../includes/time-series-insights-preview-limits.md)]
 
 ## <a name="configure-time-series-ids-and-timestamp-properties"></a>Configurar las propiedades IDs y Timestamp de Time Series
 
@@ -58,7 +69,7 @@ Para crear un entorno de Time Series Insights, seleccione un identificador de Ti
 
 Puede seleccionar hasta tres claves para diferenciar los recursos de forma única. Para más información, lea [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedimientos recomendados para elegir un identificador de Time Series) y [Storage and ingress](./time-series-insights-update-storage-ingress.md) (Almacenamiento y entrada).
 
-La propiedad Timestamp también es importante. Esta propiedad se puede designar al agregar orígenes de eventos. Cada origen de eventos tiene una propiedad Timestamp opcional que se usa para realizar el seguimiento de los orígenes de eventos con el tiempo. Los valores de Timestamp distinguen mayúsculas de minúsculas y su formato debe seguir la especificación de cada origen de evento.
+La propiedad **Timestamp** también es importante. Esta propiedad se puede designar al agregar orígenes de eventos. Cada origen de eventos tiene una propiedad Timestamp opcional que se usa para realizar el seguimiento de los orígenes de eventos con el tiempo. Los valores de Timestamp distinguen mayúsculas de minúsculas y su formato debe seguir la especificación de cada origen de evento.
 
 > [!TIP]
 > Compruebe los requisitos de formato y análisis de los orígenes de eventos.
@@ -80,7 +91,7 @@ Puede comprobar el modo en que los eventos se envían a Time Series Insights. Lo
 Una buena regla general es la siguiente:
 
 * Almacenar los metadatos en el modelo de Time Series.
-* El modo de Time Series, los campos de instancia y los eventos incluyen únicamente la información necesaria, como los identificadores y las marcas de tiempo de Time Series.
+* Asegúrese de que el modo de serie temporal, los campos de instancia y los eventos incluyen únicamente la información necesaria, como los identificadores de serie temporal o la propiedad Timestamp.
 
 Para más información, consulte [Moldear los eventos](./time-series-insights-send-events.md#supported-json-shapes).
 
@@ -89,7 +100,5 @@ Para más información, consulte [Moldear los eventos](./time-series-insights-se
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Revise [Azure Advisor](../advisor/advisor-overview.md) para planear las opciones de configuración de recuperación de negocio.
-
 - Lea más sobre [el almacenamiento y la entrada](./time-series-insights-update-storage-ingress.md) en la versión preliminar de Time Series Insights.
-
 - Lea más sobre [el modelo de datos](./time-series-insights-update-tsm.md) en la versión preliminar de Time Series Insights.

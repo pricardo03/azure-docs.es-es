@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 540e72a4472fce626822f0b22bfac11a23aea205
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787973"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466759"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Errores y advertencias comunes de la canalización de enriquecimiento de IA en Azure Cognitive Search
 
@@ -117,6 +117,7 @@ El documento se leyó y se procesó, pero el indexador no pudo agregarlo al índ
 | Problemas de conexión con el índice de destino (que persiste después de varios reintentos) porque el servicio está bajo otra carga, como consulta o indexación. | No se puede establecer la conexión para actualizar el índice. El servicio de búsqueda está sometido a mucha carga. | [Escalar verticalmente el servicio de búsqueda](search-capacity-planning.md)
 | El servicio de búsqueda se está revisando para la actualización del servicio o está en medio de una reconfiguración de la topología. | No se puede establecer la conexión para actualizar el índice. El servicio de búsqueda está inactivo o está experimentando una transición. | Configure el servicio con al menos 3 réplicas para una disponibilidad del 99,9 % según se indica en la [documentación del Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 | Error en el recurso de proceso o de red subyacente (poco frecuente) | No se puede establecer la conexión para actualizar el índice. Se produjo un error desconocido. | Establezca los indexadores en [Ejecutar según una programación](search-howto-schedule-indexers.md) para que se recuperen de un estado de error.
+| Una solicitud de indexación realizada al índice de destino no se confirmó en un período de tiempo de espera debido a problemas de red. | No se pudo establecer la conexión con el índice de búsqueda de manera oportuna. | Establezca los indexadores en [Ejecutar según una programación](search-howto-schedule-indexers.md) para que se recuperen de un estado de error. Además, intente reducir el [tamaño del lote](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) del índice si esta condición de error persiste.
 
 ### <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>No se pudo indexar el documento porque los datos del indexador para el índice no eran válidos
 
@@ -130,7 +131,11 @@ El documento se leyó y se procesó, pero debido a un error de coincidencia en l
 | Se detectó un tipo desconocido en el documento de origen. | No se puede indexar el tipo desconocido "_unknown_" |
 | Se usó una notación no compatible para los puntos geográficos en el documento de origen. | No se admiten los literales de cadena WKT POINT. En su lugar, use los literales de punto GeoJSON. |
 
-En todos estos casos, consulte [Tipos de datos admitidos (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) y [Asignación de tipos de datos para indexadores en Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) para asegurarse de compilar correctamente el esquema de índice y de que haya configurado las [asignaciones de campos de indexador](search-indexer-field-mappings.md) adecuadas. El mensaje de error incluirá detalles que pueden ayudar a realizar un seguimiento del origen del error de coincidencia.
+En todos estos casos, consulte [Tipos de datos admitidos](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) y [Asignación de tipos de datos para indexadores](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) para asegurarse de compilar correctamente el esquema de índice y de haber configurado las [asignaciones de campos de indexador](search-indexer-field-mappings.md) adecuadas. El mensaje de error incluirá detalles que pueden ayudar a realizar un seguimiento del origen del error de coincidencia.
+
+### <a name="could-not-process-document-within-indexer-max-run-time"></a>No se pudo procesar el documento en el tiempo de ejecución máximo del indexador
+
+Este error se produce cuando el indexador no puede finalizar el procesamiento de un único documento desde el origen de datos en el tiempo de ejecución permitido. El [tiempo de ejecución máximo](search-limits-quotas-capacity.md#indexer-limits) es más corto cuando se usan conjuntos de aptitudes. Cuando se produce este error, si tiene maxFailedItems establecido en un valor distinto de 0, el indexador omite el documento en futuras ejecuciones para que la indexación pueda continuar. Si no puede permitirse omitir ningún documento, o si ve este error sistemáticamente, podría dividir los documentos en otros más pequeños para que se pueda avanzar parcialmente dentro de una única ejecución del indexador.
 
 ##  <a name="warnings"></a>Advertencias
 Las advertencias no detienen la indexación, sino que indican las condiciones que podrían dar lugar a resultados inesperados. Que realice o no una acción depende de los datos y del escenario.
@@ -220,3 +225,8 @@ La capacidad de reanudar un trabajo de indexación sin terminar se basa en tener
 Es posible invalidar este comportamiento, habilitar el progreso incremental y suprimir esta advertencia si usa la propiedad de configuración `assumeOrderByHighWatermarkColumn`.
 
 [Más información sobre las consultas personalizadas y el progreso incremental de Cosmos DB](https://go.microsoft.com/fwlink/?linkid=2099593).
+
+### <a name="could-not-map-output-field-x-to-search-index"></a>No se pudo asignar el campo de salida "X" al índice de búsqueda
+Las asignaciones de campos de salida que hagan referencia a datos inexistentes o nulos generarán advertencias con cada documento y producirán un campo de índice vacío. Para solucionar este problema, compruebe las rutas de acceso de origen de la asignación de campos de salida en busca de posibles errores tipográficos o establezca un valor predeterminado mediante la [aptitud condicional](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+
+Los indexadores podían ejecutar una aptitud del conjunto de aptitudes, pero la respuesta de la solicitud de API web indicaban que había advertencias durante la ejecución. Revise las advertencias para entender cómo se ven afectados los datos y si es necesario realizar alguna acción o no.

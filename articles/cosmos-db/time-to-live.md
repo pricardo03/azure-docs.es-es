@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f66508a4794b8009523cc2820efe0156b4a9e2f6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c504e2f574970142942945de5a0a9fb409bb166b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756851"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498306"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Período de vida (TTL) en Azure Cosmos DB 
 
 Mediante el **período de vida** o TTL, Azure Cosmos DB proporciona la capacidad de eliminar automáticamente elementos de un contenedor después de un determinado período de tiempo. De forma predeterminada, puede establecer el período de vida en el nivel de contenedor e invalidar el valor en cada elemento. Después de establecer el TTL en el nivel de contenedor o de elemento, Azure Cosmos DB eliminará automáticamente estos elementos cuando haya pasado el período de tiempo seleccionado tras la hora de la última modificación. El valor del período de vida se configura en segundos. Cuando se configura el TTL, el sistema elimina automáticamente los elementos expirados en función del valor de TTL, sin necesidad de una operación de eliminación que se emita explícitamente desde la aplicación cliente.
 
-La eliminación de los elementos expirados es una tarea en segundo plano que usa las [unidades de solicitud](request-units.md) restantes, es decir, las unidades de solicitud que no han consumido las solicitudes del usuario. Es posible que se retrase la expiración si el contenedor está sobrecargado y no queda ninguna unidad de solicitud para las tareas de mantenimiento.
+La eliminación de los elementos expirados es una tarea en segundo plano que usa las [unidades de solicitud](request-units.md) restantes, es decir, las unidades de solicitud que no han consumido las solicitudes del usuario. Incluso después de que expire el período de vida, si el contenedor está sobrecargado con solicitudes y no hay suficientes RU disponibles, se retrasa la eliminación de los datos. Los datos se eliminan cuando hay suficientes RU disponibles para realizar la operación de eliminación. Aunque se retrasa la eliminación de los datos, las consultas (por parte de cualquier API) no devuelven los datos después de que expira el período de vida.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Período de vida para contenedores y elementos
 

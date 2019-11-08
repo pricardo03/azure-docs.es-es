@@ -9,24 +9,89 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 4f46efaeddb0bfe789ef752abdd133c14da514da
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 4c16953d3c708516edbe0b3c13b091dc3181b187
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677688"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465062"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada DatetimeV2 para una aplicación de LUIS
 
 La entidad precompilada **datetimeV2** extrae los valores de fecha y hora. Estos valores se resuelven en un formato estandarizado para que los programas de cliente los consuman. Cuando una expresión tiene una fecha u hora que no está completa, LUIS incluye _los valores pasados y futuros_ en la respuesta de punto de conexión. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan la entidad datetimeV2 para las intenciones de la aplicación. 
 
 ## <a name="types-of-datetimev2"></a>Tipos de datetimeV2
-DatetimeV2 se administra desde el repositorio de GitHub [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml).
+DatetimeV2 se administra desde el repositorio [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) de GitHub.
 
 ## <a name="example-json"></a>Ejemplo de JSON 
-La siguiente respuesta de JSON de ejemplo tiene una entidad `datetimeV2` con un subtipo de `datetime`. Para obtener ejemplos de otros tipos de entidades datetimeV2, consulte [Subtypes of datetimeV2](#subtypes-of-datetimev2)</a> (Subtipos de datetimeV2).
+
+A continuación se muestra la siguiente expresión y su respuesta JSON parcial.
+
+`8am on may 2nd 2019`
+
+#### <a name="v3-responsetab1-1"></a>[Respuesta de V3](#tab/1-1)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "datetime",
+            "values": [
+                {
+                    "timex": "2019-05-02T08",
+                    "resolution": [
+                        {
+                            "value": "2019-05-02 08:00:00"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### <a name="v3-verbose-responsetab1-2"></a>[Respuesta detallada de V3](#tab/1-2)
+
+```json
+
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "datetime",
+            "values": [
+                {
+                    "timex": "2019-05-02T08",
+                    "resolution": [
+                        {
+                            "value": "2019-05-02 08:00:00"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.datetime",
+                "text": "8am on may 2nd 2019",
+                "startIndex": 0,
+                "length": 19,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+#### <a name="v2-responsetab1-3"></a>[Respuesta de V2](#tab/1-3)
 
 ```json
 "entities": [
@@ -46,9 +111,7 @@ La siguiente respuesta de JSON de ejemplo tiene una entidad `datetimeV2` con un 
     }
   }
 ]
-  ```
-
-## <a name="json-property-descriptions"></a>Descripciones de la propiedad JSON
+ ```
 
 |Nombre de propiedad |Tipo de propiedad y descripción|
 |---|---|
@@ -59,6 +122,8 @@ La siguiente respuesta de JSON de ejemplo tiene una entidad `datetimeV2` con un 
 |resolución|Tiene una matriz `values` con uno, dos o cuatro [valores de resolución](#values-of-resolution).|
 |end|El valor final de un intervalo de tiempo o fechas, en el mismo formato que `value`. Solo se utiliza si `type` es `daterange`, `timerange` o `datetimerange`.|
 
+* * * 
+
 ## <a name="subtypes-of-datetimev2"></a>Subtipos de datetimeV2
 
 La entidad precompilada **datetimeV2** tiene los siguientes subtipos. Se proporcionan ejemplos de cada uno en la siguiente tabla:
@@ -67,8 +132,7 @@ La entidad precompilada **datetimeV2** tiene los siguientes subtipos. Se proporc
 * `daterange`
 * `timerange`
 * `datetimerange`
-* `duration`
-* `set`
+
 
 ## <a name="values-of-resolution"></a>Valores de resolución
 * La matriz tiene un elemento si la fecha u hora de la expresión se especifica completamente y no es ambigua.
@@ -89,7 +153,7 @@ Cada elemento de la matriz `values` puede tener los siguientes campos:
 
 La entidad **datetimeV2** admite fechas entre los siguientes intervalos:
 
-| Min | max |
+| Min | Max |
 |----------|-------------|
 | 1 de enero de 1900   | 31 de diciembre de 2099 |
 
@@ -97,12 +161,89 @@ La entidad **datetimeV2** admite fechas entre los siguientes intervalos:
 
 Si la fecha puede estar en el pasado o futuro, LUIS proporciona ambos valores. Este sería el caso de una expresión que incluyera el mes y la fecha sin el año.  
 
-Por ejemplo, dada la expresión "May 2nd":
+Por ejemplo, dada la siguiente expresión:
+
+`May 2nd`
+
 * Si hoy es 3 de mayo de 2017, LUIS proporciona "2017-05-02" y "2018-05-02" como valores. 
 * Si hoy es 1 de mayo de 2017, LUIS proporciona "2016-05-02" y "2017-05-02" como valores.
 
 En el siguiente ejemplo, se muestra la resolución de la entidad "may 2nd". En esta resolución, se da por supuesto que la fecha de hoy es una fecha comprendida entre el 2 de mayo de 2017 y el 1 de mayo de 2018.
 Los campos con `X` en el campo `timex` forman parte de la fecha i no se especifican explícitamente en la expresión.
+
+## <a name="date-resolution-example"></a>Ejemplo de resolución de fecha
+
+
+A continuación se muestra la siguiente expresión y su respuesta JSON parcial.
+
+`May 2nd`
+
+#### <a name="v3-responsetab2-1"></a>[Respuesta de V3](#tab/2-1)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "XXXX-05-02",
+                    "resolution": [
+                        {
+                            "value": "2019-05-02"
+                        },
+                        {
+                            "value": "2020-05-02"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### <a name="v3-verbose-responsetab2-2"></a>[Respuesta detallada de V3](#tab/2-2)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "XXXX-05-02",
+                    "resolution": [
+                        {
+                            "value": "2019-05-02"
+                        },
+                        {
+                            "value": "2020-05-02"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.date",
+                "text": "May 2nd",
+                "startIndex": 0,
+                "length": 7,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+#### <a name="v2-responsetab2-3"></a>[Respuesta de V2](#tab/2-3)
 
 ```json
   "entities": [
@@ -128,10 +269,89 @@ Los campos con `X` en el campo `timex` forman parte de la fecha i no se especifi
     }
   ]
 ```
+* * * 
 
 ## <a name="date-range-resolution-examples-for-numeric-date"></a>Ejemplos de resolución de intervalo de fechas para una fecha numérica
 
-La entidad `datetimeV2` extrae los intervalos de fecha y hora. Los campos `start` y `end` especifican el principio y al final del intervalo. Para la expresión "May 2nd to May 5th", LUIS proporciona valores **daterange** valores para el año actual y el próximo año. En el campo `timex`, los valores `XXXX` indican la ambigüedad del año. `P3D` indica que el período de tiempo es de tres días de duración.
+La entidad `datetimeV2` extrae los intervalos de fecha y hora. Los campos `start` y `end` especifican el principio y al final del intervalo. Para la expresión `May 2nd to May 5th`, LUIS proporciona valores de **daterange** para el año actual y el próximo año. En el campo `timex`, los valores `XXXX` indican la ambigüedad del año. `P3D` indica que el período de tiempo es de tres días de duración.
+
+A continuación se muestra la siguiente expresión y su respuesta JSON parcial.
+
+`May 2nd to May 5th`
+
+#### <a name="v3-responsetab3-1"></a>[Respuesta de V3](#tab/3-1)
+
+```json
+
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "daterange",
+            "values": [
+                {
+                    "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
+                    "resolution": [
+                        {
+                            "start": "2019-05-02",
+                            "end": "2019-05-05"
+                        },
+                        {
+                            "start": "2020-05-02",
+                            "end": "2020-05-05"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+#### <a name="v3-verbose-responsetab3-2"></a>[Respuesta detallada de V3](#tab/3-2)
+
+```json
+
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "daterange",
+            "values": [
+                {
+                    "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
+                    "resolution": [
+                        {
+                            "start": "2019-05-02",
+                            "end": "2019-05-05"
+                        },
+                        {
+                            "start": "2020-05-02",
+                            "end": "2020-05-05"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.daterange",
+                "text": "May 2nd to May 5th",
+                "startIndex": 0,
+                "length": 18,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+#### <a name="v2-responsetab3-3"></a>[Respuesta de V2](#tab/3-3)
 
 ```json
 "entities": [
@@ -153,10 +373,86 @@ La entidad `datetimeV2` extrae los intervalos de fecha y hora. Los campos `start
     }
   ]
 ```
+* * * 
 
 ## <a name="date-range-resolution-examples-for-day-of-week"></a>Ejemplos de resolución de intervalo de fechas para un día de la semana
 
-En el siguiente ejemplo, se muestra cómo LUIS utiliza la entidad **datetimeV2** para resolver la expresión "Tuesday to Thursday" ("martes a jueves"). En este ejemplo, se supone que la fecha actual es el 19 de junio. LUIS incluye valores **daterange** para los dos intervalos de fechas que preceden y siguen la fecha actual.
+En el siguiente ejemplo, se muestra cómo LUIS usa la entidad **datetimeV2** para resolver la expresión `Tuesday to Thursday`. En este ejemplo, se supone que la fecha actual es el 19 de junio. LUIS incluye valores **daterange** para los dos intervalos de fechas que preceden y siguen la fecha actual.
+
+A continuación se muestra la siguiente expresión y su respuesta JSON parcial.
+
+`Tuesday to Thursday`
+
+#### <a name="v3-responsetab4-1"></a>[Respuesta de V3](#tab/4-1)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "daterange",
+            "values": [
+                {
+                    "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
+                    "resolution": [
+                        {
+                            "start": "2019-10-08",
+                            "end": "2019-10-10"
+                        },
+                        {
+                            "start": "2019-10-15",
+                            "end": "2019-10-17"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### <a name="v3-verbose-responsetab4-2"></a>[Respuesta detallada de V3](#tab/4-2)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "daterange",
+            "values": [
+                {
+                    "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
+                    "resolution": [
+                        {
+                            "start": "2019-10-08",
+                            "end": "2019-10-10"
+                        },
+                        {
+                            "start": "2019-10-15",
+                            "end": "2019-10-17"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.daterange",
+                "text": "Tuesday to Thursday",
+                "startIndex": 0,
+                "length": 19,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+#### <a name="v2-responsetab4-3"></a>[Respuesta de V2](#tab/4-3)
 
 ```json
   "entities": [
@@ -178,14 +474,89 @@ En el siguiente ejemplo, se muestra cómo LUIS utiliza la entidad **datetimeV2**
     }
   ]
 ```
+* * * 
+
 ## <a name="ambiguous-time"></a>Hora ambigua
 La matriz de valores tiene dos elementos de tiempo si la hora o el intervalo de tiempo son ambiguos. Cuando hay una hora ambigua, los valores tienen tanto las horas a.m. cono p.m. .
 
 ## <a name="time-range-resolution-example"></a>Ejemplo de resolución de intervalo de tiempo
 
-En el siguiente ejemplo, se muestra cómo LUIS utiliza la entidad **datetimeV2** para resolver la expresión que tiene el intervalo de tiempo.
+La respuesta JSON DatetimeV2 ha cambiado en la API V3. En el siguiente ejemplo, se muestra cómo LUIS utiliza la entidad **datetimeV2** para resolver la expresión que tiene el intervalo de tiempo.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+Cambios de la API V2:
+* La propiedad `datetimeV2.timex.type` ya no se devuelve la propiedad porque se devuelve en el nivel primario, `datetimev2.type`. 
+* La propiedad `datetimeV2.value` se llama ahora `datetimeV2.timex`.
+
+A continuación se muestra la siguiente expresión y su respuesta JSON parcial.
+
+`from 6pm to 7pm`
+
+#### <a name="v3-responsetab5-1"></a>[Respuesta de V3](#tab/5-1)
+
+El siguiente JSON es con el parámetro `verbose` establecido en `false`:
+
+```JSON
+
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "timerange",
+            "values": [
+                {
+                    "timex": "(T18,T19,PT1H)",
+                    "resolution": [
+                        {
+                            "start": "18:00:00",
+                            "end": "19:00:00"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+#### <a name="v3-verbose-responsetab5-2"></a>[Respuesta detallada de V3](#tab/5-2)
+
+El siguiente JSON es con el parámetro `verbose` establecido en `true`:
+
+```json
+
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "timerange",
+            "values": [
+                {
+                    "timex": "(T18,T19,PT1H)",
+                    "resolution": [
+                        {
+                            "start": "18:00:00",
+                            "end": "19:00:00"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.timerange",
+                "text": "from 6pm to 7pm",
+                "startIndex": 0,
+                "length": 15,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+#### <a name="v2-responsetab5-3"></a>[Respuesta de V2](#tab/5-3)
 
 ```json
   "entities": [
@@ -208,89 +579,92 @@ En el siguiente ejemplo, se muestra cómo LUIS utiliza la entidad **datetimeV2**
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+* * * 
 
-La respuesta JSON DatetimeV2 ha cambiado en la API V3. 
+## <a name="time-resolution-example"></a>Ejemplo de resolución de tiempo
 
-Cambios de la API V2:
-* La propiedad `datetimeV2.timex.type` ya no se devuelve la propiedad porque se devuelve en el nivel primario, `datetimev2.type`. 
-* La propiedad `datetimeV2.timex` se llama ahora `datetimeV2.value`.
+A continuación se muestra la siguiente expresión y su respuesta JSON parcial.
 
-Para la expresión, `8am on may 2nd 2017`, la versión V3 de DatetimeV2 es:
+`8am`
 
-```JSON
-{
-    "query": "8am on may 2nd 2017",
-    "prediction": {
-        "normalizedQuery": "8am on may 2nd 2017",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.6826963
-            }
-        },
-        "entities": {
-            "datetimeV2": [
+#### <a name="v3-responsetab6-1"></a>[Respuesta de V3](#tab/6-1)
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "time",
+            "values": [
                 {
-                    "type": "datetime",
-                    "values": [
+                    "timex": "T08",
+                    "resolution": [
                         {
-                            "timex": "2017-05-02T08",
-                            "value": "2017-05-02 08:00:00"
+                            "value": "08:00:00"
                         }
                     ]
                 }
             ]
         }
-    }
+    ]
 }
 ```
-
-El siguiente JSON es con el parámetro `verbose` establecido en `false`:
+#### <a name="v3-verbose-responsetab6-2"></a>[Respuesta detallada de V3](#tab/6-2)
 
 ```json
-{
-    "query": "8am on may 2nd 2017",
-    "prediction": {
-        "normalizedQuery": "8am on may 2nd 2017",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.6826963
-            }
-        },
-        "entities": {
-            "datetimeV2": [
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "time",
+            "values": [
                 {
-                    "type": "datetime",
-                    "values": [
+                    "timex": "T08",
+                    "resolution": [
                         {
-                            "timex": "2017-05-02T08",
-                            "value": "2017-05-02 08:00:00"
+                            "value": "08:00:00"
                         }
                     ]
                 }
-            ],
-            "$instance": {
-                "datetimeV2": [
-                    {
-                        "type": "builtin.datetimeV2.datetime",
-                        "text": "8am on may 2nd 2017",
-                        "startIndex": 0,
-                        "length": 19,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor",
-                        "recognitionSources": [
-                            "model"
-                        ]
-                    }
+            ]
+        }
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.time",
+                "text": "8am",
+                "startIndex": 0,
+                "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
 ```
+#### <a name="v2-responsetab6-3"></a>[Respuesta de V2](#tab/6-3)
 
+```json
+"entities": [
+  {
+    "entity": "8am",
+    "type": "builtin.datetimeV2.time",
+    "startIndex": 0,
+    "endIndex": 2,
+    "resolution": {
+      "values": [
+        {
+          "timex": "T08",
+          "type": "time",
+          "value": "08:00:00"
+        }
+      ]
+    }
+  }
+]
+```
 
 * * * 
 

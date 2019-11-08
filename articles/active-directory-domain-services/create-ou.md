@@ -9,20 +9,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: a3f9ad20e4bfba6e0bb858c82ccce73bb687a826
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7d651849f5c8d930d99e87931eed5b823e90113c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613131"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474759"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Creación de una unidad organizativa en un dominio administrado de Azure AD Domain Services
 
 Las unidades organizativas de Active Directory Domain Services (AD DS) le permiten agrupar lógicamente objetos como cuentas de usuario, cuentas de servicio o cuentas de equipo. Después, puede asignar administradores a unidades organizativas específicas y aplicar la directiva de grupo para aplicar los valores de configuración de destino.
 
 Los dominios administrados de Azure AD DS incluyen dos unidades organizativas integradas *AADDC Computers* y *AADDC Users*. La unidad organizativa *AADDC Computers* contiene objetos de equipo para todos los equipos que están unidos al dominio administrado. La unidad organizativa *AADDC Users* incluye los usuarios y grupos sincronizados desde el inquilino de Azure AD. A medida que crea y ejecuta cargas de trabajo que usan Azure AD DS, puede que necesite crear cuentas de servicio para que las aplicaciones se autentiquen a sí mismas. Para organizar estas cuentas de servicio, normalmente crea una unidad organizativa personalizada en el dominio administrado de Azure AD DS y, a continuación, crea cuentas de servicio dentro de esa unidad organizativa.
+
+En un entorno híbrido, las unidades organizativas creadas en un entorno de AD DS local no se sincronizan con Azure AD DS. Los dominios administrados de Azure AD DS tienen una estructura plana de unidad organizativa. Todas las cuentas de usuario y los grupos se almacenan en el contenedor *Usuarios de AADDC*, aunque se sincronicen desde dominios o bosques locales distintos, incluso si se ha configurado una estructura jerárquica de unidad organizativa ahí.
 
 En este artículo se muestra cómo crear una unidad organizativa en el dominio administrado de Azure AD DS.
 
@@ -49,7 +51,7 @@ Al crear unidades organizativas personalizadas en un dominio administrado de Azu
 * Para crear unidades organizativas personalizadas, los usuarios deben ser miembros del grupo *Administradores de controladores de dominio de AAD*.
 * A un usuario que crea una unidad organizativa personalizada se le conceden privilegios de administración (control total) sobre esa unidad organizativa y es el propietario del recurso.
     * De forma predeterminada, el grupo *Administradores de controladores de dominio de AAD* también tiene control total sobre la unidad organizativa personalizada.
-* Se crea una unidad organizativa predeterminada para los *usuarios de AADDC* que contiene las cuentas de usuario sincronizadas del inquilino de Azure AD.
+* Se crea una unidad organizativa predeterminada para los *usuarios de AADDC* que contiene todas las cuentas de usuario sincronizadas del inquilino de Azure AD.
     * No podrá mover usuarios o grupos de la unidad organizativa *AADDC Users* a las unidades organizativas personalizadas que cree. Solo las cuentas de usuario o los recursos creados en el dominio administrado de Azure AD DS se pueden mover a unidades organizativas personalizadas.
 * Las cuentas de usuario, los grupos, las cuentas de servicio y los objetos de equipo que se creen en unidades organizativas personalizadas no estarán disponibles en el inquilino de Azure AD.
     * Estos objetos no se muestran mediante Graph API de Azure AD ni aparecerán en la interfaz de usuario de Azure AD; solo están disponibles en el dominio administrado de Azure AD DS.
@@ -61,6 +63,7 @@ Para crear una unidad organizativa personalizada, use las herramientas administr
 > [!NOTE]
 > Para crear una unidad organizativa personalizada en un dominio administrado de Azure AD DS, debe haber iniciado sesión en una cuenta de usuario que sea miembro del grupo *Administradores del controlador de dominio de AAD*.
 
+1. Inicie sesión en la máquina virtual de administración. Si quiere conocer los pasos para conectarse mediante Azure Portal, consulte [Conexión a una máquina virtual de Windows Server][connect-windows-server-vm].
 1. En la pantalla Inicio, seleccione **Herramientas administrativas**. Se muestra una lista de las herramientas de administración disponibles que se instalaron en el tutorial para [crear una máquina virtual de administración][tutorial-create-management-vm].
 1. Para crear y administrar unidades organizativas, seleccione **Centro de administración de Active Directory** de la lista de herramientas administrativas.
 1. En el panel izquierdo, elija el dominio administrado de Azure AD DS como, por ejemplo, *contoso.com*. Aparecerá una lista de las unidades organizativas y los recursos existentes:
@@ -91,3 +94,4 @@ Para más información sobre el uso de las herramientas administrativas o la cre
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm

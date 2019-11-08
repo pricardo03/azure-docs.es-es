@@ -1,7 +1,7 @@
 ---
 title: 'Create Python Model: referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el modelo Create Python Model (Creación de modelo Python) en Azure Machine Learning Service para crear el módulo de modelado personalizado o de procesamiento de datos.
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el modelo Creación de modelo Python en Azure Machine Learning para crear el módulo de modelado personalizado o de procesamiento de datos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 2a035644dc0d3d533aa052217c89968a5692230b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 33e15055958ac99f2aa9eb160f9e5cf3c5b0cd41
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693889"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493795"
 ---
 # <a name="create-python-model"></a>Creación de modelo Python
 
 En este artículo se describe cómo usar el módulo **Create Python Model** para crear un modelo no entrenado desde un script de Python. 
 
-Puede basar el modelo en cualquier aprendiz que se incluya en un paquete de Python en el entorno de Azure Machine Learning. 
+Puede basar el modelo en cualquier aprendiz que se incluya en un paquete de Python en el entorno del diseñador de Azure Machine Learning. 
 
 Después de crear el modelo, puede usar [Train model](train-model.md) (Entrenar modelo) para entrenar el modelo en un conjunto de datos, al igual que cualquier otro aprendiz en Azure Machine Learning. El modelo entrenado puede pasarse a [Score Model](score-model.md) (Puntuación del modelo) para usar el modelo para hacer predicciones. Luego, se puede guardar el modelo entrenado y se puede publicar el flujo de trabajo de puntuación como servicio web.
 

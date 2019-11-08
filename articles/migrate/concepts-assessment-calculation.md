@@ -4,14 +4,14 @@ description: En este artículo se proporciona una introducción a los cálculos 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/06/2019
-ms.author: raynew
-ms.openlocfilehash: 4511c42514a5399d41029b61297bd4c1b0b63d9a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.date: 10/15/2019
+ms.author: hamusa
+ms.openlocfilehash: d72e5a6dea8b411b6214e7749b8993f9f5a6e7a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827543"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466921"
 ---
 # <a name="assessment-calculations-in-azure-migrate"></a>Cálculos de evaluación de Azure Migrate
 
@@ -39,7 +39,7 @@ Server Assessment es una herramienta de Azure Migrate que evalúa los servidores
 
 ## <a name="how-are-assessments-calculated"></a>¿Cómo se calculan las evaluaciones?
 
-Una evaluación en Azure Migrate Server Assessment se calcula con los metadatos recopilados acerca de los servidores locales. El cálculo de la evaluación se realiza en tres fases. Para cada servidor, el cálculo de la evaluación comienza con el análisis de idoneidad de Azure, seguido del ajuste de tamaño y, por último, una estimación del costo mensual. Un servidor solo se mueve a una fase posterior si aprueba la anterior. Por ejemplo, si un servidor no supera la comprobación de idoneidad de Azure, se marca como no adecuado para Azure, y ya no se calculan el ajuste de tamaño y los costos para él.
+Una evaluación en Azure Migrate Server Assessment se calcula con los metadatos recopilados acerca de los servidores locales. Si el origen de detección es una importación mediante un archivo .CSV, la evaluación se calcula con los metadatos proporcionados por el usuario sobre los servidores. El cálculo de la evaluación se realiza en tres fases. Para cada servidor, el cálculo de la evaluación comienza con el análisis de idoneidad de Azure, seguido del ajuste de tamaño y, por último, una estimación del costo mensual. Un servidor solo se mueve a una fase posterior si aprueba la anterior. Por ejemplo, si un servidor no supera la comprobación de idoneidad de Azure, se marca como no adecuado para Azure, y ya no se calculan el ajuste de tamaño y los costos para él.
 
 ## <a name="azure-suitability-analysis"></a>Análisis de idoneidad de Azure
 
@@ -92,7 +92,7 @@ Sistemas operativos de 32 bits | Es posible que la máquina se inicie en Azure, 
 
 Una vez que una máquina se marca como preparada para Azure, Server Assessment realiza recomendaciones de tamaño, lo que implica la identificación de la máquina virtual de Azure y de la SKU del disco adecuadas para la máquina virtual local. Estas recomendaciones varían en función de las propiedades de evaluación especificadas.
 
-- Si la evaluación utiliza el *ajuste de tamaño según el rendimiento*, Azure Migrate tiene en cuenta el historial de rendimiento de la máquina para identificar el tamaño y el tipo de disco de la máquina virtual en Azure. Este método es especialmente útil si ha asignado en exceso la máquina virtual local pero el uso es bajo, y desea ajustar adecuadamente el tamaño de la máquina virtual en Azure para ahorrar costos. Este método le ayudará a optimizar los tamaños durante la migración.
+- Si la evaluación utiliza el *ajuste de tamaño según el rendimiento*, Azure Migrate tiene en cuenta el historial de rendimiento de la máquina para identificar el tamaño y el tipo de disco de la máquina virtual en Azure. En el caso de servidores con un origen de detección de importación, se tienen en cuenta los valores de uso de rendimiento especificados por el usuario. Este método es especialmente útil si ha asignado en exceso la máquina virtual local pero el uso es bajo, y desea ajustar adecuadamente el tamaño de la máquina virtual en Azure para ahorrar costos. Este método le ayudará a optimizar los tamaños durante la migración.
 - Si no desea tener en cuenta los datos de rendimiento para el ajuste de tamaño de la máquina virtual e integrar las máquinas locales tal cual a Azure, puede establecer el criterio de ajuste de tamaño en *Como local*. Esto hará que Server Assessment ajuste el tamaño de las máquinas virtuales en función de la configuración local, sin tener en cuenta los datos de uso. En este caso, las actividades de ajuste de tamaño del disco se basarán en el tipo de almacenamiento especificado en las propiedades de evaluación (discos HDD estándar, discos SSD estándar o discos premium).
 
 ### <a name="performance-based-sizing"></a>Ajuste de tamaño según el rendimiento
@@ -101,12 +101,15 @@ En el ajuste de tamaño basado en el rendimiento, Server Assessment comienza con
 
 **Pasos de la recopilación de datos de rendimiento:**
 
-1. En el caso de las máquinas virtuales de VMware, el dispositivo de Azure Migrate recopila un punto de ejemplo en tiempo real en intervalos de 20 segundos. En el caso de las máquinas virtuales de Hyper-V, el punto de ejemplo en tiempo real se recopila en intervalos de 30 segundos.
-1. El dispositivo acumula los puntos de ejemplo recopilados cada 10 minutos y envía el valor máximo de los últimos 10 minutos a Server Assessment.
-1. Server Assessment almacena todos los puntos de ejemplo de 10 minutos del último mes. Después, en función de las propiedades de evaluación especificadas para *Historial de rendimiento* y *Uso del percentil*, identifica el punto de datos adecuado que se debe usar para el ajuste de tamaño adecuado. Por ejemplo, si el historial de rendimiento está establecido en 1 día y el uso del percentil es 95, Server Assessment utiliza los puntos de ejemplo almacenados cada 10 minutos del último día, los clasifica en orden ascendente y selecciona el percentil 95 para el ajuste de tamaño adecuado.
-1. Este valor se multiplica por el factor de confort para obtener los datos de uso de rendimiento efectivos para cada métrica (uso de CPU, uso de memoria, IOPS de disco [lectura y escritura], rendimiento de disco [lectura y escritura], rendimiento de red [entrada y salida]) que el dispositivo recopila.
+1. En el caso de las máquinas virtuales de VMware, el dispositivo de Azure Migrate recopila un punto de ejemplo en tiempo real en intervalos de 20 segundos. En el caso de las máquinas virtuales de Hyper-V, el punto de ejemplo en tiempo real se recopila en intervalos de 30 segundos. En el caso de los servidores físicos, el punto de ejemplo en tiempo real se recopila en cada intervalo de 5 minutos. 
+2. El dispositivo acumula los puntos de ejemplo recopilados cada 10 minutos y envía el valor máximo de los últimos 10 minutos a Server Assessment. 
+3. Server Assessment almacena todos los puntos de ejemplo de 10 minutos del último mes. Después, en función de las propiedades de evaluación especificadas para *Historial de rendimiento* y *Uso del percentil*, identifica el punto de datos adecuado que se debe usar para el ajuste de tamaño adecuado. Por ejemplo, si el historial de rendimiento está establecido en 1 día y el uso del percentil es 95, Server Assessment utiliza los puntos de ejemplo almacenados cada 10 minutos del último día, los clasifica en orden ascendente y selecciona el percentil 95 para el ajuste de tamaño adecuado. 
+4. Este valor se multiplica por el factor de confort para obtener los datos de uso de rendimiento efectivos para cada métrica (uso de CPU, uso de memoria, IOPS de disco [lectura y escritura], rendimiento de disco [lectura y escritura], rendimiento de red [entrada y salida]) que el dispositivo recopila.
 
 Una vez determinado el valor de uso efectivo, el ajuste de tamaño del almacenamiento, la red y el proceso se determinan de la siguiente manera.
+
+> [!NOTE]
+> En el caso de los servidores agregados mediante importación, los datos de rendimiento proporcionados por el usuario se usan directamente para el ajuste de tamaño correcto.
 
 **Ajuste de tamaño de almacenamiento**: Azure Migrate intenta asignar cada disco asociado a la máquina a un disco en Azure.
 
@@ -124,6 +127,9 @@ Una vez determinado el valor de uso efectivo, el ajuste de tamaño del almacenam
 - Para obtener el rendimiento de red efectivo de la máquina virtual local, Server Assessment suma los datos transmitidos por segundo (MBps) fuera de la máquina (salida de red), en todos los adaptadores de red, y aplica el factor de confort. Utiliza este número para buscar una máquina virtual de Azure que pueda cumplir el rendimiento de red requerido.
 - Junto con el rendimiento de la red, Server Assessment también tiene en cuenta si la máquina virtual de Azure puede admitir el número de adaptadores de red necesarios.
 - Si no hay datos de rendimiento de red disponibles, Server Assessment solo tiene en cuenta el número de adaptadores de red para el ajuste de tamaño de la máquina virtual.
+
+> [!NOTE]
+> Actualmente no se admite la especificación del número de adaptadores de red para los servidores importados.
 
 **Ajuste de tamaño de proceso** : después de calcular los requisitos de almacenamiento y red, Server Assessment tiene en cuenta los requisitos de CPU y memoria para encontrar un tamaño de máquina virtual adecuado en Azure.
 - Azure Migrate examina los núcleos y la memoria utilizados efectivos para encontrar un tamaño de máquina virtual adecuado en Azure.
@@ -156,6 +162,9 @@ A continuación se muestra la clasificación de confianza para la evaluación se
    De 41 a 60 % | 3 estrellas
    De 61 a 80 % | 4 estrellas
    De 81 a 100 % | 5 estrellas
+
+> [!NOTE]
+> No se asignan clasificaciones de confianza a las evaluaciones de servidores importados mediante un archivo .CSV en Azure Migrate. 
 
 ### <a name="low-confidence-ratings"></a>Clasificaciones de confianza bajas
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 0fdc58ba54c63ba7dd6b74f56aa91e9c2b3c0936
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 370b5005f27fbfe6ee8fc96d6dd7e467a581ec67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562824"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464615"
 ---
 # <a name="create-a-custom-voice"></a>Creación de una voz personalizada
 
@@ -44,7 +44,7 @@ Los conjuntos de datos se validan automáticamente una vez que pulsa el botón d
 
 En la siguiente tabla se muestran los estados de procesamiento de los conjuntos de datos importados:
 
-| Estado | Significado |
+| State | Significado |
 | ----- | ------- |
 | Processing | El conjunto de datos se ha recibido y se está procesando. |
 | Succeeded | El conjunto de datos se ha validado y se puede usar para compilar un modelo de voz. |
@@ -78,7 +78,7 @@ Una vez que el conjunto de datos se haya validado, podrá usarlo para compilar s
     > Los nombres de audio duplicados se quitarán del entrenamiento. Asegúrese de que los conjuntos de datos que seleccione no contengan los mismos nombres de audio en varios archivos ZIP.
 
     > [!TIP]
-    > Para obtener unos resultados de calidad, es necesario usar los conjuntos de datos del mismo altavoz. Cuando los conjuntos de datos que ha enviado para el entrenamiento contengan un número total de menos de 6000 expresiones distintas, entrenará el modelo de voz mediante la técnica de síntesis paramétrica estadística. En el caso de que los datos de entrenamiento excedan un número total de 6000 expresiones diferentes, se iniciará un proceso de entrenamiento con la técnica de síntesis de concatenación. Normalmente la tecnología de concatenación puede producir resultados más naturales y aumenta la fidelidad de la voz. [Póngase en contacto con el equipo de voz personalizada](mailto:speechsupport@microsoft.com) si quiere entrenar un modelo con la tecnología TTS neuronal más reciente, la cual puede producir una voz digital equivalente a las [voces neuronales](language-support.md#neural-voices) disponibles públicamente.
+    > Para obtener unos resultados de calidad, es necesario usar los conjuntos de datos del mismo altavoz. Cuando los conjuntos de datos que ha enviado para el entrenamiento contengan un número total de menos de 6000 expresiones distintas, entrenará el modelo de voz mediante la técnica de síntesis paramétrica estadística. En el caso de que los datos de entrenamiento excedan un número total de 6000 expresiones diferentes, se iniciará un proceso de entrenamiento con la técnica de síntesis de concatenación. Normalmente la tecnología de concatenación puede producir resultados más naturales y aumenta la fidelidad de la voz. [Póngase en contacto con el equipo de voz personalizada](https://go.microsoft.com/fwlink/?linkid=2108737) si quiere entrenar un modelo con la tecnología TTS neuronal más reciente, la cual puede producir una voz digital equivalente a las [voces neuronales](language-support.md#neural-voices) disponibles públicamente.
 
 5.  Haga clic en **Train** (Entrenar) para empezar a crear el modelo de voz.
 
@@ -86,7 +86,7 @@ En la tabla de entrenamiento se muestra una nueva entrada que corresponde a este
 
 El estado que se muestra refleja el proceso de convertir el conjunto de datos en un modelo de voz, como se muestra aquí.
 
-| Estado | Significado |
+| State | Significado |
 | ----- | ------- |
 | Processing | Se está creando el modelo de voz. |
 | Succeeded | El modelo de voz se ha creado y se puede implementar. |
@@ -99,6 +99,8 @@ El tiempo de aprendizaje varía según el volumen de datos de audio procesados. 
 
 > [!NOTE]
 > El número máximo de modelos de voz que se pueden entrenar por suscripción es de 10 modelos para los usuarios con una suscripción gratuita (F0) y de 100 para los usuarios con una suscripción estándar (S0).
+
+Si usa la funcionalidad de entrenamiento de voz neuronal, puede optar por entrenar un modelo optimizado para escenarios de streaming en tiempo real o un modelo neuronal de alta definición optimizado para la [síntesis de audio de larga duración](long-audio-api.md) de manera asincrónica.  
 
 ## <a name="test-your-voice-model"></a>Prueba del modelo de voz
 
@@ -145,3 +147,4 @@ El punto de conexión personalizado es técnicamente idéntico al punto de conex
 
 * [Guía: Grabar ejemplos de voz](record-custom-voice-samples.md)
 * [Referencia de Text-to-Speech API](rest-text-to-speech.md)
+* [Long Audio API](long-audio-api.md)

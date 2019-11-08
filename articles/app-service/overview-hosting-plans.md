@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3118be297caabbd4b829344e42361fa6b7602aad
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 78440185b4a26bccc8ffb0258416a19aa929af6b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066742"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470243"
 ---
 # <a name="azure-app-service-plan-overview"></a>Introducción a los planes de Azure App Service
 
@@ -95,7 +95,7 @@ No se le cobra por usar las características de App Service que tiene a su dispo
 
 El plan de App Service se puede escalar o reducir verticalmente en cualquier momento. Basta con cambiar el plan de tarifa del plan. Puede elegir un plan de tarifa inferior al principio y escalar verticalmente más adelante cuando necesite más características de App Service.
 
-Por ejemplo, puede comenzar a probar una aplicación web en un plan de App Service **Gratis** y no pagar nada. Cuando quiera agregar su [nombre DNS personalizado](app-service-web-tutorial-custom-domain.md) a la aplicación web, simplemente, escale el plan verticalmente hasta un plan **Compartido**. Más adelante, cuando desee agregar un [certificado SSL personalizado](app-service-web-tutorial-custom-ssl.md), escale el plan verticalmente hasta el plan **Básico**. Si desea tener [entornos de ensayo](deploy-staging-slots.md), escale verticalmente hasta el plan **Estándar**. Cuando necesite más núcleos, memoria o almacenamiento, escale verticalmente a un tamaño superior de VM del mismo nivel.
+Por ejemplo, puede comenzar a probar una aplicación web en un plan de App Service **Gratis** y no pagar nada. Cuando quiera agregar su [nombre DNS personalizado](app-service-web-tutorial-custom-domain.md) a la aplicación web, simplemente, escale el plan verticalmente hasta un plan **Compartido**. Más adelante, cuando desee [crear un enlace SSL](configure-ssl-bindings.md), escale el plan hasta el nivel **Básico**. Si desea tener [entornos de ensayo](deploy-staging-slots.md), escale verticalmente hasta el plan **Estándar**. Cuando necesite más núcleos, memoria o almacenamiento, escale verticalmente a un tamaño superior de VM del mismo nivel.
 
 Funciona igual a la inversa. Cuando crea que ya no necesita las funcionalidades o características de un plan superior, puede reducir verticalmente a un plan inferior, lo que permite ahorrar dinero.
 

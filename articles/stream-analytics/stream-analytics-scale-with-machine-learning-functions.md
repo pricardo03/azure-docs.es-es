@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 3d478c2421066c8347622f9064c479bb8255b112
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 28734e5eaa693ca4ee31603863b69605a1d92c88
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621746"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467876"
 ---
-# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>Escalado del trabajo de Análisis de transmisiones con funciones de Azure Machine Learning Studio
+# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalado del trabajo de Stream Analytics con funciones de Azure Machine Learning Studio (clásico)
 
 En este artículo se describe cómo escalar de manera eficaz trabajos de Azure Stream Analytics que usan funciones de Azure Machine Learning. Para más información sobre cómo escalar trabajos de Stream Analytics en general, consulte el artículo [Escalado de trabajos de Azure Stream Analytics para incrementar el rendimiento de procesamiento de flujo de datos](stream-analytics-scale-jobs.md).
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo escalar de manera eficaz trabajos de Azure S
 
 Una función de Machine Learning en Análisis de transmisiones puede utilizarse como una llamada de función normal en el lenguaje de consulta de Análisis de transmisiones. No obstante, en segundo plano, estas llamadas de función son en realidad solicitudes de servicio web de Azure Machine Learning.
 
-Puede mejorar el rendimiento de las solicitudes de servicio web Machine Learning al agrupar en "lotes" varias filas en la misma llamada API de servicio web. Esta agrupación se denomina minilote. Para más información, consulte [Servicios web de Azure Machine Learning Studio](../machine-learning/studio/consume-web-services.md). La compatibilidad con Azure Machine Learning Studio en Stream Analytics está en versión preliminar.
+Puede mejorar el rendimiento de las solicitudes de servicio web Machine Learning al agrupar en "lotes" varias filas en la misma llamada API de servicio web. Esta agrupación se denomina minilote. Para más información, consulte [Servicios web de Azure Machine Learning Studio (clásico)](../machine-learning/studio/consume-web-services.md). La compatibilidad con Azure Machine Learning Studio (clásico) en Stream Analytics está en versión preliminar.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configuración de un trabajo de Análisis de transmisiones con funciones de Machine Learning
 
@@ -34,11 +34,11 @@ Hay dos parámetros para configurar la función de Machine Learning usada por el
 
 Para determinar los valores adecuados para las SU, decida si desea optimizar la latencia de cada trabajo de Stream Analytics o el rendimiento de cada SU. Siempre se pueden agregar SU a un trabajo para aumentar el rendimiento de una consulta de Stream Analytics bien particionada. Las SU adicionales aumentarán el costo de ejecución del trabajo.
 
-Determine la *tolerancia* de la latencia para el trabajo de Stream Analytics. Aumentar el tamaño del lote aumentará la latencia de las solicitudes de Azure Machine Learning Service y la latencia del trabajo de Stream Analytics.
+Determine la *tolerancia* de la latencia para el trabajo de Stream Analytics. Aumentar el tamaño del lote aumentará la latencia de las solicitudes de Azure Machine Learning y la latencia del trabajo de Stream Analytics.
 
 Aumentar el tamaño del lote permite que el trabajo de Stream Analytics procese **más eventos** con el **mismo número** de solicitudes de servicio web Machine Learning. El aumento de la latencia del servicio web Machine Learning suele ser infralineal al aumento del tamaño del lote. 
 
-Es importante tener en cuenta el tamaño de lote más rentable para un servicio web Machine Learning en cualquier situación dada. El tamaño del lote predeterminado para las solicitudes de servicio web es de 1000. Puede cambiar este tamaño predeterminado con la [API de REST de Stream Analytics](https://docs.microsoft.com/previous-versions/azure/mt653706(v=azure.100) "API de REST de Stream Analytics") o el [cliente de PowerShell para Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
+Es importante tener en cuenta el tamaño de lote más rentable para un servicio web Machine Learning en cualquier situación dada. El tamaño del lote predeterminado para las solicitudes de servicio web es de 1000. Puede cambiar este tamaño predeterminado con la [API REST de Stream Analytics](https://docs.microsoft.com/previous-versions/azure/mt653706(v=azure.100) "API de REST de Stream Analytics") o el [cliente de PowerShell para Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
 
 Una vez que se haya decidido por un tamaño de lote, puede establecer el número de unidades de streaming (SU) según el número de eventos que la función tenga que procesar por segundo. Para más información sobre el ajuste de las unidades de streaming, consulte [Escalación de trabajos de Stream Analytics](stream-analytics-scale-jobs.md).
 
@@ -48,11 +48,11 @@ Si la aplicación genera 200 000 eventos por segundo y el tamaño del lote es d
 
 Para procesar 200 000 eventos por segundo, el trabajo de Stream Analytics necesita 40 conexiones simultáneas, lo que viene a ser 12 SU. En el diagrama siguiente se muestran las solicitudes desde el trabajo de Stream Analytics hasta el punto de conexión de servicio web Machine Learning: cada 6 SU tienen 20 conexiones simultáneas al servicio web Machine Learning como máximo.
 
-![Ejemplo de escalado de trabajo de Stream Analytics con funciones de Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Ejemplo de escalado de trabajo de Stream Analytics con funciones de Machine Learning")
+![Escalado de Stream Analytics con funciones de Machine Learning: dos ejemplos de trabajo](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Escalado de Stream Analytics con funciones de Machine Learning: dos ejemplos de trabajo")
 
 En general, si ***B*** es el tamaño de lote y ***L*** es la latencia del servicio web con el tamaño de lote B en milisegundos, el rendimiento de un trabajo de Stream Analytics con ***N*** SU es:
 
-![Fórmula de escalado de Stream Analytics con funciones de Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Fórmula de escalado de Stream Analytics con funciones de Machine Learning")
+![Escalado de Stream Analytics con funciones de Machine Learning: fórmula](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Escalado de Análisis de transmisiones con funciones de Machine Learning: fórmula")
 
 También puede configurar las "llamadas simultáneas máximas" en el servicio web Machine Learning. Se recomienda establecer este parámetro en el valor máximo (actualmente 200).
 
@@ -120,7 +120,7 @@ Normalmente, el tamaño de lote que establecemos para las funciones de Machine L
 ## <a name="new-function-related-monitoring-metrics"></a>Nuevas métricas de supervisión relacionadas con la función
 En el área de supervisión de un trabajo de Stream Analytics, se han agregado tres métricas adicionales relacionadas con las funciones. Y son: **SOLICITUDES DE FUNCIONES**, **EVENTOS DE FUNCIONES** y **SOLICITUDES DE FUNCIONES CON ERRORES**, como se muestra en el siguiente gráfico.
 
-![Métricas de escalado de Stream Analytics con funciones de Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Métricas de escalado de Stream Analytics con funciones de Machine Learning")
+![Escalado de Stream Analytics con funciones de Machine Learning: métricas](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Escalado de Análisis de transmisiones con funciones de Machine Learning: métricas")
 
 Se definen de la manera siguiente:
 

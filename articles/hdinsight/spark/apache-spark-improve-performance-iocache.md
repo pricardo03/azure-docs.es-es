@@ -1,18 +1,18 @@
 ---
-title: Rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight (versión preliminar)
+title: 'Rendimiento de Apache Spark: memoria caché de E/S de Azure HDInsight (versión preliminar)'
 description: Obtenga información acerca de la memoria caché de E/S de Azure HDInsight y cómo usarla para mejorar el rendimiento de Apache Spark.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/15/2018
-ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/29/2019
+ms.openlocfilehash: 3ef2def6329dc31eb1b175133b4525f87de9181c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71266184"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494652"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight
 
@@ -22,6 +22,7 @@ La mayoría de discos SSD proporciona más de 1 GB por segundo de ancho de banda
 
 > [!Note]  
 > La memoria caché de E/S actualmente usa RubiX como un componente de almacenamiento en caché, pero esto podría cambiar en futuras versiones del servicio. Use las interfaces de la memoria caché de E/S y no tome las dependencias directamente en la implementación de RubiX.
+>Actualmente, la memoria caché de E/S solo es compatible con Azure Blob Storage. 
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Ventajas de la memoria caché de E/S de Azure HDInsight
 

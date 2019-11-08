@@ -1,5 +1,5 @@
 ---
-title: Mensaje de error de consulta no mostrado en la vista de Apache Hive en Azure HDInsight
+title: 'No aparece el mensaje de error en la vista de Apache Hive: Azure HDInsight'
 description: Se produce un error de consulta en la vista de Apache Hive sin ningún detalle en el clúster de Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: a593b3147414a55564580e72e478ffe9cc0cfebd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 38dd064fe8365e6661ce7ea7e1077a4e1e32dbf5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091428"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494255"
 ---
 # <a name="scenario-query-error-message-not-displayed-in-apache-hive-view-in-azure-hdinsight"></a>Escenario: Mensaje de error de consulta no mostrado en la vista de Apache Hive en Azure HDInsight
 

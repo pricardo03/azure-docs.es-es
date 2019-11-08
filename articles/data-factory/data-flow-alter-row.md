@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: fff08b3e046161fbedefdc55f4e6a39a7f965f80
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7a782c62165aa6f2641c2ebe8e4600198ec373c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387262"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486202"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Transformación Alterar fila de Azure Data Factory
 
@@ -22,7 +22,7 @@ Use la transformación Alterar fila para establecer directivas de inserción, el
 ![Configuración de alteración de fila](media/data-flow/alter-row1.png "Configuración de alteración de fila")
 
 > [!NOTE]
-> Las transformaciones Alterar fila solo funcionarán en los receptores de base de datos del flujo de datos. Las acciones que asigne a las filas (inserción, actualización, eliminación, upsert) no se producirán durante las sesiones de depuración. Debe agregar una tarea de ejecución de flujo de datos a una canalización y usar la depuración de la canalización o desencadenadores para aplicar las directivas de alteración de fila en las tablas de base de datos.
+> Las transformaciones Alter Row (Alterar fila) solo funcionarán en los receptores de base de datos o CosmosDB del flujo de datos. Las acciones que asigne a las filas (inserción, actualización, eliminación, upsert) no se producirán durante las sesiones de depuración. Debe agregar una tarea de ejecución de flujo de datos a una canalización y usar la depuración de la canalización o desencadenadores para aplicar las directivas de alteración de fila en las tablas de base de datos.
 
 ## <a name="indicate-a-default-row-policy"></a>Indicación de una directiva de fila predeterminada
 

@@ -1,7 +1,7 @@
 ---
 title: 'Árbol de decisión ampliado multiclase: referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Árbol de decisión ampliado de multiclase en Azure Machine Learning Service para crear un clasificador mediante datos etiquetados.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Multiclass Boosted Decision Tree (Árbol de decisión ampliado multiclase) en Azure Machine Learning para crear un clasificador mediante datos etiquetados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/22/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09d2a637099bae414400f49bb89efc5b6652f150
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: b53e504e98cab34fdc50ee8715ec162c910dd40d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692815"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465984"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Árbol de decisión ampliado multiclase
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para crear un modelo de Machine Learning basado en el algoritmo de árboles de decisión ampliados.
 
@@ -61,4 +61,4 @@ Puede entrenar este tipo de modelo mediante [Entrenar modelo](././train-model.md
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

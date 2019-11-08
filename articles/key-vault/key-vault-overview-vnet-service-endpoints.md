@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 7ccf6d93419b981203067e28f8c85ef8445ab0c2
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6e85e33cf0488cf688303c590c2bbaf5d671d9b7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595280"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467110"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
@@ -74,6 +74,7 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 |Azure Data Lake Store|[Cifrado de datos en Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) con una clave administrada de cliente.|
 |Azure Databricks|[Servicio de análisis rápido, sencillo y de colaboración basado en Apache Spark](../azure-databricks/what-is-azure-databricks.md)|
 |Azure API Management|[Implementación de certificados para el dominio personalizado de Key Vault mediante MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
+|Azure Data Factory|[Captura de credenciales del almacén de datos en Key Vault desde Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 
 
 

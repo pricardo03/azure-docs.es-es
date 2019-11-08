@@ -9,14 +9,14 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: 9fc05ab42c75bac1f8e192dd4fe20bb142881479
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176904"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481727"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Cómo navegar por los resultados desde Bing Search API
 
@@ -64,6 +64,8 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offs
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
 ```
+
+Al usar las API Bing Image y Video, puede usar el valor `nextOffset` para evitar resultados de búsqueda duplicados. Obtenga el valor de los objetos de respuesta `Images` o `Videos` y úselo en las solicitudes con el parámetro `offset`.  
 
 > [!NOTE]
 > La API Bing Web Search devuelve resultados de búsqueda que pueden incluir páginas web y pueden incluir imágenes, vídeos y noticias. Cuando navegue por los resultados de la búsqueda desde la API Bing Web Search, solo se paginan [WebPages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) y no otros tipos de respuesta, como imágenes o noticias. Los resultados de la búsqueda de los objetos `WebPage` pueden incluir también los resultados que aparecen en otros tipos de respuesta.

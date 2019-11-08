@@ -1,24 +1,24 @@
 ---
 title: 'Add Columns: referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Add Columns (Agregar columnas) en Azure Machine Learning Service para concatenar dos conjuntos de datos.
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo Agregar columnas en Azure Machine Learning para concatenar dos conjuntos de datos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: cbb1249b529fde1368bfaff0c6c251c93fa6c309
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 55981279cb1902424d1a0f77af097dc379d7222f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693854"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493969"
 ---
 # <a name="add-columns-module"></a>Módulo Add Columns
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para concatenar dos conjuntos de datos. Combina todas las columnas de los dos conjuntos de datos que especifica como entradas para crear un único conjunto de datos. Si necesita concatenar más de dos conjuntos de datos, use varias instancias de **Add Columns**.
 
@@ -46,4 +46,4 @@ Si hay dos columnas con el mismo nombre en los conjuntos de datos de entrada, se
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

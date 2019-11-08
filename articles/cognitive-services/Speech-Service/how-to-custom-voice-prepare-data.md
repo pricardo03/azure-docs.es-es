@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 8b4b5553605042499a9a8f3343ac4e6678e7006f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a954118cd0697213674bb9981f0d94100488fb38
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640428"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464508"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparación de los datos para crear una voz personalizada
 
@@ -33,11 +33,11 @@ En esta tabla se enumeran los tipos de datos y cómo se usa cada uno para crear 
 
 | Tipo de datos | DESCRIPCIÓN | Cuándo se deben usar | Servicio adicional necesario | Cantidad para entrenar un modelo | Configuraciones regionales |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Expresiones individuales + transcripción relacionada** | Una colección (.zip) de archivos de audio (.wav) como expresiones individuales. Cada archivo de audio debe tener una longitud de 15 segundos o menos y estar emparejado con una transcripción con formato (.txt). | Grabaciones profesionales con transcripciones relacionadas | Listo para el entrenamiento. | Sin requisitos fijos para en-US y zh-CN. Más de 2000 expresiones diferentes para otras configuraciones regionales. | Todas las configuraciones regionales de voz personalizada |
-| **Audio largo + transcripciones (beta)** | Una colección (.zip) de archivos de audio largos sin segmentar (más de 20 segundos), emparejados con una transcripción (.txt) que contiene todas las palabras habladas. | Tiene archivos de audio y transcripciones relacionadas, pero no están segmentados en expresiones. | Segmentación (mediante transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario. | Sin requisitos fijos para en-US y zh-CN. | `en-US` y `zh-CN` |
-| **Solo audio (beta)** | Una colección (.zip) de archivos de audio sin una transcripción. | Solo dispone de archivos de audio, sin transcripciones. | Segmentación + generación de transcripciones (mediante la transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario.| Sin requisitos fijos para `en-US` y `zh-CN`. | `en-US` y `zh-CN` |
+| **Expresiones individuales + transcripción relacionada** | Una colección (.zip) de archivos de audio (.wav) como expresiones individuales. Cada archivo de audio debe tener una longitud de 15 segundos o menos y estar emparejado con una transcripción con formato (.txt). | Grabaciones profesionales con transcripciones relacionadas | Listo para el entrenamiento. | Sin requisitos fijos para en-US y zh-CN. Más de 2000 expresiones diferentes para otras configuraciones regionales. | [Todas las configuraciones regionales de voz personalizada](language-support.md#customization) |
+| **Audio largo + transcripciones (beta)** | Una colección (.zip) de archivos de audio largos sin segmentar (más de 20 segundos), emparejados con una transcripción (.txt) que contiene todas las palabras habladas. | Tiene archivos de audio y transcripciones relacionadas, pero no están segmentados en expresiones. | Segmentación (mediante transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario. | Sin requisitos fijos  | [Todas las configuraciones regionales de voz personalizada](language-support.md#customization) |
+| **Solo audio (beta)** | Una colección (.zip) de archivos de audio sin una transcripción. | Solo dispone de archivos de audio, sin transcripciones. | Segmentación + generación de transcripciones (mediante la transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario.| Sin requisitos fijos | [Todas las configuraciones regionales de voz personalizada](language-support.md#customization) |
 
-Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como un archivo ZIP. Cada conjunto de datos solo puede contener un tipo de datos.
+Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como un archivo zip. Cada conjunto de datos solo puede contener un tipo de datos.
 
 > [!NOTE]
 > El número máximo de conjuntos de datos que se pueden importar por suscripción es de 10 archivos ZIP para usuarios de la suscripción gratuita (F0) y 500 para usuarios para la suscripción estándar (S0).
@@ -65,7 +65,7 @@ Al preparar el audio, siga estas directrices.
 | Nombre de archivo | Numérico, con la extensión. wav. No se permiten nombres de archivo duplicados. |
 | Longitud de audio | Menor de 15 segundos |
 | Formato de archivo | .zip |
-| Tamaño de archivo máximo | 200 MB |
+| Tamaño de archivo máximo | 2048 MB |
 
 > [!NOTE]
 > Se rechazarán los archivos .wav con una frecuencia de muestreo inferior a 16 000 Hz. Si un archivo ZIP contiene archivos .wav con distintas frecuencias de muestreo, solo se importarán las que sean iguales o superiores a 16 000 Hz. Actualmente el portal importa archivos .zip de hasta 200 MB. Sin embargo, pueden cargarse varios archivos.
@@ -79,7 +79,7 @@ El archivo de transcripción es un archivo de texto sin formato. Use estas direc
 | Formato de archivo | Texto sin formato (.txt) |
 | Formato de codificación | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE o UTF-16-BE. Con zh-CN, no se admiten las codificaciones ANSI/ASCII y UTF-8. |
 | Número de expresiones por línea | **Una**: cada línea del archivo de transcripción debe contener el nombre de uno de los archivos de audio, seguido de la transcripción correspondiente. El nombre de archivo y la transcripción deben estar separados por un carácter de tabulación (\t). |
-| Tamaño de archivo máximo | 50 MB |
+| Tamaño de archivo máximo | 2048 MB |
 
 Este es un ejemplo de cómo las transcripciones se organizan en expresiones (de una en una) en un archivo txt:
 
@@ -107,12 +107,12 @@ Al preparar el audio para la segmentación, siga estas directrices.
 | Propiedad | Valor |
 | -------- | ----- |
 | Formato de archivo | RIFF (.wav) con una frecuencia de muestreo de al menos 16 khz y 16 bits en PCM o .mp3 con una velocidad de bits de al menos 256 KBps, agrupado en un archivo ZIP |
-| Nombre de archivo | Solo caracteres ASCII. El uso de caracteres Unicode en el nombre producirá un error (por ejemplo, los caracteres chinos o símbolos como "—"). No se permiten nombres duplicados. |
+| Nombre de archivo | Caracteres ASCII y Unicode admitidos. No se permiten nombres duplicados. |
 | Longitud de audio | Más de 20 segundos |
 | Formato de archivo | .zip |
-| Tamaño de archivo máximo | 200 MB |
+| Tamaño de archivo máximo | 2048 MB |
 
-Todos los archivos de audio se deben agrupar en un archivo ZIP. Es correcto colocar archivos .wav y archivos .mp3 en un archivo ZIP de audio, pero no subcarpetas. Por ejemplo, puede cargar un archivo ZIP que contenga un archivo de audio llamado "kingstory.wav", que dure 45 segundos, y otro llamado "queenstory.mp3", que dure 200 segundos, sin subcarpetas. Todos los archivos. mp3 se transformarán al formato .wav después del procesamiento.
+Todos los archivos de audio se deben agrupar en un archivo ZIP. Puede poner archivos .wav y .mp3 en un archivo ZIP de audio. Por ejemplo, puede cargar un archivo ZIP que contenga un archivo de audio llamado "kingstory.wav", que dure 45 segundos, y otro llamado "queenstory.mp3", que dure 200 segundos. Todos los archivos. mp3 se transformarán al formato .wav después del procesamiento.
 
 ### <a name="transcripts"></a>Transcripciones
 
@@ -124,9 +124,9 @@ Las transcripciones deben estar preparadas de acuerdo con las especificaciones e
 | Nombre de archivo | Use el mismo nombre que el archivo de audio relacionado. |
 | Formato de codificación | Solo UTF-8-BOM |
 | Número de expresiones por línea | Sin límite |
-| Tamaño de archivo máximo | 50 MB |
+| Tamaño de archivo máximo | 2048 MB |
 
-Todos los archivos de transcripciones de este tipo de datos deben estar agrupados en un archivo ZIP. No se permite ninguna subcarpeta en el archivo ZIP. Por ejemplo, ha cargado un archivo ZIP que contiene un archivo de audio llamado "kingstory.wav", que dura 45 segundos, y otro llamado "queenstory.mp3", que dura 200 segundos. Deberá cargar otro archivo ZIP que contenga dos transcripciones, una llamada "kingstory.txt" y la otra "queenstory.txt". Dentro de cada archivo de texto sin formato, proporcionará la transcripción completa correcta para el audio relacionado.
+Todos los archivos de transcripciones de este tipo de datos deben estar agrupados en un archivo ZIP. Por ejemplo, ha cargado un archivo ZIP que contiene un archivo de audio llamado "kingstory.wav", que dura 45 segundos, y otro llamado "queenstory.mp3", que dura 200 segundos. Deberá cargar otro archivo ZIP que contenga dos transcripciones, una llamada "kingstory.txt" y la otra "queenstory.txt". Dentro de cada archivo de texto sin formato, proporcionará la transcripción completa correcta para el audio relacionado.
 
 Después de que el conjunto de datos se ha cargado correctamente, le ayudaremos a segmentar el archivo de audio en expresiones según la transcripción proporcionada. Para comprobar las expresiones segmentadas y las transcripciones relacionadas, descargue el conjunto de datos. Se asignarán identificadores únicos a las expresiones segmentadas automáticamente. Es importante asegurarse de que las transcripciones que proporciona tengan una precisión del 100 %. Los errores en las transcripciones pueden reducir la precisión durante la segmentación del audio e introducir además pérdida de calidad en la fase de entrenamiento que viene más adelante.
 
@@ -142,12 +142,12 @@ Al preparar el audio, siga estas directrices.
 | Propiedad | Valor |
 | -------- | ----- |
 | Formato de archivo | RIFF (.wav) con una frecuencia de muestreo de al menos 16 khz y 16 bits en PCM o .mp3 con una velocidad de bits de al menos 256 KBps, agrupado en un archivo ZIP |
-| Nombre de archivo | Solo caracteres ASCII. El uso de caracteres Unicode en el nombre producirá un error (por ejemplo, los caracteres chinos o símbolos como "—"). No se permiten nombres duplicados. |
+| Nombre de archivo | Caracteres ASCII y Unicode admitidos. No se permiten nombres duplicados. |
 | Longitud de audio | Más de 20 segundos |
 | Formato de archivo | .zip |
-| Tamaño de archivo máximo | 200 MB |
+| Tamaño de archivo máximo | 2048 MB |
 
-Todos los archivos de audio se deben agrupar en un archivo ZIP. No se permite ninguna subcarpeta en el archivo ZIP. Una vez que el conjunto de datos se ha cargado correctamente, le ayudaremos a segmentar el archivo de audio en expresiones en función de nuestro servicio de transcripción de voz por lotes. Se asignarán identificadores únicos a las expresiones segmentadas automáticamente. Las transcripciones relacionadas se generarán mediante el reconocimiento de voz. Todos los archivos. mp3 se transformarán al formato .wav después del procesamiento. Para comprobar las expresiones segmentadas y las transcripciones relacionadas, descargue el conjunto de datos.
+Todos los archivos de audio se deben agrupar en un archivo ZIP. Una vez que el conjunto de datos se ha cargado correctamente, le ayudaremos a segmentar el archivo de audio en expresiones en función de nuestro servicio de transcripción de voz por lotes. Se asignarán identificadores únicos a las expresiones segmentadas automáticamente. Las transcripciones relacionadas se generarán mediante el reconocimiento de voz. Todos los archivos. mp3 se transformarán al formato .wav después del procesamiento. Para comprobar las expresiones segmentadas y las transcripciones relacionadas, descargue el conjunto de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

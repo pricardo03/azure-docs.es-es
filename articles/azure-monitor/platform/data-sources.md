@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/23/2019
-ms.openlocfilehash: 7c03c0c649876143eaa75c98fa0c9001f2b24fbd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b93bf4f67c2581b7cac476b83fc130bf344cfa83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932381"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476743"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Orígenes de datos de supervisión para Azure Monitor
 Azure Monitor se basa en una [plataforma de datos de supervisión común](data-platform.md) que incluye [registros](data-platform-logs.md) y [métricas](data-platform-metrics.md). La recopilación de datos en esta plataforma permite que los datos de múltiples recursos se analicen juntos mediante un conjunto común de herramientas en Azure Monitor. Los datos de supervisión también pueden enviarse a otras ubicaciones para admitir determinados escenarios, y algunos recursos pueden realizar operaciones de escritura en otras ubicaciones para poder recopilarse en registros o métricas.
@@ -180,7 +180,7 @@ Las [soluciones de supervisión](../insights/solutions.md) y [perspectivas](../i
 |:---|:---|:---|
 | Registros de Azure Monitor | Almacena datos de supervisión para AKS, como inventario, registros y eventos. Los datos de métrica también se almacenan en los registros para poder aprovechar su funcionalidad de análisis en el portal. | [Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores](../insights/container-insights-analyze.md) |
 | Métricas de Azure Monitor | Los datos de métricas se almacenan en la base de datos de métricas para favorecer la visualización y las alertas. | [Visualización de métricas del contenedor en el Explorador de métricas](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Azure Kubernetes Service | Para conseguir una experiencia casi en tiempo real, Azure Monitor para contenedores presenta los datos directamente desde Azure Kubernetes Service en Azure Portal. | [Vista de los registros de contenedor en tiempo real con Azure Monitor para contenedores (versión preliminar)](../insights/container-insights-live-logs.md) |
+| Azure Kubernetes Service | Proporciona acceso directo a los registros de contenedor de Azure Kubernetes Service (AKS) (stdout/stderror), eventos y métricas de pod en el portal. | [Visualización de registros de Kubernetes, eventos y métricas de pod en tiempo real](../insights/container-insights-livedata-overview.md) |
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor para máquinas virtuales
 [Azure Monitor para VM](../insights/vminsights-overview.md) proporciona una experiencia personalizada para la supervisión de máquinas virtuales. Se incluye una descripción de los datos recopilados por Azure Monitor para VM en la sección [Sistema operativo (invitado)](#operating-system-guest) anterior.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 28502c49c0eebce84ffd5aa376e7b20bd52213c0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 60ef89308eceeb8ae74caba7230f1dc9c6940f47
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674980"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469068"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -156,8 +156,8 @@ En la versión 2.x, cuando ejecute el comando, debe elegir un tiempo de ejecuci�
 Select a worker runtime:
 dotnet
 node
-python (preview)
-powershell (preview)
+python 
+powershell
 ```
 
 Use las flechas arriba/abajo para elegir un lenguaje, a continuación, presione ENTRAR. Si tiene previsto desarrollar funciones de JavaScript o de TypeScript, elija **nodo** y seleccione el lenguaje. TypeScript tiene [algunos requisitos adicionales](functions-reference-node.md#typescript). 
@@ -208,11 +208,13 @@ Cuando no se establece ninguna cadena de conexión de almacenamiento válida par
 
 Incluso cuando se usa el emulador de almacenamiento para tareas de desarrollo, recomendamos probar con una conexión de almacenamiento real. Suponiendo que ya [creó una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md), puede obtener una cadena de conexión de almacenamiento válida de una de las maneras siguientes:
 
-+ Desde [Azure Portal]. Navegue a su cuenta de almacenamiento, seleccione **Claves de acceso** en **Configuración** y, a continuación, copie uno de los valores de **Cadena de conexión**.
+- En [Azure Portal], busque y seleccione **Cuentas de almacenamiento**. 
+  ![Selección de cuentas de almacenamiento desde Azure Portal](./media/functions-run-local/select-storage-accounts.png)
+  
+  Seleccione la cuenta de almacenamiento, elija **Claves de acceso** en **Configuración** y, a continuación, copie uno de los valores de **Cadena de conexión**.
+  ![Copia de una cadena de conexión desde Azure Portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-  ![Copia de una cadena de conexión desde Azure Portal](./media/functions-run-local/copy-storage-connection-portal.png)
-
-+ Use [Explorador de Azure Storage](https://storageexplorer.com/) para conectarse a su cuenta de almacenamiento de Azure. En el **Explorador**, expanda su suscripción, seleccione la cuenta de almacenamiento y copie la cadena de conexión principal o secundaria.
+- Use [Explorador de Azure Storage](https://storageexplorer.com/) para conectarse a su cuenta de almacenamiento de Azure. En el **Explorador**, expanda su suscripción, seleccione la cuenta de almacenamiento y copie la cadena de conexión principal o secundaria.
 
   ![Copia de la cadena de conexión desde el Explorador de Azure Storage](./media/functions-run-local/storage-explorer.png)
 

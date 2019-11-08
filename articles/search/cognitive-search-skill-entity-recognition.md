@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 08e9656e3b899cbb6d4de733696175e8f31b0e66
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 559d8cb25624c1d8bebb2969fbeeb80bdcc020e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792010"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479739"
 ---
 #   <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
 
 La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos del texto. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) en Cognitive Services.
 
 > [!NOTE]
-> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Búsqueda cognitiva de Azure. No hay ningún cargo por la extracción de texto de documentos.
+> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
 > La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -39,9 +39,8 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 |--------------------|-------------|
 | categories    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
 |defaultLanguageCode |  Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `de, en, es, fr, it`|
-|minimumPrecision | Sin usar. Reservado para uso futuro. |
-|includeTypelessEntities | Cuando se establece en true, si el texto contiene una entidad conocida, pero no se puede clasificar en una de las categorías admitidas, se devolverá como parte del campo de salida compleja `"entities"`. 
-Se trata de entidades conocidas, pero no clasificadas como parte de las "categorías" admitidas actualmente. Por ejemplo, "Windows 10" es una entidad conocida (un producto), pero "Productos" no está en las categorías que se admiten actualmente. El valor predeterminado es `false` |
+|minimumPrecision | Un valor entre 0 y 1. Si la puntuación de confianza (en el resultado `namedEntities`) es inferior a este valor, no se devuelve la entidad. El valor predeterminado es 0. |
+|includeTypelessEntities | Establézcalo en `true` si desea reconocer entidades conocidas que no se ajustan a las categorías actuales. Las entidades reconocidas se devuelven en el campo de salida complejo `entities`. Por ejemplo, "Windows 10" es una entidad conocida (un producto), pero como "Productos" no es una categoría admitida, esta entidad se incluiría en el campo de salida de las entidades. El valor predeterminado es `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
@@ -65,7 +64,7 @@ Se trata de entidades conocidas, pero no clasificadas como parte de las "categor
 | dateTimes  | Una matriz de cadenas donde cada cadena representa un valor de fecha y hora (como aparece en el texto). |
 | urls | Una matriz de cadenas donde cada cadena representa una dirección URL. |
 | emails | Una matriz de cadenas donde cada cadena representa un correo electrónico. |
-| namedEntities | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>category</li> <li>valor (el nombre de entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confidence (no se usa por ahora. Se establecerá en un valor de -1)</li></ul> |
+| namedEntities | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>category</li> <li>valor (el nombre de entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confianza (cuanto más alto sea el valor, más real será una entidad)</li></ul> |
 | entities | Una matriz de tipos complejos que contiene información valiosa acerca de las entidades extraídas del texto, con los siguientes campos: <ul><li> name (el nombre real de la entidad. Esto representa una forma "normalizada")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (un vínculo a la página de Wikipedia de la entidad)</li><li>bingId</li><li>type (la categoría de la entidad reconocida)</li><li>subType (solo disponible para determinadas categorías; proporciona una vista más pormenorizada del tipo de entidad)</li><li> matches (una colección compleja que contiene)<ul><li>text (el texto sin formato de la entidad)</li><li>offset (la ubicación donde se encontró)</li><li>length (la longitud del texto de la entidad sin formato)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definición de ejemplo
@@ -76,6 +75,7 @@ Se trata de entidades conocidas, pero no clasificadas como parte de las "categor
     "categories": [ "Person", "Email"],
     "defaultLanguageCode": "en",
     "includeTypelessEntities": true,
+    "minimumPrecision": 0.5,
     "inputs": [
       {
         "name": "text",
@@ -131,7 +131,7 @@ Se trata de entidades conocidas, pero no clasificadas como parte de las "categor
             "category":"Person",
             "value": "John Smith",
             "offset": 35,
-            "confidence": -1
+            "confidence": 0.98
           }
         ],
         "entities":  

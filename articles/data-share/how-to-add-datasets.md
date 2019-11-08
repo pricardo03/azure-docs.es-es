@@ -1,27 +1,27 @@
 ---
-title: Incorporación de conjuntos de datos a una versión preliminar de Azure Data Share existente
+title: Incorporación de conjuntos de datos a una instancia de Azure Data Share existente
 description: Aprenda a agregar conjuntos de datos a un recurso compartido de datos existente en Azure Data Share con los mismos destinatarios.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 8cc61307ae6664889f60469cc3ca65c840c43b86
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 00c96950565b077e65f84e2d8b4977092df5e317
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169190"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490553"
 ---
-# <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share-preview"></a>Incorporación de conjuntos de datos a un recurso compartido existente en la versión preliminar de Azure Data Share
+# <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Incorporación de conjuntos de datos a un recurso compartido existente en Azure Data Share
 
-En este artículo se explica cómo agregar conjuntos de datos a un recurso compartido de datos existente mediante la versión preliminar de Azure Data Share. Esto le permite compartir más datos con los mismos destinatarios sin tener que crear un nuevo recurso compartido.
+En este artículo se explica cómo agregar conjuntos de datos a un recurso compartido de datos existente mediante Azure Data Share. Esto le permite compartir más datos con los mismos destinatarios sin tener que crear un nuevo recurso compartido.
 
 Para información sobre cómo agregar conjuntos de datos a medida que crea un recurso compartido, consulte el tutorial [Uso compartido de datos](share-your-data.md).
 
 ## <a name="navigate-to-a-sent-data-share"></a>Desplazamiento a un recurso compartido de datos enviado
 
-En la versión preliminar de Azure Data Share, vaya a su recurso compartido enviado y seleccione la pestaña **Conjuntos de datos**. Haga clic en el botón **+ Add Datasets** (Agregar conjuntos de datos) para agregar más conjuntos de valores.
+En Azure Data Share, vaya a su recurso compartido enviado y seleccione la pestaña **Conjuntos de datos**. Haga clic en el botón **+ Add Datasets** (Agregar conjuntos de datos) para agregar más conjuntos de valores.
 
 ![Incorporación de conjuntos de datos](./media/how-to/how-to-add-datasets/add-datasets.png)
 

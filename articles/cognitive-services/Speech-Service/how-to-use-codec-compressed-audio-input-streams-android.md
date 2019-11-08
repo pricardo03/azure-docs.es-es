@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: df5eb123a2fd47a3eceea8153786442bf56a2718
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 2e741e8a8df2cebff167a381cef41351ead4c6cf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803801"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464377"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Uso de entradas de audio comprimido con códec con el SDK de voz en Android
 
@@ -160,4 +160,4 @@ String text = result.getText();
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Vea cómo funciona el reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)
+* [See how to recognize speech in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java) (Vea cómo funciona el reconocimiento de voz en Java)

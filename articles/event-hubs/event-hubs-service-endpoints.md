@@ -11,16 +11,16 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 15912ce2e100a4317e775d72972ca6eacfac0d42
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5a1b293d4d7f652c0cdd95226113ec3ce8f8222c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080536"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466143"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar puntos de conexión de servicio de red virtual con Azure Event Hubs
 
-La integración de Event Hubs con los [puntos de conexión de servicio de Virtual Network (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería de cargas de trabajo tales como las máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos.
+La integración de Event Hubs con los [puntos de conexión de servicio de red virtual (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería desde cargas de trabajo tales como máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos.
 
 Una vez realizada la configuración para enlazarse con al menos un punto de conexión de servicio de subred de red virtual, el espacio de nombres respectivo de Event Hubs ya solo aceptará el tráfico procedente de redes virtuales autorizadas. Desde la perspectiva de la red virtual, el enlace de un espacio de nombres de Event Hubs a un punto de conexión de servicio configura un túnel de redes aislado desde la subred de la red virtual al servicio de mensajería. 
 
@@ -38,7 +38,6 @@ El resultado es una relación privada y aislada entre las cargas de trabajo enla
 > - Integración con Azure Event Grid
 > - Enrutamientos de Azure IoT Hub
 > - Azure IoT Device Explorer
-> - Explorador de datos de Azure
 >
 > Los siguientes servicios de Microsoft deben estar en una red virtual
 > - Azure Web Apps
@@ -185,7 +184,7 @@ Parámetros de plantilla:
   }
 ```
 
-Para implementar la plantilla, siga las instrucciones relativas a [Azure Resource Manager][lnk-deploy].
+Para implementar la plantilla, siga las instrucciones para [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Pasos siguientes
 

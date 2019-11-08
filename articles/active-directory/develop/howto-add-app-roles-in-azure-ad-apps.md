@@ -1,5 +1,6 @@
 ---
-title: Cómo agregar roles de aplicación en la aplicación registrada en Azure Active Directory y recibirlos en el token
+title: Adición de roles de aplicación en la aplicación registrada en Azure Active Directory y recepción en el token
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo agregar roles de aplicación en una aplicación registrada en Azure Active Directory, asignar usuarios y grupos a estos roles y recibirlos en la notificación `roles` del token.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8c0e761c7a03efda470aba83bfa02a30b22a21
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2c838c6fe256e2960842c5b40f58f8a5d5b1fdf3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754320"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473772"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedimientos para: Agregar roles de aplicación en la aplicación y recibirlos en el token
 
@@ -42,9 +43,9 @@ Estos roles de aplicación se definen en [Azure Portal](https://portal.azure.com
 1. En la barra superior, seleccione la cuenta y, a continuación, seleccione **Cambiar directorio**.
 1. Una vez que se abre el panel **Directorio y suscripción**, elija el inquilino de Active Directory en el que desea registrar la aplicación desde la lista **Favoritos** o **Todos los directorios**.
 1. Seleccione **Todos los servicios** en el panel de navegación izquierdo y elija **Azure Active Directory**.
-1. En el panel **Azure Active Directory**, seleccione **Registros de aplicaciones** para ver una lista de todas las aplicaciones.
+1. En el panel **Azure Active Directory**, seleccione **Registros de aplicaciones (característica heredada)** para ver una lista de todas las aplicaciones.
 
-     Si no ve la aplicación que desea, utilice los distintos filtros de la parte superior de la lista **Registros de aplicaciones** para restringir la lista o desplácese hacia abajo en la lista para buscar la aplicación.
+     Si no ve la aplicación que desea, utilice los distintos filtros de la parte superior de la lista **Registros de aplicaciones (característica heredada)** para restringir la lista o desplácese hacia abajo en la lista para buscar la aplicación.
 
 1. Seleccione la aplicación para la que desea definir roles de aplicación.
 1. En la hoja de la aplicación, seleccione **Manifiesto**.

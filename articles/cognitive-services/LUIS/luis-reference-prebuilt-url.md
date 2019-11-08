@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 77e1c9e64081e20ef064fd8341c54c13940f0dd4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 12831ede2b9d9251f2e02fa396ee7d2fb2d61240
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677309"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499492"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada URL para una aplicación de LUIS
 La entidad de dirección URL extrae las direcciones URL con nombres de dominio o direcciones IP. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan direcciones URL de la aplicación. La entidad de la dirección URL se admite solamente en la referencia cultural `en-us`. 
@@ -26,92 +26,61 @@ La dirección URL se administra desde el repositorio de GitHub [Recognizers-Text
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Resolución de la entidad de dirección URL precompilada
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+Se devuelven los siguientes objetos entidad para la consulta:
 
-En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.url**.
+`https://www.luis.ai is a great cognitive services example of artificial intelligence`
 
-```json
-{
-  "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.781975448
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.781975448
-    }
-  ],
-  "entities": [
-    {
-      "entity": "https://www.luis.ai",
-      "type": "builtin.url",
-      "startIndex": 0,
-      "endIndex": 17
-    }
-  ]
-}
-```
-
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-responsetabv3"></a>[Respuesta de V3](#tab/V3)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
 ```json
-{
-    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-    "prediction": {
-        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.421936184
-            }
-        },
-        "entities": {
-            "url": [
-                "https://www.luis.ai"
-            ]
-        }
-    }
+"entities": {
+    "url": [
+        "https://www.luis.ai"
+    ]
 }
 ```
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[Respuesta detallada de V3](#tab/V3-verbose)
 
 El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 
 ```json
-{
-    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-    "prediction": {
-        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.421936184
-            }
-        },
-        "entities": {
-            "url": [
-                "https://www.luis.ai"
-            ],
-            "$instance": {
-                "url": [
-                    {
-                        "type": "builtin.url",
-                        "text": "https://www.luis.ai",
-                        "startIndex": 0,
-                        "length": 19,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
+"entities": {
+    "url": [
+        "https://www.luis.ai"
+    ],
+    "$instance": {
+        "url": [
+            {
+                "type": "builtin.url",
+                "text": "https://www.luis.ai",
+                "startIndex": 0,
+                "length": 17,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
 ```
+#### <a name="v2-responsetabv2"></a>[Respuesta de V2](#tab/V2)
 
+En el ejemplo siguiente se muestra la resolución de https://www.luis.ai, un excelente ejemplo de Cognitive Services de inteligencia artificial.
+
+```json
+"entities": [
+    {
+        "entity": "https://www.luis.ai",
+        "type": "builtin.url",
+        "startIndex": 0,
+        "endIndex": 17
+    }
+]
+```
 
 * * * 
 

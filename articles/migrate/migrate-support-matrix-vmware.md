@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 949595b35c6d989be62dbda43a3b8ccb1608a23d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 2a8a19dfd2cdc7a64a5ea90b96808963b19f73bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937571"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498654"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de VMware
 
@@ -36,7 +36,7 @@ En la tabla se resumen los escenarios admitidos para las máquinas virtuales de 
 --- | ---
 **Permisos de Azure** | Necesita permisos de colaborador o propietario en la suscripción para crear un proyecto de Azure Migrate.
 **Limitaciones de VMware**  | Evalúe hasta 35 000 máquinas virtuales de VMware en un único proyecto. Puede crear varios proyectos en una suscripción a Azure. Un proyecto puede incluir máquinas virtuales de VMware y máquinas virtuales de Hyper-V, hasta los límites de evaluación.
-**Geografía** | Puede crear un proyecto de Azure Migrate en varias zonas geográficas. Aunque solo puede crear proyectos en estas zonas geográficas, puede evaluar o migrar las máquinas para otras ubicaciones de destino. La geografía del proyecto solo se usa para almacenar los metadatos detectados.
+**Geografía** | [Revisión](migrate-support-matrix.md#supported-geographies) de las ubicaciones geográficas admitidas.
 
 **Geografía** | **Ubicación de almacenamiento de metadatos**
 --- | ---
@@ -57,6 +57,17 @@ Estados Unidos | Centro de EE. UU. u Oeste de EE. UU. 2
  > [!NOTE]
  > La compatibilidad con Azure Government solo está disponible actualmente para la [versión anterior](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) de Azure Migrate.
 
+
+## <a name="application-discovery"></a>Detección de aplicaciones
+
+Azure Migrate: La evaluación de servidores puede detectar aplicaciones, roles y características. La detección del inventario de aplicaciones le permite identificar y planificar una ruta de migración adaptada a sus cargas de trabajo locales. Azure Migrate: La evaluación de servidores proporciona detección sin agentes con las credenciales de invitado del equipo, de modo que accede de forma remota a las máquinas mediante llamadas WMI y SSH.
+
+**Soporte técnico** | **Detalles**
+--- | ---
+Equipos compatibles | Máquinas virtuales de VMware locales
+Sistema operativo de la máquina | Todas las versiones de Windows y Linux
+Credenciales | Actualmente admite el uso de una credencial para todos los servidores Windows y una credencial para todos los servidores Linux. Se crea una cuenta de usuario invitado para máquinas virtuales Windows y una cuenta de usuario normal (acceso sin sudo) para todas las máquinas virtuales Linux.
+Límites de la máquina para la detección de aplicaciones | 10 000 por dispositivo. 35 000 por proyecto.
 
 ## <a name="assessment-vcenter-server-requirements"></a>Evaluación de los requisitos de vCenter Server
 
@@ -109,6 +120,22 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 --- | ---
 Dispositivo | Conexiones entrantes en el puerto TCP 3389 para permitir las conexiones del Escritorio remoto al dispositivo.<br/><br/> Conexiones entrantes en el puerto 44368 para tener acceso de forma remota a la aplicación de administración del dispositivo mediante la dirección URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexiones salientes en el puerto 443, 5671 y 5672 para enviar metadatos de detección y rendimiento a Azure Migrate.
 Servidor vCenter | Conexiones entrantes en el puerto TCP 443 para permitir que el dispositivo recopile los metadatos de configuración y rendimiento de las evaluaciones. <br/><br/> De forma predeterminada, el dispositivo se conecta a vCenter en el puerto 443. Si el servidor vCenter escucha en un puerto diferente, puede modificar el puerto al configurar la detección.
+
+## <a name="assessment-dependency-visualization"></a>Evaluación: visualización de dependencias
+
+La visualización de dependencias le permite observar las dependencias en las máquinas que quiere evaluar y migrar. La asignación de dependencias suele usarse cuando se quiere evaluar máquinas con niveles de confianza más altos. En el caso de las máquinas virtuales de VMware, se admite la visualización de dependencias como se muestra a continuación:
+
+- **Visualización de dependencias sin agentes**: Esta opción se encuentra actualmente en versión preliminar. No es necesario que instale ningún agente en las máquinas.
+    - Funciona capturando los datos de conexión TCP de las máquinas para las que está habilitada. Una vez iniciada la detección de dependencias, el dispositivo recopila datos de las máquinas en un intervalo de sondeo de cinco minutos.
+    - Se pueden recopilar los siguientes datos:
+        - Conexiones TCP
+        - Nombres de los procesos que tienen conexiones activas
+        - Nombres de las aplicaciones instaladas que ejecutan los procesos anteriores
+        - No. de conexiones detectadas en cada intervalo de sondeo
+- **Visualización de dependencias basada en agente**: para usar la visualización de dependencias basada en agente, debe descargar e instalar los siguientes agentes en cada máquina local que vaya a analizar.
+    - Es necesario tener instalado Microsoft Monitoring Agent (MMA) en cada máquina. [Obtenga más información](how-to-create-group-machine-dependencies.md#install-the-mma) sobre cómo instalar el agente MMA.
+    - Es necesario tener instalado Dependency Agent en cada máquina. [Obtenga más información](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) sobre cómo instalar el agente de dependencia.
+    - Además, si tiene máquinas sin conectividad a Internet, debe descargar e instalar en ellas la puerta de enlace de Log Analytics.
 
 ## <a name="migration---limitations"></a>Migración: limitaciones
 Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si quiere migrar más máquinas, replique en grupos de 10. En el caso de la migración sin agente de VMware, puede ejecutar hasta 100 replicaciones simultáneamente.

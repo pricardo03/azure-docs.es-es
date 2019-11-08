@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 0e552d502184d1b537263c2c1f6b2a8562cdf791
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 61d3e4d2de6b8707ee7433815f8002e5d5e3e3d6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562788"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464548"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listas de frases para reconocimiento de voz a texto
 
@@ -23,7 +23,7 @@ Al proporcionar a Servicios de voz una lista de frases, puede mejorar la precisi
 
 Por ejemplo, si tiene el comando "Mover a" y "Cerca" como posible destino que se puede decir, puede añadir la entrada "Mover a Cerca". Al agregar una frase, aumentará la probabilidad de que, cuando se reconozca el audio, se reconozca "Mover a Cerca" en lugar de "Mover acerca".
 
-A una lista de frases se pueden agregar palabras solas o frases completas. Durante el reconocimiento, se usa una entrada de una lista de frases si el audio incluye una coincidencia exacta. Siguiendo con el ejemplo anterior, si la lista de frases incluye "Mover a Cerca" y la frase capturada es "Mover acerca lentamente", el resultado del reconocimiento será "Mover a Cerca lentamente".
+A una lista de frases se pueden agregar palabras solas o frases completas. Durante el reconocimiento, se usa una entrada de una lista de frases si el audio incluye una coincidencia exacta. Siguiendo con el ejemplo anterior, si la lista de frases incluye "Mover a Cerca" y el audio capturado suena muy parecido a "Mover acerca" y "Mover a Cerca", el resultado del reconocimiento se reconocerá con mayor probabilidad como "Mover a Cerca lentamente".
 
 >[!Note]
 > Actualmente, las listas de frases solo admiten el inglés para la conversión de voz en texto.

@@ -1,5 +1,5 @@
 ---
-title: 'Migración de clústeres locales de Apache Hadoop a Azure HDInsight: motivación y ventajas'
+title: 'Ventajas: Migración de Apache Hadoop local a Azure HDInsight'
 description: Obtenga información acerca de la motivación y ventajas de almacenamiento para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: a65b775a516bfccac2dee5ce00bc7d6495df256d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 7f67b85b66748ae98cbb520bf4ebc11a2eef9efb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718373"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494940"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Motivación y ventajas de migrar clústeres locales de Apache Hadoop a Azure HDInsight
 

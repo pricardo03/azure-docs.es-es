@@ -1,24 +1,24 @@
 ---
-title: 'Bosque de decisión de dos clases: Referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo de bosque de decisión de dos clases en el servicio Azure Machine Learning para crear un modelo de Machine Learning basado en el algoritmo de bosques de decisión.
+title: 'Bosque de decisión de dos clases: referencia para los módulos'
+titleSuffix: Azure Machine Learning
+description: Obtenga información sobre cómo usar el módulo de bosque de decisión de dos clases en Azure Machine Learning para crear un modelo de aprendizaje automático basado en el algoritmo de bosques de decisión.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 243f1774069f048d0e8a1ce11e3ac42e4e73f58b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: ebe9a0368f2111fa6787b7fa4f4432d7ad4106c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693621"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485946"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de bosque de decisión de dos clases
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) del servicio Azure Machine Learning.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Utilice este módulo para crear un modelo de Machine Learning basado en el algoritmo de bosques de decisión.  
 
@@ -101,7 +101,6 @@ Una vez completado el entrenamiento:
 
 + Para usar el modelo de puntuación, agregue el módulo **Score Model** (Puntuar modelo) a una canalización.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

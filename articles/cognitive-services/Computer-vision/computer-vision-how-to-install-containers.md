@@ -8,24 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 7c137572fadd07254343b7b4c34b5a63534b9d88
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 2b6918e9b334ee8a906a477ee1c3e7e4d86e8551
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936993"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481793"
 ---
-# <a name="install-and-run-computer-vision-containers"></a>Instalación y uso de contenedores de Computer Vision
+# <a name="install-and-run-read-containers"></a>Instalación y ejecución de los contenedores Read
 
 Los contenedores le permiten ejecutar las API de Computer Vision en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar un contenedor de Computer Vision.
 
-Hay dos contenedores de Docker disponibles para Computer Vision: *Reconocer texto* y *Leer*. El contenedor *Reconocer texto* le permite detectar y extraer *texto impreso* de imágenes que muestren diversos objetos con diferentes superficies y fondos, como recibos, pósteres y tarjetas de visita. Por su parte, el contenedor *Leer* también detecta *texto manuscrito* en imágenes y es compatible con los formatos PDF/TIFF/multipágina. Para obtener más información, consulte la documentación de la [API Read](concept-recognizing-text.md#read-api).
-
-> [!IMPORTANT]
-> El contenedor Reconocer texto se dejará de usar y, en su lugar, se usará el contenedor Leer. El contenedor Leer es un superconjunto de su predecesor, el contenedor Reconocer texto, y los consumidores deben migrar al uso del contenedor Leer. Ambos contenedores funcionan solo en inglés.
+Un único contenedor Docker, *Read* está disponible para Computer Vision: El contenedor *Read* le permite detectar y extraer *texto impreso* de imágenes que muestren diversos objetos con diferentes superficies y fondos, como recibos, pósteres y tarjetas de visita. Además, el contenedor *Read* también detecta *texto manuscrito* en las imágenes y admite los formatos PDF, TIFF y multipágina. Para obtener más información, consulte la documentación de la [API Read](concept-recognizing-text.md#read-api).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -37,13 +34,9 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores:
 |--|--|
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
-|Recurso de Computer Vision |Para poder usar el contenedor, debe tener:<br><br>Un recurso de **Computer Vision** de Azure y la clave de API asociada con el URI del punto de conexión. Ambos valores están disponibles en las páginas de introducción y claves del recurso y son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Introducción**.|
+|Recurso de Computer Vision |Para poder usar el contenedor, debe tener:<br><br>Un recurso de **Computer Vision** de Azure y la clave de API asociada con el URI del punto de conexión. Ambos valores están disponibles en las páginas de introducción y claves del recurso y son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Información general**.|
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
-
-## <a name="request-access-to-the-private-container-registry"></a>Solicitud de acceso al registro de contenedor privado
-
-[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>El equipo host
 
@@ -55,43 +48,19 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores:
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtención de la imagen del contenedor con `docker pull`
 
-# <a name="readtabread"></a>[Lectura](#tab/read)
-
 Hay imágenes de contenedor para Leer disponibles.
 
 | Contenedor | Container Registry/Repositorio/Nombre de imagen |
 |-----------|------------|
 | Lectura | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
-# <a name="recognize-texttabrecognize-text"></a>[Reconocer texto](#tab/recognize-text)
-
-Hay imágenes de contenedor disponibles para Reconocer texto.
-
-| Contenedor | Container Registry/Repositorio/Nombre de imagen |
-|-----------|------------|
-| Reconocer texto | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
-
-***
-
 Use el comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descargar una imagen de contenedor.
-
-# <a name="readtabread"></a>[Lectura](#tab/read)
 
 ### <a name="docker-pull-for-the-read-container"></a>Docker pull para el contenedor Leer
 
 ```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 ```
-
-# <a name="recognize-texttabrecognize-text"></a>[Reconocer texto](#tab/recognize-text)
-
-### <a name="docker-pull-for-the-recognize-text-container"></a>Comando Docker pull para el contenedor Reconocer texto
-
-```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
-
-***
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -108,8 +77,6 @@ Utilice el comando [docker run](https://docs.docker.com/engine/reference/command
 
 Hay disponibles [ejemplos](computer-vision-resource-container-config.md#example-docker-run-commands) del comando `docker run`.
 
-# <a name="readtabread"></a>[Lectura](#tab/read)
-
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 containerpreview.azurecr.io/microsoft/cognitive-services-read \
@@ -124,25 +91,6 @@ Este comando:
 * Asigna un núcleo de 8 CPU y 16 gigabytes (GB) de memoria.
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
-
-# <a name="recognize-texttabrecognize-text"></a>[Reconocer texto](#tab/recognize-text)
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-Este comando:
-
-* Ejecuta el contenedor Reconocer texto a partir de la imagen de contenedor.
-* Asigna un núcleo de 8 CPU y 16 gigabytes (GB) de memoria.
-* Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
-* Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
-
-***
 
 Hay más [ejemplos](./computer-vision-resource-container-config.md#example-docker-run-commands) del comando `docker run` disponibles. 
 
@@ -160,8 +108,6 @@ Hay más [ejemplos](./computer-vision-resource-container-config.md#example-docke
 El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST. 
 
 Utilice el host, `http://localhost:5000`, con las API de contenedor.
-
-# <a name="readtabread"></a>[Lectura](#tab/read)
 
 ### <a name="asynchronous-read"></a>Lectura asincrónica
 
@@ -314,26 +260,19 @@ export interface Line {
     words?: Word[] | null;
 }
 
+export enum Confidence {
+    High = 0,
+    Low = 1
+}
+
 export interface Word {
   boundingBox?: number[] | null;
   text: string;
-  confidence?: string | null;
+  confidence?: Confidence | null;
 }
 ```
 
-Para ver un caso de uso de ejemplo, consulte [este espacio aislado de TypeScript](https://aka.ms/ts-read-api-types) y seleccione "Ejecutar" para visualizar su facilidad de uso.
-
-# <a name="recognize-texttabrecognize-text"></a>[Reconocer texto](#tab/recognize-text)
-
-### <a name="asynchronous-text-recognition"></a>Reconocimiento de texto asincrónico
-
-Puede usar las operaciones `POST /vision/v2.0/recognizeText` y `GET /vision/v2.0/textOperations/*{id}*` conjuntamente para reconocer de forma asincrónica texto impreso en una imagen, de manera similar a cómo el servicio de Computer Vision usa esas operaciones de REST correspondientes. Actualmente, el contenedor de Reconocer texto solo reconoce texto impreso, no texto escrito a mano, por lo que dicho contenedor ignora el parámetro `mode` especificado normalmente para la operación del servicio de Computer Vision.
-
-### <a name="synchronous-text-recognition"></a>Reconocimiento de texto sincrónico
-
-Puede usar la operación `POST /vision/v2.0/recognizeTextDirect` para reconocer sincrónicamente texto impreso en una imagen. Dado que esta operación es sincrónica, el cuerpo de solicitud para esta operación es el mismo que para la operación `POST /vision/v2.0/recognizeText`, pero el cuerpo de la respuesta para esta operación es el mismo que el devuelto por la operación `GET /vision/v2.0/textOperations/*{id}*`.
-
-***
+Para ver un caso de uso de ejemplo, consulte el <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">espacio aislado de TypeScript aquí <span class="docon docon-navigate-external x-hidden-focus"></span></a> y seleccione **Ejecutar** para visualizar su facilidad de uso.
 
 ## <a name="stop-the-container"></a>Detención del contenedor
 
@@ -361,10 +300,10 @@ Para obtener más información acerca de estas opciones, consulte [Configure con
 
 En este artículo, ha aprendido los conceptos y el flujo de trabajo para la descarga, instalación y ejecución de contenedores de Computer Vision. En resumen:
 
-* Computer Vision proporciona un contenedor de Linux para Docker que incluye tanto Reconocer texto como Leer.
+* Computer Vision proporciona un contenedor de Linux para Docker que incluye Leer.
 * Las imágenes de contenedor se descargan desde el registro de contenedores "Contenedor (versión preliminar)" en Azure.
 * Las imágenes de contenedor se ejecutan en Docker.
-* Puede usar la API REST o el SDK para llamar a operaciones en los contenedores Reconocer texto o Leer mediante la especificación del URI del host del contenedor.
+* Puede usar la API REST o el SDK para llamar a operaciones en contenedores de Read mediante la especificación del URI del host del contenedor.
 * Debe especificar la información de facturación al crear una instancia de un contenedor.
 
 > [!IMPORTANT]

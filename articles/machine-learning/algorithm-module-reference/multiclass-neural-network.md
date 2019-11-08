@@ -1,24 +1,24 @@
 ---
 title: 'Multiclass Neural Network: referencia para los módulos'
-titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo Multiclass Neural Network (Red neuronal multiclase) en Azure Machine Learning Service para crear un modelo de red neuronal que pueda usarse para predecir un destino que tenga varios resultados.
+titleSuffix: Azure Machine Learning
+description: Aprenda a usar el módulo Multiclass Neural Network (Red neuronal multiclase) de Azure Machine Learning Service para crear un modelo de red neuronal que pueda usarse para predecir un destino que tenga varios valores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 3322f2be3c5c6f819adbc9d83ee9eb6b6577f707
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b49ff44e898a78d865278df087aca75e4f8e50ca
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692722"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466035"
 ---
 # <a name="multiclass-neural-network-module"></a>Módulo Multiclass Neural Network
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Use este módulo para crear un modelo de red neuronal que se pueda usar para predecir un destino que tenga varios valores. 
 
@@ -40,7 +40,7 @@ Para calcular la salida de la red para una entrada determinada, se calcula un va
 
 ## <a name="configure-multiclass-neural-network"></a>Configurar una red neuronal multiclase
 
-1. Agregue el módulo **Red neuronal multiclase** a la canalización en la interfaz. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Clasificación**.
+1. Agregue el módulo **MultiClass Neural Network** (Red neuronal multiclase) a la canalización del diseñador. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Clasificación**.
 
 2. **Create trainer mode** (Crear modo entrenador): Use esta opción para especificar cómo quiere que se entrene al modelo:
 
@@ -93,4 +93,4 @@ Una vez completado el entrenamiento:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 

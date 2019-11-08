@@ -1,27 +1,29 @@
 ---
-title: Roles y requisitos de Azure Data Share (versión preliminar)
-description: Obtenga información sobre los roles de control de acceso y los requisitos de los proveedores de datos y los consumidores de datos para compartir datos en la versión preliminar de Azure Data Share.
+title: Roles y requisitos de Azure Data Share
+description: Obtenga información sobre los roles de control de acceso y los requisitos de los proveedores de datos y los consumidores de datos para compartir datos en Azure Data Share.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: c0841f6386440776c6ea719f9932a53cada9d9c4
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 34c73a6bd400da076c68f308a2100a0f4569bd04
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166372"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490586"
 ---
-# <a name="roles-and-requirements-for-azure-data-share-preview"></a>Roles y requisitos de Azure Data Share (versión preliminar)
+# <a name="roles-and-requirements-for-azure-data-share"></a>Roles y requisitos de Azure Data Share 
 
-En este artículo se describen los roles necesarios para compartir, aceptar y recibir datos mediante Azure Data Share (versión preliminar). 
+En este artículo se describen los roles necesarios para compartir, aceptar y recibir datos mediante Azure Data Share. 
 
 ## <a name="roles-and-requirements"></a>Roles y requisitos
 
 Azure Data Share utilizar identidades administradas para los servicios de Azure (conocidas anteriormente como MSI) para autenticarse en las cuentas de almacenamiento subyacentes con el fin de poder leer los datos que compartirá un proveedor de datos, así como recibir los datos compartidos como un consumidor de datos. Como resultado, no hay intercambio de credenciales entre un proveedor de datos y un consumidor de datos. 
 
-Managed Service Identity debe tener acceso a las cuentas de almacenamiento subyacentes. El servicio Azure Data Share utiliza Managed Service Identity del recurso de Azure Data Share para leer y escribir datos. El usuario de Azure Data Share necesita la capacidad de crear una asignación de roles para Managed Service Identity en la cuenta de almacenamiento en la que están compartiendo los datos. El permiso para crear asignaciones de rol existe en el rol **propietario**, en el rol de administrador de acceso de usuario o en un rol personalizado con el permiso Microsoft.Authorization, de asignaciones de roles o de escritura asignado. 
+Managed Service Identity debe tener acceso a la cuenta de almacenamiento subyacente o a la base de datos SQL. El servicio Azure Data Share utiliza Managed Service Identity del recurso de Azure Data Share para leer y escribir datos. El usuario de Azure Data Share necesita la capacidad de crear una asignación de roles para Managed Service Identity en la cuenta de almacenamiento o en la base de datos SQL en la que está compartiendo los datos. 
+
+En el caso de almacenamiento, el permiso para crear asignaciones de rol existe en el rol **propietario**, en el rol de administrador de acceso de usuario o en un rol personalizado con el permiso Microsoft.Authorization, de asignaciones de roles o de escritura asignado. 
 
 Si no es propietario de la cuenta de almacenamiento en cuestión y no puede crear una asignación de roles para la identidad administrada del recurso de Azure Data Share, puede solicitar a un administrador de Azure que cree una asignación de roles en su nombre. 
 
@@ -29,11 +31,13 @@ A continuación se muestra un resumen de los roles asignados a la identidad admi
 
 | |  |  |
 |---|---|---|
-|**Tipo de almacenamiento**|**Cuenta de almacenamiento de origen del proveedor de datos**|**Cuenta de almacenamiento de destino del consumidor de datos**|
+|**Tipo de almacenamiento**|**Almacén de proveedor de datos**|**Almacén de destino del consumidor de datos**|
 |Azure Blob Storage| Lector de datos de blobs de almacenamiento | Colaborador de datos de blobs de almacenamiento
 |Azure Data Lake Gen1 | Propietario | No compatible
 |Azure Data Lake Gen2 | Lector de datos de blobs de almacenamiento | Colaborador de datos de blobs de almacenamiento
+|Azure SQL | dbo | dbo 
 |
+
 ### <a name="data-providers"></a>Proveedores de datos 
 Para agregar un conjunto de datos a una instancia de Azure Data Share, se debe agregar al rol de lector de datos de Storage Blob la identidad administrada de Data Share de los proveedores de datos. Esto lo hace automáticamente el servicio Azure Data Share si el usuario está agregando conjuntos de datos mediante Azure y es propietario de la cuenta de almacenamiento, o es miembro de un rol personalizado que tiene asignado el permiso Microsoft.Authorization, asignaciones de roles o de escritura. 
 
@@ -50,8 +54,12 @@ Para crear una asignación de roles para la identidad administrada del recurso d
 1. En *Seleccionar*, escriba el nombre de la cuenta de Azure Data Share.
 1. Haga clic en *Save*(Guardar).
 
+En el caso de los orígenes basados en SQL, se debe crear un usuario a partir de un proveedor externo en la base de datos SQL desde la que se comparten los datos con el mismo nombre que la cuenta de Azure Data Share. Puede encontrar un script de ejemplo junto con otros requisitos previos para el uso compartido basado en SQL en el tutorial [Uso compartido de datos](share-your-data.md). 
+
 ### <a name="data-consumers"></a>Consumidores de datos
-Para recibir datos, se debe agregar la identidad administrada del recurso de Data Share de los consumidores de datos al rol de colaborador de datos de blobs de almacenamiento. Este rol es necesario para permitir que el servicio Azure Data Share pueda escribir en la cuenta de almacenamiento. Esto lo hace automáticamente el servicio Azure Data Share si el usuario está agregando conjuntos de datos mediante Azure y es propietario de la cuenta de almacenamiento, o es miembro de un rol personalizado que tiene asignado el permiso Microsoft.Authorization, asignaciones de roles o de escritura. 
+Para recibir datos, se debe agregar la identidad administrada del recurso de Data Share de los consumidores de datos al rol de colaborador de datos de blobs de almacenamiento o al rol dbo de una base de datos SQL si se reciben datos en una base de datos SQL. 
+
+En el caso de almacenamiento, esto lo hace automáticamente el servicio Azure Data Share si el usuario está agregando conjuntos de datos mediante Azure y es propietario de la cuenta de almacenamiento, o es miembro de un rol personalizado que tiene asignado el permiso Microsoft.Authorization, asignaciones de roles o de escritura. 
 
 Como alternativa, el usuario puede hacer que un administrador de Azure agregue manualmente la identidad administrada de recursos de Data Share al rol de colaborador de datos de blobs de almacenamiento. La creación manual de esta asignación de roles por parte del administrador anulará la necesidad de ser propietario de la cuenta de almacenamiento o de tener una asignación de roles personalizada. Tenga en cuenta que esto se aplica a los datos que se comparten en Azure Storage o Azure Data Lake Gen2. No se admite la recepción de datos a Azure Data Lake Gen1. 
 
@@ -65,6 +73,8 @@ Para crear una asignación de roles manualmente para la identidad administrada d
 1. Haga clic en *Save*(Guardar).
 
 Si va a compartir datos con nuestras API REST, tendrá que crear estas asignaciones de roles manualmente mediante la adición de la cuenta del recurso compartido de datos en a los roles adecuados. 
+
+Si recibe datos en un origen basado en SQL, asegúrese de que se crea un nuevo usuario a partir de un proveedor externo con el mismo nombre que la cuenta de Azure Data Share. Vea los requisitos previos en el tutorial [Aceptación y recepción de datos](subscribe-to-data-share.md). 
 
 Para más información sobre cómo agregar una asignación de roles, consulte [esta documentación](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment) en la que se describe cómo agregar una asignación de roles a un recurso de Azure. 
 

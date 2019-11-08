@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: wellsi
-ms.openlocfilehash: 1ca6b5265cf97ef551ec0b13b46ac934a372d2c7
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: ba1db1ccba6a1849756e75c9b9f7078371da5bfb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797924"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464749"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notas de la versión de Speech Devices SDK de Cognitive Services
 En las siguientes secciones se indican los cambios en las versiones más recientes.
@@ -34,12 +34,12 @@ En las siguientes secciones se indican los cambios en las versiones más recient
 
 *   SDK de dispositivos de voz es ahora disponibilidad general y ya no está en versión preliminar controlada.
 *   Se ha actualizado el componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.5.0. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
-*   La nueva tecnología de palabra de reactivación proporciona importantes mejoras de calidad; consulte Cambios importantes.
+*   La nueva tecnología de palabra clave proporciona importantes mejoras de calidad; consulte Cambios importantes.
 *   Nueva canalización de procesamiento de audio para el reconocimiento mejorado de campo lejano.
 
 **Cambios importantes**
 
-*   Debido a la nueva tecnología de palabra de reactivación todas las palabras de reactivación deben volver a crearse en nuestro portal de palabras de reactivación mejorado. Para quitar completamente las palabras clave antiguas del dispositivo, desinstale la aplicación antigua.
+*   debido a la nueva tecnología de palabra clave, todas las palabras clave deben volver a crearse en nuestro portal mejorado de palabras clave. Para quitar completamente las palabras clave antiguas del dispositivo, desinstale la aplicación antigua.
     - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>SDK de dispositivos de Voz de Cognitive Services 1.4.0: Versión de abril de 2019
@@ -49,13 +49,13 @@ En las siguientes secciones se indican los cambios en las versiones más recient
 ## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>SDK de dispositivos de voz 1.3.1 de Cognitive Services: Versión de marzo de 2019
 
 * Se ha actualizado el componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.3.1. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
-*   Gestión de palabras de reactivación actualizada; consulte Cambios importantes.
+*   Administración de palabras clave; consulte Cambios importantes.
 *   La aplicación de ejemplo agrega la opción de idioma para el reconocimiento y la traducción de voz.
 
 **Cambios importantes**
 
-*   La [instalación de una palabra de reactivación](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) ha sido simplificada, ahora es parte de la aplicación y no necesita una instalación independiente en el dispositivo.
-*   El reconocimiento de la palabra de reactivación ha cambiado, y se admiten dos eventos.
+*   La [instalación de una palabra clave](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) se ha simplificado, y ahora es parte de la aplicación (no necesita una instalación independiente en el dispositivo).
+*   El reconocimiento de la palabra clave ha cambiado, y se admiten dos eventos.
     - RecognizingKeyword, indica que el resultado de voz contiene texto de palabra clave (sin comprobar).
     - RecognizedKeyword, indica que el reconocimiento de la palabra clave terminó de reconocer la palabra clave especificada.
 
@@ -75,7 +75,7 @@ En las siguientes secciones se indican los cambios en las versiones más recient
 **Cambios importantes**
 
 * Con esta versión se presentan una serie de cambios importantes. Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obtener detalles relacionados con las API.
-* Los archivos de modelo de KWS no son compatibles con Speech Devices SDK 1.0.1. Los archivos existentes de Wake Word se eliminarán después de que los nuevos archivos de Wake Word se escriban en el dispositivo.
+* Los archivos de modelo de KWS no son compatibles con Speech Devices SDK 1.0.1. Los archivos existentes de palabras clave se eliminarán después de que los nuevos se escriban en el dispositivo.
 
 ## <a name="cognitive-services-speech-devices-sdk-050-2018-aug-release"></a>SDK de dispositivos de Voz de Cognitive Services 0.5.0: versión de agosto de 2018
 

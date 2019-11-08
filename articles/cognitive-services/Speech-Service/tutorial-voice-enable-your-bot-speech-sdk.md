@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 11/05/2019
 ms.author: dcohen
-ms.openlocfilehash: 3c57200591f3b7de9a1f9ab4198e55ed844b4d07
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 89bf4a3a6b8ea0cb04f3a1a663cc2365fa4fefc3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932050"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468691"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Habilitación del bot con voz mediante el SDK de voz
 
@@ -28,15 +28,15 @@ Este tutorial está pensado para desarrolladores que empiezan a trabajar con Azu
 Al final de este ejercicio, habrá configurado un sistema que funcionará de la siguiente manera:
 
 1. La aplicación cliente de ejemplo está configurada para conectarse al canal Direct Line Speech y al bot de eco.
-2. El audio se graba desde el micrófono predeterminado al presionar el botón (o se graba continuamente si se activa la palabra de reactivación personalizada)
-3. Opcionalmente, se produce la detección de la palabra de reactivación personalizada y se canaliza el streaming de audio a la nube.
+2. El audio se graba a través del micrófono predeterminado al presionar el botón (o se graba continuamente si se activa la palabra clave personalizada)
+3. Opcionalmente, se produce la detección de la palabra clave, que canaliza el streaming de audio a la nube.
 4. Con el SDK de voz, la aplicación se conecta al canal Direct Line Speech y transmite el audio.
-5. Opcionalmente, se produce una comprobación de la palabra de reactivación de mayor precisión en el servicio.
+5. Opcionalmente, se produce una comprobación de la palabra clave de mayor precisión en el servicio.
 6. El audio se pasa al servicio de reconocimiento de voz y se transcribe en texto.
 7. El texto reconocido se pasa al bot de eco como una actividad de Bot Framework. 
 8. El texto de la respuesta se convierte en audio mediante el servicio de conversión de texto a voz (TTS) y se vuelve a transmitir a la aplicación cliente para su reproducción.
 
-![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "El flujo del canal de voz")
+![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "El flujo de canales de voz")
 
 > [!NOTE]
 > Los pasos de este tutorial no requieren un servicio de pago. Como nuevo usuario de Azure, podrá usar créditos de su suscripción gratuita de Azure y del nivel gratis de los Servicios de voz para completar este tutorial.
@@ -47,7 +47,7 @@ Este tutorial abarca lo siguiente:
 > * Compilar, probar e implementar el ejemplo de bot de eco en una instancia de Azure App Service
 > * Registrar el bot con el canal Direct Line Speech
 > * Compilar y ejecutar el cliente de Direct Line Speech para interactuar con el bot de eco
-> * Agregar la activación de la palabra de reactivación personalizada
+> * Agregar la activación de la palabra clave personalizada
 > * Aprender cómo cambiar el idioma de la voz hablada y reconocida
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -79,7 +79,7 @@ La aplicación cliente que creará en este tutorial utiliza una serie de servici
 
 Si quiere usar una región diferente para este tutorial, estos factores pueden limitar las opciones:
 
-* El canal Direct Line Speech es un servicio en versión preliminar. Como tal, puede estar limitado a determinadas regiones de Azure. Para más información sobre las regiones disponibles, consulte [Asistentes virtuales por voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#voice-first-virtual-assistants).
+* Asegúrese de que usa una [región de Azure compatible](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#voice-assistants).
 * El canal Direct Line Speech utiliza el servicio de conversión de texto a voz, que tiene voces estándar y neuronales. Las voces neuronales se [limitan a regiones específicas de Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
 * Las claves de la evaluación gratuitas pueden estar restringidas a una región específica.
 
@@ -257,7 +257,7 @@ Ahora es el momento de registrar el bot con el canal Direct Line Speech. Este ca
 1. Busque y abra el recurso **SpeechEchoBotTutorial-BotRegistration** en [Azure Portal](https://portal.azure.com).
 2. En el panel de navegación izquierdo, seleccione **Canales**.
    * Busque **Más canales**, busque y haga clic en **Direct Line Speech**.
-   * Revise el texto de la página titulada **Configure Direct line Speech (Preview)** [Configuración de Direct Line Speech (versión preliminar)] y haga clic en **Save** (Guardar).
+   * Revise el texto de la página titulada **Configure Direct line Speech** (Configurar Direct Line Speech) y haga clic en **Save** (Guardar).
    * Como parte de la creación, se han generado dos **claves secretas**. Estas claves son exclusivas del bot. Al escribir una aplicación cliente con el [SDK de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/), proporcionará una de estas claves para establecer una conexión entre la aplicación cliente, el canal Direct Line Speech y el servicio de bot. En este tutorial, usará el cliente de Direct line Speech (WPF, C#).
    * Haga clic en **Mostrar** y copie una de las claves en algún lugar donde pueda acceder fácilmente a ella. No se preocupe, siempre puede tener acceso a las claves desde Azure Portal.
 3. En la barra de navegación izquierda, haga clic en **Configuración**.
@@ -265,13 +265,13 @@ Ahora es el momento de registrar el bot con el canal Direct Line Speech. Este ca
    * Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Si quiere obtener más información, consulte [Conexión de un bot a Direct Line Speech (versión preliminar)](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). En esta página se incluye información adicional así como problemas conocidos.
+> Si quiere más información, consulte [Conexión de un bot a Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). En esta página se incluye información adicional así como problemas conocidos.
 
 ## <a name="build-the-direct-line-speech-client"></a>Creación del cliente de Direct Line Speech
 
 En este paso, va a crear el cliente de Direct Line Speech. El cliente es una aplicación de Windows Presentation Foundation (WPF) en C# que usa el [SDK de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) para administrar la comunicación con el bot mediante el canal Direct Line Speech. Úselo para interactuar con el bot y probarlo antes de escribir una aplicación cliente personalizada.
 
-El cliente de Direct Line Speech tiene una interfaz de usuario simple que le permite configurar la conexión al bot, ver la conversación de texto, ver las actividades de Bot-Framework en formato JSON y mostrar las tarjetas adaptables. También admite el uso de las palabras de reactivación personalizadas. Va a utilizar este cliente para hablar con el bot y recibir una respuesta de voz.
+El cliente de Direct Line Speech tiene una interfaz de usuario simple que le permite configurar la conexión al bot, ver la conversación de texto, ver las actividades de Bot-Framework en formato JSON y mostrar las tarjetas adaptables. También admite el uso de palabras clave personalizadas. Va a utilizar este cliente para hablar con el bot y recibir una respuesta de voz.
 
 Antes de continuar, asegúrese de que el micrófono y los altavoces estén habilitados y en perfecto funcionamiento.
 
@@ -293,11 +293,11 @@ Si recibe un mensaje de error en la ventana principal de la aplicación, use est
 |Error ConnectionFailure: Connection was closed by the remote host. Código de error: 1011. Detalles del error: Response status code does not indicate success: 500 (InternalServerError) [Error ConnectionFailure: El host remoto cerró la conexión. Código de error: 1011. Detalles del error: El código de estado de respuesta no indica una operación correcta]| El bot especificó una voz neuronal en el campo [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) (Hablar) de salida, pero la región de Azure asociada a la clave de suscripción de voz no es compatible con las voces neuronales. Consulte [Voces estándares y neuronales](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
 |Error ConnectionFailure: Connection was closed by the remote host. Código de error: 1000. Detalles del error: Exceeded maximum web socket connection idle duration(> 300000 ms) [Error ConnectionFailure: El host remoto cerró la conexión. Código de error: 1000. Detalles del error: Se superó la duración máxima de inactividad de la conexión de socket web (> 300000 MS)]| Este es un error esperado cuando una conexión al canal se deja abierta y está inactiva durante más de cinco minutos. |
 
-Si el problema no se soluciona en la tabla, consulte [Asistentes virtuales por voz (versión preliminar): Frequently asked questions](https://docs.microsoft.com/azure/cognitive-services/speech-service/faq-voice-first-virtual-assistants) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes).
+Si el problema no se soluciona en la tabla, consulte [Asistentes de voz: Frequently asked questions](faq-voice-assistants.md) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes).
 
 ### <a name="view-bot-activities"></a>Ver actividades de bot
 
-Cada bot envía y recibe mensajes de **actividad**. En la ventana **Activity Log** (Registro de actividad) del cliente de Direct line Speech, verá los registros con marca de tiempo con cada actividad en la que el cliente ha recibido del bot. También puede ver las actividades que el cliente ha enviado al bot mediante el método [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync). Al seleccionar un elemento de registro, se mostrarán los detalles de la actividad asociada como JSON.
+Cada bot envía y recibe mensajes de **actividad**. En la ventana **Activity Log** (Registro de actividad) del cliente de Direct line Speech, verá los registros con marca de tiempo con cada actividad en la que el cliente ha recibido del bot. También puede ver las actividades que el cliente ha enviado al bot mediante el método [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync). Al seleccionar un elemento de registro, se mostrarán los detalles de la actividad asociada como JSON.
 
 Este es un ejemplo de JSON de una actividad que el cliente ha recibido:
 ```json
@@ -342,37 +342,37 @@ El cliente de Direct Line Speech usa el paquete NuGet [Microsoft.CognitiveServic
 - [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig): para los valores de configuración (clave de suscripción de voz, región de la clave, secreto del bot)
 - [`DialogServiceConnector`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor): para administrar la conexión del canal y los eventos de la suscripción de cliente para controlar las respuestas de voz y bot reconocidas.
 
-## <a name="add-custom-wake-word-activation"></a>Agregar la activación de la palabra de reactivación personalizada
+## <a name="add-custom-keyword-activation"></a>Agregar la activación de la palabra clave personalizada
 
-El SDK de voz admite la activación de la palabra de reactivación personalizada. De forma similar a "Hola Cortana" del ayudante de Microsoft, puede escribir una aplicación que escuche continuamente la palabra de reactivación que prefiera. Tenga en cuenta que una palabra de reactivación puede ser una sola palabra o una frase con varias palabras.
+El SDK de Voz admite la activación de palabras clave personalizadas. De forma similar a "Hola Cortana" del ayudante de Microsoft, puede escribir una aplicación que escuche continuamente la palabra clave que prefiera. Tenga en cuenta que una palabra clave puede ser una sola palabra o una frase con varias palabras.
 
 > [!NOTE]
-> El término *trabajo de reactivación* se suele usar indistintamente con la *palabra clave* y se puede ver que ambos se utilizan en la documentación de Microsoft.
+> El término *palabra clave* se suele usar indistintamente con el término *palabra de reactivación*, y verá que ambos se usan en la documentación de Microsoft.
 
-La detección de la palabra de reactivación se realiza en la aplicación cliente. Si se usa una palabra de reactivación, el audio solo se transmite al canal de Direct Line Speech si se detecta la palabra de reactivación. El canal Direct Line Speech incluye un componente denominado *comprobación de palabras clave (KWV)* , que realiza un procesamiento más complejo en la nube para comprobar que la palabra de reactivación que ha elegido está al principio de la secuencia de audio. Si la comprobación de palabras clave se realiza correctamente, el canal se comunicará con el bot.
+La detección de la palabra clave se realiza en la aplicación cliente. Si se usa una palabra clave, el audio solo se transmite al canal de Direct Line Speech si se detecta dicha palabra clave. El canal Direct Line Speech incluye un componente denominado *comprobación de palabras clave (KWV)* , que realiza un procesamiento más complejo en la nube para comprobar que la palabra clave que ha elegido está al principio de la secuencia de audio. Si la comprobación de palabras clave se realiza correctamente, el canal se comunicará con el bot.
 
-Siga estos pasos para crear un modelo de palabra de reactivación, configurar el cliente de Direct Line Speech para usar este modelo y, por último, probarlo con el bot.
+Siga estos pasos para crear un modelo de palabra clave, configurar el cliente de Direct Line Speech para usar este modelo y, por último, probarlo con el bot.
 
-1. Siga estas instrucciones para [crear una palabra de reactivación personalizada mediante el servicio de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
-2. Descomprima el archivo de modelo que descargó en el paso anterior. Debe tener el nombre de la palabra de reactivación. Está buscando un archivo denominado `kws.table`.
+1. Siga estas instrucciones para [crear una palabra clave personalizada mediante el servicio Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
+2. Descomprima el archivo de modelo que descargó en el paso anterior. Debe tener el nombre de la palabra clave. Está buscando un archivo denominado `kws.table`.
 3. En el cliente de Direct Line Speech, busque el menú de **configuración** (busque el icono de engranaje en la parte superior derecha). Busque la **ruta de acceso del archivo de modelo** y escriba el nombre de la ruta de acceso completa del archivo `kws.table` del paso 2.
-4. Asegúrese de activar la casilla denominada **Enabled** (Habilitada). Debería ver este mensaje junto a la casilla: "Will listen for the wake word upon next connection" (Escuchará la palabra de reactivación después de la siguiente conexión). Si ha proporcionado un archivo incorrecto o una ruta de acceso no válida, debería ver un mensaje de error.
+4. Asegúrese de activar la casilla denominada **Enabled** (Habilitada). Debería ver este mensaje junto a la casilla: "Will listen for the keyword upon next connection" (Escuchará la palabra clave después de la siguiente conexión). Si ha proporcionado un archivo incorrecto o una ruta de acceso no válida, debería ver un mensaje de error.
 5. Escriba la **clave de suscripción** de voz, la **región de clave de suscripción** y, a continuación, haga clic en **Aceptar** para cerrar el menú de **configuración**.
-6. Seleccione un **secreto del bot** y, después, haga clic en **Reconnect** (Volver a conectar). Verá un mensaje que indica lo siguiente: "New conversation started - type, press the microphone button, or say the wake word" (Nueva conversación iniciada: escriba, presione el botón de micrófono o la palabra de activación). La aplicación ahora escucha continuamente.
-7. Diga cualquier frase que empiece con la palabra de activación. Por ejemplo: " **[su palabra de activación]** , ¿qué hora es?". No es necesario hacer una pausa después de pronunciar la palabra de reactivación. Cuando termine, sucederán dos cosas:
+6. Seleccione un **secreto del bot** y, después, haga clic en **Reconnect** (Volver a conectar). Verá un mensaje que indica lo siguiente: "New conversation started - type, press the microphone button, or say the keyword" (Nueva conversación iniciada: escriba, presione el botón de micrófono o la palabra clave). La aplicación ahora escucha continuamente.
+7. Diga cualquier frase que empiece con la palabra clave. Por ejemplo: " **[su palabra clave]** , what time is it?". No es necesario hacer una pausa después de pronunciar la palabra clave. Cuando termine, sucederán dos cosas:
    * Verá una transcripción de lo que ha hablado.
    * Poco después, oirá la respuesta del bot.
 8. Continúe experimentando con los tres tipos de entradas que admite el bot:
    * Escribir texto en la barra inferior
    * Presionar el icono del micrófono y hablar
-   * Decir una frase que empieza con la palabra de activación
+   * Decir una frase que empiece con la palabra clave
 
-### <a name="view-the-source-code-that-enables-wake-word"></a>Visualización del código fuente que habilita la palabra de reactivación
+### <a name="view-the-source-code-that-enables-keyword"></a>Ver el código fuente que habilita la palabra clave
 
-En el código fuente de Direct Line Speech, eche un vistazo a estos archivos para revisar el código que se usa para habilitar la detección de palabras de activación:
+En el código fuente de Direct Line Client, eche un vistazo a estos archivos para revisar el código que se usa para habilitar la detección de la palabra clave:
 
-1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) incluye una llamada al método [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/en-us/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-) del SDK de voz, que se usa para crear una instancia del modelo a partir de un archivo local en el disco.
-1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs) incluye una llamada al método [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) del SDK de voz, que activa la detección continua de palabras de reactivación.
+1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) incluye una llamada al método [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-) del SDK de voz, que se usa para crear una instancia del modelo a partir de un archivo local en el disco.
+1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs) incluye una llamada al método [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) del SDK de Voz, que activa la detección continua de la palabra clave.
 
 ## <a name="optional-change-the-language-and-redeploy-your-bot"></a>(Opcional) Cambio del idioma y nueva implementación del bot
 
@@ -409,7 +409,7 @@ Si no va a seguir usando el bot eco que ha implementado en este tutorial, puede 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de la propia aplicación cliente con el SDK de voz](quickstart-virtual-assistant-csharp-uwp.md)
+> [Creación de la propia aplicación cliente con el SDK de voz](quickstart-voice-assistant-csharp-uwp.md)
 
 ## <a name="see-also"></a>Otras referencias
 
@@ -419,5 +419,5 @@ Si no va a seguir usando el bot eco que ha implementado en este tutorial, puede 
   * [Precios de Bot Service](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Servicios de Voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Creación e implementación del propio bot habilitado para voz:
-    * Creación de un [bot de Bot-Framework](https://dev.botframework.com/). Registro con el [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) y [personalización del bot para voz](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
-    * Exploración de las [soluciones de Bot-Framework](https://github.com/microsoft/botframework-solutions) existentes: Creación de un [asistente virtual de voz personalizado](https://docs.microsoft.com/azure/cognitive-services/speech-service/voice-first-virtual-assistants) y [habilitarlo para voz](https://github.com/microsoft/botframework-solutions/blob/master/docs/howto/assistant/csharp/speechenablement.md)
+  * Creación de un [bot de Bot-Framework](https://dev.botframework.com/). Registro con el [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) y [personalización del bot para voz](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
+  * Exploración de las [soluciones de Bot-Framework](https://github.com/microsoft/botframework-solutions) existentes: Creación de un [asistente de voz personalizado](https://docs.microsoft.com/azure/cognitive-services/speech-service/voice-assistants) y [habilitarlo para voz](https://github.com/microsoft/botframework-solutions/blob/master/docs/howto/assistant/csharp/speechenablement.md)

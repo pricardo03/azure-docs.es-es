@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7504d14d522a440572aa25491270c0afc73325a9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2d80ac949dea3c9d6c3d28d2a343c4ed7bad8983
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554392"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474307"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planificación de una implementación de Azure Multi-Factor Authentication basada en la nube
 
@@ -220,6 +220,7 @@ Es importante que evite bloquearse accidentalmente del inquilino de Azure AD. Pu
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global.
 1. Vaya a **Azure Active Directory** , **Acceso condicional**.
 1. Seleccione **Nueva directiva**.
+   ![Creación de una directiva de acceso condicional que habilite MFA para los usuarios de Azure Portal en el grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Escriba un nombre descriptivo para la directiva.
 1. En **usuarios y grupos**:
    * En la pestaña **Incluir**, seleccione el botón de radio **Todos los usuarios**.
@@ -237,8 +238,6 @@ Es importante que evite bloquearse accidentalmente del inquilino de Azure AD. Pu
 1. Omita la sección **Sesión**.
 1. Establezca la opción **Habilitar directiva** en **Activada**.
 1. Haga clic en **Create**(Crear).
-
-![Creación de una directiva de acceso condicional que habilite MFA para los usuarios de Azure Portal en el grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planificación de la integración con sistemas locales
 
