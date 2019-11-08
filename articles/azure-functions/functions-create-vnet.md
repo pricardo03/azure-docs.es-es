@@ -1,20 +1,19 @@
 ---
 title: Integración de Azure Functions con una red virtual de Azure
 description: Tutorial paso a paso donde se explica cómo conectarse a una función en una red virtual de Azure
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 0a31b58a3c843a2add0c84dc1a3ad4ab6417815e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: bc6c87a28078d25a212a681206258d6d369f2867
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612882"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575537"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integración de Functions con una red virtual de Azure
 
@@ -26,9 +25,6 @@ En este tutorial se explica cómo se utiliza Azure Functions para conectarse a r
 > * Conexión de la aplicación de funciones a la red virtual
 > * Creación de un proxy de función para acceder a recursos de WordPress
 > * Solicitud de un archivo de WordPress desde dentro de la red virtual
-
-> [!NOTE]  
-> Este tutorial crea una aplicación de funciones en el plan Premium. Este plan de hospedaje actualmente se encuentra en versión preliminar. Para obtener más información, vea [plan Premium].
 
 ## <a name="topology"></a>Topología
 

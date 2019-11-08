@@ -1,5 +1,5 @@
 ---
-title: Protección de una base de datos única o agrupada en Azure SQL Database | Microsoft Docs
+title: Protección de una base de datos única o agrupada
 description: Un tutorial que le permite conocer las técnicas y características para proteger una base de datos única o agrupada en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231190"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818033"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Protección de una base de datos única o agrupada
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: aa36051f65936f25e4f2cc3bf03619b0f66ce5a6
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 840d7b9534124a4fcc93962e8329dc6ce2bdf1a4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165317"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749344"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 Aunque Azure Resource Manager ofrece muchas características increíbles, es fundamental planear la trayectoria de migración para asegurarse de que el proceso se desarrolla con facilidad. Dedicar tiempo a la planificación garantizará que no se planteen problemas al ejecutar las actividades de migración.
@@ -131,7 +131,7 @@ A continuación se indican problemas detectados en muchas de las migraciones má
 
     Puede comprobar las cuotas actuales de Azure Resource Manager mediante los comandos siguientes con la última versión de Azure PowerShell.
     
-    [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+     
 
     **Compute** *(núcleos y conjuntos de disponibilidad)*
 

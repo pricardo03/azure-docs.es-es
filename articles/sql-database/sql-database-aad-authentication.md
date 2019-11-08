@@ -1,5 +1,5 @@
 ---
-title: 'Autenticación de Azure Active Directory: Azure SQL | Microsoft Docs'
+title: Azure Active Directory
 description: Aprenda a usar Azure Active Directory para la autenticación con SQL Database, Instancia administrada y SQL Data Warehouse
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: e0eeb48490c869c4a3b46bfd71fca72e0ab1c2ff
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896998"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816533"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usar la autenticación de Azure Active Directory para autenticación con SQL
 

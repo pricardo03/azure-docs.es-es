@@ -1,5 +1,5 @@
 ---
-title: Actividad de validación en Azure Data Factory | Microsoft Docs
+title: Actividad de validación en Azure Data Factory
 description: La actividad de validación no continúa la ejecución de la canalización hasta que valida el conjunto de datos adjunto con determinados criterios que el usuario especifica.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 77fdab04e03429d135875cb2ef223e8c23d312a2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f63c78c59d7d6be3c66ea0785389eff73e3bff60
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141606"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678366"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Actividad de validación en Azure Data Factory
 Puede usar una validación en una canalización para asegurarse de que la canalización solo continúe la ejecución una vez que haya validado la existencia de la referencia del conjunto de datos adjunto, que cumple con los criterios especificados o que se haya alcanzado el tiempo de expiración.

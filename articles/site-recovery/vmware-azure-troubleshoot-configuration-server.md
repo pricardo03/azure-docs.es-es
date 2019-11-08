@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725574"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748556"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solución de problemas del servidor de configuración
 
@@ -122,7 +122,7 @@ Si instala aplicaciones distintas del servidor de configuración en la máquina 
 
 El servidor de configuración debe ser un servidor de propósito único y no está permitido usarlo como servidor compartido. 
 
-Para obtener más información, consulte las preguntas frecuentes sobre configuración en [Implementar un servidor de configuración](vmware-azure-deploy-configuration-server.md#faq). 
+Para obtener más información, consulte las preguntas frecuentes sobre configuración en [Implementar un servidor de configuración](vmware-azure-deploy-configuration-server.md#faqs). 
 
 ## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>Eliminación de las entradas obsoletas de los elementos protegidos de la base de datos del servidor de configuración 
 
@@ -185,7 +185,7 @@ Para actualizar el servidor de configuración, ejecute la [instalación unificad
 
 ## <a name="azure-active-directory-application-creation-failure"></a>Error de creación de aplicación de Azure Active Directory
 
-No tiene permisos suficientes para crear una aplicación en Azure Active Directory (AAD) utilizando la plantilla de [aplicación de virtualización abierta (OVA)](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template
+No tiene permisos suficientes para crear una aplicación en Azure Active Directory (AAD) utilizando la plantilla de [aplicación de virtualización abierta (OVA)](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template
 ).
 
 Para resolver el problema, inicie sesión en Azure Portal y realice una de las siguientes acciones:

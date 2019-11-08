@@ -6,16 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7cfe0cf291e8c39a4600234632090c39ab5cd78e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596545"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519329"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformación del receptor para un flujo de datos
-
-
 
 Una vez que haya transformado un flujo de datos, puede recibir los datos en un conjunto de datos de destino. En la transformación del receptor, elija una definición de conjunto de datos para los datos de salida de destino. Puede tener tantas transformaciones del receptor como precise el flujo de datos.
 
@@ -53,8 +51,8 @@ Seleccione **Validar esquema** para que se genere un error en el receptor si el 
 
 Seleccione **Clear the folder** (Borrar la carpeta) para truncar el contenido de la carpeta del receptor antes de escribir los archivos de destino en esa carpeta de destino.
 
-## <a name="rule-based-mapping"></a>Asignación basada en reglas
-Al desactivar la asignación automática, tendrá la opción de agregar una asignación basada en columnas (asignación fija) o basada en reglas. La asignación basada en reglas le permitirá escribir expresiones con coincidencia de patrones. 
+## <a name="fixed-mapping-vs-rule-based-mapping"></a>Asignación fija frente a asignación basada en reglas
+Cuando desactive la asignación automática, tendrá la opción de agregar una asignación basada en columnas (asignación fija) o basada en reglas. La asignación basada en reglas le permitirá escribir expresiones con coincidencia de patrones, mientras que la asignación fija asignará nombres de columna lógicos y físicos.
 
 ![Asignación basada en reglas](media/data-flow/rules4.png "Asignación basada en reglas")
 
@@ -65,6 +63,12 @@ Los detalles sobre la coincidencia de patrones se encuentran en la [documentaci�
 También puede escribir patrones de expresiones regulares cuando utilice la coincidencia basada en reglas. Para ello, expanda la fila y escriba una expresión regular junto a "El nombre coincide con:".
 
 ![Asignación de expresión regular](media/data-flow/scdt1g4.png "Asignación de expresión regular")
+
+Un ejemplo común muy básico para una asignación basada en reglas frente a una asignación fija es el caso en el que desea asignar todos los campos entrantes al mismo nombre en el destino. En el caso de las asignaciones fijas, enumeraría cada columna individual de la tabla. Para la asignación basada en reglas, tendría una única regla que asigne todos los campos que usan ```true()``` al mismo nombre de campo entrante representado por ```$$```.
+
+### <a name="sink-association-with-dataset"></a>Asociación de receptores con conjunto de datos
+
+El conjunto de datos que seleccione para el receptor puede tener o no un esquema establecido en la definición del conjunto de datos. Si no tiene un esquema definido, debe permitir el desfase del esquema. Al definir una asignación fija, la asignación de nombres lógicos a físicos se conservará en la transformación del receptor. Si cambia la definición de esquema del conjunto de datos, se producirá una posible interrupción de la asignación de receptor. Para evitar esto, use la asignación basada en reglas. Las asignaciones basadas en reglas están generalizadas, lo que significa que los cambios de esquema en el conjunto de datos no interrumpirán la asignación.
 
 ## <a name="file-name-options"></a>Opciones de nombre de archivo
 
@@ -101,6 +105,13 @@ Seleccione los valores de configuración de la base de datos:
 
 > [!NOTE]
 > Al actualizar o eliminar filas en el receptor de base de datos, debe establecer la columna de clave. Esta opción permite que la transformación de alteración de fila determine la fila única en la biblioteca de movimiento de datos (DML).
+
+### <a name="cosmosdb-specific-settings"></a>Configuración específica de CosmosDB
+
+Cuando dirija datos en CosmosDB, tendrá que tener en cuenta estas opciones adicionales:
+
+* Clave de partición: Este campo es obligatorio. Escriba una cadena que represente la clave de partición de la colección. Ejemplo: ```/movies/title```
+* Rendimiento: Establezca un valor opcional para el número de RU que desea aplicar a la colección de CosmosDB para cada ejecución de este flujo de datos. El mínimo es de 400.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha creado el flujo de datos, agregue una [actividad de Data Flow a la canalización](concepts-data-flow-overview.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: a5a19910d101f3f30afcafa049056c78cd976f75
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8850aef8b5d45f236385551a1455e6fe7b540340
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933075"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614440"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Ejemplos de consultas de registro de Azure Monitor
 En este artículo se incluyen varios ejemplos de [consultas](log-query-overview.md) que usan el [lenguaje de consulta de Kusto](/azure/kusto/query/) para recuperar distintos tipos de datos de registro de Azure Monitor. Se utilizan métodos diferentes para consolidar y analizar los datos, por lo que puede usar estos ejemplos para identificar las diferentes estrategias que puede utilizar para sus propios requisitos.  
@@ -175,7 +175,6 @@ let EndTime = now()-4d;
 Perf
 | where CounterName == "% Processor Time"  
 | where TimeGenerated > StartTime and TimeGenerated < EndTime
-and TimeGenerated < EndTime
 | project TimeGenerated, Computer, cpu=CounterValue 
 | join kind= inner (
    Perf

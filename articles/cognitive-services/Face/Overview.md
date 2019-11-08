@@ -1,7 +1,7 @@
 ---
 title: ¿Qué es Face API?
 titleSuffix: Azure Cognitive Services
-description: Aprenda a usar el servicio Face para detectar y analizar las caras en imágenes.
+description: Azure Cognitive Services Face API ofrece algoritmos que se utilizan para detectar, reconocer y analizar caras humanas en imágenes.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 4be33f781dec93fd9fe1b1846322672266cd7350
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 95ea1718682340967d5d39fe5f550f2638273796
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606906"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743705"
 ---
 # <a name="what-is-the-azure-face-api"></a>¿Qué es Azure Face API?
 
@@ -78,7 +78,7 @@ Las aplicaciones de ejemplo siguientes muestran algunas formas de usar Face API:
 - [Microsoft Face API: biblioteca de cliente Windows y ejemplo](https://github.com/Microsoft/Cognitive-Face-Windows) es una aplicación de WPF que demuestra varios escenarios de detección, análisis e identificación de caras.
 - [Aplicación FamilyNotes UWP](https://github.com/Microsoft/Windows-appsample-familynotes) es una aplicación de la Plataforma universal de Windows (UWP) que usa la identificación facial junto con la voz, Cortana, la escritura manuscrita y la cámara en un escenario de uso compartido de notas en familia.
 
-## <a name="data-privacy-and-security"></a>Seguridad y privacidad de los datos
+## <a name="data-privacy-and-security"></a>Seguridad y privacidad de datos
 
 Al igual que sucede con todos los recursos de Cognitive Services, los desarrolladores que usan el servicio Face deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Para más información, vea la [página de Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) en Microsoft Trust Center.
 

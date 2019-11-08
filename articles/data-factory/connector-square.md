@@ -1,5 +1,5 @@
 ---
-title: Copiar datos de Square con Azure Data Factory (versión preliminar) | Microsoft Docs
+title: Copiar datos de Square con Azure Data Factory (versión preliminar)
 description: Obtenga información sobre cómo copiar datos de Square en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 84091a91321f3d42c5c75aa11d12abf10c5545d7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: b7f83e8e7690180dbed04572f2e2699f02d5fed7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089298"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680130"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar datos de Square con Azure Data Factory (versión preliminar)
 
@@ -154,7 +154,7 @@ Si va a copiar datos de Square, establezca el tipo de origen de la actividad de 
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
-Para información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
+Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

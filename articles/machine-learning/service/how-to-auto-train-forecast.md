@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 276e741a9462c19a3cba9ad1f9ac44e2da7ef1d3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497355"
+ms.locfileid: "73580703"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -181,7 +181,7 @@ Consulte el [cuaderno de demanda energética](https://github.com/Azure/MachineLe
 
 Con el fin de usar las DNN para la previsión, deberá establecer el parámetro `enable_dnn` de AutoMLConfig en true. 
 
-Para usar las DNN, se recomienda usar un clúster de proceso AML con las SKU de GPU y al menos 2 nodos como destino de proceso. Consulte la [documentación del proceso de AML](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) para más información. Vea [Tamaños de máquinas virtuales optimizadas para GPU](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu) para más información sobre los tamaños de máquina virtual que incluyen GPU.
+Para usar las DNN, se recomienda usar un clúster de proceso AML con las SKU de GPU y al menos 2 nodos como destino de proceso. Consulte la [documentación del proceso de AML](how-to-set-up-training-targets.md#amlcompute) para más información. Vea [Tamaños de máquinas virtuales optimizadas para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) para más información sobre los tamaños de máquina virtual que incluyen GPU.
 
 Para permitir el tiempo suficiente para que se complete el entrenamiento de DNN, se recomienda establecer el tiempo de espera del experimento en al menos un par de horas.
 

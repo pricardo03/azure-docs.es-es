@@ -1,5 +1,5 @@
 ---
-title: Copia de datos de HBase con Azure Data Factory | Microsoft Docs
+title: Copia de datos de HBase con Azure Data Factory
 description: Obtenga información sobre cómo copiar datos de HBase en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 56d2750257748ab69a2f42385441b1ce12805d34
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4768a3fbe30cf338628be44cb003e8aab527c946
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090287"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680874"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copia de datos de HBase con Azure Data Factory 
 

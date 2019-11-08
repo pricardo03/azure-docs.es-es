@@ -1,21 +1,21 @@
 ---
-title: Creación de una instancia de Azure HPC Cache (versión preliminar)
+title: Creación de una instancia de Azure HPC Cache
 description: Creación de una instancia de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255269"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582178"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planeamiento del espacio de nombres agregado
 
-Azure HPC Cache (versión preliminar) permite que los clientes accedan a diversos sistemas de almacenamiento a través de un espacio de nombres virtual que oculta los detalles del sistema de almacenamiento back-end.
+Azure HPC Cache permite que los clientes accedan a diversos sistemas de almacenamiento a través de un espacio de nombres virtual que oculta los detalles del sistema de almacenamiento back-end.
 
 Cuando agrega un destino de almacenamiento, establece la ruta de acceso de archivo orientada al cliente. Las máquinas cliente montan esta ruta de acceso de archivo y pueden crear solicitudes de lectura de archivos en la memoria caché en lugar de montar el sistema de almacenamiento directamente.
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: 8a8193d21bbc1d0af933657705e605ce31589cbf
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 44cc611a9a7d71a3ac4ac7b0d779b18778d0aacd
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785848"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607604"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de Azure Event Grid
 
@@ -22,7 +22,7 @@ En este artículo se describen las propiedades y el esquema que están presentes
 Los orígenes de eventos envían eventos a Azure Event Grid en una matriz que puede tener varios objetos de evento. Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento en la matriz se limita a 64 KB (disponibilidad general) o 1 MB (versión preliminar). Si un evento o la matriz superan los límites de tamaño, recibirá la respuesta **413 Payload Too Large** (Carga útil demasiado grande).
 
 > [!NOTE]
-> Los eventos con un tamaño de hasta 64 KB están cubiertos por el acuerdo de nivel de servicio de disponibilidad general (GA). La compatibilidad de un evento con un tamaño de hasta 1 MB se encuentra actualmente en una versión preliminar. Los eventos de más de 64 KB se cobran en incrementos de 64 KB. 
+> Los eventos con un tamaño de hasta 64 KB están cubiertos por el acuerdo de nivel de servicio de disponibilidad general (GA). La compatibilidad de un evento con un tamaño de hasta 1 MB se encuentra actualmente en versión preliminar. Los eventos de más de 64 KB se cobran en incrementos de 64 KB. 
 
 Event Grid envía los eventos a los suscriptores en una matriz que tiene un solo evento. Este comportamiento puede cambiar en el futuro.
 
@@ -105,6 +105,7 @@ Para aprender acerca de las propiedades del objeto de datos, vea el origen del e
 * [Grupos de recursos (operaciones de administración)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
 * [Azure SignalR](event-schema-azure-signalr.md)
+* [Azure Machine Learning](event-schema-machine-learning.md)
 
 Para temas personalizados, el publicador de eventos determina el objeto de datos. Los datos de nivel superior deben tener los mismos campos que los eventos estándar definidos por recursos.
 

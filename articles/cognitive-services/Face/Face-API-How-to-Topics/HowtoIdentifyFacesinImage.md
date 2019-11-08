@@ -1,7 +1,7 @@
 ---
 title: 'Ejemplo: Identificación de caras en imágenes - Face API'
 titleSuffix: Azure Cognitive Services
-description: Use Face API para identificar caras en imágenes.
+description: En esta guía se muestra cómo identificar caras desconocidas con los objetos PersonGroup, que se crean a partir de personas conocidas de antemano.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: c21647e3fbbc38e905a6d6ec116551004da20d5c
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 10ab11669569b16293ccf9b8777190cf271e5795
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300531"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744322"
 ---
 # <a name="example-identify-faces-in-images"></a>Ejemplo: Identificación de caras en imágenes
 

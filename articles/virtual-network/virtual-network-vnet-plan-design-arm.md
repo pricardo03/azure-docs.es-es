@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: f7f45e479ad21b27832573b73a5e09e8da1b37b1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 47da2524f719e53edcbd89686a1a0b76fa6e79cd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756127"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802722"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuales
 
@@ -27,7 +27,7 @@ Crear una red virtual con la cual experimentar es bastante sencillo, pero es pro
 
 ## <a name="naming"></a>Nomenclatura
 
-Todos los recursos de Azure tienen un nombre. El nombre debe ser único dentro de un ámbito, que puede variar para cada tipo de recurso. Por ejemplo, el nombre de una red virtual debe ser único dentro de un [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), pero puede haber duplicados del nombre dentro de una [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) o [región](https://azure.microsoft.com/regions/#services) de Azure. Definir una convención de nomenclatura que pueda usar de forma consistente al asignar nombres a recursos le será de utilidad al administrar varios recursos de red con el tiempo. Consulte [Naming conventions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#virtual-networking) (Convenciones de nomenclatura) para obtener sugerencias.
+Todos los recursos de Azure tienen un nombre. El nombre debe ser único dentro de un ámbito, que puede variar para cada tipo de recurso. Por ejemplo, el nombre de una red virtual debe ser único dentro de un [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), pero puede haber duplicados del nombre dentro de una [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) o [región](https://azure.microsoft.com/regions/#services) de Azure. Definir una convención de nomenclatura que pueda usar de forma consistente al asignar nombres a recursos le será de utilidad al administrar varios recursos de red con el tiempo. Consulte [Naming conventions](/azure/architecture/best-practices/resource-naming#networking) (Convenciones de nomenclatura) para obtener sugerencias.
 
 ## <a name="regions"></a>Regions
 

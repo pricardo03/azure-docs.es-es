@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: ab543ee8e379b89aaa9a1133bb75387ed9904002
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: 67ca6aa36166e8ae08bedec82441e45930976b80
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598394"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603996"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MariaDB con el Almacén de consultas
 
 **Se aplica a:** Azure Database for MariaDB 10.2
-
-> [!IMPORTANT]
-> El Almacén de consultas está en versión preliminar.
 
 La característica Almacén de consultas de Azure Database for MariaDB proporciona una manera de realizar un seguimiento del rendimiento de las consultas a lo largo del tiempo. El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. El Almacén de consultas captura automáticamente un historial de consultas y estadísticas de tiempo de ejecución y lo conserva para su revisión. Separa los datos por ventanas de tiempo para que pueda ver patrones de uso de la base de datos. Los datos de todos los usuarios, las bases de datos y las consultas se almacenan en la base de datos de esquema denominada **mysql** en la instancia de Azure Database for MariaDB.
 

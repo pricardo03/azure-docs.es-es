@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Data Factory para migrar datos de un servidor de Netezza local a Azure| Microsoft Docs
+title: Uso de Azure Data Factory para migrar datos de un servidor de Netezza local a Azure
 description: Use Azure Data Factory para migrar datos de un servidor de Netezza local a Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 9ea8326b10536cb91b9dc67f637664f0fc055e74
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c5b36a04501b417af4e4527968a082da8a061804
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122829"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675799"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Uso de Azure Data Factory para migrar datos de un servidor de Netezza local a Azure 
 

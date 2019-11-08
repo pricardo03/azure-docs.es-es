@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: e2faf444aa411f0e60f1b5c7b1f811abc2f6b63a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1825f9f0f5d525c0129341d800ca5949136ae633
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176683"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750078"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensión DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -35,7 +35,7 @@ Microsoft publica y admite la extensión DSCForLinux. La extensión instala los 
 - Instalación de módulos personalizados de DSC en la VM de Linux (Install ExtensionAction)
 - Eliminación de módulos personalizados de DSC en la VM de Linux (Remove ExtensionAction)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prerequisites"></a>Requisitos previos
 

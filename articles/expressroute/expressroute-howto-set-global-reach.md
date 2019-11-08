@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64abf820a502db0ee0033ce52ed148bae6b8ffc2
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572757"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748175"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configuración de ExpressRoute Global Reach
 
@@ -30,7 +30,7 @@ Antes de comenzar la configuración, confirme lo siguiente:
 
 ### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 

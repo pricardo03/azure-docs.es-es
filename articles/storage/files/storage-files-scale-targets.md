@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 766dacb69a3f1857197684f552d05a1376e94509
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 267a63eba90c74b79078a7c04c1d2d8929cf2a44
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514870"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615768"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 
@@ -98,7 +98,7 @@ Para ayudarle a planear la implementación de cada una de las fases, a continuac
 | Número de objetos sincronizados| 125 000 objetos (renovación ~ 1 %) |
 | Tamaño del conjunto de datos| 50 GiB |
 | Tamaño de archivo medio | ~500 KiB |
-| Rendimiento de carga | 30 objetos por segundo |
+| Rendimiento de carga | 20 objetos por segundo |
 | Rendimiento de descarga completa* | 60 objetos por segundo |
 
 *Si están habilitados los niveles de la nube, es probable que observe un rendimiento mejor, ya que solo se descargan algunos de los datos de los archivos. Azure File Sync solo descarga los datos de los archivos almacenados en la memoria caché cuando cambian en cualquiera de los puntos de conexión. En el caso de los archivos en niveles o recién creados, el agente no descarga los datos de los archivos, solo sincroniza el espacio de nombres en todos los puntos de conexión del servidor. El agente también admite descargas parciales de archivos en capas cuando el usuario accede a ellos. 

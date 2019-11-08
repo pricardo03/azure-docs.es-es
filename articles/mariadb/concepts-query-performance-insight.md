@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: b1007080c907eecc940b57184954c793b85f5eec
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: 31aacfea7c68614add0229c3a9c494de4714fe16
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595627"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604037"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Información de rendimiento de consultas en Azure Database for MariaDB
 
 **Se aplica a:** Azure Database for MariaDB 10.2
-
-> [!IMPORTANT]
-> Información de rendimiento de consultas está en versión preliminar.
 
 Query Performance Insight le ayuda a identificar rápidamente cuáles son las consultas que más tardan en ejecutarse, cómo cambian con el tiempo y qué esperas están afectándoles.
 

@@ -1,6 +1,6 @@
 ---
 title: Conversión de un modelo a un servicio web
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Información general de cómo progresa el modelo de Machine Learning Studio (clásico) de un experimento de desarrollo a un servicio web.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: c82e636b06d33140ca6dae606d39855084aac04d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 24a2c31271d123d6378732bd9f85f6341a78d65c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496840"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671248"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Progreso de un modelo de Machine Learning Studio (clásico) de un experimento a un servicio web
 Azure Machine Learning Studio (clásico) ofrece un lienzo interactivo que permite desarrollar, ejecutar, probar e iterar un ***experimento*** que representa un modelo de análisis predictivo. Hay una gran variedad de módulos que le permiten realizar las acciones siguientes:
@@ -108,7 +108,7 @@ Si desea realizar cambios en el experimento predictivo original, como selecciona
 Para obtener más detalles sobre el proceso de desarrollo y el experimento, consulte los artículos siguientes:
 
 * Conversión del experimento: [Preparación del modelo de implementación en Azure Machine Learning Studio (clásico)](convert-training-experiment-to-scoring-experiment.md)
-* implementación del servicio web: [Implementación de un servicio web Azure Machine Learning](publish-a-machine-learning-web-service.md)
+* implementación del servicio web: [Implementación de un servicio web Azure Machine Learning](deploy-a-machine-learning-web-service.md)
 * reciclaje del modelo - [Reciclar modelos de Machine Learning mediante programación](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 Para ver ejemplos de todo el proceso, consulte:

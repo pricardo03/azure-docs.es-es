@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973017"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523794"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -144,6 +144,30 @@ La creación de particiones de GPT solo se puede usar en discos de datos, no en 
 **¿Qué tipos de discos admiten instantáneas?**
 
 SSD Premium, SSD estándar y HDD estándar admiten instantáneas. En estos tres tipos de discos, las instantáneas se admiten en todos los tamaños de disco (incluidos los discos de hasta 32 TiB). Los discos Ultra no admiten instantáneas.
+
+### <a name="disk-reservation"></a>Reserva de discos
+
+**¿Qué es la reserva de discos de Azure?**
+La reserva de discos es la opción de adquirir de antemano un año de almacenamiento en discos, lo que reduce los costos totales.
+
+**¿Qué opciones ofrece la reserva de discos de Azure?**
+La reserva de discos de Azure ofrece la opción de comprar SSD Premium en las SKU especificadas de P30 (1 TiB) hasta P80 (32 TiB) durante un año. No hay ninguna limitación en la cantidad mínima de discos necesarios para comprar una reserva de discos. Además, puede pagar realizando un solo pago inicial o mediante pagos mensuales. No hay ningún costo transaccional adicional aplicado en Managed Disks de SSD Premium.
+
+Las reservas se realizan en forma de discos y no de capacidad. En otras palabras, cuando se reserva un disco de P80 (32 TiB), se obtiene un solo disco de P80, no se puede dividir esa reserva específica en dos discos de P70 más pequeños (16 TiB). Por supuesto, puede reservar el número de discos que quiera, incluidos dos discos de P70 independientes (16 TiB).
+
+**¿Cómo se me cobrará la reserva de discos de Azure?**
+- Los clientes con Contrato Enterprise (EA) pueden usar primero el compromiso monetario de Azure para comprar reservas de discos de Azure. Además, aunque los clientes con Contrato Enterprise hayan usado todo su compromiso monetario, pueden comprar reservas de discos, y el importe correspondiente se cobrará en la próxima factura de uso por encima del límite.
+
+- En cuanto a los clientes que compren a través de Azure.com, se cargará a la tarjeta de crédito registrada el pago inicial completo (o los pagos fijos mensuales) de la reserva de discos de Azure en el momento de la compra.
+
+**¿Cómo se aplica la reserva de discos de Azure?**
+La reserva de discos sigue un modelo similar a las instancias reservadas de máquina virtual (VM). La diferencia es que una reserva de discos no se puede aplicar a diferentes SKU, mientras que una instancia de VM sí puede. Consulte [Ahorro de costos con Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) para obtener más información sobre las instancias de VM. 
+
+**¿Puedo usar mi almacenamiento de datos adquirido a través de la reserva de discos de Azure en varias regiones?**
+La reserva de discos de Azure se compra para una región específica y una SKU (como P30 en el Este de EE. UU. 2) y, por lo tanto, no se puede usar fuera de estas áreas. Siempre puede adquirir una reserva de discos de Azure adicional en función de las necesidades de almacenamiento en disco que tenga en otras regiones o SKU.
+
+**¿Qué ocurre cuando expira la reserva de discos Azure?**
+Recibirá notificaciones por correo electrónico 30 días antes de la expiración y también en la fecha de expiración. Una vez que expire la reserva, los discos implementadas seguirán ejecutándose y se facturarán mediante una [cuota de pago por uso](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="ultra-disks"></a>Discos Ultra
 
@@ -334,6 +358,18 @@ Sí
 No. Pero si exporta un disco duro virtual a una cuenta de almacenamiento cifrada desde un disco administrado cifrado o una instantánea, en este caso se cifra. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Discos premium: Administrados y no administrados
+
+**¿Qué regiones admiten la capacidad de ráfagas para el tamaño de disco SSD Premium aplicable?**
+
+La capacidad de ráfaga se admite actualmente en el Centro-oeste de EE. UU. de Azure.
+
+**¿En qué regiones se admiten los tamaños de disco administrado de 4/8/16 GiB (P1/P2/P3, E1/E2/E3)?**
+
+Estos nuevos tamaños de disco se admiten actualmente en la región Centro-oeste de EE. UU. de Azure.
+
+**¿Se admiten los tamaños de disco P1/P2/P3 en discos no administrados o blobs en páginas?**
+
+No, solo se admite en Managed Disks de SSD Premium. 
 
 **Si una máquina virtual usa una serie de tamaño que admite discos SSD premium, como DSv2, ¿puedo conectar discos de datos tanto premium como estándar?** 
 

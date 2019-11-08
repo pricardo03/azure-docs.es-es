@@ -8,19 +8,22 @@ ms.topic: include
 ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ed828a09843648b129b701c9afd22aac9e2fa9b0
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 12c28969ed00a1370b90e06e9d57cd666c50ea29
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970817"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523800"
 ---
-1. En el portal, a la izquierda, haga clic en **+ Crear un recurso** y escriba "Virtual Network Gateway" en el cuadro de búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y haga clic en la entrada. En la página **Puerta de enlace de red virtual**, haga clic en **Crear**. Se abre la página **Crear puerta de enlace de red virtual**.
+1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso**. 
+
+   ![Crear un recurso en Azure Portal](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
+2. En el campo **Buscar en el Marketplace**, escriba "Puerta de enlace de Virtual Network". Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y haga clic en la entrada. En la página **Puerta de enlace de red virtual**, haga clic en **Crear**. Se abre la página **Crear puerta de enlace de red virtual**.
 
    ![Campos de la página Crear puerta de enlace de red virtual](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw.png "Campos de la página Crear puerta de enlace de red virtual")
 
    ![Campos de la página Crear puerta de enlace de red virtual](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw2.png "Campos de la página Crear puerta de enlace de red virtual")
-2. En la página **Crear puerta de enlace de red virtual**, rellene los valores de la puerta de enlace de red virtual.
+3. En la página **Crear puerta de enlace de red virtual**, rellene los valores de la puerta de enlace de red virtual.
 
    **Detalles del proyecto**
 
@@ -49,6 +52,6 @@ ms.locfileid: "71970817"
 
    Deje la opción **Configurar ASN BGP** sin seleccionar, a menos que su configuración requiera específicamente este valor. Si necesita esta configuración, el valor predeterminado del ASN es 65515, aunque esto se puede cambiar.
 
-3. Haga clic en **Revisar y crear** para ejecutar la validación. Una vez superada la validación, haga clic en **Crear** para implementar VPN Gateway. Una puerta de enlace puede tardar hasta 45 minutos en crearse e implementarse completamente. Puede ver el estado de implementación en la página Información general de la puerta de enlace.
+4. Haga clic en **Revisar y crear** para ejecutar la validación. Una vez superada la validación, haga clic en **Crear** para implementar VPN Gateway. Una puerta de enlace puede tardar hasta 45 minutos en crearse e implementarse completamente. Puede ver el estado de implementación en la página Información general de la puerta de enlace.
 
 Una vez creada la puerta de enlace, puede ver la dirección IP que se le ha asignado consultando la red virtual en el portal. La puerta de enlace aparece como un dispositivo conectado.

@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 06ab1783a6e0f4884ab46d3f00a26c47f28d02b0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596891"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601758"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperación ante desastres regional para clústeres de Azure Databricks
 
@@ -47,7 +47,7 @@ Para crear su propia topología de recuperación ante desastres regional, siga e
 
    En este artículo se muestra una serie de ejemplos de código que usan la interfaz de línea de comandos para la mayoría de los pasos automatizados, ya que se trata de un contenedor fácil de usar de la API REST de Azure Databricks.
 
-   Antes de realizar los pasos de migración, instale la CLI de Databricks en el equipo de escritorio o en una máquina virtual en donde va a realizar el trabajo. Para más información, consulte [Instalación de la CLI de Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
+   Antes de realizar los pasos de migración, instale la CLI de Databricks en el equipo de escritorio o en una máquina virtual en donde va a realizar el trabajo. Para más información, consulte [Instalación de la CLI de Databricks](/azure/databricks/dev-tools/databricks-cli)
 
    ```bash
    pip install databricks-cli
@@ -286,7 +286,7 @@ Para crear su propia topología de recuperación ante desastres regional, siga e
 
 8. **Migración de montajes de Azure Blob Storage y Azure Data Lake Storage**
 
-   Vuelva a montar manualmente todos los puntos de montaje de [Azure Blob Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) y [Azure Data Lake Storage (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) mediante una solución basada en cuaderno. Los recursos de almacenamiento se habrían montado en el área de trabajo principal, y esto mismo tiene que repetirse en el área de trabajo secundario. No hay ninguna API externa para montajes.
+   Vuelva a montar manualmente todos los puntos de montaje de [Azure Blob Storage](/azure/databricks/data/data-sources/azure/azure-storage.html) y [Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html) mediante una solución basada en cuaderno. Los recursos de almacenamiento se habrían montado en el área de trabajo principal, y esto mismo tiene que repetirse en el área de trabajo secundario. No hay ninguna API externa para montajes.
 
 9. **Migración de los scripts de inicialización de clúster**
 
@@ -302,7 +302,7 @@ Para crear su propia topología de recuperación ante desastres regional, siga e
 
 10. **Reconfiguración y reaplicación manual del control de acceso.**
 
-    Si el área de trabajo principal existente está configurada para usar el nivel Premium (SKU), es probable que también esté usando la [característica Access Control](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Si el área de trabajo principal existente está configurada para usar el nivel Premium (SKU), es probable que también esté usando la [característica Access Control](/azure/databricks/administration-guide/access-control/index).
 
     Si usa la característica Access Control, vuelva a aplicar manualmente el control de acceso a los recursos (block de notas, clústeres, trabajos, tablas).
 
@@ -312,4 +312,4 @@ Si usa otros servicios de Azure, asegúrese de implementar los procedimientos re
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, consulte la [documentación de Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).
+Para más información, consulte la [documentación de Azure Databricks](index.yml).

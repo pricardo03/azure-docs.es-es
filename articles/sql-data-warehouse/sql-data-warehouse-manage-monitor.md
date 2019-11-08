@@ -1,5 +1,5 @@
 ---
-title: Supervisión de la carga de trabajo mediante DMV | Microsoft Docs
+title: Supervisión de la carga de trabajo mediante DMV
 description: Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d1af13eb54daf060f0172a0506370ca459f2ece
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: e1a754747ae5c0fb7c50653f4881b67a81e011ef
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018944"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645664"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Supervisión de la carga de trabajo mediante DMV
 En este artículo se describe cómo usar vistas de administración dinámica (DMV) para supervisar la carga de trabajo. Esto incluye la investigación de la ejecución de consultas en Azure SQL Data Warehouse.

@@ -9,23 +9,23 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 8707aa55c1126af6a7fb2812d4c7314f031209d0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0436a0898f27d3059069ce2df1fdfb143a98f325
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597470"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601801"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Preguntas más frecuentes sobre Azure Databricks
 
 Este artículo muestra las principales preguntas que pueden surgir en relación con Azure Databricks. También se muestran algunos problemas comunes que puede encontrar al usar Databricks. Para más información, consulte [¿Qué es Azure Databricks?](what-is-azure-databricks.md) 
 
 ## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>¿Puedo usar Azure Key Vault para almacenar claves o secretos que se usarán en Azure Databricks?
-Sí. Puede usar Azure Key Vault para almacenar claves o secretos que se usarán en Azure Databricks. Para más información, consulte el artículo sobre los [ámbitos respaldados por Azure Key Vault](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss).
+Sí. Puede usar Azure Key Vault para almacenar claves o secretos que se usarán en Azure Databricks. Para más información, consulte el artículo sobre los [ámbitos respaldados por Azure Key Vault](/azure/databricks/security/secrets/secret-scopes).
 
 
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>¿Puedo usar Azure Virtual Networks con Databricks?
-Sí. Puede usar una instancia de Azure Virtual Network (red virtual) con Azure Databricks. Para más información, consulte el artículo sobre la [implementación de Azure Databricks en Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+Sí. Puede usar una instancia de Azure Virtual Network (red virtual) con Azure Databricks. Para más información, consulte el artículo sobre la [implementación de Azure Databricks en Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 ## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>¿Cómo accedo a Azure Data Lake Storage desde un cuaderno? 
 
@@ -34,7 +34,7 @@ Siga estos pasos:
 1. Asigne los permisos necesarios a la entidad de servicio en Data Lake Storage.
 1. Para acceder a un archivo en Data Lake Storage, use las credenciales de la entidad de servicio en Notebook.
 
-Para más información, consulte [Use Azure Data Lake Storage with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) (Uso de Azure Data Lake Storage con Azure Databricks).
+Para más información, consulte [Use Azure Data Lake Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake.html) (Uso de Azure Data Lake Storage con Azure Databricks).
 
 ## <a name="fix-common-problems"></a>Corrección de problemas comunes
 
@@ -82,7 +82,7 @@ A continuación se muestra un par de soluciones para este problema:
 
 #### <a name="solution"></a>Solución
 
-Si no creó el área de trabajo y se le agrega como usuario, póngase en contacto con la persona que creó el área de trabajo. Pídale a esa persona que lo agregue mediante la Consola de administración de Azure Databricks. Para obtener instrucciones, vea [Adding and managing users](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html) (Adición y administración de usuarios). Si creó el área de trabajo y sigue recibiendo este error, intente volver a seleccionar **Inicializar área de trabajo** en Azure Portal.
+Si no creó el área de trabajo y se le agrega como usuario, póngase en contacto con la persona que creó el área de trabajo. Pídale a esa persona que lo agregue mediante la Consola de administración de Azure Databricks. Para obtener instrucciones, vea [Adding and managing users](/azure/databricks/administration-guide/users-groups/users) (Adición y administración de usuarios). Si creó el área de trabajo y sigue recibiendo este error, intente volver a seleccionar **Inicializar área de trabajo** en Azure Portal.
 
 ### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Problema: Error de inicio del proveedor de nube al configurar el clúster (PublicIPCountLimitReached)
 

@@ -4,7 +4,7 @@ description: En este artículo se proporciona información general sobre la segu
 services: security
 documentationcenter: na
 author: unifycloud
-manager: barbkess
+manager: rkarlin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 52d74983458a2c6a4de27ec91bc23a8dd9bee387
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899815"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643783"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 
@@ -34,7 +34,7 @@ Los [registros de Microsoft Azure Monitor](/azure/operations-management-suite/op
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](/azure/azure-monitor/overview) recopila datos de orígenes administrados en almacenes de datos centralizados. Estos datos pueden incluir eventos, datos de rendimiento o datos personalizados proporcionados mediante la API. Una vez recopilados los datos, están disponibles para las alertas, el análisis y la exportación. 
+[Azure Monitor](/azure/azure-monitor/overview) recopila datos de orígenes administrados en almacenes de datos centralizados. Estos datos pueden incluir eventos, datos de rendimiento o datos personalizados proporcionados mediante la API. Una vez recopilados los datos, están disponibles para las alertas, el análisis y la exportación.
 
 Puede consolidar datos de varios orígenes y combinar datos de los servicios de Azure con el entorno local existente. Los registros de Azure Monitor también separan claramente la recopilación de los datos de la acción realizada en los datos para que todas las acciones estén disponibles para todos los tipos de datos.
 
@@ -44,9 +44,9 @@ Puede consolidar datos de varios orígenes y combinar datos de los servicios de 
 
 ### <a name="backup"></a>Copia de seguridad
 
-[Azure Backup](/azure/backup/backup-introduction-to-azure-backup) es el servicio de Azure que puede usar para hacer una copia de seguridad de los datos (protegerlos) y restaurarlos en Microsoft Cloud. Azure Backup reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. 
+[Azure Backup](/azure/backup/backup-introduction-to-azure-backup) es el servicio de Azure que puede usar para hacer una copia de seguridad de los datos (protegerlos) y restaurarlos en Microsoft Cloud. Azure Backup reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube.
 
-Azure Backup ofrece componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (tanto si va a proteger los datos de forma local como en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services en Azure. 
+Azure Backup ofrece componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (tanto si va a proteger los datos de forma local como en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services en Azure.
 
 Para obtener más información, consulte la [tabla de componentes de Azure Backup](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
 
@@ -102,7 +102,7 @@ Los problemas de rendimiento de la aplicación en la nube pueden afectar a su ne
 
 [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) es una herramienta básica para la supervisión de servicios que se ejecutan en Azure. Proporciona datos a nivel de infraestructura sobre el rendimiento de un servicio y el entorno circundante. Si va a administrar todas las aplicaciones en Azure y debe decidir si quiere ampliar o reducir los recursos, Azure Monitor es el punto de partida.
 
-También puede usar datos de supervisión para extraer conclusiones detalladas sobre la aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual. 
+También puede usar datos de supervisión para extraer conclusiones detalladas sobre la aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
 
 Azure Monitor incluye los siguientes componentes.
 
@@ -154,13 +154,15 @@ Para más información, consulte [Configurar Network Watcher](/azure/network-wat
 
 ## <a name="cloud-service-provider-access-transparency"></a>Transparencia de acceso del proveedor de servicio en la nube
 
-[Caja de seguridad del cliente de Microsoft Azure](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/) es un servicio integrado en Azure Portal que proporciona un control explícito en aquellos casos poco frecuentes en que el ingeniero de soporte técnico de Microsoft necesita acceso a sus datos para resolver un problema. Son muy escasas las ocasiones en que un ingeniero de soporte técnico de Microsoft requiere permisos elevados para resolver un problema; por ejemplo, la depuración de un acceso remoto. En tales casos, los ingenieros de Microsoft usan el servicio de acceso just-in-time que proporciona autorización temporal y limitada con acceso restringido al servicio.  
+[Caja de seguridad del cliente de Microsoft Azure](customer-lockbox-overview.md) es un servicio integrado en Azure Portal que proporciona un control explícito en aquellos casos poco frecuentes en que el ingeniero de soporte técnico de Microsoft necesita acceso a sus datos para resolver un problema.
+Son muy escasas las ocasiones en que un ingeniero de soporte técnico de Microsoft requiere permisos elevados para resolver un problema; por ejemplo, la depuración de un acceso remoto. En tales casos, los ingenieros de Microsoft usan el servicio de acceso just-in-time que proporciona autorización temporal y limitada con acceso restringido al servicio.  
 Si bien Microsoft siempre ha obtenido el consentimiento del usuario para el acceso, la Caja de seguridad del cliente ahora la ofrece la posibilidad de revisar y aprobar o denegar tales solicitudes desde Azure Portal. Los ingenieros de soporte técnico de Microsoft no tendrán acceso hasta que se apruebe la solicitud.
 
 ## <a name="standardized-and-compliant-deployments"></a>Implementaciones estandarizadas y conformes
 
 Los [planos técnicos de Azure](/azure/governance/blueprints/overview) permiten a los grupos de arquitectos de la nube y de TI central definir un conjunto repetible de recursos de Azure que implementa y cumple los estándares de la organización, sus requisitos y sus patrones.  
-Esto hace posible que los equipos de DevOps compilen y pongan en funcionamiento rápidamente nuevos entornos y confíen en que los están generando con una infraestructura que mantiene el cumplimiento de la organización. Los planos técnicos ofrecen una manera declarativa de organizar la implementación de varias plantillas de recursos y de otros artefactos, como son: 
+Esto hace posible que los equipos de DevOps compilen y pongan en funcionamiento rápidamente nuevos entornos y confíen en que los están generando con una infraestructura que mantiene el cumplimiento de la organización.
+Los planos técnicos ofrecen una manera declarativa de organizar la implementación de varias plantillas de recursos y de otros artefactos, como son:
 
 - Asignaciones de roles
 - Asignaciones de directiva
@@ -189,6 +191,6 @@ Los profesionales de DevOps consolidados adoptarán algunos de los siguientes pr
 
 Para obtener información sobre la solución Seguridad y auditoría, vea los artículos siguientes:
 
-- [Seguridad y cumplimiento normativo](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Seguridad y cumplimiento normativo](https://azure.microsoft.com/overview/trusted-cloud/)
 - [Azure Security Center](/azure/security-center/security-center-intro)
 - [Azure Monitor](/azure/azure-monitor/overview)

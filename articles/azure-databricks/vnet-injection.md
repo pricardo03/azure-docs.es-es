@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 0bb3221c201e6dd4dd17cca8ef7e3ed3331de228
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5eded3217e96ccc45951acae004d1424e16cb098
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432666"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605665"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>Implementación de Azure Databricks en la red virtual
 
@@ -119,7 +119,7 @@ Si usa esta plantilla sin también usar la plantilla de grupos de seguridad de r
 
 ## <a name="whitelisting-subnet-traffic"></a>Inclusión en lista blanca del tráfico de subred
 
-Si no usa [Azure Portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) o las [plantillas de Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para crear grupos de seguridad de red, debe colocar manualmente en la lista blanca el siguiente tráfico en las subredes.
+Si no usa [Azure Portal](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) o las [plantillas de Azure Resource Manager](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para crear grupos de seguridad de red, debe colocar manualmente en la lista blanca el siguiente tráfico en las subredes.
 
 |Dirección|Protocolo|Source|Puerto de origen|Destino|Puerto de destino|
 |---------|--------|------|-----------|-----------|----------------|

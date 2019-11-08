@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bf1b34295d827124198206e743bc21d5f7eb904
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924843"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747904"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planeamiento de la capacidad y escalado para la recuperación ante desastres de VMware en Azure
 
@@ -41,7 +41,7 @@ CPU | Memoria | Tamaño de disco de caché | Frecuencia de cambio de datos | Má
 8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz) | 16 GB | < 300 GB | 500 GB o menos | Úselo para replicar menos de 100 máquinas.
 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | De 501 GB a 1 TB | Úselo para replicar de 100 a 150 máquinas.
 16 vCPU (2 sockets * 8 núcleos \@ 2,5 GHz) | 32 GB | 1 TB | >1 TB a 2 TB | Úselo para replicar de 151 a 200 máquinas.
-Implemente otro servidor de configuración a través de la [plantilla OVF](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). | | | | Implemente un nuevo servidor de configuración si se van a replicar más de 200 máquinas.
+Implemente otro servidor de configuración a través de la [plantilla OVF](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). | | | | Implemente un nuevo servidor de configuración si se van a replicar más de 200 máquinas.
 Implemente otro [servidor de procesos](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | >2 TB| Implemente un nuevo servidor de procesos de escalabilidad horizontal si la tasa de cambios de datos diaria global supera los 2 TB.
 
 En estas configuraciones:
@@ -53,7 +53,7 @@ En estas configuraciones:
 
 El servidor de procesos es el componente que controla la replicación de datos en Azure Site Recovery. Si la tasa de cambios diaria es mayor que 2 TB, necesita agregar servidores de procesos de escalabilidad horizontal para controlar la carga de replicación. Para escalar horizontalmente, puede:
 
-* Incremente el número de servidores de configuración mediante la implementación a través de una [plantilla OVF](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). Por ejemplo, puede proteger hasta 400 máquinas con dos servidores de configuración.
+* Incremente el número de servidores de configuración mediante la implementación a través de una [plantilla OVF](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). Por ejemplo, puede proteger hasta 400 máquinas con dos servidores de configuración.
 * Agregue [servidores de procesos de escalabilidad horizontal](vmware-azure-set-up-process-server-scale.md#download-installation-file). Use los servidores de procesos de escalabilidad horizontal para controlar el tráfico de replicación en lugar (o además) del servidor de configuración.
 
 En la siguiente tabla se describe este escenario:

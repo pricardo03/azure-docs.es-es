@@ -1,5 +1,5 @@
 ---
-title: Comparación de características de Azure SQL Database | Microsoft Docs
+title: Comparación de características
 description: En este artículo se comparan las características de SQL Server disponibles en los distintos tipos de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: bec70c6385c9d7ea09e1d8e41229b224423956ab
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bfb44a44967c474da319c574307c7c289b28648e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330979"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807820"
 ---
 # <a name="azure-sql-database-features"></a>Características de Azure SQL Database
 

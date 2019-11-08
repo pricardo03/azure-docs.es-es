@@ -1,5 +1,5 @@
 ---
-title: Actividad Until en Azure Data Factory | Microsoft Docs
+title: Actividad Until en Azure Data Factory
 description: La actividad Until ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true" o se agota el tiempo de espera.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 80eebf0813b6403d5e1e8ff510003f7f0f57c821
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ab24b4f3a819e2b44c68d052c355f10219eb1dc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142462"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679351"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Actividad Until en Azure Data Factory
 La actividad Until proporciona la misma funcionalidad que una estructura de bucle Do-Until en lenguajes de programación. Ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true". Puede especificar un valor de tiempo de espera para la actividad Until en Data Factory. 

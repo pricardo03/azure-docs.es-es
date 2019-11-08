@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5d807f185a8cdb181093d37dac35ee2e467fdba9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 8ce35156cd772487c4787f2f5fb99feb1225826f
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328093"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794200"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Inicio rápido: Creación, entrenamiento y publicación de la base de conocimiento de QnA Maker
 
@@ -67,7 +67,7 @@ Incluya una personalidad de charla para hacer que sus conocimientos sean más at
 
 1. Agregue la respuesta con el formato _Markdown_:
 
-    ` * Azure QnA Maker service\n* Azure Search\n* Azure web app\n* Azure app plan`
+    ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
     ![ Agregue la pregunta como texto y la respuesta con formato Markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
 

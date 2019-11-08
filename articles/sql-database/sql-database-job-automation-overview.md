@@ -1,5 +1,5 @@
 ---
-title: Automatización de trabajos de Azure SQL | Microsoft Docs
+title: Automatización de trabajos
 description: Uso de automatización de trabajos para ejecutar scripts de Transact-SQL (T-SQL) en un conjunto de una o varias bases de datos de Azure SQL
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 432580017cec548b7ecd7cf766aa8f5cdb2253cc
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: c2548bb4537d17a3dab94d5476c743e2a70faad0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113593"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810086"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatización de tareas de administración mediante trabajos de base de datos
 

@@ -1,5 +1,5 @@
 ---
-title: Transformación de datos mediante Databricks en Azure Data Factory | Microsoft Docs
+title: Transformación de datos mediante Databricks en Azure Data Factory
 description: Aprenda a usar una plantilla de solución para transformar datos mediante un cuaderno de Databricks en Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 471c1d9610fa346b0eac44c73fe02f4510bd2889
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395400"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684241"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Transformación de datos mediante Databricks en Azure Data Factory
 

@@ -1,6 +1,6 @@
 ---
 title: Aprendizaje profundo frente a aprendizaje automático
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure
 description: Obtenga información sobre cómo se relaciona el aprendizaje profundo con el aprendizaje automático y la inteligencia artificial. El aprendizaje profundo se usa en distintos escenarios, como la detección de fraudes, el reconocimiento facial y de voz, el análisis de opiniones y la previsión de series temporales.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: cc98e620194c5bf67d2efa12d61af44d5527bafc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ed9f933e790aa70b257e27fa2bbbc04f6a2e077
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497493"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648009"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático
 

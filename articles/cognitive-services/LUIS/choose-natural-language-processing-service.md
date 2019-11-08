@@ -1,6 +1,6 @@
 ---
 title: Uso de NLP Cognitive Services para enriquecer las conversaciones
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Cognitive Services proporciona dos servicios de procesamiento de lenguaje natural, Language Understanding y QnA Maker, cada uno con un propósito diferente. Sepa cuándo usar cada servicio y cómo se complementan entre sí.
 author: diberry
 ms.author: diberry
@@ -8,12 +8,12 @@ manager: nitinme
 ms.topic: conceptual
 ms.service: cognitive-services
 ms.date: 08/01/2019
-ms.openlocfilehash: f293f57f4a98e822aa1c3950614ba5a186f9751d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 32159b37d3d1a8609181d81dc1a73f27177adb85
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816839"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818210"
 ---
 # <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Uso de Cognitive Services con el procesamiento de lenguaje natural (NLP) para enriquecer las conversaciones de bot
 

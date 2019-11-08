@@ -5,22 +5,21 @@ services: openshift
 keywords: configuración red hat openshift
 author: jimzim
 ms.author: jzim
-ms.date: 05/10/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
 manager: jeconnoc
-ms.openlocfilehash: a31655e8c8805505bdcc5e90bf25191590d35c18
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: fa09ed90258a62d37dafeea5f4760e1fabdc210b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672515"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581612"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configuración del entorno de desarrollo de Red Hat OpenShift en Azure
 
 Para compilar y ejecutar aplicaciones de Red Hat OpenShift en Microsoft Azure, deberá:
 
-* Comprar Azure Reserved Virtual Machine Instances.
 * Instalar la versión 2.0.65 (o cualquier versión superior) de la CLI de Azure (o usar Azure Cloud Shell).
 * Registrarse para la característica `AROGA` y los proveedores de recursos asociados.
 * Crear un inquilino de Azure Active Directory (Azure AD).
@@ -28,16 +27,6 @@ Para compilar y ejecutar aplicaciones de Red Hat OpenShift en Microsoft Azure,
 * Crear un usuario de Azure AD.
 
 Las instrucciones siguientes le guiarán por todos estos requisitos previos.
-
-## <a name="purchase-azure-red-hat-openshift-application-nodes-reserved-instances"></a>Compra de instancias reservadas de nodos de aplicación de Red Hat OpenShift en Azure
-
-Para poder usar Red Hat OpenShift en Azure, deberá adquirir un mínimo de cuatro nodos de aplicación reservados de Red Hat OpenShift en Azure, tras lo que podrá aprovisionar los clústeres.
-
-Si es cliente de Azure, [compre instancias reservadas de Red Hat OpenShift en Azure](https://aka.ms/openshift/buy) a través de Azure Portal. Después de la compra, la suscripción se activará en un plazo máximo de 24 horas.
-
-Si no es cliente de Azure, [póngase en contacto con el departamento comercial](https://aka.ms/openshift/contact-sales) y rellene el formulario de ventas de la parte inferior de la página para iniciar el proceso.
-
-Para más información, consulte la [página de precios de Red Hat OpenShift en Azure](https://aka.ms/openshift/pricing).
 
 ## <a name="install-the-azure-cli"></a>Instalación de la CLI de Azure
 

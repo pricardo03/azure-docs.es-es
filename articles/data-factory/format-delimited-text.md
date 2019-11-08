@@ -1,5 +1,5 @@
 ---
-title: Formato de texto delimitado en Azure Data Factory | Microsoft Docs
+title: Formato de texto delimitado en Azure Data Factory
 description: En este tema se describe cómo tratar con el formato de texto delimitado en Azure Data Factory.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: fb836b44ebd567f0ce1c833ca523b1c199ed9c9a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b710492b3416371d8d554945a60160261e5a8c6a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785990"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674820"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado en Azure Data Factory
 

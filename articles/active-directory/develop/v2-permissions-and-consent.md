@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c0fcb748262b20fd4550d08d74056c0219dbc09
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: edb6d96dfdca63f1bacf45ab0af01d18aafcf302
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693997"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667874"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
 
@@ -186,29 +186,26 @@ Cuando esté listo para solicitar permisos al administrador de la organización,
 
 ```
 // Line breaks are for legibility only.
-
-GET https://login.microsoftonline.com/{tenant}/adminconsent?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&state=12345
-&redirect_uri=http://localhost/myapp/permissions
+    GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+  &state=12345
+  &redirect_uri=http://localhost/myapp/permissions
+    &scope=
+    https://graph.microsoft.com/calendars.read 
+    https://graph.microsoft.com/mail.send
 ```
 
-```
-// Pro tip: Try pasting the below request in a browser!
-```
 
-```
-https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
-```
-
-| Parámetro | Condición | DESCRIPCIÓN |
-| --- | --- | --- |
+| Parámetro     | Condición     | DESCRIPCIÓN                                                                               |
+|--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
 | `tenant` | Obligatorio | El inquilino de directorio al que quiere solicitar permiso. Puede proporcionarse en formato de GUID o de nombre descriptivo, O puede hacerse referencia genéricamente con `common`, como se muestra en el ejemplo. |
 | `client_id` | Obligatorio | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
 | `redirect_uri` | Obligatorio |El URI de redirección adonde desea que se envíe la respuesta para que la controle la aplicación. Debe coincidir exactamente con uno de los identificadores URI de redirección que registró el Portal de registro de aplicaciones. |
 | `state` | Recomendado | Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Use el estado para codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
+|`scope`        | Obligatorio      | Define el conjunto de permisos que la aplicación solicita. Puede ser estático (mediante /.default) o ámbitos dinámicos.  Puede incluir ámbitos de OIDC (`openid`, `profile`, `email`). | 
 
-En este momento, Azure AD requiere que un administrador de inquilinos inicie sesión para completar la solicitud. Se pedirá al administrador que apruebe todos los permisos que ha solicitado para la aplicación en el Portal de registro de aplicaciones.
+
+En este momento, Azure AD requiere que un administrador de inquilinos inicie sesión para completar la solicitud. Se solicita al administrador que apruebe todos los permisos solicitados en el parámetro `scope`.  Si ha usado un valor estático (`/.default`), funcionará como el punto de conexión de consentimiento del administración de la versión v1.0 y el consentimiento de solicitud para todos los ámbitos que se encuentran en los permisos necesarios para la aplicación.
 
 #### <a name="successful-response"></a>Respuesta correcta
 

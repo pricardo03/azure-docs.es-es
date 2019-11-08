@@ -9,18 +9,18 @@ ms.date: 07/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 262880997c6b065dc5293a18d9a07c52ac836f37
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68703008"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73591430"
 ---
 > [!IMPORTANT]
 > Los hosts dedicados de Azure están actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 > **Limitaciones conocidas de la versión preliminar**
-> - Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en hosts dedicados.
+> - Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
 > - La versión preliminar inicial admite las siguientes series de máquinas virtuales: DSv3 y ESv3. 
 
 
@@ -60,7 +60,7 @@ Solo tardará unos minutos en crear el grupo host.
 
 Ahora crearemos un host dedicado en el grupo host. Además de un nombre para el host, se le pedirá que proporcione el SKU del host. El SKU del host registra la serie de máquinas virtuales admitidas, así como la generación de hardware del host dedicado.  Durante la versión preliminar, se admitirán los siguientes valores de SKU de host: DSv3_Type1 y ESv3_Type1.
 
-Para obtener más información sobre los precios y los SKU de host, consulte [Precios de hosts dedicados de Azure](https://aka.ms/ADHPricing).
+Para más información sobre los precios y los SKU de host, consulte [Precios de hosts dedicados de Azure](https://aka.ms/ADHPricing).
 
 Si establece un número de dominios de error para el grupo host, se le pedirá que especifique el dominio de error para su host.  
 

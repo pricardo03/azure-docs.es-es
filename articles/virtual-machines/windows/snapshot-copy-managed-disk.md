@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 76110fa04441540875e65c8bc056fc21555c5db6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 74ef55fe9a0a6603bd43d68b6b8557dce1bca921
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102277"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749149"
 ---
 # <a name="create-a-snapshot"></a>Crear una instantánea
 
@@ -43,7 +43,7 @@ Si va a usar la instantánea para crear una máquina virtual, se recomienda un c
 
 Los pasos siguientes muestran cómo copiar el disco duro virtual, crear la configuración de la instantánea y crear una instantánea del disco con el cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 1. Configure algunos parámetros: 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 938511069500c551eb526b6c7238546b85d59dce
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 5ae043c356559b2e675f05af3eb7eb61973eb170
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818933"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621934"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Administración de recursos de Application Insights mediante PowerShell
 
@@ -250,10 +250,10 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 Para establecer la retención de datos en 365 días mediante la plantilla anterior, ejecute:
 
 ```PS
-        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
-               -TemplateFile .\template1.json `
-               -retentionInDays 365 `
-               -appName myApp
+New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
+       -TemplateFile .\template1.json `
+       -retentionInDays 365 `
+       -appName myApp
 ```
 
 El siguiente script también se puede usar para cambiar la retención. Copie este script para guardarlo como `Set-ApplicationInsightsRetention.ps1`.

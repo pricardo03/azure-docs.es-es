@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos de Sybase mediante Azure Data Factory | Microsoft Docs
+title: Movimiento de datos de Sybase mediante Azure Data Factory
 description: Obtenga información acerca de cómo mover los datos de la base de datos de Sybase mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 43bd21673c6619541f68e282d708bdbf54cd6f48
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e6d2acbb848a03d950e830458963ecc4f26dff98
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839873"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682403"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Movimiento de datos de Sybase mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -67,8 +67,8 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesSybase** |Sí |
-| Servidor |Nombre del servidor de Sybase. |Sí |
-| Base de datos |Nombre de la base de datos Sybase. |Sí |
+| server |Nombre del servidor de Sybase. |Sí |
+| database |Nombre de la base de datos Sybase. |Sí |
 | schema |Nombre del esquema de la base de datos. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos Sybase. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |

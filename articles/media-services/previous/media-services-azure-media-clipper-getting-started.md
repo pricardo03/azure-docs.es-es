@@ -3,18 +3,18 @@ title: Introducción a Azure Media Clipper | Microsoft Docs
 description: Introducción a Azure Media Clipper, una herramienta para crear clips de vídeo a partir de activos de AMS
 services: media-services
 keywords: clip;subclip;encoding;media
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ecc81967d6a95f817b10bce7f8396d9379bc94
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466279"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685081"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Creación de clips con Azure Media Clipper
 En esta sección se muestran los pasos básicos para comenzar a trabajar con Azure Media Clipper. En las secciones siguientes se proporcionan detalles sobre cómo configurar Azure Media Clipper.

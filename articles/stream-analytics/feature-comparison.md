@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 22d7ef90ee0cf4d09467516b7bb0664327b7dabe
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 4eb19a5b344cc5bda5ecad724daaddf9b0000d7e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509692"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580904"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparación de características de Azure Stream Analytics
 
@@ -59,7 +59,7 @@ Con Azure Stream Analytics, puede crear soluciones de streaming en la nube y en 
 |Pruebas de consulta con un archivo de ejemplo     |Sí         |Sí         |Sin         |
 |Compartir entradas y salidas entre varias consultas     |Sin         |Sí         |Sin         |
 |UDF de C#     |Sin         |Sí         |Sin         |
-|Enviar, iniciar y detener trabajos     |Sí         |Sí         |Sin         |
+|Envío de trabajos     |Sí         |Sí         |Sin         |
 |Enumerar los trabajos y ver las entidades job     |Sí         |Sí         |Sin         |
 |Ver métricas y diagramas de trabajos     |Sí         |Parcial         |Sin         |
 |Ver errores en tiempo de ejecución de trabajos     |Sí         |Parcial         |Sin         |
