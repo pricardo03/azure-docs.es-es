@@ -1,20 +1,20 @@
 ---
-title: Creación de un cuaderno en Azure Cosmos DB para analizar y visualizar los datos
-description: Aprenda a usar cuadernos de Jupyter Notebook integrados para importar datos en Azure Cosmos DB, analizarlos y visualizar la salida.
+title: 'Tutorial: Creación de un cuaderno en Azure Cosmos DB para analizar y visualizar los datos'
+description: 'Tutorial: Aprenda a usar cuadernos de Jupyter Notebook integrados para importar datos en Azure Cosmos DB, analizarlos y visualizar la salida.'
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
-ms.date: 09/25/2019
+ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 679887ca6e9ad7713480899d1b40fddf9923c4c0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931498"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720930"
 ---
-# <a name="create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Creación de un cuaderno en Azure Cosmos DB para analizar y visualizar los datos
+# <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Creación de un cuaderno en Azure Cosmos DB para analizar y visualizar los datos
 
 En este artículo se describe cómo usar cuadernos de Jupyter Notebook integrados para importar datos comerciales de ejemplo en Azure Cosmos DB. Verá cómo usar los comandos magic de SQL y Azure Cosmos DB para ejecutar consultas, analizar los datos y visualizar los resultados.
 

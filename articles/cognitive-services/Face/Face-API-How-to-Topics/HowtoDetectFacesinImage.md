@@ -1,7 +1,7 @@
 ---
 title: 'Detección de caras en una imagen: Face API'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo usar los distintos datos devueltos por la característica de detección de caras.
+description: Esta guía muestra cómo usar la detección de caras para extraer atributos como el sexo, la edad o la postura de una imagen determinada.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 07089def3290d6d64919ad2551de7584646cc681
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9b66231d995ffb6980ce36852115c571cd102681
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306630"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744284"
 ---
 # <a name="get-face-detection-data"></a>Obtención de los datos de detección de caras
 
