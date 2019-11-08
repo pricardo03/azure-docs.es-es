@@ -1,20 +1,20 @@
 ---
-title: 'Envío de eventos personalizados a una cola de almacenamiento: Event Grid, CLI de Azure'
-description: Use Azure Event Grid y la CLI de Azure para publicar un tema y suscribirse a ese evento. Para el punto de conexión se usa una cola de almacenamiento.
+title: 'Inicio rápido: Envío de eventos personalizados a una cola de almacenamiento: Event Grid, CLI de Azure'
+description: 'Inicio rápido: Use Azure Event Grid y la CLI de Azure para publicar un tema y suscribirse a ese evento. Para el punto de conexión se usa una cola de almacenamiento.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 01/07/2019
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44ffa570cfda39c186966866ee5755ab090083a5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170254"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721454"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Inicio rápido: Enrutar eventos personalizados a Azure Queue Storage con la CLI de Azure y Event Grid
 

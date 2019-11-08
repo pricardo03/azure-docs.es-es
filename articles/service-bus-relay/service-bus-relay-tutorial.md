@@ -1,6 +1,6 @@
 ---
-title: Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay | Microsoft Docs
-description: Compile una aplicación cliente y servicio con WCF Relay.
+title: 'Tutorial: Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay'
+description: 'Tutorial: Compile una aplicación cliente y servicio con WCF Relay.'
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 4707e56a09c257c9e03e6db070083c81ffde07b6
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e2dd0448dfed55450a6319936f49831e5d6d77f3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212904"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718847"
 ---
-# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay
+# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay
 
 En este tutorial se describe cómo crear un servicio y una aplicación cliente de WCF Relay mediante Azure Relay. Para ver un tutorial parecido donde se usa [Mensajería de Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consulte [Introducción a las colas de Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 

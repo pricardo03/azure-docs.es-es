@@ -1,20 +1,20 @@
 ---
-title: Tutorial de distribución global de Azure Cosmos DB para API de SQL
-description: Obtenga información sobre cómo configurar la distribución global de Azure Cosmos DB con SQL API.
+title: 'Tutorial: Tutorial de distribución global de Azure Cosmos DB para API de SQL'
+description: 'Tutorial: Obtenga información sobre cómo configurar la distribución global de Azure Cosmos DB con SQL API.'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 07/15/2019
+ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b6b8be29afc25a3862a440e46d41e8c911189c04
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: b76fee17b64d50831d5bceca9d8512e7b7498d73
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756841"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720772"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Configuración de la distribución global de Azure Cosmos DB con SQL API
+# <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Configuración de la distribución global de Azure Cosmos DB con SQL API
 
 En este artículo se muestra cómo usar Azure Portal para configurar la distribución global de Azure Cosmos DB y luego conectarse con la API de SQL.
 

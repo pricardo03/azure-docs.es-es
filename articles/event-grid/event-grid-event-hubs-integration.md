@@ -1,19 +1,19 @@
 ---
-title: 'Envío de datos de Event Hubs al almacenamiento de datos: Event Grid'
-description: Se explica cómo usar Azure Event Grid y Azure Event Hubs para migrar datos a una instancia de SQL Data Warehouse. Usa una función de Azure para recuperar un archivo de Capture.
+title: 'Tutorial: Envío de datos de Event Hubs al almacenamiento de datos: Event Grid'
+description: 'Tutorial: Se explica cómo usar Azure Event Grid y Azure Event Hubs para migrar datos a una instancia de SQL Data Warehouse. Usa una función de Azure para recuperar un archivo de Capture.'
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/13/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 1ae7a18660d2a7324bc5897d6b3952da42b6c4b2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603442"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718186"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir macrodatos a un almacenamiento de datos
 Azure [Event Grid](overview.md) es un servicio inteligente de enrutamiento de eventos que permite reaccionar ante las notificaciones (eventos) procedentes de aplicaciones y servicios. Por ejemplo, puede desencadenar una función de Azure que procese los datos de Event Hubs que se han capturado en una instancia de Azure Blob Storage o Azure Data Lake Store y migrar esos datos a otros repositorios. En este [ejemplo de integración de Event Hubs y Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) se indica cómo usar Event Hubs con Event Grid para migrar datos de Event Hubs capturados procedentes de Blob Storage a una instancia de SQL Data Warehouse sin ningún tipo de problema.

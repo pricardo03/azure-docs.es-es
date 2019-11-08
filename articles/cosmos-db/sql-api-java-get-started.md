@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/22/2018
+ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 269b2bd1c1457b9e70ea4ada758aacb2f2ae96f3
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: a046f97dccdcc4a9cb9fe180447c1ff9a316f0df
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614642"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720802"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Tutorial de NoSQL: Compilación de una aplicación de consola de Java para la API de SQL
 
@@ -86,7 +86,7 @@ En Azure Portal, vaya a la cuenta de Azure Cosmos DB y haga clic en **Claves**. 
 
 ![Captura de pantalla de Azure Portal usado por el tutorial de NoSQL para crear una aplicación de consola de Java. Muestra una cuenta de Azure Cosmos DB, con el centro ACTIVO resaltado, el botón CLAVES resaltado en la hoja de la cuenta de Azure Cosmos DB y los valores de URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][keys]
 
-## <a name="step-4-create-a-database"></a>Paso 4: Creación de una base de datos
+## <a name="step-4-create-a-database"></a>Paso 4: Crear una base de datos
 Para crear una [base de datos](databases-containers-items.md#azure-cosmos-databases) de Azure Cosmos DB, puede usar el método [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) de la clase **DocumentClient**. Una base de datos es un contenedor lógico de almacenamiento de documentos JSON particionado en recopilaciones.
 
     Database database = new Database();

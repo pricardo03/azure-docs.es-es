@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d843e288297db656cca6e2a07f2e1f3322ebfa89
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 99863f68c20a2f95dfc744e13a977bf3ccbbf639
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299653"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580425"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introducción a Azure Data Lake Storage Gen2
 
@@ -83,7 +83,7 @@ Varias plataformas de código abierto son compatibles con Data Lake Storage Gen2
 
 ## <a name="supported-azure-services"></a>Servicios de Azure compatibles
 
-Data Lake Storage Gen2 admite varios servicios de Azure que se pueden usar para ingerir datos, realizar análisis y crear representaciones visuales. Para obtener una lista de los servicios de Azure compatibles, consulte [Integración de Azure Data Lake Storage con los servicios de Azure](data-lake-store-integrate-with-azure-services.md).
+Data Lake Storage Gen2 admite varios servicios de Azure que se pueden usar para ingerir datos, realizar análisis y crear representaciones visuales. Para obtener una lista de los servicios de Azure compatibles, consulte [Integración de Azure Data Lake Storage con los servicios de Azure](data-lake-storage-integrate-with-azure-services.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -92,4 +92,4 @@ En los artículos siguientes se describen algunos de los principales conceptos d
 - [Espacio de nombres jerárquico](data-lake-storage-namespace.md)
 - [Cree una cuenta de almacenamiento](data-lake-storage-quickstart-create-account.md)
 - [Acceso multiprotocolo en Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
-- [Integración de Azure Data Lake Storage con los servicios de Azure](data-lake-store-integrate-with-azure-services.md);
+- [Integración de Azure Data Lake Storage con los servicios de Azure](data-lake-storage-integrate-with-azure-services.md);

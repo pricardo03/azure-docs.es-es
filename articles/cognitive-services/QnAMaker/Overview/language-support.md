@@ -1,7 +1,7 @@
 ---
 title: 'Idiomas admitidos: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: El idioma de una base de conocimiento afecta a la capacidad de QnA Maker de extraer automáticamente preguntas y respuestas de los orígenes, así como la relevancia de los resultados que QnA Maker proporciona en respuesta a las consultas de los usuarios. Una lista de referencias culturales y lenguajes naturales admitidos por QnA Maker para la base de conocimiento. No mezcle idiomas en la misma base de conocimiento.
+description: Una lista de referencias culturales y lenguajes naturales admitidos por QnA Maker para la base de conocimiento. No mezcle idiomas en la misma base de conocimiento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: f4f7fffdde7d103271fa667bbab11c09ebc54825
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285868"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720988"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Idiomas admitidos en el recurso de QnA Maker y en las bases de conocimiento
 

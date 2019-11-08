@@ -7,16 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: nacharya1
-ms.author: nilesha
-ms.date: 06/20/2019
-ms.custom: seodec18
-ms.openlocfilehash: 999f554bf4a2b9ddda83ee6398950cefb11d32aa
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+author: cartacioS
+ms.author: sacartac
+ms.date: 11/04/2019
+ms.openlocfilehash: 5c8ce6a588fd630f69d8ffc682b611baba3afdd4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929330"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497584"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -54,7 +53,9 @@ Si usa **Azure Machine Learning**, puede diseñar y ejecutar sus experimentos de
 
 1. **Configure el destino de proceso para el entrenamiento del modelo**, puede ser [un equipo local, los procesos de Azure Machine Learning, las máquinas virtuales remotas o Azure Databricks](how-to-set-up-training-targets.md).  Obtenga información sobre el entrenamiento automático [en recursos remotos](how-to-auto-train-remote.md).
 
-1. **Configure los parámetros de aprendizaje de automático automatizado** que determinan el número de iteraciones en diferentes modelos, las configuraciones de hiperparámetros, la caracterización y preprocesamiento de datos y las métricas que se deben observar para seleccionar al mejor modelo.  Puede configurar los valores para el experimento de entrenamiento automático en [Azure Portal](how-to-create-portal-experiments.md), la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com) o [con el SDK](how-to-configure-auto-train.md). 
+1. **Configure los parámetros de aprendizaje de automático automatizado** que determinan el número de iteraciones en diferentes modelos, las configuraciones de hiperparámetros, la caracterización y preprocesamiento de datos y las métricas que se deben observar para seleccionar al mejor modelo.  Puede configurar los valores para el experimento de entrenamiento automático en [Azure Machine Learning Studio](https://ml.azure.com) o [con el SDK](how-to-configure-auto-train.md). 
+
+    [!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 1. **Envíe la ejecución del entrenamiento.**
 
@@ -94,6 +95,8 @@ En todos los experimentos de aprendizaje automático automatizado, los datos se 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Preprocesamiento avanzado: caracterización opcional
 
 También están disponibles operaciones de preprocesamiento o caracterización avanzadas adicionales, como la atribución de valores faltantes, la codificación y las transformaciones. [Más información sobre qué caracterización se incluye](how-to-create-portal-experiments.md#preprocess). Para habilitar esta configuración, realice lo siguiente:
+
++ Azure Machine Learning Studio: Seleccione **View featurization settings** (Ver configuración de características) en la sección **Configuration Run** (Ejecución de la configuración) [con estos pasos](how-to-create-portal-experiments.md).
 
 + SDK de Python: Especifique `"feauturization": auto' / 'off' / FeaturizationConfig` para la [clase `AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -175,7 +178,7 @@ Vea ejemplos y aprenda cómo generar modelos mediante aprendizaje automático au
 + Lea el [Tutorial: entrenamiento automático de un modelo de regresión con Azure Machine Learning automatizado](tutorial-auto-train-models.md).
 
 + Configure el experimento de entrenamiento automático:
-  + En la interfaz de Azure Portal o la página de aterrizaje del área de trabajo (versión preliminar), [siga estos pasos](how-to-create-portal-experiments.md).
+  + En Azure Machine Learning Studio, [use estos pasos](how-to-create-portal-experiments.md).
   + Con el SDK de Python, [siga estos pasos](how-to-configure-auto-train.md).
 
 + Obtenga información sobre cómo realizar entrenamientos automáticos con datos de series temporales [con estos pasos](how-to-auto-train-forecast.md).

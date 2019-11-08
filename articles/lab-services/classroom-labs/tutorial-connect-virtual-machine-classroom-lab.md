@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/19/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: cf1bd223c852db930835ea1b56a93a381e8312c5
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 30983d141f087a46e420f7ea457fba181956c28e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161418"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577786"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Acceso a un laboratorio de clase en Azure Lab Services
 En este tutorial, se conectará como alumno a una máquina virtual de un laboratorio educativo. 

@@ -1,22 +1,22 @@
 ---
-title: Envío y recepción de eventos mediante Python en Azure Event Hubs
-description: En este tutorial se muestra cómo crear y ejecutar scripts de Python que envíen o reciban eventos de Azure Event Hubs.
+title: 'Inicio rápido: Envío y recepción de eventos mediante Python en Azure Event Hubs'
+description: 'Inicio rápido: En este tutorial se muestra cómo crear y ejecutar scripts de Python que envíen o reciban eventos de Azure Event Hubs.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
-ms.date: 10/11/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 330a7f5dc325c707b5be7ce9f9b3242a1d4c9547
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9b6c3fb03f696f4142721284a14001eb51153a77
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428885"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720551"
 ---
-# <a name="send-and-receive-events-with-event-hubs-using-python"></a>Envío y recepción de eventos con Azure Event Hubs mediante Python
+# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>Inicio rápido: Envío y recepción de eventos con Azure Event Hubs mediante Python
 
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar los eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Azure Event Hubs](event-hubs-about.md) y [Características y terminología de Azure Event Hubs](event-hubs-features.md).
 
