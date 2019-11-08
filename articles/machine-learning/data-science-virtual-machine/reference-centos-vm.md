@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: d50bb18d15bcad72eed3a97088b61c623e6208fe
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0f71a8af2f7d2cfbfe43c0cfcc84cc7c08109c32
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71199977"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493707"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>Referencia: Data Science Virtual Machine de CentOS (Linux)
 
@@ -220,9 +220,9 @@ Puede acceder a [Azure Portal](https://portal.azure.com) desde el explorador Fir
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning es un servicio en la nube totalmente administrado que permite crear, implementar y compartir soluciones de análisis predictivo. Puede crear sus experimentos y modelos desde Azure Machine Learning Studio. Para acceder a Azure Machine Learning desde un explorador web en la instancia de DSVM, vaya a [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning es un servicio en la nube totalmente administrado que permite crear, implementar y compartir soluciones de análisis predictivo. Puede crear sus experimentos y modelos desde Azure Machine Learning Studio (clásico). Para acceder a Azure Machine Learning desde un explorador web en la instancia de DSVM, vaya a [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Después de iniciar sesión en Azure Machine Learning Studio, puede usar un lienzo de experimentación para crear un flujo lógico para los algoritmos de aprendizaje automático. También tiene acceso a una instancia de Jupyter Notebook que se hospeda en Azure Machine Learning. El cuaderno puede funcionar sin problemas con los experimentos de Machine Learning Studio. 
+Después de iniciar sesión en Azure Machine Learning Studio (clásico), puede usar un lienzo de experimentación para crear un flujo lógico para los algoritmos de aprendizaje automático. También tiene acceso a una instancia de Jupyter Notebook que se hospeda en Azure Machine Learning. El cuaderno puede funcionar sin problemas con los experimentos de Azure Machine Learning Studio (clásico). 
 
 Encapsule los modelos de aprendizaje automático que ha creado en una interfaz de servicio web para que estén operativos. El funcionamiento de modelos de aprendizaje automático permite a los clientes escritos en cualquier lenguaje invocar predicciones a partir de esos modelos. Para obtener más información, consulte la [documentación sobre Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -231,7 +231,7 @@ También puede crear los modelos en R o en Python en la instancia de DSVM y, des
 Para información sobre cómo implementar modelos en R y Python en Azure Machine Learning, consulte [Diez cosas que puede hacer en Windows Data Science Virtual Machine](vm-do-ten-things.md).
 
 > [!NOTE]
-> Las instrucciones de este artículo se escribieron para la versión de Windows de la instancia de DSVM. Sin embargo, la información sobre la implementación de modelos en Azure Machine Learning también se aplica a la instancia de DSVM de Linux.
+> Las [instrucciones de este artículo](vm-do-ten-things.md) se escribieron para la versión de Windows de la instancia de DSVM. Sin embargo, la información sobre la implementación de modelos en Azure Machine Learning también se aplica a la instancia de DSVM de Linux.
 
 ## <a name="machine-learning-tools"></a>Herramientas de aprendizaje automático
 
@@ -344,4 +344,4 @@ Puede salir de Rattle y R. Ahora puede modificar el script de R generado. O bien
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-¿Tiene más preguntas? Considere la creación de [una incidencia de soporte técnico](https://azure.microsoft.com/support/create-ticket/).
+¿Tiene más preguntas? Considere la posibilidad de crear [una incidencia de soporte técnico](https://azure.microsoft.com/support/create-ticket/).

@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8a0fe871685f2a140cd8272d93f49f594cd2c910
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 53d656d8d39c71c813d7dd7a504ec45667bf18b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947482"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482436"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Datos distribuidos en Azure Database for PostgreSQL: Hiperescala (Citus)
 
-En este artículo se describen los tres tipos de tabla de Azure Database for PostgreSQL: Hiperescala (Citus) (versión preliminar).
+En este artículo se describen los tres tipos de tabla de Hiperescala (Citus) de Azure Database for PostgreSQL.
 Se muestra la forma en que se almacenan las tablas distribuidas como particiones de base de datos y la manera en la que las particiones de base de datos se colocan en nodos.
 
 ## <a name="table-types"></a>Tipos de tablas

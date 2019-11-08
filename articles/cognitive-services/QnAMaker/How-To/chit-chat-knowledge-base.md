@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a8ebd0b36c6ee8bf6762a70af9f4a7c09f6b118d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 418324ea0d50cb2f8ff4a30018a31e7807d52eac
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955148"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602593"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adición de una charla a la base de conocimiento
 
@@ -38,13 +38,26 @@ Para la consulta del usuario `When is your birthday?`, cada personalidad tiene u
 |Entusiasta|Soy un bot, así que no tengo edad.|
 ||
 
-> [!NOTE]
-> En la actualidad, la charla solo está disponible en inglés. 
+
+## <a name="language-support"></a>Compatibilidad con idiomas
+
+Los conjuntos de datos de charlas se admiten en los siguientes idiomas:
+
+|Idioma|
+|--|
+|Chino|
+|English|
+|Francés|
+|Alemania|
+|Italiano|
+|Japonés|
+|Coreano|
+|Portugués|
+|Español|
+
 
 ## <a name="add-chit-chat-during-kb-creation"></a>Adición de charlas durante la creación de la KB
 Durante la creación de la base de conocimiento, después de agregar las direcciones URL y archivos de origen, hay una opción para agregar charlas. Elija la personalidad que quiera como base de la charla. Si no quiere agregar charlas o si ya tiene compatibilidad con la charla en los orígenes de datos, seleccione **None** (Ninguno). 
-   
-![Adición de charlas durante la creación](../media/qnamaker-how-to-chit-chat/create-kb-chit-chat.png)
 
 ## <a name="add-chit-chat-to-an-existing-kb"></a>Adición de charlas a una base de conocimiento existente
 Seleccione la base de conocimiento y vaya hasta la página **Settings** (Configuración). Hay un vínculo a todos los conjuntos de datos de charla en el formato **.tsv** correspondiente. Descargue la personalidad que quiera y, después, cárguela como un origen de archivo. Asegúrese de no modificar el formato o los metadatos al descargar y cargar el archivo. 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 10/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6e71028855344d083dedf3493682e1e27685de48
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 95e38cee8f6995e09dbbb2194cd5a9d0ebc301c1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240117"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498665"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conectar datos de Microsoft Cloud App Security 
 
@@ -30,18 +30,22 @@ Se pueden transmitir registros desde [Cloud App Security](https://docs.microsoft
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un usuario que sea administrador global o que tenga permisos de administrador de seguridad
+- Para transmitir registros de Cloud Discovery a Azure Sentinel, [habilite Azure Sentinel como SIEM en Microsoft Cloud App Security](aka.ms. https://aka.ms/AzureSentinelMCAS).
 
+> [!IMPORTANT]
+> La ingesta de registros de Cloud Discovery se encuentra actualmente en versión preliminar pública.
+> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+ 
 ## <a name="connect-to-cloud-app-security"></a>Conectar a Cloud App Security
 
 Si ya tiene Cloud App Security, asegúrese de que está [habilitado en la red](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security).
 Si Cloud App Security ya está implementado e ingiriendo datos, los datos de alerta se pueden transmitir a Azure Sentinel muy fácilmente.
 
 
-1. En Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y, después, haga clic en el icono de **Cloud App Security**.
+1. En Azure Sentinel, seleccione **Data connectors** (Conectores de datos), haga clic en el icono de **Cloud App Security** y seleccione **Open connector page** (abrir la página de conectores).
 
-1. Seleccione qué registros desea transmitir a Azure Sentinel. Aquí puede elegir **Alertas**. 
-
-1. Puede seleccionar si desea que las alertas de Microsoft Cloud App Security generen incidentes automáticamente en Azure Sentinel. En **Creación de incidentes** seleccione **Habilitar** para habilitar la regla analítica predeterminada que crea incidentes automáticamente a partir de alertas generadas en el servicio de seguridad conectado. Luego, puede editar esta regla en **Analytics** (Análisis) y **Active rules** (Reglas activas).
+1. Seleccione qué registros quiere transmitir a Azure Sentinel. Aquí puede elegir **Alertas** y **Registros de Cloud Discovery** (versión preliminar). 
 
 1. Haga clic en **Conectar**.
 
@@ -53,4 +57,4 @@ Si Cloud App Security ya está implementado e ingiriendo datos, los datos de ale
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar Microsoft Cloud App Security a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).

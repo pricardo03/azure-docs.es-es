@@ -10,43 +10,40 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/15/2019
+ms.date: 11/1/2019
 ms.author: raiye
-ms.openlocfilehash: b4150858986f204723dc258b23daf22de5d39842
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e1d27563d2181a8e094e00295f9506d88e694513
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430170"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500260"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
 
 ## <a name="october-2019-guest-os"></a>SO invitado de octubre de 2019
 
->[!NOTE]
->El sistema operativo invitado de octubre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de octubre. Esta lista está sujeta a cambios.
-
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 19-10   |  [4520003]  |  Seguridad de Windows   |  2,91  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4519985]  |  Seguridad de Windows   |  3,78  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4519990]  |  Seguridad de Windows   |  4.71  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4519998]  |  Actualización acumulativa más reciente   |  5.36  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4519338]  |  Actualización acumulativa más reciente   |  6.12  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4519974]  |  Internet Explorer   |  2.91, 3.78, 4.71  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4516065]  |  No relacionada con la seguridad   |  2,91  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4516655]  |  SSU   |  2,91  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4516055]  |  No relacionada con la seguridad   |  3,78  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4512939]  |  SSU   |  3,78  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4514370]  |  .NET Framework 3.5   |  3,78  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4514368]  |  .NET Framework 4.5.2   |  3,78  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4516067]  |  Sin seguridad   |  4.71  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4512938]  |  SSU   |  4.71  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4514371]  |  .NET Framework 3.5   |  4.71  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4514367]  |  .NET Framework 4.5.2   |  4.71  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4512574]  |  SSU   |  5.36  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4512577]  |  SSU   |  6.12  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4520003]  |  Seguridad de Windows   |  [2.91]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4519985]  |  Seguridad de Windows   |  [3.78]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4519990]  |  Seguridad de Windows   |  [4.71]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4519998]  |  Actualización acumulativa más reciente   |  [5.36]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4519338]  |  Actualización acumulativa más reciente   |  [6.12]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4519974]  |  Internet Explorer   |  [2.91], [3.78], [4.71]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4516065]  |  No relacionada con la seguridad   |  [2.91]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4516655]  |  SSU   |  [2.91]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4516055]  |  No relacionada con la seguridad   |  [3.78]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4512939]  |  SSU   |  [3.78]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4514370]  |  .NET Framework 3.5   |  [3.78]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4514368]  |  .NET Framework 4.5.2   |  [3.78]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4516067]  |  Sin seguridad   |  [4.71]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4512938]  |  SSU   |  [4.71]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4514371]  |  .NET Framework 3.5   |  [4.71]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4514367]  |  .NET Framework 4.5.2   |  [4.71]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4512574]  |  SSU   |  [5.36]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4512577]  |  SSU   |  [6.12]  |  10 de septiembre de 2019  |
 
 [4520003]: https://support.microsoft.com/kb/4520003
 [4519985]: https://support.microsoft.com/kb/4519985
@@ -67,6 +64,11 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4512574]: https://support.microsoft.com/kb/4512574
 [4512577]: https://support.microsoft.com/kb/4512577
 
+[6.12]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.36]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.71]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.78]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.91]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="september-2019-guest-os"></a>SO invitado de septiembre de 2019
