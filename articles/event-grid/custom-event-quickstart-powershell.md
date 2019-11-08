@@ -1,20 +1,20 @@
 ---
-title: 'Envío de eventos personalizados a un punto de conexión web: Event Grid, PowerShell'
-description: Use Azure Event Grid y PowerShell para publicar un tema personalizado y suscribirse a eventos para este tema. Los eventos se controlan mediante una aplicación web.
+title: 'Inicio rápido: Envío de eventos personalizados a un punto de conexión web: Event Grid, PowerShell'
+description: 'Inicio rápido: Use Azure Event Grid y PowerShell para publicar un tema personalizado y suscribirse a eventos para este tema. Los eventos se controlan mediante una aplicación web.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 12/07/2018
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: fa703defdda17a69aec99d3fbe479e9867781d68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc92e0cf579bc008fdb09c9cbb576d8cac0191cb
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156029"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721437"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Guía de inicio rápido: Enrutamiento de eventos personalizados al punto de conexión web con PowerShell y Event Grid
 

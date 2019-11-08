@@ -7,18 +7,20 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 44a2b0feab19d042de58359a7ea13814415e6c9e
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129560"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747484"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Copia de seguridad y restauración de recursos compartidos de archivos de Azure
+
 En este artículo se explica cómo usar Azure Portal para realizar una copia de seguridad de los [recursos compartidos de archivos de Azure](../storage/files/storage-files-introduction.md) y restaurarla.
 
 En esta guía, aprenderá a:
 > [!div class="checklist"]
+>
 > * Configurar un almacén de Recovery Services para realizar una copia de seguridad de archivos de Azure
 > * Ejecutar un trabajo de copia de seguridad a petición para crear un punto de restauración
 > * Restaurar archivos desde un punto de restauración
@@ -27,22 +29,24 @@ En esta guía, aprenderá a:
 > * Eliminar los datos de copia de seguridad
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Antes de realizar una copia de seguridad de un recurso compartido de archivos de Azure, asegúrese de que se encuentra en uno de los [tipos de cuenta de almacenamiento admitidos](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Cuando haya comprobado esto, puede proteger los recursos compartidos de archivos.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitaciones de la copia de seguridad de recursos compartidos de archivos de Azure en la versión preliminar
+
 La copia de seguridad de los recursos compartidos de archivos de Azure está en versión preliminar. Los recursos compartidos de archivos de Azure se admiten en cuentas de almacenamiento de uso general v1 y uso general v2. No se admiten los siguientes escenarios de copia de seguridad para los recursos compartidos de archivos de Azure:
-- La compatibilidad con la copia de seguridad de recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está limitada actualmente a [estas regiones](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
-- Ni PowerShell ni la CLI están disponibles para proteger Azure Files mediante Azure Backup.
-- Actualmente, Azure Backup admite la configuración de copias de seguridad programadas una vez al día para los recursos compartidos de archivos de Azure.
-- El número máximo de copias de seguridad programadas al día es una.
-- El número máximo de copias de seguridad a petición al día es cuatro.
-- Use los [bloqueos de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) de la cuenta de almacenamiento para impedir la eliminación accidental de copias de seguridad del almacén de Recovery Services.
-- No elimine las instantáneas que crea Azure Backup. La eliminación de instantáneas puede provocar la pérdida de puntos de recuperación o errores de restauración.
-- No elimine los recursos compartidos de archivos que estén protegidos por Azure Backup. La solución actual eliminará todas las instantáneas realizadas por Azure Backup una vez que se elimina el recurso compartido de archivos y, por consiguiente, se pierden todos los puntos de restauración.
 
-
+* La compatibilidad con la copia de seguridad de recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está limitada actualmente a [estas regiones](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares).
+* Ni PowerShell ni la CLI están disponibles para proteger Azure Files mediante Azure Backup.
+* Actualmente, Azure Backup admite la configuración de copias de seguridad programadas una vez al día para los recursos compartidos de archivos de Azure.
+* El número máximo de copias de seguridad programadas al día es una.
+* El número máximo de copias de seguridad a petición al día es cuatro.
+* Use los [bloqueos de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) de la cuenta de almacenamiento para impedir la eliminación accidental de copias de seguridad del almacén de Recovery Services.
+* No elimine las instantáneas que crea Azure Backup. La eliminación de instantáneas puede provocar la pérdida de puntos de recuperación o errores de restauración.
+* No elimine los recursos compartidos de archivos que estén protegidos por Azure Backup. La solución actual eliminará todas las instantáneas realizadas por Azure Backup una vez que se elimina el recurso compartido de archivos y, por consiguiente, se pierden todos los puntos de restauración.
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configuración de la copia de seguridad de un recurso compartido de archivos de Azure
+
 En este tutorial se da por supuesto que ya ha establecido un recurso compartido de archivos de Azure. Para realizar una copia de seguridad del recurso compartido de archivos de Azure, siga estos pasos:
 
 1. Cree un almacén de Recovery Services en la misma región que el recurso compartido de archivos. Si ya tiene un almacén, abra la página de información general de su almacén y haga clic en **Backup** (Copia de seguridad).
@@ -74,6 +78,7 @@ En este tutorial se da por supuesto que ya ha establecido un recurso compartido 
     Después de establecer una directiva de copia de seguridad, se realiza una instantánea de los recursos compartidos de archivos a la hora programada y el punto de recuperación se conserva durante el período seleccionado.
 
 ## <a name="create-an-on-demand-backup"></a>Creación de una copia de seguridad a petición
+
 En ocasiones, puede que quiera generar una instantánea de copia de seguridad, o un punto de recuperación, fuera de las horas programadas en la directiva de copia de seguridad. Un momento habitual para generar una copia de seguridad a petición es justo después de haber configurado la directiva de copia de seguridad. Según la programación de la directiva de copia de seguridad, pueden transcurrir horas y días hasta que se toma una instantánea. Para proteger los datos hasta que se aplique la directiva de copia de seguridad, inicie una copia de seguridad a petición. Con frecuencia, es necesario crear una copia de seguridad a petición antes de realizar los cambios planeados en los recursos compartidos de archivos.
 
 ### <a name="to-create-an-on-demand-backup"></a>Para crear una copia de seguridad a petición, siga estos pasos:
@@ -97,11 +102,13 @@ En ocasiones, puede que quiera generar una instantánea de copia de seguridad, o
 5. Haga clic en **Ok** (Aceptar) para confirmar el trabajo de copia de seguridad a petición.
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Restauración a partir de la copia de seguridad de un recurso compartido de archivos de Azure
+
 Si necesita restaurar un recurso compartido de archivos completo o archivos o carpetas individuales desde un punto de restauración, vaya al elemento de copia de seguridad como se ha explicado en la sección anterior. Elija **Restore Share** (Restaurar recurso compartido) para restaurar un recurso compartido de archivos entero desde un momento dado deseado. En la lista de puntos de restauración que se muestran, seleccione uno para poder sobrescribir el recurso compartido de archivos actual o restaurarlo a un recurso compartido de archivos alternativo de la misma región.
 
    ![Haga clic en Backup (Copia de seguridad) para asociar el recurso compartido de archivos de Azure con el almacén](./media/backup-file-shares/select-restore-location.png)
 
 ## <a name="restore-individual-files-or-folders-from-backup-of-azure-file-shares"></a>Restauración de archivos o carpetas individuales a partir de la copia de seguridad de recursos compartidos de archivos de Azure
+
 Azure Backup ofrece la posibilidad de buscar un punto de restauración en Azure Portal. Para restaurar un archivo o una carpeta de su elección, haga clic en File Recovery (Recuperación de archivos) en la página de elementos de copia de seguridad y elija de la lista de puntos de restauración. Seleccione el destino de recuperación y, a continuación, haga clic en **Select File** (Seleccionar archivo) para buscar el punto de restauración. Seleccione el archivo o carpeta de su elección y elija **Restore** (Restaurar).
 
    ![Haga clic en Backup (Copia de seguridad) para asociar el recurso compartido de archivos de Azure con el almacén](./media/backup-file-shares/restore-individual-files-folders.png)
@@ -109,11 +116,12 @@ Azure Backup ofrece la posibilidad de buscar un punto de restauración en Azure 
 ## <a name="manage-azure-file-share-backups"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure
 
 Puede ejecutar varias tareas de administración sobre las copias de seguridad de recursos compartidos de archivos en la página **Backup Jobs** (Trabajos de copia de seguridad), por ejemplo:
-- [Supervisión de trabajos](backup-azure-files.md#monitor-jobs)
-- [Creación de una nueva directiva](backup-azure-files.md#create-a-new-policy)
-- [Detención de la protección en un recurso compartido de archivos](backup-azure-files.md#stop-protecting-an-azure-file-share)
-- [Reanudación de la protección en un recurso compartido de archivos](backup-azure-files.md#resume-protection-for-azure-file-share)
-- [Eliminación de datos de copia de seguridad](backup-azure-files.md#delete-backup-data)
+
+* [Supervisión de trabajos](backup-azure-files.md#monitor-jobs)
+* [Creación de una nueva directiva](backup-azure-files.md#create-a-new-policy)
+* [Detención de la protección en un recurso compartido de archivos](backup-azure-files.md#stop-protecting-an-azure-file-share)
+* [Reanudación de la protección en un recurso compartido de archivos](backup-azure-files.md#resume-protection-for-azure-file-share)
+* [Eliminación de datos de copia de seguridad](backup-azure-files.md#delete-backup-data)
 
 ### <a name="monitor-jobs"></a>Supervisión de trabajos
 
@@ -121,7 +129,7 @@ Puede supervisar el progreso de todos los trabajos en la página **Backup Jobs**
 
 Para abrir la página **Backup Jobs** (Trabajos de copia de seguridad), siga estos pasos:
 
-- Haga clic en el almacén de Recovery Services que quiere supervisar y, en su menú, haga clic en **Jobs** (Trabajos) y luego en **Backup Jobs** (Trabajos de copia de seguridad).
+* Haga clic en el almacén de Recovery Services que quiere supervisar y, en su menú, haga clic en **Jobs** (Trabajos) y luego en **Backup Jobs** (Trabajos de copia de seguridad).
 
    ![Selección del trabajo para supervisar](./media/backup-file-shares/open-backup-jobs.png)
 
@@ -135,7 +143,7 @@ Puede crear una nueva directiva para realizar una copia de seguridad de los recu
 
 Para ver las directivas de copia de seguridad existentes, siga estos pasos:
 
-- Abra el almacén de Recovery Services que desee y, en su menú, haga clic en **Backup policies** (Directivas de copia de seguridad). Se muestran todas las directivas de copia de seguridad.
+* Abra el almacén de Recovery Services que desee y, en su menú, haga clic en **Backup policies** (Directivas de copia de seguridad). Se muestran todas las directivas de copia de seguridad.
 
    ![Selección del trabajo para supervisar](./media/backup-file-shares/list-of-backup-policies.png)
 
@@ -154,8 +162,8 @@ Para crear una nueva directiva de copia de seguridad, siga estos pasos:
 
 Si elige dejar de proteger un recurso compartido de archivos de Azure, se le pregunta si desea conservar los puntos de recuperación. Hay dos maneras de dejar de proteger recursos compartidos de archivos de Azure:
 
-- Detener todos los trabajos futuros de copia de seguridad y eliminar todos los puntos de recuperación.
-- Detener todos los trabajos futuros de copia de seguridad pero dejar los puntos de recuperación.
+* Detener todos los trabajos futuros de copia de seguridad y eliminar todos los puntos de recuperación.
+* Detener todos los trabajos futuros de copia de seguridad pero dejar los puntos de recuperación.
 
 Puede que dejar los puntos de recuperación en el almacenamiento conlleve un costo asociado, dado que las instantáneas subyacentes creadas por Azure Backup se conservan. Sin embargo, la ventaja de dejarlos es que puede restaurar el recurso compartido de archivos más adelante, si así lo desea. Para más información sobre del costo de dejar los puntos de recuperación, consulte la información sobre precios. Si opta por eliminar todos los puntos de recuperación, no podrá restaurar el recurso compartido de archivos.
 
@@ -194,6 +202,8 @@ Puede eliminar la copia de seguridad de un recurso compartido de archivos durant
 En el siguiente procedimiento se da por sentado que se ha detenido el trabajo de copia de seguridad de la máquina virtual. Una vez que se detiene el trabajo de copia de seguridad, están disponibles las opciones Resume backup (Reanudar copia de seguridad) y Delete Backup Data (Eliminar datos de copia de seguridad) en el panel de elementos de copia de seguridad. Haga clic en Delete Backup Data (Eliminar datos de copia de seguridad) y escriba el nombre del recurso compartido de archivos para confirmar la eliminación. Opcionalmente, añada una razón para eliminar o un comentario.
 
 ## <a name="see-also"></a>Otras referencias
+
 Para más información sobre los recursos compartidos de archivos de Azure, consulte
-- [Preguntas frecuentes acerca de la copia de seguridad de recursos compartidos de archivos de Azure](backup-azure-files-faq.md)
-- [Solución de problemas en la copia de seguridad de recursos compartidos de archivos de Azure](troubleshoot-azure-files.md)
+
+* [Preguntas frecuentes acerca de la copia de seguridad de recursos compartidos de archivos de Azure](backup-azure-files-faq.md)
+* [Solución de problemas en la copia de seguridad de recursos compartidos de archivos de Azure](troubleshoot-azure-files.md)

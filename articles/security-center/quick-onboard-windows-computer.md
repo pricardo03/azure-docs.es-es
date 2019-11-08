@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido de Azure Security Center: incorporación de equipos Windows a Security Center | Microsoft Docs'
+title: Incorporación de equipos Windows a Azure Security Center
 description: En esta guía de inicio rápido se explica cómo aprovisionar Microsoft Monitoring Agent en un equipo Windows.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 46fffc40b315109c348247ac09f02f9bb8dbb3b7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202800"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686506"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Inicio rápido: Incorporación de equipos Windows a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento de Microsoft Monitoring Agent.
@@ -64,7 +64,7 @@ Ahora, debe instalar el archivo descargado en el equipo de destino.
 4. En la página **Carpeta de destino**, cambie o mantenga la carpeta de instalación predeterminada y seleccione **Siguiente**.
 5. En la página **Opciones de instalación del agente**, elija la opción para conectar el agente a Azure Log Analytics y, luego, seleccione **Siguiente**.
 6. En la página **Azure Log Analytics**, pegue el **identificador del área de trabajo** y la **clave del área de trabajo (clave principal)** que copió en el Bloc de notas en el procedimiento anterior.
-7. Si el equipo tiene que notificar a un área de trabajo de Log Analytics en la nube de Azure Government, seleccione **Azure Gobierno de EE.UU.** de la lista desplegable **Azure Cloud**.  Si el equipo necesita comunicarse a través de un servidor proxy con el servicio de Log Analytics, seleccione **Avanzado** y proporcione la dirección URL y el número de puerto del servidor proxy.
+7. Si el equipo tiene que notificar a un área de trabajo de Log Analytics en la nube de Azure Government, seleccione **Azure Gobierno de EE.UU.** de la lista desplegable **Azure Cloud**. Si el equipo necesita comunicarse a través de un servidor proxy con el servicio de Log Analytics, seleccione **Avanzado** y proporcione la dirección URL y el número de puerto del servidor proxy.
 8. Seleccione **Siguiente** cuando haya terminado de proporcionar las opciones de configuración necesarias.
 
    ![Instalación del agente][5]

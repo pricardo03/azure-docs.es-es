@@ -1,7 +1,7 @@
 ---
 title: Conceptos de atributos y detección de caras
 titleSuffix: Azure Cognitive Services
-description: Aprenda conceptos acerca de los atributos y la detección de caras.
+description: La detección de caras es la acción de búsqueda de caras humanas en una imagen y, opcionalmente, la devolución de distintos tipos de datos relacionados con las caras.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: e61048eeab9d7061c18f3237db22fc87ca52f526
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65891143"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743054"
 ---
 # <a name="face-detection-and-attributes"></a>Atributos y detección de caras
 

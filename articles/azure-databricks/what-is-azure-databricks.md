@@ -10,18 +10,18 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 149b83b9aacf23cde06a2b35aed06c164afe9647
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1e86658422e444cb7104c3e3428a74d31d453a72
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243325"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605971"
 ---
 # <a name="what-is-azure-databricks"></a>¿Qué es Azure Databricks?
 
 Azure Databricks es una plataforma de análisis basada en Apache Spark optimizada para la plataforma de servicios en la nube de Microsoft Azure. Diseñada por los fundadores de Apache Spark, Databricks está integrado con Azure para proporcionar una configuración con un solo clic, flujos de trabajo optimizados y un área de trabajo interactiva que permite la colaboración entre científicos de datos, ingenieros de datos y analistas empresariales.
 
-![¿Qué es Azure Databricks? ](./media/what-is-azure-databricks/azure-databricks-overview.png "¿Qué es Azure Databricks?")
+![¿Qué es Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "¿Qué es Azure Databricks?")
 
 Azure Databricks es un servicio de análisis rápido, sencillo y de colaboración basado en la plataforma de análisis Apache Spark. Para una canalización de macrodatos, los datos (estructurados o sin formato) se ingieren en Azure mediante Azure Data Factory en lotes o transmitidos casi en tiempo real con Kafka, Event Hub o IoT Hub. Estos datos llegan a un lago de datos para un almacenamiento persistente a largo plazo en Azure Blob Storage o Azure Data Lake Storage. Como parte del flujo de trabajo de análisis, use Azure Databricks para leer datos desde varios orígenes de datos, como [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) o [Azure SQL Data Warehouse](../sql-data-warehouse/index.yml), y convertirlos en conclusiones importante sobre el uso de Spark.
 
@@ -96,9 +96,9 @@ Mediante la integración enriquecida con Power BI, Azure Databricks permite dete
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Inicio rápido: ejecución de un trabajo de Spark en Azure Databricks](quickstart-create-databricks-workspace-portal.md)
-* [Uso de los clústeres de Spark](https://docs.azuredatabricks.net/user-guide/clusters/index.html)
-* [Uso de cuadernos](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
-* [Creación de trabajos de Spark](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [Uso de los clústeres de Spark](/azure/databricks/clusters/index)
+* [Uso de cuadernos](/azure/databricks/notebooks/index)
+* [Creación de trabajos de Spark](/azure/databricks/jobs)
 
  
 
