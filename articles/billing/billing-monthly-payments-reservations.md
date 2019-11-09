@@ -6,14 +6,14 @@ author: bandersmsft
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: d211334ad2aa760cd63b98c6827fb2512811a1d3
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b1cc034b4d397f170b57e873cb9a5d74c91f83f4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806925"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746465"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Compra de reservas con pagos mensuales
 
@@ -24,6 +24,7 @@ El importe del pago mensual puede variar en función del tipo de cambio de su di
 Los pagos mensuales están disponibles para:
 
 - Máquinas virtuales
+- Azure Storage
 - SQL Database
 - SQL Data Warehouse
 - Cosmos DB
@@ -60,20 +61,6 @@ Al cambiar una reserva pagada mensualmente, el costo total de la nueva compra de
 Si se cancela una reserva de pago mensual, es posible que Microsoft aplique un precio de cancelación a los pagos futuros que se hayan cancelado. Los pagos restantes confirmados se acumulan en el límite de reembolso de 50 000 USD.
 
 Para más información sobre los cambios y los reembolsos, consulte [Autoservicio de cambios y reembolsos de reservas de Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
-
-## <a name="faq"></a>Preguntas más frecuentes
-
-P: ¿Ofrece Azure "reservas parciales por adelantado"?<br>
-A. No. Dado que los costos de las reservas pagadas por adelantado y mensualmente son los mismos, Microsoft no admite pagos parciales por adelantado.
-
-P: ¿Están disponibles los pagos mensuales para el programa Proveedor de soluciones en la nube (CSP) de Microsoft?<br>
-A. Sí, los asociados pueden adquirir reservas para sus clientes de CSP en Azure Portal. La capacidad de adquirir reservas con facturación mensual no está disponible en el centro de partners.
-
-P: Soy un cliente de Azure Government de EE. UU., ¿puedo pagar reservas mensualmente?<br>
-A. Actualmente, no.
-
-P: ¿Cuándo puedo cambiar o conseguir el reembolso en Azure Portal en lugar de crear una incidencia de soporte técnico?<br>
-A. Actualmente, no. Las solicitudes de cambio y reembolso de las reservas con pagos mensuales se controlan desde el soporte técnico de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
