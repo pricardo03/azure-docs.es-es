@@ -295,7 +295,7 @@
                 - name: Excepciones
                   href: app/asp-net-exceptions.md
                 - name: Seguimientos de registro
-                  href: app/java-trace-logs.md
+                  href: app/asp-net-trace-logs.md
                 - name: Métricas de Unix
                   href: app/java-collectd.md
                 - name: Dependencias
@@ -318,6 +318,8 @@
                   href: app/opencensus-python.md
                 - name: Dependencias
                   href: app/opencensus-python-dependency.md
+                - name: Requests
+                  href: app/opencensus-python-request.md
             - name: Páginas web
               items:
                 - name: JavaScript del lado cliente
@@ -593,26 +595,39 @@
         - name: Registros del recurso
           items:
             - name: Información general
+              displayname: Resource logs
               href: platform/resource-logs-overview.md
             - name: Recopilación en registros de Azure Monitor
+              displayname: Resource logs
               href: platform/resource-logs-collect-workspace.md
             - name: Archivar en Storage
+              displayname: Resource logs
               href: platform/resource-logs-collect-storage.md
             - name: Transmisión a Event Hubs
+              displayname: Resource logs
               href: platform/resource-logs-stream-event-hubs.md
         - name: Registro de actividades
           items:
             - name: Información general
+              displayname: Activity log
               href: platform/activity-logs-overview.md
+            - name: Recopilación con configuración de diagnóstico
+              displayname: Activity log
+              href: platform/diagnostic-settings-subscription.md
             - name: Visualización y recuperación
+              displayname: Activity log
               href: platform/activity-log-view.md
             - name: Recopilación y análisis
+              displayname: Activity log
               href: platform/activity-log-collect.md
             - name: Recopilación entre inquilinos
+              displayname: Activity log
               href: platform/activity-log-collect-tenants.md
             - name: Exportación
+              displayname: Activity log
               href: platform/activity-log-export.md
             - name: Schema
+              displayname: Activity log
               href: platform/activity-log-schema.md
         - name: Configuración de diagnóstico
           items:
@@ -621,6 +636,7 @@
             - name: Creación de la configuración de diagnóstico con Resource Manager
               href: platform/diagnostic-settings-template.md
             - name: Cambio al formato de almacenamiento de blobs
+              displayname: Diagnostic settings
               href: platform/resource-logs-blob-format.md
         - name: Transmisión de datos a Event Hubs
           href: platform/stream-monitoring-data-event-hubs.md

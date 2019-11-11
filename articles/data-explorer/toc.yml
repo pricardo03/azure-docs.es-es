@@ -88,10 +88,6 @@
           href: ingest-data-logstash.md
         - name: Copia de datos mediante Azure Data Factory
           href: data-factory-load-data.md
-    - name: Implementación
-      items:
-        - name: Tarea de DevOps
-          href: devops.md
     - name: Datos de consulta
       items:
         - name: Escritura de consultas
@@ -136,6 +132,8 @@
           href: tableau.md
         - name: Sisense
           href: sisense.md
+        - name: Redash
+          href: redash.md
     - name: administración
       items:
         - name: Clúster
@@ -166,6 +164,10 @@
               href: delete-data.md
             - name: Tratamiento de datos duplicados
               href: dealing-with-duplicates.md
+    - name: Implementación
+      items:
+        - name: Implementación de un clúster en una red virtual
+          href: vnet-deployment.md
     - name: Supervisión
       items:
         - name: Uso de registros de diagnóstico para supervisar la ingesta
@@ -186,6 +188,8 @@
           href: connect-from-databricks.md
         - name: Análisis de datos en Jupyter Notebooks y Kqlmagic
           href: kqlmagic.md
+        - name: Azure Pipelines
+          href: devops.md
     - name: Solución de problemas
       items:
         - name: Creación de un clúster
@@ -220,9 +224,13 @@
           href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto'
     - name: Comentarios sobre el producto
       href: 'https://aka.ms/adefeedback'
-    - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
-    - name: Programa de estimación de costos
-      href: 'https://aka.ms/adecostestimator'
+    - name: Precios y facturación
+      items:
+        - name: Página de precios
+          href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
+        - name: Programa de estimación de costos
+          href: 'https://aka.ms/adecostestimator'
+        - name: Capacidad reservada
+          href: pricing-reserved-capacity.md
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=data-explorer'

@@ -26,15 +26,31 @@
         - name: Desarrollo con blobs
           items:
             - name: .NET
-              href: storage-quickstart-blobs-dotnet.md
+              items:
+                - name: ".NET (SDK, versión\_12)"
+                  href: storage-quickstart-blobs-dotnet.md
+                - name: ".NET (SDK, versión\_11)"
+                  href: storage-quickstart-blobs-dotnet-legacy.md
             - name: Java
-              href: storage-quickstart-blobs-java.md
+              items:
+                - name: "Java (SDK, versión\_12)"
+                  href: storage-quickstart-blobs-java.md
+                - name: "Java (SDK, versión\_8)"
+                  href: storage-quickstart-blobs-java-legacy.md
             - name: Python
-              href: storage-quickstart-blobs-python.md
-            - name: Javascript (Node.js)
-              href: storage-quickstart-blobs-nodejs-v10.md
-            - name: Javascript (explorador)
-              href: storage-quickstart-blobs-javascript-client-libraries-v10.md
+              items:
+                - name: "Python (SDK, versión\_12)"
+                  href: storage-quickstart-blobs-python.md
+                - name: "Python (SDK, versión\_2.1)"
+                  href: storage-quickstart-blobs-python-legacy.md
+            - name: JavaScript
+              items:
+                - name: "JavaScript (SDK, versión\_12, para Node. js)"
+                  href: storage-quickstart-blobs-nodejs.md
+                - name: "JavaScript (SDK, versión\_10, para Node. js)"
+                  href: storage-quickstart-blobs-nodejs-v10.md
+                - name: "JavaScript (SDK, versión\_10, para explorador web)"
+                  href: storage-quickstart-blobs-javascript-client-libraries-v10.md
             - name: Go
               href: storage-quickstart-blobs-go.md
             - name: PHP
@@ -147,7 +163,7 @@
               href: storage-blob-performance-tiers.md
             - name: Administración del ciclo de vida de Azure Blob Storage
               href: storage-lifecycle-management-concepts.md
-        - name: Rendimiento y escalado
+        - name: 'Rendimiento, escalado y optimización de costos'
           items:
             - name: Objetivos de escalabilidad y rendimiento
               href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -155,8 +171,16 @@
               href: storage-performance-checklist.md
             - name: Latencia en Blob Storage
               href: storage-blobs-latency.md
+            - name: Capacidad reservada de Azure Storage
+              href: storage-blob-reserved-capacity.md
         - name: Simultaneidad
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Búsqueda y comprensión de los datos de los blobs
+          items:
+            - name: Uso de la inteligencia artificial para comprender los datos de los blobs
+              href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Búsqueda de texto completo en los datos de los blobs
+              href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Migración de datos
           items:
             - name: Comparación de soluciones de transferencia de datos
@@ -223,6 +247,8 @@
                   href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Control de eventos
           href: storage-blob-event-overview.md
+        - name: Fuente de cambios
+          href: storage-blob-change-feed.md
         - name: Características de blobs en páginas
           href: storage-blob-pageblob-overview.md
         - name: Sitios web estáticos
@@ -350,6 +376,8 @@
           href: storage-custom-domain-name.md
         - name: Enrutamiento de eventos a un punto de conexión personalizado
           href: storage-blob-event-quickstart.md
+        - name: Proceso de registros de fuente de cambios
+          href: storage-blob-change-feed-how-to.md
         - name: Búsqueda de Blob Storage con Azure Search
           href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Transferencia de datos
@@ -384,9 +412,9 @@
               href: storage-xamarin-blob-storage.md
             - name: Versiones anteriores de SDK
               items:
-                - name: Javascript (Node.js) (Storage SDK v2)
-                  href: storage-quickstart-blobs-nodejs.md
-                - name: Javascript (explorador) (Storage SDK v2)
+                - name: "Javascript (Node.js) (SDK de Storage, versión\_2)"
+                  href: storage-quickstart-blobs-nodejs-legacy.md
+                - name: "Javascript (explorador web) (SDK de Storage, versión\_2)"
                   href: storage-quickstart-blobs-javascript-client-libraries.md
         - name: Administración de blobs
           items:
@@ -408,24 +436,24 @@
           href: /cli/azure/storage
         - name: .NET
           items:
-            - name: 'Blobs, colas y archivos'
-              href: /dotnet/api/overview/azure/storage/client
+            - name: "Blobs (versión\_12. x)"
+              href: /dotnet/api/azure.storage.blobs
             - name: Movimiento de datos
               href: /dotnet/api/microsoft.azure.storage.datamovement
             - name: Proveedor de recursos de almacenamiento
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: 'Blobs, colas y archivos (versión 12. x: versión preliminar)'
-              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-            - name: 'Blobs, colas y archivos (versión 8)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: "Blobs (versión\_12. x)"
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
+            - name: "Blobs (versión\_8. x)"
+              href: /java/api/com.microsoft.azure.storage.blob
             - name: Proveedor de recursos de almacenamiento
               href: /java/api/overview/azure/storage/management
-        - name: Node.js
-          href: /javascript/api/overview/azure/storage
-        - name: Python
-          href: /python/api/overview/azure/storage
+        - name: "JavaScript (versión\_12. x)"
+          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+        - name: "Python (versión\_12.x)"
+          href: /python/api/azure-storage-blob/
         - name: REST
           items:
             - name: 'Blobs, colas, tablas y archivos'
@@ -600,7 +628,7 @@
         - name: Procesamiento de macrodatos
           href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Integración con servicios de Azure
-          href: ../blobs/data-lake-store-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../blobs/data-lake-storage-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Controlador del sistema de archivos de blob de Azure para Hadoop
           href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Identificador URI del sistema de archivos de blob de Azure
@@ -713,20 +741,24 @@
           href: /cli/azure/storage
         - name: .NET
           items:
-            - name: 'Blobs, colas, tablas y archivos'
-              href: /dotnet/api/overview/azure/storage/client
+            - name: "Blobs (versión\_12. x)"
+              href: /dotnet/api/azure.storage.blobs
             - name: Movimiento de datos
               href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Resource Manager
+            - name: Proveedor de recursos de almacenamiento
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: 'Blobs, colas y archivos (versión 12. x: versión preliminar)'
-              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-            - name: 'Blobs, colas y archivos (versión 8)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: "Blobs (versión\_12. x)"
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
+            - name: "Blobs (versión\_8. x)"
+              href: /java/api/com.microsoft.azure.storage.blob
             - name: Proveedor de recursos de almacenamiento
               href: /java/api/overview/azure/storage/management
+        - name: "JavaScript (versión\_12. x)"
+          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+        - name: "Python (versión\_12.x)"
+          href: /python/api/azure-storage-blob/
         - name: REST
           items:
             - name: 'Blobs, colas, tablas y archivos'
