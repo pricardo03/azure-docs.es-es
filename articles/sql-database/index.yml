@@ -1,206 +1,140 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación de Azure SQL Database
+summary: Azure SQL Database es una base de datos relacional como servicio (DBaaS) relacional basada en la última versión estable de Microsoft SQL Server.
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: 'Documentación sobre Azure SQL Database: tutoriales y referencia de API'
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: stevestein
-  manager: craigg
   ms.service: sql-database
   ms.subservice: service
   ms.tgt_pltfrm: na
-  ms.devlang: null
-  ms.topic: overview
-  ms.date: 09/09/2019
+  ms.devlang: 
+  ms.topic: landing-page
+  author: stevestein
   ms.author: sstein
-abstract:
-  description: 'Azure SQL Database es un servicio de base de datos relacional (DBaaS) de uso general basado en la última versión estable del Motor de base de datos de Microsoft SQL Server. SQL Database es una base de datos en la nube de alto rendimiento, confiable y segura que puede usar para compilar aplicaciones y sitios web controlados por datos en el lenguaje de programación que prefiera, sin necesidad de administrar la infraestructura. Aprenda a usar SQL Database con nuestros inicios rápidos, tutoriales y ejemplos.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: 'https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png'
-      width: 250
-    title: 'Creación de una base de datos SQL en Azure. (3:12)'
-    href: 'https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/'
-    width: 250
-sections:
-  - title: Conceptos
-    items:
-      - type: paragraph
-        text: Más información sobre los valores principales que le aporta una base de datos de plataforma como servicio y sobre los modelos de compra y los niveles de servicio que puede aprovechar para obtener la mejor configuración de precio y rendimiento.
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/sql-database/sql-database-technical-overview
-            html: "<p>Base de datos de PaaS que se ejecuta siempre en la última versión estable del motor de base de datos de SQL Server y en un sistema operativo revisado con el 99,99\_% de disponibilidad.</p>"
-            image:
-              src: media/index/i_managed.svg
-            title: Información general
-          - href: /azure/sql-database/sql-database-service-tiers
-            html: <p>Adapte la relación precio-rendimiento a sus necesidades con los niveles de servicio flexible que van desde unos asequibles 5 EUR al mes hasta potentes bases de datos con 80 núcleos.</p>
-            image:
-              src: media/index/i_perftier.svg
-            title: Modelos de precios
-          - href: /azure/sql-database/sql-database-service-tiers-general-purpose-business-critical
-            html: <p>Elija el nivel de servicio y la arquitectura en la nube que se adapte mejor a sus necesidades o que coincida con la infraestructura que utiliza en su entorno local.</p>
-            image:
-              src: media/index/gear.svg
-            title: Niveles de servicio
-          - href: /azure/sql-database/sql-database-scalability-index
-            html: '<p>Fácil escalado vertical, escalado horizontal o partición de base de datos según sus necesidades para mejorar el rendimiento de la aplicación.</p>'
-            image:
-              src: media/index/i_scale.svg
-            title: Escalabilidad
-          - href: /azure/sql-database/sql-database-paas
-            html: '<p>La alta disponibilidad integrada, las copias de seguridad automatizadas y la replicación geográfica impedirán que las operaciones de mantenimiento o los errores de hardware o de la infraestructura detengan sus operaciones de negocio.</p>'
-            image:
-              src: media/index/i_intelligence.svg
-            title: Plataforma como servicio
-          - href: /azure/sql-database/sql-database-security-index
-            html: "<p>Proteja las bases de datos con autenticación de Azure\_AD, redes virtuales, firewalls y conexiones Always Encrypted. Identifique las amenazas y vulnerabilidades mediante la seguridad integrada.</p>"
-            image:
-              src: media/index/i_security.svg
-            title: Seguridad avanzada
-  - title: Modelos de implementación
-    items:
-      - type: paragraph
-        text: 'Elija el modelo de implementación que mejor se adapte a sus necesidades: una base de datos única es la mejor opción para las nuevas aplicaciones en la nube, los grupos elásticos son el mejor lugar para hospedar una gran cantidad de bases de datos y una instancia administrada proporciona una alta compatibilidad con SQL Server y permite una migración sencilla a la nube.'
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: /azure/sql-database/sql-database-single-index
-            html: <p>Use la base de datos única que administra el servidor de SQL Database para las aplicaciones SaaS y microservicios que necesitan una base de datos única con rendimiento predecible.</p>
-            image:
-              src: media/index/i_db.svg
-            title: Base de datos única
-          - href: /azure/sql-database/sql-database-elastic-pool
-            html: <p>Los grupos elásticos de SQL Database son una solución simple y rentable para la administración y escalado de varias bases de datos que tienen distintas e imprevisibles demandas de uso.</p>
-            image:
-              src: media/index/i_elasticpool.svg
-            title: Grupos elásticos
-          - href: /azure/sql-database/sql-database-managed-instance-index
-            html: '<p>Use una instancia administrada para obtener una instancia del motor de base de datos de SQL Server totalmente administrada hospedada en la nube de Azure, con un número mínimo de cambios (o ninguno) en el código de la base de datos necesarios para la migración desde las bases de datos locales.</p>'
-            image:
-              src: media/index/i_mi.svg
-            title: Instancia administrada
-          - href: /azure/sql-database/sql-database-instance-pools
-            html: <p>Use grupos de instancias administradas como una solución sencilla y rentable para implementar varias instancias administradas que comparten recursos y se escalan rápidamente.</p>
-            image:
-              src: media/index/i-instancepools.svg
-            title: Grupo de instancias
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: 'Azure SQL Database le permite realizar fácilmente tareas básicas de administración mediante Azure Portal, la CLI de Azure y Azure PowerShell. Aprenda a realizar tareas básicas de administración con los siguientes ejemplos de inicio rápido:'
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/portal.svg
-            title: El Portal de Azure
-          - image:
-              src: media/index/cli.svg
-            title: CLI de Azure
-          - image:
-              src: media/index/logo_powershell.svg
-            title: PowerShell
-          - image:
-              src: media/index/logo_arm.svg
-            title: Plantilla del Administrador de recursos de Azure
-        rows:
-          - title: Creación de una base de datos única
-            values:
-              - href: /azure/sql-database/sql-database-single-database-get-started
-              - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
-              - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-              - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create'
-          - title: Creación de un grupo elástico
-            values:
-              - href: /azure/sql-database/sql-database-elastic-pool-manage
-              - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
-              - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
-              - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create'
-          - title: Crear una instancia administrada
-            values:
-              - href: /azure/sql-database/sql-database-managed-instance-get-started
-              - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
-              - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
-              - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet'
-          - title: Crear un grupo de instancias
-            values:
-              - href: null
-              - href: null
-              - href: '/azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool'
-              - href: null
-  - title: Tutoriales detallados y materiales de aprendizaje
-    items:
-      - type: paragraph
-        text: 'Aprenda a crear, administrar y migrar bases de datos mediante SQL Database.'
-      - type: list
-        style: ordered
-        items:
-          - html: Aprenda a decidir si <a href="/azure/sql-database/sql-database-paas-vs-sql-server-iaas">SQL Server en máquinas virtuales (IaaS) o Azure SQL Database (PaaS) es la opción adecuada para la carga de trabajo</a>.
-          - html: Conozca más información sobre qué <a href="/azure/sql-database/sql-database-features">características se admiten en Azure SQL Database y sobre las diferencias de comportamiento</a>.
-          - html: Empiece a trabajar con <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">una base de datos única</a> y una <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">instancia administrada</a> con nuestros inicios rápidos.
-          - html: Creación y diseño del esquema de una nueva base de datos única mediante <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> o <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
-          - html: 'Migre una base de datos existente a Azure mediante <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">un archivo de copia de seguridad de SQL Server nativo</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Data Migration Assistant</a> o mediante la <a href="/azure/sql-database/sql-database-import">importación de un archivo de BACPAC</a>.'
-          - html: <a href="/azure/sql-database/sql-database-security-tutorial">Protección de la base de datos de SQL Database</a>
-          - html: Distribuya globalmente los datos mediante una <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">base de datos distribuida geográficamente</a>.
-          - html: Busque las <a href="/azure/sql-database/sql-database-release-notes">nuevas características de Azure SQL Database</a>.
-  - title: Desarrollo de aptitudes con Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Aprovisionamiento de una base de datos de Azure SQL para almacenar datos de aplicación
-            href: /learn/modules/provision-azure-sql-db/
-            image:
-              src: /learn/achievements/provision-azure-sql-db.svg
-              href: /learn/modules/provision-azure-sql-db/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-sql-database">Más aprendizaje interactivo...</a>
-  - title: Vídeo gratuito de aprendizaje de PluralSight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Desarrollo con .NET en Azure
-            href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
-  - title: Ejemplos
-    items:
-      - type: paragraph
-        text: Busque scripts para administrar las tareas más habituales.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
-          - html: <a href="/azure/sql-database/sql-database-cli-samples">CLI de Azure</a>
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: '<p><a href="/powershell/module/Az.Sql/">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (base de datos elástica)</a></p><p><a href="/cli/azure/sql">CLI de Azure</a></p>'
-          - title: Lenguajes
-            html: '<p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/sql/">Referencia de API de REST</a></p>
-          - title: Herramientas de SQL Server
-            html: '<p><a href="https://msdn.microsoft.com/library/mt238365.aspx">Herramientas de SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://docs.microsoft.com/sql/tools/sqlpackage">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Paquete de la biblioteca de administración de SQL Database</a></p>'
-          - title: Controladores de SQL Server
-            html: '<p><a href="https://msdn.microsoft.com/library/mt654049.aspx">Controladores de SQL Server</a></p><p><a href="/sql/connect/ado-net/microsoft-ado-net-sql-server">ADO.NET</a></p><p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p><p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>'
+  ms.date: 10/30/2019
+  ms.openlocfilehash: 815eebac3cc4a09f7f73bd639fc36cfd17de9ada
+  ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/31/2019
+  ms.locfileid: "73242823"
+landingContent:
+- title: Acerca de SQL Database
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es SQL Database?
+      url: sql-database-technical-overview.md
+    - text: ¿Qué opción de SQL Database debo elegir?
+      url: sql-database-paas-vs-sql-server-iaas.md
+    - text: Opciones de compra
+      url: sql-database-purchase-models.md
+    - text: Niveles de servicio
+      url: sql-database-service-tiers-general-purpose-business-critical.md
+  - linkListType: concept
+    links:
+    - text: Escalabilidad
+      url: sql-database-scalability-index.yml
+    - text: Plataforma como servicio
+      url: sql-database-paas-index.yml
+    - text: Seguridad avanzada
+      url: sql-database-security-overview.md
+- title: Modelos de implementación
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Base de datos única
+      url: sql-database-single-index.yml
+    - text: Grupos elásticos
+      url: sql-database-elastic-pool.md
+    - text: Instancia administrada
+      url: sql-database-managed-instance-index.yml
+    - text: Grupos de instancias
+      url: sql-database-instance-pools.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Guía de inicio rápido de Base de datos única
+      url: sql-database-single-database-quickstart-guide.md
+    - text: Guía de inicio rápido de Instancia administrada de SQL Database
+      url: sql-database-managed-instance-quickstart-guide.md
+    - text: Guía de inicio rápido de los grupos de instancias
+      url: sql-database-instance-pools-how-to.md
+- title: Migración a Azure SQL Database
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: ¿Qué opción de SQL Database debo elegir?
+      url: sql-database-paas-vs-sql-server-iaas.md
+    - text: Migración a SQL Database
+      url: sql-database-single-database-migrate.md
+    - text: Migración a Instancia administrada de SQL
+      url: sql-database-managed-instance-migrate.md
+- title: Diseño de una base de datos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Diseño de una base de datos mediante SQL Server Management Studio (SSMS)
+      url: sql-database-design-first-database.md
+    - text: Diseño de una base de datos mediante programación en una aplicación
+      url: sql-database-design-first-database-csharp.md
+  - linkListType: reference
+    links:
+    - text: CLI de Azure
+      url: https://docs.microsoft.com/cli/azure/sql
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.sql
+    - text: API DE REST
+      url: https://docs.microsoft.com/rest/api/sql/
+- title: Consulta de una base de datos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ejecución de consultas mediante SQL Server Management Studio (SSMS)
+      url: sql-database-connect-query-ssms.md
+    - text: Ejecución de consultas mediante Azure Data Studio
+      url: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database
+  - linkListType: reference
+    links:
+    - text: Referencia de Transact-SQL (T-SQL)
+      url: https://docs.microsoft.com/sql/t-sql/language-reference
+    - text: Descarga e instalación de SSMS
+      url: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
+    - text: Descarga e instalación de Azure Data Studio
+      url: https://docs.microsoft.com/sql/azure-data-studio/download
+- title: Seguridad de SQL Database
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción a la seguridad
+      url: sql-database-security-overview.md
+    - text: Reglas de firewall
+      url: sql-database-firewall-configure.md
+  - linkListType: architecture
+    links:
+    - text: Auditoría
+      url: sql-database-auditing.md
+    - text: Advanced Data Security
+      url: sql-database-advanced-data-security.md
+- title: Continuidad empresarial (BCDR)
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Continuidad del negocio
+      url: sql-database-business-continuity.md
+    - text: Alta disponibilidad
+      url: sql-database-high-availability.md
+    - text: Copias de seguridad de bases de datos
+      url: sql-database-automated-backups.md
+- title: Referencia de API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: CLI de Azure
+      url: https://docs.microsoft.com/cli/azure/sql
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.sql
+    - text: API DE REST
+      url: https://docs.microsoft.com/rest/api/sql/
