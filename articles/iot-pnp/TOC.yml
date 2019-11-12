@@ -7,10 +7,14 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Uso de un modelo de funcionalidad de dispositivo para crear un dispositivo
+    - name: Creación de un dispositivo (Windows)
       href: quickstart-create-pnp-device.md
-    - name: Conexión de un dispositivo a IoT Hub
+    - name: Creación de un dispositivo (Linux)
+      href: quickstart-create-pnp-device-linux.md
+    - name: Conexión de un dispositivo a IoT Hub (Windows)
       href: quickstart-connect-pnp-device.md
+    - name: Conexión de un dispositivo a IoT Hub (Linux)
+      href: quickstart-connect-pnp-device-linux.md
     - name: Conexión de un dispositivo a IoT Central
       href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: Conexión a un dispositivo en la solución

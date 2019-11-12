@@ -56,7 +56,7 @@
       href: getting-started-improving-your-classifier.md
     - name: Uso de la API de predicción
       href: use-prediction-api.md
-    - name: Uso de etiquetas sugeridas
+    - name: Uso de Smart Labeler
       href: suggested-tags.md
     - name: Exportación de modelos
       items:

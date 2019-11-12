@@ -8,6 +8,8 @@
   items:
     - name: 'Creación del servicio: portal'
       href: quickstart-create-data-migration-service-portal.md
+    - name: 'Creación del servicio en modo híbrido: portal'
+      href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: Tutoriales
   items:
     - name: Migración de SQL Server a una base de datos única de Azure SQL DB sin conexión

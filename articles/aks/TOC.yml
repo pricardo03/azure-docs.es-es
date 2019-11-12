@@ -345,6 +345,8 @@
           maintainContext: true
         - name: Iniciador del centro de implementación
           href: deployment-center-launcher.md
+        - name: Acciones de GitHub para Kubernetes
+          href: ../aks/kubernetes-action.md
     - name: Solución de problemas
       items:
         - name: Problemas comunes

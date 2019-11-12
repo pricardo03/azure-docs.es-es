@@ -97,6 +97,8 @@
           href: stream-analytics-power-bi-dashboard.md
         - name: Detención o eliminación de un trabajo
           href: stream-analytics-clean-up-your-job.md
+        - name: Copia o realización de una copia de seguridad de un trabajo
+          href: copy-job.md
         - name: Emparejamiento de trabajos por motivos de confiabilidad
           href: stream-analytics-job-reliability.md
         - name: 'Autenticación con identidad administrada: Salida de Azure Data Lake Storage Gen1'
@@ -105,6 +107,8 @@
           href: sql-reference-data.md
         - name: 'Autenticación con identidad administrada: Salida de blob'
           href: blob-output-managed-identity.md
+        - name: 'Autenticación con identidad administrada: Power BI'
+          href: powerbi-output-managed-identity.md
     - name: Crear soluciones
       items:
         - name: Análisis de opinión de Twitter

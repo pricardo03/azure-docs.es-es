@@ -4,12 +4,12 @@ ms.date: 10-19-2019
 ms.topic: hub-page
 title: Documentación sobre el servicio Voz
 description: Introducción al servicio de voz.
-ms.openlocfilehash: 0a878e3ad736347e61ea62aed96a15a1c2167a4a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0a07125764908b661216c20279ab4bdf80ae91ca
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508098"
+ms.locfileid: "73580330"
 ---
 <div id="main" class="v2">    
     <div class="container">
@@ -560,32 +560,13 @@ ms.locfileid: "73508098"
                                 </a>
                             </li>
                             <li>
-                                <a href="https://aka.ms/speech/va-no-code">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_conversational_agent.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Creación de un asistente sin programación</h3>
-                                                    <p>Cree un asistente habilitado para voz sin necesidad de escribir ni una línea de código.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>          
-                            <li>
                                 <a href="https://aka.ms/speech/va-bot-framework">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech_conversational_agent.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -596,7 +577,26 @@ ms.locfileid: "73508098"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/va-no-code">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Uso de comandos personalizados</h3>
+                                                    <p>Aprenda a crear interacciones de control y de comandos sencillas y sólidas con la comprensión del lenguaje y la corrección de errores.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -748,7 +748,7 @@ ms.locfileid: "73508098"
                                 </a>
                             </li>
                             <li>
-                                <a href="https://aka.ms/speech/custom-tts-overview">
+                                <a href="https://aka.ms/speech/custom-tts-audio-content-creation">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

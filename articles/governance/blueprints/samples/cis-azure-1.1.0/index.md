@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 08/09/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 0c33c0832590fdfd4fe78a1645ef1b0e3e391163
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: bf4b79dbb3da15605dc4362b5f0578a457886316
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200570"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581367"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Introducción a un ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark
 
@@ -19,16 +19,16 @@ El ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark propor
 
 ## <a name="recommendation-mapping"></a>Asignación de recomendaciones
 
-En la sección de asignación de recomendaciones se proporcionan detalles sobre las directivas que se incluyen en este plano técnico y cómo estas directivas abordan diversas recomendaciones de CIS Microsoft Azure Foundations Benchmark.
-Cuando se asignan a una arquitectura, Azure Policy evalúa los recursos para detectar posibles incumplimientos de las directivas asignadas. Para más información, consulte [Azure Policy](../../../policy/overview.md).
+En la sección de asignación de recomendaciones encontrará detalles no solo sobre las directivas que se incluyen en este plano técnico, sino también sobre la forma en que estas directivas abordan las distintas recomendaciones de CIS Microsoft Azure Foundations Benchmark, versión 1.1.0. Cuando se asignan a una arquitectura, Azure Policy evalúa los recursos para detectar posibles incumplimientos de las directivas asignadas. Para más información, consulte [Azure Policy](../../../policy/overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ya has revisado la introducción a un ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark.
-A continuación, visite el siguiente artículo para más información sobre la asignación de recomendaciones:
+A continuación, visite los siguientes artículos, donde encontrará información sobre la asignación de recomendaciones:
 
 > [!div class="nextstepaction"]
-> [Plano técnico de CIS Microsoft Azure Foundations Benchmark: Asignación de recomendaciones](./control-mapping.md)
+> [Plano técnico de CIS Microsoft Azure Foundations Benchmark: asignación de recomendaciones](./control-mapping.md)
+> [Plano técnico de CIS Microsoft Azure Foundations Benchmark: pasos de implementación](./deploy.md)
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 

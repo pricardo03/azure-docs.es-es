@@ -52,6 +52,8 @@
       items:
         - name: Creación y administración de laboratorios educativos
           href: how-to-manage-classroom-labs.md
+        - name: Uso del panel
+          href: use-dashboard.md
         - name: 'Configuración, personalización y publicación de plantillas'
           href: how-to-create-manage-template.md
         - name: Configuración y administración del grupo de máquinas virtuales
@@ -80,6 +82,8 @@
   items:
     - name: API DE REST
       href: 'https://docs.microsoft.com/rest/api/labservices/'
+    - name: Módulo Az.LabServices de PowerShell (versión preliminar)
+      href: reference-powershell-module.md
 - name: Recursos
   items:
     - name: Actualizaciones de Azure

@@ -42,8 +42,9 @@
       items:
         - name: Red global de Microsoft
           href: microsoft-global-network.md
-        - name: Comprobación de la latencia de red de VM
-          href: virtual-network-test-latency.md
+          items:
+            - name: Latencia de red de Azure
+              href: azure-network-latency.md
         - name: Redes virtuales
           href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Equilibrio de carga de red

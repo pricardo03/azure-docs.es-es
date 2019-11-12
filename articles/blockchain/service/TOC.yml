@@ -57,6 +57,8 @@
       href: data-manager-portal.md
     - name: Configuración de Data Manager - CLI
       href: data-manager-cli.md
+    - name: Migración de datos a Cosmos DB
+      href: data-manager-cosmosdb.md
 - name: Recursos
   items:
     - name: API REST de la cadena de bloques

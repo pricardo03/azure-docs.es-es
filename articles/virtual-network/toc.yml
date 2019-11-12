@@ -39,6 +39,8 @@
       href: security-overview.md
     - name: Enrutamiento
       href: virtual-networks-udr-overview.md
+    - name: Etiquetas de servicio
+      href: service-tags-overview.md
     - name: Puntos de conexión de servicio
       href: virtual-network-service-endpoints-overview.md
     - name: Directivas de puntos de conexión de servicio
@@ -65,6 +67,8 @@
       href: ipv6-public-ip-address-prefix.md
     - name: Protección contra DDOS
       href: ddos-protection-overview.md
+    - name: Extensión de subred
+      href: subnet-extension.md
     - name: Interoperabilidad de conectividad de back-end
       items:
         - name: Preparación y configuración de la prueba
@@ -297,6 +301,8 @@
           href: diagnose-network-routing-problem.md
         - name: Pruebas de rendimiento
           href: virtual-network-bandwidth-testing.md
+        - name: Comprobación de la latencia de red de VM
+          href: virtual-network-test-latency.md
         - name: No se pueden eliminar redes virtuales
           href: virtual-network-troubleshoot-cannot-delete-vnet.md
         - name: Problemas de conectividad entre máquinas virtuales

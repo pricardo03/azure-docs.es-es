@@ -34,6 +34,8 @@
       href: vpn-over-expressroute.md
     - name: Conexión de una puerta de enlace de red virtual a Virtual WAN
       href: connect-virtual-network-gateway-vwan.md
+    - name: Configuración del emparejamiento de VNET global
+      href: global-peering-vnet.md
     - name: Configuración de una directiva de IPsec personalizada
       href: virtual-wan-custom-ipsec-portal.md
     - name: Configuración de certificados para VPN de usuario

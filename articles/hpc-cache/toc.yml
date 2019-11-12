@@ -30,6 +30,8 @@
                   href: hpc-cache-ingest-msrsync.md
                 - name: Rellenado de la caché mediante la copia manual de archivos
                   href: hpc-cache-ingest-manual.md
+        - name: Edición de los destinos de almacenamiento
+          href: hpc-cache-edit-storage.md
     - name: Conexión a la memoria caché
       href: hpc-cache-mount.md
     - name: Administración de la caché

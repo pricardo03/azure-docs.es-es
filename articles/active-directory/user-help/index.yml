@@ -12,12 +12,12 @@ metadata:
   author: eross-msft
   ms.author: lizross
   ms.date: 08/26/2019
-  ms.openlocfilehash: 96fd0f6612b6c91ce4021b50ffe121b571a5032b
-  ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+  ms.openlocfilehash: c60b536c43b8a82a46ef9176eb077b212da529c0
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/30/2019
-  ms.locfileid: "73160998"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73574206"
 landingContent:
 - title: Configuración y uso de la aplicación Microsoft Authenticator
   linkLists:
@@ -73,18 +73,20 @@ landingContent:
       url: security-info-add-update-methods-overview.md
     - text: Adición de información durante la solicitud de inicio de sesión
       url: security-info-setup-signin.md
-- title: Administración de la información en el portal Mi perfil (versión preliminar)
+- title: Administración de la información en el portal Mi cuenta
   linkLists:
   - linkListType: overview
     links:
-    - text: ¿Qué es el portal Mi perfil (versión preliminar)?
-      url: myprofile-portal-overview.md
+    - text: ¿Qué es el portal Mi cuenta?
+      url: my-account-portal-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Administración de las organizaciones
-      url: myprofile-portal-organizations-page.md
     - text: Administración de los dispositivos conectados
-      url: myprofile-portal-devices-page.md
+      url: my-account-portal-devices-page.md
+    - text: Administración de las organizaciones
+      url: my-account-portal-organizations-page.md
+    - text: Visualización de las actividades de inicio de sesión recientes
+      url: my-account-portal-sign-ins-page.md
 - title: Restablecimiento de la propia contraseña
   linkLists:
   - linkListType: overview

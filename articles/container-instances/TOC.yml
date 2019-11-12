@@ -91,6 +91,8 @@
       items:
         - name: Configuración de sondeos de ejecución
           href: container-instances-liveness-probe.md
+        - name: Configuración de sondeos de preparación
+          href: container-instances-readiness-probe.md
         - name: Detención e inicio de contenedores
           href: container-instances-stop-start.md
         - name: Actualización de contenedores en ejecución
