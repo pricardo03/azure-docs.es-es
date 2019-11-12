@@ -39,12 +39,15 @@
           href: get-started-get-model-rest-apis.md
 - name: Tutoriales
   items:
+    - name: Compilación de una aplicación que se puede descomponer
+      items:
+        - name: 1. Determinación de las intenciones del usuario
+          href: tutorial-intents-only.md
+        - name: 2. Extracción de datos de usuario
+          href: tutorial-machine-learned-entity.md
+          displayName: 'n-depth, constraint, descriptor, phrase list, entity'
     - name: Compilación de una aplicación
       items:
-        - name: Determinación de las intenciones del usuario
-          href: tutorial-intents-only.md
-        - name: Identificación de datos de usuario habituales con modelos creados previamente
-          href: luis-tutorial-prebuilt-intents-entities.md
         - name: Obtención de opiniones a partir de expresiones del usuario
           href: luis-quickstart-intent-and-sentiment-analysis.md
         - name: Obtención de datos con el formato correcto mediante expresiones regulares

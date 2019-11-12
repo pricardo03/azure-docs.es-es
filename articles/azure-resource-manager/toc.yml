@@ -138,6 +138,8 @@
           href: resource-group-create-multiple.md
         - name: Recursos de nivel de suscripción
           href: deploy-to-subscription.md
+        - name: Recursos del nivel de grupo de administración
+          href: deploy-to-management-group.md
     - name: Implementación de plantillas
       items:
         - name: 'Implementación: Portal'
