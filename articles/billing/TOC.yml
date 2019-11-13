@@ -5,8 +5,6 @@
   items:
     - name: Descripción de la factura
       href: billing-understand-your-bill.md
-    - name: Descripción de la factura del contrato Enterprise
-      href: billing-understand-your-bill-ea.md
     - name: 'Descripción de la factura: contrato de cliente de Microsoft'
       href: billing-mca-understand-your-bill.md
     - name: 'Descripción de la factura: contrato de Microsoft Partner'
@@ -159,6 +157,8 @@
       items:
         - name: Introducción al portal de Azure EA
           href: billing-ea-portal-get-started.md
+        - name: Descripción de la factura del contrato Enterprise
+          href: billing-understand-your-bill-ea.md
         - name: Roles de EA en Azure
           href: billing-understand-ea-roles.md
         - name: Administración del portal de Azure EA

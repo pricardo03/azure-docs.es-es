@@ -16,7 +16,7 @@
     - name: Conexión de un dispositivo a IoT Hub (Linux)
       href: quickstart-connect-pnp-device-linux.md
     - name: Conexión de un dispositivo a IoT Central
-      href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      href: ../iot-central/preview/quick-create-pnp-device.md
     - name: Conexión a un dispositivo en la solución
       href: quickstart-connect-pnp-device-solution.md
 - name: Tutoriales

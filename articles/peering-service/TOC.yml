@@ -6,7 +6,7 @@
       href: about.md
 - name: Conceptos
   items:
-    - name: Ubicación y asociados
+    - name: Ubicaciones y asociados
       href: location-partners.md
     - name: Conexión
       href: connection.md
