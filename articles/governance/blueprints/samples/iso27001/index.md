@@ -1,17 +1,14 @@
 ---
 title: Ejemplo de plano técnico de la norma ISO 27001 (introducción)
 description: Introducción a los ejemplos del plano técnico para ISO 27001. Este ejemplo de plano técnico de ejemplo ayuda a los clientes a evaluar determinados controles concretos de la norma ISO 27001.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 8c9d657788e8fd56e37acbf8924cb28573858ead
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 2e6e3d8d1abec1262f60ca25a549f35658ed54d3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200678"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037323"
 ---
 # <a name="overview-of-the-iso-27001-blueprint-sample"></a>Introducción a los ejemplos del plano técnico para ISO 27001
 
