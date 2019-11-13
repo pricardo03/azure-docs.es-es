@@ -1,0 +1,147 @@
+- name: Referencia del módulo del diseñador de Azure Machine Learning
+  href: module-reference.md
+- name: Documentación de Azure Machine Learning
+  href: ../index.yml
+- name: Categorías del módulo
+  expanded: true
+  items:
+    - name: Entrada y salida de datos
+      items:
+        - name: Importar datos
+          href: import-data.md
+        - name: Introducción manual de datos
+          href: enter-data-manually.md
+        - name: Exportación de datos
+          href: export-data.md
+    - name: Transformación de datos
+      items:
+        - name: Adición de columnas
+          href: add-columns.md
+        - name: Adición de filas
+          href: add-rows.md
+        - name: Aplicación de transformaciones de SQL
+          href: apply-sql-transformation.md
+        - name: Conversión a CSV
+          href: convert-to-csv.md
+        - name: Convertir conjunto de datos
+          href: convert-to-dataset.md
+        - name: Limpiar datos que faltan
+          href: clean-missing-data.md
+        - name: Edición de metadatos
+          href: edit-metadata.md
+        - name: Combinación de datos
+          href: join-data.md
+        - name: Normalización de datos
+          href: normalize-data.md
+        - name: Supresión de filas duplicadas
+          href: remove-duplicate-rows.md
+        - name: Seleccionar transformación de columnas
+          href: select-columns-transform.md
+        - name: Seleccionar columnas de conjunto de datos
+          href: select-columns-in-dataset.md
+    - name: muestreo
+      items:
+        - name: Modelo de validación cruzada
+          href: cross-validate-model.md
+        - name: Partición y ejemplo
+          href: partition-and-sample.md
+        - name: SMOTE
+          href: smote.md
+        - name: Split Data (Dividir datos)
+          href: split-data.md
+    - name: Selección de características
+      items:
+        - name: Selección de características basada en filtro
+          href: filter-based-feature-selection.md
+        - name: Importancia de la característica de permutación
+          href: permutation-feature-importance.md
+    - name: Python y R
+      items:
+        - name: Creación de modelo Python
+          href: create-python-model.md
+        - name: Ejecución de script de Python
+          href: execute-python-script.md
+        - name: Ejecución script de R
+          href: execute-r-script.md
+    - name: Text Analytics
+      items:
+        - name: Extracción de características de n-gramas de texto
+          href: extract-n-gram-features-from-text.md
+        - name: Hash de características
+          href: feature-hashing.md
+        - name: preprocesamiento de texto
+          href: preprocess-text.md
+    - name: Algoritmos de aprendizaje automático
+      items:
+        - name: clasificación
+          items:
+            - name: Bosque de decisión multiclase
+              href: multiclass-decision-forest.md
+            - name: Árbol de decisión ampliado multiclase
+              href: multiclass-boosted-decision-tree.md
+            - name: Regresión logística multiclase
+              href: multiclass-logistic-regression.md
+            - name: Red neuronal multiclase
+              href: multiclass-neural-network.md
+            - name: Uno contra todos multiclase
+              href: one-vs-all-multiclass.md
+            - name: Regresión logística de dos clases
+              href: two-class-logistic-regression.md
+            - name: Perceptrón promedio de dos clases
+              href: two-class-averaged-perceptron.md
+            - name: Two-Class Boosted Decision Tree (Árbol de decisión ampliado de dos clases).
+              href: two-class-boosted-decision-tree.md
+            - name: Bosque de decisión de dos clases
+              href: two-class-decision-forest.md
+            - name: Red neuronal de dos clases
+              href: two-class-neural-network.md
+            - name: Máquina de vectores compatible con dos clases
+              href: two-class-support-vector-machine.md
+        - name: Agrupación en clústeres
+          items:
+            - name: Agrupación en clústeres K-Means
+              href: k-means-clustering.md
+        - name: Regresión
+          items:
+            - name: Regresión de árbol de decisión incrementado
+              href: boosted-decision-tree-regression.md
+            - name: Regresión de bosque de decisión
+              href: decision-forest-regression.md
+            - name: Regresión lineal
+              href: linear-regression.md
+            - name: Regresión de red neuronal
+              href: neural-network-regression.md
+        - name: Recomendador
+          items:
+            - name: Entrenamiento del recomendador SVD
+              href: train-svd-recommender.md
+    - name: Entrenar modelo
+      items:
+        - name: Train Model (Entrenar modelo)
+          href: train-model.md
+        - name: Entrenamiento del modelo de agrupación en clústeres
+          href: train-clustering-model.md
+        - name: Optimizar los hiperparámetros del modelo
+          href: tune-model-hyperparameters.md
+    - name: Evaluación de modelo
+      items:
+        - name: Evaluate Model (Evaluar modelo)
+          href: evaluate-model.md
+        - name: Evaluación del recomendador
+          href: evaluate-recommender.md
+    - name: Puntación de modelo
+      items:
+        - name: Aplicación de la transformación
+          href: apply-transformation.md
+        - name: Asignación de datos a clústeres
+          href: assign-data-to-clusters.md
+        - name: Puntuación de modelo
+          href: score-model.md
+        - name: Puntuación del recomendador SVD
+          href: score-svd-recommender.md
+    - name: Funciones estadísticas
+      items:
+        - name: Aplicación de operación matemática
+          href: apply-math-operation.md
+        - name: Resumen de datos
+          href: summarize-data.md

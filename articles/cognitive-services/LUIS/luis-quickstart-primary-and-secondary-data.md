@@ -95,7 +95,7 @@ Una vez que las entidades están marcadas en las expresiones de ejemplo, es impo
 
 1. En la expresión, `I want to apply for the new accounting job`, seleccione `accounting`, escriba `Job` en el campo superior del menú emergente y, después, seleccione **Create new entity** (Crear nueva entidad) en el menú emergente. 
 
-    [![Captura de pantalla de LUIS con la intención "ApplyForJob" con los pasos para crear una entidad resaltados](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Captura de pantalla de LUIS con la intención "ApplyForJob" con los pasos para crear una entidad resaltados")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Captura de pantalla de LUIS con la intención ApplyForJob con los pasos para crear una entidad resaltados](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Captura de pantalla de LUIS con la intención ApplyForJob con los pasos para crear una entidad resaltados")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 1. En la ventana emergente, compruebe el nombre y tipo de la entidad y seleccione **Done** (Listo).
 

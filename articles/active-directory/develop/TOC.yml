@@ -241,6 +241,8 @@
                   href: migrate-android-adal-msal.md
                 - name: Migración a MSAL.iOS y MacOS
                   href: migrate-objc-adal-msal.md
+                - name: Migración a MSAL para Java
+                  href: migrate-adal-msal-java.md
                 - name: Migración de aplicaciones de Xamarin mediante agentes desde ADAL.NET a MSAL.NET
                   href: msal-net-migration-ios-broker.md
             - name: Flujos de autenticación compatibles
@@ -390,6 +392,10 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: Configuración de aplicaciones
           items:
+            - name: Guía de aprendizaje de los registros de aplicaciones de Azure Portal (heredado)
+              href: app-registrations-training-guide-for-app-registrations-legacy-users.md
+            - name: Guía de los registros de aplicaciones del portal del registro de aplicaciones
+              href: app-registration-portal-training-guide.md
             - name: Conversión de una aplicación de inquilino único en una aplicación multiinquilino
               href: howto-convert-app-to-be-multi-tenant.md
             - name: Creación de una entidad de servicio
@@ -446,6 +452,12 @@
                   href: request-custom-claims.md
                 - name: Configuración de URI de redirección
                   href: redirect-uris-ios.md
+            - name: Java de MSAL
+              items:
+                - name: Serialización del almacenamiento en caché de los tokens
+                  href: msal-java-token-cache-serialization.md
+                - name: Incorporación y eliminación de cuentas de la caché de tokens
+                  href: msal-java-get-remove-accounts-token-cache.md
         - name: Trabajo con Visual Studio
           items:
             - name: Uso del servicio conectado Active Directory
@@ -594,8 +606,6 @@
               href: reference-saml-tokens.md
         - name: Configuración de aplicaciones
           items:
-            - name: Guía de aprendizaje de registros de aplicaciones
-              href: app-registrations-training-guide.md
             - name: Aplicaciones y entidades de servicio
               href: app-objects-and-service-principals.md
             - name: Cómo y por qué se agregan aplicaciones a Azure AD

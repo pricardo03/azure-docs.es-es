@@ -13,10 +13,10 @@
 - name: Conceptos
   items:
     - name: Administración de recursos delegados de Azure
-      displayName: delegation
+      displayName: 'delegation, projection'
       href: ./concepts/azure-delegated-resource-management.md
     - name: Experiencias de administración entre inquilinos
-      displayName: scenarios
+      displayName: 'scenarios, supported, enhanced, services, limitations, current'
       href: ./concepts/cross-tenant-management-experience.md
     - name: 'Inquilinos, roles y usuarios'
       displayName: 'Azure AD, Azure Active Directory'
@@ -39,16 +39,22 @@
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Publicación de ofertas de servicios administrados en Azure Marketplace
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: 'managed services offer, azure marketplace, publish, marketplace'
       href: ./how-to/publish-managed-services-offers.md
     - name: Visualización y administración de clientes
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: my customers
       href: ./how-to/view-manage-customers.md
     - name: Visualización y administración de proveedores de servicios
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: 'customer, update'
       href: ./how-to/view-manage-service-providers.md
-    - name: Implementación de una directiva que se pueda corregir
-      href: ./how-to/deploy-policy-remediation.md
+    - name: Integración de Azure Policy
+      items:
+        - name: Implementación de una directiva a escala
+          displayName: storage
+          href: ./how-to/policy-at-scale.md
+        - name: Implementación de una directiva que se pueda corregir
+          displayName: 'deployIfNotExists, modify, managed identities, managed identity'
+          href: ./how-to/deploy-policy-remediation.md
 - name: Referencia
   items:
     - name: CLI de Azure

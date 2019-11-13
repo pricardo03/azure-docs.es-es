@@ -166,9 +166,7 @@
       items:
         - name: Incorporación de una intención
           href: luis-how-to-add-intents.md
-        - name: Incorporación de una entidad a una expresión
-          href: luis-how-to-add-example-utterances.md
-        - name: Incorporación de una entidad sin expresión
+        - name: Incorporación de una entidad compuesta para extraer datos
           href: luis-how-to-add-entities.md
           displayName: 'roles, import'
         - name: Usar modelos creados previamente
@@ -306,6 +304,8 @@
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Personalización de referencia de entidad
       items:
+        - name: Entidad de aprendizaje automático
+          href: reference-entity-machine-learned-entity.md
         - name: Entidad compuesta
           href: reference-entity-composite.md
         - name: Entidad de lista
@@ -316,6 +316,8 @@
           href: reference-entity-regular-expression.md
         - name: Entidad simple
           href: reference-entity-simple.md
+    - name: Sintaxis del patrón
+      href: reference-pattern-syntax.md
     - name: Opinión
       href: luis-reference-prebuilt-sentiment.md
     - name: Recursos para el desarrollador
