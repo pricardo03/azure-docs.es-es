@@ -856,11 +856,20 @@
             - name: Introducción al seguimiento
               href: /azure/databricks/applications/mlflow/tracking
               maintainContext: true
-            - name: Ejemplos de seguimiento de MLflow
-              href: /azure/databricks/applications/mlflow/  tracking-examples
+            - name: Entrenamiento de un modelo de scikit-learn
+              href: /azure/databricks/applications/mlflow/tracking-ex-scikit
+              maintainContext: true
+            - name: Entrenamiento de un modelo de PyTorch
+              href: /azure/databricks/applications/mlflow/tracking-ex-pytorch
+              maintainContext: true
+            - name: Entrenamiento de un modelo de PySpark y guardado en formatos MLeap
+              href: /azure/databricks/applications/mlflow/tracking-ex-pyspark
+              maintainContext: true
+            - name: Seguimiento de los datos de entrenamiento del modelo de Machine Learning con Delta Lake
+              href: /azure/databricks/applications/mlflow/tracking-ex-delta
               maintainContext: true
             - name: Acceso externo al seguimiento
-              href: /azure/databricks/applications/mlflow/  access-hosted-tracking-server
+              href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
               maintainContext: true
         - name: 'Almacenamiento, carga e implementación de modelos'
           items:
@@ -911,6 +920,9 @@
             - name: Canalización normal/tumoral
               href: /azure/databricks/applications/genomics/secondary/tumor-normal-pipeline
               maintainContext: true
+            - name: Anotación de variantes mediante canalización Tansformer
+              href: /azure/databricks/applications/genomics/secondary/variant-annotation-pipe
+              maintainContext: true
             - name: Métodos de anotación de variantes
               href: /azure/databricks/applications/genomics/secondary/annotate-variants
               maintainContext: true
@@ -920,26 +932,6 @@
             - name: Canalización de Vep
               href: /azure/databricks/applications/genomics/secondary/vep-pipeline
               maintainContext: true
-        - name: ETL
-          items:
-            - name: Introducción a la ETL de Genomics
-              href: /azure/databricks/applications/genomics/etl/index
-              maintainContext: true
-            - name: E/S de variantes con Apache Spark SQL
-              href: /azure/databricks/applications/genomics/etl/variant-data
-              maintainContext: true
-            - name: Creación de Delta Lake de Genomics
-              href: /azure/databricks/applications/genomics/etl/vcf2delta
-              maintainContext: true
-            - name: Control de calidad de variantes
-              href: /azure/databricks/applications/genomics/etl/variant-qc
-              maintainContext: true
-            - name: Control de calidad de ejemplos
-              href: /azure/databricks/applications/genomics/etl/sample-qc
-              maintainContext: true
-            - name: Levantar
-              href: /azure/databricks/applications/genomics/etl/lift-over
-              maintainContext: true
         - name: Análisis terciario
           items:
             - name: Introducción al análisis terciario
@@ -947,18 +939,6 @@
               maintainContext: true
             - name: Canalización de genotipo conjunta
               href: /azure/databricks/applications/genomics/tertiary/joint-genotyping-pipeline
-              maintainContext: true
-            - name: Paralelización de herramientas de línea de comandos con Pipe Transformer
-              href: /azure/databricks/applications/genomics/tertiary/pipe-transformer
-              maintainContext: true
-            - name: Normalización de variantes
-              href: /azure/databricks/applications/genomics/tertiary/variant-normalization
-              maintainContext: true
-            - name: Pruebas de regresión
-              href: /azure/databricks/applications/genomics/tertiary/regression-tests
-              maintainContext: true
-            - name: Bibliotecas de estadísticas de Python
-              href: /azure/databricks/applications/genomics/tertiary/pandas-udf
               maintainContext: true
             - name: SAIGE
               href: /azure/databricks/applications/genomics/tertiary/saige
@@ -1228,7 +1208,10 @@
               maintainContext: true
             - name: Error al detectar la codificación en JSON
               href: /azure/databricks/kb/data-sources/json-unicode
-              maintainContext: true j
+              maintainContext: true
+            - name: No se pueden leer archivo en WASB
+              href: /azure/databricks/kb/data-sources/wasb-check-blob-types
+              maintainContext: true
         - name: DBFS
           items:
             - name: No se pueden leer los objetos almacenados en la raíz de DBFS
@@ -1550,6 +1533,9 @@
           items:
             - name: Notas de la versión de la plataforma
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: Noviembre de 2019
+              href: /azure/databricks/release-notes/product/2019/november
               maintainContext: true
             - name: Octubre de 2019
               href: /azure/databricks/release-notes/product/2019/october

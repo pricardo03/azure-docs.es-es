@@ -109,7 +109,7 @@
     - name: Protección de contenido
       items:
         - name: Cifrado dinámico y entrega de claves
-          displayName: 'content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay'
+          displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
         - name: Diseño de un sistema con varias licencias de administración de derechos digitales
           displayName: 'drm, access control'
@@ -138,6 +138,8 @@
         - name: Cambio de tiempo y directo a vídeo bajo demanda
           displayName: 'archive, dvr'
           href: live-event-cloud-dvr.md
+        - name: Transcripción en directo
+          href: live-transcription.md
         - name: Comparación de características
           href: live-event-types-comparison.md
         - name: Estados y facturación

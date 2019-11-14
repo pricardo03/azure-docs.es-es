@@ -392,9 +392,9 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: Configuración de aplicaciones
           items:
-            - name: Guía de aprendizaje de los registros de aplicaciones de Azure Portal (heredado)
+            - name: Transición de Registros de aplicaciones (heredado) a la nueva experiencia de Registros de aplicaciones en Azure Portal
               href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-            - name: Guía de los registros de aplicaciones del portal del registro de aplicaciones
+            - name: Transición del Portal de registro de aplicaciones a la nueva experiencia de Registros de aplicaciones en Azure Portal
               href: app-registration-portal-training-guide.md
             - name: Conversión de una aplicación de inquilino único en una aplicación multiinquilino
               href: howto-convert-app-to-be-multi-tenant.md

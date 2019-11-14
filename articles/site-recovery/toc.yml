@@ -361,8 +361,8 @@
               href: hyper-v-azure-failback.md
         - name: administración
           items:
-            - name: Próximos detalles del desuso de la compatibilidad de las configuraciones de SCVMM en ASR
-              href: scvmm-site-recovery-deprecation.md
+            - name: Desuso de la recuperación ante desastres entre sitios propiedad del cliente
+              href: site-to-site-deprecation.md
             - name: Actualización de los servidores de Windows Server configurados con Site Recovery
               href: upgrade-2012R2-to-2016.md
             - name: Quitar servidores y deshabilitar la protección

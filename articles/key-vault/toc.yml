@@ -114,6 +114,8 @@
           href: key-vault-group-permissions-for-apps.md
     - name: Enrutamiento de notificaciones de Key Vault con Event Grid
       href: event-grid-tutorial.md
+    - name: Integración con Azure Policy
+      href: azure-policy.md
     - name: Registro de Azure Key Vault
       href: key-vault-logging.md
     - name: Acceso detrás de firewalls
