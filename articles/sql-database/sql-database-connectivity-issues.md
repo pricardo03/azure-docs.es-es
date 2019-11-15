@@ -1,5 +1,5 @@
 ---
-title: Trabajo con errores transitorios - Azure SQL Database | Microsoft Docs
+title: Cómo trabajar con errores transitorios
 description: Aprenda a solucionar problemas, diagnosticar y evitar un error de conexión de SQL o un error transitorio en Azure SQL Database.
 keywords: conexión de sql, cadena de conexión, problemas de conectividad, error transitorio, error de conexión
 services: sql-database
@@ -13,12 +13,12 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
-ms.openlocfilehash: aba404842658aaa946a14a3cde03853c2fb3062d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a943ade4bfc46083fe84274640d979928357a492
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792568"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826810"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabajo con problemas de conexión de SQL Database y errores transitorios
 

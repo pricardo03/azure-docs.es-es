@@ -4,19 +4,20 @@ description: Los publicadores ya pueden comercializar sus ofertas a través del 
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 0b47e5af0b0656cac4962c1007e999508f58a9e5
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 80f871301bbb67def3635b8beb3705ac99b88bda
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150972"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826064"
 ---
 # <a name="cloud-solution-providers"></a>Proveedores de soluciones en la nube
 
-Las ofertas de software pueden llegar a millones de clientes de Microsoft aptos a los que atienden los asociados del programa Proveedor de soluciones en la nube (CSP), al igual que la disponibilidad pública de las ofertas a través de los [escaparates web de Microsoft](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+Las ofertas de software pueden llegar a millones de clientes de Microsoft cualificados a los que atienden los asociados del programa Proveedor de soluciones en la nube (CSP), además de la disponibilidad pública de las ofertas a través de los [escaparates web de Microsoft](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 
 Los publicadores configuran las ofertas para su disponibilidad en el programa CSP en función de la participación (el valor predeterminado es Excluido), tanto para una oferta nueva como existente, lo que permite que los asociados vendan los productos y creen conjuntos de soluciones para los clientes.
 
