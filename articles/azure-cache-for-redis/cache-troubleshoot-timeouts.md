@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de tiempos de expiración | Microsoft Docs
+title: Solución de problemas con tiempos de expiración de Redis Cache | Microsoft Docs
 description: Más información sobre cómo resolver problemas comunes de tiempo de expiración con Redis Cache
 services: cache
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: 8cf1ade80de015f1f981ff6610c242a5d0f1a1a7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4f577e6497e853d9b75f81b5da4f7121064a9d07
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795240"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826352"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solución de problemas de tiempos de expiración de Redis Cache
 
@@ -34,7 +34,7 @@ En esta sección se describe la solución de problemas de tiempo de expiración 
 
 ## <a name="redis-server-patching"></a>Aplicación de revisiones del servidor de Redis
 
-Redis Cache actualiza periódicamente su software de servidor como parte de la funcionalidad de servicio administrado que ofrece. Esta actividad de [aplicación de revisiones](cache-failover.md) tiene lugar en gran medida en segundo plano. Durante las conmutaciones por error cuando se aplican revisiones a los nodos del servidor de Redis, es posible que los clientes de Redis conectados a estos nodos experimenten tiempos de expiración temporales a medida que se cambian las conexiones entre estos nodos. Vea [cómo afecta una conmutación por error a la aplicación cliente](cache-failover.md#how-does-a-failover-impact-my-client-application) para obtener más información sobre qué efectos secundarios puede tener la aplicación y cómo puede mejorar su control de los eventos de aplicación de revisiones.
+Redis Cache actualiza periódicamente su software de servidor como parte de la funcionalidad de servicio administrado que ofrece. Esta actividad de [aplicación de revisiones](cache-failover.md) tiene lugar en gran medida en segundo plano. Durante las conmutaciones por error cuando se aplican revisiones a los nodos del servidor de Redis, es posible que los clientes de Redis conectados a estos nodos experimenten tiempos de expiración temporales a medida que se cambian las conexiones entre estos nodos. Vea [cómo afecta una conmutación por error a la aplicación cliente](cache-failover.md#how-does-a-failover-affect-my-client-application) para obtener más información sobre qué efectos secundarios puede tener la aplicación y cómo puede mejorar su control de los eventos de aplicación de revisiones.
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Excepciones de tiempo de espera de StackExchange.Redis
 

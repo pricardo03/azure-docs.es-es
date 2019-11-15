@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/10/2018
-ms.openlocfilehash: 04848f763fe8246f8e10f563169c04ea37b0ed37
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3ec20f82bc12b60e5b88a02bb92a4a0ada4dcae7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677309"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668007"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 [Power BI](https://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -90,6 +90,8 @@ Esto puede ocurrir si no se ha actualizado el token de actualización. Pruebe es
 
 1. Inicie sesión en Azure Portal y asegúrese de que puede acceder al recurso.
 2. Intente actualizar las credenciales para el panel.
+3. Intente borrar la caché del escritorio de PowerBI.
+
 
    Si tiene acceso, pero la actualización de las credenciales no funciona, abra una incidencia de soporte técnico.
 

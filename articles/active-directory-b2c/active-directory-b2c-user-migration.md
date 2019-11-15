@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ec61a04d6bb7289f12becf8baebae5e47150897
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c8e4027bd8892ff3bf5c598573b7736aea42953f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802093"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602574"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migración de usuarios
 
@@ -177,12 +177,12 @@ Para validar la migración, use uno de los dos métodos siguientes:
    1. Abra **Azure AD B2C** y seleccione **Usuarios**.
    1. En el cuadro de búsqueda, escriba el nombre para mostrar del usuario y vea su perfil.
 
-- Para recuperar un usuario por dirección de correo electrónico de inicio de sesión, use esta aplicación de ejemplo:
+- Para recuperar un usuario por dirección de correo electrónico de inicio de sesión, use la aplicación de ejemplo:
 
    1. Ejecute el siguiente comando:
 
       ```Console
-          UserMigration.exe 3 {email address}
+          UserMigration.exe 3 {email address} > UserProfile.json
       ```
 
       > [!TIP]

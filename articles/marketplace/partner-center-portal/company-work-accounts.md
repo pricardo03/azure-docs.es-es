@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 744b4e4975c5d4cec5c705e639e9cc8d252a7dd6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4783d3ac8ef78929621179d87f9c8948f6dd079c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194280"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811994"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Cuentas profesionales y el Centro de partners
 
@@ -27,11 +28,11 @@ Siga estos pasos para comprobar:
 2. Seleccione **Azure Active Directory** en el menú de navegación a la izquierda y, a continuación, seleccione **Nombres de dominio personalizados**.
 3. Si ya tiene una cuenta profesional, su nombre de dominio se mostrará en la lista.
 
-Si su empresa no tiene aún una cuenta profesional, se creará una automáticamente durante el proceso de inscripción en el Centro de partners.
+Si la empresa aún no tiene una cuenta profesional, se crea una automáticamente durante el proceso de inscripción en el Centro de partners.
 
 ## <a name="set-up-multiple-work-accounts"></a>Configuración de varias cuentas profesionales
 
-Antes de decidirse a usar una cuenta profesional existente, considere cuántos usuarios en la cuenta profesional necesitará acceso al Centro de partners. Si tiene usuarios en la cuenta profesional que no necesitan tener acceso al Centro de partners, puede considerar la creación de varias cuentas profesionales, para que solo aquellos usuarios que necesitan acceso al Centro de partners estén representados en una cuenta determinada.
+Antes de decidirse a usar una cuenta profesional existente, considere cuántos usuarios en la cuenta profesional necesitará acceso al Centro de partners. Si tiene usuarios de la cuenta profesional que no necesitan acceder al Centro de partners, puede considerar la creación de varias cuentas profesionales, de modo que solo aquellos usuarios que necesitan acceso al Centro de partners estén representados en una cuenta determinada.
 
 ## <a name="create-a-new-work-account"></a>Creación de una cuenta profesional
 
@@ -48,7 +49,7 @@ Para más información sobre cómo agregar dominios personalizados en Azure Acti
 
 ## <a name="troubleshoot-work-email-sign-in"></a>Solución de problemas de inicio de sesión de correo electrónico profesional
 
-Si tiene dificultades para iniciar sesión en su cuenta profesional (también conocida como inquilino de Azure AD), busque el escenario en el diagrama siguiente que mejor coincida con su situación y siga los pasos recomendados.
+Si tiene problemas para iniciar sesión en la cuenta profesional (también conocida como inquilino de Azure AD), busque el escenario del diagrama siguiente que mejor se ajuste a su situación y siga los pasos recomendados.
 
 ![Diagrama de solución de problemas de inicio de sesión de cuenta profesional](./media/onboarding-aad-flow.png)
 

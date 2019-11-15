@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: 3abf3d562b9ca4d6fc9907c065dbaf9a52d58c5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 81d82ce79130513a2827090a98bfef192c9d7829
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555346"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795722"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Introducción a Insights en Azure Monitor
 Insights proporciona una experiencia de supervisión personalizada para determinadas aplicaciones y servicios. Almacena datos en la [plataforma de datos de Azure Monitor](../platform/data-platform.md) y aprovecha otras características de Azure Monitor para el análisis y la creación de alertas, pero puede recopilar datos adicionales y proporcionar una experiencia de usuario única en Azure Portal. Obtener acceso a información a partir de la sección **Insights** del menú de Azure Monitor en Azure Portal.
@@ -46,6 +46,11 @@ Azure Monitor para VM supervisa las máquinas virtuales (VM) y los conjuntos de 
 Vea [¿Qué es Azure Monitor para máquinas virtuales?](vminsights-overview.md)
 
 ![Azure Monitor para máquinas virtuales](media/insights-overview/vm-insights.png)
+
+## <a name="azure-monitor-for-network-preview"></a>Azure Monitor for Network (versión preliminar)
+Azure Monitor for Network proporciona una vista completa del estado y las métricas de todos los recursos de red. La capacidad de búsqueda avanzada ayuda a identificar dependencias de recursos, lo que habilita escenarios como la identificación de recursos que hospedan el sitio web con una simple búsqueda del nombre del sitio web.
+
+![Azure Monitor para Redes](media/insights-overview/network-insights.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre la [plataforma de datos de Azure Monitor](../platform/data-platform.md) y la información que proporciona.

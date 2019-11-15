@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d6cce859aa26935f0b6007fe8e5ff2c2239b210
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cddf2ab36b2372ce93ae8a2a6230ccb02ae30117
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109449"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721031"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Guía de instalación de Azure AD Connect y Azure AD Connect Health
 
@@ -165,7 +165,8 @@ El portal de Azure AD Connect Health muestra las vistas de alertas, la supervisi
 * **Active Directory Domain Services**: esta opción muestra todos los bosques de AD DS que Azure AD Connect Health supervisa actualmente. Cuando se selecciona un bosque, la hoja que se abre muestra información acerca de él. Esta información incluye una introducción a la información esencial, el panel de controladores de dominio, el panel de estado de replicación, alertas y supervisión. Para más información sobre las funcionalidades, consulte [Uso de Azure AD Connect Health con AD DS](how-to-connect-health-adds.md).
 * **Configurar**: esta sección incluye opciones para activar o desactivar lo siguiente:
 
-  - La entrada **Configuración** incluye configuraciones básicas de los agentes. El valor de actualización automática permite actualizar automáticamente el agente de Azure AD Connect Health a la versión más reciente: Se realizará automáticamente la actualización a las versiones más recientes del agente Azure AD Connect Health cuando estén disponibles. Esta opción está habilitada de manera predeterminada. Permitir a Microsoft acceder a los datos de mantenimiento del directorio de Azure AD con el único fin de solucionar problemas: si esta opción está habilitada, Microsoft podrá ver los mismos datos que usted. Esta información puede ayudar a solucionar problemas. Esta opción está deshabilitada de manera predeterminada.
+   - La **actualización automática** del agente de Azure AD Connect Health a la versión más reciente: el agente de Azure AD Connect Health se actualiza automáticamente cuando hay nuevas versiones disponibles. Esta opción está habilitada de manera predeterminada.
+   - El **acceso a los datos** desde la integridad de directorio de Azure AD por parte de Microsoft únicamente para solucionar problemas: si esta opción está habilitada, Microsoft puede acceder a los mismos datos que ve el usuario. Esta información puede ser útil para solucionar problemas y proporcionar la ayuda necesaria. Esta opción está deshabilitada de manera predeterminada.
 * **Control de acceso basado en roles (IAM)** es la sección para administrar el acceso a los datos de Connect Health en base a roles. 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -9,14 +9,15 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: 0908ca232ee38e2b0d461aa9f597558adc4461ef
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 272dbbbc335574456feebfb85e4c5eafd544f8d6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350522"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574289"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualización de las ejecuciones y las métricas de los experimentos con TensorBoard y Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, obtendrá información sobre cómo ver las métricas y ejecuciones de los experimentos en TensorBoard mediante [el paquete `tensorboard`](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) del SDK principal de Azure Machine Learning. Una vez que haya inspeccionado las ejecuciones de sus experimentos, puede ajustar y reentrenar mejor sus modelos de Machine Learning.
 
@@ -27,11 +28,14 @@ La forma de iniciar TensorBoard con experimentos de Azure Machine Learning depen
 
 + En el caso de los experimentos que no generan de forma nativa archivos que pueda usar TensorBoard, tales como los experimentos de Scikit-learn o Azure Machine Learning, utilice [el método `export_to_tensorboard()`](#export) para exportar los historiales de ejecución como registros de TensorBoard e iniciar TensorBoard desde allí. 
 
+> [!TIP]
+> La información de este documento va destinada principalmente a aquellos científicos de datos y desarrolladores que deseen supervisar el proceso de entrenamiento del modelo. Si es administrador y está interesado en la supervisión del uso de recursos y eventos desde Azure Machine Learning, como cuotas, ejecuciones de entrenamiento completadas o implementaciones de modelos completadas, consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Para iniciar TensorBoard y ver los historiales de ejecución de sus experimentos, sus experimentos deben haber habilitado previamente el registro para realizar un seguimiento de sus métricas y rendimiento.  
 
-* El código de este procedimiento se puede ejecutar en cualquiera de los siguientes entornos: 
+* El código de este documento se puede ejecutar en cualquiera de los siguientes entornos: 
 
     * Máquina virtual de Notebook de Azure Machine Learning: no se necesitan descargas ni instalación
 
@@ -49,7 +53,7 @@ La forma de iniciar TensorBoard con experimentos de Azure Machine Learning depen
 <a name="direct"></a>
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>Opción 1: Ver directamente el historial de ejecución en TensorBoard
 
-Esta opción funciona para los experimentos que generan de forma nativa archivos de registro que puede usar TensorBoard, como los experimentos de PyTorch, Chainer TensorFlow. Si no es así en el caso de su experimento, use [el método `export_to_tensorboard()`](#export) en su lugar.
+Esta opción funciona en experimentos que generan de forma nativa archivos de registro que puede consumir TensorBoard, como los experimentos de PyTorch, Chainer y TensorFlow. Si no es así en el caso de su experimento, use [el método `export_to_tensorboard()`](#export) en su lugar.
 
 El código de ejemplo siguiente usa el [experimento de demostración MNIST](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) del repositorio de TensorFlow en un destino de proceso remoto, Proceso de Azure Machine Learning. A continuación, entrenamos nuestro modelo con el [estimador de TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) personalizado del SDK, y, a continuación, iniciamos TensorBoard con este experimento de TensorFlow, es decir, un experimento que genera archivos de eventos de TensorBoard de forma nativa.
 
@@ -215,7 +219,7 @@ data = {
 
 ### <a name="run-experiment-and-log-metrics"></a>Ejecución del experimento y registro de las métricas
 
-Para este código, entrenamos un modelo de regresión lineal y registramos en el historial de ejecución las métricas clave, el coeficiente de alfa, `alpha` y error cuadrático medio, `mse`.
+Para este código, entrenamos un modelo de regresión lineal y registramos en el historial de ejecución las métricas clave, el coeficiente de alfa `alpha` y el error cuadrático medio`mse`.
 
 ```Python
 from tqdm import tqdm

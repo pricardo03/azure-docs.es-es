@@ -4,15 +4,16 @@ description: Preguntas más frecuentes sobre la característica Seller Insights 
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 059ec175a48cdcdec6214a6581452ec0536bf566
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b015d21005448d24d24923ba424a10a4af0d47b1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030437"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821596"
 ---
 <a name="seller-insights-faq"></a>Preguntas más frecuentes sobre Seller Insights
 ===================
@@ -53,13 +54,13 @@ Después de descargar las transacciones desde el módulo de pago, busque la colu
 <a name="view-payout-or-customer-contact-information"></a>Ver pago o información de contacto del cliente
 -------------------------------------------
 
-Inicie sesión como usuario con el rol "Propietario" y no con el rol "Colaborador". Solo el rol de propietario puede ver los pagos y la información del cliente Puede encontrar más información acerca de los roles de usuario en el artículo [Administración de usuarios](./cloud-partner-portal-manage-users.md).
+Inicie sesión como usuario con el rol "propietario" y no con el rol "colaborador". Solo el rol de propietario puede ver los pagos y la información del cliente Puede encontrar más información acerca de los roles de usuario en el artículo [Administración de usuarios](./cloud-partner-portal-manage-users.md).
 
 
 <a name="calculate-my-advance-payouts"></a>Cálculo de mi pagos por adelantado
 ----------------------------
 
-Después de descargar las transacciones desde el módulo de pago, busque la columna con la etiqueta **Transaction Type** (Tipo de transacción) y aplique el filtro para que aparezcan solo aquellas con el valor "Gasto" (Cargo). A continuación, busque la columna con la etiqueta **Final Collection Status** (Estado del cobro final) y aplique el filtro para que aparezcan solo aquellas transacciones con el estado "In Progress" (En curso). Por último, sume los valores de la columna **Payout Amount (PC)** (Importe del pago) para calcular todos los pagos por adelantado que se le han realizado antes del cobro al cliente.
+Después de descargar las transacciones desde el módulo de pago, busque la columna con la etiqueta **Transaction Type** (Tipo de transacción) y aplique el filtro para que aparezcan solo aquellas con el valor "Charge" (Cargo). Luego busque la columna con la etiqueta **Final Collection Status** (Estado del cobro final) y aplique el filtro para que aparezcan solo aquellas con el estado "In Progress" (En curso). Por último, sume los valores de la columna **Payout Amount (PC)** (Importe del pago) para calcular todos los pagos por adelantado que se le han realizado antes del cobro al cliente.
 
 
 <a name="calculate-customer-refunds"></a>Cálculo de los reembolsos a clientes
@@ -77,13 +78,13 @@ Todas las transacciones de la columna **Azure License Type** (Tipo de licencia d
 <a name="identify-trial-usage-and-trial-conversions"></a>Identificación del uso de versiones de evaluación y conversión de estas en ventas
 ------------------------------------------
 
-Las descargas de los módulos de pedidos, uso y pago contienen ahora el valor **Trial End Date** (Fecha de fin de la versión de evaluación) para ayudarle a averiguar cuándo terminó el período de evaluación para ese pedido en concreto en los casos en los que sea aplicable. Para ver los pedidos y el uso de las versiones de evaluación, busque la columna **SKU Billing Type** (Tipo de facturación de SKU) en los módulos descargados y aplique el filtro para que solo aparezcan las transacciones con el valor "Trial" (Evaluación). Para ver las conversiones de las versiones de evaluación, busque la columna **Trial End Date** (Fecha de fin de la versión de evaluación) en los módulos descargados y aplique el filtro para que solo aparezcan los pedidos en los que el valor **Trial End Date** (Fecha de fin de la versión de evaluación) es posterior a la fecha actual y en los que la columna **Cancel Date** (Fecha de cancelación) está vacía o es posterior a la fecha de **Trial End Date** (Fecha de fin de la versión de evaluación).
+Las descargas de los módulos de pedidos, uso y pago contienen ahora el valor **Trial End Date** (Fecha de fin de la versión de evaluación) para ayudarle a averiguar cuándo terminó el período de evaluación para ese pedido en concreto en los casos en los que sea aplicable. Para ver los pedidos y el uso de las versiones de evaluación, busque la columna **SKU Billing Type** (Tipo de facturación de SKU) en las descargas y aplique el filtro para que solo aparezcan las transacciones con el valor "Trial" (Evaluación). Para ver las conversiones de las versiones de evaluación, busque la columna **Trial End Date** (Fecha de fin de la versión de evaluación) en las descargas y aplique el filtro para que solo aparezcan los pedidos en los que el valor **Trial End Date** (Fecha de fin de la versión de evaluación) es posterior a la fecha actual y en los que la columna **Cancel Date** (Fecha de cancelación) está vacía o es posterior a la fecha de **Trial End Date** (Fecha de fin de la versión de evaluación).
 
 
 <a name="when-is-my-monthly-payout-calculated"></a>Cuándo se calcula mi pago mensual
 ------------------------------------
 
-Los pagos se emiten aproximadamente el 15 de cada mes por todos los importes listos para el pago el último día natural del mes anterior. El tercer día del mes, Microsoft calculará el importe del pago del mes anterior y actualizará todas las transacciones de cobro aplicables del módulo descargado con el estado "Upcoming Payout" (Próximo pago) en la columna **Payout Status** (Estado del pago). Esas transacciones permanecerán en ese estado hasta que se envíe la solicitud de pago a su cuenta bancaria, momento en el cual el valor de **Payout Status** (Estado del pago) se actualizará a "Paid Out" (Pagado) y el valor de "Payout Date" (Fecha de pago) se actualizará para que aparezca la fecha en la que se envió la solicitud de pago a su banco.
+Los pagos se emiten aproximadamente el 15 de cada mes por todos los importes listos para el pago el último día natural del mes anterior. El tercer día del mes, Microsoft calcula el importe del pago del mes anterior y actualiza todas las transacciones de cobro aplicables del módulo descargado con el estado "Upcoming Payout" (Próximo pago) en la columna **Payout Status** (Estado del pago). Esas transacciones permanecen en ese estado hasta que se envía la solicitud de pago a la cuenta bancaria, momento en el cual el valor de **Payout Status** (Estado del pago) se actualiza a "Paid Out" (Pagado) y el valor de "Payout Date" (Fecha de pago) se actualiza para que aparezca la fecha en la que se ha enviado la solicitud de pago al banco.
 
 
 <a name="calculate-customer-acquisition-and-loss"></a>Cálculo de adquisición y pérdida de clientes

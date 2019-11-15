@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: e284a0492774e02cab79db6d9006c1718a7fcfc9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e31bc4133cced793d793c07d2e0ee3df29efddb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809145"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672333"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>¿Cómo escalar SignalR Service con varias instancias?
 El SDK más reciente de SignalR Service admite varios puntos de conexión para las instancias de SignalR Service. Puede usar esta característica para escalar las conexiones simultáneas, o usarla para la mensajería entre regiones.
@@ -223,7 +223,7 @@ En los casos entre regiones, la red puede ser inestable. Para un servidor de apl
 
 ![Infraestructura entre regiones geográficas](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-Cuando un cliente intenta una acción de negociación (`/negotiate`) con el servidor de aplicaciones, con el enrutador predeterminado, el SDK **selecciona aleatoriamente** un punto de conexión del conjunto de puntos de conexión `primary` disponibles. Cuando el punto de conexión está disponible, el SDK **selecciona aleatoriamente** de todos los puntos de conexión `secondary` disponibles. El punto de conexión se marca como **disponible** cuando la conexión entre el servidor y el punto de conexión de servicio está activa.
+Cuando un cliente intenta una acción de negociación (`/negotiate`) con el servidor de aplicaciones, con el enrutador predeterminado, el SDK **selecciona aleatoriamente** un punto de conexión del conjunto de puntos de conexión `primary` disponibles. Cuando el punto de conexión principal está disponible, el SDK **selecciona aleatoriamente** de todos los puntos de conexión `secondary` disponibles. El punto de conexión se marca como **disponible** cuando la conexión entre el servidor y el punto de conexión de servicio está activa.
 
 En el escenario entre regiones, cuando un cliente intenta la acción de negociación (`/negotiate`) con el servidor de aplicaciones hospedado en *Este de EE. UU.* , siempre devuelve de forma predeterminada el punto de conexión `primary` ubicado en la misma región. Cuando no todos los puntos de conexión de *Este de EE. UU.* están disponibles, el cliente se redirige a los puntos de conexión de otras regiones. En la siguiente sección de conmutación por error se describe detalladamente el escenario.
 

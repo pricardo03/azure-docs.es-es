@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: 3805d7b39c25bcb213a1d4f110161dcd00eb3630
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: dc572d29b4e6d95525959becad0ed8069735e33c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678248"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605985"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Uso de Application Change Analysis (versión preliminar) en Azure Monitor
 
@@ -37,7 +37,7 @@ Actualmente Change Analysis se integra con la experiencia **Diagnosticar y soluc
 
 Mediante [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), Change Analysis proporciona un registro histórico de la forma en que los recursos de Azure que hospedan a la aplicación han cambiado con el tiempo. Por ejemplo, Change Analysis puede detectar cambios en las reglas de configuración de IP, las identidades administradas y las reglas de configuración de SSL. Por lo que si se agrega una etiqueta a una aplicación web, Change Analysis refleja el cambio. Esta información está disponible mientras el proveedor de recursos `Microsoft.ChangeAnalysis` está habilitado en la suscripción a Azure.
 
-### <a name="changes-in-web-app-deployment-and-configuration"></a>Cambios en la implementación y configuración de aplicaciones web
+### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Cambios en la implementación y la configuración de aplicaciones web (cambios en invitado)
 
 Change Analysis captura el estado de implementación y configuración de una aplicación cada 4 horas. Puede detectar, por ejemplo, los cambios en las variables de entorno de aplicación. La herramienta calcula las diferencias y presenta qué ha cambiado. A diferencia de los cambios de Resource Manager, es posible que la información sobre cambios en la implementación de código no esté disponible en la herramienta inmediatamente. Para ver los cambios más recientes en Change Analysis, seleccione **Scan changes now** (Examinar cambios ahora).
 
@@ -51,10 +51,32 @@ Actualmente se admiten las siguientes dependencias:
 - Azure Storage
 - Azure SQL
 
+## <a name="viewing-changes-for-all-resources-in-azure"></a>Visualización de cambios de todos los recursos en Azure
+En Azure Monitor, hay una hoja independiente para que Change Analysis vea todos los cambios en los recursos de información y dependencias de aplicaciones.
+
+Busque Change Analysis en la barra de búsqueda de Azure Portal para iniciar la hoja.
+
+![Captura de pantalla de búsqueda de Change Analysis en Azure Portal](./media/change-analysis/search-change-analysis.png)
+
+Seleccione Grupo de recursos y los recursos para empezar a ver los cambios.
+
+![Captura de pantalla de la hoja Change Analysis en Azure Portal](./media/change-analysis/change-analysis-standalone-blade.png)
+
+Puede ver recursos de información y dependencias relacionadas que hospedan la aplicación. Esta vista está diseñada de forma centrada en la aplicación para que los desarrolladores puedan solucionar los problemas.
+
+Los recursos admitidos actualmente incluyen:
+- Virtual Machines
+- Conjunto de escalado de máquinas virtuales
+- Recursos de redes de Azure
+- Aplicación web con seguimiento de archivos en invitado y cambios de variables de entorno
+
+Si tiene algún comentario, use el botón Enviar comentarios de la hoja o el correo electrónico changeanalysisteam@microsoft.com. 
+
+![Captura de pantalla del botón de comentarios de la hoja Change Analysis](./media/change-analysis/change-analysis-feedback.png)
 
 ## <a name="change-analysis-for-the-web-apps-feature"></a>Change Analysis para la característica de Web Apps
 
-En Azure Monitor, Change Analysis actualmente está integrado en la experiencia de autoservicio **Diagnosticar y solucionar problemas**. Obtenga acceso a esta experiencia desde la pagina **Información general** de la aplicación de App Service.
+En Azure Monitor, Change Analysis también está integrado en la experiencia de autoservicio **Diagnosticar y solucionar problemas**. Obtenga acceso a esta experiencia desde la pagina **Información general** de la aplicación de App Service.
 
 ![Captura de pantalla de los botones "Información general" y "Diagnosticar y solucionar problemas"](./media/change-analysis/change-analysis.png)
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: anzaman
-ms.openlocfilehash: cb5969ccb4ee9780b597326a3811395c3b7d9971
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ced1bc647f93beec73b8101a952944f31e497658
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168476"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693214"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Información sobre el enrutamiento de VPN de punto a sitio
 
@@ -32,7 +32,7 @@ Hay varios diagramas distintos en este artículo. Cada sección muestra una conf
 
 La conexión de puerta de enlace de VPN de punto a sitio en este ejemplo es para una red virtual que no está conectada ni emparejada con ninguna otra red virtual (VNet1). En este ejemplo, los clientes pueden acceder a VNet1.
 
-![enrutamiento de red virtual aislada](./media/vpn-gateway-about-point-to-site-routing/1.jpg "enrutamiento de red virtual aislada")
+![enrutamiento de red virtual aislado](./media/vpn-gateway-about-point-to-site-routing/1.jpg "enrutamiento de red virtual aislado")
 
 ### <a name="address-space"></a>Espacio de direcciones
 
@@ -86,7 +86,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Los clientes que usan Windows o cualquier otro SO compatible solo pueden acceder a VNet1. Para acceder a otras redes virtuales, se debe usar BGP.
 
-![varias redes virtuales y sitio a sitio](./media/vpn-gateway-about-point-to-site-routing/3.jpg "varias redes virtuales y sitio a sitio")
+![varias redes virtuales y S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "varias redes virtuales y S2S")
 
 ### <a name="address-space"></a>Espacio de direcciones
 
@@ -114,7 +114,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Los clientes que usan Windows o cualquier otro SO compatible pueden acceder a todas las redes virtuales que están conectadas mediante una conexión VPN de sitio a sitio, pero las rutas a las redes virtuales conectadas se deben agregar manualmente a los clientes Windows.
 
-![varias redes virtuales y sitio a sitio (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "varias redes virtuales y sitio a sitio (BGP)")
+![varias redes virtuales y S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "varias redes virtuales y S2S BGP")
 
 ### <a name="address-space"></a>Espacio de direcciones
 
@@ -168,7 +168,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Los clientes Windows pueden acceder a la red virtual y a la sucursal (Site1), pero las rutas a Site1 se deben agregar manualmente al cliente. Los clientes no Windows pueden acceder a la red virtual, así como a la sucursal local.
 
-![una red virtual con una sucursal (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "una red virtual y una sucursal")
+![una red virtual y una sucursal (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "una red virtual y una sucursal")
 
 ### <a name="address-space"></a>Espacio de direcciones
 
@@ -195,7 +195,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Todo los clientes pueden acceder solo a VNet1.
 
-![varias redes virtuales de sitio a sitio y sucursal](./media/vpn-gateway-about-point-to-site-routing/7.jpg "varias redes virtuales de sitio a sitio y sucursal")
+![varias redes virtuales S2S y una sucursal](./media/vpn-gateway-about-point-to-site-routing/7.jpg "varias redes virtuales S2S y una sucursal")
 
 ### <a name="address-space"></a>Espacio de direcciones
 
@@ -225,7 +225,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Los clientes que usan Windows pueden acceder a las redes virtuales y los sitios que están conectados mediante una conexión VPN de sitio a sitio, pero las rutas a VNet2, VNet3 y Site1 se deben agregar manualmente al cliente. Los clientes no Windows pueden acceder a las redes virtuales y los sitios que están conectados mediante una conexión VPN de sitio a sitio sin intervención manual de ningún tipo. El acceso es transitivo y los clientes pueden acceder a los recursos de todas las redes virtuales y sitios (locales) conectados.
 
-![varias redes virtuales de sitio a sitio y sucursal](./media/vpn-gateway-about-point-to-site-routing/8.jpg "varias redes virtuales de sitio a sitio y sucursal")
+![varias redes virtuales S2S y una sucursal](./media/vpn-gateway-about-point-to-site-routing/8.jpg "varias redes virtuales S2S y una sucursal")
 
 ### <a name="address-space"></a>Espacio de direcciones
 

@@ -1,5 +1,5 @@
 ---
-title: Copia de datos con Oracle como origen o destino mediante Azure Data Factory | Microsoft Docs
+title: Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 description: Aprenda a copiar datos desde almacenes de origen compatibles a una base de datos Oracle o desde Oracle a almacenes de receptor compatibles mediante Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 318014ec10bda0fa0ead9787067bb30f57707930
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: d8cbc7410f2b2bd525148cee9dc5b8ddbb756dff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008571"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680502"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -75,6 +75,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado Oracle:
 
 >[!TIP]
 >Si recibe un error, "ORA-01025: parámetro UPI fuera del intervalo" y tiene la versión 8i de Oracle, agregue `WireProtocolMode=1` a la cadena de conexión. A continuación, inténtelo de nuevo.
+
+Puede establecer más propiedades de conexión en la cadena de conexión, según su caso:
+
+| Propiedad | DESCRIPCIÓN | Valores permitidos |
+|:--- |:--- |:--- |
+| ArraySize |El número de bytes que el conector puede capturar en un solo recorrido de ida y vuelta de red. Por ejemplo, `ArraySize=‭10485760‬`.<br/><br/>Los valores mayores aumentan la capacidad de proceso al reducir el número de veces que se capturan los datos en la red. Los valores más pequeños aumentan el tiempo de respuesta, ya que hay menos retraso en la espera para que el servidor transmita datos. | Entero de 1 a 4294967296 (4 GB). El valor predeterminado es `60000`. El valor 1 no define el número de bytes, sino que indica que se asigna espacio para exactamente una fila de datos. |
 
 Para habilitar el cifrado en la conexión de Oracle, tiene dos opciones:
 

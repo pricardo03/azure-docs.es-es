@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de la información de seguridad para usar una clave de seguridad (versión preliminar): Azure Active Directory | Microsoft Docs'
+title: 'Configuración de la información de seguridad (versión preliminar) de una clave de seguridad: Azure AD'
 description: Configuración de su información de seguridad para comprobar su identidad con una clave de seguridad Fast Identity Online (FIDO2).
 services: active-directory
 author: eross-msft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47ae7de87efd787b7d3cba14a33688c4b29637e6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160713"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803789"
 ---
-# <a name="set-up-security-info-to-use-a-security-key-preview"></a>Configuración de la información de seguridad para usar una clave de seguridad (versión preliminar)
+# <a name="set-up-security-info-preview-for-a-security-key"></a>Configuración de la información de seguridad (versión preliminar) de una clave de seguridad
 
 Puede usar las claves de seguridad como un método de inicio de sesión sin contraseña dentro de su organización. Una clave de seguridad es un dispositivo físico que se usa con un PIN único para iniciar sesión en su cuenta profesional o educativa. Dado que las claves de seguridad requieren el dispositivo físico y algo que solo usted sepa, se considera un método de autenticación más seguro que un nombre de usuario y una contraseña.
 

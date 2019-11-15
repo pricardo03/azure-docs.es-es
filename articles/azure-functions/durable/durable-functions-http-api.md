@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 094ae511337556ef0c67c86f6d8692cae005430a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: ad2b1b9236f88f99542f8705372af664cc299ee0
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033962"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614821"
 ---
 # <a name="http-api-reference"></a>Referencia a las API de HTTP
 
@@ -617,7 +617,7 @@ Las respuestas para esta API no tienen contenido.
 Envía un mensaje de operación unidireccional a una [entidad duradera](durable-functions-types-features-overview.md#entity-functions). Si la entidad no existe, se creará automáticamente.
 
 > [!NOTE]
-> Las entidades duraderas están disponibles a partir de Durable Functions 2.0.
+> Las entidades durables están disponibles a partir de Durable Functions 2.0.
 
 ### <a name="request"></a>Solicitud
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 691907d1c221283f99ba59f0937cfbaf673f427a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 0ab8d8688c7856eeae7d75527620c2b77ae78029
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324533"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584156"
 ---
 # <a name="add-and-manage-lab-users"></a>Incorporación y administración de usuarios de laboratorio
 En este artículo se describe cómo agregar usuarios al laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más. 
@@ -36,6 +36,9 @@ En este artículo se describe cómo agregar usuarios al laboratorio, registrarlo
 4. Seleccione **Guardar**. Verá las direcciones de correo electrónico de los usuarios y sus estados (registrados o no) en la lista. 
 
     ![Lista de usuarios](../media/how-to-configure-student-usage/users-list-new.png)
+
+    > [!NOTE]
+    > Una vez registrados en el laboratorio, los nombres de los usuarios aparecen en la lista. El nombre que se muestra en la lista se construye con el nombre y los apellidos del usuario en Azure Active Directory. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adición de usuarios mediante la carga de un archivo CSV
 También puede agregar usuarios cargando un archivo CSV con direcciones de correo electrónico de los usuarios.
@@ -60,15 +63,16 @@ Para enviar el vínculo de registro a los alumnos, use uno de los métodos sigui
 Si el **acceso restringido** se habilita para el laboratorio, solo los usuarios de la lista de usuarios pueden usar el vínculo de registro a fin de registrarse en el laboratorio. Esta opción está habilitada de manera predeterminada. 
 
 ### <a name="invite-all-users"></a>Invitar a todos los usuarios
+1. Cambie a la vista **Users** (Usuarios) si aún no está en la página y seleccione **Invite all** (Invitar a todos) en la barra de herramientas. 
 
-1. Cambie a la página **Users** (Usuarios) del laboratorio. 
-2. Seleccione **Invite all** (Invitar a todos) en la barra de herramientas. 
-3. Escriba un **mensaje** a los usuarios. Se trata de un paso opcional.
-4. Luego, seleccione **Send** (Enviar).
+    ![Selección de alumnos](../media/tutorial-setup-classroom-lab/invite-all-button.png)
 
-    ![Invitar a todos los usuarios](../media/how-to-configure-student-usage/invite-all.png)
+1. En la página **Send invitation by email** (Enviar invitación por correo electrónico), escriba un mensaje opcional y seleccione **Send** (Enviar). El correo electrónico incluye automáticamente el vínculo de registro. Puede obtener este vínculo de registro al seleccionar **... (puntos suspensivos)** en la barra de herramientas y **Registration link** (Vínculo de registro). 
 
-    El estado de esta invitación se verá en la columna **Invitation** (Invitación) de la lista **Users** (Usuarios). El correo electrónico de invitación incluirá el vínculo de registro que los usuarios pueden usar para registrarse en el laboratorio. 
+    ![Envío del vínculo de registro por correo electrónico](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Verá el estado de la **invitación** en la lista **Users** (Usuarios). El estado debería cambiar a **Sending** (Enviando) y luego a **Sent on \<date>** (Enviado el <fecha>). 
+
+    Para obtener más información sobre la incorporación de alumnos a una clase y la administración de su uso del laboratorio, vea [Cómo configurar el uso de los alumnos](how-to-configure-student-usage.md).
 
 ### <a name="invite-selected-users"></a>Invitar a usuarios seleccionados
 
@@ -80,7 +84,7 @@ Si el **acceso restringido** se habilita para el laboratorio, solo los usuarios 
 
     ![Enviar un correo electrónico a los usuarios seleccionados](../media/how-to-configure-student-usage/send-invitation-to-selected-users.png)
 
-    El estado de esta invitación se verá en la columna **Invitation** (Invitación) de la lista **Users** (Usuarios). El correo electrónico de invitación incluirá el vínculo de registro que los usuarios pueden usar para registrarse en el laboratorio.
+    El estado de esta operación se ve en la columna **Invitation** (Invitación) de la lista **Users** (Usuarios). El correo electrónico de invitación incluye el vínculo de registro que los usuarios pueden usar para registrarse en el laboratorio.
 
 1. Cambie a la vista **Users** (Usuarios) si aún no está en la página. 
 
@@ -107,19 +111,21 @@ Seleccione **Usuarios** en el menú a la izquierda para ver la lista de usuarios
 Puede establecer cuotas por usuario mediante los pasos siguientes: 
 
 1. Seleccione **Usuarios** en el menú de la izquierda si la página todavía no está activa. 
-2. Seleccione **Quota per user (Cuota por usuario): &lt;número&gt; hours** (horas). 
+2. Seleccione **Quota per user (Cuota por usuario): \<número> hours** (horas) en la barra de herramientas. 
 3. En la página **Quota per user** (Cuota por usuario), especifique el número de horas que quiere dar a cada usuario (alumno) fuera del tiempo de clase programado y, luego, seleccione **Save** (Guardar).
 
     ![Quota per user (Cuota por usuario)](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. Consulte los valores modificados en la barra de herramientas: **Cuota por usuario: &lt;número de horas&gt;** . 
+5. Consulte los valores modificados en la barra de herramientas: **Cuota por usuario: \<número de horas**. 
 
-    ![Quota per user (Cuota por usuario): después](../media/how-to-configure-student-usage/quot-per-user-after.png)
+    ![Cuota por usuario: después](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
     > [!IMPORTANT]
     > El [tiempo de ejecución programado de las máquinas virtuales](how-to-create-schedules.md) no cuentan en la cuota asignada a un usuario. La cuota es el tiempo fuera del horario programado que un alumno pasa en las máquinas virtuales. 
 
 ## <a name="set-additional-quota-for-a-specific-user"></a>Establecer una cuota adicional para un usuario concreto
-Puede establecer una cuota aparte para un usuario. Para hacerlo, siga estos pasos:
+Puede especificar una cuota adicional para un usuario. Esta cuota se suma al conjunto de cuota común para todos los usuarios de la sección anterior. Por ejemplo, si usted (como instructor) establece la cuota de todos los usuarios en 10 horas y establece una cuota adicional de 5 horas para usuarios específicos, esos usuarios obtienen 15 (10 + 5) horas de cuota. Si cambia la cuota común más adelante a, por ejemplo, 15, el usuario obtiene 20 (15 + 5) horas de cuota. Recuerde que esta cuota general está fuera del tiempo programado. El tiempo que los alumnos invierten en una máquina virtual de laboratorio durante el tiempo programado no se cuenta para esta cuota. 
+
+Para hacerlo, siga estos pasos:
 
 1. Seleccione un usuario (alumno) de la lista de usuarios en la página **Users** (Usuarios).
 2. A continuación, seleccione **Adjust** (Ajustar) en la barra de herramientas. 
@@ -128,10 +134,42 @@ Puede establecer una cuota aparte para un usuario. Para hacerlo, siga estos paso
 3. Escriba el número de **horas adicionales** para el usuario o usuarios seleccionados y, después, seleccione **Apply** (Aplicar). 
 
     ![Cuota adicional para un usuario](../media/how-to-configure-student-usage/additional-quota.png)
-4. Verá el uso actualizado del usuario en la columna **Usage** (Uso). 
+4. Se ve el uso actualizado del usuario en la columna **Usage** (Uso). 
 
     ![Nuevo uso del usuario](../media/how-to-configure-student-usage/new-usage-hours.png)
 
+## <a name="student-accounts"></a>Cuentas de alumno
+Para agregar alumnos a un laboratorio de clase, use sus cuentas de correo electrónico. Se pueden usar los siguientes tipos de cuentas de correo electrónico:
+
+- Una cuenta de correo electrónico de alumno proporcionada por la instancia de Azure Active Directory (AAD) de Office 365 de la Universidad. 
+- Una cuenta de correo electrónico de Microsoft, como `@outlook.com`, `@hotmail.com`, `@msn.com` o `@live.com`.
+- Una cuenta de correo electrónico que no sea de Microsoft, como las proporcionadas por Yahoo o Google. Pero estos tipos de cuentas se deben vincular a una cuenta de Microsoft.
+- Una cuenta de GitHub. Esta cuenta se debe vincular a una cuenta de Microsoft.
+
+### <a name="using-a-non-microsoft-email-account"></a>Uso de una cuenta de correo electrónico que no sea de Microsoft
+Los alumnos pueden usar cuentas de correo electrónico que no sean de Microsoft para registrarse e iniciar sesión en un laboratorio de clase.  Pero el registro exige que los alumnos creen primero una cuenta de Microsoft que esté vinculada a su dirección de correo electrónico que no es de Microsoft.
+
+Es posible que muchos alumnos ya tengan una cuenta de Microsoft vinculada a sus direcciones de correo electrónico que no son de Microsoft. Por ejemplo, los alumnos ya tienen una cuenta de Microsoft si han usado su dirección de correo electrónico con otros productos o servicios de Microsoft, como Office, Skype, OneDrive o Windows.  
+
+Cuando un alumno hace clic en la dirección URL de registro para iniciar sesión en una clase, se le pide su dirección de correo electrónico y contraseña. Si el alumno intenta iniciar sesión con una cuenta que no es de Microsoft y que no tiene una cuenta de Microsoft vinculada, recibe el mensaje de error siguiente: 
+
+![Mensaje de error](../media/how-to-configure-student-usage/cant-find-account.png)
+
+Para suscribirse a una cuenta de Microsoft, los alumnos deben ir a [http://signup.live.com](http://signup.live.com).  
+
+> [!IMPORTANT]
+> Cuando los alumnos inician sesión en un laboratorio de clase, no se les ofrece la opción de crear una cuenta de Microsoft. Por tanto, se recomienda incluir este vínculo de suscripción en el correo electrónico de registro del laboratorio de clase que envíe a los alumnos que usen cuentas que no sean de Microsoft.
+
+### <a name="using-a-github-account"></a>Uso de una cuenta de GitHub
+Los alumnos también pueden usar una cuenta de GitHub existente para registrarse e iniciar sesión en un laboratorio de clase. Si el alumno ya tiene una cuenta de Microsoft vinculada a su cuenta de GitHub, puede iniciar sesión y proporcionar su contraseña como se muestra en la sección anterior. Si aún no ha vinculado su cuenta de GitHub a una cuenta de Microsoft, debe seleccionar **Opciones de inicio de sesión**:
+
+![Vínculo de opciones de inicio de sesión](../media/how-to-configure-student-usage/signin-options.png)
+
+En la página **Opciones de inicio de sesión**, seleccione **Iniciar sesión con GitHub**.
+
+![Vínculo de inicio de sesión con GitHub](../media/how-to-configure-student-usage/signin-github.png)
+
+Por último, se le pide que cree una cuenta de Microsoft que esté vinculada a su cuenta de GitHub. Sucede automáticamente cuando el alumno selecciona **Siguiente**.  Luego el alumno inicia sesión inmediatamente y se conecta al laboratorio de clase.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes:

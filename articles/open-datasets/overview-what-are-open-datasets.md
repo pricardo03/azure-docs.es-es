@@ -1,22 +1,22 @@
 ---
 title: ¿Qué son los conjuntos de datos abiertos? Conjuntos de datos públicos mantenidos
-titleSuffix: Azure Open Datasets (preview)
-description: Obtenga información sobre Azure Open Datasets (versión preliminar), conjuntos de datos mantenidos de dominio público que están listos para usar en soluciones de aprendizaje automático y de análisis. Los conjuntos de datos incluyen datos públicos, como relativos al clima, censos, días festivos y ubicación, para ayudarle a enriquecer las soluciones predictivas.
+titleSuffix: Azure Open Datasets
+description: Obtenga información sobre Azure Open Datasets, conjuntos de datos mantenidos en el dominio público como el tiempo, el censo, los días festivos y la ubicación para enriquecer soluciones predictivas.
 ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 0c4bf3143bbf1ceb2f2f3c4a22477daa03690a0e
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.date: 11/04/2019
+ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70213582"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606158"
 ---
-# <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>¿Qué es Azure Open Datasets (versión preliminar) y cómo puede usarse?
+# <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>¿Qué es Azure Open Datasets y cómo puede usarse?
 
-[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) son conjuntos de datos públicos mantenidos que puede usar para agregar características de escenarios específicos a soluciones de aprendizaje automático a fin de obtener modelos más precisos. Open Datasets se encuentra en la nube de Microsoft Azure y está disponible de inmediato para Azure Databricks, el servicio Machine Learning y Machine Learning Studio. También puede acceder a los conjuntos de datos a través de distintas API y usarlos en otros productos, como Power BI y Azure Data Factory.
+[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) son conjuntos de datos públicos mantenidos que puede usar para agregar características de escenarios específicos a soluciones de aprendizaje automático a fin de obtener modelos más precisos. Open Datasets se encuentra en la nube de Microsoft Azure y está integrado en Azure Machine Learning y disponible de inmediato para Azure Databricks y Machine Learning Studio (clásico). También puede acceder a los conjuntos de datos a través de distintas API y usarlos en otros productos, como Power BI y Azure Data Factory.
 
 Los conjuntos de datos incluyen datos de dominio público para el clima, censos, días festivos, seguridad pública y ubicación, que le ayudarán a entrenar los modelos de Machine Learning y enriquecer las soluciones predictivas. También puede compartir sus conjuntos de datos públicos en Azure Open Datasets. 
 
@@ -25,7 +25,7 @@ Los conjuntos de datos incluyen datos de dominio público para el clima, censos,
 ## <a name="curated-prepared-datasets"></a>Conjuntos de datos mantenidos, preparados
 Los conjuntos de datos públicos abiertos seleccionados en Azure Open Datasets están optimizados para su uso en los flujos de trabajo de aprendizaje automático. 
 
-En general, los científicos de datos dedican la mayor parte de su tiempo a la limpieza y preparación de los datos para análisis avanzados. Open Datasets se copia a la nube de Azure y se preprocesa para ahorrarle tiempo. Los datos se extraen de los orígenes a intervalos regulares (por ejemplo, mediante una conexión FTP a National Oceanic and Atmospheric Administration, NOAA), se analizan en un formato estructurado y, luego, se enriquecen según corresponda con características como el código postal o la ubicación de la estación meteorológica más cercana.
+En general, los científicos de datos dedican la mayor parte de su tiempo a la limpieza y preparación de los datos para análisis avanzados. Open Datasets se copia a la nube de Azure y se preprocesa para ahorrarle tiempo. A intervalos regulares, los datos se extraen de los orígenes, por ejemplo, mediante una conexión FTP a la Administración Nacional Oceánica y Atmosférica (NOAA). A continuación, los datos se analizan en un formato estructurado y, después, se enriquecen según corresponda con características como el código postal o la ubicación de la estación meteorológica más cercana.
 
 Los conjuntos de datos se hospedan conjuntamente con los procesos en la nube en Azure, lo que facilita el acceso y la manipulación.  
 
@@ -47,7 +47,7 @@ A continuación, encontrará ejemplos de conjuntos de datos disponibles.
 ## <a name="access-to-datasets"></a>Acceso a los conjuntos de datos  
 Con una cuenta de Azure, puede acceder a conjuntos de datos abiertos mediante un código o la interfaz de servicio de Azure. Los datos comparten ubicación con los recursos de proceso en la nube en Azure para su uso en una solución de aprendizaje automático.  
 
-Open Data proporciona cuadernos de Azure Notebooks y Azure Databricks que puede usar para conectar los datos a Azure Machine Learning Service y Azure Databricks. También es posible acceder a los conjuntos de datos a través de un SDK de Python. 
+Open Datasets está disponible mediante la interfaz de usuario de Azure Machine Learning y el SDK. Open Datasets proporciona cuadernos de Azure Notebooks y Azure Databricks que puede usar para conectar los datos a Azure Machine Learning y Azure Databricks. También es posible acceder a los conjuntos de datos a través de un SDK de Python. 
 
 Sin embargo, no necesita una cuenta de Azure para acceder a Open Datasets, ya que puede hacerlo desde cualquier entorno de Python, con o sin Spark.
 
@@ -57,5 +57,5 @@ Si no encuentra los datos que quiere, envíenos un correo electrónico para [sol
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Cuaderno de ejemplo](samples.md)
-* [Tutorial: Regression modeling with NY taxi data](tutorial-opendatasets-automl.md) (Tutorial: Modelado de regresión con datos de taxis de Nueva York)
+* [Tutorial: Regression modeling with NY taxi data](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context) (Tutorial: Modelado de regresión con datos de taxis de Nueva York)
 * [SDK de Python para Open Datasets](/python/api/azureml-opendatasets/?view=azure-ml-py)

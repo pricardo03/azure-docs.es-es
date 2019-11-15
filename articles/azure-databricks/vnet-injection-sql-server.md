@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: 773ffe264446e6a4d9ef2e88634e4f2c9b8aeb45
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.date: 11/07/2019
+ms.openlocfilehash: 460079248e6cbd939c36b84f94cac41dce4dda2b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273983"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747672"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Tutorial: Consulta de un contenedor de Docker de Linux para SQL Server en una red virtual mediante un cuaderno de Azure Databricks
 
@@ -42,7 +42,7 @@ En este tutorial, aprenderá a:
 
     ![Adición de una máquina virtual de Azure](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. En la pestaña **Datos básicos**, elija Ubuntu Server 16.04 LTS. Cambie el tamaño de la máquina virtual a B1ms, que tiene una vCPU y 2 GB de RAM. El requisito mínimo para un contenedor de Docker de SQL Server para Linux es de 2 GB. Elija un nombre de usuario y una contraseña de administrador.
+2. En la pestaña **Básico**, seleccione Ubuntu Server 18.04 LTS y cambie el tamaño de la máquina virtual a B2s. Elija un nombre de usuario y una contraseña de administrador.
 
     ![Pestaña Datos básicos de la configuración de la nueva máquina virtual](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
@@ -80,8 +80,7 @@ En este tutorial, aprenderá a:
 
     |Configuración|Valor sugerido|DESCRIPCIÓN|
     |-------|---------------|-----------|
-    |Source|Direcciones IP|Direcciones IP especifica que el tráfico entrante desde una dirección IP de origen específica se permitirá o denegará por esta regla.|
-    |Direcciones IP de origen|10.179.0.0/16|Escriba el intervalo de direcciones para la red virtual.|
+    |Source|Any|Origen especifica que el tráfico entrante desde una dirección IP de origen específica se permite o deniega según esta regla.|
     |Source port ranges|*|Permitir el tráfico de cualquier puerto.|
     |Destination|Direcciones IP|Direcciones IP especifica que el tráfico saliente para una dirección IP de origen específica se permitirá o denegará por esta regla.|
     |Direcciones IP de destino|<la dirección IP pública de la máquina virtual\>|Escriba la dirección IP pública de la máquina virtual. Puede encontrarla en la página **Información general** de la máquina virtual.|

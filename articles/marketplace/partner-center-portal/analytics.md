@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 593d43339961ab4576081aaa18a8d68716e40e9b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2b1d3167828f2c2c49bb22580222fbd0e54d31d8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332131"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813186"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análisis para Marketplace comercial en el Centro de partners
 
@@ -78,7 +79,7 @@ Puede ver tendencias en función del crecimiento de sus **pedidos creados** o **
 Los 50 clientes con el mayor número de pedidos se muestran en una *tabla de clasificación*, ordenados por el mayor número de pedidos y porcentaje de pedidos. 
 
 - Seleccione un cliente para ver los detalles de su perfil, los pedidos organizados por oferta o los pedidos organizados por tipo de licencia y canal de precios de Azure. 
-- El gráfico de anillos de **ofertas por pedidos** presenta las cuatro principales ofertas (por número de pedidos), y las restantes se agrupan como "Rest all" (Todo el resto).
+- El gráfico de anillos **Ofertas por pedidos** presenta las cuatro principales ofertas (por recuento de pedidos) y las restantes ofertas agrupadas como "Rest all" (Todo el resto).
 
 > [!NOTE]
 > Solo si el cliente ha dado su consentimiento, se presentará la información personal del cliente. Puede ver esta información si ha iniciado sesión con un nivel de permisos del rol **Propietario**. Los usuarios con el rol **Colaborador** no podrán ver esta información. [Obtenga más información sobre los roles y los permisos de los usuarios](./manage-account.md#define-user-roles-and-permissions).
@@ -123,7 +124,7 @@ El mapa térmico de **pedidos por geografía** muestra el recuento de los pedido
 
 El gráfico de anillos **Pedidos activos por ofertas** organiza todos los pedidos activos según sus nombres de oferta.
 
-- Las cuatro ofertas principales se muestran en el gráfico y el resto se agrupan como "Rest all" (Todas las demás).
+- Las cuatro ofertas principales se muestran en el gráfico y el resto se agrupan como "Rest all" (Todo el resto).
 - Puede seleccionar las ofertas específicas de la leyenda para mostrar solo esas ofertas en el gráfico. 
 - Al mantener el puntero sobre un sector del gráfico aparecerá el número de pedidos y el porcentaje de esa oferta en comparación con el número total de pedidos de todas las demás ofertas.
 - La **tendencia de pedidos por ofertas** muestra las tendencias de crecimiento mes a mes. La columna de mes representa el número de pedidos por nombre de la oferta. El gráfico de líneas muestra la tendencia del porcentaje de crecimiento trazada en un eje z.
@@ -239,23 +240,23 @@ Recibirá una notificación emergente y un correo con un vínculo al panel **Des
 | Tipo de licencia de Azure: Proveedor de soluciones en la nube | Cliente, pedido | El cliente final adquiere Azure y su oferta de Marketplace a través de su proveedor de soluciones en la nube, que actúa como su revendedor.|
 | Tipo de licencia de Azure: Enterprise | Cliente, pedido | El cliente final adquiere Azure y su oferta de Marketplace a través de un contrato Enterprise, firmado directamente con Microsoft.|
 | Tipo de licencia de Azure: Enterprise a través de revendedor  | Cliente, pedido | El cliente final adquiere Azure y su oferta de Marketplace a través de un revendedor que le facilita el contrato Enterprise con Microsoft.|  |
-| Tipo de licencia de Azure: Pago por uso| Cliente, pedido | El cliente final adquiere Azure y su oferta de Marketplace a través de un contrato de pago por uso, firmado directamente con Microsoft.||
+| Tipo de licencia de Azure: Pago por uso| Cliente, pedido | El cliente final adquiere Azure y la oferta de Marketplace a través de un contrato de pago por uso firmado directamente con Microsoft.||
 | Nombre de la instancia de nube| Orden| Microsoft Cloud donde se produjo la implementación de una VM.||
 | Nombre de la instancia en la nube: Azure Global| Orden| Nube pública global de Microsoft.|| |
 | Nombre de la instancia en la nube: Azure Government | Orden| Nubes de Microsoft específicas de la Administración Pública para una de las administraciones siguientes: China, Alemania o Estados Unidos de América.| |
-| Ciudad del cliente| Cliente| Nombre de ciudad proporcionado por el cliente. Podría ser diferente de la ciudad de la suscripción a Azure del cliente.||
+| Ciudad del cliente| Cliente| Nombre de ciudad proporcionado por el cliente. La ciudad podría ser diferente de la ciudad de la suscripción a Azure del cliente.||
 | Customer Communication Language (Idioma de comunicación del cliente)  | Cliente| Idioma preferido por el cliente para la comunicación.||
-| Customer Company Name (Nombre de la empresa del cliente) | Cliente, pedido | Nombre de empresa proporcionado por el cliente. Podría ser diferente de la ciudad de la suscripción a Azure del cliente.|  |
-| Customer Country (País del cliente) | Cliente, pedido | Nombre de país proporcionado por el cliente. Podría ser diferente del país de la suscripción a Azure del cliente.|  |
-| Customer Email (Correo electrónico del cliente)| Cliente| Dirección de correo electrónico proporcionada por el cliente final. Podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente.||
-| Customer First Name (Nombre del cliente)| Cliente| Nombre proporcionado por el cliente. Podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente.| |
+| Customer Company Name (Nombre de la empresa del cliente) | Cliente, pedido | Nombre de empresa proporcionado por el cliente. El nombre podría ser diferente de la ciudad de la suscripción a Azure del cliente.|  |
+| Customer Country (País del cliente) | Cliente, pedido | Nombre de país proporcionado por el cliente. El país podría ser diferente del país de la suscripción a Azure del cliente.|  |
+| Customer Email (Correo electrónico del cliente)| Cliente| Dirección de correo electrónico proporcionada por el cliente final. El correo electrónico podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente.||
+| Customer First Name (Nombre del cliente)| Cliente| Nombre proporcionado por el cliente. El nombre podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente.| |
 | Identificador de cliente | Cliente, pedido | Identificador único asignado a un cliente. Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias.|  |
-| Customer Postal Code (Código postal del cliente)  | Cliente| Código postal proporcionado por el cliente. Podría ser diferente del código postal proporcionado en la suscripción a Azure del cliente.| |
-| Customer State (Estado del cliente)| Cliente| Estado (dirección) proporcionado por el cliente. Podría ser diferente del estado proporcionado en la suscripción a Azure del cliente.| |
+| Customer Postal Code (Código postal del cliente)  | Cliente| Código postal proporcionado por el cliente. El código podría ser diferente del código postal proporcionado en la suscripción a Azure del cliente.| |
+| Customer State (Estado del cliente)| Cliente| Estado (dirección) proporcionado por el cliente. El estado podría ser diferente del estado proporcionado en la suscripción a Azure del cliente.| |
 | Date Acquired (Fecha de adquisición)| Cliente| Primera fecha en que el cliente adquirió cualquier oferta publicada por usted.| |
 | Date Lost (Fecha de pérdida)| Cliente| Última fecha en que el cliente canceló la última de todas las ofertas que había comprado anteriormente.||
-| Cliente nuevo  | Orden| El valor identificará a un nuevo cliente que adquiere una o varias de sus ofertas por primera vez (o no). El valor será "Sí" si es el mismo mes natural de la "Fecha de adquisición". El valor será "No" si el cliente ha comprado cualquiera de las ofertas antes del mes natural notificado. |
-| Versión preliminar de SKU| Orden| El valor le permitirá saber si ha etiquetado la SKU como "versión preliminar". El valor será "Sí" si la SKU se ha etiquetado en consecuencia, y solo las suscripciones de Azure autorizadas por usted pueden implementar y usar esta imagen. El valor será "No" si la SKU no se ha identificado como "versión preliminar".  |
+| Cliente nuevo  | Orden| El valor identificará a un nuevo cliente que adquiere una o varias de sus ofertas por primera vez (o no). El valor es "Sí" si es el mismo mes natural de la "Fecha de adquisición". El valor es "No" si el cliente ha comprado cualquiera de las ofertas antes del mes natural notificado. |
+| Versión preliminar de SKU| Orden| El valor le permitirá saber si ha etiquetado la SKU como "versión preliminar". El valor es "Sí" si la SKU se ha etiquetado en consecuencia y solo las suscripciones de Azure autorizadas por usted pueden implementar y usar esta imagen. El valor es "No" si la SKU no se ha identificado como "versión preliminar".  |
 | Participación de contacto promocional| Cliente| El valor le permitirá saber si el cliente ha optado de manera proactiva por el contacto promocional de los anunciantes. En este momento, no presentamos la opción a los clientes, por lo que hemos indicado "No" de forma general. Una vez implementada esta característica, comenzaremos a actualizarla en consecuencia.|
 | Marketplace License Type (Tipo de licencia de Marketplace)| Orden| Método de facturación de la oferta de Marketplace.||
 | Tipo de licencia de Marketplace: Facturado a través de Azure| Orden| Microsoft es su agente para esta oferta de Marketplace y factura a los clientes en su nombre. (Tarjeta de crédito de pago por uso o factura de Enterprise)||

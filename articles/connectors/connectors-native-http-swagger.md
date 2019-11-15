@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: f0410ed7a98e4838e41407868cf26b5254811ae3
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541704"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824817"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Llamada a puntos de conexión REST mediante Azure Logic Apps
 
@@ -25,7 +25,7 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector integ
 
 * Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* URL del archivo de Swagger que describe el punto de conexión REST de destino.
+* La dirección URL del archivo de Swagger (no OpenAPI) que describe el punto de conexión REST de destino.
 
   Normalmente, el punto de conexión REST debe cumplir estos criterios para que el conector funcione:
 
@@ -71,7 +71,7 @@ Este desencadenador integrado envía una solicitud HTTP a una URL de un archivo 
 
 1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
 
-   Para obtener más información sobre los tipos de autenticación disponibles para HTTP + Swagger, consulte [Autenticación de acciones y desencadenadores HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Para obtener más información sobre los tipos de autenticación disponibles para HTTP + Swagger, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continúe creando el flujo de trabajo de la aplicación lógica con acciones que se ejecuten cuando se activa el desencadenador.
 
@@ -111,7 +111,7 @@ Esta acción integrada crea una solicitud HTTP a la URL del archivo de Swagger q
 
 1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
 
-   Para obtener más información sobre los tipos de autenticación disponibles para HTTP + Swagger, consulte [Autenticación de acciones y desencadenadores HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Para obtener más información sobre los tipos de autenticación disponibles para HTTP + Swagger, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Guardar**.
 
@@ -150,8 +150,8 @@ Aquí tiene más información sobre los resultados de una acción o un desencade
 
 | Nombre de propiedad | type | DESCRIPCIÓN |
 |---------------|------|-------------|
-| headers | objeto | Encabezados de la solicitud |
-| body | objeto | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
+| headers | object | Encabezados de la solicitud |
+| body | object | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
 | status code | int | Código de estado de la solicitud |
 |||
 

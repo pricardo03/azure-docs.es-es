@@ -1,5 +1,5 @@
 ---
-title: Conjuntos de datos públicos para el análisis de Azure | Microsoft Docs
+title: Conjuntos de datos públicos para los análisis de Azure
 description: Obtenga información acerca de los conjuntos de datos públicos que puede usar para crear prototipos y probar soluciones y servicios de análisis de Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: a16f6d6b0bf8600270fdf4e00cfa379ee4422fd0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566996"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821279"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de datos públicos para pruebas y prototipos
 
@@ -42,7 +42,7 @@ Consulte la siguiente lista de conjuntos de datos públicos que puede usar para 
 | [Datos de los taxi de la ciudad de Nueva York](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Los registros de las carreras de los taxis incluyen campos que recopilan las fechas y horas de inicio y fin, así como las ubicaciones de recogida y destino, las distancias de las carreras, las tarifas desglosadas, los tipos de tarifa, los tipos de pago y los recuentos de pasajeros notificados por el conductor". | Los conjuntos de datos se encuentran en archivos CSV por mes. |
 | [Conjuntos de datos de Microsoft Research: "Ciencia de datos para la investigación"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Diversos conjuntos de datos que cubren la interacción de personas y equipos informáticos, audio y vídeo, recuperación de información y minería de datos, geoespacial y ubicación, procesamiento del lenguaje natural y visión robótica e informática. | Los conjuntos de datos se encuentran en diversos formatos, comprimidos para su descarga. |
 | [Datos públicos del genoma](https://www.completegenomics.com/public-data/) | "Hay un diverso conjunto de datos de todos los genomas humanos disponible para uso público con el fin de mejorar los estudios del genoma..." El proveedor, Complete Genomics, es una empresa privada con ánimo de lucro. | Los conjuntos de datos, después de la extracción, están en formato de texto de UNIX. También hay herramientas de análisis disponibles. |
-| [Datos de la nube de datos científicos abiertos](https://www.opensciencedatacloud.org/) | "La nube de datos científicos abiertos (Open Science Data Cloud) proporciona a la comunidad científica recursos para almacenar, compartir y analizar terabytes y petabytes de conjuntos de datos científicos".| Los conjuntos de datos están en distintos formatos. |
+| [Datos de la nube de datos científicos abiertos](https://www.opensciencedatacloud.org/projects/) | "La nube de datos científicos abiertos (Open Science Data Cloud) proporciona a la comunidad científica recursos para almacenar, compartir y analizar terabytes y petabytes de conjuntos de datos científicos".| Los conjuntos de datos están en distintos formatos. |
 | [Datos globales sobre el clima: WorldClim](https://worldclim.org/) | "WorldClim es un conjunto de capas climáticas mundiales (datos sobre el clima en una cuadrícula) con una resolución espacial de aproximadamente 1 km2. Estos datos se pueden usar para la asignación y el modelado espacial". | Estos archivos contienen datos geoespaciales. Para más información, consulte [Data format](https://worldclim.org/formats1) (Formato de los datos). |
 | [Datos sobre la sociedad humana: el proyecto GDELT](https://www.gdeltproject.org/data.html) | "El proyecto GDELT es la base de datos abierta más grande, completa y de más alta resolución jamás creada por la sociedad humana". | Los archivos de datos sin procesar están en formato CSV. |
 | [Datos de predicción de clics en anuncios para el aprendizaje automático a partir de Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "El mayor conjunto de datos de aprendizaje automático jamás publicado". Para más información, consulte el artículo sobre [el conjunto de predicción de clics de 1 TB de Criteo](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |

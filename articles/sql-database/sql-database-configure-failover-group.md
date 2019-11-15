@@ -1,5 +1,5 @@
 ---
-title: Configuración de un grupo de conmutación por error para Azure SQL Database
+title: Configuración de un grupo de conmutación por error
 description: Aprenda a configurar un grupo de conmutación por error automática para una base de datos única Azure SQL Database, un grupo elástico y una instancia administrada mediante Azure Portal, la CLI de Azure y PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 9206fd264854cd9e5d8e46473dd60b05a3362fdd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71328710"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827152"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configuración de un grupo de conmutación por error para Azure SQL Database
 
@@ -484,20 +484,24 @@ La clave compartida usada para ambas conexiones debe ser la misma para cada cone
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Cree conexiones entre las dos puertas de enlace mediante Azure Portal. 
 
-1. Navegue hasta el grupo de recursos en [Azure Portal](https://portal.azure.com) y seleccione la puerta de enlace principal que creó en el paso 4. 
-1. Seleccione **Conexiones** en **Configuración** y luego **Agregar** para crear una nueva conexión. 
+1. Seleccione **Crear un recurso** en [Azure Portal](https://portal.azure.com).
+1. Escriba `connection` en el cuadro de búsqueda y, después, presione Entrar para buscar. Esto lo llevará al recurso **Conexión**, publicado por Microsoft.
+1. Seleccione **Crear** para crear su conexión. 
+1. En la pestaña **Aspectos básicos**, seleccione los siguientes valores y luego seleccione **Aceptar**. 
+    1. Seleccione `VNet-to-VNet` para el **tipo de conexión**. 
+    1. Seleccione la suscripción en la lista desplegable. 
+    1. Seleccione el grupo de recursos de la instancia administrada en la lista desplegable. 
+    1. Seleccione la ubicación de la instancia administrada principal en la lista desplegable. 
+1. En la pestaña **Configuración**, seleccione o escriba los valores siguientes y, después, seleccione **Aceptar**:
+    1. Elija la puerta de enlace de red principal para la **Primera puerta enlace de red virtual**, como `Primary-Gateway`.  
+    1. Elija la puerta de enlace de red secundaria para la **Segunda puerta enlace de red virtual**, como `Secondary-Gateway`. 
+    1. Active la casilla situada junto a **Establecer conectividad bidireccional**. 
+    1. Deje el nombre de la conexión principal predeterminado o cambie su nombre por un valor de su elección. 
+    1. Proporcione una **clave compartida (PSK)** para la conexión, como `mi1m2psk`. 
 
-   ![Adición de una conexión a la puerta de enlace principal](media/sql-database-managed-instance-failover-group-tutorial/add-primary-gateway-connection.png)
+   ![Crear una conexión de la puerta de enlace](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
 
-1. Escriba un nombre para la conexión y escriba un valor para la **clave compartida**. 
-1. Seleccione la **segunda puerta de enlace de red virtual** y, a continuación, seleccione la puerta de enlace para la instancia administrada secundaria. 
-
-   ![Creación de la conexión principal a secundaria](media/sql-database-managed-instance-failover-group-tutorial/create-primary-to-secondary-connection.png)
-
-1. Seleccione **Aceptar** para agregar la nueva conexión de la puerta de enlace principal a la secundaria.
-1. Repita estos pasos para crear una conexión desde la puerta de enlace de la instancia administrada secundaria a la puerta de enlace de la instancia administrada principal. 
-
-   ![Creación de la conexión secundaria a principal](media/sql-database-managed-instance-failover-group-tutorial/create-secondary-to-primary-connection.png)
+1. En la pestaña **Resumen**, revise la configuración de la conexión bidireccional y, después, seleccione **Aceptar** para crear la conexión. 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

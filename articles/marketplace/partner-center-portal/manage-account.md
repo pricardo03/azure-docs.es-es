@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2962f6c5032ba317f9eb8f10c2abddb566aad904
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259189"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825519"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de Marketplace comercial en el Centro de partners 
 
@@ -38,7 +39,7 @@ En este artículo, se analizará en profundidad cómo administrar su cuenta del 
 Si aún no lo ha hecho, usted (o el administrador de la organización) deben acceder a la [configuración de la cuenta](https://partner.microsoft.com/dashboard/account/management) del Centro de partners para:
 - verificar el estado de comprobación de la cuenta de su empresa
 - confirmar el identificador del vendedor, del MPN, del editor y la información de contacto, incluidos los datos de contacto del aprobador de la empresa y del vendedor
-- configurar los detalles financieros de su empresa, incluidas las exenciones fiscales si procede
+- configurar los detalles financieros de la empresa, incluidas las exenciones fiscales si procede
 - crear las cuentas de usuario de todos los que utilizarán su cuenta empresarial en el Centro de partners
 
 ### <a name="open-developer-settings"></a>Abrir configuración de desarrollador
@@ -113,11 +114,11 @@ Si reside fuera de Estados Unidos, puede aprovechar los beneficios por tratados 
 
 #### <a name="payout-hold-status"></a>Estado de retención de pagos
 
-De forma predeterminada, Microsoft envía los pagos mensualmente. No obstante, tiene la opción de poner sus pagos en espera, lo que impediría que se envíen pagos a su cuenta. Si decide poner los pagos en espera, seguiremos registrando los ingresos que gane y le proporcionaremos los detalles en su **Resumen de pagos**. Sin embargo, no enviaremos ningún pago a la cuenta hasta que quite la suspensión. 
+De forma predeterminada, Microsoft envía los pagos mensualmente. No obstante, tiene la opción de poner sus pagos en espera, lo que impediría que se envíen pagos a su cuenta. Si decide retener los pagos, se siguen registrando los ingresos que genera y se le proporcionan los detalles en el **Resumen de pagos**. Pero no se le envía ningún pago a la cuenta hasta que quite la retención. 
 
-Para poner los pagos en espera, vaya a **Configuración de la cuenta**. En **Detalles financieros**, en la sección **Estado de retención de pagos**, seleccione **Activado** en el control deslizante. Puede cambiar el estado de retención de pagos en cualquier momento, pero tenga en cuenta que su decisión afectará a su próximo pago mensual. Por ejemplo, si desea retener los pagos de abril, asegúrese de establecer el estado de retención de pagos en **Activado** antes del final de marzo.
+Para poner los pagos en espera, vaya a **Configuración de la cuenta**. En **Detalles financieros**, en la sección **Estado de retención de pagos**, seleccione **Activado** en el control deslizante. Puede cambiar el estado de retención de pagos en cualquier momento, pero tenga en cuenta que su decisión afectará a su próximo pago mensual. Por ejemplo, si quiere retener los pagos de abril, asegúrese de establecer el estado de retención de pagos en **Activado** antes del final de marzo.
 
-Una vez que haya establecido el estado de la retención de pagos en **Activado**, todos los pagos se pondrán en espera hasta que desplace el control deslizante de nuevo a **Desactivado**. Cuando lo haya hecho, se le incluirá en el siguiente ciclo de pago mensual (siempre que se hayan cumplido los umbrales de pago aplicables). Por ejemplo, si ha tenido sus pagos en espera, pero le gustaría que se generara un pago en junio, deberá asegurarse de mover el control deslizante con el estado de retención de pagos a **Desactivado** antes de finales de mayo.
+Una vez que haya establecido el estado de la retención de pagos en **Activado**, todos los pagos se pondrán en espera hasta que desplace el control deslizante de nuevo a **Desactivado**. Una vez hecho esto, se le incluye en el siguiente ciclo de pago mensual (siempre que se hayan cumplido los umbrales de pago aplicables). Por ejemplo, si ha retenido los pagos pero quiere que se genere un pago en junio, asegúrese de alternar el estado de retención de pagos a **Desactivado** antes de finales de mayo.
 
 > [!NOTE]
 > La selección del **Estado de retención de pagos** se aplica a **todas** las fuentes de ingresos que se pagan a través del Centro de partners de Microsoft, incluidos Azure Marketplace, AppSource, Microsoft Store, publicidad, etc). No puede seleccionar estados de retención de pagos diferentes para cada fuente de ingresos.
@@ -339,7 +340,7 @@ Para crear un nuevo inquilino de Azure AD con la cuenta del Centro de partners:
 
 1.  En la página **Inquilinos**, (en **Configuración de la cuenta**), seleccione **Create a new Azure AD tenant** (Crear un nuevo inquilino de Azure AD).
 2. Escriba la información del directorio para la nueva instancia de Azure AD:
-    - **Nombre de dominio**: el nombre único que vamos a usar para el dominio de Azure AD, junto con ".onmicrosoft.com". Por ejemplo, si escribió "ejemplo", el dominio de AD Azure sería "ejemplo.onmicrosoft.com".
+    - **Nombre de dominio**: nombre único que se va a usar para el dominio de Azure AD, junto con ".onmicrosoft.com". Por ejemplo, si ha escrito "ejemplo", el dominio de Azure AD sería "ejemplo.onmicrosoft.com".
     - **Dirección de correo electrónico de contacto**: una dirección de correo electrónico para ponernos en contacto con información sobre la cuenta si es necesario.
     - **Información de la cuenta de usuario del administrador global**: nombre, apellidos, nombre de usuario y contraseña que desea utilizar para la nueva cuenta de administrador global.
 3. Seleccione **Crear** para confirmar la nueva información de dominio y de cuenta.
@@ -349,12 +350,12 @@ Para más información sobre la creación de nuevos inquilinos en Azure Portal, 
 
 ### <a name="remove-a-tenant"></a>Eliminación de un inquilino
 
-Para eliminar un inquilino de su cuenta del Centro de partners, busque su nombre en la página **Inquilinos** (en **Configuración de la cuenta**) y, a continuación, seleccione **Eliminar**. Se le pedirá que confirme que desea eliminar el inquilino. Una vez hecho esto, ningún usuario de ese inquilino podrá iniciar sesión en la cuenta del Centro de partners y se eliminarán los permisos que haya configurado para esos usuarios.
+Para eliminar un inquilino de su cuenta del Centro de partners, busque su nombre en la página **Inquilinos** (en **Configuración de la cuenta**) y, a continuación, seleccione **Eliminar**. Se le pide que confirme que quiere eliminar el inquilino. Una vez hecho esto, ningún usuario de ese inquilino podrá iniciar sesión en la cuenta del Centro de partners y se eliminarán los permisos que haya configurado para esos usuarios.
 
 Cuando se elimina un inquilino, todos los usuarios que se agregaron a la cuenta del Centro de partners de ese inquilino ya no podrán iniciar sesión en la cuenta.
 
 > [!TIP]
-> No se puede eliminar un inquilino si ha iniciado sesión en el Centro de partners con una cuenta de ese mismo inquilino. Para eliminar un inquilino, debe iniciar sesión en el Centro de partners como **Administrador** de otro inquilino que esté asociado con la cuenta. Si solo hay un inquilino asociado con la cuenta, ese inquilino solo se podrá eliminar después de iniciar sesión con la cuenta Microsoft que abrió la cuenta.
+> No se puede eliminar un inquilino si se ha iniciado sesión en el Centro de partners con una cuenta del mismo inquilino. Para eliminar un inquilino, debe iniciar sesión en el Centro de partners como **Administrador** de otro inquilino que esté asociado con la cuenta. Si solo hay un inquilino asociado con la cuenta, ese inquilino solo se podrá eliminar después de iniciar sesión con la cuenta Microsoft que abrió la cuenta.
 
 
 ## <a name="agreements"></a>Contratos

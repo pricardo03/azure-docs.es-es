@@ -1,7 +1,7 @@
 ---
 title: 'Creación de un modelo de inquilino (versión preliminar): servicio Voz'
 titleSuffix: Azure Cognitive Services
-description: Genere automáticamente un modelo de voz personalizado que aproveche los datos de Office 365 para ofrecer un reconocimiento de voz óptimo para términos específicos de una organización que sea seguro y compatible.
+description: Genere automáticamente un modelo de inquilino (Custom Speech con datos de Office 365) que aproveche los datos de Office 365 para ofrecer un reconocimiento de voz óptimo para términos específicos de una organización y que sea seguro y compatible.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: 85b9291ee24c024ebc8ce81ddba46d04f7744081
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c8a2855ce9cd320be3aea8b3b4a05f3b3eb39976
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504599"
+ms.locfileid: "73578214"
 ---
 # <a name="create-a-tenant-model-preview"></a>Creación de un modelo de inquilino (versión preliminar)
 
-El modelo de inquilino es un servicio de participación para clientes empresariales de Office 365 que genera automáticamente un modelo de reconocimiento de voz personalizado a partir de los datos de Office 365 de su organización. El modelo creado está optimizado para términos técnicos, jerga y nombres de personas, todo de un modo seguro y compatible.
+El modelo de inquilino (Custom Speech con datos de Office 365) es un servicio de participación para clientes de Office 365 Enterprise que genera automáticamente un modelo de reconocimiento de voz personalizado a partir de los datos de Office 365 de su organización. El modelo creado está optimizado para términos técnicos, jerga y nombres de personas, todo de un modo seguro y compatible.
 
 > [!IMPORTANT]
-> Si su organización se inscribe con el modelo de inquilino, el servicio Voz podrá acceder al modelo de lenguaje de su organización que generan los recursos de Office 365 como, por ejemplo, correos electrónicos y documentos. El administrador de Office 365 de su organización puede activar o desactivar el uso del modelo de lenguaje de toda la organización mediante el portal de administración de Office 365.
+> Si su organización se inscribe con el modelo de inquilino, el servicio Voz podrá acceder al modelo de lenguaje de su organización, que se genera a partir de los correos electrónicos y los documentos de grupo públicos de Office 365 que pueden ver todos los miembros de la organización. El administrador de Office 365 de la organización puede activar o desactivar el uso del modelo de lenguaje de toda la organización mediante el portal de administración de Office 365.
 
 En este tutorial, aprenderá a:
 
@@ -33,8 +33,6 @@ En este tutorial, aprenderá a:
 > * Implementar un modelo de inquilino
 > * Usar un modelo de inquilino con el SDK de Voz
 
-![Diagrama del modelo de inquilino](media/tenant-language-model/tenant-language-model-diagram.png)
-
 ## <a name="enroll-using-the-microsoft-365-admin-center"></a>Inscripción mediante el centro de administración de Microsoft 365
 
 Antes de implementar el modelo de inquilino, primero debe inscribirse mediante el centro de administración de Microsoft 365. Esta tarea solo la puede realizar el administrador de Microsoft 365.
@@ -42,11 +40,11 @@ Antes de implementar el modelo de inquilino, primero debe inscribirse mediante e
 1. Inicie sesión en el [centro de administración de Microsoft 365](https://admin.microsoft.com ).
 2. En el panel izquierdo, seleccione **Configuración** y, a continuación, **Aplicaciones**.
 
-   ![Diagrama del modelo de inquilino](media/tenant-language-model/tenant-language-model-enrollment.png)
+   ![Inscripción en el modelo de inquilino](media/tenant-language-model/tenant-language-model-enrollment.png)
 
 3. Busque y seleccione **Servicios de Voz de Azure**.
 
-   ![Diagrama del modelo de inquilino](media/tenant-language-model/tenant-language-model-enrollment-2.png)
+   ![Inscripción en el modelo de inquilino 2](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
 4. Haga clic en la casilla y guarde.
 
@@ -77,9 +75,10 @@ Una vez que el administrador haya habilitado el modelo de inquilino para su orga
 
 3. En este momento, verá un mensaje que le informa si está cualificado para crear un modelo de inquilino.
    > [!NOTE]
-   > Los clientes empresariales de Office 365 en Norteamérica son aptos para crear un modelo de inquilino (inglés). Si es un cliente de Caja de seguridad del cliente (CLB) o de Clave de cliente (CK), esta característica no estará disponible. Para averiguarlo, siga estas instrucciones:
+   > Los clientes empresariales de Office 365 en Norteamérica son aptos para crear un modelo de inquilino (inglés). Si es un cliente de Caja de seguridad del cliente (CLB), Clave de cliente (CK) u Office 365 Administración Pública, esta característica no está disponible. Para averiguarlo, siga estas instrucciones:
    > * [Caja de seguridad del cliente](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [Clave de cliente](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Office 365 Administración Pública](https://www.microsoft.com/microsoft-365/government)
 
 4. A continuación, seleccione **Optar por recibir**. Recibirá un correo electrónico con instrucciones cuando el modelo de inquilino esté listo.
 

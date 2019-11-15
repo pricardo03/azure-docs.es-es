@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/04/2019
-ms.openlocfilehash: 1fb16f6ef58efc5c63e743e557558dc60cf52f86
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/06/2019
+ms.openlocfilehash: 178c60d82c8337987e9858a409fcdef7063c9559
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510717"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684916"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Machine Learning
 
@@ -54,7 +54,7 @@ En la tabla siguiente se enumeran las propiedades de los registros de recursos d
 | JobErrorMessage | mensaje detallado de error de trabajo |
 | NodeId | Id. del nodo creado en el que se está ejecutando el trabajo |
 
-### <a name="amlcomputerclusterevents-table"></a>AmlComputerClusterEvents table
+### <a name="amlcomputeclusterevents-table"></a>Tabla AmlComputeClusterEvents
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |

@@ -1,5 +1,5 @@
 ---
-title: 'Creación de un grupo host de Windows Virtual Desktop con Azure Marketplace: Azure'
+title: 'Grupo host de Windows Virtual Desktop en Azure Marketplace: Azure'
 description: Creación de un grupo host de Windows Virtual Desktop con Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: f5b40e59a4ed2393e3b9912f8e4caa06ee267428
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: e5be2490ebf756c030e6a53b226f91c49c7bccaf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757520"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605580"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Creación de un grupo host con Azure Marketplace
 
@@ -40,7 +40,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 Para ejecutar la oferta de Azure Marketplace para aprovisionar un nuevo grupo de hosts:
 
-1. Seleccione **+** o **+ Crear un recurso**.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
 2. Escriba **Windows Virtual Desktop** en la ventana de búsqueda de Marketplace.
 3. Seleccione **Windows Virtual Desktop - Provision a host pool** (Windows Virtual Desktop: aprovisionar un grupo de hosts) y seleccione **Crear**.
 
@@ -73,7 +73,9 @@ En la hoja **Configuración de las máquinas virtuales**:
 En la hoja **Configuración de la máquina virtual**:
 
 >[!NOTE]
-> Si va a unir sus máquinas virtuales a un entorno de Azure Active Directory Domain Services (Azure AD DS), asegúrese de que su usuario de unión a un dominio también es miembro del [grupo de administradores del controlador de dominio de AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+> Si va a unir las máquinas virtuales a un entorno de Azure Active Directory Domain Services (Azure AD DS), asegúrese de que el usuario de unión a un dominio es miembro del [grupo de administradores del controlador de dominio de AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+>
+> La cuenta también debe formar parte del dominio administrado de Azure AD DS o del inquilino de Azure AD, ya que las cuentas de directorios externos asociadas al inquilino de Azure AD no se pueden autenticar correctamente durante el proceso de unión al dominio. 
 
 1. En **Origen de la imagen**, seleccione el origen y escriba la información adecuada para encontrarla y almacenarla. Si decide no usar discos administrados, seleccione la cuenta de almacenamiento que contiene el archivo .vhd.
 2. Escriba el nombre principal de usuario y la contraseña de la cuenta de dominio que unirá las máquinas virtuales al dominio de Active Directory. Este mismo nombre de usuario y contraseña se creará en las máquinas virtuales como una cuenta local. Puede restablecer estas cuentas locales más adelante.

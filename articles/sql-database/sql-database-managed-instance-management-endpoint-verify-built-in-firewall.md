@@ -1,5 +1,5 @@
 ---
-title: Detectar firewall integrado de Instancia administrada de Azure SQL Database| Microsoft Docs
+title: Detección del firewall integrado de la instancia administrada
 description: Aprenda a comprobar la protección de firewall integrado en Instancia administrada de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: c98b0fd5669140559b4840e157394c2e8c6086ae
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 555ef56aafa37a1e1d384f945b04f9237adc5f7d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567442"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821812"
 ---
 # <a name="verifying-the-managed-instance-built-in-firewall"></a>Comprobación del firewall integrado de Instancia administrada
 

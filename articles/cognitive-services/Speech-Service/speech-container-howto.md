@@ -8,47 +8,52 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: dbd4f2cd4691f9ae6d8e37f38d2b600ec4897e45
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: efb2fd8fd6b77a27130b834c2b192c1e88eec97c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326699"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73578398"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalación y ejecución de contenedores de servicio de Voz
 
-Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para aprovechar las sólidas capacidades de la nube y la localidad del perímetro. 
+Los contenedores le permiten ejecutar algunas de las API de servicio de Voz en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar un contenedor de Voz.
 
-Los dos contenedores de voz son **conversión de voz en texto** y **conversión de texto en voz**. 
+Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para las sólidas funcionalidades de la nube y la localidad del perímetro. Hay cuatro contenedores distintos disponibles. Los dos contenedores estándar son **conversión de voz a texto** y **conversión de texto a voz**. Los dos contenedores personalizados son **conversión de voz a texto personalizada** y **conversión de texto a voz personalizada**.
 
-|Función|Características|Más reciente|
-|-|-|--|
-|Voz a texto| <li>Transcribe registros continuos de voz en tiempo real o de audio por lotes a texto con resultados intermedios.|1.2.0|
-|Text-to-Speech| <li>Convierte el texto a una voz que parece natural. Con la entrada de texto sin formato o el lenguaje de marcado de síntesis de voz (SSML). |1.2.0|
+> [!IMPORTANT]
+> Actualmente, todos los contenedores de voz se ofrecen como parte de una [versión preliminar pública "validada"](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Se hará un anuncio cuando los contenedores de voz pasen a la disponibilidad general (GA).
+
+| Función | Características | Más reciente |
+|--|--|--|
+| Voz a texto | Transcribe registros continuos de voz en tiempo real o de audio por lotes a texto con resultados intermedios. | 2.0.0 |
+| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Voz personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.0.0 |
+| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.3.0 |
+| Conversión de texto a voz personalizada | Con un modelo personalizado del [portal de Voz personalizada](https://aka.ms/custom-voice-portal), convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.3.0 |
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe cumplir los siguientes requisitos previos para poder usar los contenedores de Voz:
+Requisitos previos para poder usar los contenedores de Voz:
 
-|Obligatorio|Propósito|
+| Obligatorio | Propósito |
 |--|--|
-|Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
-|Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
-|Recurso de Voz |Para usar estos contenedores, debe tener:<br><br>Recurso de _Voz_ de Azure para obtener la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas Introducción y Claves de **Voz** de Azure Portal. Los dos son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : punto de conexión tal como se proporciona en la página de **Introducción**.|
-
-[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
+| Motor de Docker | Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br> |
+| Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos. |
+| Recurso de Voz | Para usar estos contenedores, debe tener:<br><br>Recurso de _Voz_ de Azure para obtener la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas Introducción y Claves de **Voz** de Azure Portal. Los dos son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : punto de conexión tal como se proporciona en la página de **Introducción**. |
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
-Primero debe completar y enviar el [formulario de solicitud de contenedores de Voz de Cognitive Services](https://aka.ms/speechcontainerspreview/) para solicitar acceso al contenedor. 
+Rellene y envíe el [formulario de solicitud de contenedores de Voz de Cognitive Services](https://aka.ms/speechcontainerspreview/) para solicitar acceso al contenedor. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
+
+[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="the-host-computer"></a>El equipo host
 
@@ -56,43 +61,99 @@ Primero debe completar y enviar el [formulario de solicitud de contenedores de V
 
 ### <a name="advanced-vector-extension-support"></a>Compatibilidad con la extensión avanzada de vector
 
-El **host** es el equipo que ejecuta el contenedor de Docker. El host debe ser compatible con las [extensiones avanzadas de vector](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Puede comprobar esta compatibilidad en los hosts de Linux con el comando siguiente: 
+El **host** es el equipo que ejecuta el contenedor de Docker. El host *debe ser compatible* con las [extensiones avanzadas de vector](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Puede comprobar la compatibilidad con AVX2 en los hosts de Linux con el comando siguiente:
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
+> [!WARNING]
+> El equipo host es *necesario* para admitir AVX2. El contenedor *no* funcionará correctamente sin compatibilidad con AVX2.
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 
-En la tabla siguiente se describen los núcleos de CPU y memoria mínimos y recomendados para asignar cada contenedor de Voz.
+En la tabla siguiente se describe la asignación mínima y recomendada de recursos para cada contenedor de Voz.
+
+# <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
 
 | Contenedor | Mínima | Recomendado |
 |-----------|---------|-------------|
-|cognitive-services-speech-to-text | 2 núcleos<br>2 GB de memoria  | 4 núcleos<br>4 GB de memoria  |
-|cognitive-services-text-to-speech | 1 núcleo, 0,5 GB de memoria| 2 núcleos, 1 GB de memoria |
+| Voz a texto | 2 núcleos, 2 GB de memoria | 4 núcleos, 4 GB de memoria |
+
+# <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
+
+| Contenedor | Mínima | Recomendado |
+|-----------|---------|-------------|
+| Conversión de voz a texto personalizada | 2 núcleos, 2 GB de memoria | 4 núcleos, 4 GB de memoria |
+
+# <a name="text-to-speechtabtts"></a>[Texto a voz](#tab/tts)
+
+| Contenedor | Mínima | Recomendado |
+|-----------|---------|-------------|
+| Texto a voz | 1 núcleo, 2 GB de memoria | 2 núcleo, 3 GB de memoria |
+
+# <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
+
+| Contenedor | Mínima | Recomendado |
+|-----------|---------|-------------|
+| Conversión de texto a voz personalizada | 1 núcleo, 2 GB de memoria | 2 núcleo, 3 GB de memoria |
+
+***
 
 * Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
 
 El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
 
-**Nota**: los valores mínimos y recomendados se basan en los límites de Docker y *no* en los recursos de la máquina host. Por ejemplo, partes de la asignación de memoria de contenedores de voz a texto de un modelo grande de lenguaje, y se _recomienda_ que todo el archivo se ajuste en memoria, que es de 4 a 6 GB adicionales. Además, la primera ejecución de cualquier contenedor puede tardar más, dado que los modelos se van a paginar en la memoria.
+> [!NOTE]
+> Los valores mínimos y recomendados se basan en los límites de Docker y *no* en los recursos de la máquina host. Por ejemplo, partes de la asignación de memoria de contenedores de voz a texto de un modelo grande de lenguaje, y se *recomienda* que todo el archivo se ajuste en memoria, que es de 4 a 6 GB adicionales. Además, la primera ejecución de cualquier contenedor puede tardar más, dado que los modelos se van a paginar en la memoria.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtención de la imagen del contenedor con `docker pull`
 
-Las imágenes de contenedor para Voz están disponibles.
+Las imágenes de contenedor para Voz están disponibles en la instancia de Container Registry siguiente.
+
+# <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
 
 | Contenedor | Repositorio |
 |-----------|------------|
-| cognitive-services-speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
-| cognitive-services-text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
+| Voz a texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
+
+# <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
+
+| Contenedor | Repositorio |
+|-----------|------------|
+| Conversión de voz a texto personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
+
+# <a name="text-to-speechtabtts"></a>[Texto a voz](#tab/tts)
+
+| Contenedor | Repositorio |
+|-----------|------------|
+| Texto a voz | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
+
+# <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
+
+| Contenedor | Repositorio |
+|-----------|------------|
+| Conversión de texto a voz personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
+
+***
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="language-locale-is-in-container-tag"></a>La configuración regional de idioma está en la etiqueta de contenedor
+### <a name="docker-pull-for-the-speech-containers"></a>Docker pull para los contenedores de Voz
 
-La etiqueta `latest` extrae la configuración regional `en-us` y la voz `jessarus`.
+# <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
 
-#### <a name="speech-to-text-locales"></a>Configuración regional de conversión de voz en texto
+#### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker pull para el contenedor de conversión de voz a texto
+
+Use el comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para descargar una imagen de contenedor desde la versión preliminar del registro de contenedor.
+
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
+```
+
+> [!IMPORTANT]
+> La etiqueta `latest` extrae la configuración regional `en-US` y la voz `jessarus`. Para otras configuraciones regionales, consulte [Configuración regional de conversión de voz a texto](#speech-to-text-locales).
+
+#### <a name="speech-to-text-locales"></a>Configuraciones regionales de voz a texto
 
 Todas las etiquetas, excepto `latest` tienen el formato siguiente, donde `<culture>` indica el contenedor de configuración regional:
 
@@ -103,24 +164,38 @@ Todas las etiquetas, excepto `latest` tienen el formato siguiente, donde `<cultu
 La etiqueta siguiente es un ejemplo del formato:
 
 ```
-1.2.0-amd64-en-us-preview
+2.0.0-amd64-en-us-preview
 ```
 
-En la tabla siguiente se enumeran las configuraciones regionales que se admiten para la **conversión de voz a texto** en la versión 1.2.0 del contenedor:
+Para todas las configuraciones regionales admitidas en la versión 2.0.0 del contenedor de **conversión de voz en texto**, consulte la columna **Compatibilidad con contenedores** de la tabla de [compatibilidad con idioma de conversión de voz en texto](language-support.md#speech-to-text).
 
-|Configuración regional de idioma|Etiquetas|
-|--|--|
-|Chino|`zh-cn`|
-|English |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
-|Francés |`fr-ca`<br>`fr-fr`|
-|Alemán|`de-de`|
-|Italiano|`it-it`|
-|Japonés|`ja-jp`|
-|Coreano|`ko-kr`|
-|Portugués|`pt-br`|
-|Español|`es-es`<br>`es-mx`|
+# <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
-#### <a name="text-to-speech-locales"></a>Configuraciones regionales de conversión de texto a voz
+#### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Docker pull para el contenedor de conversión de voz a texto personalizada
+
+Use el comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para descargar una imagen de contenedor desde la versión preliminar del registro de contenedor.
+
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest
+```
+
+> [!NOTE]
+> Los valores de `locale` y `voice` de los contenedores de Voz personalizados los determina el modelo personalizado que ingiere el contenedor.
+
+# <a name="text-to-speechtabtts"></a>[Texto a voz](#tab/tts)
+
+#### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker pull para el contenedor de conversión de texto a voz
+
+Use el comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para descargar una imagen de contenedor desde la versión preliminar del registro de contenedor.
+
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest
+```
+
+> [!IMPORTANT]
+> La etiqueta `latest` extrae la configuración regional `en-US` y la voz `jessarus`. Para otras configuraciones, consulte [Configuración regional de conversión de texto a voz](#text-to-speech-locales).
+
+#### <a name="text-to-speech-locales"></a>Configuración regional de conversión de texto a voz
 
 Todas las etiquetas, excepto `latest` tienen el formato siguiente, donde `<culture>` indica la configuración regional y `<voice>` la voz del contenedor:
 
@@ -131,41 +206,28 @@ Todas las etiquetas, excepto `latest` tienen el formato siguiente, donde `<cultu
 La etiqueta siguiente es un ejemplo del formato:
 
 ```
-1.2.0-amd64-en-us-jessarus-preview
+1.3.0-amd64-en-us-jessarus-preview
 ```
 
-En la tabla siguiente se enumeran las configuraciones regionales que se admiten para la **conversión de texto a voz** en la versión 1.2.0 del contenedor:
+Para todas las configuraciones regionales admitidas y las voces correspondientes en la versión 1.3.0 del contenedor de **conversión de texto a voz**, consulte la columna **Compatibilidad con contenedores** de la tabla de [compatibilidad con idioma de voces estándar](language-support.md#standard-voices).
 
-|Configuración regional de idioma|Etiquetas|Voces admitidas|
-|--|--|--|
-|Chino|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao-apollo|
-|English |`en-au`|catherine<br>hayleyrus|
-|English |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
-|English |`en-in`|heera-apollo<br>priyarus<br>ravi-apollo<br>|
-|English |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
-|Francés|`fr-ca`|caroline<br>harmonierus|
-|Francés|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
-|Alemán|`de-de`|hedda<br>heddarus<br>stefan-apollo|
-|Italiano|`it-it`|cosimo-apollo<br>luciarus|
-|Japonés|`ja-jp`|ayumi-apollo<br>harukarus<br>ichiro-apollo|
-|Coreano|`ko-kr`|heamirus|
-|Portugués|`pt-br`|daniel-apollo<br>heloisarus|
-|Español|`es-es`|elenarus<br>laura-apollo<br>pablo-apollo<br>|
-|Español|`es-mx`|hildarus<br>raul-apollo|
+> [!IMPORTANT]
+> Cuando se construye un HTTP POST de *conversión de texto a voz estándar*, el mensaje del [Lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md) requiere un elemento `voice` con un atributo `name`. El valor es la configuración regional del contenedor y la voz correspondiente, que también se conoce como ["nombre corto"](language-support.md#standard-voices). Por ejemplo, la etiqueta `latest` tendría un nombre de voz de `en-US-JessaRUS`.
 
-### <a name="docker-pull-for-the-speech-containers"></a>Docker pull para los contenedores de Voz
+# <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
 
-#### <a name="speech-to-text"></a>Voz a texto
+#### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Docker pull para el contenedor de conversión de texto a voz personalizada
+
+Use el comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para descargar una imagen de contenedor desde la versión preliminar del registro de contenedor.
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest
 ```
 
-#### <a name="text-to-speech"></a>Texto a voz
+> [!NOTE]
+> Los valores de `locale` y `voice` de los contenedores de Voz personalizados los determina el modelo personalizado que ingiere el contenedor.
 
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest
-```
+***
 
 ## <a name="how-to-use-the-container"></a>Uso del contenedor
 
@@ -176,14 +238,73 @@ Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice
 
 ## <a name="run-the-container-with-docker-run"></a>Ejecute el contenedor con `docker run`.
 
-Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar el contenedor. Consulte [Recopilación de los parámetros obligatorios](#gathering-required-parameters) para más información sobre cómo obtener los valores de `{ENDPOINT_URI}` y `{API_KEY}`.
+Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar el contenedor. Consulte [Recopilación de los parámetros obligatorios](#gathering-required-parameters) para más información sobre cómo obtener los valores de `{Endpoint_URI}` y `{API_Key}`. También hay disponibles otros [ejemplos](speech-container-configuration.md#example-docker-run-commands) del comando `docker run`.
 
-Hay disponibles [ejemplos](speech-container-configuration.md#example-docker-run-commands) del comando `docker run`.
+# <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
 
-> [!NOTE]
-> **Durante la versión preliminar**, la configuración de facturación debe ser válida para iniciar el contenedor, pero no pagará por el uso.
+Para ejecutar el contenedor *Conversión de voz a texto*, ejecute el comando `docker run` siguiente.
 
-### <a name="text-to-speech"></a>Texto a voz
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Este comando:
+
+* Ejecuta un contenedor *Conversión de voz a texto* desde la imagen de contenedor.
+* Asigna 4 núcleos de CPU y 4 gigabytes (GB) de memoria.
+* Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
+* Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
+
+# <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
+
+El contenedor *Conversión de voz a texto personalizada* se basa en un modelo de voz personalizado. El modelo personalizado se debe [entrenar](how-to-custom-speech-train-model.md) con el [portal de Voz personalizada](https://speech.microsoft.com/customspeech). El **identificador de modelo** de voz personalizada es necesario para ejecutar el contenedor. Se puede encontrar en la página de **entrenamiento** del portal de Voz personalizada. En el portal de Voz personalizada, vaya a la página de **entrenamiento** y seleccione el modelo.
+<br>
+
+![Página de entrenamiento de Voz personalizada](media/custom-speech/custom-speech-model-training.png)
+
+Obtenga el **identificador de modelo** que se va a usar como argumento para el parámetro `ModelId` del comando `docker run`.
+<br>
+
+![Detalles del modelo de voz personalizada](media/custom-speech/custom-speech-model-details.png)
+
+En la tabla siguiente se representan los diversos parámetros de `docker run` y las descripciones correspondientes:
+
+| Parámetro | DESCRIPCIÓN |
+|---------|---------|
+| `{VOLUME_MOUNT}` | El [montaje de volumen](https://docs.docker.com/storage/volumes/) del equipo host, que docker usa para conservar el modelo personalizado. Por ejemplo, *C:\CustomSpeech* donde la *unidad C* está en la máquina host. |
+| `{MODEL_ID}` | El **identificador de modelo** de Voz personalizada de la página de **entrenamiento** del portal de Voz personalizada. |
+| `{ENDPOINT_URI}` | El punto de conexión es necesario para la medición y la facturación. Para más información, consulte cómo [recopilar los parámetros necesarios](#gathering-required-parameters). |
+| `{API_KEY}` | Se necesita la clave de API. Para más información, consulte cómo [recopilar los parámetros necesarios](#gathering-required-parameters). |
+
+Para ejecutar el contenedor *Conversión de voz a texto personalizada*, ejecute el comando `docker run` siguiente:
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+-v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+ModelId={MODEL_ID} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Este comando:
+
+* Ejecuta un contenedor *Conversión de voz a texto personalizada* desde la imagen de contenedor.
+* Asigna 4 núcleos de CPU y 4 gigabytes (GB) de memoria.
+* Carga el modelo de *Conversión de voz a texto personalizada* desde el montaje de entrada de volumen, por ejemplo, *C:\CustomSpeech*.
+* Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
+* Descarga el modelo dado el `ModelId` (si no se encuentra en el montaje de volumen).
+* Si el modelo personalizado se descargó anteriormente, se omite el `ModelId`.
+* Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
+
+# <a name="text-to-speechtabtts"></a>[Texto a voz](#tab/tts)
+
+Para ejecutar el contenedor *Conversión de texto a voz*, ejecute el comando `docker run` siguiente.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -193,11 +314,41 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="speech-to-text"></a>Voz a texto
+Este comando:
+
+* Ejecuta un contenedor *Conversión de texto a voz* desde la imagen de contenedor.
+* Asigna 2 núcleos de CPU y un gigabyte (GB) de memoria.
+* Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
+* Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
+
+# <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
+
+El contenedor *Conversión de texto a voz personalizada* se basa en un modelo de voz personalizado. El modelo personalizado se debe [entrenar](how-to-custom-voice-create-voice.md) con el [portal de Voz personalizada](https://aka.ms/custom-voice-portal). El **identificador de modelo** de voz personalizada es necesario para ejecutar el contenedor. Se puede encontrar en la página de **entrenamiento** del portal de Voz personalizada. En el portal de Voz personalizada, vaya a la página de **entrenamiento** y seleccione el modelo.
+<br>
+
+![Página de entrenamiento de Voz personalizada](media/custom-voice/custom-voice-model-training.png)
+
+Obtenga el **identificador de modelo** que se va a usar como argumento para el parámetro `ModelId` del comando docker run.
+<br>
+
+![Detalles del modelo de voz personalizado](media/custom-voice/custom-voice-model-details.png)
+
+En la tabla siguiente se representan los diversos parámetros de `docker run` y las descripciones correspondientes:
+
+| Parámetro | DESCRIPCIÓN |
+|---------|---------|
+| `{VOLUME_MOUNT}` | El [montaje de volumen](https://docs.docker.com/storage/volumes/) del equipo host, que docker usa para conservar el modelo personalizado. Por ejemplo, *C:\CustomSpeech* donde la *unidad C* está en la máquina host. |
+| `{MODEL_ID}` | El **identificador de modelo** de Voz personalizada de la página de **entrenamiento** del portal de Voz personalizada. |
+| `{ENDPOINT_URI}` | El punto de conexión es necesario para la medición y la facturación. Para más información, consulte cómo [recopilar los parámetros necesarios](#gathering-required-parameters). |
+| `{API_KEY}` | Se necesita la clave de API. Para más información, consulte cómo [recopilar los parámetros necesarios](#gathering-required-parameters). |
+
+Para ejecutar el contenedor *Conversión de texto a voz personalizada*, ejecute el comando `docker run` siguiente:
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
+-v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -205,62 +356,41 @@ ApiKey={API_KEY}
 
 Este comando:
 
-* Ejecuta un contenedor de Voz desde la imagen de contenedor.
-* Asigna 2 núcleos de CPU y 2 gigabytes (GB) de memoria.
+* Ejecuta un contenedor *Conversión de texto a voz personalizada* desde la imagen de contenedor.
+* Asigna 2 núcleos de CPU y un gigabyte (GB) de memoria.
+* Carga el modelo de *Conversión de texto a voz personalizada* desde el montaje de entrada de volumen, por ejemplo, *C:\CustomVoice*.
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
+* Descarga el modelo dado el `ModelId` (si no se encuentra en el montaje de volumen).
+* Si el modelo personalizado se descargó anteriormente, se omite el `ModelId`.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
+
+***
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](#billing).
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consulta del punto de conexión de predicción del contenedor
 
-|Contenedor|Punto de conexión|
-|--|--|
-|Voz a texto|ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1|
-|Texto a voz|http://localhost:5000/speech/synthesize/cognitiveservices/v1|
+| Contenedor | Punto de conexión | Protocolo |
+|--|--|--|
+| Voz a texto | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
+| Conversión de voz a texto personalizada | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
+| Texto a voz | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+| Conversión de texto a voz personalizada | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
 
-### <a name="speech-to-text"></a>Voz a texto
+Para más información sobre cómo usar los protocolos WSS y HTTPS, consulte la [seguridad del contenedor](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
-El contenedor proporciona las API de punto de conexión de consulta basadas en WebSocket, a las que se accede mediante el [SDK de Voz](index.yml).
+[!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
 
-De forma predeterminada, el SDK de Voz usa servicios de voz en línea. Para usar el contenedor, deberá cambiar el método de inicialización. Consulte los ejemplos siguientes.
+### <a name="text-to-speech-or-custom-text-to-speech"></a>Conversión de texto a voz o conversión de texto a voz personalizada
 
-#### <a name="for-c"></a>Para C#
+[!INCLUDE [Query Text-to-speech container endpoint](includes/text-to-speech-container-query-endpoint.md)]
 
-Cambie de usar esta llamada de inicialización en la nube de Azure:
+### <a name="run-multiple-containers-on-the-same-host"></a>Ejecución de varios contenedores en el mismo host
 
-```csharp
-var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
+Si tiene pensado ejecutar varios contenedores con puertos expuestos, asegúrese de que ejecuta cada contenedor con un puerto expuesto diferente. Por ejemplo, ejecute el primer contenedor en el puerto 5000 y el segundo en el puerto 5001.
 
-por esta llamada mediante el punto de conexión de contenedor:
-
-```csharp
-var config = SpeechConfig.FromEndpoint(
-    new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
-    "YourSubscriptionKey");
-```
-
-#### <a name="for-python"></a>Para Python
-
-Cambie de usar esta llamada de inicialización en la nube de Azure
-
-```python
-speech_config = speechsdk.SpeechConfig(
-    subscription=speech_key, region=service_region)
-```
-
-por esta llamada mediante el punto de conexión de contenedor:
-
-```python
-speech_config = speechsdk.SpeechConfig(
-    subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
-```
-
-### <a name="text-to-speech"></a>Texto a voz
-
-El contenedor proporciona API REST de punto de conexión, que se pueden encontrar [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech). Los ejemplos se pueden encontrar [aquí](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
+Puede tener este contenedor y un contenedor de Azure Cognitive Services diferente en ejecución simultáneamente en el HOST. También puede tener varios contenedores del mismo contenedor de Cognitive Services en ejecución.
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
@@ -270,19 +400,19 @@ El contenedor proporciona API REST de punto de conexión, que se pueden encontra
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-Si ejecuta el contenedor con un [montaje](speech-container-configuration.md#mount-settings) de salida y el registro habilitados, el contenedor genera archivos de registro que resultan útiles para solucionar problemas que se producen al iniciar o ejecutar el contenedor.
+Puede encontrar algunos problemas al iniciar o ejecutar el contenedor. Use un [montaje](speech-container-configuration.md#mount-settings) de salida y habilite el registro. Si lo hace, permitirá que el contenedor genere archivos de registro que son útiles para solucionar problemas.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Facturación
 
-Los contenedores de Voz envían información de facturación a Azure mediante un recurso de _Voz_ en la cuenta de Azure.
+Los contenedores de Voz envían información de facturación a Azure mediante un recurso de *Voz* en la cuenta de Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](speech-container-configuration.md) (Configuración de contenedores).
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video courses -->
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
@@ -290,8 +420,12 @@ Para obtener más información acerca de estas opciones, consulte [Configure con
 
 En este artículo, ha aprendido los conceptos y el flujo de trabajo para la descarga, instalación y ejecución de contenedores de Voz. En resumen:
 
-* Voz proporciona dos contenedores de Linux para Docker, que encapsula la conversión de voz en texto y de texto a voz.
-* Las imágenes de contenedor se descargan desde el registro de contenedor privado de Azure.
+* Voz proporciona cuatro contenedores Linux para Docker, que encapsulan varias funcionalidades:
+  * *Voz a texto*
+  * *Conversión de voz a texto personalizada*
+  * *Texto a voz*
+  * *Conversión de texto a voz personalizada*
+* Las imágenes de contenedor se descargan desde el registro de contenedor de Azure.
 * Las imágenes de contenedor se ejecutan en Docker.
 * Puede usar la API REST o el SDK para llamar a operaciones en contenedores de Voz mediante la especificación del URI del host del contenedor.
 * Debe proporcionar la información de facturación al crear una instancia de un contenedor.
@@ -301,5 +435,6 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Revise [Configure containers](speech-container-configuration.md) (Configuración de contenedores) para ver las opciones de configuración.
-* Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)
+* Revise [Configuración de contenedores](speech-container-configuration.md) para ver las opciones de configuración.
+* Obtenga información sobre cómo [usar contenedores de servicio de Voz con Kubernetes y Helm](speech-container-howto-on-premises.md).
+* Uso de otros [contenedores de Cognitive Services](../cognitive-services-container-support.md)

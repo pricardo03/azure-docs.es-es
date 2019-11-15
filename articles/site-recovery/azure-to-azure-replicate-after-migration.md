@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: ff35c5e23c5d8a448d62a3eeb8d15ba8d5a531e4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 081e1db4df0d77fa600e132a5585172d44f1196a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814537"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663025"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure tras la migración a Azure 
 
@@ -29,8 +29,8 @@ Antes de configurar la recuperación ante desastres, asegúrese de que la migrac
 
 Cada máquina virtual de Azure debe tener instalado el [agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md). Para replicar máquinas virtuales de Azure, Site Recovery instala una extensión en el agente.
 
-- Si la máquina ejecuta la versión 9.7.0.0 o una posterior de Site Recovery Mobility Service, Mobility Service instala automáticamente el agente de máquina virtual de Azur en máquinas virtuales de Windows. En versiones anteriores de Mobility Service, debía instalar al agente de forma manual.
-- En el caso de las máquinas virtuales de Linux, debe instalar el agente de máquina virtual de Azure manualmente. Solo necesita instalar el agente de máquina virtual de Azure si la versión de Mobility Service instalada en la máquina migrada es la 9.6 o posterior.
+- Si la máquina ejecuta la versión 9.7.0.0 o una posterior de Site Recovery Mobility Service, Mobility Service instala automáticamente el agente de máquina virtual de Azur en máquinas virtuales de Windows. En versiones anteriores de Mobility Service, debía instalar al agente de manera manual.
+- En el caso de las máquinas virtuales Linux, debe instalar manualmente el agente de máquina virtual de Azure. Solo necesita instalar el agente de máquina virtual de Azure si la versión de Mobility Service instalada en la máquina migrada es la 9.6 o posterior.
 
 
 ### <a name="install-the-agent-on-windows-vms"></a>Instalación del agente en máquinas virtuales de Windows

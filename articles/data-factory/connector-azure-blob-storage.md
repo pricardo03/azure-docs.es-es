@@ -1,5 +1,5 @@
 ---
-title: Copia de datos con Azure Blob Storage como origen o destino mediante Data Factory | Microsoft Docs
+title: Copia de datos con Azure Blob Storage como origen o destino mediante Data Factory
 description: Aprenda a copiar datos desde cualquier almacén de datos de origen compatible a Azure Blob Storage o desde Blob Storage a cualquier almacén de datos de receptor compatible mediante Data Factory.
 author: linda33wj
 manager: craigg
@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: da8b4ebd5cf1e7a57842a116e5d9e21e3c3f7874
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 7d17d1ee60f2049dccfb8bc711f3b76bb51689b6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387301"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681358"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -42,8 +42,8 @@ En concreto, este conector de Blob Storage admite las siguientes operaciones:
 - Copia de blobs desde blobs en bloques, blobs con anexos o blobs en páginas y copia de datos solo a blobs en bloques.
 - Copia de blobs tal cual, o análisis o generación de los mismos con [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
->[!NOTE]
->Si habilita la opción _"Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento"_ en la configuración del firewall de Azure Storage con Azure Integration Runtime para conectarse a Blog Storage, dará un error prohibido, ya que ADF no se trata como un servicio de Microsoft de confianza. En su lugar, conéctese a través de un entorno de ejecución de integración autohospedado.
+>[!IMPORTANT]
+>Si habilita la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en la configuración de firewall de Azure Storage y quiere usar Azure Integration Runtime para conectarse a Blob Storage, debe usar la [autenticación de identidad administrada](#managed-identity).
 
 ## <a name="get-started"></a>Primeros pasos
 
@@ -316,12 +316,9 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-- Para el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-dataset).
-- Para obtener otros formatos como **ORC o JSON**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro
-
-Para copiar datos con el almacenamiento de blobs como origen y destino en formato binario, de texto delimitado, Avro o Parquet, consulte [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Blob en la configuración `location` del conjunto de datos basado en formato:
+Las propiedades siguientes se admiten para Azure Blob en la configuración `location` del conjunto de datos basado en formato:
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -329,10 +326,6 @@ Para copiar datos con el almacenamiento de blobs como origen y destino en format
 | container  | Contenedor de blobs.                                          | Sí      |
 | folderPath | Ruta de acceso a la carpeta bajo el contenedor especificado. Si quiere usar el carácter comodín para filtrar la carpeta, omita este valor y especifique la configuración del origen de actividad. | Sin       |
 | fileName   | Nombre de archivo en el contenedor y la propiedad folderPath indicados. Si quiere usar el carácter comodín para filtrar los archivos, omita este valor y especifique la configuración del origen de actividad. | Sin       |
-
-> [!NOTE]
->
-> El conjunto de datos de tipo **AzureBlob** con formato Parquet o Texto que se menciona en la sección siguiente todavía se admite tal cual en las actividades de copia, búsqueda y GetMetadata para compatibilidad con versiones anteriores, pero no funciona con flujo de datos de asignación. A partir de ahora se sugiere usar este modelo nuevo, y la interfaz de usuario de creación de ADF ha cambiado para generar estos nuevos tipos.
 
 **Ejemplo:**
 
@@ -361,9 +354,10 @@ Para copiar datos con el almacenamiento de blobs como origen y destino en format
 }
 ```
 
-### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
+### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
-Para copiar datos con el almacenamiento de blobs como origen y destino en formato ORC o JSON, establezca la propiedad type del conjunto de datos en **AzureBlob**. Se admiten las siguientes propiedades.
+>[!NOTE]
+>El siguiente modelo de conjunto de datos se sigue admitiendo tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado en la sección anterior; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -414,12 +408,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="blob-storage-as-a-source-type"></a>Blob Storage como un tipo de origen
 
-- Para copiar desde el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Origen de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-source).
-- Para copiar desde otros formatos como **ORC**, consulte la sección [Otro origen de formato](#other-format-source).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado, JSON, Parquet y Avro
-
-Para copiar datos con el almacenamiento de blobs como origen y destino en **formato binario, de texto delimitado, JSON, Avro o Parquet**, consulte el artículo [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario ](format-binary.md)sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Blob en la configuración `storeSettings` del origen de copia basado en formato:
+Las propiedades siguientes se admiten para Azure Blob en la configuración `storeSettings` del origen de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -475,9 +466,10 @@ Para copiar datos con el almacenamiento de blobs como origen y destino en **form
 ]
 ```
 
-#### <a name="other-format-source"></a>Otro origen de formato
+#### <a name="legacy-source-model"></a>Modelo de origen heredado
 
-Para copiar datos del almacenamiento de blobs en **formato ORC**, establezca el tipo de origen de la actividad de copia en **BlobSource**. En la sección **source** de la actividad de copia se admiten las siguientes propiedades.
+>[!NOTE]
+>El siguiente modelo de origen de copia se sigue admitiendo tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado en la sección anterior; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -519,21 +511,15 @@ Para copiar datos del almacenamiento de blobs en **formato ORC**, establezca el 
 
 ### <a name="blob-storage-as-a-sink-type"></a>Blob Storage como un tipo de receptor
 
-- Para copiar desde el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Origen de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-source).
-- Para copiar desde otros formatos como **ORC**, consulte la sección [Otro origen de formato](#other-format-source).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado, JSON, Parquet y Avro
-
-Para copiar datos del almacenamiento de blobs en **formato binario, de texto delimitado, JSON, Avro y Parquet**, consulte el artículo [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basado en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Azure Blob en la configuración `storeSettings` del receptor de copia basado en formato:
+Las propiedades siguientes se admiten para Azure Blob en la configuración `storeSettings` del receptor de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propiedad type de `storeSettings` se debe establecer en **AzureBlobStorageWriteSetting**. | Sí      |
 | copyBehavior             | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del blob o del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | Sin       |
 | maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | Sin       |
-
-> [!NOTE]
-> Para el formato de texto delimitado o Parquet, todavía se admite tal cual el receptor de actividad de copia de tipo **BlobSink** mencionado en la sección siguiente para la compatibilidad con versiones anteriores. A partir de ahora se sugiere usar este modelo nuevo, y la interfaz de usuario de creación de ADF ha cambiado para generar estos nuevos tipos.
 
 **Ejemplo:**
 
@@ -570,9 +556,10 @@ Para copiar datos del almacenamiento de blobs en **formato binario, de texto del
 ]
 ```
 
-#### <a name="other-format-sink"></a>Otro receptor de formato
+#### <a name="legacy-sink-model"></a>Modelo de receptor heredado
 
-Para copiar datos en el almacenamiento de blobs en **formato ORC**, establezca el tipo de receptor de la actividad de copia en **BlobSink**. En la sección **sink** se admiten las propiedades a continuación.
+>[!NOTE]
+>El siguiente modelo de receptor de copia se sigue admitiendo tal cual para compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado en la sección anterior; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

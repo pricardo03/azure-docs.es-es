@@ -1,7 +1,7 @@
 ---
-title: Cómo implementar modelos en instancias de proceso
+title: Implementación de modelos en máquinas virtuales de Notebook
 titleSuffix: Azure Machine Learning
-description: Aprenda a implementar modelos de Azure Machine Learning como un servicio web con instancias de proceso.
+description: Aprenda a implementar modelos de Azure Machine Learning como un servicio web con máquinas virtuales de Notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,38 +10,34 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: bb187826250b3edc9ac3d9e36a243d75819a45b3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d4e37b02b3d7a21546a04c8948fbbfb7262bfa6a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496875"
+ms.locfileid: "73584762"
 ---
-# <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implementación de un modelo en instancias de proceso de Azure Machine Learning
+# <a name="deploy-a-model-to-azure-machine-learning-notebook-vms"></a>Implementación de un modelo en las máquinas virtuales de Azure Machine Learning Notebook
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-> [!NOTE]
-> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro y norte de EE. UU.** o **Sur de Reino Unido**.
->Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar.  Puede implementar un modelo en una instancia de proceso o en una máquina virtual de cuadernos siguiendo los pasos descritos en este artículo.
-
-Obtenga información sobre cómo usar Azure Machine Learning para implementar un modelo como un servicio web en la instancia de proceso de Azure Machine Learning. Use las instancias de proceso si se cumple una de las condiciones siguientes:
+Aprenda a usar Azure Machine Learning para implementar un modelo como un servicio web en una máquina virtual de Azure Machine Learning Notebook. Use las máquinas virtuales de Notebook si se cumple una de las condiciones siguientes:
 
 - Debe implementar y validar rápidamente el modelo.
 - Está probando un modelo que está en desarrollo.
 
 > [!TIP]
-> La implementación de un modelo de Jupyter Notebook de una instancia de proceso, en un servicio web de la misma máquina virtual es una _implementación local_. En este caso, la máquina "local" es la instancia de proceso. Para más información sobre las implementaciones, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
+> La implementación de un modelo desde un cuaderno de Jupyter Notebook que está en una máquina virtual de Notebook en un servicio web de la misma máquina virtual es una _implementación local_. En ese caso, el equipo "local" es la máquina virtual de Notebook. Para más información sobre las implementaciones, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Un área de trabajo de Azure Machine Learning con una instancia de proceso en ejecución. Para más información, consulte [Configuración del entorno y del área de trabajo](tutorial-1st-experiment-sdk-setup.md).
+- Un área de trabajo de Azure Machine Learning con una máquina virtual de Notebook en ejecución. Para más información, consulte [Configuración del entorno y del área de trabajo](tutorial-1st-experiment-sdk-setup.md).
 
-## <a name="deploy-to-the-compute-instances"></a>Implementación en instancias de proceso
+## <a name="deploy-to-the-notebook-vms"></a>Implementación en máquinas virtuales de Notebook
 
-En la instancia de proceso se incluye un cuaderno de ejemplo en el que se muestran las implementaciones locales. Siga estos pasos para cargar el cuaderno e implementar el modelo como un servicio web en la máquina virtual:
+En la máquina virtual de Notebook se incluye un cuaderno de ejemplo en el que se muestran las implementaciones locales. Siga estos pasos para cargar el cuaderno e implementar el modelo como un servicio web en la máquina virtual:
 
-1. En [Azure Machine Learning Studio](https://ml.azure.com), seleccione las instancias de proceso de Azure Machine Learning.
+1. En [Azure Machine Learning Studio](https://ml.azure.com), seleccione las máquinas virtuales de Notebook de Azure Machine Learning.
 
 1. Abra el subdirectorio `samples-*` y, después, abra `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Una vez abiertos, ejecute el cuaderno.
 
@@ -51,13 +47,7 @@ En la instancia de proceso se incluye un cuaderno de ejemplo en el que se muestr
 
     ![Captura de pantalla del puerto del servicio local en ejecución](media/how-to-deploy-local-container-notebookvm/deploy-local-service-port.png)
 
-1. Para probar el servicio desde una instancia de proceso, use la dirección URL de `https://localhost:<local_service.port>`. Para realizar una prueba desde un cliente remoto, obtenga la dirección URL pública del servicio que se ejecuta en la instancia de proceso. La dirección URL pública se puede determinar mediante la siguiente fórmula: 
-    * Máquina virtual de cuadernos: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
-    * Instancia de proceso: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
-    
-    Por ejemplo, 
-    * Máquina virtual de cuadernos: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
-    * Instancia de proceso: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
+1. Para probar el servicio desde la máquina virtual de Notebook use la dirección URL `https://localhost:<local_service.port>`. Para realizar una prueba desde un cliente remoto, obtenga la dirección URL pública del servicio que se ejecuta en la máquina virtual de Notebook. La dirección URL pública se puede determinar mediante la siguiente fórmula: `https://<notebookvm_name>-<local_service_port>.<azure_region_of_notebook>.notebooks.azureml.net/score`. Por ejemplo, `https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score`.
 
 ## <a name="test-the-service"></a>Probar el servicio
 

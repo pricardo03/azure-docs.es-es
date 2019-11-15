@@ -1,7 +1,6 @@
 ---
-title: Inicio de sesión de Azure MFA con la verificación en dos pasos | Microsoft Docs
-description: Esta página proporciona instrucciones sobre dónde debe ir para ver los distintos métodos de inicio de sesión disponibles con Azure MFA.
-keywords: autenticación de usuario, experiencia de inicio de sesión, inicio de sesión con el teléfono móvil, inicio de sesión con el teléfono del trabajo
+title: 'Inicio de sesión con la verificación en dos pasos: Azure AD'
+description: Obtenga información sobre cómo iniciar sesión en su cuenta profesional o educativa con los distintos métodos de verificación en dos pasos.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,14 +14,15 @@ ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: de080a613c69dd6f48f548c4ba89b2728e8c5e1d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334436"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820422"
 ---
-# <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>La experiencia de inicio de sesión con Azure Multi-Factor Authentication
+# <a name="sign-in-to-your-work-or-school-account-using-two-factor-verification"></a>Inicio de sesión en su cuenta profesional o educativa mediante la verificación en dos pasos
+
 > [!NOTE]
 > El propósito de este artículo es recorrer una experiencia de inicio de sesión típica. Para obtener ayuda sobre el inicio de sesión o resolver problemas, consulte [Problemas con Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 

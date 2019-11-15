@@ -4,15 +4,16 @@ description: Configure la administración de clientes potenciales en Azure Table
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a53ed93813215655c4a165faa0bce36d9249e8e6
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 21105d72ccd288faf0fed58019e67afe2e1c9d01
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227898"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825268"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Instrucciones de administración de clientes potenciales con Table Storage
 
@@ -49,7 +50,7 @@ Puede usar el [Explorador de Azure Storage](https://azurestorageexplorer.codeple
 
 ## <a name="use-microsoft-flow-with-table-storage-optional"></a>Uso de Microsoft Flow con Table Storage (*opcional*)
 
-Puede usar [Microsoft Flow](https://docs.microsoft.com/flow/) para enviar notificaciones automáticamente cuando se agrega un cliente potencial a Table Storage. Si no tiene ninguna cuenta de Microsoft Flow, [regístrese para obtener una cuenta de prueba gratuita](https://flow.microsoft.com/).
+Puede usar [Microsoft Flow](https://docs.microsoft.com/flow/) para enviar notificaciones automáticamente cuando se agrega un cliente potencial a Table Storage. Si no tiene ninguna cuenta de Microsoft Flow, [regístrese para obtener una cuenta gratuita](https://flow.microsoft.com/).
 
 ### <a name="lead-notification-example"></a>Ejemplo de notificación de cliente potencial
 
@@ -124,7 +125,7 @@ En el siguiente conjunto de pasos, se conectará a Table Storage y configurará 
 
      ![Configuración de una acción según los resultados de la condición](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
-1. Si la condición se resuelve como "En caso negativo", no haga nada.
+1. Si la condición se resuelve como "If no", no haga nada.
 
     Si la condición se resuelve como "En caso positivo", desencadene una acción que se conecte a su cuenta de Office 365 para enviar un correo electrónico:
    1. Seleccione **Add an action**(Agregar una acción).
@@ -156,7 +157,7 @@ Es fácil administrar el flujo una vez se está ejecutando. Tiene control comple
 
 El flujo sigue ejecutándose hasta que seleccione **Desactivar el flujo**.
 
-Si no recibe notificaciones de correo electrónico de clientes potenciales, no se agregó ningún nuevo cliente potencial a Table Storage.
+Si no recibe notificaciones de correo electrónico de clientes potenciales, no se ha agregado ningún nuevo cliente potencial a Table Storage.
 Recibirá un correo electrónico similar al siguiente ejemplo si se produce un error del flujo:
 
  ![Notificación por correo electrónico de los errores del flujo](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)

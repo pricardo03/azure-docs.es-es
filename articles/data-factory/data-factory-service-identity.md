@@ -1,5 +1,5 @@
 ---
-title: Identidad administrada de Data Factory | Microsoft Docs
+title: Identidad administrada de Data Factory
 description: Obtenga información sobre la identidad administrada de Azure Data Factory.
 services: data-factory
 author: linda33wj
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8f65bef669e21af96ffe86319602ca5d1eea2c1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153426"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822732"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
 
@@ -26,7 +26,7 @@ Este artículo ayuda a entender qué es la identidad administrada de Data Factor
 
 ## <a name="overview"></a>Información general
 
-Al crear una factoría de datos, se puede crear también una identidad administrada. La identidad administrada es una aplicación administrada registrada en Azure Active Directory que representa a esta factoría de datos específica.
+Al crear una factoría de datos, se puede crear también una identidad administrada. La identidad administrada es una aplicación administrada registrada en Azure Active Directory que representa a esta factoría de datos específica.
 
 La identidad administrada de Data Factory ofrece las características siguientes:
 

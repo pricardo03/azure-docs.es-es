@@ -1,7 +1,7 @@
 ---
-title: Nuevo entrenamiento e implementación de un servicio web
-titleSuffix: Azure Machine Learning Studio
-description: Aprenda a actualizar un servicio web para usar un modelo de aprendizaje automático recién entrenado en Azure Machine Learning Studio.
+title: Reentrenamiento de un servicio web
+titleSuffix: ML Studio (classic) Azure
+description: Aprenda a actualizar un servicio web para usar un modelo de aprendizaje automático recién entrenado en Azure Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e35ab4b3a45edd5a1172bc3a07d7c31abd2135f7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245095"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684773"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Nuevo entrenamiento e implementación de un modelo de aprendizaje automático
 
-Una forma de garantizar que los modelos de aprendizaje automático siguen siendo precisos y se basan en los datos más adecuados disponibles, es volver a entrenarlos. En este artículo se muestra cómo volver a entrenar e implementar un modelo de aprendizaje automático como un nuevo servicio web en Studio. Si está pensando en volver a entrenar un servicio web clásico, [vea este artículo de procedimientos.](retrain-classic-web-service.md)
+Una forma de garantizar que los modelos de aprendizaje automático siguen siendo precisos y se basan en los datos más adecuados disponibles, es volver a entrenarlos. En este artículo se muestra cómo volver a entrenar e implementar un modelo de aprendizaje automático como un nuevo servicio web en Studio (clásico). Si está pensando en volver a entrenar un servicio web clásico, [vea este artículo de procedimientos.](retrain-classic-web-service.md)
 
-En este artículo se da por supuesto que ya tiene implementado un servicio web predictivo. Si no es así, [aprenda a implementar uno aquí.](publish-a-machine-learning-web-service.md)
+En este artículo se da por supuesto que ya tiene implementado un servicio web predictivo. Si no es así, [aprenda a implementar aquí un servicio web de Studio (clásico).](deploy-a-machine-learning-web-service.md)
 
 Siga estos pasos para volver a entrenar e implementar un nuevo servicio web de aprendizaje automático:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Administración de la configuración de la verificación en dos fases: Azure Active Directory | Microsoft Docs'
+title: 'Administración de la configuración de la verificación en dos fases: Azure AD'
 description: Aprenda a cambiar la información del método de verificación de seguridad en lo que respecta a la verificación en dos fases.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4c402e0992a3a04d674477bc9dd19e0181fd6775
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616143"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805260"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>Administración de la configuración del método de verificación en dos fases
 

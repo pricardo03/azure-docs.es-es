@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 380a0a76de763df5f2cc6ff702750b36d233728d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67186694"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818343"
 ---
-Puede crear varios servicios dentro de una suscripción. Cada uno de ellos se puede aprovisionar en un nivel concreto. La única limitación es el número de servicios permitidos en cada nivel. Por ejemplo, puede crear hasta doce servicios en el nivel básico y otros doce en el nivel de S1 dentro de la misma suscripción. Para más información sobre los niveles, consulte [Selección de una SKU o de un plan de tarifa de Azure Search](../articles/search/search-sku-tier.md).
+Puede crear varios servicios dentro de una suscripción. Cada uno de ellos se puede aprovisionar en un nivel concreto. La única limitación es el número de servicios permitidos en cada nivel. Por ejemplo, puede crear hasta doce servicios en el nivel básico y otros doce en el nivel de S1 dentro de la misma suscripción. Para más información sobre los niveles, consulte [Selección de una SKU o de un plan de tarifa de Azure Cognitive Search](../articles/search/search-sku-tier.md).
 
 El límite máximo de servicios se puede elevar a petición. Si necesita tener más servicios en la misma suscripción, póngase en contacto con el soporte técnico de Azure.
 
-| Recurso            | Gratis<sup></sup>1 | Básica | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource            | Gratis<sup></sup>1 | Básica | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
 | Servicios máximos    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
 | Escala máxima en unidades de búsqueda (SU)<sup>2</sup> |N/D |3 unidades de búsqueda |36 unidades de búsqueda |36 unidades de búsqueda |36 unidades de búsqueda |36 unidades de búsqueda |36 unidades de búsqueda |36 unidades de búsqueda |

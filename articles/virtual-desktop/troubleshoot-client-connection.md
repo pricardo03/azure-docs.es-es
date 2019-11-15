@@ -1,5 +1,5 @@
 ---
-title: 'Conexiones de cliente de Escritorio remoto en Windows Virtual Desktop: Azure'
+title: 'Solución de problemas de Escritorio remoto de Windows Virtual Desktop: Azure'
 description: Cómo resolver problemas al configurar conexiones de cliente en un entorno de inquilinos de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 22590a7ecc94efbfad5eefe27f284bdb191e876d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3aae74a4fed499674f015ed0adb59016877583f3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676399"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607383"
 ---
 # <a name="remote-desktop-client-connections"></a>Conexiones de cliente de Escritorio remoto
 

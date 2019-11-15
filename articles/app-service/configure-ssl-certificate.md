@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 683ea55bdc9eb878f7bcbe832d5364d50a6b23e2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 12b8d6dff571c074d1f1422f75e33a8b12761bd9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509009"
+ms.locfileid: "73572151"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adición de un certificado SSL en Azure App Service
 
@@ -65,6 +65,7 @@ Para proteger un dominio personalizado en un enlace SSL, el certificado debe cum
 
 El certificado administrado de App Service gratuito es una solución inmediata para proteger el nombre DNS personalizado en App Service. Se trata de un certificado SSL totalmente funcional administrado por App Service que se renueva automáticamente. El certificado gratuito presenta las siguientes limitaciones:
 
+- No admite certificados comodín.
 - No admite dominios desnudos.
 - No se puede exportar.
 
@@ -281,7 +282,7 @@ Haga clic en **Cargar**.
 
 ![Carga de un certificado público en App Service](./media/configure-ssl-certificate/upload-public-cert.png)
 
-Una vez que el certificado se cargue, copie la huella digital del certificado y consulte [Que el certificado sea accesible](configure-ssl-certificate-in-code.md#load-the-certificate).
+Una vez que el certificado se cargue, copie la huella digital del certificado y consulte [Que el certificado sea accesible](configure-ssl-certificate-in-code.md#make-the-certificate-accessible).
 
 ## <a name="manage-app-service-certificates"></a>Administración de certificados de App Service
 

@@ -1,5 +1,5 @@
 ---
-title: Uso de procedimientos almacenados en Azure SQL Data Warehouse | Microsoft Docs
+title: Uso de procedimientos almacenados
 description: Sugerencias para implementar procedimientos almacenados en Azure SQL Data Warehouse para el desarrollo de soluciones.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2c12a679ed5f0a1574deb34df8c0151e737d2d01
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e6e1144043cbbbc8124785351e1e56a776b84527
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479583"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692809"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Uso de procedimientos almacenados en SQL Data Warehouse
 Sugerencias para implementar procedimientos almacenados en Azure SQL Data Warehouse para el desarrollo de soluciones.

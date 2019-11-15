@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos de SAP HANA mediante Azure Data Factory | Microsoft Docs
+title: Movimiento de datos de SAP HANA mediante Azure Data Factory
 description: Aprenda a mover datos de SAP HANA mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 159e10354726e86ff04cb12bff33b6a83bd1fa70
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ebd1cf22bffc6a136845672cedcefa7936eeece5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836104"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682354"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Movimiento de datos de SAP HANA mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que se usa:"]
@@ -60,7 +60,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Servidor | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | string | Sí
+server | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | string | Sí
 authenticationType | Tipo de autenticación. | cadena. "Basic" o "Windows" | Sí 
 username | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
 password | Contraseña del usuario. | string | Sí
@@ -297,10 +297,10 @@ NVARCHAR | Cadena
 CLOB | Byte[]
 ALPHANUM | Cadena
 BLOB | Byte[]
-DATE | Datetime
+DATE | DateTime
 TIME | TimeSpan
-TIMESTAMP | Datetime
-SECONDDATE | Datetime
+TIMESTAMP | DateTime
+SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Limitaciones conocidas
 Cuando se copian datos de SAP HANA, hay algunas limitaciones conocidas:

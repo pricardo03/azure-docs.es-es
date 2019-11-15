@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 8ce032a6ad10b22bed5d266bb23fe81846e8a072
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 6349f90eeacaedb03db4d6e91902fea69a8d0dae
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795196"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818017"
 ---
 # <a name="different-stages-in-mobile-application-development"></a>Diferentes fases en el desarrollo de aplicaciones móviles
 La compilación de una aplicación móvil implica varias fases y los desarrolladores pueden aprovechar fácilmente las ventajas de los servicios, las herramientas y las tecnologías de Microsoft para crear aplicaciones móviles de alta calidad.
@@ -35,6 +35,6 @@ Los desarrolladores que crean aplicaciones para dispositivos móviles y centrada
 
 ## <a name="additional-services"></a>Servicios adicionales
 Hay muchos servicios de Azure que pueden consumirse en función del tipo y la naturaleza de la aplicación que se está construyendo.
-  - Azure Search para buscar todos los tipos de datos internos, con consultas rápidas.
+  - Azure Cognitive Search para buscar todos los tipos de datos internos, con consultas rápidas.
   - Azure Cognitive Services para usar inteligencia artificial en la aplicación.
   - Azure SignalR para habilitar la comunicación en tiempo real en la aplicación.

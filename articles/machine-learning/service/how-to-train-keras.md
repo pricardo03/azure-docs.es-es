@@ -1,5 +1,5 @@
 ---
-title: Entrenamiento de la red neuronal de aprendizaje profundo con Keras
+title: Entrenamiento de modelos de Keras de aprendizaje profundo
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo entrenar y registrar un modelo de clasificación de red neuronal profunda Keras que se ejecuta en TensorFlow con Azure Machine Learning.
 services: machine-learning
@@ -11,14 +11,15 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0143a6075ef7b88cc0b365a544a5e69c92362ff
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: c6a6af6d32e0664e66696523f53ac81cd921609e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710116"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814869"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Entrenamiento y registro de un modelo de clasificación Keras con Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo se muestra cómo entrenar y registrar un modelo de clasificación Keras creado en TensorFlow con Azure Machine Learning. Se usa el popular [conjunto de datos MNIST](http://yann.lecun.com/exdb/mnist/) para clasificar dígitos escritos a mano mediante una red neuronal profunda (DNN) creada con la [biblioteca Keras de Python](https://keras.io) que se ejecuta sobre [TensorFlow](https://www.tensorflow.org/overview).
 

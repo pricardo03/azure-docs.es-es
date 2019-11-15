@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 36c496b77be5bfda83b3ed424a7fdf2b53101aa4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497522"
+ms.locfileid: "73580611"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -56,7 +56,7 @@ Utilice estas herramientas para Azure Machine Learning:
 
 ## <a name="glossary"></a>Glosario
 + <a href="#activities">Actividad</a>
-+ <a href="#compute-instance">Instancia de proceso</a>
++ <a href="#compute-instance">Máquina virtual de Notebook</a>
 + <a href="#compute-targets">Destinos de proceso</a>
 + <a href="#datasets-and-datastores">Conjunto de datos y almacenes de datos</a>
 + <a href="#endpoints">Extremos</a>
@@ -84,15 +84,11 @@ Una actividad representa una operación de larga ejecución. Las operaciones sig
 
 Las actividades pueden proporcionar notificaciones a través del SDK o la interfaz de usuario web para que pueda supervisar fácilmente el progreso de estas operaciones.
 
-### <a name="compute-instance"></a>Instancia de proceso
+### <a name="compute-instance"></a>Máquina virtual de Notebook
 
-> [!NOTE]
-> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro y norte de EE. UU.** o **Sur de Reino Unido**.
->Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar. 
+Una **máquina virtual de Azure Machine Learning Notebook** es una estación de trabajo basada en la nube totalmente administrada que incluye varias herramientas y entornos instalados para el aprendizaje automático. Las máquinas virtuales de Notebook se pueden usar como destino de proceso para trabajos de entrenamiento e inferencia pequeños. En el caso de tareas de gran tamaño, los [clústeres de procesos de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con las funcionalidades de escalado de varios nodos es una mejor opción de destino de proceso.
 
-Una **instancia de proceso de Azure Machine Learning** (anteriormente máquina virtual de cuadernos) es una estación de trabajo basada en la nube totalmente administrada que incluye varias herramientas y entornos instalados para el aprendizaje automático. Las instancias de proceso se pueden usar como destino de proceso para los trabajos de entrenamiento e inferencia. En el caso de tareas de gran tamaño, los [clústeres de procesos de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con las funcionalidades de escalado de varios nodos es una mejor opción de destino de proceso.
-
-Más información sobre las [instancias de procesos](concept-compute-instance.md).
+Más información sobre las máquinas virtuales de Notebook.
 
 ### <a name="compute-targets"></a>Destinos de proceso
 

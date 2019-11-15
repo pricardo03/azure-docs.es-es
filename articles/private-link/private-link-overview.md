@@ -5,14 +5,14 @@ services: private-link
 author: KumudD
 ms.service: private-link
 ms.topic: overview
-ms.date: 09/16/2019
+ms.date: 11/04/2019
 ms.author: kumud
-ms.openlocfilehash: 9e6206e6f7e09ebe03659eb6e515a9b26d3469bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: aa176cb5ffc67ebba826cf13a1a66608301af5e5
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475945"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601529"
 ---
 # <a name="what-is-azure-private-link-preview"></a>¿Qué es Azure Private Link? (versión preliminar)
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage, Azure Cosmos DB y SQL Database) y a los servicios de asociados o clientes hospedados de cliente o asociado mediante un [punto de conexión privado](private-endpoint-overview.md) de la red virtual. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. También puede crear su propio [servicio Private Link](private-link-service-overview.md) en la red virtual y enviarlo de forma privada a los clientes. La experiencia de configuración y consumo con Azure Private Link es coherente en los servicios compartidos de PaaS de Azure, de propiedad del cliente y de asociados.
@@ -40,12 +40,12 @@ Azure Private Link proporciona las ventajas siguientes:
 
 |Escenario  |Servicios admitidos   |Regiones disponibles | Status   |
 |---------|---------|---------|---------|
-|Private Link para servicios propiedad del cliente|Servicios Private Link detrás de Standard Load Balancer |Centro-oeste de EE. UU., Oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU. y Centro-norte de EE. UU.  |  Vista previa  |
-|Private Link para los servicios PaaS de Azure   | Azure Storage        |  Este de EE. UU., Oeste de EE. UU., Centro-oeste de EE. UU.       | Vista previa         |
-|  | Azure Data Lake Storage Gen2        |  Este de EE. UU., Oeste de EE. UU., Centro-oeste de EE. UU.       | Vista previa         |
-|  |  Azure SQL Database         | Centro-oeste de EE. UU., Oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU. y Centro-norte de EE. UU.      |   Vista previa      |
-||Azure SQL Data Warehouse| Centro-oeste de EE. UU., Oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU. y Centro-norte de EE. UU. |Vista previa|
-||Azure Cosmos DB| Centro-oeste de EE. UU., Oeste de EE. UU., Este de EE. UU., Centro-norte de EE. UU., Este de EE. UU 2; Oeste de EE. UU. 2 |Vista previa|
+|Private Link para servicios propiedad del cliente|Servicios Private Link detrás de Standard Load Balancer | Todas las regiones públicas  |  Vista previa  |
+|Private Link para los servicios PaaS de Azure   | Azure Storage        |  Todas las regiones públicas      | Vista previa         |
+|  | Azure Data Lake Storage Gen2        |  Todas las regiones públicas      | Vista previa         |
+|  |  Azure SQL Database         | Todas las regiones públicas      |   Vista previa      |
+||Azure SQL Data Warehouse| Todas las regiones públicas |Vista previa|
+||Azure Cosmos DB| Centro-oeste de EE. UU., Oeste de EE. UU., Centro-norte de EE. UU. |Vista previa|
 
 Para conocer las notificaciones más actualizadas, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 

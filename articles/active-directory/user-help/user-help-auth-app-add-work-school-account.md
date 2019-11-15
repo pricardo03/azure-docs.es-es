@@ -1,5 +1,5 @@
 ---
-title: Adición de una cuenta profesional o educativa a la aplicación Microsoft Authenticator de Azure Active Directory | Microsoft Docs
+title: 'Incorporación de una cuenta profesional o educativa a una aplicación autenticadora: Azure AD'
 description: Cómo agregar su cuenta profesional o educativa a la aplicación Microsoft Authenticator para la comprobación en dos fases.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be2ee662a061cdcb6acc58e47eda5feda3b9eee
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c7c9fa41a1278f0e1e54a06c3930e3bbc3d3d3ae
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880792"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803733"
 ---
 # <a name="add-your-work-or-school-account"></a>Adición de una cuenta profesional o educativa
 

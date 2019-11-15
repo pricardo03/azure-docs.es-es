@@ -1,5 +1,5 @@
 ---
-title: Copia de datos de Teradata Vantage mediante Azure Data Factory | Microsoft Docs
+title: Copia de datos de Teradata Vantage mediante Azure Data Factory
 description: El conector Teradata del servicio Data Factory le permite copiar datos desde Teradata Vantage a almacenes de datos compatibles con Data Factory como receptores.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: e538c8b00bddc8a2fa35b158c1e76f9033b73a56
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4074c50aa17bf804696060134e37055a18bd0137
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089180"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680104"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copia de datos de Teradata Vantage mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -71,6 +71,13 @@ Las siguientes propiedades son compatibles con el servicio vinculado Teradata:
 | username | Especifique un nombre de usuario para conectarse a Teradata. Se aplica cuando se usa autenticación de Windows. | Sin |
 | password | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). <br>Se aplica al utilizar la autenticación de Windows o hacer referencia a la contraseña en Key Vault para la autenticación básica. | Sin |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sí |
+
+Puede establecer más propiedades de conexión en la cadena de conexión, según su caso:
+
+| Propiedad | Description | Valor predeterminado |
+|:--- |:--- |:--- |
+| CharacterSet | El juego de caracteres que se va a utilizar para la sesión. Por ejemplo, `CharacterSet=UTF16`.<br><br/>Este valor puede ser un juego de caracteres definido por el usuario o uno de los siguientes juegos de caracteres predefinidos: <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, compatible con DOS, KANJISJIS_0S)<br/>- EUC (compatible con Unix, KANJIEC_0U)<br/>- IBM Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | El valor predeterminado es `ASCII`. |
+| MaxRespSize |El tamaño máximo del búfer de respuesta para las solicitudes SQL, en kilobytes (KB). Por ejemplo, `MaxRespSize=‭10485760‬`.<br/><br/>En Teradata Database versión 16.00 o posterior, el valor máximo es 7361536. En el caso de las conexiones que usan versiones anteriores, el valor máximo es 1048576. | El valor predeterminado es `65536`. |
 
 **Ejemplo de uso de la autenticación básica**
 

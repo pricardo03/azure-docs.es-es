@@ -1,5 +1,5 @@
 ---
-title: 'Script de PowerShell: copia de los datos de local a Azure mediante Data Factory| Microsoft Docs'
+title: 'Script de PowerShell: copia de los datos de local a Azure mediante Data Factory '
 description: El script de PowerShell copia datos de la base de datos SQL Server local en otra instancia de Azure Blob Storage.
 services: data-factory
 author: linda33wj
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: 1218408bee067d6edb274fdcbf4fae62b8245a01
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d7f8d67291c0b6b2a384331c014fdd5cd247ceae
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160661"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684346"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Use PowerShell para crear una canalización de factoría de datos para copiar datos de local a Azure
 

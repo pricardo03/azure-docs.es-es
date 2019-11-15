@@ -1,5 +1,5 @@
 ---
-title: Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado de Azure SQL Data Warehouse| Microsoft Docs
+title: Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado
 description: Recomendaciones y consideraciones que debe conocer al usar el índice de almacén de columnas agrupado ordenado para mejorar el rendimiento de las consultas.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3cc2f140eeed0a4667a01aa8c5ccbad7e4411521
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595363"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685991"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado  
 
@@ -43,7 +44,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> En una tabla de CCI ordenado, los nuevos datos resultantes de las operaciones de DML o de carga de datos no se ordenan automáticamente.  Los usuarios pueden RECOMPILAR el CCI ordenado para ordenar todos los datos de la tabla.  En Azure SQL Data Warehouse, la RECOMPILACIÓN del índice de almacén de columnas es una operación sin conexión.  En el caso de una tabla con particiones, la RECOMPILACIÓN se realiza en una partición cada vez.  Los datos de la partición que se está recompilando estarán "sin conexión" y no estarán disponibles hasta que la RECOMPILACIÓN se complete para esa partición. 
+> En una tabla de CCI ordenada, los nuevos datos resultantes del mismo lote de DML o de operaciones de carga de datos se organizan dentro de ese lote, no hay ninguna organización global de todos los datos de la tabla.  Los usuarios pueden RECOMPILAR el CCI ordenado para ordenar todos los datos de la tabla.  En Azure SQL Data Warehouse, la RECOMPILACIÓN del índice de almacén de columnas es una operación sin conexión.  En el caso de una tabla con particiones, la RECOMPILACIÓN se realiza en una partición cada vez.  Los datos de la partición que se está recompilando estarán "sin conexión" y no estarán disponibles hasta que la RECOMPILACIÓN se complete para esa partición. 
 
 ## <a name="query-performance"></a>Rendimiento de consultas
 
@@ -100,7 +101,7 @@ A continuación se ofrece una comparación de rendimiento de consultas de ejempl
 
 El número de segmentos superpuestos depende del tamaño de los datos que se van a ordenar, la memoria disponible y el grado máximo de paralelismo (MAXDOP) durante la creación del CCI ordenado. A continuación, se muestran opciones para reducir la superposición de segmentos al crear un CCI ordenado.
 
-- Use la clase de recurso xlargerc en una unidad de almacenamiento de datos superior para permitir más memoria para la ordenación de datos antes de que el generador de índices comprima los datos en segmentos.  Una vez que está en un segmento de índice, no se puede cambiar la ubicación física de los datos.  No hay ninguna ordenación de datos dentro de un segmento o entre segmentos.  
+- Use la clase de recurso xlargerc en una unidad de almacenamiento de datos superior para permitir más memoria para la ordenación de datos antes de que el generador de índices comprima los datos en segmentos.  Una vez que está en un segmento de índice, no se puede cambiar la ubicación física de los datos.  No hay ningún tipo de organización de datos dentro de un segmento o entre segmentos.  
 
 - Cree un CCI ordenado con MAXDOP = 1.  Cada subproceso que se usa para la creación del CCI ordenado trabaja en un subconjunto de datos y lo ordena localmente.  No hay ninguna ordenación global entre los datos ordenados por subprocesos diferentes.  El uso de subprocesos paralelos puede reducir el tiempo de creación de un CCI ordenado, pero se generarán más segmentos superpuestos que con el uso de un único subproceso.  Actualmente, la opción MAXDOP solo se admite en la creación de una tabla de CCI ordenado con el comando CREATE TABLE AS SELECT.  La creación de un CCI ordenado mediante los comandos CREATE INDEX o CREATE TABLE no admite la opción MAXDOP. Por ejemplo,
 
@@ -112,7 +113,7 @@ OPTION (MAXDOP 1);
 - Ordene previamente los datos por las claves de ordenación antes de cargarlos en tablas de Azure SQL Data Warehouse.
 
 
-El siguiente es un ejemplo de una distribución de tabla de CCI ordenado que no tiene ningún segmento superpuesto tras aplicar las recomendaciones anteriores. La tabla de CCI ordenado se crea en una base de datos de DWU1000c mediante el comando CTAS a partir de una tabla de montón de 20 GB mediante MAXDOP 1 y xlargerc.  El CCI se ordena en una columna BIGINT sin duplicados.  
+El siguiente es un ejemplo de una distribución de tabla de CCI ordenado que no tiene ningún segmento superpuesto tras aplicar las recomendaciones anteriores. La tabla de CCI ordenada se crea en una base de datos de DWU1000c a través de la instrucción CTAS a partir de una tabla de montón de 20 GB mediante MAXDOP 1 y xlargerc.  El CCI se ordena en una columna BIGINT sin duplicados.  
 
 ![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 

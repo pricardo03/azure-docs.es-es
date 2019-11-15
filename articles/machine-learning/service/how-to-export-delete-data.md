@@ -1,24 +1,25 @@
 ---
 title: Exportación o eliminación de los datos del área de trabajo
 titleSuffix: Azure Machine Learning
-description: Aprenda a exportar o eliminar el área de trabajo con Azure Portal, la CLI, el SDK y las API REST autenticadas.
+description: Obtenga información sobre cómo exportar o eliminar el área de trabajo con Azure Machine Learning Studio, la CLI, el SDK y las API REST autenticadas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: ph-com
-ms.author: pahusban
-ms.date: 05/02/2019
+author: lobrien
+ms.author: laobri
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18e2ab18dac214e73eaf6ad7dfcb9dbbab0b5cf5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 34ff3f9704b9c84a7daddcfd14fb9cd3e990f794
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002837"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716519"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportación o eliminación de los datos del área de trabajo de Machine Learning Service 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En Azure Machine Learning, puede exportar o eliminar los datos del área de trabajo con la API REST autenticada. En este artículo se indica cómo hacerlo.
 
@@ -27,7 +28,7 @@ En Azure Machine Learning, puede exportar o eliminar los datos del área de trab
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="control-your-workspace-data"></a>Control de los datos del área de trabajo
-Los datos del producto almacenados por Azure Machine Learning están disponibles para su exportación y eliminación por medio de Azure Portal, la CLI, el SDK y las API REST autenticadas. Se puede acceder a los datos de telemetría mediante el portal de privacidad de Azure. 
+Los datos del producto almacenados por Azure Machine Learning están disponibles para su exportación y eliminación por medio de Azure Machine Learning Studio, la CLI, el SDK y las API REST autenticadas. Se puede acceder a los datos de telemetría mediante el portal de privacidad de Azure. 
 
 En Azure Machine Learning, los datos personales constan de información del usuario de documentos de historial de ejecución y registros de telemetría de algunas interacciones del usuario con el servicio.
 
@@ -232,28 +233,26 @@ Se pueden obtener orígenes de datos mediante:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## <a name="delete-visual-interface-assets"></a>Eliminación de los recursos de la interfaz visual
+## <a name="delete-assets-in-the-designer"></a>Eliminación de recursos en el diseñador
 
-En la interfaz visual donde se ha creado el experimento, elimine los recursos individuales:
+En el diseñador donde se ha creado el experimento, elimine los recursos individuales:
 
-1. En el lado izquierdo, seleccione el tipo de recurso que quiere eliminar.
+1. Vaya a diseñador.
 
     ![Eliminación de recursos](media/how-to-export-delete-data.md/delete-experiment.png)
 
-1. En la lista, seleccione los recursos individuales que se van a eliminar.
+1. En la lista, seleccione el borrador de canalización individual que desea eliminar.
 
-1. En la parte inferior, seleccione **Eliminar**.
+1. Seleccione **Eliminar**.
 
-## <a name="export-visual-interface-data"></a>Exportación de datos de la interfaz visual
+### <a name="delete-datasets-in-the-designer"></a>Eliminación de conjuntos de datos en el diseñador
 
-En la interfaz visual donde se ha creado el experimento, exporte los datos que ha agregado:
+Para eliminar conjuntos de datos en el diseñador, use Azure Portal o el Explorador de Storage para desplazarse a las cuentas de almacenamiento conectadas y eliminar los conjuntos de ellas. La anulación del registro de los conjuntos de registros en el diseñador solo quita el punto de referencia en el almacenamiento. 
 
-1. En el lado izquierdo, seleccione **Datos**.
+## <a name="export-data-in-the-designer"></a>Exportación de datos en el diseñador
 
-1. En la parte superior, seleccione **Mis conjuntos de datos** o **Ejemplos** para localizar los datos que quiere exportar.
+En el diseñador donde se ha creado el experimento, exporte los datos que ha agregado:
 
-    ![Descarga de datos](media/how-to-export-delete-data.md/download-data.png)
+1. En el lado izquierdo, seleccione **Conjuntos de datos**.
 
-1. En la lista, seleccione los recursos individuales que se van a exportar.
-
-1. En la parte inferior, seleccione **Descargar**.
+    ![Descarga de datos](media/how-to-export-delete-data.md/unregister-dataset.png)

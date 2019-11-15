@@ -1,5 +1,5 @@
 ---
-title: Protección de los servicios de datos y almacenamiento de Azure en Azure Security Center | Microsoft Docs
+title: 'Recomendaciones de seguridad para el almacenamiento y los datos: Azure Security Center'
 description: En este documento se explica cómo las recomendaciones de Azure Security Center ayudan a proteger el servicio SQL de Azure y los datos y a cumplir las directivas de seguridad.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
 ms.author: memildin
-ms.openlocfilehash: 80611fe0c37af7dfd27b561186f3e967ad3159b4
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 21da7c49b158345894ee7fdc164d205bcefe1640
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201042"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663890"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Protección de los servicios de datos y almacenamiento de Azure en Azure Security Center
 En este tema se muestra cómo ver e implementar recomendaciones de seguridad para los recursos de datos y almacenamiento. Azure Security Center encontró estas recomendaciones al analizar el estado de seguridad de los recursos de Azure.
@@ -27,16 +27,16 @@ En este tema se muestra cómo ver e implementar recomendaciones de seguridad par
 
 1. En la sección **Resource security hygiene** (Protección de seguridad de recursos), seleccione **Data and storage resources** (Recursos de datos y almacenamiento).
 
-   ![Recursos de datos y almacenamiento](./media/security-center-monitoring/click-data.png)
+    ![Recursos de datos y almacenamiento](./media/security-center-monitoring/click-data.png)
 
     Se abre la página **Data security** (Seguridad de los datos) con recomendaciones para los recursos de datos.
 
-     ![Recursos de datos](./media/security-center-monitoring/sql-overview.png)
+    ![Recursos de datos](./media/security-center-monitoring/sql-overview.png)
 
-En esta página puede realizar las siguientes acciones:
+    En esta página puede realizar las siguientes acciones:
 
-* Haga clic en la pestaña **Overview** (Información general) para mostrar todas las recomendaciones de recursos de datos que deben corregirse. 
-* Haga clic en cada pestaña y vea las recomendaciones por tipo de recurso.
+    * Haga clic en la pestaña **Overview** (Información general) para mostrar todas las recomendaciones de recursos de datos que deben corregirse. 
+    * Haga clic en cada pestaña y vea las recomendaciones por tipo de recurso.
 
     > [!NOTE]
     > Para obtener más información sobre cifrado de almacenamiento, vea [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md).

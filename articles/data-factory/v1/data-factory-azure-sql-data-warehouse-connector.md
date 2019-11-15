@@ -1,5 +1,5 @@
 ---
-title: Copia de datos hacia Azure SQL Data Warehouse y desde él | Microsoft Docs
+title: Copia de datos hacia o desde Azure SQL Data Warehouse
 description: Aprenda a copiar datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7570cfc8a9804f753a9de140a71436bcc0cebb43
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: d0306d891b327422383120ef322ece407829f7ed
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836647"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683058"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copia de datos hacia y desde SQL Data Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -316,7 +316,7 @@ Data Factory crea la tabla en el almacén de destino con el mismo nombre de tabl
 | Binary | Binary |
 | Varbinary | Varbinary (hasta 8000) |
 | Date | Date |
-| Datetime | Datetime |
+| DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Hora | Hora |
 | DateTimeOffset | DateTimeOffset |

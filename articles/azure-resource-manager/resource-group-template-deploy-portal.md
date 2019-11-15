@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 249afcaad85d9031e0972d4fcfc185b5ff890f65
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 197bd14c425d80a814f370a2050c085b1eef143d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390344"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579016"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure
 
@@ -89,7 +89,7 @@ Si desea ejecutar una implementación sin usar las plantillas de Marketplace, pu
 1. Tiene varias opciones para crear una plantilla:
 
     - **Crear su propia plantilla en el editor**: cree una plantilla mediante el editor de plantillas del portal.  El editor tiene la capacidad para agregar un esquema de plantilla de recursos.
-    - **Plantillas comunes**: hay cuatro plantillas comunes para crear una máquina virtual Linux, una máquina virtual Windows, una aplicación web y una base de datos de Azure SQL.
+    - **Plantillas comunes**: Hay cuatro plantillas comunes para crear una máquina virtual Linux, una máquina virtual Windows, una aplicación web y una base de datos de Azure SQL respectivamente.
     - **Cargar una plantilla de inicio rápido de GitHub**: use una [plantilla de inicio rápido](https://azure.microsoft.com/resources/templates/) existente.
 
    ![Ver las opciones](./media/resource-group-template-deploy-portal/see-options.png)

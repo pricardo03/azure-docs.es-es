@@ -1,5 +1,5 @@
 ---
-title: Redes aceleradas con recuperación ante desastres de máquinas virtuales de Azure | Microsoft Docs
+title: Habilitación de redes aceleradas para la recuperación ante desastres de las máquinas virtuales de Azure con Azure Site Recovery
 description: Descripción de la habilitación de las redes aceleradas con Azure Site Recovery para la recuperación ante desastres de máquinas virtuales de Azure
 services: site-recovery
 documentationcenter: ''
@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: c7edc7979636ced8697aa5ad724f9c6600d840bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27691d8fab3e7c8ccd60351dc0be83898ff984ed
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772521"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622423"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Redes aceleradas con recuperación ante desastres de máquinas virtuales de Azure
 

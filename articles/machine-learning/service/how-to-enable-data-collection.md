@@ -6,19 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: marthalc
-author: marthalc
-ms.date: 07/15/2019
+ms.reviewer: laobri
+ms.author: copeters
+author: lostmygithubaccount
+ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 109db23976f6332b24bcfa565812bd9491062691
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2ca091a1bbf56e2d2850a464d0109020b06483d0
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330728"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576693"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recopilar datos de modelos en producción
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > Aunque este SDK se retirará pronto, sigue siendo adecuado para los desarrolladores que supervisan el desplazamiento de los datos en los modelos; sin embargo, la mayoría de los desarrolladores deben usar la [supervisión de datos simplificada con Application Insights ](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
@@ -47,9 +48,12 @@ La salida se guarda en un blob de Azure. Puesto que los datos se agregan en un b
 La ruta de acceso a los datos de salida en el blob sigue esta sintaxis:
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
+
+>[!Note]
+> En las versiones del SDK anteriores a la `0.1.0a16`, el argumento `designation` se llamaba `identifier`. Si el código se desarrolló con una versión anterior, tendrá que actualizarlo en consecuencia.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -80,8 +84,8 @@ Para habilitarla, debe:
 
     ```python
     global inputs_dc, prediction_dc
-    inputs_dc = ModelDataCollector("best_model", identifier="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
-    prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
+    inputs_dc = ModelDataCollector("best_model", designation="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
+    prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
     *CorrelationId* es un parámetro opcional, no es necesario configurarlo si el modelo no lo requiere. Disponer de un correlationId facilita la asignación con otros datos. (Algunos ejemplos incluyen: LoanNumber, CustomerId, etc.).
@@ -112,7 +116,7 @@ Para habilitarla, debe:
 
 Si ya tiene un servicio con las dependencias que se instalan en su **archivo de entorno** y **archivo de puntuación**, habilite la recopilación de datos:
 
-1. Vaya a [Azure Portal](https://portal.azure.com).
+1. Vaya a [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Abra el área de trabajo.
 
@@ -120,7 +124,7 @@ Si ya tiene un servicio con las dependencias que se instalan en su **archivo de 
 
    ![Editar servicio](media/how-to-enable-data-collection/EditService.PNG)
 
-1. En **Configuración avanzada**, anule la selección de **Habilitar recopilación de datos de modelos**. 
+1. En **Configuración avanzada**, seleccione **Habilitar recopilación de datos de modelos**. 
 
     [![Activar la colección de datos](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
@@ -130,10 +134,10 @@ Si ya tiene un servicio con las dependencias que se instalan en su **archivo de 
 
 
 ## <a name="disable-data-collection"></a>Deshabilitar la recopilación de datos
-Puede dejar de recopilar datos en cualquier momento. Use el código de Python o Azure Portal para deshabilitar la recopilación de datos.
+Puede dejar de recopilar datos en cualquier momento. Use el código de Python o Azure Machine Learning Studio para deshabilitar la recopilación de datos.
 
-+ Opción 1: deshabilitar en Azure Portal: 
-  1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
++ Opción 1: Deshabilitar en Azure Machine Learning Studio: 
+  1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com).
 
   1. Abra el área de trabajo.
 
@@ -147,7 +151,7 @@ Puede dejar de recopilar datos en cualquier momento. Use el código de Python o 
 
   1. Seleccione **Actualizar** para aplicar el cambio.
 
-  También puede acceder a esta configuración en la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com).
+  También puede acceder a esta configuración en el área de trabajo de [Azure Machine Learning Studio](https://ml.azure.com).
 
 + Opción 2: uso de Python para deshabilitar la recopilación de datos:
 
@@ -157,10 +161,10 @@ Puede dejar de recopilar datos en cualquier momento. Use el código de Python o 
   ```
 
 ## <a name="validate-your-data-and-analyze-it"></a>Validación y análisis de los datos
-Puede elegir la herramienta que prefiera para analizar los datos recopilados en el blob de Azure. 
+Puede elegir la herramienta que prefiera para analizar los datos recopilados en el blob de Azure.
 
 Para acceder rápidamente a los datos del blob:
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Abra el área de trabajo.
 1. Haga clic en **Almacenamiento**.
@@ -170,7 +174,7 @@ Para acceder rápidamente a los datos del blob:
 1. Siga la ruta de acceso a los datos de salida del blob utilizando esta sintaxis:
 
 ```
-/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
@@ -190,7 +194,7 @@ Para acceder rápidamente a los datos del blob:
 
     [![Navegador de PBI](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
-1. En el editor de consultas, haga clic en la columna "Nombre" y agregue la cuenta de almacenamiento 1. Especifique la ruta del modelo en el filtro. Nota: si desea buscar únicamente en los archivos de un determinado año o mes, expanda la ruta de acceso del filtro. Por ejemplo, si desea buscar en los datos de marzo: /modeldata/idsuscripción>/nombregruporecursos>/nombreáreatrabajo>/nombreservicioweb>/nombremodelo>/versiónmodelo>/identificadormodelo>/año>/3
+1. En el editor de consultas, haga clic en la columna "Nombre" y agregue la cuenta de almacenamiento 1. Especifique la ruta del modelo en el filtro. Nota: si desea buscar únicamente en los archivos de un determinado año o mes, expanda la ruta de acceso del filtro. Por ejemplo, si desea buscar en los datos de marzo: /modeldata/idsuscripción>/nombregruporecursos>/nombreáreatrabajo>/nombreservicioweb>/nombremodelo>/versiónmodelo>/designación+>/año>/3
 
 1. Filtre los datos pertinentes en función del **nombre**. Si almacenó **predicciones** y **entradas**, deberá crear una consulta para cada una.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de la autenticación de Azure Active Directory: SQL | Microsoft Docs'
+title: Configuración de la autenticación de Azure Active Directory
 description: Aprenda a conectarse a SQL Database, Instancia administrada y SQL Data Warehouse mediante Autenticación de Azure Active Directory después de configurar Azure AD.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 10/16/2019
-ms.openlocfilehash: 1dbccf43d03907cefb68315b6908a35735f373ce
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.date: 11/06/2019
+ms.openlocfilehash: 48334d8ce266ddcc92e4d2b27634db3d8c9f1bc9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177639"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816794"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configuración y administración de la autenticación de Azure Active Directory con SQL
 
@@ -58,6 +58,9 @@ Cuando se usa Azure Active Directory con replicación geográfica, el administra
 > [!IMPORTANT]
 > Siga estos pasos únicamente si va a aprovisionar una instancia administrada. Esta operación solo la puede ejecutar el administrador global o de la compañía, o un administrador con un rol con privilegios en Azure AD. Los pasos siguientes describen el proceso de concesión de permisos a los usuarios con privilegios diferentes en el directorio.
 
+> [!NOTE]
+> En el caso de los administradores de Azure AD de MI creados antes de la disponibilidad general, pero que continúan sus operaciones después de esta, no hay ningún cambio funcional en el comportamiento existente. Para obtener más información, consulte la sección [Nueva funcionalidad de administrador de Azure AD para MI](#new-azure-ad-admin-functionality-for-mi).
+
 La instancia administrada necesita permisos para leer en Azure AD para realizar correctamente tareas como la autenticación de usuarios mediante la pertenencia a grupos de seguridad o la creación de nuevos usuarios. Para que esto funcione, debe conceder permisos a la instancia administrada para leer en Azure AD. Hay dos formas de hacerlo: desde el portal y desde PowerShell. Los siguientes pasos describen ambos métodos.
 
 1. En Azure Portal, en la esquina superior derecha, seleccione la conexión para desplegar una lista de posibles instancias de Active Directory.
@@ -68,7 +71,7 @@ La instancia administrada necesita permisos para leer en Azure AD para realizar
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
 
-4. Seleccione el banner encima de la página de administrador de Active Directory y conceda permiso al usuario actual. Si inició sesión como administrador global o de la compañía en Azure AD, puede hacerlo desde Azure Portal o mediante PowerShell con el script siguiente.
+4. Seleccione el banner encima de la página de administrador de Active Directory y conceda permiso al usuario actual. Si inició sesión como administrador global o de la empresa en Azure AD, puede hacerlo desde Azure Portal o mediante PowerShell con el script siguiente.
 
     ![grant permissions-portal](./media/sql-database-aad-authentication/grant-permissions.png)
 
@@ -146,10 +149,34 @@ La instancia administrada necesita permisos para leer en Azure AD para realizar
 
     El proceso de cambio del el administrador puede tardar varios minutos. El nuevo administrador aparecerá después en el cuadro Administrador de Active Directory.
 
-Después de aprovisionar un administrador de Azure AD para la instancia administrada, puede empezar a crear entidades de seguridad del servidor de Azure AD (**versión preliminar pública**) con la sintaxis <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>. Para más información, consulte [Introducción a Instancia administrada](sql-database-managed-instance.md#azure-active-directory-integration).
+Después de aprovisionar un administrador de Azure AD para la instancia administrada, puede empezar a crear entidades de seguridad del servidor de Azure AD (inicios de sesión) con la sintaxis <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>. Para más información, consulte [Introducción a Instancia administrada](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > Si más adelante desea quitar un administrador, en la parte superior de la página Administrador de Active Directory, seleccione **Quitar administrador** y después **Guardar**.
+
+### <a name="new-azure-ad-admin-functionality-for-mi"></a>Nueva funcionalidad de administrador de Azure AD para MI
+
+En la tabla siguiente se resume la versión preliminar pública de la funcionalidad de administrador de inicio de sesión de Azure AD para MI, frente a una nueva funcionalidad disponible con carácter general para inicios de sesión de Azure AD.
+
+| Administrador de inicio de sesión de Azure AD para MI en versión preliminar pública | Funcionalidad de administrador de Azure AD para MI disponible con carácter general |
+| --- | ---|
+| Se comporta de forma similar al administrador de Azure AD para SQL Database, el cual habilita la autenticación de Azure AD, pero el administrador de Azure AD no puede crear inicios de sesión de Azure AD ni de SQL en la base de datos maestra de MI. | El administrador de Azure AD tiene permisos de administrador del sistema y puede crear inicios de sesión de AAD y SQL en la base de datos maestra de MI. |
+| No está presente en la vista sys.server_principals. | Está presente en la vista sys.server_principals. |
+| Permite configurar usuarios invitados individuales de Azure AD como administradores de Azure AD para MI. Para más información, consulte [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../active-directory/b2b/add-users-administrator.md). | Requiere la creación de un grupo de Azure AD con usuarios invitados como miembros para configurar este grupo como administrador de Azure AD para MI. Para obtener más información, vea [Compatibilidad con aplicaciones empresariales de Azure AD](sql-database-ssms-mfa-authentication.md#azure-ad-business-to-business-support). |
+
+Como procedimiento recomendado para los administradores de Azure AD para MI existentes que se crearon antes de la disponibilidad general, y que siguen operando después de esta, restablezca el administrador de Azure AD mediante las opciones "Quitar administrador" y "Establecer administrador" de Azure Portal para el mismo usuario o grupo de Azure AD.
+
+### <a name="known-issues-with-the-azure-ad-login-ga-for-mi"></a>Problemas conocidos del inicio de sesión de disponibilidad general de Azure AD para MI
+
+- Si existe un inicio de sesión de Azure AD en la base de datos maestra de MI, el cual se creó con el comando de T-SQL `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`, no se puede configurar como administrador de Azure AD para MI. Experimentará un error al configurar el inicio de sesión como administrador de Azure AD con Azure Portal, PowerShell o con los comandos de la CLI a la hora de crear el inicio de sesión de Azure AD. 
+  - El inicio de sesión debe colocarse en la base de datos maestra mediante el comando `DROP LOGIN [myaadaccount]` para poder configurar la cuenta como administrador de Azure AD.
+  - Configure la cuenta de administrador de Azure AD en Azure Portal después de que se ejecute con éxito el comando `DROP LOGIN`. 
+  - Si no puede configurar la cuenta de administrador de Azure AD, busque el inicio de sesión en la base de datos maestra de la instancia administrada. Use el comando `SELECT * FROM sys.server_principals`.
+  - Al configurar un administrador de Azure AD para MI, se creará automáticamente un inicio de sesión para esta cuenta en la base de datos maestra. Al quitar el administrador de Azure AD, se quitará automáticamente el inicio de sesión de la base de datos maestra.
+   
+- No se admiten usuarios invitados individuales de Azure AD como administradores de Azure AD para MI. Los usuarios invitados deben formar parte de un grupo de Azure AD para que se puedan configurar como administradores de Azure AD. Actualmente, la hoja de Azure Portal no deshabilita a los usuarios invitados para otra instancia de Azure AD, lo cual permite que los usuarios continúen con la configuración de administrador. Si se guardan los usuarios invitados como administradores de Azure AD, se producirá un error en la configuración. 
+  - Si quiere que un usuario invitado sea administrador de Azure AD para MI, inclúyalo en un grupo de Azure AD y establezca este grupo como administrador de Azure AD.
+
 
 ### <a name="powershell-for-sql-managed-instance"></a>PowerShell para una instancia administrada de SQL
 
@@ -318,8 +345,8 @@ Puede cumplir estos requisitos mediante:
 
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Crear usuarios de base de datos independiente  en la base de datos y asignados a identidades de Azure AD.
 
->[!IMPORTANT]
->Instancia administrada ahora admite entidades de seguridad del servidor de Azure AD (inicios de sesión) (**versión preliminar pública**), lo que le permite crear inicios de sesión de usuarios, grupos o aplicaciones de Azure AD. Las entidades de seguridad del servidor de Azure AD (inicios de sesión) ofrecen la posibilidad de autenticarse en la instancia administrada sin necesidad de que los usuarios de la base de datos se creen como usuarios de una base de datos independiente. Para más información, consulte [Introducción a Instancia administrada](sql-database-managed-instance.md#azure-active-directory-integration). Para conocer la sintaxis de creación de entidades de seguridad (inicios de sesión) de un servidor de Azure AD, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+> [!IMPORTANT]
+> Instancia administrada ahora admite entidades de seguridad del servidor de Azure AD (inicios de sesión), lo que le permite crear inicios de sesión de usuarios, grupos o aplicaciones de Azure AD. Las entidades de seguridad del servidor de Azure AD (inicios de sesión) ofrecen la posibilidad de autenticarse en la instancia administrada sin necesidad de que los usuarios de la base de datos se creen como usuarios de una base de datos independiente. Para más información, consulte [Introducción a Instancia administrada](sql-database-managed-instance.md#azure-active-directory-integration). Para conocer la sintaxis de creación de entidades de seguridad (inicios de sesión) de un servidor de Azure AD, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 La autenticación de Azure Active Directory requiere que los usuarios de la base de datos se creen como usuarios de bases de datos independientes. Un usuario de base de datos independiente basado en una identidad de Azure AD es un usuario de base de datos que no tiene un inicio de sesión en la base de datos maestra y que se asigna a una identidad en el directorio de Azure AD que está asociado a la base de datos. La identidad de Azure AD puede ser una cuenta de usuario individual o un grupo. Para más información sobre los usuarios de bases de datos independientes, vea [Usuarios de bases de datos independientes: cómo hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: a15d450d033c04c59f6981a887689f1fc08919f1
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 42c674e236d769d48f6f17fc43494ac006219a8a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958850"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795692"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Cifrado de Azure Storage para datos en reposo
 
@@ -40,7 +40,7 @@ En la tabla siguiente se comparan las opciones de administración de claves para
 |                                        |    Claves administradas por Microsoft                             |    Claves administradas por el cliente                                                                                                                        |    Claves proporcionadas por el cliente                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Operaciones de cifrado y descifrado    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Servicios de Azure Storage admitidos    |    Todo                                                |    Blob Storage, Azure Files                                                                                                               |    Almacenamiento de blobs                                                                  |
+|    Servicios de Azure Storage admitidos    |    All                                                |    Blob Storage, Azure Files                                                                                                               |    Almacenamiento de blobs                                                                  |
 |    Almacenamiento de claves                         |    Almacén de claves de Microsoft    |    Azure Key Vault                                                                                                                              |    Azure Key Vault o cualquier otro almacén de claves                                                                 |
 |    Responsabilidad de la rotación de claves         |    Microsoft                                          |    Cliente                                                                                                                                     |    Cliente                                                                      |
 |    Uso de las claves                           |    Microsoft                                          |    Azure Portal, API REST del proveedor de recursos de almacenamiento, bibliotecas de administración de Azure Storage, PowerShell, CLI        |    API REST de Azure Storage (Blob Storage), bibliotecas de cliente de Azure Storage    |
@@ -74,7 +74,7 @@ En la lista siguiente se explican los pasos numerados del diagrama:
 
 Para revocar el acceso a las claves administradas por el cliente en la cuenta de almacenamiento, consulte [PowerShell de Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) y [CLI de Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revocación del acceso bloquea de manera eficaz el acceso a todos los datos de la cuenta de almacenamiento, ya que Azure Storage no puede acceder a la clave de cifrado.
 
-Las claves administradas por el cliente no se admiten actualmente para [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+Las claves administradas por el cliente también están disponibles para Azure Managed Disks como versión preliminar pública; las claves administradas por el cliente funcionan de forma un poco diferente en los discos administrados que en el resto de opciones de almacenamiento. Para obtener más información, consulte nuestro [artículo al respecto](../../virtual-machines/linux/disk-encryption.md#customer-managed-keys-public-preview).
 
 Para aprender a usar claves administradas por el cliente con Azure Storage, vea uno de estos artículos:
 

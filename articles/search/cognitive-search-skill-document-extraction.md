@@ -1,21 +1,24 @@
 ---
-title: Aptitud de búsqueda cognitiva de extracción de documentos
+title: Aptitud de búsqueda cognitiva de extracción de documentos (versión preliminar)
 titleSuffix: Azure Cognitive Search
-description: Extrae el contenido de un archivo dentro de la canalización de enriquecimiento.
+description: Extrae el contenido de un archivo dentro de la canalización de enriquecimiento. Esta aptitud está actualmente en versión preliminar pública.
 manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: 8656896fe1a113ab143c43b4d1973e4196c5f087
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e4274f1cb2eacaf78ab83bfb9d637d044d2290bd
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510089"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720127"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Aptitud cognitiva de extracción de documentos
+
+> [!IMPORTANT] 
+> Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST, versión 2019-05-06-Preview](search-api-preview.md), se ofrecen características de versión preliminar. Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
 
 La aptitud de **extracción de documentos** extrae el contenido de un archivo dentro de la canalización de enriquecimiento. Esto le permite aprovechar el paso de extracción de documentos que normalmente se produce antes de la ejecución del conjunto de aptitudes con archivos que se pueden haber generado otras aptitudes.
 
@@ -61,9 +64,9 @@ La entrada "file_data" debe ser un objeto definido de la siguiente manera:
 
 Este objeto de referencia de archivo se puede generar mediante una de estas tres acciones:
 
- - Establecer el parámetro `allowSkillsetToReadFileData` en la definición del indexador en "true".  Se crea una ruta de acceso `/document/file_data` que es un objeto que representa los datos de archivo originales descargados del origen de datos del blob. Este parámetro solo se aplica a los datos de Blob Storage.
+ - Establecer el parámetro `allowSkillsetToReadFileData` en la definición del indexador en "true".  Así se creará la ruta de acceso `/document/file_data` que es un objeto que representa los datos del archivo original descargados del origen de datos del blob. Este parámetro solo se aplica a los datos de Blob Storage.
 
- - Establecer el parámetro `imageAction` en la definición del indexador en un valor distinto de `none`.  Se crea una matriz de imágenes `/document/normalized_images` que sigue la convención necesaria para la entrada en esta aptitud si se pasa individualmente (es decir, `/document/normalized_images/*`).
+ - Establecer el parámetro `imageAction` en la definición del indexador en un valor distinto de `none`.  Así se crea una matriz de imágenes que sigue la convención necesaria para la entrada en esta aptitud si se pasa individualmente (es decir, `/document/normalized_images/*`).
 
  - En caso de tener una aptitud personalizada se devuelve un objeto JSON definido exactamente como se ha indicado anteriormente.  El parámetro `$type` debe establecerse en `file` exactamente y el parámetro `data` debe contener los datos de la matriz de bytes codificada en base 64 del contenido del archivo.
 

@@ -1,5 +1,5 @@
 ---
-title: Guía de escalabilidad y rendimiento de la actividad de copia en Azure Data Factory | Microsoft Docs
+title: Guía de escalabilidad y rendimiento de la actividad de copia en Azure Data Factory
 description: Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en Azure Data Factory cuando se usa la actividad de copia.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: f760917ae8f4ab11902799e36973ae896c4a2b43
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 701eaad8d36b352e946ae8d74204876b41ecb53d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232349"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678264"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guía de escalabilidad y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
@@ -148,7 +148,7 @@ Para reemplazar esta configuración predeterminada, especifique un valor para la
 El número de unidades de integración de datos utilizadas en cada ejecución de copia se puede ver en la salida de la actividad de copia al supervisar una ejecución de actividad. Para más información, consulte el artículo [Supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> El establecimiento de más de cuatro unidades de integración de datos actualmente solo se aplica cuando se copian varios archivos desde Azure Storage, Azure Data Lake Storage, Amazon S3, Google Cloud Storage, FTP en la nube o SFTP en la nube a cualquier otro almacén de datos en la nube.
+> Actualmente, un valor de DIU superior a cuatro solo se aplica cuando se copian varios archivos desde Azure Blob/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud Storage/FTP en la nube/SFTP en la nube o desde un almacén de datos relacional en la nube con la opción de partición habilitada (incluidos [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)) a cualquier otro almacén de datos en la nube.
 
 **Ejemplo:**
 

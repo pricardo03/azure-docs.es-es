@@ -1,5 +1,5 @@
 ---
-title: Creación de canalizaciones de datos predictivas con Azure Data Factory | Microsoft Docs
+title: Creación de canalizaciones de datos predictivas con Azure Data Factory
 description: 'Obtenga información sobre cómo crear una canalización predictiva mediante el uso de Azure Machine Learning: actividad de ejecución de Batch en Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24568940a0f6e550ae0fe7658b81ba1c3b3d3556
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60928075"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683767"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

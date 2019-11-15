@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Habilitar TDE con BYOK: Instancia administrada de Azure SQL Database| Microsoft Docs'
+title: 'PowerShell: Habilitación del cifrado de datos transparente con BYOK: Instancia administrada de Azure SQL Database '
 description: Aprenda a configurar una Instancia administrada de Azure SQL Database para comenzar a usar Cifrado de datos transparente (TDE) con BYOK para cifrado en reposo mediante PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
-ms.date: 11/04/2019
-ms.openlocfilehash: 0413216bc666aff504193d6723d46a6ee26be8ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/05/2019
+ms.openlocfilehash: ddffda5229c9c0d33c563e3ae7b4a884f0f92dff
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500060"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691395"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Administración del Cifrado de datos transparente en una instancia administrada con la propia clave desde Azure Key Vault
 
-Este ejemplo de script de PowerShell configura el cifrado de datos transparente (TDE) en el escenario Bring Your Own Key (versión preliminar) para Instancia administrada de Azure SQL Database con una clave de Azure Key Vault. Para más información sobre TDE con compatibilidad con Bring Your Own Key (BYOK), vea [BYOK de TDE con Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
+Este ejemplo de script de PowerShell configura el cifrado de datos transparente (TDE) con una clave administrada por el cliente para Instancia administrada de Azure SQL, mediante una clave de Azure Key Vault. Con frecuencia esto se denomina escenario de Bring Your Own Key para TDE. Para más información sobre el cifrado de datos transparente con compatibilidad con una clave administrada por el cliente, consulte [BYOK de TDE con Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,9 +30,9 @@ Este ejemplo de script de PowerShell configura el cifrado de datos transparente 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Al usar tanto PowerShell localmente como Azure Cloud Shell se requiere AZ PowerShell 1.1.1-preview o una versión preliminar posterior. Si tiene que actualizar, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps) o ejecute el siguiente script de ejemplo para instalar el módulo.
+Tanto el uso local de PowerShell como el de Azure Cloud Shell requiere AZ PowerShell 2.3.2 o cualquier versión posterior. Si necesita realizar la actualización, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps) o ejecute el script de ejemplo siguiente para instalar el módulo en el usuario actual:
 
-`Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease -Force`
+`Install-Module -Name Az -AllowClobber -Scope CurrentUser`
 
 Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 

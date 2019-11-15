@@ -1,8 +1,6 @@
 ---
 title: Ranuras de implementación de Azure Functions
 description: Aprenda a crear y a usar ranuras de implementación con Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 keywords: azure functions, functions
@@ -10,12 +8,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 50337745b008cdd38dd860a0329e44ee712e7acd
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 23a4870332266ce180c2e94aeb0b5ca24073878b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70085664"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576318"
 ---
 # <a name="azure-functions-deployment-slots"></a>Ranuras de implementación de Azure Functions
 
@@ -27,7 +25,7 @@ Aquí se indica cómo se ven afectadas las funciones cuando se intercambian ranu
 - Si una función se está ejecutando durante un intercambio, la ejecución continúa y los desencadenadores posteriores se enrutan a la instancia de la aplicación intercambiada.
 
 > [!NOTE]
-> No hay ranuras disponibles para el plan Consumo para Linux.
+> Actualmente no hay ranuras disponibles para el plan Consumo para Linux.
 
 ## <a name="why-use-slots"></a>¿Por qué usar ranuras?
 
@@ -182,10 +180,10 @@ Hay dos niveles de compatibilidad para las ranuras de implementación:
 | Sistema operativo o plan de hospedaje           | Nivel de compatibilidad     |
 | ------------------------- | -------------------- |
 | Consumo de Windows       | Disponibilidad general |
-| Premium de Windows (versión preliminar) | Vista previa              |
+| Windows Premium           | Disponibilidad general  |
 | Dedicado de Windows         | Disponibilidad general |
 | Consumo de Linux         | No compatible          |
-| Premium para Linux (versión preliminar)   | Vista previa              |
+| Linux Premium             | Disponibilidad general  |
 | Dedicado de Linux           | Disponibilidad general |
 
 ## <a name="next-steps"></a>Pasos siguientes

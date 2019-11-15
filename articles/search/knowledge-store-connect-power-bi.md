@@ -1,32 +1,40 @@
 ---
-title: Conexión a un almacén de conocimiento con Power BI
+title: Conexión a un almacén de conocimiento (versión preliminar) con Power BI
 titleSuffix: Azure Cognitive Search
-description: Conecte un almacén de conocimiento de Azure Cognitive Search con Power BI para su análisis y exploración.
+description: Conecte un almacén de conocimiento (versión preliminar) de Azure Cognitive Search con Power BI para su análisis y exploración.
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7852eda849dfb05343829875ba5a66fa47970e7e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7b12f0f14003389d36e2df5bcffe7828c135cf2b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790067"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715496"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conexión a un almacén de conocimiento con Power BI
 
-> [!Note]
-> El almacén de conocimiento se encuentra en versión preliminar y no debe usarse en producción. Esta característica se proporciona en la [API REST de Azure Cognitive Search versión 2019-05-06-Preview](search-api-preview.md). Por el momento, no hay compatibilidad con .NET SDK.
->
-En este artículo, aprenderá a conectar y explorar un almacén de conocimiento con Power Query en la aplicación Power BI Desktop. Para crear el ejemplo de almacén de conocimiento que se usa en este tutorial, consulte [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md).
+> [!IMPORTANT] 
+> El almacén de conocimiento está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST versión 2019-05-06-Preview](search-api-preview.md) se proporcionan características en versión preliminar. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
 
-## <a name="prerequisites"></a>Requisitos previos
+En este artículo, aprenderá a conectarse a un almacén de conocimiento y a explorarlo mediante Power Query en la aplicación Power BI Desktop. Puede empezar a trabajar más rápido con plantillas o crear un panel personalizado desde cero.
 
-+ Siga los pasos descritos en [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md) para crear el almacén de conocimiento de ejemplo que se usa en este tutorial. También necesitará el nombre de la cuenta de Azure Storage que usó para crear el almacén de conocimiento, junto con su clave de acceso de Azure Portal.
++ Siga los pasos descritos en [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md) o en [Creación de un almacén de conocimiento de Azure Cognitive Search mediante REST](knowledge-store-create-rest.md) para crear el almacén de conocimiento de ejemplo que se usa en este tutorial. También necesitará el nombre de la cuenta de Azure Storage que usó para crear el almacén de conocimiento, junto con su clave de acceso de Azure Portal.
 
 + [Instalación de Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+
+## <a name="sample-power-bi-template---azure-portal-only"></a>Plantilla de ejemplo de Power BI: solo Azure Portal
+
+Si [creó el almacén de conocimiento mediante Azure Portal](knowledge-store-create-portal.md), puede usar la [plantilla de ejemplo de Power BI en Azure Cognitive Search](https://github.com/Azure-Samples/cognitive-search-templates) para ver visualizaciones de Power BI y experimentar con ellas. Esta plantilla también está disponible para su descarga cuando se siguen los pasos del asistente para **Importar datos**.
+
+La plantilla de ejemplo se encargará de llevar a cabo los pasos de configuración que se describen en el resto de este artículo. Sin embargo, si usó la API REST para crear el almacén de conocimiento, omita la plantilla y use las secciones restantes de este artículo para conectar el almacén de conocimiento a Power BI. Comience en [Conexión con Power BI](#connect-with-power-bi).
+
+La plantilla de ejemplo incluye varias visualizaciones, como WordCloud y Network Navigator. Algunas visualizaciones de la plantilla, como el mapa de Locations y Entity-Graph Viewer, no mostrarán los datos del almacén de conocimiento de ejemplo creado en [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md). Esto se debe a que solo se usó un subconjunto de las características de enriquecimiento con IA disponibles en el asistente para **Importar datos**.
+
+![Plantilla de ejemplo de Power BI en Azure Cognitive Search](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Plantilla de ejemplo de Power BI")
 
 ## <a name="connect-with-power-bi"></a>Conexión con Power BI
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 869713967a6a89611ab2ea9ca7b7516f090a5f92
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 9f690d23ac4d8c452d731c2f6fd4ae67dc281639
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034285"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805520"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Asignación o eliminación de licencias en el portal de Azure Active Directory
 
@@ -87,6 +87,8 @@ Asegúrese de que cualquier usuario que tenga que usar un servicio de Azure AD l
 1. Seleccione **Asignar**.
 
     El usuario se agrega a la lista de usuarios con licencia y tiene acceso a los servicios de Azure AD incluidos.
+    > [!NOTE]
+    > También se pueden asignar licencias directamente a un usuario desde la página **Licencias** del usuario. Si un usuario tiene una licencia asignada a través de una pertenencia a un grupo y quiere asignar la misma licencia directamente al usuario, solo se puede realizar esta acción desde la página **Productos** mencionada en el paso 1.
 
 ### <a name="to-assign-a-license-to-a-group"></a>Para asignar una licencia a un grupo
 

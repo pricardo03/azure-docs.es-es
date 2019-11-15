@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f040ff4c8e59f764676aa6fdd9460ec94641684a
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 7ee091d1c8f0f477354f6bb422d041278ec5668e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881786"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574264"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios
 
@@ -99,7 +99,7 @@ Para más información sobre cómo configurar el aprovisionamiento automático, 
 Ahora puede crear una cuenta de prueba. Espere 20 minutos para comprobar que la cuenta se ha sincronizado con Workplace by Facebook.
 
 > [!NOTE]
-> Estamos trabajando en estrecha colaboración con el equipo de Workplace by Facebook para asegurarnos de que la aplicación Azure AD esté aprobada y cumpla sus nuevas directrices.   
+> Estamos trabajando en estrecha colaboración con el equipo de Workplace by Facebook para asegurarnos de que la aplicación Azure AD esté aprobada y cumpla sus nuevas directrices. La fecha límite de Workplace by Facebook es el 16 de diciembre y es nuestra intención respetarla. No se espera ningún trabajo por parte de los clientes en ese momento. El 28 de febrero de 2020, los clientes deberán realizar la transición a la nueva integración. Publicaremos aquí la ruta de migración en cuanto esté disponible.    
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -9,15 +9,16 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/21/2019
-ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 11/04/2019
+ms.openlocfilehash: 23441fb64293647698921c17c06731ab413b7699
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003981"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582455"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Uso del aprendizaje automático para crear predecir tarifas de taxi
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este tutorial, usará el aprendizaje automático automatizado de Azure Machine Learning para crear un modelo de regresión y predecir los precios de las tarifas de taxi de Nueva York. Este proceso acepta valores de configuración y datos de entrenamiento y, después, itera automáticamente las combinaciones de diferentes métodos de estandarización o normalización de características, modelos y configuraciones de hiperparámetros para llegar al mejor modelo.
 
@@ -891,14 +892,15 @@ Para entrenar automáticamente un modelo, realice los pasos siguientes:
 
 ### <a name="define-training-settings"></a>Definición de la configuración del entrenamiento
 
-Defina los parámetros del experimento y la configuración de los modelos para el entrenamiento. Vea la lista completa de [valores](how-to-configure-auto-train.md). El envío del experimento con esta configuración predeterminada tardará de 5 a 10 min, pero, si desea que la ejecución sea más breve, puede reducir el parámetro `iterations`.
+Defina los parámetros del experimento y la configuración de los modelos para el entrenamiento. Vea la lista completa de [valores](how-to-configure-auto-train.md). El envío del experimento con esta configuración predeterminada tardará de 5 a 20 min, pero, si desea que la ejecución sea más breve, puede reducir el parámetro `experiment_timeout_minutes`.
 
 |Propiedad| Valor en este tutorial |DESCRIPCIÓN|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Límite de tiempo en minutos para cada iteración. Reduzca este valor para reducir el tiempo de ejecución total.|
-|**iterations**|20|Número de iteraciones. En cada iteración se entrena un nuevo modelo de aprendizaje automático con los datos. Este es el valor principal que afecta al tiempo de ejecución total.|
+|**experiment_timeout_minutes**|20|Tiempo máximo en minutos que pueden llevar a cabo todas las iteraciones combinadas antes de que finalice el experimento.|
+|**enable_early_stopping**|True|Marca para permitir la finalización prematura si la puntuación no mejora a corto plazo.|
 |**primary_metric**| spearman_correlation | Métrica que desea optimizar. El modelo de ajuste perfecto se elegirá según esta métrica.|
-|**preprocess**| True | Mediante el uso de **True**, el experimento puede preprocesar los datos de entrada (al administrar los datos que faltan, convertir texto a numérico, etc.).|
+|**featurization**| auto | Mediante el uso de **auto**, el experimento puede preprocesar los datos de entrada (administrar los datos que faltan, convertir texto a numérico, etc.).|
 |**verbosity**| logging.INFO | Controla el nivel de registro.|
 |**n_cross_validations**|5|Número de divisiones de la validación cruzada que se realizarán cuando no se especifiquen datos de validación.|
 
@@ -907,9 +909,10 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "iterations": 20,
+    "experiment_timeout_minutes": 20,
+    "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
-    "preprocess": True,
+    "featurization": 'auto',
     "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
@@ -1061,12 +1064,7 @@ No complete esta sección si planea ejecutar otros tutoriales de Azure Machine L
 
 ### <a name="stop-the-notebook-vm"></a>Detención de la máquina virtual de Notebook
 
-Si usó un servidor de cuadernos en la nube, detenga la máquina virtual cuando no la esté usando a fin de reducir el costo.
-
-1. En el área de trabajo, seleccione **Máquinas virtuales de Notebook**.
-1. En la lista, seleccione la máquina virtual.
-1. Seleccione **Detener**.
-1. Cuando esté listo para volver a usar el servidor, seleccione **Iniciar**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Eliminar todo el contenido
 

@@ -1,22 +1,22 @@
 ---
-title: Recuperación ante desastres para aplicaciones SaaS mediante la replicación geográfica de Azure SQL Database | Microsoft Docs
+title: Recuperación ante desastres para aplicaciones SaaS con replicación geográfica
 description: Obtenga información sobre cómo usar la replicación geográfica de Azure SQL Database para recuperar una aplicación SaaS multiinquilino en caso de una interrupción del servicio
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: bebbb3d053db37a9716230dfbb14372696dd4936
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0668ccf5ceb972dd120e4e3f37be6d879a12d0a7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570531"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811715"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperación ante desastres para una aplicación SaaS multiinquilino mediante la replicación geográfica de las bases de datos
 

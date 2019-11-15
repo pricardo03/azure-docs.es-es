@@ -1,5 +1,5 @@
 ---
-title: Ejecución y desencadenadores de canalización en Azure Data Factory | Microsoft Docs
+title: Ejecución y desencadenadores de canalización en Azure Data Factory
 description: En este artículo se indica cómo ejecutar una canalización de Azure Data Factory a petición o mediante la creación de un desencadenador.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 20a5a9c5513c165cd5add2e97f019a741dfd0b03
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137030"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681468"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -142,7 +142,7 @@ Los desencadenadores son otra forma de realizar una ejecución de canalización.
 
 - Desencadenador basado en eventos: un desencadenador que responde a un evento.
 
-Las canalizaciones y los desencadenadores tienen una relación de varios a varios. Varios desencadenadores pueden dar comienzo a una única canalización o el mismo desencadenador puede iniciar varias canalizaciones. En la siguiente definición de un desencadenador, la propiedad **pipelines** hace referencia a una lista de canalizaciones que desencadena un desencadenador en particular. La definición de propiedad incluye los valores para los parámetros de la canalización.
+Las canalizaciones y los desencadenadores tienen una relación de varios a varios (excepto el desencadenador de la ventana de saltos de tamaño constante). Varios desencadenadores pueden iniciar una sola canalización o un único desencadenador puede iniciar varias canalizaciones. En la siguiente definición de un desencadenador, la propiedad **pipelines** hace referencia a una lista de canalizaciones que desencadena un desencadenador en particular. La definición de propiedad incluye los valores para los parámetros de la canalización.
 
 ### <a name="basic-trigger-definition"></a>Definición básica del desencadenador
 

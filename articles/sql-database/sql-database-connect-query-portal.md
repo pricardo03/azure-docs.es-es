@@ -1,5 +1,5 @@
 ---
-title: 'Azure Portal: Consulta de Azure SQL Database mediante el Editor de consultas | Microsoft Docs'
+title: 'Azure Portal: Consulta mediante el Editor de consultas'
 description: Aprenda a conectarse a SQL Database en Azure Portal mediante el Editor de consultas de SQL. A continuación, ejecute instrucciones de Transact-SQL (T-SQL) para consultar y editar los datos.
 keywords: conectarse a sql database, azure portal, portal, editor de consultas
 services: sql-database
@@ -11,13 +11,13 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/28/2019
-ms.openlocfilehash: 3702c88d0a5cdc7aa1f854f71e3aee8a42d9c22c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/24/2019
+ms.openlocfilehash: 3990d7ec63c312d38168fe76269e1a920f1a6817
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569162"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827113"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Inicio rápido: Uso del Editor de consultas SQL de Azure Portal para conectarse a datos y consultarlos
 
@@ -46,41 +46,47 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="connect-using-sql-authentication"></a>Conexión con la autenticación de SQL
 
-1. Seleccione **Bases de datos SQL** en el menú izquierdo y, a continuación, elija **mySampleDatabase**.
+1. Vaya a Azure Portal para conectarse a una base de datos SQL. Busque y seleccione **base de datos SQL**.
 
-2. En el menú izquierdo, busque y seleccione **Editor de consultas (versión preliminar)** . Aparece la página **Iniciar sesión**.
+    ![Navegación a la lista de SQL Database, Azure Portal](./media/sql-database-connect-query-portal/search-for-sql-databases.png)
+
+2. Seleccione la base de datos SQL.
+
+    ![Selección de una base de datos SQL, Azure Portal](./media/sql-database-connect-query-portal/select-a-sql-database.png)
+
+3. En el menú de **Base de datos SQL**, seleccione **Editor de consultas (versión preliminar)** .
 
     ![buscar editor de consultas](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. En el menú desplegable **Tipo de autorización**, seleccione **Autenticación de SQL Server** y escriba el identificador de usuario y la contraseña de la cuenta de administrador del servidor usada para crear la base de datos.
+4. En la página **Inicio de sesión**, en la etiqueta **Autenticación de SQL Server**, escriba el **identificador de usuario** y la **contraseña** de la cuenta de administrador del servidor usada para crear la base de datos. Después seleccione **Aceptar**.
 
     ![iniciar sesión](./media/sql-database-connect-query-portal/login-menu.png)
 
-4. Seleccione **Aceptar**.
-
-
 ## <a name="connect-using-azure-active-directory"></a>Clientes que usan Azure Active Directory
 
-La configuración de un administrador de Active Directory (AD) le permite usar una identidad única para iniciar sesión en Azure Portal y en la base de datos SQL. Siga los pasos que figuran a continuación para configurar un administrador de AD para su servidor SQL Server.
+La configuración de un administrador de Azure Active Directory (Azure AD) le permite usar una identidad única para iniciar sesión en Azure Portal y en la base de datos SQL. Siga los pasos que figuran a continuación para configurar un administrador de Azure AD para su servidor SQL Server.
 
 > [!NOTE]
-> * Las cuentas de correo electrónico (por ejemplo, outlook.com, gmail.com, yahoo.com, etc.) aún no se admiten como administradores de AD. Elija un usuario creado de forma nativa en Azure AD o que esté federada en Azure AD.
+> * Las cuentas de correo electrónico (por ejemplo, outlook.com, gmail.com, yahoo.com, etc.) aún no se admiten como administradores de Azure AD. Elija un usuario creado de forma nativa en Azure AD o que esté federada en Azure AD.
 > * El iniciar sesión del administrador de Azure AD no funciona con cuentas que tengan habilitada la autenticación en 2 fases.
 
-1. Seleccione **Todos los recursos** en el menú izquierdo y, a continuación, elija el servidor SQL server.
+1. En el menú de la izquierda de Azure Portal o en la **página principal**, seleccione **Todos los recursos**.
 
-2. En el menú **Configuración** del servidor SQL Server, seleccione **Administrador de Active Directory**.
+2. Seleccione el servidor SQL Server.
 
-3. En la barra de herramientas de la página de administradores de AD, seleccione **Establecer administrador** y elija el usuario o grupo como el administrador de AD.
+3. En el menú **SQL Server** en **Configuración**, seleccione **Administrador de Active Directory**.
+
+4. En la barra de herramientas de la página **Administrador de Active Directory**, seleccione **Establecer administrador** y elija el usuario o grupo como el administrador de Azure AD.
 
     ![seleccione active directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-4. En la barra de herramientas de la página de administradores de AD, seleccione **Guardar**.
+5. En la página **Agregar administrador**, en el cuadro de búsqueda, escriba el usuario o grupo que desea buscar, selecciónelo como administrador y, a continuación, elija el botón **Seleccionar**.
 
-5. Navegue hasta la base datos **mySampleDatabase** y, en el menú izquierdo, seleccione **Editor de consultas (versión preliminar)** . Aparece la página **Iniciar sesión**. Si es administrador de AD, en el lado derecho, en **Inicio de sesión único de Active Directory**, aparece un mensaje que indica que ha iniciado sesión.
+6. De nuevo en la barra de herramientas de la página **Administrador de Active Directory** de SQL Server, seleccione **Guardar**.
 
-6. Seleccione **Aceptar**.
+7. En el menú de **SQL Server**, seleccione **Bases de datos SQL** y, después, seleccione la base de datos SQL.
 
+8. En el menú de **Base de datos SQL**, seleccione **Editor de consultas (versión preliminar)** . En la página **Inicio de sesión**, en la etiqueta **Autenticación de Active Directory**, aparece un mensaje que indica que ha iniciado sesión si es un administrador de Azure AD. A continuación, seleccione el botón **Continuar como** *\<su usuario o identificador de grupo*.
 
 ## <a name="view-data"></a>Visualización de datos
 
@@ -95,7 +101,7 @@ La configuración de un administrador de Active Directory (AD) le permite usar u
 
 2. En la barra de herramientas, seleccione **Ejecutar** y, a continuación, revise los resultados en el panel **Resultados**.
 
-![resultados del editor de consultas](./media/sql-database-connect-query-portal/query-editor-results.png)
+   ![resultados del editor de consultas](./media/sql-database-connect-query-portal/query-editor-results.png)
 
 ## <a name="insert-data"></a>Insertar datos
 
@@ -103,8 +109,8 @@ Ejecute la siguiente instrucción Transact-SQL [INSERT](https://msdn.microsoft.c
 
 1. Reemplace la consulta anterior por esta otra.
 
-   ```sql
-   INSERT INTO [SalesLT].[Product]
+    ```sql
+    INSERT INTO [SalesLT].[Product]
            ( [Name]
            , [ProductNumber]
            , [Color]
@@ -113,7 +119,7 @@ Ejecute la siguiente instrucción Transact-SQL [INSERT](https://msdn.microsoft.c
            , [ListPrice]
            , [SellStartDate]
            )
-     VALUES
+    VALUES
            ('myNewProduct'
            ,123456789
            ,'NewColor'

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: eac10c8c680caf834bbe4be18ca22a5af936c7a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2b76d8f25cfb8bd1dfda43c8383a538f8cf9769b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497405"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818457"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acceso a los datos en los servicios de almacenamiento de Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -102,7 +102,7 @@ Cree un nuevo almacén de datos en unos cuantos pasos en Azure Machine Learning 
 1. Seleccione **+ Nuevo almacén de datos**.
 1. Complete el nuevo formulario de almacén de datos. El formulario se actualiza de forma inteligente según el tipo de almacenamiento de Azure y las selecciones de tipo de autenticación.
   
-La información necesaria para rellenar el formulario se puede encontrar mediante [Azure Machine Learning Studio](https://ml.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. Para los elementos de autenticación, como la clave de cuenta o el token de SAS, vaya a **Claves de cuenta** en la opción **Configuración** del panel izquierdo.
+La información necesaria para rellenar el formulario se puede encontrar mediante [Azure Machine Learning Studio](https://ml.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. En el caso de los elementos de autenticación, como la clave de la cuenta o el token de SAS, vaya a **Claves de cuenta** en el panel **Configuración** de la izquierda.
 
 En el ejemplo siguiente se muestra el aspecto que tendría el formulario para crear un almacén de datos de Azure Blob. 
     
@@ -163,7 +163,7 @@ datastore.upload(src_dir='your source directory',
                  show_progress=True)
 ```
 
-El parámetro `target_path` especifica la ubicación en el recurso compartido de archivos (o el contenedor de blobs) en que se realiza la carga. El valor predeterminado es `None`, en cuyo caso los datos se cargan en la raíz. Cuando `overwrite=True`, cualquier dato existente en `target_path` se sobrescribe.
+El parámetro `target_path` especifica la ubicación en el recurso compartido de archivos (o el contenedor de blobs) en que se realiza la carga. El valor predeterminado es `None`, en cuyo caso los datos se cargan en la raíz. De lo contrario, si `overwrite=True` cualquier dato existente en `target_path` se sobrescribe.
 
 También puede cargar una lista de archivos individuales en el almacén de datos mediante el método `upload_files()`.
 
@@ -183,7 +183,7 @@ El parámetro `target_path` es la ubicación del directorio local en la que se d
 ## <a name="access-your-data-during-training"></a>Acceso a los datos durante el aprendizaje
 
 > [!IMPORTANT]
-> La nueva forma recomendada de acceder a los datos en el entrenamiento son los [conjuntos de datos de Azure Machine Learning (versión preliminar) ](how-to-create-register-datasets.md). Los conjuntos de datos proporcionan funciones que cargan datos tabulares en pandas u objetos DataFrame de Spark, así como la posibilidad de descargar o montar archivos de cualquier formato desde Azure Blob Storage, Azure Files, Azure Data Lake gen. 1, Azure Data Lake gen. 2, Azure SQL y Azure PostgreSQL. Obtenga más información sobre [entrenar con conjuntos de datos](how-to-train-with-datasets.md).
+> La nueva forma recomendada de acceder a los datos en el entrenamiento son los [conjuntos de datos de Azure Machine Learning ](how-to-create-register-datasets.md). Los conjuntos de datos proporcionan funciones que cargan datos tabulares en pandas u objetos DataFrame de Spark, así como la posibilidad de descargar o montar archivos de cualquier formato desde Azure Blob Storage, Azure Files, Azure Data Lake gen. 1, Azure Data Lake gen. 2, Azure SQL y Azure PostgreSQL. Obtenga más información sobre [entrenar con conjuntos de datos](how-to-train-with-datasets.md).
 
 En la siguiente tabla se enumeran los métodos que indican al destino de proceso cómo usar el almacén de datos durante las ejecuciones. 
 

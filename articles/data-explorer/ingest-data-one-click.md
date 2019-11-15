@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: b1ce2d9efe44021b4e3191739bd2f922e34c44cb
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.date: 10/31/2019
+ms.openlocfilehash: 98598a28e14dfd8175cbb019ff1b001c65503580
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69519831"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73644593"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>Uso de ingesta con un solo clic para ingerir datos en Azure Data Explorer
 
@@ -23,45 +23,54 @@ En este artículo se muestra cómo usar la ingesta con un solo clic para la inge
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * Inicie sesión en [la aplicación](https://dataexplorer.azure.com/).
 * Cree un [clúster y una base de datos de Azure Data Explorer](create-cluster-database-portal.md).
+* Inicie sesión en la [interfaz de usuario web](https://dataexplorer.azure.com/) y [agregue una conexión al clúster](/azure/data-explorer/web-query-data#add-clusters)
 * Origen de datos en Azure Storage.
 
 ## <a name="ingest-new-data"></a>Ingesta de nuevos datos
 
-1. Haga clic con el botón derecho en *Database name* (Nombre de la base de datos) y seleccione **Ingest new data (Preview)** [Ingerir nuevos datos (versión preliminar)]
+1. Haga clic con el botón derecho en la *base de datos* o fila de *tabla* en el menú izquierdo de la interfaz de usuario web y seleccione **Ingest new data (Preview)** [Ingerir datos nuevos (versión preliminar)].
 
     ![selección de ingesta con un solo clic en la interfaz de usuario web](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
  
-1. En la ventana **Data Ingestion (Preview)** [Ingesta de datos (versión preliminar)], en la pestaña **Source** (Origen), complete los **detalles del proyecto**:
+1. En la ventana **Ingest new data (preview)** [Ingerir datos nuevos (versión preliminar)], en la pestaña **Source** (Origen), complete los **detalles del proyecto**:
 
-    * Introduzca el nuevo nombre en **Table name** (Nombre de tabla). 
-    * Seleccione **Ingestion type** > **from storage** (Tipo de ingesta > De almacenamiento).
-    * Escriba la dirección URL al almacenamiento en **Link to storage** (Vínculo al almacenamiento). Use una dirección URL de SAS de blob para las cuentas de almacenamiento privadas. 
-    * Seleccione **Editar esquema**.
+    * **Tabla**: Seleccione el nombre de tabla existente en la lista desplegable o seleccione **Crear nuevo** para crear una nueva tabla.
+    * Seleccione **Ingestion type** > **from storage** or **from file** (Tipo de ingesta > De almacenamiento o desde archivo).
+        * Si seleccionó **De almacenamiento**, escriba **Vínculo a almacenamiento** para agregar la dirección URL al almacenamiento. Use una [dirección URL de SAS de blob](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) para las cuentas de almacenamiento privadas. 
+        * Si seleccionó **Desde archivo**, seleccione **Examinar** y arrastre el archivo al cuadro.
+    * Seleccione **Editar esquema** para ver y editar la configuración de la columna de la tabla.
  
     ![detalles del origen de la ingesta con un solo clic](media/ingest-data-one-click/one-click-ingestion-source.png) 
 
-1. En la pestaña **Schema** (Esquema), seleccione **Data format** (Formato de datos) en la lista desplegable > **JSON** o **CSV**. 
-   
-   Si selecciona **CSV**:
-    * Active la casilla **Ignore headline** (Omitir encabezado) para omitir la fila de encabezado del archivo CSV.    
+    > [!TIP]
+    > Si selecciona **Ingest new data (Preview)** [Ingerir datos nuevos (versión preliminar)], en una fila de *tabla*, el nombre de la tabla seleccionada aparecerá en los **Detalles del proyecto**.
+
+1. Si seleccionó una tabla existente, se abrirá la ventana **Map columns** (Asignar columnas) para asignar columnas de datos de origen a las columnas de la tabla de destino. 
+    * Use **Omit column** (Omitir columna) para quitar una columna de destino de la tabla. 
+    * Use **New column** (Nueva columna) para agregar una nueva columna a la tabla. 
+
+    ![Ventana Asignar columnas](media/ingest-data-one-click/one-click-map-columns-window.png)
+
+1. En la pestaña **Esquema**:
+
+    * Seleccione **Compression type** (Tipo de compresión) en la lista desplegable > **Uncompressed** (Sin comprimir) o **GZip**.
+    * Seleccione **Formato de datos** en la lista desplegable > **JSON**, **CSV**, **TSV**, **SCSV**, **SOHSV**, **TSVE**o **PSV**. 
+        * Al seleccionar el formato **JSON**, seleccione los **niveles de JSON**: 1-10. Los niveles afectan a la representación de datos de la columna de tabla. 
+        * Si selecciona un formato distinto de JSON, active la casilla **Include column names** (Incluir los nombres de columna) para omitir la fila de encabezado del archivo.    
     * **Mapping name** (Nombre de asignación) se establece automáticamente, pero se puede editar.
+    * Si seleccionó una tabla existente, puede seleccionar el botón **Asignar columnas** para abrir la ventana **Asignar columnas**.
 
     ![esquema de formato csv de ingesta con un solo clic.png](media/ingest-data-one-click/one-click-csv-format.png)
 
-   Si selecciona **JSON**:
-    * Seleccione **JSON levels** (Niveles de JSON): 1 a 10 en la lista desplegable. Los niveles del archivo JSON se muestran en la tabla de la parte inferior derecha. 
-    * **Mapping name** (Nombre de asignación) se establece automáticamente, pero se puede editar.
-
-    ![esquema de formato json de ingesta con un solo clic](media/ingest-data-one-click/one-click-json-format.png)  
-
 1. En **Editor**, seleccione **V** a la derecha para abrirlo. En el editor, puede ver y copiar las consultas automáticas generadas a partir de los valores que ha introducido. 
 
-1.  En la tabla de la parte inferior derecha: 
-    * Seleccione **V** a la derecha de la columna para **cambiar el nombre de la columna**, **eliminar la columna**, **orden ascendente** u **orden descendente**.
-    * Haga doble clic en el nombre de columna para editarlo.
-    * Seleccione el icono situado a la izquierda del nombre de la columna para cambiar el tipo de datos. 
+1.  En la tabla: 
+    * Haga clic con el botón derecho en los encabezados de columna nuevos para **cambiar el tipo de datos**, **cambiar el nombre de la columna**, **eliminar la columna**, **filtrar de menor a mayor**o **filtrar de mayor a menor**. En las columnas existentes solo está disponible la ordenación de datos. 
+    * Haga doble clic en el nuevo nombre de columna para editarlo.
 
 1. Seleccione **Start ingestion** (Iniciar ingesta) para crear tablas, crear asignaciones e ingerir datos.
+
+    ![esquema de formato json de ingesta con un solo clic](media/ingest-data-one-click/one-click-json-format.png) 
  
 ## <a name="query-data"></a>Datos de consulta
 

@@ -1,22 +1,23 @@
 ---
-title: Cifrado de datos transparente para Azure SQL Database y Data Warehouse | Microsoft Docs
+title: Cifrado de datos transparente
 description: Información general sobre el cifrado de datos transparente para SQL Database y Data Warehouse. Este documento explica sus ventajas y las opciones de configuración, que incluye cifrado de datos transparente administrado por el servicio y Bring Your Own Key.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+titleSuffix: Azure SQL Database and SQL Data Warehouse
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 08/27/2019
-ms.openlocfilehash: 9261bae0d2bee990a5048cb87a863d96e1854d00
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.date: 11/01/2019
+ms.openlocfilehash: b6af171eafbaf1f4d31bad649fcb0c69d8bdc24d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061924"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821705"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Cifrado de datos transparente para SQL Database y Data Warehouse
 
@@ -42,10 +43,10 @@ Microsoft también mueve y administra con total fluidez las claves según sea ne
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Cifrado de datos transparente administrado por el cliente (Bring Your Own Key)
 
-El [cifrado de datos transparente con claves administradas por el cliente en Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) permite cifrar la clave de cifrado de base de datos (DEK) con una clave asimétrica administrada por el cliente denominada protector de TDE.  Esto también se conoce como compatibilidad de Bring Your Own Key (BYOK) para Cifrado de datos transparente. En el escenario BYOK, el protector de TDE se almacena en una instancia de [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) administrada por el cliente, y de la que este es propietario; esta instancia es el sistema de administración de claves externas en la nube de Azure. La [instancia de Key Vault puede generar el protector TDE o dicho protector puede transferirse a Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) desde un dispositivo HSM local. El protector de TDE, que se almacena en Azure Key Vault y nunca sale del almacén de claves, cifra y descifra la clave de cifrado de TDE, que se almacena en la página de inicio de una base de datos.  Para cifrar y descifrar la clave de cifrado es preciso que SQL Database tenga los permisos necesarios en el almacén de claves que posee el cliente. Si se revocan los permisos del servidor con SQL Server lógico en el almacén de claves, no se podrá obtener acceso a la base de datos y se cifrarán todos los datos. En el caso de Azure SQL Database, el protector de TDE se establece en el nivel de servidor con SQL Server lógico y lo heredan todas las bases de datos asociadas a dicho servidor. En el caso de la *Instancia administrada de Azure SQL Database* (característica BYOK en versión preliminar), el protector de TDE se establece a nivel de instancia y lo heredan todas las bases de datos [cifradas](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance) que se encuentran en dicha instancia. El término *servidor* hace referencia tanto a servidor como a instancia a lo largo de este documento, a menos que se indique lo contrario.
+El [cifrado de datos transparente con claves administradas por el cliente en Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) permite cifrar la clave de cifrado de base de datos (DEK) con una clave asimétrica administrada por el cliente denominada protector de TDE.  Esto también se conoce como compatibilidad de Bring Your Own Key (BYOK) para Cifrado de datos transparente. En el escenario BYOK, el protector de TDE se almacena en una instancia de [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) administrada por el cliente, y de la que este es propietario; esta instancia es el sistema de administración de claves externas en la nube de Azure. La [instancia de Key Vault puede generar el protector TDE o dicho protector puede transferirse a Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) desde un dispositivo HSM local. El protector de TDE, que se almacena en Azure Key Vault y nunca sale del almacén de claves, cifra y descifra la clave de cifrado de TDE, que se almacena en la página de inicio de una base de datos.  Para cifrar y descifrar la clave de cifrado es preciso que SQL Database tenga los permisos necesarios en el almacén de claves que posee el cliente. Si se revocan los permisos del servidor con SQL Server lógico en el almacén de claves, no se podrá obtener acceso a la base de datos y se cifrarán todos los datos. En el caso de Azure SQL Database, el protector de TDE se establece en el nivel de servidor con SQL Server lógico y lo heredan todas las bases de datos asociadas a dicho servidor. En el caso de la *Instancia administrada de Azure SQL Database*, el protector de TDE se establece en el nivel de instancia y lo heredan todas las bases de datos [cifradas](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance) que se encuentren en dicha instancia. El término *servidor* hace referencia tanto a servidor como a instancia a lo largo de este documento, a menos que se indique lo contrario.
 
 Gracias al cifrado de datos transparente con integración de Azure Key Vault, los usuarios pueden controlar las tareas de administración de claves, entre las que se incluyen las rotaciones de claves, los permisos del almacén de claves y la copia de seguridad de claves, así como la opción de llevar a cabo auditorías o crear informes sobre todos los protectores de TDE mediante la funcionalidad de Azure Key Vault. Key Vault ofrece una administración centralizada de claves, aprovecha los módulos de seguridad de hardware (HSM) extremadamente supervisados y permite la separación de obligaciones entre las claves y los datos de administración, lo que ayudar a cumplir las directivas de seguridad.
-Para obtener más información acerca del cifrado de datos transparente con la integración de Azure Key Vault (compatibilidad con Bring Your Own Key) para Azure SQL Database, Instancia administrada de SQL Database (característica BYOK en versión preliminar) y Data Warehouse, consulte [Cifrado de datos transparente con integración de Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
+Para más información acerca del cifrado de datos transparente con la integración de Azure Key Vault (compatibilidad con Bring Your Own Key) para Azure SQL Database, Instancia administrada de SQL Database y Data Warehouse, consulte [Cifrado de datos transparente con integración de Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
 
 Para empezar a usar el cifrado de datos transparente con la integración de Azure Key Vault (compatibilidad con Bring Your Own Key), consulte la guía paso a paso [Turn on transparent data encryption by using your own key from Key Vault by using PowerShell](transparent-data-encryption-byok-azure-sql-configure.md) (Activación del cifrado de datos transparente con una clave propia desde Key Vault mediante PowerShell).
 
@@ -69,7 +70,10 @@ Por ejemplo, si el archivo BACPAC se exporta desde una instancia de SQL Server l
 
 La única excepción es cuando se exporta a y desde una base de datos SQL. El cifrado de datos transparente está habilitado en la nueva base de datos, pero todavía no se cifra el propio archivo BACPAC.
 
-## <a name="manage-transparent-data-encryption-in-the-azure-portal"></a>Administración del cifrado de datos transparente en Azure Portal
+
+## <a name="manage-transparent-data-encryption"></a>Administración del cifrado de datos transparente
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+Administre el cifrado de datos transparente en Azure Portal.
 
 Para configurar el cifrado de datos transparente mediante Azure Portal, debe estar conectado como propietario o colaborador de Azure o administrador de seguridad SQL.
 
@@ -81,7 +85,8 @@ Establezca la clave maestra del cifrado de datos transparente, también conocida
 
 ![Cifrado de datos transparente con compatibilidad con Bring Your Own Key](./media/transparent-data-encryption-azure-sql/tde-byok-support.png)
 
-## <a name="manage-transparent-data-encryption-by-using-powershell"></a>Administración del cifrado de datos transparente mediante PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Administre el cifrado de datos transparente mediante PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -108,7 +113,8 @@ Use los siguientes cmdlets para Azure SQL Database y Data Warehouse:
 > [!IMPORTANT]
 > Para la Instancia administrada de SQL Database, use el comando T-SQL [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) para activar y desactivar el cifrado de datos transparente a nivel de base de datos y consulte el [script de PowerShell de ejemplo](transparent-data-encryption-byok-azure-sql-configure.md) para administrar el cifrado de datos transparente a nivel de instancia.
 
-## <a name="manage-transparent-data-encryption-by-using-transact-sql"></a>Administración del cifrado de datos transparente mediante Transact-SQL
+# <a name="transact-sqltabazure-transactsql"></a>[Transact-SQL](#tab/azure-TransactSQL)
+Administre el cifrado de datos transparente mediante Transact-SQL.
 
 Conéctese a la base de datos mediante un inicio de sesión que sea un administrador o un miembro del rol **dbmanager** en la base de datos maestra.
 
@@ -121,7 +127,8 @@ Conéctese a la base de datos mediante un inicio de sesión que sea un administr
 
 No puede cambiar el protector de cifrado de datos transparente para una clave de Key Vault mediante Transact-SQL. Use PowerShell o Azure Portal.
 
-## <a name="manage-transparent-data-encryption-by-using-the-rest-api"></a>Administración del cifrado de datos transparente mediante la API REST
+# <a name="rest-apitabazure-restapi"></a>[API DE REST](#tab/azure-RESTAPI)
+Administre el cifrado de datos transparente mediante la API REST.
 
 Para configurar el cifrado de datos transparente mediante la API REST, debe estar conectado como el propietario o colaborador de Azure o administrador de seguridad SQL.
 Use el siguiente conjunto de comandos para Azure SQL Database y Data Warehouse:

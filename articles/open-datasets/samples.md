@@ -1,5 +1,5 @@
 ---
-title: Cuadernos de Jupyter de ejemplo con un conjunto de datos de NOAA abierto
+title: Cuadernos de Jupyter de ejemplo con datos de NOAA
 titleSuffix: Azure Open Datasets
 description: Use los cuadernos de Jupyter de ejemplo para Azure Open Datasets para obtener información sobre cómo cargar los conjuntos de datos abiertos y usarlos para enriquecer los datos de demostración. Las técnicas incluyen el uso de Spark y Pandas para procesar los datos.
 ms.service: open-datasets
@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
-ms.openlocfilehash: 2ccdb7adcae40d22a36fbfb47fba6e4c87b3349a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b96a35db91a282be1fb5e4c6143e6bd0a0203f2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496575"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606140"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Los cuadernos de Jupyter de ejemplo muestran cómo enriquecer los datos con Open Datasets 
 Los cuadernos de Jupyter de ejemplo para Azure Open Datasets le muestran cómo cargar conjuntos de datos abiertos y usarlos para enriquecer los datos de demostración. Las técnicas incluyen el uso de Apache Spark y Pandas para procesar los datos.
@@ -40,6 +40,6 @@ Los cuadernos de Jupyter de ejemplo para Azure Open Datasets le muestran cómo c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial: Regression modeling with automated machine learning and an open dataset](tutorial-opendatasets-automl.md) (Tutorial: Modelado de regresión con aprendizaje automático automatizado y un conjunto de datos abierto)
+* [Tutorial: Regression modeling with automated machine learning and an open dataset](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context) (Tutorial: Modelado de regresión con aprendizaje automático automatizado y un conjunto de datos abierto)
 * [SDK de Python para Open Datasets](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
 * [Catálogo de Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/)

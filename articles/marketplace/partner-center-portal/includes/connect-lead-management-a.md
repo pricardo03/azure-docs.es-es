@@ -7,6 +7,7 @@ author: qianw211
 manager: evansma
 editor: ''
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
@@ -14,12 +15,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: v-qiwe
 ms.custom: include file
-ms.openlocfilehash: 96e921fe999a27220791204b5412e0d547419c75
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b8fae52224d601fabce1470d9886512aa5acfd4c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244175"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825560"
 ---
 Conecte directamente con los clientes mediante el anuncio de la oferta en los catálogos de soluciones y el enlace de su sistema de Administración de relaciones con los clientes (CRM) para que pueda recibir información de contacto de cualquier cliente en cuanto este exprese interés por su producto o lo implemente.
 

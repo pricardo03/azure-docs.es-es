@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 11/06/2019
 ms.author: apimpm
-ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 88ef235d47a548ce426eaa2e8a8a56fb9dcb01d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294345"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796029"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restricciones de importación de API y problemas conocidos
 
@@ -40,6 +40,8 @@ Si recibe errores al importar el documento de OpenAPI, asegúrese de haberlo val
 -   La dirección URL (si está disponible) del archivo de origen se aplica a direcciones URL del servidor relativas.
 -   Se omiten las definiciones de seguridad.
 -   No se admiten las definiciones de esquema insertadas para las operaciones de API. Las definiciones de esquema se definen en el ámbito de la API y se puede hacer referencia a ellas en los ámbitos de solicitud o respuesta de operaciones de API.
+-   Un parámetro de dirección URL definido debe formar parte de la plantilla de dirección URL.
+-   No se admite la palabra clave **Produces**, la cual describe los tipos MIME que devuelve una API. 
 
 ### <a name="open-api-v2"> </a>OpenAPI versión 2
 

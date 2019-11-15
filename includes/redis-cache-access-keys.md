@@ -5,27 +5,25 @@ services: redis-cache
 author: wesmc7777
 ms.service: cache
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 8d0973b8d4de280842930a8a70618600daab849b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a737e130d616a67bab28c7c96c0372216a6707af
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849921"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720355"
 ---
-### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Recuperación del nombre de host, los puertos y las claves de acceso mediante Azure Portal
+### <a name="retrieve-host-name-ports-and-access-keys-from-the-azure-portal"></a>Recuperación del nombre de host, los puertos y las claves de acceso desde Azure Portal
 
-Al establecer conexión con una instancia de Azure Redis Cache, los clientes de dicha caché necesitan el nombre de host, los puertos y una clave para la caché. Es posible que algunos clientes utilicen nombres ligeramente diferentes para estos elementos. Puede recuperar esta información en Azure Portal.
+Para conectar con una instancia de Azure Cache for Redis, los clientes de dicha caché necesitan el nombre de host, los puertos y una clave para la caché. Es posible que algunos clientes utilicen nombres ligeramente diferentes para estos elementos. Puede obtener el nombre de host, los puertos y las claves de [Azure Portal](https://portal.azure.com).
 
-#### <a name="to-retrieve-the-access-keys-and-host-name"></a>Recuperación de las claves de acceso y el nombre de host
+- Para obtener las claves de acceso, en el panel de navegación izquierdo de Azure Cache for Redis, seleccione **Claves de acceso**. 
+  
+  ![Claves de Azure Redis Cache](media/redis-cache-access-keys/redis-cache-keys.png)
 
-1. Para recuperar las claves de acceso mediante [Azure Portal](https://portal.azure.com), vaya a la memoria caché y seleccione **Claves de acceso**. 
+- Para obtener el nombre de host y los puertos, en el panel de navegación izquierdo de Azure Cache for Redis, seleccione **Propiedades**. El nombre de host tiene el formato *\<DNS name>.redis.cache.windows.net*.
 
-    ![Claves de Azure Redis Cache](media/redis-cache-access-keys/redis-cache-keys.png)
-
-2. Para recuperar el nombre de host y los puertos, seleccione **Propiedades**.
-
-    ![Propiedades de Azure Redis Cache](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
+  ![Propiedades de Azure Redis Cache](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

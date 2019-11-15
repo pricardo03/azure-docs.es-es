@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: 5d42b9fc2dfd7cbee230b65f7d9844c9e7332147
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 11/08/2019
+ms.openlocfilehash: da68cfe504332ed6641c52322f0df0d2efd95997
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680503"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820665"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
@@ -28,7 +28,7 @@ Después de crear el ISE, cuando vaya a crear la aplicación lógica o la cuenta
 
 Ahora, la aplicación lógica puede acceder directamente a los sistemas que están dentro de la red virtual o conectados a esta mediante cualquiera de estos elementos:
 
-* Un conector con la etiqueta **ISE** para ese sistema, como SQL Server.
+* Un conector con la etiqueta **ISE** para ese sistema
 * Un desencadenador o acción integrados con la etiqueta **Core**, como la acción o el desencadenador HTTP.
 * Un conector personalizado.
 
@@ -51,7 +51,7 @@ Las aplicaciones lógicas de una instancia de ISE proporcionan las mismas experi
 * Azure Blob Storage, File Storage y Table Storage
 * Azure Queues, Azure Service Bus, Azure Event Hubs e IBM MQ
 * FTP y SFTP-SSH
-* SQL Server, SQL Data Warehouse, Azure Cosmos DB
+* SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12 y EDIFACT
 
 La diferencia entre los conectores de ISE y de otro tipo radica en las ubicaciones donde se ejecutan los desencadenadores y las acciones:
@@ -92,6 +92,7 @@ Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://az
 Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o externos. Estos puntos de conexión determinan si los desencadenadores de solicitudes o de webhooks de las aplicaciones lógicas del ISE pueden recibir llamadas desde fuera de la red virtual o no. Estos puntos de conexión también afectan al acceso a las entradas y salidas del historial de ejecuciones de la aplicación lógica.
 
 * **Internas**: Puntos de conexión privados que permiten llamadas a aplicaciones lógicas del ISE y acceso a las entradas y salidas del historial de ejecuciones solo *desde dentro de la red virtual*
+
 * **Externas**: Puntos de conexión públicos que permiten llamadas a aplicaciones lógicas del ISE y acceso a las entradas y salidas del historial de ejecuciones *desde fuera de la red virtual*
 
 > [!IMPORTANT]
@@ -103,15 +104,20 @@ Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o e
 
 En lo que respecta a los sistemas locales conectados a una red de Azure Virtual Network, inserte un ISE en esa red para que las aplicaciones lógicas puedan acceder directamente a esos sistemas mediante cualquiera de estos elementos:
 
-* Conector con versión ISE para ese sistema (por ejemplo, SQL Server)
 * Acción HTTP
+
+* Un conector con la etiqueta ISE para ese sistema
+
+  > [!NOTE]
+  > Para usar autenticación de Windows con el conector de SQL Server en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), use la versión no ISE del conector con la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md). La versión con etiqueta ISE no admite autenticación de Windows.
+
 * Conector personalizado
 
   * Si tiene conectores personalizados que requieren la puerta de enlace de datos local y los ha creado fuera de un ISE, las aplicaciones lógicas en un ISE también pueden usar esos conectores.
   
   * Los conectores personalizados creados en un ISE no funcionan con la puerta de enlace de datos local. Aun así, estos conectores pueden acceder directamente a orígenes de datos locales que están conectados a la red virtual en la que se hospeda el ISE. Por tanto, es muy probable que las aplicaciones lógicas en un ISE no necesiten la puerta de enlace de datos cuando se comuniquen con esos recursos.
 
-En el caso de los sistemas locales que no están conectados a una red virtual o que no tienen conectores con versión ISE, primero debe [configurar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) para que las aplicaciones lógicas puedan conectarse a esos sistemas.
+En el caso de los sistemas locales que no están conectados a una red virtual o que no tienen conectores con etiqueta ISE, primero debe [configurar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) para que las aplicaciones lógicas puedan conectarse a esos sistemas.
 
 <a name="create-integration-account-environment"></a>
 

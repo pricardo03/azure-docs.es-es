@@ -1,5 +1,5 @@
 ---
-title: Grupos de instancias de Azure SQL Database (versión preliminar) | Microsoft Docs
+title: Grupos de instancias (versión preliminar)
 description: En este artículo se describen los grupos de instancias de Azure SQL Database (versión preliminar).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 34e779f04f59b23733c6fbfa3450931fccb442b1
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 8738d1ad54d3ab63d8d2efc939aa9daacbe91c13
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70293782"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810406"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>¿Qué son los grupos de instancias de SQL Database (versión preliminar)?
 

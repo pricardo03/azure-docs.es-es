@@ -1,5 +1,5 @@
 ---
-title: Transformación de datos mediante un flujo de datos de asignación en Azure Data Factory | Microsoft Docs
+title: Transformación de datos mediante un flujo de datos de asignación en Azure Data Factory
 description: Este tutorial proporciona instrucciones detalladas para usar Azure Data Factory con el objetivo de transformar los datos con un flujo de datos de asignación.
 author: djpmsft
 ms.author: daperlov
@@ -7,12 +7,12 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 5b618798c74393f3e7d89cfc69c67ba831356ce4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 886e6e659dee2a898167054c5d76bc3977f27e11
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72385552"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683628"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformación de datos mediante flujos de datos de asignación
 
@@ -115,7 +115,7 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
     ![Lienzo de Data Flow](media/tutorial-data-flow/dataflow5.png)
 1. Denomine **FilterYears** a la transformación de filtro. Haga clic en el cuadro de expresión junto a **Filtro en** para abrir el generador de expresiones. Aquí especificará la condición de filtrado. 
     
-    ![Filtrar](media/tutorial-data-flow/filter1.png)
+    ![Filter](media/tutorial-data-flow/filter1.png)
 1. El generador de expresiones de flujo de datos le permite compilar de forma interactiva expresiones para utilizarlas en varias transformaciones. Las expresiones pueden incluir funciones integradas, columnas del esquema de entrada y parámetros definidos por el usuario. Para más información sobre cómo compilar expresiones, vea [Generador de expresiones de Mapping Data Flow](concepts-data-flow-expression-builder.md).
     
     En este tutorial, desea filtrar las películas del género de comedia que se estrenaron entre los años 1910 y 2000. Dado que el año es actualmente una cadena, debe convertirlo en un entero mediante la función ```toInteger()```. Use los operadores mayor o igual que (> =) y menor o igual que (< =) para comparar con los valores de año literal 1910 y 200-. Una estas expresiones junto con el operador and (&&). La expresión aparece como:
@@ -128,13 +128,13 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
 
     Si tiene un clúster de depuración activo, puede comprobar la lógica; para ello, haga clic en **Actualizar** para ver la salida de la expresión en comparación con las entradas usadas. Hay más de una respuesta correcta sobre cómo puede realizar esta lógica mediante el lenguaje de expresiones de flujo de datos.
     
-    ![Filtrar](media/tutorial-data-flow/filter2.png)
+    ![Filter](media/tutorial-data-flow/filter2.png)
 
     Haga clic en **Guardar y finalizar** una vez que haya terminado con la expresión.
 
 1. Capture una **Vista previa de datos** para comprobar que el filtro funciona correctamente.
     
-    ![Filtrar](media/tutorial-data-flow/filter3.png)
+    ![Filter](media/tutorial-data-flow/filter3.png)
 1. La transformación siguiente que se va a agregar es una transformación de **agregado** en **Schema Modifier** (Modificador de esquema).
     
     ![Agregado](media/tutorial-data-flow/agg1.png)

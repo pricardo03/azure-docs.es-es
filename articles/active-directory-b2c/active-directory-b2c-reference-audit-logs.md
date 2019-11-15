@@ -11,12 +11,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf87b1709c355faf6f06ff2d23b2c819f88750cd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475182"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643597"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acceso a los registros de auditoría de Azure AD B2C
 
@@ -123,7 +123,7 @@ Siga estos pasos para registrar una aplicación, concédale los permisos necesar
 1. Seleccione **Conceder consentimiento de administrador para (el nombre de inquilino)** .
 1. Seleccione la cuenta que tiene actualmente la sesión iniciada si se le ha asignado el rol de *Administrador global* o inicie sesión con una cuenta en el inquilino de Azure AD B2C que tenga asignado al menos el rol *Administrador global*.
 1. Seleccione **Aceptar**.
-1. Seleccione **Actualizar** y, a continuación, compruebe que aparece "Concedido para..." bajo **Estado** para el permiso *AuditLog.Read.All*. Los permisos pueden tardar unos minutos en propagarse.
+1. Seleccione **Actualizar** y, a continuación, compruebe que aparece "Concedido para..." bajo **Estado** en el permiso *AuditLog.Read.All*. Los permisos pueden tardar unos minutos en propagarse.
 
 * * *
 

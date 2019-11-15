@@ -1,5 +1,5 @@
 ---
-title: 'Grupos de conmutación por error: Azure SQL Database | Microsoft Docs'
+title: Grupos de conmutación por error
 description: Los grupos de conmutación por error automática son una característica de SQL Database que le permite administrar la replicación y la conmutación por error automática o coordinada de un grupo de bases de datos en un servidor de SQL Database o de todas las bases de datos de la instancia administrada.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 10/21/2019
-ms.openlocfilehash: 1e847fd2ac39c93b28925cff3fe0a4c17a69da9f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 10/23/2019
+ms.openlocfilehash: 88bcee1cbb23bf298c5ad3920a7744d8da6ce3fb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750472"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821965"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -65,7 +65,7 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
   Puede poner varias bases de datos únicas en el mismo servidor de SQL Database e incluirlas en el mismo grupo de conmutación por error. Si agrega una base de datos única al grupo de conmutación por error, automáticamente se creará una base de datos secundaria con la misma edición y el mismo tamaño de proceso del servidor secundario.  Ese servidor es el que especificó cuando creó el grupo de conmutación por error. Si agrega una base de datos que ya tenga una base de datos secundaria en el servidor secundario, el grupo heredará el vínculo de replicación geográfica. Cuando se agrega una base de datos que ya tiene una base de datos secundaria en un servidor que no forma parte del grupo de conmutación por error, se crea otra base de datos secundaria en el servidor secundario.
   
   > [!IMPORTANT]
-  > En una instancia administrada, se replican todas las bases de datos de usuario. No se puede seleccionar un subconjunto de bases de datos de usuario para la replicación en el grupo de conmutación por error.
+  > Asegúrese de que el servidor secundario no tiene una base de datos con el mismo nombre, a menos que sea una base de datos secundaria existente. En los grupos de conmutación por error de una instancia administrada se replican todas las bases de datos de usuario. No se puede seleccionar un subconjunto de bases de datos de usuario para la replicación en el grupo de conmutación por error.
 
 - **Incorporación de bases de datos de un grupo elástico a un grupo de conmutación por error**
 
@@ -89,6 +89,9 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 - **Directiva de conmutación por error automática**
 
   De manera predeterminada, un grupo de conmutación por error se configura con una directiva de conmutación por error automática. El servicio SQL Database desencadena la conmutación por error después de que se detecta el error y si el período de gracia ha expirado. El sistema debe comprobar que la interrupción no se pueda mitigar mediante la [infraestructura de alta disponibilidad integrada del servicio SQL Database](sql-database-high-availability.md) debido a la escala del impacto. Si desea controlar el flujo de trabajo de la conmutación por error desde la aplicación, puede desactivar la conmutación por error automática.
+  
+  > [!NOTE]
+  > Dado que la comprobación de la escala de la interrupción y la rapidez con que se puede mitigar conllevan acciones humanas por parte del equipo de operaciones, el período de gracia no se puede establecer por debajo de una hora.  Esta limitación se aplica a todas las bases de datos del grupo de conmutación por error, independientemente de su estado de sincronización de datos. 
 
 - **Directiva de conmutación por error de solo lectura**
 
@@ -150,7 +153,7 @@ Al diseñar un servicio teniendo en cuenta la continuidad empresarial, siga esta
   Se pueden crear uno o más grupos de conmutación por error entre dos servidores en regiones distintas (servidor principal y servidor secundario). Cada grupo puede incluir una o varias bases de datos que se recuperan como unidad en caso de que una o todas las bases de datos principales dejen de estar disponibles debido a una interrupción en la región primaria. El grupo de conmutación por error crea la base de datos geográfica secundaria con el mismo objetivo de servicio que la principal. Si agrega una relación de replicación geográfica existente al grupo de conmutación por error, asegúrese de que la base de datos geográfica secundaria esté configurada con el mismo nivel de servicio y tamaño de proceso que la principal.
   
   > [!IMPORTANT]
-  > La creación de grupos de conmutación por error entre dos servidores en distintas suscripciones no se admite actualmente para bases de datos únicas y grupos elásticos.
+  > La creación de grupos de conmutación por error entre dos servidores en distintas suscripciones no se admite actualmente para bases de datos únicas y grupos elásticos. Si migra el servidor principal o secundario a otra suscripción una vez creado el grupo de conmutación por error, podría dar lugar a errores en las solicitudes de conmutación por error y en otras operaciones.
 
 - **Utilizar el agente de escucha de lectura-escritura para la carga de trabajo de OLTP**
 
@@ -326,7 +329,7 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |
-| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasefailovergroup) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
 | [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Quita el grupo de conmutación por error del servidor y elimina todas las bases de datos secundarias incluidas en el grupo |
 | [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Recupera la configuración del grupo de conmutación por error |
 | [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifica la configuración del grupo de conmutación por error |
@@ -342,7 +345,7 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |
-| [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
+| [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
 | [Set-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Modifica la configuración del grupo de conmutación por error|
 | [Get-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) |Recupera la configuración del grupo de conmutación por error|
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario|

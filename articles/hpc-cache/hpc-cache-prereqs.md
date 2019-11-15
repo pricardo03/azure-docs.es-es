@@ -1,19 +1,19 @@
 ---
-title: Requisitos previos de Azure HPC Cache (versión preliminar)
+title: Requisitos previos de Azure HPC Cache
 description: Requisitos previos para usar Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca7a12f45f8d907ee65df85e349883e4c14af47a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709971"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582146"
 ---
-# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Requisitos previos de Azure HPC Cache (versión preliminar)
+# <a name="prerequisites-for-azure-hpc-cache"></a>Requisitos previos para Azure HPC Cache
 
 Antes de usar Azure Portal para crear una instancia de Azure HPC Cache, asegúrese de que su entorno cumple estos requisitos.
 
@@ -22,7 +22,7 @@ Antes de usar Azure Portal para crear una instancia de Azure HPC Cache, asegúre
 Se recomienda una suscripción de pago.
 
 > [!NOTE]
-> Durante la versión preliminar, el equipo de Azure HPC Cache debe agregar su suscripción a la lista de acceso antes de poder usarla para crear una instancia de caché. Este procedimiento ayuda a garantizar que cada cliente obtiene una capacidad de respuesta de alta calidad de sus cachés de prueba. Rellene [este formulario](https://aka.ms/onboard-hpc-cache) para solicitar acceso.
+> Durante los primeros meses de la versión de disponibilidad general, el equipo de Azure HPC Cache debe agregar su suscripción a la lista de acceso antes de poder usarla para crear una instancia de caché. Este procedimiento ayuda a garantizar que cada cliente obtiene una capacidad de respuesta de alta calidad de sus cachés. Rellene [este formulario](https://aka.ms/onboard-hpc-cache) para solicitar acceso.
 
 ## <a name="network-infrastructure"></a>Infraestructura de red
 
@@ -86,7 +86,7 @@ Para crear una cuenta de almacenamiento compatible, use esta configuración:
 * Nivel de acceso (predeterminado): **Acceso frecuente**
 
 Se recomienda usar una cuenta de almacenamiento que esté en la misma ubicación que la caché.
-<!-- need to clarify location - same region or same resource group or same virtual network? -->
+<!-- clarify location - same region or same resource group or same virtual network? -->
 
 También debe proporcionar a la aplicación de caché acceso a su cuenta de almacenamiento de Azure. Siga la descripción incluida en [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para proporcionar a la caché los roles de acceso Colaborador de la cuenta de almacenamiento y Colaborador de datos de Storage Blob. Si no es el propietario de la cuenta de almacenamiento, pida a este que realice este paso.
 

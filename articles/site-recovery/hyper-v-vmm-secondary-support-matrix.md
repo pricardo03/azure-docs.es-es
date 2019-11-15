@@ -1,18 +1,18 @@
 ---
-title: Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Hyper-V en nubes de VMM en un sitio secundario con Azure Site Recovery
+title: Matriz de compatibilidad para la recuperación ante desastres de Hyper-V a un sitio secundario de VMM con Azure Site Recovery
 description: Resume toda la información sobre la replicación de máquinas virtuales de Hyper-V en nubes de VMM en un sitio secundario con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 9c3a19d44a4ac0fba37f4815b65b17c26d257dbc
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813621"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686170"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
 
@@ -21,7 +21,9 @@ En este artículo se resume lo que se admite cuando usa el servicio [Azure Site 
 > [!NOTE]
 > Solo puede replicar en un sitio secundario si los hosts de Hyper-V se administran en nubes de VMM.
 
-  
+> [!WARNING]
+> Tenga en cuenta que la compatibilidad con ASR para usar la configuración de SCVMM pronto estará en desuso y, por lo tanto, le recomendamos que lea los detalles del [desuso](scvmm-site-recovery-deprecation.md) antes de continuar.
+
 
 ## <a name="host-servers"></a>Servidores host
 

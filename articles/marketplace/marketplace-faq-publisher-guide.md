@@ -4,15 +4,16 @@ description: Respuestas a preguntas habituales sobre Azure Marketplace y AppSour
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: c24f956a7aeb68fe6b0325705a9e7dab8e70b063
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 300f1783c1c514a6cc49d700c2741be85e69c3e8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330235"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822977"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>P+F de Marketplace comercial de Microsoft
 
@@ -246,7 +247,7 @@ Las licencias que se cancelen estarán sujetas a la directiva de reembolso encon
 
 **¿Se admiten reembolsos para las ofertas basadas en el consumo?**
 
-Los cargos que se basan en el consumo (ya sean máquinas virtuales por hora o medidores personalizados) no se pueden reembolsar a través de la cancelación. Una vez que se ha realizado el consumo, la plataforma de comercio de Microsoft procesa los cargos, y los conflictos de calidad de servicio en los que se solicita un reembolso se tratarían fuera de los sistemas de Microsoft entre el anunciante y el cliente directamente. Las ofertas que admiten una tarifa plana más la facturación de uso medido siguen la directiva de reembolso estándar de los cargos por tarifas planas.
+Los cargos basados en el consumo (ya sean máquinas virtuales por hora o medidores personalizados) no se pueden reembolsar a través de la cancelación. Una vez que se ha realizado el consumo, la plataforma de comercio de Microsoft procesa los cargos y los conflictos por la calidad del servicio en los que se solicita un reembolso se tratan fuera de los sistemas de Microsoft entre el anunciante y el cliente directamente. Las ofertas que admiten una tarifa plana más la facturación de uso medido siguen la directiva de reembolso estándar de los cargos por tarifas planas.
 
 **¿Es posible cambiar los planes a medio plazo?**
 
@@ -285,7 +286,7 @@ Azure Marketplace proporciona una tienda para que los asociados de Microsoft pro
 
 Los asociados de Microsoft puede elegir dónde desean publicar en función de su audiencia de destino.
 
-Microsoft proporciona dos escaparates en la nube: Azure Marketplace y AppSource. Estos escaparates permiten a los clientes buscar, probar y comprar aplicaciones y servicios en la nube. Cada escaparate atiende necesidades únicas del cliente y permite a los asociados de Microsoft destinar sus soluciones o servicios en función de la audiencia objetivo.
+Microsoft proporciona dos escaparates de Cloud Marketplace: Azure Marketplace y AppSource. Estos escaparates permiten a los clientes buscar, probar y comprar aplicaciones y servicios en la nube. Cada escaparate atiende necesidades únicas del cliente y permite a los asociados de Microsoft destinar sus soluciones o servicios en función de la audiencia objetivo.
 
 Seleccione [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) para dirigirse a profesionales de TI, desarrolladores y usuarios técnicos.
 
@@ -463,7 +464,7 @@ Una oferta de suscripción de nivel gratuito es gratis para siempre.  Una oferta
 
 **¿Cuál es el proceso para validar el flujo de compra y de aprovisionamiento en su totalidad?**
 
-Durante el proceso de publicación, se le proporcionará acceso a una vista previa de la oferta. El acceso está restringido a los usuarios que especificó en la pestaña Vista previa y es una oferta dinámica que no es visible para nadie más. Puede adquirirlo y probar el proceso; sin embargo, se le cobrará la cantidad total según la configuración de su oferta.
+Durante el proceso de publicación, se le proporcionará acceso a una vista previa de la oferta. El acceso está restringido a los usuarios que especificó en la pestaña Vista previa y es una oferta dinámica que no es visible para nadie más. Puede comprarla y probar el proceso, pero se le cobra la cantidad total conforme a la configuración de la oferta.
 
 Para completar una compra a un precio muy bajo, Microsoft sugiere publicar un plan privado para usted mismo y establecer un precio que pueda aceptar como costo por las pruebas. Se admite cero, pero esto no reflejará la experiencia completa como si se tratara de una suscripción de pago.
 

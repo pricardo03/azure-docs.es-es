@@ -1,5 +1,5 @@
 ---
-title: Arquitectura de conectividad para una instancia administrada en Azure SQL Database | Microsoft Docs
+title: Arquitectura de conectividad para una instancia administrada
 description: Aprenda sobre la arquitectura de comunicación y conectividad de las instancias administradas de Azure SQL Database, y cómo los componentes dirigen el tráfico a la instancia administrada.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 7e32cb302322f7a80154a3f2a246d7d4f1743c09
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 0c21271eb19a8fd69cb42e30c6a45bd3af9a5600
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249362"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820479"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad para una instancia administrada en Azure SQL Database
 
@@ -436,4 +436,4 @@ Implemente una instancia administrada en una subred dedicada dentro de la red vi
   - Desde [Azure Portal](sql-database-managed-instance-get-started.md).
   - Mediante [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Mediante [una plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Mediante [una plantilla de Azure Resource Manager (JumpBox con SSMS incluido)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 
+  - Mediante [una plantilla de Azure Resource Manager (JumpBox con SSMS incluido)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

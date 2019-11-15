@@ -1,5 +1,5 @@
 ---
-title: Preparación del entorno de destino para la replicación de VMware en Azure | Microsoft Docs
+title: Preparación del entorno de destino para la replicación de máquinas virtuales de VMware en Azure Site Recovery
 description: En este artículo se describe cómo configurar el entorno de Azure de destino para la replicación de máquinas virtuales de VMware en Azure.
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
-ms.openlocfilehash: e75d4b1701944e206fcf6ded2dcb6d1e1fbc77cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c721234f2e1d806d51d31f3466e441bf8360f6b8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723821"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693171"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Preparación del entorno de destino para la recuperación ante desastres de máquinas virtuales de VMware o servidores físicos en Azure
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo configurar el entorno de Azure de destino pa
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por supuesto lo siguiente:
-- Ha creado un almacén de Recovery Services en [Azure Portal](https://portal.azure.com "Azure Portal") para proteger las máquinas de origen.
+- Ha creado un almacén de Recovery Services en [Azure Portal](https://portal.azure.com "Portal de Azure") para proteger las máquinas de origen.
 - Ha configurado el entorno local para replicar las [máquinas virtuales de VMware](vmware-azure-set-up-source.md) o los [servidores físicos](physical-azure-set-up-source.md) en Azure.
 
 ## <a name="prepare-target"></a>Preparación del destino

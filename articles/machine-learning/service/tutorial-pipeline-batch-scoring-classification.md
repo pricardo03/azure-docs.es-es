@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/05/2019
-ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.date: 11/04/2019
+ms.openlocfilehash: ccd29952693ecbc1db5927d5deabae874b6e9933
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695613"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796694"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Compilación y uso de canalizaciones de Azure Machine Learning para la puntuación por lotes
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este tutorial usará una canalización de Azure Machine Learning para ejecutar un trabajo de puntuación por lotes. En este ejemplo se usa el modelo Tensorflow de red neuronal de circunvolución [Inception-V3](https://arxiv.org/abs/1512.00567) para clasificar las imágenes sin etiquetar. Después de compilar y publicar una canalización, configurará un punto de conexión REST para desencadenar la canalización desde cualquier biblioteca HTTP en cualquier plataforma.
 
@@ -463,7 +465,7 @@ df.head(10)
 
 ## <a name="publish-and-run-from-a-rest-endpoint"></a>Publicación y ejecución desde un punto de conexión REST
 
-Ejecute el código siguiente para publicar la canalización en el área de trabajo. En el área de trabajo de Azure Portal puede ver los metadatos de la canalización, incluidos el historial de ejecución y las duraciones. También puede ejecutar la canalización manualmente desde el portal.
+Ejecute el código siguiente para publicar la canalización en el área de trabajo. En el área de trabajo de Azure Machine Learning Studio puede ver los metadatos de la canalización, incluidos el historial de ejecución y las duraciones. También puede ejecutar la canalización manualmente desde Studio.
 
 La publicación de la canalización permite a un punto de conexión REST volver a ejecutar la canalización desde cualquier biblioteca HTTP en cualquier plataforma.
 
@@ -478,7 +480,7 @@ Para ejecutar la canalización desde el punto de conexión REST, necesita un enc
 
 La autenticación de la entidad de servicio implica la creación de un *Registro de aplicación* en *Azure Active Directory*. Primero genere un secreto de cliente y, a continuación, conceda a la entidad de servicio el *acceso de rol* al área de trabajo de aprendizaje automático. Use la clase [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) para administrar el flujo de autenticación. 
 
-Tanto `InteractiveLoginAuthentication` como `ServicePrincipalAuthentication` heredan de `AbstractAuthentication`. En ambos caso, use la función `get_authentication_header()` de la misma manera que para capturar el encabezado:
+Tanto [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py) como `ServicePrincipalAuthentication` heredan de `AbstractAuthentication`. En ambos caso, use la función [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#get-authentication-header--) de la misma manera para capturar el encabezado:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -487,7 +489,7 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-Obtenga la dirección URL de REST de la propiedad `endpoint` del objeto de canalización publicado. También puede encontrar la dirección URL de REST en el área de trabajo de Azure Portal. 
+Obtenga la dirección URL de REST de la propiedad `endpoint` del objeto de canalización publicado. También puede encontrar la dirección URL de REST en el área de trabajo de Azure Machine Learning Studio. 
 
 Compile una solicitud HTTP POST para el punto de conexión. Especifique el encabezado de autenticación en la solicitud. Agregue un objeto de carga JSON con el nombre del experimento y el parámetro de tamaño de lote. Como se indicó anteriormente en el tutorial, `param_batch_size` se pasa a su script `batch_scoring.py`, ya que se definió como objeto `PipelineParameter` en la configuración del paso.
 
@@ -522,12 +524,7 @@ No complete esta sección si planea ejecutar otros tutoriales de Azure Machine L
 
 ### <a name="stop-the-notebook-vm"></a>Detención de la máquina virtual de Notebook
 
-Si usó un servidor de cuadernos en la nube, detenga la máquina virtual cuando no la esté usando para reducir los costos:
-
-1. En el área de trabajo, seleccione **Máquinas virtuales de Notebook**.
-1. En la lista de máquinas virtuales, seleccione la máquina virtual que desee detener.
-1. Seleccione **Detener**.
-1. Cuando esté listo para volver a usar el servidor, seleccione **Iniciar**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Eliminar todo el contenido
 

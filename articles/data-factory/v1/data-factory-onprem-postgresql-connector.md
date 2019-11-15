@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos de PostgreSQL mediante Azure Data Factory | Microsoft Docs
+title: Movimiento de datos de PostgreSQL mediante Azure Data Factory
 description: Obtenga información acerca de cómo mover los datos de la base de datos de PostgreSQL mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a652e157ec0e7e33c8dce7be2f4af2c240edac9e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6d8c63551bd6bcc7a7e00dffa6c2b6d9e0e644db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839910"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666068"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Movimiento de datos de PostgreSQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -74,8 +74,8 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesPostgreSql** |Sí |
-| Servidor |Nombre del servidor de PostgreSQL. |Sí |
-| Base de datos |Nombre de la base de datos de PostgreSQL. |Sí |
+| server |Nombre del servidor de PostgreSQL. |Sí |
+| database |Nombre de la base de datos de PostgreSQL. |Sí |
 | schema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos de PostgreSQL. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
@@ -310,7 +310,7 @@ Al mover datos a PostgreSQL, se usan las asignaciones siguientes de tipo Postgre
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
 | bit variable [(n)] |varbit |Byte[], String |
-| boolean |booleano |Boolean |
+| boolean |bool |Boolean |
 | Box | |Byte[], String |
 | bytea | |Byte[], String |
 | character [(n)] |char [(n)] |Cadena |

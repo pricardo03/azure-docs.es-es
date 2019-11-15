@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 279254cb214a812209d43baad695953b5a248778
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10baf2b1f9a0e22d4b422b82cce877f604a86ca4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474898"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641787"
 ---
 #### <a name="applicationstabapplications"></a>[Aplicaciones](#tab/applications/)
 
@@ -25,4 +25,4 @@ ms.locfileid: "73474898"
 1. Seleccione **Nuevo secreto de cliente**.
 1. Escriba una descripción para el secreto de cliente en el cuadro **Descripción**. Por ejemplo, *clientsecret1*.
 1. En **Expira**, seleccione el tiempo durante el cual el secreto es válido y, a continuación, seleccione **Agregar**.
-1. Registre el **VALOR** del secreto. Este valor se usa para la configuración en un paso posterior.
+1. Registre el **Valor** del secreto. Este valor se usa para la configuración en un paso posterior.

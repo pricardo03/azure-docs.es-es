@@ -1,5 +1,5 @@
 ---
-title: Uso de la interfaz de ML automatizado de Azure para entrenar e implementar modelos
+title: Compilación e implementación de modelos de Machine Learning automatizados
 titleSuffix: Azure Machine Learning
 description: Cree, administre e implemente experimentos de aprendizaje automático automatizado en Azure Machine Learning Studio.
 services: machine-learning
@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 05bae18d35eafc47eddc7c1450eb06af5bbe5562
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 25e775cf7bfd415768144b28ab2ca6989f360edd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497179"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818484"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Cree, explore e implemente experimentos de aprendizaje automático automatizado con Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -104,7 +104,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
     Seleccione **Next** (Siguiente).
 
-1. En el formulario **Task type and settings** (Tipo de tarea y configuración), seleccione el tipo de tarea: clasificación, regresión o previsión. 
+1. En el formulario **Task type and settings** (Tipo de tarea y configuración), seleccione el tipo de tarea: clasificación, regresión o previsión. Para más información, consulte el artículo en el que se explica [cómo definir tipos de tareas](how-to-define-task-type.md).
 
     1. Para la clasificación, también puede habilitar el aprendizaje profundo, que se usa para las características de texto.
 
@@ -205,12 +205,17 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
     Campo| Valor
     ----|----
-    Nombre de implementación| Escriba un nombre único para la implementación.
-    Descripción de implementación| Escriba una descripción para saber mejor para qué sirve esta implementación.
-    Script de puntuación| Genere automáticamente o cargue su propio archivo de puntuación. [Más información sobre el script de puntuación](how-to-deploy-and-where.md#script).
-    Script del entorno| Genere automáticamente o cargue su propio archivo de entorno.
+    NOMBRE| Escriba un nombre único para la implementación.
+    DESCRIPCIÓN| Escriba una descripción para saber mejor para qué sirve esta implementación.
+    Compute type (Tipo de proceso)| Seleccione el tipo de punto de conexión que desea implementar: *Azure Kubernetes Service (AKS)* o *Azure Container Instance (ACI)* .
+    NOMBRE| *Solo se aplica a AKS:* Seleccione el nombre del clúster de AKS en que desea realizar la implementación.
+    Enable authentication (Habilitar autenticación) | Seleccione esta opción para permitir la autenticación basada en token o basada en clave.
+    Use custom deployment assets (Usar recursos de implementación personalizados)| Habilite esta característica si desea cargar su propio archivo de entorno y script de puntuación. [Más información sobre los scripts de puntuación](how-to-deploy-and-where.md#script).
+
     >[!Important]
     > Los nombres de archivo deben tener menos de 32 caracteres y deben comenzar y terminar con caracteres alfanuméricos. Puede incluir guiones, caracteres de subrayado, puntos y caracteres alfanuméricos. No se permiten espacios.
+
+    El menú *Avanzado* ofrece características de implementación predeterminadas como la [recopilación de datos](how-to-enable-app-insights.md) y la configuración del uso de recursos. Si desea reemplazar estos valores predeterminados, hágalo en este menú.
 
 1. Seleccione **Implementar**. La implementación puede tardar unos 20 minutos en completarse.
 

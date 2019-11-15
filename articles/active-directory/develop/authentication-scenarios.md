@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40d0cd29452b5473d16851451a88c93e78ef3f36
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1ab2180c54f07ff5009e2c57d8522f2eb0b81aad
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554428"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718372"
 ---
 # <a name="authentication-basics"></a>Conceptos básicos sobre autenticación
 
@@ -53,7 +53,7 @@ Azure AD también dispone de Azure Active Directory B2C, de modo que las orga
 
 ### <a name="security-tokens"></a>Tokens de seguridad
 
-Los tokens de seguridad contienen información sobre los usuarios y las aplicaciones. Azure AD usa tokens basados en JSon (JWT) que contienen notificaciones. Una notificación proporciona a una entidad aserciones sobre otra entidad. Las aplicaciones pueden usar notificaciones para varias tareas, como:
+Los tokens de seguridad contienen información sobre los usuarios y las aplicaciones. Azure AD usa tokens basados en JSON (JWT) que contienen notificaciones. Una notificación proporciona a una entidad aserciones sobre otra entidad. Las aplicaciones pueden usar notificaciones para varias tareas, como:
 
 * Validar el token.
 * Identificar el inquilino del directorio del sujeto.
@@ -83,7 +83,7 @@ Las aplicaciones pueden iniciar por sí mismas la sesión de los usuarios o dele
 Para que un proveedor de identidades sepa que un usuario tiene acceso a una determinada aplicación, tanto el usuario como la aplicación deben estar registrados con el proveedor de identidades. Cuando registra una aplicación con Azure AD, proporciona una configuración de identidad para la aplicación, lo que permite integrarla con Azure AD. El registro de la aplicación también le permite:
 
 - Personalizar la marca de la aplicación en el cuadro de diálogo de inicio de sesión. Esto es importante, ya que es el primer contacto que tendrá un usuario con la aplicación.
-- Decidir si desea permitir que los usuarios únicamente puedan iniciar sesión si pertenecen a su organización (aplicación de un solo inquilino) o si los usuarios podrán iniciar sesión con una cuenta profesional o educativa (aplicación de varios inquilinos). También puede permitir cuentas Microsoft personales o una cuenta de las redes sociales: Linked-In, Google, etc.
+- Decidir si desea permitir que los usuarios únicamente puedan iniciar sesión si pertenecen a su organización (aplicación de un solo inquilino) o si los usuarios podrán iniciar sesión con una cuenta profesional o educativa (aplicación de varios inquilinos). También puede permitir cuentas Microsoft personales o una cuenta de las redes sociales: LinkedIn, Google, etc.
 - Solicitar permisos de ámbito. Por ejemplo, puede solicitar el ámbito "user.read", que concede permiso para leer el perfil del usuario conectado.
 - Definir ámbitos que definan el acceso a la API web. Normalmente, cuando una aplicación desea acceder a la API, tiene que solicitar permisos para los ámbitos que se definen.
 - Compartir un secreto con Azure AD, lo que demuestra a Azure AD la identidad de la aplicación.  Esto es aplicable cuando la aplicación es una aplicación cliente confidencial. Una aplicación cliente confidencial es una aplicación que puede almacenar las credenciales de forma segura. Se necesita un servidor back-end de confianza para almacenar las credenciales.
@@ -98,8 +98,9 @@ La Plataforma de identidad de Microsoft:
 * Contiene todos los datos necesarios para admitir la autenticación en tiempo de ejecución.
 * Contiene todos los datos para decidir qué recursos podría necesitar una aplicación para obtener acceso y en qué circunstancias debería cumplimentarse una solicitud.
 * Proporciona la infraestructura necesaria para implementar el aprovisionamiento de la aplicación dentro del inquilino del desarrollador de la aplicación y en cualquier otro inquilino de Azure AD.
+* Controla el consentimiento del usuario en el momento de solicitud del token y facilitar el aprovisionamiento dinámico de aplicaciones en varios inquilinos.
 
-Controlar el consentimiento del usuario durante el tiempo de solicitud de tokens y facilitar el aprovisionamiento dinámico de aplicaciones entre inquilinos. El consentimiento es el proceso mediante el que un propietario de recursos concede autorización a una aplicación cliente para acceder a recursos protegidos, con permisos específicos, en nombre del propietario del recurso. La Plataforma de identidad de Microsoft:
+El consentimiento es el proceso de un propietario de recursos para conceder autorización a una aplicación cliente a acceder a recursos protegidos, bajo permisos específicos, en nombre del propietario del recurso. La Plataforma de identidad de Microsoft:
 
 * Permite a los usuarios y administradores conceder o denegar el consentimiento dinámicamente para que la aplicación acceda a recursos en su nombre.
 * Permite a los administradores decidir qué pueden hacer las aplicaciones en última instancia, qué usuarios pueden utilizar aplicaciones específicas y cómo se accede a los recursos de directorio.

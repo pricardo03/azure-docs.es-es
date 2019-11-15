@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 62af688c6090b61f2596ab376cb479c270b87759
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 78e085aae97114e6848b736c40b16c755256d0cd
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274119"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571111"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -48,6 +48,9 @@ La configuración del sondeo de estado se compone de los siguientes elementos:
 - Protocolo del sondeo
 - Puerto del sondeo
 - Ruta de acceso HTTP que se va a usar para HTTP GET al utilizar sondeos HTTP(S)
+
+> [!NOTE]
+> No se requiere una definición de sondeo ni se comprueba cuando se usa Azure PowerShell, la CLI de Azure, plantillas o una API. Las pruebas de validación de sondeos solo se realizan cuando se usa Azure Portal.
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Descripción de la señal de aplicación, detección de la señal y reacción de la plataforma
 

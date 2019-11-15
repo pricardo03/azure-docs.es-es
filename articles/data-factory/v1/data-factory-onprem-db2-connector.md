@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos de DB2 mediante Azure Data Factory | Microsoft Docs
+title: Movimiento de datos desde DB2 mediante Azure Data Factory
 description: Obtenga información sobre cómo mover los datos desde una base de datos DB2 local mediante la actividad de copia de Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e473858ed02afce89313c0bfeffd95c785120d40
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 0d066e66e4b9600eb5734ef2f3c6031dbc44f17a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839032"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666600"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -309,7 +309,7 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | Tipo de base de datos DB2 | Tipo .NET Framework |
 | --- | --- |
 | SmallInt |Int16 |
-| Entero |Int32 |
+| Integer |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -317,7 +317,7 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Date |Datetime |
+| Date |DateTime |
 | Hora |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
@@ -335,7 +335,7 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | Blob |Byte[] |
 | DbClob |Cadena |
 | SmallInt |Int16 |
-| Entero |Int32 |
+| Integer |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -343,7 +343,7 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Date |Datetime |
+| Date |DateTime |
 | Hora |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |

@@ -1,6 +1,6 @@
 ---
 title: Cómo implementar el módulo OPC Twin para Azure desde cero | Microsoft Docs
-description: Cómo implementar OPC Twin desde cero.
+description: En este artículo se explica cómo implementar OPC Twin desde cero con la hoja IoT Edge de Azure Portal y también mediante la CLI de AZ.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: df1dd45d58baf82710b5e362afaf055aad140b98
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 96a4afff3e58bfa1ebf661909f380aa525fea76e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302640"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820136"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implementación del módulo y las dependencias de OPC Twin desde cero
 

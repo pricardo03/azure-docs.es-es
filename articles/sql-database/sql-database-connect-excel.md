@@ -1,5 +1,5 @@
 ---
-title: Conectar Excel a una base de datos única en Azure SQL Database | Microsoft Docs
+title: Conexión de Excel con una base de datos única
 description: Obtenga más información acerca de cómo conectar Microsoft Excel a una base de datos única en Azure SQL Database. Importación de datos en Excel para la generación de informes y la exploración de datos.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
-ms.openlocfilehash: 8711d8f7ebc00b2d0fa51ff9f420293e96766d1c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de5f23bf1e8acd8a5fcd0cf8e1526f88667800c1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569364"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827128"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Conectar Excel a una base de datos única de Azure SQL Database y crear un informe
 

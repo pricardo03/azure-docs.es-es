@@ -1,5 +1,5 @@
 ---
-title: Migración de datos de Amazon S3 a Azure Data Lake Storage Gen2 con Azure Data Factory | Microsoft Docs
+title: Migración de datos de Amazon S3 a Azure Data Lake Storage Gen2 con Azure Data Factory
 description: Obtenga información sobre cómo usar una plantilla de solución para migrar datos desde Amazon S3 mediante una tabla de control externa a fin de almacenar una lista de particiones en AWS S3 con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2019
-ms.openlocfilehash: e4567d79b70fc18622e4a5e927031e9849b96e99
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a8591762bf4e8eccd5e1b7d67538674feed720b9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092477"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684197"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migración de datos de Amazon S3 a Azure Data Lake Storage Gen2
 
@@ -50,14 +50,14 @@ La plantilla contiene dos parámetros:
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Para que la plantilla copie los archivos modificados solo desde Amazon S3 en Azure Data Lake Storage Gen2
 
-Esta plantilla (*nombre de plantilla: Copiar datos delta desde AWS S3 en Azure Data Lake Storage Gen2*) usa LastModifiedTime de cada archivo para copiar los archivos nuevos o actualizados solo desde AWS S3 en Azure. Tenga en cuenta que si los archivos o carpetas ya se han particionado con información del período de tiempo como parte del nombre de archivo o carpeta en AWS S3 (por ejemplo, /aaaa/mm/dd/archivo.csv), puede ir a este tutorial para obtener el mejor enfoque de rendimiento para la carga incremental de nuevos archivos. En esta plantilla se supone que ha escrito una lista de particiones en una tabla de control externa en Azure SQL Database. Por lo tanto, usará una actividad *Lookup* para recuperar la lista de particiones de la tabla de control externa, iterar en cada partición y hacer que cada trabajo de copia de ADF copie una partición cada vez. Cuando cada trabajo de copia comienza a copiar los archivos desde AWS S3, se basa en la propiedad LastModifiedTime para identificar y copiar solo los archivos nuevos o actualizados. Una vez completado cualquier trabajo de copia, utiliza la actividad *Stored Procedure* para actualizar el estado de copia de cada partición en la tabla de control.
+Esta plantilla (*nombre de plantilla: Copiar datos delta desde AWS S3 en Azure Data Lake Storage Gen2*) usa LastModifiedTime de cada archivo para copiar los archivos nuevos o actualizados solo desde AWS S3 en Azure. Tenga en cuenta que si los archivos o carpetas ya se han particionado con información del período de tiempo como parte del nombre de archivo o carpeta en AWS S3 (por ejemplo, /aaaa/mm/dd/archivo.csv), puede ir a este [tutorial](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) para obtener el mejor enfoque de rendimiento para la carga incremental de nuevos archivos. En esta plantilla se supone que ha escrito una lista de particiones en una tabla de control externa en Azure SQL Database. Por lo tanto, usará una actividad *Lookup* para recuperar la lista de particiones de la tabla de control externa, iterar en cada partición y hacer que cada trabajo de copia de ADF copie una partición cada vez. Cuando cada trabajo de copia comienza a copiar los archivos desde AWS S3, se basa en la propiedad LastModifiedTime para identificar y copiar solo los archivos nuevos o actualizados. Una vez completado cualquier trabajo de copia, utiliza la actividad *Stored Procedure* para actualizar el estado de copia de cada partición en la tabla de control.
 
 La plantilla contiene siete actividades:
 - **Lookup** recupera las particiones desde una tabla de control externa. El nombre de la tabla es *s3_partition_delta_control_table* y la consulta para cargar datos desde la tabla es *"select distinct PartitionPrefix from s3_partition_delta_control_table"* .
 - **ForEach** obtiene la lista de particiones de la actividad *Lookup* e itera cada partición para la actividad *TriggerDeltaCopy*. Puede establecer *batchCount* para ejecutar varios trabajos de copia de ADF simultáneamente. Hemos establecido 2 en esta plantilla.
 - **ExecutePipeline** ejecuta la canalización *DeltaCopyFolderPartitionFromS3*. El motivo por el que creamos otra canalización para que cada trabajo de copia copie una partición es porque le facilitará volver a ejecutar el trabajo de copia con errores para volver a cargar esa partición específica desde AWS S3. El resto de los trabajos de copia que cargan otras particiones no se verán afectados.
 - **Lookup** recupera la hora en la que se realizó la última ejecución del trabajo de copia de la tabla de control externa para que los archivos nuevos o actualizados se puedan identificar a través de LastModifiedTime. El nombre de la tabla es *s3_partition_delta_control_table* y la consulta para cargar datos de la tabla es *"select max(JobRunTime) as LastModifiedTime from s3_partition_delta_control_table where PartitionPrefix = '@{pipeline().parameters.prefixStr}' and SuccessOrFailure = 1"* .
-- **Copy** copia cada archivo nuevo o cambiado solo para partición desde AWS S3 en Azure Data Lake Storage Gen2. La propiedad de modifiedDatetimeStart se establece en la hora en la que se realizó la ejecución del trabajo de copia por última vez. La propiedad de *modifiedDatetimeEnd* se establece en la hora actual de ejecución del trabajo de copia. Tenga en cuenta que la hora se aplica a la zona horaria UTC.
+- **Copy** copia cada archivo nuevo o cambiado solo para partición desde AWS S3 en Azure Data Lake Storage Gen2. La propiedad de *modifiedDatetimeStart* se establece en la hora en la que se realizó la ejecución del trabajo de copia por última vez. La propiedad de *modifiedDatetimeEnd* se establece en la hora actual de ejecución del trabajo de copia. Tenga en cuenta que la hora se aplica a la zona horaria UTC.
 - **SqlServerStoredProcedure** actualiza el estado de copia de cada partición y la hora de ejecución de copia en la tabla de control cuando se realiza correctamente. La columna de SuccessOrFailure se establece en 1.
 - **SqlServerStoredProcedure** actualiza el estado de copia de cada partición y la hora de ejecución de copia en la tabla de control cuando da error. La columna de SuccessOrFailure se establece en 0.
 

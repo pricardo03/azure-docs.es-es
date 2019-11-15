@@ -1,6 +1,6 @@
 ---
-title: Asociados de administración de datos de SQL Data Warehouse | Microsoft Docs
-description: Lista de los asociados de administración de datos externos con soluciones compatibles con SQL Data Warehouse.
+title: Asociados de administración de datos
+description: Lista de partners externos de administración de datos con soluciones compatibles con Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mabasile-MSFT
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 98f581eca893fc3f0cf2eae12fdcffbe0440bdd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b26d81a125cd64987a9725d88b2f3fcadbdb19ac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873693"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685588"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Partners de administración de datos de SQL Data Warehouse
 Para crear la solución de almacenamiento de datos, elija entre una amplia variedad de herramientas líderes del sector. En este artículo se destacan las empresas asociadas de Microsoft con soluciones y herramientas de administración de datos compatibles con Azure SQL Data Warehouse.
@@ -30,7 +31,7 @@ Para crear la solución de almacenamiento de datos, elija entre una amplia varie
 | ![Sentry One][5] |**SentryOne (DW Sentry)**<br>Con el calendario de eventos y el panel de movimiento de datos inteligente, siempre sabrá exactamente qué es lo que afecta a su carga de trabajo. Diseñado para brindarle visibilidad sobre sus consultas y los trabajos que se ejecutan para cargar los datos, crear copias de seguridad de ellos o restaurarlos, nunca tendrá que preocuparse por obtener el máximo provecho de los recursos de Azure. |[Página de producto][sql_sentry_website]<br>[Azure Marketplace][sql_sentry_marketplace]<br> |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre otros asociados, consulte [Asociados de inteligencia empresarial][bi_partners] y [Asociados de integración de datos][di_partners].
+Para obtener más información sobre otros partners, consulte [Partners de inteligencia empresarial][bi_partners] y [Partners de integración de datos][di_partners].
 
 <!--Image references-->
 

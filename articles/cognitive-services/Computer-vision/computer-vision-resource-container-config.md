@@ -1,7 +1,7 @@
 ---
 title: 'Configurar contenedores: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Configure diversas opciones para los contenedores de Reconocer texto en Computer Vision.
+description: En este artículo se muestra cómo configurar los valores obligatorios y opcionales para los contenedores de Reconocer texto en Computer Vision.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 1df8199abbbc195db873ab3da515cb1dd5fe9761
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ddbee3695c2a7ef7cb63c48cccacbd2d53a8c1a9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484081"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718994"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configuración de contenedores de Docker de Computer Vision
 

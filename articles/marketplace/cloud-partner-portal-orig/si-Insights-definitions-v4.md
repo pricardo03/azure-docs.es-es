@@ -4,15 +4,16 @@ description: Proporciona definiciones de muchos de los términos que encontrará
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2571f916f6efc61772b2734119e197996e2ffe3c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606911"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809110"
 ---
 <a name="seller-insights-definitions"></a>Definiciones de Seller Insights
 =======================
@@ -25,35 +26,35 @@ En la siguiente tabla se incluyen definiciones de muchos de los términos usados
 | **Tipo de licencia de Azure: Proveedor de soluciones en la nube**      | El cliente final adquiere Azure y su oferta de Marketplace a través de su proveedor de soluciones en la nube, que actúa como su revendedor.                 |
 | **Tipo de licencia de Azure: Enterprise**                   | El cliente final adquiere Azure y su oferta de Marketplace a través de un contrato Enterprise, firmado directamente con Microsoft.                  |
 | **Tipo de licencia de Azure: Enterprise a través de revendedor**  | El cliente final adquiere Azure y su oferta de Marketplace a través de un revendedor que le facilita el contrato Enterprise con Microsoft.     |
-| **Tipo de licencia de Azure: Pago por uso**                | El cliente final adquiere Azure y su oferta de Marketplace a través de un contrato de pago por uso, firmado directamente con Microsoft.                |
+| **Tipo de licencia de Azure: Pago por uso**                | El cliente final adquiere Azure y la oferta de Marketplace a través de un contrato de pago por uso, firmado directamente con Microsoft.                |
 | **Importe del cargo (CC)**                              | Cantidad que se cobra al cliente en la *moneda del cliente* (CC) para la facturación.                                                                 |
 | **Importe del cargo (PC)**                               | Cantidad que se cobra al cliente en la *moneda de pago* (PC).                                                                      |
-| **Fecha del cargo**                                      | Fecha en que se calculó el cargo del cliente (por lo general, inmediatamente después del período de uso).                                             |
+| **Fecha del cargo**                                      | Fecha en que se calcula el cargo del cliente (por lo general, inmediatamente después del período de uso).                                             |
 | **Nombre de la instancia en la nube**                              | Microsoft Cloud donde se produjo la implementación de una VM.                                   |
 | **Nombre de la instancia en la nube: Azure Global**                | Nube pública global de Microsoft.                           |
 | **Nombre de la instancia en la nube: Azure Government**        | Nubes de Microsoft específicas de la Administración Pública para una de las administraciones siguientes: China, Alemania o Estados Unidos de América.                           |
 | **Estado de cobro**  | Para un cargo específico, estado más reciente del ciclo de vida de facturación y cobro.  Por ejemplo, el estado puede ser Cobro en curso, Cobrado o Reembolso.                  |
 | **Tamaño de núcleo**  | Número de núcleos virtuales que presenta la máquina virtual en la que se ejecuta la oferta.               |
-| **Ciudad del cliente**  | Nombre de ciudad proporcionado por el cliente. Podría ser diferente de la ciudad de la suscripción a Azure del cliente.  |
+| **Ciudad del cliente**  | Nombre de ciudad proporcionado por el cliente. Podría ser diferente a la ciudad de la suscripción a Azure del cliente.  |
 | **Idioma de comunicación del cliente**        | Idioma preferido por el cliente para la comunicación.                                  |
 | **Nombre de la empresa del cliente**                  | Nombre de empresa proporcionado por el cliente. Podría ser diferente de la ciudad de la suscripción a Azure del cliente.                                  |
 | **País del cliente**                       | Nombre del país o región proporcionado por el cliente.  Podría ser diferente del país o región de la suscripción a Azure del cliente.                               |
 | **Moneda del cliente (CC)**                 | Moneda preferida del cliente para precios y facturación.                            |
 | **Correo electrónico del cliente**                         | Dirección de correo electrónico proporcionada por el cliente final.  Podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente.                   |
 | **Nombre del cliente**                              | Nombre proporcionado por el cliente.  Podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente.                    |
-| **Apellidos del cliente**                               | Apellidos proporcionados por el cliente.  Podrían ser diferentes de los apellidos proporcionados en la suscripción a Azure del cliente.                    |
+| **Apellidos del cliente**                               | Apellidos proporcionados por el cliente.  Podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente.                    |
 | **Identificador de cliente**                               | Identificador único asignado a un cliente.  Un cliente puede tener ninguna o varias suscripciones a Azure Marketplace.                    |
 | **Tipo de pago del cliente**                            | Tipo de instrumento de pago utilizado por el cliente.  Por ejemplo, podría ser una tarjeta, una factura o una verificación electrónica.                             |
 | **Código postal del cliente**                             | Código postal proporcionado por el cliente.  Podría ser diferente del código postal proporcionado en la suscripción a Azure del cliente.                                                                 |
-| **Estado del cliente**                                   | Estado (dirección) proporcionado por el cliente.  Podría ser diferente del proporcionado en la suscripción a Azure del cliente.                                                                 |
+| **Estado del cliente**                                   | Estado (dirección) proporcionado por el cliente.  Podría ser diferente del apellido proporcionado en la suscripción a Azure del cliente.                                                                 |
 | **Fecha de adquisición**                                    | Primera fecha en que el cliente adquirió cualquier oferta publicada por usted.                 |
 | **Fecha de pérdida**                                        | Última fecha en que el cliente canceló la última de todas las ofertas que había comprado anteriormente.                                                         |
 | **Cargo total estimado (CC)**                   | Cargo total estimado de la cantidad de unidades de uso de una SKU determinada (en la moneda del cliente). Este valor puede no ser exacto debido a errores de truncamiento o redondeo.                            |
 | **Cargo total estimado (PC)**                   | Cargo total estimado de la cantidad de unidades de uso de una SKU determinada, en función de la conversión de moneda el día en que se calcula el uso (en la moneda del anunciante). Este valor puede no ser exacto debido a errores de truncamiento o redondeo.                  |
 | **Pago estimado (PC)**                            | Pago estimado de la cantidad de unidades de uso de una SKU determinada, en función de la conversión de moneda el día en que se calcula el uso (en la moneda del anunciante). Este valor puede no ser exacto debido a errores de truncamiento o redondeo.                        |
 | **Precio estimado (PC)**                             | Precio estimado de una unidad de uso de una SKU determinada, en función de la conversión de moneda el día en que se calcula el uso (en la moneda del anunciante). Este valor puede no ser exacto debido a errores de truncamiento o redondeo.                                             |
-| **Cliente nuevo**                                  | El valor le permitirá saber si se trata de un cliente nuevo que consume o compra una o varias ofertas de Marketplace por primera vez.  El valor será "Sí" si es el mismo mes natural de la "Fecha de adquisición".  El valor será "No" si el cliente ha comprado cualquiera de las ofertas antes del mes natural notificado.                                                       |
-| **Versión preliminar de SKU**                                  | El valor le permitirá saber si ha etiquetado la SKU como "versión preliminar". El valor será "Sí" si la SKU se ha etiquetado en consecuencia y solo las suscripciones de Azure autorizadas por usted pueden implementar y usar esta imagen.  El valor será "No" si la SKU no se ha identificado como "versión preliminar".                                          |
+| **Cliente nuevo**                                  | El valor le permitirá saber si se trata de un cliente nuevo que consume o compra una o varias ofertas de Marketplace por primera vez.  El valor es "Sí" si es el mismo mes natural de la "Fecha de adquisición".  El valor es "No" si el cliente ha comprado cualquiera de las ofertas antes del mes natural notificado.                                                       |
+| **Versión preliminar de SKU**                                  | El valor le permitirá saber si ha etiquetado la SKU como "versión preliminar". El valor es "Sí" si la SKU se ha etiquetado en consecuencia y solo las suscripciones de Azure que ha autorizado pueden implementar y usar esta imagen.  El valor es "No" si la SKU no se ha identificado como "versión preliminar".                                          |
 | **Participación de contacto promocional**                   | El valor le permitirá saber si el cliente ha optado de manera proactiva por el contacto promocional de los anunciantes. En este momento, no presentamos la opción a los clientes, por lo que hemos indicado "No" de forma general. Una vez implementada esta característica, comenzaremos a actualizarla en consecuencia.                                          |
 | **Tipo de licencia de Marketplace**                         | Método de facturación de la oferta de Marketplace.                             |
 | **Tipo de licencia de Marketplace: Facturado a través de Azure**   | Microsoft es su agente para esta oferta de Marketplace y factura a los clientes en su nombre. (Tarjeta de crédito de pago por uso o factura de Enterprise)       |

@@ -12,19 +12,23 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c72de809dc5818cced95be2cbd6b47308bad4f22
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045206"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584524"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Supervisión de métricas y ejecuciones de experimentos de Azure ML
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Realice el seguimiento de sus experimentos y supervise las métricas de ejecución para mejorar el proceso de creación del modelo. En este artículo, aprenderá a agregar código de registro a un script de entrenamiento, enviar una ejecución de experimento, supervisar dicha ejecución y comprobar los resultados en Azure Machine Learning.
 
 > [!NOTE]
 > Azure Machine Learning también puede registrar información de otros orígenes durante el entrenamiento, como las ejecuciones de Machine Learning automatizado o el contenedor de Docker que ejecuta el trabajo de entrenamiento. Estos registros no están documentados. Si encuentra problemas y se pone en contacto con el Soporte técnico de Microsoft, es posible que puedan usar estos registros durante la resolución de problemas.
+
+> [!TIP]
+> La información de este documento va destinada principalmente a aquellos científicos de datos y desarrolladores que deseen supervisar el proceso de entrenamiento del modelo. Si es administrador y está interesado en la supervisión del uso de recursos y eventos desde Azure Machine Learning, como cuotas, ejecuciones de entrenamiento completadas o implementaciones de modelos completadas, consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).
 
 ## <a name="available-metrics-to-track"></a>Métricas disponibles de las que se realiza seguimiento
 
@@ -261,7 +265,7 @@ print(run.get_portal_url())
    ![Widget de cuaderno de Jupyter Notebooks para aprendizaje automático automatizado](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
-Para ver más detalles de una canalización, haga clic en la canalización que quiere explorar en la tabla, y los gráficos se representarán en una ventana emergente desde Azure Portal.
+Para ver más detalles de una canalización, haga clic en la canalización que quiere explorar en la tabla, y los gráficos se representarán en una ventana emergente desde Azure Machine Learning Studio.
 
 ### <a name="get-log-results-upon-completion"></a>Obtener los resultados de registros tras la finalización
 
@@ -273,22 +277,19 @@ El entrenamiento y la supervisión de modelos tienen lugar en segundo plano, de 
 Puede ver las métricas de un modelo entrenado con ```run.get_metrics()```. Ahora puede obtener todas las métricas que se registraron en el ejemplo anterior para determinar el mejor modelo.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Visualización del experimento en Azure Portal o en la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com) propia
+## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studiohttpsmlazurecom"></a>Visualización del experimento en su área de trabajo en [Azure Machine Learning Studio](https://ml.azure.com)
 
-Cuando un experimento ha terminado de ejecutarse, puede ir al registro de ejecución del experimento grabado. Puede acceder al historial de dos maneras:
+Cuando un experimento ha terminado de ejecutarse, puede ir al registro de ejecución del experimento grabado. Puede acceder al historial desde [Azure Machine Learning Studio](https://ml.azure.com).
 
-* Obtener directamente la dirección URL a la ejecución ```print(run.get_portal_url())```
-* Ver los detalles de la ejecución mediante el envío del nombre de la ejecución (en este caso, ```run```). Aquí se le indica el nombre del experimento, el identificador, el tipo, el estado, la página de detalles, un vínculo a Azure Portal y un vínculo a la documentación.
+Vaya a la pestaña Experimentos y seleccione el experimento. Se le dirigirá al panel de ejecución de experimentos, donde puede ver las métricas y los gráficos de seguimiento que se registran para cada ejecución. En este caso, se registra MSE y los valores alfa.
 
-El vínculo para la ejecución le lleva directamente a la página de detalles de ejecución en Azure Portal. Aquí puede ver las propiedades, las métricas sometidas a seguimiento, las imágenes y los gráficos que se registran en el experimento. En este caso, se registra MSE y los valores alfa.
+  ![Detalles de la ejecución en Azure Machine Learning Studio](./media/how-to-track-experiments/experiment-dashboard.png)
 
-  ![Detalles de ejecución en Azure Portal](./media/how-to-track-experiments/run-details-page.png)
-
-También puede ver las salidas o los registros de la ejecución, o descargar la instantánea del experimento que ha enviado para que pueda compartir la carpeta del experimento con otros usuarios.
+También puede explorar en profundidad una ejecución específica para ver sus salidas o registros, o descargar la instantánea del experimento que ha enviado para que pueda compartir la carpeta del experimento con otros usuarios.
 
 ### <a name="viewing-charts-in-run-details"></a>Visualización de gráficos en los detalles de ejecución
 
-Hay varias maneras de usar las API de registro para registrar diferentes tipos de métricas durante una ejecución y verlas como gráficos en Azure Portal. 
+Hay varias maneras de usar las API de registro para registrar diferentes tipos de métricas durante una ejecución y verlas como gráficos en Azure Machine Learning Studio.
 
 |Valor registrado|Ejemplo de código| Ver en el portal|
 |----|----|----|

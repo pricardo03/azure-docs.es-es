@@ -1,18 +1,18 @@
 ---
-title: 'Identificación de problemas con la característica de diagnóstico de Windows Virtual Desktop: Azure'
-description: Se describe la característica de diagnóstico de Windows Virtual Desktop y cómo usarla.
+title: 'Problemas de diagnóstico de Windows Virtual Desktop: Azure'
+description: Procedimientos para usar la característica de diagnóstico de Windows Virtual Desktop para diagnosticar problemas.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 5401260921aee5fc54b50c1222188a6b244a0c5a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 0e04b075259ed1d003df4a03686d46b1adf694d3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840145"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606858"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificación y diagnóstico de problemas
 

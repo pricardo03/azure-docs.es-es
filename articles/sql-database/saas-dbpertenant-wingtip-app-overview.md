@@ -1,5 +1,5 @@
 ---
-title: 'Aplicación SaaS multiinquilino de ejemplo en Azure SQL Database: Wingtip | Microsoft Docs'
+title: 'Ejemplo de aplicación multiinquilino: SaaS de Wingtip'
 description: Obtenga más información con la aplicación SaaS multiinquilino de ejemplo Wingtip, que usa Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 16f4bb946af4720a327a8755c6bf9187f3b71ba6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 46cdcd5f768278dbc729f48e450c68a63be604be
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570336"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822161"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introducción a una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con SQL Database
 

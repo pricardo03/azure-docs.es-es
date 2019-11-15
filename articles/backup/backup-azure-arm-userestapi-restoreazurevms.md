@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: Restauración de máquinas virtuales de Azure mediante API REST'
-description: Administración de operaciones de restauración de copia de seguridad de máquina virtual de Azure mediante API REST
+description: En este artículo obtendrá información sobre cómo administrar las operaciones de restauración de copias de seguridad de Azure VM mediante la API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: bdbceec2f1d0a900ffdb392d8a0505ce11419036
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 364b6ab589cc0fa50953a71d55adeccc79462eed
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954904"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747520"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restauración de máquinas virtuales de Azure mediante API REST
 
-Una vez completada la copia de seguridad de una máquina virtual de Azure mediante Azure Backup, se pueden restaurar las máquinas o los discos o archivos de Azure completos a partir de la misma copia de seguridad. En este artículo se describe cómo restaurar una máquina virtual de Azure o los discos mediante la API REST.
+Una vez completada la copia de seguridad de una máquina virtual de Azure mediante Azure Backup, se pueden restaurar máquinas virtuales o discos o archivos de Azure completos a partir de la misma copia de seguridad. En este artículo se describe cómo restaurar una máquina virtual de Azure o los discos mediante la API REST.
 
 Para cualquier operación de restauración, se tiene que identificar primero el punto de recuperación correspondiente.
 

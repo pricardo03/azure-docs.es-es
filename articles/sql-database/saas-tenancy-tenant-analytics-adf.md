@@ -1,22 +1,22 @@
 ---
-title: Ejecución de consultas de análisis en las bases de datos de inquilinos mediante Azure SQL Data Warehouse | Microsoft Docs
+title: Ejecución de consultas de análisis en bases de datos de inquilino
 description: Consultas de análisis entre inquilinos con datos extraídos de Azure SQL Database, SQL Data Warehouse, Azure Data Factory o Power BI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b22a9cf8c79530fd931cbe944ef5bfc876a02243
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4791cd3a6b6f72c5d9ee4ca828d66b0d361f356c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570139"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816781"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Exploración del análisis de SaaS con Azure SQL Database, SQL Data Warehouse, Data Factory y Power BI
 

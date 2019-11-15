@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 02231f86d4ceddd6cde53fd242c2c91158d744a9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7290e2b09c316a97bfb88744307e185aef72852a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480766"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668981"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configuración de un contenedor de Linux personalizado para Azure App Service
 
@@ -165,6 +165,10 @@ Las listas siguientes muestran opciones de configuración admitidas y no admitid
 
 > [!NOTE]
 > Cualquier otra opción que no se mencione de forma explícita, se omitirá en la versión preliminar pública.
+
+## <a name="configure-vnet-integration"></a>Configuración de la integración de VNet
+
+El uso de un contenedor personalizado con integración de VNet puede requerir una configuración adicional del contenedor. Consulte [Integración de su aplicación con una instancia de Azure Virtual Network](../web-sites-integrate-with-vnet.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Actualización del perfil y la información de cuenta en el portal Aplicaciones: Azure Active Directory | Microsoft Docs'
+title: 'Actualización del perfil y la cuenta en el portal Mis aplicaciones: Azure AD'
 description: Obtenga información sobre cómo actualizar el perfil y la información de la cuenta profesional o educativa, incluidos el cambio de contraseña, activar el restablecimiento de contraseña, actualizar los métodos de comprobación de seguridad, ver el extracto de las condiciones de uso de la organización y cerrar todas las sesiones en las que ha iniciado sesión con la cuenta profesional o educativa.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4416b35d2e2204cec2a9ffe2f50e92983d6204c0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160754"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820373"
 ---
-# <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Actualización del perfil y la información de cuenta en el portal Aplicaciones
+# <a name="update-your-profile-and-account-info-on-the-my-apps-portal"></a>Actualización de la información de perfil y cuenta en el portal Mis aplicaciones
 
 Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para ver e iniciar muchas de las aplicaciones de su organización basadas en la nube, actualizar información de su perfil y cuenta, ver su información de **Grupos** y realizar **revisiones de acceso** para sus aplicaciones y grupos. Si no tiene acceso al portal **Aplicaciones**, debe ponerse en contacto con su departamento de soporte técnico para obtener permiso.
 

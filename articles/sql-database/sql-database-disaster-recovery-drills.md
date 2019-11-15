@@ -1,5 +1,5 @@
 ---
-title: Maniobras de recuperación ante desastres de SQL Database | Microsoft Docs
+title: Maniobras de recuperación ante desastres
 description: Obtenga información de instrucciones y procedimientos recomendados para usar Azure SQL Database en la recuperación ante desastres.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 2923ae8b9b25932ae214cfa45780dffb8780dd39
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3ca00a03976ae38b7956616b8287220a7bc5998c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568846"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825854"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Obtención de detalles de la recuperación ante desastres
 

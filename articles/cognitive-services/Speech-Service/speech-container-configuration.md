@@ -1,25 +1,25 @@
 ---
 title: Configuración de contenedores de Voz
 titleSuffix: Azure Cognitive Services
-description: El contenedor de Voz
+description: Los servicios de Voz proporcionan a cada contenedor un marco de configuración común, por lo que puede configurar y administrar fácilmente la configuración de almacenamiento, registro, telemetría y seguridad de los contenedores.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: f7e2e95b553039b88267f730787fbbac82099948
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4e09a476398134d92b4492c68ed4ebebc468f272
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105183"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796192"
 ---
 # <a name="configure-speech-service-containers"></a>Configuración de contenedores del servicio de Voz
 
-Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para aprovechar las sólidas capacidades de la nube y la localidad del perímetro. Los dos contenedores de voz que se admiten ahora son **conversión de voz a texto** y **conversión de texto a voz**. 
+Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para aprovechar las sólidas capacidades de la nube y la localidad del perímetro. Los cuatro contenedores de voz compatibles ahora son **conversión de voz a texto**, **conversión de voz a texto personalizada**, **conversión de texto a voz** y **conversión de texto a voz personalizada**.
 
 El entorno en tiempo de ejecución del contenedor de **Speech** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
 
@@ -52,7 +52,7 @@ Este valor se puede encontrar en el siguiente lugar:
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
-|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
+|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](speech-container-howto.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -64,7 +64,7 @@ Este valor se puede encontrar en el siguiente lugar:
 
 ## <a name="http-proxy-credentials-settings"></a>Configuración de las credenciales del proxy HTTP
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Opción de configuración Logging
  
@@ -74,21 +74,44 @@ Este valor se puede encontrar en el siguiente lugar:
 
 Utilice montajes de enlace para leer y escribir datos hacia y desde el contenedor. Puede especificar un montaje de entrada o un montaje de salida mediante la opción `--mount` del comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-Los contenedores de Speech no usan montajes de entrada o salida para almacenar datos de entrenamiento o servicio. 
+Los contenedores de Voz estándar no usan montajes de entrada o salida para almacenar datos de entrenamiento o servicio. Sin embargo, los contenedores de Voz personalizados dependen de los montajes de volumen.
 
 La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](speech-container-howto.md#the-host-computer) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host. 
 
 |Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |-------|------|-----------|-------------|
-|No permitida| `Input` | Cadena | Los contenedores de Speech no usan esto.|
+|No permitida| `Input` | Cadena | Los contenedores de Voz estándar no usan esto. Los contenedores de Voz personalizados usan los [montajes de volumen](#volume-mount-settings). |
 |Opcional| `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+
+## <a name="volume-mount-settings"></a>Configuración de montaje de volumen
+
+Los contenedores de Voz personalizados usan [montajes de volumen](https://docs.docker.com/storage/volumes/) para conservar los modelos personalizados. Para especificar un montaje de volumen, agregue la opción `-v` (o `--volume`) al comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
+
+Los modelos personalizados se descargan la primera vez que se ingesta un nuevo modelo como parte del comando docker run del contenedor de Voz personalizado. Las ejecuciones secuenciales del mismo `ModelId` para un contenedor de Voz personalizado usarán el modelo descargado anteriormente. Si no se proporciona el montaje de volumen, no se pueden conservar los modelos personalizados.
+
+La configuración de montaje de volumen consta de tres campos `:` de colores separados:
+
+1. El primer campo es el nombre del volumen en la máquina host, por ejemplo, *C:\input*.
+2. El segundo campo es el directorio del contenedor, por ejemplo */usr/local/models*.
+3. El tercer campo (opcional) es una lista de opciones separada por comas. Para más información, consulte el [uso de los volúmenes](https://docs.docker.com/storage/volumes/).
+
+### <a name="volume-mount-example"></a>Ejemplo de montaje de volumen
+
+```bash
+-v C:\input:/usr/local/models
+```
+
+Este comando monta el directorio *C:\input* de la máquina host en el directorio */usr/local/models* de los contenedores.
+
+> [!IMPORTANT]
+> La configuración del montaje de volumen solo se aplica a los contenedores **Conversión de voz a texto personalizada** y **Conversión de texto a voz personalizada**. Los contenedores **Conversión de voz a texto** y **Conversión de texto a voz** estándar no usan los montajes de volumen.
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
 
 Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo escribir y usar comandos `docker run`.  Una vez que se está ejecutando, el contenedor continúa ejecutándose hasta que lo [detenga](speech-container-howto.md#stop-the-container).
 
 * **Carácter de continuación de línea**: Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa (`\`) como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. 
-* **Orden de los argumentos**: No cambie el orden de los argumentos a menos que esté muy familiarizado con los contenedores de Docker.
+* **Orden de los argumentos**: No cambie el orden de los argumentos a menos que esté familiarizado con los contenedores de Docker.
 
 Reemplace {_argument_name_} por sus propios valores:
 
@@ -107,47 +130,107 @@ Reemplace {_argument_name_} por sus propios valores:
 
 En los siguientes ejemplos de Docker encontrará el contenedor de Speech. 
 
-### <a name="basic-example-for-speech-to-text"></a>Ejemplo básico de voz a texto
+# <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
+
+### <a name="basic-example-for-speech-to-text"></a>Ejemplo básico de Conversión de voz a texto
 
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="basic-example-for-text-to-speech"></a>Ejemplo básico de texto a voz
+### <a name="logging-example-for-speech-to-text"></a>Ejemplo de registro de Conversión de voz a texto
 
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+# <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
+
+### <a name="basic-example-for-custom-speech-to-text"></a>Ejemplo básico de Conversión de voz a texto personalizada
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+-v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+ModelId={MODEL_ID} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### <a name="logging-example-for-custom-speech-to-text"></a>Ejemplo de registro de Conversión de voz a texto personalizada
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+-v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+ModelId={MODEL_ID} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+# <a name="text-to-speechtabtss"></a>[Texto a voz](#tab/tss)
+
+### <a name="basic-example-for-text-to-speech"></a>Ejemplo básico de Conversión de texto a voz
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-speech-to-text"></a>Ejemplo de registro de voz a texto
+### <a name="logging-example-for-text-to-speech"></a>Ejemplo de registro de Conversión de texto a voz
 
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY} \
-Logging:Console:LogLevel:Default=Information
-```
-
-### <a name="logging-example-for-text-to-speech"></a>Ejemplo de registro de texto a voz
-
-```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
+
+# <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
+
+### <a name="basic-example-for-custom-text-to-speech"></a>Ejemplo básico de Conversión e texto a voz personalizada
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
+-v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+ModelId={MODEL_ID} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### <a name="logging-example-for-custom-text-to-speech"></a>Ejemplo de registro de Conversión e texto a voz personalizada
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
+-v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+ModelId={MODEL_ID} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+***
 
 ## <a name="next-steps"></a>Pasos siguientes
 

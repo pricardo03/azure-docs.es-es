@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de la programación de aplicación de revisiones del SO para clústeres de HDInsight basado en Linux: Azure'
+title: Configuración de la programación de revisión del SO para clústeres de Azure HDInsight
 description: Aprenda a configurar la programación de la aplicación de revisión del SO para clústeres de HDInsight basado en Linux.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,59 +8,49 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 06111ec35a127cf17fdcc77ff717de7a4bc7299f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a97a03f7ef20ae56cec04341fe76b79ee657547b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076853"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748485"
 ---
-# <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configuración de la programación de aplicación de revisiones del SO para clústeres de HDInsight basado en Linux 
+# <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configuración de la programación de aplicación de revisiones del SO para clústeres de HDInsight basado en Linux
 
 > [!IMPORTANT]
 > Las imágenes de Ubuntu estarán disponibles para la creación del clúster de HDInsight tres meses después de publicarse. A partir de enero de 2019, la ejecución de clústeres no se revisa automáticamente. Los clientes deben usar acciones de script u otros mecanismos para revisar un clúster en ejecución. Los clústeres creados recientemente siempre tendrán las últimas actualizaciones disponibles, incluidas las revisiones de seguridad más recientes.
 
-En ocasiones, debe reiniciar las máquinas virtuales (VM) de un clúster de HDInsight para instalar revisiones de seguridad importantes.
+HDInsight permite realizar tareas comunes en el clúster, como instalar revisiones del sistema operativo, aplicar actualizaciones de seguridad y reiniciar nodos. Estas tareas se realizan mediante los dos scripts siguientes que se pueden ejecutar como [acciones de script](hdinsight-hadoop-customize-cluster-linux.md) y que se pueden configurar con parámetros:
 
-Con las acciones de script que se describen en este artículo, puede modificar la programación de aplicación de revisiones del SO de la siguiente manera:
-
-1. Instale todas las actualizaciones, instale las actualizaciones del kernel más las de seguridad o solo las actualizaciones del kernel.
-2. Realice un reinicio inmediato o programe un reinicio en la máquina virtual.
+- `schedule-reboots.sh` - Realice un reinicio inmediato o programe un reinicio en los nodos de clúster.
+- `install-updates-schedule-reboots.sh` - Instale todas las actualizaciones, solo las actualizaciones del kernel más las de seguridad o solo las actualizaciones del kernel.
 
 > [!NOTE]  
-> Las acciones de script que se describen en este artículo solo funcionarán con clústeres de HDInsight basado en Linux creados después del 1 de agosto de 2016. Las revisiones solo son efectivas después de reiniciar las máquinas virtuales.
 > Las acciones de script no aplicarán automáticamente actualizaciones en todos los ciclos futuros de actualización. Ejecute los scripts cada vez que se deban aplicar nuevas actualizaciones para instalar las actualizaciones y, luego, reinicie la máquina virtual.
 
-## <a name="add-information-to-the-script"></a>Adición de información al script
-
-Para usar este script, se requiere la información siguiente:
-
-- Ubicación del script install-updates-schedule-reboots: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh.
-    
-   HDInsight usa este URI para encontrar y ejecutar el script en todas las máquinas virtuales del clúster. Este script proporciona opciones para instalar actualizaciones y reiniciar la máquina virtual.
+## <a name="restart-nodes"></a>Reinicio de nodos
   
-- La ubicación del script schedule-reboots: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh.
-    
-   HDInsight usa este URI para encontrar y ejecutar el script en todas las máquinas virtuales del clúster. Este script reinicia la máquina virtual.
-  
-- Los tipos de nodo del clúster a los que se aplica el script son headnode, workernode y zookeeper. Aplique el script a todos los tipos de nodo del clúster. Si el script no se aplica a un tipo de nodo, las máquinas virtuales de ese tipo de nodo no se actualizarán ni se reiniciarán.
+El script [schedule-reboots](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh) establece el tipo de reinicio que se realizará en las máquinas en el clúster. Al enviar la acción de script, configúrela para que se aplique en los tres tipos de nodo: nodo principal, nodo de trabajo y ZooKeeper. Si el script no se aplica a un tipo de nodo, las máquinas virtuales de ese tipo de nodo no se actualizarán ni se reiniciarán.
 
-- El script install-updates-schedule-reboots acepta dos parámetros numéricos:
+El script `schedule-reboots script` acepta un parámetro numérico:
 
-    | Parámetro | Definición |
-    | --- | --- |
-    | Instalar solo las actualizaciones del kernel, instalar todas las actualizaciones o instalar solo las actualizaciones del kernel más las de seguridad|0, 1 o 2 Un valor de 0 instala solo las actualizaciones del kernel. Un valor de 1 instala todas las actualizaciones y un valor de 2 solo instala las actualizaciones del kernel más las de seguridad. Si no se proporciona ningún parámetro, el predeterminado es 0. |
-    | No reiniciar/Habilitar reinicio programado/Habilitar reinicio inmediato |0, 1 o 2 Un valor de 0 deshabilita el reinicio. Un valor de 1 habilita el reinicio programado y un valor de 2 habilita el reinicio inmediato. Si no se proporciona ningún parámetro, el predeterminado es 0. El usuario debe cambiar el parámetro de entrada 1 por el parámetro de entrada 2. |
-   
- - El script schedule-reboots acepta un parámetro numérico:
+| Parámetro | Valores aceptados | Definición |
+| --- | --- | --- |
+| Tipo de reinicio que se va a realizar | 1 o 2 | Un valor de 1 habilita el reinicio programado (en 12 o 24 horas). Un valor de 2 habilita el reinicio inmediato (en 5 minutos). Si no se especifica ningún parámetro, el valor predeterminado es 1. |  
 
-    | Parámetro | Definición |
-    | --- | --- |
-    | Habilitar el reinicio programado/Habilitar el reinicio inmediato |1 o 2. Un valor de 1 habilita el reinicio programado (en 12 o 24 horas). Un valor de 2 habilita el reinicio inmediato (en 5 minutos). Si no se especifica ningún parámetro, el valor predeterminado es 1. |  
+## <a name="install-updates-and-restart-nodes"></a>Instalación de actualizaciones y reinicio de nodos
+
+El script [install-updates-schedule-reboots.sh](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh) proporciona opciones para instalar distintos tipos de actualizaciones y reiniciar la máquina virtual.
+
+El script `install-updates-schedule-reboots` acepta dos parámetros numéricos, como se describe en la siguiente tabla:
+
+| Parámetro | Valores aceptados | Definición |
+| --- | --- | --- |
+| Tipo de actualizaciones que se van a instalar | 0, 1 o 2 | Un valor de 0 instala solo las actualizaciones del kernel. Un valor de 1 instala todas las actualizaciones y un valor de 2 solo instala las actualizaciones del kernel más las de seguridad. Si no se proporciona ningún parámetro, el predeterminado es 0. |
+| Tipo de reinicio que se va a realizar | 0, 1 o 2 | Un valor de 0 deshabilita el reinicio. Un valor de 1 habilita el reinicio programado y un valor de 2 habilita el reinicio inmediato. Si no se proporciona ningún parámetro, el predeterminado es 0. El usuario debe cambiar el parámetro de entrada 1 por el parámetro de entrada 2. |
 
 > [!NOTE]
 > Debe marcar un script como persistente después de aplicarlo a un clúster existente. De lo contrario, en todos los nodos que se creen mediante operaciones de escalado se usará la programación de aplicación de revisión predeterminada. Si aplica el script como parte del proceso de creación del clúster, se marcará como persistente de forma automática.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

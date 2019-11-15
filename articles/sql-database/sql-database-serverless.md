@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database sin servidor | Microsoft Docs
+title: Sin servidor
 description: En este artículo se describe el nuevo nivel de proceso sin servidor y se compara con el nivel de proceso aprovisionado existente.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fecc394080f54f023529ed2da8c9690c38c1da08
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496242"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818279"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 
@@ -174,8 +174,6 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
    |Número mínimo de núcleos virtuales|Depende de la cantidad máxima de núcleos virtuales configurada; consulte [Límites de los recursos](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 núcleos virtuales|
    |Demora de pausa automática|Mínimos: 60 minutos (1 hora)<br>Máximo: 10 080 minutos (7 días)<br>Incrementos: 60 minutos<br>Deshabilitar pausa automática: -1|60 minutos|
 
-> [!NOTE]
-> Actualmente no es posible usar T-SQL para mover una base de datos existente al nivel de proceso sin servidor o cambiar su tamaño de proceso, pero esto sí puede realizarse mediante Azure Portal o PowerShell.
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Creación de una nueva base de datos en el nivel de proceso sin servidor 
 
@@ -200,6 +198,17 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
+#### <a name="use-transact-sql-t-sql"></a>Uso de Transact-SQL (T-SQL)
+
+En el siguiente ejemplo se crea una nueva base de datos en el nivel de proceso sin servidor.
+
+```sql
+CREATE DATABASE testdb
+( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
+```
+
+Para más información, consulte [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Cambio de la base de datos del nivel de proceso aprovisionado al nivel de proceso sin servidor
 
 #### <a name="use-powershell"></a>Uso de PowerShell
@@ -218,6 +227,17 @@ Set-AzSqlDatabase `
   -MaxVcore 4 `
   -AutoPauseDelayInMinutes 1440
 ```
+
+#### <a name="use-transact-sql-t-sql"></a>Uso de Transact-SQL (T-SQL)
+
+En el siguiente ejemplo se mueve una base de datos desde el nivel de proceso aprovisionado al nivel de proceso sin servidor. 
+
+```sql
+ALTER DATABASE testdb 
+MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
+```
+
+Para más información, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
 ### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Cambio de la base de datos del nivel de proceso sin servidor al nivel de proceso aprovisionado
 
@@ -323,6 +343,10 @@ Más concretamente, la facturación del proceso en este ejemplo se calcula como 
 |Número total de segundos de núcleo virtual facturados durante 24 horas||||50 400 segundos de núcleo virtual|
 
 Suponga que el precio de la unidad de proceso es 0,000073 $/núcleo virtual/segundo.  El proceso que se factura en este período de 24 horas es igual al producto del precio por unidad de proceso por los segundos de núcleo virtual facturados: $0,000073/vCore/segundo * 50 400 segundos de núcleo virtual = $3,68
+
+### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Ventaja híbrida de Azure y capacidad reservada
+
+Los descuentos de Ventaja híbrida de Azure (AHB) y capacidad reservada no se aplican al nivel de proceso sin servidor.
 
 ## <a name="available-regions"></a>Regiones disponibles
 

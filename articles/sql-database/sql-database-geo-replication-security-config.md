@@ -1,5 +1,5 @@
 ---
-title: Configuración de la seguridad de Azure SQL Database para recuperación ante desastres | Microsoft Docs
+title: Configuración de la seguridad para la recuperación ante desastres
 description: Conozca las consideraciones sobre seguridad para configurar y administrar la seguridad después de una restauración de la base de datos o una conmutación por error a un servidor secundario.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 4d4939b7a0179216d11f594ce12f384276d15e05
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9d628583168883276e67d9e2f2fcafdce292769e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568138"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807495"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configuración y administración de la seguridad de Azure SQL Database para la restauración geográfica o la conmutación por error
 

@@ -6,18 +6,18 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2019
+ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 32c7a2a79c8d6a35008255b3c117f20d04ad7749
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3b498911999e224003710eced8e0c34989672800
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927420"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809194"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importación y exportación de identidades de dispositivo de IoT Hub de forma masiva
 
-Cada Centro de IoT tiene un registro de identidad que se puede usar para crear recursos por dispositivo en el servicio. El registro de identidad también permite controlar el acceso a los puntos de conexión accesibles desde los dispositivos. En este artículo se describe cómo importar y exportar identidades de dispositivo de forma masiva hacia y desde un Registro de identidad.
+Cada Centro de IoT tiene un registro de identidad que se puede usar para crear recursos por dispositivo en el servicio. El registro de identidad también permite controlar el acceso a los puntos de conexión accesibles desde los dispositivos. En este artículo se describe cómo importar y exportar identidades de dispositivo de forma masiva hacia y desde un Registro de identidad. Para ver un ejemplo en funcionamiento en C# y obtener información sobre cómo puede usar esta funcionalidad a la hora de clonar un centro en otra región, consulte [Cómo clonar una instancia de IoT Hub](iot-hub-how-to-clone.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -421,7 +421,11 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, aprendió a realizar operaciones de forma masiva en el Registro de identidad en un centro de IoT. Siga estos vínculos para más información sobre la administración de Azure IoT Hub:
+En este artículo, aprendió a realizar operaciones de forma masiva en el Registro de identidad en un centro de IoT. Muchas de estas operaciones, entre las que se incluyen cómo mover dispositivos de un centro a otro, se usan en la sección [Administración de dispositivos registrados en la instancia de IoT Hub del artículo Cómo clonar una instancia de IoT Hub](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub). 
+
+El artículo de clonación tiene un ejemplo práctico asociado, el cual se encuentra en los ejemplos de C# de IoT de esta página: [Ejemplos de Azure IoT para C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/), en el proyecto ImportExportDevicesSample. Puede descargar el ejemplo y probarlo; encontrará las instrucciones en el artículo [Cómo clonar una instancia de IoT Hub](iot-hub-how-to-clone.md).
+
+Para obtener más información sobre la administración de Azure IoT Hub, consulte los artículos siguientes:
 
 * [Métricas de IoT Hub](iot-hub-metrics.md)
 * [Registros de IoT Hub](iot-hub-monitor-resource-health.md)

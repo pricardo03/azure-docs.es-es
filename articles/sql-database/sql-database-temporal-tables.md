@@ -1,5 +1,5 @@
 ---
-title: Introducción a las tablas temporales de Azure SQL Database | Microsoft Docs
+title: Introducción a las tablas temporales
 description: Obtenga información sobre cómo empezar a usar las tablas temporales de Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: 39c19661a71a8b466aa6ff25be9e895189dfbfb3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98fd2658f3fbcb0e7e29114d29f8dc6ed39eedf2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566369"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820720"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introducción a las tablas temporales de Azure SQL Database
 
@@ -28,7 +28,7 @@ Este artículo muestra los pasos para utilizar tablas temporales en un escenario
 
 El modelo de base de datos para este escenario es muy simple: la métrica de la actividad del usuario se representa con un solo campo de entero, **PageVisited**, y se captura junto con información básica sobre el perfil del usuario. Además, para el análisis basado en el tiempo, se mantendría una serie de filas para cada usuario, donde cada fila representa el número de páginas que un usuario determinado visitó dentro de un período de tiempo específico.
 
-![Esquema](./media/sql-database-temporal-tables/AzureTemporal1.png)
+![Schema](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
 Afortunadamente, no es necesario esforzarse mucho en la aplicación para mantener esta información de actividad. Con las tablas temporales, este proceso se automatiza, ofreciéndole total flexibilidad durante el diseño del sitio web y más tiempo para centrarse en el propio análisis de los datos. Lo único que tiene que hacer es asegurarse de que la tabla **WebSiteInfo** está configurada como [temporal con versión del sistema](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). Los pasos exactos para utilizar tablas temporales en este escenario se describen a continuación.
 

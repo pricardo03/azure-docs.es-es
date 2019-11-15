@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: e2faa47a58283623747ae569de22e1c57df1a51f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231130"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685100"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -129,7 +129,7 @@ Detalles del host por VM | ((HostSystem)container).VM
 > [!NOTE]
 > Los metadatos que detecta el dispositivo de Azure Migrate se usan para ayudarle a calcular el tamaño correcto de sus aplicaciones a medida que las migra a Azure, realizar análisis de idoneidad de Azure y análisis de dependencia entre aplicaciones, y planear costos. Microsoft no usa estos datos en relación con ninguna auditoría de cumplimiento de licencias.
 
-Estos son los datos de rendimiento de las VM de VMware que el dispositivo recopila y envía a Azure.
+Estos son los datos de rendimiento de las máquinas virtuales de Hyper-V que el dispositivo recopila y envía a Azure.
 
 **Clase de contador de rendimiento** | **Contador** | **Impacto en la evaluación**
 --- | --- | ---

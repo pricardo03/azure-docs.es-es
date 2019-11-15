@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea4b8ea98365ec13f7f027215a75b9d79ea5c54e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452954"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603450"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Completar una implementación de autenticación sin contraseña
 
@@ -104,9 +104,9 @@ Las llaves de seguridad permiten el acceso a los recursos y debe planear la admi
 
 Para habilitar el inicio de sesión de Windows 10 con llaves de seguridad FIDO2 es necesario habilitar la funcionalidad del proveedor de credenciales en Windows 10. Hágalo de una de estas dos maneras:
 
-- [Habilitar un proveedor de credenciales mediante una implementación de Intune dirigida](howto-authentication-passwordless-security-key.md#enable-targeted-intune-deployment)
-   - La implementación de Intune es la opción recomendada para las máquinas unidas a Azure Active Directory.
-- [Habilitar un proveedor de credenciales mediante un paquete de aprovisionamiento](howto-authentication-passwordless-security-key.md#enable-credential-provider-via-provisioning-package)
+- [Habilitar proveedor de credenciales con Intune](howto-authentication-passwordless-security-key-windows.md#enable-with-intune)
+   - La implementación de Intune es la opción recomendada.
+- [Habilitar un proveedor de credenciales con un paquete de aprovisionamiento](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Si no es posible la implementación de Intune, los administradores deben implementar un paquete en cada equipo para habilitar la funcionalidad del proveedor de credenciales. La instalación del paquete se puede llevar a cabo con una de las siguientes opciones:
       - Directiva de grupo o System Center Configuration Manager (SCCM)
       - Instalación local en una máquina Windows 10
@@ -115,7 +115,7 @@ Para habilitar el inicio de sesión de Windows 10 con llaves de seguridad FIDO2
 
 Los usuarios deben registrar su llave de seguridad en cada una de las máquinas Windows 10 unidas a Azure Active Directory.
 
-Para más información, consulte [Registro de usuarios y administración de llaves de seguridad FIDO2](howto-authentication-passwordless-security-key.md).
+Para más información, consulte [Registro de usuarios y administración de llaves de seguridad FIDO2](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys).
 
 ### <a name="licensing-for-passwordless-authentication"></a>Licencias para la autenticación sin contraseña
 
@@ -185,7 +185,7 @@ Los siguientes son casos de prueba de ejemplo para la autenticación sin contras
 | El usuario puede iniciar sesión con el dispositivo FIDO2 (1809) | El usuario puede seleccionar la llave de seguridad en la ventana de inicio de sesión e iniciar sesión correctamente |
 | El usuario puede registrar el dispositivo FIDO2 (1903) | El usuario puede registrar el dispositivo FIDO2 en Configuración > Cuentas > Opciones de inicio de sesión > Llave de seguridad |
 | El usuario puede restablecer el dispositivo FIDO2 (1903) | El usuario puede restablecer el dispositivo FIDO2 en Configuración > Cuentas > Opciones de inicio de sesión > Llave de seguridad |
-| El usuario puede iniciar sesión con el dispositivo FIDO2 (1809) | El usuario puede seleccionar la llave de seguridad en la ventana de inicio de sesión e iniciar sesión correctamente |
+| El usuario puede iniciar sesión con el dispositivo FIDO2 (1903) | El usuario puede seleccionar la llave de seguridad en la ventana de inicio de sesión e iniciar sesión correctamente |
 
 **Inicio de sesión FIDO sin contraseña en aplicaciones web de Azure AD**
 
@@ -257,7 +257,7 @@ Siga los pasos del artículo [Habilitación del inicio de sesión sin contraseñ
 ### <a name="deploy-fido2-security-key-sign-in"></a>Implementación de inicio de sesión con llave de seguridad FIDO2
 
 Siga los pasos descritos en el artículo [Habilitación del inicio de sesión sin contraseña con llave de seguridad en Azure AD](howto-authentication-passwordless-security-key.md) para habilitar llaves de seguridad FIDO2 como métodos de autenticación sin contraseña en su organización.
- 
+
 ### <a name="troubleshoot-phone-sign-in"></a>Solución de problemas de inicio de sesión con teléfono
 
 | Escenario | Solución |

@@ -1,26 +1,24 @@
 ---
 title: Cifrado en reposo mediante claves administradas por el cliente en Azure Key Vault (versión preliminar)
 titleSuffix: Azure Cognitive Search
-description: Complemente el cifrado del lado servidor con índices y mapas de sinónimos de Azure Cognitive Search mediante claves que se crean y administran en Azure Key Vault.
+description: Complemente el cifrado del lado servidor con índices y mapas de sinónimos de Azure Cognitive Search mediante claves que se crean y administran en Azure Key Vault. Esta característica actualmente está en su versión preliminar pública.
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 94c9d94edb9a9ca3f6117bd43ab9cefe1dad52a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794354"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721752"
 ---
 # <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado de contenido de Azure Cognitive Search mediante claves administradas por el cliente en Azure Key Vault
 
-> [!Note]
-> El cifrado con claves administradas por el cliente se encuentra en versión preliminar y no se ha pensado para su uso en producción. En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. También puede usar .NET SDK versión 8.0-preview.
->
-> Esta característica no está disponible para los servicios gratis. Debe utilizar un servicio de búsqueda facturable creado a partir del 2019-01-01-01. En este momento no es compatible con el portal.
+> [!IMPORTANT] 
+> La compatibilidad con el cifrado en reposo está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). La [API REST, versión 2019-05-06-Preview](search-api-preview.md) y el [SDK de .NET, versión 8.0-preview](search-dotnet-sdk-migration-version-9.md) ofrecen esta característica. Actualmente no se presta soporte técnico para el portal.
 
 De forma predeterminada, Azure Cognitive Search cifra el contenido de usuario en reposo con [claves administradas por el servicio](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Puede complementar el cifrado predeterminado con un nivel de cifrado adicional con las claves que se crean y administran en Azure Key Vault. Este artículo le guía a través de los pasos.
 

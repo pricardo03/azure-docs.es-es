@@ -1,19 +1,19 @@
 ---
-title: Configuración de recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos en un sitio secundario con Azure Site Recovery | Microsoft Docs
+title: Recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos en un sitio secundario con Azure Site Recovery
 description: Obtenga información sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware o servidores físicos Windows y Linux en un sitio secundario con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: a87abfdd70db07e4310dc6a39a280e12f664d03b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972089"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620535"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos locales en un sitio secundario
 

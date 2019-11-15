@@ -1,5 +1,5 @@
 ---
-title: Unidades de almacenamiento de datos (DWU, cDWU) en Azure Synapse Analytics (anteriormente SQL DW) | Microsoft Docs
+title: Unidades de almacenamiento de datos (DWU, cDWU) en Azure Synapse Analytics (anteriormente SQL DW)
 description: Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades de almacenamiento de datos (DWUs, cDWUs) para optimizar el precio y el rendimiento y cómo cambiar el número de unidades.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,13 +10,13 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-mscustom: sqlfreshmay19
-ms.openlocfilehash: 32e75b78b8a5c304fc65a9c20d16fb85b4f8307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f3415522a6ae80723500ba2d38867322fdef0dd7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475755"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685330"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades de almacenamiento de datos (DWU) y Unidades de almacenamiento de datos de proceso (cDWU)
 
@@ -215,4 +215,4 @@ Cuando se inicia una operación de escalado, el sistema elimina primero todas la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de cómo administrar el rendimiento, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md) y [Límites de memoria y simultaneidad](memory-and-concurrency-limits.md).
+Para más información acerca de cómo administrar el rendimiento, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md) y [Límites de memoria y simultaneidad]memory-concurrency-limits.md).

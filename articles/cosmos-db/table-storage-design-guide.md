@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 499ac3a394339ebb07c36abeaaa761de22927941
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447296"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827769"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Storage: Diseño de tablas escalables y eficaces
 
@@ -204,7 +204,7 @@ Los ejemplos siguientes asumen que Table service almacena las entidades employee
 | **RowKey** (Identificación de empleado) |Cadena |
 | **Nombre** |Cadena |
 | **Apellidos** |Cadena |
-| **Edad** |Entero |
+| **Edad** |Integer |
 | **EmailAddress** |Cadena |
 
 En la sección anterior Descripción general de Table service se describen algunas de las características clave de Azure Table service que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. La sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
@@ -531,7 +531,7 @@ Los EGT permiten transacciones atómicas a través de varias entidades que compa
 * Entidades almacenadas en dos particiones diferentes de la misma tabla, en tablas diferentes y en diferentes cuentas de almacenamiento.  
 * Una entidad almacenada en Table service y un blob almacenado en Blob service.  
 * Una entidad almacenada en Table service y un archivo en un sistema de archivos.  
-* Un almacén de entidad en Table service ya indexado utilizando el servicio Azure Search.  
+* Una entidad almacenada en Table service, pero indexada con el servicio Azure Cognitive Search.  
 
 #### <a name="solution"></a>Solución
 Mediante el uso de las colas de Azure, puede implementar una solución que ofrece coherencia final entre dos o más particiones o sistemas de almacenamiento.

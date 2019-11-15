@@ -1,5 +1,5 @@
 ---
-title: Uso de la biblioteca de clientes de Elastic Database con Entity Framework | Microsoft Docs
+title: Uso de la biblioteca cliente de bases de datos elásticas con Entity Framework
 description: Uso de la biblioteca de cliente de Elastic Database y Entity Framework para la codificación de bases de datos
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: 8ae264f7da84336d5f786d2ff060aa89bbe75837
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4198b3a9213ed535c6649c50a20f2ff957d60c94
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568308"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823485"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de cliente de Elastic Database con Entity Framework
 

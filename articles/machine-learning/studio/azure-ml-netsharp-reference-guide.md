@@ -1,7 +1,7 @@
 ---
-title: Creación de redes neuronales personalizadas con Net#
-titleSuffix: Azure Machine Learning Studio
-description: Guía de la sintaxis del lenguaje de especificación de redes neuronales de Net# Aprenda a crear modelos de red neuronal personalizada en Azure Machine Learning Studio.
+title: Redes neuronales personalizadas de Net#
+titleSuffix: ML Studio (classic) Azure
+description: Guía de la sintaxis del lenguaje de especificación de redes neuronales de Net# Aprenda a crear modelos de red neuronal personalizada en Azure Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,20 +10,20 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c413bbc3c3b0bd4b1a6e6d6ff40dc1061bbc834
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751675"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684841"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Azure Machine Learning Studio
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Azure Machine Learning Studio (clásico)
 
 NET # es un lenguaje desarrollado por Microsoft que se utiliza para definir arquitecturas de redes neuronales complejas, como las redes neuronales profundas o las convoluciones de dimensiones arbitrarias. Puede usar estructuras complejas para mejorar el aprendizaje en datos, como imágenes, vídeo o audio.
 
 Puede usar una especificación de arquitectura de Net # en estos contextos:
 
-+ Puede usar todos los módulos de red neuronal de Microsoft Azure Machine Learning Studio: [Red neuronal multiclase](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Red neuronal de dos clases](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) y [Regresión de red neuronal](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Puede usar todos los módulos de red neuronal de Microsoft Azure Machine Learning Studio (clásico): [Red neuronal multiclase](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Red neuronal de dos clases](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) y [Regresión de red neuronal](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
 + Funciones de red neuronal en Microsoft Machine Learning Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) y [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet) para el lenguaje R, y [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
@@ -56,7 +56,7 @@ Además, Net# admite los siguientes cuatro tipos de conjuntos de conexiones avan
 
 ## <a name="supported-customizations"></a>Personalizaciones compatibles
 
-La arquitectura de los modelos de red neuronal que cree en Azure Machine Learning Studio se pueden personalizar ampliamente mediante el uso de Net#. Puede:
+La arquitectura de los modelos de red neuronal que cree en la versión clásica de Azure Machine Learning Studio se pueden personalizar ampliamente mediante el uso de Net#. Puede:
 
 + Crear capas ocultas y controlar el número de nodos de cada capa.
 + Especificar cómo se van a conectar las capas entre ellas.

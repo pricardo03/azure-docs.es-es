@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de flujos de datos de Azure Data Factory | Microsoft Docs
+title: Solución de problemas de flujos de datos en Azure Data Factory
 description: Obtenga información acerca de la solución de problemas relacionados con flujos de datos en Azure Data Factory.
 services: data-factory
 author: kromerm
@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: 5cf4773ac781ae51a60ef7d987c3dc324c125d95
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387724"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721349"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Solución de problemas de flujos de datos en Azure Data Factory
 
@@ -67,6 +67,23 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Causa**: ya existe un nombre de tabla existente en la base de datos de destino con el mismo nombre definido en el origen o en el conjunto de datos
 
 - **Resolución**: cambie el nombre de la tabla que está intentando crear
+
+### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-string-or-binary-data-would-be-truncated"></a>Mensaje de error: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: Los datos binarios o de tipo cadena se truncarían. 
+
+- **Síntomas**: Al escribir datos en un receptor de SQL, el flujo de datos no puede ejecutar la canalización con un posible error de truncamiento.
+
+- **Causa**: Un campo del flujo de datos que se asigna a una columna de la base de datos SQL no es lo suficientemente ancho para almacenar el valor, lo que hace que el controlador de SQL produzca este error.
+
+- **Resolución**: Puede reducir la longitud de los datos de las columnas de cadena mediante ```left()``` en una columna derivada o implementar el [patrón de "fila de error".](how-to-data-flow-error-rows.md)
+
+### <a name="error-message-since-spark-23-the-queries-from-raw-jsoncsv-files-are-disallowed-when-the-referenced-columns-only-include-the-internal-corrupt-record-column"></a>Mensaje de error: Desde Spark 2.3, las consultas de archivos JSON o CSV sin formato no están permitidas cuando las columnas a las que se hace referencia incluyen solo la columna interna de registros incorrectos. 
+
+- **Síntomas**: se produce un error al leer desde un origen JSON.
+
+- **Causa**: al leer desde un origen JSON con un solo documento en muchas líneas anidadas, ADF, a través de Spark, no puede determinar dónde comienza un nuevo documento y dónde finaliza el documento anterior.
+
+- **Resolución**: en la transformación de origen que usa un conjunto de valores JSON, expanda "JSON Settings" (Configuración de JSON) y active "Single Document" (Documento único).
+
 
 ## <a name="general-troubleshooting-guidance"></a>Guía de solución de problemas generales
 

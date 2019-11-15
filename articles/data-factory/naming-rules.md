@@ -1,5 +1,5 @@
 ---
-title: Reglas para asignar nombres a entidades de Azure Data Factory | Microsoft Docs
+title: Reglas para asignar nombres a entidades de Azure Data Factory
 description: Describe las reglas de nomenclatura para las entidades de Factoría de datos.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: c31cffd3c1734e8f71f8971d597eb9e3703ae331
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 04de8a72d248311729fbee647322679634b5c982
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166427"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684584"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory: reglas de nomenclatura
 La tabla siguiente proporciona las reglas de nomenclatura para los artefactos de Factoría de datos.

@@ -1,21 +1,20 @@
 ---
-title: Configuración de la restricción del tráfico de red saliente para clústeres de Azure HDInsight
+title: 'Configuración de la restricción del tráfico de red saliente: Azure HDInsight'
 description: Obtenga información sobre cómo configurar la restricción del tráfico de red saliente para clústeres de Azure HDInsight.
-services: hdinsight
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 56e745a4f4e4bfbe82da00b46b7a5c0a58e3785e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 10/23/2019
+ms.openlocfilehash: 8f6959eb6f9d17a368e7df7b95ecc511d0396f87
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789804"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621452"
 ---
-# <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configuración del tráfico de red saliente para clústeres de Azure HDInsight mediante el uso de un firewall (Versión preliminar)
+# <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configuración del tráfico de red saliente para clústeres de Azure HDInsight mediante Firewall
 
 Este artículo proporciona los pasos para proteger el tráfico saliente del clúster de HDInsight con Azure Firewall. En los pasos siguientes se supone que va a configurar Azure Firewall para un clúster existente. Si va a implementar un nuevo clúster detrás de un firewall, cree primero el clúster de HDInsight y una subred y, a continuación, siga los pasos descritos en esta guía.
 
@@ -32,86 +31,110 @@ La solución para proteger las direcciones de salida es el uso de un dispositivo
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Configuración de Azure Firewall con HDInsight
 
 A continuación, se proporciona un resumen de los pasos para bloquear la salida del clúster de HDInsight existente con Azure Firewall:
+
 1. Cree un firewall.
 1. Agregue reglas de aplicación al firewall.
 1. Agregue reglas de red al firewall.
 1. Cree una tabla de enrutamiento.
 
+### <a name="create-new-subnet"></a>Creación de una subred
+
+Cree una subred llamada **AzureFirewallSubnet** en la red virtual donde exista el clúster.
+
 ### <a name="create-a-new-firewall-for-your-cluster"></a>Creación de un nuevo firewall para el clúster
 
-1. Cree una subred llamada **AzureFirewallSubnet** en la red virtual donde exista el clúster. 
-1. Cree un nuevo firewall llamado **Test-FW01** mediante los pasos descritos en [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
+Cree un firewall llamado **Test-FW01** mediante los pasos descritos en **Implementación del firewall** del [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
 
 ### <a name="configure-the-firewall-with-application-rules"></a>Configuración del firewall con reglas de aplicación
 
 Cree una colección de reglas de aplicación que permita al clúster enviar y recibir comunicaciones importantes.
 
-Seleccione el nuevo firewall **Test-FW01** en Azure Portal. Haga clic en **Reglas** en **Configuración** > **Colección de reglas de aplicación** > **Agregar colección de reglas de aplicación**.
+1. Seleccione el nuevo firewall **Test-FW01** en Azure Portal.
 
-![Título: Agregar colección de reglas de aplicación](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
+1. Vaya a **Configuración** > **Reglas** > **Recopilación de reglas de aplicación** >  **+ Agregar una colección de reglas de aplicación**.
 
-En la pantalla **Agregar colección de reglas de aplicación**, realice los pasos siguientes:
+    ![Título: Agregar colección de reglas de aplicación](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
-1. Escriba un **Nombre** y **Prioridad**, haga clic en **Permitir** desde el menú desplegable **Acción** y escriba las siguientes reglas en la **Sección Etiquetas de FQDN**:
+1. En la pantalla **Agregar una colección de reglas de aplicación**, realice los pasos siguientes:
 
-   | **Nombre** | **Dirección de origen** | **Etiqueta de FQDN** | **Notas** |
-   | --- | --- | --- | --- |
-   | Rule_1 | * | HDInsight y Windows Update | Necesario para los servicios de HDI |
+    **Sección superior**
 
-1. Agregue las siguientes reglas en la **Sección FQDN de destino**:
+    | Propiedad|  Valor|
+    |---|---|
+    |NOMBRE| FwAppRule|
+    |Priority|200|
+    |.|Allow|
 
-   | **Nombre** | **Dirección de origen** | **Protocolo:Puerto** | **FQDN de destino** | **Notas** |
-   | --- | --- | --- | --- | --- |
-   | Rule_2 | * | https:443 | login.windows.net | Permite la actividad de inicio de sesión de Windows |
-   | Rule_3 | * | https:443 | login.microsoftonline.com | Permite la actividad de inicio de sesión de Windows |
-   | Rule_4 | * | https:443,http:80 | <nombre_de_la_cuenta_de_almacenamiento.blob.core.windows.net> | Si el clúster está respaldado por WASB, agregue una regla para WASB. Para usar SOLO conexiones https, asegúrese de que la opción ["se requiere transferencia segura"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está habilitada en la cuenta de almacenamiento. |
+    **Sección de etiquetas FQDN**
 
-1. Haga clic en **Agregar**.
+    | NOMBRE | Dirección de origen | Etiqueta FQDN | Notas |
+    | --- | --- | --- | --- |
+    | Rule_1 | * | WindowsUpdate y HDInsight | Necesario para los servicios de HDI |
+
+    **Sección de FQDN de destino**
+
+    | NOMBRE | Direcciones de origen | Protocolo:Puerto | FQDN de destino | Notas |
+    | --- | --- | --- | --- | --- |
+    | Rule_2 | * | https:443 | login.windows.net | Permite la actividad de inicio de sesión de Windows |
+    | Rule_3 | * | https:443 | login.microsoftonline.com | Permite la actividad de inicio de sesión de Windows |
+    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Reemplace `storage_account_name` por el nombre de la cuenta de almacenamiento real. Si el clúster está respaldado por WASB, agregue una regla para WASB. Para usar SOLO conexiones https, asegúrese de que la opción ["se requiere transferencia segura"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) esté habilitada en la cuenta de almacenamiento. |
 
    ![Título: Escribir los detalles de la colección de reglas de aplicación](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+
+1. Seleccione **Agregar**.
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Configuración del firewall con reglas de red
 
 Cree las reglas de red para configurar correctamente el clúster de HDInsight.
 
-1. Seleccione el nuevo firewall **Test-FW01** en Azure Portal.
-1. Haga clic en **Reglas** en **Configuración** > **Colección de reglas de red** > **Agregar colección de reglas de red**.
-1. En la pantalla **Agregar colección de reglas de red**, escriba un **Nombre** y **Prioridad** y haga clic en **Permitir** desde el menú desplegable **Acción**.
-1. Cree las siguientes reglas en la sección **Direcciones IP**:
+1. Siguiendo con el paso anterior, vaya a **Recopilación de reglas de red** >  **+ Agregar recopilación de reglas de red**.
 
-   | **Nombre** | **Protocolo** | **Dirección de origen** | **Dirección de destino** | **Puerto de destino** | **Notas** |
-   | --- | --- | --- | --- | --- | --- |
-   | Rule_1 | UDP | * | * | `123` | Servicio de hora |
-   | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Si usa Enterprise Security Package (ESP), agregue una regla de red en la sección Direcciones IP que permita la comunicación con AAD-DS para los clústeres de ESP. Puede encontrar las direcciones IP de los controladores de dominio en la sección de AAD-DS en el portal. | 
-   | Rule_3 | TCP | * | Dirección IP de la cuenta de Data Lake Storage | `*` | Si usa Azure Data Lake Storage, puede agregar una regla de red en la sección Direcciones IP para solucionar una incidencia de SNI con ADLS Gen1 y Gen2. Esta opción enrutará el tráfico al firewall, lo que podría ocasionar mayores costos para grandes cargas de datos pero se registrará el tráfico y será auditable en los registros del firewall. Determine la dirección IP de la cuenta de Data Lake Storage. Puede usar un comando de Powershell, como `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`, para resolver el nombre de dominio completo en una dirección IP.|
-   | Rule_4 | TCP | * | * | `12000` | (Opcional) Si usa Log Analytics, cree una regla de red en la sección Direcciones IP para habilitar la comunicación con el área de trabajo de Log Analytics. |
+1. En la pantalla **Agregar una colección de reglas de red**, proporcione la siguiente información:
 
-1. Cree las siguientes reglas en la sección **Etiquetas de servicio**:
+    **Sección superior**
 
-   | **Nombre** | **Protocolo** | **Dirección de origen** | **Etiquetas de servicio** | **Puerto de destino** | **Notas** |
-   | --- | --- | --- | --- | --- | --- |
-   | Rule_7 | TCP | * | SQL | `1433` | Configure una regla de red en la sección Etiquetas de servicio para SQL que le permitirá registrar y auditar el tráfico SQL, a menos que haya configurado puntos de conexión de servicio para SQL Server en la subred de HDInsight, los cuales omiten el firewall. |
+    | Propiedad|  Valor|
+    |---|---|
+    |NOMBRE| FwNetRule|
+    |Priority|200|
+    |.|Allow|
 
-1. Haga clic en **Agregar** para finalizar la creación de la colección de reglas de red.
+    **Sección de direcciones IP**
+
+    | NOMBRE | Protocolo | Direcciones de origen | Direcciones de destino | Puertos de destino | Notas |
+    | --- | --- | --- | --- | --- | --- |
+    | Rule_1 | UDP | * | * | 123 | Servicio de hora |
+    | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | * | Si usa Enterprise Security Package (ESP), agregue una regla de red en la sección Direcciones IP que permita la comunicación de los clústeres de ESP con AAD-DS. Puede encontrar las direcciones IP de los controladores de dominio en la sección de AAD-DS en el portal. |
+    | Rule_3 | TCP | * | Dirección IP de la cuenta de Data Lake Storage | * | Si usa Azure Data Lake Storage, puede agregar una regla de red en la sección Direcciones IP para solucionar una incidencia de SNI con ADLS Gen1 y Gen2. Esta opción enrutará el tráfico al firewall, lo que podría ocasionar mayores costos con grandes cargas de datos, pero el tráfico se registrará y será auditable en los registros del firewall. Determine la dirección IP de la cuenta de Data Lake Storage. Puede usar un comando de Powershell, como `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`, para resolver el nombre de dominio completo en una dirección IP.|
+    | Rule_4 | TCP | * | * | 12000 | (Opcional) Si usa Log Analytics, cree una regla de red en la sección Direcciones IP para permitir la comunicación con el área de trabajo de Log Analytics. |
+
+    **Sección de etiquetas de servicio**
+
+    | NOMBRE | Protocolo | Direcciones de origen | Etiquetas de servicio | Puertos de destino | Notas |
+    | --- | --- | --- | --- | --- | --- |
+    | Rule_7 | TCP | * | SQL | 1433 | Configure una regla de red en la sección Etiquetas de servicio para SQL que le permita registrar y auditar el tráfico SQL, a menos que haya configurado puntos de conexión de servicio para SQL Server en la subred de HDInsight, los cuales omiten el firewall. |
 
    ![Título: Especificación de la colección de reglas de aplicación](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+
+1. Seleccione **Agregar**.
 
 ### <a name="create-and-configure-a-route-table"></a>Creación y configuración de una tabla de rutas
 
 Cree una tabla de rutas con las siguientes entradas:
 
-1. Seis direcciones de [esta lista de direcciones IP de administración que requiere HDInsight](../hdinsight/hdinsight-management-ip-addresses.md) con un próximo salto de tipo **Internet**:
-    1. Cuatro direcciones IP para todos los clústeres en todas las regiones
-    1. Dos direcciones IP que son específicas de la región donde se crea el clúster
-1. Una ruta de aplicación virtual para la dirección IP 0.0.0.0/0 con el próximo salto establecido en la dirección IP privada de la instancia de Azure Firewall.
+* Todas las direcciones IP de [Servicios de mantenimiento y administración: Todas las regiones](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) con un tipo de próximo salto de **Internet**.
 
-Por ejemplo, para configurar la tabla de rutas para un clúster creado en la región de Estados Unidos "Centro de EE. UU.", use los pasos siguientes:
+* Dos direcciones IP para la región donde se crea el clúster de [Servicios de mantenimiento y administración: Regiones específicas](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions) con un tipo de próximo salto de **Internet**.
 
-1. Inicie sesión en el Portal de Azure.
-1. Seleccione el firewall de Azure **Test-FW01**. Copie la **Dirección IP privada** que aparece en la página **Información general**. En este ejemplo usaremos la **dirección de ejemplo 10.1.1.4**.
-1. Cree una nueva tabla de rutas.
-1. Haga clic en **Rutas** en **Configuración**.
-1. Haga clic en **Agregar** para crear rutas para las direcciones IP de la tabla siguiente.
+* Una ruta de aplicación virtual para la dirección IP 0.0.0.0/0 con el próximo salto establecido en la dirección IP privada de la instancia de Azure Firewall.
+
+Por ejemplo, para configurar la tabla de rutas de un clúster creado en la región de Estados Unidos "Este de EE. UU.", use los pasos siguientes:
+
+1. Seleccione el firewall de Azure **Test-FW01**. Copie la **Dirección IP privada** que aparece en la página **Información general**. En este ejemplo se usará la **dirección de ejemplo 10.0.2.4**.
+
+1. A continuación, vaya a **Todos los servicios** > **Redes** > **Tablas de rutas** y **Crear tabla de rutas**.
+
+1. En la nueva ruta, vaya a **Configuración** > **Rutas** >  **+ Agregar**. Agregue las siguientes rutas:
 
 | Nombre de ruta | Prefijo de dirección | Tipo de próximo salto | Siguiente dirección de salto |
 |---|---|---|---|
@@ -119,15 +142,19 @@ Por ejemplo, para configurar la tabla de rutas para un clúster creado en la reg
 | 23.99.5.239 | 23.99.5.239/32 | Internet | N/D |
 | 168.61.48.131 | 168.61.48.131/32 | Internet | N/D |
 | 138.91.141.162 | 138.91.141.162/32 | Internet | N/D |
-| 13.67.223.215 | 13.67.223.215/32 | Internet | N/D |
-| 40.86.83.253 | 40.86.83.253/32 | Internet | N/D |
-| 0.0.0.0 | 0.0.0.0/0 | Aplicación virtual | 10.1.1.4 |
+| 13.82.225.233 | 13.82.225.233/32 | Internet | N/D |
+| 40.71.175.99 | 40.71.175.99/32 | Internet | N/D |
+| 0.0.0.0 | 0.0.0.0/0 | Aplicación virtual | 10.0.2.4 |
 
 Complete la configuración de la tabla de rutas:
 
-1. Asigne la tabla de rutas que ha creado a la subred de HDInsight; para ello, haga clic en **Subredes** en **Configuración** y, a continuación, en **Asociar**.
-1. En la pantalla **Asociar subred**, seleccione la red virtual en la que se creó el clúster en y la **Subred de HDInsight** que usó para el clúster de HDInsight.
-1. Haga clic en **OK**.
+1. Asigne la tabla de rutas que ha creado a la subred de HDInsight; para ello, seleccione **Subredes** en **Configuración**.
+
+1. Seleccione **+ Asociar**.
+
+1. En la pantalla **Asociar subred**, seleccione la red virtual en la que se creó el clúster y la **subred** que usó para el clúster de HDInsight.
+
+1. Seleccione **Aceptar**.
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Nodo perimetral o tráfico de aplicación personalizado
 
@@ -143,27 +170,28 @@ Si las aplicaciones tienen otras dependencias, deben agregarse a Azure Firewall.
 
 Azure Firewall puede enviar registros a algunos sistemas de almacenamiento diferentes. Para obtener instrucciones sobre la configuración del registro para el firewall, siga los pasos de [Tutorial: Supervisión de métricas y registros de Azure Firewall](../firewall/tutorial-diagnostics.md).
 
-Una vez haya completado la configuración del registro, si está registrando datos en Log Analytics puede ver el tráfico bloqueado con una consulta como la siguiente:
+Cuando haya completado la configuración del registro, si va a registrar datos en Log Analytics, puede ver el tráfico bloqueado con una consulta como la siguiente:
 
-```
+```Kusto
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-La integración de Azure Firewall con los registros de Azure Monitor resulta útil la primera vez que se pone una aplicación en funcionamiento, cuando aún no se conocen todas las dependencias de la aplicación. Puede obtener más información acerca de los registros de Azure Monitor en [Análisis de datos de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+La integración de Azure Firewall con los registros de Azure Monitor resulta útil la primera vez que se pone una aplicación en funcionamiento, cuando aún no se conocen todas sus dependencias. Puede obtener más información acerca de los registros de Azure Monitor en [Análisis de datos de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-Para información sobre los límites de escala de Azure Firewall y los aumentos de solicitud, consulte [este](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) documento o las [preguntas más frecuentes](https://docs.microsoft.com/en-us/azure/firewall/firewall-faq). 
+Para información sobre los límites de escala de Azure Firewall y los aumentos de solicitud, consulte [este](../azure-subscription-service-limits.md#azure-firewall-limits) documento o las [preguntas más frecuentes](../firewall/firewall-faq.md).
 
 ## <a name="access-to-the-cluster"></a>Acceso al clúster
-Después de configurar correctamente el firewall, puede usar el punto de conexión interno (`https://<clustername>-int.azurehdinsight.net`) para acceder a Ambari desde dentro de la red virtual. 
 
-Para usar el punto de conexión público (`https://<clustername>.azurehdinsight.net`) o el punto de conexión de SSH (`<clustername>-ssh.azurehdinsight.net`), asegúrese de que dispone de las rutas adecuadas en la tabla de rutas y las reglas del grupo de seguridad de red para evitar la incidencia de enrutamiento asimétrico que se explica [aquí](https://docs.microsoft.com/azure/firewall/integrate-lb). Específicamente en este caso, debe permitir la dirección IP del cliente en las reglas de grupo de seguridad de red de entrada y también agregarla a la tabla de rutas definida por el usuario con el próximo salto establecido como `internet`. Si no se configura correctamente, verá un error de tiempo de expiración.
+Después de configurar correctamente el firewall, puede usar el punto de conexión interno (`https://CLUSTERNAME-int.azurehdinsight.net`) para acceder a Ambari desde dentro de la red virtual.
+
+Para usar el punto de conexión público (`https://CLUSTERNAME.azurehdinsight.net`) o el punto de conexión de SSH (`CLUSTERNAME-ssh.azurehdinsight.net`), asegúrese de que dispone de las rutas adecuadas en la tabla de rutas y las reglas del grupo de seguridad de red para evitar la incidencia de enrutamiento asimétrico que se explica [aquí](../firewall/integrate-lb.md). En este caso concreto, debe permitir la dirección IP del cliente en las reglas del grupo de seguridad de red de entrada y también agregarla a la tabla de rutas definida por el usuario con el próximo salto establecido como `internet`. Si no se configura correctamente, verá un error de tiempo de espera.
 
 ## <a name="configure-another-network-virtual-appliance"></a>Configuración de otra aplicación virtual de red
 
->[!Important]
+> [!Important]
 > La siguiente información **solo** es necesaria si desea configurar una aplicación virtual de red (NVA) distinta a Azure Firewall.
 
-Las instrucciones anteriores le ayudan a configurar Azure Firewall para restringir el tráfico saliente desde el clúster de HDInsight. Azure Firewall está configurado automáticamente para permitir el tráfico para muchos de los escenarios comunes más importantes. Si desea usar otra aplicación virtual de red, deberá configurar manualmente algunas características adicionales. Tenga en cuenta lo siguiente al configurar la aplicación virtual de red:
+Las instrucciones anteriores le ayudan a configurar Azure Firewall para restringir el tráfico saliente desde el clúster de HDInsight. Azure Firewall está configurado automáticamente para permitir el tráfico para muchos de los escenarios comunes más importantes. Si quiere usar otra aplicación virtual de red, deberá configurar manualmente algunas características adicionales. Tenga en cuenta lo siguiente al configurar la aplicación virtual de red:
 
 * Los servicios compatibles con puntos de conexión de servicio deben configurarse con puntos de conexión de servicio.
 * Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
@@ -191,7 +219,7 @@ Las instrucciones anteriores le ayudan a configurar Azure Firewall para restring
 
 #### <a name="fqdn-httphttps-dependencies"></a>Dependencias HTTP/HTTPS de FQDN
 
->[!Important]
+> [!Important]
 > La lista siguiente proporciona solo algunos de los FQDN más importantes. Puede obtener la lista completa de FQDN para la configuración de la aplicación virtual de red [en este archivo](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
 
 | **Punto de conexión**                                                          |
@@ -209,9 +237,9 @@ Las instrucciones anteriores le ayudan a configurar Azure Firewall para restring
 | download.mono-project.com:80                                          |
 | packages.treasuredata.com:80                                          |
 | security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                |
-| ocsp.digicert.com:80                                                |
+| azure.archive.ubuntu.com:80                                           |
+| ocsp.msocsp.com:80                                                    |
+| ocsp.digicert.com:80                                                  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

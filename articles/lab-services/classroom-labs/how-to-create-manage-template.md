@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: f0fc1e143ce7d271d5faaa8dda0eb40cdfc9e006
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fd3396a98359aef966cd8bb2f984e556fc6abcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332731"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584866"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creación y administración de plantillas educativas en Azure Lab Services
 En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio. Puede proporcionar un nombre y una descripción de la plantilla que verán los usuarios del laboratorio. Luego, publique la plantilla si desea que las instancias de la plantilla de máquina virtual estén disponibles para los usuarios del laboratorio. Cuando publica una plantilla, Azure Lab Services crea las máquinas virtuales en el laboratorio mediante la plantilla. El número de máquinas virtuales creadas en este proceso es igual al número máximo de usuarios permitidos en el laboratorio, que se puede establecer en la política de uso del laboratorio. Todas las máquinas virtuales tienen la misma configuración que la plantilla.
@@ -40,12 +40,10 @@ Use los pasos siguientes para establecer el título y la descripción por primer
 Use los pasos siguientes para actualizar una máquina virtual de plantilla.  
 
 1. En la página **Template** (Plantilla), seleccione **Customize template** (Personalizar plantilla) en la barra de herramientas. 
-
-    ![Botón Customize template (Personalizar plantilla)](../media/how-to-create-manage-template/customize-template-button.png)
 2. En el cuadro de diálogo **Customize template** (Personalizar plantilla), seleccione **Continue** (Continuar). Una vez iniciada la plantilla y realizados los cambios, dejará de tener la misma configuración que las máquinas virtuales publicaron la última vez para los usuarios. Los cambios en la plantilla no se reflejarán en las máquinas virtuales existentes de los usuarios hasta que realice otra publicación.
 
     ![Cuadro de diálogo Customize (Personalizar)](../media/how-to-create-manage-template/customize-template-dialog.png)
-1. Seleccione el botón **Connect to template** (Conectarse a la plantilla) en la barra de herramientas para conectarse a la máquina virtual de plantilla y siga las instrucciones. Si es una máquina Windows, verá una opción para descargar el archivo RDP. 
+1. Espere hasta que la máquina virtual de plantilla se inicie, seleccione **Connect to template** (Conectarse a la plantilla) en la barra de herramientas para conectarse a la máquina virtual de plantilla y siga las instrucciones. Si es una máquina Windows, verá una opción para descargar el archivo RDP. 
 
     ![Conexión a la plantilla de máquina virtual](../media/how-to-create-manage-template/connect-template-vm.png)
 1. Instale el software necesario para que los estudiantes puedan realizar el laboratorio (por ejemplo, Visual Studio, Explorador de Azure Storage, etc). 

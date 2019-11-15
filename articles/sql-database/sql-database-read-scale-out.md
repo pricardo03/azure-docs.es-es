@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database: lectura de consultas en réplicas| Microsoft Docs'
+title: Lectura de consultas en réplicas
 description: Azure SQL Database permite equilibrar las cargas de trabajo de solo lectura mediante una funcionalidad de réplicas de solo lectura llamada "Escalado horizontal de lectura".
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: 73c31a60fb14df00f50fefb35ca123298241c61d
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 1f47b01c4a9227d0e2ee45b17645b2ae97e4ba3d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812382"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821226"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Uso de réplicas de solo lectura para equilibrar las cargas de trabajo de las consultas de solo lectura
 

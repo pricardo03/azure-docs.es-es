@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29f94d6ff8045b7cae64957eeae00d2460ca3e37
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 8cf1e5f9f47ebdc132bdc826af3e54d206095085
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71176825"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603406"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inicio rápido
 
@@ -185,6 +185,14 @@ Mozilla Firefox no realiza automáticamente la autenticación Kerberos. Cada usu
 
 Asegúrese de que la máquina que ejecuta macOS se ha unido a AD. Las instrucciones para unir su dispositivo macOS a AD están fuera del ámbito de este artículo.
 
+#### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge basado en Chromium (todas las plataformas)
+
+Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) o [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) en el entorno, asegúrese de agregar también la dirección URL de Azure AD (`https://autologon.microsoftazuread-sso.com`).
+
+#### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge basado en Chromium (macOS y otras plataformas que no son de Windows)
+
+En Microsoft Edge basado en Chromium en Mac OS y otras plataformas que no son de Windows, vea la [lista de directivas de Microsoft Edge basado en Chromium](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) para obtener información sobre cómo agregar la dirección URL de Azure AD para la autenticación integrada a la lista de permitidos.
+
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas las plataformas)
 
 Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) en su entorno, asegúrese de agregar también la dirección URL de Azure AD (`https://autologon.microsoftazuread-sso.com`).
@@ -197,7 +205,7 @@ El uso de las extensiones de directiva de grupo de Active Directory de terceros 
 
 #### <a name="known-browser-limitations"></a>Limitaciones de exploradores conocidos
 
-La opción SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Microsoft Edge. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada.
+La opción SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Microsoft Edge. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada. En el caso de la versión siguiente de Microsoft Edge basado en Chromium, no funciona en modo InPrivate e Invitado por diseño.
 
 ## <a name="step-4-test-the-feature"></a>Paso 4: Prueba de la característica
 

@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas y errores de la conectividad de red de Azure a Azure en Azure Site Recovery| Microsoft Docs
+title: Solución de problemas de la recuperación ante desastres de Azure a Azure con Azure Site Recovery
 description: Solución de problemas y errores al replicar máquinas virtuales de Azure para la recuperación ante desastres
 services: site-recovery
 author: asgang
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: asgang
-ms.openlocfilehash: 8e1350a22554bab257e8c99954c2beaa357de2ff
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4995a4086c471a06fe859febfd2d1af7fbb22a76
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934522"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622449"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solución de problemas de conectividad de red de máquinas virtuales de Azure en Azure
 

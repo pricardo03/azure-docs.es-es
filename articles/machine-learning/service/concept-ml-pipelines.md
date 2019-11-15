@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/04/2019
-ms.openlocfilehash: 85346a2334d240eceb0daa4519ce69b4eb4906cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1b061e92ce0650da4d5b95643eb6e9df917e3b8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497451"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671543"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>¿Qué son las canalizaciones de Azure Machine Learning?
 
@@ -119,7 +119,7 @@ Los desarrolladores que prefieren una superficie de diseño visual pueden usar e
 
 Al diseñar las canalizaciones visualmente, las entradas y salidas de un paso se muestran de manera visible. Puede arrastrar y colocar conexiones de datos, lo que le permite comprender y modificar rápidamente el flujo de datos de la canalización.
  
-![Ejemplo de diseñador de Azure Machine Learning](./media/concept-ml-pipelines/visual-design-surface.gif)
+![Ejemplo de diseñador de Azure Machine Learning](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ### <a name="understanding-the-execution-graph"></a>Descripción del grafo de ejecución
 
@@ -183,7 +183,7 @@ Es fácil entusiasmarse con la reutilización de los resultados almacenados en c
 
 * El uso de canalizaciones como único medio para separar los problemas. Las funciones, los objetos y los módulos integrados de Python contribuyen considerablemente a evitar un estado de programación confuso. Un paso de canalización es mucho más costoso que una llamada de función.
 
-* Acoplamiento pesado entre los pasos de la canalización. Si la refactorización de un paso dependiente suele requerir la modificación de las salidas de un paso anterior, es probable que los pasos independientes actualmente signifiquen más un costo que una ventaja. Otra pista de que los pasos están demasiado acoplados son los argumentos de un paso que no son datos, sino marcas para controlar el procesamiento. 
+* Acoplamiento intenso entre los pasos de la canalización. Si la refactorización de un paso dependiente suele requerir la modificación de las salidas de un paso anterior, es probable que los pasos independientes actualmente signifiquen más un costo que una ventaja. Otra pista de que los pasos están demasiado acoplados son los argumentos de un paso que no son datos, sino marcas para controlar el procesamiento. 
 
 * Optimización prematura de los recursos de proceso. Por ejemplo, a menudo hay varias fases para la preparación de datos y a menudo se puede ver "Oh, aquí podría usar `MpiStep` para la programación en paralelo, pero hay un lugar donde podría usar un `PythonScriptStep` con un destino de proceso menos eficaz", etc. Y quizás, a largo plazo, la creación de pasos específicos como este podría merecer la pena, especialmente si existe la posibilidad de usar resultados almacenados en caché en lugar de volver a calcular siempre. Sin embargo, las canalizaciones no pretenden sustituir el módulo `multiprocessing`. 
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 17b68de4766aa8f995a88bd583a7a84e646b9325
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529155"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682252"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -31,13 +31,13 @@ Las preguntas claves para planear la capacidad son:
 
 La región de Azure determina dónde se aprovisiona físicamente el clúster. Para minimizar la latencia de lecturas y escrituras, el clúster debe estar cerca de los datos.
 
-HDInsight está disponible en muchas regiones de Azure. Para encontrar la región más cercana, consulte [Productos disponibles por región](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=hdinsight/).
+HDInsight está disponible en muchas regiones de Azure. Para encontrar la región más cercana, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=hdinsight).
 
 ## <a name="choose-storage-location-and-size"></a>Elección del tamaño y la ubicación de almacenamiento
 
 ### <a name="location-of-default-storage"></a>Ubicación del almacenamiento predeterminado
 
-El almacenamiento predeterminado, ya sea una cuenta de Azure Storage o Azure Data Lake Storage, debe estar en la misma ubicación que el clúster. Azure Storage está disponible en todas las ubicaciones. Data Lake Storage Gen1 está disponible en algunas regiones: consulte la [disponibilidad actual de Data Lake Storage](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage).
+El almacenamiento predeterminado, ya sea una cuenta de Azure Storage o Azure Data Lake Storage, debe estar en la misma ubicación que el clúster. Azure Storage está disponible en todas las ubicaciones. Data Lake Storage Gen1 está disponible en algunas regiones: consulte la [disponibilidad actual de Data Lake Storage](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
 ### <a name="location-of-existing-data"></a>Ubicación de los datos existentes
 
@@ -68,13 +68,7 @@ Cada tipo de clúster tiene un conjunto de tipos de nodos, y cada uno de ellos i
 
 Para determinar el tamaño de clúster óptimo de la aplicación, puede realizar pruebas comparativas de la capacidad del clúster y aumentar el tamaño como se indica. Por ejemplo, puede usar una carga de trabajo simulada o una *consulta de valor controlado*. Con una carga de trabajo simulada, ejecute las cargas de trabajo esperadas en clústeres de diferente tamaño, aumentando gradualmente el tamaño hasta alcanzar el rendimiento deseado. Una consulta de valor controlado puede insertarse periódicamente entre las demás consultas de producción para mostrar si el clúster tiene suficientes recursos.
 
-El tamaño y el tipo de máquina virtual los determinan la capacidad de procesamiento de la CPU, el tamaño de RAM y la latencia de red:
-
-* CPU: el tamaño de la máquina virtual determina el número de núcleos. Mientras más núcleos haya, mayor será el grado de cómputo en paralelo que cada nodo puede conseguir. Además, algunos tipos de VM tiene núcleos más rápidos.
-
-* RAM: el tamaño de la máquina virtual también determina la cantidad de RAM disponible en la máquina virtual. Para las cargas de trabajo que almacenan los datos en memoria para el procesamiento, en lugar de leer desde el disco, asegúrese de que los nodos de trabajo tienen suficiente memoria para almacenar los datos.
-
-* Red: para la mayoría de los tipos de clúster, los datos procesados por el clúster no están en el disco local, sino en un servicio de almacenamiento externo como Data Lake Storage o Azure Storage. Tenga en cuenta el ancho de banda de red y el rendimiento entre la máquina virtual del nodo y el servicio de almacenamiento. El ancho de banda de red disponible en una máquina virtual suele aumentar con tamaños más grandes. Para obtener información detallada, vea la [información general sobre los tamaños de las máquinas virtuales](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Para obtener más información sobre cómo elegir la familia de máquinas virtuales adecuada para su carga de trabajo, consulte [Selección del tamaño de máquina virtual adecuado para el clúster](hdinsight-selecting-vm-size.md).
 
 ## <a name="choose-the-cluster-scale"></a>Elección de la escala del clúster
 
@@ -104,10 +98,11 @@ Después de determinar el tamaño, la escala y el tipo de la máquina virtual de
 1. Seleccione **Ayuda y soporte técnico** de la parte inferior izquierda de la página.
 1. Seleccione **Nueva solicitud de soporte técnico**.
 1. En la página **Nueva solicitud de soporte técnico**, en la pestaña **Fundamentos**, seleccione las opciones siguientes:
+
    - **Tipo de problema**: **Límites de servicio y suscripción (cuotas)**
    - **Suscripción**: la suscripción que desea modificar.
    - **Tipo de cuota**: **HDInsight**
-    
+
      ![Creación de una solicitud de soporte técnico para aumentar la cuota de núcleos de HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Seleccione **Siguiente: Soluciones >>** .

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/14/2019
+ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 98a12e6892ac8710ae2195cd2c29df43b4c65aba
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 333bc12c475cedbd98480e3b596bcc7ad4e30ecc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71706293"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824925"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP
 
@@ -95,7 +95,7 @@ Ahora ya es posible lograr alta disponibilidad en SAP NetWeaver mediante el uso 
 
 ![Información general sobre la alta disponibilidad de SAP NetWeaver](./media/high-availability-guide-rhel/high-availability-guide-rhel-anf.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y el nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. En la lista siguiente se muestra la configuración del equilibrador de carga con distintas direcciones IP de front-end para (A)SCS y ERS.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y el nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. Se recomienda usar [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). En la lista siguiente se muestra la configuración del equilibrador de carga con distintas direcciones IP de front-end para (A)SCS y ERS.
 
 > [!IMPORTANT]
 > La agrupación en clústeres de varios SID de SAP ASCS/ERS con Red Hat Linux como sistema operativo invitado en las VM de Azure **NO se admite**. La agrupación en clústeres de varios SID describe la instalación de varias instancias de SAP ASCS/ERS con SID diferentes en un clúster de Pacemaker.
@@ -109,6 +109,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP 
 * Puerto de sondeo
   * Puerto 620<strong>&lt;nr&gt;</strong>
 * Reglas de equilibrio de carga.
+  * Si usa Standard Load Balancer, seleccione **Puertos HA**
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -126,6 +127,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP 
 * Puerto de sondeo
   * Puerto 621<strong>&lt;nr&gt;</strong>
 * Reglas de equilibrio de carga.
+  * Si usa Standard Load Balancer, seleccione **Puertos HA**
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
@@ -180,7 +182,42 @@ En este ejemplo, los recursos se implementaron manualmente mediante [Azure Porta
 
 Primero deberá crear los volúmenes de Azure NetApp Files. Implemente las VM. Después, creará un equilibrador de carga y usará las máquinas virtuales de los grupos de servidores back-end.
 
-1. Creación de un equilibrador de carga (interno)  
+1. Cree un equilibrador de carga (interno, estándar):  
+   1. Creación de las direcciones IP de front-end
+      1. Dirección IP 192.168.14.9 de ASCS
+         1. Abra el equilibrador de carga, seleccione el grupo de direcciones IP de front-end y haga clic en Agregar
+         1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **frontend.QAS.ASCS**).
+         1. Establezca Asignación en Estática y escriba la dirección IP (por ejemplo, **192.168.14.9**).
+         1. Haga clic en Aceptar
+      1. Dirección IP 192.168.14.10 para ASCS ERS
+         * Repita los pasos anteriores a partir de "a" para crear una dirección IP para el ERS (por ejemplo, **192.168.14.10** y **frontend.QAS.ERS**).
+   1. Creación de los grupos de servidores back-end
+      1. Creación de un grupo de servidores back-end para ASCS
+         1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
+         1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **backend.QAS**).
+         1. Haga clic en Agregar una máquina virtual.
+         1. Seleccione Máquina virtual. 
+         1. Seleccione las máquinas virtuales del clúster de (A)SCS y sus direcciones IP.
+         1. Haga clic en Agregar
+   1. Creación de los sondeos de estado
+      1. Puerto 620**00** para ASCS
+         1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
+         1. Escriba el nombre del sondeo de estado nuevo (por ejemplo **health.QAS.ASCS**).
+         1. Seleccione TCP como protocolo, puerto 620**00**, y mantenga el intervalo de 5 y el umbral incorrecto 2.
+         1. Haga clic en Aceptar
+      1. Puerto 621**01** para ASCS ERS.
+            * Repita los pasos anteriores a partir de "c" para crear un sondeo de estado para ERS (por ejemplo 621**01** y **health.QAS.ERS**).
+   1. Reglas de equilibrio de carga.
+      1. Reglas de equilibrio de carga para ASCS
+         1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
+         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **lb.QAS.ASCS**)
+         1. Seleccione la dirección IP de front-end para ASCS, el grupo de back-end y el sondeo de estado creados anteriormente (por ejemplo, **frontend.QAS.ASCS**, **backend.QAS** y **health.QAS.ASCS**)
+         1. Seleccione **Puertos HA**
+         1. Aumente el tiempo de espera de inactividad a 30 minutos
+         1. **Asegúrese de habilitar la dirección IP flotante**
+         1. Haga clic en Aceptar
+         * Repita los pasos anteriores para crear reglas de equilibrio de carga para ERS (por ejemplo **lb.QAS.ERS**)
+1. Como alternativa, si el escenario requiere un equilibrador de carga básico (interno), siga estos pasos:  
    1. Creación de las direcciones IP de front-end
       1. Dirección IP 192.168.14.9 de ASCS
          1. Abra el equilibrador de carga, seleccione el grupo de direcciones IP de front-end y haga clic en Agregar
@@ -219,6 +256,8 @@ Primero deberá crear los volúmenes de Azure NetApp Files. Implemente las VM. D
       1. Puertos adicionales para ASCS ERS
          * Repita los pasos anteriores a partir de "d" para los puertos 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 y TCP para ASCS ERS
 
+> [!Note]
+> Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno (sin dirección IP pública), no hay conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, vea [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
 > No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Lea [Sondeos de estado de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) para obtener más información.

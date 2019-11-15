@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 49723a80bb198e8151c7e85a90453183068c9d2b
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 967d33cb7a9eb3ec922f9d85cfc2581b85bce537
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962819"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825903"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 La opción de publicación que elige para su oferta está relacionada directamente con los requisitos de idoneidad y las ventajas de GTM de Marketplace. Y, aún más importante, la selección de la opción de publicación y el tipo de oferta definen cómo interactúan los usuarios con su oferta de Marketplace.
@@ -52,7 +53,7 @@ Las opciones de publicación disponibles ofrecen un compromiso diferenciado del 
 | **Opción de publicación**    | **Descripción**  |
 | :------------------- | :-------------------|
 | **Lista** | Lista sencilla de la aplicación o servicio que permite a los usuarios de Marketplace solicitarle que se conecte con el cliente a través de la llamada a la acción **Ponerse en contacto conmigo**. |
-| **Versión de prueba** | Use Marketplace para mejorar la detectabilidad y automatizar el aprovisionamiento de la experiencia de evaluación de la solución, permitiendo a los usuarios potenciales usar su experiencia dentro de la aplicación de Microsoft, SaaS o IaaS sin ningún coste extra durante un tiempo limitado antes de comprarla. Las llamadas a la acción que se usan para la opción de publicación de prueba son: **Evaluación gratuita** o **Versión de prueba**. |
+| **Versión de prueba** | Use Marketplace para mejorar la detectabilidad y automatizar el aprovisionamiento de la experiencia de evaluación de la solución, permitiendo a los usuarios potenciales usar su experiencia dentro de la aplicación de Microsoft, SaaS o IaaS sin ningún costo extra durante un tiempo limitado antes de comprarla. Las llamadas a la acción que se usan para la opción de publicación de prueba son: **Evaluación gratuita** o **Versión de prueba**. |
 |**BYOL**  |Use Marketplace para mejorar la detectabilidad y automatizar el aprovisionamiento de su solución, así como para completar la transacción financiera por separado. Los tipos de ofertas BYOL son ideales para las migraciones desde el entorno local a la nube. La llamada a la acción es **Obténgalo ahora**.
 | **Transacción** | La aplicación se ejecuta en Azure y se puede aprovisionar como recurso directamente en la suscripción a Azure del cliente cuando el cliente selecciona la llamada a la acción **Obtener ahora**. Opcionalmente, se pueden comprar y facturar licencias de software mediante el instrumento de pago y los términos que defina el cliente. También puede ofrecer un acceso por un tiempo limitado a la **evaluación de software gratuita** (sólo disponible para Azure Marketplace). |
 

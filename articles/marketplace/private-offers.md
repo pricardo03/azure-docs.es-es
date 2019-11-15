@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: cd61a30ccc9de08c3f0950d811d0d10ec5cd842a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 16903d4f9b1bad8a588b1a234ac84bc9c0150c4a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598372"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827843"
 ---
 # <a name="private-offers"></a>Ofertas privadas
 
@@ -33,7 +34,7 @@ Las ofertas privadas ya están disponibles para las ofertas de Virtual Machines,
 
 ## <a name="creating-private-offers-using-skus-and-plans"></a>Creación de ofertas privadas con SKU y planes
 
-Para las *ofertas nuevas o existentes con SKU o planes públicos*, los editores pueden crear fácilmente variaciones privadas nuevas si crean SKU o planes nuevos y los marcan como privados.  Las [SKU y los planes privados](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) son componentes de una oferta y solo clientes específicos pueden verlos y comprarlos. Las SKU y los planes privados pueden volver a usar las imágenes base o metadatos de oferta ya publicados para una SKU o un plan público. Esta opción permite que los editores creen múltiples variaciones privadas de una oferta pública sin tener que publicar varias versiones de la misma imagen base y metadatos de oferta. Solo en el caso de las ofertas de Virtual Machines y Aplicación de Azure, cuando una SKU privada comparte una imagen base con una SKU pública, los cambios que se hagan en la imagen base de la oferta se propagarán en todas las SKU, tanto públicas como privadas, que usen esa imagen base.
+Para las *ofertas nuevas o existentes con SKU o planes públicos*, los editores pueden crear fácilmente variaciones privadas nuevas si crean SKU o planes nuevos y los marcan como privados.  Las [SKU y los planes privados](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) son componentes de una oferta y solo clientes específicos pueden verlos y comprarlos. Las SKU y los planes privados pueden volver a usar las imágenes base o metadatos de oferta ya publicados para una SKU o un plan público. Esta opción permite que los editores creen múltiples variaciones privadas de una oferta pública sin tener que publicar varias versiones de la misma imagen base y metadatos de oferta. Solo en el caso de las ofertas de máquina virtual y Azure, cuando una SKU privada comparte una imagen base con una SKU pública, los cambios que se hacen en la imagen base de la oferta se propagan a todas las SKU, tanto públicas como privadas, que usan esa imagen base.
 
 En el caso de las *ofertas nuevas que solo incluyen SKU o planes privados*, los editores pueden crear sus ofertas como cualquier otra oferta y, luego, marcar las SKU o los planes como privados. Los clientes que no estén asociados con la oferta no podrán detectar ni acceder a través de [Azure Marketplace](https://azuremarketplace.microsoft.com) o [Azure Portal](https://azure.microsoft.com/features/azure-portal/) a las ofertas que solo tienen SKU o planes privados.
 

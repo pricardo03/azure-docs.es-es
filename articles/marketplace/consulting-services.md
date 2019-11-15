@@ -4,20 +4,21 @@ description: En este artículo se describen los criterios de idoneidad y los req
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: e23a83ab3a5b110f74ab4ac203dfc020e8920c24
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: d56b83c8bd9a71ac30112f9e77a97ed8ab61a137
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285989"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825968"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servicios de consultoría de Azure Marketplace y AppSource
 Los servicios de consultoría de Azure Marketplace y AppSource brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure y de sus objetivos empresariales. 
 
-Azure Marketplace y AppSource admiten el listado de las ofertas de servicios de consultoría de asociados de Integrador de sistemas (SI) de Microsoft: cuyo objetivo es ofrecer servicios de consultoría de calidad para permitir a los clientes conectarse con los servicios expertos que necesitan. Esto ayuda a los clientes a valorar, evaluar e poner en práctica las soluciones y la implementación correctas que les ayudarán con sus metas y objetivos de nuestros.  
+Azure Marketplace y AppSource admiten el listado de las ofertas de servicios de consultoría de partners de Integrador de sistemas (SI) de Microsoft, cuyo objetivo es ofrecer servicios de consultoría de calidad para permitir a los clientes conectarse con los servicios expertos que necesitan. Esto ayuda a los clientes a valorar, evaluar e poner en práctica las soluciones y la implementación correctas que les ayudarán con sus metas y objetivos de nuestros.  
 
 Estas ofertas de servicios de consultoría son interacciones específicas del cliente. Los publicadores tienen la opción para determinar el tipo de ofertas, si el ámbito es fijo y la duración, el precio fijo o libre, así como tener una agenda definida con los resultados definidos para el cliente. Los clientes potenciales se reciben a través de una notificación en el sistema CRM del asociado y deben responder a los clientes dentro de las 48 horas. 
 
@@ -129,7 +130,7 @@ Las ofertas deben incluirse en uno de los siguientes cinco tipos de servicios (p
 * **Prueba de concepto**: una implementación de ámbito limitado para determinar si una solución cumple los requisitos del cliente. 
 * **Taller**: una involucración interactiva que se lleva a cabo en las instalaciones del cliente. Puede implicar aprendizaje, sesiones informativas, evaluaciones o demostraciones que se crean en los datos o entorno del cliente. 
 
-**Nota:** Excepto en el caso del tipo de servicio *Sesión informativa*, los servicios de consultoría se pueden ofrecer en persona (es decir, in situ en la ubicación del cliente o en la instalación del asociado) o de manera virtual (es decir, mediante teleconferencia, conferencia web o implementación remota). Las sesiones informativas se deben ofrecer en persona.
+**Nota:** Excepto en el caso del tipo de servicio *Sesión informativa*, los servicios de consultoría se pueden ofrecer en persona (es decir, in situ en la ubicación del cliente o en la instalación del partner) o de manera virtual (es decir, mediante teleconferencia, conferencia web o implementación remota). Las sesiones informativas se deben ofrecer en persona.
 
 Una vez configurados los elementos necesarios mencionados anteriormente, el equipo de revisión de contenido confirmará que la descripción de la oferta es informativa y completa para la audiencia de destino. 
 

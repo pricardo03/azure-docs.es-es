@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 66c28039f9126ed9e3f56c3ac15b1b3d82279b64
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1643a1e309ecc2bcfc440e3553fcffef54cfb038
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036374"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824622"
 ---
 # <a name="saas-offer-creation-checklist"></a>Lista de comprobación de creación de ofertas de SaaS
 
@@ -58,11 +59,11 @@ La página de configuración de la oferta es donde puede optar por diferentes ca
 | Canales  | Opcional. Valor predeterminado: No habilitado para el canal CSP (revendedor).  |
 | Versión de prueba | Opcional. Valor predeterminado: No hay ninguna versión de prueba habilitada.  |
 | Tipo de versión de prueba | Requerido si se habilita una versión de prueba. Valor predeterminado: No se ha seleccionado ninguno. Opciones: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic Apps, Power BI.  |
-| Administración de clientes potenciales: conexión a un sistema CRM | Requerido si se vende a través de Microsoft, o si la oferta incluye "Ponerse en contacto conmigo". Valor predeterminado: ningún sistema CRM conectado. Opciones de CRM: tabla de Azure, blob de Azure, Dynamics CRM Online, punto de conexión HTTPS, Marketo, Salesforce  |
+| Administración de clientes potenciales: conexión a un sistema CRM | Requerido si se vende a través de Microsoft o si la oferta incluye "Ponerse en contacto conmigo". Valor predeterminado: ningún sistema CRM conectado. Opciones de CRM: tabla de Azure, blob de Azure, Dynamics CRM Online, punto de conexión HTTPS, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Página de propiedades
 
-La pestaña de propiedades es donde define las categorías y los sectores que se usan para agrupar su oferta en los catálogos de soluciones, los contratos legales que dan soporte a su oferta y su versión de la aplicación. No olvide proporcionar detalles completos y precisos sobre su oferta en esta página, para que se muestre correctamente y se ofrezca al conjunto correcto de clientes. 
+La pestaña de propiedades es donde define las categorías y los sectores que se usan para agrupar su oferta en los catálogos de soluciones, los contratos legales que dan soporte a su oferta y su versión de la aplicación. Asegúrese de proporcionar detalles completos y precisos sobre la oferta en esta página para que se muestre correctamente y se ofrezca al conjunto correcto de clientes. 
 
 | **Nombre del campo**    | **Notas**   | 
 | :---------------- | :-----------|  
@@ -74,7 +75,7 @@ La pestaña de propiedades es donde define las categorías y los sectores que se
 
 ## <a name="offer-listing-page"></a>Página de descripción de la oferta
 
-La página de descripción es donde debe proporcionar el texto y las imágenes que los clientes ven cuando consultan su oferta en el Marketplace. 
+La página de descripción es donde debe proporcionar el texto y las imágenes que los clientes ven cuando consultan la oferta en Marketplace. 
 
 | **Nombre del campo**    | **Notas**   |
 | :---------------- | :-----------| 

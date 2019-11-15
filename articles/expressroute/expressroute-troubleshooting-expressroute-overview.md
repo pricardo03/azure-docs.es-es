@@ -5,39 +5,40 @@ services: expressroute
 author: rambk
 ms.service: expressroute
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 026900e3dcbf7c20750bb8e17e44ba64897c9a30
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: c5001e884047fc6078faf3a8de0e45b7e30e1038
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71123454"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580290"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Comprobación de la conectividad de ExpressRoute
-En este artículo encontrará información útil para comprobar y solucionar problemas de conectividad de ExpressRoute. ExpressRoute amplía una red local en Microsoft Cloud por medio de una conexión privada que se realiza mediante un proveedor de conectividad, y abarca las siguientes tres zonas de red distintas:
+En este artículo encontrará información útil para comprobar y solucionar problemas de conectividad de ExpressRoute. ExpressRoute amplía las redes locales en la nube de Microsoft a través de una conexión privada que suele facilitar un proveedor de conectividad. La conectividad de ExpressRoute implica tradicionalmente tres zonas de red distintas, como se indica a continuación:
 
 -   Red del cliente
 -   Red del proveedor
 -   Centro de datos de Microsoft
 
-El propósito de este documento es ayudar a los usuarios a identificar dónde (o incluso si) existe un problema de conectividad y la zona en la que se encuentra, con lo que podrá buscar ayuda del equipo adecuado para solucionar el problema. Si se necesita soporte técnico de Microsoft para resolver un problema, abra una incidencia de soporte técnico dirigida al [Soporte técnico de Microsoft][Support].
+> [!NOTE]
+> En el modelo de conectividad directa de ExpressRoute (ofrecido con un ancho de banda de 10 o 100 Gb/s), los clientes puede conectarse directamente al puerto de los enrutadores de Microsoft Enterprise Edge (MSEE). Por lo tanto, en el modelo de conectividad directa, solo hay zonas de red de clientes y de Microsoft.
+>
+
+
+El propósito de este documento es ayudar al usuario a identificar si existe un problema de conectividad. Además de ayudarle a solicitar soporte técnico al equipo adecuado para resolver un problema. Si se necesita soporte técnico de Microsoft para resolver un problema, abra una incidencia de soporte técnico dirigida al [Soporte técnico de Microsoft][Support].
 
 > [!IMPORTANT]
 > Este documento está pensado para ayudarle a diagnosticar y corregir problemas sencillos. No pretende sustituir al soporte técnico de Microsoft. Abra una incidencia de soporte técnico dirigida al [Soporte técnico de Microsoft][Support] si no puede resolver el problema siguiendo estas instrucciones.
 >
 >
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="overview"></a>Información general
 El siguiente diagrama muestra la conectividad lógica de una red de cliente a la red de Microsoft mediante ExpressRoute.
 [![1]][1]
 
-En el diagrama anterior, los números indican los puntos de red clave. En este artículo a menudo se hace referencia a los puntos de red según su número asociado.
-
-Según el modelo de conectividad de ExpressRoute (ubicación compartida de Exchange en la nube, conexión Ethernet de punto a punto o conectividad universal [IPVPN]), los puntos de red 3 y 4 pueden conmutadores (dispositivos de capa 2). Los puntos de red clave son los siguientes:
+En el diagrama anterior, los números indican los puntos de red clave. En este artículo a veces se hace referencia a los puntos de red por su número asociado. Según el modelo de conectividad de ExpressRoute (una ubicación compartida de Cloud Exchange, una conexión Ethernet de punto a punto y una red de conectividad universal, IPVPN), los puntos de red 3 y 4 pueden ser conmutadores (dispositivos de nivel 2) o enrutadores (dispositivos de nivel 3). En el modelo de conectividad directa, no hay puntos de red 3 y 4; en su lugar, los CE (2) están conectados directamente a los MSEE a través de fibra oscura. Los puntos de red clave son los siguientes:
 
 1.  Dispositivo de proceso del cliente (por ejemplo, un servidor o equipo)
 2.  CE: enrutadores en el lado del cliente 
@@ -47,34 +48,38 @@ Según el modelo de conectividad de ExpressRoute (ubicación compartida de Excha
 6.  Puerta de enlace de Virtual Network (VNet)
 7.  Dispositivo de proceso de Azure Virtual Network
 
-Si se utilizan los modelos de conectividad de colocación de Exchange para la nube o conexión Ethernet de punto a punto, el enrutador del lado del cliente (2) establecerá un emparejamiento BGP con los MSEE (5). Los puntos de red 3 y 4 todavía existirán, pero serán transparentes de forma parecida a los dispositivos de capa 2.
+Si se usan los modelos de conectividad directa, de ubicación compartida de Cloud Exchange o Ethernet de punto a punto, los enrutadores en el lado del cliente (2) establecerán un emparejamiento BGP con los MSEE (5). 
 
-Si se usa el modelo de conectividad universal (IPVPN), los PE (orientados hacia los MSEE) (4) podrían establecer un emparejamiento BGP con los MSEE (5). Entonces las rutas se propagarían de nuevo a la red del cliente a través de la red del proveedor de servicios IPVPN.
+Si se usa el modelo de conectividad universal (IPVPN), los PE-MSEE (4) podrían establecer un emparejamiento BGP con los MSEE (5). Los PE-MSEE propagan las rutas recibidas de Microsoft de nuevo a la red del cliente a través de la red del proveedor de servicios IPVPN.
 
 > [!NOTE]
->Para lograr la alta disponibilidad de ExpressRoute, Microsoft requiere un par redundante de sesiones BGP entre los MSEE (5) y los PE-MSEE (4). También se recomienda establecer un par redundante de rutas de red entre la red del cliente y los PE-CE. Sin embargo, en el modelo de conexión universal (IPVPN), solo puede haber un único dispositivo CE (2) conectado a uno o varios PE (3).
+>Para lograr una alta disponibilidad, Microsoft establece una conectividad paralela totalmente redundante entre pares de MSEE (5) y PE-MSEE (4). También se recomienda establecer una ruta de acceso a la red paralela y totalmente redundante entre la red del cliente y los pares PE-CE. Para obtener más información sobre la alta disponibilidad, consulte el artículo [Diseño de alta disponibilidad con ExpressRoute][HA].
 >
 >
 
-Para validar un circuito ExpressRoute, se realizan los pasos siguientes (con el punto de red indicado por el número asociado):
-1. [Validación del aprovisionamiento y el estado del circuito (5)](#validate-circuit-provisioning-and-state)
-2. [Validación de que hay al menos un emparejamiento de ExpressRoute configurado (5)](#validate-peering-configuration)
-3. [Validación de ARP entre Microsoft y el proveedor de servicios (vínculo entre 4 y 5)](#validate-arp-between-microsoft-and-the-service-provider)
-4. [Validación del BGP y las rutas del MSEE (BGP entre 4 y 5, y entre 5 y 6 si hay una red virtual conectada)](#validate-bgp-and-routes-on-the-msee)
-5. [Comprobación de las estadísticas de tráfico (tráfico que pasa a través de 5)](#check-the-traffic-statistics)
+A continuación se indican los pasos lógicos para solucionar problemas del circuito ExpressRoute:
 
-En el futuro se agregarán más validaciones y comprobaciones, por lo que recomienda realizar una comprobación mensual.
+* [Comprobación del aprovisionamiento y del estado del circuito](#verify-circuit-provisioning-and-state)
+  
+* [Validación de la configuración de emparejamiento](#validate-peering-configuration)
+  
+* [Validación de ARP](#validate-arp)
+  
+* [Validación de BGP y de las rutas en el MSEE](#validate-bgp-and-routes-on-the-msee)
+  
+* [Confirmación del flujo de tráfico](#confirm-the-traffic-flow)
 
-## <a name="validate-circuit-provisioning-and-state"></a>Validación del aprovisionamiento y el estado del circuito
-Independientemente del modelo de conectividad, debe crearse un circuito ExpressRoute y, por tanto, una clave de servicio generada para el aprovisionamiento del circuito. El aprovisionamiento de un circuito ExpressRoute establece conexiones redundantes de capa 2 entre los PE-MSEE (4) y los MSEE (5). Para más información acerca de cómo crear, modificar, aprovisionar y comprobar un circuito ExpressRoute, consulte el artículo [Creación y modificación de un circuito ExpressRoute][CreateCircuit].
+
+## <a name="verify-circuit-provisioning-and-state"></a>Comprobación del aprovisionamiento y del estado del circuito
+El aprovisionamiento de un circuito ExpressRoute establece conexiones redundantes de nivel 2 entre los CE o PE-MSEE (2 o 4) y los MSEE (5). Para más información acerca de cómo crear, modificar, aprovisionar y comprobar un circuito ExpressRoute, consulte el artículo [Creación y modificación de un circuito ExpressRoute][CreateCircuit].
 
 >[!TIP]
->Una clave de servicio identifica de forma única un circuito ExpressRoute. Esta clave es necesaria para la mayoría de los comandos de Powershell que se mencionan en este documento. Además, si necesita asistencia de Microsoft o de un asociado de ExpressRoute para solucionar un problema de ExpressRoute, especifique la clave de servicio para identificar inmediatamente el circuito.
+>Una clave de servicio identifica de forma única un circuito ExpressRoute. Si necesita asistencia de Microsoft o de un partner de ExpressRoute para solucionar un problema de ExpressRoute, especifique la clave de servicio para identificar inmediatamente el circuito.
 >
 >
 
 ### <a name="verification-via-the-azure-portal"></a>Comprobación a través de Azure Portal
-En Azure Portal, se puede comprobar el estado de un circuito ExpressRoute seleccionando ![2][2] en el menú de barra de la izquierda y seleccionando después el circuito ExpressRoute. Si selecciona un circuito ExpressRoute que aparezca bajo "Todos los recursos" se abre la hoja de circuito ExpressRoute. En la sección ![3][3] de la hoja, se enumera la información esencial de ExpressRoute como se muestra en la captura de pantalla siguiente:
+En Azure Portal, abra la hoja del circuito ExpressRoute. En la sección ![3][3] de la hoja, se enumera la información esencial de ExpressRoute como se muestra en la captura de pantalla siguiente:
 
 ![4][4]    
 
@@ -83,7 +88,7 @@ En Essentials (Fundamentos) de ExpressRoute, *Circuit status* (Estado del circui
 Para que un circuito ExpressRoute sea operativo, el valor de *Circuit status* (Estado del circuito) debe ser *Enabled* (Habilitado) y *Provider status* (Estado del proveedor) debe ser *Provisioned* (Aprovisionado)
 
 > [!NOTE]
-> Si el valor de *Estado del circuito* no es Habilitado, póngase en contacto con el [Soporte técnico de Microsoft][Support]. Si el valor de *Provider status*(Estado del proveedor) no es Provisioned (Aprovisionado), póngase en contacto con su proveedor de servicios.
+> Después de configurar un circuito ExpressRoute, si *Estado del circuito* se encuentra no habilitado, póngase en contacto con el [Soporte técnico de Microsoft][Support]. Por otro lado, si *Estado del proveedor* se muestra como no aprovisionado, póngase en contacto con su proveedor de servicios.
 >
 >
 
@@ -93,9 +98,9 @@ Para obtener una lista de todos los circuitos ExpressRoute en un grupo de recurs
     Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->El nombre del grupo de recursos se puede obtener a través de Azure Portal. Vea la subsección anterior de este documento y observe que el nombre del grupo de recursos se muestra en la captura de pantalla de ejemplo.
+>Si busca el nombre de un grupo de recursos, para encontrarlo, puede enumerar todos los grupos de recursos de la suscripción con el comando *Get-AzResourceGroup*.
 >
->
+
 
 Para seleccionar un circuito ExpressRoute concreto en un grupo de recursos, utilice el siguiente comando:
 
@@ -132,58 +137,33 @@ Para confirmar si un circuito ExpressRoute está operativo, preste especial aten
     ServiceProviderProvisioningState : Provisioned
 
 > [!NOTE]
-> Si el valor de *CircuitProvisioningState* no es Enabled (Habilitado), póngase en contacto con el [Soporte técnico de Microsoft][Support]. Si el valor de *ServiceProviderProvisioningState* no es Provisioned (Aprovisionado), póngase en contacto con su proveedor de servicios.
->
->
-
-### <a name="verification-via-powershell-classic"></a>Comprobación a través de PowerShell (Clásico)
-Para obtener una lista de todos los circuitos ExpressRoute de una suscripción, utilice el siguiente comando:
-
-    Get-AzureDedicatedCircuit
-
-Para seleccionar un circuito ExpressRoute concreto, utilice el siguiente comando:
-
-    Get-AzureDedicatedCircuit -ServiceKey **************************************
-
-Una respuesta de ejemplo es:
-
-    andwidth                         : 100
-    BillingType                      : UnlimitedData
-    CircuitName                      : Test-ER-Ckt
-    Location                         : westus2
-    ServiceKey                       : **************************************
-    ServiceProviderName              : ****
-    ServiceProviderProvisioningState : Provisioned
-    Sku                              : Standard
-    Status                           : Enabled
-
-Para confirmar si un circuito ExpressRoute está operativo, preste especial atención a los campos siguientes: ServiceProviderProvisioningState: Estado aprovisionado                           : habilitado
-
-> [!NOTE]
-> Si el valor de *Status* (Estado) no es Enabled (Habilitado), póngase en contacto con el [Soporte técnico de Microsoft][Support]. Si el valor de *ServiceProviderProvisioningState* no es Provisioned (Aprovisionado), póngase en contacto con su proveedor de servicios.
+> Después de configurar un circuito ExpressRoute, si *Estado del circuito* se encuentra no habilitado, póngase en contacto con el [Soporte técnico de Microsoft][Support]. Por otro lado, si *Estado del proveedor* se muestra como no aprovisionado, póngase en contacto con su proveedor de servicios.
 >
 >
 
 ## <a name="validate-peering-configuration"></a>Validación de la configuración de emparejamiento
-Cuando el proveedor de servicios haya completado el aprovisionamiento del circuito ExpressRoute, puede crearse una configuración de enrutamiento a través del circuito ExpressRoute entre los MSEE-PR (4) y los MSEE (5). Cada circuito ExpressRoute puede tener uno, dos o tres contextos de enrutamiento habilitados: emparejamiento privado de Azure (tráfico a las redes privadas virtuales de Azure), emparejamiento público de Azure (tráfico a las direcciones IP públicas de Azure) y emparejamiento de Microsoft (tráfico a Office 365). Para más información sobre cómo crear y modificar la configuración de enrutamiento, consulte el artículo [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
+Cuando el proveedor de servicios haya completado el aprovisionamiento del circuito ExpressRoute, pueden crearse varias configuraciones de enrutamiento basadas en BGP externo a través del circuito ExpressRoute entre los CE o MSEE-PE (2 o 4) y los MSEE (5). Cada circuito ExpressRoute puede tener: emparejamiento privado de Azure (tráfico a las redes privadas virtuales de Azure) y emparejamiento de Microsoft (tráfico a los puntos de conexión públicos de PaaS y SaaS). Para más información sobre cómo crear y modificar la configuración de enrutamiento, consulte el artículo [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Comprobación a través de Azure Portal
 
 > [!NOTE]
-> Si el proveedor de servicio proporciona la capa 3 y los emparejamientos están en blanco en el portal, actualice la configuración del circuito mediante el botón de actualización del portal. Esta operación aplicará la configuración de enrutamiento correcta a su circuito. 
->
+> En el modelo de conectividad de IPVPN, los proveedores de servicios se encargan de configurar los emparejamientos (servicios de nivel 3). En este modelo, una vez que el proveedor de servicios ha configurado un emparejamiento, si este se muestra en blanco en el portal, pruebe a actualizar la configuración del circuito con el botón de actualización del portal. Esta operación extraerá la configuración de enrutamiento actual del circuito. 
 >
 
-En Azure Portal, puede comprobar el estado de un circuito ExpressRoute seleccionando ![2][2] en el menú de barra de la izquierda y, a continuación, seleccionando el circuito ExpressRoute. Si selecciona un circuito ExpressRoute que aparezca bajo "Todos los recursos" se abre la hoja de circuito ExpressRoute. En la sección ![3][3] de la hoja se enumera la información esencial de ExpressRoute como se muestra en la captura de pantalla siguiente:
+En Azure Portal, el estado de un emparejamiento de circuito ExpressRoute se puede comprobar en la hoja del circuito ExpressRoute. En la sección ![3][3] de la hoja, se enumeran los emparejamientos de ExpressRoute como se muestra en la captura de pantalla siguiente:
 
 ![5][5]
 
-Como se indicó en el ejemplo anterior, el contexto de enrutamiento de emparejamiento privado de Azure está habilitado, mientras que los contextos de enrutamiento de emparejamientos públicos de Azure y de emparejamiento de Microsoft no lo están. Un contexto de emparejamiento correctamente habilitado también mostrará las subredes de punto a punto principales y secundarias (necesario para BGP). Las subredes /30 se usan para la dirección IP de interfaz de los MSEE y PE-MSEE. 
+Como se indicó en el ejemplo anterior, el emparejamiento privado de Azure está aprovisionado, mientras que los emparejamientos públicos de Azure y el emparejamiento de Microsoft no lo están. Un contexto de emparejamiento aprovisionado correctamente también mostrará las subredes de punto a punto principales y secundarias. Las subredes /30 se usan para la dirección IP de interfaz de los MSEE y los CE o los PE-MSEE. En el caso de los emparejamientos que se aprovisionan, también se indica quién modificó la configuración por última vez. 
 
 > [!NOTE]
-> Si no está habilitado un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración de los PE-MSEE. Si no es así, para cambiar la configuración en los enrutadores MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
+> Si se produce un error al habilitar un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración del CE o el PE-MSEE vinculado. Compruebe también si se usan los *VlanId*, *AzureASN* y *PeerASN* correctos en los MSEE, y si estos valores se asignan a los que se usan en el CE o el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE o CE. La clave compartida que se ha configurado previamente no se mostraría por motivos de seguridad. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
 >
+
+> [!NOTE]
+> En una subred /30 asignada para la interfaz, Microsoft elegirá la segunda dirección IP utilizable de la subred para la interfaz MSEE. Por lo tanto, asegúrese de que se ha asignado la primera dirección IP utilizable de la subred en el CE o el PE-MSEE emparejado.
 >
+
 
 ### <a name="verification-via-powershell"></a>Comprobación a través de PowerShell
 Para obtener los detalles de configuración del emparejamiento privado de Azure, use los siguientes comandos:
@@ -198,17 +178,17 @@ Una respuesta de ejemplo para un emparejamiento privado configurado correctament
     Etag                       : W/"################################"
     PeeringType                : AzurePrivatePeering
     AzureASN                   : 12076
-    PeerASN                    : ####
+    PeerASN                    : 123##
     PrimaryPeerAddressPrefix   : 172.16.0.0/30
     SecondaryPeerAddressPrefix : 172.16.0.4/30
     PrimaryAzurePort           : 
     SecondaryAzurePort         : 
     SharedKey                  : 
-    VlanId                     : 300
+    VlanId                     : 200
     MicrosoftPeeringConfig     : null
     ProvisioningState          : Succeeded
 
- Un contexto de emparejamiento habilitado correctamente mostrará los prefijos de dirección principal y secundaria en la lista. Las subredes /30 se usan para la dirección IP de interfaz de los MSEE y PE-MSEE.
+ Un contexto de emparejamiento habilitado correctamente mostrará los prefijos de dirección principal y secundaria en la lista. Las subredes /30 se usan para la dirección IP de interfaz de los MSEE y los CE o los PE-MSEE.
 
 Para obtener los detalles de configuración del emparejamiento público de Azure, use los siguientes comandos:
 
@@ -231,134 +211,68 @@ Si no se configura un emparejamiento, aparecerá un mensaje de error. Esta es un
 
 
 > [!NOTE]
-> Si un emparejamiento no está habilitado, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración del PE-MSEE vinculado. Compruebe también si se usan los *VlanId*, *AzureASN* y *PeerASN* correctos en los MSEE, y si estos valores se asignan a los que se usan en el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE. Para cambiar la configuración en los enrutadores MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
->
->
-
-### <a name="verification-via-powershell-classic"></a>Comprobación a través de PowerShell (Clásico)
-Para obtener los detalles de configuración del emparejamiento privado de Azure, use el siguiente comando:
-
-    Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
-
-Una respuesta de ejemplo de un emparejamiento privado configurado correctamente es:
-
-    AdvertisedPublicPrefixes       : 
-    AdvertisedPublicPrefixesState  : Configured
-    AzureAsn                       : 12076
-    CustomerAutonomousSystemNumber : 
-    PeerAsn                        : ####
-    PrimaryAzurePort               : 
-    PrimaryPeerSubnet              : 10.0.0.0/30
-    RoutingRegistryName            : 
-    SecondaryAzurePort             : 
-    SecondaryPeerSubnet            : 10.0.0.4/30
-    State                          : Enabled
-    VlanId                         : 100
-
-Un contexto de emparejamiento habilitado correctamente mostrará las subredes de pares principales y secundarias en la lista. Las subredes /30 se usan para la dirección IP de interfaz de los MSEE y PE-MSEE.
-
-Para obtener los detalles de configuración del emparejamiento público de Azure, use los siguientes comandos:
-
-    Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
-
-Para obtener los detalles de configuración del emparejamiento de Microsoft, use los siguientes comandos:
-
-    Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
-
-> [!IMPORTANT]
-> Si el proveedor de servicios ha establecido los emparejamientos de capa 3, esa configuración se sobrescribirá cuando se configuren los emparejamientos de ExpressRoute a través del portal o de PowerShell. Necesitará la asistencia de su proveedor de servicios para restablecer la configuración de emparejamiento del lado de proveedor. Modifique los emparejamientos de ExpressRoute solo si se tiene la certeza de que el proveedor de servicios proporciona únicamente servicios de nivel 2.
+> Si se produce un error al habilitar un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración del CE o el PE-MSEE vinculado. Compruebe también si se usan los *VlanId*, *AzureASN* y *PeerASN* correctos en los MSEE, y si estos valores se asignan a los que se usan en el CE o el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE o CE. La clave compartida que se ha configurado previamente no se mostraría por motivos de seguridad. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
 >
 >
 
 > [!NOTE]
-> Si un emparejamiento no está habilitado, compruebe si las subredes de pares principales y secundarias asignadas coinciden con la configuración del PE-MSEE vinculado. Compruebe también si se usan los *VlanId*, *AzureAsn* y *PeerAsn* correctos en los MSEE, y si estos valores se asignan a los que se usan en el PE-MSEE vinculado. Para cambiar la configuración en los enrutadores MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
->
->
-
-## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Validación de ARP entre Microsoft y el proveedor de servicios
-Esta sección utiliza comandos de PowerShell (clásico). Si ha estado utilizando los comandos de PowerShell de Azure Resource Manager, asegúrese de que tiene acceso de administrador o coadministrador a la suscripción. Para solucionar problemas con los comandos de Azure Resource Manager, consulte el documento [Obtención de tablas ARP en el modelo de implementación de Resource Manager][ARP].
-
-> [!NOTE]
->Para obtener ARP, se pueden usar los comandos de PowerShell tanto de Azure Portal como de Azure Resource Manager. Si se producen errores con los comandos de PowerShell de Azure Resource Manager, los comandos de PowerShell clásico deben funcionar también con circuitos ExpressRoute de Azure Resource Manager.
->
+> En una subred /30 asignada para la interfaz, Microsoft elegirá la segunda dirección IP utilizable de la subred para la interfaz MSEE. Por lo tanto, asegúrese de que se ha asignado la primera dirección IP utilizable de la subred en el CE o el PE-MSEE emparejado.
 >
 
-Para obtener la tabla ARP del enrutador MSEE principal para el emparejamiento privado, utilice el siguiente comando:
+## <a name="validate-arp"></a>Validación de ARP
 
-    Get-AzureDedicatedCircuitPeeringArpInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
+La tabla ARP proporciona una asignación de la dirección IP y la dirección MAC para un emparejamiento determinado. La tabla ARP de un emparejamiento de circuito ExpressRoute proporciona la siguiente información para cada interfaz (principal y secundaria):
+* Asignación de la dirección IP de la interfaz del enrutador local a la dirección MAC
+* Asignación de la dirección IP de la interfaz del enrutador de ExpressRoute a la dirección MAC
+* La antigüedad de las tablas ARP de asignación puede ayudar a validar la configuración de nivel 2 y a solucionar los problemas básicos de conectividad de nivel 2.
 
-Ejemplo de respuesta del comando, en un escenario correcto:
 
-    ARP Info:
+Consulte el documento [Obtención de tablas ARP en el modelo de implementación de Resource Manager][ARP] para ver la tabla ARP de un emparejamiento de ExpressRoute y descubrir cómo usar la información para solucionar problemas de conectividad de nivel 2.
 
-                 Age           Interface           IpAddress          MacAddress
-                 113             On-Prem       10.0.0.1           e8ed.f335.4ca9
-                   0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
-
-De forma similar, puede comprobar la tabla ARP desde el MSEE en la ruta de acceso *principal*/*secundaria*, para los emparejamientos *privados*/*públicos*/*de Microsoft*.
-
-En el ejemplo siguiente se muestra que no hay respuesta del comando para un emparejamiento.
-
-    ARP Info:
-       
-> [!NOTE]
-> Si la tabla ARP no tiene direcciones IP de las interfaces que se asignan a direcciones MAC, revise la información siguiente:
->1. Si la primera dirección IP de la subred /30 asignada para el vínculo entre el MSEE-PR y MSEE se utiliza en la interfaz de MSEE-PR. Azure usa siempre la segunda dirección IP para los MSEE.
->2. Compruebe si las etiquetas VLAN de servicio (S-Tag) y el cliente (C-Tag) coinciden en el par MSEE PR y MSEE.
->
->
 
 ## <a name="validate-bgp-and-routes-on-the-msee"></a>Validación de BGP y las rutas en el MSEE
-Esta sección utiliza comandos de PowerShell (clásico). Si ha estado utilizando los comandos de PowerShell de Azure Resource Manager, asegúrese de que tiene acceso de administrador o coadministrador a la suscripción.
 
-> [!NOTE]
->Para obtener información de BGP, se pueden usar los comandos de PowerShell tanto de Azure Portal como de Azure Resource Manager. Si se producen errores con los comandos de PowerShell de Azure Resource Manager, los comandos de PowerShell clásico deben funcionar también con circuitos ExpressRoute de Azure Resource Manager.
->
->
+Para obtener la tabla de enrutamiento de MSEE en la ruta de acceso *principal* del contexto de enrutamiento *privado*, use el siguiente comando:
 
-Para obtener el resumen de la tabla de enrutamiento (vecino BGP) para un determinado contexto de enrutamiento, use el comando siguiente:
-
-    Get-AzureDedicatedCircuitPeeringRouteTableSummary -AccessType Private -Path Primary -ServiceKey "*********************************"
+    Get-AzExpressRouteCircuitRouteTable -DevicePath Primary -ExpressRouteCircuitName ******* -PeeringType AzurePrivatePeering -ResourceGroupName ****
 
 Ejemplo de respuesta:
 
-    Route Table Summary:
+    Network : 10.1.0.0/16
+    NextHop : 10.17.17.141
+    LocPrf  : 
+    Weight  : 0
+    Path    : 65515
 
-            Neighbor                   V                  AS              UpDown         StatePfxRcd
-            10.0.0.1                   4                ####                8w4d                  50
+    Network : 10.1.0.0/16
+    NextHop : 10.17.17.140*
+    LocPrf  : 
+    Weight  : 0
+    Path    : 65515
 
-Como se muestra en el ejemplo anterior, el comando es útil para determinar durante cuánto tiempo se ha establecido el contexto de enrutamiento. También indica el número de prefijos de rutas que anuncia el enrutador de emparejamiento.
+    Network : 10.2.20.0/25
+    NextHop : 172.16.0.1
+    LocPrf  : 
+    Weight  : 0
+    Path    : 123##
+
 
 > [!NOTE]
-> Si el estado es activo o en espera, compruebe si las subredes de pares principales y secundarias asignadas coinciden con la configuración de los PE-MSEE vinculados. Compruebe también si se usan los *VlanId*, *AzureAsn* y *PeerAsn* correctos en los MSEE, y si estos valores se asignan a los que se usan en el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE. Para cambiar la configuración en los enrutadores MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
+> Si el estado de un emparejamiento EBGP entre un MSEE y un CE o un PE-MSEE es activo o está en espera, compruebe si las subredes principales y secundarias asignadas del mismo nivel coinciden con la configuración de los CE o de los PE-MSEE vinculados. Compruebe también si se usan los *VlanId*, *AzureAsn* y *PeerAsn* correctos en los MSEE, y si estos valores se asignan a los que se usan en el PE-MSEE o el CE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y CE o PE-MSEE. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
 >
->
+
 
 > [!NOTE]
-> Si determinados destinos no son accesibles a través de un emparejamiento determinado, compruebe la tabla de rutas de los MSEE que pertenecen a ese contexto de emparejamiento concreto. Si se encuentra un prefijo coincidente (podría ser IP en NAT) en la tabla de enrutamiento, compruebe si hay firewall/NSG/ACL en la ruta de acceso y si permiten el tráfico.
+> Si determinados destinos no son accesibles a través de un emparejamiento, compruebe la tabla de rutas de los MSEE para el contexto de emparejamiento correspondiente. Si se encuentra un prefijo coincidente (podría ser IP en NAT) en la tabla de enrutamiento, compruebe si hay firewall, NSG o ACL en la ruta de acceso que bloquee el tráfico.
 >
->
 
-Para obtener la tabla de enrutamiento completa de MSEE en la ruta de acceso *principal* de ese contexto de enrutamiento *privado*, use el siguiente comando:
 
-    Get-AzureDedicatedCircuitPeeringRouteTableInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
+En el ejemplo siguiente se muestra la respuesta del comando para un emparejamiento que no existe:
 
-Ejemplo de un resultado correcto del comando:
+    Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
+    StatusCode: 400
 
-    Route Table Info:
-
-             Network             NextHop              LocPrf              Weight                Path
-         10.1.0.0/16            10.0.0.1                                       0    #### ##### #####     
-         10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
-    ...
-
-De forma similar, puede comprobar la tabla de enrutamiento desde el MSEE en la ruta de acceso *principal*/*secundaria*, para el contexto de emparejamientos *privados*/*públicos*/*de Microsoft*.
-
-En el ejemplo siguiente se muestra que no hay respuesta del comando para un emparejamiento:
-
-    Route Table Info:
-
-## <a name="check-the-traffic-statistics"></a>Comprobación de las estadísticas de tráfico
+## <a name="confirm-the-traffic-flow"></a>Confirmación del flujo de tráfico
 Para obtener las estadísticas del tráfico de la ruta de acceso principal y secundaria combinados (bytes de entrada y salida) de un contexto de emparejamiento, use el siguiente comando:
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
@@ -371,12 +285,8 @@ Ejemplo de resultado del comando:
 
 Ejemplo de resultado del comando para un emparejamiento inexistente:
 
-    Get-AzureDedicatedCircuitStats : ResourceNotFound: Can not find any subinterface for peering type 'Public' for circuit '97f85950-01dd-4d30-a73c-bf683b3a6e5c' .
-    At line:1 char:1
-    + Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf ...
-    + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : CloseError: (:) [Get-AzureDedicatedCircuitStats], CloudException
-        + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.GetAzureDedicatedCircuitPeeringStatsCommand
+    Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
+    StatusCode: 400
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes artículos:
@@ -397,7 +307,8 @@ Para obtener más información, consulte los siguientes artículos:
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
 [ARP]: https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-
+[HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute
+[DR-Pvt]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Migración de certificados TDE: Instancia administrada de Azure SQL Database | Microsoft Docs'
+title: 'Migración de certificados TDE: Instancia administrada'
 description: Migración del certificado que protege la clave de cifrado de base de datos de una base de datos con cifrado de datos transparente a Instancia administrada de Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: 6f9c1cefafdf6f7f33db3c5143e6b97b328fe699
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f0bc66260a0eaa66e71241148591146fa38d4120
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567411"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821786"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migración del certificado de una base de datos protegida por TDE a Instancia administrada de Azure SQL Database
 

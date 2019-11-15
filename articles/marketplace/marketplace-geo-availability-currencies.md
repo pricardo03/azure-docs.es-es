@@ -4,19 +4,20 @@ description: Disponibilidad geográfica en Azure Marketplace y AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 344479a270119137a256620304d88f139d0b0322
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 0b12e122cef3a05af7a09918ba434d103e33a1a2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619971"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822951"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilidad geográfica y soporte técnico de moneda
 
-Se pueden adquirir ofertas de Azure Marketplace y AppSource en 141 zonas geográficas, tal como se define mediante la dirección de facturación del cliente, y las transacciones se pueden completar en 17 monedas. En la tabla siguiente se enumeran las ubicaciones geográficas admitidas, su [código alfa ISO 3166 de dos dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) y la moneda asignada.
+Se pueden comprar ofertas de Azure Marketplace y AppSource en 141 ubicaciones geográficas según la dirección de facturación del cliente y las transacciones se pueden realizar en 17 monedas. En la tabla siguiente se enumeran las ubicaciones geográficas admitidas, su [código alfa ISO 3166 de dos dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) y la moneda asignada.
 
 |   Nombre del país o región               |   ISO-2   |   Moneda   |
 |-------------------------------------|-----------|--------------|

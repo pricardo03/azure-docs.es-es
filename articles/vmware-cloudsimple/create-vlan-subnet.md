@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0f8e605db3d647b5907c8c6741e4e2200bf14c4f
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 56e0f720221f8de531087e8b8d0476688feb2547
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772362"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601482"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Creación y administración de redes VLAN y subredes para las nubes privadas
 
@@ -34,6 +34,10 @@ Abra la pestaña VLANs/Subnets (Redes VLAN o subredes) en la página Network (Re
 8. Haga clic en **Enviar**.
 
     ![Creación de una VLAN o subred](media/create-new-vlan-subnet-details.png)
+
+
+> [!IMPORTANT]
+> Existe una cuota de 30 VLAN por cada nube privada. Estos límites se pueden incrementar [poniéndose en contacto con soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere"></a>Uso de la información de VLAN para configurar un grupo de puertos distribuido en vSphere
 

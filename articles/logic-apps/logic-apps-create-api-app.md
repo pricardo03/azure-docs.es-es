@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0d73f40c77c1b73a52522eafdb3c093b691d3e14
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609856"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583452"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creación de API personalizadas que se pueden llamar desde Azure Logic Apps
 
@@ -53,7 +53,7 @@ Las API personalizadas le permiten llamar a las API que no son conectores y prop
 * Aparecen con iconos junto con conectores administrados por Microsoft en el Diseñador de Logic Apps.
 * Están disponibles solo para los autores y usuarios de aplicación lógica de los conectores que tienen el mismo inquilino de Azure Active Directory y la suscripción de Azure en la región donde se implementan las aplicaciones lógicas.
 
-También puede designar conectores registrados para la certificación de Microsoft. Este proceso comprueba que los conectores registrados cumplen los criterios para uso público y hace que los conectores estén disponibles para los usuarios de Microsoft Flow y Microsoft PowerApps.
+También puede designar conectores registrados para la certificación de Microsoft. Este proceso comprueba que los conectores registrados cumplen los criterios para uso público y hace que los conectores estén disponibles para los usuarios en Power Automate y Microsoft Power Apps.
 
 Para obtener más información sobre los conectores personalizados, vea 
 
@@ -222,7 +222,7 @@ Después de configurar la autenticación, configure la implementación de las AP
 
 Para que las API personalizadas estén disponibles para otros usuarios de Logic Apps en Azure, debe agregar seguridad y registrarlas como conectores de aplicación lógica. Para más información consulte [Custom connectors overview](../logic-apps/custom-connector-overview.md) (Información general sobre conectores personalizados) 
 
-Para que las API personalizadas estén disponibles para todos los usuarios de Logic Apps, Microsoft Flow y Microsoft PowerApps, debe agregar seguridad, registrar las API como conectores de aplicación lógica y designar los conectores para el [programa Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
+Para que las API personalizadas estén disponibles para todos los usuarios de Logic Apps, Power Automate y Microsoft Power Apps, debe agregar seguridad, registrar las API como conectores de aplicación lógica y designar los conectores para el [programa Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

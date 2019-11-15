@@ -1,7 +1,7 @@
 ---
-title: Detección del desfase de datos (versión preliminar) en las implementaciones de AKS
+title: Detección del desfase de datos en implementaciones de AKS
 titleSuffix: Azure Machine Learning
-description: Detecte el desfase de datos en modelos implementados en Azure Kubernetes Service en Azure Machine Learning.
+description: Detecte el desfase de datos (versión preliminar) en modelos implementados de Azure Kubernetes Service en Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 09/13/2019
-ms.openlocfilehash: 3b3fbce40c93389037435a7cdb1271e773163de3
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 11/04/2019
+ms.openlocfilehash: 9ac1c5cb25d6b2ad396c2caed74942988a723a0e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123284"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824255"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detección del desfase de datos (versión preliminar) en modelos implementados en Azure Kubernetes Service (AKS)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 En este artículo, aprenderá a supervisar el desfase de datos entre el conjunto de datos de entrenamiento y los datos de inferencia de un modelo implementado. En el contexto del aprendizaje automático, los modelos de aprendizaje automático entrenados pueden experimentar un rendimiento de predicción degradado por el desfase. Con Azure Machine Learning, puede supervisar el desfase de datos y el servicio enviará una alerta de correo electrónico en cuanto lo detecte.
 
@@ -40,7 +41,7 @@ Con Azure Machine Learning, puede supervisar las entradas en un modelo implement
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Cómo se supervisa el desfase de datos en Azure Machine Learning
 
-Al usar Azure Machine Learning, el desfase de datos se supervisa a través de conjuntos de datos o implementaciones. Para supervisar el desfase de datos, se especifica un conjunto de datos de base de referencia, normalmente el conjunto de datos de entrenamiento para un modelo. Un segundo conjunto de datos (normalmente los datos de entrada de modelo recopilados de una implementación) se prueba en el conjunto de datos de base de referencia. Se han generado perfiles para ambos conjuntos de datos y se han especificado en el servicio de supervisión del desfase de datos. Un modelo de Machine Learning se entrena para detectar diferencias entre los dos conjuntos de datos. El rendimiento del modelo se convierte en el coeficiente de desfase, que mide la magnitud del desfase entre los dos conjuntos de datos. Al usar la [interpretabilidad del modelo](machine-learning-interpretability-explainability.md), se calculan las características que han contribuido al coeficiente de desfase. En el perfil del conjunto de datos, se realiza un seguimiento de la información estadística sobre cada característica. 
+Al usar Azure Machine Learning, el desfase de datos se supervisa a través de conjuntos de datos o implementaciones. Para supervisar el desfase de datos, se especifica un conjunto de datos de base de referencia, normalmente el conjunto de datos de entrenamiento para un modelo. Un segundo conjunto de datos (normalmente los datos de entrada de modelo recopilados de una implementación) se prueba en el conjunto de datos de base de referencia. Se han generado perfiles para ambos conjuntos de datos y se han especificado en el servicio de supervisión del desfase de datos. Un modelo de Machine Learning se entrena para detectar diferencias entre los dos conjuntos de datos. El rendimiento del modelo se convierte en el coeficiente de desfase, que mide la magnitud del desfase entre los dos conjuntos de datos. Al usar la [interpretabilidad del modelo](how-to-machine-learning-interpretability.md), se calculan las características que han contribuido al coeficiente de desfase. En el perfil del conjunto de datos, se realiza un seguimiento de la información estadística sobre cada característica. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -58,7 +59,7 @@ Al usar Azure Machine Learning, el desfase de datos se supervisa a través de co
 - Instale el SDK de desfase de datos con el comando siguiente:
 
     ```shell
-    pip install azureml-contrib-datadrift
+    pip install azureml-datadrift
     ```
 
 - Cree un [conjunto de datos](how-to-create-register-datasets.md) a partir de los datos de entrenamiento del modelo.
@@ -84,7 +85,7 @@ En este ejemplo se muestra cómo se configura el objeto [`DataDriftDetector`](ht
 ```python
 # Import Azure ML packages
 from azureml.core import Experiment, Run, RunDetails
-from azureml.contrib.datadrift import DataDriftDetector, AlertConfiguration
+from azureml.datadrift import DataDriftDetector, AlertConfiguration
 
 # if email address is specified, setup AlertConfiguration
 alert_config = AlertConfiguration('your_email@contoso.com')
@@ -133,7 +134,7 @@ Existen varias formas de ver las métricas de desfase:
 
 * Usar el `RunDetails`[widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Usar la función [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) en cualquier objeto de ejecución de `datadrift`.
-* Vea las métricas en la sección **Modelos** de su [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com).
+* Vea las métricas en la sección **Modelos** de su área de trabajo en [Azure Machine Learning Studio](https://ml.azure.com).
 
 En el siguiente ejemplo de Python se muestra cómo trazar métricas pertinentes para el desfase de datos. Puede usar las métricas devueltas para crear visualizaciones personalizadas:
 
@@ -158,16 +159,15 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-La configuración del detector del desfase de datos se puede ver en **Modelos** en la pestaña **Detalles** de la [página de aterrizaje del área de trabajo (versión preliminar)](https://ml.azure.com).
+La configuración del detector del desfase de datos se puede ver en **Modelos** en la pestaña **Detalles** del área de trabajo en [Azure Machine Learning Studio](https://ml.azure.com).
 
-![Desfase de datos en Azure Portal](media/how-to-monitor-data-drift/drift-config.png)
+[![Desfase de datos de Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-config.png)](media/how-to-monitor-data-drift/drift-config-expanded.png)
 
-## <a name="view-results-in-your-workspace-landing-page"></a>Vista de los resultados en la página de aterrizaje del área de trabajo
+## <a name="view-results-in-your-azure-machine-learning-studio"></a>Visualización de los resultados en Azure Machine Learning Studio
 
-Para ver los resultados en el área de trabajo de la [página de aterrizaje de área de trabajo (versión preliminar)](https://ml.azure.com), navegue hasta la página del modelo. En la pestaña Detalles del modelo, se muestra la configuración del desfase de datos. Actualmente, está disponible la pestaña **Data Drift** (Desfase de datos) con las métricas del desfase de datos. 
+Para ver los resultados en el área de trabajo en [Azure Machine Learning Studio](https://ml.azure.com), vaya a la página del modelo. En la pestaña Detalles del modelo, se muestra la configuración del desfase de datos. Actualmente, está disponible la pestaña **Data Drift** (Desfase de datos) con las métricas del desfase de datos. 
 
-[![Página de aterrizaje del área de trabajo: Desfase de datos](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
-
+[![Desfase de datos de Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
 
 ## <a name="receiving-drift-alerts"></a>Recepción de alertas del desfase
 
@@ -189,6 +189,8 @@ Cuando el desfase de datos afecta negativamente al rendimiento del modelo implem
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener un ejemplo completo del uso del desfase de datos, consulte el [cuaderno de desfase de datos de Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). En este cuaderno de Jupyter Notebook se muestra cómo se usa una instancia de [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) con el objetivo de entrenar un modelo para predecir el tiempo, implementarlo en AKS y supervisar el desfase de datos. 
+* Para obtener un ejemplo completo del uso del desfase de datos, consulte el [cuaderno de desfase de datos de Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb). En este cuaderno de Jupyter Notebook se muestra cómo se usa una instancia de [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) con el objetivo de entrenar un modelo para predecir el tiempo, implementarlo en AKS y supervisar el desfase de datos. 
+
+* Detecte el desfase de datos con [monitores de conjuntos de datos](how-to-monitor-datasets.md).
 
 * Nos encantaría que nos hiciera llegar sus preguntas, comentarios o sugerencias a medida que el desfase de datos evoluciona hacia la disponibilidad general. Use el botón de comentarios sobre el producto que aparece más abajo. 

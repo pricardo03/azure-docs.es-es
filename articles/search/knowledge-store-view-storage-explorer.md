@@ -1,36 +1,36 @@
 ---
-title: Visualización de un almacén de conocimiento con el Explorador de Storage
+title: Visualización de un almacén de conocimiento (versión preliminar) con el Explorador de Storage
 titleSuffix: Azure Cognitive Search
-description: Visualice y analice un almacén de conocimiento de Azure Cognitive Search con el Explorador de Storage de Azure Portal.
+description: Visualice y analice un almacén de conocimiento de Azure Cognitive Search con el Explorador de Storage de Azure Portal. El almacén de conocimiento está actualmente en versión preliminar pública.
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e3ea879a419aa14d3a6693e23f4f120aca8d9d51
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789974"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720053"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visualización de un almacén de conocimiento con el Explorador de Storage
 
-> [!Note]
-> El almacén de conocimiento se encuentra en versión preliminar y no debe usarse en producción. Esta característica se proporciona en la [API REST de Azure Cognitive Search versión 2019-05-06-Preview](search-api-preview.md). Por el momento, no hay compatibilidad con .NET SDK.
->
-En este artículo, aprenderá a conectar y explorar un almacén de conocimiento con el Explorador de Storage en Azure Portal. Para crear el ejemplo de almacén de conocimiento que se usa en este tutorial, consulte [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md).
+> [!IMPORTANT] 
+> El almacén de conocimiento está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST versión 2019-05-06-Preview](search-api-preview.md) se proporcionan características en versión preliminar. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
+
+En este artículo, aprenderá por ejemplo a conectar y explorar un almacén de conocimiento con el Explorador de Storage en Azure Portal.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-+ Siga los pasos descritos en [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md) para crear el almacén de conocimiento de ejemplo que se usa en este tutorial.
++ Siga los pasos descritos en [Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md) o en [Creación de un almacén de conocimiento de Azure Cognitive Search mediante REST](knowledge-store-create-rest.md) para crear el almacén de conocimiento de ejemplo que se usa en este tutorial.
 
 + También necesitará el nombre de la cuenta de Azure Storage que usó para crear el almacén de conocimiento, junto con su clave de acceso de Azure Portal.
 
-## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Ver, editar y consultar un almacén de conocimiento en el Explorador de Storage
+## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Visualización, edición y consulta de un almacén de conocimiento en el Explorador de Storage
 
-1. En Azure Portal, abra la cuenta de almacenamiento que usó para crear el almacén de conocimiento.
+1. En Azure Portal, [abra la cuenta de almacenamiento](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) que usó para crear el almacén de conocimiento.
 
 1. En el panel de navegación izquierdo de la cuenta de almacenamiento, haga clic en **Explorador de Storage**.
 
@@ -58,12 +58,8 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo conectar este almacén de conocimiento a Power BI, consulte el siguiente artículo.
+Conecte este almacén de conocimiento a Power BI para un análisis más profundo, o bien continúe con el código, mediante la API REST y Postman para crear un almacén de información diferente.
 
 > [!div class="nextstepaction"]
 > [Conexión con Power BI](knowledge-store-connect-power-bi.md)
-
-Para obtener información sobre cómo crear un almacén de conocimiento mediante las API REST y Postman, consulte el artículo siguiente.  
-
-> [!div class="nextstepaction"]
 > [Creación de un almacén de conocimiento con REST](knowledge-store-howto.md)

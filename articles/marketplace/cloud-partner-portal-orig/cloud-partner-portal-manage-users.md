@@ -5,15 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 5a3724729f85b7917b1559ce2ac3d859881e0de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b14d40e9b3a2aa1ca71335b60e97f15b3782698f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935129"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823275"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Administración de usuarios en Cloud Partner Portal
 ======================================
@@ -54,7 +55,7 @@ Actualmente, solo los propietarios pueden acceder a las pestañas Azure Payouts 
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]
-> Los "nombres de anunciante" para los que el correo electrónico se agrega como propietario o colaborador se mostrarán en la lista desplegable de Anunciante para la selección.
+> Los "nombres de anunciante" para los que el correo electrónico se agrega como propietario o colaborador se muestran en la lista desplegable de Anunciante para la selección.
 
 ![Asignar rol: seleccionar el anunciante](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

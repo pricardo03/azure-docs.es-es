@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos de Amazon Redshift mediante Azure Data Factory | Microsoft Docs
+title: Movimiento de datos de Amazon Redshift mediante Azure Data Factory
 description: Obtenga información sobre cómo mover datos de Amazon Redshift mediante la actividad de copia de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a1497211cc42c702537cbbdfea32ff71a400c7c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 707061f523e5e991c851abfe7960a9aa66fb2066
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836681"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683252"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Movimiento de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -336,11 +336,11 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | DECIMAL |Decimal |
 | REAL |Single |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |Cadena |
+| BOOLEAN |String |
 | CHAR |Cadena |
 | VARCHAR |Cadena |
-| DATE |Datetime |
-| TIMESTAMP |Datetime |
+| DATE |DateTime |
+| TIMESTAMP |DateTime |
 | TEXT |Cadena |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor

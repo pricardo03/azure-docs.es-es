@@ -1,5 +1,5 @@
 ---
-title: Copia incremental de datos con Azure Data Factory | Microsoft Docs
+title: 'Copia incremental de datos con Azure Data Factory '
 description: En estos tutoriales se muestra cómo copiar datos de forma incremental de un almacén de datos de origen a un almacén de datos de destino. La primera de ellas copia los datos de una tabla.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 15ff84bf8a194c6172864601e3aefe78f9cc13a3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9cbe9dfea116df30f49b89e2e59886f2f112487c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140581"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683364"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carga incremental de datos de un almacén de datos de origen a un almacén de datos de destino
 
@@ -54,7 +54,7 @@ Para las plantillas, consulte lo siguiente:
 - [Copia de archivos nuevos por LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>Carga de archivos nuevos mediante únicamente el nombre de archivo o la carpeta con particiones de tiempo
-Puede copiar solamente archivos nuevos, donde ya se ha realizado una partición de tiempo de los archivos o carpetas con información de intervalo de tiempo como parte del nombre de archivo o carpeta (por ejemplo, /aaaa/mm/dd/file.csv). Es el enfoque de mayor rendimiento para los nuevos archivos de carga incremental. 
+Puede copiar solamente archivos nuevos, donde ya se ha realizado una partición de tiempo de los archivos o carpetas con información de intervalo de tiempo como parte del nombre de archivo o carpeta (por ejemplo, /aaaa/mm/dd/file.csv). Es el enfoque de mayor rendimiento para la carga incremental de los nuevos archivos. 
 
 Para ver instrucciones paso a paso, consulte el siguiente tutorial: <br/>
 - [Copia incremental de nuevos archivos según la carpeta con particiones de tiempo o el nombre de archivo desde Azure Blob Storage hasta Azure Blob Storage](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)

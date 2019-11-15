@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 40cdd0adf7bf100e1dbca64dbba68db3bc59a4fe
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331402"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583622"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configuración y administración del grupo de máquinas virtuales 
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -35,7 +35,7 @@ Para aumentar o disminuir la capacidad del laboratorio (número de máquinas vir
 3. Después, seleccione **Guardar**. 
 
     ![Botón Start all (Iniciar todas)](../media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
-4. Si aumentó la capacidad, puede ver cómo se crean la máquina virtual o las máquinas virtuales. 
+4. Si aumentó la capacidad, puede ver cómo se crean la máquina virtual o las máquinas virtuales. Si no ve la nueva máquina virtual en la lista, actualice la página. 
 
     ![Se está creando una máquina virtual](../media/how-to-set-virtual-machine-passwords/vm-being-created.png)
 
@@ -51,11 +51,13 @@ Para aumentar o disminuir la capacidad del laboratorio (número de máquinas vir
     ![Botón Stop all (Detener todas)](../media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png)
 
 ### <a name="start-selected-vms"></a>Inicio de máquinas virtuales seleccionadas
-Hay dos modos de iniciar máquinas virtuales seleccionadas (una o varias). El primer modo consiste en seleccionar la máquina o las máquinas virtuales de la lista y, a continuación, seleccione **Start** (Iniciar) en la barra de herramientas. El segundo modo consiste en seleccionar la máquina o las máquinas virtuales de la lista, seleccionar la lista desplegable de la columna **State** (Estado) de una de las filas y, a continuación, seleccionar **Start** (Iniciar). 
+Hay dos modos de iniciar máquinas virtuales seleccionadas (una o varias). El primer modo consiste en seleccionar la máquina o las máquinas virtuales de la lista y, a continuación, seleccione **Start** (Iniciar) en la barra de herramientas. 
+
+La segunda forma consiste en seleccionar una o más máquinas virtuales en la lista y alternar el botón de la columna **Estado**. 
 
 ![Inicio de máquinas virtuales seleccionadas](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
-Del mismo modo, puede detener una o más máquinas virtuales mediante la lista desplegable de la columna **State** (Estado) o **Stop** (Detener) en la barra de herramientas. 
+Del mismo modo, puede detener una o más máquinas virtuales si alterna el botón de la columna **Estado** o selecciona **Detener** en la barra de herramientas. 
 
 ## <a name="reset-vms"></a>Restablecimiento de las máquinas virtuales
 Para restablecer una o varias máquinas virtuales, selecciónelas en la lista y, a continuación, seleccione **Reset** (Restablecer) en la barra de herramientas. 
@@ -81,11 +83,19 @@ Mediante la habilitación/deshabilitación de la opción **Usar la misma contras
 ### <a name="reset-password-later"></a>Restablecimiento de contraseña más tarde
 
 1. En la página **Template** (Plantilla) del laboratorio, seleccione **Reset password** (Restablecer contraseña) en la barra de herramientas. 
-
-    ![Menú de restablecimiento de contraseña en la página principal](../media/how-to-set-virtual-machine-passwords/reset-password-menu-dashboard.png)
 1. En el cuadro de diálogo **Reset password** (Restablecer contraseña), escriba una contraseña y seleccione **Reset password** (Restablecer contraseña).
     
     ![Cuadro de diálogo Establecer contraseña](../media/how-to-set-virtual-machine-passwords/set-password.png)
+
+## <a name="connect-to-student-vms"></a>Conexión a máquinas virtuales de alumnos
+El creador del laboratorio (instructor o profesor) puede conectarse a la máquina virtual de un alumno si se cumplen las condiciones siguientes: 
+
+- Se ha seleccionado la opción **Use same password for all virtual machines** (Usar la misma contraseña para todas las máquinas virtuales) al crear el laboratorio
+- La máquina virtual se está ejecutando 
+
+ Para conectarse a la máquina virtual del alumno, mantenga el puntero sobre la máquina virtual en la lista y seleccione el botón de equipo.  
+
+![Botón de conexión a la máquina virtual de alumno](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para conocer otras opciones de uso de alumnos que (como propietario del laboratorio) puede configurar, consulte el artículo siguiente: [Configuración del uso de alumnos](how-to-configure-student-usage.md).

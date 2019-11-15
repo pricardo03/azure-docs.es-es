@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7b395bd6024beb52b9263ac4fe655b5328a8e662
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 555b4d95358978e84e14e8a2e8b3d1c9cb2efc18
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "70933154"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614599"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Tipos y características de Durable Functions (Azure Functions)
 
@@ -24,7 +24,7 @@ Actualmente existen cuatro tipos de Durable Functions en Azure Functions: acti
 
 ## <a name="orchestrator-functions"></a>Funciones de Orchestrator
 
-Las funciones de Orchestrator describen cómo se ejecutan las acciones y el orden en que se ejecutan las acciones. Las funciones del orquestador describen la orquestación en código (C# o JavaScript) como se muestra en [Patrones de aplicación de Durable Functions](durable-functions-overview.md#application-patterns). Una orquestación puede tener muchos tipos diferentes de acciones, como [funciones de actividad](#activity-functions), [suborquestaciones](durable-functions-orchestrations.md#sub-orchestrations), [espera por eventos externos](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-orchestrations.md#calling-http-endpoints) y [temporizadores](durable-functions-orchestrations.md#durable-timers). Las funciones de orquestador también pueden interactuar con las [funciones de entidad](#entity-functions).
+Las funciones de Orchestrator describen cómo se ejecutan las acciones y el orden en que se ejecutan las acciones. Las funciones del orquestador describen la orquestación en código (C# o JavaScript) como se muestra en [Patrones de aplicación de Durable Functions](durable-functions-overview.md#application-patterns). Una orquestación puede tener muchos tipos diferentes de acciones, como [funciones de actividad](#activity-functions), [suborquestaciones](durable-functions-orchestrations.md#sub-orchestrations), [espera por eventos externos](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-http-features.md) y [temporizadores](durable-functions-orchestrations.md#durable-timers). Las funciones de orquestador también pueden interactuar con las [funciones de entidad](#entity-functions).
 
 > [!NOTE]
 > Las funciones de orquestador se escriben con código normal, pero hay requisitos estrictos sobre cómo escribir el código. En concreto, el código de la función de orquestador debe ser *determinista*. Si no se siguen estos requisitos de determinismo, es posible que las funciones de orquestador no se ejecuten correctamente. Puede consultar información detallada sobre estos requisitos y cómo trabajar para cumplirlos en el tema relacionado con las [restricciones de código](durable-functions-code-constraints.md).
@@ -40,7 +40,7 @@ A diferencia de las funciones de orquestador, las funciones de actividad no tien
 > [!NOTE]
 > Dado que las funciones de actividad solo garantizan ejecutarse *al menos una vez*, se recomienda que la lógica de la función de actividad sea *idempotente* siempre que sea posible.
 
-Use un [desencadenador de actividad](durable-functions-bindings.md#activity-trigger) para definir una función de actividad. Las funciones .NET reciben [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como parámetro. También puede enlazar el desencadenador con cualquier otro objeto JSON serializable para pasar en entradas a la función. En JavaScript, puede acceder a la entrada mediante la propiedad `<activity trigger binding name>` del [objeto `context.bindings`](../functions-reference-node.md#bindings). Solo es posible pasar un único valor a las funciones de actividad. Para pasar varios valores, debe utilizar tuplas, matrices o tipos complejos.
+Use un [desencadenador de actividad](durable-functions-bindings.md#activity-trigger) para definir una función de actividad. Las funciones de .NET reciben `DurableActivityContext` como parámetro. También puede enlazar el desencadenador con cualquier otro objeto JSON serializable para pasar en entradas a la función. En JavaScript, puede acceder a la entrada mediante la propiedad `<activity trigger binding name>` del [objeto `context.bindings`](../functions-reference-node.md#bindings). Solo es posible pasar un único valor a las funciones de actividad. Para pasar varios valores, debe utilizar tuplas, matrices o tipos complejos.
 
 > [!NOTE]
 > Solo es posible desencadenar una función de actividad desde una función de orquestador.
@@ -50,7 +50,7 @@ Use un [desencadenador de actividad](durable-functions-bindings.md#activity-trig
 Las funciones de entidad definen las operaciones de lectura y actualización de pequeños fragmentos de estado. A menudo, hacemos referencia a estas entidades con estado como *entidades duraderas*. Al igual que las funciones de orquestador, las de entidad son funciones con un tipo especial de desencadenador, el *desencadenador de entidad*. También se pueden invocar desde funciones de cliente o desde funciones de orquestador. A diferencia de las funciones de orquestador, las funciones de entidad no tienen restricciones de código específicas. Las funciones de entidad también administran el estado de forma explícita, en lugar de representarlo de forma implícita a través del flujo de control.
 
 > [!NOTE]
-> Las funciones de entidad y la funcionalidad relacionada solo están disponibles en Durable Functions 2.0 y versiones superiores. Las funciones de entidad están actualmente en versión preliminar pública.
+> Las funciones de entidad y la funcionalidad relacionada solo están disponibles en Durable Functions 2.0 y versiones superiores.
 
 Para obtener más información sobre las funciones de entidad, consulte el artículo sobre [entidades duraderas](durable-functions-entities.md).
 

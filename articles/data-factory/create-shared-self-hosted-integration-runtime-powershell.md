@@ -1,5 +1,5 @@
 ---
-title: Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory con PowerShell | Microsoft Docs
+title: Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory
 description: Aprenda a crear un entorno de ejecución de integración autohospedado compartido en Azure Data Factory, para que varias factorías de datos puedan obtener acceso al entorno de ejecución de integración.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,47 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: f038510c20e70c9d6b9dc8e396d9a15beb7270ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcda60863f78dd338bbfc64c1679561262c554a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155153"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677053"
 ---
-# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory con PowerShell
+# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory
 
-En esta guía paso a paso le mostraremos cómo crear un entorno de ejecución de integración autohospedado compartido en Azure Data Factory mediante Azure PowerShell. A continuación, puede usar el tiempo de ejecución de integración autohospedado compartido en otra factoría de datos. En este tutorial, realizará los siguientes pasos: 
+En esta guía se muestra cómo crear un entorno de ejecución de integración autohospedado compartido en Azure Data Factory. A continuación, puede usar el tiempo de ejecución de integración autohospedado compartido en otra factoría de datos.
 
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Creación de un IR autohospedado compartido mediante la interfaz de usuario de Azure Data Factory
+
+Para crear un entorno de ejecución de integración autohospedado compartido mediante la interfaz de usuario de Azure Data Factory, puede llevar a cabo los siguientes pasos:
+
+1. En el IR autohospedado que se va a compartir, conceda permiso a la factoría de datos en la que desea crear el entorno de ejecución de integración vinculado.
+      
+    ![El botón para conceder el permiso en la pestaña Compartir](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
+      
+    ![Selecciones para asignar permisos](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    
+2. Anote el identificador de recurso del IR autohospedado que se va a compartir.
+      
+   ![Ubicación del identificador de recurso](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
+    
+3. En la factoría de datos en la que se concedieron los permisos, cree un nuevo IR autohospedado (vinculado) y escriba el identificador de recurso.
+      
+   ![Botón para crear un entorno de ejecución de integración autohospedado vinculado](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
+      
+    ![Cuadros para nombre y el identificador de recurso](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+
+## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Creación de un IR autohospedado compartido mediante Azure PowerShell
+
+Para crear un entorno de ejecución de integración autohospedado compartido mediante Azure PowerShell, puede llevar a cabo los siguientes pasos: 
 1. Creación de una factoría de datos. 
 1. Cree una instancia de Integration Runtime autohospedada.
 1. Comparta el entorno de ejecución de integración autohospedado con otras factorías de datos.
 1. Cree un entorno de ejecución de integración vinculado.
 1. Revoque el uso compartido.
 
-## <a name="prerequisites"></a>Requisitos previos 
+### <a name="prerequisites"></a>Requisitos previos 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -39,7 +62,7 @@ En esta guía paso a paso le mostraremos cómo crear un entorno de ejecución de
 > [!NOTE]  
 > Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
-## <a name="create-a-data-factory"></a>Crear una factoría de datos
+### <a name="create-a-data-factory"></a>Crear una factoría de datos
 
 1. Inicie Windows PowerShell Integrated Scripting Environment (ISE).
 
@@ -90,7 +113,7 @@ En esta guía paso a paso le mostraremos cómo crear un entorno de ejecución de
                              -Name $SharedDataFactoryName
     ```
 
-## <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
+### <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
 
 > [!NOTE]  
 > Este paso es opcional. Si ya tiene el entorno de ejecución de integración autohospedado que quiere compartir con otras factorías de datos, omita este paso.
@@ -106,7 +129,7 @@ $SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
     -Description $SharedIntegrationRuntimeDescription
 ```
 
-### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>Obtención de la clave de autenticación del entorno de ejecución de integración y registro de un nodo
+#### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>Obtención de la clave de autenticación del entorno de ejecución de integración y registro de un nodo
 
 Ejecute el siguiente comando para obtener la clave de autenticación para el entorno de ejecución de integración autohospedado:
 
@@ -119,7 +142,7 @@ Get-AzDataFactoryV2IntegrationRuntimeKey `
 
 La respuesta contiene la clave de autenticación para este entorno de ejecución de integración autohospedado. Esta clave se usa al registrar el nodo del entorno de ejecución de integración.
 
-### <a name="install-and-register-the-self-hosted-integration-runtime"></a>Instalación y registro del entorno de ejecución de integración autohospedado
+#### <a name="install-and-register-the-self-hosted-integration-runtime"></a>Instalación y registro del entorno de ejecución de integración autohospedado
 
 1. Descargue el programa de instalación del entorno de ejecución de integración autohospedado desde [Azure Data Factory Integration Runtime](https://aka.ms/dmg) (Entorno de ejecución de integración de Azure Data Factory).
 
@@ -127,9 +150,9 @@ La respuesta contiene la clave de autenticación para este entorno de ejecución
 
 3. Registre la nueva integración autohospedada con la clave de autenticación que obtuvo en el paso anterior.
 
-## <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>Uso compartido del entorno de ejecución de integración autohospedado con otra factoría de datos
+### <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>Uso compartido del entorno de ejecución de integración autohospedado con otra factoría de datos
 
-### <a name="create-another-data-factory"></a>Creación de otra factoría de datos
+#### <a name="create-another-data-factory"></a>Creación de otra factoría de datos
 
 > [!NOTE]  
 > Este paso es opcional. Si ya dispone de la factoría de datos con la que quiere compartir contenido, omita este paso.
@@ -139,7 +162,7 @@ $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
-### <a name="grant-permission"></a>Concesión de permiso
+#### <a name="grant-permission"></a>Concesión de permiso
 
 Conceda permiso a la factoría de datos que necesite obtener acceso al entorno de ejecución de integración autohospedado que creó y registró.
 
@@ -153,7 +176,7 @@ New-AzRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-## <a name="create-a-linked-self-hosted-integration-runtime"></a>Creación de un entorno de ejecución de integración autohospedado vinculado
+### <a name="create-a-linked-self-hosted-integration-runtime"></a>Creación de un entorno de ejecución de integración autohospedado vinculado
 
 Ejecute el siguiente comando para crear un entorno de ejecución de integración autohospedado vinculado:
 
@@ -169,7 +192,7 @@ Set-AzDataFactoryV2IntegrationRuntime `
 
 Ahora puede usar este entorno de ejecución de integración vinculado en cualquier servicio vinculado. El entorno de ejecución de integración vinculado usa el entorno de ejecución de integración compartido para ejecutar actividades.
 
-## <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Revocación del uso compartido de un entorno de ejecución de integración de una factoría de datos
+### <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Revocación del uso compartido de un entorno de ejecución de integración de una factoría de datos
 
 Para revocar el acceso de una factoría de datos a un entorno de ejecución de integración compartido, ejecute el comando siguiente:
 
@@ -191,7 +214,7 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 
 - Revise los [conceptos del entorno de ejecución de integración en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
 

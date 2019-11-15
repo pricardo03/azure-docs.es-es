@@ -1,6 +1,6 @@
 ---
 title: 'Introducción al acelerador de soluciones de mantenimiento predictivo: Azure | Microsoft Docs'
-description: Una introducción al acelerador de soluciones de mantenimiento predictivo de Azure IoT.
+description: Información general sobre el acelerador de soluciones de mantenimiento predictivo de IoT de Azure que predice el punto en el que es probable que se produzca un error en un escenario empresarial.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 3387996dc0e1953eaafee9c4c61eb8faa865b654
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0661503dce7ac2707065f60c3952da866ce9dcf3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447535"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827416"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Introducción al acelerador de soluciones de mantenimiento predictivo
 
@@ -31,7 +31,7 @@ Los elementos de color azul son servicios de Azure que se aprovisionan en la reg
 
 El elemento verde es un motor de avión simulado. Más información acerca de estos dispositivos simulados en la sección [Dispositivos simulados](#simulated-devices).
 
-Los elementos de color gris son los componentes que implementan funcionalidades de *administración de dispositivos*. La versión actual del acelerador de soluciones de mantenimiento predictivo no aprovisiona estos recursos. Para obtener más información sobre la administración de dispositivos, consulte la [Acelerador de la solución de supervisión remota][lnk-remote-monitoring].
+Los elementos de color gris son los componentes que implementan funcionalidades de *administración de dispositivos*. La versión actual del acelerador de soluciones de mantenimiento predictivo no aprovisiona estos recursos. Para obtener más información sobre la administración de dispositivos, consulte [Acelerador de la solución de supervisión remota][lnk-remote-monitoring].
 
 ## <a name="azure-resources"></a>Recursos de Azure
 
@@ -39,7 +39,7 @@ En el Portal de Azure, desplácese al grupo de recursos con el nombre de la solu
 
 ![Recursos de acelerador][img-resource-group]
 
-Al aprovisionar el acelerador de soluciones, recibirá un mensaje de correo electrónico con un vínculo al área de trabajo de Machine Learning. También puede desplazarse al área de trabajo de Machine Learning desde la página de [aceleradores de soluciones de Microsoft Azure IoT][lnk-azureiotsolutions]. Hay un icono disponible en esta página cuando la solución se encuentra en el estado **Listo**.
+Al aprovisionar el acelerador de soluciones, recibirá un mensaje de correo electrónico con un vínculo al área de trabajo de Machine Learning. También puede desplazarse al área de trabajo de Machine Learning desde la página de [aceleradores de soluciones de Microsoft Azure IoT][lnk-azureiotsolutions]. Hay un icono disponible en esta página cuando la solución se encuentra en el estado **Listo**.
 
 ![Modelo de Machine Learning][img-machine-learning]
 
@@ -49,7 +49,7 @@ En el acelerador de soluciones, un dispositivo simulado es un motor de avión. L
 
 *Recuento de ciclos*. Un ciclo es un vuelo completo con una duración de entre dos y diez horas. Durante el vuelo, se capturan datos de telemetría cada media hora.
 
-*Telemetría*. Existen cuatro sensores que registran los atributos de motor. Los sensores se etiquetan genéricamente Sensor 9, Sensor 11, Sensor 14 y Sensor 15. Estos cuatro sensores envían la telemetría suficiente para obtener resultados útiles en el modelo de RUL. El modelo usado en el acelerador de soluciones se crea a partir de un conjunto de datos público que incluye datos reales del sensor del motor. Para más información sobre cómo se creó el modelo del conjunto de datos original, consulte [Predictive Maintenance Template (Plantilla de mantenimiento predictivo) en la Galería de Cortana Intelligence][lnk-cortana-analytics].
+*Telemetría*. Existen cuatro sensores que registran los atributos de motor. Los sensores se etiquetan genéricamente Sensor 9, Sensor 11, Sensor 14 y Sensor 15. Estos cuatro sensores envían la telemetría suficiente para obtener resultados útiles en el modelo de RUL. El modelo usado en el acelerador de soluciones se crea a partir de un conjunto de datos público que incluye datos reales del sensor del motor. Para más información sobre cómo se creó el modelo del conjunto de datos original, consulte la [plantilla de mantenimiento predictivo en Azure AI Gallery][lnk-cortana-analytics].
 
 Los dispositivos simulados también pueden controlar los siguientes comandos enviados desde el centro de IoT en la solución:
 
@@ -73,7 +73,7 @@ El **host de procesador de eventos** se ejecuta en un trabajo web de Azure. El *
 ## <a name="machine-learning"></a>Machine Learning
 El componente de Machine Learning usa un modelo que se deriva de los datos recopilados de los motores de avión reales. Puede navegar al área de trabajo de Machine Learning desde el icono de solución de la página [azureiotsolutions.com][lnk-azureiotsolutions]. El icono está disponible cuando la solución se encuentra en el estado **Listo**.
 
-El modelo de Machine Learning está disponible como una plantilla que muestra cómo trabajar con la telemetría recopilada mediante los servicios de aceleradores de soluciones de IoT. Microsoft ha creado un [modelo de regresión][lnk_regression_model] de un motor de avión basado en datos disponibles públicamente<sup>\[1\]</sup>, e instrucciones paso a paso sobre cómo utilizar dicho modelo.
+El modelo de Machine Learning está disponible como una plantilla que muestra cómo trabajar con la telemetría recopilada mediante los servicios de aceleradores de soluciones de IoT. Microsoft ha creado un [modelo de regresión][lnk_regression_model] de un motor de avión basado en datos disponibles públicamente<sup>\[1\]</sup>, e instrucciones paso a paso sobre cómo usar dicho modelo.
 
 El acelerador de soluciones de mantenimiento predictivo de IoT de Azure usa el modelo de regresión creado a partir de esta plantilla. El modelo se implementa en la suscripción de Azure y se expone mediante una API generada automáticamente. La solución incluye un subconjunto de los datos de prueba para 4 motores (de un total de 100) y 4 flujos de datos de sensor (de un total de 21). Estos datos son suficientes para proporcionar un resultado preciso del modelo entrenado.
 
@@ -84,7 +84,7 @@ Ahora que ha visto los componentes clave del acelerador de soluciones de manteni
 
 También puede explorar algunas de las demás características de los aceleradores de soluciones de IoT:
 
-* [Preguntas más frecuentes acerca de los aceleradores de la solución de IoT][lnk-faq]
+* [Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT][lnk-faq]
 * [Seguridad de Internet de las cosas desde el principio][lnk-security-groundup]
 
 [img-architecture]: media/iot-accelerators-predictive-walkthrough/architecture.png

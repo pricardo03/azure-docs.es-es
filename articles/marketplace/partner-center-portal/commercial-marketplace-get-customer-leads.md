@@ -4,15 +4,16 @@ description: Configure clientes potenciales en Marketplace comercial.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: 31dcc8c1e35b627b231dbe2a62998c8514d05a20
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7ead8dee12d4376e6e1058b84a25b91c021a937c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901544"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812640"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Clientes potenciales a partir de la oferta de Marketplace
 
@@ -104,7 +105,7 @@ La respuesta depende del tipo de oferta que se publique. Las ofertas de SaaS y D
 
 ### <a name="how-can-i-find-the-test-lead"></a>¿Cómo puedo encontrar al cliente potencial de prueba?
 
-Busque `“MSFT_TEST”` en el destino de clientes potenciales; a continuación, le mostramos un ejemplo de cliente potencial de prueba de Microsoft:
+Busque `"MSFT_TEST"` en el destino de clientes potenciales; a continuación, le mostramos un ejemplo de cliente potencial de prueba de Microsoft:
 
 ```
 company = MSFT_TEST_636573304831318844

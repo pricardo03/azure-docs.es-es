@@ -1,6 +1,6 @@
 ---
-title: 'Registro para el autoservicio de restablecimiento de contraseña: Azure Active Directory | Microsoft Docs'
-description: Registro de datos de autenticación de autoservicio de restablecimiento de contraseña de Azure AD
+title: 'Registro para llevar a cabo el restablecimiento de la contraseña: Azure AD'
+description: Registre sus datos de autenticación para el autoservicio de restablecimiento de contraseña de Azure AD, para que pueda restablecer su propia contraseña sin la ayuda del administrador.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f113c42ff45811f31eb77a92873fb187dd51ea6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 796702b2189dcfb001f72913e4a01c0ae01462ad
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530887"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820447"
 ---
-# <a name="register-for-self-service-password-reset"></a>Registro para el autoservicio de restablecimiento de contraseñas
+# <a name="register-to-reset-your-own-password"></a>Registro para llevar a cabo el restablecimiento de la contraseña
 
 > [!IMPORTANT]
 > ¿Está aquí porque no puede iniciar sesión? Si es así, consulte [Restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md).

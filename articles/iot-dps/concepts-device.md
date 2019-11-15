@@ -3,17 +3,17 @@ title: Conceptos de dispositivos en el servicio Azure Device Provisioning | Micr
 description: Describe conceptos del aprovisionamiento de dispositivos específicos de los dispositivos con el servicio Device Provisioning e IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 8ea1be02dee0e0ef00010e8ac7a4dfb75eadbe96
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 0e3557588281cd392a7a8a1c2654f10e8387dd83
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173386"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720534"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceptos de dispositivos del servicio IoT Hub Device Provisioning
 
@@ -44,14 +44,14 @@ Los secretos de dispositivo también pueden almacenarse con software (en memoria
 
 ## <a name="registration-id"></a>Identificador de registro
 
-El identificador de registro se usa para identificar de forma única un dispositivo en el servicio Device Provisioning. El identificador de registro debe ser único en el [ámbito del identificador](#id-scope) del servicio de aprovisionamiento. Cada dispositivo debe tener un identificador de registro. El identificador de registro está formado por caracteres alfanuméricos y en minúscula, y puede contener guiones.
+El identificador de registro se usa para identificar de forma única un dispositivo en el servicio Device Provisioning. El identificador de dispositivo debe ser único en el [ámbito del identificador](#id-scope) del servicio de aprovisionamiento. Cada dispositivo debe tener un identificador de registro. El identificador de registro es alfanumérico, no distingue mayúsculas de minúsculas y puede contener caracteres especiales, como dos puntos, punto final, guión bajo y guión.
 
 * En el caso del módulo de plataforma segura, el propio módulo proporciona el identificador de registro.
 * En el caso de la atestación basada en X.509, el identificador de registro se proporciona como el nombre del sujeto del certificado.
 
 ## <a name="device-id"></a>Id. de dispositivo
 
-El identificador de dispositivo es el mismo que aparece en IoT Hub. El identificador de dispositivo deseado puede establecerse en la entrada de inscripción, pero no es necesario establecerlo. Si no se especifica ningún identificador de dispositivo deseado en la lista de inscripción, el identificador de registro se utiliza como identificador de dispositivo al registrar el dispositivo. Más información sobre [identificadores de dispositivo en IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
+El identificador de dispositivo es el mismo que aparece en IoT Hub. El identificador de dispositivo deseado puede establecerse en la entrada de inscripción, pero no es necesario establecerlo. Solo se admite el establecimiento del identificador de dispositivo elegido en inscripciones individuales. Si no se especifica ningún identificador de dispositivo deseado en la lista de inscripción, el identificador de registro se utiliza como identificador de dispositivo al registrar el dispositivo. Más información sobre [identificadores de dispositivo en IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 
 ## <a name="id-scope"></a>Ámbito de identificador
 

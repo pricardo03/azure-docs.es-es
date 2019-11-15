@@ -8,16 +8,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: df93405940c02affa224fba2d2e6f07ce5278b15
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bcdc6633980ec3684217c8c19b4799befe2af3a3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755378"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576869"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
-En el mundo de los microservicios, todas las operaciones lógicas requieren que el trabajo se realice en diversos componentes del servicio. Cada uno de estos componentes puede supervisarse por separado mediante [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). El componente de la aplicación web se comunica con el componente del proveedor de autenticación para validar las credenciales de usuario y con el componente de API para obtener datos y poder verlos. El componente de API puede consultar datos de otros servicios y usar los componentes del proveedor de caché para informar al componente de facturación sobre esta llamada. Application Insights admite la correlación de telemetría distribuida, que se usa para detectar el componente que es responsable de los errores o de una degradación del rendimiento.
+En el mundo de los microservicios, todas las operaciones lógicas requieren que el trabajo se realice en diversos componentes del servicio. Cada uno de estos componentes puede supervisarse por separado mediante [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights admite la correlación de telemetría distribuida, que se usa para detectar el componente que es responsable de los errores o de una degradación del rendimiento.
 
 Este artículo explica el modelo de datos utilizado por Application Insights para poner en correlación la telemetría enviada por varios componentes. También se explican los protocolos y las técnicas de propagación contextual, así como los conceptos de correlación en distintos lenguajes y plataformas.
 
@@ -221,7 +221,7 @@ OpenCensus Python sigue las especificaciones del modelo de datos `OpenTracing` d
 
 ### <a name="incoming-request-correlation"></a>Correlación de las solicitudes entrantes
 
-OpenCensus Python correlaciona los encabezados de contexto de seguimiento de W3C de las solicitudes entrantes a los intervalos que se generan a partir de las solicitudes. OpenCensus lo hará automáticamente con integraciones para marcos de aplicaciones web populares, como `flask`, `django` y `pyramid`. Los encabezados de contexto de seguimiento de W3C simplemente deben rellenarse con el [formato correcto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) y enviarse con la solicitud. A continuación se muestra una aplicación de un ejemplo `flask` que muestra esto.
+OpenCensus Python correlaciona los encabezados de contexto de seguimiento de W3C de las solicitudes entrantes a los intervalos que se generan a partir de las solicitudes. OpenCensus lo hace automáticamente con integraciones para los siguientes marcos de aplicaciones web populares, como `flask`, `django` y `pyramid`. Los encabezados de contexto de seguimiento de W3C simplemente deben rellenarse con el [formato correcto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) y enviarse con la solicitud. A continuación se muestra una aplicación de un ejemplo `flask` que muestra esto.
 
 ```python
 from flask import Flask
@@ -253,7 +253,7 @@ Al examinar el [formato de encabezado de contexto de seguimiento](https://www.w3
 `parent-id/span-id`: `00f067aa0ba902b7`
 `trace-flags`: `01`
 
-Si echamos un vistazo a la entrada de solicitud que se envió a Azure Monitor, podemos ver los campos rellenados con la información de encabezado de seguimiento.
+Si echamos un vistazo a la entrada de solicitud que se envió a Azure Monitor, podemos ver los campos rellenados con la información de encabezado de seguimiento. Puede encontrar estos datos en Registros (Analytics) en el recurso Application Insights de Azure Monitor.
 
 ![Captura de pantalla de los datos de telemetría de solicitudes en Logs Analytics, con los campos de encabezado de seguimiento resaltados en el cuadro rojo](./media/opencensus-python/0011-correlation.png)
 
@@ -290,6 +290,8 @@ Cuando se ejecuta este código, se obtiene lo siguiente en la consola:
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
 Observe cómo hay un identificador spanId presente para el mensaje de registro que se encuentra dentro del intervalo, que es el mismo spanId que pertenece al intervalo denominado `hello`.
+
+Puede exportar los datos de registro mediante `AzureLogHandler`. Puede encontrar más información [aquí](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs)
 
 ## <a name="telemetry-correlation-in-net"></a>Correlación de telemetría en .NET
 
@@ -332,25 +334,22 @@ Para establecer la correlación de la telemetría en la aplicación asincrónica
 
 Es posible que, en ocasiones, quiera personalizar el modo en que los nombres de los componentes aparecen en el [mapa de aplicación](../../azure-monitor/app/app-map.md). Para ello, puede establecer manualmente el valor de `cloud_RoleName` a través de uno de los siguientes mecanismos:
 
+- A partir del SDK de Java 2.5.0 para Application Insights, puede especificar el nombre del rol en la nube si agrega `<RoleName>` al archivo `ApplicationInsights.xml`, por ejemplo,
+
+  ```XML
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+     <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+     <RoleName>** Your role name **</RoleName>
+     ...
+  </ApplicationInsights>
+  ```
+
 - Si usa Spring Boot con el iniciador de Spring Boot de Application Insights, el único cambio necesario es establecer el nombre personalizado para la aplicación en el archivo application.properties.
 
   `spring.application.name=<name-of-app>`
 
   El código de inicio de Spring Boot asigna automáticamente `cloudRoleName` al valor que se especifica para la propiedad `spring.application.name`.
-
-- Si usa `WebRequestTrackingFilter`, `WebAppNameContextInitializer` establecerá automáticamente el nombre de la aplicación. Agregue lo siguiente al archivo de configuración (ApplicationInsights.xml):
-
-  ```XML
-  <ContextInitializers>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
-  </ContextInitializers>
-  ```
-
-- Si utiliza la clase de contexto en la nube:
-
-  ```Java
-  telemetryClient.getContext().getCloud().setRole("My Component Name");
-  ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Recuperación de base de datos acelerada: Azure SQL Database | Microsoft Docs'
+title: Recuperación de base de datos acelerada
 description: Azure SQL Database tiene una nueva característica que proporciona recuperación de bases de datos rápida y coherente, reversión de transacción instantánea y truncamiento de registros agresivo para bases de datos únicas y bases de datos agrupadas de Azure SQL Database, y bases de datos de Azure SQL Data Warehouse.
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,12 +10,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: d516dc51a25cbef92ff9fa22012773507b528a99
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eff81693ff4c34dc00f66e9e5ea22e56d3ff9d77
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569620"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808085"
 ---
 # <a name="accelerated-database-recovery"></a>Recuperación de base de datos acelerada
 
@@ -99,11 +99,11 @@ Los cuatro componentes clave de ADR son:
 
 - **Reversión lógica**
 
-  La reversión lógica es el proceso asincrónico responsable de realizar la reversión basada en la versión de nivel de fila, lo que proporciona una reversión de transacción instantánea y deshace todas las operaciones con control de versiones.
+  La reversión lógica es el proceso asincrónico responsable de realizar la reversión basada en la versión de nivel de fila, lo que proporciona una reversión de transacción instantánea y deshace todas las operaciones con control de versiones. La reversión lógica se logra al:
 
-  - Realiza un seguimiento de todas las transacciones anuladas
-  - Realiza la reversión mediante PVS de todas las transacciones de usuario
-  - Libera todos los bloqueos inmediatamente después de la anulación de transacciones
+  - Realizar el seguimiento de todas las transacciones anuladas y marcarlas como invisibles para otras transacciones. 
+  - Revertir mediante PVS para todas las transacciones de usuario, en lugar de examinar físicamente el registro de transacciones y deshacer los cambios de uno en uno.
+  - Liberar todos los bloqueos inmediatamente después de la anulación de transacciones. Dado que la anulación implica simplemente marcar los cambios en memoria, el proceso es muy eficaz y, por tanto, no es necesario mantener los bloqueos durante mucho tiempo.
 
 - **sLog**
 

@@ -1,6 +1,6 @@
 ---
-title: Inserción de datos en un índice de Search mediante Data Factory | Microsoft Docs
-description: Obtenga información sobre cómo insertar datos en un índice de Azure Search mediante el uso de Azure Data Factory.
+title: Inserción de datos en un índice de Azure Cognitive Search mediante Data Factory
+description: Obtenga información sobre cómo insertar datos en un índice de Azure Cognitive Search mediante el uso de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 30a5bc9c5f0b7d1443e7ca2a16d9f0e0d1120dd8
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: da867ae62ce4480c5d5854ae3f28ad258421905d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836626"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809170"
 ---
-# <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Inserción de datos en un índice de Azure Search mediante el uso de Azure Data Factory
+# <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Inserción de datos en un índice de Azure Cognitive Search mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-azure-search-connector.md)
 > * [Versión 2 (versión actual)](../connector-azure-search.md)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el artículo sobre el [conector de Azure Search en V2](../connector-azure-search.md).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el artículo sobre el [conector de Azure Cognitive Search en V2](../connector-azure-search.md).
 
-Este artículo describe cómo usar la actividad de copia para insertar datos de un almacén de datos de origen admitido en un índice de Azure Search. Los almacenes de datos de origen compatibles se muestran en la columna Se admite como origen de la tabla de [almacenes de datos y receptores que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Este artículo se basa en el artículo sobre [movimiento de datos y actividad de copia](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones de almacén de datos admitidas.
+Este artículo describe cómo usar la actividad de copia para insertar datos de un almacén de datos de origen admitido en un índice de Azure Cognitive Search. Los almacenes de datos de origen compatibles se muestran en la columna Se admite como origen de la tabla de [almacenes de datos y receptores que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Este artículo se basa en el artículo sobre [movimiento de datos y actividad de copia](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones de almacén de datos admitidas.
 
 ## <a name="enabling-connectivity"></a>Habilitación de la conectividad
 Para que el servicio Data Factory pueda conectarse con un almacén de datos local, instale la puerta de enlace de administración de datos en el entorno local. No podrá instalar la puerta de enlace en la misma máquina que hospeda el almacén de datos de origen ni en una independiente para evitar la competencia por los recursos con el almacén de datos.
@@ -36,7 +36,7 @@ Para que el servicio Data Factory pueda conectarse con un almacén de datos loca
 La puerta de enlace de administración de datos conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con una actividad de copia que inserte datos de un almacén de datos de origen en un índice de Azure Search mediante el uso de distintas herramientas o API.
+Puede crear una canalización con una actividad de copia que inserte datos de un almacén de datos de origen en un índice de búsqueda mediante el uso de distintas herramientas o API.
 
 La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
@@ -48,19 +48,19 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia.
 3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida.
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos al índice de Azure Search, consulte la sección [Ejemplo JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Search](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) de este artículo.
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos al índice de búsqueda, consulte la sección [Ejemplo JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Cognitive Search](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) de este artículo.
 
-Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de índices de Azure Search:
+Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de índices de búsqueda:
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
-En la tabla siguiente se proporcionan descripciones de los elementos JSON específicos del servicio vinculado de Azure Search.
+En la tabla siguiente se proporcionan descripciones de los elementos JSON específicos del servicio vinculado de Azure Cognitive Search.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
 | type | La propiedad type debe establecerse en: **AzureSearch**. | Sí |
-| url | La URL del servicio Azure Search. | Sí |
-| key | La clave de administración del servicio Azure Search. | Sí |
+| url | URL del servicio de búsqueda. | Sí |
+| key | Clave de administración del servicio de búsqueda. | Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
@@ -68,8 +68,8 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| Tipo | La propiedad type debe establecerse en **AzureSearchIndex**.| Sí |
-| indexName | Nombre del índice de Azure Search. Data Factory no crea el índice. El índice debe existir en Azure Search. | Sí |
+| type | La propiedad type debe establecerse en **AzureSearchIndex**.| Sí |
+| indexName | Nombre del índice de búsqueda. Data Factory no crea el índice. El índice debe existir en Azure Cognitive Search. | Sí |
 
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
@@ -80,10 +80,10 @@ En la actividad de copia, si el receptor es de tipo **AzureSearchIndexSink**, es
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Especifica si, cuando ya haya un documento en el índice, se realizará una operación de combinación o de reemplazo. Consulte la propiedad [WriteBehavior](#writebehavior-property).| Combinar (predeterminado)<br/>Cargar| Sin |
-| WriteBatchSize | Carga datos en el índice de Azure Search cuando el tamaño del búfer alcanza el valor de WriteBatchSize. Consulte la propiedad [WriteBatchSize](#writebatchsize-property) para obtener más información. | De 1 a 1000. El valor predeterminado es 1000. | Sin |
+| WriteBatchSize | Carga datos en el índice de búsqueda cuando el tamaño del búfer alcanza el valor de writeBatchSize. Consulte la propiedad [WriteBatchSize](#writebatchsize-property) para obtener más información. | De 1 a 1000. El valor predeterminado es 1000. | Sin |
 
 ### <a name="writebehavior-property"></a>Propiedad WriteBehavior
-AzureSearchSink realiza una operación upsert al escribir los datos. Es decir, al crear un documento, si la clave de este ya se encuentra en el índice de Azure Search, este servicio actualiza el documento existente en lugar de generar una excepción de conflicto.
+AzureSearchSink realiza una operación upsert al escribir los datos. Es decir, al crear un documento, si la clave de este ya se encuentra en el índice de búsqueda, Azure Cognitive Search actualiza el documento existente en lugar de generar una excepción de conflicto.
 
 AzureSearchSink proporciona los siguientes dos comportamientos de upsert (mediante el SDK de Azure Search):
 
@@ -93,12 +93,12 @@ AzureSearchSink proporciona los siguientes dos comportamientos de upsert (median
 El comportamiento predeterminado es **Combinar**.
 
 ### <a name="writebatchsize-property"></a>Propiedad WriteBatchSize
-Azure Search puede crear documentos como lotes. Un lote puede contener entre 1 y 1000 acciones. Una acción controla un documento para llevar a cabo la operación de combinación o de carga.
+El servicio Azure Cognitive Search permite la creación de documentos como lotes. Un lote puede contener entre 1 y 1000 acciones. Una acción controla un documento para llevar a cabo la operación de combinación o de carga.
 
 ### <a name="data-type-support"></a>Compatibilidad con los tipos de datos
-En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure Search.
+En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure Cognitive Search.
 
-| Tipo de datos de Azure Search | Compatible con el receptor de Azure Search |
+| Tipo de datos de Azure Cognitive Search | Compatible con el receptor de Azure Cognitive Search |
 | ---------------------- | ------------------------------ |
 | Cadena | Y |
 | Int32 | Y |
@@ -109,7 +109,7 @@ En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure 
 | Matriz de cadenas | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Ejemplo JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Search
+## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index"></a>Ejemplo JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Cognitive Search
 
 El ejemplo siguiente muestra:
 
@@ -119,11 +119,11 @@ El ejemplo siguiente muestra:
 4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureSearchIndex](#dataset-properties).
 4. Una [canalización](data-factory-create-pipelines.md) con una actividad de copia que usa [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) y [AzureSearchIndexSink](#copy-activity-properties).
 
-En el ejemplo se copian datos de serie temporal de una base de datos de SQL Server local a un índice de Azure Search cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de ellos.
+En el ejemplo se copian datos de serie temporal de una base de datos de SQL Server local a un índice de búsqueda cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de ellos.
 
 En primer lugar, configure la puerta de enlace de administración de datos en la máquina local. Las instrucciones se encuentran en el artículo sobre cómo [mover datos entre ubicaciones locales y en la nube](data-factory-move-data-between-onprem-and-cloud.md) .
 
-**Servicio vinculado de Azure Search**:
+**Servicio vinculado de Azure Cognitive Search:**
 
 ```JSON
 {
@@ -184,9 +184,9 @@ Si se establece external: true, se informa al servicio Data Factory de que el co
 }
 ```
 
-**Conjunto de datos de salida Azure Search**:
+**Conjunto de datos de salida Azure Cognitive Search:**
 
-En el ejemplo se copian los datos a un índice de Azure Search denominado "**products**". Data Factory no crea el índice. Para probar el ejemplo, cree un índice con este nombre. Cree el índice de Azure Search con el mismo número de columnas que el conjunto de datos de entrada. Las nuevas entradas se agregan al índice de Azure Search cada hora.
+En el ejemplo se copian los datos a un índice de Azure Cognitive Search denominado "**products**". Data Factory no crea el índice. Para probar el ejemplo, cree un índice con este nombre. Cree el índice de búsqueda con el mismo número de columnas que el conjunto de datos de entrada. Las nuevas entradas se agregan al índice de búsqueda cada hora.
 
 ```JSON
 {
@@ -205,7 +205,7 @@ En el ejemplo se copian los datos a un índice de Azure Search denominado "**pro
 }
 ```
 
-**Actividad de copia en una canalización con origen SQL y receptor de índice de Azure Search:**
+**Actividad de copia en una canalización con origen SQL y receptor de índice de Azure Cognitive Search:**
 
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición JSON de la canalización, el tipo **source** se establece en **SqlSource**, y el tipo **sink**, en **AzureSearchIndexSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
 
@@ -256,7 +256,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 }
 ```
 
-Si va a copiar datos desde un almacén de datos en la nube a Azure Search, la propiedad `executionLocation` es obligatoria. El siguiente fragmento de código JSON muestra el cambio necesario en la actividad de copia `typeProperties` como ejemplo. Comprobar [copiar datos entre almacenes de datos en la nube](data-factory-data-movement-activities.md#global) para obtener más detalles y los valores admitidos.
+Si va a copiar datos desde un almacén de datos en la nube a Azure Cognitive Search, la propiedad `executionLocation` es obligatoria. El siguiente fragmento de código JSON muestra el cambio necesario en la actividad de copia `typeProperties` como ejemplo. Comprobar [copiar datos entre almacenes de datos en la nube](data-factory-data-movement-activities.md#global) para obtener más detalles y los valores admitidos.
 
 ```JSON
 "typeProperties": {
@@ -272,7 +272,7 @@ Si va a copiar datos desde un almacén de datos en la nube a Azure Search, la pr
 
 
 ## <a name="copy-from-a-cloud-source"></a>Copia desde un origen en la nube
-Si va a copiar datos desde un almacén de datos en la nube a Azure Search, la propiedad `executionLocation` es obligatoria. El siguiente fragmento de código JSON muestra el cambio necesario en la actividad de copia `typeProperties` como ejemplo. Comprobar [copiar datos entre almacenes de datos en la nube](data-factory-data-movement-activities.md#global) para obtener más detalles y los valores admitidos.
+Si va a copiar datos desde un almacén de datos en la nube a Azure Cognitive Search, la propiedad `executionLocation` es obligatoria. El siguiente fragmento de código JSON muestra el cambio necesario en la actividad de copia `typeProperties` como ejemplo. Comprobar [copiar datos entre almacenes de datos en la nube](data-factory-data-movement-activities.md#global) para obtener más detalles y los valores admitidos.
 
 ```JSON
 "typeProperties": {

@@ -4,14 +4,14 @@ description: Más información sobre las cuotas y los planes de servicio de Azur
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 9/27/2019
+ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 89934ee0ab0c901a904a1a5ac2fb620185571a23
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 41a2b1a7d9aa5089ba2ee73cd3c5c5c5e31f5225
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038687"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607669"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Cuotas y planes de servicio de Azure Spring Cloud
 
@@ -37,4 +37,4 @@ Cuando alcance una cuota, recibirá un error 400 que indica: "Quota exceeds limi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pueden aumentarse ciertas cuotas y límites predeterminados. Si el recurso requiere un aumento, envíenos la solicitud: azure-spring-cloud@service.microsoft.com.
+Pueden aumentarse ciertas cuotas y límites predeterminados. Si el recurso requiere un aumento, [cree una solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).

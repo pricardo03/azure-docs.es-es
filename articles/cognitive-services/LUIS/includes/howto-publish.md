@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: f833ded4467da1f129b1ea7f858ae8bdd9c2048e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495451"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647449"
 ---
 Para recibir una predicción de LUIS en un bot de chat u otra aplicación cliente, tiene que publicar la aplicación en el punto de conexión. 
 
@@ -31,4 +31,4 @@ Para recibir una predicción de LUIS en un bot de chat u otra aplicación client
 
     ![Publicación en el punto de conexión de LUIS](../media/howto-publish/publish-endpoint-success.png)
 
-4. Seleccione el vínculo **endpoints** (puntos de conexión) en la barra de estado verde para ir a la página **Keys and endpoints** (Claves y puntos de conexión). Las direcciones URL de los puntos de conexión se muestran en la parte inferior.
+4. Seleccione el vínculo **Access your endpoint URLs** (Acceder a las direcciones URL del punto de conexión) de la notificación para ir a la página **Azure Resources** (Recursos de Azure). Las direcciones URL del punto de conexión se muestran como **Example Query** (Ejemplo de consulta).

@@ -1,5 +1,5 @@
 ---
-title: 'Planeación de los eventos de mantenimiento de Azure: Azure SQL Database | Microsoft Docs'
+title: Planeación de los eventos de mantenimiento de Azure
 description: Aprenda a prepararse para los eventos de mantenimiento planeado en su base de datos de Azure SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 01/30/2019
-ms.openlocfilehash: 1bb88d6f74ab4b93e226fe8630f07f0a96f4ba47
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ba882176fbe17f7b74c786f421dde8fadd58d9b7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567040"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821312"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planeación de los eventos de mantenimiento en Azure SQL Database
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fbe4f34bb27d2de662f11dbdd047356ff3d3941
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497361"
+ms.locfileid: "73580760"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
@@ -32,7 +32,7 @@ El diagrama siguiente es una taxonomía del área de trabajo:
 
 En el diagrama se muestran los siguientes componentes de un área de trabajo:
 
-+ Un área de trabajo puede incluir [instancias de proceso de Azure Machine Learning](concept-compute-instance.md), recursos en la nube configurados con el entorno de Python necesario para ejecutar Azure Machine Learning.
++ Un área de trabajo puede contener máquinas virtuales de Azure Machine Learning Notebook, recursos en la nube configurados con el entorno de Python necesarios para ejecutar Azure Machine Learning.
 + Los [roles de usuario](how-to-assign-roles.md) le permiten compartir su área de trabajo con otros usuarios, equipos o proyectos.
 + Los [destinos de proceso](concept-azure-machine-learning-architecture.md#compute-targets) se usan para ejecutar sus experimentos.
 + Al crear el área de trabajo, los [recursos asociados](#resources) también se crean automáticamente.
@@ -75,11 +75,8 @@ También puede realizar las siguientes tareas de administración de áreas de tr
 | Administración del acceso al área de trabajo    | **&check;**   || |  **&check;**    |
 | Actualización a Enterprise Edition    | **&check;** |  | |     |
 | Creación y administración de recursos de proceso    |   | **&check;** | **&check;** |  **&check;**   |
-| Creación de una instancia de proceso | **&check;**  | **&check;** | **&check;** |     |
+| Creación de una máquina virtual de Notebook |   | **&check;** | |     |
 
-> [!NOTE]
-> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro y norte de EE. UU.** o **Sur de Reino Unido**.
->Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar.
 
 ## <a name='create-workspace'></a> Creación de un área de trabajo
 
@@ -101,7 +98,7 @@ Puede [actualizar el área de trabajo de Basic Edition a Enterprise Edition](how
 Al crear una nueva área de trabajo, se crean automáticamente varios recursos de Azure que el área de trabajo utiliza:
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): registra los contenedores de docker que usa durante el entrenamiento y al implementar un modelo. Para reducir los costos, ACR se **carga de forma diferida** hasta que se crean imágenes de la implementación.
-+ [Cuenta de Azure Storage](https://azure.microsoft.com/services/storage/): se usa como almacén de datos predeterminado para el área de trabajo.  Las instancias de Jupyter Notebook que se usan con la instancia de proceso de Azure Machine Learning también se almacenan aquí.
++ [Cuenta de Azure Storage](https://azure.microsoft.com/services/storage/): se usa como almacén de datos predeterminado para el área de trabajo.  Los cuadernos de Jupyter Notebook que se usan con la máquina virtual de Azure Machine Learning Notebook también se almacenan aquí.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): almacena información sobre la supervisión de los modelos.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): almacena secretos que usan los destinos de proceso y otra información confidencial que el área de trabajo necesita.
 

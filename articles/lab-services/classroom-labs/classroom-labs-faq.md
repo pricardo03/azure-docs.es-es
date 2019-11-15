@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 411037dd97350d877aff4e2d094c3408f168f9fd
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 91c5c1480669829bad7f8d89ce360bb806d6c997
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648574"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646850"
 ---
-# <a name="classroom-labs-in-azure-lab-services---frequently-asked-questions-faq"></a>Laboratorios de clase en Azure Lab Services: preguntas frecuentes
+# <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratorios de clase en Azure Lab Services: preguntas frecuentes
 Obtenga respuestas a algunas de las preguntas más habituales sobre los laboratorios de clase en Azure Lab Services. 
 
 ## <a name="quotas"></a>Cuotas
@@ -40,6 +40,13 @@ Los laboratorios de clase pueden crear máquinas virtuales de laboratorio dentro
 
 Por ejemplo, si tiene un bloque de /19 - 10.0.0.0/19, este intervalo de direcciones abarca 8192 direcciones IP y 16 laboratorios (8192/512 = 16 laboratorios). En este caso, la creación del laboratorio 17 genera un error.
 
+### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>¿Qué intervalos de puertos debo abrir en la configuración del firewall de mi organización para conectarme a las máquinas virtuales de laboratorio a través de RDP/SSH?
+
+Los puertos son: 49152–65535. Los laboratorios de clase se encuentran detrás de un equilibrador de carga, por lo que todas las máquinas virtuales de un laboratorio tienen una dirección IP única y cada máquina virtual del laboratorio tiene un puerto único. Los números de puerto y la dirección IP pública pueden cambiar cada vez que se vuelve a publicar el laboratorio.
+
+### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>¿Qué intervalos de direcciones IP públicas debo abrir en la configuración del firewall de mi organización para conectarme a las máquinas virtuales de laboratorio a través de RDP/SSH?
+Consulte [Intervalos IP de Azure y etiquetas de servicio: nube pública](https://www.microsoft.com/download/details.aspx?id=56519), que proporciona el intervalo de direcciones IP públicas para centros de datos en Azure. Puede abrir las direcciones IP de las regiones en las que se encuentran las cuentas de laboratorio.
+
 ## <a name="blog-post"></a>Entrada de blog
 Suscríbase al [blog de Azure Lab Services](https://azure.microsoft.com/blog/tag/azure-lab-services/).
 
@@ -51,6 +58,6 @@ Suscríbase a las [actualizaciones de Lab Services](https://azure.microsoft.com/
 Si su pregunta no aparece aquí, háganoslo saber para que podamos ayudarlo a encontrar una respuesta.
 
 - Publique una pregunta al final de este documento. 
-- Para llegar a un público más amplio, publique una pregunta en el [foro Stack Overflow de Azure Lab Services](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- Para llegar a un público más amplio, publique una pregunta en el [Foro Stack Overflow de Azure Lab Services](https://stackoverflow.com/questions/tagged/azure-lab-services). 
 - Para solicitudes de características, envíe sus solicitudes e ideas al sitio [User Voice de Azure Lab Services](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

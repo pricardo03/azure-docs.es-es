@@ -4,15 +4,16 @@ description: Se proporcionan los requisitos previos para publicar una aplicació
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: c436522bd5f1a9d52b71d85b7b47ac9a089c0b25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 486a1b9ca213828b5a26571de7bc34d06f56d434
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258163"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826022"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Requisitos previos de la oferta de la aplicación Power BI
 
@@ -35,7 +36,7 @@ Los requisitos empresariales incluyen obligaciones contractuales, de procedimien
     > Usar la misma cuenta de registro de Microsoft Developer Center para iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com). Solo debe tener una cuenta Microsoft para sus ofertas de AppSource. Las cuentas no deberían ser específicas de servicios ni de ofertas individuales.
  
 - Ponga el soporte técnico a disposición de los clientes de forma comercialmente razonable.
-- Proporcionar contenido que cumpla los criterios para que la oferta se publique en AppSource. Para más información, consulte [Have an app to list on AppSource? Here’s how](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how) (Procedimiento para publicar una aplicación en AppSource).
+- Proporcionar contenido que cumpla los criterios para que la oferta se publique en AppSource. Para más información, consulte [Have an app to list on AppSource? Este es el procedimiento](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Cumplir la [Declaración de privacidad de Microsoft](https://privacy.microsoft.com/privacystatement).
 
 

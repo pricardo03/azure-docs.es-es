@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 10/04/2019
 ms.author: danlep
-ms.openlocfilehash: 16ad37eaa50f0c3825d131338cc4a0abdc369978
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 4cb678e1ffa73731c6c1444f87fec588da7ddfbf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72262867"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681827"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticación de Azure Container Registry con entidades de servicio
 
@@ -71,7 +71,7 @@ Por ejemplo, use las credenciales para extraer una imagen de un registro de cont
 
 ### <a name="use-with-docker-login"></a>Uso con el inicio de sesión de Docker
 
-También puede ejecutar `docker login` mediante una entidad de servicio. En el ejemplo siguiente, el identificador de aplicación de la entidad de servicio se pasa en la variable de entorno `$SP_APP_ID` y la contraseña en la variable `$SP_PASSWD`. Si desea ver procedimientos recomendados para administrar credenciales de Docker, consulte la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/).
+Puede ejecutar `docker login` mediante una entidad de servicio. En el ejemplo siguiente, el identificador de aplicación de la entidad de servicio se pasa en la variable de entorno `$SP_APP_ID` y la contraseña en la variable `$SP_PASSWD`. Si desea ver procedimientos recomendados para administrar credenciales de Docker, consulte la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
 ```bash
 # Log in to Docker with service principal credentials
@@ -79,6 +79,26 @@ docker login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
 Una vez iniciada la sesión, Docker almacena las credenciales en caché.
+
+### <a name="use-with-certificate"></a>Uso con certificado
+
+Si ha agregado un certificado a la entidad de servicio, puede iniciar sesión en la CLI de Azure con la autenticación basada en certificados y, a continuación, puede usar el comando [az acr login][az-acr-login] para acceder a un registro. El uso de un certificado como secreto en lugar de una contraseña proporciona seguridad adicional cuando se usa la CLI. 
+
+Puede crear un certificado autofirmado durante la [creación de una entidad de servicio](/cli/azure/create-an-azure-service-principal-azure-cli). O bien, puede agregar uno o varios certificados a una entidad de servicio existente. Por ejemplo, si usa uno de los scripts de este artículo para crear o actualizar una entidad de servicio con derechos para extraer o insertar imágenes de un registro, agregue un certificado mediante el comando [az ad sp credential reset][az-ad-sp-credential-reset].
+
+Para usar la entidad de servicio con el certificado para [iniciar sesión en la CLI de Azure](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), el certificado debe tener formato PEM e incluir la clave privada. Si el certificado no tiene el formato requerido, use una herramienta como `openssl` para convertirlo. Al ejecutar [az login][az-login] para iniciar sesión en la CLI con la entidad de servicio, proporcione también el identificador de aplicación de la entidad de servicio y el identificador de inquilino de Active Directory. En el ejemplo siguiente se muestran estos valores como variables de entorno:
+
+```azurecli
+az login --service-principal --username $SP_APP_ID --tenant $SP_TENANT_ID  --password /path/to/cert/pem/file
+```
+
+A continuación, ejecute [az acr login][az-acr-login] para autenticarse con el registro:
+
+```azurecli
+az acr login --name myregistry
+```
+
+La CLI usa el token creado cuando se ejecutó `az login` para autenticar su sesión con el registro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -92,3 +112,5 @@ Una vez iniciada la sesión, Docker almacena las credenciales en caché.
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az-acr-login
+[az-login]: /cli/azure/reference-index#az-login
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#[az-ad-sp-credential-reset]

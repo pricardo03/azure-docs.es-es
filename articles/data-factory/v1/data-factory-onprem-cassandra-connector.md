@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos de Cassandra mediante Data Factory | Microsoft Docs
+title: Movimiento de datos desde Cassandra mediante Data Factory
 description: Aprenda a mover los datos de una base de datos de Cassandra local con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b098aaf2df5e04983aa53563d5e0203f3287b42
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 4edd4d663e02601a97474c5d3a54adaa6b7fd27d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839945"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682445"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Movimiento de datos desde una base de datos de Cassandra local con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -271,8 +271,8 @@ Consulte las [propiedades de tipo RelationalSource](#copy-activity-properties) p
 | FLOAT |Single |
 | INET |Cadena |
 | INT |Int32 |
-| TEXT |Cadena |
-| TIMESTAMP |Datetime |
+| TEXT |String |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |Cadena |

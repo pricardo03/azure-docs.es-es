@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 84e8f1d7b723bb86b31abb1ff60bce5351d7d996
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 14290e000d5c6251216a6b0a0fc68c8a0897210a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750154"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824037"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Comprobación del estado de publicación de una oferta de Marketplace comercial
 
@@ -22,7 +23,7 @@ Uno de los siguientes indicadores de estado se debe mostrar para cada oferta.
 
 | **Estado**    | **Descripción**  |
 | :---------- | :-------------------|
-| **Draft** | Se ha creado la oferta pero no está publicada. |
+| **Draft** | La oferta se ha creado pero no se va a publicar. |
 | **Publicación en curso** | Se están realizando los pasos del proceso de publicación para la oferta o el plan. |
 | **Atención necesaria** | Se ha detectado un problema crítico durante la certificación de Microsoft o en cualquiera de los pasos de publicación. |
 | **Versión preliminar** | Microsoft ha certificado la oferta y está en espera de la comprobación final del anunciante. Seleccione Transmitir para lanzar la oferta. |

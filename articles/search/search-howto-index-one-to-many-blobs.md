@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 863d38f6ea0f071a1c1a6678d025ec5b37a306dc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 127354e55a81e379825b41759f2b6150ba554a12
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466431"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818542"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexación de blobs para producir varios documentos de búsqueda
 De manera predeterminada, un indexador de blobs tratará el contenido de un blob como un único documento de búsqueda. Determinados valores de **parsingMode** admiten escenarios donde un blob individual puede dar lugar a varios documentos de búsqueda. A continuación, se muestran los diferentes tipos de **parsingMode** que permiten que un indexador extraiga más de un documento de búsqueda de un blob:
@@ -99,7 +99,7 @@ Si quiere configurar la asignación de campos explícita, asegúrese de que _sou
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si aún no está familiarizado con la estructura y el flujo de trabajo básicos de la indexación de blobs, revise primero [Indexación de Azure Blob Storage con Azure Search](search-howto-index-json-blobs.md). Para más información sobre los modos de análisis de los distintos tipos de contenido de blobs, revise los artículos siguientes.
+Si aún no está familiarizado con la estructura y el flujo de trabajo básicos de la indexación de blobs, debería consultar primero [Indexación de Azure Blob Storage con Azure Cognitive Search](search-howto-index-json-blobs.md). Para más información sobre los modos de análisis de los distintos tipos de contenido de blobs, revise los artículos siguientes.
 
 > [!div class="nextstepaction"]
 > [Indexación de blobs CSV](search-howto-index-csv-blobs.md)

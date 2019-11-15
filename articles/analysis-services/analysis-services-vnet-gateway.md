@@ -1,22 +1,22 @@
 ---
-title: Uso de la puerta de enlace de datos local con orígenes de datos de Azure Virtual Network | Microsoft Docs
-description: Aprenda a configurar un servidor para usar una puerta de enlace con orígenes de datos en una red virtual.
+title: Configuración de Azure Analysis Services para orígenes de datos de red virtual | Microsoft Docs
+description: Aprenda a configurar un servidor de Azure Analysis Services para que use una puerta de enlace para orígenes de datos en Azure Virtual Network (VNet).
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d1993996c0f982624d6976b50871fa8c4592e2f6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 384f4c2ee3021678c530aa5c98eaf4dbfd661e95
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301219"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572278"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Uso de la puerta de enlace para orígenes de datos en una red virtual de Azure (VNet)
 
-En este artículo se describe la propiedad **AlwaysUseGateway** del servidor que se usa cuando los orígenes de datos se encuentran en una [red virtual de Azure (VNET)](../virtual-network/virtual-networks-overview.md).
+En este artículo se describe la propiedad **AlwaysUseGateway** del servidor de Azure Analysis Services que se usa cuando los orígenes de datos se encuentran en una [red virtual de Azure (VNET)](../virtual-network/virtual-networks-overview.md).
 
 ## <a name="server-access-to-vnet-data-sources"></a>Acceso del servidor a los orígenes de datos de una red virtual
 

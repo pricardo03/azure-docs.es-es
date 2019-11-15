@@ -5,18 +5,19 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.openlocfilehash: dd68ac502a92b044e958969cc6a2863b5d197416
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3ca07f060aebcea82895f0463cac693c66f0c629
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621663"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827748"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Compra de software en Microsoft AppSource
 
-Microsoft [AppSource](https://appsource.microsoft.com/) ahora permite a los clientes suscribirse a las aplicaciones SaaS ofrecidas por asociados de Microsoft. Los clientes pueden buscar aplicaciones web certificadas en el almacén pueden administrar los cargos, las actualizaciones, las degradaciones y las cancelaciones en un solo lugar mediante el Centro de administración de Microsoft. En este artículo se describe cómo puede comprar una aplicación desde la tienda.
+Microsoft [AppSource](https://appsource.microsoft.com/) ahora permite a los clientes suscribirse a las aplicaciones SaaS ofrecidas por asociados de Microsoft. Los clientes pueden buscar aplicaciones web certificadas en el almacén y pueden administrar los cargos, las actualizaciones, las degradaciones y las cancelaciones en un solo lugar mediante el Centro de administración de Microsoft. En este artículo se describe cómo puede comprar una aplicación desde la tienda.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -25,12 +26,12 @@ Para comprar ofertas de SaaS, necesita:
 - Una cuenta profesional o educativa.
 
     > [!Note]
-    > Si no tiene una cuenta profesional o educativa, deberá crear un inquilino de Azure Active Directory al que se pueda agregar una cuenta profesional o educativa. Para más información, vea esta [Inicio rápido: Creación de un inquilino en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+    > Si no tiene una cuenta profesional o educativa, debe crear un inquilino de Azure Active Directory al que se pueda agregar una cuenta profesional o educativa. Para más información, vea esta [Inicio rápido: Creación de un inquilino en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
 
 - Una tarjeta de crédito válida.
 
     > [!Note]
-    > La tarjeta de crédito debe pertenecer al país o región en la que el cliente desea comprar la oferta. Para seleccionar un país diferente, seleccione “Cambiar país o región de facturación” en la parte inferior de la página.
+    > La tarjeta de crédito debe pertenecer al país o región en la que el cliente desea comprar la oferta. Para seleccionar otro país, seleccione "Cambiar país o región de facturación" en la parte inferior de la página.
 
 ## <a name="steps-for-making-purchases-on-appsource"></a>Pasos para realizar compras en AppSource
 

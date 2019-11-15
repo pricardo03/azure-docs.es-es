@@ -1,5 +1,5 @@
 ---
-title: Información general de Hiperescala de Azure SQL Database | Microsoft Docs
+title: Introducción a Hiperescala
 description: En este artículo se describe el nivel de servicio Hiperescala en el modelo de compra basado en núcleo virtual en Azure SQL Database, y se explica la diferencia entre los niveles de servicio Uso general y Crítico para la empresa.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: db6e47b39b7ebe35a6c0fef42af53f91e96c363f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3a448147390ff2dd6a8049e8338a4cbf2bd94ce3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496204"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821117"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -82,7 +82,7 @@ A diferencia de los motores de base de datos tradicionales, que han centralizada
 
 El siguiente diagrama ilustra los diferentes tipos de nodos en una base de datos de hiperescala:
 
-![arquitectura](./media/sql-database-hyperscale/hyperscale-architecture.png)
+![arquitectura](./media/sql-database-hyperscale/hyperscale-architecture2.png)
 
 Una base de datos de Hiperescala contiene los distintos tipos de componentes siguientes:
 
@@ -104,7 +104,7 @@ Azure Storage contiene todos los archivos de datos de una base de datos. Los ser
 
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
-Las copias de seguridad están basadas en instantáneas de archivos y, por tanto, se realizan de forma prácticamente instantánea. La separación del almacenamiento y los procesos permite insertar la operación de copia de seguridad y restauración en la capa de almacenamiento para reducir la carga de procesamiento en replica de proceso principal. Como resultado, la copia de seguridad de base de datos no afecta al rendimiento del nodo de proceso principal. del mismo modo, las restauraciones se realizan revirtiendo a instantáneas de archivos y, por tanto, no tienen el tamaño de una operación de datos. La restauración es una operación de tiempo constante, e incluso las bases de datos de varios terabytes se pueden restaurar en minutos en lugar de horas o días. La creación de bases de datos nuevas mediante la restauración de una copia de seguridad existente también aprovecha esta característica: la creación de copias de base de datos para fines de desarrollo o pruebas, incluso cuando se trata de bases de datos con un tamaño de terabytes, es factible en cuestión de minutos.
+Las copias de seguridad están basadas en instantáneas de archivos y, por tanto, se realizan de forma prácticamente instantánea. La separación del almacenamiento y los procesos permite insertar la operación de copia de seguridad y restauración en la capa de almacenamiento para reducir la carga de procesamiento en replica de proceso principal. Como resultado, la copia de seguridad de base de datos no afecta al rendimiento del nodo de proceso principal. del mismo modo, las restauraciones se realizan revirtiendo a instantáneas de archivos y, por tanto, no tienen el tamaño de una operación de datos. La restauración es una operación de tiempo constante, e incluso las bases de datos de varios terabytes se pueden restaurar en minutos en lugar de horas o días. La creación de bases de datos mediante la restauración de una copia de seguridad existente también aprovecha esta característica: la creación de copias de bases de datos en el mismo servidor lógico con fines de desarrollo o para realizar pruebas, incluso cuando se trata de bases de datos con un tamaño de terabytes, se puede hacer en cuestión de minutos.
 
 ## <a name="scale-and-performance-advantages"></a>Ventajas de escala y rendimiento
 

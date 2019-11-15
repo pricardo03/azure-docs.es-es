@@ -1,6 +1,6 @@
 ---
 title: Información general del acelerador de la solución de supervisión remota | Microsoft Docs
-description: Introducción al acelerador de la solución de supervisión remota.
+description: Este artículo proporciona información general de algunos de los elementos clave de la solución de supervisión remota para que pueda entender cómo funciona.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: af09ea39f373d518d5600e3fa46adc378fd9236d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33005bc286f7dc2c0ebed74bd9df0309e71346f5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442551"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824831"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Información general sobre el acelerador de la solución de supervisión remota
 

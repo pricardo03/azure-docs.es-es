@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: shipatel
-author: shivp950
-ms.date: 05/10/2019
+ms.author: sgilley
+author: sdgilley
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 511c737e160c0f0753e570314c9b29346972cb04
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71269266"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615167"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo creará, verá y eliminará [**áreas de trabajo de Azure Machine Learning**](concept-workspace.md) en Azure Portal para [Azure Machine Learning](overview-what-is-azure-ml.md).  El portal es la forma más sencilla de empezar a trabajar con áreas de trabajo, pero a medida que cambian las necesidades o aumentan los requisitos de automatización, también puede crear y eliminar áreas de trabajo [mediante la CLI](reference-azure-machine-learning-cli.md), [con código de Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o [a través de la extensión de VS Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
 
@@ -26,7 +26,38 @@ En este artículo creará, verá y eliminará [**áreas de trabajo de Azure Mach
 
 Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con las credenciales de la suscripción de Azure. 
+
+1. En la esquina superior izquierda de Azure Portal, seleccione **+ Crear un recurso**.
+
+      ![Crear un nuevo recurso](../../../includes/media/aml-create-in-portal/create-workspace.gif)
+
+1. Use la barra de búsqueda para encontrar **Machine Learning**.
+
+1. Seleccione **Machine Learning**.
+
+1. En el panel **Machine Learning**, seleccione **Crear** para comenzar.
+
+1. Especifique la siguiente información para configurar la nueva área de trabajo:
+
+   Campo|DESCRIPCIÓN 
+   ---|---
+   Nombre del área de trabajo |Escriba un nombre único que identifique el área de trabajo. En este ejemplo, se usa **docs-ws**. Los nombres deben ser únicos en el grupo de recursos. Utilice un nombre que sea fácil de recordar y que se diferencie del de las áreas de trabajo creadas por otros.  
+   Subscription |Seleccione la suscripción de Azure que quiera usar.
+   Resource group | Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo, se usa **docs-aml**. 
+   Location | Seleccione la ubicación más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
+   Edición del área de trabajo | Seleccione **Basic** o **Enterprise**.  Esta edición del área de trabajo determina las características a las que tendrá acceso y los precios. Más información sobre las [ofertas de las ediciones Basic y Enterprise](overview-what-is-azure-ml.md#sku). 
+
+    ![Configuración de un área de trabajo](media/how-to-manage-workspace/select-edition.png)
+
+1. Cuando haya terminado de configurarla, seleccione **Crear**. 
+
+   > [!Warning] 
+   > La creación del área de trabajo en la nube puede tardar varios minutos.
+
+   Cuando finalice el proceso, aparecerá un mensaje de implementación correcta. 
+ 
+ 1. Para ver la nueva área de trabajo, seleccione **Ir al recurso**.
 
 ### <a name="download-a-configuration-file"></a>Descarga de un archivo de configuración
 
@@ -38,27 +69,42 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
    
    Coloque el archivo en la estructura de directorios que contiene los scripts de Python o las instancias de Jupyter Notebook. Puede estar en el mismo directorio, en un subdirectorio denominado *.azureml* o en un directorio principal. Al crear una máquina virtual de Notebook, este archivo se agrega al directorio correcto de la máquina virtual.
 
+## <a name="upgrade"></a>Actualización a la edición Enterprise
 
-## <a name="view"></a>Vista de un área de trabajo
+Puede actualizar el área de trabajo de la edición Basic a la edición Enterprise para aprovechar las ventajas de las características mejoradas, como experiencias de bajo código y características de seguridad mejoradas.
 
-1. En la esquina superior izquierda del portal, seleccione **Todos los servicios**.
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
-1. En el campo de filtro **Todos los servicios**, escriba **servicio Machine Learning**.  
+1. Seleccione el área de trabajo que desea actualizar.
 
-1. Seleccione **Áreas de trabajo del servicio Machine Learning**.
+1. Seleccione **Actualizar** en la parte superior o en el mensaje de actualización.
 
-   ![Búsqueda del área de trabajo de Azure Machine Learning](media/how-to-manage-workspace/all-services.png)
+    ![Actualizar un área de trabajo](media/how-to-manage-workspace/upgrade.png)
+
+1. Seleccione **Confirmar actualización**.
+
+
+> [!IMPORTANT]
+> No se puede rebajar un área de trabajo de la edición Enterprise a un área de trabajo de la edición Basic. 
+
+## <a name="view"></a>Buscar un área de trabajo
+
+1. En el campo de búsqueda superior, escriba **Machine Learning**.  
+
+1. Seleccione **Machine Learning**.
+
+   ![Búsqueda del área de trabajo de Azure Machine Learning](media/how-to-manage-workspace/find-workspaces.png)
 
 1. Examine la lista de áreas de trabajo encontradas. Puede filtrar en función de suscripción, grupos de recursos y ubicaciones.  
 
 1. Seleccione un área de trabajo para mostrar sus propiedades.
-   ![Propiedades del área de trabajo](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Eliminar un área de trabajo
 
 Use el botón Eliminar en la parte superior del área de trabajo que desea eliminar.
 
   ![Botón Eliminar](media/how-to-manage-workspace/delete-workspace.png)
+
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

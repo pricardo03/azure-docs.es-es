@@ -1,5 +1,5 @@
 ---
-title: Ejecución de paquetes de SQL Server Integration Services (SSIS) con la utilidad dtexec habilitada para Azure | Microsoft Docs
+title: Ejecución de paquetes de SQL Server Integration Services (SSIS) con la utilidad dtexec habilitada para Azure
 description: Obtenga información sobre cómo ejecutar paquetes de SQL Server Integration Services (SSIS) con la utilidad dtexec habilitada para Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 472792351b8b7ab96e055bacd64141840ce7a630
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9ab308d0e2145a0d0b40e8b37c8c5be07b55dac6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596942"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673550"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Ejecución de paquetes de SQL Server Integration Services con la utilidad dtexec habilitada para Azure
 En este artículo se describe la utilidad de símbolo del sistema dtexec (AzureDTExec) habilitada para Azure. Se utiliza para ejecutar paquetes de SQL Server Integration Services en Azure-SSIS Integration Runtime (IR) de Azure Data Factory.

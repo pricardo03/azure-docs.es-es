@@ -1,5 +1,5 @@
 ---
-title: Actualización a la última biblioteca de cliente de base de datos elástica | Microsoft Docs
+title: Actualización a la última biblioteca cliente de bases de datos elásticas
 description: Use Nuget para actualizar la biblioteca de cliente de base de datos elástica.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 286fa60fef8de5240fb2ccd0f14ced0c4e38ff73
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: a1ab684f13c56698d4359f2bf74826f3dd696c6d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981368"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823508"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente
 

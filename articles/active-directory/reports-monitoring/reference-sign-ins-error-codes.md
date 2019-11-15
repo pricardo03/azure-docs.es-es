@@ -1,5 +1,5 @@
 ---
-title: Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory | Microsoft Docs
+title: Códigos de error de informes en el portal de Azure Active Directory | Microsoft Docs
 description: Referencia sobre los códigos de error de los informes de actividad de inicio de sesión.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 9bb7114611ce5c7eabb8124ad11db64d50e12946
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383169"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809818"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -127,6 +127,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |50177|No se admite el desafío externo para los usuarios con acceso directo.|
 |50178|No se admite el control de sesión para los usuarios con acceso directo.|
 |50180|Se necesita la autenticación integrada de Windows. Habilite el inquilino para un inicio de sesión único de conexión directa.|
+|50181|Error relacionado con OTP durante el inicio de sesión. |
 |50201|La interrupción de este mensaje se mostrará al usuario durante el inicio de sesión cuando se debe proporcionar información adicional al usuario.|
 |51001|La sugerencia de dominio no está presente con el identificador de seguridad local: UPN local.|
 |51004|La cuenta de usuario no existe en el directorio.|

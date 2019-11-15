@@ -1,6 +1,6 @@
 ---
 title: Entrenamiento e implementación de modelos desde la CLI
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Aprenda a usar la extensión de Machine Learning para la CLI de Azure para entrenar, registrar e implementar un modelo desde la línea de comandos.
 ms.author: larryfr
 author: Blackmist
@@ -9,14 +9,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: fb46aaf04535c1b44cdd80810fbb6382dc727a67
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 1854599956755716955a6e691c3266ac54ddafd9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350426"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581547"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Entrenar e implementar un modelo desde la CLI
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este tutorial, usará la extensión de Machine Learning para la CLI de Azure para entrenar, registrar e implementar un modelo.
 
@@ -97,12 +98,12 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor básico de recursos en la plataforma Azure. Al trabajar con Azure Machine Learning Service, el grupo de recursos contendrá el área de trabajo de Azure Machine Learning Service. También contendrá otros servicios de Azure que usa el área de trabajo. Por ejemplo, si entrena el modelo mediante un recurso de proceso basado en la nube, ese recurso se crea en el grupo de recursos.
+Un grupo de recursos es un contenedor básico de recursos en la plataforma Azure. Al trabajar con Azure Machine Learning, el grupo de recursos contendrá el área de trabajo de Azure Machine Learning. También contendrá otros servicios de Azure que usa el área de trabajo. Por ejemplo, si entrena el modelo mediante un recurso de proceso basado en la nube, ese recurso se crea en el grupo de recursos.
 
 Utilice el comando siguiente para __crear un nuevo grupo de recursos__. Reemplace `<resource-group-name>` por el nombre que va a usar para este grupo de recursos. Reemplace `<location>` por la región de Azure que va a usar para este grupo de recursos:
 
 > [!TIP]
-> Debe seleccionar una región en la que Azure Machine Learning Service esté disponible. Para obtener más información, consulte los [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
+> Debe seleccionar una región en la que Azure Machine Learning esté disponible. Para obtener más información, consulte los [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -182,7 +183,7 @@ Este comando crea un archivo `.azureml/config.json` que contiene la información
 
 ## <a name="create-the-compute-target-for-training"></a>Creación del destino de proceso para entrenamiento
 
-En este ejemplo se usa una instancia de proceso de Azure Machine Learning para entrenar el modelo. Para crear una instancia de proceso, use el comando siguiente:
+En este ejemplo se usa una máquina virtual de Azure Machine Learning Notebook para entrenar el modelo. Para crear una máquina virtual de Notebook, use el comando siguiente:
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2_V2
@@ -217,7 +218,7 @@ Este comando especifica un nombre para el experimento (`myexperiment`). El exper
 
 El parámetro `-c sklearn` especifica el archivo `.azureml/sklearn.runconfig`. Como se mencionó anteriormente, este archivo contiene información que se usa para configurar el entorno que la ejecución de entrenamiento usa. Si inspecciona este archivo, verá que hace referencia al destino de proceso `cpu` que creó anteriormente. También muestra el número de nodos que se usará cuando se realice el entrenamiento (`"nodeCount": "4"`) y contiene una sección `"condaDependenciees"` que muestra los paquetes de Python necesarios para ejecutar el script de entrenamiento.
 
-Para más información sobre los archivos de configuración de ejecución, consulte [Configuración y uso de destinos de proceso para el entrenamiento del modelo](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli).
+Para más información sobre cómo ejecutar archivos de configuración, consulte [Configuración y uso de destinos de proceso para el entrenamiento del modelo](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli) o este [archivo JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) para ver todo el esquema de un runconfig.
 
 El parámetro `-t` almacena una referencia a esta ejecución en un archivo JSON y se usará en los pasos siguientes para registrar y descargar el modelo.
 
@@ -238,7 +239,7 @@ Este texto se registra desde el script de entrenamiento (`train-sklearn.py`) y m
 
 Si inspecciona el `train-sklearn.py`, observará que también usa el valor alfa al almacenar los modelos entrenados en el archivo. En este caso, entrena varios modelos. El que tenga el valor alfa más alto debe ser el mejor. Al examinar la salida anterior y el código, el modelo con un alfa de 0,95 se guardó como `./outputs/ridge_0.95.pkl`.
 
-El modelo se guardó en el directorio `./outputs` en el destino de proceso en el que se entrenó. En este caso, la instancia de proceso de Azure Machine Learning en la nube de Azure. El proceso de entrenamiento carga automáticamente el contenido del directorio `./outputs` desde el destino de proceso en el que se realiza el entrenamiento al área de trabajo de Azure Machine Learning. Se almacena como parte del experimento (en este ejemplo, `myexperiment`).
+El modelo se guardó en el directorio `./outputs` en el destino de proceso en el que se entrenó. En este caso, la máquina virtual de Azure Machine Learning Notebook en la nube de Azure. El proceso de entrenamiento carga automáticamente el contenido del directorio `./outputs` desde el destino de proceso en el que se realiza el entrenamiento al área de trabajo de Azure Machine Learning. Se almacena como parte del experimento (en este ejemplo, `myexperiment`).
 
 ## <a name="register-the-model"></a>Registro del modelo
 
@@ -292,7 +293,7 @@ Es posible que reciba el mensaje "Error al crear el cliente Docker". Puede pasar
 
 Este comando implementa un servicio nuevo denominado `myservice`, con la versión 1 del modelo que registró anteriormente.
 
-El archivo `inferenceConfig.yml` proporciona información sobre cómo realizar la inferencia, como el script de entrada (`score.py`) y las dependencias de software. Para más información sobre la estructura de este archivo, consulte el [esquema de configuración de inferencia](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para obtener más información sobre los scripts de entrada, consulte [Implementación de modelos con el servicio Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+El archivo `inferenceConfig.yml` proporciona información sobre cómo realizar la inferencia, como el script de entrada (`score.py`) y las dependencias de software. Para más información sobre la estructura de este archivo, consulte el [esquema de configuración de inferencia](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para más información sobre los scripts de entrada, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
 El `aciDeploymentConfig.yml` describe el entorno de implementación que se usa para hospedar el servicio. La configuración de implementación es específica del tipo de proceso que se usa para la implementación. En este caso, se usa una instancia de Azure Container Instances. Para más información, consulte el [esquema de configuración de implementación](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
@@ -386,4 +387,4 @@ En este tutorial de Azure Machine Learning, usó la CLI de Machine Learning para
 > * Implementación del modelo como servicio web
 > * Puntuación de datos mediante el servicio web
 
-Para más información sobre cómo usar la CLI, consulte [Uso de la extensión de la CLI para Azure Machine Learning Service](reference-azure-machine-learning-cli.md).
+Para más información sobre cómo usar la CLI, consulte [Uso de la extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).

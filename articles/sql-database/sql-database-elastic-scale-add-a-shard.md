@@ -1,5 +1,5 @@
 ---
-title: Incorporación de una partición con herramientas de bases de datos elástica | Microsoft Docs
+title: Incorporación de una partición con herramientas de Elastic Database
 description: Establece cómo usar las API de escala elástica para agregar particiones nuevas a un conjunto de particiones.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 679c1bea640644cd46c436ec04278558f610ceda
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4043fd374a314735173a1f07f46c8394592b81e2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568526"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823712"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Incorporación de una partición con herramientas de Elastic Database
 

@@ -10,16 +10,16 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4db535c9ecaf74f189d81740a26ef40e1f99ed13
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 587856be6ca1064e5d2487ba6740b51a8c645fee
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497591"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716639"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
-En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) de Azure Machine Learning. En este artículo conocerá las versiones de Azure Machine Learning. Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) de Azure Machine Learning. 
+En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) de Azure Machine Learning.
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
 
@@ -36,13 +36,10 @@ Acceda a las siguientes herramientas de creación basadas en web desde Studio:
 
 | Herramienta basada en web | DESCRIPCIÓN | Edition |
 |-|-|-|
-| [Instancia de proceso](concept-compute-instance.md) (versión preliminar) | Estación de trabajo totalmente administrada basada en la nube | Basic y Enterprise |
+| Máquina virtual de Notebook (versión preliminar) | Estación de trabajo totalmente administrada basada en la nube | Basic y Enterprise |
 | [Aprendizaje automático automatizado](tutorial-first-experiment-automated-ml.md) (versión preliminar) | Experiencia sin código para automatizar el desarrollo de modelos de aprendizaje automático | Enterprise |
 | [Diseñador](ui-concept-visual-interface.md) (versión preliminar) | Herramienta de modelado de aprendizaje automático de arrastrar y colocar conocido anteriormente como el diseñador | Enterprise |
 
-> [!NOTE]
-> Las instancias de proceso solo están disponibles para las áreas de trabajo con una región de **Centro y norte de EE. UU.** o **Sur de Reino Unido**.
->Si el área de trabajo se encuentra en otra región, puede seguir creando y usando una [máquina virtual de cuadernos](concept-compute-instance.md#notebookvm) en su lugar.  
 
 ### <a name="azure-machine-learning-designer-enhancements"></a>Mejoras del diseñador de Azure Machine Learning 
 
@@ -68,15 +65,14 @@ Para obtener la documentación completa, vaya al [sitio web del paquete](https:/
 ### <a name="azure-machine-learning-sdk-for-python-v1072"></a>SDK de Azure Machine Learning para Python v1.0.72
 
 + **Nuevas características:**
-  + Agregación de supervisores de conjunto de datos a través del paquete `azureml-datadrift`, lo que permite supervisar, en los conjuntos de datos de series temporales, el desfase de datos u otros cambios estadísticos a lo largo del tiempo. Se pueden desencadenar alertas y eventos si se detecta un desfase o se cumplen otras condiciones en los datos. Consulte [nuestra documentación](http://aka.ms/datadrift) para más información. 
-  + Anuncio de dos nuevas ediciones (también denominadas indistintamente SKU) en Azure Machine Learning. Con esta versión, puede crear un área de trabajo de Azure Machine Learning Basic o Enterprise. Todas las áreas de trabajo existentes se establecerán de forma predeterminada en la edición Basic y puede ir a Azure Portal o Studio para actualizar el área de trabajo en cualquier momento. Puede crear un área de trabajo Basic o Enterprise desde Azure Portal. Lea [nuestra documentación](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace) para obtener más información. Desde el SDK, se puede determinar la edición del área de trabajo mediante la propiedad "sku" del objeto de área de trabajo.
-  + También hemos mejorado el proceso de Azure Machine Learning: ahora puede ver las métricas de los clústeres (como el total de nodos, los nodos en ejecución, la cuota de núcleo total) en Azure Monitor, además de ver los registros de diagnóstico para la depuración. Además, también puede ver las ejecuciones en ejecución o en cola actualmente en el clúster y los detalles, como las direcciones IP de los distintos nodos del clúster. Puede verlos en el portal o mediante las funciones correspondientes en el SDK o la CLI. 
+  + Agregación de supervisores de conjunto de datos a través del paquete [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift), lo que permite supervisar en los conjuntos de datos de series temporales el desfase de datos u otros cambios estadísticos a lo largo del tiempo. Se pueden desencadenar alertas y eventos si se detecta un desfase o se cumplen otras condiciones en los datos. Consulte [nuestra documentación](https://aka.ms/datadrift) para más información. 
+  + Anuncio de dos nuevas ediciones (también denominadas SKU indistintamente) en Azure Machine Learning. Con esta versión, puede crear un área de trabajo de Azure Machine Learning Basic o Enterprise. Todas las áreas de trabajo existentes se establecerán de forma predeterminada en la edición Basic y puede ir a Azure Portal o Studio para actualizar el área de trabajo en cualquier momento. Puede crear un área de trabajo Basic o Enterprise desde Azure Portal. Lea [nuestra documentación](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) para obtener más información. Desde el SDK, se puede determinar la edición del área de trabajo mediante la propiedad "sku" del objeto de área de trabajo.
+  + También hemos mejorado el proceso de Azure Machine Learning: ahora se pueden ver las métricas de los clústeres (como el total de nodos, los nodos en ejecución o la cuota total del núcleo) en Azure Monitor, además de ver los registros de diagnóstico para la depuración. Además, también puede ver las ejecuciones en ejecución o en cola actualmente en el clúster y los detalles, como las direcciones IP de los distintos nodos del clúster. Puede verlos en el portal o mediante las funciones correspondientes en el SDK o la CLI. 
   
   + **Características en versión preliminar**
     + Estamos lanzando soporte técnico para la versión preliminar del cifrado de disco de la SSD local en el proceso de Azure Machine Learning. Genere una incidencia de soporte técnico para que su suscripción se incluya en la lista blanca para usar esta característica.
-    + Versión preliminar pública de la inferencia por lotes de Azure Machine Learning. La inferencia por lotes de Azure Machine Learning tiene como destino trabajos de inferencia grandes que no dependen del tiempo. La inferencia por lotes proporciona un escalado del proceso de inferencia rentable, con un rendimiento sin precedentes para aplicaciones asincrónicas. Está optimizada para la inferencia de alto rendimiento, de tipo "fire-and-forget" (envíelo y olvídese), en colecciones de datos de gran tamaño. Más información en https://aka.ms/binb. 
-    + [Características contribuyentes a continuación] 
-    + **azureml-contrib-dataset**
+    + Versión preliminar pública de la inferencia por lotes de Azure Machine Learning. La inferencia por lotes de Azure Machine Learning tiene como destino trabajos de inferencia grandes que no dependen del tiempo. La inferencia por lotes proporciona un escalado del proceso de inferencia rentable, con un rendimiento sin precedentes para aplicaciones asincrónicas. Está optimizada para la inferencia de alto rendimiento, de tipo "fire-and-forget" (envíelo y olvídese), en colecciones de datos de gran tamaño.  
+    + [**azureml-contrib-dataset**](https://docs.microsoft.com/python/api/azureml-contrib-dataset)
         + Habilitación de funcionalidades para el conjunto de datos etiquetado
         ```Python
         import azureml.core
@@ -125,34 +121,34 @@ Para obtener la documentación completa, vaya al [sitio web del paquete](https:/
     + Corrección del canal de versión del cuaderno
     + Agregación de una advertencia para el destino de proceso no AmlCompute que no se admite
     + Agregación del estimador LightGMB al paquete azureml-contrib-gbdt
-  + **azureml-core**    
+  + [**azureml-core**](https://docs.microsoft.com/python/api/azureml-core)
     + La CLI ahora admite el empaquetado de modelos.
     + Agregación de una advertencia de desuso para las API de conjunto de los conjuntos de datos. Consulte el aviso de cambio de API de conjunto de datos en https://aka.ms/tabular-dataset.
-    + Cambio de `Dataset.get_by_id` para devolver el nombre y la versión del registro si el conjunto de datos está registrado.
+    + Cambie [`Dataset.get_by_id`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29#get-by-id-workspace--id-) para devolver el nombre y la versión del registro si el conjunto de datos está registrado.
     + Corrección del error por el que ScriptRunConfig con el conjunto de datos como argumento no se puede usar repetidamente para enviar la ejecución del experimento.
-    + Se realizará un seguimiento de los conjuntos de datos recuperados durante una ejecución y se pueden ver en la página de detalles de la ejecución o mediante una llamada a `run.get_details()` una vez completada la ejecución.
-    + Se permite que los datos intermedios de la canalización de Azure Machine Learning se conviertan en un conjunto de datos tabular y se usen en `AutoMLStep`.
+    + Se realizará un seguimiento de los conjuntos de datos recuperados durante una ejecución y estos se pueden ver en la página de detalles de la ejecución, o bien mediante una llamada a [`run.get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29#get-details--) una vez completada la ejecución.
+    + Permita que los datos intermedios de la canalización de Azure Machine Learning se conviertan en un conjunto de datos tabular y que se usen en [`AutoMLStep`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlstep).
     + Agregación de compatibilidad para la implementación y el empaquetado de modelos admitidos (ONNX, scikit-learn y TensorFlow) sin una instancia de InferenceConfig.
     + Agregación de una marca de sobrescritura para la implementación del servicio (ACI y AKS) en el SDK y la CLI. Si se proporciona, sobrescribirá el servicio existente si ya existe un servicio con ese nombre. Si el servicio no existe, creará un servicio nuevo.
     +  Los modelos se pueden registrar con dos nuevos marcos, Onnx y Tensorflow. El registro del modelo acepta los datos de entrada de ejemplo, los datos de salida de ejemplo y la configuración de recursos para el modelo.
     + Agregación de un nuevo almacén de datos para Azure Database for MySQL. Agregación de un ejemplo para usar Azure Database for MySQL en DataTransferStep en las canalizaciones de Azure Machine Learning.
-    + Agregación de funcionalidad para agregar y quitar etiquetas de experimentos. Agregación de funcionalidad para quitar etiquetas de las ejecuciones.
+    + Agregación de la funcionalidad para agregar y quitar etiquetas de experimentos. Agregación de la funcionalidad para quitar etiquetas de las ejecuciones
     + Agregación de una marca de sobrescritura para la implementación del servicio (ACI y AKS) en el SDK y la CLI. Si se proporciona, sobrescribirá el servicio existente si ya existe un servicio con ese nombre. Si el servicio no existe, creará un servicio nuevo.
-  + **azureml-datadrift**
+  + [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift)
     + Se ha movido de `azureml-contrib-datadrift` a `azureml-datadrift`
     + Agregación de compatibilidad para la supervisión, en conjuntos de datos de series temporales, de desfases y otras medidas estadísticas. 
-    + Los nuevos métodos `create_from_model()` y `create_from_dataset()` de la clase `DataDriftDetector`. Método `create()` en desuso. 
+    + Los nuevos métodos `create_from_model()` y `create_from_dataset()` de la clase [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)). Método `create()` en desuso. 
     + Ajustes en las visualizaciones en Python y en la interfaz de usuario de Azure Machine Learning Studio.
     + Compatibilidad de la programación de supervisión semanal y mensual, además de la diaria para los supervisores de conjunto de datos.
     + Compatibilidad de la reposición de las métricas de supervisor de datos para analizar los datos históricos de los supervisores de conjunto de datos. 
     + Varias correcciones de errores 
-  + **azureml-pipeline-core**
+  + [**azureml-pipeline-core**](https://docs.microsoft.com/python/api/azureml-pipeline-core)
     + azureml-dataprep ya no es necesario para enviar una ejecución de canalización de Azure Machine Learning desde el archivo de canalización `yaml`.
-  + **azureml-train-automl**
+  + [**azureml-train-automl**](https://docs.microsoft.com/python/api/azureml-train-automl)
     + Agregación de un elemento azureml-defaults al entorno Conda generado automáticamente para resolver el error de implementación de modelo.
     + El aprendizaje remoto de AutoML ahora incluye azureml-defaults para permitir la reutilización del entorno de aprendizaje para la inferencia.
   + **azureml-train-core**
-    + Agregación de compatibilidad con PyTorch 1.3 en el estimador de PyTorch
+    + Agregación de compatibilidad con PyTorch 1.3 en el calculador de [`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch)
   
 ## <a name="2019-10-21"></a>2019-10-21
 
@@ -162,8 +158,6 @@ Para obtener la documentación completa, vaya al [sitio web del paquete](https:/
   + Experiencia de administración unificada con recursos de SDK
   + Control de versiones y seguimiento de modelos de interfaz visual, canalizaciones y puntos de conexión 
   + Interfaz de usuario rediseñada
-  + Agregación de implementación de inferencia de lote
-  + Agregación de compatibilidad con Azure Kubernetes Service (AKS) para la inferencia de destinos de proceso
   + Agregación de implementación de inferencia por lotes
   + Agregación de compatibilidad con Azure Kubernetes Service (AKS) para los destinos de proceso de inferencia
   + Nuevo flujo de trabajo de creación de canalizaciones de paso de Python
@@ -187,7 +181,6 @@ Para obtener la documentación completa, vaya al [sitio web del paquete](https:/
     + Agregación de psutil como dependencia de `automl` e inclusión de psutil como una dependencia de Conda en amlcompute.
     + Se corrigió el problema con intervalos heurísticos y los tamaños de ventanas graduales en los conjuntos de datos de previsión de los cuales algunas series pueden provocar errores de álgebra lineal.
       + Se ha agregado la impresión para los parámetros que se han determinado heurísticamente en las ejecuciones de previsión.
-  + **azureml-contrib-datadrift**
   + **[azureml-contrib-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
     + Se ha agregado protección al crear métricas de salida si el desfase del nivel de conjunto de resultados no está en la primera sección.
   + **azureml-contrib-interpret**
@@ -273,7 +266,7 @@ Para obtener la documentación completa, vaya al [sitio web del paquete](https:/
 
 ### <a name="new-web-experience-preview-for-azure-machine-learning-workspaces"></a>Nueva experiencia web (versión preliminar) para áreas de trabajo de Azure Machine Learning
 
-La pestaña Experimento del [nuevo portal de áreas de trabajo](http://ml.azure.com) se ha actualizado para que los científicos de datos puedan supervisar los experimentos de forma más eficaz. Puede explorar las características siguientes:
+La pestaña Experimento del [nuevo portal de áreas de trabajo](https://ml.azure.com) se ha actualizado para que los científicos de datos puedan supervisar los experimentos de forma más eficaz. Puede explorar las características siguientes:
 + Los metadatos de experimentos para filtrar y ordenar fácilmente la lista de experimentos
 + Se han simplificado y mejorado las páginas de detalles de los experimentos lo cual le permite visualizar y comparar las ejecuciones
 + Nuevo diseño para ejecutar páginas de detalles para comprender y supervisar las ejecuciones de entrenamiento

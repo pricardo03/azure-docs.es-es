@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 77659fdf93947cfbaa0daa322dccf4e9cb1a41fa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 3911d4e780e993fdd1c2945b34cd683d47fb884a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844719"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827289"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Uso del módulo de servicios de Azure Maps
 
@@ -124,7 +124,7 @@ El SDK web de Azure Maps proporciona un *módulo de servicios*. Este módulo es 
 
     Para obtener más información, consulte [Autenticación con Azure Maps](azure-maps-authentication.md).
 
-1. El código siguiente usa el cliente de dirección URL de servicio de Azure Search recién creado para establecer un código geográfico de una dirección: "1 Microsoft Way, Redmond, WA". El código usa la función `searchAddress` y muestra los resultados en forma de tabla en el cuerpo de la página.
+1. El código siguiente usa el cliente de dirección URL de servicio de Azure Maps Search recién creado para establecer un código geográfico de una dirección: "1 Microsoft Way, Redmond, WA". El código usa la función `searchAddress` y muestra los resultados en forma de tabla en el cuerpo de la página.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".

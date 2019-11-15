@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 540e72a4472fce626822f0b22bfac11a23aea205
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bbaec55666b877e1d9343d8b80ea44a189c0c5b2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466759"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806123"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Errores y advertencias comunes de la canalización de enriquecimiento de IA en Azure Cognitive Search
 
@@ -63,6 +63,8 @@ El indexador no pudo ejecutar una aptitud del conjunto de aptitudes.
 
 | Motivo | Ejemplo | . |
 | --- | --- | --- |
+| Un campo contiene un término demasiado grande | Un término del documento es mayor que el [límite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Para evitar esta restricción, asegúrese de que el campo no está configurado como filtrable, con facetas o que se puede ordenar.
+| El documento es demasiado grande para indexarlo | Un documento es mayor que el [tamaño de solicitud de API máximo](search-limits-quotas-capacity.md#api-request-limits) | [Indexación de grandes conjuntos de datos](search-howto-large-index.md)
 | Problemas de conectividad transitorios | Se produjo un error transitorio. Inténtelo de nuevo más tarde. | En ocasiones, hay problemas de conectividad inesperados. Intente volver a ejecutar el documento mediante el indexador más adelante. |
 | Posible error del producto | Se ha producido un error inesperado. | Esto indica una clase desconocida de error y puede significar que hay un error del producto. Registre una [incidencia de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) para obtener ayuda. |
 | Una aptitud detectó un error durante la ejecución | (De la Aptitud Combinación) Uno o varios valores de desplazamiento no eran válidos y no se pudieron analizar. Los elementos se insertaron al final del texto | Use la información del mensaje de error para solucionar el problema. Este tipo de error requerirá la acción de resolución. |
@@ -114,6 +116,7 @@ El documento se leyó y se procesó, pero el indexador no pudo agregarlo al índ
 | --- | --- | --- |
 | Un término del documento es mayor que el [límite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Un campo contiene un término demasiado grande | Para evitar esta restricción, asegúrese de que el campo no está configurado como filtrable, con facetas o que se puede ordenar.
 | Un documento es mayor que el [tamaño de solicitud de API máximo](search-limits-quotas-capacity.md#api-request-limits) | El documento es demasiado grande para indexarlo | [Indexación de grandes conjuntos de datos](search-howto-large-index.md)
+| El documento contiene demasiados objetos en la colección | Una colección del documento supera el [número máximo de elementos en el límite de todas las colecciones complejas](search-limits-quotas-capacity.md#index-limits) | Se recomienda reducir el tamaño de la colección compleja en el documento para bajar el límite y evitar un uso elevado del almacenamiento.
 | Problemas de conexión con el índice de destino (que persiste después de varios reintentos) porque el servicio está bajo otra carga, como consulta o indexación. | No se puede establecer la conexión para actualizar el índice. El servicio de búsqueda está sometido a mucha carga. | [Escalar verticalmente el servicio de búsqueda](search-capacity-planning.md)
 | El servicio de búsqueda se está revisando para la actualización del servicio o está en medio de una reconfiguración de la topología. | No se puede establecer la conexión para actualizar el índice. El servicio de búsqueda está inactivo o está experimentando una transición. | Configure el servicio con al menos 3 réplicas para una disponibilidad del 99,9 % según se indica en la [documentación del Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 | Error en el recurso de proceso o de red subyacente (poco frecuente) | No se puede establecer la conexión para actualizar el índice. Se produjo un error desconocido. | Establezca los indexadores en [Ejecutar según una programación](search-howto-schedule-indexers.md) para que se recuperen de un estado de error.
@@ -224,7 +227,12 @@ La capacidad de reanudar un trabajo de indexación sin terminar se basa en tener
 
 Es posible invalidar este comportamiento, habilitar el progreso incremental y suprimir esta advertencia si usa la propiedad de configuración `assumeOrderByHighWatermarkColumn`.
 
-[Más información sobre las consultas personalizadas y el progreso incremental de Cosmos DB](https://go.microsoft.com/fwlink/?linkid=2099593).
+Para más información, consulte [Progreso incremental y consultas personalizadas](search-howto-index-cosmosdb.md#IncrementalProgress).
+
+### <a name="truncated-extracted-text-to-x-characters"></a>El texto extraído se ha truncado a X caracteres
+Los indexadores limitan la cantidad de texto que se puede extraer de cualquier documento. Este límite depende del plan de tarifa: 32 000 caracteres para el nivel Gratis, 64 000 para Básico y 4 millones para Estándar, Estándar S2 y Estándar S3. El texto que se ha truncado no se indexará. Para evitar esta advertencia, intente dividir los documentos con grandes cantidades de texto en varios documentos más pequeños. 
+
+Para más información, consulte [Límites de índice](search-limits-quotas-capacity.md#indexer-limits).
 
 ### <a name="could-not-map-output-field-x-to-search-index"></a>No se pudo asignar el campo de salida "X" al índice de búsqueda
 Las asignaciones de campos de salida que hagan referencia a datos inexistentes o nulos generarán advertencias con cada documento y producirán un campo de índice vacío. Para solucionar este problema, compruebe las rutas de acceso de origen de la asignación de campos de salida en busca de posibles errores tipográficos o establezca un valor predeterminado mediante la [aptitud condicional](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).

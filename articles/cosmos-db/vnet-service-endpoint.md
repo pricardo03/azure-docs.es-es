@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: dfc3ebc0274c87466d6dc27c93880483df023085
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 791821fbfe5854c27b7e3e6927a56a66ac1f1dc2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242473"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819081"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acceso a Azure Cosmos DB desde redes virtuales (VNET)
 
@@ -56,7 +56,7 @@ Las reglas de los grupos de seguridad de red se usan para limitar la conectivida
 No, solo las redes virtuales de Azure Resource Manager pueden tener el punto de conexión de servicio habilitado. Las redes virtuales clásicas no admiten puntos de conexión de servicio.
 
 ### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>¿Puedo aceptar conexiones de centros de datos Azure públicos cuando está habilitado el acceso al punto de conexión de servicio para Azure Cosmos DB?  
-Esto solo es necesario si desea que otros servicios propios de Azure accedan a la cuenta de Azure Cosmos DB, como Azure Data Factory, Azure Search o cualquier servicio implementado en una región de Azure determinada.
+Esto solo es necesario si quiere que otros servicios propios de Azure accedan a la cuenta de Azure Cosmos DB, como Azure Data Factory, Azure Cognitive Search o cualquier servicio implementado en una región de Azure determinada.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

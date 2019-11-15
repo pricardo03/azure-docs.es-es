@@ -4,15 +4,16 @@ description: Se proporcionan instrucciones para maximizar la optimización de mo
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: pabutler
-ms.openlocfilehash: f5b956ed1197e3898c9536bda3a93a41e8ee35c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7115798faadc3209413d22a384433417ec0ddff0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935149"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819583"
 ---
 # <a name="azure-marketplace-seo-guidance"></a>Guía de SEO de Azure Marketplace
 
@@ -21,7 +22,7 @@ En este artículo se explica cómo maximizar la detectabilidad de su oferta a tr
 
 ## <a name="general-explanation-of-algorithm"></a>Explicación general del algoritmo
 
-Microsoft Marketplace usa Azure Search para potenciar las funcionalidades de búsqueda del sitio. El algoritmo se basa en la frecuencia de términos o frecuencia inversa de documento ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Se utiliza el [analizador de Lucene](https://lucene.apache.org/core/) estándar.
+Microsoft Marketplace usa Azure Cognitive Search para potenciar las funcionalidades de búsqueda del sitio. El algoritmo se basa en la frecuencia de términos o frecuencia inversa de documento ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Se utiliza el [analizador de Lucene](https://lucene.apache.org/core/) estándar.
 
 En general, todos los campos de texto, categorías y sectores se incluyen en la ponderación de la relevancia. Los términos especializados que usan con poca frecuencia las aplicaciones, pero que se usan con frecuencia en su aplicación, generarán una puntuación de coincidencia superior con la búsqueda. Por tanto, incluir términos como “VM” ofrecería pocas ventajas, mientras que “Azure Search” sería mucho más especializado.
 A continuación se muestran los campos más importantes que deben tenerse en cuenta.

@@ -4,15 +4,16 @@ description: Configure la administración de clientes potenciales para Azure Tab
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 7151be3ac9f55825fd2e9dde35c9afda6a30726a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 9b24e6eb714c531b49ba08591bf4ed33d0f10101
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901540"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812335"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Configuración de la administración de clientes potenciales mediante una tabla de Azure
 
@@ -95,14 +96,14 @@ En el siguiente conjunto de pasos, se conectará a la tabla de Azure y configura
 11. En la ventana de **Almacenamiento de tablas de Azure**, proporcione información para los campos siguientes y seleccione **Crear**:
 
     * *Nombre de conexión*: Proporcione un nombre descriptivo para la conexión que va a establecer entre este flujo y la tabla de Azure.
-    * *Nombre de cuenta de almacenamiento*: Proporcione el nombre de la cuenta de almacenamiento para la tabla de Azure. Puede encontrar esto en la página **Claves de acceso** de la cuenta de almacenamiento.
-    * *Clave de almacenamiento compartida*: Proporcione el valor de clave de la cuenta de almacenamiento de la tabla de Azure. Puede encontrar esto en la página **Claves de acceso** de la cuenta de almacenamiento.
+    * *Nombre de cuenta de almacenamiento*: Proporcione el nombre de la cuenta de almacenamiento para la tabla de Azure. Puede encontrarlo en la página **Claves de acceso** de la cuenta de almacenamiento.
+    * *Clave de almacenamiento compartida*: Proporcione el valor de clave de la cuenta de almacenamiento de la tabla de Azure. Puede encontrarlo en la página **Claves de acceso** de la cuenta de almacenamiento.
 
         ![Azure Table Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
     Después de hacer clic en Crear, verá una ventana *Obtener entidades*. Aquí, seleccione **Mostrar opciones avanzadas** y proporcione información para los campos siguientes:
 
-       * *Tabla*: Seleccione el nombre del Almacenamiento de tablas de Azure (del paso 6 de las instrucciones sobre cómo configurar una tabla de Azure). La captura de pantalla siguiente muestra el símbolo del sistema cuando se selecciona "marketplaceleads" en este ejemplo.
+       * *Tabla*: Seleccione el nombre del almacenamiento de tablas de Azure (del paso 6 de las instrucciones sobre cómo configurar una tabla de Azure). La captura de pantalla siguiente muestra el símbolo del sistema cuando se selecciona "marketplaceleads" en este ejemplo.
 
             ![Obtener entidades de tabla de Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 

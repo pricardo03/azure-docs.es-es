@@ -1,6 +1,6 @@
 ---
 title: Solución de errores de copia de seguridad con máquinas virtuales de Azure
-description: Solución de problemas de copia de seguridad y restauración de máquinas virtuales de Azure
+description: En este artículo, aprenderá a solucionar los errores detectados al llevar a cabo la copia de seguridad y la restauración de máquinas virtuales de Azure.
 ms.reviewer: srinathv
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 280ac51dbc32bca7024f850a379f29fb86d5e684
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 78de85cede228f4b1c6ff01388fd7a08f78aa74f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130093"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747193"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -28,16 +28,16 @@ En esta sección se trata el error en la operación de copia de seguridad de la 
 * Asegúrese de que el agente de máquina virtual (agente de WA) es la [versión más reciente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Asegúrese de que la versión del sistema operativo de la máquina virtual Windows o Linux, consulte [Matriz de compatibilidad para copias de seguridad de máquinas virtuales IaaS](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Compruebe que no hay otro servicio de copia de seguridad en ejecución.
-   * Para asegurarse de que no hay problemas con las extensiones de instantáneas, [desinstale las extensiones para forzar la recarga y vuelva a intentar la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+  * Para asegurarse de que no hay problemas con las extensiones de instantáneas, [desinstale las extensiones para forzar la recarga y vuelva a intentar la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
 * Compruebe que la máquina virtual tiene conectividad a Internet.
-   * Asegúrese de que no hay otro servicio de copia de seguridad en ejecución.
+  * Asegúrese de que no hay otro servicio de copia de seguridad en ejecución.
 * En `Services.msc`, asegúrese de que el estado del servicio **Microsoft Azure Guest Agent** es **En ejecución**. Si falta el servicio **Windows Azure Guest Agent**, instálelo desde [Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * El **registro de eventos** puede mostrar errores procedentes de otros productos de copia de seguridad, como por ejemplo Copias de seguridad de Windows Server, que no se deben a Azure Backup. Siga estos pasos para determinar si el problema tiene que ver con Azure Backup:
-   * Si hay algún error en una entrada **Backup** (Copia de seguridad) en el origen del evento o en el mensaje, compruebe si las copias de seguridad de la máquina virtual IaaS de Azure se realizaron correctamente y si se creó un punto de restauración con el tipo de instantánea deseado.
-    * Si Azure Backup funciona, es probable que el problema lo produzca otra solución de copia de seguridad.
-    * Este es un ejemplo de un error 517 del visor de eventos en el que Azure Backup funcionaba correctamente, pero se produjo un error en "Copias de seguridad de Windows Server":<br>
+  * Si hay algún error en una entrada **Backup** (Copia de seguridad) en el origen del evento o en el mensaje, compruebe si las copias de seguridad de la máquina virtual IaaS de Azure se realizaron correctamente y si se creó un punto de restauración con el tipo de instantánea deseado.
+  * Si Azure Backup funciona, es probable que el problema lo produzca otra solución de copia de seguridad.
+  * Este es un ejemplo de un error 517 del visor de eventos en el que Azure Backup funcionaba correctamente, pero se produjo un error en "Copias de seguridad de Windows Server":<br>
     ![Error de Copias de seguridad de Windows Server](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-    * Si Azure Backup no funciona correctamente, busque el código de error correspondiente en la sección Errores comunes de la copia de seguridad de VM de este artículo.
+  * Si Azure Backup no funciona correctamente, busque el código de error correspondiente en la sección Errores comunes de la copia de seguridad de VM de este artículo.
 
 ## <a name="common-issues"></a>Problemas comunes
 
@@ -86,11 +86,11 @@ La operación de copia de seguridad no se pudo realizar debido a un problema con
 * Pruebe a iniciar/reiniciar el servicio de Windows **Aplicación del sistema COM+** (desde un símbolo del sistema con privilegios elevados: **net start COMSysApp**).
 * Asegúrese de que el servicio **Coordinador de transacciones distribuidas** se esté ejecutando como una cuenta de **servicio de red**. Si no es así, cámbielos para que se ejecuten como una cuenta de **servicio de red** y reinicie **Aplicación del sistema COM+** .
 * Si no se puede reiniciar el servicio, reinstale el servicio **Coordinador de transacciones distribuidas** siguiendo los pasos siguientes:
-    * Detenga el servicio MSDTC.
-    * Abra el símbolo del sistema (cmd).
-    * Ejecute el comando "msdtc-uninstall".
-    * Ejecute el comando "msdtc-install".
-    * Inicie el servicio MSDTC.
+  * Detenga el servicio MSDTC.
+  * Abra el símbolo del sistema (cmd).
+  * Ejecute el comando "msdtc-uninstall".
+  * Ejecute el comando "msdtc-install".
+  * Inicie el servicio MSDTC.
 * Inicie el servicio de Windows **Aplicación del sistema COM+** . Una vez que se inicie **Aplicación del sistema COM+** , desencadene un trabajo de copia de seguridad desde Azure Portal.</ol>
 
 ## <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState: Error en la operación de instantánea porque los VSS Writers estaban en un estado incorrecto
@@ -100,8 +100,8 @@ Mensaje de error: Error en la operación de instantánea porque los VSS Writers 
 
 Reinicie los VSS Writers que se encuentran en estado incorrecto. En un símbolo del sistema con privilegios elevados, ejecute ```vssadmin list writers```. La salida contiene todos los VSS Writers y su estado. Con cada VSS Writer cuyo estado no sea **[1] Estable**, para reiniciarlo, ejecute los comandos siguientes desde un símbolo del sistema con privilegios elevados:
 
-  * ```net stop serviceName```
-  * ```net start serviceName```
+* ```net stop serviceName```
+* ```net start serviceName```
 
 ## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure: Error al analizar la configuración de la extensión de copia de seguridad
 
@@ -112,6 +112,7 @@ Este error sucede debido a que hay permisos modificados en el directorio **Machi
 Ejecute el comando siguiente y compruebe que los permisos en el directorio **MachineKeys** sean los predeterminados: **icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 
 Los permisos predeterminados son:
+
 * Todos: (R,W)
 * BUILTIN\Administrators: (F)
 
@@ -119,17 +120,18 @@ Si ve permisos en el directorio **MachineKeys** distintos de los predeterminados
 
 1. Corrija los permisos en el directorio **MachineKeys**. Con las propiedades de seguridad de Explorer y la configuración de seguridad avanzada en el directorio, restablezca los valores predeterminados de los permisos. Quite todos los objetos de usuario, excepto el valor predeterminado del directorio, y asegúrese de que el permiso **Todos** tenga acceso especial para:
 
-    * Enumerar carpetas y leer datos
-    * Leer atributos
-    * Leer atributos ampliados
-    * Crear archivos y escribir datos
-    * Crear carpetas y anexar datos
-    * Escribir atributos
-    * Escribir atributos ampliados
-    * Permisos de lectura
+   * Enumerar carpetas y leer datos
+   * Leer atributos
+   * Leer atributos ampliados
+   * Crear archivos y escribir datos
+   * Crear carpetas y anexar datos
+   * Escribir atributos
+   * Escribir atributos ampliados
+   * Permisos de lectura
 2. Elimine todos los certificados donde **Emitido para** sea el modelo de implementación clásica o bien el **Generador de certificados CRP de Microsoft Azure**:
-    * [Abra los certificados en una consola del equipo local](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
-    * En **Personal** > **Certificados**, elimine todos los certificados donde **Emitido para** sea el modelo de implementación clásico, o **Generador de certificados CRP de Microsoft Azure**.
+
+   * [Abra los certificados en una consola del equipo local](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+   * En **Personal** > **Certificados**, elimine todos los certificados donde **Emitido para** sea el modelo de implementación clásico, o **Generador de certificados CRP de Microsoft Azure**.
 3. Desencadene un trabajo de copia de seguridad de VM.
 
 ## <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState: El estado de la extensión no admite la operación de copia de seguridad
@@ -154,10 +156,10 @@ No se pudo realizar la operación de instantánea porque se excedió el límite 
 
 * Elimine las instantáneas de blobs de disco que no sean necesarias. Tenga cuidado de no eliminar el blob de disco. Solo se deben eliminar los blobs de instantánea.
 * Si está habilitada la eliminación temporal en cuentas de almacenamiento de disco de VM, configure la retención de eliminación temporal de manera que las instantáneas existentes sean inferiores a las máximas permitidas en cualquier momento.
-* Si Azure Site Recovery está habilitado en la VM de la que se ha realizado la copia de seguridad, realice el siguiente procedimiento:
+* Si Azure Site Recovery está habilitado en la VM de la que se ha realizado la copia de seguridad, realice los siguientes pasos:
 
-    * Asegúrese de que el valor de **isanysnapshotfailed** esté establecido como False en /etc/azure/vmbackup.conf.
-    * Programe Azure Site Recovery en una hora distinta, de manera que no entre en conflicto con la operación de copia de seguridad.
+  * Asegúrese de que el valor de **isanysnapshotfailed** esté establecido como False en /etc/azure/vmbackup.conf.
+  * Programe Azure Site Recovery en una hora distinta, de manera que no entre en conflicto con la operación de copia de seguridad.
 
 ## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive: Error en la operación de instantánea debido a recursos de VM no adecuados
 
@@ -195,7 +197,6 @@ Esto garantizará que las instantáneas se realizan con permisos de host en luga
 | **Código de error**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Mensaje de error**: Error en la operación de instantánea debido a un error en la creación de un canal de comunicación de red segura. | <ol><li> Abra el Editor del Registro; para ello, ejecute **regedit.exe** en modo elevado. <li> Identifique todas las versiones de .NET Framework presentes en el sistema. Se encuentran en la jerarquía de la clave del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada versión de .NET Framework presente en la clave del Registro, agregue la siguiente clave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Código de error**: ExtensionVCRedistInstallationFailure <br/> **Mensaje de error**: Error en la operación de instantánea debido a un error en la instalación de Visual C++ Redistributable para Visual Studio 2012. | Vaya a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2013_x64.<br/>Asegúrese de que el valor de la clave del Registro que permite la instalación del servicio se establezca correctamente. Es decir, establezca el valor **Start** de **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** en **3** y no en **4**. <br><br>Si todavía experimenta problemas con la instalación, reinicie el servicio de instalación; para ello, ejecute **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** desde un símbolo del sistema con privilegios elevados.  |
 
-
 ## <a name="jobs"></a>Trabajos
 
 | Detalles del error | Solución alternativa |
@@ -222,10 +223,13 @@ Esto garantizará que las instantáneas se realizan con permisos de host en luga
 | El servicio Backup no tiene autorización para acceder a los recursos de su suscripción. |Para resolver este error, primero debe restaurar discos mediante los pasos que se indican en [Restauración de los discos de copia de seguridad](backup-azure-arm-restore-vms.md#restore-disks). A continuación, siga los pasos de PowerShell que se indican en [Creación de una máquina virtual a partir de discos restaurados](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Tiempo excesivo en operaciones de copia de seguridad y restauración
-Si la copia de seguridad tarda más de 12 horas o la restauración tarda más de 6 horas, revise los [procedimientos recomendados](backup-azure-vms-introduction.md#best-practices) y las [consideraciones de rendimiento](backup-azure-vms-introduction.md#backup-performance).
+
+Si la copia de seguridad tarda más de 12 horas o la restauración tarda más de seis horas, revise los [procedimientos recomendados](backup-azure-vms-introduction.md#best-practices) y las [consideraciones de rendimiento](backup-azure-vms-introduction.md#backup-performance).
 
 ## <a name="vm-agent"></a>Agente de máquina virtual
+
 ### <a name="set-up-the-vm-agent"></a>Configuración del agente de la máquina virtual
+
 Normalmente, el agente de la máquina virtual ya está presente en las máquinas virtuales que se crean desde la Galería de Azure. Sin embargo, las máquinas virtuales que se migran desde los centros de datos locales no tendrán instalado el agente de máquina virtual. Para dichas máquinas virtuales, el agente de máquina virtual debe instalarse explícitamente.
 
 #### <a name="windows-vms"></a>Máquinas virtuales Windows
@@ -239,6 +243,7 @@ Normalmente, el agente de la máquina virtual ya está presente en las máquinas
 * En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [use este blog](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para actualizar la propiedad de la máquina virtual y comprobar que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>Actualización del agente de máquina virtual
+
 #### <a name="windows-vms"></a>Máquinas virtuales Windows
 
 * Para actualizar el agente de VM, vuelva a instalar los [archivos binarios del agente de VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Antes de actualizar al agente, asegúrese de que no ocurra ninguna operación de copia de seguridad durante la actualización del agente de VM.
@@ -260,21 +265,23 @@ Para comprobar la versión del agente de VM en Windows VM:
 2. Haga clic con el botón derecho en el archivo y vaya a **Propiedades**. A continuación, seleccione la pestaña **Detalles**. En el campo **Versión del producto**, debe aparecer el valor 2.6.1198.718 o uno superior.
 
 ## <a name="troubleshoot-vm-snapshot-issues"></a>Solución de problemas de instantáneas de máquina virtual
+
 La copia de seguridad de máquinas virtuales se basa en la emisión de comandos de instantánea para el almacenamiento subyacente. No tener acceso al almacenamiento o los retrasos en la ejecución de las tarea de instantáneas puede generar un error en el trabajo de copia de seguridad. Las siguientes condiciones pueden producir un error en la tarea de instantáneas.
 
-- **Se bloquea el acceso de red a Storage mediante NSG**. Obtenga más información sobre cómo [establecer el acceso de red](backup-azure-arm-vms-prepare.md#establish-network-connectivity) a Storage mediante listas permitidas de direcciones IP o con un servidor proxy.
-- **Las máquinas virtuales con copia de seguridad de SQL Server configurada pueden provocar un retraso de la tarea de instantánea**. De forma predeterminada, la copia de seguridad de VM crea una copia de seguridad completa de VSS en VM Windows. Las máquinas virtuales que ejecutan SQL Server y tienen configurada la copia de seguridad de SQL Server pueden experimentar retrasos en las instantáneas. Si los retrasos en las instantáneas provocan errores de copia de seguridad, establezca la siguiente clave del Registro:
+* **Se bloquea el acceso de red a Storage mediante NSG**. Obtenga más información sobre cómo [establecer el acceso de red](backup-azure-arm-vms-prepare.md#establish-network-connectivity) a Storage mediante listas permitidas de direcciones IP o con un servidor proxy.
+* **Las máquinas virtuales con copia de seguridad de SQL Server configurada pueden provocar un retraso de la tarea de instantánea**. De forma predeterminada, la copia de seguridad de VM crea una copia de seguridad completa de VSS en VM Windows. Las máquinas virtuales que ejecutan SQL Server y tienen configurada la copia de seguridad de SQL Server pueden experimentar retrasos en las instantáneas. Si los retrasos en las instantáneas provocan errores de copia de seguridad, establezca la siguiente clave del Registro:
 
    ```text
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```
 
-- **El estado de la máquina virtual se notifica incorrectamente porque la máquina virtual está apagada en RDP**. Si ha usado el escritorio remoto para apagar la máquina virtual, compruebe que el estado de la máquina en el portal sea correcto. Si el estado no es correcto, utilice la opción **Apagar** en el panel de VM del portal para apagar la VM.
-- **Si más de cuatro VM comparten el mismo servicio en la nube, divídalas en varias directivas de copia de seguridad**. Escalone las horas de copia de seguridad para que no se inicien más de cuatro de máquinas virtuales al mismo tiempo. Pruebe a separar las horas de inicio en las directivas al menos en una hora.
-- **La ejecución de la máquina virtual utiliza mucho la CPU o la memoria**. Si la máquina virtual se ejecuta con un uso de memoria o CPU altos, de más del 90 %, la tarea de instantáneas se pone en cola y se retrasa. Finalmente, el tiempo de espera se agota. Si sucede esto, intente realizar una copia de seguridad a petición.
+* **El estado de la máquina virtual se notifica incorrectamente porque la máquina virtual está apagada en RDP**. Si ha usado el escritorio remoto para apagar la máquina virtual, compruebe que el estado de la máquina en el portal sea correcto. Si el estado no es correcto, utilice la opción **Apagar** en el panel de VM del portal para apagar la VM.
+* **Si más de cuatro VM comparten el mismo servicio en la nube, divídalas en varias directivas de copia de seguridad**. Escalone las horas de copia de seguridad para que no se inicien más de cuatro de máquinas virtuales al mismo tiempo. Pruebe a separar las horas de inicio en las directivas al menos en una hora.
+* **La ejecución de la máquina virtual utiliza mucho la CPU o la memoria**. Si la máquina virtual se ejecuta con un uso de memoria o CPU altos, de más del 90 %, la tarea de instantáneas se pone en cola y se retrasa. Finalmente, el tiempo de espera se agota. Si sucede esto, intente realizar una copia de seguridad a petición.
 
 ## <a name="networking"></a>Redes
+
 Al igual que todas las extensiones, las de Backup necesitan acceso a Internet pública para funcionar. Si no tiene acceso público a Internet, se pueden producir estos problemas:
 
 * Se puede producir un error en la instalación de la extensión.
@@ -285,18 +292,19 @@ La necesidad de resolver las direcciones públicas de Internet se trata en [esta
 
 Una vez que la resolución de nombres se haya realizado correctamente, también hay que proporcionar acceso a las direcciones IP de Azure. Para desbloquear el acceso a la infraestructura de Azure, siga uno de estos pasos:
 
-- Permita una lista de intervalos IP del centro de datos de Azure:
+* Permita una lista de intervalos IP del centro de datos de Azure:
    1. Obtenga la lista de [IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) que van a formar parte de la lista de permitidos.
    1. Desbloquee las direcciones IP mediante el cmdlet [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute). Ejecute este cmdlet en la máquina virtual de Azure, en una ventana de PowerShell con privilegios elevados. Realice la ejecución como administrador.
    1. Si dispone de un grupo de seguridad de red, agréguele reglas para permitir el acceso a las direcciones IP.
-- Cree una ruta de acceso para el flujo del tráfico HTTP:
+* Cree una ruta de acceso para el flujo del tráfico HTTP:
    1. Si tiene alguna restricción de red implementada, implemente un servidor proxy HTTP para enrutar el tráfico. Un ejemplo es un grupo de seguridad de red. Consulte los pasos para implementar un servidor proxy HTTP en [Establecimiento de la conectividad de red](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    1. Si dispone de un grupo de seguridad de red, agréguele reglas para permitir el acceso a Internet desde el proxy HTTP.
 
 > [!NOTE]
 > DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de máquinas virtuales de IaaS funcione. Si necesita una dirección IP privada estática, configúrela mediante Azure Portal o PowerShell. Asegúrese de que la opción DHCP dentro de la máquina virtual esté habilitada.
 > Obtenga más información sobre cómo configurar una dirección IP estática con PowerShell:
-> - [Incorporación de una dirección IP interna estática a una máquina virtual existente](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> - [Cambio del método de asignación para una dirección IP privada asignada a una interfaz de red](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
+>
+> * [Incorporación de una dirección IP interna estática a una máquina virtual existente](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+> * [Cambio del método de asignación para una dirección IP privada asignada a una interfaz de red](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 >
 >

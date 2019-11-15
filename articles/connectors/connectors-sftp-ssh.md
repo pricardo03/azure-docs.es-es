@@ -10,12 +10,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: 33c6007ebc429bb0d95d702ae9b90f9ac411a88c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: a48ba0d2d691314a1ca7c91ac7ae27b62fbb379b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695190"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825235"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -49,7 +49,7 @@ Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector
 
 * Usa la biblioteca [SSH.NET](https://github.com/sshnet/SSH.NET), que es una biblioteca de Secure Shell (SSH) de código abierto que admite .NET.
 
-* De forma predeterminada, las acciones SFTP-SSH pueden leer o escribir archivos de *1 GB o más pequeños*, pero solo en fragmentos de *15 MB* a la vez. Para controlar los archivos de más de 15 MB, las acciones SFTP-SSH pueden usar la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). Sin embargo, la acción Copiar archivo admite solo los archivos de 15 MB porque esa acción no admite la fragmentación de mensajes. Los desencadenadores SFTP-SSH no admiten la fragmentación.
+* De forma predeterminada, las acciones SFTP-SSH pueden leer o escribir archivos de *1 GB o más pequeños*, pero solo en fragmentos de *15 MB* a la vez. Para controlar los archivos de más de 15 MB, las acciones SFTP-SSH pueden usar la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). Para cargar archivos de gran tamaño, también necesita permisos de lectura y escritura. Sin embargo, la acción Copiar archivo admite solo los archivos de 15 MB porque esa acción no admite la fragmentación de mensajes. Los desencadenadores SFTP-SSH no admiten la fragmentación.
 
 * Proporciona la acción **Crear carpeta**, que crea una carpeta en la ruta de acceso especificada en el servidor SFTP.
 
@@ -61,7 +61,7 @@ Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector
 
 * Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* La dirección del servidor SFTP y las credenciales de cuenta, que permiten que la aplicación lógica acceda a la cuenta de SFTP. También necesita acceso a una clave privada SSH y a la contraseña de clave privada SSH.
+* La dirección del servidor SFTP y las credenciales de cuenta, que permiten que la aplicación lógica acceda a la cuenta de SFTP. También necesita acceso a una clave privada SSH y a la contraseña de clave privada SSH. Para usar la fragmentación al cargar archivos de gran tamaño, necesita permisos de lectura y escritura.
 
   > [!IMPORTANT]
   >

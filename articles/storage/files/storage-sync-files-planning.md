@@ -4,15 +4,15 @@ description: Conozca los aspectos que debe tener en cuenta al planear una implem
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9c46181d5ab449d28c2e2e93cc583a3551f114bc
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061744"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826821"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -97,13 +97,16 @@ Para mostrar los resultados en CSV:
 ```
 
 ### <a name="system-requirements"></a>Requisitos del sistema
-- Un servidor que ejecute Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019:
+- Un servidor que ejecute una de las siguientes versiones de sistema operativo:
 
     | Versión | SKU compatibles | Opciones de implementación compatibles |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter y Standard | Full y Core |
     | Windows Server 2016 | Datacenter y Standard | Full y Core |
     | Windows Server 2012 R2 | Datacenter y Standard | Full y Core |
+    | Windows Server IoT 2019 para Storage| Datacenter y Standard | Full y Core |
+    | Windows Storage Server 2016| Datacenter y Standard | Full y Core |
+    | Windows Storage Server 2012 R2| Datacenter y Standard | Full y Core |
 
     Las versiones futuras de Windows Server se agregarán tan pronto como se publiquen.
 
@@ -155,15 +158,18 @@ La característica de clústeres de conmutación por error de Windows es compati
 > El agente de Azure File Sync debe estar instalado en cada nodo de un clúster de conmutación por error para que la sincronización funcione correctamente.
 
 ### <a name="data-deduplication"></a>Desduplicación de datos
-**Versión 5.0.2.0 del agente, o posterior**   
-La desduplicación de datos ahora es compatible en volúmenes con la nube por niveles habilitada en Windows Server 2016 y Windows Server 2019. Habilitar la desduplicación de datos en un volumen con la nube por niveles habilitada, le permite almacenar en caché más archivos en el entorno local sin necesidad de aprovisionar más almacenamiento. 
+**Windows Server 2016 y Windows Server 2019**   
+La desduplicación de datos ahora es compatible en volúmenes con la nube por niveles habilitada en Windows Server 2016. Habilitar la desduplicación de datos en un volumen con la nube por niveles habilitada, le permite almacenar en caché más archivos en el entorno local sin necesidad de aprovisionar más almacenamiento. 
 
 Cuando la desduplicación de datos está habilitada en un volumen con la nube por niveles habilitada, los archivos optimizados para desduplicación dentro de la ubicación del punto de conexión del servidor se organizan en niveles de forma similar a un archivo normal en función de la configuración de la directiva de la nube por niveles. Una vez que los archivos optimizados para la desduplicación se han organizado en niveles, el trabajo de recolección de elementos no utilizados de desduplicación de datos se ejecutará automáticamente para recuperar el espacio en disco mediante la eliminación de fragmentos innecesarios a los que ya no hacen referencia otros archivos del volumen.
 
 Tenga en cuenta que el ahorro de volumen solo se aplica al servidor; los datos del recurso compartido de Azure no se desduplicarán.
 
-**Windows Server 2012 R2 o versiones anteriores del agente**  
-En el caso de volúmenes que no tengan habilitada la característica de niveles de nube, Azure File Sync admite la habilitación de la desduplicación de datos de Windows Server en el volumen.
+> [!Note]  
+> La desduplicación de datos y la nube por niveles no se admiten actualmente en un mismo volumen en Server 2019 debido a un error que se corregirá en una actualización futura.
+
+**Windows Server 2012 R2**  
+Azure File Sync no admite la desduplicación de datos y la nube por niveles en el mismo volumen. Si la desduplicación de datos está habilitada en un volumen, se debe deshabilitar la nube por niveles. 
 
 **Notas**
 - Si la desduplicación de datos está instalada antes de instalar el agente de Azure File Sync, es necesario reiniciar para que se admita en el mismo volumen la desduplicación de datos y la nube por niveles.
@@ -175,7 +181,7 @@ En el caso de volúmenes que no tengan habilitada la característica de niveles 
     - Nota: Una vez que Azure File Sync haya colocado un archivo en un nivel, el trabajo de optimización por desduplicación omitirá el archivo.
 - Si un servidor que ejecuta Windows Server 2012 R2 y que tiene instalado el agente de Azure File Sync se actualiza a Windows Server 2016 o Windows Server 2019, es necesario realizar los pasos siguientes para que se pueda admitir en el mismo volumen la desduplicación de datos y la nube por niveles:  
     - Desinstalar al agente de Azure File Sync para Windows Server 2012 R2 y reiniciar el servidor.
-    - Descargar al agente de Azure File Sync para la versión del sistema operativo del nuevo servidor (Windows Server 2016 o Windows Server 2019).
+    - Descargar al agente de Azure File Sync para la versión de sistema operativo del nuevo servidor (Windows Server 2016 o Windows Server 2019).
     - Instalar el agente de Azure File Sync y reiniciar el servidor.  
     
     Nota: Los valores de configuración de Azure File Sync en el servidor se conservan cuando el agente se desinstala y reinstala.
@@ -271,6 +277,8 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Gobierno de EE. UU.: Arizona | Arizona |
 | Gobierno de EE. UU.: Texas | Texas |
 | Gobierno de EE. UU. - Virginia | Virginia |
+| Norte de Emiratos Árabes Unidos | Dubai |
+| Centro de Emiratos Árabes Unidos* | Abu Dabi |
 | Europa occidental | Países Bajos |
 | Centro occidental de EE.UU. | Wyoming |
 | Oeste de EE. UU. | California |

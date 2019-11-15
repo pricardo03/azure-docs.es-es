@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 28a391fded422b00508e006bfd613d6c98d82f17
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1fda05ffcac8952ee5a12c23383aad1a04d36b97
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166472"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601319"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
@@ -206,9 +206,9 @@ Azure Container Instances no expone acceso directo a la infraestructura subyacen
 
 Azure Container Instances no admite aún la asignación de puertos con la configuración normal de Docker. Si encuentra una dirección IP de grupo de contenedores no accesible y cree que debería serlo, asegúrese de que ha configurado la imagen de contenedor para que escuche a los mismos puertos que expone en el grupo de contenedores con la propiedad `ports`.
 
-Si desea confirmar que Azure Container Instances escucha en el puerto que configuró en la imagen de contenedor, pruebe una implementación de la imagen `aci-helloworld` que expone el puerto. Ejecute también la aplicación `aci-helloworld` para que escuche en el puerto. `aci-helloworld` acepta una variable de entorno opcional `PORT` para invalidar el puerto 80 predeterminado en el que escucha. Por ejemplo, para probar el puerto 9000:
+Si desea confirmar que Azure Container Instances escucha en el puerto que configuró en la imagen de contenedor, pruebe una implementación de la imagen `aci-helloworld` que expone el puerto. Ejecute también la aplicación `aci-helloworld` para que escuche en el puerto. `aci-helloworld` acepta una variable de entorno opcional `PORT` para invalidar el puerto 80 predeterminado en el que escucha. Por ejemplo, para probar el puerto 9000, establezca la [variable de entorno](container-instances-environment-variables.md) al crear el grupo de contenedores:
 
-1. Configure el grupo de contenedores para que exponga el puerto 9000 y pase el número de puerto como valor de la variable de entorno:
+1. Configure el grupo de contenedores para que exponga el puerto 9000 y pase el número de puerto como el valor de la variable de entorno. El ejemplo tiene el formato adecuado para el shell de Bash. Si prefiere otro shell como PowerShell o el símbolo del sistema, deberá ajustar la asignación de variables según corresponda.
     ```azurecli
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \

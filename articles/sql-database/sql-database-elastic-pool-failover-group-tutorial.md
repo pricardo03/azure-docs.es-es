@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Adición de un grupo elástico de Azure SQL Database a un grupo de conmutación por error | Microsoft Docs'
+title: 'Tutorial: Adición de un grupo elástico a un grupo de conmutación por error'
 description: Agregue un grupo elástico de Azure SQL Database a un grupo de conmutación por error mediante Azure Portal, PowerShell o la CLI de Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
-ms.date: 06/19/2019
-ms.openlocfilehash: 2d46e6f1d5c7079ab5bbfea39a85ea0a7592afc8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 08/27/2019
+ms.openlocfilehash: e2ae9afaf7c1dcc1794b90d4851fdd60298b5ad6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099283"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823889"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: Adición de un grupo elástico de Azure SQL Database a un grupo de conmutación por error
 
@@ -25,7 +25,7 @@ Configure un grupo de conmutación por error para un grupo elástico de Azure SQ
 > [!div class="checklist"]
 > - Crear una base de datos única de Azure SQL Database.
 > - Agregar una base de datos única a un grupo elástico 
-> - Crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) para un grupo elástico entre dos servidores lógicos de SQL Server
+> - Crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) para dos grupos elásticos entre dos servidores lógicos de SQL Server.
 > - Probar la conmutación por error.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -40,6 +40,13 @@ Para completar este tutorial, asegúrese de disponer de los siguientes elementos
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## <a name="2---add-single-database-to-elastic-pool"></a>2\. Adición de una base de datos única a un grupo elástico
+En este paso, creará un grupo elástico y le agregará la base de datos única. 
+
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Cree el grupo elástico mediante Azure Portal. 
+
 
 1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
 1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para más información acerca de las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
@@ -64,8 +71,67 @@ Para completar este tutorial, asegúrese de disponer de los siguientes elementos
 1. Seleccione **Revisar y crear** para revisar la configuración del grupo elástico y después seleccione **Crear** para crear el grupo elástico. 
 
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Cree los grupos elásticos y el servidor secundario con PowerShell. 
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   $poolName = "myElasticPool"
+   $databaseName = "mySampleDatabase"
+   $drLocation = "West US"
+   $drServerName = "mysqlsecondary-$(Get-Random)"
+   $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+   
+   # The ip address range that you want to allow to access your server 
+   # Leaving at 0.0.0.0 will prevent outside-of-azure connections
+   # $startIp = "0.0.0.0"
+   # $endIp = "0.0.0.0"
+   
+   # Show randomized variables
+   Write-host "DR Server name is" $drServerName 
+   Write-host "Failover group name is" $failoverGroupName
+   
+   # Create primary Gen5 elastic 2 vCore pool
+   Write-host "Creating elastic pool..."
+   $elasticPool = New-AzSqlElasticPool -ResourceGroupName $resourceGroupName `
+       -ServerName $serverName `
+       -ElasticPoolName $poolName `
+       -Edition "GeneralPurpose" `
+       -vCore 2 `
+       -ComputeGeneration Gen5
+   $elasticPool
+   
+   # Add single db into elastic pool
+   Write-host "Creating elastic pool..."
+   $addDatabase = Set-AzSqlDatabase -ResourceGroupName $resourceGroupName `
+       -ServerName $serverName `
+       -DatabaseName $databaseName `
+       -ElasticPoolName $poolName
+   $addDatabase
+   ```
+
+En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
+
+| Get-Help | Notas |
+|---|---|
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Crea un grupo de bases de datos elásticas para una instancia de Azure SQL Database.| 
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Establece las propiedades de una base de datos, o mueve una base de datos existente en un grupo elástico. | 
+
+---
+
 ## <a name="3---create-the-failover-group"></a>3\. Creación de un grupo de conmutación por error 
 En este paso, va a crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) entre un servidor de Azure SQL Server existente y uno nuevo en otra región. A continuación, agregue el grupo elástico al grupo de conmutación por error. 
+
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Cree el grupo de conmutación por error mediante Azure Portal. 
 
 1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
 1. Seleccione el grupo elástico que creó en la sección anterior: `myElasticPool`. 
@@ -94,11 +160,101 @@ En este paso, va a crear un [grupo de conmutación por error](sql-database-auto-
         
     ![Agregar un grupo elástico a un grupo de conmutación por error](media/sql-database-elastic-pool-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
-1. Elija **Seleccionar** para aplicar la configuración del grupo elástico al grupo de conmutación por error y, después, seleccione **Crear** para crear el grupo de conmutación por error. Al agregar el grupo elástico al grupo de conmutación por error, se iniciará automáticamente el proceso de replicación geográfica. 
+1. Elija **Seleccionar** para aplicar la configuración del grupo elástico al grupo de conmutación por error y, después, seleccione **Crear** para crear el grupo de conmutación por error. Al agregar el grupo elástico al grupo de conmutación por error, se iniciará automáticamente el proceso de replicación geográfica.
+
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Cree el grupo de conmutación por error mediante PowerShell. 
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $poolName = "myElasticPool"
+   # $databaseName = "mySampleDatabase"
+   # $drLocation = "West US"
+   # $drServerName = "mysqlsecondary-$(Get-Random)"
+   $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+
+   # Create a secondary server in the failover region
+   Write-host "Creating a secondary logical server in the failover region..."
+   New-AzSqlServer -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -Location $drLocation `
+      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+         -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+   Write-host "Secondary logical server =" $drServerName
+   
+   # Create a server firewall rule that allows access from the specified IP range
+   Write-host "Configuring firewall for secondary logical server..."
+   New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
+   Write-host "Firewall configured" 
+   
+   # Create secondary Gen5 elastic 2 vCore pool
+   Write-host "Creating secondary elastic pool..."
+   $elasticPool = New-AzSqlElasticPool -ResourceGroupName $resourceGroupName `
+       -ServerName $drServerName `
+       -ElasticPoolName $poolName `
+       -Edition "GeneralPurpose" `
+       -vCore 2 `
+       -ComputeGeneration Gen5
+   $elasticPool
+   
+   # Create a failover group between the servers
+   Write-host "Creating failover group..." 
+   New-AzSqlDatabaseFailoverGroup `
+     –ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -PartnerServerName $drServerName  `
+      –FailoverGroupName $failoverGroupName `
+      –FailoverPolicy Automatic `
+      -GracePeriodWithDataLossHours 2
+   Write-host "Failover group created successfully." 
+   
+   # Add elastic pool to the failover group
+   Write-host "Enumerating databases in elastic pool...." 
+   $FailoverGroup = Get-AzSqlDatabaseFailoverGroup `
+                    -ResourceGroupName $resourceGroupName `
+                    -ServerName $serverName `
+                    -FailoverGroupName $failoverGroupName
+   $databases = Get-AzSqlElasticPoolDatabase `
+                  -ResourceGroupName $resourceGroupName `
+                  -ServerName $serverName `
+                  -ElasticPoolName $poolName
+   Write-host "Adding databases to failover group..." 
+   $failoverGroup = $failoverGroup | Add-AzSqlDatabaseToFailoverGroup `
+                                     -Database $databases 
+   $failoverGroup
+   ```
+
+En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
+
+| Get-Help | Notas |
+|---|---|
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crea un servidor de SQL Database que hospeda bases de datos únicas y grupos elásticos. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crea una regla de firewall para un servidor lógico. | 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Crea un grupo de bases de datos elásticas para una instancia de Azure SQL Database.| 
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Crea un grupo de conmutación por error. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Agrega una o varias bases de datos de Azure SQL a un grupo de conmutación por error. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Obtiene o enumera grupos de conmutación por error de Azure SQL Database. |
+
+---
 
 
 ## <a name="4---test-failover"></a>4\. Prueba de la conmutación por error 
 En este paso, se producirá un error en el grupo de conmutación por error en el servidor secundario y, a continuación, se realizará la conmutación por recuperación mediante Azure Portal. 
+
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Pruebe la conmutación por error de su grupo de conmutación por error mediante Azure Portal. 
 
 1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
 1. Seleccione el grupo elástico que creó en la sección anterior: `myElasticPool`. 
@@ -119,22 +275,156 @@ En este paso, se producirá un error en el grupo de conmutación por error en el
 1. Revise cuál es el servidor principal y cuál es el secundario. Si la conmutación por error se realiza correctamente, los dos servidores deben tener los roles intercambiados. 
 1. Seleccionar de nuevo **Conmutación por error** para que el grupo de conmutación por error vuelva a la configuración original. 
 
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pruebe la conmutación por error de su grupo de conmutación por error mediante PowerShell. 
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $poolName = "myElasticPool"
+   # $databaseName = "mySampleDatabase"
+   # $drLocation = "West US"
+   # $drServerName = "mysqlsecondary-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+   
+   # Check role of secondary replica
+   Write-host "Confirming the secondary server is secondary...." 
+   (Get-AzSqlDatabaseFailoverGroup `
+      -FailoverGroupName $failoverGroupName `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName).ReplicationRole
+   
+   # Failover to secondary server
+   Write-host "Failing over failover group to the secondary..." 
+   Switch-AzSqlDatabaseFailoverGroup `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -FailoverGroupName $failoverGroupName
+   Write-host "Failover group failed over to" $drServerName 
+   ```
+
+Se producirá un error en el grupo de conmutación por error en el servidor secundario y, a continuación, se realizará la conmutación por recuperación mediante PowerShell. 
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $poolName = "myElasticPool"
+   # $databaseName = "mySampleDatabase"
+   # $drLocation = "West US"
+   # $drServerName = "mysqlsecondary-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+
+   # Check role of secondary replica
+   Write-host "Confirming the secondary server is now primary" 
+   (Get-AzSqlDatabaseFailoverGroup `
+      -FailoverGroupName $failoverGroupName `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName).ReplicationRole
+   
+   # Revert failover to primary server
+   Write-host "Failing over failover group to the primary...." 
+   Switch-AzSqlDatabaseFailoverGroup `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -FailoverGroupName $failoverGroupName
+   Write-host "Failover group failed over to" $serverName 
+   ```
+
+En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
+
+| Get-Help | Notas |
+|---|---|
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Obtiene o enumera grupos de conmutación por error de Azure SQL Database. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Ejecuta una conmutación por error de un grupo de conmutación por error de Azure SQL Database. |
+
+
+---
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
+
 Limpie los recursos mediante la eliminación del grupo de recursos. 
+
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
 
 1. Vaya a su grupo de recursos en [Azure Portal](https://portal.azure.com).
 1. Seleccione **Eliminar grupo de recursos** para eliminar todos los recursos del grupo, así como el propio grupo de recursos. 
-1. En la nueva ventana, escriba el nombre del grupo de recursos, `myResourceGroup`, y luego seleccione **Eliminar** para eliminar el grupo de recursos.  
+1. En la nueva ventana, escriba el nombre del grupo de recursos, `myResourceGroup`, y luego seleccione **Eliminar** para eliminar el grupo de recursos. 
 
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Limpie sus recursos mediante PowerShell. 
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   
+   # Clean up resources by removing the resource group
+   Write-host "Removing resource group..."
+   Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
+   Write-host "Resource group removed =" $resourceGroupName
+   ```
+---
+
+En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
+
+| Get-Help | Notas |
+|---|---|
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos. | 
+
+Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
+
+## <a name="full-script"></a>Script completo
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+[!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
+
+Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
+
+| Get-Help | Notas |
+|---|---|
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crea un servidor de SQL Database que hospeda bases de datos únicas y grupos elásticos. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crea una regla de firewall para un servidor lógico. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crea una nueva base de datos única de Azure SQL Database | 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Crea un grupo de bases de datos elásticas para una instancia de Azure SQL Database.| 
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Establece las propiedades de una base de datos, o mueve una base de datos existente en un grupo elástico. | 
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Crea un grupo de conmutación por error. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Obtiene una o más bases de datos SQL. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Agrega una o varias bases de datos de Azure SQL a un grupo de conmutación por error. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Obtiene o enumera grupos de conmutación por error de Azure SQL Database. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Ejecuta una conmutación por error de un grupo de conmutación por error de Azure SQL Database. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos. | 
+
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+No hay scripts disponibles para Azure Portal.
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha agregado una base de datos única de Azure SQL Database a un grupo de conmutación por error y ha probado la conmutación por error. Ha aprendido a:
+En este tutorial, ha agregado un grupo elástico de Azure SQL Database a un grupo de conmutación por error y ha probado la conmutación por error. Ha aprendido a:
 
 > [!div class="checklist"]
 > - Crear una base de datos única de Azure SQL Database.
 > - Agregar una base de datos única a un grupo elástico 
-> - Crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) para un grupo elástico entre dos servidores lógicos de SQL Server
+> - Crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) para dos grupos elásticos entre dos servidores lógicos de SQL Server.
 > - Probar la conmutación por error.
 
 Avance al siguiente tutorial sobre cómo migrar mediante DMS.

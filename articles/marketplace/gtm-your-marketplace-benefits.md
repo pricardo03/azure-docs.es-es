@@ -4,19 +4,20 @@ description: 'Servicios de comercialización: en esta sección se describen los 
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7b563cd90ec3e46dfd2d4420b728cd6f69df40eb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752405"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818643"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
-Ya publicó correctamente en Marketplace, ahora quiere ver que su oferta tenga éxito. Le ofrecemos las ventajas (de ventas, técnicas y de marketing) que necesita para agilizar el crecimiento de su oferta.
+Ya ha publicado en Marketplace, ahora quiere ver que la oferta tenga éxito. Se le ofrecen las ventajas (de ventas, técnicas y de marketing) que necesita para agilizar el crecimiento de la oferta.
 
 Cuando publique su oferta, el equipo de Recompensas de Marketplace se pondrá en contacto con usted para empezar a trabajar en conjunto con respecto a sus ventajas elegibles. Las ventajas de las Recompensas de Marketplace se basan en la involucración y las ventas comerciales de Marketplace. Cuanto más se involucra, más gana.
 
@@ -24,7 +25,7 @@ Cuando publique su oferta, el equipo de Recompensas de Marketplace se pondrá en
 
 Las Recompensas de Marketplace están diseñadas para ayudarlo en su fase de crecimiento específica, empezando por las actividades de reconocimiento para ayudarlo a obtener sus primeros clientes. A medida que crezca en Marketplace, podrá desbloquear nuevas ventajas diseñadas para ayudarlo a convertir clientes y cerrar acuerdos. 
 
-El programa crea un bucle de retroalimentación positivo: las ventajas de cada fase de crecimiento están diseñadas para que progrese hasta la fase siguiente, lo que le permite hacer crecer su negocio a los clientes de Microsoft, con el campo de Microsoft y a través del canal de Microsoft aprovechando Marketplace comercial como plataforma. 
+El programa crea un bucle de retroalimentación positivo: las ventajas de cada fase de crecimiento están diseñadas para llevarle hasta la fase siguiente, lo que le permite llevar el negocio a los clientes de Microsoft, con el campo de Microsoft, y a través del canal de Microsoft mediante el aprovechamiento de Marketplace comercial como plataforma. 
 
 Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
 
@@ -102,7 +103,7 @@ Microsoft se reserva el derecho de revocar y finalizar las ventajas de las Recom
 
 Esta oferta se realiza en inglés para todos los asociados con una oferta publicada en Azure Marketplace o Microsoft AppSource.
 
-Las transacciones que se comprueban como fraudulentas no se contabilizarán en el [nivel del programa de ventas facturadas](https://aka.ms/marketplacepublisherrewards) del anunciante, como se indica en la sección de ofertas de [lista, prueba y consultoría](#list-trial-and-consulting-benefits), en la sección sobre las [ventajas para los asociados de transacciones](#marketplace-rewards-for-transact-partners) y en la [presentación detallada del programa](https://aka.ms/marketplacepublisherrewards). Microsoft asignará asociados a los niveles de elegibilidad en función de sus ventas facturadas reales una vez que se haya eliminado el fraude. 
+Las transacciones que se demuestran fraudulentas no se contabilizan en el [nivel del programa de ventas facturadas](https://aka.ms/marketplacepublisherrewards) del anunciante, como se indica en la sección de ofertas de [lista, prueba y consultoría](#list-trial-and-consulting-benefits), en la sección sobre las [ventajas para los asociados de transacciones](#marketplace-rewards-for-transact-partners) y en la [presentación detallada del programa](https://aka.ms/marketplacepublisherrewards). Microsoft asignará asociados a los niveles de elegibilidad en función de sus ventas facturadas reales una vez que se haya eliminado el fraude. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

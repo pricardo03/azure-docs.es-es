@@ -1,213 +1,203 @@
 ---
-title: 'TDE: integración de Azure Key Vault o Bring Your Own Key (BYOK) - Azure SQL Database | Microsoft Docs'
+title: Cifrado de datos transparente (TDE) administrado por el cliente
 description: Compatibilidad de Bring Your Own Key (BYOK) para el cifrado de datos transparente (TDE) con Azure Key Vault para SQL Database y Data Warehouse. Información general de TDE con BYOK, ventajas, funcionamiento, consideraciones y recomendaciones.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 07/18/2019
-ms.openlocfilehash: 095ecc360e5639a5d47dff4bc4675fc237cf81da
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 11/04/2019
+ms.openlocfilehash: 3ae5403c2313bc1d2f271aeba9d4a99d9a0c5db7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348923"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822283"
 ---
-# <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente de Azure Key Vault: compatibilidad con Bring Your Own Key
+# <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 
-El [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) con la integración de Azure Key Vault le permite cifrar la clave de cifrado de base de datos (DEK) con una clave asimétrica administrada por el cliente denominada Protector de TDE. Esto también se conoce como compatibilidad de Bring Your Own Key (BYOK) para Cifrado de datos transparente.  En el escenario BYOK, el protector de TDE se almacena en una instancia de [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) administrada por el cliente, y de la que este es propietario; esta instancia es el sistema de administración de claves externas en la nube de Azure. El protector TDE lo puede [generar](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates) el almacén de claves o [transferirse](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) al almacén de claves desde un dispositivo HSM local. La clave de cifrado de TDE, que se almacena en la página de arranque de una base de datos, cifra y descifra el protector de TDE, del que nunca sale.  Para cifrar y descifrar la clave de cifrado es preciso que SQL Database tenga los permisos necesarios en el almacén de claves que posee el cliente. Si se revocan los permisos del servidor con SQL Server lógico en el almacén de claves, no se podrá acceder a la base de datos, se denegarán las conexiones y se cifrarán todos los datos. En el caso de Azure SQL Database, el protector de TDE se establece en el nivel de servidor con SQL Server lógico y lo heredan todas las bases de datos asociadas a dicho servidor. En el caso de la *Instancia administrada de Azure SQL Database*, el protector de TDE se establece en el nivel de instancia y lo heredan todas las bases de datos [cifradas](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance) que se encuentren en dicha instancia. El término *servidor* hace referencia tanto a servidor como a instancia a lo largo de este documento, a menos que se indique lo contrario.
+El [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) de Azure SQL con una clave administrada por el cliente habilita el escenario Bring Your Own Key (BYOK) para la protección de datos en reposo y permite a las organizaciones implementar la separación de tareas en la administración de claves y datos. Con el cifrado de datos transparente administrado por el cliente, el cliente es responsable y tiene el control total de la administración del ciclo de vida de una clave (creación, carga, rotación y eliminación), de los permisos de uso de claves y de la auditoría de operaciones con clave.
 
-> [!NOTE]
-> El cifrado de datos transparente con integración de Azure Key Vault (Bring Your Own Key) para Instancia administrada de Azure SQL Database está en versión preliminar.
+En este escenario, la clave que se usa para el cifrado de la clave de cifrado de base de datos (DEK), denominada protector de TDE, es una clave asimétrica administrada por el cliente que se almacena en una instancia propiedad del cliente y administrada por él de [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), un sistema de administración de claves externas basado en la nube. Key Vault ofrece un almacenamiento seguro de alta disponibilidad y escalabilidad para claves criptográficas RSA respaldado por módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 nivel 2. No permite el acceso directo a una clave almacenada, sino que proporciona servicios de cifrado y descifrado mediante el uso de la clave en las entidades autorizadas. La clave puede generarse desde el almacén de claves, así como importarse o [transferirse al almacén de claves desde un dispositivo HSM local](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
-
-Gracias al cifrado de datos transparente con integración de Azure Key Vault, los usuarios pueden controlar las tareas de administración de claves, entre las que se incluyen las rotaciones de claves, los permisos del almacén de claves y la copia de seguridad de claves, así como la opción de llevar a cabo auditorías o crear informes sobre todos los protectores de TDE mediante la funcionalidad de Azure Key Vault. Key Vault ofrece una administración centralizada de claves, aprovecha los módulos de seguridad de hardware (HSM) extremadamente supervisados y permite la separación de obligaciones entre las claves y los datos de administración, lo que ayudar a cumplir las directivas de seguridad.  
-
-La integración de TDE con Azure Key Vault proporciona las ventajas siguientes:
-
-- Mayor transparencia y control pormenorizado con la capacidad de administrar automáticamente el protector de TDE
-- La capacidad de revocar permisos en cualquier momento para que la base de datos sea inaccesible.
-- Administración central de los protectores de TDE (junto con otras claves y secretos usados en otros servicios de Azure) hospedándolos en Key Vault
-- Separación de las responsabilidades de administración de claves y datos dentro de la organización para facilitar la separación de obligaciones
-- Mayor nivel de confianza de sus propios clientes, ya que Key Vault está diseñado para que Microsoft no vea ni extraiga ninguna clave de cifrado.
-- Compatibilidad con la rotación de claves
+Para Azure SQL Database y Azure SQL Data Warehouse, el protector de TDE se establece en el nivel de servidor lógico y se hereda por todas las bases de datos cifradas asociadas con dicho servidor. En el caso de la Instancia administrada de Azure SQL Database, el protector de TDE se establece en el nivel de instancia y lo heredan todas las bases de datos cifradas que se encuentren en dicha instancia. El término *servidor* hace referencia tanto al servidor lógico de SQL Database como a una instancia administrada a lo largo de este documento, a menos que se indique lo contrario. 
 
 > [!IMPORTANT]
-> Para aquellos usuarios de TDE administrado por el servicio a los que les gustaría empezar a usar Key Vault, TDE permanece habilitado durante el proceso de cambio a un protector de TDE en Key Vault. No hay ningún tiempo de inactividad ni nuevo cifrado de los archivos de la base de datos. El cambio de una clave administrada por el servicio a una clave de Key Vault solo requiere el nuevo cifrado de la clave de cifrado de base de datos (DEK), que es una operación rápida y en línea.
+> Para aquellos que usan TDE administrado por el servicio y que quieren empezar a usar TDE administrado por el cliente, los datos permanecen cifrados durante el proceso de cambio y no hay tiempo de inactividad ni se vuelven a cifrar los archivos de la base de datos. El cambio de una clave administrada por el servicio a una clave administrada por el cliente solo requiere el nuevo cifrado de la DEK, que es una operación rápida y en línea.
 
-## <a name="how-does-tde-with-azure-key-vault-integration-support-work"></a>Cómo funciona el soporte técnico de la integración de TDE con Azure Key Vault
+## <a name="benefits-of-the-customer-managed-tde"></a>Ventajas del TDE administrado por el cliente
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
+El Cifrado de datos transparente (TDE) administrado por el cliente le proporciona las siguientes ventajas:
 
-![Autenticación del servidor en Key Vault](./media/transparent-data-encryption-byok-azure-sql/tde-byok-server-authentication-flow.PNG)
+- Control completo y pormenorizado del uso y de la administración del protector de TDE.
 
-Cuando TDE se configura por primera vez para usar un protector de TDE de Key Vault, el servidor envía la DEK de cada base de datos habilitada para TDE a Key Vault para una solicitud de encapsulado de clave. Key Vault devuelve la clave de cifrado de la base de datos cifrada, que se almacena en la base de datos del usuario.  
+- Transparencia del uso del protector de TDE.
 
-> [!IMPORTANT]
-> Es importante tener en cuenta que **una vez que un protector de TDE se almacena en Azure Key Vault, nunca sale de Azure Key Vault**. El servidor solo puede enviar solicitudes de operación de clave al material de clave del protector de TDE en Key Vault, y **nunca tiene acceso ni almacena en caché el protector de TDE**. El administrador de Key Vault puede revocar los permisos de Key Vault del servidor en cualquier momento, en cuyo caso todas las conexiones a la base de datos se deniegan.
+- Capacidad de implementar la separación de tareas para la administración de claves y datos en la organización.
 
-## <a name="guidelines-for-configuring-tde-with-azure-key-vault"></a>Directrices para configurar TDE con Azure Key Vault
+- El administrador de Key Vault puede revocar los permisos de acceso de las claves para hacer que la base de datos cifrada sea inaccesible.
 
-### <a name="general-guidelines"></a>Directrices generales
+- Administración central de claves en AKV.
 
-- Asegúrese de que Azure Key Vault y Azure SQL Database/Instancia administrada van a estar en el mismo inquilino.  No se admiten las **interacciones de servidor y almacén de claves entre inquilinos**.
-- Si está planeando un traslado de inquilino, tendrá que volver a configurar TDE con AKV. Obtenga más información sobre el [traslado de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
-- Al configurar TDE con Azure Key Vault, es importante tener en cuenta la carga del almacén de claves debida a las repetidas operaciones de encapsular/desencapsular. Por ejemplo, dado que todas las bases de datos asociadas a un servidor de SQL Database usan el mismo protector de TDE, una conmutación por error de ese servidor desencadenará tantas operaciones de clave en el almacén como bases de datos hay en el servidor. De acuerdo con nuestra experiencia y los [límites de servicio de almacén de claves](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits) documentados, se recomienda asociar como máximo 500 bases de datos estándar o de uso general o 200 bases de datos premium o críticas para la empresa a una instancia de Azure Key Vault en una sola suscripción para asegurarse una disponibilidad alta uniforme al acceder al protector de TDE en el almacén.
-- Se recomienda: mantener una copia del protector de TDE en el entorno local.  Esto requiere un dispositivo HSM para crear un protector de TDE localmente y un sistema de custodia de claves a fin de almacenar una copia local del protector de TDE.  Obtenga información sobre [cómo transferir una clave desde un HSM local a Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+- Mayor confianza de los clientes finales, ya que AKV está diseñado para que Microsoft no pueda ver ni extraer las claves de cifrado.
 
+## <a name="how-customer-managed-tde-works"></a>Funcionamiento del TDE administrado por el cliente
 
-### <a name="guidelines-for-configuring-azure-key-vault"></a>Directrices para configurar Azure Key Vault
+![Configuración y funcionamiento del TDE administrado por el cliente](./media/transparent-data-encryption-byok-azure-sql/customer-managed-tde-with-roles.PNG)
 
-- Cree un almacén de claves con [eliminación temporal](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) y protección de purgas habilitadas para protegerlo contra la eliminación de datos en caso de que se eliminen las claves o el almacén de claves de manera involuntaria.  Debe usar [PowerShell para habilitar la propiedad de "eliminación temporal"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) en el almacén de claves (esta opción no está disponible aún en el portal de AKV, pero es obligatoria para Azure SQL):  
-  - Los recursos eliminados temporalmente se conservan durante un período de tiempo establecido, 90 días a menos que se recuperen o purguen.
-  - Las acciones de **recuperación** y **purga** tienen sus propios permisos asociados en una directiva de acceso del almacén de claves.
-- Configure un bloqueo de recursos en el almacén de claves para controlar quién puede eliminar este recurso crítico y ayudar a evitar la eliminación accidental o no autorizada.  [Más información acerca de los bloqueos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
+Para que el servidor pueda usar el protector de TDE almacenado en AKV para cifrar la DEK, el administrador del almacén de claves debe conceder los siguientes derechos de acceso al servidor mediante su identidad única de AAD:
 
-- Conceda al servidor de SQL Database acceso al almacén de claves usando su identidad de Azure Active Directory (Azure AD).  Cuando se usa la interfaz de usuario del portal, la identidad de Azure AD se crea automáticamente y se conceden los permisos de acceso del almacén de claves al servidor.  Al usar PowerShell para configurar TDE con BYOK, se debe crear la identidad de Azure AD y se debe comprobar la finalización. Consulte [Configure TDE with BYOK](transparent-data-encryption-byok-azure-sql-configure.md) (Configuración de TDE con BYOK) y [Configure TDE with BYOK for Managed Instance](https://aka.ms/sqlmibyoktdepowershell) (Configuración de TDE con BYOK para Instancia administrada) para obtener instrucciones detalladas paso a paso cuando se usa PowerShell.
+- **get**: para recuperar la parte pública y las propiedades de la clave en Key Vault
 
-   > [!NOTE]
-   > Si la identidad de Azure AD **se elimina accidentalmente o se revocan los permisos del servidor** con la directiva de acceso del almacén de claves o moviendo sin querer el servidor a una suscripción diferente, el servidor pierde el acceso al almacén de claves y las bases de datos cifradas con TDE permanecen inaccesibles y se deniegan los inicios de sesión hasta que se restauran la identidad de Azure AD del servidor lógico y los permisos.  
+- **wrapKey**: para poder proteger (cifrar) la DEK
 
-- Al usar firewalls y redes virtuales con Azure Key Vault, debe permitir que los servicios de confianza de Microsoft puedan omitir este firewall. Elija SÍ.
+- **unwrapKey**: para poder desproteger (descifrar) la DEK
 
-   > [!NOTE]
-   > Si las bases de datos SQL cifradas con TDE perdieron el acceso al almacén de claves porque no pudieron omitir el firewall, estas permanecerán inaccesibles y se denegarán los inicios de sesión hasta que se hayan restaurado los permisos de omisión del firewall.
+El administrador de Key Vault también puede [habilitar el registro de eventos de auditoría del almacén de claves](https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault), por lo que se pueden auditar más adelante.
 
-- Habilite la auditoría y la generación de informes en todas las claves de cifrado: Key Vault proporciona registros que son fáciles de insertar en otras herramientas de administración de eventos e información de seguridad (SIEM). [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) de Operations Management Suite (OMS) es un ejemplo de un servicio que ya está integrado.
-- Para garantizar una alta disponibilidad de bases de datos cifradas, configure cada servidor de SQL Database con dos almacenes de Azure Key Vault que residan en regiones diferentes.
+Cuando se configura el servidor para usar un protector de TDE de AKV, el servidor envía la DEK de cada base de datos habilitada para TDE al almacén de claves para su cifrado. Key Vault devuelve la DEK cifrada, la cual se almacena en la base de datos del usuario.
+
+Cuando es necesario, el servidor envía la DEK protegida al almacén de claves para que se descifre.
+
+Los auditores pueden usar Azure Monitor para revisar los registros de los objetos AuditEvent del almacén de claves, si está habilitado el registro.
 
 
-### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Directrices para configurar el protector de TDE (clave asimétrica)
+## <a name="requirements-for-configuring-customer-managed-tde"></a>Requisitos de configuración de TDE administrado por el cliente
 
-- Cree la clave de cifrado localmente en un dispositivo HSM local. Asegúrese de que sea una clave asimétrica RSA 2048 o RSA HSM 2048 para que se pueda almacenar en Azure Key Vault.
-- Custodie la clave en un sistema de custodia de claves.  
-- Importe el archivo de clave de cifrado (.pfx, .byok o .backup) a Azure Key Vault.
+### <a name="requirements-for-configuring-akv"></a>Requisitos de configuración de AKV
 
-   > [!NOTE]
-   > Con fines de prueba, es posible crear una clave con Azure Key Vault; sin embargo, esta clave no se puede custodiar, porque la clave privada nunca puede abandonar el almacén de claves.  Haga siempre copias de seguridad de las claves utilizadas para cifrar los datos de producción y custódielas, ya que la pérdida de la clave (eliminación accidental en el almacén de claves, vencimiento, etc.) da como resultado la pérdida permanente de datos.
+- Key Vault y SQL Database (o una instancia administrada) deben pertenecer al mismo inquilino de Azure Active Directory. No se admiten las interacciones de servidor y almacén de claves entre inquilinos. Para mover los recursos después, se tendrá que volver a configurar el TDE con AKV. Obtenga más información sobre el [movimiento de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
-- Si usa una clave con una fecha de expiración: implemente un sistema de advertencia de expiración para cambiar la clave antes de que expire: **una vez que la clave expire, las bases de datos cifradas perderán el acceso a su protector de TDE y serán inaccesibles** y se denegarán todos los inicios de sesión hasta que se haya cambiado la clave por una nueva y seleccionado esta y el protector de TDE predeterminado para el servidor SQL Server lógico.
-- Asegúrese de que la clave está habilitada y tiene permisos para realizar operaciones de *obtención*, *encapsulado de clave* y *desencapsulado de clave*.
-- Cree una copia de seguridad de clave de Azure Key Vault antes de usar la clave en Azure Key Vault por primera vez. Obtenga más información sobre el comando [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey).
-- Cree una nueva copia de seguridad cada vez que se realicen cambios en la clave (por ejemplo, agregar ACL, agregar etiquetas, agregar atributos de clave).
-- **Mantenga versiones anteriores** de la clave en el almacén de claves al rotar las claves, de manera que se puedan restaurar las copias de seguridad de bases de datos más antiguas. Cuando se cambia el protector de TDE para una base de datos, las copias de seguridad antiguas de la base de datos **no se actualizan** para usar el protector de TDE más reciente.  Cada copia de seguridad necesita el protector de TDE que se creó durante la restauración. Las rotaciones de claves se pueden realizar según las instrucciones de [Rotate the Transparent Data Encryption Protector Using PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md) (Rotación del protector de cifrado de datos transparente mediante PowerShell).
-- Mantenga todas las claves usadas anteriormente en Azure Key Vault después de cambiar de nuevo a claves administradas por el servicio.  Esto garantiza que las copias de seguridad de las bases de datos se puedan restaurar con los protectores de TDE almacenados en Azure Key Vault.  Los protectores de TDE creados con Azure Key Vault deben conservarse hasta que se hayan creado todas las copias de seguridad almacenadas con claves administradas por el servicio.  
-- Realice copias de seguridad recuperables de estas claves mediante [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey).
-- Para quitar una clave potencialmente en peligro durante un incidente de seguridad sin el riesgo de pérdida de datos, siga los pasos descritos en [Remove a potentially compromised key](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) (Eliminación de una clave potencialmente en peligro).
+- La característica de [eliminación temporal](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) debe estar habilitada en el almacén de claves para protegerlo contra la pérdida de datos en caso de que se eliminen las claves (o el almacén de claves) de manera involuntaria. Los recursos eliminados temporalmente se conservan durante 90 días, a menos que el cliente los recupere o los purgue dentro de ese plazo. Las acciones de *recuperación* y *purga* tienen sus propios permisos asociados en una directiva de acceso del almacén de claves. La característica de eliminación temporal está desactivada de forma predeterminada y se puede habilitar a través de [PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) o de la [CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete). No se puede habilitar mediante Azure Portal.  
 
-### <a name="guidelines-for-monitoring-the-tde-with-azure-key-vault-configuration"></a>Directrices para la supervisión de TDE con la configuración de Azure Key Vault
+- Conceda al servidor de SQL Database o a la instancia administrada acceso al almacén de claves (get, wrapKey o unwrapKey) con su identidad de Azure Active Directory. Cuando usa Azure Portal, la identidad de Azure AD se crea automáticamente. Al usar PowerShell o la CLI, se debe crear explícitamente la identidad de Azure AD y se debe comprobar la finalización. Consulte [Configure TDE with BYOK](transparent-data-encryption-byok-azure-sql-configure.md) (Configuración de TDE con BYOK) y [Configure TDE with BYOK for Managed Instance](https://aka.ms/sqlmibyoktdepowershell) (Configuración de TDE con BYOK para Instancia administrada) para obtener instrucciones detalladas paso a paso cuando se usa PowerShell.
 
-Si el servidor SQL lógico pierde el acceso al protector de TDE administrado por el cliente en Azure Key Vault, la base de datos denegará todas las conexiones y permanecerá inaccesible en Azure Portal.  Las causas más comunes de esto son:
-- El almacén de claves se eliminó accidentalmente o está detrás de un firewall
-- La clave de Key Vault se eliminó accidentalmente, está deshabilitada o ha expirado
-- La instancia de SQL Server lógica AppId se eliminó accidentalmente
-- Se revocaron permisos específicos clave para la instancia de SQL Server lógica AppId
+- Al usar un firewall con AKV, debe habilitar la opción *Permitir que los servicios de confianza de Microsoft omitan el firewall*.
 
- > [!NOTE]
- > La base de datos se recuperará y se conectará automáticamente si el acceso al protector de TDE administrado por el cliente se restaura en un plazo de 48 horas.  Si no se puede acceder a la base de datos debido a una interrupción intermitente de la red, no se requiere ninguna acción y las bases de datos se volverán a conectar automáticamente.
-  
-- Para más información acerca de la solución de problemas de las configuraciones existentes, consulte [Solución de problemas de TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/troubleshoot-tde).
+### <a name="requirements-for-configuring-tde-protector"></a>Requisitos para configurar el protector de TDE
 
-- Para supervisar el estado de la base de datos y habilitar las alertas para la pérdida de acceso al protector de TDE, configure las siguientes características de Azure:
-    - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview). Una base de datos inaccesible que haya perdido el acceso al protector de TDE aparecerá como "No disponible" después de que se haya denegado la primera conexión a la base de datos.
-    - [Registro de actividad](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications) cuando se produce un error de acceso al protector de TDE en el almacén de claves administrado por el cliente, las entradas se agregan al registro de actividad.  La creación de alertas para estos eventos le permitirá restablecer el acceso lo antes posible.
-    - Los [grupos de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) se pueden definir para que envíen notificaciones y alertas en función de las preferencias, por ejemplo, correo electrónico/SMS/Inserción/Voz, aplicación lógica, webhook, ITSM o Runbook de Automation.
-    
+- El protector de TDE solo puede ser una clave asimétrica, RSA 2048 o RSA HSM 2048.
 
-## <a name="high-availability-geo-replication-and-backup--restore"></a>Alta disponibilidad, replicación geográfica y copia de seguridad y restauración
+- La clave no puede establecer la fecha de activación o expiración.
 
-### <a name="high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres
+- El estado de la clave en el almacén de claves debe ser Habilitada.
 
-La configuración de la alta disponibilidad con Azure Key Vault depende de la configuración de la base de datos y el servidor de SQL Database, y estas son las configuraciones recomendadas para dos casos distintos.  El primer caso es una base de datos independiente o un servidor de SQL Database sin ninguna redundancia geográfica configurada.  El segundo caso es una base de datos o un servidor de SQL Database configurados con grupos de conmutación por error o redundancia geográfica, donde debe garantizarse que cada copia con redundancia geográfica tenga un almacén local de Azure Key Vault dentro del grupo de conmutación por error para garantizar que funcionen las conmutaciones por error geográficas.
+- Si va a importar una clave existente en el almacén de claves, asegúrese de proporcionarla en uno de los formatos de archivo compatibles (.pfx, .byok o .backup).
 
-En el primer caso, si necesita alta disponibilidad de una base de datos y un servidor de SQL Database sin ninguna redundancia geográfica configurada, se recomienda encarecidamente configurar el servidor para usar dos almacenes de claves distintos en dos regiones diferentes con el mismo material de clave. Esto puede realizarse mediante la creación de un protector de TDE que utilice el almacén de Key Vault ubicado en la misma región que el servidor de SQL Database y la clonación de la clave en un almacén de claves de otra región de Azure, para que el servidor tenga acceso a un segundo almacén de claves por si el almacén de claves principal experimenta una interrupción mientras la base de datos se está ejecutando. Use el cmdlet Backup-AzKeyVaultKey para recuperar la clave en formato cifrado desde el almacén de claves principal y, a continuación, use el cmdlet Restore-AzKeyVaultKey y especifique un almacén de claves en la segunda región.
+## <a name="recommendations-when-configuring-customer-managed-tde"></a>Recomendaciones para la configuración de TDE administrado por el cliente
 
-![Alta disponibilidad de servidor único sin recuperación ante desastres con localización geográfica](./media/transparent-data-encryption-byok-azure-sql/SingleServer_HA_Config.PNG)
+### <a name="recommendations-when-configuring-akv"></a>Recomendaciones para la configuración de AKV
 
-## <a name="how-to-configure-geo-dr-with-azure-key-vault"></a>Configuración de la recuperación ante desastres con localización geográfica con Azure Key Vault
+- Asocie como máximo un total de 500 bases de datos de uso general o 200 bases de datos críticas para la empresa mediante un almacén de claves y en una sola suscripción; de este modo, garantizará una alta disponibilidad cuando el servidor acceda al protector de TDE en el almacén de claves. Estas cifras se basan en la experiencia y están documentadas en los [límites de servicio para Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits). El objetivo es evitar problemas después de la conmutación por error del servidor, ya que desencadenará tantas operaciones de clave en el almacén como bases de datos haya en ese servidor. 
 
-Para mantener la alta disponibilidad de los protectores de TDE para las bases de datos cifradas, es necesario configurar almacenes de Azure Key Vault redundantes basados en los grupos de conmutación por error de SQL Database existentes o deseados o las instancias de replicación geográfica activas.  Cada servidor de replicación geográfica requiere un almacén de claves independiente, que debe estar ubicado con el servidor en la misma región de Azure. En caso de que una base de datos principal deje de estar accesible debido a una interrupción en una región y se desencadene una conmutación por error, la base de datos secundaria es capaz de tomar el control usando el almacén de claves secundario.
+- Configure un bloqueo de recursos en el almacén de claves para controlar quién puede eliminar este recurso crítico y para evitar la eliminación accidental o no autorizada. Obtenga más información acerca de los [bloqueos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
-Para las bases de datos de Azure SQL con replicación geográfica, se requiere la siguiente configuración de Azure Key Vault:
+- Habilite la auditoría y la generación de informes en todas las claves de cifrado: El almacén de claves proporciona registros que son fáciles de insertar en otras herramientas de administración de eventos e información de seguridad. [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) de Operations Management Suite es un ejemplo de un servicio que ya está integrado.
 
-- Una base de datos principal con un almacén de claves en la región y una base de datos secundaria con un almacén de claves en la región.
-- Se necesita al menos una réplica secundaria, y se admite hasta un máximo de cuatro.
-- No se admiten bases de datos secundarias de secundarias (encadenamiento).
+- Vincule cada servidor con dos almacenes de claves que residan en regiones diferentes y que conserven el mismo material de clave para garantizar una alta disponibilidad de bases de datos cifradas. Marque solo la clave del almacén de claves que está en la misma región que un protector de TDE. El sistema usará la clave marcada.
 
-En la sección siguiente se recorren los pasos de instalación y configuración con más detalle.
+### <a name="recommendations-when-configuring-tde-protector"></a>Recomendaciones para la configuración del protector de TDE
+- Almacene una copia del protector de TDE en un lugar seguro o en el servicio de custodia. 
 
-### <a name="azure-key-vault-configuration-steps"></a>Pasos de configuración de Azure Key Vault
+- Si la clave se genera en el almacén de claves, cree una copia de seguridad de esta antes de usarla en AKV por primera vez. La copia de seguridad solo se puede restaurar en Azure Key Vault. Obtenga más información sobre el comando [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey).
 
-- Instale [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Cree dos almacenes de Azure Key Vault en dos regiones diferentes mediante [PowerShell para habilitar la propiedad de "eliminación temporal"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) en los almacenes de claves (esta opción no está disponible aún en el portal de AKV, pero es obligatoria para SQL).
-- Ambos almacenes de Azure Key Vault deben encontrarse en las dos regiones disponibles en la misma zona geográfica de Azure para que la copia de seguridad y la restauración de claves funcione.  Si necesita que los dos almacenes de claves se encuentren en diferentes zonas geográficas para satisfacer los requisitos de recuperación ante desastres con localización geográfica de SQL, siga el [proceso BYOK](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) que permite la importación de claves desde un HSM local.
-- Cree una nueva clave en el primer almacén de claves:  
-  - Clave RSA/RSA-HSM 2048
-  - Sin fecha de expiración
-  - La clave está habilitada y tiene permisos para realizar operaciones de obtención, encapsulado de clave y desencapsulado de clave
-- Haga una copia de seguridad de la clave principal y restaure la clave en el segundo almacén de claves.  Consulte [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) y [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey).
+- Cree una nueva copia de seguridad cada vez que se realicen cambios en la clave (por ejemplo, atributos de clave, etiquetas o ACL).
 
-### <a name="azure-sql-database-configuration-steps"></a>Pasos de configuración de Azure SQL Database
+- **Mantenga versiones anteriores** de la clave en el almacén de claves al rotar las claves, de manera que se puedan restaurar las copias de seguridad de bases de datos más antiguas. Cuando se cambia el protector de TDE para una base de datos, las copias de seguridad antiguas de la base de datos **no se actualizan** para usar el protector de TDE más reciente. En el momento de la restauración, cada copia de seguridad necesita el protector de TDE con el que se cifró durante su creación. Las rotaciones de claves se pueden realizar según las instrucciones de [Rotate the Transparent Data Encryption Protector Using PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md) (Rotación del protector de cifrado de datos transparente mediante PowerShell).
 
-Los siguientes pasos de configuración son diferentes si se empieza con una nueva implementación de SQL o si trabaja con una implementación de recuperación ante desastres con localización geográfica de SQL ya existente.  Primero se describen los pasos de configuración de una nueva implementación y, a continuación, se explica cómo asignar protectores de TDE almacenados en Azure Key Vault a una implementación existente que ya tiene un vínculo de recuperación ante desastres con localización geográfica establecido.
+- Guarde todas las claves usadas previamente en AKV incluso después de cambiar a claves administradas por el servicio. Esto garantiza que las copias de seguridad de las bases de datos se puedan restaurar con los protectores de TDE almacenados en AKV.  Los protectores de TDE creados con Azure Key Vault deben conservarse hasta que se hayan creado todas las copias de seguridad almacenadas restantes con claves administradas por el servicio. Realice copias de seguridad recuperables de estas claves mediante [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey).
 
-**Pasos para una nueva implementación**:
+- Para quitar una clave potencialmente en peligro durante un incidente de seguridad sin el riesgo de pérdida de datos, siga los pasos descritos en [Eliminación de una clave potencialmente en peligro](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
-- Cree los dos servidores de SQL Database en las dos mismas regiones que los almacenes de claves creados anteriormente.
-- Seleccione el panel TDE del servidor de SQL Database y, para cada servidor de SQL Database:  
-  - Seleccione el AKV en la misma región.
-  - Seleccione la clave que se usará como protector del TDE: cada servidor usará la copia local del protector de TDE.
-  - Si se hace en el portal, se creará un valor [AppID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) para el servidor de SQL Database, que se usa para asignar los permisos del servidor de SQL Database para acceder al almacén de claves; no elimine esta identidad. El acceso se puede revocar eliminando los permisos en Azure Key Vault en su lugar para el servidor de SQL Database, que se usa para asignar los permisos del servidor de SQL Database para acceder al almacén de claves.
-- Cree la base de datos principal.
-- Siga las [instrucciones de replicación geográfica activa](sql-database-geo-replication-overview.md) para completar el escenario; con este paso se creará la base de datos secundaria.
+## <a name="inaccessible-tde-protector"></a>Protector de TDE inaccesible
 
-![Grupos de conmutación por error y recuperación ante desastres con localización geográfica](./media/transparent-data-encryption-byok-azure-sql/Geo_DR_Config.PNG)
+Cuando se configura el cifrado de datos transparente para usar una clave administrada por el cliente, se necesita acceso continuo al protector de TDE para que la base de datos permanezca en línea. Si el servidor pierde el acceso al protector de TDE administrado por el cliente en AKV, pasados máximo 10 minutos, una base de datos comenzará a denegar todas las conexiones con el mensaje de error correspondiente y cambiará su estado a *Inaccesible*. La única acción que se puede realizar en una base de datos con el estado Inaccesible es eliminarla.
 
 > [!NOTE]
-> Es importante asegurarse de que los mismos protectores de TDE estén presentes en ambos almacenes de claves, antes de continuar para establecer el vínculo de replicación geográfica entre las bases de datos.
+> Si no se puede acceder a la base de datos debido a una interrupción intermitente de la red, no se requiere ninguna acción y las bases de datos se volverán a conectar automáticamente.
 
-**Pasos para una instancia de SQL DB existente con la implementación de recuperación ante desastres con localización geográfica**:
+Una vez restaurado el acceso a la clave, se necesita tiempo para volver a poner en línea la base de datos y se deben realizar pasos adicionales, los cuales pueden variar en función del tiempo transcurrido sin tener acceso a la clave y según el tamaño de los datos de la base de datos:
 
-Puesto que ya existen los servidores de SQL Database, y las bases de datos principal y secundaria ya están asignadas, se deben realizar los pasos para configurar Azure Key Vault en el orden siguiente:
+- Si se restaura el acceso a la clave en un plazo de ocho horas, la base de datos se restablecerá automáticamente durante la próxima hora.
 
-- Comience con el servidor de SQL Database que hospeda la base de datos secundaria:
-  - Asigne el almacén de claves ubicado en la misma región.
-  - Asigne el protector de TDE.
-- Ahora vaya al servidor de SQL Database que hospeda la base de datos principal:
-  - Seleccione el mismo protector de TDE que se usó para la base de datos secundaria.
+- Si se restaura el acceso a la clave pasadas más de ocho horas, no se restablecerá la base de datos de forma automática, y la restauración manual puede llevar una cantidad considerable de tiempo en función del tamaño de la base de datos. Además, es necesario crear una incidencia de soporte técnico. Una vez que la base de datos vuelva a estar en línea, se perderán los ajustes de nivel de servidor configurados previamente, como el [grupo de conmutación por error](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), el historial de restauración a un momento dado y las etiquetas. Por lo tanto, se recomienda implementar un sistema de notificación que le permita identificar y resolver los problemas subyacentes de acceso de las claves en un plazo de ocho horas.
 
-![Grupos de conmutación por error y recuperación ante desastres con localización geográfica](./media/transparent-data-encryption-byok-azure-sql/geo_DR_ex_config.PNG)
+### <a name="accidental-tde-protector-access-revocation"></a>Revocación accidental del acceso al protector de TDE
 
-> [!NOTE]
-> Al asignar el almacén de claves al servidor, es importante empezar con el servidor secundario.  En el segundo paso, asigne el almacén de claves al servidor principal y actualice el protector de TDE, el vínculo de recuperación ante desastres con localización geográfica seguirá funcionando porque en ese momento el protector de TDE usado por la base de datos replicada está disponible para ambos servidores.
+Es posible que alguien con los derechos de acceso suficientes al almacén de claves deshabilite accidentalmente el acceso del servidor a la clave al realizar alguna de las siguientes acciones:
 
-Antes de habilitar TDE con las claves administradas por el cliente en Azure Key Vault para un escenario de recuperación ante desastres con localización geográfica de SQL Database, es importante crear y mantener dos almacenes de Azure Key Vault con un contenido idéntico en las mismas regiones que se usarán para la replicación geográfica de SQL Database.  En concreto, "contenido idéntico" significa que ambos almacenes de claves deben contener copias de los mismos protectores de TDE para que ambos servidores tengan acceso a los protectores de TDE que usan todas las bases de datos.  A partir de ahora, es necesario mantener ambos almacenes de claves sincronizados, lo que significa que deben contener las mismas copias de los protectores de TDE después de la rotación de claves, mantener las versiones anteriores de las claves usadas para los archivos de registro o las copias de seguridad, los protectores de TDE deben mantener las mismas propiedades de clave y los almacenes de claves deben mantener los mismos permisos de acceso de SQL.  
+- Revocar los permisos *get*, *wrapKey* o *unwrapKey* del almacén de claves desde el servidor.
 
-Siga los pasos de [Información general: grupos de conmutación por error automática y replicación geográfica activa](sql-database-geo-replication-overview.md) para probar y desencadenar una conmutación por error, que debe realizarse de forma periódica para confirmar que se han mantenido los permisos de acceso de SQL para ambos almacenes de claves.
+- Eliminar la clave.
 
-### <a name="backup-and-restore"></a>Copia de seguridad y restauración
+- Eliminar el almacén de claves.
 
-Una vez que una base de datos se haya cifrado con TDE mediante una clave de Key Vault, las copias de seguridad generadas también se cifran con el mismo protector de TDE.
+- Cambiar las reglas de firewall del almacén de claves.
 
-Para restaurar una copia de seguridad cifrada con un protector de TDE de Key Vault, asegúrese de que el material de clave aún está en el almacén original bajo el nombre de la clave original. Cuando se cambia el protector de TDE para una base de datos, las copias de seguridad antiguas de la base de datos **no se actualizan** para usar el protector de TDE más reciente. Por lo tanto, se recomienda mantener todas las versiones antiguas del protector de TDE en Key Vault, de manera que se puedan restaurar las copias de seguridad de la base de datos.
+- Eliminar la identidad administrada del servidor en Azure Active Directory.
 
-Si una clave que puede ser necesaria para restaurar una copia de seguridad ya no está disponible en su almacén de claves original, se devuelve el siguiente mensaje de error: "Target server `<Servername>` does not have access to all AKV Uris created between \<Timestamp #1> and \<Timestamp #2>. Please retry operation after restoring all AKV Uris" (El servidor destino no tiene acceso a todos los URI de AKV creados entre <marca de tiempo #1> y <marca de tiempo #2>. Vuelva a intentar la operación después de restaurar a todos los URI de AKV").
+Obtenga más información sobre los [errores comunes que hacen que las bases de datos dejen de estar accesibles](https://docs.microsoft.com/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible).
 
-Para evitar este problema, ejecute el cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para devolver la lista de claves de Key Vault que se han agregado al servidor (a menos que las haya eliminado un usuario). Para asegurarse de que se pueden restaurar las copias de seguridad, asegúrese de que el servidor de destino para la copia de seguridad tiene acceso a todas estas claves.
+## <a name="monitoring-of-the-customer-managed-tde"></a>Supervisión del TDE administrado por el cliente
 
-```powershell
-Get-AzSqlServerKeyVaultKey `
-  -ServerName <LogicalServerName> `
-  -ResourceGroup <SQLDatabaseResourceGroupName>
-```
+Para supervisar el estado de la base de datos y habilitar las alertas para la pérdida de acceso al protector de TDE, configure las siguientes características de Azure:
+- [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview). Una base de datos inaccesible que haya perdido el acceso al protector de TDE aparecerá como "No disponible" después de que se haya denegado la primera conexión a la base de datos.
+- [Registro de actividad](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications) cuando se produce un error de acceso al protector de TDE en el almacén de claves administrado por el cliente, las entradas se agregan al registro de actividad.  La creación de alertas para estos eventos le permitirá restablecer el acceso lo antes posible.
+- Los [grupos de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) se pueden definir para que envíen notificaciones y alertas en función de las preferencias, por ejemplo, correo electrónico/SMS/Inserción/Voz, aplicación lógica, webhook, ITSM o Runbook de Automation.
 
-Para obtener más información acerca de la recuperación de copia de seguridad de SQL Database, consulte la información sobre la [recuperación de una base de datos de Azure SQL](sql-database-recovery-using-backups.md). Para obtener más información acerca de la recuperación de copia de seguridad de SQL Data Warehouse, consulte la información sobre la [recuperación de una instancia de Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md).
+## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Realización de copias de seguridad y restauración de bases de datos con TDE administrado por el cliente
 
-Una consideración adicional para copias de seguridad de archivos de registro: las copias de seguridad de archivos de registro permanecen cifradas con el sistema de cifrado de TDE, incluso si el protector de TDE se ha rotado y la base de datos usa ahora un nuevo protector de TDE.  Durante la restauración, se necesitarán ambas claves para restaurar la base de datos.  Si el archivo de registro está usando un protector de TDE almacenado en Azure Key Vault, se necesitará esta clave durante la restauración, incluso si la base de datos se ha cambiado para usar TDE administrado por el servicio durante el proceso.
+Una vez que una base de datos se haya cifrado con TDE mediante una clave de Key Vault, las nuevas copias de seguridad generadas también se cifran con el mismo protector de TDE. Cuando se cambia el protector de TDE, las copias de seguridad antiguas de la base de datos **no se actualizan** para usar el protector de TDE más reciente.
+
+Para restaurar una copia de seguridad cifrada con un protector de TDE de Key Vault, asegúrese de que el material de clave está disponible en el servidor de destino. Por lo tanto, se recomienda mantener todas las versiones antiguas del protector de TDE en el almacén de claves, de manera que se puedan restaurar las copias de seguridad de la base de datos. 
+
+> [!IMPORTANT]
+> Nunca puede haber más de un protector de TDE establecido para un servidor. Es la clave marcada con "Hacer que la clave seleccionada sea el protector de TDE predeterminado" en la hoja de Azure Portal. Sin embargo, se pueden vincular varias claves adicionales a un servidor sin marcarlas como protector de TDE. Estas claves no se usan para proteger la DEK, pero se pueden usar durante la restauración desde una copia de seguridad si el archivo de copia de seguridad está cifrado con la clave con la huella digital correspondiente.
+
+Si la clave necesaria para restaurar una copia de seguridad ya no está disponible para el servidor de destino, se devuelve el siguiente mensaje de error tras el intento de restauración: "Target server `<Servername>` does not have access to all AKV URIs created between \<Timestamp #1> and \<Timestamp #2>. Please retry operation after restoring all AKV URIs" (El servidor destino no tiene acceso a todos los URI de AKV creados entre <marca de tiempo #1> y <marca de tiempo #2>. Vuelva a intentar la operación después de restaurar a todos los URI de AKV).
+
+Para mitigarlo, ejecute el cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para el servidor lógico de destino de SQL Database o [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) para la instancia administrada de destino para devolver la lista de claves disponibles e identificar las que faltan. Para asegurarse de que se pueden restaurar las copias de seguridad, asegúrese de que el servidor de destino para la restauración tiene acceso a todas las claves necesarias. No es necesario que estas claves estén marcadas como protector de TDE.
+
+Para obtener más información acerca de la recuperación de copia de seguridad de SQL Database, consulte la información sobre la [recuperación de una base de datos de Azure SQL](sql-database-recovery-using-backups.md). Para obtener más información acerca de la recuperación de copia de seguridad de SQL Data Warehouse, consulte la información sobre la [recuperación de una instancia de Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md). Para realizar una copia de seguridad o una restauración nativa de SQL Server con una instancia administrada, consulte [Inicio rápido: Restauración de una base de datos en una instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore). 
+
+Una consideración adicional para los archivos de registro: las copias de seguridad de archivos de registro permanecen cifradas con el protector de TDE original, incluso si este se ha rotado y la base de datos usa ahora un nuevo protector de TDE.  Durante la restauración, se necesitarán ambas claves para restaurar la base de datos.  Si el archivo de registro está usando un protector de TDE almacenado en Azure Key Vault, se necesitará esta clave durante la restauración, incluso si la base de datos se ha cambiado para usar TDE administrado por el servicio durante el proceso.
+
+## <a name="high-availability-with-customer-managed-tde"></a>Alta disponibilidad con TDE administrado por el cliente
+
+Incluso en los casos en los que no hay ninguna redundancia geográfica configurada para el servidor, se recomienda encarecidamente configurar el servidor para usar dos almacenes de claves distintos en dos regiones diferentes con el mismo material de clave. Esto puede realizarse mediante la creación de un protector de TDE que use el almacén de claves ubicado en la misma región que el servidor y la clonación de la clave en un almacén de claves de otra región de Azure, para que el servidor tenga acceso a un segundo almacén de claves por si el almacén de claves principal experimenta una interrupción mientras la base de datos se está ejecutando. 
+
+Use el cmdlet Backup-AzKeyVaultKey para recuperar la clave en formato cifrado desde el almacén de claves principal y, a continuación, use el cmdlet Restore-AzKeyVaultKey y especifique un almacén de claves en la segunda región para clonar la clave. También puede usar Azure Portal para hacer una copia de seguridad de la clave y restaurarla. La clave del almacén de claves secundario en la otra región no debe marcarse como protector de TDE, no está admitido.
+
+ Solo en el caso de que se produzca una interrupción en el almacén de claves principal, el sistema pasará automáticamente a la otra clave vinculada con la misma huella digital en el almacén de claves secundario, si existe. Tenga en cuenta que este cambio no se realizará si se han revocado los derechos de acceso y no se puede acceder al protector de TDE, o si se ha eliminado la clave o el almacén de claves, ya que esto podría indicar que el cliente quiere restringir el acceso del servidor a la clave de forma intencionada.
+
+![Alta disponibilidad de un solo servidor](./media/transparent-data-encryption-byok-azure-sql/customer-managed-tde-with-ha.png)
+
+## <a name="geo-dr-and-customer-managed-tde"></a>Recuperación ante desastres con localización geográfica y TDE administrado por el cliente
+
+En los escenarios de [replicación geográfica activa](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication) y de [grupos de conmutación por error](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), cada servidor implicado requiere un almacén de claves independiente que debe colocarse junto con el servidor en la misma región de Azure. El cliente es el responsable de mantener la coherencia del material de clave en los almacenes de claves para que la base de datos secundaria con replicación geográfica esté sincronizada y pueda asumir el uso de la misma clave desde su almacén de claves local, en caso de que la base de datos principal deje de estar accesible por una interrupción en la región y se desencadene una conmutación por error. Se pueden configurar hasta cuatro bases de datos secundarias y no se admite el encadenamiento (bases de datos secundarias de otras bases de datos secundarias).
+
+Para evitar problemas durante la replicación geográfica debido a la falta de material de clave, es importante seguir estas reglas a la hora de configurar el TDE administrado por el cliente:
+
+- Todos los almacenes de claves implicados deben tener las mismas propiedades y los mismos derechos de acceso para los servidores respectivos.
+
+- Todos los almacenes de claves implicados deben contener el mismo material de clave. Esto no solo se aplica al protector de TDE actual, sino a todos los protectores de TDE anteriores que se pueden usar en los archivos de copia de seguridad.
+
+- Tanto la configuración inicial como la rotación del protector de TDE se deben realizar primero en el servidor secundario y, a continuación, en el principal.
+
+![Grupos de conmutación por error y recuperación ante desastres con localización geográfica](./media/transparent-data-encryption-byok-azure-sql/customer-managed-tde-with-bcdr.png)
+
+Para probar una conmutación por error, siga los pasos descritos en la [información general sobre la replicación geográfica activa](sql-database-geo-replication-overview.md). Se deberían realizar pruebas de forma periódica para confirmar que se mantienen los permisos de acceso de SQL a ambos almacenes de claves.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+También puede consultar los siguientes scripts de ejemplo de PowerShell para las operaciones comunes con TDE administrado por el cliente:
+
+- [Rotación del protector de Cifrado de datos transparente para SQL Database mediante PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md)
+
+- [Eliminación de un protector de Cifrado de datos transparente (TDE) para SQL Database mediante PowerShell](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql-remove-tde-protector)
+
+- [Administración del Cifrado de datos transparente en una instancia administrada con la propia clave mediante PowerShell](https://docs.microsoft.com/azure/sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-powershell?toc=%2fpowershell%2fmodule%2ftoc.json)

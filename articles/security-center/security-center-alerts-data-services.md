@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: memildin
-ms.openlocfilehash: 7e45dffd15cdf2acf15c7d46ed0cf42fc5997a6a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c69352b8ff11edfce8bd800a0d3aad4584557572
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244575"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621341"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Detección de amenazas en servicios de datos en Azure Security Center
 
@@ -40,7 +40,7 @@ La detección de amenazas de SQL identifica actividades anómalas que indican in
 
 Para más información sobre las alertas de detección de amenazas de SQL, consulte [Detección de amenazas de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview). En concreto, revise la sección sobre alertas de detección de amenazas. Consulte también [cómo Azure Security Center ayuda a desvelar un ciberataque](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) para ver un ejemplo de cómo Security Center usa la detección de actividad SQL malintencionada para detectar un ataque.
 
-## Storage <a name="azure-storage"></a>
+## Azure Storage <a name="azure-storage"></a>
 
 >[!NOTE]
 > Advanced Threat Protection para Storage está actualmente disponible solo para Blob Storage.
@@ -53,7 +53,7 @@ Security Center analiza los registros de diagnóstico de solicitudes de lectura,
 
 |Alerta|DESCRIPCIÓN|
 |---|---|
-|**Anomalía de acceso desde ubicaciones inusuales**|El análisis de las muestras de tráfico ha detectado una comunicación del Protocolo de escritorio remoto (RDP) saliente anómala con origen en un recurso de su implementación. Esta actividad se considera anómala para este entorno. Esto puede indicar que el recurso está en peligro y ahora se usa para realizar un ataque por fuerza bruta en un punto de conexión RDP externo. Tenga en cuenta que este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
+|**Anomalía de acceso desde ubicaciones inusuales**|El análisis de las muestras de tráfico ha detectado una comunicación del Protocolo de escritorio remoto (RDP) saliente anómala con origen en un recurso de su implementación. Esta actividad se considera anómala para este entorno. Esto puede indicar que el recurso está en peligro y ahora se usa para realizar un ataque por fuerza bruta en un punto de conexión RDP externo. Este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
 |**Anomalía de acceso de aplicaciones**|Indica que una aplicación inusual ha accedido a esta cuenta de almacenamiento. Una posible causa es que un atacante ha accedido a la cuenta de almacenamiento mediante el uso de una aplicación nueva.|
 |**Anomalía de acceso anónimo**|Indica que se ha producido un cambio en el patrón de acceso a una cuenta de almacenamiento. Por ejemplo, se ha accedido de forma anónima a la cuenta (sin autenticación), algo que resulta inesperado si se tiene en cuenta el patrón de acceso reciente en la cuenta. Una causa posible es que un atacante se haya aprovechado del acceso de lectura público a un contenedor que incluye almacenamiento en blobs.|
 |**Anomalía de Tor**|Indica que se accedió a esta cuenta correctamente desde una dirección IP conocida como nodo de salida activo de Tor (proxy anónimo). La gravedad de esta alerta considera el tipo de autenticación usado (si existe) y si es la primera vez que se produce tal acceso. Las causas posibles pueden ser un atacante que haya tenido acceso a su cuenta de almacenamiento mediante Tor o un usuario legítimo que haya tenido acceso a su cuenta de almacenamiento mediante Tor.|
@@ -63,6 +63,7 @@ Security Center analiza los registros de diagnóstico de solicitudes de lectura,
 |**Anomalía de permisos de acceso**|Indica que los permisos de acceso a un contenedor de almacenamiento se han cambiado de un modo inusual. Una causa posible es que un atacante ha cambiado los permisos del contenedor para debilitar su posición de seguridad o para ganar persistencia.|
 |**Anomalía de acceso de inspección**|Indica que los permisos de acceso de una cuenta de almacenamiento se han inspeccionado de un modo no habitual, en comparación con la actividad reciente de esta cuenta. Una posible causa es que un atacante ha realizado un reconocimiento para un ataque futuro.|
 |**Anomalía de exploración de datos**|Indica que los blobs o los contenedores de una cuenta de almacenamiento se han enumerado de un modo anómalo, en comparación con la actividad reciente de esta cuenta. Una posible causa es que un atacante ha realizado un reconocimiento para un ataque futuro.|
+|**Carga de malware potencial**|Indica que un blob que contiene malware potencial se ha cargado en una cuenta de almacenamiento. Entre las posibles causas de ello, se pueden incluir una carga intencional del malware por parte de un atacante o una carga involuntaria de un blob potencialmente malintencionado por parte de un usuario legítimo.|
 
 >[!NOTE]
 >Advanced Threat Protection para Storage no está disponible actualmente en Azure Government ni en regiones de nube soberana.

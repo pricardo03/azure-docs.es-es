@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 10/25/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8541362a16c7d12a0e3a4cf009ed9cd5faf9f1cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2258bfbf2a1bf6a8dccf9d274e6e89e4c53a978a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366307"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748218"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Restablecimiento de emparejamientos de circuitos ExpressRoute
 
@@ -21,11 +21,11 @@ En este artículo se describe cómo deshabilitar y habilitar los emparejamientos
 
 Hay un par de escenarios en los que puede resultarle útil restablecer los emparejamientos de ExpressRoute.
 * Pruebe la implementación y el diseño de recuperación ante desastres. Por ejemplo, tiene dos circuitos de ExpressRoute. Puede deshabilitar los emparejamientos de un circuido y forzar la conmutar por error del tráfico de red a otro circuito.
-* Habilite la detección de reenvío bidireccional (BFD) en el emparejamiento privado de Azure de su circuito de ExpressRoute. BFD está habilitado de forma predeterminada si el circuito de ExpressRoute se creó después del 1 de agosto de 2018. Si el circuito se creó antes de esa fecha, BFD no estará habilitado. Para habilitar BFD, debe deshabilitar el emparejamiento y volverlo a habilitar. Hay que tener en cuenta que BFD solo es compatible con el emparejamiento privado de Azure.
+* Habilite la detección de reenvío bidireccional (BFD) en el emparejamiento privado de Azure o el emparejamiento de Microsoft de su circuito de ExpressRoute. BFD está habilitado de forma predeterminada en el emparejamiento privado de Azure si se ha creado el circuito de ExpressRoute después del 1 de agosto de 2018, y en el emparejamiento de Microsoft si se ha creado el circuito de ExpressRoute después del 1 de octubre de 2019. Si el circuito se creó antes de esa fecha, BFD no estará habilitado. Para habilitar BFD, debe deshabilitar el emparejamiento y volverlo a habilitar. 
 
 ### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 

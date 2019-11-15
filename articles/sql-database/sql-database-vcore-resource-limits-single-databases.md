@@ -1,5 +1,5 @@
 ---
-title: Límites de recursos en núcleos virtuales de Azure SQL Database para bases de datos únicas | Microsoft Docs
+title: 'Límites de recursos de núcleo virtual: base de datos única'
 description: En esta página se describen algunos límites de recursos en núcleos virtuales comunes para una base de datos única en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/04/2019
-ms.openlocfilehash: 55b0b28f3081cfe643645683a9773b4c97b9caef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 11d9115893f8d0632110d86a671a6590ca48e220
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495949"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822326"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e2328bcd2b2d9fe957df82c46730091ffdf9366
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 695bd461ae7e979c0a803cd2d6cb450003a6bcee
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474287"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602995"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementación de la protección de contraseñas de Azure AD
 
@@ -135,7 +135,7 @@ Hay dos instaladores requeridos para la protección con contraseña de Azure AD.
 
      Este cmdlet requiere credenciales de administrador global para el inquilino de Azure. También necesita privilegios de administrador de dominio de Active Directory de forma local en el dominio raíz del bosque. Cuando este comando se ejecute correctamente una vez para un servicio de proxy, las invocaciones adicionales se realizarán correctamente, pero no son necesarias.
 
-      El cmdlet `Register-AzureADPasswordProtectionProxy` admite los siguientes tres modos de autenticación.
+      El cmdlet `Register-AzureADPasswordProtectionProxy` admite los siguientes tres modos de autenticación. Los dos primeros modos son compatibles con Azure Multi-Factor Authentication pero el tercero no. Consulte los comentarios siguientes para más detalles.
 
      * Modo de autenticación interactiva:
 
@@ -179,7 +179,7 @@ Hay dos instaladores requeridos para la protección con contraseña de Azure AD.
 1. Registre el bosque.
    * Debe inicializar el bosque local de Active Directory con las credenciales necesarias para comunicarse con Azure mediante el cmdlet de PowerShell `Register-AzureADPasswordProtectionForest`. Este cmdlet requiere credenciales de administrador global para el inquilino de Azure. También requiere privilegios de administrador de empresa de Active Directory local. Este paso se ejecuta una vez por bosque.
 
-      El cmdlet `Register-AzureADPasswordProtectionForest` admite los siguientes tres modos de autenticación.
+      El cmdlet `Register-AzureADPasswordProtectionForest` admite los siguientes tres modos de autenticación. Los dos primeros modos son compatibles con Azure Multi-Factor Authentication pero el tercero no. Consulte los comentarios siguientes para más detalles.
 
      * Modo de autenticación interactiva:
 

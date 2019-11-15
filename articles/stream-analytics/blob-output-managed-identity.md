@@ -1,17 +1,17 @@
 ---
-title: Uso de la identidad administrada para autenticar su trabajo de Azure Stream Analytics en la salida de Azure Blob Storage (versión preliminar)
+title: Autenticación de la salida de Blob con identidad administrada para Azure Stream Analytics
 description: En este artículo se describe cómo usar las identidades administradas para autenticar su trabajo de Azure Stream Analytics en la salida de Azure Blob Storage.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 2bde1e8556fb1255e27595630e061f6b80870ce1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278657"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664328"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Uso de la identidad administrada para autenticar su trabajo de Azure Stream Analytics en la salida de Azure Blob Storage (versión preliminar)
 
@@ -23,7 +23,7 @@ En este artículo se muestra cómo habilitar la identidad administrada para las 
 
 1. Cree un nuevo trabajo de Stream Analytics o abra un trabajo existente en Azure Portal. En la barra de menús situada a la izquierda de la pantalla, seleccione **Identidad administrada**, que se encuentra en **Configurar**. Asegúrese de que está seleccionada la opción "Usar la identidad administrada asignada por el sistema" y, a continuación, haga clic en el botón **Guardar** en la parte inferior de la pantalla.
 
-   ![Configuración de la Identidad administrada de Stream Analytics](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
+   ![Configuración de la Identidad administrada de Stream Analytics](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. En la ventana de propiedades de salida del receptor de salida de Azure Blob Storage, seleccione la lista desplegable Modo de autenticación y elija **Identidad administrada**. Para obtener información sobre las demás propiedades de salida, vea [Información sobre las salidas desde Azure Stream Analytics](./stream-analytics-define-outputs.md). Cuando haya terminado, haga clic en **Guardar**.
 

@@ -1,5 +1,5 @@
 ---
-title: Descripción de los precios de Azure Data Factory a través de ejemplos | Microsoft Docs
+title: Información sobre los precios de Azure Data Factory a través de ejemplos
 description: En este artículo se explica y muestra el modelo de precios de Azure Data Factory con ejemplos detallados
 documentationcenter: ''
 author: djpmsft
@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.openlocfilehash: 168d977b9dc0ea6117796cf98a8562f168258d28
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c42946733ee49ed6acf2c8deadf850208e003339
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387453"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684542"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Descripción de los precios de Data Factory a través de ejemplos
 

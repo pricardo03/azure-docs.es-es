@@ -1,5 +1,5 @@
 ---
-title: Creación de una factoría de datos de Azure con la interfaz de usuario de Azure Data Factory | Microsoft Docs
+title: Creación de una factoría de datos de Azure con la interfaz de usuario de Azure Data Factory
 description: Cree una factoría de datos con una canalización que copie los datos de una ubicación de Azure Blob Storage a otra.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 5baa8c78ad581a00a3601706f31cf815359120c7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 642039e99df19939def5ac850f1abccca0e67222
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077048"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684485"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Inicio rápido: Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory
 
@@ -39,7 +39,10 @@ Ver este vídeo le ayudará a conocer la interfaz de usuario de Data Factory:
 
 1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. Vaya a [Azure Portal](https://portal.azure.com). 
-1. Seleccione **Crear un recurso** en el menú izquierdo, seleccione **Analytics** y, luego, elija **Data Factory**. 
+1. En el menú de Azure Portal, seleccione **Crear un recurso**.
+   
+   ![En el menú de Azure Portal, seleccione Crear un recurso.](./media/doc-common-process/create-a-resource.png)
+1. Seleccione **Analytics** y, a continuación, seleccione **Data Factory**. 
    
    ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. En la página **Nueva factoría de datos**, escriba **ADFTutorialDataFactory** en **Nombre**. 

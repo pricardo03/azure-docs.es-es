@@ -1,18 +1,18 @@
 ---
 title: Acerca de la copia de seguridad de máquina virtual de Azure
-description: Obtenga información sobre la copia de seguridad de máquina virtual de Azure y tenga en cuenta algunos procedimientos recomendados.
+description: En este artículo, aprenderá cómo el servicio Azure Backup realiza copias de seguridad de las máquinas virtuales de Azure y cómo seguir los procedimientos recomendados.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: db3e4b8a8abea4718f5779790906bf45591d221c
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: e22c4c24e83be0f89b306eed0eb1d80bdd9387e1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018701"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747205"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -34,10 +34,10 @@ Aquí se explica cómo Azure Backup completa una copia de seguridad para las VM 
     - La copia de seguridad se optimiza al hacer una copia de seguridad de cada disco de VM en paralelo.
     - Para cada disco del que se hace una copia de seguridad, Azure Backup lee los bloques en el disco e identifica y transfiere solo los bloques de datos que han cambiado (delta) desde la copia de seguridad anterior.
     - Es posible que los datos de las instantáneas no se copien inmediatamente en el almacén. Podrían tardar horas en momentos de máxima actividad. El tiempo total de copia de seguridad de una VM será inferior a 24 horas para las directivas de copia de seguridad diarias.
- 1. Los cambios que se hagan en una VM de Windows después de habilitar Azure Backup en ella son los siguientes:
-    -   Microsoft Visual C++ 2013 Redistributable(x64): 12.0.40660 instalado en la VM
-    -   Tipo de inicio del Servicio de instantáneas de volumen (VSS) cambiado de manual a automático
-    -   Se agrega el servicio de Windows IaaSVmProvider
+1. Los cambios que se hagan en una VM de Windows después de habilitar Azure Backup en ella son los siguientes:
+    - Microsoft Visual C++ 2013 Redistributable(x64): 12.0.40660 instalado en la VM
+    - Tipo de inicio del Servicio de instantáneas de volumen (VSS) cambiado de manual a automático
+    - Se agrega el servicio de Windows IaaSVmProvider
 
 1. Cuando se complete la transferencia de datos, la instantánea se quita y se crea un punto de recuperación.
 
@@ -140,11 +140,12 @@ Disco de datos 2 | 4095 GB | 0 GB
 El tamaño real de la máquina virtual en este caso es de 17 GB + 30 GB + 0 GB = 47 GB. Este tamaño de instancias protegidas (47 GB) se convierte en la base de la factura mensual. A medida que crece la cantidad de datos en la VM, el tamaño de instancia protegida usado para la facturación también cambia para que coincida.
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+
 ## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Versión preliminar pública: Copia de seguridad de máquinas virtuales con tamaños de disco de hasta 30 TB
 
 Azure Backup admite ya una versión preliminar pública de instancias de [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) más grandes y potentes de hasta 30 TB de tamaño. Esta versión preliminar proporciona compatibilidad en el nivel de producción con las máquinas virtuales administradas.
 
-Las copias de seguridad de las máquinas virtuales con un tamaño de disco de hasta 30 TB y un máximo de 256 TB combinado para todos los discos de una máquina virtual deben funcionar fluidamente sin afectar las copias de seguridad existentes. No se requiere ninguna acción del usuario para ejecutar las copias de seguridad de los discos de gran tamaño si la máquina virtual ya está configurada con Azure Backup.
+Las copias de seguridad de las máquinas virtuales con un tamaño de disco de hasta 30 TB y un máximo de 256 TB combinado para todos los discos de una máquina virtual deben funcionar fluidamente sin afectar a las copias de seguridad existentes. No se requiere ninguna acción del usuario para ejecutar las copias de seguridad de los discos de gran tamaño si la máquina virtual ya está configurada con Azure Backup.
 
 Las copias de seguridad de todas las instancias de Máquinas virtuales de Azure con discos grandes que tengan una copia de seguridad configurada se deben realizar correctamente.
 

@@ -1,5 +1,5 @@
 ---
-title: Supervisión y administración de canalizaciones usando Azure Portal y PowerShell | Microsoft Docs
+title: Supervisión y administración de canalizaciones mediante Azure Portal y PowerShell
 description: Obtenga información sobre el uso de Azure Portal y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que haya creado.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139652"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666980"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]

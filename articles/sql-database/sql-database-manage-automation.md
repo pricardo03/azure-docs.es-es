@@ -1,5 +1,5 @@
 ---
-title: Administración de bases de datos de Azure SQL mediante Azure Automation | Microsoft Docs
+title: Administración de bases de datos con Azure Automation
 description: Obtenga información acerca de cómo puede usarse el servicio Azure Automation para administrar bases de datos de Azure SQL a escala.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: bb195d5809ef0e2af2a4975a263a9739db1cdfa6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9d826a75f05cf2031565f89e21d7f3667ecc8f17
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567741"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822803"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Administración de bases de datos de Azure SQL mediante Azure Automation
 

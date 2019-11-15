@@ -15,16 +15,16 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ff6d9e33e15aa04adfa03705172166492f87e30
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ef2ce1ce7a754868a1adc2e78b4c0a83fc84f071
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330024"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641447"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 
-Azure Active Directory (Azure AD) permite automatizar la creación, el mantenimiento y la eliminación de identidades de usuario en aplicaciones de nube ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)), como Dropbox, Salesforce, ServiceNow y muchas más. Esto se conoce como aprovisionamiento automático de usuarios para aplicaciones SaaS.
+Azure Active Directory (Azure AD) permite automatizar la creación, el mantenimiento y la eliminación de identidades de usuario en aplicaciones SaaS de nube como [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), etc. Esto se conoce como aprovisionamiento automático de usuarios para aplicaciones SaaS.
 
 > [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
@@ -90,11 +90,7 @@ Use el portal de Azure Active Directory para configurar el servicio de una aplic
 
 1. Abra el **[portal de Azure Active Directory](https://aad.portal.azure.com)** .
 1. En el panel izquierdo, seleccione **Aplicaciones empresariales**. Se muestra una lista de todas las aplicaciones configuradas.
-1. Elija **+ Nueva aplicación** para agregar una aplicación. Agregue uno de los siguientes elementos en función del escenario:
-
-   - La opción **Agregar aplicación propia** admite integraciones de SCIM desarrolladas de manera personalizada.
-   - Todas las aplicaciones de la sección **Agregar desde la galería** > **Aplicaciones destacadas** admiten el aprovisionamiento automático. Consulte la [lista de tutoriales de aplicaciones para el aprovisionamiento de usuarios](../saas-apps/tutorial-list.md) para ver más.
-
+1. Elija **+ Nueva aplicación** para agregar una aplicación. 
 1. Proporcione los detalles y seleccione **Agregar**. La nueva aplicación se agrega a la lista de aplicaciones empresariales y se abre en su pantalla de administración de la aplicación.
 1. Seleccione **Aprovisionamiento** para administrar la configuración de la aplicación de aprovisionamiento de cuentas de usuario.
 
@@ -196,7 +192,7 @@ Para ver instrucciones basadas en escenarios sobre cómo solucionar problemas de
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
-Para obtener un ejemplo del plan de implementación detallado para el aprovisionamiento de usuarios saliente a una aplicación, consulte la [guía de implementación de identidad para el aprovisionamiento de usuarios](https://aka.ms/userprovisioningdeploymentplan).
+Para obtener un ejemplo del plan de implementación detallado para el aprovisionamiento de usuarios saliente a una aplicación, consulte la [guía de implementación de identidad para el aprovisionamiento de usuarios](https://aka.ms/deploymentplans/userprovisioning).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

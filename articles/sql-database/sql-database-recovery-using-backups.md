@@ -1,5 +1,5 @@
 ---
-title: Restauración de una base de datos de Azure SQL a partir de una copia de seguridad | Microsoft Docs
+title: Restauración de una base de datos desde una copia de seguridad
 description: Información acerca de la restauración a un momento dado, que le permite revertir una base de datos de Azure SQL hasta 35 días.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: b858776d8309be94a0dd64f994a9e34e589d3c49
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ba961547bc46b0746997ea95ddd14f1a6d1d8a23
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750453"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821209"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recuperación de una base de datos de Azure SQL mediante copias de seguridad de base de datos
 

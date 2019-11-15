@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
-ms.openlocfilehash: b327403b29f26f6c1f43f9dfe7aabd5c3c7e0a68
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: efb0d3222bfd98b15502163979425d47fa459e07
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299909"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605716"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Uso de la CLI de Databricks desde Azure Cloud Shell
 
@@ -24,7 +24,7 @@ Aprenda a usar la CLI Databricks desde Azure Cloud Shell para realizar operacion
 
 * Un área de trabajo y un clúster de Azure Databricks. Para obtener instrucciones, consulte [Introducción a Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
 
-* Configure un token de acceso personal en Databricks. Para obtener instrucciones, consulte [Administración de tokens](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
+* Configure un token de acceso personal en Databricks. Para obtener instrucciones, consulte [Administración de tokens](/azure/databricks/dev-tools/api/latest/authentication).
 
 ## <a name="use-the-azure-cloud-shell"></a>Uso de Azure Cloud Shell
 
@@ -32,11 +32,11 @@ Aprenda a usar la CLI Databricks desde Azure Cloud Shell para realizar operacion
  
 2. En la esquina superior derecha, haga clic en el icono **Cloud Shell**.
 
-   ![Iniciar Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Iniciar Azure Cloud Shell")
+   ![Iniciar Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Inicio de Azure Cloud Shell")
 
 3. Asegúrese de selecciona **Bash** como entorno de Cloud Shell. Puede hacerlo en la lista desplegable, como se muestra en la captura de pantalla siguiente.
 
-   ![Seleccione Bash como entorno de Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Seleccionar Bash") 
+   ![Seleccionar Bash como entorno de Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Seleccione Bash") 
 
 4. Cree un entorno virtual en el que pueda instalar la CLI de Databricks. En el siguiente fragmento de código, se crea un entorno virtual llamado `databrickscli`.
 
@@ -73,13 +73,13 @@ También puede usar el siguiente comando para acceder el sistema de archivos de 
     databricks fs ls
 
 
-Para obtener una referencia completa de los comandos, consulte [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html) (CLI de Databricks).
+Para obtener una referencia completa de los comandos, consulte [Databricks CLI](/azure/databricks/dev-tools/databricks-cli) (CLI de Databricks).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información acerca de la CLI de Azure, consulte [Introducción a Azure Cloud Shell](../cloud-shell/overview.md)
 * Para ver una lista de los comandos de la CLI de Azure, consulte la [referencia de la CLI de Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
-* Para ver una lista de comandos de la CLI de Databricks, consulte [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html) (CLI de Databricks)
+* Para ver una lista de comandos de la CLI de Databricks, consulte [Databricks CLI](/azure/databricks/dev-tools/databricks-cli) (CLI de Databricks)
 
 

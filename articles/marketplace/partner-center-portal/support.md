@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: jamwall
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: c0f3fba389f9cb6f55ac5bf7bb81475fa8244cbf
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 53d6b5b43a028d552c95c58aebf7268353621759
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195254"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827899"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Soporte técnico para el programa Marketplace comercial en el Centro de partners
 
@@ -70,7 +71,7 @@ No se requiere ninguna información en la sección **Gravedad**. Seleccione **Ne
 
 #### <a name="who-should-we-contact"></a>Con quién debemos ponernos en contacto
 
-En la sección **Información de contacto**, asegúrese de que el nombre de su contacto principal, el número de teléfono y el correo electrónico son correctos. 
+En la sección **Información de contacto**, asegúrese de que el nombre del contacto principal, el número de teléfono y el correo electrónico son correctos. 
 - Actualice esta información si ve algo que no es correcto.
 - Puede agregar otros contactos de su compañía a esta solicitud de soporte técnico si lo desea.
 - Seleccione **Siguiente**.

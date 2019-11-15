@@ -1,5 +1,5 @@
 ---
-title: Habilitación del ajuste automático para Azure SQL Database | Microsoft Docs
+title: Habilitación del ajuste automático
 description: Puede habilitar fácilmente el ajuste automático en su base de datos de Azure SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 67a05d065cba8286c837487e21fc2f5be54e2c0b
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 0abf4bb015be52a10178423a566433b87127a167
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162338"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821910"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilitación del ajuste automático para supervisar las consultas y mejorar el rendimiento de la carga de trabajo
 
@@ -103,6 +103,12 @@ Para obtener más información sobre las opciones de T-SQL para configurar el aj
 ## <a name="disabled-by-the-system"></a>Deshabilitado por el sistema
 
 El ajuste automático supervisa todas las acciones que realiza en la base de datos y, en algunos casos, determina que no funciona correctamente en la base de datos. En esta situación, el sistema deshabilitará la opción de ajuste. En la mayoría de los casos, esto sucede porque el Almacén de consultas no está habilitado o se encuentra en estado de solo lectura en una base de datos específica.
+
+## <a name="permissions"></a>Permisos
+
+Como el ajuste automático es una característica de Azure, para usarla, necesitará usar los roles integrados de RBAC de Azure. Usar solo la autenticación de SQL no será suficiente para usar la característica de Azure Portal.
+
+Para usar el ajuste automático, el permiso mínimo necesario que se debe conceder al usuario es el rol integrado de Azure de [Colaborador de SQL Database](../role-based-access-control/built-in-roles.md#sql-db-contributor). También puede considerar el uso de roles con privilegios más elevados, como Colaborador de SQL Server, Colaborador y Propietario.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configuración de notificaciones por correo electrónico para el ajuste automático
 

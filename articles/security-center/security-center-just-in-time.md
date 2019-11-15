@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: a6326b2ea9b4c2247df4f93eba904b7527666131
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996379"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576397"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administración del acceso a máquina virtual mediante Just-In-Time
 
@@ -61,12 +61,12 @@ Existen tres maneras de configurar una directiva JIT en una máquina virtual:
 - [Configurar el acceso JIT en una hoja de VM de Azure](#jit-vm)
 - [Configurar una directiva JIT en una VM mediante programación](#jit-program)
 
-## <a name="configure-jit-in-asc"></a>Configurar JIT en ASC
+## <a name="configure-jit-in-security-center"></a>Configuración de JIT en Security Center
 
-Desde ASC, puede configurar un directiva de JIT y solicitar acceso a una VM mediante una directiva JIT
+Desde Security Center, puede configurar un directiva de JIT y solicitar acceso a una VM mediante una directiva JIT.
 
 
-### Configurar el acceso JIT en una máquina virtual en ASC <a name="jit-asc"></a>
+### Configuración del acceso JIT en una máquina virtual en Security Center<a name="jit-asc"></a>
 
 1. Abra el panel **Security Center**.
 
@@ -114,9 +114,9 @@ Desde ASC, puede configurar un directiva de JIT y solicitar acceso a una VM medi
 >Cuando el acceso a la VM JIT se habilita en una VM, Azure Security Center crea reglas para denegar todo el tráfico entrante para los puertos seleccionados en los grupos de seguridad de red asociados y en Azure Firewall. Si no se habían creado otras reglas para los puertos seleccionados, las reglas existentes tienen prioridad sobre las nuevas reglas para “denegar todo el tráfico entrante”. Si no hay ninguna regla existente en los puertos seleccionados, las nuevas reglas de "denegar todo el tráfico entrante" tienen prioridad principal en grupos de seguridad de red y Azure Firewall.
 
 
-## <a name="request-jit-access-via-asc"></a>Solicitar acceso JIT a través de ASC
+## <a name="request-jit-access-via-security-center"></a>Solicitud de acceso JIT a través de Security Center
 
-Para solicitar acceso a una VM a través de ASC:
+Para solicitar acceso a una VM a través de Security Center:
 
 1. En **Just in time VM access** (Acceso a máquina virtual del tipo Just-In-Time), seleccione la pestaña **Configurado**.
 
@@ -140,7 +140,7 @@ Para solicitar acceso a una VM a través de ASC:
 > [!NOTE]
 > Si un usuario que solicita acceso está detrás de un proxy, es posible que la opción de **Mi IP** no funcione. Es posible que necesite definir todo el intervalo de direcciones IP de la organización.
 
-## <a name="edit-a-jit-access-policy-via-asc"></a>Editar una directiva de acceso JIT a través de ASC
+## <a name="edit-a-jit-access-policy-via-security-center"></a>Edición de una directiva de acceso JIT a través de Security Center
 
 Para cambiar la directiva Just-In-Time de una máquina virtual, agregue y configure un puerto nuevo que proteja dicha máquina virtual, o bien cambie otro valor relacionado con un puerto ya protegido.
 
@@ -151,7 +151,7 @@ Para editar una directiva Just-In-Time existente de una máquina virtual:
 1. En **Configuración de acceso a máquina virtual del tipo JIT** , puede modificar la configuración existente de un puerto protegido, o bien agregar un puerto personalizado. 
   ![acceso a vm de tipo jit](./media/security-center-just-in-time/edit-policy.png)
 
-## <a name="audit-jit-access-activity-in-asc"></a>Auditar la actividad de acceso JIT en ASC
+## <a name="audit-jit-access-activity-in-security-center"></a>Auditoría de la actividad de acceso JIT en Security Center
 
 Puede usar la búsqueda de registros para obtener información sobre las actividades de las máquinas virtuales. Para ver los registros:
 
@@ -168,11 +168,11 @@ Modifique los filtros y haga clic en **Aplicar** para crear una búsqueda y un r
 
 
 
-## Configurar el acceso JIT en una hoja de VM de Azure<a name="jit-vm"></a>
+## Configuración del acceso JIT desde la página de una máquina virtual de Azure<a name="jit-vm"></a>
 
-Para su comodidad, puede conectarse a una máquina virtual con JIT directamente desde dentro la hoja de máquina virtual de Azure.
+Para su comodidad, puede conectarse a una máquina virtual con JIT directamente desde la página de la máquina virtual en Security Center.
 
-### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-blade"></a>Configurar el acceso JIT en una VM a través de la hoja de VM de Azure
+### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-page"></a>Configuración del acceso JIT en una máquina virtual a través de la página de la máquina virtual de Azure
 
 Para facilitar el despliegue del acceso Just-In-Time en las VM, puede establecer una VM para permitir solo el acceso Just-In-Time directamente desde dentro de la VM.
 

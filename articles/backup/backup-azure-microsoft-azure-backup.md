@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Backup Server para realizar copias de seguridad de cargas de trabajo en Azure
-description: Use Azure Backup Server para proteger cargas de trabajo o realizar una copia de seguridad de ellas en Azure Portal.
+description: En este artículo, aprenderá a preparar su entorno para proteger las cargas de trabajo y hacer copias de seguridad de ellas mediante Microsoft Azure Backup Server (MABS).
 ms.reviewer: kasinh
 author: dcurwin
 manager: carmonm
@@ -8,16 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7a0f1f7dd79be250370fa97096a0cbf6dfc7f637
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982850"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747428"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 
 > [!div class="op_single_selector"]
+>
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
 >
@@ -60,16 +61,16 @@ Si no desea ejecutar el servidor de base de Azure, puede ejecutar el servidor en
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2016 y SP más recientes |64 bits |Standard, Datacenter, Essentials  |
 
-
 Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Server. Más información sobre cómo funcionan juntos [DPM y la desduplicación](https://technet.microsoft.com/library/dn891438.aspx) al implementarlos en máquinas virtuales de Hyper-V.
 
 > [!NOTE]
 > Azure Backup Server está diseñado para ejecutarse en un servidor dedicado de objetivo único. No se puede instalar Azure Backup Server en:
-> - Un equipo que se ejecuta como controlador de dominio
-> - Un equipo en el que está instalado el rol del servidor de aplicaciones
-> - Un equipo que sea un grupo de administración de System Center Operations Manager
-> - Un equipo en el que se ejecute Exchange Server
-> - Un equipo que sea un nodo de un clúster
+>
+> * Un equipo que se ejecuta como controlador de dominio
+> * Un equipo en el que está instalado el rol del servidor de aplicaciones
+> * Un equipo que sea un grupo de administración de System Center Operations Manager
+> * Un equipo en el que se ejecute Exchange Server
+> * Un equipo que sea un nodo de un clúster
 
 Siempre una Azure Backup Server a un dominio. Si piensa mover el servidor a un dominio diferente, instale primero Azure Backup Server y luego una el servidor al nuevo dominio. *No se permite*mover una máquina de Azure Backup Server existente a un dominio nuevo después de la implementación.
 
@@ -182,11 +183,11 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
 
     Cuando use su propia instancia de SQL 2017, deberá configurar SSRS manualmente. Después de configurar SSRS, asegúrese de que la propiedad de SSRS *IsInitialized* está establecida en *True*. Cuando se establece en True, MABS supone que SSRS ya está configurado y omite la configuración de SSRS.
 
-    Se usarán los siguientes valores para la configuración de SSRS: 
-    - Cuenta de servicio: "Usar cuenta integrada" debe ser Servicio de red
-    - URL de servicio web: "Directorio virtual" debe ser ReportServer_<SQLInstanceName>
-    - Base de datos: DatabaseName debe ser ReportServer$<SQLInstanceName>
-    - URL del portal web: "Virtual Directory" debe ser Reports_<SQLInstanceName>
+    Se usarán los siguientes valores para la configuración de SSRS:
+    * Cuenta de servicio: "Usar cuenta integrada" debe ser Servicio de red
+    * URL de servicio web: "Directorio virtual" debe ser ReportServer_<SQLInstanceName>
+    * Base de datos: DatabaseName debe ser ReportServer$<SQLInstanceName>
+    * URL del portal web: "Virtual Directory" debe ser Reports_<SQLInstanceName>
 
     [Obtenga más información](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) acerca de la configuración de SSRS.
 
@@ -257,10 +258,10 @@ En las secciones siguientes se describe cómo actualizar los agentes de protecci
 
 Estos son los pasos en caso de que necesite migrar MABS a un nuevo servidor sin dejar de conservar el almacenamiento. Esto puede hacerse únicamente si todos los datos se encuentran en Modern Backup Storage.
 
-
   > [!IMPORTANT]
-  > - El nombre nuevo del servidor debe ser el mismo que el de la instancia original de Azure Backup Server. No puede cambiar el nombre de la nueva instancia de Azure Backup Server si desea usar el anterior bloque de almacenamiento y base de datos de MABS (DPMDB) para conservar los puntos de recuperación.
-  > - Debe tener una copia de seguridad de la base de datos de MABS (DPMDB). Tendrá que restaurar la base de datos.
+  >
+  > * El nombre nuevo del servidor debe ser el mismo que el de la instancia original de Azure Backup Server. No puede cambiar el nombre de la nueva instancia de Azure Backup Server si desea usar el anterior bloque de almacenamiento y base de datos de MABS (DPMDB) para conservar los puntos de recuperación.
+  > * Debe tener una copia de seguridad de la base de datos de MABS (DPMDB). Tendrá que restaurar la base de datos.
 
 1. En el panel de información, seleccione los equipos cliente cuyo agente de protección quiere actualizar.
 2. Cierre la instancia original de Azure Backup Server o desconéctela.

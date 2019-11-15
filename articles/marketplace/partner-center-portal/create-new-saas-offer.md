@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 578904d40b1354dde99644cb2fc73e0a56223b34
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376284"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825534"
 ---
 # <a name="create-a-new-saas-offer"></a>Creación de una oferta de SaaS
 
@@ -36,7 +37,7 @@ Se muestra el cuadro de diálogo **Nueva oferta**.
 
 ## <a name="offer-id-and-alias"></a>Identificador y alias de la oferta
 
-- **Id. de oferta**: Identificador único para cada oferta de su cuenta. Los clientes lo verán en la dirección URL de la oferta de Marketplace y en las plantillas de Azure Resource Manager (si procede). El identificador de la oferta debe ser alfanumérico y contener solo minúsculas (puede incluir guiones y caracteres de subrayado, pero no espacios en blanco). Tiene un límite de 50 caracteres y no se podrá cambiar después de seleccionar *Crear*.  
+- **Id. de oferta**: Identificador único para cada oferta de su cuenta. Los clientes lo verán en la dirección URL de la oferta de Marketplace y en las plantillas de Azure Resource Manager (si procede). El identificador de la oferta debe ser alfanumérico y contener solo minúsculas (puede incluir guiones y caracteres de subrayado, pero no espacios en blanco). Tiene un límite de 50 caracteres y no se puede cambiar después de seleccionar *Crear*.  
 Ejemplo: test-offer-1
 <br>Lo que resulta en la siguiente dirección URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
@@ -57,10 +58,10 @@ La página **Información general de la oferta** incluye:
 - **Estado de publicación** muestra una representación visual de los pasos necesarios para publicar esta oferta y el tiempo se tardará en completarse cada uno de ellos. Los iconos de los pasos de publicación que no se hayan completados aparecerán atenuados. 
 
 - El menú **Información general de la oferta** contiene una lista de vínculos para realizar operaciones en esta oferta. Esta lista de operaciones cambiará en función de la selección que realice para la oferta.  
-    - Si la oferta es un borrador: Eliminar borrador 
-    - Si la oferta está activa: Detener venta de oferta 
-    - Si la oferta está en vista previa: Transmitir 
-    - Si no ha completado el cierre de sesión del anunciante: Cancelar publicación
+    - Si la oferta es un borrador: eliminar borrador 
+    - Si la oferta está activa: detener venta de oferta 
+    - Si la oferta está en versión preliminar: publicar 
+    - Si no ha completado el cierre de sesión del anunciante: cancelar publicación
 
 ## <a name="offer-setup"></a>Configuración de la oferta
 
@@ -72,7 +73,7 @@ En la pestaña **Configuración de la oferta** se solicita la siguiente informac
 
 ### <a name="sell-through-microsoft"></a>Venta mediante Microsoft
 
-La venta a través de Microsoft mejora los procesos de detección y captación de clientes, permite que Microsoft hospede transacciones de Marketplace a su nombre y aprovecha las funcionalidades de comercio disponibles globalmente de Microsoft.
+La venta a través de Microsoft ofrece a los clientes una mejor experiencia de hallazgo y adquisición, permite que Microsoft hospede transacciones de Marketplace en su nombre y aprovecha las funcionalidades de comercio disponibles globalmente de Microsoft.
 
 #### <a name="saas-offer-requirements"></a>Requisitos de la oferta de SaaS
 
@@ -130,7 +131,7 @@ Publique la oferta para los clientes con un vínculo a una evaluación gratuita 
 > Los tokens que la aplicación recibirá a través del vínculo de evaluación gratuita solo se pueden usar para obtener información de usuario mediante Azure AD para automatizar la creación de cuentas en la aplicación. No se admiten las cuentas de Microsoft (MSA) para la autenticación con este token.
 
 ##### <a name="contact-me"></a>Ponerse en contacto conmigo
-Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta, y el origen de Marketplace donde se encontró la oferta, se enviarán al sistema CRM que haya configurado. Para más información acerca de cómo configurar CRM, consulte [Conexión de administración de clientes potenciales](#connect-lead-management). 
+Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para más información acerca de cómo configurar CRM, consulte [Conexión de administración de clientes potenciales](#connect-lead-management). 
 
 ## <a name="example-marketplace-offer-listing"></a>Descripción de la oferta de Marketplace de ejemplo
 
@@ -178,7 +179,8 @@ Después de completar estos campos seleccione **Guardar**.
 Seleccione un mínimo de una (1) y un máximo de tres (3) categorías utilizadas para agrupar la oferta en las áreas de búsqueda de Marketplace adecuadas. Indique la forma en que la oferta da soporte a estas categorías en la descripción de la oferta. 
 
 ### <a name="industry"></a>Sector
-Seleccione uno máximo de dos (2) sectores que se usan para agrupar la oferta en las áreas de búsqueda apropiadas de Marketplace. Si la oferta no es específica para un sector, no seleccione ninguno. Indique la forma en que la oferta da soporte a los sectores seleccionados en la descripción de la oferta. 
+
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Versión de la aplicación
 Se trata de un campo opcional que se utiliza en el Marketplace de AppSource para identificar el número de versión de la oferta. 
@@ -195,7 +197,7 @@ El contrato estándar se puede encontrar aquí: https://go.microsoft.com/fwlink/
 
 #### <a name="terms-of-use"></a>Términos de uso
 
-Si las condiciones de la licencia no coinciden con las del contrato estándar, puede optar por escribir sus propias condiciones de uso legales aquí. En este campo también puede escribir hasta 10 000 caracteres de texto. Si las condiciones de uso requieren una descripción más larga, escriba en este campo un vínculo de una dirección URL donde se pueden encontrar las condiciones de la licencia adicionales. A los clientes les aparecerá como un vínculo activo.
+Si las condiciones de la licencia no coinciden con las del contrato estándar, puede optar por escribir sus propias condiciones de uso legales aquí. Se pueden escribir como texto sin formato o como una dirección URL única que vincula a los términos de licencia.
 
 Los clientes deben aceptar estos términos antes de poder probar la aplicación. 
 
@@ -366,8 +368,8 @@ Una vez creados, verá los nombres de los planes, los identificadores, los model
 
 Las **acciones** disponibles en **Información general del plan** varían en función del estado actual del plan y pueden incluir:
 
-- Si el estado del plan es **Borrador**: Eliminar borrador
-- Si el estado del plan es **Activo**: Detener venta del plan o Sincronizar público privado
+- Si el estado del plan es **Borrador**: eliminar borrador
+- Si el estado del plan es **Activo**: detener venta del plan o sincronizar público privado
 
 **Crear nuevo plan** (un mínimo de un plan para quienes seleccionen vender a través de Microsoft)
 
@@ -484,7 +486,7 @@ Si es la primera vez que publica esta oferta, puede:
 - Ver el estado de finalización de cada sección de la oferta.
     - *No iniciada*: significa que la sección no se ha modificado y se debe completar.
     - *Incompleta*: significa que la sección tiene errores que deben corregirse o que requiere más información. Por favor, vuelva a las secciones y actualícelas.
-    - *Completa*: significa que la sección está completa, que se ha proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+    - *Completa*: significa que la sección está completa, que se han proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 - Envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
 - Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico que le avise cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Debe volver al Centro de partners y seleccionar **Transmitir** la oferta para publicar la oferta para el público (o si es una privada, al público privado).
 

@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos de Salesforce mediante el uso de Data Factory | Microsoft Docs
+title: Movimiento de datos de Salesforce mediante el uso de Azure Data Factory
 description: Aprenda a mover datos de Salesforce usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d33172727d4c654614463f69b83f7802cf7fb905
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 71201efeb56ffda2dfbf82ca19b3bacb773c7c3d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839612"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666161"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Movimiento de datos de Salesforce mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -289,8 +289,8 @@ Consulte [Propiedades del tipo RelationalSource](#copy-activity-properties) para
 | Numeración automática |Cadena |
 | Casilla de verificación |Boolean |
 | Moneda |Decimal |
-| Date |Datetime |
-| Fecha y hora |Datetime |
+| Date |DateTime |
+| Fecha y hora |DateTime |
 | Email |Cadena |
 | Id |Cadena |
 | Relación de búsqueda |Cadena |

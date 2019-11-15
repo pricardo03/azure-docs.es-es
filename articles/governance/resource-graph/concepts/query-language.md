@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 80b33212afa7fed3f87b241d5cf69b43be66574d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d0ba3195aef246ff49042f61dcec0b4397b5dde6
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755916"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622633"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -120,6 +120,6 @@ Algunos nombres de propiedad, como los que incluyen `.` o `$`, debe encapsularse
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Ver el lenguaje en uso en el artículo de[consultas básicas](../samples/starter.md)
-- Consultar usos avanzados en el artículo de [consultas avanzadas](../samples/advanced.md)
-- Aprender a [explorar recursos](explore-resources.md)
+- Consulte el lenguaje en uso en[Consultas básicas](../samples/starter.md).
+- Consulte los usos avanzados en [Consultas avanzadas](../samples/advanced.md).
+- Obtenga más información sobre cómo [explorar recursos](explore-resources.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: bed3402de83984cae9134fe44058980ec18861b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88698a7a0f78987dc96bf7f39831ec1a7560a359
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413934"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815860"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Copia de seguridad a petición en Azure Service Fabric
 
@@ -111,6 +111,17 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 Puede usar [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API para configurar el seguimiento del [progreso de la copia de seguridad a petición](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
+### <a name="using-service-fabric-explorer"></a>Uso de Service Fabric Explorer
+Asegúrese de que se ha habilitado el modo avanzado en la configuración de Service Fabric Explorer.
+1. Seleccione las particiones deseadas y haga clic en Acciones. 
+2. Seleccione Trigger Partition Backup (Desencadenar copia de seguridad de particiones) y rellene la información de Azure:
+
+    ![Desencadenar copia de seguridad de particiones][0]
+
+    o recurso compartido de archivos:
+
+    ![Recurso compartido de archivos de Desencadenar copia de seguridad de particiones][1]
+
 ## <a name="tracking-on-demand-backup-progress"></a>Seguimiento del progreso de copia de seguridad a petición
 
 Una partición de un servicio de confianza con estado o de Reliable Actors acepta solo una solicitud de copia de seguridad a petición a la vez. Solo puede aceptarse otra solicitud cuando se haya completado la solicitud de copia de seguridad a petición actual.
@@ -183,3 +194,6 @@ Las solicitudes de copia de seguridad a petición pueden tener los siguientes es
 
 - [Información sobre la configuración de la copia de seguridad periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Referencia de las API REST BackupRestore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+
+[0]: ./media/service-fabric-backuprestoreservice/trigger-partition-backup.png
+[1]: ./media/service-fabric-backuprestoreservice/trigger-backup-fileshare.png

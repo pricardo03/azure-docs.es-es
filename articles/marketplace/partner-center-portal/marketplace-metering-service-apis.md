@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 35e6c61a8e8537035d70323c85dfc7a76f87cbcd
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869339"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825474"
 ---
 # <a name="marketplace-metering-service-apis"></a>API del servicio de medición de Marketplace
 
@@ -118,7 +119,7 @@ Conflicto cuando se recibe la llamada de uso para el identificador del recurso d
 La API de eventos de uso por lotes permite emitir a la vez eventos de uso para más de una entidad específica que haya comprado. La solicitud de evento de uso por lotes hace referencia a la dimensión de servicios de medición que define el publicador al lanzar la oferta.
 
 >[!Note]
->Puede registrar varias ofertas de SaaS en Marketplace comercial de Microsoft. Cada oferta de SaaS registrada tiene una aplicación de Azure AD única que se registra con fines de autenticación y autorización. Los eventos emitidos por lotes deben pertenecer a ofertas con la misma aplicación de Azure AD en el momento en que se registra la oferta.
+>Puede registrar varias ofertas de SaaS en el programa Marketplace comercial de Microsoft. Cada oferta de SaaS registrada tiene una aplicación de Azure AD única que se registra con fines de autenticación y autorización. Los eventos emitidos por lotes deben pertenecer a ofertas con la misma aplicación de Azure AD en el momento en que se registra la oferta.
 
 **POST:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 

@@ -1,5 +1,5 @@
 ---
-title: Protección de puntos de conexión públicos de instancia administrada, instancia administrada de Azure SQL Database | Microsoft Docs
+title: Protección de puntos de conexión públicos de una instancia administrada
 description: Use puntos de conexión públicos de forma segura en Azure con una instancia administrada
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: c7f57a636e95bb137dd4285b8f9ce8343b27d2a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567359"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821738"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Utilice una instancia administrada de Azure SQL Database de forma segura con puntos de conexión públicos
 

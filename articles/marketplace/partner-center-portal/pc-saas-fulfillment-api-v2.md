@@ -4,15 +4,16 @@ description: En este artículo se explica cómo crear y administrar una oferta d
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 05/23/2019
+ms.date: 10/18/2019
 ms.author: evansma
-ms.openlocfilehash: 75e806e56fa94916f76f9e7fa6572ae07987e017
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4c73a59352422626ec3c6012607009995479d0cc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595560"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816604"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API de suministro de SaaS, versión 2 
 
@@ -61,13 +62,13 @@ En el siguiente diagrama se muestran las acciones cuando se inicia una actualiza
 
 Este estado indica que no se ha recibido el pago de un cliente. En cumplimiento de la directiva, proporcionaremos al cliente un período de gracia antes de cancelar la suscripción. Cuando una suscripción está en este estado: 
 
-- Como partner, puede optar por degradar o bloquear el acceso del usuario al servicio.
+- Como asociado, puede optar por degradar o bloquear el acceso del usuario al servicio.
 - La suscripción debe permanecer en un estado recuperable que pueda restaurar la funcionalidad completa sin que se pierdan datos ni la configuración. 
 - Espere recibir una solicitud de restablecimiento para esta suscripción a través de la API de suministro o una solicitud de desaprovisionamiento al finalizar el período de gracia. 
 
 #### <a name="unsubscribed"></a>Suscripción cancelada 
 
-Las suscripciones adquieren este estado en respuesta a una solicitud explícita del cliente o ante un impago de cuotas. Se espera que el partner conserve los datos del cliente durante un cierto número de días para llevar a cabo una recuperación si se solicita y que después los elimine. 
+Las suscripciones adquieren este estado en respuesta a una solicitud explícita del cliente o ante un impago de cuotas. Se espera que el asociado conserve los datos del cliente durante un cierto número de días para llevar a cabo una recuperación si se solicita y que después los elimine. 
 
 
 ## <a name="api-reference"></a>Referencia de API
@@ -87,14 +88,14 @@ En la tabla siguiente se recogen las definiciones de entidades y parámetros com
 | `offerId`                | Identificador de cadenas único para cada oferta (por ejemplo, "oferta1").  |
 | `planId`                 | Identificador de cadenas único para cada plan/SKU (por ejemplo, "plata"). |
 | `operationId`            | Identificador GUID para una operación determinada.  |
-|  `action`                | La acción realizada en un recurso, ya sea `unsubscribe`, `suspend`, `reinstate`, `changePlan` o `changeQuantity` y `transfer`.  |
+|  `action`                | La acción que se va a realizar en un recurso, ya sea `Unsubscribe`, `Suspend`, `Reinstate` o `ChangePlan`, `ChangeQuantity`, `Transfer`. |
 |   |   |
 
 Los identificadores únicos globales ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) son números de 128 bits (hexadecimal de 32) que normalmente se generan automáticamente. 
 
 #### <a name="resolve-a-subscription"></a>Resolver una suscripción 
 
-El punto de conexión de resolución permite al anunciante resolver un token de Marketplace a un identificador de recursos persistente. El identificador de recurso es el identificador único para la suscripción de SaaS. Cuando se redirige a un usuario al sitio web del partner, la dirección URL contiene un token en los parámetros de consulta. Se espera que el partner use este token y haga una solicitud para resolverlo. La respuesta contiene el id. de suscripción de SaaS, el nombre, el id. de oferta y el plan exclusivos para el recurso. Este token es válido durante una hora únicamente. 
+El punto de conexión de resolución permite al anunciante resolver un token de Marketplace a un identificador de recursos persistente. El identificador de recurso es el identificador único para la suscripción de SaaS. Cuando se redirige a un usuario al sitio web de un asociado, la dirección URL contiene un token en los parámetros de consulta. Se espera que el partner use este token y haga una solicitud para resolverlo. La respuesta contiene el id. de suscripción de SaaS, el nombre, el id. de oferta y el plan exclusivos para el recurso. Este token es válido durante una hora únicamente. 
 
 ##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Post<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
@@ -112,7 +113,7 @@ El punto de conexión de resolución permite al anunciante resolver un token de 
 |  x-ms-requestid    |  Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si este valor no se proporciona, se generará uno y se proporcionará en los encabezados de respuesta. |
 |  x-ms-correlationid |  Valor de cadena único para la operación en el cliente. Este parámetro pone en correlación todos los eventos de la operación del cliente con los eventos del servidor. Si este valor no se proporciona, se generará uno y se proporcionará en los encabezados de respuesta.  |
 |  authorization     |  [Obtener un token de portador JSON Web Token (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por ejemplo, "`Bearer <access_token>`". |
-|  x-ms-marketplace-token  |  Parámetro de consulta del token de la dirección URL cuando se redirige al usuario al sitio web del partner de SaaS desde Azure (por ejemplo: `https://contoso.com/signup?token=..`). *Nota:* La URL descodifica el valor del token del explorador antes de usarlo.  |
+|  x-ms-marketplace-token  |  Parámetro de consulta de token de la dirección URL cuando se redirige al usuario al sitio web del asociado de SaaS desde Azure (por ejemplo: `https://contoso.com/signup?token=..`). *Nota:* La URL descodifica el valor del token del explorador antes de usarlo.  |
 
 *Códigos de respuesta*:
 
@@ -134,7 +135,7 @@ Código: 400<br>
 Solicitud incorrecta. Falta el token x-ms-marketplace-token, tiene un formato incorrecto o ha caducado.
 
 Código: 403<br>
-No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud está intentando acceder a una adquisición que no pertenece al anunciante actual.
+No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud intenta acceder a una adquisición que no pertenece al anunciante actual.
 
 Código: 404<br>
 Not found.
@@ -212,7 +213,7 @@ Carga de respuesta de la API simulada:<br>
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "isFreeTrial": "true", // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.
+          "isFreeTrial": "true", // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial.
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
@@ -250,7 +251,7 @@ Y para la API real: <br>
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "isFreeTrial": true, // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.(optional field – default false)
+          "isFreeTrial": true, // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial.(optional field - default false)
           "isTest": false, //indicating whether the current subscription is a test asset
           "sandboxType": "None", // Possible Values: None, Csp (Csp sandbox purchase)
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
@@ -262,7 +263,7 @@ Y para la API real: <br>
 El token de continuación estará presente solo si hay más “páginas” de planes por recuperar. 
 
 Código: 403 <br>
-No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud está intentando acceder a una adquisición que no pertenece al anunciante actual. 
+No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud intenta acceder a una adquisición que no pertenece al anunciante actual. 
 
 Código: 500<br>
 Error interno del servidor
@@ -320,7 +321,7 @@ Response Body:
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
-        "isFreeTrial": "true", // true – customer subscription is currently in free trial, false – customer subscription is not currently in free trial.
+        "isFreeTrial": "true", // true - customer subscription is currently in free trial, false - customer subscription is not currently in free trial.
         "status": "Subscribed", // Indicates the status of the operation.
           "term": { //This gives the free trial term start and end date
             "startDate": "2019-05-31",
@@ -331,7 +332,7 @@ Response Body:
 ```
 
 Código: 403<br>
-No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud está intentando acceder a una adquisición que no pertenece al anunciante actual.
+No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud intenta acceder a una adquisición que no pertenece al anunciante actual.
 
 Código: 404<br>
 Not found.<br> 
@@ -387,7 +388,7 @@ Código: 404<br>
 Not found.<br> 
 
 Código: 403<br>
-No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud está intentando acceder a una adquisición que no pertenece al anunciante actual. <br> 
+No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud intenta acceder a una adquisición que no pertenece al anunciante actual. <br> 
 
 Código: 500<br>
 Error interno del servidor<br>
@@ -438,7 +439,7 @@ Código: 400<br>
 Solicitud incorrecta: errores de validación.
 
 Código: 403<br>
-No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud está intentando acceder a una adquisición que no pertenece al anunciante actual.
+No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud intenta acceder a una adquisición que no pertenece al anunciante actual.
 
 Código: 404<br>
 Not found.
@@ -501,7 +502,7 @@ Código: 400<br>
 Solicitud incorrecta: errores de validación.
 
 Código: 403<br>
-No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud está intentando acceder a una adquisición que no pertenece al anunciante actual.
+No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud intenta acceder a una adquisición que no pertenece al anunciante actual.
 
 Código: 404<br>
 Not found.
@@ -568,7 +569,7 @@ Solicitud incorrecta: errores de validación.
 
 
 Código: 403<br>
-No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud está intentando acceder a una adquisición que no pertenece al anunciante actual.
+No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud intenta acceder a una adquisición que no pertenece al anunciante actual.
 
 Código: 404<br>
 Not found.
@@ -619,7 +620,7 @@ Código: 400<br>
 Eliminar en una suscripción cuando **Delete** no está en `allowedCustomerOperations`.
 
 Código: 403<br>
-No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud está intentando acceder a una adquisición que no pertenece al anunciante actual.
+No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud intenta acceder a una adquisición que no pertenece al anunciante actual.
 
 Código: 404<br>
 Not found.
@@ -687,7 +688,7 @@ Código: 400<br>
 Solicitud incorrecta: errores de validación.
 
 Código: 403<br>
-No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud está intentando acceder a una adquisición que no pertenece al anunciante actual.
+No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud intenta acceder a una adquisición que no pertenece al anunciante actual.
 
 Código: 404<br>
 Not found.
@@ -707,7 +708,7 @@ Error interno del servidor
 
 #### <a name="get-operation-status"></a>Obtener el estado de la operación
 
-Permite al anunciante hacer un seguimiento del estado de la operación asincrónica desencadenada que se ha especificado (como `subscribe`, `unsubscribe`, `changePlan` o `changeQuantity`).
+Permite al anunciante hacer un seguimiento del estado de la operación asincrónica desencadenada que se ha especificado (como `Subscribe`, `Unsubscribe`, `ChangePlan` o `ChangeQuantity`).
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Obtener<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -751,7 +752,7 @@ Código: 400<br>
 Solicitud incorrecta: errores de validación.
 
 Código: 403<br>
-No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud está intentando acceder a una adquisición que no pertenece al anunciante actual.
+No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud intenta acceder a una adquisición que no pertenece al anunciante actual.
  
 Código: 404<br>
 Not found.
@@ -809,7 +810,7 @@ Código: 400<br>
 Solicitud incorrecta: errores de validación.
 
 Código: 403<br>
-No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud está intentando acceder a una adquisición que no pertenece al anunciante actual.
+No autorizado. No se ha proporcionado el token de autenticación, no es válido o la solicitud intenta acceder a una adquisición que no pertenece al anunciante actual.
 
 Código: 404<br>
 Not found.
@@ -839,7 +840,7 @@ El anunciante debe implementar un webhook en este servicio de SaaS para informar
   "id": "<this is a GUID operation id, you can call operations API with this to get status>",
   "activityId": "<this is a Guid correlation id>",
   "subscriptionId": "<Guid to uniquely identify this resource>",
-  "publisherId": "<this is the publisher’s name>",
+  "publisherId": "<this is the publisher's name>",
   "offerId": "<this is the offer name>",
   "planId": "<this is the plan id>",
   "quantity": "<the number of seats, will be null if not per-seat saas offer>",
@@ -850,11 +851,11 @@ El anunciante debe implementar un webhook en este servicio de SaaS para informar
 }
 ```
 Donde la acción puede ser una de las siguientes: 
-- `unsubscribe` (cuando se ha eliminado el recurso)
-- `changePlan` (cuando se ha completado la operación de cambio de plan)
-- `changeQuantity` (cuando se ha completado la operación de cambio de cantidad)
-- `suspend` (cuando se ha suspendido el recurso)
-- `reinstate` (cuando se ha recuperado el recurso tras la suspensión)
+- `Unsubscribe` (cuando se ha eliminado el recurso)
+- `ChangePlan` (cuando se ha completado la operación de cambio de plan)
+- `ChangeQuantity` (cuando se ha completado la operación de cambio de cantidad)
+- `Suspend` (cuando se ha suspendido el recurso)
+- `Reinstate` (cuando se ha recuperado el recurso tras la suspensión)
 
 Donde el estado puede ser uno de los siguientes: 
 - **NotStarted** <br>

@@ -1,21 +1,19 @@
 ---
-title: 'Transformación de origen en Mapping Data Flow: Azure Data Factory | Microsoft Docs'
+title: 'Transformación de origen en Mapping Data Flow: Azure Data Factory'
 description: Aprenda a configurar una transformación de origen en Mapping Data Flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: c7d18ab6e9018511915e9b77ea02ac60b1277c12
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 5889d96057d4b028e8716e407819d17938f58b3c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596496"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675946"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformación de origen en Mapping Data Flow 
-
-
 
 Una transformación de origen configura el origen de datos para el flujo de datos. Al diseñar flujos de datos, el primer paso será siempre configurar una transformación de origen. Para agregar un origen, haga clic en el cuadro **Agregar origen** en el lienzo de Data Flow.
 
@@ -27,11 +25,12 @@ Cada transformación de origen se asocia exactamente con un conjunto de datos de
 
 Mapping Data Flow sigue un enfoque de extracción, carga y transformación (ELT) y funciona con conjuntos de datos de un *almacenamiento provisional* que están todos en Azure. Actualmente, se pueden usar los siguientes conjuntos de datos en una transformación de origen:
     
-* Azure Blob Storage
-* Azure Data Lake Storage Gen1
-* Azure Data Lake Storage Gen2
+* Azure Blob Storage (JSON, Avro, Text, Parquet)
+* Azure Data Lake Storage Gen1 (JSON, Avro, Text, Parquet)
+* Azure Data Lake Storage Gen2 (JSON, Avro, Text, Parquet)
 * Azure SQL Data Warehouse
 * Azure SQL Database
+* Azure CosmosDB
 
 Azure Data Factory tiene acceso a más de 80 conectores nativos. Para incluir datos de esos otros orígenes en el flujo de datos, use la herramienta de actividad de copia para cargar esos datos en una de las áreas de almacenamiento provisional compatibles.
 
@@ -130,7 +129,7 @@ Si el origen está en SQL Database o SQL Data Warehouse, hay configuración adic
 
 **Entrada:** Seleccione si desea señalar el origen en una tabla (equivale a ```Select * from <table-name>```) o escribir una consulta SQL personalizada.
 
-**Consultar** Si selecciona Consulta en el campo de entrada, escriba una consulta SQL para el origen. Esta configuración invalidará cualquier tabla que haya elegido en el conjunto de datos. Las cláusulas **Ordenar por** no se admiten aquí, pero puede establecer una instrucción SELECT FROM completa. También puede usar las funciones de tabla definidas por el usuario. **select * from udfGetData()** es un UDF in SQL que devuelve una tabla. Esta consulta genera una tabla de origen que puede usar en el flujo de datos.
+**Consultar** Si selecciona Consulta en el campo de entrada, escriba una consulta SQL para el origen. Esta configuración invalidará cualquier tabla que haya elegido en el conjunto de datos. Las cláusulas **Ordenar por** no se admiten aquí, pero puede establecer una instrucción SELECT FROM completa. También puede usar las funciones de tabla definidas por el usuario. **select * from udfGetData()** es un UDF in SQL que devuelve una tabla. Esta consulta genera una tabla de origen que puede usar en el flujo de datos. El uso de consultas también es una excelente manera de reducir las filas para pruebas o búsquedas. Ejemplo: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
 **Tamaño del lote**: escriba un tamaño de lote para fragmentar datos grandes en lecturas.
 
@@ -152,6 +151,19 @@ Al igual que los esquemas en los conjuntos de datos, la proyección de un origen
 Si el archivo de texto no tiene ningún esquema definido, seleccione **Detectar tipo de datos** para que Data Factory muestree e infiera los tipos de datos. Seleccione **Definir formato predeterminado** para detectar automáticamente los formatos de datos predeterminados. 
 
 Puede modificar los tipos de datos de columna en una transformación de columna derivada de un nivel inferior. Use una transformación de selección para modificar los nombres de columna.
+
+### <a name="import-schema"></a>Importar esquema
+
+Los conjuntos de datos como Avro y CosmosDB que admiten estructuras de datos complejas no requieren que existan definiciones de esquemas en el conjunto de datos. Por lo tanto, podrá hacer clic en el botón "Importar esquema" de la pestaña Proyección para estos tipos de orígenes.
+
+## <a name="cosmosdb-specific-settings"></a>Configuración específica de CosmosDB
+
+Cuando se usa CosmosDB como tipo de origen, hay algunas opciones que se deben tener en cuenta:
+
+* Include system columns (Incluir las columnas del sistema): Si se activa esta casilla, ```id```, ```_ts``` y otras columnas del sistema se incluirán en los metadatos del flujo de datos de CosmosDB. Al actualizar las colecciones, es importante incluirla para poder tomar el Id. de fila existente.
+* Tamaño de página: Número de documentos por página del resultado de la consulta. El valor predeterminado es "-1", que utiliza la página dinámica del servicio hasta 1000.
+* Rendimiento: Establezca un valor opcional para el número de RU que desea aplicar a la colección de CosmosDB para cada ejecución de este flujo de datos durante la operación de lectura. El mínimo es de 400.
+* Preferred regions (Regiones preferidas): Puede elegir las regiones de lectura preferidas para este proceso.
 
 ## <a name="optimize-the-source-transformation"></a>Optimización de la transformación de origen
 

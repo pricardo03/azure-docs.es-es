@@ -1,5 +1,5 @@
 ---
-title: Implementación de una aplicación SaaS de base de datos multiinquilino con particiones que usa Azure SQL Database | Microsoft Docs
+title: Implementación de una aplicación SaaS de base de datos multiinquilino con particiones
 description: Implemente y explore la aplicación de base de datos multiinquilino SaaS Wingtip Tickets con particiones que muestra los patrones de SaaS con Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
-ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3277318e01362df8fc21ff7ca769aaeb8006abc6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570375"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827989"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementación y exploración de una aplicación multiinquilino con particiones
 

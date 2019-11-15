@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bf713029f26ac7ec0b6c043fb887fa5190083888
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550642"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576054"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -47,8 +47,8 @@ En la tabla siguiente se indica el nivel actual de la compatibilidad con los tre
 
 | | Plan de consumo | Plan Premium | Plan dedicado |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | Vista previa | GA |
-| Linux | GA | Vista previa | GA |
+| Windows | GA | GA | GA |
+| Linux | GA | GA | GA |
 
 ## <a name="consumption-plan"></a>Plan de consumo
 
@@ -65,7 +65,7 @@ Las aplicaciones de funciones de la misma región se pueden asignar al mismo pla
 
 Para obtener más información sobre cómo calcular los costos cuando se ejecutan en un plan de consumo, vea [Descripción de los costos en un plan de consumo](functions-consumption-costs.md).
 
-## <a name="premium-plan"></a>Plan Prémium (versión preliminar)
+## <a name="premium-plan"></a>Plan Premium
 
 Cuando se usa el plan Prémium, las instancias del host de Azure Functions se agregan y quitan según el número de eventos entrantes al igual que con el plan de consumo.  El plan Prémium admite las características siguientes:
 

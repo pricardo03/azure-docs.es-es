@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef3d6a47986056925f9964638c9c7192341ca5f9
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240991"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641503"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
 Microsoft Azure AD proporciona soporte técnico para el aprovisionamiento de usuarios en aplicaciones SaaS de terceros como Salesforce, Google Apps y otras. Si habilita el aprovisionamiento de usuarios para una aplicación SaaS de terceros, Azure Portal controla sus valores de atributo en forma de una asignación de atributos.
 
@@ -77,6 +77,16 @@ Además de esta propiedad, las asignaciones de atributos también admiten los si
   - **Siempre**: esta asignación se aplica a las acciones de creación y actualización de usuarios.
   - **Solo durante la creación**: esta asignación se aplica solo a las acciones de creación de usuarios.
 
+## <a name="matching-users-in-the-source-and-target--systems"></a>Emparejamiento de usuarios en los sistemas de origen y destino
+El servicio de aprovisionamiento de Azure AD se puede implementar en escenarios Greenfield (los usuarios no existen en el sistema de destino) y Brownfield (los usuarios ya existen en el sistema de destino). Para admitir ambos escenarios, el servicio de aprovisionamiento usa el concepto de atributos coincidentes. Los atributos coincidentes permiten determinar cómo identificar de forma única a un usuario en el origen y emparejarlo en el destino. Como parte de la planeación de la implementación, identifique el atributo que se puede usar para identificar de forma única a un usuario en los sistemas de origen y destino. Cosas que hay que tener en cuenta:
+
+- **Los atributos coincidentes deben ser únicos:** los clientes a menudo usan atributos como userPrincipalName, mail u object ID como atributo coincidente.
+- **Se pueden usar varios atributos como atributos coincidentes:** puede definir varios atributos para que se evalúen al emparejar usuarios y el orden en el que se evalúan (definido como precedencia de coincidencias en la interfaz de usuario). Por ejemplo, si define tres atributos como atributos coincidentes y un usuario se empareja de forma única después de evaluar los dos primeros atributos, el servicio no evalúa el tercero. El servicio evalúa los atributos coincidentes en el orden especificado y deja de evaluar cuando se encuentra una coincidencia.  
+- **El valor en el origen y el destino no tienen que coincidir exactamente:** el valor en el destino puede ser una función sencilla del valor del origen. Así, uno podría tener un atributo emailAddress en el origen y userPrincipalName en el destino, y emparejar mediante una función del atributo emailAddress que reemplace algunos caracteres por algún valor constante.  
+- **No se admite el emparejamiento en función de una combinación de atributos:** la mayoría de las aplicaciones no admiten consultas basadas en dos propiedades y, por lo tanto, no es posible emparejar en función de una combinación de atributos. Es posible evaluar propiedades únicas una después de otra.
+- **Todos los usuarios deben tener un valor para al menos un atributo coincidente:** si define un atributo coincidente, todos los usuarios deben tener un valor para ese atributo en el sistema de origen. Si, por ejemplo, define userPrincipalName como atributo coincidente, todos los usuarios deben tener un valor userPrincipalName. Si define varios atributos coincidentes (por ejemplo, extensionAttribute1 y mail), no todos los usuarios deben tener el mismo atributo coincidente. Un usuario podría tener extensionAttribute1 pero no mail mientras que otro usuario podría tener mail pero no extensionAttribute1. 
+- **La aplicación de destino debe admitir el filtrado en el atributo coincidente:** los desarrolladores de aplicaciones permiten filtrar por un subconjunto de atributos en su API de usuario o grupo. En el caso de las aplicaciones de la galería, se garantiza que la asignación de atributos predeterminada es para un atributo en el que la API de la aplicación de destino admite el filtrado. Al cambiar el atributo coincidente predeterminado de la aplicación de destino, compruebe la documentación de las API de terceros para asegurarse de que se puede filtrar por el atributo.  
+
 ## <a name="editing-group-attribute-mappings"></a>Edición de asignaciones de atributos de grupo
 
 Algunas aplicaciones seleccionadas, como ServiceNow, Box y G Suite, admiten la posibilidad de aprovisionar objetos de grupo además de objetos de usuario. Los objetos de grupo pueden contener propiedades de grupo como nombres para mostrar y alias de correo electrónico, además de miembros de grupo.
@@ -125,6 +135,113 @@ Al editar la lista de atributos admitidos, se proporcionan las siguientes propie
 - **Atributo de objeto con referencia**: si este es un atributo de tipo referencia, este menú le permite seleccionar la tabla y el atributo de la aplicación de destino que contiene el valor asociado al atributo. Por ejemplo, si tiene un atributo llamado "Department" cuyo valor almacenado hace referencia a un objeto de una tabla "Departments" independiente, seleccionaría "Departments.Name". Las tablas de referencia y los campos de identificador principal admitidos en una determinada aplicación están preconfigurados y actualmente no se pueden editar mediante Azure Portal, pero se pueden modificar con la [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Para agregar un nuevo atributo, desplácese hasta el final de la lista de atributos admitidos, rellene los campos anteriores mediante las entradas proporcionadas y seleccione **Agregar atributo**. Cuando termine de agregar atributos, seleccione **Guardar**. Tendrá que volver a cargar la pestaña **Aprovisionamiento** para que los nuevos atributos estén disponibles en el editor de asignación de atributos.
+## <a name="provisioning-a-role-to-a-scim-app"></a>Aprovisionamiento de un rol para una aplicación de SCIM
+Use los pasos siguientes para aprovisionar roles para un usuario para la aplicación. Tenga en cuenta que la descripción siguiente es específica de las aplicaciones de SCIM personalizadas. En el caso de las aplicaciones de la galería como Salesforce y ServiceNow, use las asignaciones de roles predefinidas. En las viñetas siguientes se explica cómo transformar el atributo AppRoleAssignments al formato que espera la aplicación.
+
+- La asignación de un elemento appRoleAssignment en Azure AD a un rol de la aplicación requiere que se transforme el atributo mediante una [expresión](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). El atributo appRoleAssignment **no debe asignarse directamente** a un atributo de rol sin usar una expresión para analizar los detalles del rol. 
+
+- **SingleAppRoleAssignment** 
+  - **Cuándo se debe usar:** use la expresión SingleAppRoleAssignment para aprovisionar un rol único para un usuario y para especificar el rol principal. 
+  - **Cómo se configura:** use los pasos anteriores para ir a la página de asignaciones de atributos y use la expresión SingleAppRoleAssignment para asignar al atributo de roles. Hay tres atributos de roles entre los que elegir: (roles[primary eq "True"].display, roles[primary eq "True].type y roles[primary eq "True"].value). Puede optar por incluir cualquiera de los atributos de rol o todos en las asignaciones. Si quiere incluir más de uno, simplemente agregue una nueva asignación e inclúyala como atributo de destino.  
+  
+  ![Adición de SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  - **Cosas que hay que tener en cuenta**
+    - Asegúrese de que no se asignen varios roles a un usuario. No se puede garantizar el rol que se va a aprovisionar.
+    
+  - **Salida del ejemplo** 
+
+   ```json
+    {
+      "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": true,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "value": "Admin"
+         }
+      ]
+   }
+   ```
+  
+- **AppRoleAssignmentsComplex** 
+  - **Cuándo se debe usar:** use la expresión AppRoleAssignmentsComplex para aprovisionar varios roles para un usuario. 
+  - **Cómo se configura:** edite la lista de atributos admitidos como se explica arriba para incluir un nuevo atributo para los roles: 
+  
+    ![Agregar roles](./media/customize-application-attributes/add-roles.png)<br>
+
+    Luego use la expresión AppRoleAssignmentsComplex para asignar al atributo de rol personalizado como se muestra en la imagen siguiente:
+
+    ![Adición de AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+  - **Cosas que hay que tener en cuenta**
+    - todos los roles se aprovisionan como primary = false.
+    - POST contiene el tipo de rol. La solicitud PATCH no contiene tipo. Se trabaja en el envío del tipo en las solicitudes POST y PATCH.
+    
+  - **Salida del ejemplo** 
+  
+   ```json
+   {
+       "schemas": [
+           "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "Admin",
+               "value": "Admin"
+         },
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "User",
+             "value": "User"
+         }
+      ]
+   }
+   ```
+
+  
+
+
+## <a name="provisioning-a-multi-value-attribute"></a>Aprovisionamiento de un atributo de varios valores
+Algunos atributos, como phoneNumbers y emails, son atributos de varios valores en los que puede que necesite especificar diferentes tipos de números de teléfono o correos electrónicos. Use la expresión siguiente para los atributos de varios valores. Permite especificar el tipo de atributo y asignarlo al atributo de usuario de Azure AD correspondiente para el valor. 
+
+* phoneNumbers[type eq "work"].value
+* phoneNumbers[type eq "mobile"].value
+* phoneNumbers[type eq "fax"].value
+
+   ```json
+   "phoneNumbers": [
+       {
+         "value": "555-555-5555",
+         "type": "work"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "mobile"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "fax"
+      }
+   ]
+   ```
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Restauración de los atributos predeterminados y las asignaciones de atributos
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: f992aed6eba775052483b1657d04dead18b2b2ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: efdb2f51058eca456d622afda390dee17fffea0b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059178"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819431"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -116,6 +116,20 @@ Primero debe habilitar el _servicio de copia de seguridad y restauración_ en el
     ```
 
 4. Una vez actualizado el archivo de configuración del clúster con los cambios anteriores, aplíquelos y deje que se complete la actualización o la implementación. Cuando haya terminado, el _servicio de copia de seguridad y restauración_ empezará a ejecutarse en el clúster. El URI de este servicio es `fabric:/System/BackupRestoreService` y el servicio puede estar ubicado en la sección de servicio del sistema de Service Fabric Explorer. 
+
+### <a name="using-service-fabric-explorer"></a>Uso de Service Fabric Explorer
+
+1. Asegúrese de que está habilitado el modo avanzado.
+
+    ![Habilitar el modo avanzado][2]
+
+2. Seleccione una aplicación y vaya a las acciones. Haga clic en "Habilitar o actualizar la copia de seguridad de aplicaciones".
+
+    ![Habilitar la copia de seguridad de aplicaciones][3] 
+
+3. Por último, seleccione la directiva que quiera y haga clic en "Habilitar copia de seguridad".
+
+    ![Seleccionar la directiva][4]
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Habilitación de la copia de seguridad periódica del servicio de confianza con estado y Reliable Actors
 Vamos a examinar los pasos para habilitar la copia de seguridad periódica del servicio de confianza con estado y Reliable Actors. Con estos pasos se asume que:
@@ -263,6 +277,12 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+#### <a name="using-service-fabric-explorer"></a>Uso de Service Fabric Explorer
+
+Para ver las copias de seguridad en Service Fabric Explorer, vaya a una partición y seleccione la pestaña Copias de seguridad.
+
+![Enumeración de las copias de seguridad][5]
+
 ## <a name="limitation-caveats"></a>Limitaciones o advertencias
 - Los cmdlets de PowerShell para Service Fabric están en modo de versión preliminar.
 - Sin compatibilidad con los clústeres de Service Fabric en Linux.
@@ -271,5 +291,9 @@ FailureError            :
 - [Información sobre la configuración de la copia de seguridad periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Referencia de la API REST de restauración de copias de seguridad](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent.png
+[0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event.png
+[2]: ./media/service-fabric-backuprestoreservice/advanced-mode.png
+[3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
+[4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
+[5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
 

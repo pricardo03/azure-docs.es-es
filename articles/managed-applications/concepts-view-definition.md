@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: ff96bddef1b34f5a8bf743ccaaccba2da01534dc
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: b23e844cb550a98328951bc6efae3c5039ff73bf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335087"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607533"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Artefacto de definición de vistas en Azure Managed Applications
 
@@ -26,7 +26,7 @@ El artefacto de definición de vistas debe denominarse **viewDefinition.json** y
 
 ## <a name="view-definition-schema"></a>Esquema de la definición de vistas
 
-El archivo **viewDefinition.json** solo tiene una propiedad `views` de nivel superior, que es una matriz de vistas. Cada vista se muestra en la interfaz de usuario de la aplicación administrada como un elemento de menú independiente en la tabla de contenidos. Cada vista tiene una propiedad `kind` que establece el tipo de vista. Debe establecerse en uno de los siguientes valores: [Introducción](#overview), [Métricas](#metrics), [Recursos personalizados](#custom-resources). Para obtener más información, consulte el [esquema JSON actual para viewDefinition.json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
+El archivo **viewDefinition.json** solo tiene una propiedad `views` de nivel superior, que es una matriz de vistas. Cada vista se muestra en la interfaz de usuario de la aplicación administrada como un elemento de menú independiente en la tabla de contenidos. Cada vista tiene una propiedad `kind` que establece el tipo de vista. Debe establecerse en uno de los siguientes valores: [Introducción](#overview), [Métricas](#metrics), [Recursos personalizados](#custom-resources), [Asociaciones](#associations). Para obtener más información, consulte el [esquema JSON actual para viewDefinition.json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
 
 Ejemplo de JSON para la definición de vistas:
 
@@ -79,10 +79,6 @@ Ejemplo de JSON para la definición de vistas:
                 "createUIDefinition": { },
                 "commands": [
                     {
-                        "displayName": "Custom Test Action",
-                        "path": "testAction"
-                    },
-                    {
                         "displayName": "Custom Context Action",
                         "path": "testCustomResource/testContextAction",
                         "icon": "Stop",
@@ -95,10 +91,18 @@ Ejemplo de JSON para la definición de vistas:
                     {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
                 ]
             }
+        },
+        {
+            "kind": "Associations",
+            "properties": {
+                "displayName": "Test association resource type",
+                "version": "1.0.0",
+                "targetResourceType": "Microsoft.Compute/virtualMachines",
+                "createUIDefinition": { }
+            }
         }
     ]
 }
-
 ```
 
 ## <a name="overview"></a>Información general
@@ -203,12 +207,9 @@ En esta vista, puede realizar operaciones GET, PUT, DELETE y POST para el tipo d
         "displayName": "Test custom resource type",
         "version": "1.0.0",
         "resourceType": "testCustomResource",
+        "icon": "Polychromatic.ResourceList",
         "createUIDefinition": { },
         "commands": [
-            {
-                "displayName": "Custom Test Action",
-                "path": "testAction"
-            },
             {
                 "displayName": "Custom Context Action",
                 "path": "testCustomResource/testContextAction",
@@ -230,6 +231,7 @@ En esta vista, puede realizar operaciones GET, PUT, DELETE y POST para el tipo d
 |DisplayName|Sí|El título de visualización de la vista. El título debe ser **único** para cada vista CustomResources en su **viewDefinition.json**.|
 |version|Sin|La versión de la plataforma utilizada para representar la vista.|
 |resourceType|Sí|El tipo de recurso personalizado. Debe ser un tipo de recurso personalizado **único** del proveedor personalizado.|
+|icon|Sin|Icono de la vista. La lista de iconos de ejemplo se define en el [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|Sin|Esquema de creación de definiciones de interfaz de usuario para crear el comando de recurso personalizado. Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).|
 |comandos|Sin|La matriz de botones adicionales de la barra de herramientas de la vista CustomResources; consulte [comandos](#commands).|
 |columnas|Sin|La matriz de columnas del recurso personalizado. Si no se ha definido, se mostrará la columna `name` de forma predeterminada. La columna debe tener `"key"` y `"displayName"`. Para la clave, proporcione la clave de la propiedad que se va a mostrar en una vista. Si es anidada, utilice el punto como delimitador, por ejemplo, `"key": "name"` o `"key": "properties.property1"`. Como nombre para mostrar, proporcione el nombre de la propiedad que se mostrará en una vista. También puede proporcionar una propiedad `"optional"`. Si se establece en true, la columna se oculta en una vista de forma predeterminada.|
@@ -257,8 +259,35 @@ Los comandos son una matriz de botones adicionales de la barra de herramientas q
 |---------|---------|---------|
 |DisplayName|Sí|El nombre para mostrar del botón de comando.|
 |path|Sí|El nombre de la acción del proveedor personalizado. La acción debe estar definida en **mainTemplate.json**.|
-|icon|Sin|El icono del botón de comando. La lista de iconos compatibles se define en el [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
+|icon|Sin|El icono del botón de comando. La lista de iconos de ejemplo se define en el [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|Sin|Esquema de creación de definiciones de interfaz de usuario del comando. Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).|
+
+## <a name="associations"></a>Asociaciones
+
+`"kind": "Associations"`
+
+Puede definir varias vistas de este tipo. Esta vista permite vincular recursos existentes a la aplicación administrada a través del proveedor personalizado definido en **mainTemplate.json**. Para consultar una introducción a los proveedores de recursos, vea la [introducción a los proveedores personalizados de Azure en versión preliminar](custom-providers-overview.md).
+
+En esta vista puede extender recursos de Azure existentes en función del `targetResourceType`. Cuando se selecciona un recurso, se crea una solicitud de incorporación al proveedor personalizado **público**, lo que puede aplicar un efecto secundario al recurso. 
+
+```json
+{
+    "kind": "Associations",
+    "properties": {
+        "displayName": "Test association resource type",
+        "version": "1.0.0",
+        "targetResourceType": "Microsoft.Compute/virtualMachines",
+        "createUIDefinition": { }
+    }
+}
+```
+
+|Propiedad|Obligatorio|DESCRIPCIÓN|
+|---------|---------|---------|
+|DisplayName|Sí|El título de visualización de la vista. El título debe ser **único** para cada vista Asociaciones de **viewDefinition.json**.|
+|version|Sin|La versión de la plataforma utilizada para representar la vista.|
+|targetResourceType|Sí|Tipo de recurso de destino. Es el tipo de recurso que se va a mostrar para la incorporación de recursos.|
+|createUIDefinition|Sin|Esquema de creación de definiciones de interfaz de usuario para crear el comando de recurso de asociación. Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).|
 
 ## <a name="looking-for-help"></a>¿Busca ayuda?
 

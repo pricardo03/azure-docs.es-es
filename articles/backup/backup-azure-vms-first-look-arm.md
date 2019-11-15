@@ -1,18 +1,18 @@
 ---
-title: Copia de seguridad de una máquina virtual de Azure desde la configuración de máquina virtual con el servicio Azure Backup
-description: Aprenda a realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
+title: Realización de copias de seguridad de una máquina virtual de Azure desde la configuración de esta con Azure Backup
+description: En este artículo, aprenderá a realizar copias de seguridad de una sola máquina virtual o de varias máquinas virtuales de Azure con el servicio Azure Backup.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 042fa44b8f24bb729b94c7631db9469de8493ba4
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 232c027ef60a031df53f2439586a0ae459ab67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639772"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747236"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Copia de seguridad de una máquina virtual de Azure desde la configuración de esta
 
@@ -20,8 +20,6 @@ En este artículo se explica cómo realizar copias de seguridad de máquinas vir
 
 - Una sola máquina virtual de Azure: en las instrucciones de este artículo se describe cómo realizar una copia de seguridad de una máquina virtual de Azure directamente desde la configuración de la máquina virtual.
 - Varias máquinas virtuales de Azure: puede configurar un almacén de Recovery Services y configurar la copia de seguridad de varias máquinas virtuales de Azure. Siga las instrucciones de [este artículo](backup-azure-arm-vms-prepare.md) para este escenario.
-
-
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -36,7 +34,6 @@ Para realizar una copia de seguridad de máquinas virtuales de Azure, Azure Back
 - Después de instalar el agente, al habilitar la copia de seguridad, Azure Backup instala la extensión de copia de seguridad en el agente. Actualiza la extensión y le aplica parches sin la intervención del usuario.
 
 ## <a name="back-up-from-azure-vm-settings"></a>Copia de seguridad a partir de la configuración de la máquina virtual de Azure
-
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Haga clic en **Todos los servicios** y, en el filtro, escriba **Máquinas virtuales** y después haga clic en **Máquinas virtuales**.
@@ -69,11 +66,9 @@ Para realizar una copia de seguridad de máquinas virtuales de Azure, Azure Back
     - Hasta que se haya completado la copia de seguridad inicial, el **estado de la última copia de seguridad** se muestra como **Advertencia (copia de seguridad inicial pendiente)** .
     - Para ver cuándo se ejecutará la siguiente copia de seguridad programada, haga clic en el nombre de la directiva de copia de seguridad.
 
-
 > [!NOTE]
 > El servicio Azure Backup crea un grupo de recursos independiente (distinto del grupo de recursos de máquina virtual) para almacenar la instantánea con el formato de nomenclatura **AzureBackupRG_región_número** (ejemplo: AzureBackupRG_northeurope_1). Los datos de este grupo de recursos se conservarán durante el intervalo de días especificado en la sección "	Conservar las instantáneas de recuperación instantánea" de la directiva de copia de seguridad de la máquina virtual de Azure. Si se aplica un bloqueo a este grupo de recursos, pueden provocarse errores de copia de seguridad.<br>
 Este grupo de recursos también debe excluirse de todas las restricciones de nombre o etiqueta, ya que una directiva de restricción podría bloquear la creación de colecciones de puntos de recursos en el grupo, lo que provocaría errores de copia de seguridad.
-
 
 ## <a name="run-a-backup-immediately"></a>Ejecutar una copia de seguridad inmediatamente
 
@@ -86,9 +81,6 @@ Este grupo de recursos también debe excluirse de todas las restricciones de nom
     ![Día de retención de copia de seguridad](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
 3. Las notificaciones del portal permite saber si se ha desencadenado el trabajo de copia de seguridad. Para supervisar el progreso de copia de seguridad, haga clic en **Ver todos los trabajos**.
-
-
-
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Copia de seguridad desde el almacén de Recovery Services
 

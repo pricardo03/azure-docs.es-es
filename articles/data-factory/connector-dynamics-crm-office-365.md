@@ -1,5 +1,5 @@
 ---
-title: Copia de datos desde y hacia Dynamics CRM o Dynamics 365 (Common Data Service) mediante Azure Data Factory | Microsoft Docs
+title: Copia de datos con Dynamics CRM o Dynamics 365 (Common Data Service) como origen o destino mediante Azure Data Factory
 description: Aprenda a copiar datos de Microsoft Dynamics CRM o Microsoft Dynamics 365 (Common Data Service) en almacenes de datos receptores compatibles, o bien de almacenes de datos de origen compatibles en Dynamics CRM o Dynamics 365 a través de una actividad de copia en una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 18fdb14430eee97ff2780d963abf3e5ceafe1126
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: c9adcf72eeec82fd4b8f1805fca1f284c0b953b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009394"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680985"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
@@ -74,7 +74,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **Dynamics**. | Sí |
+| Tipo | La propiedad type debe establecerse en **Dynamics**, **DynamicsCrm** o **CommonDataServiceForApps**. | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"Online"** para Dynamics Online. | Sí |
 | serviceUri | Dirección URL de la instancia de Dynamics, por ejemplo, `https://adfdynamics.crm.dynamics.com`. | Sí |
 | authenticationType | Tipo de autenticación para conectarse a un servidor de Dynamics. Especifique **"Office365"** para Dynamics Online. | Sí |
@@ -117,7 +117,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **Dynamics**. | Sí |
+| Tipo | La propiedad type debe establecerse en **Dynamics**, **DynamicsCrm** o **CommonDataServiceForApps**. | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"OnPremisesWithIfd"** para Dynamic local con IFD.| Sí |
 | hostName | El nombre de host del servidor local de Dynamics. | Sí |
 | port | El puerto del servidor local de Dynamics. | No (el valor predeterminado es 443) |
@@ -159,17 +159,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Dynamics.
 
-Para copiar datos desde y hacia Dynamics, establezca la propiedad type del conjunto de datos en **DynamicsEntity**. Se admiten las siguientes propiedades.
+Para copiar datos con Dynamics como origen o destino, se admiten las siguientes propiedades.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **DynamicsEntity**. |Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en **DynamicsEntity**, **DynamicsCrmEntity** o **CommonDataServiceForAppsEntity**. |Sí |
 | entityName | El nombre lógico de la entidad que se va a recuperar. | No para el origen (si se especifica "query" en el origen de la actividad); sí para el receptor |
-
-> [!IMPORTANT]
->- Cuando se copian datos desde Dynamics, la sección "structure" es opcional, aunque se recomienda encarecidamente en el conjunto de datos de Dynamics para garantizar un resultado de copia determinista. Esta define el nombre de columna y el tipo de datos de los datos de Dynamics que desea copiar. Para más información, consulte [Estructura del conjunto de datos](concepts-datasets-linked-services.md#dataset-structure-or-schema) y [Asignación de tipos de datos de Dynamics](#data-type-mapping-for-dynamics).
->- Cuando se importa el esquema en la interfaz de usuario de creación, ADF lo deduce mediante un muestreo de las primeras filas de los resultados de la consulta de Dynamics a fin de inicializar la construcción de la estructura, en cuyo caso se omiten las columnas sin valores. El mismo comportamiento se aplica a las ejecuciones de copia si no existe una definición de estructura explícita. Puede revisar y agregar más columnas al esquema o la estructura del conjunto de datos de Dynamics si es necesario, lo que se respeta durante el runtime de copia.
->- Al copiar datos a Dynamics, la sección "structure" es opcional en el conjunto de datos de Dynamics. El esquema de datos de origen determinará qué columnas se copian. Si el origen es un archivo CSV sin encabezado, en el conjunto de datos de entrada, especifique "structure" con el tipo de datos y el nombre de columna. Estos se asignan a los campos del archivo CSV, uno por uno en orden.
 
 **Ejemplo:**
 
@@ -178,24 +173,7 @@ Para copiar datos desde y hacia Dynamics, establezca la propiedad type del conju
     "name": "DynamicsDataset",
     "properties": {
         "type": "DynamicsEntity",
-        "structure": [
-            {
-                "name": "accountid",
-                "type": "Guid"
-            },
-            {
-                "name": "name",
-                "type": "String"
-            },
-            {
-                "name": "marketingonly",
-                "type": "Boolean"
-            },
-            {
-                "name": "modifiedon",
-                "type": "Datetime"
-            }
-        ],
+        "schema": [],
         "typeProperties": {
             "entityName": "account"
         },
@@ -213,15 +191,19 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="dynamics-as-a-source-type"></a>Dynamics como tipo de origen
 
-Para copiar datos de Dynamics, establezca el tipo de origen de la actividad de copia en **DynamicsSource**. En la sección **source** de la actividad de copia se admiten las siguientes propiedades.
+Para copiar datos desde Dynamics, en la sección **source** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **DynamicsSource**. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en **DynamicsSource**, **DynamicsCrmSource** o **CommonDataServiceForAppsSource**. | Sí |
 | query | FetchXML es un lenguaje de consulta patentado que se usa en Dynamics (Online y local). Consulte el ejemplo siguiente. Para más información, consulte [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx) (Creación de consultas con FetchXML). | No (si se especifica "entityName" en el conjunto de datos) |
 
 >[!NOTE]
 >La columna PK siempre se copiará incluso si la proyección de columna que se configura en la consulta de FetchXML no la contiene.
+
+> [!IMPORTANT]
+>- Cuando se copian datos desde Dynamics, la asignación explícita de columnas desde Dynamics al receptor es opcional, aunque se recomienda encarecidamente para garantizar un resultado de copia determinista.
+>- Cuando se importa el esquema en la interfaz de usuario de creación, ADF lo deduce mediante el muestreo de las primeras filas de los resultados de la consulta de Dynamics para inicializar la lista de columnas de origen, en cuyo caso se omiten las columnas sin valores en las primeras filas. El mismo comportamiento se aplica a las ejecuciones de copia si no existe una asignación explícita. Puede revisar y agregar más columnas a la asignación, que se respetarán durante el tiempo de ejecución de la copia.
 
 **Ejemplo:**
 
@@ -277,12 +259,13 @@ Para copiar datos de Dynamics, establezca el tipo de origen de la actividad de c
 
 ### <a name="dynamics-as-a-sink-type"></a>Dynamics como tipo de receptor
 
-Para copiar datos en Dynamics, establezca el tipo de receptor de la actividad de copia en **DynamicsSink**. En la sección **sink** de la actividad de copia se admiten las siguientes propiedades.
+Para copiar datos a Dynamics, se admiten las siguientes propiedades en la sección **sink** de la actividad de copia.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **DynamicsSink**. | Sí |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **DynamicsSink**, **DynamicsCrmSink** o **CommonDataServiceForAppsSink**. | Sí |
 | writeBehavior | El comportamiento de escritura de la operación.<br/>El valor permitido es **"Upsert"** . | Sí |
+| alternateKeyName | Especifique el nombre de clave alternativo definido en la entidad para realizar "Upsert". | Sin |
 | writeBatchSize | El recuento de filas de datos escritos en Dynamics en cada lote. | No (el valor predeterminado es 10) |
 | ignoreNullValues | Indica si se omiten los valores nulos de los datos de entrada (excepto los campos de clave) durante la operación de escritura.<br/>Los valores permitidos son **true** y **false**.<br>- **True**: deja los datos del objeto de destino sin cambiar cuando realiza una operación upsert/update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False**: actualiza los datos del objeto de destino a NULL cuando realiza una operación upsert/update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
 

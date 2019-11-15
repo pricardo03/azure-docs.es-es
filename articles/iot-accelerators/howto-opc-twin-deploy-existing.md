@@ -1,6 +1,6 @@
 ---
 title: Implementación de un módulo de OPC Twin en un proyecto existente de Azure | Microsoft Docs
-description: Implementación de OPC Twin en un proyecto existente.
+description: En este artículo se explica cómo implementar OPC Twin en un proyecto existente. También puede aprender a solucionar errores de implementación.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 74b502a37081c729c5e33a0db7dc7f26cb44774b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972278"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824118"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implementación de OPC Twin en un proyecto existente
 

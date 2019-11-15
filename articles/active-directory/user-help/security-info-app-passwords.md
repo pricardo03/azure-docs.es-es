@@ -1,5 +1,5 @@
 ---
-title: Configuración de contraseñas de aplicaciones desde la página Información de seguridad (versión preliminar) | Microsoft Docs
+title: 'Creación de contraseñas de aplicación en Información de seguridad (versión preliminar): Azure AD'
 description: Configure contraseñas generadas automáticamente (contraseñas de aplicaciones) para utilizarlas con cualquier aplicación sin explorador o que no admita la verificación de dos fases en la organización. Esta contraseña de aplicación es independiente de una contraseña normal y se puede configurar desde la página Información de seguridad.
 services: active-directory
 author: eross-msft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9638893c707757cb520acdf18e8e89a6cdf13f08
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: eb26d90772fc9e3e3e506946363c76cf02e6b2ef
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915976"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820325"
 ---
-# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Administración de contraseñas de aplicaciones desde la página Información de seguridad (versión preliminar)
+# <a name="create-app-passwords-from-your-security-info-preview-page"></a>Creación de contraseñas de aplicaciones desde la página Información de seguridad (versión preliminar)
 
 Determinadas aplicaciones, como Outlook 2010, no admiten la verificación en dos pasos. Esta falta de compatibilidad significa que si usa la verificación en dos pasos en la organización, la aplicación no funcionará. Para solucionar este problema, puede crear una contraseña generada automáticamente para usar con cada aplicación sin explorador, independiente de la contraseña normal.
 

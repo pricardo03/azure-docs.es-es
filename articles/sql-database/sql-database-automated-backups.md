@@ -1,5 +1,5 @@
 ---
-title: Copias de seguridad automáticas con redundancia geográfica de Azure SQL Database | Microsoft Docs
+title: Copias de seguridad automáticas con redundancia geográfica
 description: SQL Database crea automáticamente una copia de seguridad local de la base de datos cada pocos minutos y usa almacenamiento con redundancia geográfica con acceso de lectura de Azure para proporcionar redundancia geográfica.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: a8cf17ab3eab31d4ac6113437f55d73f96425e4e
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 114a5bbfd71fc0847c2b1bc65a8ba0bfa0df1add
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843300"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821940"
 ---
 # <a name="automated-backups"></a>Copias de seguridad automatizadas
 
@@ -82,7 +82,7 @@ Como sucede con PITR, las copias de seguridad LTR tienen redundancia geográfica
 Para obtener más información, vea [Retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md).
 
 ## <a name="storage-costs"></a>Costos de almacenamiento
-Para bases de datos únicas, se ofrece una cantidad de almacenamiento de copia de seguridad mínimo igual al 100 % del tamaño de la base de datos sin costo adicional. En el caso de los grupos elásticos, se proporciona una cantidad mínima de almacenamiento de copia de seguridad igual al 100 % del almacenamiento de datos asignado para el grupo sin costo adicional. El consumo adicional de almacenamiento de copia de seguridad se cobrará en GB/mes. Este consumo adicional dependerá de la carga de trabajo y el tamaño de las bases de datos individuales.
+Para bases de datos únicas e instancias administradas, se ofrece una cantidad de almacenamiento de copia de seguridad mínimo igual al 100 % del tamaño de la base de datos sin costo adicional. En el caso de los grupos elásticos, se proporciona una cantidad mínima de almacenamiento de copia de seguridad igual al 100 % del almacenamiento de datos asignado para el grupo sin costo adicional. El consumo adicional de almacenamiento de copia de seguridad se cobrará en GB/mes. Este consumo adicional dependerá de la carga de trabajo y el tamaño de las bases de datos individuales.
 
 Para más información sobre los precios de almacenamiento, consulte la página de [precios](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 

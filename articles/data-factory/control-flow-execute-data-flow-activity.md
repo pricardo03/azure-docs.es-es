@@ -1,5 +1,5 @@
 ---
-title: Actividad de Data Flow en Azure Data Factory | Microsoft Docs
+title: Actividad de Data Flow en Azure Data Factory
 description: Cómo ejecutar flujos de datos desde una canalización de factoría de datos.
 services: data-factory
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: cbfa1acac34187263f8c4203e41bbe61d7e4c745
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030511"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679941"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
 
@@ -56,7 +56,7 @@ integrationRuntime | Entorno de proceso en el que se ejecuta el flujo de datos. 
 staging.linkedService | Si usa un origen o un receptor de Azure SQL Data Warehouse, es la cuenta de almacenamiento que se utiliza como almacenamiento provisional de PolyBase. | LinkedServiceReference | Solo si el flujo de datos lee o escribe en una instancia de Azure SQL Data Warehouse.
 staging.folderPath | Si usa un origen o un receptor de Azure SQL Data Warehouse, es la ruta de la carpeta de la cuenta de almacenamiento de blobs que se utiliza como almacenamiento provisional de PolyBase. | Cadena | Solo si el flujo de datos lee o escribe en una instancia de Azure SQL Data Warehouse.
 
-![Ejecutar Data Flow](media/data-flow/activity-data-flow.png "Ejecutar Data Flow")
+![Ejecución de flujo de datos](media/data-flow/activity-data-flow.png "Ejecución de flujo de datos")
 
 ### <a name="data-flow-integration-runtime"></a>Entorno de ejecución de integración de Data Flow
 
@@ -79,19 +79,19 @@ Si utiliza Azure SQL Data Warehouse como origen o receptor, debe elegir una ubic
 
 Si el flujo de datos utiliza conjuntos de datos con parámetros, establezca los valores de los parámetros en la pestaña **Configuración**.
 
-![Ejecutar parámetros de Data Flow](media/data-flow/params.png " Parámetros")
+![Parámetros de ejecución de flujo de datos](media/data-flow/params.png "Parámetros")
 
 ### <a name="parameterized-data-flows"></a>Flujos de datos con parámetros
 
 Si el flujo de datos tiene parámetros, establezca los valores dinámicos de los parámetros de flujo de datos en la pestaña **Parámetros**. Puede usar el lenguaje de expresiones de canalización de ADF (solo para los tipos de cadena) o el lenguaje de expresión de Data Flow para asignar valores dinámicos o literales a los parámetros. Para más información, consulte [Parámetros de Data Flow](parameters-data-flow.md).
 
-![Ejecutar el ejemplo de parámetro de Data Flow](media/data-flow/parameter-example.png "Ejemplo de parámetro")
+![Ejemplo de parámetros de ejecución de flujo de datos](media/data-flow/parameter-example.png "Ejemplo de parámetro")
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>Depuración de la canalización de actividades de Data Flow
 
 Para ejecutar una canalización de depuración con una actividad de Data Flow, debe activar el modo de depuración del flujo de datos a través del control deslizante **Data Flow Debug** (Depuración de flujo de datos) en la barra superior. El modo de depuración permite ejecutar el flujo de datos en un clúster de Spark activo. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
 
-![Botón de depuración](media/data-flow/debugbutton.png "Debug button")
+![Botón Depurar](media/data-flow/debugbutton.png "Botón Depurar")
 
 La canalización de depuración se ejecuta en el clúster de depuración activo, no en el entorno de ejecución de integración especificado en la configuración de la actividad de Data Flow. Puede elegir el entorno de proceso de depuración al iniciar el modo de depuración.
 

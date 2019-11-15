@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: fe40eb27b07304aba48be4a47fb22168cb60434c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: a5f8c8c00a9f63558043167c5cf8269f9e139d54
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332254"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584927"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -60,7 +60,7 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
     3. En la página **Lab policies** (Directivas del laboratorio), escriba el número de horas asignadas para cada usuario (**cuota para cada usuario**) fuera del tiempo programado para el laboratorio y seleccione **Finish** (Terminar). 
 
         ![Cuota para cada usuario](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
-5. Debería ver la siguiente pantalla, que muestra el estado de la creación de la plantilla de la máquina virtual. La creación de la plantilla en el laboratorio tarda un máximo de 20 minutos. 
+5. Debería ver la siguiente pantalla, que muestra el estado de la creación de la máquina virtual de plantilla. La creación de la plantilla en el laboratorio tarda un máximo de 20 minutos. 
 
     ![Estado de la creación de la plantilla de máquina virtual](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. En la página **Template** (Plantilla), siga estos pasos: Estos pasos son **opcionales** para el tutorial.
@@ -86,16 +86,21 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
 
     ![Máquinas virtuales en estado detenido](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
-    En esta página se realizan las siguientes tareas (no siga estos pasos para el tutorial, solo tienen carácter informativo): 
+    En esta página se realizan las siguientes tareas (no siga estos pasos en el tutorial, solo tienen carácter informativo): 
     
-    1. Para cambiar la capacidad del laboratorio (número de máquinas virtuales en el laboratorio), seleccione **Lab capacity** (Capacidad del laboratorio) en la barra de herramientas.
+    1. Para cambiar la capacidad del laboratorio (número de máquinas virtuales que contiene), seleccione **Lab capacity** (Capacidad del laboratorio) en la barra de herramientas.
     2. Para iniciar todas las máquinas virtuales a la vez, seleccione **Start All** (Iniciar todas) en la barra de herramientas. 
     3. Para iniciar una máquina virtual específica, seleccione la flecha hacia abajo en **Status** (Estado) y **Start** (Iniciar). También puede iniciar una máquina virtual si la selecciona en la primera columna y, a continuación, selecciona **Start** (Iniciar) en la barra de herramientas.
+
+    Para más información sobre cómo crear y administrar plantillas, y cómo configurar y administrar las máquinas virtuales de los alumnos, consulte los siguientes artículos: 
+    
+    - [Creación y administración de plantillas de laboratorios educativos](how-to-create-manage-template.md)
+    - [Configuración y administración del grupo de máquinas virtuales](how-to-set-virtual-machine-passwords.md)
 
 ## <a name="add-users-to-the-lab"></a>Incorporación de usuarios al laboratorio
 
 1. En el menú izquierdo, seleccione **Users** (Usuarios). De forma predeterminada, está habilitada la opción **Restrict access** (Restringir acceso). Cuando esta opción está activada, los usuarios no se pueden registrar en el laboratorio aunque tengan el vínculo de registro si no aparecen en la lista de usuarios. Solo los usuarios de la lista pueden registrarse en el laboratorio mediante el vínculo de registro enviado. En este procedimiento, agregará usuarios a la lista. Como alternativa, puede desactivar **Restrict access** (Restringir acceso), que permite que los usuarios se registren en el laboratorio, siempre y cuando tengan el vínculo de registro. 
-2. Seleccione **Add users** (Agregar usuarios) en la barra de herramientas y **Add by email addresses** (Agregar por dirección de correo electrónico). 
+2. Seleccione **Add users** (Agregar usuarios) en la barra de herramientas y, luego, elija **Add by email addresses** (Agregar por dirección de correo electrónico). 
 
     ![Botón Agregar usuarios](../media/how-to-configure-student-usage/add-users-button.png)
 1. En la página **Add users** (Agregar usuarios), escriba las direcciones de correo electrónico de los usuarios en líneas independientes, o bien en una sola línea separadas por punto y coma. 
@@ -105,23 +110,27 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
 
     ![Lista de usuarios](../media/how-to-configure-student-usage/users-list-new.png)
 
+    Una vez registrados los nombres de los usuarios en el laboratorio, aparecen en la lista. 
+    
 ## <a name="set-a-schedule-for-the-lab"></a>Configuración de una programación para el laboratorio
-Cree un evento programado para el laboratorio de modo que las máquinas virtuales del laboratorio se inicien o se detengan automáticamente en momentos concretos. La cuota de usuarios que especificó anteriormente es el tiempo adicional asignado a cada usuario fuera de esta hora programada. 
+Cree un evento programado para el laboratorio de modo que las máquinas virtuales que este contiene se inicien o se detengan automáticamente en momentos concretos. La cuota de usuarios que especificó anteriormente es el tiempo adicional asignado a cada usuario fuera de esta hora programada. 
 
 1. Cambie a la página **Schedules** (Programaciones) y seleccione **Add scheduled event** (Agregar evento programado) en la barra de herramientas. 
 
     ![Botón Add schedule (Agregar programación) en la página Schedules (Programaciones)](../media/how-to-create-schedules/add-schedule-button.png)
-2. Confirme que esté seleccionado **Standard** (Estándar) como **Event type** (Tipo de evento). Seleccione **Start only** (Solo inicio) para especificar solo la hora de inicio de las máquinas virtuales. Seleccione **Stop only** (Solo detención) para especificar solo la hora de detención de las máquinas virtuales. 
-7. En la sección **Repeat** (Repetir), seleccione la programación actual. 
+2. En la página **Add scheduled event** (Agregar evento programado), lleve a cabo los pasos siguientes:
+    1. Confirme que esté seleccionado **Standard** (Estándar) como **Event type** (Tipo de evento).  
+    2. Especifique el valor de **start date** (fecha de inicio) para la clase. 
+    4. Especifique el valor de **start time** (hora de inicio) a la que quiere que se inicien las máquinas virtuales.
+    5. Especifique el valor de **stop time** (hora de detención) a la que se apagarán las máquinas virtuales. 
+    6. Especifique el valor de **time zone** (zona horaria) de las horas de inicio y detención que ha indicado. 
+3. En la misma página **Add scheduled event** (Agregar evento programado), seleccione la programación actual en la sección **Repeat** (Repetir).  
 
     ![Botón Add schedule (Agregar programación) en la página Schedules (Programaciones)](../media/how-to-create-schedules/select-current-schedule.png)
 5. En el cuadro de diálogo **Repeat** (Repetir), haga lo siguiente:
     1. Confirme que se ha establecido **Every week** (Cada semana) para el campo **Repeat** (Repetir). 
-    3. Especifique el valor de **start date** (fecha de inicio).
-    4. Especifique el valor de **start time** (hora de inicio) a la que quiere se inicien las máquinas virtuales.
-    5. Especifique el valor de **stop time** (hora de detención) a la que se apagarán las máquinas virtuales. 
-    6. Especifique el valor de **time zone** (zona horaria) de las horas de inicio y detención que ha especificado. 
-    2. Seleccione los días en los que quiere que se aplique la programación. En el ejemplo siguiente, está seleccionado de lunes a viernes. 
+    2. Seleccione los días en los que quiere que se aplique la programación. En el ejemplo siguiente, está seleccionado Monday-Friday (Lunes a viernes). 
+    3. Seleccione un valor en **end date** (fecha de finalización) para la programación.
     8. Seleccione **Guardar**. 
 
         ![Establecimiento de la programación de repetición](../media/how-to-create-schedules/set-repeat-schedule.png)
@@ -130,6 +139,11 @@ Cree un evento programado para el laboratorio de modo que las máquinas virtuale
 4. En la página **Add scheduled event** (Agregar evento programado), seleccione **Save** (Guardar). 
 
     ![Programación semanal](../media/how-to-create-schedules/add-schedule-page-weekly.png)
+5. Vaya hasta la fecha de inicio en el calendario, para comprobar que la programación está establecida.
+    
+    ![Programación en el calendario](../media/how-to-create-schedules/schedule-calendar.png)
+
+    Para más información sobre la creación y administración de programaciones para una clase, consulte [Creación y administración de programaciones para laboratorios educativos](how-to-create-schedules.md).
 
 ## <a name="send-invitation-emails-to-students"></a>Envío de correos electrónicos de invitación a los alumnos
 
@@ -141,6 +155,8 @@ Cree un evento programado para el laboratorio de modo que las máquinas virtuale
 
     ![Envío del vínculo de registro por correo electrónico](../media/tutorial-setup-classroom-lab/send-email.png)
 4. Verá el estado de la **invitación** en la lista **Users** (Usuarios). El estado debería cambiar a **Sending** (Enviando) y luego a **Sent on &lt;date&gt;** (Enviado el <fecha>). 
+
+    Para más información sobre la incorporación de alumnos a una clase y la administración del uso que hacen del laboratorio, consulte [Configuración de los valores de uso de los alumnos](how-to-configure-student-usage.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha creado un laboratorio de clase y ha configurado el laboratorio. Para saber cómo el estudiante puede acceder a una máquina virtual en el laboratorio con el enlace de registro, avance al siguiente tutorial:

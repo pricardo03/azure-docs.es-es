@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 5ba2255cfe0d5c4220ec2215ac837649af1ba896
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4593ee875f98e2c9f2f9406f8b9d4146e06a573d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521177"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825444"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -59,7 +59,7 @@ El nivel de acceso esporádico tiene menores costos de almacenamiento y mayores 
 
 ## <a name="archive-access-tier"></a>Nivel de acceso de archivo
 
-El nivel de acceso de archivo tiene el menor costo de almacenamiento. Pero tiene mayores costos de recuperación de datos en comparación con los niveles de acceso frecuente y esporádico. Los datos en el nivel de archivo pueden tardar varias horas en recuperarse. Los datos deben estar en el nivel de archivo durante al menos 180 días o estar sujetos a un cargo por eliminación temprana.
+El nivel de acceso de archivo tiene el menor costo de almacenamiento. Pero tiene mayores costos de recuperación de datos en comparación con los niveles de acceso frecuente y esporádico. Los datos en el nivel de archivo pueden tardar varias horas en recuperarse. Los datos deben permanecer en el nivel de archivo durante al menos 180 días o estar sujetos a un cargo por eliminación temprana.
 
 Mientras un blob está en almacenamiento de archivo, los datos del blob están sin conexión y no se pueden leer, copiar, sobrescribir ni modificar. No puede tomar instantáneas de un blob en almacenamiento de archivo. Sin embargo, los metadatos de blob quedan en línea y se mantienen disponibles, lo que permite enumerar el blob y sus propiedades. Para los blobs en el nivel de archivo, las únicas operaciones válidas son GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier y DeleteBlob.
 

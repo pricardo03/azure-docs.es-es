@@ -1,19 +1,19 @@
 ---
-title: Introducción a Microsoft Azure Data Box Disk | Microsoft Docs en datos
-description: Describe Azure Data Box Disk, una solución en la nube que permite transferir grandes cantidades de datos en Azure
+title: Características de seguridad de Microsoft Azure Data Box Disk | Microsoft Docs en datos
+description: Describe las características de seguridad implementadas para Azure Data Box Disk, una solución en la nube que permite transferir grandes cantidades de datos a Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
-ms.date: 01/09/2019
+ms.topic: conceptual
+ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5db65ab6f1c96ff816252ecaba2170adf358001c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093463"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606575"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box Disk
 
@@ -77,7 +77,7 @@ Azure Data Box Disk recopila y muestra la información personal en las siguiente
   - Dirección
   - City
   - Código postal
-  - Estado
+  - State
   - País/región/provincia
   - Id. de unidad
   - Número de cuenta del transportista

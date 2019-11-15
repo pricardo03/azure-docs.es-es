@@ -1,17 +1,17 @@
 ---
-title: Incorporación de almacenamiento a una instancia de Azure HPC Cache (versión preliminar)
+title: Incorporación de almacenamiento a una instancia de Azure HPC Cache
 description: Definición de los destinos de almacenamiento para que Azure HPC Cache pueda usar el sistema NFS local o los contenedores de Azure Blob Storage para el almacenamiento de archivos a largo plazo
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: dbcc68bacf8a11a7a85d5fad7fb4435fd03c7f93
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b10692e352007ee2b0fd18543d8ae2ad8f9819dc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024562"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621460"
 ---
 # <a name="add-storage-targets"></a>Incorporación de destinos de almacenamiento
 
@@ -74,7 +74,7 @@ Pasos para agregar los roles de RBAC:
 1. En el campo **Seleccionar**, busque "hpc".  Esta cadena debe coincidir con una entidad de servicio, denominada "HPC Cache Resource Provider" (Proveedor de recursos de HPC Cache). Haga clic en ella para seleccionarla.
 
    > [!NOTE]
-   > Si una búsqueda de "hpc" no funciona, pruebe a usar la cadena "storagecache" en su lugar. Es posible que los usuarios que se han unido a la versión preliminar en el primer momento necesiten usar el nombre anterior de la entidad de servicio.
+   > Si una búsqueda de "hpc" no funciona, pruebe a usar la cadena "storagecache" en su lugar. Es posible que los usuarios que se han unido a las versiones preliminares (antes de la disponibilidad general) necesiten usar el nombre anterior de la entidad de servicio.
 
 1. Haga clic en el botón **Guardar** para agregar la asignación de roles a la cuenta de almacenamiento.
 
@@ -134,3 +134,5 @@ Después de crear destinos de almacenamiento, considere la posibilidad de realiz
 
 * [Montaje de la instancia de Azure HPC Cache](hpc-cache-mount.md)
 * [Traslado de datos a Azure Blob Storage](hpc-cache-ingest.md)
+
+Si necesita cambiar un destino de almacenamiento, lea [Edición de los destinos de almacenamiento](hpc-cache-edit-storage.md) para obtener información sobre cómo hacerlo.

@@ -8,21 +8,21 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.date: 11/06/2019
+ms.openlocfilehash: a8deb7933bb19745bbe4c3b3a209c19c9cc712bd
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675687"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796304"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
-Para poder [conectarse a orígenes de datos locales desde Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), descargue e instale la [puerta de enlace de datos local](https://aka.ms/on-premises-data-gateway-installer) en un equipo local. La puerta de enlace funciona como un puente que permite la transferencia de datos rápida y el cifrado entre orígenes de datos locales y las aplicaciones lógicas. Puede usar la misma instalación de puerta de enlace con otros servicios en la nube, tales como Power BI, Microsoft Flow, PowerApps y Azure Analysis Services. Para obtener información sobre cómo usar la puerta de enlace con estos servicios, consulte estos artículos:
+Para poder [conectarse a orígenes de datos locales desde Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), descargue e instale la [puerta de enlace de datos local](https://aka.ms/on-premises-data-gateway-installer) en un equipo local. La puerta de enlace funciona como un puente que permite la transferencia de datos rápida y el cifrado entre orígenes de datos locales y las aplicaciones lógicas. Puede usar la misma instalación de puerta de enlace con otros servicios en la nube, tales como Power BI, Power Automate, Power Apps y Azure Analysis Services. Para obtener información sobre cómo usar la puerta de enlace con estos servicios, consulte estos artículos:
 
 * [Puerta de enlace de datos local de Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Administración de una puerta de enlace de datos local en Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [Puerta de enlace de datos local de Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Puerta de enlace de datos local de Microsoft Power Apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Puerta de enlace de datos local de Power Automate](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Puerta de enlace de datos local de Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 En este artículo se muestra cómo descargar, instalar y configurar la puerta de enlace de datos local para que pueda acceder a los orígenes de datos locales desde Azure Logic Apps. También puede obtener más información sobre [cómo funciona la puerta de enlace de datos](#gateway-cloud-service) más adelante en este tema. Para más información sobre la puerta de enlace, consulte [¿Qué es una puerta de enlace de datos local?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem).
@@ -33,9 +33,9 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
 * Una cuenta y una suscripción de Azure. Si no tiene una cuenta de Azure con suscripción, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-  * Debe usar la misma cuenta de Azure para instalar y administrar la puerta de enlace en el equipo local.
+  * Su cuenta de Azure debe pertenecer a un único [inquilino o directorio de Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Debe usar la misma cuenta de Azure para instalar y administrar la puerta de enlace en su equipo local.
 
-    Durante la instalación de la puerta de enlace, inicie sesión con su cuenta de Azure, que vincula la instalación de la puerta de enlace a su cuenta de Azure y solo a esa cuenta. Más adelante, en Azure Portal, debe usar la misma cuenta de Azure para crear un recurso de puerta de enlace de Azure que registre y notifique la instalación de la puerta de enlace. En Azure Logic Apps, los desencadenadores y las acciones locales usan el recurso de puerta de enlace para conectarse a orígenes de datos locales.
+  * Durante la instalación de la puerta de enlace, inicie sesión con su cuenta de Azure, que vincula la instalación de la puerta de enlace a su cuenta de Azure y solo a esa cuenta. Más adelante, en Azure Portal, deberá usar la misma cuenta de Azure y el mismo inquilino de Azure AD para crear un recurso de puerta de enlace de Azure que registre y notifique la instalación de la puerta de enlace. En Azure Logic Apps, los desencadenadores y las acciones locales usan el recurso de puerta de enlace para conectarse a orígenes de datos locales.
 
     > [!NOTE]
     > Solo puede vincular una instalación de puerta de enlace a un recurso de puerta de enlace de Azure. No se puede vincular la misma instalación de puerta de enlace a varias cuentas de Azure o a recursos de puerta de enlace de Azure. Sin embargo, una cuenta de Azure puede vincularse a varias instalaciones de puerta de enlace y recursos de puerta de enlace de Azure. En un desencadenador o acción locales puede seleccionar entre varias suscripciones de Azure y un recurso de puerta de enlace asociado.
@@ -89,15 +89,15 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
 1. Una vez que se abra el instalador, seleccione **Siguiente**.
 
-   ![Introducción al instalador](./media/logic-apps-gateway-install/gateway-intro-screen.png)
+   ![Pantalla de introducción del instalador de puerta de enlace](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
 1. Seleccione **Puerta de enlace de datos local (se recomienda)** , que es el modo estándar, y luego seleccione **Siguiente**.
 
-   ![Selección del modo de puerta de enlace](./media/logic-apps-gateway-install/select-gateway-mode.png)
+   ![Seleccione el modo de ejecución para la puerta de enlace de datos](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
 1. Revise los requisitos mínimos, mantenga la ruta de instalación predeterminada, acepte los términos de uso y, después, seleccione **Instalar**.
 
-   ![Revisión de los requisitos y aceptación de los términos de uso](./media/logic-apps-gateway-install/accept-terms.png)
+   ![Revisión de los requisitos y aceptación de los términos de uso](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
 1. Cuando la puerta de enlace esté correctamente instalada, indique la dirección de correo electrónico de su cuenta de Azure y elija **Iniciar sesión**, por ejemplo:
 
@@ -107,7 +107,7 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
 1. Seleccione **Registrar una nueva puerta de enlace en este equipo** > **Siguiente**. Con este paso se registra la instalación de la puerta de enlace con el [servicio en la nube de la puerta de enlace](#gateway-cloud-service).
 
-   ![Registro de la puerta de enlace](./media/logic-apps-gateway-install/register-gateway.png)
+   ![Registre la puerta de enlace en el equipo local](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
 1. Facilite esta información para la instalación de puerta de enlace:
 
@@ -115,7 +115,7 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
    * La clave de recuperación que quiera usar, que debe tener al menos ocho caracteres.
    * Confirmación de la clave de recuperación
 
-   ![Configuración de la puerta de enlace](./media/logic-apps-gateway-install/set-up-gateway.png)
+   ![Proporcione información para la instalación de la puerta de enlace](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
 
    > [!IMPORTANT]
    > Guarde y conserve la clave de recuperación en un lugar seguro. Necesita esta clave por si alguna vez desea cambiar la ubicación o mover, recuperar o asumir el control de la instalación de una puerta de enlace.
@@ -124,7 +124,7 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
 1. Compruebe la región para el servicio en la nube de la puerta de enlace y la instancia de [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) que se usó en la instalación de la puerta de enlace. De forma predeterminada, esta región es la misma ubicación de su inquilino de Azure AD para su cuenta de Azure.
 
-   ![Comprobación de región](./media/logic-apps-gateway-install/check-region.png)
+   ![Confirme la región para el servicio de puerta de enlace y el bus de servicio](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
 1. Para aceptar la región predeterminada, elija **Configurar**. Sin embargo, si la región predeterminada no es la que tiene más cerca, puede cambiar la región.
 
@@ -134,15 +134,15 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
    1. Junto a la región actual, seleccione **Cambiar la región**.
 
-      ![Cambio de región](./media/logic-apps-gateway-install/change-region.png)
+      ![Cambie la región de la puerta de enlace actual](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
    1. En la siguiente página, abra la lista **Seleccionar región**, seleccione la región que quiera y luego elija **Listo**.
 
-      ![Seleccione otra región.](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+      ![Seleccione otra región para el servicio de puerta de enlace](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-1. Revise la información en la ventana de confirmación final. En este ejemplo se utiliza la misma cuenta para Logic Apps, Power BI, PowerApps y Microsoft Flow, por lo que la puerta de enlace está disponible para todos estos servicios. Cuando esté listo, elija **Cerrar**.
+1. Revise la información en la ventana de confirmación final. En este ejemplo se utiliza la misma cuenta para Logic Apps, Power BI, Power Apps y Power Automate, por lo que la puerta de enlace está disponible para todos estos servicios. Cuando esté listo, elija **Cerrar**.
 
-   ![Puerta de enlace finalizada](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
+   ![Confirme la información de la puerta de enlace de datos](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 1. Ahora [cree el recurso de Azure para la instalación de la puerta de enlace](../logic-apps/logic-apps-gateway-connection.md).
 
@@ -185,7 +185,7 @@ Si tiene que cambiar la ubicación de la puerta de enlace, trasladar la instalac
 
 1. Seleccione entre los clústeres y las puertas de enlace disponibles y especifique la clave de recuperación para la puerta de enlace seleccionada; por ejemplo:
 
-   ![Selección de puerta de enlace](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![Seleccione la puerta de enlace y proporcione una clave de recuperación](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
 1. Para cambiar la región, seleccione **Cambiar la región** y luego elija la nueva región.
 
@@ -270,9 +270,9 @@ Estas son algunas formas de hacer coincidir las cuentas de Active Directory loca
 
 Para más información, consulte los temas siguientes:
 
-* [Preguntas más frecuentes sobre la puerta de enlace de datos local](/data-integration/gateway/service-gateway-onprem-faq)
-* [Solución de problemas de la puerta de enlace de datos local](/data-integration/gateway/service-gateway-tshoot)
-* [Supervisión y optimización del rendimiento de la puerta de enlace](/data-integration/gateway/service-gateway-performance)
+* [Preguntas más frecuentes sobre la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
+* [Solución de problemas de la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [Supervisión y optimización del rendimiento de la puerta de enlace](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,15 +4,16 @@ description: Creación de un cliente de prueba automática para la validación p
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pabutler
-ms.openlocfilehash: 46923ecd33a054a36aa6900a415d0b563e5afff0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: fc62875873f38630e592c79aebd6a138665ed6e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163261"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809208"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creación de un cliente de prueba automática para la validación previa de una imagen de máquina virtual de Azure
 
@@ -20,7 +21,7 @@ Use este artículo como guía para crear un servicio de cliente que use la API d
 
 ## <a name="development-and-testing-overview"></a>Introducción sobre el desarrollo y las pruebas
 
-Como parte del proceso de prueba automática, creará un cliente local que se conecta a Azure Marketplace para validar una máquina virtual que se ejecuta en su suscripción de Azure. La máquina virtual puede ejecutar el sistema operativo Windows o Linux.
+Como parte del proceso de prueba automática, se crea un cliente local que se conecta a Azure Marketplace para validar una máquina virtual que se ejecuta en la suscripción de Azure. La máquina virtual puede ejecutar el sistema operativo Windows o Linux.
 
 El cliente local ejecuta un script que permite autenticarse con la API de prueba automática, envía información de conexión y recibe los resultados de las pruebas.
 
@@ -64,7 +65,7 @@ En la siguiente tabla se describen los campos de la API.
 
 |      Campo         |    DESCRIPCIÓN    |
 |  ---------------   |  ---------------  |
-|  Authorization     |  La cadena "Bearer xxxx-xxxx-xxxx-xxxxx" contiene el token de cliente de Azure Active Directory (AD), el cual se puede crear mediante PowerShell.          |
+|  Authorization     |  La cadena "Bearer xxxx-xxxx-xxxx-xxxxx" contiene el token de cliente de Azure Active Directory (AD), que se puede crear mediante PowerShell.          |
 |  DNSName           |  Nombre DNS de la máquina virtual que se va a probar    |
 |  Usuario              |  Nombre de usuario para iniciar sesión en la máquina virtual         |
 |  Contraseña          |  Contraseña para iniciar sesión en la máquina virtual          |
@@ -99,7 +100,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" -Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 La captura de pantalla siguiente muestra un ejemplo para llamar a la API en PowerShell.
@@ -109,7 +110,7 @@ La captura de pantalla siguiente muestra un ejemplo para llamar a la API en Powe
 Mediante el ejemplo anterior, puede recuperar el archivo JSON y analizarlo para obtener los detalles siguientes:
 
 ```powershell
-$testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $res)
+$testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
 
   Write-Host "OSName: $($testresult.OSName)"
   Write-Host "OSVersion: $($testresult.OSVersion)"
@@ -144,7 +145,7 @@ Para llamar a la API en PowerShell, siga estos pasos:
 El ejemplo de código siguiente muestra una llamada de PowerShell a la API.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -156,7 +157,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" -Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 
@@ -167,7 +168,7 @@ La captura de pantalla siguiente muestra un ejemplo para llamar a la API en Powe
 Mediante el ejemplo anterior, puede recuperar el archivo JSON y analizarlo para obtener los detalles siguientes:
 
 ```powershell
-$testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $res)
+$testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
 
   Write-Host "OSName: $($testresult.OSName)"
   Write-Host "OSVersion: $($testresult.OSVersion)"
@@ -230,7 +231,7 @@ Use los pasos siguientes para elegir el inquilino de Azure AD en el que desea cr
 
    **Para obtener la información del inquilino:**
 
-   En **Información general sobre Azure Active Directory**, busque "Propiedades" y, a continuación, seleccione **Propiedades**. Use la captura de pantalla siguiente como ejemplo:
+   En **Información general sobre Azure Active Directory**, busque "Propiedades" y seleccione **Propiedades**. Use la captura de pantalla siguiente como ejemplo:
 
    - **Nombre**: el nombre del inquilino o del directorio
    - **Identificador de directorio**: el identificador del inquilino o del directorio, o use la barra de desplazamiento para buscar Propiedades.
@@ -246,8 +247,8 @@ Para registrar la aplicación cliente, realice los pasos siguientes.
 3. En **Crear**, proporcione la información necesaria para los campos siguientes:
 
    - **Nombre**: escriba un nombre descriptivo para la aplicación. Por ejemplo, "SelfTestClient".
-   - En **Tipo de aplicación**, seleccione **Aplicación web o API**.
-   - **URL de inicio de sesión**: Escriba "https:\//isvapp.azurewebsites.net/selftest-vm"
+   - **Tipo de aplicación**: seleccione **Aplicación web o API**
+   - **URL de inicio de sesión**: escriba "https:\//isvapp.azurewebsites.net/selftest-vm"
 
 4. Seleccione **Crear**.
 5. En **Registros de aplicaciones** o **Aplicación registrada**, copia el **Id. de la aplicación**.
@@ -258,7 +259,7 @@ Para registrar la aplicación cliente, realice los pasos siguientes.
 7. Seleccione **Permisos necesarios** para configurar los permisos de la aplicación.
 8. En **Permisos necesarios**, seleccione **+ Agregar**.
 9. En **Agregar acceso de API**, elija **Seleccionar una API**.
-10. En **Seleccionar una API**, escriba "Modelo de implementación clásica de Windows" para buscar la API.
+10. En **Seleccionar una API**, escriba "Modelo de implementación clásica de Windows Azure" para buscar la API.
 11. En los resultados de búsqueda, seleccione **Modelo de implementación clásica de Windows Azure** y **Seleccionar**.
 
     ![Configuración de la compatibilidad multiinquilino para la aplicación](./media/stclient-select-api.png)
@@ -285,7 +286,7 @@ Para registrar la aplicación cliente, realice los pasos siguientes.
     - En **VALOR**, copie la clave.
 
       >[!Important]
-      >No podrá ver el valor de la clave después de salir del formulario **Claves**.
+      >No puede ver el valor de la clave después de salir del formulario **Claves**.
 
     ![Formulario del valor de clave](./media/stclient-create-key.png)
 
@@ -377,7 +378,7 @@ Para solicitar tokens a Auth0 para todas las aplicaciones autorizadas, realice u
 
 ```powershell
 $clientId = "Application Id of AD Client APP";
-$clientSecret = "Secret Key of AD Client APP “
+$clientSecret = "Secret Key of AD Client APP "
 $audience = "https://management.core.windows.net";
 $authority = "https://login.microsoftonline.com/common/oauth2/token"
 $grantType = "client_credentials";
@@ -397,8 +398,8 @@ $token.AccessToken
 Pase el token a la API de prueba automática mediante el código siguiente en el encabezado de autorización:
 
 ```powershell
-$redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
-$accesstoken = ‘place your token here’
+$redirectUri = 'https://isvapp.azurewebsites.net/selftest-vm'
+$accesstoken = 'place your token here'
 
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")

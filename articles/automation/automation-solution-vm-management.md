@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: bobbytreed
 ms.author: robreed
-ms.date: 05/21/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 15036b33e637953de7dc12100468d3dd8570f775
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d7a43ee2ed8719df2c38d00c9a50811c6d5ea70d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376093"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718686"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
@@ -35,7 +35,7 @@ Las siguientes son limitaciones a la solución actual:
 - Esta solución está disponible en Azure y AzureGov para cualquier región que admita un área de trabajo de Log Analytics, una cuenta de Azure Automation y alertas. Las regiones de AzureGov no admiten la funcionalidad de correo electrónico en este momento.
 
 > [!NOTE]
-> Si usa la solución para las máquinas virtuales clásicas, todas las máquinas virtuales se procesarán secuencialmente por servicio en la nube. Las máquinas virtuales aún se procesarán en paralelo entre diferentes servicios en la nube.
+> Si usa la solución para las máquinas virtuales clásicas, todas las máquinas virtuales se procesarán secuencialmente por servicio en la nube. Las máquinas virtuales aún se procesarán en paralelo entre diferentes servicios en la nube. Si tiene más de 20 máquinas virtuales por servicio en la nube, se recomienda crear varias programaciones con el runbook primario **ScheduledStartStop_Parent** y especificar 20 máquinas virtuales por programación. En las propiedades de la programación, especifique los nombres de las máquinas virtuales como una lista separada por comas en el parámetro **VMList**. De lo contrario, si el trabajo de Automation para esta solución se ejecuta durante más de tres horas, se descargará temporalmente o se detendrá debido al límite de tiempo de [distribución equilibrada](automation-runbook-execution.md#fair-share).
 >
 > Las suscripciones de Proveedor de soluciones en la nube de Azure (Azure CSP) solo admiten el modelo de Azure Resource Manager, los servicios que no sean de Azure Resource Manager no están disponibles en el programa. Cuando se ejecuta la solución Start/Stop, puede recibir errores porque contiene cmdlets para administrar los recursos clásicos. Para más información sobre CSP, consulte [Servicios disponibles en las suscripciones de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Si usa una suscripción de CSP, debe modificar la variable [**External_EnableClassicVMs**](#variables) a **False** después de la implementación.
 
@@ -45,15 +45,15 @@ Las siguientes son limitaciones a la solución actual:
 
 Los runbooks para esta solución funcionan con una [cuenta de ejecución de Azure](automation-create-runas-account.md). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
 
-Se recomienda usar una cuenta de Automation independiente para la solución Start/Stop VM. Esto se debe a que las versiones del módulo de Azure se actualizan con frecuencia y puede que sus parámetros cambien. La solución Start/Stop VM no se actualiza con la misma cadencia, por lo que es posible que no funcione con las versiones más recientes de los cmdlets que usa. Se recomienda probar las actualizaciones del módulo en una cuenta de prueba de Automation antes de importarlas en su cuenta de producción de Automation.
+Se recomienda usar una cuenta de Automation independiente para la solución Start/Stop VM. Esto se debe a que las versiones del módulo de Azure se actualizan con frecuencia y puede que sus parámetros cambien. La solución Start/Stop VM no se actualiza con la misma cadencia, por lo que es posible que no funcione con las versiones más recientes de los cmdlets que usa. También se recomienda probar las actualizaciones del módulo en una cuenta de prueba de Automation antes de importarlas en su cuenta (o sus cuentas) de producción de Automation.
 
 ### <a name="permissions-needed-to-deploy"></a>Permisos necesarios para la implementación
 
 Hay determinados permisos que debe tener un usuario para implementar la solución Start/Stop VMs during off-hours. Estos permisos son diferentes si usa un área de trabajo de Log Analytics y una cuenta de Automation que se han creado previamente o crea otras durante la implementación. Si es un colaborador de la suscripción y un administrador global del inquilino de Azure Active Directory, no tiene que configurar los permisos siguientes. Si no tiene esos derechos o necesita configurar un rol personalizado, vea los permisos necesarios a continuación.
 
-#### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Cuenta de Automation y de Log Analytics ya existente
+#### <a name="pre-existing-automation-account-and-log-analytics-workspace"></a>Cuenta de Automation y área de trabajo de Log Analytics ya existentes
 
-Para implementar la solución Start/Stop VMs during off-hours en una cuenta de Automation y Log Analytics, el usuario que implementa la solución requiere los siguientes permisos en el **grupo de recursos**. Para obtener más información sobre los roles, consulte [Roles personalizados en los recursos de Azure](../role-based-access-control/custom-roles.md).
+Para implementar la solución Start/Stop VMs during off-hours en una cuenta de Automation y un área de trabajo de Log Analytics existentes, el usuario que implementa la solución requiere los siguientes permisos en el **grupo de recursos**. Para obtener más información sobre los roles, consulte [Roles personalizados en los recursos de Azure](../role-based-access-control/custom-roles.md).
 
 | Permiso | Ámbito|
 | --- | --- |
@@ -78,7 +78,7 @@ Para implementar la solución Start/Stop VMs during off-hours en una cuenta de A
 
 #### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nueva cuenta de Automation y nueva área de trabajo de Log Analytics
 
-Para implementar la solución Start/Stop VMs during off-hours en una nueva cuenta de Automation y área de trabajo de Log Analytics, el usuario que implementa la solución necesita los permisos que se han definido en la sección anterior, así como los siguientes permisos:
+Para implementar la solución Start/Stop VMs during off-hours en una nueva cuenta de Automation y un área de trabajo de Log Analytics, el usuario que implementa la solución necesita los permisos que se han definido en la sección anterior, así como los siguientes permisos:
 
 - Coadministrador de la suscripción: solo es necesario para crear la cuenta de ejecución clásica si va a administrar máquinas virtuales clásicas. Las [cuentas de ejecución clásicas](automation-create-standalone-account.md#classic-run-as-accounts) ya no se crean de forma predeterminada.
 - Formar parte del rol **Desarrollador de aplicaciones** de [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Para obtener más información sobre cómo configurar las cuentas de ejecución, consulte [Permisos para configurar cuentas de ejecución](manage-runas-account.md#permissions).
@@ -120,7 +120,7 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
    - Seleccione la **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
    - En **Grupo de recursos**, puede crear un grupo de recursos nuevo o seleccionar uno existente.
    - Seleccione una **ubicación**. Actualmente, las únicas ubicaciones disponibles son: **Sudeste de Australia**, **Centro de Canadá**, **Centro de la India**, **Este de EE. UU.** , **Japón Oriental**, **Sudeste Asiático**, **Sur de Reino Unido**, **Europa Occidental** y **Oeste de EE. UU. 2**.
-   - Seleccione un **plan de tarifa**. Elija la opción **Por GB (independiente)** . Los registros de Azure Monitor tienen [precios](https://azure.microsoft.com/pricing/details/log-analytics/) actualizados y el nivel Por GB es la única opción.
+   - Seleccione un **plan de tarifa**. Elija la opción **Por GB (independiente)** . Los registros de Azure Monitor tienen [precios](https://azure.microsoft.com/pricing/details/log-analytics/) actualizados y el nivel por GB es la única opción.
 
    > [!NOTE]
    > Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
@@ -271,7 +271,7 @@ En la tabla siguiente se enumeran las variables creadas en su cuenta de Automati
 |External_AutoStop_TimeAggregationOperator | El operador de agregación de tiempo, que se aplica al tamaño de la ventana seleccionada para evaluar la condición. Los valores que se aceptan son **Promedio**, **Mínimo**, **Máximo**, **Total** y **Último**.|
 |External_AutoStop_TimeWindow | El tamaño de la ventana en la que Azure analiza la métrica seleccionada para desencadenar una alerta. Este parámetro acepta la entrada en formato timespan. Los valores posibles son de 5 minutos a 6 horas.|
 |External_EnableClassicVMs| Especifica si la solución se centra en las máquinas virtuales clásicas. El valor predeterminado es True. Este debe establecerse en False para las suscripciones de CSP. Las máquinas virtuales clásicas requieren una [cuenta de ejecución clásica](automation-create-standalone-account.md#classic-run-as-accounts).|
-|External_ExcludeVMNames | Escriba los nombres de máquina virtual que se van a excluir y sepárelos con una coma sin espacios en blanco. Esto se limita a 140 VM. Si agrega más de 140 VM a esta lista separada por comas, las VM establecidas para excluirse pueden iniciarse o cerrarse accidentalmente.|
+|External_ExcludeVMNames | Escriba los nombres de máquina virtual que se van a excluir y sepárelos con una coma sin espacios en blanco. Esto se limita a 140 VM. Si agrega más de 140 VM a esta lista separada por comas, las VM establecidas para excluirse pueden iniciarse o cerrarse accidentalmente.|
 |External_Start_ResourceGroupNames | Especifica uno o varios grupos de recursos y separa los valores con una coma, destinados a las acciones de inicio.|
 |External_Stop_ResourceGroupNames | Especifica uno o varios grupos de recursos y separa los valores con una coma, destinados a las acciones de detención.|
 |Internal_AutomationAccountName | Especifica el nombre de la cuenta de Automation.|
@@ -389,13 +389,13 @@ La solución proporciona la capacidad de agregar VM como destino de la solución
 
 Hay un par de opciones que puede usar para asegurarse de que una VM se incluye en la solución Start/Stop cuando se ejecuta.
 
-* Cada uno de los [runbooks](#runbooks) primarios de la solución tiene un parámetro **VMList**. Puede pasar una lista separada por comas de nombres de VM a este parámetro al programar el runbook principal adecuado para su situación, y estas VM se incluirán cuando se ejecute la solución.
+* Cada uno de los [runbooks](#runbooks) primarios de la solución tiene un parámetro **VMList**. Puede pasar una lista separada por comas de nombres de VM a este parámetro al programar el runbook primario adecuado para su situación, y estas VM se incluirán cuando se ejecute la solución.
 
 * Para seleccionar varias VM, establezca **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames** con los nombres de los grupos de recursos que contienen las VM que quiere iniciar o detener. También se puede establecer este valor como `*`, para que la solución se ejecute en todos los grupos de recursos de la suscripción.
 
 ### <a name="exclude-a-vm"></a>Excluir una VM
 
-Para excluir una VM de la solución, puede agregarla a la variable **External_ExcludeVMNames**. Esta variable es una lista separada por comas de VM específicas para excluir de la solución Start/Stop. Esta lista se limita a 140 VM. Si agrega más de 140 VM a esta lista separada por comas, las VM establecidas para excluirse pueden iniciarse o cerrarse accidentalmente.
+Para excluir una VM de la solución, puede agregarla a la variable **External_ExcludeVMNames**. Esta variable es una lista separada por comas de VM específicas que se excluirán de la solución Start/Stop. Esta lista se limita a 140 VM. Si agrega más de 140 VM a esta lista separada por comas, las VM establecidas para excluirse pueden iniciarse o cerrarse accidentalmente.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modificación de las programaciones de inicio y apagado
 

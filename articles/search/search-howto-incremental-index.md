@@ -1,7 +1,7 @@
 ---
-title: Configuración de la indexación incremental del seguimiento de cambios basado en el contenido enriquecido
+title: Configuración de la indexación incremental (versión preliminar) del seguimiento de cambios basado en el contenido enriquecido
 titleSuffix: Azure Cognitive Search
-description: Habilite el seguimiento de cambios y conserve el estado del contenido enriquecido para el procesamiento controlado en un conjunto de aptitudes cognitivas.
+description: Habilite el seguimiento de cambios y conserve el estado del contenido enriquecido para el procesamiento controlado en un conjunto de aptitudes cognitivas. Esta característica actualmente está en su versión preliminar pública.
 author: vkurpad
 manager: eladz
 ms.author: vikurpad
@@ -9,24 +9,21 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ac082d6ecb6624dc0d5bc0ab927ff8b91ebdabce
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510085"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719944"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Cómo configurar la indexación incremental de documentos enriquecidos en Azure Cognitive Search
+
+> [!IMPORTANT] 
+> La indexación incremental se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. Por el momento, no hay compatibilidad con el portal ni con .NET SDK.
 
 En este artículo se muestra cómo agregar el estado y el almacenamiento en caché a los documentos enriquecidos que se mueven a través de una canalización de enriquecimiento de Azure Cognitive Search para que pueda indexar de forma incremental los documentos desde cualquiera de los orígenes de datos admitidos. De forma predeterminada, un conjunto de aptitudes no tiene estado y el cambio de cualquier parte de su composición requiere una nueva ejecución completa del indexador. Con la indexación incremental, el indizador puede determinar qué partes de la canalización han cambiado, reutilizar el enriquecimiento existente para las partes sin cambios y revisar el enriquecimiento de los pasos con cambios. El contenido almacenado en caché se coloca en Azure Storage.
 
 Si no está familiarizado con la configuración de indexadores, comience con la [información general sobre el indexador](search-indexer-overview.md) y, después, continúe con los [conjuntos de aptitudes](cognitive-search-working-with-skillsets.md) para obtener información sobre las canalizaciones de enriquecimiento. Para obtener más información sobre los conceptos clave, vea el tema sobre la [indexación incremental](cognitive-search-incremental-indexing-conceptual.md).
-
-La indexación incremental se configura mediante la [API de REST api-version=2019-05-06-Preview](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
-
-> [!NOTE]
-> Esta característica aún no está disponible en el portal y ha de utilizarse mediante programación.
->
 
 ## <a name="modify-an-existing-indexer"></a>Modificación de un indexador existente
 

@@ -4,23 +4,23 @@ description: Esta guía está pensada para ayudar a los Consejeros delegados (CE
 keywords: ''
 author: martincoetzer
 ms.author: martinco
-ms.date: 04/12/2018
+ms.date: 10/30/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 4de4da63abea1c4f6ab006ffd65a58ea0e34c015
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 71b4a8abc641a3ab11d6b17bbc8de3b42b61c34c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529399"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820555"
 ---
-# <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory 
+# <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory
 
 La elección del método de autenticación correcto es la primera preocupación para las organizaciones que desean mover sus aplicaciones a la nube. Esta decisión no debe tomarse a la ligera por las razones siguientes:
 
-1. Es la primera decisión de una organización que quiere trasladarse a la nube. 
+1. Es la primera decisión de una organización que quiere trasladarse a la nube.
 
 2. El método de autenticación es un componente esencial de la presencia de una organización en la nube. Esto es debido a que controla el acceso a todos los datos y recursos que hay en ella.
 
@@ -36,21 +36,21 @@ Las organizaciones que no tienen una superficie de directorio local existente no
 ## <a name="authentication-methods"></a>Métodos de autenticación
 Cuando la solución de identidad híbrida de Azure AD sea el nuevo plano de control, la autenticación será la base del acceso a la nube. La elección del método de autenticación correcto es una primera decisión fundamental en la configuración de una solución de identidad híbrida de Azure AD. Implemente el método de autenticación que se configura mediante Azure AD Connect, y que también aprovisionará a los usuarios en la nube.
 
-Para elegir un método de autenticación, es necesario tener en cuenta el tiempo, la infraestructura existente, la complejidad y el costo de implementar cada opción. Estos factores varían con cada organización y pueden cambiar con el tiempo. 
+Para elegir un método de autenticación, es necesario tener en cuenta el tiempo, la infraestructura existente, la complejidad y el costo de implementar cada opción. Estos factores varían con cada organización y pueden cambiar con el tiempo.
 
 >[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
 
 Azure AD admite los siguientes métodos de autenticación en soluciones de identidad híbrida.
 
 ### <a name="cloud-authentication"></a>Autenticación en la nube
-Cuando se elige este método de autenticación, Azure AD administra el proceso de inicio de sesión de los usuarios. Junto con el inicio de sesión único (SSO) completo, los usuarios pueden iniciar sesión en las aplicaciones en la nube sin tener que volver a escribir sus credenciales. Con la autenticación en la nube puede elegir entre dos opciones: 
+Cuando se elige este método de autenticación, Azure AD administra el proceso de inicio de sesión de los usuarios. Junto con el inicio de sesión único (SSO) completo, los usuarios pueden iniciar sesión en las aplicaciones en la nube sin tener que volver a escribir sus credenciales. Con la autenticación en la nube puede elegir entre dos opciones:
 
 **Sincronización de hash de contraseñas de Azure AD**. Es la manera más sencilla de habilitar la autenticación para los objetos de directorio local en Azure AD. Gracias a ella, los usuarios pueden usar el mismo nombre de usuario y contraseña que en el entorno local sin tener que implementar ninguna infraestructura adicional. Algunas características premium de Azure AD, como Identity Protection y [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md), requieren la sincronización de hash de contraseñas con independencia del método de autenticación seleccionado.
 
-> [!NOTE] 
-> Las contraseñas nunca se almacenan en texto no cifrado o cifradas con un algoritmo reversible en Azure AD. Para obtener más información sobre el proceso real de la sincronización de hash de contraseñas, consulte [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+> [!NOTE]
+> Las contraseñas nunca se almacenan en texto no cifrado o cifradas con un algoritmo reversible en Azure AD. Para obtener más información sobre el proceso real de la sincronización de hash de contraseñas, consulte [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
-**Autenticación de paso a través de Azure AD**. Proporciona una validación de contraseñas simple para los servicios de autenticación de Azure AD mediante un agente de software que se ejecuta en uno o más servidores locales. Los servidores validan a los usuarios directamente con la instancia local de Active Directory, lo que garantiza que la validación de la contraseña no se realiza en la nube. 
+**Autenticación de paso a través de Azure AD**. Proporciona una validación de contraseñas simple para los servicios de autenticación de Azure AD mediante un agente de software que se ejecuta en uno o más servidores locales. Los servidores validan a los usuarios directamente con la instancia local de Active Directory, lo que garantiza que la validación de la contraseña no se realiza en la nube.
 
 Las empresas con un requisito de seguridad para aplicar de inmediato los estados de cuenta de los usuarios locales, las directivas de contraseña y las horas de inicio de sesión pueden usar este método de autenticación. Para obtener más información sobre el proceso real de autenticación de paso a través, consulte [Inicio de sesión del usuario con la autenticación de paso a través de Azure AD](../../active-directory/hybrid/how-to-connect-pta.md).
 
@@ -106,21 +106,21 @@ Para ver los pasos de implementación, consulte [Implementación de la sincroniz
 
 ### <a name="cloud-authentication-pass-through-authentication"></a>Autenticación en la nube: Autenticación de paso a través  
 
-* **Esfuerzo**. Para realizar la autenticación de paso a través, necesita uno o más (recomendamos tres) agentes livianos instalados en los servidores existentes. Estos agentes deben tener acceso a la instancia local de Active Directory Domain Services, incluidos los controladores de dominio locales de AD. Estos agentes necesitan acceso saliente a Internet y tener acceso a los controladores de dominio. Por esta razón, no se pueden implementar los agentes en una red perimetral. 
+* **Esfuerzo**. Para realizar la autenticación de paso a través, necesita uno o más (recomendamos tres) agentes livianos instalados en los servidores existentes. Estos agentes deben tener acceso a la instancia local de Active Directory Domain Services, incluidos los controladores de dominio locales de AD. Estos agentes necesitan acceso saliente a Internet y tener acceso a los controladores de dominio. Por esta razón, no se pueden implementar los agentes en una red perimetral.
 
     Este tipo de autenticación de paso a través necesita que los controladores de dominio le proporcionen acceso a la red sin restricciones. Todo el tráfico de red se cifra y se limita a las solicitudes de autenticación. Para obtener más información sobre este proceso, consulte [Información de seguridad detallada sobre la autenticación de paso a través](../../active-directory/hybrid/how-to-connect-pta-security-deep-dive.md).
 
 * **Experiencia del usuario**. Para mejorar la experiencia de inicio de sesión de los usuarios, puede implementar un SSO de conexión directa con la autenticación de paso a través. El SSO de conexión directa elimina las solicitudes innecesarias cuando los usuarios inician sesión.
 
-* **Escenarios avanzados**. La autenticación de paso a través aplica la directiva de cuenta local al iniciar sesión. Por ejemplo, se deniega el acceso cuando el estado de la cuenta de un usuario local indica que está deshabilitada, bloqueada, con la [contraseña expirada](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) o que se encuentra fuera de las horas de inicio de sesión del usuario. 
+* **Escenarios avanzados**. La autenticación de paso a través aplica la directiva de cuenta local al iniciar sesión. Por ejemplo, se deniega el acceso cuando el estado de la cuenta de un usuario local indica que está deshabilitada, bloqueada, con la [contraseña expirada](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) o que se encuentra fuera de las horas de inicio de sesión del usuario.
 
     Las organizaciones que requieren una autenticación multifactor con una autenticación de paso a través tienen que usar Azure Multi-Factor Authentication (MFA) o los [controles personalizados de acceso condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Esas organizaciones no pueden usar métodos de autenticación multifactor de terceros o locales que se basen en la federación. Las características avanzadas requieren que se implemente la sincronización de hash de contraseñas sin importar si elige o no la autenticación de paso a través. Por ejemplo, esto sucede con el informe de credenciales filtradas de Identity Protection.
 
-* **Continuidad del negocio**. Es recomendable que implemente dos agentes de autenticación de paso a través adicionales. Estos extras son adicionales al primer agente en el servidor de Azure AD Connect. Esta implementación adicional garantiza una alta disponibilidad de solicitudes de autenticación. Cuando hay tres agentes implementados, un agente puede dejar de funcionar cuando otro agente está inactivo por mantenimiento. 
+* **Continuidad del negocio**. Es recomendable que implemente dos agentes de autenticación de paso a través adicionales. Estos extras son adicionales al primer agente en el servidor de Azure AD Connect. Esta implementación adicional garantiza una alta disponibilidad de solicitudes de autenticación. Cuando hay tres agentes implementados, un agente puede dejar de funcionar cuando otro agente está inactivo por mantenimiento.
 
     Existe otro beneficio al implementar la sincronización de hash de contraseñas además de la autenticación de paso a través. Actúa como un método de autenticación de respaldo cuando el método de autenticación principal ya no está disponible.
 
-* **Consideraciones**. Puede utilizar la sincronización de hash de contraseñas como método de autenticación de respaldo para la autenticación de paso a través, cuando los agentes no puedan asegurarse de las credenciales de un usuario debido a un error local importante. La conmutación por error de la sincronización de hash de contraseñas no sucede automáticamente y debe usar Azure AD Connect para cambiar el método de inicio de sesión manualmente. 
+* **Consideraciones**. Puede utilizar la sincronización de hash de contraseñas como método de autenticación de respaldo para la autenticación de paso a través, cuando los agentes no puedan asegurarse de las credenciales de un usuario debido a un error local importante. La conmutación por error de la sincronización de hash de contraseñas no sucede automáticamente y debe usar Azure AD Connect para cambiar el método de inicio de sesión manualmente.
 
     Para ver más detalles sobre la autenticación de paso a través, incluida la compatibilidad con identificadores alternativos, consulte las [preguntas más frecuentes](../../active-directory/hybrid/how-to-connect-pta-faq.md).
 
@@ -128,7 +128,7 @@ Para obtener información sobre los pasos de implementación, consulte [Implemen
 
 ### <a name="federated-authentication"></a>Autenticación federada
 
-* **Esfuerzo**. El uso de un sistema de autenticación federada se basa en un sistema externo de confianza para autenticar a los usuarios. Algunas empresas desean reutilizar sus inversiones existentes en sistemas federados con su solución de identidad híbrida de Azure AD. El mantenimiento y la administración del sistema federado no entra en el control de Azure AD. Es responsabilidad de la organización que usa el sistema federado asegurarse de que se implementa de forma segura y de que puede administrar la carga de autenticación. 
+* **Esfuerzo**. El uso de un sistema de autenticación federada se basa en un sistema externo de confianza para autenticar a los usuarios. Algunas empresas desean reutilizar sus inversiones existentes en sistemas federados con su solución de identidad híbrida de Azure AD. El mantenimiento y la administración del sistema federado no entra en el control de Azure AD. Es responsabilidad de la organización que usa el sistema federado asegurarse de que se implementa de forma segura y de que puede administrar la carga de autenticación.
 
 * **Experiencia del usuario**. La experiencia de usuario de la autenticación federada depende de la implementación de las características, la topología y la configuración de la granja de servidores de federación. Algunas organizaciones necesitan esta flexibilidad para adaptar y configurar el acceso a la granja de servidores de federación a fin de satisfacer sus requisitos de seguridad. Por ejemplo, es posible configurar usuarios y dispositivos conectados internamente para iniciar la sesión de los usuarios automáticamente, sin pedirles las credenciales. Esta configuración funciona porque ya han iniciado sesión en sus dispositivos. Por otro lado, si es necesario, algunas características de seguridad avanzadas pueden dificultar el proceso de inicio de sesión del usuario.
 
@@ -149,7 +149,7 @@ Si hay un dominio no enrutable que no se puede verificar en Azure AD, debe reali
 
 Para conocer los pasos de implementación, consulte [Deploying Federation Servers](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers) (Implementación de los servidores de federación).
 
-> [!NOTE] 
+> [!NOTE]
 > Al implementar la solución de identidad híbrida de Azure AD, debe asegurarse de implementar una de las topologías admitidas de Azure AD Connect. Aprenda más sobre las configuraciones admitidas y no admitidas en [Topologías de Azure AD Connect](../../active-directory/hybrid/plan-connect-topologies.md).
 
 ## <a name="architecture-diagrams"></a>Diagramas de arquitectura
@@ -187,7 +187,7 @@ En los siguientes diagramas se describen los componentes de arquitectura de alto
 |¿Se puede personalizar el logotipo, la imagen y la descripción en las páginas de inicio de sesión?|[Sí, con Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Sí, con Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Sí](../../active-directory/hybrid/how-to-connect-fed-management.md)|
 |¿Qué escenarios avanzados se admiten?|[Smart Password Lockout](../../active-directory/authentication/concept-sspr-howitworks.md) (Bloqueo inteligente de contraseñas)<br><br>[Informes de credenciales filtrados, con Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Smart Password Lockout](../../active-directory/authentication/howto-password-smart-lockout.md) (Bloqueo inteligente de contraseñas)|Sistema de autenticación multisitio de baja latencia<br><br>[Bloqueo de extranet de AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integración con sistemas de identidad de terceros](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
 
-> [!NOTE] 
+> [!NOTE]
 > Actualmente, los controles personalizados del acceso condicional de Azure AD no admiten el registro de dispositivos.
 
 ## <a name="recommendations"></a>Recomendaciones
@@ -195,7 +195,7 @@ El sistema de identidad garantiza que los usuarios tengan acceso a aplicaciones 
 
 Use o habilite la sincronización de hash de contraseñas con independencia del método de autenticación que elija, por las razones siguientes:
 
-1. **Alta disponibilidad y recuperación ante desastres**. La autenticación de paso a través y la federación se basan en la infraestructura local. En la autenticación de paso a través, la superficie local incluye las redes y el hardware del servidor que requieren los agentes de autenticación de paso a través. En el caso de la federación, la superficie local es aún mayor. Esto es debido a que se requieren servidores en la red perimetral para las solicitudes de autenticación de proxy y los servidores de federación internos. 
+1. **Alta disponibilidad y recuperación ante desastres**. La autenticación de paso a través y la federación se basan en la infraestructura local. En la autenticación de paso a través, la superficie local incluye las redes y el hardware del servidor que requieren los agentes de autenticación de paso a través. En el caso de la federación, la superficie local es aún mayor. Esto es debido a que se requieren servidores en la red perimetral para las solicitudes de autenticación de proxy y los servidores de federación internos.
 
     Para evitar los únicos puntos de errores, implemente servidores redundantes. A continuación, las solicitudes de autenticación siempre se atenderán si se produce un error en alguno de los componentes. Tanto la autenticación de paso a través como la de federación están sujetas a los controladores de dominio para responder a las solicitudes de autenticación, que también pueden producir un error. Muchos de estos componentes deben mantenerse para permanecer en buen estado. Las interrupciones son más probables cuando el mantenimiento no se planifica ni se implementa correctamente. Para evitar interrupciones, se puede usar la sincronización de hash de contraseñas porque el servicio de autenticación en la nube de Microsoft Azure AD se escala globalmente y siempre está disponible.
 
@@ -207,11 +207,9 @@ Use o habilite la sincronización de hash de contraseñas con independencia del 
 
 3. **Identity Protection**. una de las mejores maneras de proteger a los usuarios de la nube es Azure AD Identity Protection con Azure AD Premium P2. Microsoft examina continuamente Internet en busca de listas de usuarios y contraseñas que los usuarios malintencionados venden y proporcionan en la Internet oscura. Azure AD puede usar esta información para comprobar si algunos de los nombres de usuario y contraseñas de su organización están en peligro. Por lo tanto, es fundamental habilitar la sincronización de hash de contraseñas, con independencia de qué método de autenticación se use, ya sea autenticación federada o de paso a través. Las credenciales filtradas se presentan como un informe. Use esta información para bloquear o exigir que los usuarios cambien sus contraseñas cuando intenten iniciar sesión con contraseñas filtradas.
 
-Por último, de acuerdo con [Gartner](https://info.microsoft.com/landingIAMGartnerreportregistration.html), Microsoft cuenta con el conjunto más completo de funciones de identidad y administración de acceso. Microsoft controla [450 mil millones de solicitudes de autenticación](https://www.microsoft.com/en-us/security/intelligence-report) cada mes para proporcionar acceso a miles de aplicaciones de SaaS como Office 365 desde prácticamente cualquier dispositivo. 
-
 ## <a name="conclusion"></a>Conclusión
 
-En este artículo se describen distintas opciones de autenticación que las organizaciones pueden configurar e implementar para admitir el acceso a las aplicaciones en la nube. Para satisfacer los diversos requisitos de negocios, técnicos y de seguridad, las organizaciones pueden elegir entre la sincronización de hash de contraseñas, la autenticación de paso a través y la federación. 
+En este artículo se describen distintas opciones de autenticación que las organizaciones pueden configurar e implementar para admitir el acceso a las aplicaciones en la nube. Para satisfacer los diversos requisitos de negocios, técnicos y de seguridad, las organizaciones pueden elegir entre la sincronización de hash de contraseñas, la autenticación de paso a través y la federación.
 
 Revise con atención cada método de autenticación interno. ¿Los esfuerzos para implementar la solución, así como la experiencia del usuario en el proceso de inicio de sesión responden a los requisitos de su negocio? También debe valorar si su organización necesita las características de escenarios avanzados y continuidad empresarial de cada método de autenticación. Por último, sopese los detalles de cada método de autenticación. ¿Alguno de ellos le impide implementar su elección?
 
@@ -221,4 +219,4 @@ En la actualidad, las amenazas están presentes 24 horas al día y proceden de c
 
 [Comience a trabajar](../../active-directory/fundamentals/get-started-azure-ad.md) con Azure AD e implemente la solución de autenticación adecuada para su organización.
 
-Si está pensando cambiar de la autenticación federada a la autenticación en la nube, consulte la información acerca de [cómo cambiar el método de inicio de sesión](../../active-directory/hybrid/plan-connect-user-signin.md). Para ayudarle a planear e implementar la migración, puede usar [estos planes de implementación de proyectos](https://aka.ms/deploymentplans).
+Si está pensando cambiar de la autenticación federada a la autenticación en la nube, consulte la información acerca de [cómo cambiar el método de inicio de sesión](../../active-directory/hybrid/plan-connect-user-signin.md). Para ayudarle a planear e implementar la migración, use [estos planes de implementación de proyectos](https://aka.ms/deploymentplans) o considere la posibilidad de usar la nueva característica de [lanzamiento por fases](../../active-directory/hybrid/how-to-connect-staged-rollout.md) para migrar usuarios federados al uso de la autenticación en la nube en un enfoque por fases.

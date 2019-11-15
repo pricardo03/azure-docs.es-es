@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 56b6ba3dcd88dd45bbda3ccb9ba7ddeb5b373b10
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: fa13d9bdf73b87597d4eb01830ec2c76538521fe
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "73518916"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73800113"
 ---
 ## <a name="get-the-training-and-prediction-keys"></a>Obtención de las claves de entrenamiento y predicción
 
-El proyecto necesita un conjunto válido de claves de suscripción para interactuar con el servicio. Puede encontrar los elementos en el [sitio web de Custom Vision](https://customvision.ai). Inicie sesión con la cuenta asociada a la cuenta de Azure usada para crear los recursos de Custom Vision. Seleccione el __icono de engranaje__ en la esquina superior derecha. En la sección __Cuentas__, tiene disponibles listas desplegables para Azure Resources, lo que le permitirá ver los valores de los campos __Training Key__ (Clave de entrenamiento), __Prediction Key__ (Clave de predicción) y __Prediction Resource Id__ (Id. de recurso de predicción).
+El proyecto necesita un conjunto válido de claves de suscripción para interactuar con el servicio. Puede encontrar los elementos en el [sitio web de Custom Vision](https://customvision.ai). Inicie sesión con la cuenta asociada a la cuenta de Azure usada para crear los recursos de Custom Vision. En la página principal (la página con la opción para agregar un nuevo proyecto), seleccione el __icono de engranaje__ de la esquina superior derecha. Busque los recursos de entrenamiento y predicción en la lista y expándalos. Aquí puede encontrar los valores de clave de entrenamiento, clave de predicción e identificador de recurso de predicción. Guarde estos valores en una ubicación temporal.
 
 ![Imagen de la interfaz de usuario de claves](../media/csharp-tutorial/training-prediction-keys.png)
 
- Como alternativa, estas claves y este identificador se pueden obtener en [Azure Portal](https://www.portal.azure.com) viendo los recursos de entrenamiento y predicción de Custom Vision y revisando la pestaña __Claves__. Allí puede encontrar la __clave de entrenamiento__ o la __clave de predicción__. Vaya a la pestaña __Propiedades__ del recurso de predicción para obtener el __identificador de recurso de predicción__.
+También puede obtener estas claves y este identificador en [Azure Portal](https://www.portal.azure.com) viendo los recursos de entrenamiento y predicción de Custom Vision y navegando a la pestaña __Claves__. En ella encontrará la clave de entrenamiento y la clave de predicción. Vaya a la pestaña __Propiedades__ del recurso de predicción para obtener el identificador del recurso de predicción.
 

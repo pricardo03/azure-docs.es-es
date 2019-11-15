@@ -1,39 +1,55 @@
 ---
-title: Preguntas frecuentes sobre Azure SQL Data Warehouse | Microsoft Docs
-description: En este artículo se muestran las preguntas más frecuentes sobre Azure SQL Data Warehouse para clientes y desarrolladores
+title: Preguntas frecuentes sobre Azure Synapse Analytics (anteriormente SQL DW)
+description: En este artículo se muestran las preguntas más frecuentes sobre Azure Synapse Analytics (anteriormente SQL DW) para clientes y desarrolladores
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/17/2018
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4679a3bb1935e9f3e2bc90c9bc9ef1247b7ecb30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7b4f926bb9611d87c67276f754a6b596850b59d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515869"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645603"
 ---
-# <a name="sql-data-warehouse-frequently-asked-questions"></a>Preguntas más frecuentes de SQL Data Warehouse
+# <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Synapse Analytics (anteriormente SQL DW)
 
 ## <a name="general"></a>General
 
-P: ¿Qué ofrece SQL Data Warehouse en cuanto a seguridad de datos?
+P: ¿Qué es Azure Synapse?
 
-A. SQL Data Warehouse ofrece varias soluciones para proteger datos, como TDE y la auditoría. Para obtener más información, consulte [Seguridad].
+A. Azure Synapse es un servicio de análisis ilimitado que reúne el almacenamiento de datos y el análisis de macrodatos. Le ofrece la libertad de consultar los datos como prefiera, ya sea a petición sin servidor o con recursos aprovisionados, a escala. Azure Synapse reúne estos dos mundos con una experiencia unificada para ingerir, preparar, administrar y servir datos para las necesidades inmediatas de inteligencia empresarial y aprendizaje automático. Para más información, consulte [¿Qué es Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)
 
-P: ¿Dónde puedo encontrar los estándares empresariales o legales que cumple SQL Data Warehouse?
+P: ¿Qué ha pasado con Azure SQL Data Warehouse?
 
-A. Visite la página [Cumplimiento de Microsoft] para consultar diversas ofertas de cumplimiento por producto, como SOC e ISO. Primero, elija por el título Cumplimiento, luego, expanda Azure en la sección de servicios en la nube de Microsoft del lado derecho de la página para ver qué servicios son compatibles con Azure.
+A. Azure Synapse es Azure SQL Data Warehouse (SQL DW) evolucionado. Hemos llevado el mismo almacenamiento de datos líder del sector a un nuevo nivel de rendimiento y funcionalidades. Puede seguir ejecutando sus cargas de trabajo de almacenamiento de datos existentes en producción hoy mismo con Azure Synapse y beneficiarse automáticamente de las nuevas funcionalidades que se encuentran en versión preliminar. Para más información, consulte [¿Qué es Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)
+
+P: ¿Qué es SQL Analytics?
+
+A. SQL Analytics hace referencia a las características de almacenamiento de datos empresariales que están disponibles con carácter general en Azure Synapse. Para más información, consulte [¿Qué es Azure Synapse Analytics?](sql-data-warehouse-overview-what-is.md)
+
+P: ¿Cómo puedo empezar a usar Azure Synapse?
+
+A. Puede empezar a trabajar con una [cuenta gratuita de Azure](https://azure.microsoft.com/free/sql-data-warehouse/) o [ponerse en contacto con Ventas para más información](https://info.microsoft.com/ww-landing-azure-sql-data-warehouse-contactme.html). 
+
+P: ¿Qué ofrece Azure Synapse en cuanto a la seguridad de datos?
+
+A. Azure Synapse ofrece varias soluciones para proteger datos, como TDE y auditorías. Para obtener más información, consulte [Seguridad].
+
+P: ¿Dónde puedo averiguar sobre los estándares empresariales o legales que cumple Azure Synapse?
+
+A. Visite la página [Cumplimiento de Microsoft] para consultar diversas ofertas de cumplimiento por producto, como SOC e ISO. Primero, elija por el título Cumplimiento, luego, expanda Azure en la sección de servicios en la nube de Microsoft del lado derecho de la página para ver qué servicios son compatibles con Azure Synapse.
 
 P: ¿Puedo conectar Power BI?
 
-A. Sí. Aunque Power BI admite la consulta directa con SQL Data Warehouse, no se ha diseñado para administrar gran cantidad de usuarios o datos en tiempo real. Para usar Power BI con fines de producción, se recomienda usar Power BI sobre IaaS de servicio de análisis o Azure Analysis Services. 
+A. Sí. Aunque Power BI admite la consulta directa con Azure Synapse, no se ha diseñado para administrar muchos usuarios ni datos en tiempo real. Para optimizar aún más el rendimiento de Power BI, considere la posibilidad de usar Power BI en Azure Analysis Services o la infraestructura como servicio de Analysis Services.
 
-P: ¿Qué son los límites de capacidad de SQL Data Warehouse?
+P: ¿Cuáles son los límites de capacidad de SQL Analytics?
 
 A. Consulte nuestra página de [límites de capacidad] actuales. 
 
@@ -49,7 +65,7 @@ A. Si tiene una solicitud de característica, envíala a nuestra página [UserVo
 
 P: ¿Cómo puedo hacer una determinada acción?
 
-A. Para obtener ayuda con las tareas de desarrollo con SQL Data Warehouse, puede hacer preguntas en nuestra [Stack Overflow]. 
+A. Para obtener ayuda con las tareas de desarrollo con Azure Synapse, puede hacer preguntas en nuestra página [Stack Overflow]. 
 
 P: ¿Cómo puedo enviar una vale de asistencia técnica?
 
@@ -57,23 +73,23 @@ A. Los [vales de asistencia técnica] puede presentarse a través de Azure Porta
 
 ## <a name="sql-languagefeature-support"></a>Compatibilidad con características o lenguajes de SQL 
 
-P: ¿Qué tipos de datos admite SQL Data Warehouse?
+P: ¿Qué tipos de datos se admiten?
 
-A. Vea los [tipos de datos] de SQL Data Warehouse.
+A. Consulte [Tipos de datos].
 
 P: ¿Qué características de tablas se admiten?
 
-A. Aunque SQL Data Warehouse es compatible con muchas características, algunas no se admiten y se documentan en la página sobre [Características de tablas no compatibles].
+A. Se admiten muchas características, y las que no se admiten están documentadas en [Características de tablas no compatibles].
 
 ## <a name="tooling-and-administration"></a>Administración y herramientas
 
 P: ¿Se admiten proyectos de bases de datos en Visual Studio?
 
-A. En estos momentos, no admitimos proyectos de bases de datos en Visual Studio para SQL Data Warehouse. Si desea enviar un voto para habilitar esta característica, visite nuestra página de [Solicitud de características de proyectos de bases de datos] de User Voice.
+A. En estos momentos, no admitimos proyectos de bases de datos en Visual Studio. Si desea enviar un voto para habilitar esta característica, visite nuestra página de [Solicitud de características de proyectos de bases de datos] de User Voice.
 
-P: ¿SQL Data Warehouse admite las API de REST?
+P: ¿Admite SQL Analytics las API de REST?
 
-A. Sí. La mayoría de las funciones REST que se pueden utilizar con SQL Database también están disponibles con SQL Data Warehouse. Puede encontrar información sobre las API en las páginas de documentación de REST o [MSDN].
+A. Sí. La mayoría de las funciones de REST que se pueden utilizar con SQL Database también están disponibles en SQL Analytics. Puede encontrar información sobre las API en las páginas de documentación de REST o [MSDN].
 
 
 ## <a name="loading"></a>Carga
@@ -82,24 +98,24 @@ P: ¿Qué controladores de cliente se admiten?
 
 A. La compatibilidad de los controladores con SQL Data Warehouse puede encontrarse en la página [Cadenas de conexión].
 
-P: ¿Qué formatos de archivo admite PolyBase con SQL Data Warehouse?
+P: ¿Qué formatos de archivo admite PolyBase?
 
 R: Orc, RC, Parquet y texto delimitado sin formato.
 
-P: ¿Qué puedo conectar desde SQL Data Warehouse con PolyBase? 
+P: ¿A qué orígenes de datos puedo conectarme mediante PolyBase? 
 
 R: [Azure Data Lake Store] e instancias de [Blobs de Azure Storage].
 
 P: ¿Se puede usar el cálculo de aplicación al conectarse a instancias de Azure Storage Blob o ADLS? 
 
-R: No, PolyBase de SQL Data Warehouse interactúa solo con los componentes de almacenamiento. 
+R: No, PolyBase interactúa solo con los componentes de almacenamiento. 
 
 P: ¿Puedo conectarlo a HDI?
 
 R: HDI puede usar ADLS o WASB como capa HDFS. Si tiene uno de los dos como la capa HDFS, puede cargar datos en SQL Data Warehouse. Sin embargo, no se puede generar el cálculo de aplicación en la instancia HDI. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre SQL Data Warehouse, vea nuestra página [Información general].
+Para obtener más información sobre Azure Synapse, vea nuestra página [Información general].
 
 
 <!-- Article references -->

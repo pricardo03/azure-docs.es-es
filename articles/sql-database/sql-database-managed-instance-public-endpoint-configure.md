@@ -1,5 +1,5 @@
 ---
-title: 'Configurar un punto de conexión público: instancia administrada de Azure SQL Database | Microsoft Docs'
+title: 'Configuración de un punto de conexión público: instancia administrada'
 description: Obtenga información sobre cómo configurar un punto de conexión público para una instancia administrada
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: cebe6b4ca61b835e7c77f51592c20799fe271853
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a35176770a3100a288ad3da52cd89870e0110f63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567398"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828025"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurar un punto de conexión público en una instancia administrada de Azure SQL Database
 

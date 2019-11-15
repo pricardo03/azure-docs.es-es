@@ -5,105 +5,142 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/18/2019
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 0a5059382c26afd6120dc14a1ab2c7e5d281e7a1
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 9b736e897278c4656df83c30388efc812ac6193d
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695265"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607365"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitectura de red de tránsito global y Virtual WAN
 
-Las empresas están adoptando la arquitectura de red de tránsito global para consolidar, conectar y controlar la huella de una TI empresarial moderna centrada en la nube. En una empresa moderna centrada en la nube, no es necesario devolver el tráfico de red a la sede central. La arquitectura de red de tránsito global se basa tanto en conceptos de red conocidos como en conceptos nuevos que son únicos para las arquitecturas de nube y basadas en la nube.
-
-![arquitectura](./media/virtual-wan-global-transit-network-architecture/architecture2.png)
-
-**Figura 1: Red de tránsito global con Virtual WAN**
-
-Las empresas modernas requieren de una conectividad ubicua entre las aplicaciones, los datos y los usuarios hiperdistribuidos en la nube y en el entorno local. Azure Virtual WAN permite una arquitectura de red de tránsito global al habilitar una conectividad ubicua universal entre conjuntos distribuidos globalmente de redes virtuales, sitios, aplicaciones y usuarios. Azure Virtual WAN es un servicio administrado de Microsoft. Microsoft hospeda y administra todos los componentes de red que conforman este servicio. Para más información sobre Virtual WAN, consulte el artículo de [información general sobre Virtual WAN](virtual-wan-about.md).
-
-En la arquitectura de Azure Virtual WAN, las regiones de Azure actúan como centros a los que puede elegir conectar sus sucursales. Una vez que las sucursales están conectadas, puede aprovechar la red troncal de Azure para establecer la conectividad tanto entre la sucursal y la red virtual como, opcionalmente, entre distintas sucursales.
-
-Puede establecer una WAN virtual mediante la creación de un centro único de Virtual WAN en la región con el mayor número de radios (sucursales, redes virtuales, usuarios) y, luego, la conexión con el centro de radios que están en otras regiones. Como alternativa, si las radios están distribuidas geográficamente, también puede crear instancias de los centros regionales e interconectar los centros. Todos los centros son parte de la misma WAN virtual, pero se pueden asociar con distintas directivas regionales.
-
-## <a name="hub"></a>Tránsito radial
+Las empresas modernas requieren de una conectividad ubicua entre las aplicaciones, los datos y los usuarios hiperdistribuidos en la nube y en el entorno local. Las empresas están adoptando la arquitectura de red de tránsito global para consolidar, conectar y controlar la huella de una TI empresarial moderna y global centrada en la nube.
 
 La arquitectura de red de tránsito global se basa en un modelo de conectividad radial clásica donde el "centro" de la red que se hospeda en la nube permite la conectividad transitiva entre puntos de conexión que pueden estar distribuidos en distintos tipos de "radios".
-  
-En este modelo, una radio puede ser:
 
+En este modelo, una radio puede ser:
 * Red virtual (redes virtuales)
 * Sitio de sucursal física
 * Usuario remoto
 * Internet
 
-![diagrama de tránsito global radial](./media/virtual-wan-global-transit-network-architecture/architecture.png)
+![centro y radio](./media/virtual-wan-global-transit-network-architecture/figure1.png)
 
-**Figura 2: Radial**
+**Figura 1: red radial de tránsito global**
 
-En la figura 2 se muestra la vista lógica de la red global donde los usuarios, los sitios físicos y las redes virtuales distribuidos geográficamente están interconectados a través de un centro de redes hospedado en la nube. Esta arquitectura permite la conectividad de tránsito de un salto lógico entre los puntos de conexión de red. Los radios se conectan al centro a través de varios servicios de red de Azure, como ExpressRoute o VPN de sitio a sitio para las sucursales físicas, conexiones de red virtual para las redes virtuales, y VPN de punto a sitio para los usuarios remotos.
+En la figura 1 se muestra la vista lógica de la red de tránsito global donde los usuarios, los sitios físicos y las redes virtuales distribuidos geográficamente están interconectados a través de un centro de redes hospedado en la nube. Esta arquitectura permite la conectividad de tránsito de un salto lógico entre los puntos de conexión de red.
 
-## <a name="crossregion"></a>Conectividad entre regiones
+## <a name="globalnetworktransit"></a>Red de tránsito global con Virtual WAN
 
-Para una empresa, una huella de la nube por lo general sigue la huella física. La mayoría de las empresas accede a la nube desde una región más cercana a su sitio físico y a sus usuarios. Uno de los principios clave de la arquitectura de red global es habilitar la conectividad entre regiones entre los puntos de conexión y las entidades de red. Una huella de la nube puede abarcar varias regiones. Esto significa que el tráfico de una rama que está conectada a la nube en una región puede llegar a otra rama o a una red virtual en otra región mediante la conectividad entre transformadores, que actualmente se encuentra en nuestro plan de desarrollo.
+Azure Virtual WAN es un servicio de redes en la nube administrado de Microsoft. Microsoft hospeda y administra todos los componentes de red que conforman este servicio. Para más información sobre Virtual WAN, consulte el artículo de [información general sobre Virtual WAN](virtual-wan-about.md).
 
-## <a name="any"></a>Conectividad universal
+Azure Virtual WAN permite una arquitectura de red de tránsito global al habilitar una conectividad ubicua universal entre conjuntos distribuidos globalmente de cargas de trabajo en la nube de redes virtuales, sitios de sucursales, aplicaciones SaaS y PaaS, y usuarios.
 
-La arquitectura de red de tránsito global permite la *conectividad universal* a través de un centro de redes central. Esta arquitectura elimina o disminuye la necesidad de modelos de conectividad de malla parcial o de malla completa que son más complejos de crear y mantener. Además, el enrutamiento de control entre las redes radiales y las redes de malla es más fácil de configurar y mantener.
+![Azure Virtual WAN](./media/virtual-wan-global-transit-network-architecture/figure2.png)
 
-La conectividad universal, en el contexto de una arquitectura global, permite que una empresa con usuarios, sucursales, centros de datos, redes virtuales y aplicaciones distribuidos globalmente se conecten entre sí a través del centro de tránsito. El centro de tránsito actúa como el sistema de tránsito global.
+**Figura 2: Red de tránsito global y Virtual WAN**
 
-![rutas de tráfico](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
+En la arquitectura de Azure Virtual WAN, los centros WAN virtuales se aprovisionan en regiones de Azure, y puede elegir conectar sus sucursales, redes virtuales y usuarios remotos a ellas. Los sitios de sucursales físicas están conectados al concentrador mediante VPN de ExpressRoute de nivel Premium o VPN de sitio a sitio; las redes virtuales están conectadas al concentrador mediante conexiones de red virtual; y los usuarios remotos pueden conectarse directamente al concentrador mediante una VPN de usuario (VPN de punto a sitio). Virtual WAN también admite la conexión de red virtual entre regiones, donde una red virtual de una región puede estar conectada a un centro WAN virtual en una región diferente.
 
-**Figura 3: Rutas de tráfico de Virtual WAN**
+Puede establecer una WAN virtual mediante la creación de un centro único de Virtual WAN en la región con el mayor número de radios (sucursales, redes virtuales, usuarios) y, luego, la conexión con el centro de radios que están en otras regiones. Esta es una buena opción cuando la superficie de una empresa está principalmente en una región con algunos radios remotos.  
+  
+## <a name="hubtohub"></a>Conectividad de centro a centro
 
-Azure Virtual WAN admite las siguientes rutas de conectividad de tránsito global. Las letras entre paréntesis hacen referencia a la figura 3.
+La superficie en la nube empresarial puede abarcar varias regiones en la nube y resulta óptimo (en términos de latencia) tener acceso a la nube desde una región más cercana a su sitio físico y a los usuarios. Uno de los principios clave de la arquitectura de red de tránsito global es habilitar la conectividad entre regiones entre todos los puntos de conexión de red locales y en la nube. Esto significa que el tráfico de una sucursal que está conectada a la nube en una región puede llegar a otra sucursal o a una red virtual en otra región mediante la conectividad de centro a centro que permite la [red global de Azure](https://azure.microsoft.com/global-infrastructure/global-network/).
 
-* Sucursal a red virtual (a)  
+![varias regiones](./media/virtual-wan-global-transit-network-architecture/figure3.png)
+
+**Figura 3: Conectividad entre regiones de Virtual WAN**
+
+Cuando se habilitan varios centros en una sola WAN virtual, estos se interconectan automáticamente mediante vínculos de centro a centro, lo que habilita la conectividad global entre las sucursales y las redes virtuales distribuidas en varias regiones. 
+
+Además, todos los centros que son parte de la misma WAN virtual se pueden asociar con distintas directivas de seguridad y acceso regionales. Para obtener más información, consulte [control de seguridad y directivas](#security) más adelante en este artículo.
+
+## <a name="anytoany"></a>Conectividad universal
+
+La arquitectura de red de tránsito global permite la conectividad universal a través de centros de WAN virtuales. Esta arquitectura elimina o disminuye la necesidad de la conectividad de malla parcial o de malla completa entre radios, que son más complejos de crear y mantener. Además, el enrutamiento de control entre las redes radiales y las redes de malla es más fácil de configurar y mantener.
+
+La conectividad universal, en el contexto de una arquitectura global, permite que una empresa con usuarios, sucursales, centros de datos, redes virtuales y aplicaciones distribuidos globalmente se conecten entre sí a través de los centros de "tránsito". Azure Virtual WAN actúa como el sistema de tránsito global.
+
+![universal](./media/virtual-wan-global-transit-network-architecture/figure4.png)
+
+**Ilustración 4: Rutas de tráfico de Virtual WAN**
+
+Azure Virtual WAN admite las siguientes rutas de conectividad de tránsito global. Las letras entre paréntesis hacen referencia a la figura 4.
+
+* Sucursal a red virtual (a)
 * Sucursal a sucursal (b)
+  * ExpressRoute Global Reach y Virtual WAN
 * Usuario remoto a red virtual (c)
 * Usuario remoto a sucursal (d)
-* Red virtual a red virtual con emparejamiento de red virtual (e)
-* Global Reach de ExpressRoute 
+* De red virtual a red virtual (e)
+* De sucursal a centro y de centro a sucursal (f)
+* De sucursal a centro y de centro a red virtual (g)
+* De red virtual a centro y de centro a red virtual (h)
 
-### <a name="branchvnet"></a>Sucursal a red virtual
+### <a name="branch-to-vnet-a-and-branch-to-vnet-cross-region-g"></a>De sucursal a red virtual (a) y de sucursal a red virtual entre regiones (g)
 
-Sucursal a red virtual es la ruta principal admitida por Azure Virtual WAN. Esta ruta le permite conectar sucursales a las cargas de trabajo empresariales de IaaS de Azure que están implementadas en redes virtuales de Azure. Las sucursales se pueden conectar a la WAN virtual a través de ExpressRoute o de VPN de sitio a sitio. El tráfico se dirige a las redes virtuales que están conectadas a los concentradores WAN virtuales a través de conexiones de red virtual. No se necesita el [tránsito de puerta de enlace](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) para la WAN virtual porque esta lo habilita automáticamente a los sitios de sucursales.
+Sucursal a red virtual es la ruta principal admitida por Azure Virtual WAN. Esta ruta le permite conectar sucursales a las cargas de trabajo empresariales de IaaS de Azure que están implementadas en redes virtuales de Azure. Las sucursales se pueden conectar a la WAN virtual a través de ExpressRoute o de VPN de sitio a sitio. El tráfico transita a las redes virtuales que están conectadas a los centros de Virtual WAN a través de conexiones de red virtual. El [tránsito de puerta de enlace](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) explícito no es necesario para Virtual WAN, porque Virtual WAN habilita automáticamente el tránsito de puerta de enlace al sitio de sucursal. Consulte el artículo [Asociados de WAN virtual](virtual-wan-configure-automation-providers.md) sobre cómo conectar un SD-WAN CPE a Virtual WAN.
 
-### <a name="branchbranch"></a>Sucursal a sucursal
+### <a name="expressroute-global-reach-and-virtual-wan"></a>Global Reach de ExpressRoute y Virtual WAN
 
-Las sucursales se pueden conectar a un centro de Azure Virtual WAN mediante circuitos de ExpressRoute o conexiones de VPN de sitio a sitio. Puede conectar las sucursales al centro de Virtual WAN que se encuentra en la región más cercana a la sucursal.
+ExpressRoute es una forma privada y resistente de conectar las redes locales a la nube de Microsoft. Virtual WAN admite conexiones de circuito de ExpressRoute. La conexión de un sitio de sucursal a Virtual WAN con ExpressRoute requiere 1) un circuito Premium 2) un circuito para que esté en una ubicación habilitada para Global Reach.
 
-Esta opción permite que las empresas usen la red troncal de Azure para conectar las sucursales. Sin embargo, aunque esta funcionalidad esté disponible, debe ponderar los beneficios de conectar las sucursales a través de Azure Virtual WAN en comparación con usar una WAN privada.
-
-### <a name="usertovnet"></a>Usuario remoto a red virtual
-
-Puede habilitar el acceso remoto seguro y directo a Azure mediante conexiones de punto a sitio desde un cliente de usuario remoto a una WAN virtual. Los usuarios empresariales remotos ya no tienen que conectarse a la nube a través de una VPN corporativa.
-
-### <a name="usertobranch"></a>Usuario remoto a sucursal
-
-La ruta de usuario remoto a sucursal permite que los usuarios remotos que usan una conexión de punto a sitio a Azure accedan a aplicaciones y cargas de trabajo locales mediante el tránsito a través de la nube. Esta ruta brinda a los usuarios remotos la flexibilidad para acceder a las cargas de trabajo que están implementadas en Azure y en el entorno local. Las empresas pueden habilitar el servicio central de acceso remoto seguro basado en la nube en Azure Virtual WAN.
-
-### <a name="vnetvnet"></a>Tránsito de red virtual a red virtual con emparejamiento de red virtual
-
-Para conectar redes virtuales entre sí y admitir aplicaciones de varios niveles implementadas en varias redes virtuales, use el emparejamiento de red virtual. Actualmente no se admite un escenario de tránsito de red virtual a red virtual en Azure Virtual WAN, pero sí está en la hoja de ruta de Azure. Conectar las redes virtuales a través del emparejamiento de red virtual es la solución recomendada para las redes virtuales que se deben conectar entre sí. 
-
-### <a name="globalreach"></a>Global Reach de ExpressRoute
-
-ExpressRoute es una forma privada y resistente de conectar las redes locales a la nube de Microsoft. Global Reach ExpressRoute es una característica de complemento para ExpressRoute. Con Global Reach, puede vincular los circuitos de ExpressRoute para crear una red privada entre las redes locales. Las sucursales que se conectan a Azure Virtual WAN a través de ExpressRoute requieren que Global Reach de ExpressRoute se comuniquen entre sí.
+Global Reach ExpressRoute es una característica de complemento para ExpressRoute. Con Global Reach, puede vincular los circuitos de ExpressRoute para crear una red privada entre las redes locales. Las sucursales que se conectan a Azure Virtual WAN a través de ExpressRoute requieren que Global Reach de ExpressRoute se comuniquen entre sí.
 
 En este modelo, cada sucursal que se conecta al centro de Virtual WAN mediante ExpressRoute se puede conectar a las redes virtuales mediante la ruta de sucursal a red virtual. El tráfico de sucursal a sucursal no atravesará el centro, porque Global Reach de ExpressRoute permite una ruta más óptima a través de Azure WAN.
 
+### <a name="branch-to-branch-b-and-branch-to-branch-cross-region-f"></a>Sucursal a sucursal (b) y sucursal a sucursal entre regiones (f)
+
+Las sucursales se pueden conectar a un centro de Azure Virtual WAN mediante circuitos de ExpressRoute o conexiones de VPN de sitio a sitio. Puede conectar las sucursales al centro de Virtual WAN que se encuentra en la región más cercana a la sucursal.
+
+Esta opción permite que las empresas usen la red troncal de Azure para conectar las sucursales. Sin embargo, aunque esta funcionalidad esté disponible, debe ponderar los beneficios de conectar las sucursales a través de Azure Virtual WAN en comparación con usar una WAN privada.  
+
+### <a name="remote-user-to-vnet-c"></a>Usuario remoto a red virtual (c)
+
+Puede habilitar el acceso remoto seguro y directo a Azure mediante una conexión de punto a sitio desde un cliente de usuario remoto a una WAN virtual. Los usuarios empresariales remotos ya no tienen que conectarse a la nube a través de una VPN corporativa.
+
+### <a name="remote-user-to-branch-d"></a>Usuario remoto a sucursal (d)
+
+La ruta de usuario remoto a sucursal permite que los usuarios remotos que usan una conexión de punto a sitio a Azure accedan a aplicaciones y cargas de trabajo locales mediante el tránsito a través de la nube. Esta ruta brinda a los usuarios remotos la flexibilidad para acceder a las cargas de trabajo que están implementadas en Azure y en el entorno local. Las empresas pueden habilitar el servicio central de acceso remoto seguro basado en la nube en Azure Virtual WAN.
+
+### <a name="vnet-to-vnet-transit-e-and-vnet-to-vnet-cross-region-h"></a>Tránsito de red virtual a red virtual (e) y de red virtual a red virtual entre (h)
+
+El tránsito de red virtual a red virtual permite que las redes virtuales se conecten entre sí para interconectar aplicaciones de varios niveles implementadas en varias redes virtuales. Opcionalmente, puede conectar redes virtuales entre sí mediante el emparejamiento de red virtual. Esta opción puede ser adecuada para algunos escenarios en los que no es necesario el tránsito a través del centro de WAN virtual.
+
 ## <a name="security"></a>Seguridad y control de directivas
 
-El centro de redes virtuales interconecta todo el tráfico de tránsito y, probablemente, lo ve todo. Puede ser el lugar para hospedar servicios y funciones de red como un enrutamiento de nube, seguridad y directiva de red y el control de acceso de Internet.
+Los centros de Azure Virtual WAN interconectan todos los puntos de conexión de red a través de la red híbrida y pueden ver todo el tráfico de red de tránsito. Los centros de Virtual WAN se pueden convertir en centros virtuales protegidos si implementa Azure Firewall dentro de los centros de Virtual WAN para habilitar la seguridad, el acceso y el control de directivas basados en la nube. Azure Firewall Manager puede realizar la orquestación de Azure Firewall en los centros de WAN virtual.
+
+[Azure Firewall Manager](https://go.microsoft.com/fwlink/?linkid=2107683) proporciona las funcionalidades para administrar y escalar la seguridad de las redes de tránsito global. Azure Firewall Manager ofrece la posibilidad de administrar de forma centralizada el enrutamiento, la administración global de directivas y los servicios de seguridad de Internet avanzados a través de terceros junto con Azure Firewall.
+
+![centro virtual protegido con Azure Firewall](./media/virtual-wan-global-transit-network-architecture/figure5.png)
+
+**Ilustración 5: Centro virtual protegido con Azure Firewall**
+
+Azure Firewall a la WAN virtual admite las siguientes rutas de conectividad de tránsito seguro global. Las letras entre paréntesis hacen referencia a la figura 5.
+
+* Tránsito seguro de red virtual a red virtual (e)
+* Servicio de seguridad de red virtual a Internet o a terceros (i)
+* Servicio de seguridad de sucursal a Internet o a terceros (i)
+
+### <a name="vnet-to-vnet-secured-transit-e"></a>Tránsito seguro de red virtual a red virtual (e)
+
+El tránsito seguro de red virtual a red virtual permite que las redes virtuales se conecten entre sí a través de Azure Firewall en el centro de WAN virtual.
+
+### <a name="vnet-to-internet-or-third-party-security-service-i"></a>Servicio de seguridad de red virtual a Internet o a terceros (i)
+
+El tránsito seguro de red virtual a Internet o a terceros permite que las redes virtuales se conecten a Internet o a servicios de seguridad de terceros admitidos a través de Azure Firewall en el centro de WAN virtual.
+
+### <a name="branch-to-internet-or-third-party-security-service-j"></a>Servicio de seguridad de sucursal a Internet o a terceros (i)
+El tránsito seguro de sucursal a Internet o a terceros permite que las sucursales se conecten a Internet o a servicios de seguridad de terceros admitidos a través de Azure Firewall en el centro de WAN virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cree una conexión mediante Virtual WAN.
+Cree una conexión mediante Virtual WAN e implemente Azure Firewall en los centros de Virtual WAN.
 
 * [Creación de una conexión de sitio a sitio mediante Azure Virtual WAN](virtual-wan-site-to-site-portal.md)
 * [Conexiones de ExpressRoute con Virtual WAN](virtual-wan-expressroute-portal.md)
+* [Azure Firewall Manager para implementar Azure Firewall en WAN virtual](https://go.microsoft.com/fwlink/?linkid=2107683)

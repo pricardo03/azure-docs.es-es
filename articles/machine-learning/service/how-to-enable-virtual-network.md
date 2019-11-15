@@ -6,18 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
+ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 08/05/2019
-ms.openlocfilehash: 9299959eef24f6890218dc2d2aa733cc227e1a32
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/25/2019
+ms.openlocfilehash: e5dee838df2a60bf2038f2c7d2b1cc5958354d29
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162579"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796764"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, obtendrá información sobre cómo proteger los trabajos de experimentación o aprendizaje y los trabajos de inferencia o puntuación de Azure Machine Learning en una instancia de Azure Virtual Network (red virtual).
 
@@ -26,6 +27,12 @@ Una **red virtual** actúa como un límite de seguridad, aislando los recursos d
 Azure Machine Learning depende de otros servicios de Azure para los recursos de proceso. Los recursos de proceso, o [destinos de proceso](concept-compute-target.md), se usan para entrenar e implementar modelos. Los destinos se pueden crear dentro de una red virtual. Por ejemplo, puede usar Microsoft Data Science Virtual Machine para entrenar un modelo y, después, implementarlo en Azure Kubernetes Service (AKS). Para más información acerca de las redes virtuales, consulte [Introducción a Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 En este artículo también se proporciona información detallada acerca de la *configuración de seguridad avanzada*, información que no es necesaria para casos de uso básicos o experimentales. Algunas secciones de este artículo proporcionan información acerca de la configuración de diversos escenarios. No es necesario completar las instrucciones en orden ni en su totalidad.
+
+> [!TIP]
+> A menos que se indique específicamente, el uso de recursos como cuentas de almacenamiento o destinos de proceso dentro de una red virtual funcionará con las canalizaciones de aprendizaje automático y los flujos de trabajo que no son de canalización, como las ejecuciones de script.
+
+> [!WARNING]
+> Microsoft no admite el uso del diseñador de Azure Machine Learning o el aprendizaje automático automatizado (desde Studio) con recursos dentro de una red virtual.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,7 +46,7 @@ En este artículo también se proporciona información detallada acerca de la *c
 
 Para usar una cuenta de Azure Storage para el área de trabajo en una red virtual, siga estos pasos:
 
-1. Cree una instancia de proceso (por ejemplo, una instancia de Proceso de Machine Learning) detrás de una red virtual o vincule una instancia de proceso al área de trabajo (por ejemplo, un clúster de HDInsight, una máquina virtual o un clúster de Azure Kubernetes Service). La instancia de proceso puede ser para experimentación o implementación de modelo.
+1. Cree un recurso de proceso (por ejemplo, un clúster de Machine Learning) detrás de una red virtual o vincule un recurso de proceso al área de trabajo (por ejemplo, un clúster de HDInsight, una máquina virtual o un clúster de Azure Kubernetes Service). El recurso de proceso puede ser para experimentación o implementación de modelo.
 
    Para más información, consulte las secciones [Uso de una instancia de Proceso de Machine Learning](#amlcompute), [Uso de una máquina virtual o un clúster de HDInsight](#vmorhdi) y [Uso de Azure Kubernetes Service](#aksvnet) de este artículo.
 
@@ -53,10 +60,10 @@ Para usar una cuenta de Azure Storage para el área de trabajo en una red virtua
 
 1. En la página __Firewalls y redes virtuales__, realice estas acciones:
     - Seleccione __Redes seleccionadas__.
-    - En __Redes virtuales__, seleccione el vínculo __Agregar red virtual existente__. Esta acción agrega la red virtual en la que reside la instancia de proceso (consulte el paso 1).
+    - En __Redes virtuales__, seleccione el vínculo __Agregar red virtual existente__. Esta acción agrega la red virtual en la que reside el proceso (consulte el paso 1).
 
         > [!IMPORTANT]
-        > La cuenta de almacenamiento debe estar en la misma red virtual que las instancias de proceso usadas para entrenamiento o inferencia.
+        > La cuenta de almacenamiento debe estar en la misma red virtual que los clústeres usados para entrenamiento o inferencia.
 
     - Seleccione la casilla __Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento__.
 
@@ -66,12 +73,6 @@ Para usar una cuenta de Azure Storage para el área de trabajo en una red virtua
     > Para habilitar el acceso a la cuenta de almacenamiento, visite __Firewalls y redes virtuales__ de la cuenta de almacenamiento *desde un explorador web en el cliente de desarrollo*. A continuación, use la casilla __Agregar la dirección IP del cliente__ para agregar la dirección IP del cliente al campo __INTERVALO DE DIRECCIONES__. También puede usar el campo __INTERVALO DE DIRECCIONES__ para especificar manualmente la dirección IP del entorno de desarrollo. Una vez agregada la dirección IP del cliente, este puede acceder a la cuenta de almacenamiento mediante el SDK.
 
    [![Panel "Firewalls y redes virtuales" de Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
-
-1. Al __ejecutar los experimentos__, en el código de la experimentación, cambie la configuración de ejecución para usar Azure Blob Storage:
-
-    ```python
-    run_config.source_directory_data_store = "workspaceblobstore"
-    ```
 
 > [!IMPORTANT]
 > Se puede colocar tanto la _cuenta de almacenamiento predeterminada_ para Azure Machine Learning o las _cuentas de almacenamiento no predeterminadas_ en una red virtual.
@@ -98,25 +99,25 @@ Para usar las funcionalidades de experimentación de Azure Machine Learning con 
 
 1. En la página __Firewalls y redes virtuales__, realice estas acciones:
     - Haga clic en __Redes seleccionadas__ en __Permitir el acceso desde__.
-    - En __Redes virtuales__, seleccione __Agregar redes virtuales existentes__ para agregar la red virtual en que reside el proceso de experimentación.
+    - En __Redes virtuales__, seleccione __Agregar redes virtuales existentes__ para agregar la red virtual donde reside el proceso de experimentación.
     - En __¿Quiere permitir que los servicios de confianza de Microsoft puedan omitir este firewall?__ , seleccione __Sí__.
 
    [![Sección "Firewalls y redes virtuales" del panel de Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
 <a id="amlcompute"></a>
 
-## <a name="use-a-machine-learning-compute-instance"></a>Uso de una instancia de Proceso de Machine Learning
+## <a name="use-a-machine-learning-compute"></a>Uso de una instancia de Proceso de Machine Learning
 
-Para usar una instancia de Proceso de Azure Machine Learning en una red virtual, deben cumplirse los siguientes requisitos de red:
+Para usar un clúster de proceso de Azure Machine Learning en una red virtual, deben cumplirse los siguientes requisitos de red:
 
 > [!div class="checklist"]
 > * La red virtual debe estar en la misma suscripción y región que el área de trabajo de Azure Machine Learning.
-> * La subred que se especifique para el clúster de proceso debe tener suficientes direcciones IP sin asignar para alojar el número de máquinas virtuales que estén destinadas al clúster. Si la subred no tiene suficientes direcciones IP sin asignar, el clúster se asignará parcialmente.
-> * Compruebe si sus directivas de seguridad o bloqueos del grupo de recursos o la suscripción de la red virtual restringen los permisos para administrar las redes virtuales. Si va a proteger la red virtual mediante la restricción del tráfico, deje abiertos algunos puertos para el servicio de proceso. Para más información, consulte la sección [Puertos necesarios](#mlcports).
+> * La subred que se especifique para el clúster de proceso debe tener suficientes direcciones IP sin asignar para alojar el número de máquinas virtuales de destino. Si la subred no tiene suficientes direcciones IP sin asignar, un clúster de proceso se asignará parcialmente.
+> * Compruebe si sus directivas de seguridad o bloqueos del grupo de recursos o la suscripción de la red virtual restringen los permisos para administrar las redes virtuales. Si va a proteger la red virtual mediante la restricción del tráfico, deje abiertos algunos puertos para el servicio de proceso. Para más información, vea la sección [Puertos obligatorios](#mlcports).
 > * Si va a colocar varios clústeres de proceso en una red virtual, es posible que tenga que solicitar un aumento de la cuota para uno o varios de los recursos.
-> * Si las cuentas de Azure Storage del área de trabajo también están protegidas en una red virtual, deben estar en la misma red virtual que la instancia de Proceso de Azure Machine Learning.
+> * Si las cuentas de Azure Storage del área de trabajo también están protegidas en una red virtual, deben estar en la misma red virtual que el clúster de proceso de Azure Machine Learning.
 
-La instancia de Proceso de Machine Learning asigna automáticamente recursos de red adicionales al grupo de recursos que contiene la red virtual. Para cada clúster de proceso, el servicio asigna los recursos siguientes:
+El clúster de proceso de Machine Learning asigna automáticamente recursos de red adicionales al grupo de recursos que contiene la red virtual. Para cada clúster de proceso, el servicio asigna los recursos siguientes:
 
 * Un grupo de seguridad de red
 * Una dirección IP pública
@@ -185,7 +186,7 @@ Cuando agregue las rutas definidas por el usuario, defina la ruta del prefijo de
 
 Para más información, consulte [Creación de un grupo de Azure Batch en una red virtual](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
 
-### <a name="create-a-machine-learning-compute-cluster-in-a-virtual-network"></a>Creación de un clúster de Proceso de Machine Learning en una red virtual
+### <a name="create-a-compute-cluster-in-a-virtual-network"></a>Creación de un clúster de proceso en una red virtual
 
 Para crear un clúster de Proceso de Machine Learning, siga estos pasos:
 
@@ -244,6 +245,7 @@ except ComputeTargetException:
 Cuando finaliza el proceso de creación, el modelo se entrena mediante el clúster en un experimento. Para más información, consulte [Selección y uso de un destino de proceso para entrenamiento](how-to-set-up-training-targets.md).
 
 <a id="vmorhdi"></a>
+
 
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>Uso de una máquina virtual o un clúster de HDInsight
 

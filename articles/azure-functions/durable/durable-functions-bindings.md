@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1b056ce8afe86fcd6629aff23ac95acae02ed9ba
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d7e77907e2d394d2a4c1679ec50af8d4f72fa6f1
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299868"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615055"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces para Durable Functions (Azure Functions)
 
@@ -24,7 +24,7 @@ La extensión [Durable Functions](durable-functions-overview.md) presenta dos nu
 
 El desencadenador de orquestación permite crear [funciones de orquestador durables](durable-functions-types-features-overview.md#orchestrator-functions). Este desencadenador admite iniciar nuevas instancias de función del orquestador y reanudar las instancias existentes de función del orquestador que están en "espera" de una tarea.
 
-Al utilizar las herramientas de Visual Studio para Azure Functions, el desencadenador de orquestación se configura usando el atributo .NET [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html).
+Al utilizar las herramientas de Visual Studio para Azure Functions, el desencadenador de orquestación se configura usando el atributo .NET [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet).
 
 Al escribir funciones de orquestador en lenguajes de scripting (por ejemplo, JavaScript o scripting en C#), el desencadenador de orquestación se define mediante el objeto JSON siguiente en la matriz `bindings` del archivo *function.json*:
 
@@ -37,7 +37,7 @@ Al escribir funciones de orquestador en lenguajes de scripting (por ejemplo, Jav
 }
 ```
 
-* `orchestration`es el nombre de la orquestación. Este es el valor que los clientes tienen que usar cuando deseen iniciar nuevas instancias de esta función del orquestador. Esta propiedad es opcional. Si no se especifica, se utiliza el nombre de la función.
+* `orchestration` es el nombre de la orquestación que los clientes tienen que usar cuando quieren iniciar nuevas instancias de esta función de orquestador. Esta propiedad es opcional. Si no se especifica, se utiliza el nombre de la función.
 
 Internamente este enlace de desencadenador sondea una serie de colas de la cuenta de almacenamiento predeterminado para la aplicación de la función. Estas colas son detalles de implementación internos de la extensión, esta es la razón de que no se configuren explícitamente en las propiedades de enlace.
 
@@ -60,7 +60,7 @@ Estas son algunas notas acerca del desencadenador de orquestación:
 
 El enlace de desencadenador de orquestación admite entradas y salidas. Estas son algunas cosas que hay que saber acerca del control de entradas y salidas:
 
-* **entradas**: las funciones de orquestación de .NET admiten solamente [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) como tipo de parámetro. No se admite deserialización de entradas directamente en la firma de función. El código debe usar el método [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1)(.NET) o `getInput` (JavaScript) para capturar entradas de la función del orquestador. Estas entradas tienen que ser tipos serializables con JSON.
+* **entradas**: las funciones de orquestación de .NET admiten solamente `DurableOrchestrationContext` como tipo de parámetro. No se admite deserialización de entradas directamente en la firma de función. El código debe usar el método `GetInput<T>` (.NET) o `getInput` (JavaScript) para capturar entradas de la función de orquestador. Estas entradas tienen que ser tipos serializables con JSON.
 * **salidas**: los desencadenadores de orquestación admiten valores de salida, así como de entrada. El valor devuelto de la función se utiliza para asignar el valor de salida y tiene que ser serializable con JSON. Si una función .NET devuelve `Task` o `void`, un valor `null` se guardará como salida.
 
 ### <a name="trigger-sample"></a>Ejemplo de desencadenador
@@ -71,14 +71,16 @@ El código de ejemplo siguiente muestra el aspecto que podría tener la función
 
 ```csharp
 [FunctionName("HelloWorld")]
-public static string Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static string Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
     return $"Hello {name}!";
 }
 ```
+> [!NOTE]
+> El código anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -102,7 +104,7 @@ La mayoría de las funciones del orquestador llaman a funciones de actividad, po
 ```csharp
 [FunctionName("HelloWorld")]
 public static async Task<string> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
@@ -110,7 +112,10 @@ public static async Task<string> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+> [!NOTE]
+> El código anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -126,7 +131,7 @@ module.exports = df.orchestrator(function*(context) {
 
 El desencadenador de actividad le permite crear funciones que las funciones del orquestador llaman, conocidas como [funciones de actividad](durable-functions-types-features-overview.md#activity-functions).
 
-Si usa Visual Studio, el desencadenador de actividad se configura mediante el atributo [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) de .NET.
+Si usa Visual Studio, el desencadenador de actividad se configura mediante el atributo `ActivityTriggerAttribute`de .NET.
 
 Si utiliza VS Code o Azure Portal para el desarrollo, el desencadenador de actividad está definido por el objeto JSON siguiente en la matriz `bindings` de *function.json*:
 
@@ -159,7 +164,7 @@ Estas son algunas notas acerca del desencadenador de actividad:
 
 El enlace de desencadenador de actividad admite entradas y salidas como el desencadenador de orquestación. Estas son algunas cosas que hay que saber acerca del control de entradas y salidas:
 
-* **entradas**: las funciones de actividad de .NET usan de forma nativa [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como tipo de parámetro. De forma alternativa, una función de actividad puede declararse con cualquier tipo de parámetro que se puede serializar con JSON. Cuando usa `DurableActivityContext`, puede llamar a [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) para capturar y deserializar la entrada de la función de actividad.
+* **entradas**: las funciones de actividad de .NET usan de forma nativa `DurableActivityContext` como tipo de parámetro. De forma alternativa, una función de actividad puede declararse con cualquier tipo de parámetro que se puede serializar con JSON. Cuando usa `DurableActivityContext`, puede llamar a `GetInput<T>` para capturar y deserializar la entrada de la función de actividad.
 * **salidas**: las funciones de actividad admiten valores de salida, así como de entrada. El valor devuelto de la función se utiliza para asignar el valor de salida y tiene que ser serializable con JSON. Si una función .NET devuelve `Task` o `void`, un valor `null` se guardará como salida.
 * **metadatos**: las funciones de actividad de .NET pueden enlazar a un parámetro `string instanceId` para obtener el identificador de instancia de la orquestación primaria.
 
@@ -171,14 +176,17 @@ El ejemplo de código siguiente muestra el aspecto que podría tener una funció
 
 ```csharp
 [FunctionName("SayHello")]
-public static string SayHello([ActivityTrigger] DurableActivityContext helloContext)
+public static string SayHello([ActivityTrigger] IDurableActivityContext helloContext)
 {
     string name = helloContext.GetInput<string>();
     return $"Hello {name}!";
 }
 ```
 
-El tipo de parámetro predeterminado para el enlace de .NET `ActivityTriggerAttribute` es `DurableActivityContext`. Sin embargo, los desencadenadores de actividad de .NET también admiten enlazar directamente con tipos serializables con JSON (incluidos los tipos primitivos), por lo que la misma función podría simplificarse como sigue:
+> [!NOTE]
+> El código anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableActivityContext` en lugar de `IDurableActivityContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+
+El tipo de parámetro predeterminado para el enlace de .NET `ActivityTriggerAttribute` es `IDurableActivityContext`. Sin embargo, los desencadenadores de actividad de .NET también admiten enlazar directamente con tipos serializables con JSON (incluidos los tipos primitivos), por lo que la misma función podría simplificarse como sigue:
 
 ```csharp
 [FunctionName("SayHello")]
@@ -188,7 +196,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+#### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 module.exports = async function(context) {
@@ -244,7 +252,7 @@ El enlace del cliente de orquestación le permite escribir funciones que interac
 * Enviarles eventos mientras se están ejecutando.
 * Purgar del historial de instancias.
 
-Si está utilizando Visual Studio, puede enlazar al cliente de orquestación mediante el atributo [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) de .NET para Durable Functions 1.0. A partir de la versión preliminar de Durable Functions 2.0, puede enlazar con el cliente de orquestación mediante el atributo `DurableClientAttribute` de .NET.
+Si usa Visual Studio, puede enlazar con el cliente de orquestación mediante el atributo `OrchestrationClientAttribute` de .NET para Durable Functions 1.0. A partir de Durable Functions 2.0, puede enlazar con el cliente de orquestación mediante el atributo `DurableClientAttribute` de .NET.
 
 Si utiliza lenguajes de scripting (por ejemplo, archivos *.csx* o *.js*) para desarrollar, el desencadenador de orquestación está definido por el objeto JSON siguiente en la matriz `bindings` de *function.json*:
 
@@ -266,19 +274,19 @@ Si utiliza lenguajes de scripting (por ejemplo, archivos *.csx* o *.js*) para de
 
 ### <a name="client-usage"></a>Uso del cliente
 
-En funciones de .NET, habitualmente se enlaza a `DurableOrchestrationClient`, lo que proporciona acceso completo a todas las API de cliente compatibles con Durable Functions. En su lugar, a partir de Durable Functions 2.0, se enlaza a la interfaz `IDurableOrchestrationClient`. En JavaScript, el objeto que se devuelve desde `getClient` expone las mismas API. Las API en el objeto de cliente incluyen:
+En las funciones de .NET, habitualmente se enlaza con `IDurableOrchestrationClient`, lo que proporciona acceso completo a todas las API de cliente de orquestación compatibles con Durable Functions. En las versiones anteriores de Durable Functions 2.x, se enlaza con la clase `DurableOrchestrationClient`. En JavaScript, el objeto que se devuelve desde `getClient` expone las mismas API. Las API en el objeto de cliente incluyen:
 
-* [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
-* [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
-* [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_)
-* [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)
-* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_)
-* [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_)
-* [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_)
+* `StartNewAsync`
+* `GetStatusAsync`
+* `TerminateAsync`
+* `RaiseEventAsync`
+* `PurgeInstanceHistoryAsync`
+* `CreateCheckStatusResponse`
+* `CreateHttpManagementPayload`
 
-Como alternativa, las funciones de .NET pueden enlazar a `IAsyncCollector<T>` donde `T` es [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) o `JObject`.
+Como alternativa, las funciones de .NET pueden enlazar con `IAsyncCollector<T>`, donde `T` es `StartOrchestrationArgs` o `JObject`.
 
-Para más información sobre estas operaciones, consulte la documentación de la API [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html).
+Para obtener más información sobre estas operaciones, vea la documentación de la API `IDurableOrchestrationClient`.
 
 ### <a name="client-sample-visual-studio-development"></a>Ejemplo de cliente (Desarrollo de Visual Studio)
 
@@ -288,12 +296,15 @@ Aquí tenemos un ejemplo de una función desencadenada por la cola que inicia un
 [FunctionName("QueueStart")]
 public static Task Run(
     [QueueTrigger("durable-function-trigger")] string input,
-    [OrchestrationClient] DurableOrchestrationClient starter)
+    [DurableClient] IDurableOrchestrationClient starter)
 {
     // Orchestration input comes from the queue message content.
     return starter.StartNewAsync("HelloWorld", input);
 }
 ```
+
+> [!NOTE]
+> El código de C# anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar el atributo `OrchestrationClient` en lugar del atributo `DurableClient`, además de usar el tipo de parámetro `DurableOrchestrationClient` en lugar de `IDurableOrchestrationClient`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 ### <a name="client-sample-not-visual-studio"></a>Ejemplo de cliente (no de Visual Studio)
 
@@ -310,27 +321,35 @@ Si no está usando Visual Studio para el desarrollo, puede crear el siguiente ar
     },
     {
       "name": "starter",
-      "type": "orchestrationClient",
+      "type": "durableClient",
       "direction": "in"
     }
   ]
 }
 ```
 
+> [!NOTE]
+> El JSON anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `orchestrationClient` en lugar de `durableClient` como tipo de desencadenador. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+
 A continuación se encuentran ejemplos específicos del idioma que inician nuevas instancias de función de orquestador.
 
-#### <a name="c-sample"></a>Ejemplo de C#
+#### <a name="c-script-sample"></a>Ejemplo de script de C#
 
-El ejemplo siguiente muestra cómo utilizar el enlace de cliente de orquestación para iniciar una nueva instancia de función desde una función de script de C#:
+En el ejemplo siguiente se muestra cómo usar el enlace de cliente de orquestación durable para iniciar una nueva instancia de función desde una función de C# desencadenada por cola:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
 
-public static Task<string> Run(string input, DurableOrchestrationClient starter)
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
+
+public static Task Run(string input, IDurableOrchestrationClient starter)
 {
     return starter.StartNewAsync("HelloWorld", input);
 }
 ```
+
+> [!NOTE]
+> El código anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar el tipo de parámetro `DurableOrchestrationClient` en lugar de `IDurableOrchestrationClient`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 #### <a name="javascript-sample"></a>Ejemplo de JavaScript
 
@@ -354,7 +373,7 @@ Los desencadenadores de entidad permiten crear [funciones de entidad](durable-fu
 Cuando se usa Visual Studio Tools para Azure Functions, el desencadenador de entidad se configura con el atributo `EntityTriggerAttribute` de .NET.
 
 > [!NOTE]
-> Los desencadenadores de entidad están disponibles en Durable Functions 2.0 y versiones posteriores. Los desencadenadores de entidad todavía no están disponibles para JavaScript.
+> Los desencadenadores de entidad están disponibles a partir de Durable Functions 2.x.
 
 Internamente este enlace de desencadenador sondea una serie de colas de la cuenta de almacenamiento predeterminado para la aplicación de la función. Estas colas son detalles de implementación internos de la extensión, esta es la razón de que no se configuren explícitamente en las propiedades de enlace.
 
@@ -389,7 +408,7 @@ Cada función de entidad tiene un tipo de parámetro de `IDurableEntityContext`,
 
 Se puede acceder al objeto `IDurableEntityContext` pasado a la función de entidad mediante la propiedad async-local `Entity.Current`. Este enfoque es práctico cuando se usa el modelo de programación basado en clases.
 
-### <a name="trigger-sample-function-based-syntax"></a>Ejemplo de desencadenador (sintaxis basada en función)
+### <a name="trigger-sample-c-function-based-syntax"></a>Ejemplo de desencadenador (sintaxis basada en función de C#)
 
 El código siguiente es un ejemplo de una entidad *Counter* simple implementada como una función duradera. Esta función define tres operaciones (`add`, `reset` y `get`), cada una de las cuales opera en un valor de estado entero.
 
@@ -414,7 +433,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 Para más información sobre la sintaxis basada en funciones y cómo utilizarla, consulte [Sintaxis basada en funciones](durable-functions-dotnet-entities.md#function-based-syntax).
 
-### <a name="trigger-sample-class-based-syntax"></a>Ejemplo de desencadenador (sintaxis basada en clases)
+### <a name="trigger-sample-c-class-based-syntax"></a>Ejemplo de desencadenador (sintaxis basada en clase de C#)
 
 El ejemplo siguiente es una implementación equivalente de la entidad `Counter` que usa clases y métodos.
 
@@ -446,6 +465,48 @@ Para más información sobre la sintaxis basada en clases y cómo utilizarla, co
 
 Las clases de entidad tienen mecanismos especiales para interactuar con los enlaces y la inserción de dependencias de .NET. Para más información, consulte [Construcción de entidades](durable-functions-dotnet-entities.md#entity-construction).
 
+### <a name="trigger-sample-javascript"></a>Ejemplo de desencadenador (JavaScript)
+
+El código siguiente es un ejemplo de una entidad *Counter* simple implementada como una función durable escrita en JavaScript. Esta función define tres operaciones (`add`, `reset` y `get`), cada una de las cuales opera en un valor de estado entero.
+
+**function.json**
+```json
+{
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+**index.js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
+
+> [!NOTE]
+> Las entidades durables están disponibles en JavaScript a partir de la versión **1.3.0** del paquete de npm `durable-functions`.
+
 ## <a name="entity-client"></a>Cliente de entidad
 
 El enlace de cliente de entidad permite desencadenar de manera asincrónica las [funciones de entidad](#entity-trigger). Estas funciones se conocen a veces como [funciones de cliente](durable-functions-types-features-overview.md#client-functions).
@@ -475,7 +536,7 @@ Si utiliza lenguajes de scripting (por ejemplo, archivos *.csx* o *.js*) para de
 
 ### <a name="entity-client-usage"></a>Uso del cliente de entidad
 
-En funciones de .NET, habitualmente se enlaza a `IDurableEntityClient`, lo que proporciona acceso completo a todas las API de cliente compatibles con las entidades duraderas. También puede enlazar a la interfaz `IDurableClient`, que proporciona acceso a las API de cliente, tanto para las entidades como para las orquestaciones. Las API en el objeto de cliente incluyen:
+En funciones de .NET, habitualmente se enlaza a `IDurableEntityClient`, lo que proporciona acceso completo a todas las API de cliente compatibles con las entidades duraderas. También puede enlazar a la interfaz `IDurableOrchestrationClient`, que proporciona acceso a las API de cliente, tanto para las entidades como para las orquestaciones. Las API en el objeto de cliente incluyen:
 
 * **ReadEntityStateAsync\<T >** : lee el estado de una entidad. Devuelve una respuesta que indica si la entidad de destino existe y, si es así, cuál es su estado.
 * **SignalEntityAsync**: envía un mensaje unidireccional a una entidad y espera a que se ponga en cola.
@@ -485,7 +546,7 @@ No es necesario crear la entidad de destino antes de enviar una señal: el estad
 > [!NOTE]
 > Es importante comprender que las "señales" enviadas desde el cliente simplemente se ponen en cola y se procesan de forma asincrónica en un momento posterior. En concreto, `SignalEntityAsync` normalmente se devuelve antes de que la entidad inicie incluso la operación y no es posible recuperar el valor devuelto ni observar las excepciones. Si se requieren garantías más seguras (por ejemplo, para flujos de trabajo), se deben usar las *funciones del orquestador*, que pueden esperar a que se completen las operaciones de entidad, y pueden procesar los valores devueltos y observar las excepciones.
 
-### <a name="example-client-signals-entity-directly"></a>Ejemplo: El cliente señala la entidad directamente
+### <a name="example-client-signals-entity-directly---c"></a>Ejemplo: el cliente señala la entidad directamente (C#)
 
 Este es un ejemplo de una función desencadenada por la cola que invoca una entidad "Counter".
 
@@ -502,7 +563,7 @@ public static Task Run(
 }
 ```
 
-### <a name="example-client-signals-entity-via-interface"></a>Ejemplo: El cliente señala la entidad mediante la interfaz
+### <a name="example-client-signals-entity-via-interface---c"></a>Ejemplo: el cliente señala la entidad mediante la interfaz (C#)
 
 Siempre que sea posible, se recomienda [acceder a las entidades mediante interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces), ya que así se proporciona una comprobación de más tipos. Por ejemplo, supongamos que la entidad `Counter` mencionada anteriormente implementó una interfaz `ICounter`, definida de la siguiente manera:
 
@@ -539,7 +600,45 @@ El parámetro `proxy` es una instancia generada dinámicamente de `ICounter`, qu
 > [!NOTE]
 > Las API `SignalEntityAsync` representan operaciones unidireccionales. Si una interfaz de identidad devuelve `Task<T>`, el valor del parámetro `T` siempre será NULL o `default`.
 
-Especialmente, no tiene sentido señalar la operación `Get`, ya que no se devuelve ningún valor. En cambio, los clientes pueden usar `ReadStateAsync` para acceder al estado del contador directamente o pueden iniciar una función de orquestador que llame a la operación `Get`. 
+Especialmente, no tiene sentido señalar la operación `Get`, ya que no se devuelve ningún valor. En cambio, los clientes pueden usar `ReadStateAsync` para acceder al estado del contador directamente o pueden iniciar una función de orquestador que llame a la operación `Get`.
+
+### <a name="example-client-signals-entity---javascript"></a>Ejemplo: el cliente señala la entidad (JavaScript)
+
+Este es un ejemplo de una función desencadenada por la cola que señala una entidad "Counter" en JavaScript.
+
+**function.json**
+```json
+{
+    "bindings": [
+      {
+        "name": "input",
+        "type": "queueTrigger",
+        "queueName": "durable-entity-trigger",
+        "direction": "in",
+      },
+      {
+        "name": "starter",
+        "type": "durableClient",
+        "direction": "in"
+      }
+    ],
+    "disabled": false
+  }
+```
+
+**index.js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
+> [!NOTE]
+> Las entidades durables están disponibles en JavaScript a partir de la versión **1.3.0** del paquete de npm `durable-functions`.
 
 <a name="host-json"></a>
 ## <a name="hostjson-settings"></a>configuración de host.json

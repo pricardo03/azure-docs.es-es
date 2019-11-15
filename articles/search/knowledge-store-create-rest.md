@@ -1,21 +1,24 @@
 ---
-title: Creación de un almacén de conocimiento mediante REST
+title: Creación de un almacén de conocimiento (versión preliminar) mediante REST
 titleSuffix: Azure Cognitive Search
-description: Use la API REST y Postman para crear un almacén de conocimiento de Azure Cognitive Search y conservar los enriquecimientos de una canalización de enriquecimiento de inteligencia artificial.
-author: lobrien
+description: Use la API REST y Postman para crear un almacén de conocimiento de Azure Cognitive Search y conservar los enriquecimientos de una canalización de enriquecimiento de inteligencia artificial. Esta característica actualmente está en su versión preliminar pública.
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b97374b032640afafde775e90f6db735d63c46
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 107dcfa9ea312774e679c301ea934255c7b836c0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790027"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720068"
 ---
 # <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>Creación de un almacén de conocimiento de Azure Cognitive Search mediante REST
+
+> [!IMPORTANT] 
+> El almacén de conocimiento está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST versión 2019-05-06-Preview](search-api-preview.md) se proporcionan características en versión preliminar. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
 
 La característica de almacén de conocimiento de Azure Cognitive Search conserva la salida de una canalización de enriquecimiento de inteligencia artificial para su posterior análisis o procesamiento de nivel inferior. Una canalización enriquecida de inteligencia artificial acepta archivos de imagen o de texto no estructurados, los indexa mediante Azure Cognitive Search, aplica los enriquecimientos de inteligencia artificial de Azure Cognitive Services (como el análisis de imágenes y el procesamiento de lenguaje natural) y guarda los resultados en un almacén de conocimiento en Azure Storage. Puede usar herramientas como Power BI o el Explorador de Storage de Azure Portal para explorar el almacén de conocimiento.
 

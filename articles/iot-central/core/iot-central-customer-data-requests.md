@@ -1,6 +1,6 @@
 ---
 title: Características de solicitud de datos del cliente de Azure IoT Central | Microsoft Docs
-description: Características de solicitud de datos del cliente de Azure IoT Central
+description: En este artículo se describe cómo identificar, eliminar y exportar datos de clientes en la aplicación de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/23/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3c9a3520e6ca97d6f2054e49301d122eb2400682
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 27cd2e58eabcd96414391cac1a517ea242a65c21
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942213"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809807"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumen de características de solicitud de datos del cliente
 

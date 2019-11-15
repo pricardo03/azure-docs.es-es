@@ -1,6 +1,6 @@
 ---
-title: Recuperación ante desastres geográfica de Azure Functions | Microsoft Docs
-description: Uso de regiones geográficas para conmutar por error y utilizar la recuperación ante desastres en Azure Functions.
+title: Alta disponibilidad y recuperación ante desastres geográfica para Azure Functions | Microsoft Docs
+description: Uso de regiones geográficas para la redundancia y conmutar por error en Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: 87f8b2fac3a123f2b92f77a70535f952b25557e0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 1d75d58a6df622ffb1b277f75ceedc2c2a66369d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309259"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576249"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Recuperación ante desastres geográfica de Azure Functions
 

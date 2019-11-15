@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: 9760475886ecb0f20d9f0f3981eab8246643da21
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a30fcd0ec7e53c78876596baf787639e81c638db
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101980"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795023"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configuración de los contenedores de Docker de Language Understanding 
 
@@ -64,12 +64,9 @@ Este valor se puede encontrar en los siguientes lugares:
 * Azure Portal: Información general de **Cognitivas Services**, con la etiqueta `Endpoint`
 * Portal de LUIS: en la página de configuración **Claves y puntos de conexión**, como parte del identificador URI del punto de conexión.
 
-No olvide incluir la ruta `luis/v2.0` en la dirección URL como se muestra en la tabla siguiente:
-
-
-|Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
-|--|------|-----------|-------------|
-|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+| Obligatorio | NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|----------|------|-----------|-------------|
+| Sí      | `Billing` | string | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](luis-container-howto.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -109,8 +106,6 @@ Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo 
 * Los ejemplos de `C:` usan el directorio que está en la unidad para evitar conflictos con los permisos de Windows. Si necesita usar un directorio específico como directorio de entrada, tal vez tenga que conceder permiso al servicio de Docker. 
 * No cambie el orden de los argumentos a menos que esté muy familiarizado con los contenedores de Docker.
 * Si usa otro sistema operativo, utilice la consola o el terminal, la sintaxis de carpeta de los montajes y el carácter de continuación de línea que sean adecuados para su sistema. En estos ejemplos se supone que se usa una consola de Windows con un carácter de continuación de línea `^`. Dado que el contenedor es un sistema operativo Linux, el montaje de destino usa una sintaxis de carpeta basada en Linux.
-
-No olvide incluir la ruta `luis/v2.0` en la dirección URL como se muestra en la tabla siguiente.
 
 Reemplace {_argument_name_} por sus propios valores:
 

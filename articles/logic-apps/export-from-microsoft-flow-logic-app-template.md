@@ -1,6 +1,6 @@
 ---
-title: Exportación de flujos desde Microsoft Flow a Azure Logic Apps
-description: Migre flujos desde Microsoft Flow a Azure Logic Apps mediante su exportación como plantillas de Azure Resource Manager
+title: Exportación de flujos desde Power Automate en Azure Logic Apps
+description: Migración de flujos desde Power Automate a Azure Logic Apps mediante su exportación como plantillas de Azure Resource Manager
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,31 +9,31 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 82c4e55eff36a7da70e0304fc8152491a8030e04
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e0dda5c2097243143d18851c47e7006c81769c87
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441008"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583252"
 ---
-# <a name="export-flows-from-microsoft-flow-and-deploy-to-azure-logic-apps"></a>Exportación de flujos desde Microsoft Flow e implementación en Azure Logic Apps
+# <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportación de flujos desde Power Automate y su implementación en Azure Logic Apps
 
-Para ampliar y expandir las funcionalidades de un flujo, puede migrarlo desde [Microsoft Flow](https://flow.microsoft.com) a [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Puede exportar el flujo en forma de plantilla de Azure Resource Manager para una aplicación lógica, implementar esa plantilla en un grupo de recursos de Azure y, después, abrir la aplicación en el Diseñador de aplicación lógica.
+Para ampliar y expandir las funcionalidades de un flujo, puede migrarlo desde [Power Automate](https://flow.microsoft.com) a [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Puede exportar el flujo en forma de plantilla de Azure Resource Manager para una aplicación lógica, implementar esa plantilla en un grupo de recursos de Azure y, después, abrir la aplicación en el Diseñador de aplicación lógica.
 
 > [!NOTE]
-> No todos los conectores de Microsoft Flow están disponibles en Azure Logic Apps. Puede importar flujos que tengan [conectores equivalentes ](../connectors/apis-list.md) en Azure Logic Apps. Por ejemplo, el desencadenador Button, el conector Approvals y el conector Notification son específicos de Microsoft Flow.
+> No todos los conectores de Power Automate están disponibles en Azure Logic Apps. Puede importar flujos que tengan [conectores equivalentes ](../connectors/apis-list.md) en Azure Logic Apps. Por ejemplo, el desencadenador Button, el conector Approvals y el conector Notification son específicos de Power Automate.
 >
-> Los flujos basados en OpenAPI exportados desde Microsoft Flow no se admiten actualmente para la implementación como plantillas de aplicación lógica. 
+> Los flujos basados en OpenAPI exportados desde Power Automate no se admiten actualmente para la implementación como plantillas de aplicación lógica. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* El flujo que desea exportar desde Microsoft Flow
+* El flujo que desea exportar desde Power Automate
 
 ## <a name="export-a-flow"></a>Exportación de un flujo
 
-1. Inicie sesión en [Microsoft Flow](https://flow.microsoft.com) y seleccione **Mis flujos**. Busque y seleccione el flujo. En la barra de herramientas, seleccione el botón de los puntos suspensivos ( **...** ). Seleccione **Exportar** > **Plantilla de Logic Apps (.json)** .
+1. Inicie sesión en [Power Automate](https://flow.microsoft.com) y seleccione **Mis flujos**. Busque y seleccione el flujo. En la barra de herramientas, seleccione el botón de los puntos suspensivos ( **...** ). Seleccione **Exportar** > **Plantilla de Logic Apps (.json)** .
 
    ![Exportar flujo](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
@@ -53,7 +53,7 @@ Para más información, consulte [Crecer hasta Azure Logic Apps](https://flow.mi
 
    ![Seleccionar "Cree su propia plantilla en el editor"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
-1. En la barra de herramientas **Editar plantilla**, seleccione **Cargar archivo**. Busque y seleccione la plantilla JSON que exportó desde Microsoft Flow y seleccione **Abrir**.
+1. En la barra de herramientas **Editar plantilla**, seleccione **Cargar archivo**. Busque y seleccione la plantilla JSON que exportó desde Power Automate y seleccione **Abrir**.
 
    ![Seleccionar "Cargar archivo"](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
 
@@ -76,7 +76,7 @@ Para más información, consulte [Crecer hasta Azure Logic Apps](https://flow.mi
   
    ![Especificar los parámetros de entrada de la plantilla](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
-   Azure implementa la plantilla como una aplicación lógica en el grupo de recursos que especifique. Todas las aplicaciones lógicas que migre desde Microsoft Flow se implementan en estado deshabilitado.
+   Azure implementa la plantilla como una aplicación lógica en el grupo de recursos que especifique. Todas las aplicaciones lógicas que migre desde Power Automate se implementan en estado deshabilitado.
 
 1. Antes de activar la aplicación lógica, autorice las nuevas conexiones, para lo que debe seguir estos pasos:
 
@@ -102,7 +102,7 @@ Para más información, consulte [Crecer hasta Azure Logic Apps](https://flow.mi
 
 Si ha configurado Visual Studio con los [requisitos previos](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) para la creación de aplicaciones lógicas, puede implementar la plantilla exportada desde Visual Studio en Azure Logic Apps.
 
-1. En Visual Studio, abra el archivo de plantilla que exportó desde Microsoft Flow.
+1. En Visual Studio, abra el archivo de plantilla que exportó desde Power Automate.
 
 1. En Visual Studio, cree el proyecto Azure Resource Group y seleccione la plantilla **Logic App** siguiendo los pasos de [Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md), por ejemplo:
 

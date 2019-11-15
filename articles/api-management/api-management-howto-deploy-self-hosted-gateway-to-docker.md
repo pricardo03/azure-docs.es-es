@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: bfb012116f74e451f9479c8c65057e5c8405bbb4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510577"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747692"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Implementación de una puerta de enlace autohospedada de Azure API Management en Docker
 
@@ -31,6 +31,9 @@ En este artículo se detallan los pasos para implementar una puerta de enlace au
 - Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 - Cree un entorno de Docker. [Docker for Desktop](https://www.docker.com/products/docker-desktop) es una buena opción para fines de desarrollo y evaluación. Consulte la [documentación de Docker](https://docs.docker.com) para obtener información sobre todas las ediciones de Docker, sus características y la documentación completa de Docker.
 - [Aprovisione un recurso de puerta de enlace en la instancia de API Management](api-management-howto-provision-self-hosted-gateway.md)
+
+> [!NOTE]
+> La puerta de enlace autohospedada se empaqueta como un contenedor de Docker basado en Linux.
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>Implementación de la puerta de enlace autohospedada en Docker
 
@@ -63,4 +66,5 @@ CONTAINER ID        IMAGE                                                 COMMAN
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre la puerta de enlace autohospedada, consulte [Introducción a la puerta de enlace autohospedada de Azure API Management](self-hosted-gateway-overview.md)
+* Para más información sobre la puerta de enlace autohospedada, consulte [Introducción a la puerta de enlace autohospedada de Azure API Management](self-hosted-gateway-overview.md).
+* [Configure el nombre de dominio personalizado para la puerta de enlace autohospedada](api-management-howto-configure-custom-domain-gateway.md).

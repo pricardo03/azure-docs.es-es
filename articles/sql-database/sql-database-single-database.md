@@ -1,5 +1,5 @@
 ---
-title: Bases de datos de Azure SQL únicas| Microsoft Docs
+title: Qué es una base de datos única
 description: Obtenga información acerca de la base de datos única en Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 2f55ad795cc76d59581b25ca60a1c89e7db96b04
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7b084954cb53d19739a0f633661e0c76fa82dd13
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496019"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820937"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Bases de datos únicas en Azure SQL Database
 

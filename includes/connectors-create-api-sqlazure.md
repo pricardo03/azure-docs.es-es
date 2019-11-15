@@ -7,13 +7,13 @@ ms.service: logic-apps
 ms.topic: include
 ms.author: estfan
 ms.custom: include file
-ms.date: 05/15/2018
-ms.openlocfilehash: aa1001661d8fe03855e1a28b882f674bee3606b2
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.date: 11/08/2019
+ms.openlocfilehash: 0be29f6f541aa58e57eb665ebaf29e35f42865e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312009"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826320"
 ---
 * Si está usando Azure SQL Database, siga los pasos que se indican en [Conexión a Azure SQL Database](#connect-azure-sql-db).
 
@@ -34,7 +34,7 @@ Cuando el desencadenador o la acción de SQL le pidan la información de conexi�
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![Creación de una conexión de Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   ![Creación de una conexión a Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
 
 1. Seleccione **Crear** cuando haya terminado.
 
@@ -44,7 +44,9 @@ Cuando el desencadenador o la acción de SQL le pidan la información de conexi�
 
 ### <a name="connect-to-sql-server"></a>Conexión con SQL Server
 
-Cuando el desencadenador o la acción de SQL le pidan la información de conexión, siga estos pasos (sirven tanto para desencadenadores como para acciones): Sin embargo, antes de empezar, asegúrese de que ya ha [configurado la puerta de enlace de datos local ](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Si no, no aparecerá en la lista de puertas de enlace al crear la conexión.
+Cuando el desencadenador o la acción de SQL le pidan la información de conexión, siga estos pasos (sirven tanto para desencadenadores como para acciones): En los escenarios en los que es necesario instalar la [puerta de enlace de datos local](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install) en un equipo local y [crear el recurso de puerta de enlace de datos de Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection), asegúrese de completar estos requisitos primero. De lo contrario, no aparecerá su recurso en la lista de puertas de enlace al crear la conexión.
+
+Además, para usar autenticación de Windows con el conector de SQL Server en un [entorno de servicio de integración (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), use la versión no ISE del conector y la puerta de enlace de datos local. La versión con etiqueta ISE no admite autenticación de Windows.
 
 1. En **Nombre de la conexión**, cree un nombre para la conexión.
 

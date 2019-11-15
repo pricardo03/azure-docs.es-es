@@ -3,15 +3,15 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre cómo Azure Policy usa Guest Configuration para auditar la configuración dentro de una máquina de Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/20/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: efe929a6ea38a8df7ad9fe37a92c181e3d409b25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e5592f629646db3132ffd65fd56b1a0d5d5be39
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464064"
+ms.locfileid: "73581443"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -121,30 +121,27 @@ Azure Policy usa la propiedad **complianceStatus** de los proveedores de recurso
 > [!NOTE]
 > La directiva **DeployIfNotExists** es necesaria para que la directiva **AuditIfNotExists** devuelva resultados. Sin la directiva **DeployIfNotExists**, **AuditIfNotExists** muestra "0 de 0" recursos como estado.
 
-Se incluyen todas las directivas integradas para Guest Configuration en una iniciativa para agrupar las definiciones para su uso en las asignaciones. La iniciativa integrada denominada *[Versión preliminar]: La configuración de seguridad de la contraseña de la auditoría dentro de máquinas Linux y Windows* contiene 18 directivas. Hay seis pares **DeployIfNotExists** y **AuditIfNotExists** para Windows y tres pares para Linux. La lógica de [definición de directiva](definition-structure.md#policy-rule) valida que solo se evalúa el sistema operativo de destino.
+Se incluyen todas las directivas integradas para Guest Configuration en una iniciativa para agrupar las definiciones para su uso en las asignaciones. La iniciativa integrada denominada _\[Versión preliminar\]: La configuración de seguridad de la contraseña de la auditoría dentro de máquinas Linux y Windows_ contiene 18 directivas. Hay seis pares **DeployIfNotExists** y **AuditIfNotExists** para Windows y tres pares para Linux. La lógica de [definición de directiva](definition-structure.md#policy-rule) valida que solo se evalúa el sistema operativo de destino.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditoría de la configuración del sistema operativo siguiendo las líneas de base del sector
 
-Una de las iniciativas disponibles en Azure Policy proporciona la capacidad de auditar la configuración del sistema operativo dentro de las máquinas virtuales siguiendo una "línea de base" de Microsoft.  La definición, *[Versión preliminar]: Auditar las VM Windows que no coinciden con la configuración de línea de base de seguridad de Azure* incluye un conjunto completo de reglas de auditoría basadas en la configuración de la directiva de grupo de Active Directory.
+Una de las iniciativas disponibles en Azure Policy proporciona la capacidad de auditar la configuración del sistema operativo dentro de las máquinas virtuales siguiendo una "línea de base" de Microsoft. La definición, _\[Versión preliminar\]: Auditar las VM Windows que no coinciden con la configuración de línea de base de seguridad de Azure_ incluye un conjunto completo de reglas de auditoría basadas en la configuración de la directiva de grupo de Active Directory.
 
-La mayoría de las opciones de configuración están disponibles como parámetros.  Esta funcionalidad le permite personalizar lo que se auditará para alinear la directiva con sus requisitos organizativos o asignar la directiva a información de terceros como los estándares normativos del sector.
+La mayoría de las opciones de configuración están disponibles como parámetros. Esta funcionalidad le permite personalizar lo que se audita para alinear la directiva con sus requisitos organizativos o asignar la directiva a información de terceros, como los estándares normativos del sector.
 
-Algunos parámetros admiten un intervalo de valores enteros.  Por ejemplo, el parámetro Duración máxima de la contraseña se puede establecer mediante un operador de intervalo para ofrecer flexibilidad a los propietarios de las máquinas.  Podría auditar que la configuración de la directiva de grupo que requiere que el usuario cambie sus contraseñas no debe superar los 70 días ni ser inferior a un día.  Como se describe en la burbuja de información del parámetro, para que este sea el valor de auditoría eficaz, establezca el valor en "1,70".
+Algunos parámetros admiten un intervalo de valores enteros. Por ejemplo, el parámetro Duración máxima de la contraseña se puede establecer mediante un operador de intervalo para ofrecer flexibilidad a los propietarios de las máquinas. Podría auditar que la configuración efectiva de la directiva de grupo que exige que el usuario cambie sus contraseñas no deba superar los 70 días ni ser inferior a un día. Como se describe en la burbuja de información del parámetro, para que esta directiva empresarial sea el valor de auditoría efectivo, establezca el valor en "1,70".
 
-Si asigna la directiva mediante una plantilla de implementación de Azure Resource Manager, puede usar un archivo de parámetros para administrar esta configuración desde el control de código fuente.
-El uso de una herramienta como Git para administrar los cambios en las directivas de auditoría con comentarios en cada inserción en el repositorio hará que se documenten pruebas sobre por qué la asignación debe ser una excepción al valor esperado.
+Si asigna la directiva mediante una plantilla de implementación de Azure Resource Manager, puede usar un archivo de parámetros para administrar esta configuración desde el control de código fuente. El uso de una herramienta como Git para administrar los cambios en las directivas de auditoría con comentarios en cada inserción en el repositorio documenta la evidencia de por qué la asignación debe ser una excepción al valor esperado.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Aplicación de configuraciones mediante la configuración de invitado
 
-La última característica de Azure Policy establece la configuración dentro de las máquinas.
-La definición *Configure la zona horaria en las máquinas de Windows* realizará cambios en la máquina configurando la zona horaria.
+La última característica de Azure Policy establece la configuración dentro de las máquinas. La definición _Configurar la zona horaria de las máquinas Windows_ realiza cambios en la máquina mediante la configuración de la zona horaria.
 
-Al asignar definiciones que empiezan por *Configure*, también debe asignar la definición *Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM Windows.*
-Puede combinar estas definiciones en una iniciativa si así lo decide.
+Al asignar definiciones que empiezan por _Configurar_, también debe asignar la definición _Implementar los requisitos previos para habilitar la directiva de configuración de invitado en máquinas virtuales Windows._ . Puede combinar estas definiciones en una iniciativa si así lo decide.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Asignación de directivas a máquinas fuera de Azure
 
-Las directivas de auditoría disponibles para la configuración de invitado incluyen el tipo de recurso **Microsoft.HybridCompute/machines**.  Cualquier máquina incorporada a Azure Arc que esté en el ámbito de la asignación se incluirá automáticamente.
+Las directivas de auditoría disponibles para la configuración de invitado incluyen el tipo de recurso **Microsoft.HybridCompute/machines**. Todas las máquinas incorporadas a [Azure Arc para servidores](../../../azure-arc/servers/overview.md) que se encuentran en el ámbito de asignación de la directiva se incluyen automáticamente.
 
 ### <a name="multiple-assignments"></a>Asignaciones múltiples
 
@@ -152,8 +149,7 @@ Actualmente, las directivas de configuración de invitado solo admiten la asigna
 
 ## <a name="built-in-resource-modules"></a>Módulos de recursos integrados
 
-Al instalar la extensión de configuración de invitado, el módulo de PowerShell "GuestConfiguration" se incluye con la versión más reciente de los módulos de recursos de DSC. Este módulo se puede descargar desde la Galería de PowerShell con el vínculo "Descarga manual" de la página del módulo [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/).
-El formato de archivo ".nupkg" se puede cambiar de nombre a ".zip" para descomprimirlo y revisarlo.
+Al instalar la extensión de configuración de invitado, el módulo de PowerShell "GuestConfiguration" se incluye con la versión más reciente de los módulos de recursos de DSC. Este módulo se puede descargar desde la Galería de PowerShell con el vínculo "Descarga manual" de la página del módulo [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/). El formato de archivo ".nupkg" se puede cambiar de nombre a ".zip" para descomprimirlo y revisarlo.
 
 ## <a name="client-log-files"></a>Archivos de registro de cliente
 

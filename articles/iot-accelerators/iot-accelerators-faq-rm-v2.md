@@ -1,6 +1,6 @@
 ---
 title: 'Preguntas frecuentes sobre el acelerador de soluciones de supervisión remota: Azure | Microsoft Docs'
-description: Preguntas frecuentes sobre el acelerador de la solución de supervisión remota
+description: Este artículo responde a las preguntas más frecuentes sobre los aceleradores de la solución de supervisión remota.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c410ac7f41adb623a7198320a1edced097778569
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447920"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826249"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de supervisión remota
 

@@ -1,5 +1,5 @@
 ---
-title: 'Actualización de la información de los grupos en el portal Aplicaciones: Azure Active Directory | Microsoft Docs'
+title: 'Actualización de la información de los grupos en el portal Mis aplicaciones: Azure AD'
 description: Aprenda a ver y actualizar la información de sus grupos, por ejemplo, ver los grupos que posee, crear otros, ver los grupos de los que es miembro y unirse a grupos de los que aún no forme parte.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a11b43d040dec838de350c23614ae42b6756ec6e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: aa251ee361af12ecf3fef3c7cd437fa06c1cea52
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383174"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803921"
 ---
-# <a name="update-your-groups-info-from-the-my-apps-portal"></a>Actualización de la información de los grupos desde el portal Aplicaciones
+# <a name="update-your-groups-info-on-the-my-apps-portal"></a>Actualización de la información de los grupos en el portal Mis aplicaciones
 
 Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para ver e iniciar muchas de las aplicaciones de su organización basadas en la nube, actualizar información de su perfil y cuenta, ver su información de **Grupos** y realizar **revisiones de acceso** para sus aplicaciones y grupos. Si no tiene acceso al portal **Aplicaciones**, debe ponerse en contacto con su departamento de soporte técnico para obtener permiso.
 

@@ -1,5 +1,5 @@
 ---
-title: Preparación de Azure para la recuperación ante desastres de máquinas locales con Azure Site Recovery
+title: Preparación de Azure para la recuperación ante desastres en el entorno local con Azure Site Recovery
 description: Obtenga información sobre cómo preparar Azure para la recuperación ante desastres de máquinas locales mediante Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1b8bdde64ee003d93ad15df8f1d4d8b1e3a2b5f9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814341"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620589"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparación de los recursos de Azure para la recuperación ante desastres de máquinas locales
+# <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparación de Azure para la recuperación ante desastres en el entorno local en Azure
 
 En este artículo se describe cómo preparar los recursos y componentes de Azure para que pueda configurar la recuperación ante desastres de máquinas virtuales de VMware, máquinas virtuales de Hyper-V o servidores físicos Windows/Linux en Azure, mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
 
@@ -54,16 +54,17 @@ Para completar estas tareas su cuenta debe tener asignado el rol integrado de co
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
-1. En Azure Portal, haga clic en **+Crear un recurso** y, en Marketplace, busque **Recuperación**.
-2. Haga clic en **Backup and Site Recovery** (Copia de seguridad y recuperación del sitio) y, una vez en esta página, haga clic en **Crear**. 
-1. En **Almacén de Recovery Services** > **Nombre**, escriba un nombre descriptivo para identificar el almacén. Para este conjunto de tutoriales se usa **ContosoVMVault**.
-2. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo. En este tutorial se va a usar **contosoRG**.
-3. En **Ubicación**, seleccione la región en la que debería estar el almacén. se va a usar **Europa Occidental**.
-4. Para acceder rápidamente al almacén desde el panel, seleccione **Anclar al panel** > **Crear**.
+1. En Azure Portal, seleccione **Crear un recurso** y, en Marketplace, busque **Recuperación**.
+2. Seleccione **Backup and Site Recovery** en los resultados de la búsqueda y, una vez en esta página, haga clic en **Crear**. 
+3. En la página **Crear almacén de Recovery Services**, seleccione la **Suscripción**. Vamos a usar la **suscripción de Contoso**.
+4. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo. En este tutorial se va a usar **contosoRG**.
+5. En **Nombre del almacén**, escriba un nombre descriptivo para identificar el almacén. Para este conjunto de tutoriales se usa **ContosoVMVault**.
+6. En **Región**, seleccione la región en la que debería estar el almacén. se va a usar **Europa Occidental**.
+7. Seleccione **Revisar + crear**.
 
    ![Crear un nuevo almacén](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   El nuevo almacén aparecerá en **Panel** > **Todos los recursos** y en la página principal de **Almacenes de Recovery Services**.
+   El nuevo almacén aparecerá ahora en **Panel** > **Todos los recursos** y en la página principal de **Almacenes de Recovery Services**.
 
 ## <a name="set-up-an-azure-network"></a>Configurar una red de Azure
 
@@ -72,16 +73,17 @@ Las máquinas locales se replican en los discos administrados de Azure. Cuando s
 1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Redes** > **Red virtual**.
 2. Deje **Resource Manager** seleccionado como modelo de implementación.
 3. En **Nombre**, escriba un nombre de red. El nombre debe ser único dentro del grupo de recursos de Azure. Se va a usar **ContosoASRnet** en este tutorial.
-4. Especifique el grupo de recursos en el que se creará la red. Se va a usar el grupo de recursos existente **contosoRG**.
-5. En **Intervalo de direcciones**, escriba el intervalo de la red. Usamos **10.1.0.0/24**, pero no usamos ninguna subred.
-6. En **Suscripción**, seleccione la suscripción en la que se creará la red.
+4. En **Espacio de direcciones**, escriba el intervalo de direcciones de la red virtual en notación CIDR. Usamos **10.1.0.0/24**.
+5. En **Suscripción**, seleccione la suscripción en la que se creará la red.
+6. Especifique el **grupo de recursos** en el que se creará la red. Se va a usar el grupo de recursos existente **contosoRG**.
 7. En **Ubicación**, seleccione la región que en que se creó el almacén de Recovery Services. En este tutorial es **Oeste de Europa**. La red debe estar en la misma región que el almacén.
-8. Se van a dejar las opciones predeterminadas de protección básica contra DDoS, con ningún punto de conexión de servicio en la red.
-9. Haga clic en **Create**(Crear).
+8. En **Intervalo de direcciones**, escriba el intervalo de la red. Usamos **10.1.0.0/24**, pero no usamos ninguna subred.
+9. Se van a dejar las opciones predeterminadas de protección básica contra DDoS, con ningún punto de conexión de servicio ni firewall en la red.
+9. Seleccione **Crear**.
 
    ![Creación de una red virtual](media/tutorial-prepare-azure/create-network.png)
 
-La red virtual tarda unos segundos en crearse. Una vez creada, se ve en el panel de Azure Portal.
+La red virtual tarda unos segundos en crearse. Una vez creada, la verá en el panel de Azure Portal.
 
 
 

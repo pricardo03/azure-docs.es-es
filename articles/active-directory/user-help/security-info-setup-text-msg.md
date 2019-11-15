@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de la información de seguridad (versión preliminar) para usar mensajería de texto: Azure Active Directory | Microsoft Docs'
+title: 'Configuración de la información de seguridad (versión preliminar) para mensaje de texto: Azure AD'
 description: Configuración de la información de seguridad para comprobar la identidad mediante mensajes de texto y un dispositivo móvil.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3544094da72c1c0f854f3d02a34f8540ad2f784
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5a4be99a84964b7a55448692385d027262ecfec3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160871"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803839"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Configuración de la información de seguridad (versión preliminar) para usar mensajes de texto
 

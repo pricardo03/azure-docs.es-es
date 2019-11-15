@@ -1,5 +1,5 @@
 ---
-title: 'Alta disponibilidad: servicio Azure SQL Database | Microsoft Docs'
+title: Alta disponibilidad
 description: Obtenga información acerca de las funcionalidades y características de alta disponibilidad de Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 86a3fd7c67dc2e544a1510dc910951452c32245d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390696"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811345"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidad y Azure SQL Database
 
@@ -89,12 +89,14 @@ En el diagrama siguiente se ilustra la versión con redundancia de zona de la ar
 
 [Recuperación de base de datos acelerada (ADR)](sql-database-accelerated-database-recovery.md) es una nueva característica del motor de base de datos SQL que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de larga duración. ADR está actualmente disponible para bases de datos únicas, grupos elásticos y Azure SQL Data Warehouse.
 
-## <a name="testing-database-fault-resiliency"></a>Prueba de la resistencia a errores de base de datos
+## <a name="testing-application-fault-resiliency"></a>Prueba de la resistencia a errores de la aplicación
 
-La alta disponibilidad es una parte fundamental de la plataforma Azure SQL Database y funciona de modo transparente para la aplicación de base de datos. Sin embargo, podría ser conveniente probar el modo en que las operaciones de conmutación por error automáticas iniciadas durante los eventos planeados o no planeados afectarían a la aplicación antes de implementarla para producción. Puede llamar a una API especial para reiniciar la base de datos o el grupo elástico, que a su vez activará la conmutación por error. En el caso de una base de datos con redundancia de zona o un grupo elástico, la llamada a la API daría lugar a la redirección de las conexiones de cliente al nuevo elemento principal en otra zona de disponibilidad. Por lo tanto, además de probar cómo afecta la conmutación por error a las sesiones de base de datos existentes, también puede comprobar si afecta al rendimiento de un extremo a otro. Dado que la operación de reinicio es intrusiva y un gran número de ellas podría agotar la plataforma, solo se permite una llamada de conmutación por error cada 30 minutos para cada base de datos o grupo elástico. Para más información, consulte [Conmutación por error de la base de datos](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) y [Conmutación por error del grupo elástico](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover).       
+La alta disponibilidad es una parte fundamental de la plataforma Azure SQL Database que funciona de modo transparente para la aplicación de base de datos. Sin embargo, podría ser conveniente probar el modo en que las operaciones de conmutación por error automáticas iniciadas durante los eventos planeados o no planeados afectarían a la aplicación antes de implementarla para producción. Puede llamar a una API especial para reiniciar una base de datos o un grupo elástico, que a su vez activará una conmutación por error. En el caso de una base de datos con redundancia de zona o un grupo elástico, la llamada a la API daría lugar a la redirección de las conexiones de cliente al nuevo elemento principal en una zona de disponibilidad diferente a la zona principal anterior. Por lo tanto, además de probar cómo afecta la conmutación por error a las sesiones de base de datos existentes, también puede comprobar si cambia el rendimiento de un extremo a otro debido a los cambios en la latencia de la red. Dado que la operación de reinicio es intrusiva y un gran número de ellas podría agotar la plataforma, solo se permite una llamada de conmutación por error cada 30 minutos para cada base de datos o grupo elástico. 
+
+Se puede iniciar una conmutación por error mediante la API de REST o PowerShell. Para más información sobre la API de REST, consulte [Conmutación por error de la base de datos](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) y [Conmutación por error del grupo elástico](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover). Para PowerShell, consulte [Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover) y [Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover). También se pueden realizar llamadas a la API de REST desde la CLI de Azure mediante el comando [az rest](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest).
 
 > [!IMPORTANT]
-> El comando de conmutación por error no está disponible actualmente para las instancias de administradas y las bases de datos Hiperescala.  
+> El comando de conmutación por error no está disponible actualmente en el nivel de servicio Hiperescala ni para Instancia administrada.
 
 ## <a name="conclusion"></a>Conclusión
 

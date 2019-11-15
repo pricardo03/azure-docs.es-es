@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: 45853e3c8986cec58f27d785af31f174aff21b2e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 41663ec04e194bcc4380f46f1e5cc5a6867e53fc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755882"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622528"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Introducción al servicio Azure Resource Graph
 
@@ -92,7 +92,9 @@ Resource Graph admite la CLI de Azure, Azure PowerShell, y el SDK para .NET de A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Ejecute la primera consulta mediante [Azure Portal](first-query-portal.md).
 - Ejecute la primera consulta con la [CLI de Azure](first-query-azurecli.md).
 - Ejecute la primera consulta con [Azure PowerShell](first-query-powershell.md).
+- Obtenga más información sobre el [lenguaje de consulta](./concepts/query-language.md).
 - Comience con [consultas de inicio](./samples/starter.md).
 - Mejore sus conocimientos con [consultas avanzadas](./samples/advanced.md).

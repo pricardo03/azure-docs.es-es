@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 525fc8beafbdbe15435c59697d136ae06c91c135
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32b477a108649abd3faedd70d1a3b54b31089b9a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489699"
+ms.locfileid: "73574309"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -343,3 +343,4 @@ Los siguientes cuadernos muestran los conceptos de este artículo:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener información sobre cómo registrar las métricas de sus experimentos, consulte [Registrar métricas durante las ejecuciones de entrenamiento](how-to-track-experiments.md).
+* Para aprender a supervisar los recursos y los registros desde Azure Machine Learning, consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).

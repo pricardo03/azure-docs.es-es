@@ -1,5 +1,5 @@
 ---
-title: Copia de datos en y desde Azure SQL Data Warehouse mediante Azure Data Factory | Microsoft Docs
+title: Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde cualquier almacén de origen compatible en Azure SQL Data Warehouse o desde SQL Data Warehouse en cualquier almacén de receptores compatible mediante Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 5351f7f01bbe99b1e3ebc3c94a0805f0419cc1cf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b64bfd046a42a630e7913c45213053e84377a037
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387913"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681149"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]

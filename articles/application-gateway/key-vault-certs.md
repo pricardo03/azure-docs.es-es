@@ -7,21 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 725a9d67e6a6412fc48a4278b5a8a163272e5133
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 76807c8ed10e30c554b6aa06ec096c830a86e36e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000981"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571977"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Terminación SSL con certificados de Key Vault
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) es un almacén de secretos administrado por la plataforma que puede usar para proteger los secretos, las claves y los certificados SSL. Azure Application Gateway admite la integración con Key Vault (en versión preliminar pública) para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado. Esta compatibilidad está limitada a la versión 2 de la SKU de Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-overview.md) es un almacén de secretos administrado por la plataforma que puede usar para proteger los secretos, las claves y los certificados SSL. Azure Application Gateway admite la integración con Key Vault para certificados de servidor adjuntos a clientes de escucha con HTTPS habilitado. Esta compatibilidad está limitada a la versión 2 de la SKU de Application Gateway.
 
-> [!IMPORTANT]
-> La integración de Application Gateway con Key Vault está en versión preliminar pública actualmente. Esta versión preliminar se ofrece sin contrato de nivel de servicio (SLA) y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Esta versión preliminar pública ofrece dos modelos para la terminación SSL:
+La integración de Key Vault ofrece dos modelos para la terminación SSL:
 
 - Puede proporcionar explícitamente los certificados SSL asociados al cliente de escucha. Este modelo es la forma tradicional para pasar los certificados SSL a Application Gateway para la terminación SSL.
 - También puede proporcionar una referencia a un certificado de Key Vault existente o un secreto al crear un cliente de escucha habilitado para HTTPS.

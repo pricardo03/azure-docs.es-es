@@ -1,5 +1,5 @@
 ---
-title: Límites de recursos del servidor de Azure SQL Database | Microsoft Docs
+title: Límites de recursos de servidor
 description: En este artículo se proporciona información general acerca de los límites de recursos del servidor de Azure SQL Database para bases de datos únicas y grupos elásticos. También se proporciona información acerca de lo qué ocurre cuando se alcanzan o superan dichos límites.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 04/18/2019
-ms.openlocfilehash: 175f694cbe46f871349136c9ce91888b6de48d21
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 907fc89c0d9af01865037f650c407edd97e96645
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566862"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821150"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Límites de recursos de SQL Database para un servidor de Azure SQL Database
 
@@ -27,7 +27,7 @@ En este artículo se proporciona información general acerca de los límites de 
 
 ## <a name="maximum-resource-limits"></a>Límites de recursos máximos
 
-| Recurso | Límite |
+| Resource | Límite |
 | :--- | :--- |
 | Bases de datos por servidor | 5000 |
 | Número predeterminado de servidores por suscripción en cualquier región | 20 |

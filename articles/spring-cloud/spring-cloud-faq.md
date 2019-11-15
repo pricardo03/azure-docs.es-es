@@ -1,20 +1,17 @@
 ---
 title: Preguntas frecuentes sobre Azure Spring Cloud | Microsoft Docs
 description: Examine las preguntas frecuentes acerca de Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 69b3827bbb53a5f989f3bdec0d5c4ea6035130f0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.author: jeconnoc
+ms.openlocfilehash: 1fb241ab1335e6b9c9be55acbbe2e21378831b69
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592310"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607226"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas frecuentes
 
@@ -66,7 +63,7 @@ Estas son las limitaciones conocidas de Azure Spring Cloud mientras el servicio 
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>¿Cómo puedo realizar comentarios y notificar incidencias?
 
-Si ha creado instancias de servicio de Spring en Azure Spring Cloud, puede solicitar una [solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Si aún no lo ha incorporado a Azure Spring Cloud, puede ir al foro de [comentarios de Azure](https://feedback.azure.com/) para solicitar características o aportar comentarios.
+Si detecta algún problema con Azure Spring Cloud, cree una [solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). En el caso de las solicitudes de características, consulte [Comentarios de Azure](https://feedback.azure.com/forums/34192--general-feedback) para solicitar características o para proporcionar comentarios.
 
 ## <a name="development"></a>Desarrollo
 

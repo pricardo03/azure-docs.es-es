@@ -1,5 +1,5 @@
 ---
-title: Copia de datos a Azure Data Lake Storage Gen2 o desde él mediante Data Factory | Microsoft Docs
+title: Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Data Factory
 description: Aprenda a copiar datos hacia y desde Azure Data Lake Storage Gen2 mediante Azure Data Factory.
 services: data-factory
 author: linda33wj
@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 8f190f6b933c61072df9af954c8db01497e35e82
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: e368597880bbbaee6c7aff7e72d88149840a23d8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010230"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681287"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Azure Data Factory
 
@@ -38,11 +38,11 @@ En concreto, con este conector, puede hacer lo siguiente:
 - Copiar los datos mediante la clave de cuenta, la entidad de servicio o identidades administradas para las autenticaciones de recursos de Azure.
 - Copiar los archivos tal cual, o bien analizarlos o generarlos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
+>[!IMPORTANT]
+>Si habilita la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en la configuración de firewall de Azure Storage y quiere usar Azure Integration Runtime para conectarse a Data Lake Storage Gen2, debe usar la [autenticación de identidad administrada](#managed-identity) para ADLS Gen2.
+
 >[!TIP]
 >Si habilita el espacio de nombres jerárquico, actualmente no hay ninguna interoperabilidad de operaciones entre las API de Blob y Data Lake Storage Gen2. En caso de que se produzca el error "ErrorCode=FilesystemNotFound" con el mensaje "El sistema de archivos especificado no existe", puede que se deba a que el sistema de archivos del receptor especificado se creó en otra parte mediante la API de Blob en lugar de la API de Data Lake Storage Gen2. Para solucionar el problema, especifique un nuevo sistema de archivos con un nombre que no exista como nombre de un contenedor de blobs. Posteriormente, Data Factory creará automáticamente ese sistema de archivos durante la copia de datos.
-
->[!NOTE]
->Si habilita la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en la configuración del firewall de Azure Storage, Azure Integration Runtime no se conectará a Data Lake Storage Gen2 y aparecerá un error de prohibición. El mensaje de error aparece porque no se considera a Data Factory como un servicio de Microsoft de confianza. En su lugar, use el entorno de ejecución de integración autohospedado para conectarse.
 
 ## <a name="get-started"></a>Primeros pasos
 
@@ -110,16 +110,13 @@ Antes de usar la autenticación de entidad de servicio, siga estos pasos.
     - Clave de la aplicación
     - Id. de inquilino
 
-2. Conceda a la entidad de servicio el permiso adecuado. Para más información sobre cómo funciona el permiso en Data Lake Storage Gen2 consulte [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
+2. Conceda a la entidad de servicio el permiso adecuado. Consulte ejemplos sobre el funcionamiento del permiso en Data Lake Storage Gen2 en [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    - **Como origen**: En el Explorador de Storage, conceda al menos permiso de **ejecución** a partir del sistema de archivos de origen, junto con el permiso de **lectura** para los archivos que se van a copiar. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Lector de datos de Storage Blob**.
-    - **Como receptor**: En el Explorador de Storage, conceda al menos permiso de **ejecución** a partir del sistema de archivos de destino, junto con el permiso de **escritura** para la carpeta de destino. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de Storage Blob**.
+    - **Como origen**: en el Explorador de Storage, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior y el sistema de archivos, junto con el permiso de **lectura** para los archivos que se van a copiar. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Lector de datos de Storage Blob**.
+    - **Como receptor**: en el Explorador de Storage, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior y el sistema de archivos, junto con el permiso de **escritura** para la carpeta del receptor. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de Storage Blob**.
 
 >[!NOTE]
->Para enumerar las carpetas a partir del nivel de cuenta o para probar la conexión, tiene que establecer el permiso de la entidad de servicio que se va a conceder en **cuenta de almacenamiento con permiso de "Lector de datos de Storage Blob" en IAM**. Esto es válido cuando se usa la:
->- **Herramienta Copiar datos** para crear la canalización de la copia.
->- **Interfaz de usuario de Data Factory** para probar la conexión y el desplazamiento por las carpetas durante la creación. 
->Si le preocupa la concesión de permisos en el nivel de cuenta, durante la creación, omita la conexión de prueba y, a continuación, introduzca una ruta de acceso principal con el permiso concedido y, después, examine desde esa ruta de acceso específica. La actividad de copia funciona en tanto se conceda a la entidad de servicio el permiso adecuado para los archivos que se van a copiar.
+>Si usa la interfaz de usuario de Data Factory para la creación, y la entidad de servicio no está configurada con el rol "Lector o colaborador de datos de Storage Blob" en IAM, al realizar las pruebas de conexión o al explorar las carpetas o navegar por ellas, elija "Test connection to file path" (Probar conexión con la ruta de acceso del archivo) o "Browse from specified path" (Examinar desde la ruta de acceso especificada) y especifique un sistema de archivos o una ruta de acceso con permiso de ejecución para continuar.
 
 Estas propiedades son compatibles con el servicio vinculado:
 
@@ -164,16 +161,13 @@ Para usar identidades administradas para la autenticación de recursos de Azure,
 
 1. [Recupere la información de la identidad administrada de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) mediante la copia del valor de **Id. de la aplicación de identidad de servicio** que se ha generado junto con la factoría.
 
-2. Conceda el permiso adecuado de identidad administrada. Para más información sobre cómo funciona el permiso en Data Lake Storage Gen2 consulte [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+2. Conceda el permiso adecuado de identidad administrada. Consulte ejemplos sobre el funcionamiento del permiso en Data Lake Storage Gen2 en [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    - **Como origen**: En el Explorador de Storage, conceda al menos permiso de **ejecución** a partir del sistema de archivos de origen, junto con el permiso de **lectura** para los archivos que se van a copiar. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Lector de datos de Storage Blob**.
-    - **Como receptor**: En el Explorador de Storage, conceda al menos permiso de **ejecución** a partir del sistema de archivos de destino, junto con el permiso de **escritura** para la carpeta de destino. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de Storage Blob**.
+    - **Como origen**: en el Explorador de Storage, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior y el sistema de archivos, junto con el permiso de **lectura** para los archivos que se van a copiar. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Lector de datos de Storage Blob**.
+    - **Como receptor**: en el Explorador de Storage, conceda al menos permiso de **ejecución** para TODAS las carpetas de nivel superior y el sistema de archivos, junto con el permiso de **escritura** para la carpeta del receptor. Como alternativa, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de Storage Blob**.
 
 >[!NOTE]
->Para enumerar las carpetas a partir del nivel de cuenta o para probar la conexión, tiene que establecer el permiso de la identidad administrada que se va a conceder en **cuenta de almacenamiento con permiso de "Lector de datos de Storage Blob" en IAM**. Esto es válido cuando se usa la:
->- **Herramienta Copiar datos** para crear la canalización de la copia.
->- **Interfaz de usuario de Data Factory** para probar la conexión y el desplazamiento por las carpetas durante la creación. 
->Si le preocupa la concesión de permisos en el nivel de cuenta, durante la creación, omita la conexión de prueba y, a continuación, introduzca una ruta de acceso principal con el permiso concedido y, después, examine desde esa ruta de acceso específica. La actividad de copia funciona en tanto se conceda a la entidad de servicio el permiso adecuado para los archivos que se van a copiar.
+>Si usa la interfaz de usuario de Data Factory para la creación, y la identidad administrada no está configurada con el rol "Lector o colaborador de datos de Storage Blob" en IAM, al realizar las pruebas de conexión o al explorar las carpetas o navegar por ellas, elija "Test connection to file path" (Probar conexión con la ruta de acceso del archivo) o "Browse from specified path" (Examinar desde la ruta de acceso especificada) y especifique un sistema de archivos o una ruta de acceso con permiso de ejecución para continuar.
 
 >[!IMPORTANT]
 >Si usa PolyBase para cargar datos desde Data Lake Storage Gen2 en SQL Data Warehouse, al utilizar la autenticación de identidad administrada de Data Lake Storage Gen2 asegúrese de que también sigue los pasos 1 y 2 de [esta guía](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) para 1) registrar el servidor de SQL Database con Azure Active Directory (Azure AD) y 2) asignar el rol Colaborador de datos de Storage Blob a su servidor de SQL Database. Lo demás lo controlará Data Factory. Si la instancia de Data Lake Storage Gen2 está configurada con un punto de conexión de Azure Virtual Network, para usar PolyBase para cargar datos desde este deberá usar la autenticación de identidad administrada como requiere PolyBase.
@@ -208,12 +202,9 @@ Estas propiedades son compatibles con el servicio vinculado:
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte [Conjuntos de datos](concepts-datasets-linked-services.md).
 
-- Para información sobre el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-dataset).
-- En el caso de otros formatos como **ORC**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Conjunto de datos de formato binario, de texto delimitado, JSON, Parquet y Avro
-
-Para copiar datos desde y hacia el **formato binario, de texto delimitado, Parquet o Avro**, consulte los artículos sobre el [formato Parquet](format-parquet.md), el [formato de texto delimitado](format-delimited-text.md), el [formato Avro](format-avro.md) y el [formato binario](format-binary.md) sobre conjuntos de datos basados en el formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configuración `location` del conjunto de datos basado en formato:
+Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configuración `location` del conjunto de datos basado en formato:
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -221,9 +212,6 @@ Para copiar datos desde y hacia el **formato binario, de texto delimitado, Parqu
 | fileSystem | Nombre del sistema de archivos de Data Lake Storage Gen2.                              | Sin       |
 | folderPath | Ruta de acceso a una carpeta en el sistema de archivos especificado. Si quiere usar un carácter comodín para filtrar carpetas, omita este valor y especifíquelo en la configuración del origen de actividad. | Sin       |
 | fileName   | Nombre de archivo en la propiedad fileSystem + folderPath indicada. Si quiere usar un carácter comodín para filtrar archivos, omita este valor y especifíquelo en la configuración del origen de actividad. | Sin       |
-
-> [!NOTE]
-> El conjunto de datos de tipo **AzureBlobFSFile** con formato Parquet o texto que se menciona en la sección siguiente todavía se admite tal cual para la actividad copy, lookup o GetMetadata para compatibilidad con versiones anteriores. Sin embargo, no funciona con la característica Asignación de Data Flow. Se recomienda usar este nuevo modelo a partir de ahora. La interfaz de usuario de creación de Data Factory genera estos nuevos tipos.
 
 **Ejemplo:**
 
@@ -252,9 +240,10 @@ Para copiar datos desde y hacia el **formato binario, de texto delimitado, Parqu
 }
 ```
 
-### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
+### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
-Para copiar datos a y desde Data Lake Storage Gen2 en **formato ORC**, se admiten las propiedades siguientes:
+>[!NOTE]
+>El siguiente modelo de conjunto de datos todavía se admite tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado en la sección anterior; ademas, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -305,12 +294,9 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 ### <a name="azure-data-lake-storage-gen2-as-a-source-type"></a>Azure Data Lake Storage Gen2 como tipo de origen
 
-- Para copiar desde el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Origen de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-source).
-- Para copiar desde otros formatos como **ORC**, consulte la sección [Otro origen de formato](#other-format-source).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Origen de formato binario, de texto delimitado, JSON, Parquet y Avro
-
-Para copiar datos desde el **formato de texto binario, de texto delimitado, Parquet y Avro**, consulte los artículos [Formato Parquet](format-parquet.md), [Formato de texto delimitado](format-delimited-text.md), [Formato Avro](format-avro.md) y [Formato binario](format-binary.md) sobre el origen de la actividad de copia basada en el formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configuración `storeSettings` en el origen de copia basado en formato:
+Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configuración `storeSettings` en el origen de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -321,9 +307,6 @@ Para copiar datos desde el **formato de texto binario, de texto delimitado, Parq
 | modifiedDatetimeStart    | Filtro de archivos basado en el atributo Last Modified. Los archivos se seleccionan si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos. Cuando `modifiedDatetimeStart` tiene un valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora. Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora. | Sin                                            |
 | modifiedDatetimeEnd      | Igual que el anterior.                                               | Sin                                            |
 | maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | Sin                                            |
-
-> [!NOTE]
-> Para el formato de texto delimitado o Parquet, todavía se admite tal cual el origen de actividad de copia de tipo **AzureBlobFSSource** mencionado en la sección siguiente para la compatibilidad con versiones anteriores. Se recomienda usar este nuevo modelo a partir de ahora. La interfaz de usuario de creación de Data Factory genera estos nuevos tipos.
 
 **Ejemplo:**
 
@@ -366,9 +349,10 @@ Para copiar datos desde el **formato de texto binario, de texto delimitado, Parq
 ]
 ```
 
-#### <a name="other-format-source"></a>Otro origen de formato
+#### <a name="legacy-source-model"></a>Modelo de origen heredado
 
-Para copiar datos desde Data Lake Storage Gen2 en **formato ORC**, se admiten las propiedades siguientes en la sección **origen** de la actividad de copia:
+>[!NOTE]
+>El siguiente modelo de origen de copia todavía se admite tal cual por compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; ademas, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -410,21 +394,15 @@ Para copiar datos desde Data Lake Storage Gen2 en **formato ORC**, se admiten la
 
 ### <a name="azure-data-lake-storage-gen2-as-a-sink-type"></a>Azure Data Lake Storage Gen2 como tipo de receptor
 
-- Para copiar hacia el **formato binario, de texto delimitado, JSON, Parquet y Avro**, consulte la sección [Receptor de formato binario, de texto delimitado, JSON, Parquet y Avro](#format-based-sink).
-- Para copiar en otros formatos como **ORC o JSON**, consulte la sección [Otro receptor de formato](#other-format-sink).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-sink"></a> Receptor de formato binario, de texto delimitado, JSON, Parquet y Avro
-
-Para copiar datos en el **formato binario, de texto delimitado, Avro o Parquet**, consulte el [formato Parquet](format-parquet.md), el [formato de texto delimitado](format-delimited-text.md), el [formato Avro](format-avro.md) y el [formato binario](format-binary.md) sobre el receptor de la actividad de copia basada en el formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configuración `storeSettings` en el destino de copia basado en formato:
+Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configuración `storeSettings` en el destino de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propiedad type de `storeSettings` se debe establecer en **AzureBlobFSWriteSetting**. | Sí      |
 | copyBehavior             | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica que la ruta de acceso relativa del archivo de destino a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | Sin       |
 | maxConcurrentConnections | Número de conexiones para conectarse al almacén de datos de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | Sin       |
-
-> [!NOTE]
-> Para el formato de texto delimitado o Parquet, todavía se admite tal cual el destino de actividad de copia de tipo **AzureBlobFSSink** mencionado en la sección siguiente para la compatibilidad con versiones anteriores. Se recomienda usar este nuevo modelo a partir de ahora. La interfaz de usuario de creación de Data Factory genera estos nuevos tipos.
 
 **Ejemplo:**
 
@@ -461,9 +439,10 @@ Para copiar datos en el **formato binario, de texto delimitado, Avro o Parquet**
 ]
 ```
 
-#### <a name="other-format-sink"></a>Otro receptor de formato
+#### <a name="legacy-sink-model"></a>Modelo de receptor heredado
 
-Para copiar datos hacia Data Lake Storage Gen2 en **formato ORC**, se admiten las propiedades siguientes en la sección **receptor**:
+>[!NOTE]
+>El siguiente modelo de receptor de copia todavía se admite tal cual por compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; ademas, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

@@ -1,5 +1,5 @@
 ---
-title: Protección de las aplicaciones y las máquinas en Azure Security Center | Microsoft Docs
+title: Protección de aplicaciones y máquinas en Azure Security Center
 description: En este documento se describen las recomendaciones de Security Center que le ayudan a proteger las máquinas virtuales, equipos, aplicaciones web y los entornos de App Service.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: a3bce8d6312dd09a7f10f8d5d2eaebd4e312d95d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 803e64c9df1b52a33a1b50714f77b005032bf200
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200774"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686347"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protección de las aplicaciones y las máquinas en Azure Security Center
 Azure Security Center analiza el estado de seguridad de los recursos de Azure, los servidores que no son de Azure y las máquinas virtuales. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios. Las recomendaciones se aplican a los tipos de recursos de Azure: máquinas virtuales, equipos, aplicaciones, redes, SQL e identidad y acceso.
@@ -30,7 +30,7 @@ Puede supervisar el estado de seguridad de los recursos en el panel **Security C
 
 Para ver una lista de todos los problemas, puede seleccionar **Recomendaciones**. Para más información sobre cómo aplicar las recomendaciones, consulte [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 
-Para ver una lista completa de las recomendaciones sobre procesos y recomendaciones, consulte [Recomendaciones](security-center-virtual-machine-protection.md#compute-and-app-recommendations).
+Para ver una lista completa de las recomendaciones sobre procesos y recomendaciones, consulte [Recomendaciones](security-center-virtual-machine-protection.md#compute-and-app-recs).
 
 Para continuar, seleccione **Procesos y aplicaciones** en **Recursos** o en el menú principal de Security Center.
 ![Panel de Security Center](./media/security-center-virtual-machine-recommendations/overview.png)
@@ -42,7 +42,7 @@ En **Compute & apps** (Procesos y aplicaciones), existen las siguientes pestaña
 - **VM y equipos**: muestra el estado de seguridad actual de todas las máquinas virtuales y equipos.
 - **Cloud Services**: lista de todos los roles web y de trabajo que supervisa Security Center.
 - **App Services**: muestra la lista actual de los entornos de App Service y el estado de seguridad actual de cada uno.
-- **Contenedores (versión preliminar)** : lista de los contenedores hospedados en equipos IaaS Linux y evaluaciones de seguridad de sus configuraciones de Docker.
+- **Contenedores**: lista de los contenedores y la evaluación de la seguridad de sus configuraciones.
 - **Recursos de proceso (versión preliminar)** : enumera las recomendaciones para los recursos de proceso, como clústeres de Service Fabric y centros de eventos.
 
 Para continuar, seleccione **Procesos y aplicaciones** en **Protección de seguridad de recursos**.
@@ -143,7 +143,7 @@ Hay tres tipos de iconos representados en esta lista:
 
 1. Seleccione una aplicación web. Se abre una vista de resumen con tres pestañas:
 
-   - **Recomendaciones**: en función de las evaluaciones de Security Center que mostraron errores.
+   - **Recomendaciones**: en función de las evaluaciones realizadas por Security Center que mostraron errores.
    - **Evaluaciones aprobadas**: lista de las evaluaciones realizadas por Security Center que se aprobaron.
    - **Evaluaciones no disponibles**: lista de las evaluaciones que no se pudieron ejecutar debido a un error o en las que la recomendación no era adecuada para la instancia de App Service concreta.
 
@@ -153,7 +153,7 @@ Hay tres tipos de iconos representados en esta lista:
 
 2. Seleccione una recomendación para ver su descripción, una lista de los recursos con estados correctos e incorrectos y una lista de los recursos sin examinar.
 
-   - En la columna **Evaluaciones aprobadas** hay una lista de las evaluaciones que se aprobaron.  La gravedad de estas evaluaciones siempre aparece en verde.
+   - En la columna **Evaluaciones aprobadas** hay una lista de las evaluaciones que se aprobaron. La gravedad de estas evaluaciones siempre aparece en verde.
 
    - Seleccione una evaluación aprobada en la lista para obtener su descripción, una lista de los recursos con estados correctos e incorrectos, y una lista de los recursos sin examinar. Hay una pestaña para los recursos con estado incorrecto, pero está siempre vacía ya que se trata de una evaluación aprobada.
 
@@ -178,7 +178,7 @@ Para establecer nuevos conjuntos de escalado para instalar automáticamente Micr
 Si desea configurar todos los conjuntos de escalado existentes para instalar Microsoft Monitoring Agent, en Azure Policy, vaya a **Corrección** y aplique la directiva existente en conjuntos de escalado existentes.
 
 
-## <a name="compute-and-app-recommendations"></a>Recomendaciones de proceso y aplicación
+## Recomendaciones de proceso y aplicación <a name="compute-and-app-recs"></a>
 |Tipo de recurso|Puntuación segura|Recomendación|DESCRIPCIÓN|
 |----|----|----|----|
 |App Service|20|Acceso a la aplicación web solo a través de HTTPS|Limite el acceso a las aplicaciones web únicamente a HTTPS.|
@@ -198,7 +198,7 @@ Si desea configurar todos los conjuntos de escalado existentes para instalar Mic
 |Recursos de proceso (Batch)|5|Habilitar los registros de diagnóstico en las cuentas de Batch|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
 |Recursos de proceso (Centro de eventos)|5|Se deben habilitar los registros de diagnósticos en el centro de eventos|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
 |Recursos de proceso (Logic Apps)|5|Habilitar los registros de diagnóstico en Logic Apps|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Recursos de proceso (Service Fabric)|15|Establecer la propiedad ClusterProtectionLevel en EncryptAndSign en Service Fabric|Service Fabric proporciona tres niveles de protección (None, Sign y EncryptAndSign) para la comunicación de nodo a nodo mediante un certificado de clúster principal.  Establezca el nivel de protección para asegurarse de que todos los mensajes de nodo a nodo se cifran y se firman digitalmente. |
+|Recursos de proceso (Service Fabric)|15|Establecer la propiedad ClusterProtectionLevel en EncryptAndSign en Service Fabric|Service Fabric proporciona tres niveles de protección (None, Sign y EncryptAndSign) para la comunicación de nodo a nodo mediante un certificado de clúster principal. Establezca el nivel de protección para asegurarse de que todos los mensajes de nodo a nodo se cifran y se firman digitalmente. |
 |Recursos de proceso (Service Bus)|1|Quitar todas las reglas de autorización excepto RootManageSharedAccessKey del espacio de nombres del Service Bus |Los clientes de Service Bus no deben usar una directiva de acceso de nivel de espacio de nombres que proporciona acceso a todas las colas y temas de un espacio de nombres. Para alinearse con el modelo de seguridad con privilegios mínimos, debe crear directivas de acceso a nivel de entidad para que las colas y los temas proporcionen acceso solo a la entidad específica.|
 |Recursos de proceso (Centro de eventos)|1|Todas las reglas de autorización excepto RootManageSharedAccessKey se deben eliminar del espacio de nombres del centro de eventos|Los clientes del Centro de eventos no deben usar una directiva de acceso de nivel de espacio de nombres que proporciona acceso a todas las colas y temas de un espacio de nombres. Para alinearse con el modelo de seguridad con privilegios mínimos, debe crear directivas de acceso a nivel de entidad para que las colas y los temas proporcionen acceso solo a la entidad específica.|
 |Recursos de proceso (Centro de eventos)|5|Deben definirse las reglas de autorización en la entidad del centro de eventos|Audite las reglas de autorización en la entidad de Centro de eventos para conceder acceso con privilegios mínimos.|
@@ -220,7 +220,7 @@ Si desea configurar todos los conjuntos de escalado existentes para instalar Mic
 |Máquina|15|Agregar un firewall de aplicaciones web| Implementar una solución de firewall de aplicaciones web para proteger las aplicaciones web. |
 |Máquina|30|Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades|Las máquinas virtuales para las que se implementa una solución de evaluación de vulnerabilidades de terceros se evalúan de forma continua en relación con las vulnerabilidades de la aplicación y del sistema operativo. Cada vez que se encuentran vulnerabilidades de este tipo, es posible obtener más información sobre ellas como parte de la recomendación.|
 |Máquina|30|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|
-|Máquina|1|Se deben migrar las máquinas virtuales a nuevos recursos de AzureRM|Use Azure Resource Manager para las máquinas virtuales a fin de proporcionar mejoras de seguridad como las siguientes: mayor control de acceso (RBAC), mejor auditoría, gobernanza e implementación basados en Resource Manager, acceso a identidades administradas, acceso a secretos de Key Vault, autenticación basada en Azure AD y compatibilidad con etiquetas y grupos de recursos para facilitar la administración de seguridad. |
+|Máquina|1|Se deben migrar las máquinas virtuales a nuevos recursos de AzureRM|Use Azure Resource Manager para ofrecer en las máquinas virtuales mejoras de seguridad como las siguientes: mayor control de acceso (RBAC), mejor auditoría, gobernanza e implementación basados en Resource Manager, acceso a identidades administradas, acceso a secretos de Key Vault, autenticación basada en Azure AD y compatibilidad con etiquetas y grupos de recursos para facilitar la administración de la seguridad. |
 |Máquina|30|Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades|Las máquinas virtuales para las que se implementa una solución de evaluación de vulnerabilidades de terceros se evalúan de forma continua en relación con las vulnerabilidades de la aplicación y del sistema operativo. Cada vez que se encuentran vulnerabilidades de este tipo, es posible obtener más información sobre ellas como parte de la recomendación.|
 |Conjunto de escalado de máquina virtual |4|Los registros de diagnóstico en Virtual Machine Scale Sets deberían habilitarse|Habilite los registros y consérvelos por hasta un año. Esto le permite volver a crear seguimientos de actividad para fines de investigación. Esto es útil cuando se produce un incidente de seguridad o se pone en peligro su red.|
 |Conjunto de escalado de máquina virtual|35|Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales|Corrija vulnerabilidades en la configuración de seguridad en conjuntos de escalado de máquinas virtuales para protegerlas de ataques. |

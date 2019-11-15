@@ -4,14 +4,14 @@ description: Use las plantillas de Azure Resource Manager para crear y configura
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4a32b0497d2457a740e9c082f990bb9112208bfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ecdfe89e899e0d416784ae32a0d66b335c09e2b6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969185"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582808"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Plantillas de Azure Resource Manager para Azure Cosmos DB
 
@@ -20,10 +20,9 @@ En las tablas siguientes se incluyen vínculos a plantillas de Azure Resource Ma
 ## <a name="sql-core-api"></a>SQL API (Core)
 
 |**Plantilla**|**Descripción**|
-|---| ---|
-|[Crear una cuenta, una base de datos y un contenedor de Azure Cosmos](manage-sql-with-resource-manager.md#create-resource) | Con esta plantilla se crea una cuenta de API de SQL (Core) en dos regiones con la arquitectura multimaestro habilitada. La cuenta de Azure Cosmos tendrá dos contenedores que compartirán el rendimiento de nivel de base de datos. |
-|[Actualizar el rendimiento (RU/s) de una base de datos](manage-sql-with-resource-manager.md#database-ru-update) | Con esta plantilla se actualiza el rendimiento de una base de datos en una cuenta de API de SQL (Core). |
-|[Actualizar el rendimiento (RU/s) de un contenedor](manage-sql-with-resource-manager.md#container-ru-update) | Con esta plantilla se actualiza el rendimiento de un contenedor en una cuenta de API de SQL (Core). |
+|---|---|
+|[Crear una cuenta, una base de datos y un contenedor de Azure Cosmos](manage-sql-with-resource-manager.md#create-resource) | Esta plantilla crea una cuenta de API de SQL (Core) en dos regiones con dos contenedores con rendimiento de base de datos compartido y un contenedor con rendimiento dedicado. El rendimiento se puede actualizar mediante el reenvío de la plantilla con el valor de la propiedad de rendimiento actualizado. |
+|[Creación de una cuenta, una base de datos y un contenedor de Azure Cosmos con un procedimiento almacenado, un desencadenador y una UDF](manage-sql-with-resource-manager.md#create-sproc) | Esta plantilla crea una cuenta de API de SQL (Core) en dos regiones con un procedimiento almacenado, un desencadenador y una UDF para un contenedor. |
 
 ## <a name="mongodb-api"></a>MongoDB API
 

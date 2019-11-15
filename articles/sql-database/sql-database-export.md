@@ -1,6 +1,6 @@
 ---
-title: Exportación de una base de datos de Azure SQL única o agrupada a un archivo BACPAC | Microsoft Docs
-description: Exportación de una base de datos de Azure SQL Database a un archivo BACPAC mediante Azure Portal
+title: Exportación de una base de datos única o agrupada a un archivo BACPAC
+description: Exportación de una base de datos de Azure SQL a un archivo BACPAC mediante Azure Portal
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 9b4770f565f256d444ab6a6f06bb369b8417eb18
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b96d2e69b757774afe177341caffe2f3cbf00e2b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568251"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823450"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportación de una base de datos de Azure SQL Database a un archivo BACPAC
 

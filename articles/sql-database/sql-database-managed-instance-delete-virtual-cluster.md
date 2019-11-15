@@ -1,21 +1,21 @@
 ---
-title: Eliminación de una subred después de eliminar una instancia administrada de Azure SQL Database | Microsoft Docs
+title: Eliminación de una subred después de eliminar una instancia administrada
 description: Obtenga información sobre cómo eliminar una red virtual de Azure después de eliminar una instancia administrada de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 7ad09682275b5cc2311b792899a85c1c47eafc0d
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 496d67a73207fd17182c31c5adad25c1fbe60c4f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431296"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820464"
 ---
 # <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Eliminación de una subred después de eliminar una instancia administrada de Azure SQL Database
 

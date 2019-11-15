@@ -1,6 +1,6 @@
 ---
-title: Asociados de inteligencia empresarial de SQL Data Warehouse | Microsoft Docs
-description: Lista de los asociados de inteligencia empresarial con soluciones compatibles con SQL Data Warehouse.
+title: Partners de inteligencia empresarial
+description: Lista de los partners de inteligencia empresarial externos con soluciones compatibles con Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mabasile-MSFT
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 87379631cc7f7b9e31def157ba38336e41b693d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 882067f25030c6594526914fb8d111639b205949
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873812"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685616"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partners de inteligencia empresarial de SQL Data Warehouse
 Para crear la solución de almacenamiento de datos de un extremo a otro, elija entre una amplia variedad de herramientas líderes del sector.  En este artículo se destacan las empresas asociadas de Microsoft con soluciones de inteligencia empresarial oficiales (BI) compatibles con Azure SQL Data Warehouse.
@@ -41,7 +42,7 @@ Para crear la solución de almacenamiento de datos de un extremo a otro, elija e
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre algunos de nuestros otros asociados, consulte [Asociados de integración de datos][di_partners] y [Asociados de administración de datos][dm_partners].
+Para obtener más información sobre otros partners nuestros, consulte [Partners de integración de datos][di_partners] y [Partners de Administración de datos][dm_partners].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png

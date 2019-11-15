@@ -1,18 +1,18 @@
 ---
 title: Escalabilidad horizontal de Azure Analysis Services | Microsoft Docs
-description: Replicación de servidores de Azure Analysis Services con la escalabilidad horizontal
+description: Replique servidores de Azure Analysis Services con la escalabilidad horizontal. Las consultas del cliente se pueden distribuir entre varias réplicas de consultas en un grupo de consultas con escalabilidad horizontal.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0e6a234e8b69eb48f00687916d4a7b48d3ba1040
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1b40238dfc579e42d0389ae14fdea4b5692ede06
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301175"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572636"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -138,7 +138,7 @@ En la página de información general del servidor, hay dos nombres de servidor.
 
 Para las conexiones de cliente para el usuario final como Power BI Desktop, Excel y aplicaciones personalizadas, utilice **Nombre del servidor**. 
 
-Para SSMS, SSDT y cadenas de conexión en PowerShell, las aplicaciones de Azure Functions y AMO usan el **nombre del servidor de administración**. El nombre del servidor de administración incluye un calificador especial `:rw` (lectura y escritura). Todas las operaciones de procesamiento se producen en el servidor de administración (principal).
+Para SSMS, Visual Studio y cadenas de conexión en PowerShell, las aplicaciones de Azure Functions y AMO usan el **nombre del servidor de administración**. El nombre del servidor de administración incluye un calificador especial `:rw` (lectura y escritura). Todas las operaciones de procesamiento se producen en el servidor de administración (principal).
 
 ![Nombres de servidor](media/analysis-services-scale-out/aas-scale-out-name.png)
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 045fb54956e78e826b06dc1c56c29e1c7bd430bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dec43a4d7eb5a9546fcd77cce972b93542ea3b10
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510465"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795955"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Instalación de un controlador de entrada de Application Gateway (AGIC) con una instancia de Application Gateway existente
 
@@ -91,7 +91,7 @@ Use [Cloud Shell](https://shell.azure.com/) para ejecutar todos los comandos sig
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
-1. Conceda a la identidad acceso de `Contributor` a su instancia de Application Gateway. Para ello, necesitará el identificador de la instancia de Application Gateway, que tendrá un aspecto similar al siguiente: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
+1. Conceda a la identidad acceso de tipo `Contributor` a la instancia de Application Gateway. Para ello, necesitará el identificador de la instancia de Application Gateway, que tendrá un aspecto similar al siguiente: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
 
     Obtenga la lista de identificadores de la instancia de Application Gateway de su suscripción con: `az network application-gateway list --query '[].id'`
 
@@ -128,7 +128,7 @@ armAuth:
 ```
 
 ## <a name="install-ingress-controller-as-a-helm-chart"></a>Instalación del controlador de entrada como un gráfico de Helm
-En los primeros pasos instalamos el Tiller de Helm en su clúster de Kubernetes. Use [Cloud Shell](https://shell.azure.com/) para instalar el paquete de Helm de AGIC:
+En los primeros pasos instalamos Tiller de Helm en el clúster de Kubernetes. Use [Cloud Shell](https://shell.azure.com/) para instalar el paquete de Helm de AGIC:
 
 1. Agregue el repositorio de Helm `application-gateway-kubernetes-ingress` y realice una actualización de Helm
 
@@ -244,7 +244,7 @@ __Realice una copia de seguridad de su configuración de Application Gateway__ a
 El archivo zip que descargó tendrá plantillas JSON, bash y scripts de PowerShell que puede usar para restaurar la instancia de Application Gateway
 
 ### <a name="example-scenario"></a>Escenario de ejemplo
-Echemos un vistazo a una instancia de Application Gateway imaginaria, que administra el tráfico para 2 sitios web:
+Echemos un vistazo a una instancia de Application Gateway imaginaria, que administra el tráfico para dos sitios web:
   - `dev.contoso.com`: hospedado en una nueva instancia de AKS, mediante Application Gateway y AGIC
   - `prod.contoso.com`: hospedado en un [conjunto de escalado de máquinas virtuales de Azure](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 
@@ -323,7 +323,7 @@ Amplíe los permisos de AGIC con:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Habilitar para una instalación de AGIC existente
-Supongamos que ya tenemos una instancia de AKS y Application Gateway en funcionamiento, además de AGIC configurado en nuestro clúster. Tenemos una entrada para `prod.contosor.com` y están atendiendo correctamente el tráfico de AKS. Queremos agregar `staging.contoso.com` a nuestra instancia de Application Gateway existente, pero es necesario hospedarlo en una [máquina virtual](https://azure.microsoft.com/services/virtual-machines/). Vamos a volver a usar la instancia de Application Gateway existente y configurar manualmente un cliente de escucha y los grupos de back-end para `staging.contoso.com`. Sin embargo, el ajuste manual de la configuración de Application Gateway (a través del [portal](https://portal.azure.com), las [API de ARM](https://docs.microsoft.com/rest/api/resources/) o [Terraform](https://www.terraform.io/)) puede entrar en conflicto con las suposiciones de AGIC sobre la propiedad total. Poco después de aplicar los cambios, AGIC los sobrescribirá o eliminará.
+Supongamos que ya tenemos una instancia de AKS y Application Gateway en funcionamiento, además de AGIC configurado en nuestro clúster. Tenemos una entrada para `prod.contosor.com` y están atendiendo correctamente el tráfico de AKS. Queremos agregar `staging.contoso.com` a nuestra instancia de Application Gateway existente, pero es necesario hospedarlo en una [máquina virtual](https://azure.microsoft.com/services/virtual-machines/). Vamos a volver a usar la instancia de Application Gateway existente y a configurar manualmente un cliente de escucha y los grupos de back-end para `staging.contoso.com`. Sin embargo, el ajuste manual de la configuración de Application Gateway (a través del [portal](https://portal.azure.com), las [API de ARM](https://docs.microsoft.com/rest/api/resources/) o [Terraform](https://www.terraform.io/)) puede entrar en conflicto con las suposiciones de AGIC sobre la propiedad total. Poco después de aplicar los cambios, AGIC los sobrescribirá o eliminará.
 
 Podemos prohibir que AGIC realice cambios en un subconjunto de la configuración.
 

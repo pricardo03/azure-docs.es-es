@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105495"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827925"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Facturación según uso con el servicio de medición de Marketplace
 
@@ -62,8 +63,8 @@ Un cliente de Azure suscrito al servicio CNS podrá enviar la cantidad incluida 
 Las dimensiones de facturación se usan para comunicar al cliente cómo se facturará el uso del software y para notificar a Microsoft los eventos de uso. Estas dimensiones se definen de la manera siguiente:
 
 * **Identificador de dimensión**: el identificador inmutable al que se hace referencia al emitir eventos de uso.
-* **Nombre de la dimensión**: el nombre para mostrar asociado a la dimensión, por ejemplo, "mensajes de texto enviados".
-* **Unidad de medida**: la descripción de la unidad de facturación, por ejemplo, "por mensaje de texto" o "por cada 100 correos electrónicos".
+* **Nombre de dimensión**: nombre para mostrar asociado a la dimensión, por ejemplo, "mensajes de texto enviados".
+* **Unidad de medida**: descripción de la unidad de facturación, por ejemplo, "por mensaje de texto" o "por cada 100 correos electrónicos".
 * **Precio por unidad**: el precio de una unidad de la dimensión.  
 * **Cantidad incluida para el período mensual**: la cantidad de dimensión incluida al mes para los clientes que pagan la cuota mensual periódica; debe ser un número entero.
 * **Cantidad incluida para el período anual**: la cantidad de dimensión incluida al mes para los clientes que pagan la cuota anual periódica; debe ser un número entero.
@@ -84,8 +85,8 @@ Los demás atributos de una dimensión son específicos de cada plan y pueden te
 
 Las dimensiones también tienen dos conceptos especiales, "habilitado" e "infinito":
 
-* **Habilitado** indica que este plan participa en esta dimensión.  Es posible que desee dejar esta opción desactivada si va a crear un nuevo plan que no envía eventos de uso basados en esta dimensión.  Además, las nuevas dimensiones que se agreguen después de publicar un plan por primera vez se mostrarán como "no habilitadas" en el plan ya publicado.  Ahora se mostrará una dimensión deshabilitada en todas las listas de dimensiones de un plan visualizado por los clientes.
-* **Infinito**, representado por el símbolo de infinito "∞", indica que este plan participa en esta dimensión, pero no mide el uso de esta dimensión.  Permite indicar a los clientes que la funcionalidad representada por esta dimensión está incluida en el plan, sin límite de uso.  Una dimensión con uso infinito se mostrará en las listas de dimensiones de un plan visto por los clientes con una indicación de que nunca incurrirá en un cargo por este plan.
+* **Habilitado** indica que este plan participa en esta dimensión.  Es posible que desee dejar esta opción desactivada si va a crear un nuevo plan que no envía eventos de uso basados en esta dimensión.  Además, las nuevas dimensiones que se agregan después de publicar un plan por primera vez se muestran como "no habilitadas" en el plan ya publicado.  Ahora se mostrará una dimensión deshabilitada en todas las listas de dimensiones de un plan visualizado por los clientes.
+* **Infinito**, representado por el símbolo de infinito "∞", indica que este plan participa en esta dimensión, pero que no mide el uso en esta dimensión.  Permite indicar a los clientes que la funcionalidad representada por esta dimensión está incluida en el plan, sin límite de uso.  Una dimensión con uso infinito se mostrará en las listas de dimensiones de un plan visto por los clientes con una indicación de que nunca incurrirá en un cargo por este plan.
 
 >[!Note] 
 >Los siguientes escenarios se admiten explícitamente: <br> - Puede agregar una nueva dimensión a un nuevo plan.  La nueva dimensión no se habilitará para los planes ya publicados. <br> - Puede publicar un plan de **tarifa plana** sin dimensiones y, a continuación, agregar un nuevo plan y configurar una nueva dimensión para ese plan. La nueva dimensión no se habilitará para los planes ya publicados.
@@ -98,7 +99,7 @@ La facturación según uso con el servicio de medición de Marketplace no es com
 
 ### <a name="locking-behavior"></a>Comportamiento de bloqueo
 
-Dado que una dimensión que se usa con el servicio de medición de Marketplace representa un reconocimiento del modo en que el cliente pagará por el servicio, los detalles de una dimensión no se podrán editar una vez publicada.  Es importante que las dimensiones estén totalmente definidas para un plan antes de publicarlas.
+Dado que una dimensión que se usa con el servicio de medición de Marketplace representa un reconocimiento del modo en que el cliente pagará por el servicio, los detalles de una dimensión no se podrán editar una vez publicada.  Es importante que las dimensiones estén totalmente definidas para un plan antes de la publicación.
   
 Una vez que se publica una oferta con una dimensión, ya no se pueden cambiar los detalles de nivel de oferta de esa dimensión:
 
@@ -129,8 +130,8 @@ Siga los pasos siguientes para enviar una incidencia de soporte técnico:
 
 1. Vaya a la [página de soporte técnico](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Los primeros menús desplegables se rellenan automáticamente. Para obtener soporte técnico de Marketplace, identifique la familia de productos como **Cloud and Online Services** (Servicios en la nube y en línea) y el producto como **Anunciante de Marketplace**.  No cambie las selecciones de menú desplegable rellenadas previamente.
 2. En "Select the product version" (Seleccionar la versión del producto), seleccione **Live offer management** (Administración de ofertas en directo).
-3. En "Select a category that best describe the issue" (Seleccionar la categoría que mejor describa la incidencia), elija **Aplicaciones SaaS**.
-4. En "Select a problem that best describes the issue" (Seleccionar un problema que mejor describa la incidencia), seleccione **Metered billing** (Facturación según uso).
+3. En "Select a category that best describe the issue" (Seleccionar la categoría que mejor describa la incidencia), seleccione **Aplicaciones SaaS**.
+4. En "Select a problem that best describes the issue" (Seleccionar un problema que mejor describa la incidencia), seleccione **Metered billing** (Facturación medida).
 5. Al seleccionar el botón **Siguiente**, se le dirigirá a la página **Detalles del problema**, donde puede especificar más detalles de su incidencia.
 
 Consulte [Soporte técnico para el programa Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support) para ver las opciones de soporte técnico para editores.

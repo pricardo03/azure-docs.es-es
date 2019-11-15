@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3dfc3c309fe3583ddd4307cbfe4e55bf6522ffc3
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 60d0425a7dbc532e856c7bf3c91065d2548c9b9a
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955878"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601382"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>¿Qué tipos de disco están disponibles en Azure?
 
@@ -26,7 +26,7 @@ La tabla siguiente proporciona una comparación entre los discos Ultra, las unid
 |   | Disco Ultra   | SSD Premium   | SSD estándar   | HDD estándar   |
 |---------|---------|---------|---------|---------|
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
-|Escenario   |Cargas de trabajo con uso intensivo de E/S, como SAP HANA, bases de dato de capa superior (por ejemplo, SQL y Oracle) y otras cargas de trabajo con muchas transacciones.   |Cargas de trabajo confidenciales de producción y rendimiento   |Servidores web, aplicaciones empresariales poco utilizadas y desarrollo y pruebas   |Copia de seguridad, no crítico, acceso poco frecuente   |
+|Escenario   |Cargas de trabajo de uso intensivo de E/S, como [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), bases de datos de nivel superior (por ejemplo, SQL y Oracle) y otras cargas de trabajo con muchas transacciones.   |Cargas de trabajo confidenciales de producción y rendimiento   |Servidores web, aplicaciones empresariales poco utilizadas y desarrollo y pruebas   |Copia de seguridad, no crítico, acceso poco frecuente   |
 |Tamaño máximo del disco   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
 |Rendimiento máx.   |2000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
 |IOPS máx.   |160 000    |20.000   |6,000   |2\.000   |
@@ -62,13 +62,4 @@ Estas son algunas funcionalidades clave de los discos Ultra:
 
 ### <a name="ga-scope-and-limitations"></a>Ámbito y limitaciones de la disponibilidad general
 
-Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
-
-- Se admiten en las regiones Este de EE. UU. 2, Sudeste Asiático y Norte de Europa, en dos zonas de disponibilidad por región.  
-- Solo se podrán usar con las zonas de disponibilidad (los conjuntos de disponibilidad y las implementaciones de máquinas virtuales únicas fuera de las zonas no tendrán la capacidad de adjuntar un disco Ultra).
-- Solo son compatibles con las máquinas virtuales ES/DS v3.
-- Solo están disponibles como discos de datos y solo admiten el tamaño de sector físico 4k.  
-- Solo pueden crearse como discos vacíos.  
-- Todavía no admiten instantáneas de disco, imágenes de máquinas virtuales, conjuntos de disponibilidad, Virtual Machine Scale Sets ni Azure Disk Encryption.
-- Todavía no admiten la integración con Azure Backup o Azure Site Recovery.
-- El límite máximo actual de IOPS en máquinas virtuales de disponibilidad general es 80 000.
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](managed-disks-ultra-disks-GA-scope-and-limitations.md)]

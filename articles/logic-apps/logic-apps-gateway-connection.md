@@ -1,6 +1,6 @@
 ---
-title: Acceso a orígenes de datos locales desde Azure Logic Apps
-description: Conexión a orígenes de datos locales desde aplicaciones lógicas mediante la creación de una puerta de enlace de datos local
+title: 'Acceso a orígenes de datos locales: Azure Logic Apps'
+description: Conexión a orígenes de datos locales desde Azure Logic Apps mediante la creación de una puerta de enlace de datos local de Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: 4b333df740fbd4c2243ea3f166593ca0a6f4bbad
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.date: 11/06/2019
+ms.openlocfilehash: e0354f96036cce968e6b6909a18f97ff48347eda
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675678"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796249"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
@@ -28,8 +28,8 @@ En este artículo se muestra cómo crear el recurso de puerta de enlace de Azure
 Para información sobre cómo usar la puerta de enlace con otros servicios, consulte estos artículos:
 
 * [Puerta de enlace de datos local de Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Puerta de enlace de datos local de Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Administración de una puerta de enlace de datos local en Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Puerta de enlace de datos local de Power Automate](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Puerta de enlace de datos local de Microsoft Power Apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Puerta de enlace de datos local de Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>
@@ -57,7 +57,7 @@ Azure Logic Apps admite operaciones de lectura y escritura a través de la puert
 
 * Ya ha [instalado la puerta de enlace de datos local en un equipo local](../logic-apps/logic-apps-gateway-install.md).
 
-* Tiene la [misma cuenta y suscripción de Azure](../logic-apps/logic-apps-gateway-install.md#requirements) que se usó al instalar esta puerta de enlace de datos.
+* Usa la [misma cuenta y suscripción de Azure](../logic-apps/logic-apps-gateway-install.md#requirements) que se usó al instalar esta puerta de enlace de datos. Esta cuenta de Azure debe pertenecer a un único [inquilino o directorio de Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology).
 
 * La instalación de la puerta de enlace aún no está registrada ni ha sido reclamada por otro recurso de puerta de enlace en Azure.
 
@@ -77,7 +77,7 @@ Después de instalar la puerta de enlace en un equipo local, cree un recurso de 
 
 1. Busque **Puertas de enlace de datos locales** y seleccione **Agregar**.
 
-   ![Adición de puerta de enlace de datos](./media/logic-apps-gateway-connection/add-gateway.png)
+   ![Agregue un nuevo recurso de Azure para la puerta de enlace de datos](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
 
 1. En **Crear puerta de enlace de conexión**, especifique la siguiente información el recurso de puerta de enlace. Seleccione **Crear** cuando haya terminado.
 
@@ -87,12 +87,12 @@ Después de instalar la puerta de enlace en un equipo local, cree un recurso de 
    | **Suscripción** | Seleccione la suscripción de Azure para la cuenta de Azure que se usó para la instalación de la puerta de enlace. La suscripción predeterminada se basa en la cuenta de Azure que usó para iniciar sesión. |
    | **Grupos de recursos** | El [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que quiere usar. |
    | **Ubicación** | La misma región o ubicación seleccionada para el servicio en la nube de la puerta de enlace durante la [instalación de la puerta de enlace](../logic-apps/logic-apps-gateway-install.md). De lo contrario, la instalación de la puerta de enlace no aparecerá en la lista **Nombre de la instalación**. La ubicación de la aplicación lógica puede diferir de la ubicación del recurso de la puerta de enlace. |
-   | **Nombre de instalación** | Seleccione una instalación de la puerta de enlace, que aparece en la lista solo cuando se cumplen estas condiciones: <p><p>- Existe en la misma región que el recurso de puerta de enlace que desea crear. <br>- Está desvinculada de otro recurso de puerta de enlace de Azure. <br>- Está vinculada a la misma cuenta de Azure que está usando para crear el recurso de puerta de enlace. <p><p>Para más información, consulte la sección [Preguntas frecuentes](#faq). |
+   | **Nombre de instalación** | Seleccione una instalación de la puerta de enlace, que aparece en la lista solo cuando se cumplen estas condiciones: <p><p>- La instalación de la puerta de enlace usa la misma región que el recurso de puerta de enlace que quiere crear. <br>- La instalación de la puerta de enlace no está vinculada a otro recurso de puerta de enlace de Azure. <br>- La instalación de la puerta de enlace está vinculada a la misma cuenta de Azure que está usando para crear el recurso de puerta de enlace. <br>- Su cuenta de Azure pertenece a un único [inquilino o directorio de Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology) y es la misma cuenta que se usó para la instalación de la puerta de enlace. <p><p>Para más información, consulte la sección [Preguntas frecuentes](#faq). |
    |||
 
    En este ejemplo se muestra una instalación de la puerta de enlace que se encuentra en la misma región que el recurso de puerta de enlace y que está vinculada a la misma cuenta de Azure:
 
-   ![Proporcionar detalles para crear el recurso de la puerta de enlace de datos](./media/logic-apps-gateway-connection/gateway-details.png)
+   ![Proporcionar detalles para crear el recurso de la puerta de enlace de datos](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -155,7 +155,7 @@ Para crear un recurso de puerta de enlace diferente, vincular la instalación de
 
    Por ejemplo:
 
-   ![Eliminar puerta de enlace](./media/logic-apps-gateway-connection/gateway-delete.png)
+   ![Elimine el recurso de puerta de enlace](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
 
 <a name="faq"></a>
 
@@ -164,7 +164,7 @@ Para crear un recurso de puerta de enlace diferente, vincular la instalación de
 **P.** : ¿Por qué no aparece mi instalación de la puerta de enlace al crear el recurso de puerta de enlace en Azure? <br/>
 **R.** : Este problema puede deberse a estos motivos:
 
-* Su cuenta de Azure debe ser la misma cuenta que está vinculada a la instalación de la puerta de enlace en el equipo local. Compruebe si ha iniciado sesión en Azure Portal con la misma identidad que está vinculada a la instalación de la puerta de enlace.
+* Su cuenta de Azure debe ser la misma que la que está vinculada a la instalación de la puerta de enlace en el equipo local. Compruebe si ha iniciado sesión en Azure Portal con la misma identidad que está vinculada a la instalación de la puerta de enlace. Asegúrese de que su cuenta de Azure pertenece a un único [inquilino o directorio de Azure AD](../active-directory/fundamentals/active-directory-whatis.md#terminology) y de que es el mismo que se usó durante la instalación de la puerta de enlace.
 
 * El recurso de puerta de enlace y la instalación de la puerta de enlace deben usar la misma región. No obstante, la ubicación de la aplicación lógica puede diferir de la ubicación del recurso de puerta de enlace.
 
