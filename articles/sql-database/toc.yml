@@ -496,7 +496,7 @@
           href: sql-database-active-geo-replication-portal.md
         - name: Configuración de Azure SQL Data Sync
           href: sql-database-get-started-sql-data-sync.md
-        - name: Incorporación de un grupo elástico a un grupo de conmutación por error
+        - name: Adición de un grupo elástico a un grupo de conmutación por error
           href: sql-database-elastic-pool-failover-group-tutorial.md
         - name: Configuración de seguridad
           href: sql-database-security-tutorial.md

@@ -24,6 +24,8 @@
 - name: Conceptos
   expanded: true
   items:
+    - name: Procedimientos recomendados de administración de aplicaciones
+      href: application-management-fundamentals.md
     - name: Aplicaciones en la nube e inicio de sesión único
       items:
         - name: Planeamiento de una integración de aplicación en la nube

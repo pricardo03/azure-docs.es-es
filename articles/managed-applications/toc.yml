@@ -75,6 +75,8 @@
           href: key-vault-access.md
         - name: Implementación con identidad administrada
           href: publish-managed-identity.md
+        - name: Implementación con notificaciones
+          href: publish-notifications.md
     - name: Consumidores
       items:
         - name: Supervisión de una aplicación administrada

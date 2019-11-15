@@ -27,6 +27,7 @@ sections:
           - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">Relaciones de delimitadores y búsqueda de caminos.</a>
           - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">Directrices de la experiencia.</a>
           - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">Registro y diagnóstico.</a>
+          - html: <a href="/azure/spatial-anchors/concepts/coarse-reloc">Relocalización general.</a>
   - title: Inicio rápido en 5 minutos
     items:
       - type: paragraph
