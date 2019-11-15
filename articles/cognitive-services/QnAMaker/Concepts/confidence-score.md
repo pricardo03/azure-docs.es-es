@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 14339a61e48866d51089db9a0008a3de982b1710
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a80c61efbcbff569f5fed53734def3979ed70616
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277105"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820775"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Puntuación de confianza de una base de conocimiento de QnA Maker
 Cuando una consulta de usuario se compara con una base de conocimientos (KB), QnA Maker devuelve respuestas pertinentes, junto con una puntuación de confianza. Esta puntuación indica el grado de confianza que se tiene en que la respuesta sea la coincidencia correcta para la consulta de usuario en cuestión. 
@@ -72,9 +72,9 @@ Si varias respuestas tienen una puntuación de confianza similar, es probable qu
 
 
 ## <a name="confidence-score-differences"></a>Diferencias en las puntuaciones de confianza
-La puntuación de confianza de una respuesta puede cambiar de manera apenas perceptible entre la prueba y la versión publicada de la base de conocimiento, aunque el contenido sea el mismo. Esto se debe a que el contenido de la prueba y la base de conocimiento publicada se encuentran en distintos índices de Azure Search. Cuando se publica una base de conocimiento, el contenido de preguntas y respuestas de la base de conocimiento se mueve desde el índice de prueba a un índice de producción en Azure Search. Vea cómo se lleva a cabo la operación de [publicación](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+La puntuación de confianza de una respuesta puede cambiar de manera apenas perceptible entre la prueba y la versión publicada de la base de conocimiento, aunque el contenido sea el mismo. Esto se debe a que el contenido de la prueba y la base de conocimiento publicada se encuentran en distintos índices de Azure Cognitive Search. Cuando se publica una base de conocimiento, el contenido de preguntas y respuestas de la base de conocimiento se mueve desde el índice de prueba a un índice de producción en Azure Search. Vea cómo se lleva a cabo la operación de [publicación](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
-Si tiene una base de conocimiento en regiones diferentes, cada región usa su propio índice de Azure Search. Dado que se usan distintos índices, las puntuaciones no serán las mismas exactamente. 
+Si tiene una base de conocimiento en regiones diferentes, cada región usa su propio índice de Azure Cognitive Search. Dado que se usan distintos índices, las puntuaciones no serán las mismas exactamente. 
 
 
 ## <a name="no-match-found"></a>No se encontraron coincidencias

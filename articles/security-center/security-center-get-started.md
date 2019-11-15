@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido de Azure Security Center: incorporación de su suscripción de Azure al nivel Estándar de Security Center | Microsoft Docs'
+title: 'Actualización al nivel Estándar: Security Center'
 description: Esta guía de inicio rápido muestra cómo actualizarse al plan de tarifa Estándar de Security Center para incrementar la seguridad.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 689949b2b6fea1dcd06741fd3fc19c9371a96784
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 26d62f2c027a093ba518b98fa37ce3a31a14f175
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676394"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664284"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Inicio rápido: Incorporación de una suscripción de Azure a Security Center Standard
 Azure Security Center proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Mientras el nivel Gratis solo ofrece seguridad limitada para los recursos de Azure, el nivel Estándar amplía estas funcionalidades en local y en otras nubes. El nivel Estándar de Security Center le ayuda a encontrar y corregir vulnerabilidades de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia y responder rápidamente en caso de ataque. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).

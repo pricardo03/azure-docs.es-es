@@ -1,5 +1,5 @@
 ---
-title: Migración de recursos de Azure SQL Database a otra región | Microsoft Docs
+title: Migración de recursos a otra región
 description: Obtenga información sobre cómo migrar la instancia de Azure SQL Database, el grupo elástico de Azure SQL o la instancia administrada de Azure SQL a otra región.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 2158d4120445de4c62461fb89555a1b73bc1e2b4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 851ef49a5c066f12a95baa54daf5e267cb4278c5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567167"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821430"
 ---
 # <a name="how-to-move-azure-sql-resources-to-another-region"></a>Migración de recursos de Azure SQL a otra región
 

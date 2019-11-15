@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: aecbaab1ed29a1acfdcb4eec53b88fc266bbab09
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 07e91abc1130505abc84f6687be7edd04522fa76
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309405"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720174"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migración de máquinas virtuales de VMware a Azure (basada en agente)
 
@@ -424,7 +424,19 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 
 ## <a name="post-migration-best-practices"></a>Procedimientos recomendados después de la migración
 
-- Para aumentar la resistencia:
+- Local
+    - Mueva el tráfico de la aplicación hasta la aplicación que se ejecuta en la instancia de máquina virtual de Azure migrada.
+    - Quite las máquinas virtuales locales del inventario de máquinas virtuales local.
+    - Quite las máquinas virtuales locales de las copias de seguridad locales.
+    - Actualice la documentación interna para mostrar la nueva ubicación y la dirección IP las máquinas virtuales de Azure.
+- Ajustar la configuración de las VM de Azure después de la migración:
+    - El [agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md) administra la interacción de una máquina virtual con el controlador de tejido de Azure. Se requiere para algunos servicios de Azure, como Azure Backup, Site Recovery y Azure Security. Al migrar VM de VMware con la migración basada en agentes, el instalador de Mobility Service instala el agente de VM de Azure en máquinas Windows. En VM Linux, se recomienda instalar al agente después de la migración.
+    - Desinstale manualmente Mobility Service de la VM de Azure después de la migración.
+    - Desinstale manualmente las herramientas de VMware después de la migración.
+- En Azure:
+    - Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web.
+    - Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
+- Continuidad empresarial/recuperación ante desastres
     - Proteja los datos mediante la copia de seguridad de máquinas virtuales de Azure mediante el servicio Azure Backup. [Más información](../backup/quick-backup-vm-portal.md).
     - Mantenga las cargas de trabajo en ejecución y disponibles continuamente mediante la replicación de máquinas virtuales de Azure en una región secundaria con Site Recovery. [Más información](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para aumentar la seguridad:
@@ -433,9 +445,11 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
     - Implemente [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
     - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Para supervisión y administración:
--  Considere la posibilidad de implementar [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para supervisar el gasto y el uso de recursos.
+    - Considere la posibilidad de implementar [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para supervisar el gasto y el uso de recursos.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+
+
+ ## <a name="next-steps"></a>Pasos siguientes
 
 Investigue el [proceso de la migración en la nube](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) en el marco de Cloud Adoption Framework para Azure.

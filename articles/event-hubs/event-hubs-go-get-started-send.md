@@ -1,23 +1,23 @@
 ---
-title: Envío y recepción de eventos mediante Go en Azure Event Hubs | Microsoft Docs
-description: En este artículo se ofrece un tutorial para crear una aplicación de Go que envía eventos de Azure Event Hubs.
+title: 'Inicio rápido: Envío y recepción de eventos mediante Go en Azure Event Hubs'
+description: 'Inicio rápido: En este artículo se ofrece un tutorial para crear una aplicación de Go que envía eventos de Azure Event Hubs.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 04/15/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 823ebc985c77785f8b48d12d5919dbbd1b2b1459
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5f52d0ddbf9a66d974732d6d98ca8a5b09cc2d0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821688"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720591"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-using-go"></a>Envío o recepción de eventos en Event Hubs mediante Go
+# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Inicio rápido: Envío o recepción de eventos en Event Hubs mediante Go
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
 
 En este tutorial se describe cómo escribir aplicaciones de Go para enviar o recibir eventos en un centro de eventos. 

@@ -1,5 +1,5 @@
 ---
-title: 'Creación de un grupo host de Windows Virtual Desktop para validar actualizaciones de servicio: Azure'
+title: 'Actualizaciones de servicio para los grupos de host de Windows Virtual Desktop: Azure'
 description: Cómo crear un grupo host de validación para supervisar actualizaciones de servicio antes de implementar las actualizaciones en producción.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c294bb41afae1257add0c96a9f77adad3f871849
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: fd8be170f0f4388ee711881dde16923b9547f21f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676674"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606931"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Creación de un grupo host para validar las actualizaciones del servicio
 

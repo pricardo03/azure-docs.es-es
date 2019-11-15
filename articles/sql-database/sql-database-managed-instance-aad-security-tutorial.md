@@ -1,20 +1,20 @@
 ---
-title: Seguridad de una instancia administrada de Azure SQL Database mediante entidades de seguridad del servidor de Azure AD | Microsoft Docs
+title: Seguridad de instancias administradas con entidades de seguridad de Azure AD (inicios de sesión)
 description: Conozca las técnicas y características para proteger una instancia administrada en Azure SQL Database y usar las entidades de seguridad del servidor de Azure AD (inicios de sesión)
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: tutorial
-author: VanMSFT
-ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 02/20/2019
-ms.openlocfilehash: 37098411f465c611dc9d2e2443f369e01d6e338c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+author: GitHubMirek
+ms.author: mireks
+ms.reviewer: vanto
+ms.date: 11/06/2019
+ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231002"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822789"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Seguridad de una instancia administrada de Azure SQL Database mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)
 
@@ -35,9 +35,6 @@ En este tutorial, aprenderá a:
 > - Usar la suplantación con usuarios de Azure AD
 > - Usar consultas entre bases de datos con usuarios de Azure AD
 > - Aprenda sobre las características de seguridad, como la protección contra amenazas, la auditoría, el enmascaramiento de datos y el cifrado.
-
-> [!NOTE]
-> Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD para instancias administradas se encuentran en **versión preliminar pública**.
 
 Para más información, consulte los artículos de [introducción a Instancia administrada de Azure SQL Database](sql-database-managed-instance-index.yml) y sus [funcionalidades](sql-database-managed-instance.md).
 
@@ -64,15 +61,14 @@ También se puede configurar un punto de conexión de servicio en la instancia a
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Creación de una entidad de seguridad (inicio de sesión) de un servidor de Azure AD para una instancia administrada mediante SSMS
 
-La primera entidad de seguridad (inicio de sesión) de un servidor de Azure AD debe crearla la cuenta estándar de SQL Server (no Azure AD) que es `sysadmin`. Consulte los artículos siguientes para ver ejemplos de conexión a la instancia administrada:
+La primera entidad de seguridad de servidor de Azure AD (inicio de sesión) se puede crear con la cuenta de SQL Server estándar (que no es de Azure AD), que es `sysadmin`, o con el administrador de Azure AD para la instancia administrada que se crea durante el proceso de aprovisionamiento. Para obtener más información, consulte [Aprovisionamiento de un administrador de Azure Active Directory para su instancia administrada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Esta funcionalidad ha cambiado desde la [disponibilidad general de entidades de seguridad de servidor de Azure AD](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+
+Consulte los artículos siguientes para ver ejemplos de conexión a la instancia administrada:
 
 - [Inicio rápido: Configuración de una máquina virtual de Azure para conectarse a una instancia administrada](sql-database-managed-instance-configure-vm.md)
 - [Inicio rápido: Configuración de una conexión de punto a sitio a una instancia administrada desde el entorno local](sql-database-managed-instance-configure-p2s.md)
 
-> [!IMPORTANT]
-> El administrador de Azure AD usado para configurar la instancia administrada no se puede usar para crear una entidad de seguridad (inicio de sesión) de un servidor de Azure AD dentro de la instancia administrada. Debe crear la primera entidad de seguridad (inicio de sesión) de un servidor de Azure AD mediante una cuenta de SQL Server que sea `sysadmin`. Esta es una limitación temporal que se quitará cuando las entidades de seguridad (inicios de sesión) de un servidor de Azure AD pasen a ser de disponibilidad general. Si intenta usar una cuenta de administrador de Azure AD para crear el inicio de sesión, verá el siguiente error: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-
-1. Inicie sesión en la instancia administrada con una cuenta estándar de SQL Server (no de Azure AD) que sea `sysadmin`, mediante [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Inicie sesión en la instancia administrada con una cuenta estándar de SQL Server (no de Azure AD) que sea `sysadmin` o administrador de Azure AD para la instancia administrada, mediante [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
 2. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
 
@@ -125,7 +121,7 @@ Para crear otras entidades de seguridad (inicios de sesión) de un servidor de A
 
 Para agregar el inicio de sesión para el rol de servidor `sysadmin`:
 
-1. Vuelva a iniciar sesión en la instancia administrada o use la conexión existente con la entidad de seguridad SQL que tenga el rol `sysadmin`.
+1. Vuelva a iniciar sesión en la instancia administrada o use la conexión existente con el administrador de Azure AD o la entidad de seguridad SQL que tenga el rol `sysadmin`.
 
 1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
 
@@ -425,7 +421,7 @@ Las consultas entre bases de datos se admiten en las cuentas de Azure AD con ent
 
     Debería ver los resultados de la tabla en **TestTable2**.
 
-## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Escenarios adicionales que se admiten para las entidades de seguridad (inicios de sesión) de un servidor de Azure AD (versión preliminar pública) 
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins"></a>Escenarios adicionales que se admiten para las entidades de seguridad de un servidor de Azure AD (inicios de sesión)
 
 - Se admiten la administración del agente SQL y las ejecuciones de los trabajos en las entidades de seguridad (inicios de sesión) de un servidor de Azure AD.
 - Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD pueden ejecutar operaciones de copia de seguridad y restauración de bases de datos.

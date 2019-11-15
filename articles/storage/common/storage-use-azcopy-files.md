@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6f6c656bee9d271942e74f8116e64aeb47d68d5c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 225fcd475d488cedb8bd210fe2fa9371849314ac
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757524"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615515"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferencia de datos con AzCopy y File Storage 
 
@@ -23,6 +23,9 @@ Antes de comenzar, consulte el artículo [Introducción a AzCopy](storage-use-az
 ## <a name="create-file-shares"></a>Creación de recursos compartidos de archivos
 
 Puede usar el comando [azcopy make](storage-ref-azcopy-make.md) para crear un recurso compartido de archivos. El ejemplo de esta sección crea un recurso compartido de archivos denominado `myfileshare`.
+
+> [!TIP]
+> Los ejemplos de esta sección delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si utiliza un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 |    |     |
 |--------|-----------|
@@ -47,6 +50,9 @@ En esta sección se incluyen los ejemplos siguientes:
 > AzCopy no calcula de forma automática ni almacena el código hash md5 del archivo. Si quiere que AzCopy haga eso, anexe la marca `--put-md5` a cada comando de copia. De ese modo, cuando se descarga el archivo, AzCopy calcula un hash MD5 para los datos descargados y comprueba que el hash MD5 almacenado en la propiedad `Content-md5` del archivo coincide con el hash calculado.
 
 Para obtener documentos de referencia detallados, consulte [azcopy copy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Los ejemplos de esta sección delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si utiliza un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 ### <a name="upload-a-file"></a>Cargar un archivo
 
@@ -133,6 +139,9 @@ En esta sección se incluyen los ejemplos siguientes:
 
 Para obtener documentos de referencia detallados, consulte [azcopy copy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Los ejemplos de esta sección delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si utiliza un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
+
 ### <a name="download-a-file"></a>Descarga de un archivo
 
 |    |     |
@@ -144,8 +153,9 @@ Para obtener documentos de referencia detallados, consulte [azcopy copy](storage
 
 |    |     |
 |--------|-----------|
-| **Sintaxis** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>' '<local-directory-path>' --recursive` |
-| **Ejemplo** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory'  --recursive` |
+| **Sintaxis** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>" 
+"<local-directory-path>" --recursive` |
+| **Ejemplo** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
 
 En este ejemplo se crea un directorio denominado `C:\myDirectory\myFileShareDirectory` que contiene todos los archivos descargados.
 
@@ -207,6 +217,9 @@ En esta sección se incluyen los ejemplos siguientes:
 
 Para obtener documentos de referencia detallados, consulte [azcopy copy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Los ejemplos de esta sección delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si utiliza un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
+
 ### <a name="copy-a-file-to-another-storage-account"></a>Copia de un archivo a otra cuenta de almacenamiento
 
 |    |     |
@@ -247,6 +260,9 @@ El comando [sync](storage-ref-azcopy-sync.md) compara nombres de archivo y las m
 Si establece la marca `--delete-destination` en `true`, AzCopy elimina los archivos sin proporcionar un mensaje. Si quiere que aparezca un mensaje antes de que AzCopy elimine un archivo, establezca la marca `--delete-destination` en `prompt`.
 
 Para obtener documentos de referencia detallados, consulte [azcopy sync](storage-ref-azcopy-sync.md).
+
+> [!TIP]
+> Los ejemplos de esta sección delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si utiliza un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 ### <a name="update-a-file-share-with-changes-to-another-file-share"></a>Actualización de un recurso compartido de archivos con los cambios realizados en otro recurso compartido de archivos
 

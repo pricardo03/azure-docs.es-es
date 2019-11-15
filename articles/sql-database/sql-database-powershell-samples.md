@@ -1,5 +1,5 @@
 ---
-title: Ejemplos de script de Azure PowerShell para SQL Database | Microsoft Docs
+title: Ejemplo de script de Azure PowerShell
 description: Ejemplos de scripts de Azure PowerShell para ayudar a crear y administrar servidores, grupos elásticos, bases de datos y firewalls de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 998497d3e790ba501ac5cdeb4974bf7ee9ea6a54
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: dd16753a9b057e441884b0a6a019701766aaa321
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059254"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821397"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Ejemplos de Azure PowerShell para Azure SQL Database
 
@@ -41,6 +41,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell para A
 | [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell configura la replicación geográfica activa para una base de datos de Azure SQL en un grupo elástico de SQL y la conmuta por error a la réplica secundaria. |
 |**Configuración de un grupo de conmutación por error**||
 | [Configuración de un grupo de conmutación por error para una sola base de datos](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell crea una base de datos y un grupo de conmutación por error, agrega la base de datos al grupo de conmutación por error y prueba la conmutación por error en el servidor secundario. | 
+| [Configuración de un grupo de conmutación por error para un grupo elástico](scripts/sql-database-add-elastic-pool-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell crea una base de datos, lo agrega a un grupo elástico, agrega el grupo elástico al grupo de conmutación por error y prueba la conmutación por error en el servidor secundario. | 
 |**Escalado de una base de datos única y un grupo elástico**||
 | [Escalado de una base de datos única](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell supervisa las métricas de rendimiento de una base de datos de Azure SQL Database, la escala a un tamaño de proceso superior y crea una regla de alerta en una de las métricas de rendimiento. |
 | [Escalado de un grupo elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell supervisa las métricas de rendimiento de grupo elástico de Azure SQL Database, lo escala a un tamaño de proceso superior y crea una regla de alerta en una de las métricas de rendimiento. |
@@ -70,6 +71,8 @@ En la tabla siguiente se incluyen vínculos a ejemplos de scripts de Azure Power
 | [Restauración de una base de datos a una Instancia administrada de otra región con replicación geográfica](scripts/sql-managed-instance-restore-geo-backup.md) | Este script de PowerShell está realizando una copia de seguridad de una base de datos y restaurándola en otra región. Esto se conoce como escenario de recuperación ante desastres de una restauración geográfica. |
 | **Configuración del Cifrado de datos transparente (TDE)**||
 | [Administración del Cifrado de datos transparente en una instancia administrada con la propia clave desde Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell configura el Cifrado de datos transparente (TDE) en el escenario Bring Your Own Key para Instancia administrada de SQL de Azure, con una clave de Azure Key Vault|
+|**Configuración de un grupo de conmutación por error**||
+| [Configuración de un grupo de conmutación por error para una instancia administrada](scripts/sql-database-add-managed-instance-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell crea dos instancias administradas, las agrega a un grupo de conmutación por error y, a continuación, prueba la conmutación por error de la instancia administrada principal en la instancia administrada secundaria. | 
 |||
 
 Obtenga más información sobre la [API de Instancia administrada de Azure PowerShell](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).

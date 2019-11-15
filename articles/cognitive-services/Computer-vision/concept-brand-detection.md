@@ -1,7 +1,7 @@
 ---
 title: 'Detección de la marca: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Conceptos relacionados con la detección de marca/logotipo en Computer Vision API.
+description: 'En este artículo se describe un modo especializado de detección de objetos: la detección de marcas o logotipos mediante Computer Vision API.'
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: c3a80cbdd166f77681665ee3675c1a71ce3a9bd6
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 117beca1284f28c75c1ac772425423f732b8a236
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967087"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718635"
 ---
 # <a name="detect-popular-brands-in-images"></a>Detección de marcas populares en las imágenes
 

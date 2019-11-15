@@ -4,16 +4,17 @@ description: Explica cómo crear y administrar una oferta de SaaS en Azure Marke
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78162983601e9126bd34cb737e74783df982bacb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99dd6db7003e0358ddde2438f6897cd767932227
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258945"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816567"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>API de suministro de SaaS, versión 1 (en desuso)
 
@@ -334,8 +335,8 @@ Este punto de conexión permite el usuario realizar un seguimiento del estado de
 | id                 | Cadena        | Identificador de la operación.                                                                      |
 | status             | Enum          | Estado de la operación, uno de los siguientes: `In Progress`, `Succeeded` o `Failed`.          |
 | resourceLocation   | Cadena        | Vínculo a la suscripción que se ha creado o modificado. Sirve de ayuda al cliente para obtener el estado actualizado de la operación POST. No se establece este valor para las operaciones `Unsubscribe`. |
-| created            | Datetime      | Hora de creación de la operación en formato UTC.                                                           |
-| lastModified       | Datetime      | Última actualización de la operación en formato UTC.                                                      |
+| created            | DateTime      | Hora de creación de la operación en formato UTC.                                                           |
+| lastModified       | DateTime      | Última actualización de la operación en formato UTC.                                                      |
 |  |  |  |
 
 *Códigos de respuesta*
@@ -406,8 +407,8 @@ La acción Get en el punto de conexión de suscripción permite a un usuario rec
 | planId                 | Cadena        | Identificador del plan al que se ha suscrito el usuario.          |
 | saasSubscriptionName   | Cadena        | Nombre de la suscripción de SaaS.                |
 | saasSubscriptionStatus | Enum          | Estado de la operación.  Uno de los siguientes:  <br/> - `Subscribed`: la suscripción está activa.  <br/> - `Pending`: el usuario ha creado el recurso, pero no ha sido activado por el ISV.   <br/> - `Unsubscribed`: el usuario ha cancelado la suscripción.   <br/> - `Suspended`: el usuario ha suspendido la suscripción.   <br/> - `Deactivated`:  la suscripción de Azure está suspendida.  |
-| created                | Datetime      | Valor de la marca de tiempo de la creación de la suscripción en formato UTC. |
-| lastModified           | Datetime      | Valor de la marca de tiempo de la modificación de la suscripción en formato UTC. |
+| created                | DateTime      | Valor de la marca de tiempo de la creación de la suscripción en formato UTC. |
+| lastModified           | DateTime      | Valor de la marca de tiempo de la modificación de la suscripción en formato UTC. |
 |  |  |  |
 
 *Códigos de respuesta*
@@ -478,8 +479,8 @@ La acción Get en el punto de conexión de las suscripciones permite a un usuari
 | planId                 | Cadena        | Identificador del plan al que se ha suscrito el usuario.          |
 | saasSubscriptionName   | Cadena        | Nombre de la suscripción de SaaS.                |
 | saasSubscriptionStatus | Enum          | Estado de la operación.  Uno de los siguientes:  <br/> - `Subscribed`: la suscripción está activa.  <br/> - `Pending`: el usuario ha creado el recurso, pero no ha sido activado por el ISV.   <br/> - `Unsubscribed`: el usuario ha cancelado la suscripción.   <br/> - `Suspended`: el usuario ha suspendido la suscripción.   <br/> - `Deactivated`:  la suscripción de Azure está suspendida.  |
-| created                | Datetime      | Valor de la marca de tiempo de la creación de la suscripción en formato UTC. |
-| lastModified           | Datetime      | Valor de la marca de tiempo de la modificación de la suscripción en formato UTC. |
+| created                | DateTime      | Valor de la marca de tiempo de la creación de la suscripción en formato UTC. |
+| lastModified           | DateTime      | Valor de la marca de tiempo de la modificación de la suscripción en formato UTC. |
 |  |  |  |
 
 *Códigos de respuesta*

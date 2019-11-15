@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6d52062561e3f08a214f3e191706583edc844786
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984358"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794209"
 ---
 # <a name="manage-qna-maker-resources"></a>Administración de recursos de QnA Maker
 
@@ -52,8 +52,8 @@ En este procedimiento se crean los recursos de Azure necesarios para administrar
     * Seleccione el **plan de tarifa** para los servicios de administración de QnA Maker (API de portal y administración). Vea [más detalles sobre los precios de las SKU](https://aka.ms/qnamaker-pricing).
     * Cree un **grupo de recursos** (se recomienda) para implementar este recurso de QnA Maker, o use uno existente. QnA Maker crea varios recursos de Azure. Cuando se crea un grupo de recursos que contenga estos recursos, puede encontrar, administrar y eliminar fácilmente estos recursos por su nombre.
     * Seleccione una **ubicación del grupo de recursos**.
-    * Elija el **Plan de tarifa de búsqueda** del servicio Azure Search. Si la opción de nivel Gratis no está disponible (aparece atenuada), significa que ya tiene un nivel Gratis de Azure Search implementado a través de la suscripción. En ese caso, necesitará comenzar con el nivel Básico de Azure Search. Consulte los [detalles de precios de Azure Search](https://azure.microsoft.com/pricing/details/search/).
-    * Elija la **ubicación de búsqueda** en la que desea que se implementen los datos de Azure Search. Las restricciones sobre dónde deben almacenarse los datos de los clientes ayudarán a determinar la ubicación elegida para Azure Search.
+    * Elija el **Plan de tarifa de búsqueda** del servicio Azure Cognitive Search. Si la opción de nivel Gratis no está disponible (aparece atenuada), significa que ya tiene un servicio gratuito implementado a través de la suscripción. En ese caso, tendrá que comenzar con el nivel Básico. Consulte los [detalles de precios de Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
+    * Elija la **Ubicación de búsqueda** en la que desea que se implementen los índices de Azure Cognitive Search. Las restricciones sobre dónde deben almacenarse los datos de los clientes ayudarán a determinar la ubicación elegida para Azure Cognitive Search.
     * En el campo **Nombre de aplicación**, escriba el nombre de la instancia de Azure App Service.
     * De forma predeterminada, el nivel predeterminado de App Service es Estándar (S1). Puede cambiar el plan después de la creación. Más información sobre los [precios de App Service](https://azure.microsoft.com/pricing/details/app-service/).
     * Elija la **ubicación de sitio web** en la que se implementará App Service.
@@ -128,7 +128,7 @@ Si crea un servicio QnA mediante plantillas de Azure Resource Manager, puede cre
 |--|--|
 |[Actualización](#upgrade-qna-maker-sku) de la SKU de administración de QnA Maker|Desea tener más preguntas y respuestas en la base de conocimiento.|
 |[Actualización](#upgrade-app-service) de la SKU de App Service|Su base de conocimiento debe atender más solicitudes de la aplicación cliente, como un bot de chat.|
-|[Actualización](#upgrade-the-azure-search-service) del servicio Azure Search|Planea tener muchas bases de conocimiento.|
+|[Actualización](#upgrade-the-azure-cognitive-search-service) del servicio Azure Cognitive Search|Planea tener muchas bases de conocimiento.|
 
 
 ### <a name="upgrade-qna-maker-sku"></a>Actualización de la SKU de QnA Maker
@@ -155,9 +155,9 @@ Vaya al recurso App Service en Azure Portal y seleccione la opción **Escalar ve
 
 ![Escalado de App Service en QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### <a name="upgrade-the-azure-search-service"></a>Actualización del servicio Azure Search
+### <a name="upgrade-the-azure-cognitive-search-service"></a>Actualización del servicio Azure Cognitive Search
 
-Si planea tener muchas bases de conocimiento, actualice el plan de tarifa del servicio Azure Search.
+Si planea tener muchas bases de conocimiento, actualice el plan de tarifa del servicio Azure Cognitive Search.
 
 Actualmente, no puede realizar una actualización local de la SKU de Azure Search. Sin embargo, puede crear un recurso de Azure Search con la SKU deseada, restaurar los datos al nuevo recurso y luego vincularlo a la pila de QnA Maker. Para ello, siga estos pasos.
 

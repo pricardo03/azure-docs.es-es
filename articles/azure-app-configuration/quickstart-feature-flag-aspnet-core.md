@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: d7a9f365c9e2b6039451375f4ad50a7ce04cdd5b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1a3d917775f6ba5b0b7f62d19de2b970a8b36838
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029732"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571217"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Inicio rápido: Adición de marcas de características a una aplicación web de ASP.NET Core
 
@@ -32,7 +32,7 @@ Las bibliotecas de administración de características de .NET Core amplían la 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [SDK de .NET Core](https://dotnet.microsoft.com/download).
 
-## <a name="create-an-app-configuration-store"></a>Creación de un almacén de App Configuration
+## <a name="create-an-app-configuration-store"></a>Creación de un almacén de configuración de aplicaciones
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -79,7 +79,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
 1. Guarde el archivo.
 
-## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de App Configuration
+## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de configuración de aplicaciones
 
 1. Agregue una referencia a los paquetes NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` y `Microsoft.FeatureManagement.AspNetCore`, para lo que debe ejecutar los siguientes comandos:
 
@@ -115,6 +115,11 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
     ```
 
 1. Actualice el método `CreateWebHostBuilder` para usar App Configuration; para ello, llame al método `config.AddAzureAppConfiguration()`.
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` reemplaza a `CreateWebHostBuilder` en .NET Core 3.0.  Seleccione la sintaxis correcta en función de su entorno.
+
+    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>Actualización `CreateWebHostBuilder` para .NET Core 2.x
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -124,11 +129,27 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
                 var settings = config.Build();
                 config.AddAzureAppConfiguration(options => {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .UseFeatureFlags();
+                            .UseFeatureFlags();
                 });
             })
             .UseStartup<Startup>();
     ```
+
+    ### <a name="update-createhostbuilder-for-net-core-3x"></a>Actualización `CreateHostBuilder` para .NET Core 3.x
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"])
+                .UseFeatureFlags();
+        })
+        .UseStartup<Startup>());
+    ```
+
 
 1. Abra *Startup.cs* y agregue referencias al administrador de características de .NET Core.
 

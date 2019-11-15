@@ -1,6 +1,7 @@
 ---
-title: Carga, codificación y transmisión en secuencias con Azure Media Services v3 | Microsoft Docs
-description: Siga los pasos de este tutorial para cargar un archivo, codificar el vídeo y transmitir en secuencias su contenido con Media Services v3.
+title: Cargar, codificar y hacer streaming con Media Services v3
+titleSuffix: Azure Media Services
+description: Tutorial que muestra cómo cargar un archivo, codificar vídeo y hacer streaming de contenido con Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,40 +13,40 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 5b359b81de694c47151c95254b80f847db828aed
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: f8ff3dc71727abf9e276cccc951c4d1143f4200d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653929"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583097"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos"></a>Tutorial: Carga, codificación y streaming de vídeos
+# <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutorial: Cargar, codificar y hacer streaming de vídeos con Media Services v3
 
 > [!NOTE]
-> Aunque en este tutorial se usan los ejemplos de [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), los pasos generales son los mismos para la [API REST](https://docs.microsoft.com/rest/api/media/liveevents), la [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) u otros [SDK](media-services-apis-overview.md#sdks) admitidos.
+> Aunque en este tutorial se usan los ejemplos del [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), los pasos generales son los mismos para la [API REST](https://docs.microsoft.com/rest/api/media/liveevents), la [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) u otros [SDK](media-services-apis-overview.md#sdks) admitidos.
 
-Azure Media Services permite codificar los archivos multimedia en formatos que se pueden reproducir en una gran variedad de exploradores y dispositivos. Por ejemplo, puede que quiera transmitir su contenido en los formatos HLS o MPEG DASH de Apple. Antes de la transmisión, primero debe codificar su archivo de medios digitales de alta calidad. Para obtener instrucciones acerca de la codificación, consulte [El concepto de codificación](encoding-concept.md). Este tutorial carga un archivo de vídeo local y codifica el archivo cargado. También puede codificar contenido que se hace accesible a través de una dirección URL HTTPS. Para más información, consulte [Creación de una entrada de un trabajo desde una dirección URL HTTP(s)](job-input-from-http-how-to.md).
+Azure Media Services le permite codificar los archivos multimedia en formatos que se pueden reproducir en una gran variedad de exploradores y dispositivos. Por ejemplo, puede que quiera transmitir su contenido en los formatos HLS o MPEG DASH de Apple. Antes de la transmisión, primero debe codificar su archivo de medios digitales de alta calidad. Para obtener ayuda con la codificación, consulte el [concepto de codificación](encoding-concept.md). Este tutorial carga un archivo de vídeo local y codifica el archivo cargado. También puede codificar contenido accesible a través de una dirección URL HTTPS. Para más información, consulte [Creación de una entrada de un trabajo desde una dirección URL HTTP(s)](job-input-from-http-how-to.md).
 
-![Reproducción del vídeo](./media/stream-files-tutorial-with-api/final-video.png)
+![Reproducir un vídeo con Azure Media Player](./media/stream-files-tutorial-with-api/final-video.png)
 
-En este tutorial se muestra cómo realizar las siguientes acciones:    
+En este tutorial se muestra cómo realizar las siguientes acciones:
 
 > [!div class="checklist"]
-> * Descargar la aplicación de ejemplo que se describe en el tema
-> * Examen del código que carga, codifica y transmite en secuencias
-> * Ejecución de la aplicación
-> * Prueba de la URL de streaming
-> * Limpieza de recursos
+> * Descargue la aplicación de ejemplo que se describe en el tema
+> * Examine el código que se carga, codifica y transmite en streaming.
+> * Ejecute la aplicación.
+> * Pruebe la URL de streaming.
+> * Limpieza de recursos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no tiene Visual Studio instalado, puede obtener [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Si no tiene Visual Studio instalado, puede obtener [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md).<br/>Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos.
 - Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](access-api-cli-how-to.md) y guarde las credenciales. Deberá usarlas para acceder a la API.
 
-## <a name="download-and-configure-the-sample"></a>Descarga y configuración del ejemplo
+## <a name="download-and-set-up-the-sample"></a>Descargar y configurar el ejemplo
 
 Clone un repositorio GitHub que contenga el ejemplo de .NET de streaming en la máquina con el siguiente comando:  
 
@@ -63,35 +64,35 @@ En esta sección se examinan las funciones definidas en el archivo [Program.cs](
 
 Este ejemplo realiza las acciones siguientes:
 
-1. Crea una nueva **transformación** (antes comprueba si existe la transformación especificada). 
-2. Crea un **recurso** de salida que se utiliza como salida del **trabajo** de codificación.
-3. Crea un **recurso** de entrada y carga en él el archivo de vídeo local especificado. El recurso se usa como entrada del trabajo. 
+1. Crea una nueva **transformación** (antes comprueba si existe la transformación especificada).
+2. Crea un **recurso** de salida que se usa como salida del **trabajo** de codificación.
+3. Crea un **recurso** de entrada y carga en él el archivo de vídeo local especificado. El recurso se usa como entrada del trabajo.
 4. Envía al trabajo de codificación con la entrada y salida que se han creado.
 5. Comprueba el estado del trabajo.
 6. Crea un **objeto StreamingLocator**.
 7. Crea direcciones URL de streaming.
 
-### <a name="a-idstartusingdotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Uso de las API de Media Services con SDK de .NET
+### <a name="a-idstart_using_dotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Uso de las API de Media Services con SDK de .NET
 
-Para empezar a usar las API de Media Services con. NET, debe crear un objeto **AzureMediaServicesClient**. Para crear el objeto, debe proporcionar las credenciales necesarias para que el cliente se conecte a Azure mediante Azure AD. En el código que se clonó al principio del artículo, la función **GetCredentialsAsync** crea el objeto ServiceClientCredentials basándose en las credenciales proporcionadas en el archivo de configuración local. 
+Para empezar a usar las API de Media Services con. NET, debe crear un objeto **AzureMediaServicesClient**. Para crear el objeto, debe proporcionar las credenciales necesarias para que el cliente se conecte a Azure mediante Azure AD. En el código que se clonó al principio del artículo, la función **GetCredentialsAsync** crea el objeto ServiceClientCredentials basándose en las credenciales proporcionadas en el archivo de configuración local.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateMediaServicesClient)]
 
-### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Creación de un recurso de entrada y carga de un archivo local en él 
+### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Creación de un recurso de entrada y carga de un archivo local en él
 
-La función **CreateInputAsset** crea un nuevo [recurso](https://docs.microsoft.com/rest/api/media/assets) de entrada y carga en él el archivo de vídeo local especificado. Este **recurso** se utiliza como entrada para el trabajo de codificación. En Media Services v3, la entrada a un **trabajo** puede ser tanto un **recurso** como contenido que se pone a disposición de la cuenta de Media Services a través de direcciones URL HTTPS. Para más información sobre cómo codificar desde una dirección URL HTTPS, consulte [este](job-input-from-http-how-to.md) artículo.  
+La función **CreateInputAsset** crea un nuevo [recurso](https://docs.microsoft.com/rest/api/media/assets) de entrada y carga en él el archivo de vídeo local especificado. Este **Recurso** se utiliza como entrada para el trabajo de codificación. En Media Services v3, la entrada a un **trabajo** puede ser tanto un **recurso** como contenido que se pone a disposición de la cuenta de Media Services a través de direcciones URL HTTPS. Para más información sobre cómo codificar desde una dirección URL HTTPS, consulte [este artículo](job-input-from-http-how-to.md).
 
 En Media Services v3, se utilizan las API de Azure Storage para cargar archivos. En el siguiente fragmento de código de .NET se muestra cómo hacerlo.
 
 La función siguiente realiza estas acciones:
 
-* Crea un **recurso** 
+* Crea un **recurso**.
 * Obtiene una [dirección URL de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) que se puede escribir para el [contenedor de almacenamiento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) del recurso.
-* Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS
+* Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Creación de un recurso de salida para almacenar el resultado de un trabajo 
+### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Creación de un recurso de salida para almacenar el resultado de un trabajo
 
 El [recurso](https://docs.microsoft.com/rest/api/media/assets) de salida almacena el resultado del trabajo de codificación. El proyecto define la función **DownloadResults** que descarga los resultados de este recurso de salida en la carpeta "output", para que se pueda ver lo que tiene.
 
@@ -99,7 +100,7 @@ El [recurso](https://docs.microsoft.com/rest/api/media/assets) de salida almacen
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Creación de una transformación y de un trabajo que codifica el archivo cargado
 
-Cuando se codifica o procesa contenido en Media Services, es un patrón común configurar los ajustes de codificación como una receta. Después, podría enviar un **trabajo** para aplicar esa receta a un vídeo. Al enviar nuevos trabajos en cada nuevo vídeo, está aplicando dicha receta a todos los vídeos de la biblioteca. Una receta en Media Services se llama **transformación**. Para obtener más información, consulte [Transformaciones y trabajos](transform-concept.md). El ejemplo descrito en este tutorial define una receta que codifica el vídeo para transmitirlo a varios dispositivos iOS y Android. 
+Cuando se codifica o procesa contenido en Media Services, es un patrón común configurar los ajustes de codificación como una receta. Después, podría enviar un **trabajo** para aplicar esa receta a un vídeo. Al enviar nuevos trabajos en cada nuevo vídeo, está aplicando dicha receta a todos los vídeos de la biblioteca. Una receta en Media Services se llama **transformación**. Para obtener más información, consulte [Transformaciones y trabajos](transform-concept.md). El ejemplo descrito en este tutorial define una receta que codifica el vídeo para transmitirlo a varios dispositivos iOS y Android.
 
 #### <a name="transform"></a>Transformación
 
@@ -107,7 +108,7 @@ Al crear una nueva instancia de la [transformación](https://docs.microsoft.com/
 
 Puede usar un valor de EncoderNamedPreset integrado o valores preestablecidos personalizados. Para más información, consulte [Personalización de los valores predefinidos del codificador](customize-encoder-presets-how-to.md).
 
-Al crear una [transformación](https://docs.microsoft.com/rest/api/media/transforms), debe comprobar primero si ya existe una con el método **Get**, tal como se muestra en el código siguiente.  En Media Services v3, los métodos **Get** en las entidades devuelven **null** si la entidad no existe (una comprobación sin distinción entre mayúsculas y minúsculas en el nombre).
+Al crear una [transformación](https://docs.microsoft.com/rest/api/media/transforms), debe comprobar primero si ya existe una con el método **Get**, tal como se muestra en el código siguiente. En Media Services v3, los métodos **Get** en las entidades devuelven **null** si la entidad no existe (una comprobación sin distinción entre mayúsculas y minúsculas en el nombre).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#EnsureTransformExists)]
 
@@ -115,7 +116,7 @@ Al crear una [transformación](https://docs.microsoft.com/rest/api/media/transfo
 
 Como se mencionó anteriormente, el objeto [Transform](https://docs.microsoft.com/rest/api/media/transforms) es la receta y un [trabajo](https://docs.microsoft.com/rest/api/media/jobs) es la solicitud real a Media Services para aplicar que dicho objeto **Transform** a un determinado contenido de audio o vídeo de entrada. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida.
 
-En este ejemplo, el vídeo de entrada se ha cargado desde la máquina local. Para más información sobre cómo codificar desde una dirección URL HTTPS, consulte [este](job-input-from-http-how-to.md) artículo.
+En este ejemplo, el vídeo de entrada se ha cargado desde la máquina local. Para más información sobre cómo codificar desde una dirección URL HTTPS, consulte [este artículo](job-input-from-http-how-to.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
 
@@ -125,7 +126,7 @@ El trabajo tarda algún tiempo en completarse y cuando lo hace querrá recibir u
 
 Event Grid está diseñado para una alta disponibilidad, un rendimiento consistente y una escala dinámica. Con Event Grid, sus aplicaciones pueden escuchar y reaccionar a eventos de casi todos los servicios de Azure y de orígenes personalizados. El control de eventos sencillo y reactivo basado en HTTP le ayuda a crear soluciones eficaces con filtrado y enrutamiento de eventos inteligente.  Consulte [Enrutamiento de eventos a un punto de conexión web personalizado](job-state-events-cli-how-to.md).
 
-El **trabajo** pasa normalmente por los siguientes estados: **Programado**, **En cola**, **Procesando**, **Finalizado** (el estado final). Si el trabajo ha encontrado un error, obtendrá el estado **Error**. Si el trabajo está en proceso de cancelación, obtendrá **Cancelando** y **Cancelado** cuando haya terminado.
+El **trabajo** pasa normalmente por los siguientes estados: **Programado**, **En cola**, **Procesando**, **Finalizado** (el estado final). Si el trabajo ha encontrado un error, obtendrá el estado **Error**. Si el trabajo está en proceso de cancelación, obtendrá los mensajes **Cancelando** y **Cancelado** cuando haya terminado.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
@@ -135,16 +136,16 @@ Consulte [Códigos de error](https://docs.microsoft.com/rest/api/media/jobs/get#
 
 ### <a name="get-a-streaming-locator"></a>Obtención de un objeto StreamingLocator
 
-Una vez finalizada la codificación, el siguiente paso es poner el vídeo del recurso de salida a disposición de los clientes para su reproducción. Puede hacerlo en dos pasos: en primer lugar, cree un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) y, después, cree las direcciones URL de streaming que pueden usar los clientes. 
+Una vez finalizada la codificación, el siguiente paso es poner el vídeo del recurso de salida a disposición de los clientes para su reproducción. Puede hacerlo disponible en dos pasos: en primer lugar, cree un objeto [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) y, después, cree las direcciones URL de streaming que pueden usar los clientes.
 
-El proceso de creación de un objeto **StreamingLocator** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, salvo que configure las horas de inicio y de finalización opcionales. 
+El proceso de creación de un objeto **StreamingLocator** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, salvo que configure las horas de inicio y de finalización opcionales.
 
-Al crear un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), debe especificar el objeto **StreamingPolicyName** deseado. En este ejemplo, estará transmitiendo contenido no cifrado, de modo que se utiliza la directiva de streaming sin cifrar predefinida (**PredefinedStreamingPolicy.ClearStreamingOnly**).
+Al crear un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), deberá especificar el objeto **StreamingPolicyName** deseado. En este ejemplo, transmitirá contenido no cifrado, de modo que se puede usar la directiva de streaming sin cifrar predefinida, **PredefinedStreamingPolicy.ClearStreamingOnly**.
 
 > [!IMPORTANT]
-> Al utilizar un objeto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizado, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus localizadores de streaming siempre que se necesiten las mismas opciones y protocolos de cifrado. La cuenta de Media Service tiene una cuota para el número de entradas de Streaming Policy. No debe crear una nueva directiva de streaming para cada localizador de streaming.
+> Al utilizar un objeto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizado, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus localizadores de streaming siempre que se necesiten las mismas opciones y protocolos de cifrado. La cuenta de Media Service tiene una cuota para el número de entradas de Streaming Policy. No debe crear un una nueva directiva de streaming para cada localizador de streaming.
 
-El código siguiente da por supuesto que está llamando a la función con un único objeto locatorName.
+En el código siguiente se da por supuesto que está llamando a la función con un único objeto locatorName.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateStreamingLocator)]
 
@@ -161,7 +162,7 @@ Ahora que se ha creado el objeto [StreamingLocator](https://docs.microsoft.com/r
 
 ### <a name="clean-up-resources-in-your-media-services-account"></a>Limpieza de los recursos en su cuenta de Media Services
 
-Por lo general, debe limpiar todo excepto los objetos que piensa reutilizar (típicamente, reutilizará transformaciones y conservará objetos StreamingLocators, etc.). Si desea que la cuenta esté limpia después de la experimentación, debe eliminar los recursos que no piensa volver a usar.  Por ejemplo, el código siguiente elimina los trabajos.
+Por lo general, debe limpiar todo, excepto los objetos que piensa reutilizar (normalmente, reutilizará transformaciones y conservará objetos StreamingLocators, etc.). Si quiere que la cuenta esté limpia después de la experimentación, elimine los recursos que no tiene previsto volver a usar. Por ejemplo, el código siguiente elimina los trabajos:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CleanUp)]
 
@@ -172,20 +173,20 @@ Por lo general, debe limpiar todo excepto los objetos que piensa reutilizar (tí
 
 En este ejemplo se muestran las direcciones URL que pueden usarse para reproducir el vídeo con diferentes protocolos:
 
-![Output](./media/stream-files-tutorial-with-api/output.png)
+![Salida de ejemplo que muestra las direcciones URL del vídeo en streaming de Media Services](./media/stream-files-tutorial-with-api/output.png)
 
 ## <a name="test-the-streaming-url"></a>Prueba de la URL de streaming
 
-Para probar la transmisión, este artículo usa Azure Media Player. 
+Para probar la transmisión, este artículo usa Azure Media Player.
 
 > [!NOTE]
 > Si el reproductor está hospedado en un sitio https, asegúrese de actualizar la dirección URL a "https".
 
 1. Abra un explorador web y vaya a [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. En el cuadro **Dirección URL:** , pegue uno de los valores de la dirección URL de streaming que se obtuvo al ejecutar la aplicación. 
-3. Presione **Actualizar Player**.
+2. En el cuadro **Dirección URL:** , pegue uno de los valores de la dirección URL de streaming que obtuvo al ejecutar la aplicación.
+3. Seleccione **Update Player** (Actualizar reproductor).
 
-Azure Media Player puede usarse para realizar pruebas, pero no debe usarse en un entorno de producción. 
+Azure Media Player puede usarse para realizar pruebas, pero no debe usarse en un entorno de producción.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -199,7 +200,7 @@ az group delete --name amsResourceGroup
 
 ## <a name="multithreading"></a>Multithreading
 
-Los SDK de Azure Media Services v3 no son seguros para subprocesos. Al desarrollar una aplicación multiproceso, debe generar y utilizar un nuevo objeto AzureMediaServicesClient por subproceso.
+Los SDK de Azure Media Services v3 no son seguros para subprocesos. Al desarrollar una aplicación multiproceso, debe generar y utilizar un nuevo objeto AzureMediaServicesClient por subproceso.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 

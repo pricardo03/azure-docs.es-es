@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: af30719ead8464d0420734818203b8070eb5d145
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a0b0d0d95e1ffd50faba19f1665ea5dae737b124
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105101"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796136"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configuración de contenedores de Form Recognizer
 
@@ -47,7 +47,7 @@ Puede encontrar esta configuración en Azure Portal, en **Form Recognizer Overvi
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
-|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
+|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](form-recognizer-container-howto.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 

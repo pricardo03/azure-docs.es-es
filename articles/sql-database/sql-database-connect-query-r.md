@@ -1,5 +1,5 @@
 ---
-title: Uso de R con Machine Learning Services para consultar una base de datos de Azure SQL
+title: Uso de R con Machine Learning Services para consultar
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: En este artículo se muestra cómo usar un script de R con Azure SQL Database Machine Learning Services para conectarse a una base de datos de Azure SQL y consultarla mediante instrucciones Transact-SQL.
 services: sql-database
@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: ff38346a9b3bd14db51383c116240b030d3ee42a
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: a54b538247f81ea3bb0ea70a2af374158bd9e2ff
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514855"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826973"
 ---
 # <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Inicio rápido: Uso de R con Machine Learning Services para consultar una base de datos de Azure SQL (versión preliminar)
 

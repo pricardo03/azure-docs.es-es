@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/18/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 842392ab425628a1c82a39e25a65066064747211
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 315ebfa1460f9d9bc041925cec2451f63ac5be16
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675736"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580228"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: Seguimiento del uso de un laboratorio en Azure Lab Services
 Este tutorial muestra cómo un creador o propietario de un laboratorio puede realizar un seguimiento de su uso.
@@ -41,6 +41,8 @@ En este tutorial realizará lo siguiente:
 
     ![Usuarios registrados](../media/tutorial-track-usage/registered-users.png)
 
+    Para obtener más información sobre cómo agregar y administrar usuarios para el laboratorio, vea [Incorporación y administración de usuarios de laboratorio](how-to-configure-student-usage.md).
+
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Visualización del uso de las máquinas virtuales en el laboratorio 
 
 1. Seleccione **Máquinas virtuales** en el menú de la izquierda. 
@@ -49,12 +51,11 @@ En este tutorial realizará lo siguiente:
     ![Uso de máquinas virtuales](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Administración de máquinas virtuales de estudiantes 
-En esta página, puede iniciar, detener o restablecer las máquinas virtuales de los alumnos mediante la lista desplegable de la columna **Estado** o los botones de la barra de herramientas. 
+En esta página, puede iniciar, detener o restablecer las máquinas virtuales de los alumnos mediante los controles de la columna **Estado** o de la barra de herramientas.
 
 ![Controles de máquinas virtuales](../media/tutorial-track-usage/vm-controls.png)
 
-También puede usar los botones de barra de herramientas para iniciar, detener o eliminar una máquina virtual. 
-
+Para obtener más información sobre cómo administrar el grupo de máquinas virtuales para el laboratorio, consulte [Configuración y administración del grupo de máquinas virtuales](how-to-set-virtual-machine-passwords.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre los laboratorios educativos, consulte los artículos enumerados en [Guías de procedimientos](how-to-manage-lab-accounts.md).

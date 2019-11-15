@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606515"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669393"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Server
 En este tutorial, se describe el proceso de creación e implementación de un modelo de Machine Learning con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
@@ -150,8 +150,8 @@ En este ejercicio, se hará lo siguiente:
 
 Cuando esté listo para continuar con Azure Machine Learning, puede:  
 
-1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Azure Machine Learning; o bien
-2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos en una nueva tabla de bases de datos y usar la nueva tabla en el módulo [Importar datos][import-data] de Azure Machine Learning.
+1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Azure Machine Learning.
+2. O bien, conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos en una nueva tabla de bases de datos y usar la nueva tabla en el módulo [Importar datos][import-data] de Azure Machine Learning.
 
 En esta sección se guardará la consulta final para extraer y muestrear los datos. El segundo método se muestra en la sección [Exploración de datos e ingeniería de características en el Bloc de notas de IPython](#ipnb) .
 
@@ -172,7 +172,7 @@ Este ejemplo identifica las licencias (números de taxi) con más de 100 carrera
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploración: Distribución de carreras por medallion y hack_license
+#### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Exploración: Distribución de carreras por medallion y hack_license
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
@@ -233,7 +233,7 @@ En este ejemplo se convierte la longitud y latitud de los puntos de recogida y d
 Las consultas de exploración de conversión geográfica y la generación de etiquetas pueden usarse también para generar etiquetas y características mediante la eliminación de la parte de recuento. En la sección [Exploración de datos e ingeniería de características en el Bloc de notas de IPython](#ipnb) se ofrecen ejemplos SQL de ingeniería de características adicionales. Resulta más eficaz ejecutar consultas de generación de características sobre el conjunto de datos completo o un subconjunto grande mediante consultas SQL que se ejecuten directamente en la instancia de base de datos de SQL Server. Las consultas se pueden ejecutar en **SQL Server Management Studio**, el Bloc de notas de IPython o cualquier herramienta o entorno de desarrollo que tenga acceso local o remoto a la base de datos local.
 
 #### <a name="preparing-data-for-model-building"></a>Preparación de los datos para la creación del modelo
-La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped**, una etiqueta de clasificación multiclase **tip\_class** y extrae una muestra aleatoria de un 1 % del conjunto de datos combinado completo. Esta consulta se puede copiar y pegar directamente en el módulo [Importar datos](https://studio.azureml.net) de [Azure Machine Learning Studio][import-data] para la ingesta directa de datos de la instancia de base de datos SQL Server en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
+La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped**, una etiqueta de clasificación multiclase **tip\_class** y extrae una muestra aleatoria de un 1 % del conjunto de datos combinado completo. Esta consulta se puede copiar y pegar directamente en el módulo [Importar datos](https://studio.azureml.net) de [Azure Machine Learning Studio][import-data] para la ingesta directa de datos de la instancia de base de datos SQL Server en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -282,7 +282,7 @@ Inicialice la configuración de conexión de base de datos en las variables sigu
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-#### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>Informe con el número de filas y columnas en la tabla nyctaxi_trip
+#### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Informe con el número de filas y columnas en la tabla nyctaxi_trip
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('nyctaxi_trip')
@@ -572,7 +572,7 @@ Un experimento de entrenamiento típico consta de las siguientes acciones:
 
 En este ejercicio, ya se han explorado y diseñado los datos en SQL Server, y también se ha decidido el tamaño de la muestra para la ingesta en Azure Machine Learning. Para crear uno o varios de los modelos de predicción, se decidió:
 
-1. Proporcionar los datos a Azure Machine Learning con el módulo [Importar datos][import-data], disponible en la sección **Data Input and Output** (Entrada y salida de datos). Para obtener más información, consulte la página de referencia del módulo [Importar datos][import-data].
+1. Proporcionar los datos a Azure Machine Learning con el módulo [Importar datos][import-data], disponible en la sección **Entrada y salida de datos**. Para más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
    
     ![Importar datos de Azure Machine Learning][17]
 2. Seleccionar **Azure SQL Database** como **Origen de datos** en el panel **Propiedades**.
@@ -593,7 +593,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 > 
 
 ## <a name="mldeploy"></a>Implementación de modelos en Azure Machine Learning
-Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para más información sobre la implementación de servicios web Azure Machine Learning, vea [Implementar un servicio web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para más información sobre la implementación de servicios web Azure Machine Learning, vea [Implementar un servicio web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 
 Para implementar un nuevo servicio web, deberá:
 
@@ -610,7 +610,7 @@ Azure Machine Learning intentará crear un experimento de puntuación en funció
 2. Identificar un **puerto de entrada** lógico que represente el esquema de datos de entrada esperado.
 3. Identificar un **puerto de salida** lógico que represente el esquema de salida del servicio web.
 
-Cuando se crea el experimento de puntuación, revíselo y ajústelo según sea necesario. Un ajuste común consiste en reemplazar la consulta o el conjunto de datos de entrada por uno que excluya los campos de etiqueta, ya que estos no estarán disponibles cuando se llame al servicio. También es una buena práctica reducir el tamaño de la consulta o del conjunto de datos de entrada a unos pocos registros, los necesarios para indicar el esquema de entrada. En el caso del puerto de salida, es habitual excluir todos los campos de entrada e incluir solo las **etiquetas puntuadas** y las **probabilidades puntuada**s en la salida mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
+Cuando se crea el experimento de puntuación, revíselo y ajústelo según sea necesario. Un ajuste común consiste en reemplazar la consulta o el conjunto de datos de entrada por uno que excluya los campos de etiqueta, ya que estos no estarán disponibles cuando se llame al servicio. También es una buena práctica reducir el tamaño de la consulta o del conjunto de datos de entrada a unos pocos registros, los necesarios para indicar el esquema de entrada. En el caso del puerto de salida, es habitual excluir todos los campos de entrada e incluir solo las **etiquetas puntuadas** y las **probabilidades puntuadas** en la salida mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
 En la ilustración siguiente se muestra un ejemplo de experimento de puntuación. Cuando todo esté listo para implementar, haga clic en el botón **PUBLICAR SERVICIO WEB** de la barra de acciones inferior.
 

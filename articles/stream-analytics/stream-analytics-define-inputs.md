@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 1f03f9e68640edd73d2f6bb55cf205a609450658
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: df111d605b7c05bcb934771b6063f2be04770ea9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620510"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606463"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Datos de flujo como entrada en Stream Analytics
 
@@ -56,7 +56,7 @@ En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** 
 | **Nombre del centro de eventos** | Nombre del centro de eventos que se usa como entrada. |
 | **Nombre de la directiva del centro de eventos** | Directiva de acceso compartido que proporciona acceso al centro de eventos. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. Esta opción se rellena automáticamente, a menos que elija proporcionar la configuración del centro de eventos manualmente.|
 | **Grupo de consumidores del centro de eventos** (recomendado) | Se recomienda encarecidamente usar un grupo de consumidores distinto para cada trabajo de Stream Analytics. Esta cadena identifica el grupo de consumidores que se usa para la ingesta de datos desde el centro de eventos. Si no se especifica ningún grupo de consumidores, el trabajo de Stream Analytics usa el grupo de consumidores $Default.  |
-| **Formato de serialización de eventos** | Formato de serialización (JSON, CSV o Avro) del flujo de datos entrantes.  Asegúrese de que el formato JSON responde a la especificación y no incluye un 0 inicial para números decimales. |
+| **Formato de serialización de eventos** | El formato de serialización (JSON, CSV, Avro u [otro [Protobuf, XML, propietario...]](custom-deserializer.md)) del flujo de datos de entrada.  Asegúrese de que el formato JSON responde a la especificación y no incluye un 0 inicial para números decimales. |
 | **Encoding** | Por el momento, UTF-8 es el único formato de codificación compatible. |
 | **Tipo de compresión de eventos** | El tipo de compresión utilizado para leer el flujo de datos entrante, como None (valor predeterminado), GZip o Deflate. |
 
@@ -105,7 +105,7 @@ En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** 
 | **Nombre de directiva de acceso compartido** | Directiva de acceso compartido que proporciona acceso a IoT Hub. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
 | **Clave de directiva de acceso compartido** | Clave de acceso compartido que se usa para autorizar el acceso a IoT Hub.  Esta opción se rellena automáticamente, a menos que elija proporcionar la configuración de IoT Hub manualmente. |
 | **Grupo de consumidores** | Se recomienda encarecidamente usar un grupo de consumidores distinto para cada trabajo de Stream Analytics. El grupo de consumidores que se usa para ingerir datos desde Azure IoT Hub. Stream Analytics usa el grupo de consumidores $Default, a menos que se especifique lo contrario.  |
-| **Formato de serialización de eventos** | Formato de serialización (JSON, CSV o Avro) del flujo de datos entrantes.  Asegúrese de que el formato JSON responde a la especificación y no incluye un 0 inicial para números decimales. |
+| **Formato de serialización de eventos** | El formato de serialización (JSON, CSV, Avro u [otro [Protobuf, XML, propietario...]](custom-deserializer.md)) del flujo de datos de entrada.  Asegúrese de que el formato JSON responde a la especificación y no incluye un 0 inicial para números decimales. |
 | **Encoding** | Por el momento, UTF-8 es el único formato de codificación compatible. |
 | **Tipo de compresión de eventos** | El tipo de compresión utilizado para leer el flujo de datos entrante, como None (valor predeterminado), GZip o Deflate. |
 
@@ -129,7 +129,13 @@ Azure Blob Storage ofrece una solución rentable y escalable para aquellos escen
 
 Un escenario típico de entradas de Blob Storage con Stream Analytics es el procesamiento de registros. En este escenario, se han capturado archivos de datos de telemetría de un sistema y es preciso analizarlos y procesarlos para extraer datos significativos.
 
-La marca de tiempo predeterminada de los eventos de Blob Storage en Stream Analytics es la marca de tiempo correspondiente al momento en que el blob se modificó por última vez, que es `BlobLastModifiedUtcTime`. Para procesar los datos como un flujo con una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Un trabajo de Stream Analytics extrae datos de entrada de Azure Blob Storage cada segundo si el archivo de blob está disponible. Si el archivo de blob no está disponible, hay un retroceso exponencial con un retraso de tiempo máximo de 90 segundos.
+La marca de tiempo predeterminada de los eventos de Blob Storage en Stream Analytics es la marca de tiempo correspondiente al momento en que el blob se modificó por última vez, que es `BlobLastModifiedUtcTime`. Si se carga un blob en una cuenta de almacenamiento a las 13:00 y el trabajo Azure Stream Analytics se inicia con la opción *Ahora* a las 13:01, el blob no se recogerá, ya que su hora de modificación está fuera del período de ejecución del trabajo.
+
+Si se carga un blob en un contenedor de cuenta de almacenamiento a las 13:00 y el trabajo Azure Stream Analytics se inicia con la opción *Hora personalizada* a las 13:00 o antes, el blob se recogerá, ya que su hora de modificación está dentro del período de ejecución del trabajo.
+
+Si se inicia un trabajo de Azure Stream Analytics mediante la opción *Ahora* a las 13:00 y se carga un blob en el contenedor de la cuenta de almacenamiento a las 13:01, Azure Stream Analytics recogerá dicho blob.
+
+Para procesar los datos como un flujo con una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Un trabajo de Stream Analytics extrae datos de entrada de Azure Blob Storage cada segundo si el archivo de blob está disponible. Si el archivo de blob no está disponible, hay un retroceso exponencial con un retraso de tiempo máximo de 90 segundos.
 
 Las entradas con formato CSV requieren una fila de encabezado para definir los campos del conjunto de datos, y todos los campos de fila de encabezado deben ser únicos.
 
@@ -149,10 +155,10 @@ En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** 
 | **Cuenta de almacenamiento** | Nombre de la cuenta de almacenamiento donde se encuentran los archivos de blob. |
 | **Clave de cuenta de almacenamiento** | La clave secreta asociada con la cuenta de almacenamiento. Esta opción se rellena automáticamente, a menos que elija proporcionar la configuración de Blob Storage manualmente. |
 | **Contenedor** | Contenedor para la entrada de blob. Los contenedores proporcionan una agrupación lógica de los blobs almacenados en Microsoft Azure Blob service. Cuando se carga un blob en el servicio Azure Blob Storage, hay que especificar un contenedor para ese blob. Puede elegir el contenedor **Usar existente** o **Crear nuevo** para crear un contenedor.|
-| **Patrón de ruta de acceso** (opcional) | Ruta de acceso de archivo que sirve para ubicar los blobs dentro del contenedor especificado. Dentro de la ruta, puede especificar una o más instancias de las tres variables siguientes: `{date}`, `{time}` o `{partition}`.<br/><br/>Ejemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Ejemplo 2: `cluster1/logs/{date}`<br/><br/>El carácter `*` no es un valor permitido para el prefijo de ruta de acceso. Solo se permiten <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de Blob de Azure</a>. No incluya nombres de contenedor ni nombres de archivo. |
+| **Patrón de ruta de acceso** (opcional) | Ruta de acceso de archivo que sirve para ubicar los blobs dentro del contenedor especificado. Si desea leer los blobs de la raíz del contenedor, no establezca un patrón de ruta de acceso. Dentro de la ruta, puede especificar una o más instancias de las tres variables siguientes: `{date}`, `{time}` o `{partition}`.<br/><br/>Ejemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Ejemplo 2: `cluster1/logs/{date}`<br/><br/>El carácter `*` no es un valor permitido para el prefijo de ruta de acceso. Solo se permiten <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de Blob de Azure</a>. No incluya nombres de contenedor ni nombres de archivo. |
 | **Formato de fecha** (opcional) | Si usa la variable de fecha en la ruta, formato de fecha por el que se organizan los archivos. Ejemplo: `YYYY/MM/DD` |
 | **Formato de hora** (opcional) |  Si usa la variable de hora en la ruta, formato de hora por el que se organizan los archivos. Actualmente, el único valor admitido es `HH` para las horas. |
-| **Formato de serialización de eventos** | Formato de serialización (JSON, CSV o Avro) del flujo de datos entrantes.  Asegúrese de que el formato JSON responde a la especificación y no incluye un 0 inicial para números decimales. |
+| **Formato de serialización de eventos** | El formato de serialización (JSON, CSV, Avro u [otro [Protobuf, XML, propietario...]](custom-deserializer.md)) del flujo de datos de entrada.  Asegúrese de que el formato JSON responde a la especificación y no incluye un 0 inicial para números decimales. |
 | **Encoding** | Por el momento, UTF-8 es el único formato de codificación compatible para CSV y JSON. |
 | **Compresión** | El tipo de compresión utilizado para leer el flujo de datos entrante, como None (valor predeterminado), GZip o Deflate. |
 

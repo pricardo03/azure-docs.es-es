@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: b0345773956a0adc5c7f403195c496a3ea5e6fd6
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 48bac68b518706cf3a23d2283da7cda49846e0a7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982340"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795826"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services y Machine Learning
 
@@ -117,9 +117,9 @@ Los datos siguientes categorizan cada servicio según el tipo de datos que permi
  
 Los servicios se usan en cualquier aplicación que pueda realizar llamadas API de REST o SDK. Entre los ejemplos de aplicaciones se incluyen sitios web, bots, realidad virtual o mixta, aplicaciones móviles y de escritorio. 
 
-## <a name="how-is-cognitive-search-related-to-cognitive-services"></a>¿Cómo se relaciona la búsqueda cognitiva con Cognitive Services?
+## <a name="how-is-azure-cognitive-search-related-to-cognitive-services"></a>¿Cómo se relaciona Azure Cognitive Search con Cognitive Services?
 
-[Azure Search](../search/search-what-is-azure-search.md) usa Cognitive Services para proporcionar esta característica. Cognitive Services se expone en Azure Search con [aptitudes integradas](../search/cognitive-search-predefined-skills.md) que encapsulan API individuales. Puede usar un recurso gratuito para los tutoriales, pero debe tener planeado crear y adjuntar un [recurso facturable](../search/cognitive-search-attach-cognitive-services.md) para volúmenes más grandes.
+[Azure Cognitive Search](../search/search-what-is-azure-search.md) es un servicio de búsqueda en la nube independiente que, de manera opcional, usa Cognitive Services para agregar procesamiento de imágenes y lenguaje natural a las cargas de trabajo de indexación. Cognitive Services se expone en Azure Cognitive Search con [aptitudes integradas](../search/cognitive-search-predefined-skills.md) que encapsulan API individuales. Puede usar un recurso gratuito para los tutoriales, pero debe tener planeado crear y adjuntar un [recurso facturable](../search/cognitive-search-attach-cognitive-services.md) para volúmenes más grandes.
 
 ## <a name="how-can-you-use-cognitive-services"></a>¿Cómo se puede usar Cognitive Services?
 

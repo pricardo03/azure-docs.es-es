@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 9a2d25aba03156d6d14fe5ef9aa58b3748033b85
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 25b0c14fb94cba611dfa9fa9bece1b728f39a905
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72296390"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585204"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Excepciones de Service Bus que expone Resource Manager
 
@@ -72,3 +72,20 @@ Esta clase de errores indica que no se ha encontrado el recurso.
 | No encontrado | None | Not Found. The Operation doesn't exist (No se encuentra. La operación no existe). | La operación que está intentando realizar no existe. | Compruebe la operación e inténtelo de nuevo. |
 | No encontrado | None | The incoming request is not recognized as a namespace policy put request (La solicitud entrante no se reconoce como una solicitud put de directiva de espacio de nombres). | El cuerpo de la solicitud entrante es nulo y, por tanto, no se puede ejecutar como una solicitud put. | Compruebe el cuerpo de la solicitud para asegurarse de que no sea nulo. | 
 | No encontrado | None | The messaging entity *'entity name'* could not be found (No se pudo encontrar la entidad de mensajería "nombre de entidad"). | No se ha encontrado la entidad en la que está intentando ejecutar la operación. | Compruebe si la entidad existe y vuelva a intentar la operación. |
+
+## <a name="error-code-internal-server-error"></a>Código de error: Internal Server Error
+
+Esta clase de errores indica que se produjo un error interno del servidor
+
+| Código de error | Subcódigo de error | Mensaje de error | DESCRIPCIÓN | Recomendación |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Internal Server Error | 50000 | Subcódigo = 50000. Internal Server Error| Puede ocurrir por diversos motivos. Algunos de los síntomas son: <ul> <li> La solicitud o el cuerpo del cliente está dañado y conduce a un error. </li> <li> Se agotó el tiempo de espera de la solicitud del cliente debido a problemas de procesamiento en el servicio. </li> </ul> | Para resolver este problema <ul> <li> Asegúrese de que los parámetros de las solicitudes no sean nulos o tengan un formato incorrecto. </li> <li> Vuelva a intentarlo. </li> </ul> |
+
+## <a name="error-code-unauthorized"></a>Código de error: No autorizado
+
+Esta clase de errores indica la ausencia de autorización para ejecutar el comando.
+
+| Código de error | Subcódigo de error | Mensaje de error | DESCRIPCIÓN | Recomendación |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| No autorizado | None | Operación no válida en el espacio de nombres secundario. El espacio de nombres secundario es de solo lectura. | La operación se realizó en el espacio de nombres secundario, que se configura como un espacio de nombres de solo lectura. | Vuelva a intentar el comando en el espacio de nombres principal. Más información sobre el [espacio de nombres secundario](service-bus-geo-dr.md) |
+| No autorizado | None | MissingToken: no se encontró el encabezado de autorización. | Este error se produce cuando la autorización tiene valores null o valores incorrectos. | Asegúrese de que el valor de token mencionado en el encabezado de autorización sea correcto y no sea null. |

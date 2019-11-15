@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación de un blob en Azure Blob Storage con Python'
-description: En esta guía de inicio rápido, creará una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, puede usar la biblioteca de clientes de almacenamiento para Python a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
+title: 'Inicio rápido: Versión 2.1 de la biblioteca cliente de Azure Blob Storage para Python'
+description: En esta guía de inicio rápido, creará una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, puede usar la versión 2.1 de la biblioteca cliente de Storage para Python a fin de cargar un blob en Azure Storage, descargar un blob y enumerar los blobs de un contenedor.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/11/2019
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 8a3f8b5f8944552c92ac5a1c1d5fb2eabffad2c9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 606c7d1fd012052a22afeef906bbe9df4c63a76b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609695"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825298"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-in-azure-blob-storage-with-python"></a>Inicio rápido: Carga, descarga y enumeración de blobs en Azure Blob Storage con Python
+# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Inicio rápido: Versión 2.1 de la biblioteca cliente de Azure Blob Storage para Python
 
 En este artículo se usa Python para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. Los blobs son simplemente objetos que pueden contener grandes cantidades de texto o datos binarios, como imágenes, documentos, streaming multimedia y datos de archivo. Los blobs de Azure Storage son diferentes de los recursos compartidos de archivos, las tablas sin esquema y las colas de mensajes.  Para más información, consulte [Introducción a Azure Storage](/azure/storage/common/storage-introduction).
 

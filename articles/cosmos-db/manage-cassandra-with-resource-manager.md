@@ -6,14 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: beae89b3f8e21e2f56a1dbf2090b7a612ed5cab0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f36b167b6ddacadb8c5aef8a4609be13834bf174
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815117"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606774"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de Cassandra API de Azure Cosmos DB con plantillas de Azure Resource Manager
+
+En este artículo se explica cómo realizar diferentes operaciones para automatizar la administración de las cuentas, las bases de datos y los contenedores de Azure Cosmos DB con plantillas de Azure Resource Manager. Este artículo solo tiene ejemplos de cuentas de API de SQL; para buscar ejemplos de otras cuentas de tipo de API, vea los artículos sobre el uso de plantillas de Resource Manager con la API de Azure Cosmos DB para [SQL](manage-sql-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md) y [Table](manage-table-with-resource-manager.md).
 
 ## Crear una cuenta, un espacio de claves y una tabla de Azure Cosmos <a id="create-resource"></a>
 

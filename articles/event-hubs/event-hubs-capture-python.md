@@ -1,6 +1,6 @@
 ---
-title: Lectura de datos capturados de la aplicación de Python en Azure Event Hubs | Microsoft Docs
-description: Scripts que usan el SDK de Azure para Python a fin de demostrar la característica Event Hubs Capture.
+title: 'Inicio rápido: Lectura de datos capturados de la aplicación de Python: Azure Event Hubs'
+description: 'Inicio rápido: Scripts que usan el SDK de Azure para Python a fin de demostrar la característica Event Hubs Capture.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,18 +11,18 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 10/10/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 354964e1b66b55dcccd9b5674f011f8c5a38a1c5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ade4aa79b2de005bfecd7a5882f06cb491ea4e6d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428957"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717848"
 ---
-# <a name="event-hubs-capture-walkthrough-python"></a>Tutorial de Event Hubs Capture: Python
+# <a name="quickstart-event-hubs-capture-walkthrough-python"></a>Inicio rápido: Tutorial de Event Hubs Capture: Python
 
 Capture es una característica de Azure Event Hubs. Puede usar Capture para enviar automáticamente los datos de streaming que hay en un centro de eventos a una cuenta de Azure Blob Storage que prefiera. Esto facilita el procesamiento por lotes en datos de streaming en tiempo real. En este artículo se describe cómo utilizar Event Hubs Capture con Python. Para más información acerca de Capture de Event Hubs, consulte [Capture de Event Hubs mediante Azure Event Hubs][Overview of Event Hubs Capture].
 

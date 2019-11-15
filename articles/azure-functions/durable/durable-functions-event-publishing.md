@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: f3fd59c0d17bd9094f6887aa5ec088f9fdcdd979
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 4e1a714a6d46a9422fb298749cfe30ac70ffc8c3
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734449"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614907"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicación de Durable Functions en Azure Event Grid (versión preliminar)
 
@@ -28,22 +28,24 @@ A continuación se muestran algunos escenarios donde esta característica result
 
 * **Actividad de ejecución en segundo plano de larga duración**: si se utiliza Durable Functions para una actividad de ejecución en segundo plano de larga duración, esta característica le ayuda a conocer el estado actual.
 
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Instale [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc o una versión posterior en el proyecto de Durable Functions.
-* Instale el [Emulador de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
-* Instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) o use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+* Instale [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) en el proyecto de Durable Functions.
+* Instale el [Emulador de Azure Storage](../../storage/common/storage-use-emulator.md).
+* Instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) o use [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## <a name="create-a-custom-event-grid-topic"></a>Creación de un tema de Event Grid personalizado
 
 Cree un tema de Event Grid para enviar eventos desde Durable Functions. Las instrucciones siguientes muestran cómo crear un tema con la CLI de Azure. Para información acerca de cómo hacerlo con PowerShell o Azure Portal, consulte los artículos siguientes:
 
-* [Inicios rápidos de EventGrid: Creación de eventos personalizados: PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
-* [Inicios rápidos de EventGrid: Creación de eventos personalizados: Azure Portal](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
+* [Inicios rápidos de EventGrid: Creación de eventos personalizados: PowerShell](../../event-grid/custom-event-quickstart-powershell.md)
+* [Inicios rápidos de EventGrid: Creación de eventos personalizados: Azure Portal](../../event-grid/custom-event-quickstart-portal.md)
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando `az group create`. Actualmente, Azure Event Grid no se admite en todas las regiones. Para información sobre las regiones donde se admite, consulte la [introducción a Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Cree un grupo de recursos con el comando `az group create`. Actualmente, Azure Event Grid no se admite en todas las regiones. Para información sobre las regiones donde se admite, consulte la [introducción a Azure Event Grid](../../event-grid/overview.md).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -103,7 +105,7 @@ Establezca la configuración de la aplicación para la clave del tema en la apli
 }
 ```
 
-Asegúrese de que el [emulador de Storage](https://docs.microsoft.com/azure/storage/common/storage-use-emulator) funciona. Es conveniente ejecutar el comando `AzureStorageEmulator.exe clear all` antes de la ejecución.
+Asegúrese de que el [emulador de Storage](../../storage/common/storage-use-emulator.md) funciona. Es conveniente ejecutar el comando `AzureStorageEmulator.exe clear all` antes de la ejecución.
 
 ## <a name="create-functions-that-listen-for-events"></a>Creación de funciones que realicen escuchas para los eventos
 
@@ -168,6 +170,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
@@ -178,7 +181,7 @@ namespace LifeCycleEventSpike
     {
         [FunctionName("Sample")]
         public static async Task<List<string>> RunOrchestrator(
-            [OrchestrationTrigger] DurableOrchestrationContext context)
+            [OrchestrationTrigger] IDurableOrchestrationContext context)
         {
             var outputs = new List<string>();
 
@@ -201,7 +204,7 @@ namespace LifeCycleEventSpike
         [FunctionName("Sample_HttpStart")]
         public static async Task<HttpResponseMessage> HttpStart(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestMessage req,
-            [OrchestrationClient] DurableOrchestrationClient starter,
+            [DurableClient] IDurableOrchestrationClient starter,
             ILogger log)
         {
             // Function input comes from the request content.
@@ -213,13 +216,16 @@ namespace LifeCycleEventSpike
 }
 ```
 
+> [!NOTE]
+> El código anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`, el atributo `OrchestrationClient` en lugar del atributo `DurableClient` además de usar el tipo de parámetro `DurableOrchestrationClient` en lugar de `IDurableOrchestrationClient`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+
 Si se llama a `Sample_HttpStart` con Postman o el explorador, la instancia de Durable Functions comienza a enviar eventos de ciclo de vida. El punto de conexión suele ser `http://localhost:7071/api/Sample_HttpStart` para la depuración local.
 
 Consulte los registros de la función que ha creado en Azure Portal.
 
 ```
-2018-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
-2018-04-20T09:28:21.104 [Info] {
+2019-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
+2019-04-20T09:28:21.104 [Info] {
     "id": "054fe385-c017-4ce3-b38a-052ac970c39d",
     "subject": "durable/orchestrator/Running",
     "data": {
@@ -230,15 +236,15 @@ Consulte los registros de la función que ha creado en Azure Portal.
         "runtimeStatus": "Running"
     },
     "eventType": "orchestratorEvent",
-    "eventTime": "2018-04-20T09:28:19.6492068Z",
+    "eventTime": "2019-04-20T09:28:19.6492068Z",
     "dataVersion": "1.0",
     "metadataVersion": "1",
     "topic": "/subscriptions/<your_subscription_id>/resourceGroups/eventResourceGroup/providers/Microsoft.EventGrid/topics/durableTopic"
 }
 
-2018-04-20T09:28:21.104 [Info] Function completed (Success, Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d, Duration=65ms)
-2018-04-20T09:28:37.098 [Info] Function started (Id=36fadea5-198b-4345-bb8e-2837febb89a2)
-2018-04-20T09:28:37.098 [Info] {
+2019-04-20T09:28:21.104 [Info] Function completed (Success, Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d, Duration=65ms)
+2019-04-20T09:28:37.098 [Info] Function started (Id=36fadea5-198b-4345-bb8e-2837febb89a2)
+2019-04-20T09:28:37.098 [Info] {
     "id": "8cf17246-fa9c-4dad-b32a-5a868104f17b",
     "subject": "durable/orchestrator/Completed",
     "data": {
@@ -249,12 +255,12 @@ Consulte los registros de la función que ha creado en Azure Portal.
         "runtimeStatus": "Completed"
     },
     "eventType": "orchestratorEvent",
-    "eventTime": "2018-04-20T09:28:36.5061317Z",
+    "eventTime": "2019-04-20T09:28:36.5061317Z",
     "dataVersion": "1.0",
     "metadataVersion": "1",
     "topic": "/subscriptions/<your_subscription_id>/resourceGroups/eventResourceGroup/providers/Microsoft.EventGrid/topics/durableTopic"
 }
-2018-04-20T09:28:37.098 [Info] Function completed (Success, Id=36fadea5-198b-4345-bb8e-2837febb89a2, Duration=0ms)
+2019-04-20T09:28:37.098 [Info] Function completed (Success, Id=36fadea5-198b-4345-bb8e-2837febb89a2, Duration=0ms)
 ```
 
 ## <a name="event-schema"></a>Esquema de eventos

@@ -1,7 +1,7 @@
 ---
-title: ¿Qué es un área de trabajo y un proyecto? Custom Translator
+title: ¿Qué es un área de trabajo y un proyecto? - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Un área de trabajo es un área para crear y compilar el sistema de traducción personalizada. Un área de trabajo puede contener varios proyectos, modelos y documentos. Un proyecto es un contenedor para un modelo, documentos y pruebas. Cada proyecto incluye automáticamente todos los documentos que se cargan en esa área de trabajo con el par de idiomas correcto.
+description: En este artículo se explican las diferencias entre un área de trabajo y un proyecto, así como las categorías y etiquetas de proyecto para el servicio de Traductor personalizado.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 23db27ba7b51b0f5a312498dbcb1d0f2741245bb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595347"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647315"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>¿Qué es un área de trabajo de Custom Translator?
 

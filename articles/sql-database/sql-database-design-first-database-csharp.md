@@ -1,20 +1,21 @@
 ---
-title: 'Diseño de la primera base de datos relacional de Azure SQL Database: C# | Microsoft Docs'
+title: Diseño de la primera base de datos relacional con C#
 description: Aprenda a diseñar su primera base de datos relacional en una base de datos única en Azure SQL Database con C# mediante ADO.NET.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: 3359c39b21edad72ce0b9d7feb35d442c842f002
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 201f90ae1ee7309f0271d046f341729c79749421
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640117"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825188"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: Diseño de una base de datos relacional en una base de datos única en Azure SQL Database con C# y ADO.NET
 

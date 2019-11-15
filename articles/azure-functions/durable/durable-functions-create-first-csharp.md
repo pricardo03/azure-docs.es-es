@@ -8,18 +8,20 @@ manager: jeconnoc
 keywords: azure functions, funciones, procesamiento de eventos, proceso, arquitectura sin servidor
 ms.service: azure-functions
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1579a4dfbab1ec9d9aa6bb3995bd88d948d6d5e2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 563412fbc5e8d9af3c399b1f75696053549143c4
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933967"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615009"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Creación de su primera función durable en C\#
 
 *Durable Functions* es una extensión de [Azure Functions](../functions-overview.md) que le permite escribir funciones con estado en un entorno sin servidor. La extensión administra el estado, establece puntos de control y reinicia en su nombre.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 En este artículo aprenderá a usar Visual Studio 2019 con el fin de crear y probar localmente una función durable "Hola mundo".  Esta función organiza y encadena llamadas a otras funciones. Luego, publicará el código de función en Azure. Estas herramientas están disponibles como parte de la carga de trabajo de desarrollo de Azure en Visual Studio 2019.
 
@@ -53,7 +55,7 @@ La plantilla de Azure Functions crea un proyecto que se puede publicar en una ap
 
     | Configuración      | Valor sugerido  | DESCRIPCIÓN                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Versión** | Azure Functions 2.x <br />(.NET Core) | Crea un proyecto de función que usa la versión 2.x del entorno de ejecución de Azure Functions, que es compatible con .NET Core. Azure Functions 1.x admite .NET Framework. Para más información, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](../functions-versions.md).   |
+    | **Versión** | Azure Functions 2.0 <br />(.NET Core) | Crea un proyecto de función que usa la versión 2.0 del entorno de ejecución de Azure Functions, que es compatible con .NET Core. Azure Functions 1.0 admite .NET Framework. Para más información, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](../functions-versions.md).   |
     | **Plantilla** | Vacío | De esta forma se crea una aplicación de función vacía. |
     | **Cuenta de almacenamiento**  | Emulador de Storage | Es necesaria una cuenta de almacenamiento para la administración del estado de función durable. |
 
@@ -73,12 +75,15 @@ En los pasos siguientes se usa una plantilla para crear el código de Durable Fu
 
     ![Selección de la plantilla durable](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
+> [!NOTE]
+> Esta plantilla crea actualmente una función duradera con una versión anterior 1.x de la extensión. Consulte el artículo sobre las [versiones de Durable Functions](durable-functions-versions.md) para obtener información sobre cómo actualizar a las versiones 2.x más recientes de Durable Functions.
+
 Una nueva función Durable Functions se agregará a la aplicación.  Abra el nuevo archivo .cs para ver el contenido. Esta función Durable Functions es un ejemplo de una función sencilla de encadenamiento con los métodos siguientes:  
 
 | Método | FunctionName | DESCRIPCIÓN |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | Administra la orquestación de Durable Functions. En este caso, la orquestación se inicia, crea una lista y le agrega el resultado de tres llamadas a funciones.  Una vez completadas las tres llamadas a funciones, devuelve la lista. |
-| **`SayHello`** | `<file-name>_Hello` | Por ejemplo, la función devuelve un saludo. Se trata de la función que contiene la lógica de negocios que se organiza. |
+| **`SayHello`** | `<file-name>_Hello` | Por ejemplo, la función devuelve un saludo. Es la función que contiene la lógica de negocios que se va a organizar. |
 | **`HttpStart`** | `<file-name>_HttpStart` | Una [función desencadenada por HTTP](../functions-bindings-http-webhook.md) que inicia una instancia de la orquestación y devuelve una respuesta de comprobación de estado. |
 
 Ahora que ha creado un proyecto de función y una función durable, puede probarla en el equipo local.
@@ -101,7 +106,7 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
 
 4. Copie el valor de la URL para `statusQueryGetUri`, péguelo en la barra de direcciones del explorador y ejecute la solicitud.
 
-    La solicitud consultará la instancia de orquestación sobre el estado. Obtendrá una respuesta posible similar a la siguiente.  Esto nos muestra que la instancia se ha completado, e incluye las salidas o resultados de la función durable.
+    La solicitud consultará la instancia de orquestación sobre el estado. Obtendrá una respuesta posible similar a la siguiente.  Este resultado nos muestra que la instancia se ha completado, e incluye las salidas o resultados de la función duradera.
 
     ```json
     {
@@ -114,8 +119,8 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
             "Hello Seattle!",
             "Hello London!"
         ],
-        "createdTime": "2018-11-08T07:07:40Z",
-        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+        "createdTime": "2019-11-02T07:07:40Z",
+        "lastUpdatedTime": "2019-11-02T07:07:52Z"
     }
     ```
 

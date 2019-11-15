@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 524bc3b2650ad7b435cba6b6b9d4084ffa5cf96c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: e4dd5215812f0fd1a43afe0923601417bc8e6916
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932675"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569635"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Creación de un dispositivo IoT Plug and Play (versión preliminar) que esté listo para la certificación
 
@@ -111,26 +111,17 @@ Para certificar el dispositivo, debe habilitar el aprovisionamiento mediante [Az
 
 1. Elija **ANSI C** como lenguaje.
 
-1. Elija **CMake Project** (Proyecto de CMake) como tipo de proyecto.
-
 1. Elija **Via DPS (Device Provisioning Service) symmetric key** (Mediante clave simétrica de DPS [Device Provisioning Service]) como método de conexión.
+
+1. Elija **CMake Project on Windows** (Proyecto de CMake en Windows) o **CMake Project on Linux** (Proyecto de CMake en Linux) como plantilla de proyecto en función del sistema operativo del dispositivo.
 
 1. VS Code abre una nueva ventana con los archivos del código auxiliar del dispositivo generados.
 
-1. Abra `main.c`, rellene **dpsIdScope**, **,sasKey** y **registrationIdque**. Esta información puede obtenerla en el portal de certificación. Para más información, consulte [Conexión y prueba de dispositivos de IoT Plug and Play](tutorial-certification-test.md#connect-and-discover-interfaces).
+1. Después de compilar el código, escriba las credenciales de DPS (**DPS ID Scope** [Ámbito de id. de DPS], **DPS Symmetric Key** (Clave simétrica de DPS), **Device Id** [id. de dispositivo]) como parámetros para la aplicación. Para obtener las credenciales desde el portal de certificación, consulte [Conexión y prueba del dispositivo de IoT Plug and Play](tutorial-certification-test.md#connect-and-discover-interfaces).
 
-    ```c
-    // TODO: Specify DPS scope ID if you intend on using DPS / IoT Central.
-    static const char *dpsIdScope = "[DPS Id Scope]";
-    
-    // TODO: Specify symmetric keys if you intend on using DPS / IoT Central and symmetric key based auth.
-    static const char *sasKey = "[DPS symmetric key]";
-    
-    // TODO: specify your device registration ID
-    static const char *registrationId = "[device registration Id]";
+    ```cmd/sh
+    .\your_pnp_app.exe [DPS ID Scope] [DPS symmetric key] [device ID]
     ```
-
-1. Guarde el archivo.
 
 ### <a name="implement-standard-interfaces"></a>Implementación de interfaces estándar
 

@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Publicación de la base de conocimiento en QnA Maker con REST y Python'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido basado en REST de Python se explica el proceso de publicación de la base de conocimiento que le permite insertar la versión más reciente probada en un índice de Azure Search dedicado que representa la base de conocimiento publicada. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
+description: Esta guía de inicio rápido basada en REST de Python publica la base de conocimiento y crea un punto de conexión al que se puede llamar en su aplicación o bot de chat.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 09523bb6c9c8a58f5f7bd102d2ac30ad77f28d1c
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 87913d4b1a6a01b91a74d7c4b0c41a66557b86f1
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840185"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794057"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Inicio rápido: Publicación de una base de conocimiento en QnA Maker con Python
 
-En esta guía de inicio rápido basada en REST se describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
+En esta guía de inicio rápido basada en REST se describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Cognitive Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
 
 En este inicio rápido se llama a las siguientes API REST de QnA Maker:
 * [Publicar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish): esta API no requiere ninguna información en el cuerpo de la solicitud.

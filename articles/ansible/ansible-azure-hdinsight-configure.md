@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configuración de un clúster de Azure HDInsight con Ansible'
-description: Obtenga información sobre cómo usar Ansible para crear y cambiar el tamaño de un clúster de Azure HDInsight
+description: Obtenga información sobre cómo usar Ansible para crear, eliminar y cambiar el tamaño de un clúster de Azure HDInsight
 keywords: ansible, azure, devops, bash, playbook, apache hadoop, hdinsight
 ms.topic: tutorial
 ms.service: ansible
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ad17e6ff4cbf5b583e3a4be410847c1349c9edce
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: ce4723a9dbe952f0112b7e24c3e361fd2f414374
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241946"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614417"
 ---
 # <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Tutorial: Configuración de un clúster de Azure HDInsight con Ansible
 

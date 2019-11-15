@@ -1,7 +1,7 @@
 ---
 title: Migración de un proyecto de prueba limitada a Azure
 titleSuffix: Azure Cognitive Services
-description: Aprenda a migrar un proyecto de prueba limitada a Azure.
+description: ¿Tenía un proyecto de prueba limitada en Custom Vision? En este artículo se muestra cómo moverlo a Azure con un script de migración.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 22c3767dfac1e377890f1e01517d18263e694854
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0a2b48a6c046150f6e685ecda0c0d765342e0194
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560921"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818945"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>Cómo migrar el proyecto de prueba limitada a Azure
 
@@ -46,7 +46,7 @@ Varios proyectos pueden estar asociados a un único recurso. Más información s
 
 ## <a name="find-your-limited-trial-project-information"></a>Búsqueda de información del proyecto de prueba limitada
 
-Para mover el proyecto, necesitará su _identificador del proyecto_ y _clave entrenamiento_. Si no tiene esta información, visite [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) para obtener el identificador y la clave de cada uno de sus proyectos. 
+Para mover el proyecto, necesitará su _identificador del proyecto_ y _clave entrenamiento_. Si no tiene esta información, visite [https://www.customvision.ai/projects](https://www.customvision.ai/projects) para obtener el identificador y la clave de cada uno de sus proyectos. 
 
 ## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>Uso del código de ejemplo de Python para copiar el proyecto en Azure
 

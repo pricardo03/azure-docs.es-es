@@ -1,6 +1,6 @@
 ---
-title: Conexión del código del dispositivo de ejemplo de la versión preliminar de IoT Plug and Play a IoT Hub | Microsoft Docs
-description: Compile y ejecute el código de dispositivo de ejemplo de IoT Plug and Play que se conecta a un centro de IoT. Use la herramienta Azure IoT Explorer para ver la información enviada por el dispositivo al centro.
+title: Conexión del código del dispositivo de ejemplo de la versión preliminar de IoT Plug and Play a IoT Hub (Windows) | Microsoft Docs
+description: Compile y ejecute el código de dispositivo de ejemplo de la versión preliminar de IoT Plug and Play en Windows que se conecta a un centro de IoT. Use la herramienta Azure IoT Explorer para ver la información enviada por el dispositivo al centro.
 author: ChrisGMsft
 ms.author: chrisgre
 ms.date: 08/02/2019
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4802c120f4722796fcad4ea99f25adad368451fd
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 2dd5d197851b0090ac1af7bbde5a1ad1b951c785
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806540"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569915"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub"></a>Inicio rápido: Conexión de una aplicación de dispositivo de ejemplo de la versión preliminar de IoT Plug and Play a IoT Hub
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub"></a>Inicio rápido: Conexión de una aplicación de dispositivo de ejemplo de la versión preliminar de IoT Plug and Play en Windows a IoT Hub
 
 En este inicio rápido se muestra cómo crear una aplicación de dispositivo IoT Plug and Play de ejemplo, conectarla a IoT Hub y usar la herramienta Azure IoT Explorer para ver la información que envía al centro. La aplicación de ejemplo está escrita en C y se incluye en el SDK de dispositivo IoT de Azure para C. Los desarrolladores de soluciones puede usar la herramienta Azure IoT Explorer para conocer las funcionalidades de cualquier dispositivo IoT Plug and Play sin necesidad de ver nada de código de dispositivo.
 
@@ -23,7 +23,7 @@ En este inicio rápido se muestra cómo crear una aplicación de dispositivo IoT
 
 Para completar este inicio rápido, es preciso instalar el siguiente software en el equipo local:
 
-* [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/): asegúrese de incluir el componente **Administrador de paquetes NuGet** y la carga de trabajo **Desarrollo para el escritorio con C++** al instalar Visual Studio.
+* [Herramientas de compilación para Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) con las cargas de trabajo de **herramientas de compilación de C++** y el **componente Administrador de paquetes NuGet**. O si ya tiene [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 o 2015 con las mismas cargas de trabajo instaladas.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 

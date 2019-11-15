@@ -1,5 +1,5 @@
 ---
-title: Introducción a la auditoría de Azure SQL Database | Microsoft Docs
+title: Introducción a la auditoría
 description: Utilice la auditoría de base de datos de Azure SQL para realizar el seguimiento de eventos de base de datos en un registro de auditoría.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: cc12579a4932894b730b04cdc77acc0151168bdb
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 65d092b36ed0e339a77bb423f24079caae38ab84
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010211"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821970"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 
-La auditoría de Azure [SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) realiza un seguimiento de eventos de base de datos y los escribe en un registro de auditoría en la cuenta de Azure Storage, área de trabajo de Log Analytics o Event Hubs. La auditoría también puede hacer lo siguiente:
+La auditoría de Azure [SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) realiza un seguimiento de eventos de base de datos y los escribe en un registro de auditoría de la cuenta de Azure Storage, área de trabajo de Log Analytics o Event Hubs. La auditoría también:
 
-- Ayudar a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
+- Puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 
-- Posibilitar y facilitar la observancia de estándares reguladores aunque no garantiza el cumplimiento. Para obtener más información sobre los programas de Azure que se adhieren al cumplimiento normativo, consulte el [Centro de confianza de Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde podrá encontrar la lista más reciente de certificaciones de cumplimiento de SQL Database.
+- Posibilita y facilita la observancia de estándares reguladores aunque no garantiza el cumplimiento. Para obtener más información sobre los programas de Azure que se adhieren al cumplimiento normativo, consulte el [Centro de confianza de Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde podrá encontrar la lista más reciente de certificaciones de cumplimiento de SQL Database.
 
 
 > [!NOTE] 
@@ -49,6 +49,7 @@ Puede usar la auditoría de base de datos SQL para:
 > - **Premium Storage** actualmente **no se admite**.
 > - **El almacenamiento en VNet** actualmente **no se admite**.
 > - **El almacenamiento detrás de un firewall** actualmente **no se admite**.
+> - **El espacio de nombres jerárquico** para la **cuenta de almacenamiento de Azure Data Lake Storage Gen2** actualmente **no se admite**.
 
 ## <a id="subheading-8"></a>Definir la directiva de auditoría de nivel de servidor frente la de nivel de base de datos
 
@@ -96,7 +97,8 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 6. Para configurar la escritura de registros de auditoría en una cuenta de almacenamiento, seleccione **Almacenamiento** y abra **Detalles de almacenamiento**. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y, después, seleccione el período de retención. Se eliminarán los registros antiguos. A continuación, haga clic en **Aceptar**.
 
    > [!IMPORTANT]
-   > El valor predeterminado para el período de retención es 0 (retención ilimitada). Puede cambiar este valor moviendo el control deslizante **Retención (días)** de **Configuración de almacenamiento** al configurar la cuenta de almacenamiento para la auditoría.
+   > - El valor predeterminado para el período de retención es 0 (retención ilimitada). Puede cambiar este valor moviendo el control deslizante **Retención (días)** de **Configuración de almacenamiento** al configurar la cuenta de almacenamiento para la auditoría.
+   > - Si cambia el período de retención de 0 (retención ilimitada) a cualquier otro valor, tenga en cuenta que la retención solo se aplicará a los registros escritos una vez cambiado el valor de retención (los registros escritos durante el período en el que la retención se estableció en ilimitada se conservan, incluso después de habilitarse la retención)
 
     ![Cuenta de almacenamiento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 

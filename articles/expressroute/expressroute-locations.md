@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/14/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: a52325a85c763d122414baa312f786f25dd80616
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 851fbf52571b12b60345a78af3e26a875919fb14
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434744"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585224"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -43,9 +43,9 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- |
 | **Australia Government** |Centro de Australia, Centro de Australia 2 |Canberra, Canberra 2 |
-| **Europa** | Centro de Francia, Sur de Francia, Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Ámsterdam2, Copenhague, Dublín, Fráncfort, Londres, Londres2, Marsella, Newport (Gales), París, Estocolmo, Zúrich |
+| **Europa** | Centro de Francia, Sur de Francia, Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Ámsterdam2, Copenhague, Dublín, Fráncfort, Ginebra, Londres, Londres2, Marsella, Milán, Múnich, Newport (Gales), París, Stavanger, Estocolmo, Zúrich |
 | **Norteamérica** |Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Ángeles, Miami, Nueva York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Ciudad de Quebec, Toronto |
-| **Asia** | Este de Asia y Sudeste de Asia |RAE de Hong Kong, Kuala Lumpur, Singapur, Singapur2, Taipéi |
+| **Asia** | Este de Asia y Sudeste de Asia |RAE de Hong Kong, Yakarta, Kuala Lumpur, Singapur, Singapur2, Taipéi |
 | **India** | India occidental, India central, India del Sur |Chennai (Madrás), Chennai (Madrás)2, Mumbai (Bombay), Mumbai (Bombay)2 |
 | **Japón** | Oeste de Japón y Este de Japón |Osaka, Tokyo |
 | **Oceanía** | Este de Australia y Sudeste de Australia |Auckland, Melbourne, Perth, Sídney |
@@ -72,7 +72,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea ver los proveedores disponibles según la ubicación, consulte [Proveedores de servicios por ubicación](expressroute-locations-providers.md).
 
 
-### <a name="production-azure"></a>Azure para producción
+### <a name="global-commercial-azure"></a>Servicios comerciales mundiales de Azure
 
 | **Proveedor de servicios** | **Microsoft Azure** | **Office 365**  | **Ubicaciones** |
 | --- | --- | --- | --- |
@@ -140,7 +140,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | Compatible | Compatible | Zúrich |
 | **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Compatible |Compatible |Ámsterdam, Chennai, RAE de Hong Kong, Londres, Mumbai, Sao Paulo, Silicon Valley, Singapur, Washington DC |
 | **[Telefónica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Compatible |Compatible |Ámsterdam, Sao Paulo |
-| **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Compatible |Compatible |Londres |
+| **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Compatible |Compatible |Londres, Londres2 |
 | **Telenor** |Compatible |Compatible |Ámsterdam y Londres |
 | **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Compatible | Compatible |Ámsterdam, Chicago, Dallas, Hong Kong, Londres, París, Silicon Valley, Estocolmo, Washington DC |
 | **Telmex Uninet**| Compatible | Compatible | Dallas |
@@ -160,6 +160,8 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
  **+** indica próximamente
 
 ### <a name="national-cloud-environment"></a>Entorno de nube nacional
+
+Las nubes nacionales de Azure están aisladas entre sí y de los servicios comerciales mundiales de Azure. ExpressRoute para una nube de Azure no se puede conectar a las regiones de Azure de otras nubes. 
 
 ### <a name="us-government-cloud"></a>Nube del gobierno de Estados Unidos
 

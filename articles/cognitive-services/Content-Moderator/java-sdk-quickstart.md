@@ -1,20 +1,21 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Content Moderator para Java | Microsoft Docs'
-description: Introducción a la biblioteca cliente de Content Moderator para Java.
+title: 'Inicio rápido: Biblioteca cliente de Content Moderator para Java'
+titleSuffix: Azure Cognitive Services
+description: Obtenga información sobre cómo empezar a usar la biblioteca cliente de Content Moderator de Azure Cognitive Services para Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d1575818ac35c45af8a7df59c0853389d01031c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: edc51be93ba209a1c60970e6fa1b47fca75048c6
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698544"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744441"
 ---
 # <a name="quickstart-content-moderator-client-library-for-java"></a>Inicio rápido: Biblioteca cliente de Content Moderator para Java
 
@@ -24,7 +25,7 @@ Use la biblioteca cliente de Content Moderator para Java para:
 
 * Moderar las imágenes de contenido para adultos o de tipo explícito, texto o caras humanas.
 
-[Documentación de referencia](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Artefacto (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Ejemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator&sort=0)
+[Documentación de referencia](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Artefacto (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Ejemplos](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -125,14 +126,14 @@ En el método `main` de la aplicación, cree un objeto [ContentModeratorClient](
 
 ### <a name="get-images"></a>Obtener imágenes
 
-En la carpeta **src/main/** del proyecto, cree una carpeta **resources** y vaya a ella. Luego, cree el archivo *ImageFiles.txt*. En este archivo, se agregan las direcciones URL de las imágenes que se van a analizar, una en cada línea. Puede usar el siguiente contenido de ejemplo:
+En la carpeta **src/main/** del proyecto, cree una carpeta **resources** y vaya a ella. Luego, cree el archivo *ImageFiles.txt*. En este archivo, se agregan las direcciones URL de las imágenes que se van a analizar, una en cada línea. Puede utilizar las siguientes imágenes de ejemplo:
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
 
-### <a name="use-helper-class"></a>Usar la clase auxiliar
+### <a name="define-helper-class"></a>Definir la clase auxiliar
 
 Luego, en el archivo *ContentModeratorQuickstart.java*, agregue la siguiente definición de clase dentro de la clase **ContentModeratorQuickstart**. Esta clase interna se usará más adelante en el proceso de moderación de imágenes.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Envío de eventos mediante C: Azure Event Hubs | Microsoft Docs'
-description: En este artículo se ofrece un tutorial para crear una aplicación de C que envía eventos a Azure Event Hubs.
+title: 'Inicio rápido: Envío de eventos mediante C: Azure Event Hubs'
+description: 'Inicio rápido: En este artículo se ofrece un tutorial para crear una aplicación de C que envía eventos a Azure Event Hubs.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,18 +11,18 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: a8f647018ba6ed3c9e951db2054036b60c7d4ab5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bd4bb66b7e3c3ec37724f8684105befbc9132ff
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822476"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720662"
 ---
-# <a name="send-events-to-azure-event-hubs-using-c"></a>Envío de eventos a Azure Event Hubs mediante C
+# <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Inicio rápido: Envío de eventos a Azure Event Hubs mediante C
 
 ## <a name="introduction"></a>Introducción
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).

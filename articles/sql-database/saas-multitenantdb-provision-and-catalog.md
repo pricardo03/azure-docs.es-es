@@ -1,5 +1,5 @@
 ---
-title: Aprovisionamiento en Azure SaaS multiinquilino | Microsoft Docs
+title: Aprovisionamiento en aplicaciones SaaS multiinquilino
 description: Obtenga información sobre cómo aprovisionar y catalogar nuevos inquilinos en una aplicación SaaS multiinquilino de Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
-ms.openlocfilehash: 3e8e0c69c93c992f31c515c2033a9ae57d2ee3e0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cae0b2730a9426b183dc330a18a76122ac87cc66
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570300"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817939"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionamiento y catalogación de nuevos inquilinos en una aplicación SaaS con una base de datos de Azure SQL multiinquilino con particiones
 

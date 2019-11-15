@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: f1c42002343de1dd3b3ef6b9c9e35f458db925f4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 8a39327275dca43ddb6ce0e46a3e3bb51ec4555b
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051136"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795305"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configuración de los contenedores de docker de Text Analytics
 
@@ -51,7 +51,7 @@ Este valor se puede encontrar en el siguiente lugar:
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
-|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación requerido |
+|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 

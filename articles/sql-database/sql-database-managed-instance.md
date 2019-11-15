@@ -1,5 +1,5 @@
 ---
-title: Introducción a Instancia administrada de Azure SQL Database | Microsoft Docs
+title: Introducción a Instancia administrada de SQL
 description: En este artículo se describe Instancia administrada de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 08/05/2019
-ms.openlocfilehash: 0d59b1cfed1de710725a5dfc91341fec0baa6cb4
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/04/2019
+ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331023"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823293"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL Database?
 
@@ -46,7 +46,7 @@ Una instancia administrada combina las mejores características que están dispo
 | --- | --- |
 |No hay compras de hardware ni administración <br>Ninguna sobrecarga de administración a la hora de administrar la infraestructura subyacente <br>Aprovisionamiento y escalado de servicio rápidos <br>Aplicación de revisiones y actualización de versiones automatizadas <br>Integración con otros servicios de datos de PaaS |Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %  <br>[Alta disponibilidad](sql-database-high-availability.md) integrada <br>Datos protegidos con [copias de seguridad automatizadas](sql-database-automated-backups.md) <br>Período de retención de copia de seguridad configurable por el cliente <br>[Copias de seguridad](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) que haya iniciado el usuario <br>Funcionalidad de [restauración de base de datos a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) |
 |**Seguridad y cumplimiento normativo** | **Administración**|
-|Entorno aislado ([integración con red virtual](sql-database-managed-instance-connectivity-architecture.md), servicio de inquilino único y procesos y almacenamiento dedicados) <br>[Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticación de Azure AD](sql-database-aad-authentication.md), compatibilidad con el inicio de sesión único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de seguridad (inicios de sesión) de un servidor de Azure AD</a> (**versión preliminar pública**) <br>Se adhiere a las mismas normas de cumplimiento estándar que Azure SQL Database <br>[Auditoría de SQL](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |API de Azure Resource Manager para automatizar el aprovisionamiento y escalado del servicio <br>Funcionalidad de Azure Portal para el aprovisionamiento y escalado manuales del servicio <br>Data Migration Service
+|Entorno aislado ([integración con red virtual](sql-database-managed-instance-connectivity-architecture.md), servicio de inquilino único y procesos y almacenamiento dedicados) <br>[Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticación de Azure AD](sql-database-aad-authentication.md), compatibilidad con el inicio de sesión único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de seguridad (inicios de sesión) de un servidor de Azure AD</a>  <br>Se adhiere a las mismas normas de cumplimiento estándar que Azure SQL Database <br>[Auditoría de SQL](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |API de Azure Resource Manager para automatizar el aprovisionamiento y escalado del servicio <br>Funcionalidad de Azure Portal para el aprovisionamiento y escalado manuales del servicio <br>Data Migration Service
 
 > [!IMPORTANT]
 > Azure SQL Database (todas las opciones de implementación) ha obtenido la certificación de diversas normas de cumplimiento. Para obtener más información, vea el [Centro de confianza de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Database.
@@ -131,7 +131,7 @@ Las operaciones subsiguientes en las instancias administradas implementadas pued
 Todas las operaciones de administración se pueden clasificar de la siguiente manera:
 
 - Implementación de una instancia (creación de instancia nueva). 
-- Actualización de una instancia (cambio de las propiedades de una instancia, como núcleos virtuales, almacenamiento reservado, etc.).
+- Actualización de una instancia (cambio de las propiedades de una instancia, como núcleos virtuales o almacenamiento reservado).
 - Eliminación de una instancia.
 
 Por lo general, las operaciones en clústeres virtuales tardan más. La duración de las operaciones en los clústeres virtuales varía. A continuación, se muestran los valores que puede esperar habitualmente, en función de los datos de telemetría de servicio existentes:
@@ -221,7 +221,7 @@ Se admite la migración de una base de datos cifrada a una instancia administrad
 
 La opción de implementación de instancia administrada admite los inicios de sesión tradicionales del motor de base de datos de SQL Server y los inicios de sesión integrados con Azure Active Directory (AAD). Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD (**versión preliminar pública**) son una versión en la nube de Azure de los inicios de sesión de la base de datos local que está utilizando en su entorno local. Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD le permiten especificar usuarios y grupos del inquilino de Azure Active Directory como entidades de seguridad de la instancia con capacidad para llevar a cabo operaciones dentro del ámbito de la misma, incluidas consultas entre bases de datos dentro de la misma instancia administrada.
 
-Se ha incluido una nueva sintaxis para crear entidades de seguridad (inicios de sesión) de un servidor de Azure AD (**versión preliminar pública**): **FROM EXTERNAL PROVIDER**. Para más información sobre la sintaxis, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> y revise el artículo [Aprovisionamiento de un administrador de Azure Active Directory para su instancia administrada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+Se ha incluido una nueva sintaxis para crear entidades de seguridad (inicios de sesión) de un servidor de Azure AD, **FROM EXTERNAL PROVIDER**. Para más información sobre la sintaxis, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> y revise el artículo [Aprovisionamiento de un administrador de Azure Active Directory para su instancia administrada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integración de Azure Active Directory y autenticación multifactor
 

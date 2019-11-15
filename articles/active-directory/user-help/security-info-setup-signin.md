@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de la información de seguridad (versión preliminar) desde su mensaje de inicio de sesión: Azure Active Directory | Microsoft Docs'
+title: 'Configuración de la información de seguridad (versión preliminar) desde un mensaje de inicio de sesión: Azure AD'
 description: Cómo configurar la información de seguridad de una cuenta profesional o educativa, si se solicita desde la página de inicio de sesión de una organización.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e05515c2fd118c21f891be86fae6423affab0324
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3ae1856c7934c658bd244445306b4bb78c666e38
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160897"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820300"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configuración de la información de seguridad (versión preliminar) desde el mensaje de la página de inicio de sesión
 

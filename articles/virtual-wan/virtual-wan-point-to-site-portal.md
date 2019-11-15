@@ -1,0 +1,172 @@
+---
+title: Uso de Azure Virtual WAN para crear una conexión de sitio a sitio a Azure | Microsoft Docs
+description: En este tutorial, aprenda a usar Azure Virtual WAN para crear una conexión VPN de punto a sitio a Azure.
+services: virtual-wan
+author: anzaman
+ms.service: virtual-wan
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.author: alzam
+ms.openlocfilehash: 0319e3aec71d37b49a094861fdcbb3b96b6def67
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585429"
+---
+# <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión VPN de usuario mediante Azure Virtual WAN
+
+Este tutorial muestra cómo usar Virtual WAN para conectarse a los recursos de Azure a través de una conexión VPN de OpenVPN o IPsec/IKE (IKEv2). Este tipo de conexión requiere que se configure un cliente en el equipo cliente. Para más información sobre Virtual WAN, consulte la [Introducción a Virtual WAN](virtual-wan-about.md)
+
+En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+> * Crear una red de área extensa (WAN)
+> * Crear un concentrador
+> * Creación de una configuración de P2S
+> * Descarga de un perfil de cliente VPN
+> * Aplicar la configuración de P2S a un concentrador
+> * Conectar una red virtual a un concentrador
+> * Descargar y aplicar la configuración de cliente VPN
+> * Visualizar la instancia de Virtual WAN
+> * Visualizar el estado de los recursos
+
+![Diagrama de Virtual WAN](./media/virtual-wan-about/virtualwanp2s.png)
+
+## <a name="before-you-begin"></a>Antes de empezar
+
+Antes de comenzar con la configuración, compruebe que se cumplen los criterios siguientes:
+
+* Tiene una red virtual a la que quiere conectarse. Compruebe que ninguna de las subredes de sus redes locales se superpone a las redes virtuales a las que quiere conectarse. Para crear una red virtual en Azure Portal consulte este [Inicio rápido](../virtual-network/quick-create-portal.md).
+
+* Su red virtual no tiene ninguna puerta de enlace de red virtual. Si la red virtual tiene alguna puerta de enlace (ya sea VPN o ExpressRoute), tiene que quitarla. Esta configuración requiere que las redes virtuales estén conectadas a la puerta de enlace del centro de conectividad de Virtual WAN.
+
+* Obtenga un intervalo de direcciones IP para la región del concentrador. El centro de conectividad es una red virtual que Virtual WAN crea y usa. El intervalo de direcciones que especifique para el centro de conectividad no se puede superponer a ninguna de las redes virtuales existentes a las que ya esté conectado. Igualmente no se puede superponer a los intervalos de direcciones con las que esté conectadas en el entorno local. Si no está familiarizado con los intervalos de direcciones IP ubicados en la configuración de la red local, póngase de acuerdo con alguien que pueda proporcionarle estos detalles.
+
+* Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="wan"></a>Creación de una instancia de Virtual WAN
+
+Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
+
+1. Vaya a la página de Virtual WAN. En el portal, haga clic en **+Crear un recurso**. Escriba **Virtual WAN** en el cuadro de búsqueda y seleccione ENTRAR.
+2. Seleccione **Virtual WAN** en los resultados. En la página Virtual WAN, haga clic en **Crear** para abrir la página Crear una red WAN.
+3. Dentro de la página **Crear una red WAN**, en la pestaña **Aspectos básicos**, rellene los campos siguientes:
+
+   ![Red WAN virtual](./media/virtual-wan-point-to-site-portal/vwan.png)
+
+   * **Suscripción**: seleccione la suscripción que quiere usar.
+   * **Grupo de recursos**: cree uno nuevo o utilice uno ya existente.
+   * **Ubicación del grupo de recursos**: elija una ubicación para los recursos en la lista desplegable. Una red WAN es un recurso global y no reside en una región determinada. De todas formas, tiene que seleccionar una región con el fin de administrar y ubicar más fácilmente el recurso WAN que cree.
+   * **Nombre**: escriba el nombre que desea dar a la WAN.
+   * **Tipo:** Estándar. Si crea una WAN básica, solo puede crear un centro de conectividad básico. Los centros de conectividad básicos solo pueden tener conectividad VPN de sitio a sitio.
+4. Cuando termine de rellenar los campos, haga clic en **Revisión y creación**.
+5. Una vez que se haya superado la validación, seleccione **Crear** para crear la WAN virtual.
+
+## <a name="site"></a>Crear un centro virtual vacío
+
+1. En la WAN virtual, seleccione los centros y haga clic en **+ Nuevo centro**
+
+   ![nuevo sitio](media/virtual-wan-point-to-site-portal/hub1.jpg)
+2. En la página Crear centro de conectividad virtual, complete los siguientes campos.
+
+   **Región**: seleccione la región en la que quiere implementar el centro de conectividad virtual.
+
+   **Nombre**: escriba el nombre que quiere asignar al centro de conectividad virtual.
+
+   **Espacio de direcciones privadas del centro de conectividad**: intervalo de direcciones del centro de conectividad en la notación CIDR.
+
+   ![nuevo sitio](media/virtual-wan-point-to-site-portal/hub2.jpg)  
+3. Haga clic en **Revisar y crear**
+4. En la página **Validación superada**, haga clic en **Crear**
+
+## <a name="site"></a>Creación de una configuración de P2S
+
+Una configuración de P2S define los parámetros para conectarse a los clientes remotos.
+
+1. Vaya a **Todos los recursos**.
+2. Haga clic en la red WAN virtual que ha creado.
+3. Haga clic en **+Crear una configuración de VPN de usuario** en la parte superior de la página para abrir la página **Crear nueva configuración de VPN de usuario**.
+
+   ![nuevo sitio](media/virtual-wan-point-to-site-portal/p2s1.jpg)
+4. En la página **Crear nueva configuración de VPN de usuario**, rellene los campos siguientes:
+
+   **Nombre de la configuración**: nombre que desea usar para hacer referencia a su configuración.
+
+   **Tipo de túnel**: el protocolo que se usará para el túnel.
+
+   **Nombre del certificado raíz**: nombre descriptivo para el certificado.
+
+   **Datos de certificado público**: datos del certificado X.509 codificado en Base 64.
+  
+   ![nuevo sitio](media/virtual-wan-point-to-site-portal/p2s2.jpg)
+5. Haga clic en **Crear** para crear la configuración.
+
+## <a name="hub"></a>Edición de la asignación del concentrador
+
+1. Vaya a la hoja **Centros** de la red WAN virtual.
+2. Seleccione el centro con el que quiere asociar la configuración de servidor VPN y haga clic en **...**
+
+   ![nuevo sitio](media/virtual-wan-point-to-site-portal/p2s4.jpg)
+3. Haga clic en **Editar centro de conectividad virtual**.
+4. Active la casilla **Incluir puerta de enlace de punto a sitio** y elija la **unidad de escalado de puerta de enlace** que quiera.
+
+   ![nuevo sitio](media/virtual-wan-point-to-site-portal/p2s2.jpg)
+5. Especifique el **Grupo de direcciones** del que se asignarán direcciones IP a los clientes VPN.
+6. Haga clic en **Confirmar**
+7. La operación puede tardar hasta 30 minutos en completarse.
+
+## <a name="device"></a>Descarga del perfil de VPN
+
+Use el perfil de VPN para configurar los clientes.
+
+1. En la página de su red WAN virtual, haga clic en **Configuraciones de VPN de usuario**.
+2. En la parte superior de la página, haga clic en **Download user VPN config** (Descargar configuración de VPN de usuario).
+3. Una vez el archivo se haya terminado de crear, puede hacer clic en el vínculo para descargarlo.
+4. Use el archivo de perfil para configurar los clientes de VPN.
+
+### <a name="configure-user-vpn-clients"></a>Configuración de clientes de VPN de usuario
+Use el perfil descargado para configurar los clientes de acceso remoto. El procedimiento para cada sistema operativo es diferente, siga las instrucciones correctas a continuación:
+
+#### <a name="microsoft-windows"></a>Microsoft Windows
+##### <a name="openvpn"></a>OpenVPN
+
+1. Descargue e instale el cliente OpenVPN desde el sitio web oficial.
+2. Descargue el perfil de VPN para la puerta de enlace. Esto puede hacerse desde la pestaña de configuraciones de VPN de usuario de Azure Portal o mediante New-AzureRmVpnClientConfiguration en PowerShell.
+3. Descomprima el perfil. Abra el archivo de configuración vpnconfig.ovpn desde la carpeta OpenVPN en el Bloc de notas.
+4. Rellene la sección de certificado cliente de P2S con la clave pública del certificado cliente de P2S en Base64. En un certificado con formato PEM, puede abrir el archivo .cer y copiar la clave de base64 entre los encabezados del certificado. Vea aquí cómo exportar un certificado para obtener la clave pública codificada.
+5. Rellene la sección de la clave privada con la clave privada del certificado cliente de P2S en Base64. Vea aquí cómo extraer la clave privada.
+6. No cambie los demás campos. Use los datos de la configuración de entrada del cliente para conectarse a la VPN.
+7. Copie el archivo vpnconfig.ovpn en la carpeta C:\Program Files\OpenVPN\config.
+8. Haga clic con el botón derecho en l icono de OpenVPN en la bandeja del sistema y, después, haga clic en Conectar.
+
+##### <a name="ikev2"></a>IKEv2
+
+1. Seleccione los archivos de configuración de cliente VPN que correspondan a la arquitectura del equipo Windows. Si la arquitectura de procesador es de 64 bits, elija el paquete del instalador "VpnClientSetupAmd64". En caso de que sea de 32 bits, elija el paquete del instalador "VpnClientSetupX86".
+2. Haga doble clic en el paquete para instalarlo. Si ve una ventana emergente de SmartScreen, haga clic en Más información y en Ejecutar de todas formas.
+3. En el equipo cliente, vaya a Configuración de red y haga clic en VPN. La conexión VPN muestra el nombre de la red virtual a la que se conecta.
+4. Antes de intentar conectarse, compruebe que ha instalado un certificado de cliente en el equipo cliente. Es necesario un certificado de cliente para la autenticación al usar el tipo de autenticación de certificados nativo de Azure. Para más información acerca de cómo generar certificados, consulte Generación de certificados. Para información acerca de cómo instalar un certificado de cliente, consulte Instalación de certificados de cliente.
+
+## <a name="viewwan"></a>Visualización de la instancia de Virtual WAN
+
+1. Vaya a la instancia de Virtual WAN.
+2. En la página Información general, cada punto del mapa representa un concentrador. Mantenga el mouse sobre cualquier punto para ver el resumen de estado del concentrador.
+3. En la sección de concentradores y conexiones, puede ver estado del concentrador, sitio, región, estado de la conexión VPN y bytes de entrada y salida.
+
+## <a name="viewhealth"></a>Visualización del estado de los recursos
+
+1. Vaya a su red WAN.
+2. En la página de la WAN, en la sección de **Soporte técnico y solución de problemas**, haga clic en **Mantenimiento** y visualice los recursos.
+
+
+## <a name="cleanup"></a>Limpieza de recursos
+
+Cuando ya no necesite estos recursos, puede usar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para más información sobre Virtual WAN, consulte la página [Introducción a Virtual WAN](virtual-wan-about.md).

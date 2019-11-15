@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 85a3a9f7afac8250b225d42462f6b29042e34a2a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 91469f27e1ca86650cf94fde5cff5d1864300183
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330456"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606342"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Administración de laboratorios de clase en Azure Lab Services 
 En este artículo se describe cómo crear y eliminar un laboratorio de clase. También se muestra cómo ver todos los laboratorios de clase de una cuenta de laboratorio. 
@@ -28,7 +28,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
 ## <a name="create-a-classroom-lab"></a>Creación de un laboratorio educativo
 
-1. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com). Tenga en cuenta que Internet Explorer 11 aún no se admite. 
+1. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com). Internet Explorer 11 aún no se admite. 
 2. Seleccione **Iniciar sesión** y escriba las credenciales. Seleccione o escriba un **Id. de usuario** que sea miembro del rol **Creador de laboratorio** en la cuenta del laboratorio y escriba la contraseña. Azure Lab Services es compatible con cuentas profesionales y cuentas Microsoft. 
 3. Seleccione **New lab** (Nuevo laboratorio). 
     
@@ -58,7 +58,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 5. En la página **Lab policies** (Directivas del laboratorio), escriba el número de horas asignadas a cada usuario (**cuota para cada usuario**) fuera del tiempo programado del laboratorio y seleccione **Finish** (Finalizar). 
 
     ![Cuota para cada usuario](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
-5. Verá la siguiente pantalla, que muestra el estado de la creación de la plantilla de máquina virtual. La creación de la plantilla en el laboratorio tarda un máximo de 20 minutos. 
+5. Debería ver la siguiente pantalla, que muestra el estado de la creación de la máquina virtual de plantilla. La creación de la plantilla en el laboratorio tarda un máximo de 20 minutos. 
 
     ![Estado de la creación de la plantilla de máquina virtual](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. En la página **Template** (Plantilla), siga estos pasos: Estos pasos son **opcionales** para el tutorial.
@@ -74,7 +74,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
     > [!WARNING]
     > Una vez que publique, no se puede cancelar la publicación. 
-8. En la página **Publish template** (Publicar plantilla), escriba el número de máquinas virtuales que quiere crear en el laboratorio y seleccione **Publish** (Publicar). 
+8. En la página **Publish template** (Publicar plantilla), escriba el número de máquinas virtuales que desea crear en el laboratorio y seleccione **Publish** (Publicar). 
 
     ![Publicación de plantilla: número de máquinas virtuales](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
 11. Puede ver el **estado de la publicación** de la plantilla en la página. Este proceso puede tardar hasta una hora. 
@@ -123,6 +123,10 @@ Para cambiar a otro laboratorio de clase desde el actual, seleccione la lista de
 
 También puede crear un laboratorio con la opción **New lab** (Nuevo laboratorio) de esta lista desplegable. 
 
+> [!NOTE]
+> También puede usar el módulo Az.LabServices de PowerShell (versión preliminar) para administrar laboratorios. Para más información, consulte la [página principal de Az.LabServices en GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+
+Para cambiar a una cuenta de laboratorio diferente, seleccione la lista desplegable junto a la cuenta de laboratorio y seleccione la otra cuenta de laboratorio. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes:

@@ -10,16 +10,18 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 7caf4493db32201a8e83ffb3722c80c5e9b41a8f
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ac292f020bb64c7c70ce3ea5c7f66fe9e9ed1bb7
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057739"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604654"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Uso de Computer Vision para generar metadatos de imágenes en Azure Storage
 
-En este tutorial, aprenderá a integrar el servicio Azure Computer Vision en una aplicación web para generar metadatos para las imágenes cargadas. En [Laboratorio de Azure Storage y Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md), de GitHub, se puede encontrar una guía de aplicaciones completa y en este tutorial se trata esencialmente el ejercicio 5 de dicho laboratorio. Es posible que desee crear la aplicación de un extremo a otro siguiendo todos los pasos, pero si solo quiere ver cómo se puede integrar Computer Vision en una aplicación web existente, aquí puede leerlo.
+En este tutorial, aprenderá a integrar el servicio Azure Computer Vision en una aplicación web para generar metadatos para las imágenes cargadas. Esto resulta útil para los escenarios de [administración de activos digitales (DAM)](../Home.md#computer-vision-for-digital-asset-management); por ejemplo, si una empresa quiere generar rápidamente leyendas descriptivas o palabras clave de búsqueda para todas sus imágenes.
+
+En [Laboratorio de Azure Storage y Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md), de GitHub, se puede encontrar una guía de aplicaciones completa y en este tutorial se trata esencialmente el ejercicio 5 de dicho laboratorio. Es posible que desee crear la aplicación de un extremo a otro siguiendo todos los pasos, pero si solo quiere ver cómo se puede integrar Computer Vision en una aplicación web existente, aquí puede leerlo.
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 

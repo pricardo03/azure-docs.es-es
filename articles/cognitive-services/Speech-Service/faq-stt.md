@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 1f934bc5627331cc92ad3f497f1f7e4e0e5526cd
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3b957181015cba06eb361272ca1004ba3e7a7008
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595335"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579681"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -175,6 +175,18 @@ o
 **P: ¿Puedo simplemente cargar una lista de palabras?**
 
 **R.** : La carga de una lista de palabras las agregará al vocabulario, pero no enseñará al sistema cómo se usan normalmente. Al proporcionar expresiones completas o parciales (oraciones o frases que es probable que digan los usuarios), el modelo de lenguaje puede aprender las palabras nuevas y cómo se usan. El modelo de lenguaje personalizado es bueno no solo para agregar palabras nuevas al sistema, sino también para ajustar la probabilidad de palabras conocidas para la aplicación. Al proporcionar expresiones completas se ayuda al sistema a aprender mejor. 
+
+## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modelo de inquilino (Custom Speech con datos de Office 365)
+
+**P: ¿Qué información se incluye en el modelo de inquilino y cómo se crea?**
+
+**R:** Un modelo de inquilino se crea con documentos y correos electrónicos de [grupos públicos](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) que puede ver cualquier usuario de la organización. 
+ 
+**P: ¿Qué experiencias de voz mejora el modelo de inquilino?**
+
+**R:** Cuando el modelo de inquilino se habilita, se crea y se publica, se usa para mejorar el reconocimiento de las aplicaciones empresariales compiladas con el servicio Voz, que también pasan un token de AAD de usuario que indica la pertenencia a la empresa. 
+ 
+Las experiencias de voz integradas en Office 365, como el Dictado y los subtítulos de PowerPoint, no cambian cuando se crea un modelo de inquilino para las aplicaciones del servicio Voz.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

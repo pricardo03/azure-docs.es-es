@@ -7,18 +7,20 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 81c1279670e786ddaa03946869773121a859d3b7
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: e2f1042fe1210fe51ae79b1152e51191e7fb066a
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735232"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615026"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Escenario de distribución ramificada de entrada/salida en Durable Functions: ejemplo de copia de seguridad en la nube
 
 La *distribución ramificada de entrada y salida* hace referencia al patrón de ejecución simultánea de varias funciones y la agregación de resultados. En este artículo se explica un ejemplo que usa [Durable Functions](durable-functions-overview.md) para implementar un escenario de distribución ramificada de entrada y salida. El ejemplo es una instancia de Durable Functions que realiza una copia de seguridad parcial o total del contenido de una aplicación en Azure Storage.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -26,9 +28,9 @@ La *distribución ramificada de entrada y salida* hace referencia al patrón de 
 
 En este ejemplo, las funciones cargan todos los archivos de un directorio especificado de forma repetitiva en Blob Storage. También cuenta el número de bytes que se han cargado.
 
-Es posible escribir una sola función que se encargue de todo. El problema principal que encontraría es la **escalabilidad**. La ejecución de una función solo se puede realizar en una única máquina virtual, por lo que el rendimiento se verá limitado por el de esa máquina virtual concreta. Otro problema es la **confiabilidad**. Si se produce un error a mitad de camino, o si todo el proceso tarda más de 5 minutos, se podría producir un error de copia de seguridad en un estado completado parcialmente, por lo que tendría que reiniciarse.
+Es posible escribir una sola función que se encargue de todo. El problema principal que encontraría es la **escalabilidad**. La ejecución de una función solo se puede realizar en una única máquina virtual, por lo que el rendimiento se verá limitado por el de esa máquina virtual concreta. Otro problema es la **confiabilidad**. Si se produce un error a mitad de camino, o si todo el proceso tarda más de 5 minutos, se podría producir un error de copia de seguridad en un estado completado parcialmente. por lo que tendría que reiniciarse.
 
-Un enfoque más sólido sería escribir dos funciones normales: una que enumere los archivos y agregue los nombres de archivo a una cola, y otra que lea de la cola y cargue los archivos en Blob Storage. Esto es mejor en cuanto a rendimiento y confiabilidad, pero deberá aprovisionar y administrar una cola. Más importante aún, se introduce una complejidad considerable en términos de **administración de estado** y **coordinación** si desea hacer algo más, como notificar el total de bytes cargados.
+Un enfoque más sólido sería escribir dos funciones normales: una que enumere los archivos y agregue los nombres de archivo a una cola, y otra que lea de la cola y cargue los archivos en Blob Storage. Este enfoque es mejor en cuanto a rendimiento y confiabilidad, pero habrá que aprovisionar y administrar una cola. Más importante aún, se introduce una complejidad considerable en términos de **administración de estado** y **coordinación** si desea hacer algo más, como notificar el total de bytes cargados.
 
 Los enfoques de Durable Functions proporcionan todas las ventajas mencionadas con muy poca sobrecarga.
 
@@ -54,7 +56,7 @@ Este es el código que implementa la función de orquestador:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
@@ -66,7 +68,7 @@ Esta función de orquestador básicamente hace lo siguiente:
 4. Espera a que finalicen todas las cargas.
 5. Devuelve los bytes totales que se han cargado en Azure Blob Storage.
 
-Fíjese en las líneas `await Task.WhenAll(tasks);` (C#) y `yield context.df.Task.all(tasks);` (JavaScript). *No* se esperó a ninguna de las llamadas individuales a la función `E2_CopyFileToBlob`. Se hace a propósito para que se ejecuten en paralelo. Cuando se pasa esta matriz de tareas a `Task.WhenAll` (C#) o `context.df.Task.all` (JavaScript), obtenemos una tarea que no finalizará *hasta que se completen todas las operaciones de copia*. Si conoce la biblioteca TPL en. NET o [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) en JavaScript, esto no le resultará novedoso. La diferencia es que estas tareas se pueden ejecutar en varias máquinas virtuales al mismo tiempo y la extensión Durable Functions garantiza que la ejecución de un extremo a otro es resistente al reciclaje de procesos.
+Fíjese en las líneas `await Task.WhenAll(tasks);` (C#) y `yield context.df.Task.all(tasks);` (JavaScript). *No* se esperaba ninguna de las llamadas individuales a la función `E2_CopyFileToBlob`, lo que les permite ejecutarse en paralelo. Cuando se pasa esta matriz de tareas a `Task.WhenAll` (C#) o `context.df.Task.all` (JavaScript), obtenemos una tarea que no finalizará *hasta que se completen todas las operaciones de copia*. Si conoce la biblioteca TPL en. NET o [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) en JavaScript, esto no le resultará novedoso. La diferencia es que estas tareas se pueden ejecutar en varias máquinas virtuales al mismo tiempo y la extensión Durable Functions garantiza que la ejecución de un extremo a otro es resistente al reciclaje de procesos.
 
 > [!NOTE]
 > Aunque las tareas son conceptualmente similares a las promesas de JavaScript, las funciones de orquestador deben usar `context.df.Task.all` y `context.df.Task.any`, en lugar de `Promise.all` y `Promise.race`, para administrar la paralelización de la tarea.
@@ -85,7 +87,7 @@ Y esta es la implementación:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
@@ -98,13 +100,13 @@ El archivo *function.json* para `E2_CopyFileToBlob` es igual de simple:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-La implementación C# también es bastante sencilla. Usa características de enlace de Azure Functions más avanzadas (es decir, el parámetro `Binder`), pero no es necesario preocuparse de esos detalles para este tutorial.
+La implementación C# también es sencilla. Usa características de enlace de Azure Functions más avanzadas (es decir, el parámetro `Binder`), pero no es necesario preocuparse de esos detalles para este tutorial.
 
 ### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 La implementación de JavaScript no tiene acceso a la característica `Binder` de Azure Functions, por lo que [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) toma su lugar.
 
@@ -136,7 +138,7 @@ Esta solicitud HTTP desencadena el orquestador `E2_BackupSiteContent` y pasa la 
 HTTP/1.1 202 Accepted
 Content-Length: 719
 Content-Type: application/json; charset=utf-8
-Location: http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+Location: http://{host}/runtime/webhooks/durabletask/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
 (...trimmed...)
 ```
@@ -144,16 +146,16 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc
 Dependiendo de cuántos archivos de registro tenga en la aplicación de función, esta operación puede tardar varios minutos en completarse. Puede obtener el estado más reciente al consultar la dirección URL en el encabezado `Location` de la respuesta HTTP 202 anterior.
 
 ```
-GET http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+GET http://{host}/runtime/webhooks/durabletask/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
 
 ```
 HTTP/1.1 202 Accepted
 Content-Length: 148
 Content-Type: application/json; charset=utf-8
-Location: http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+Location: http://{host}/runtime/webhooks/durabletask/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
-{"runtimeStatus":"Running","input":"D:\\home\\LogFiles","output":null,"createdTime":"2017-06-29T18:50:55Z","lastUpdatedTime":"2017-06-29T18:51:16Z"}
+{"runtimeStatus":"Running","input":"D:\\home\\LogFiles","output":null,"createdTime":"2019-06-29T18:50:55Z","lastUpdatedTime":"2019-06-29T18:51:16Z"}
 ```
 
 En este caso, la función todavía se está ejecutando. Es posible que vea la entrada que se guardó en el estado de orquestador y la hora de la última actualización. Se pueden seguir usando los valores del encabezado `Location` para sondear la finalización. Cuando el estado sea "Completado", verá un valor de respuesta HTTP similar al siguiente:
@@ -163,7 +165,7 @@ HTTP/1.1 200 OK
 Content-Length: 152
 Content-Type: application/json; charset=utf-8
 
-{"runtimeStatus":"Completed","input":"D:\\home\\LogFiles","output":452071,"createdTime":"2017-06-29T18:50:55Z","lastUpdatedTime":"2017-06-29T18:51:26Z"}
+{"runtimeStatus":"Completed","input":"D:\\home\\LogFiles","output":452071,"createdTime":"2019-06-29T18:50:55Z","lastUpdatedTime":"2019-06-29T18:51:26Z"}
 ```
 
 Ahora verá que la orquestación ha finalizado y el tiempo aproximado que tardó en completarse. También verá un valor para el campo `output`, lo que indica que se han cargado alrededor de 450 KB de registros.
@@ -173,7 +175,7 @@ Ahora verá que la orquestación ha finalizado y el tiempo aproximado que tardó
 Esta es la orquestación como archivo único de C# en un proyecto de Visual Studio:
 
 > [!NOTE]
-> Deberá instalar el paquete Nuget `Microsoft.Azure.WebJobs.Extensions.Storage` para ejecutar el siguiente código de ejemplo.
+> Habrá de instalar el paquete NuGet `Microsoft.Azure.WebJobs.Extensions.Storage` para ejecutar el siguiente código de ejemplo.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 

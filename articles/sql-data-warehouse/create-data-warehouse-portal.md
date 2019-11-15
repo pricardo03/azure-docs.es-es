@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación y consulta de Azure SQL Data Warehouse: Azure Portal | Microsoft Docs'
+title: 'Inicio rápido: Creación y consulta de un almacenamiento de datos: Azure Portal'
 description: Cree un almacenamiento de datos con Azure SQL Data Warehouse en Azure Portal, y realización de consultas en él.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: sqlfreshmay19
-ms.openlocfilehash: 83475af3cfdd83e718243d80b84599d53716a5d5
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 46b413d3fb2a27e724bcb2faa3306416e7f5abc7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375835"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824842"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas
 
@@ -37,7 +37,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Creación del almacenamiento de datos
 
-Una instancia de Azure SQL Data Warehouse se crea con un conjunto definido de [recursos de proceso](memory-and-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-logical-servers.md). 
+Una instancia de Azure SQL Data Warehouse se crea con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-logical-servers.md). 
 
 Siga estos pasos para crear una instancia de SQL Data Warehouse que contenga los datos de ejemplo AdventureWorksDW. 
 
@@ -53,7 +53,7 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse que contenga lo
     | :------ | :-------------- | :---------- |
     | **Nombre de la base de datos** | mySampleDataWarehouse | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). Tenga en cuenta que un almacenamiento de datos es un tipo de base de datos.|
     | **Suscripción** | Su suscripción | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
-    | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+    | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Convenciones de nomenclatura). |
     | **Seleccionar origen** | Muestra | Especifica que se va a cargar una base de datos de ejemplo. Tenga en cuenta que un almacenamiento de datos es un tipo de base de datos. |
     | **Seleccionar ejemplo** | AdventureWorksDW | Especifica que se va a cargar la base de datos de ejemplo AdventureWorksDW. |
     ||||
@@ -64,7 +64,7 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse que contenga lo
 
     | Configuración | Valor sugerido | DESCRIPCIÓN |
     | :------ | :-------------- | :---------- |
-    | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+    | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Convenciones de nomenclatura). |
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
     | **Contraseña** | Cualquier contraseña válida | La contraseña debe tener un mínimo de ocho caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
     | **Ubicación** | Cualquier ubicación válida | Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |

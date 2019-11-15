@@ -4,15 +4,16 @@ description: Cómo configurar las SKU para una aplicación administrada de Azure
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: ef4ea2419c64d0376023ea5d291460df48a51c63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29b69499b708726b10947bd3202d3a52893f5c90
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943452"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826177"
 ---
 # <a name="azure-application-skus-tab"></a>Pestaña SKU de aplicación de Azure
 
@@ -122,7 +123,7 @@ Tenga en cuenta las siguientes propiedades de clave de este recurso:
 Para una aplicación administrada, debe configurar Autorización y Configuración de directivas.
 
 
-#### <a name="authorization"></a>Autorización
+#### <a name="authorization"></a>Authorization
 
 Agregue el identificador de Azure Active Directory (AD) del usuario, grupo o aplicación a los que quiere conceder permisos al grupo de recursos administrados. El id. de definición de roles indica el permiso que se concede. Puede ser un rol de Propietario, Colaborador o cualquier rol personalizado.
 

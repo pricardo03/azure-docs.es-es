@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos desde orígenes OData | Microsoft Docs
+title: Movimiento de datos desde orígenes de OData
 description: Obtenga información sobre cómo mover datos desde orígenes de OData mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 840a839f7d3259de0473937de9c9970fcb95227c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ea751a18f8a5e5423b3199919ccf440c41595091
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839089"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666668"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Movimiento de datos de un origen de OData mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

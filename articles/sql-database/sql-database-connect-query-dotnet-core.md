@@ -1,5 +1,5 @@
 ---
-title: Uso de .NET Core para consultar Azure SQL Database | Microsoft Docs
+title: Uso de .NET Core para consultar
 description: En este tema se muestra cómo usar .NET Core para crear un programa que se conecta a una base de datos de Azure SQL y realiza consultas mediante instrucciones Transact-SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: 1c6fdc6f6d2e642db8b57745573260c819c6c307
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 369c708fd3181076c6deb9d7ac9134c57a18f819
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640931"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827086"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de .NET Core (C#) para consultar una base de datos de Azure SQL
 

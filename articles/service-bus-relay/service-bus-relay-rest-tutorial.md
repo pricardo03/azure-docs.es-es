@@ -1,6 +1,6 @@
 ---
-title: Tutorial de REST mediante Azure Relay | Microsoft Docs
-description: Cree una aplicación host de Azure Service Bus Relay que expone una interfaz basada en REST.
+title: 'Tutorial: Tutorial de REST mediante Azure Relay'
+description: 'Tutorial: Cree una aplicación host de Azure Service Bus Relay que expone una interfaz basada en REST.'
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
 ms.service: service-bus-relay
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: a3daa7847ef037f0276792bf8173ad55aba0a944
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 229ed2b00582f2c73ce68c47406d68325abda736
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212927"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718840"
 ---
-# <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial de REST de Azure WCF Relay
+# <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Tutorial: Tutorial de REST de Azure WCF Relay
 
 En este tutorial se describe cómo compilar una aplicación host de Azure Relay que expone una interfaz basada en REST. REST permite a un cliente web, como un explorador web, tener acceso a la API de Service Bus a través de solicitudes HTTP.
 

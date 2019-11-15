@@ -1,26 +1,26 @@
 ---
-title: 'Procesamiento de eventos de Apache Kafka mediante Stream Analytics: Azure Event Hubs | Microsoft Docs'
-description: En este artículo se muestra cómo procesar los eventos de Kafka que se introducen a través de Event Hubs mediante Azure Stream Analytics
+title: 'Tutorial: Procesamiento de eventos de Apache Kafka mediante Stream Analytics: Azure Event Hubs'
+description: 'Tutorial: En este artículo se muestra cómo procesar los eventos de Kafka que se introducen a través de Event Hubs mediante Azure Stream Analytics'
 services: event-hubs
 documentationcenter: ''
 author: spelluru
 manager: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 0c4beede2508104fc9af934d3f9a2bbcce791292
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 7801b3252ab13df1f92e7aa5e0eba071195cb76c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626180"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720622"
 ---
-# <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics 
+# <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics 
 En este artículo se muestra cómo transmitir datos a Event Hubs habilitado para Kafka y cómo procesarlos con Azure Stream Analytics. Estos pasos son los siguientes: 
 
 1. Cree un espacio de nombres de Event Hubs habilitado para Kafka.

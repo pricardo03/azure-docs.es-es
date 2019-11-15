@@ -1,34 +1,36 @@
 ---
 title: 'Tutorial: Configuración de un entorno de versión preliminar de Azure Time Series Insights | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el entorno en la versión preliminar de Azure Time Series Insights.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e42f6d7c5e3deff3eb5851f3ea192b4756d2fe04
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 25571dbd87e4d01645a3a7a991588a3a943b3e4d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553479"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719460"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: Configuración de un entorno en la versión preliminar de Azure Time Series Insights
 
-Este tutorial le guía en el proceso de crear un entorno de pago por uso (PAYG) de la versión preliminar de Azure Time Series Insights. 
+Este tutorial le guía en el proceso de crear un entorno de pago por uso (PAYG) de la versión preliminar de Azure Time Series Insights.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Crear un entorno en la versión preliminar de Azure Time Series Insights.
-> * Conectar el entorno de versión preliminar de Azure Time Series Insights a un centro de eventos en Azure Event Hubs.
+> * Conectar el entorno de versión preliminar de Azure Time Series Insights a una instancia de IoT Hub.
 > * Ejecutar un ejemplo del acelerador de soluciones para transmitir datos en el entorno de versión preliminar de Azure Time Series Insights.
 > * Realizar un análisis básico de los datos.
 > * Definir el tipo y la jerarquía de un modelo de Time Series y asociarlos con sus instancias.
+> * Use el conector de Power BI y visualice los datos en Power BI.
 
 >[!TIP]
 > Los [aceleradores de soluciones de IoT](https://www.azureiotsolutions.com/Accelerators) proporcionan soluciones preconfiguradas de nivel empresarial que se pueden usar puede usar para acelerar el desarrollo de soluciones de IoT personalizadas.
@@ -37,7 +39,7 @@ Regístrese para obtener [suscripción gratuita a Azure](https://azure.microsoft
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* La cuenta de inicio de sesión de Azure también debe ser miembro del rol **Propietario** de la suscripción. Para más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
+* Como mínimo, debe tener el rol **Colaborador** para la suscripción de Azure. Para más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Creación de una simulación de dispositivo
 
@@ -47,20 +49,25 @@ En esta sección, creará tres dispositivos simulados que envían datos a una in
 
    [![Página de aceleradores de soluciones de Azure IoT](media/v2-update-provision/device-one-accelerator.png)](media/v2-update-provision/device-one-accelerator.png#lightbox)
 
-   Seleccione **Try Now** (Intentar ahora).
+1. En la página siguiente, seleccione **Probar ahora**.
+
+   [![Página Simulación de dispositivo](media/v2-update-provision/device-two-try.png)](media/v2-update-provision/device-two-try.png#lightbox)
 
 1. Escriba los parámetros necesarios en la página **Crear la solución Simulación de dispositivos**:
 
     | Parámetro | . |
     | --- | --- |
     | **Nombre de la implementación** | Escriba un valor único para un nuevo grupo de recursos. Los recursos de Azure enumerados se crean y se asigna al grupo de recursos. |
-    | **Suscripción de Azure** | Seleccione la suscripción que usó para crear el entorno de Time Series Insights. |
-    | **Ubicación de Azure** | Seleccione la región que usó para crear el entorno de Time Series Insights. |
+    | **Suscripción de Azure** | Seleccione la suscripción donde creará el entorno de Time Series Insights. |
+    | **Ubicación de Azure** | Seleccione la región donde pretende almacenar el entorno de Time Series Insights. Tenga en cuenta que el simulador de dispositivos solo se ofrece en un número limitado de regiones; por lo tanto, si no ve la región deseada, puede seleccionar una ubicación solo para el tutorial y, después, crear un nuevo entorno de TSI cuando esté listo para pasar a la siguiente fase de incorporación.  |
     | **Opciones de implementación** | Seleccione **Provision new IoT Hub** (Aprovisionar nuevo centro de IoT). |
- 
-    Seleccione **Create solution** (Crear solución). La solución puede tardar hasta 20 minutos en terminar de implementarse.
 
-    [![Página de creación de la solución de simulación de dispositivos](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
+    1. Seleccione **Crear**.
+    [![Página Simulación de dispositivo](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
+
+1. Después de unos 20 minutos, el acelerador de la solución estará listo.
+
+    [![Página Simulación de dispositivo](media/v2-update-provision/device-two-ready.png)](media/v2-update-provision/device-two-ready.png#lightbox)
 
 ## <a name="create-a-preview-payg-environment"></a>Creación de un entorno de pago por uso (versión preliminar)
 
@@ -79,14 +86,17 @@ En esta sección se describe cómo crear un entorno dee Azure Time Series Insigh
     | **Nombre del entorno** | Especifique un nombre único para el entorno de la versión preliminar de Azure Time Series Insights. |
     | **Suscripción** | Especifique la suscripción donde desea crear el entorno de versión preliminar de Azure Time Series Insights. Es un procedimiento recomendado usar la misma suscripción que el resto de los recursos de IoT creados por el simulador de dispositivos. |
     | **Grupos de recursos** | Seleccione un grupo de recursos existente o cree un nuevo grupo de recursos para el recurso de entorno de versión preliminar de Azure Time Series Insights. Un grupo de recursos es un contenedor para recursos de Azure. Un procedimiento recomendado es usar el mismo grupo de recursos que el resto de los recursos de IoT creados por el simulador de dispositivos. |
-    | **Ubicación** | Seleccione una región del centro de datos para su entorno de versión preliminar de Azure Time Series Insights. Para evitar una latencia adicional, es mejor crear el entorno de Azure Time Series Insights en versión preliminar en la misma región que los demás recursos de IoT. |
+    | **Ubicación** | Seleccione una región del centro de datos para su entorno de versión preliminar de Azure Time Series Insights. Para evitar una latencia adicional, es mejor crear el entorno de versión preliminar de Azure Time Series Insights en la misma región que el centro de IoT creado por el simulador de dispositivo. |
     | **Nivel** |  Seleccione **Pago por uso** *.* Esta es la SKU del producto de versión preliminar de Azure Time Series Insights. |
-    | **Id. de propiedad** | Especifique un valor que identifique de forma única su instancia de serie temporal. El valor que especifique en el cuadro **Id. de propiedad** es inmutable. No se puede cambiar después. En este tutorial, escriba **iothub-connection-device-id**. Para obtener más información acerca del identificador de Time Series, consulte [Procedimientos recomendados al elegir un id. de serie temporal](./time-series-insights-update-how-to-id.md). |
-    | **Nombre de cuenta de almacenamiento** | Escriba un nombre único global para la nueva cuenta de almacenamiento que se va a crear. |
-   
-   Seleccione **Siguiente: Origen de eventos**.
+    | **Id. de propiedad** | Especifique un valor que identifique de forma única su instancia de serie temporal. El valor que especifique en el cuadro **Id. de propiedad** no se puede cambiar más tarde. En este tutorial, escriba **iothub-connection-device-id**. Para obtener más información acerca del identificador de Time Series, consulte [Procedimientos recomendados al elegir un id. de serie temporal](./time-series-insights-update-how-to-id.md). |
+    | **Nombre de cuenta de almacenamiento** | Escriba un nombre único global para la nueva cuenta de almacenamiento.|
+    |**Habilitar almacenamiento intermedio**|Seleccione **sí** para habilitar el almacenamiento intermedio.|
+    |**Retención de datos (en días)**|Elija la opción predeterminada de 7 días. |
 
-   [![Página de creación de un entorno de Time Series Insights](media/v2-update-provision/payg-two-create.png)](media/v2-update-provision/payg-two-create.png#lightbox)
+    Seleccione **Siguiente: Origen de eventos**.
+
+   [![Panel para crear un entorno de Time Series Insights](media/v2-update-provision/payg-two-1-create.png)](media/v2-update-provision/payg-two-1-create.png#lightbox)
+   [![Panel para crear un entorno de Time Series Insights](media/v2-update-provision/payg-two-2-create.png)](media/v2-update-provision/payg-two-2-create.png#lightbox)
 
 1. En la pestaña **Origen del evento**, puede establecer los siguientes parámetros:
 
@@ -106,7 +116,7 @@ En esta sección se describe cómo crear un entorno dee Azure Time Series Insigh
 
    [![Configuración de un origen del evento](media/v2-update-provision/payg-five-event-source.png)](media/v2-update-provision/payg-five-event-source.png#lightbox)
 
-1. En la pestaña **Revisar y crear**, revise sus selecciones y, a continuación, seleccione **Crear**.
+1. Seleccione **Crear**.
 
     [![Página Review + Create (Revisar + crear), con el botón Create (Crear)](media/v2-update-provision/payg-six-review.png)](media/v2-update-provision/payg-six-review.png#lightbox)
 
@@ -114,29 +124,30 @@ En esta sección se describe cómo crear un entorno dee Azure Time Series Insigh
 
     [![Notificación de que la implementación ha finalizado](media/v2-update-provision/payg-seven-deploy.png)](media/v2-update-provision/payg-seven-deploy.png#lightbox)
 
-1. Tiene acceso a su entorno de versión preliminar de Azure Time Series Insights si es propietario del inquilino. Para asegurarse de que tiene acceso:
+1. Tendrá acceso a su entorno de versión preliminar de Azure Time Series Insights de forma predeterminada si es propietario de la suscripción de Azure. Compruebe que tiene acceso:
 
-   1. Busque el grupo de recursos y seleccione el entorno de versión preliminar de Azure Time Series Insights:
-
+   1. Busque el grupo de recursos y seleccione el entorno de versión preliminar de Azure Time Series Insights creado recientemente: 
       [![Entorno seleccionado](media/v2-update-provision/payg-eight-environment.png)](media/v2-update-provision/payg-eight-environment.png#lightbox)
 
-   1. En la página de la versión preliminar de Azure Time Series Insights, vaya a **Directivas de acceso a datos**:
-
-      [![Directivas de acceso a datos](media/v2-update-provision/payg-nine-data-access.png)](media/v2-update-provision/payg-nine-data-access.png#lightbox)
+   1. En la página de la versión preliminar de Azure Time Series Insights, vaya a **Directivas de acceso a datos**: [![Directivas de acceso a datos](media/v2-update-provision/payg-nine-data-access.png)](media/v2-update-provision/payg-nine-data-access.png#lightbox)
 
    1. Compruebe que aparecen las credenciales:
 
       [![Credenciales mostradas](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
 
-   Si no se muestran sus credenciales, deberá darse permiso para acceder al entorno. Para más información sobre cómo establecer permisos, lea [Concesión de acceso a datos](./time-series-insights-data-access.md).
+   Si no se muestran sus credenciales, deberá otorgarse permiso para acceder al entorno. Para ello, seleccione Agregar y busque sus credenciales. Para más información sobre cómo establecer permisos, lea [Concesión de acceso a datos](./time-series-insights-data-access.md).
 
 ## <a name="stream-data"></a>Datos de streaming
 
-Ahora que ha implementado el entorno de Time Series Insights, transmita datos a él para su análisis.
+Ahora que ha implementado el entorno de Time Series Insights, comience a transmitir datos para su análisis.
 
-1. Vaya a la [página de aceleradores de soluciones de Azure IoT](https://www.azureiotsolutions.com/Accelerators). Busque la solución en el panel del acelerador de soluciones. Luego, seleccione **Iniciar**:
+1. Vaya a la [página de aceleradores de soluciones de Azure IoT](https://www.azureiotsolutions.com/Accelerators). Busque la solución en el panel del acelerador de soluciones y seleccione **Iniciar**:
 
     [![Inicio de la solución de simulación de dispositivo](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
+
+1. Seleccione **Go to your solution accelerator** (Ir al acelerador de soluciones).
+
+    [![Inicio de la solución de simulación de dispositivo](media/v2-update-provision/device-accelerator.png)](media/v2-update-provision/device-accelerator.png#lightbox)
 
 1. Se le redirigirá a la página de **simulación de dispositivos IoT de Microsoft Azure**. Seleccione **+ New simulation** (+Nueva simulación) en la esquina superior derecha.
 
@@ -149,14 +160,14 @@ Ahora que ha implementado el entorno de Time Series Insights, transmita datos a 
     | **Nombre** | Escriba un nombre único para un simulador. |
     | **Descripción** | Escriba una definición. |
     | **Simulation duration** (Duración de la simulación) | Establézcala en **Run indefinitely** (Ejecutar indefinidamente). |
-    | **Device model** (Modelo de dispositivo) | **Nombre**: Escriba **Refrigerador**. <br />**Amount** (Cantidad): Escriba **3**. |
+    | **Device model** (Modelo de dispositivo) | Haga clic en +**Add a device type** (Agregar un tipo de dispositivo). <br />**Nombre**: Escriba **Elevator**. <br />**Amount** (Cantidad): Escriba **3**. <br /> Deje los valores predeterminados restantes. |
     | **Target IoT Hub** (IoT Hub de destino) | Establézcalo en **Use pre-provisioned IoT Hub** (Usar IoT Hub aprovisionado previamente). |
 
     [![Parámetros para especificar](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
 
     Seleccione **Start simulation** (Iniciar simulación).
 
-    En el panel de simulación de dispositivos, consulte la información relativa a los **dispositivos activos** y los **mensajes por segundo**.
+    En el panel de simulación de dispositivos, verá **Dispositivos activos** y **Total de mensajes**.
 
     [![Panel de simulación de Azure IoT](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
@@ -168,7 +179,10 @@ En esta sección, se va realizar un análisis básico de los datos de la serie t
 
     [![La dirección URL del explorador de la versión preliminar de Azure Time Series Insights](media/v2-update-provision/analyze-one-portal.png)](media/v2-update-provision/analyze-one-portal.png#lightbox)
 
-1. En el explorador, seleccione el nodo **Time Series Instances** (Instancias de serie temporal) para ver todas las instancias de la versión preliminar de Azure Time Series Insights en el entorno.
+1. En el explorador de Time Series Insights, verá una barra que abarca la parte superior de la pantalla. Este es el selector de disponibilidad. Asegúrese de tener al menos dos 2m seleccionados y, si es necesario, expanda el intervalo de tiempo seleccionando los controladores de selector y arrastrándolos a la izquierda y a la derecha.
+
+1. Podrá ver **Instancias de Time Series** a la izquierda.
+
 
     [![Lista de instancias no primarias](media/v2-update-provision/analyze-two-unparented.png)](media/v2-update-provision/analyze-two-unparented.png#lightbox)
 
@@ -176,17 +190,21 @@ En esta sección, se va realizar un análisis básico de los datos de la serie t
 
     [![Instancia de Time Series seleccionada con el comando de menú para mostrar la presión media](media/v2-update-provision/analyze-three-show-pressure.png)](media/v2-update-provision/analyze-three-show-pressure.png#lightbox)
 
-    Aparece un gráfico con las series temporales. Actualice el **Intervalo** a **15s**.
+    Aparece un gráfico con las series temporales. Cambie el **Intervalo** a **30s**.
 
     [![Gráfico de serie temporal](media/v2-update-provision/analyze-four-chart.png)](media/v2-update-provision/analyze-four-chart.png#lightbox)
 
-1. Repita el paso 3 con las otras dos instancias de series temporales. Puede ver todas las series temporales, como se muestra en este gráfico:
+1. Repita el paso 3 con las otras dos instancias de Time Series para ver los tres, tal y como se muestra en este gráfico:
 
     [![Gráfico de todas las series temporales](media/v2-update-provision/analyze-five-chart.png)](media/v2-update-provision/analyze-five-chart.png#lightbox)
 
-1. En el cuadro de opciones **Período de tiempo**, modifique el intervalo de tiempo para ver las tendencias de serie temporal durante la última hora:
+1. Elija el selector de intervalo en la esquina superior derecha. Aquí puede seleccionar horas de inicio y finalización específicas hasta el milisegundo o elegir entre opciones preconfiguradas, como la última hora. También puede cambiar la zona horaria predeterminada.
 
     [![Establezca el intervalo de tiempo en una hora](media/v2-update-provision/analyze-six-time.png)](media/v2-update-provision/analyze-six-time.png#lightbox)
+
+    A continuación se muestra una captura de pantalla del panel de gráficos después de ejecutar la simulación durante una hora:
+
+    [![Panel de gráficos](media/v2-update-provision/analyze-seven-time.png)](media/v2-update-provision/analyze-seven-time.png#lightbox)
 
 ## <a name="define-and-apply-a-model"></a>Definir y aplicar un modelo
 
@@ -196,58 +214,68 @@ En esta sección, aplicará un modelo para estructurar los datos. Para completar
 
    [![Pestaña Model (Modelo) en el explorador](media/v2-update-provision/define-one-model.png)](media/v2-update-provision/define-one-model.png#lightbox)
 
-1. Seleccione **Agregar** para agregar un tipo:
+1. En la pestaña **Tipos**, seleccione **Agregar**.
 
    [![El botón Add (Agregar) para tipos](media/v2-update-provision/define-two-add.png)](media/v2-update-provision/define-two-add.png#lightbox)
 
-1. A continuación, defina tres variables para el tipo: *presión*, *temperatura* y *humedad*. En el panel **Add a Type** (Agregar un tipo), establezca los parámetros siguientes:
+1. Escriba los siguientes parámetros:
 
     | Parámetro | . |
     | --- | ---|
-    | **Nombre** | Escriba **Refrigerador**. |
-    | **Descripción** | Escriba **Esta es una definición de tipo de refrigerador**. |
+    | **Nombre** | Escriba **Elevator**. |
+    | **Descripción** | Escriba **This is a type definition for Elevator** (Esta es una definición de tipo de Elevator). |
 
-   * Para definir la *presión*, en **Variables**, establezca los parámetros siguientes:
+    [![El botón Add (Agregar) para tipos](media/v2-update-provision/define-three-properties.png)](media/v2-update-provision/define-three-properties.png#lightbox)
 
-     | Parámetro | . |
-     | --- | ---|
-     | **Nombre** | Escriba **Avg Pressure** (Presión media). |
-     | **Valor** | Seleccione **presión (doble)** . Es posible que el campo de **valor** tarde unos minutos en rellenarse automáticamente después de que la versión preliminar de Azure Time Series Insights comience a recibir eventos. |
-     | **Operación de agregación** | Seleccione **AVG** (MEDIA). |
+1. A continuación, seleccione la pestaña **Variables**. [![Seleccionar la pestaña Variables](media/v2-update-provision/define-four-variables.png)](media/v2-update-provision/define-four-variables.png#lightbox)
 
-      [![Selecciones para definir la presión](media/v2-update-provision/define-three-variable.png)](media/v2-update-provision/define-three-variable.png#lightbox)
+1. Seleccione **+ Agregar variable** y rellene los siguientes valores para la primera variable del tipo Elevator. Creará tres variables en total.
 
-      Para agregar la siguiente variable, seleccione **Agregar variable**.
+    | Parámetro | . |
+    | --- | --- |
+    | **Nombre** | Escriba **Avg Temperature** (Temperatura media). |
+    | **Variante** | Seleccione **Numérico**. |
+    | **Valor** | Seleccione un valor preestablecido: Seleccione **temperatura (doble)** . <br /> Nota: Es posible que el campo de **valor** tarde unos minutos en rellenarse automáticamente después de que la versión preliminar de Azure Time Series Insights comience a recibir eventos.|
+    | **Operación de agregación** | Expanda **Opciones avanzadas**. <br /> Seleccione **AVG** (MEDIA). |
 
-   * Defina la *temperatura*:
+    [![Selecciones para definir la temperatura](media/v2-update-provision/define-five-variable.png)](media/v2-update-provision/define-five-variable.png#lightbox)
 
-     | Parámetro | . |
-     | --- | ---|
-     | **Nombre** | Escriba **Avg Temperature** (Temperatura media). |
-     | **Valor** | Seleccione **temperatura (doble)** . Es posible que el campo de **valor** tarde unos minutos en rellenarse automáticamente después de que la versión preliminar de Azure Time Series Insights comience a recibir eventos. |
-     | **Operación de agregación** | Seleccione **AVG** (MEDIA).|
+    Seleccione **Aplicar**.
 
-      [![Selecciones para definir la temperatura](media/v2-update-provision/define-four-avg.png)](media/v2-update-provision/define-four-avg.png#lightbox)
+    Vuelva a seleccionar **+ Agregar variable** y establezca los valores siguientes:
 
-      Para agregar la siguiente variable, seleccione **Agregar variable**.
+    | Parámetro | . |
+    | --- | --- |
+    | **Nombre** | Escriba **Avg Vibration**. |
+    | **Variante** | Seleccione **Numérico**. |
+    | **Valor** | Seleccione un valor preestablecido: Seleccione **vibration (Double)** (vibración [doble]). <br /> Nota: Es posible que el campo de **valor** tarde unos minutos en rellenarse automáticamente después de que la versión preliminar de Azure Time Series Insights comience a recibir eventos.|
+    | **Operación de agregación** | Expanda **Opciones avanzadas**. <br /> Seleccione **AVG** (MEDIA). |
 
-   * Defina la *humedad*:
+    [![Selecciones para definir la vibración](media/v2-update-provision/define-five-vibration.png)](media/v2-update-provision/define-five-vibration.png#lightbox)
 
-      | | |
-      | --- | ---|
-      | **Nombre** | Escriba **Max Humidity** (Humedad máxima). |
-      | **Valor** | Seleccione **humedad (doble)** . Es posible que el campo de **valor** tarde unos minutos en rellenarse automáticamente después de que la versión preliminar de Azure Time Series Insights comience a recibir eventos. |
-      | **Operación de agregación** | Seleccione **MAX** (MÁX).|
+    Seleccione **Aplicar**.
 
-      [![Selecciones para definir la temperatura](media/v2-update-provision/define-five-humidity.png)](media/v2-update-provision/define-five-humidity.png#lightbox)
+    Vuelva a seleccionar **+ Agregar variable** y establezca los valores siguientes para la tercera y última variable:
 
-    Seleccione **Crear**.
+    | Parámetro | . |
+    | --- | --- |
+    | **Nombre** | Escriba **Floor**. |
+    | **Variante** | Seleccione **Categórico**. |
+    | **Valor** | Seleccione un valor preestablecido: Seleccione **Floor (Double)** (Planta [doble]). <br /> Nota: Es posible que el campo de **valor** tarde unos minutos en rellenarse automáticamente después de que la versión preliminar de Azure Time Series Insights comience a recibir eventos.|
+    | **Categorías** | <span style="text-decoration: underline">Etiqueta </span>  - <span style="text-decoration: underline">Valores</span> <br /> Inferior: 1,2,3,4 <br /> Central: 5,6,7,8,9 <br /> Superior: 10,11,12,13,14,15 |
+    | **Categoría predeterminada** | Escriba **Desconocido**. |
 
-    Puede ver el tipo que agregó:
+    [![Selecciones para definir la vibración](media/v2-update-provision/define-five-floor.png)](media/v2-update-provision/define-five-floor.png#lightbox)
 
-    [![Información sobre el tipo agregado](media/v2-update-provision/define-six-type.png)](media/v2-update-provision/define-six-type.png#lightbox)
+    Seleccione **Aplicar**. Debe ver que se hayan creado tres variables:
 
-1. El siguiente paso es agregar una jerarquía. En **Jerarquías**, seleccione **Agregar**:
+    [![Selecciones para definir la vibración](media/v2-update-provision/define-five-floor2.png)](media/v2-update-provision/define-five-floor2.png#lightbox)
+
+   Seleccione **Guardar**. Verá el **Tipo** creado:
+
+    [![Selecciones para definir la vibración](media/v2-update-provision/define-five-floor3.png)](media/v2-update-provision/define-five-floor3.png#lightbox)
+
+1. Seleccione la pestaña **Jerarquías**. Seleccione **+Agregar**.
 
     [![Pestaña Hierarchies (Jerarquías) con el botón Add (Agregar)](media/v2-update-provision/define-seven-hierarchy.png)](media/v2-update-provision/define-seven-hierarchy.png#lightbox)
 
@@ -256,9 +284,7 @@ En esta sección, aplicará un modelo para estructurar los datos. Para completar
    | Parámetro | . |
    | --- | ---|
    | **Nombre** | Especifique el valor de **Location Hierarchy** (Jerarquía de ubicación). |
-   | **Nivel 1** | Especifique el valor de **Country** (País). |
-   | **Nivel 2** | Especifique el valor de **City** (Ciudad). |
-   | **Nivel 3** | Especifique el valor de **Building** (Edificio). |
+   |**Niveles**| Escriba **Country** como nombre del primer nivel. <br> Seleccione **+ Agregar nivel**. <br> Escriba **City** para el segundo nivel y, después, seleccione **+ Agregar nivel**. <br> Escriba **Building** como nombre del tercer y último nivel. |
 
    Seleccione **Guardar**.
 
@@ -268,69 +294,68 @@ En esta sección, aplicará un modelo para estructurar los datos. Para completar
 
     [![Información sobre la jerarquía](media/v2-update-provision/define-nine-created.png)](media/v2-update-provision/define-nine-created.png#lightbox)
 
-1. Seleccione **Instancias**. Seleccione la primera instancia y haga clic en **Editar**:
-
-    [![Selección del botón Edit (Editar) para una instancia](media/v2-update-provision/define-ten-edit.png)](media/v2-update-provision/define-ten-edit.png#lightbox)
-
-1. En el panel **Edit instances** (Editar instancias), establezca los parámetros siguientes:
+1. Vaya a **Instancias**. En **Acciones** en el extremo derecho, seleccione el icono de lápiz para editar la primera instancia con los valores siguientes:
 
     | Parámetro | . |
     | --- | --- |
-    | **Tipo** | Seleccione **Refrigerador**. |
-    | **Descripción** | Escriba **Instance for Chiller-01.1** (Instancia de refrigerador-01.1). |
+    | **Tipo** | Seleccione **Elevator**. |
+    | **Nombre** | Escriba **Elevator 1**.|
+    | **Descripción** | Escriba **Instance for Elevator 1**. |
+
+    [![Selección del botón Edit (Editar) para una instancia](media/v2-update-provision/define-ten-edit.png)](media/v2-update-provision/define-ten-edit.png#lightbox)
+
+    Vaya a **Campos de instancia** y escriba lo siguiente:
+
+    | Parámetro | . |
+    | --- | --- |
     | **Jerarquías** | Seleccione **Location Hierarchy** (Jerarquía de ubicación). |
-    | **País** | Escriba **USA** (Estados Unidos). |
+    | **País** | Escriba **USA**. |
     | **Ciudad** | Escriba **Seattle**. |
     | **Edificio** | Escriba **Space Needle**. |
 
-    [![Campos de instancia con el botón Save (Guardar)](media/v2-update-provision/define-eleven-chiller.png)](media/v2-update-provision/define-eleven-chiller.png#lightbox)
+    [![Selección del botón Edit (Editar) para una instancia](media/v2-update-provision/define-ten2-edit.png)](media/v2-update-provision/define-ten2-edit.png#lightbox)
 
-   Seleccione **Guardar**.
+    Seleccione **Guardar**.
 
-1. Repita el paso anterior para los otros sensores. Actualice los valores siguientes:
+1. Repita el paso 8 con las otras dos instancias con los siguientes valores:
 
-   * Para el refrigerador 01.2:
+    <span style="text-decoration: underline;">Para Elevator 2</span>:
 
-     | Parámetro | . |
-     | --- | --- |
-     | **Tipo** | Seleccione **Refrigerador**. |
-     | **Descripción** | Escriba **Instancia de refrigerador-01.2**. |
-     | **Jerarquías** | Seleccione **Location Hierarchy** (Jerarquía de ubicación). |
-     | **País** | Escriba **USA** (Estados Unidos). |
-     | **Ciudad** | Escriba **Seattle**. |
-     | **Edificio** | Escriba **Pacific Science Center**. |
+    | Parámetro | . |
+    | --- | --- |
+    | **Tipo** | Seleccione **Elevator**. |
+    | **Nombre** | Escriba **Elevator 2**.|
+    | **Descripción** | Escriba **Instance for Elevator 2**. |
+    | **Jerarquías** | Seleccione **Location Hierarchy** (Jerarquía de ubicación). |
+    | **País** | Escriba **USA**. |
+    | **Ciudad** | Escriba **Seattle**. |
+    | **Edificio** | Escriba **Pacific Science Center**. |
 
-   * Para el refrigerador 01.3:
+    <span style="text-decoration: underline;">Para Elevator 3</span>:
 
-     | Parámetro | . |
-     | --- | --- |
-     | **Tipo** | Seleccione **Refrigerador**. |
-     | **Descripción** | Escriba **Instancia de refrigerador-01.3**. |
-     | **Jerarquías** | Seleccione **Location Hierarchy** (Jerarquía de ubicación). |
-     | **País** | Escriba **USA** (Estados Unidos). |
-     | **Ciudad** | Escriba **New York** (Nueva York). |
-     | **Edificio** | Escriba **Empire State Building**. |
+    | Parámetro | . |
+    | --- | --- |
+    | **Tipo** | Seleccione **Elevator**. |
+    | **Nombre** | Escriba **Elevator 3**.|
+    | **Descripción** | Escriba **Instance for Elevator 3**. |
+    | **Jerarquías** | Seleccione **Location Hierarchy** (Jerarquía de ubicación). |
+    | **País** | Escriba **USA**. |
+    | **Ciudad** | Escriba **New York**. |
+    | **Edificio** | Escriba **Empire State Building**. |
 
-1. Seleccione la pestaña **Analizar** y actualice la página. En **Location Hierarchy** (Jerarquía de ubicación), expanda todos los niveles de jerarquía para mostrar las instancias de la serie temporal:
+1. Vuelva a la pestaña **Analizar** para ver el panel de gráficos. En **Location Hierarchy** (Jerarquía de ubicación), expanda todos los niveles de jerarquía para mostrar las instancias de la serie temporal:
 
    [![La pestaña Analyze (Analizar)](media/v2-update-provision/define-twelve.png)](media/v2-update-provision/define-twelve.png#lightbox)
 
-1. Para explorar las instancias de la serie temporal durante la última hora, cambie **Quick Times** (Tiempos rápidos) a **Last Hour** (Última hora):
+1. En **Pacific Science Center**, seleccione la instancia de Time Series **Elevator 2** y, a continuación, seleccione **Show Average Temperature** (Mostrar temperatura media).
 
-    [![El cuadro Quick Times (Tiempos rápidos), con Last Hour (Última hora) seleccionada](media/v2-update-provision/define-thirteen-explore.png)](media/v2-update-provision/define-thirteen-explore.png#lightbox)
+    [![Instancia Show Average Temperature de Time Series](media/v2-update-provision/define-eleven-temperature.png)](media/v2-update-provision/define-eleven-temperature.png#lightbox)
 
-1. En **Pacific Science Center**, seleccione la instancia de serie temporal y seleccione **Show Max Humidity** (Mostrar humedad máxima).
+1. En la misma instancia, **Elevator 2**, seleccione **Show Floor** (Mostrar planta).
 
-    [![Instancia de serie temporal seleccionada con la selección del menú Show Max Humidity (Mostrar humedad máxima)](media/v2-update-provision/define-fourteen-show-max.png)](media/v2-update-provision/define-fourteen-show-max.png#lightbox)
+    [![Instancia Show Floor de Time Series](media/v2-update-provision/define-twelve-floor.png)](media/v2-update-provision/define-twelve-floor.png#lightbox)
 
-1. Se abre la serie temporal para **Max Humidity** (Humedad máxima) con un tamaño de intervalo de **1 minuto**. Seleccione una región para filtrar un intervalo. Para analizar los eventos durante el período de tiempo, haga clic derecho en el gráfico y seleccione **Zoom**:
-
-   [![Intervalo seleccionado con el comando Zoom en un menú contextual](media/v2-update-provision/define-fifteen-filter.png)](media/v2-update-provision/define-fifteen-filter.png#lightbox)
-
-1. Para ver los detalles del evento, seleccione una región y después haga clic derecho en el gráfico:
-
-   [![Lista detallada de eventos](media/v2-update-provision/define-eighteen.png)](media/v2-update-provision/define-eighteen.png#lightbox)
-
+    Con la variable de categoría, puede determinar cuánto tiempo empleó el ascensor en el planta superior, inferior y central.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -343,13 +368,12 @@ Ahora que ha completado el tutorial, limpie los recursos que ha creado:
 
 En este tutorial aprendió lo siguiente:  
 
-> [!div class="checklist"]
-> * Crear y usar un acelerador de simulación de dispositivos.
-> * Crear un entorno de pago por uso de la versión preliminar de Azure Time Series Insights.
-> * Conectar el entorno de versión preliminar de Azure Time Series Insights a un centro de eventos.
-> * Ejecutar un ejemplo del acelerador de soluciones para transmitir datos en el entorno de versión preliminar de Azure Time Series Insights.
-> * Realizar un análisis básico de los datos.
-> * Definir el tipo y la jerarquía de un modelo de Time Series y asociarlos con sus instancias.
+* Crear y usar un acelerador de simulación de dispositivos.
+* Crear un entorno de pago por uso de la versión preliminar de Azure Time Series Insights.
+* Conecte el entorno de versión preliminar de Azure Time Series Insights a una instancia de IoT Hub.
+* Ejecutar un ejemplo del acelerador de soluciones para transmitir datos en el entorno de versión preliminar de Azure Time Series Insights.
+* Realizar un análisis básico de los datos.
+* Definir el tipo y la jerarquía de un modelo de Time Series y asociarlos con sus instancias.
 
 Ahora que sabe cómo crear su propio entorno de versión preliminar de Azure Time Series Insights, obtenga más información sobre los conceptos clave de Azure Time Series Insights.
 

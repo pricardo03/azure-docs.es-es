@@ -1,5 +1,5 @@
 ---
-title: 'Creación de entidades de servicio de Windows Virtual Desktop y de asignaciones de roles con PowerShell: Azure'
+title: 'Asignación de roles para entidades de servicio de Windows Virtual Desktop: Azure'
 description: Creación de entidades de servicio y asignación de roles con PowerShell en Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 87057d29d9d95ac0ebca298e40ca0d8c2aa9b0b1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 1141731697c9f649a4a8d4052cd550605049b52e
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679632"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606948"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell
 

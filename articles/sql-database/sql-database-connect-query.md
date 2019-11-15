@@ -1,5 +1,5 @@
 ---
-title: Guías de inicio rápido de conexión y consulta de Azure SQL Database | Microsoft Docs
+title: Conexión a guías de inicio rápido y consultas
 description: Guías de inicio rápido de Azure SQL Database que muestran cómo conectarse a una base de datos de Azure SQL y consultarla.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 69944bc9d6edbd6a369f7ea977dffa94de64d1c5
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 647bdcf5c8c49b5c942419c78155ed4f61c848bb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675443"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826872"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Guías de inicio rápido: Conexión y consulta de Azure SQL Database
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 134ca92671a41eb53201101a3622215466a60c09
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a921d6110fd0294012e2e59542ba2c82d63ffcde
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065092"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73642077"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta Microsoft mediante Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Para usar una cuenta Microsoft como [proveedor de identidades](active-directory-
 1. Seleccione **Certificates & secrets** (Certificados y secretos)
 1. Haga clic en **Nuevo secreto de cliente**.
 1. Escriba una **Descripción** del secreto, por ejemplo, *contraseña de la aplicación 1* y haga clic en **Agregar**.
-1. Anote la contraseña de la aplicación que se muestra en la columna **VALUE** (VALOR). Necesitará esta información al configurar el proveedor de identidades en la siguiente sección.
+1. Anote la contraseña de la aplicación que se muestra en la columna **Value**. Necesitará esta información al configurar el proveedor de identidades en la siguiente sección.
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Configuración de una cuenta Microsoft como proveedor de identidades
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 04/19/2019
+ms.date: 11/04/2019
 ms.author: nitinme
-ms.openlocfilehash: 5337f2d3df395650c65ae4a12cbdf4f8ba90ca3d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 081951e2e77c7fdd077dc92fe0368423db85f641
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840398"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606955"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
@@ -45,7 +45,7 @@ Azure Cognitive Services son las API, SDK y servicios disponibles para ayudar a 
 
 |Nombre de servicio|Descripción del servicio|
 |:-----------|:------------------|
-|[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|El servicio Language Understanding (LUIS) permite que la aplicación entienda lo que una persona quiere en sus propias palabras.|
+|[Language Understanding: LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|El servicio Language Understanding (LUIS) permite que la aplicación entienda lo que una persona quiere en sus propias palabras.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker permite generar un servicio de preguntas y respuestas a partir de contenido semiestructurado.|
 |[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Text Analytics")|Text Analytics proporciona procesamiento de lenguaje natural en texto sin formato para el análisis de opiniones, la extracción de frases clave y la detección de idiomas.|
 |[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator Text")|Translator Text permite la traducción de texto automática casi en tiempo real.|
@@ -72,11 +72,11 @@ Azure Cognitive Services son las API, SDK y servicios disponibles para ayudar a 
 |:-----------|:------------------|
 |[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomaly Detector") (versión preliminar)|Anomaly Detector permite supervisar y detectar anomalías en datos de series temporales.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator proporciona la supervisión de posibles contenidos ofensivos, indeseables y peligrosos.|
-|[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer") (versión preliminar)|Personalizer permite elegir la mejor experiencia para mostrar a los usuarios y aprender de su comportamiento en tiempo real.|
+|[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer")|Personalizer permite elegir la mejor experiencia para mostrar a los usuarios y aprender de su comportamiento en tiempo real.|
 
 ## <a name="use-free-trials"></a>Uso de evaluaciones gratuitas
 
-[El registro para las evaluaciones gratuitas](https://azure.microsoft.com/try/cognitive-services/ "Ayuda para el registro") solo requiere un correo electrónico y unos pocos pasos sencillos. Necesita una cuenta de Microsoft si aún no tiene una. Recibirá un par de claves único para cada API solicitada. El segundo par es tan solo de reserva. No comparta las claves secretas con nadie. Las versiones de evaluación tienen un límite de velocidad, transacciones por segundo o minuto, y un límite de uso mensual. Una transacción es simplemente una llamada API. Puede actualizar a un plan de pago para desbloquear las restricciones.
+El [registro para las evaluaciones gratuitas](https://azure.microsoft.com/try/cognitive-services/ "Ayuda para suscribirse") solo requiere un correo electrónico y unos pocos pasos sencillos. Necesita una cuenta de Microsoft si aún no tiene una. Recibirá un par de claves único para cada API solicitada. El segundo par es tan solo de reserva. No comparta las claves secretas con nadie. Las versiones de evaluación tienen un límite de velocidad, transacciones por segundo o minuto, y un límite de uso mensual. Una transacción es simplemente una llamada API. Puede actualizar a un plan de pago para desbloquear las restricciones.
 
 ## <a name="subscription-management"></a>Administración de suscripciones
 
@@ -84,7 +84,7 @@ Una vez que ha iniciado sesión con la cuenta Microsoft, puede acceder a [Mis su
 
 ## <a name="upgrade-to-unlock-limits"></a>Actualización para desbloquear los límites
 
-Todas las API tienen un plan de evaluación gratuita que tiene límites de uso y rendimiento.  Estos límites se pueden aumentar mediante una oferta de pago y la selección de la opción de plan de tarifa adecuada al implementar el servicio en Azure Portal. [Más información sobre las ofertas y los precios](https://azure.microsoft.com/pricing/details/cognitive-services/ "ofertas y precios"). Tendrá que configurar una cuenta de suscriptor de Azure con una tarjeta de crédito y un número de teléfono. Si tiene necesidades especiales o simplemente quiere comunicarse con el departamento de ventas, haga clic en el botón "Póngase en contacto con nosotros" en la parte superior de la página de precios.
+Todas las API tienen un plan de evaluación gratuita que tiene límites de uso y rendimiento.  Estos límites se pueden aumentar mediante una oferta de pago y la selección de la opción de plan de tarifa adecuada al implementar el servicio en Azure Portal. [Más información sobre las ofertas y los precios](https://azure.microsoft.com/pricing/details/cognitive-services/ "oofertas y precios). Tendrá que configurar una cuenta de suscriptor de Azure con una tarjeta de crédito y un número de teléfono. Si tiene necesidades especiales o simplemente quiere comunicarse con el departamento de ventas, haga clic en el botón "Póngase en contacto con nosotros" en la parte superior de la página de precios.
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 

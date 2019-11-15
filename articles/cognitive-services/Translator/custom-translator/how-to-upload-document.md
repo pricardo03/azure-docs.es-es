@@ -1,7 +1,7 @@
 ---
 title: 'Cómo cargar un documento: Custom Translator'
 titleSuffix: Azure Cognitive Services
-description: Mediante la característica de carga de documentos, puede cargar documentos paralelos para los entrenamientos. Los documentos paralelos son pares de documentos en los que uno es la traducción del otro. Un documento en el par contiene frases en el idioma de origen y el otro documento contiene estas mismas frases traducidas al idioma de destino.
+description: La característica de carga de documentos carga documentos en paralelo (dos documentos donde uno es el origen y el otro es la traducción) en el servicio.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f2bd6103c27d455265ee967554fb27513f78a472
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595648"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647378"
 ---
 # <a name="upload-a-document"></a>Cargar un documento
 

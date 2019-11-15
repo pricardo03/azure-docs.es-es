@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Actualización del surtido de inventario comercial mediante canales de publicación y suscripción, y filtros de tema con la CLI de Azure | Microsoft Docs'
-description: En este tutorial, aprenderá a enviar y recibir mensajes de un tema y una suscripción, y a agregar y usar reglas de filtro mediante la CLI de Azure
+title: 'Tutorial: Actualización del surtido de inventario comercial mediante canales de publicación y suscripción, y filtros de tema con la CLI de Azure'
+description: 'Tutorial: En este tutorial, aprenderá a enviar y recibir mensajes de un tema y una suscripción, y a agregar y usar reglas de filtro mediante la CLI de Azure'
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.author: spelluru
-ms.date: 09/22/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: e55c8c6a579489c8ed5a13ccb93f0e72c286ab13
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0bd0d8eb8abe6f320f73e35b1e3b08e1d8dc1de3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991938"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718914"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante la CLI y temas o suscripciones
 

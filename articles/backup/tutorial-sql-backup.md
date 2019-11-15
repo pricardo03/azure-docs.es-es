@@ -1,31 +1,29 @@
 ---
 title: 'Tutorial: Copia de seguridad de bases de datos de SQL Server en Azure'
-description: Este tutorial explica cómo realizar una copia de seguridad de SQL Server en Azure.
+description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SQL Server que se ejecuta en una VM de Azure en un almacén de Azure Backup Recovery Services.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 729eb0d77cee85356e359dc475f4e439b8236ebb
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 28a804a57a4113b22efd5274ad00b3a216b700aa
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736565"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747038"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure
-
-
 
 En este tutorial se muestra cómo hacer una copia de seguridad de una base de datos de SQL Server que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services. En este artículo, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Crear y configurar un almacén.
 > * Detectar bases de datos y configurar copias de seguridad.
 > * Configurar la protección automática de las bases de datos.
 > * Ejecute una copia de seguridad ad-hoc.
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,13 +35,12 @@ Para poder realizar copias de seguridad de la base de datos de SQL Server, prime
 4. Compruebe que las bases de datos de SQL Server se denominan de acuerdo con las [directrices de nomenclatura](#verify-database-naming-guidelines-for-azure-backup) de Azure Backup.
 5. Compruebe que no dispone de otras soluciones de copia de seguridad habilitadas para la base de datos. Deshabilite todas las demás copias de seguridad de SQL Server antes de configurar este escenario. Puede habilitar Azure Backup para una máquina virtual de Azure junto con Azure Backup para una base de datos de SQL Server que se ejecute en la máquina virtual sin que se produzcan conflictos.
 
-
 ### <a name="establish-network-connectivity"></a>Establecimiento de conectividad de red
 
 Todas las operaciones realizadas en la máquina virtual con SQL Server necesitan conectividad a las direcciones IP públicas de Azure. Si falta dicha conectividad, operaciones como detectar bases de datos, configurar y programar copias de seguridad o restaurar puntos de recuperación producirán errores. Establezca la conectividad con una de estas opciones:
 
-- **Allow the Azure datacenter IP ranges** (Permitir los intervalos de direcciones IP del centro de datos de Azure): permite los [intervalos IP](https://www.microsoft.com/download/details.aspx?id=41653) en la descarga. Para acceder a un grupo de seguridad de red (NSG), use el cmdlet **Set-AzureNetworkSecurityRule**.
-- **Deploy an HTTP proxy server to route traffic** (Implementar un servidor proxy HTTP para enrutar el tráfico): cuando hace copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure Active Directory (Azure AD) para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Las extensiones son el único componente configurado para el acceso a la red pública de Internet.
+* **Allow the Azure datacenter IP ranges** (Permitir los intervalos de direcciones IP del centro de datos de Azure): permite los [intervalos IP](https://www.microsoft.com/download/details.aspx?id=41653) en la descarga. Para acceder a un grupo de seguridad de red (NSG), use el cmdlet **Set-AzureNetworkSecurityRule**.
+* **Deploy an HTTP proxy server to route traffic** (Implementar un servidor proxy HTTP para enrutar el tráfico): cuando hace copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure Active Directory (Azure AD) para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Las extensiones son el único componente configurado para el acceso a la red pública de Internet.
 
 Cada opción tiene sus ventajas y desventajas.
 
@@ -56,9 +53,9 @@ Usar un servidor proxy HTTP   | Se permite un control detallado en el proxy sobr
 
 Azure Backup lleva a cabo una serie de acciones al configurar la copia de seguridad para una base de datos de SQL Server:
 
-- Agrega la extensión **AzureBackupWindowsWorkload**.
-- Para detectar las bases de datos en la máquina virtual, Azure Backup crea la cuenta **NT SERVICE\AzureWLBackupPluginSvc**. Esta cuenta se usa para la copia de seguridad y restauración, y es necesario tener permisos de administrador del sistema.
-- Azure Backup aprovecha la cuenta **NT AUTHORITY\SYSTEM** para la detección o consulta de bases de datos, por lo que esta cuenta debe tener un inicio de sesión público en SQL.
+* Agrega la extensión **AzureBackupWindowsWorkload**.
+* Para detectar las bases de datos en la máquina virtual, Azure Backup crea la cuenta **NT SERVICE\AzureWLBackupPluginSvc**. Esta cuenta se usa para la copia de seguridad y restauración, y es necesario tener permisos de administrador del sistema.
+* Azure Backup aprovecha la cuenta **NT AUTHORITY\SYSTEM** para la detección o consulta de bases de datos, por lo que esta cuenta debe tener un inicio de sesión público en SQL.
 
 Si no se creó la VM con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto sucede, [siga estas instrucciones](backup-azure-sql-database.md#set-vm-permissions).
 
@@ -66,13 +63,12 @@ Si no se creó la VM con SQL Server en Azure Marketplace, podría recibir el err
 
 Evite lo siguiente en los nombres de bases de datos:
 
-  * Espacios iniciales o finales
-  * Signos '!' finales
-  * Corchete de cierre ‘]’
-  * Nombres de bases de datos que empiezan por "F:\"
+* Espacios iniciales o finales
+* Signos '!' finales
+* Corchete de cierre ‘]’
+* Nombres de bases de datos que empiezan por "F:\"
 
 Aunque se dispone de alias para los caracteres no admitidos de la tabla Azure, se recomienda evitarlos. [Más información](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
-
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -94,9 +90,9 @@ Detecte las bases de datos que se ejecutan en la máquina virtual.
 
 5. En **Backup Goal** > **Discover DBs in VMs** (Objetivo de Backup > Detectar bases de datos en máquinas virtuales), seleccione **Start Discovery** (Iniciar detección) para buscar las máquinas virtuales sin protección en la suscripción. Puede que la operación tarde un rato, según el número de máquinas virtuales sin protección en la suscripción.
 
-   - Tras la detección, las máquinas virtuales no protegidas deben aparecer en la lista por nombre y grupo de recursos.
-   - Si una máquina virtual no aparece en la lista como cabría esperar, compruebe que no se haya copiado ya en un almacén.
-   - Varias máquinas virtuales pueden tener el mismo nombre pero pertenecer a distintos grupos de recursos.
+   * Tras la detección, las máquinas virtuales no protegidas deben aparecer en la lista por nombre y grupo de recursos.
+   * Si una máquina virtual no aparece en la lista como cabría esperar, compruebe que no se haya copiado ya en un almacén.
+   * Varias máquinas virtuales pueden tener el mismo nombre pero pertenecer a distintos grupos de recursos.
 
      ![La copia de seguridad queda pendiente durante la búsqueda de bases de datos en máquinas virtuales](./media/backup-azure-sql-database/discovering-sql-databases.png)
 
@@ -108,12 +104,12 @@ Detecte las bases de datos que se ejecutan en la máquina virtual.
 
 8. Azure Backup detecta todas las bases de datos de SQL Server en la máquina virtual. Durante la detección, tiene lugar lo siguiente en segundo plano:
 
-    - Azure Backup registra la máquina virtual en el almacén para la copia de seguridad de la carga de trabajo. Todas las bases de datos de la máquina virtual registrada solo se pueden copiar en este almacén.
-    - Azure Backup instala la extensión **AzureBackupWindowsWorkload** en la máquina virtual. No se instala ningún agente en la base de datos SQL.
-    - Azure Backup crea la cuenta de servicio **NT Service\AzureWLBackupPluginSvc** en la máquina virtual.
-      - Todas las operaciones de copia de seguridad y restauración utilizan la cuenta de servicio.
-      - **NT Service\AzureWLBackupPluginSvc** necesita permisos de administrador del sistema de SQL. Todas las máquinas virtuales de SQL Server creadas en Azure Marketplace llevan instalado **SqlIaaSExtension**. La extensión **AzureBackupWindowsWorkload** usa **SQLIaaSExtension** para obtener automáticamente los permisos necesarios.
-    - Si no ha creado la máquina virtual desde Marketplace, no tendrá instalado **SqlIaaSExtension** y la operación de detección no se podrá realizar; se muestra el mensaje de error **UserErrorSQLNoSysAdminMembership**. Siga las [instrucciones](backup-azure-sql-database.md#set-vm-permissions) para solucionar el problema.
+    * Azure Backup registra la máquina virtual en el almacén para la copia de seguridad de la carga de trabajo. Todas las bases de datos de la máquina virtual registrada solo se pueden copiar en este almacén.
+    * Azure Backup instala la extensión **AzureBackupWindowsWorkload** en la máquina virtual. No se instala ningún agente en la base de datos SQL.
+    * Azure Backup crea la cuenta de servicio **NT Service\AzureWLBackupPluginSvc** en la máquina virtual.
+      * Todas las operaciones de copia de seguridad y restauración utilizan la cuenta de servicio.
+      * **NT Service\AzureWLBackupPluginSvc** necesita permisos de administrador del sistema de SQL. Todas las máquinas virtuales de SQL Server creadas en Azure Marketplace llevan instalado **SqlIaaSExtension**. La extensión **AzureBackupWindowsWorkload** usa **SQLIaaSExtension** para obtener automáticamente los permisos necesarios.
+    * Si no ha creado la máquina virtual desde Marketplace, no tendrá instalado **SqlIaaSExtension** y la operación de detección no se podrá realizar; se muestra el mensaje de error **UserErrorSQLNoSysAdminMembership**. Siga las [instrucciones](backup-azure-sql-database.md#set-vm-permissions) para solucionar el problema.
 
         ![Seleccionar la máquina virtual y la base de datos](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -121,7 +117,7 @@ Detecte las bases de datos que se ejecutan en la máquina virtual.
 
 Configure la copia de seguridad de la manera siguiente:
 
-1. En **Backup Goal** (Objetivo de Backup), seleccione **Configure Backup** (Configurar copia de seguridad).
+1. En **Objetivo de Backup**, seleccione **Configurar copia de seguridad**.
 
    ![Seleccionar Configurar copia de seguridad](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
@@ -135,7 +131,6 @@ Configure la copia de seguridad de la manera siguiente:
 
    Para optimizar las cargas de copia de seguridad, el número máximo de bases de datos en un trabajo de copia de seguridad en Azure Backup se establece en 50.
 
-    
      * Como alternativa, puede habilitar la protección automática en la instancia completa o el grupo de disponibilidad AlwaysOn si selecciona la opción **ON** (Activado) en la lista desplegable correspondiente de la columna **AUTOPROTECT** (Protección automática). La característica de protección automática no solo habilita la protección en todas las bases de datos existentes en una sola operación, sino que también protege automáticamente las nuevas bases de datos que se agregarán a esa instancia o al grupo de disponibilidad en el futuro.  
 
 4. Haga clic en **Aceptar** para abrir la hoja **Directiva de copia de seguridad**.
@@ -144,9 +139,9 @@ Configure la copia de seguridad de la manera siguiente:
 
 5. En **Choose backup policy** (Elegir directiva de copia de seguridad), seleccione una directiva y haga clic en **OK** (Aceptar).
 
-   - Selección de la directiva predeterminada: HourlyLogBackup.
-   - Elegir una directiva de copia de seguridad existente creada previamente para SQL.
-   - Defina una nueva directiva basada en el objetivo de punto de recuperación (RPO) y en la duración de retención.
+   * Selección de la directiva predeterminada: HourlyLogBackup.
+   * Elegir una directiva de copia de seguridad existente creada previamente para SQL.
+   * Defina una nueva directiva basada en el objetivo de punto de recuperación (RPO) y en la duración de retención.
 
      ![Seleccionar directiva de copia de seguridad](./media/backup-azure-sql-database/select-backup-policy.png)
 
@@ -162,36 +157,36 @@ Configure la copia de seguridad de la manera siguiente:
 
 Una directiva de copia de seguridad define cuándo se realizan las copias de seguridad y cuánto tiempo se conservan.
 
-- Una directiva se crea en el nivel de almacén.
-- Varios almacenes pueden usar la misma directiva de copia de seguridad, pero debe aplicar la directiva de copia de seguridad a cada almacén.
-- Al crear una directiva de copia de seguridad, la copia de seguridad completa diaria es la predeterminada.
-- Puede agregar una copia de seguridad diferencial, pero solo si configura las copias de seguridad completas para que se realicen semanalmente.
-- [Más información](backup-architecture.md#sql-server-backup-types) sobre los diferentes tipos de directivas de copia de seguridad.
+* Una directiva se crea en el nivel de almacén.
+* Varios almacenes pueden usar la misma directiva de copia de seguridad, pero debe aplicar la directiva de copia de seguridad a cada almacén.
+* Al crear una directiva de copia de seguridad, la copia de seguridad completa diaria es la predeterminada.
+* Puede agregar una copia de seguridad diferencial, pero solo si configura las copias de seguridad completas para que se realicen semanalmente.
+* [Más información](backup-architecture.md#sql-server-backup-types) sobre los diferentes tipos de directivas de copia de seguridad.
 
 Para crear una directiva de copia de seguridad:
 
 1. En el almacén, haga clic en **Backup policies** > **Add** (Directivas de copia de seguridad > Agregar).
-2. En el menú **Agregar**, haga clic en **SQL Server in Azure VM** (SQL Server en la máquina virtual de Azure). De esta manera se define el tipo de directiva.
+2. En el menú **Agregar**, haga clic en **SQL Server en una máquina virtual de Azure** para definir el tipo de directiva.
 
    ![Elección de un tipo de directiva para la nueva directiva de copia de seguridad](./media/backup-azure-sql-database/policy-type-details.png)
 
 3. En **Nombre de la directiva**, escriba un nombre para la nueva directiva.
 4. En el menú **Full Backup policy** (Directiva de copia de seguridad completa), seleccione un valor para **Backup Frequency** (Frecuencia de copia de seguridad) entre **Daily** (Diaria) o **Weekly** (Semanal).
 
-   - En **Diariamente**, seleccione la hora y zona horaria en la que comienza el trabajo de copia de seguridad.
-   - Es necesario ejecutar una copia de seguridad completa; no se puede desactivar la opción **Copia de seguridad completa**.
-   - Haga clic en **Full Backup** (Copia de seguridad completa) para ver la directiva.
-   - No puede crear copias de seguridad diferenciales para copias de seguridad completas diarias.
-   - Para **Semanalmente**, seleccione el día de la semana, la hora y la zona horaria, en la que se inicia el trabajo de copia de seguridad.
+   * En **Diariamente**, seleccione la hora y zona horaria en la que comienza el trabajo de copia de seguridad.
+   * Es necesario ejecutar una copia de seguridad completa; no se puede desactivar la opción **Copia de seguridad completa**.
+   * Haga clic en **Full Backup** (Copia de seguridad completa) para ver la directiva.
+   * No puede crear copias de seguridad diferenciales para copias de seguridad completas diarias.
+   * Para **Semanalmente**, seleccione el día de la semana, la hora y la zona horaria, en la que se inicia el trabajo de copia de seguridad.
 
      ![Nuevos campos de directiva de copia de seguridad](./media/backup-azure-sql-database/full-backup-policy.png)  
 
 5. De forma predeterminada, todas las opciones de **Retention Range** (Duración de retención) están seleccionadas. Desactive los límites de duración de retención que no quiera usar y establezca los intervalos deseados.
 
-    - El período de retención mínimo para cualquier tipo de copia de seguridad (completa, diferencial o de registro) es de 7 días.
-    - Los puntos de recuperación se etiquetan para la retención en función de su duración de retención. Por ejemplo, si selecciona la frecuencia diaria, solo se desencadena una copia de seguridad completa cada día.
-    - La copia de seguridad de un día específico se etiqueta y se retiene según la duración de la retención semanal y la configuración de esta.
-    - La duración de retención mensual y anual se comporta de forma similar.
+    * El período de retención mínimo para cualquier tipo de copia de seguridad (completa, diferencial o de registro) es de siete días.
+    * Los puntos de recuperación se etiquetan para la retención en función de su duración de retención. Por ejemplo, si selecciona la frecuencia diaria, solo se desencadena una copia de seguridad completa cada día.
+    * La copia de seguridad de un día específico se etiqueta y se retiene según la duración de la retención semanal y la configuración de esta.
+    * La duración de retención mensual y anual se comporta de forma similar.
 
    ![Configuración del intervalo de la duración de retención](./media/backup-azure-sql-database/retention-range-interval.png)
 
@@ -203,8 +198,8 @@ Para crear una directiva de copia de seguridad:
 
 8. En **Differential Backup policy** (Directiva de copia de seguridad diferencial), seleccione **Enable** (Habilitar) para abrir los controles de retención y frecuencia.
 
-    - A lo sumo, puede desencadenar una copia de seguridad diferencial al día.
-    - Como máximo, las copias de seguridad diferenciales se pueden retener durante 180 días. Si necesita más tiempo de retención, debe usar copias de seguridad completas.
+    * A lo sumo, puede desencadenar una copia de seguridad diferencial al día.
+    * Como máximo, las copias de seguridad diferenciales se pueden retener durante 180 días. Si necesita más tiempo de retención, debe usar copias de seguridad completas.
 
 9. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
 
@@ -215,8 +210,8 @@ Para crear una directiva de copia de seguridad:
     ![Editar la directiva de copia de seguridad de registros](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
 13. En el menú **Directiva de copia de seguridad**, elija si desea habilitar la **compresión de copia de seguridad de SQL**.
-    - La compresión está deshabilitada de manera predeterminada.
-    - En el back-end, Azure Backup usa la compresión de copia de seguridad nativa de SQL.
+    * La compresión está deshabilitada de manera predeterminada.
+    * En el back-end, Azure Backup usa la compresión de copia de seguridad nativa de SQL.
 
 14. Después de completar las modificaciones en la directiva de copia de seguridad, seleccione **Aceptar**.
 
@@ -229,12 +224,12 @@ Para crear una directiva de copia de seguridad:
 5. Seleccione Aceptar para iniciar la copia de seguridad.
 6. Supervise el trabajo de copia de seguridad. Para ello, vaya al almacén de Recovery Services y elija "Trabajos de copia de seguridad".
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial se usa Azure Portal para las siguientes acciones:
 
 > [!div class="checklist"]
+>
 > * Crear y configurar un almacén.
 > * Detectar bases de datos y configurar copias de seguridad.
 > * Configurar la protección automática de las bases de datos.
@@ -244,5 +239,3 @@ Continúe con el tutorial siguiente para restaurar una máquina virtual de Azure
 
 > [!div class="nextstepaction"]
 > [Restauración de bases de datos SQL Server en máquinas virtuales de Azure](./restore-sql-database-azure-vm.md)
- 
-

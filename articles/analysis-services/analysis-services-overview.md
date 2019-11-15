@@ -1,18 +1,18 @@
 ---
 title: Qué es Azure Analysis Services | Microsoft Docs
-description: Obtenga una visión general de Analysis Services en Azure.
+description: Obtenga información sobre Azure Analysis Services, una plataforma como un servicio (PaaS) completamente administrada que proporciona modelos de datos en la nube de nivel empresarial.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4369f1ce7d6ef90e8489dbec5daa181406c0fecf
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: eb69028a3b5ea232fbafe8286c3067a22f06d455
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512598"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572813"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -200,9 +200,9 @@ Para más información sobre la seguridad de Azure, consulte [Microsoft Trust Ce
 
 ### <a name="visual-studio"></a>Visual Studio
 
-Desarrolle e implemente modelos con [SQL Server Data Tools (SSDT) para Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) de forma gratuita. SSDT incluye plantillas de proyecto de Analysis Services que le permiten ponerse rápidamente a pleno funcionamiento. SSDT ya incluye la moderna funcionalidad de consultas de orígenes de datos y de mashup denominada Obtención de datos para los modelos tabulares 1400. Si está familiarizado con esta funcionalidad en Power BI Desktop y Excel 2016, ya sabe lo fácil que es crear consultas de orígenes de datos altamente personalizadas. 
+Desarrolle e implemente modelos con Visual Studio con proyectos de Analysis Services. La extensión de proyectos de Analysis Services incluye plantillas y asistentes que le permiten ponerse en marcha rápidamente. El entorno de creación de modelos en Visual Studio ahora incluye la nueva consulta de origen de datos Obtener datos y la funcionalidad de mashup para los modelos tabulares 1400 y posteriores. Si está familiarizado con esta funcionalidad en Power BI Desktop y Excel 2016, ya sabe lo fácil que es crear consultas de orígenes de datos altamente personalizadas. 
 
-Si usa Visual Studio 2017, o cualquier versión posterior, los proyectos de Microsoft Analysis Services estarán disponibles como un paquete VSIX instalable gratuito. [Descargar de Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Microsoft Analysis Services Projects está disponible como un paquete VSIX que se puede instalar de manera gratuita. [Descargar de Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects). La extensión funciona con cualquier versión de Visual Studio 2017 y versiones posteriores, incluida la edición Community gratuita.
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

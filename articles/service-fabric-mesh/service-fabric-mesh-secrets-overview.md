@@ -1,6 +1,6 @@
 ---
 title: Administración y uso de secretos en aplicaciones de Azure Service Fabric Mesh | Microsoft Docs
-description: Almacenamiento y uso de secretos de Service Fabric Mesh.
+description: Service Fabric Mesh admite secretos como recursos de Azure. Aquí se muestra cómo almacenar y administrar secretos con las aplicaciones de Service Fabric Mesh.
 services: service-fabric-mesh
 keywords: secrets
 author: v-steg
@@ -9,12 +9,12 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: b5cfa93298222d914069b6ab63deb8ba8a9b59c3
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 72188517c237b170b709c48f16d3c131985f95d1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875343"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686238"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Secretos en la aplicación Service Fabric Mesh
 Service Fabric Mesh admite secretos como recursos de Azure. Un secreto de Service Fabric Mesh puede ser cualquier información de texto confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que deben almacenarse y transmitirse de forma segura.

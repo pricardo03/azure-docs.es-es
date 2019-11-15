@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es Computer Vision API? - Computer Vision
+title: ¿Qué es Computer Vision? - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: El servicio Computer Vision proporciona a los desarrolladores acceso a algoritmos avanzados para procesar imágenes y devolver información.
 services: cognitive-services
@@ -8,21 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719537"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794956"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
-El servicio Computer Vision de Azure proporciona a los desarrolladores acceso a algoritmos avanzados que procesan imágenes y devuelven información. Para analizar una imagen, puede cargarla o especificar la dirección URL de la misma. Los algoritmos de procesamiento de imágenes pueden analizar el contenido de diferentes formas, en función de las características visuales que le interesen a usted. Por ejemplo, Computer Vision puede determinar si una imagen incluye contenido para adultos o buscar todos los rostros en una imagen.
+El servicio Computer Vision de Azure proporciona a los desarrolladores acceso a algoritmos avanzados que procesan imágenes y devuelven información, según las características visuales que le interesen. Por ejemplo, Computer Vision puede determinar si una imagen incluye contenido para adultos o buscar todos los rostros en una imagen.
 
-Puede usar Computer Vision en la aplicación mediante el uso de un SDK nativo o invocar la API REST directamente. Esta página cubre ampliamente lo que puede hacer con Computer Vision.
+Puede usar Computer Vision en la aplicación mediante el uso de un SDK nativo o invocar la API de REST directamente. Esta página cubre ampliamente lo que puede hacer con Computer Vision.
+
+## <a name="computer-vision-for-digital-asset-management"></a>Computer Vision para la administración de activos digitales
+
+Computer Vision puede funcionar en muchos escenarios de administración de activos digitales (DAM). DAM es el proceso empresarial de organización, almacenamiento y recuperación de recursos multimedia enriquecidos, y la administración de los permisos y derechos digitales. Por ejemplo, es posible que una empresa desee agrupar e identificar imágenes basadas en logotipos, caras, objetos, colores visibles, etc. O bien, puede que desee [generar automáticamente leyendas para las imágenes](./Tutorials/storage-lab-tutorial.md) y adjuntar palabras clave para que admitan búsquedas. Para una solución DAM todo en uno que use Cognitive Services, Azure Cognitive Search e informes inteligentes, vea la [Guía del acelerador de la solución de minería del conocimiento](https://github.com/Azure-Samples/azure-search-knowledge-mining) en GitHub. Para ver otros ejemplos de DAM, consulte el repositorio [plantillas de la solución Computer Vision](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates).
 
 ## <a name="analyze-images-for-insight"></a>Análisis de imágenes para obtener información
 
@@ -47,8 +51,6 @@ Puede analizar imágenes para detectar y proporcionar información detallada ace
 Puede usar la [API Read](concept-recognizing-text.md#read-api) de Computer Vision para extraer texto escrito a mano e impreso de imágenes en una secuencia de caracteres legible por máquina. La API Read utiliza modelos actualizados y funciona con texto sobre superficies y fondos distintos, como recibos, pósteres, tarjetas de visita, cartas y pizarras. Actualmente, el inglés es el único idioma que se admite.
 
 También puede usar la API de [reconocimiento óptico de caracteres (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) para extraer el texto impreso en varios idiomas. Si es necesario, OCR corrige el giro del texto reconocido y proporciona las coordenadas del marco de cada palabra. El OCR admite 25 idiomas y detecta automáticamente el idioma del texto reconocido.
-
-
 
 ## <a name="moderate-content-in-images"></a>Moderación del contenido de las imágenes
 

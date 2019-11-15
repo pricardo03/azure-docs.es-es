@@ -1,6 +1,6 @@
 ---
-title: Uso de temas de Service Bus (Ruby) | Microsoft Docs
-description: Aprenda a usar los temas y las suscripciones de Azure Service Bus. Los ejemplos de código están escritos para aplicaciones Ruby.
+title: 'Inicio rápido: Uso de temas de Service Bus (Ruby)'
+description: 'Inicio rápido: Aprenda a usar los temas y las suscripciones de Azure Service Bus. Los ejemplos de código están escritos para aplicaciones Ruby.'
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -11,17 +11,17 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: b2a05a4695ee80873a2d7464c0a1cf4d46ed30f5
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: b5401eae844ed2113a9fbc07c8b3ad8601709d43
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543651"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718934"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Uso de temas y suscripciones de Service Bus con Ruby
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Inicio rápido: Uso de temas y suscripciones de Service Bus con Ruby
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -35,7 +35,7 @@ En este artículo se describe cómo usar los temas y las suscripciones de Servic
 
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar sus [beneficios de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Siga los pasos de [Inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](service-bus-quickstart-topics-subscriptions-portal.md) para crear un **espacio de nombres** de Service Bus y obtener la **cadena de conexión**. 
 
     > [!NOTE]

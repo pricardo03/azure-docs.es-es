@@ -1,5 +1,5 @@
 ---
-title: Incorporación de un paquete de R a Azure SQL Database Machine Learning Services (versión preliminar)
+title: Incorporación de un paquete de R a Machine Learning Services (versión preliminar)
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: En este artículo se explica cómo instalar un paquete de R que aún no se haya instalado en Azure SQL Database Machine Learning Services (versión preliminar).
 services: sql-database
@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
-ms.openlocfilehash: f82408a6aaa7cf3a492f3036a6db5d8666b6f160
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ce85f45d823df42e70af53824e175968439621d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598055"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819864"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Incorporación de un paquete de R a Azure SQL Database Machine Learning Services (versión preliminar)
 

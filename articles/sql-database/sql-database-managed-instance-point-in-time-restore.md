@@ -1,5 +1,5 @@
 ---
-title: 'Instancia administrada de SQL Database: restauración a un momento dado | Microsoft Docs'
+title: 'Instancia administrada: restauración a un momento dado'
 description: Restaure una base de datos SQL de una instancia administrada a un momento dado anterior.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 61249d8ac21c3bb698deb92e5f46a8998205ced9
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: ad96d0a04b03e070a7108832370749377d723826
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529665"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821755"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restauración de una base de datos SQL de una instancia administrada a un momento dado anterior
 

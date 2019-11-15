@@ -1,5 +1,5 @@
 ---
-title: Creación de una función desencadenada mediante HTTP en Azure
+title: Creación de una función de Python desencadenada mediante HTTP en Azure
 description: Aprenda a crear su primera función de Python en Azure mediante Azure Functions Core Tools y la CLI de Azure.
 author: ggailey777
 ms.author: glenga
@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: f2602e5a13f83090291656e7062c74c245bc6568
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 791348088d909785b36934c3b9a2ae00fc0acbb7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693343"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622046"
 ---
-# <a name="create-an-http-triggered-function-in-azure"></a>Creación de una función desencadenada mediante HTTP en Azure
+# <a name="create-an-http-triggered-python-function-in-azure"></a>Creación de una función de Python desencadenada mediante HTTP en Azure
 
 En este artículo se explica cómo usar las herramientas de línea de comandos para crear un proyecto de Python que se ejecuta en Azure Functions. También puede crear una función que desencadena una solicitud HTTP. Por último, publique el proyecto para que se ejecute como una [función sin servidor](functions-scale.md#consumption-plan) en Azure.
 

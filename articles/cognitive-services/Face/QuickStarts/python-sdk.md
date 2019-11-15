@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Face para Python | Microsoft Docs'
-description: Introducción a la biblioteca cliente de Face para Python...
+description: Este artículo le ayudará a empezar a trabajar con la biblioteca cliente de Face para Python para detectar, encontrar similares, identificar, verificar y mucho más.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: b265ec68039f03c09d45c9605965de8ce0baba99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9728ff86de8561c463886847494ecc4c1c007851
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935874"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743199"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Face para Python
 

@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de creación de Language Understanding (LUIS) para Python'
 titleSuffix: Azure Cognitive Services
-description: Introducción a la biblioteca cliente de Language Understanding (LUIS) para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.  Language Understanding (LUIS) permite aplicar inteligencia de aprendizaje automático personalizado a una conversación o un texto de lenguaje natural de un usuario para predecir el significado global y extraer información pertinente y detallada.
+description: Introducción a la biblioteca cliente de LUIS para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: f8149372e0a96cda81ef38558ee0bcf87eb53bb3
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1b586af569a9406d7fe9fa3d05c198f62f32744f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258760"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672000"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de creación de Language Understanding (LUIS) para Python
 

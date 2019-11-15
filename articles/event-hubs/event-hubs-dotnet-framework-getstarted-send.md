@@ -1,6 +1,6 @@
 ---
-title: 'Envío y recepción de eventos mediante .NET Framework: Azure Event Hubs | Microsoft Docs'
-description: En este artículo se ofrece un tutorial para crear una aplicación de .NET Framework que envía eventos a Azure Event Hubs.
+title: 'Inicio rápido: Envío y recepción de eventos mediante .NET Framework: Azure Event Hubs'
+description: 'Inicio rápido: En este artículo se ofrece un tutorial para crear una aplicación de .NET Framework que envía eventos a Azure Event Hubs.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,18 +11,18 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 04/15/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 96ce71a7b3076adec169f103060a167b61c42d5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89419e9a3ef364d4095800a617a84ff2f63c09a0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65603513"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720652"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Envío o recepción de eventos en Azure Event Hubs mediante .NET Framework
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Inicio rápido: Envío o recepción de eventos en Azure Event Hubs mediante .NET Framework
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
 
 En este tutorial se describe cómo crear aplicaciones de consola de .NET Framework en C# para enviar o recibir eventos en un centro de eventos. 
