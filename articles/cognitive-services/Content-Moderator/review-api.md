@@ -1,7 +1,7 @@
 ---
 title: 'Conceptos de revisiones, flujos de trabajo y trabajos: Content Moderator'
 titleSuffix: Azure Cognitive Services
-description: Más información sobre revisiones, flujos de trabajo y trabajos
+description: 'En este artículo, aprenderá los conceptos básicos de la herramienta de revisión: revisiones, flujos de trabajo y trabajos.'
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 0050e2b687b6001514d1ae80c269b1a0499efbea
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757287"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744429"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisiones, flujos de trabajo y trabajos de moderación de contenido
 
@@ -75,5 +75,5 @@ Consulte la [guía de la API REST](./try-review-api-job.md) para empezar a usar
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Pruebe la [consola de Job API](try-review-api-job.md) y use los ejemplos de código de la API REST. Consulte también el [inicio rápido de .NET de trabajos](moderation-jobs-quickstart-dotnet.md) si está familiarizado con C# y Visual Studio. 
-* Para las revisiones, empiece a trabajar con la [consola de Review API](try-review-api-review.md) y use los ejemplos de código de la API REST. A continuación, consulte [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md) (Inicio rápido de las revisiones con .NET).
+* Para las revisiones, empiece a trabajar con la [consola de Review API](try-review-api-review.md) y use los ejemplos de código de la API REST. A continuación, consulte la sección de revisiones de [Guía de inicio rápido de .NET](dotnet-sdk-quickstart.md).
 * Para revisiones de vídeos, use [Video review quickstart](video-reviews-quickstart-dotnet.md) (Guía de inicio rápido de revisión de vídeos) y aprenda a [agregar transcripciones a la revisión del vídeo](video-transcript-reviews-quickstart-dotnet.md).

@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas de System Center Data Protection Manager con Azure Backup
-description: Solución de problemas de System Center Data Protection Manager.
+title: 'Solución de problemas de System Center Data Protection Manager: Azure Backup'
+description: En este artículo, descubra soluciones para problemas que puede encontrar al usar System Center Data Protection Manager.
 ms.reviewer: kasinh
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 501e61d06b7724147d7224ae51bde5de736279b3
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 1ff6db463821780975f855488c51663c6a75f83a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689034"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747330"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Solución de problemas de System Center Data Protection Manager
 
@@ -21,10 +21,10 @@ En este artículo se describen soluciones para problemas que puede encontrar al 
 
 Para obtener las notas de versión más recientes de System Center Data Protection Manager, consulte la [documentación de System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Puede aprender más sobre la compatibilidad para Data Protection Manager en [esta matriz](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
-
 ## <a name="error-replica-is-inconsistent"></a>Error: La réplica es incoherente
 
 Una réplica puede ser incoherente por las razones siguientes:
+
 - El trabajo de creación de réplica da error.
 - Hay problemas con el diario de cambios.
 - El mapa de bits del filtro de nivel de volumen contiene errores.
@@ -33,6 +33,7 @@ Una réplica puede ser incoherente por las razones siguientes:
 - La réplica es realmente incoherente.
 
 Para resolver este problema, realice las acciones siguientes:
+
 - Para quitar el estado incoherente, ejecute la comprobación de coherencia manual o programe una comprobación de coherencia diaria.
 - Asegúrese de que está usando la versión más reciente de Microsoft Azure Backup Server y Data Protection Manager.
 - Asegúrese de que la configuración de **coherencia automática** está habilitada.
@@ -45,6 +46,7 @@ Para resolver este problema, realice las acciones siguientes:
 ## <a name="error-online-recovery-point-creation-failed"></a>Error: No se pudo crear el punto de recuperación en línea
 
 Para resolver este problema, realice las acciones siguientes:
+
 - Asegúrese de que usa la versión más reciente del agente de Azure Backup.
 - Pruebe a crear manualmente un punto de recuperación en el área de tareas de protección.
 - Asegúrese de que ejecuta una comprobación de coherencia en el origen de datos.
@@ -55,9 +57,10 @@ Para resolver este problema, realice las acciones siguientes:
 
 ## <a name="error-unable-to-configure-protection"></a>Error: No se puede configurar la protección.
 
-Este error se produce cuando el servidor Data Protection Manager no puede ponerse en contacto con el servidor protegido. 
+Este error se produce cuando el servidor Data Protection Manager no puede ponerse en contacto con el servidor protegido.
 
 Para resolver este problema, realice las acciones siguientes:
+
 - Asegúrese de que usa la versión más reciente del agente de Azure Backup.
 - Asegúrese de que hay conectividad (red, firewall y proxy) entre su servidor Data Protection Manager y el servidor protegido.
 - Si va a proteger un servidor SQL Server, asegúrese de que la propiedad **Propiedades de inicio de sesión** > **AUTORIDAD DE NT\SISTEMA** muestra la configuración **sysadmin** habilitada.
@@ -67,17 +70,20 @@ Para resolver este problema, realice las acciones siguientes:
 Este error se produce durante el proceso de recuperación de datos de servidor Data Protection Manager o Azure Backup Server. El archivo de credenciales de almacén que se usa en el proceso de recuperación no pertenece al almacén de Recovery Services para el servidor Data Protection Manager o Azure Backup Server.
 
 Para resolver este problema, realice estos pasos:
+
 1. Descargue el archivo de credenciales del almacén de Recovery Services en el que está registrado el servidor Data Protection Manager o Azure Backup Server.
 2. Pruebe a registrar el servidor en el almacén mediante el archivo de credenciales de almacén descargado más recientemente.
 
 ## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Error: No hay datos recuperables o el servidor seleccionado no es un servidor Data Protection Manager
 
 Este error se produce por las siguientes razones:
+
 - No hay otros servidores Data Protection Manager o Azure Backup Server registrados en el almacén de Recovery Services.
 - Los servidores aún no han cargado los metadatos.
 - El servidor seleccionado no es un servidor Data Protection Manager o Azure Backup Server.
 
 Cuando otros servidores Data Protection Manager o Azure Backup Server no estén registrados en el almacén de Recovery Services, realice estos pasos para resolver el problema:
+
 1. Asegúrese de que el agente de Azure Backup está instalado.
 2. Después de asegurarse de que el agente más reciente está instalado, espere un día antes de empezar el proceso de recuperación. El trabajo de copia de seguridad nocturno carga los metadatos de todas las copias de seguridad protegidas en la nube. Después, los datos de copia de seguridad estarán disponibles para la recuperación.
 
@@ -88,5 +94,5 @@ Este error se produce durante el proceso de cifrado cuando se recuperan datos de
 > [!IMPORTANT]
 > Si olvida o pierde la frase de contraseña de cifrado, no hay ningún otro método para recuperar los datos. La única opción consiste en volver a generar la frase de contraseña. Use la nueva frase de contraseña para cifrar los datos de copia de seguridad futuros.
 >
-> Cuando esté recuperando datos, proporcione siempre la misma frase de contraseña de cifrado que esté asociada al servidor Data Protection Manager o Azure Backup Server. 
+> Cuando esté recuperando datos, proporcione siempre la misma frase de contraseña de cifrado que esté asociada al servidor Data Protection Manager o Azure Backup Server.
 >

@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8cc75fde348d070a19d1987d1403c63e8e6d2278
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: c2aa393f04a8db470dd8b739c0ed003477df0221
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286637"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615409"
 ---
 # <a name="azure-delegated-resource-management"></a>Administración de recursos delegados de Azure
 
@@ -23,7 +23,7 @@ La administración de recursos delegados de Azure es uno de los componentes clav
 La administración de recursos delegados de Azure permite la proyección lógica de recursos de un inquilino a otro. Esto permite a los usuarios autorizados de un inquilino de Azure Active Directory (Azure AD) realizar operaciones de administración entre distintos inquilinos de Azure AD que pertenecen a sus clientes. Los proveedores de servicios pueden iniciar sesión en su propio inquilino de Azure AD y tener autorización para trabajar en suscripciones y grupos de recursos delegados del cliente. Esto les permite realizar operaciones de administración en nombre de sus clientes, sin tener que iniciar sesión en cada inquilino de cliente individual.
 
 > [!NOTE]
-> La administración de recursos delegados de Azure también se puede usar en una empresa que tenga varios inquilinos de Azure AD propios para simplificar la administración entre inquilinos.
+> La administración de recursos delegados de Azure también se puede usar [en una empresa que tenga varios inquilinos de Azure AD propios](enterprise.md) para simplificar la administración entre inquilinos.
 
 Con la administración de recursos delegados de Azure, los usuarios autorizados pueden trabajar directamente en el contexto de una suscripción de cliente sin tener una cuenta en el inquilino del cliente ni ser un copropietario del inquilino del cliente. También pueden [ver y administrar todas las suscripciones de clientes delegados en la nueva página **Mis clientes** ](../how-to/view-manage-customers.md) de Azure Portal.
 

@@ -1,5 +1,5 @@
 ---
-title: Clases de recursos para la administración de cargas de trabajo en Azure SQL Data Warehouse | Microsoft Docs
+title: Clases de recursos para la administración de cargas de trabajo
 description: Instrucciones para usar las clases de recursos para administrar la simultaneidad y calcular los recursos de las consultas en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ef95faf162a6774e42b7cf258515757fdc9c7eb
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035084"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685927"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Administración de carga de trabajo con clases de recursos en Azure SQL Data Warehouse
 
@@ -35,7 +36,7 @@ Existen dos tipos de clases de recursos:
 
 Las clases de recursos utilizan espacios de simultaneidad para medir el consumo de recursos.  Los [espacios de simultaneidad](#concurrency-slots) se explican posteriormente en este artículo.
 
-- Para ver el uso de recursos para las clases de recursos, consulte [Límites de memoria y simultaneidad](memory-and-concurrency-limits.md#concurrency-maximums).
+- Para ver el uso de recursos para las clases de recursos, consulte [Límites de memoria y simultaneidad]memory-concurrency-limits.md).
 - Para ajustar la clase de recurso, puede ejecutar la consulta bajo un usuario diferente o [cambiar la pertenencia de la clase de recurso del usuario actual](#change-a-users-resource-class).
 
 ### <a name="static-resource-classes"></a>Clases de recursos estáticos
@@ -331,7 +332,7 @@ SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_
     SELECT 'DW30000c', 128, 1200, 36, 120, 264, 840, 1, 2, 4, 8, 16, 32, 64, 128 
 )
 -- Creating workload mapping to their corresponding slot consumption and default memory grant.
-,map
+,map  
 AS
 (
   SELECT CONVERT(varchar(20), 'SloDWGroupSmall') AS wg_name, slots_used_smallrc AS slots_used FROM alloc WHERE DWU = @DWU
@@ -580,7 +581,7 @@ SELECT  CASE
 GO
 ```
 
-## <a name="next-step"></a>Paso siguiente
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Proteger una base de datos en SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para obtener más información sobre la manera en que las clases de recursos más grandes pueden mejorar la calidad de los índices de almacén de columnas en clúster, consulte [Memory optimizations for columnstore compression (Optimizaciones de memoria para la compresión del almacén de columnas)](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

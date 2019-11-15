@@ -4,14 +4,14 @@ description: Aprenda a definir procedimientos almacenados, desencadenadores y fu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: bec28874bbd67ece4b29f6975e8c7fdcea457bd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092836"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606257"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Escritura de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) en Azure Cosmos DB
 
@@ -21,6 +21,9 @@ Para llamar a un procedimiento almacenado, desencadenador o función definida po
 
 > [!NOTE]
 > Para los contenedores con particiones, al ejecutar un procedimiento almacenado, se debe proporcionar un valor de clave de partición en las opciones de solicitud. Los procedimientos almacenados siempre se limitan a una clave de partición. Los elementos que tienen un valor de clave de partición diferente no estarán visibles para el procedimiento almacenado. Esto también se aplica a los desencadenadores.
+
+> [!Tip]
+> Cosmos admite la implementación de contenedores con procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Para más información, consulte [Creación de un contenedor de Azure Cosmos DB con funcionalidad del lado servidor.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a id="stored-procedures"></a>Escritura de procedimientos almacenados
 

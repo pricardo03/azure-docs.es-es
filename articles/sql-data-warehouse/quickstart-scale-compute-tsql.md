@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse (T-SQL) | Microsoft Docs'
+title: 'Inicio rápido: escalado de procesos: T-SQL '
 description: Escale procesos en Azure SQL Data Warehouse con T-SQL y SQL Server Management Studio (SSMS). Escale horizontalmente un proceso para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
 services: sql-data-warehouse
 author: Antvgski
@@ -10,12 +10,13 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 9a2a11c2263500970e2f4294dd5d3711a57be349
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 6729552262d7bea619948ddba406418b80cf69dc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574581"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685947"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Inicio rápido: Escalabilidad de un proceso en Azure SQL Data Warehouse mediante T-SQL
 

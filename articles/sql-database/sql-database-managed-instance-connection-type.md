@@ -1,5 +1,5 @@
 ---
-title: Tipos de conexión de la instancia administrada de Azure SQL Database | Microsoft Docs
+title: Tipos de conexión de la instancia administrada
 description: Información acerca de los tipos de conexión de la instancia administrada
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 4ebd81f9c04bd739f1c18f636094040882b5ce36
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 46223d1701b930d93de7c49c1e216a41045dda16
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001751"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819455"
 ---
 # <a name="azure-sql-database-managed-instance-connection-types"></a>Tipos de conexión de la instancia administrada de Azure SQL Database
 

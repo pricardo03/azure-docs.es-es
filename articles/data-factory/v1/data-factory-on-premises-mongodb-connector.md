@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos de MongoDB mediante Data Factory | Microsoft Docs
+title: Movimiento de datos de MongoDB mediante Data Factory
 description: Obtenga información acerca de cómo mover los datos de la base de datos de MongoDB mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e7a84d74e1bda6de8549c79dab1bec8c2515e213
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6f982928e706b442229cc249c17c3f7aabe1f60a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839061"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666654"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Movimiento de datos de MongoDB mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -297,7 +297,7 @@ Al mover datos a MongoDB, se usarán las asignaciones siguientes de tipos MongoD
 | --- | --- |
 | Binary |Byte[] |
 | Boolean |Boolean |
-| Date |Datetime |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |

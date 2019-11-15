@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de una máquina virtual Windows en Azure Portal | Microsoft Docs'
+title: 'Guía de inicio rápido: creación de una máquina virtual Windows en Azure Portal'
 description: En esta guía de inicio rápido aprenderá a usar Azure Portal para crear una máquina virtual Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -7,24 +7,23 @@ author: cynthn
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/02/2019
+ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 60f74de308938ee155cf61f3360f73d92feaa67c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 002d374f5be606688121ef4a3952383567c43e85
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102509"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685165"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de una máquina virtual de Windows en Azure Portal
 
-Las máquinas virtuales de Azure pueden crearse mediante Azure Portal. Este método proporciona una interfaz de usuario basada en explorador para crear máquinas virtuales y sus recursos asociados. En esta guía de inicio rápido se muestra cómo usar Azure Portal para implementar una máquina virtual (VM) en Azure que ejecuta Windows Server 2016. Para ver la máquina virtual en acción, conéctese a la máquina virtual mediante RDP e instale al servidor web IIS.
+Las máquinas virtuales de Azure pueden crearse mediante Azure Portal. Este método proporciona una interfaz de usuario basada en explorador para crear máquinas virtuales y sus recursos asociados. En esta guía de inicio rápido se muestra cómo usar Azure Portal para implementar una máquina virtual (VM) en Azure que ejecuta Windows Server 2019. Para ver la máquina virtual en acción, conéctese a la máquina virtual mediante RDP e instale al servidor web IIS.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -34,15 +33,14 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Crear máquina virtual
 
-1. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-
-1. En la página **Nuevo**, en **Popular**, seleccione **Windows Server 2016 Datacenter**.
-
+1. Escriba **máquinas virtuales** en la búsqueda.
+1. En **Servicios**, seleccione **Máquinas virtuales**.
+1. En la página **Máquinas virtuales**, seleccione **Agregar**. 
 1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y luego elija **Crear nuevo** grupo de recursos. Escriba *myResourceGroup* para el nombre. 
 
     ![Crear un nuevo grupo de recursos para la máquina virtual](./media/quick-create-portal/project-details.png)
 
-1. En **Detalles de instancia**, escriba *myVM* en **Nombre de máquina virtual** y elija *Este de EE. UU.* como **Ubicación**. Deje los demás valores predeterminados.
+1. En **Detalles de instancia**, escriba *myVM* en **Nombre de máquina virtual** y elija *Este de EE. UU.* como **Región**. Después, seleccione *Windows Server 2019 Datacenter* para la **Imagen**. Deje los demás valores predeterminados.
 
     ![Sección Detalles de instancia](./media/quick-create-portal/instance-details.png)
 
@@ -50,7 +48,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
     ![Escriba su nombre de usuario y contraseña](./media/quick-create-portal/administrator-account.png)
 
-1. En **Reglas de puerto de entrada**, elija **Permitir los puertos seleccionados** y luego seleccione **RDP (3389)** y **HTTP** en la lista desplegable.
+1. En **Reglas de puerto de entrada**, elija **Permitir los puertos seleccionados** y luego seleccione **RDP (3389)** y **HTTP (80)** en la lista desplegable.
 
     ![Puertos abiertos para RDP y HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -63,11 +61,11 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 Cree una conexión a Escritorio remoto en la máquina virtual. Estas instrucciones indican cómo conectarse a la máquina virtual desde un equipo Windows. En un equipo Mac, necesita un cliente RDP como este [Cliente de Escritorio remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) de Mac App Store.
 
-1. Haga clic en el botón **Conectar** en la página de propiedades de la máquina virtual. 
+1. Haga clic en el botón **Conectar** en la página de información general de la máquina virtual. 
 
     ![Conexión a una máquina virtual de Azure desde el portal](./media/quick-create-portal/portal-quick-start-9.png)
     
-2. En la página **Conectarse a una máquina virtual**, mantenga las opciones predeterminadas para conectarse por nombre DNS a través del puerto 3389 y haga clic en **Descargar archivo RDP**.
+2. En la página **Conectarse a una máquina virtual**, mantenga las opciones predeterminadas para conectarse por dirección IP a través del puerto 3389 y haga clic en **Descargar archivo RDP**.
 
 2. Abra el archivo RDP que descargó y haga clic en **Conectar** cuando se le solicite. 
 
@@ -94,7 +92,9 @@ En el portal, seleccione la maquina virtual y, en su información general, utili
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no los necesite, puede eliminar el grupo de recursos, la máquina virtual y todos los recursos relacionados. Seleccione el grupo de recursos de la máquina virtual y haga clic en **Eliminar**. Confirme el nombre del grupo de recursos para terminar de eliminar los recursos.
+Cuando ya no los necesite, puede eliminar el grupo de recursos, la máquina virtual y todos los recursos relacionados. 
+
+Seleccione el grupo de recursos de la máquina virtual y haga clic en **Eliminar**. Confirme el nombre del grupo de recursos para terminar de eliminar los recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: e1120abb06ec2c777114703cfe3fc7334477aecc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/06/2019
+ms.openlocfilehash: 556fb2c1caf9c763cf5a63b71d3dd1e522104e1d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592942"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646961"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migración de SQL Server a una instancia administrada de Azure SQL Database en línea mediante DMS
 
@@ -30,11 +30,11 @@ En este tutorial, aprenderá a:
 > * Crear una instancia de Azure Database Migration Service.
 > * Crear un proyecto de migración e iniciar una migración en línea mediante Azure Database Migration Service.
 > * Supervisar la migración
-> * Realizar la transición de la migración cuando esté listo.
+> * Realizar la migración total cuando esté listo.
 
 > [!IMPORTANT]
-> Para realizar migraciones en línea de SQL Server a una instancia administrada de SQL Database mediante Azure Database Migration Service, debe proporcionar la copia de seguridad completa de la base de datos y las copias de seguridad de registros posteriores del recurso compartido de la red SMB que el servicio pueda usar para migrar las bases de datos. Azure Database Migration Service no se inicia copias de seguridad, sino que usa las copias de seguridad existentes, que puede que ya tenga como parte de su plan de recuperación ante desastres, para la migración.
-> Asegúrese de que realiza las [copias de seguridad mediante la opción WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Asegúrese también de que no anexa varias copias de seguridad (es decir, completa y del registro de transacciones) a un único soporte físico de copia de seguridad; realice cada copia de seguridad en un archivo de copia de seguridad independiente.
+> Para realizar migraciones en línea de SQL Server a la instancia administrada de SQL Database mediante Azure Database Migration Service, debe proporcionar la copia de seguridad completa de la base de datos y las copias de seguridad de registros posteriores del recurso compartido de la red SMB que el servicio pueda usar para migrar las bases de datos. Azure Database Migration Service no se inicia copias de seguridad y en su lugar usa las copias de seguridad existentes, que puede que ya tenga como parte de su plan de recuperación ante desastres, para la migración.
+> Asegúrese de que realiza las [copias de seguridad mediante la opción WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Además, asegúrese de que no anexa varias copias de seguridad (es decir, completa y del registro de transacciones) a un único soporte físico de copia de seguridad; realice cada copia de seguridad en un archivo de copia de seguridad independiente. Por último, puede usar copias de seguridad comprimidas para reducir la probabilidad de experimentar posibles problemas asociados con la migración de copias de seguridad de gran tamaño.
 
 > [!NOTE]
 > El uso de Azure Database Migration Service para realizar una migración en línea requiere la creación de una instancia basada en el plan de tarifa Premium.
@@ -44,7 +44,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-En este artículo se describe una migración en línea desde SQL Server hasta una instancia administrada de SQL Database. Para migraciones sin conexión, consulte [Migración de SQL Server a una instancia administrada de Azure SQL Database sin conexión mediante DMS](tutorial-sql-server-to-managed-instance.md).
+En este artículo se describe una migración en línea desde SQL Server hasta una instancia administrada de SQL Database. Para migraciones sin conexión, consulte [Migración de SQL Server a una instancia administrada sin conexión de SQL Database mediante DMS](tutorial-sql-server-to-managed-instance.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -59,7 +59,9 @@ Para completar este tutorial, necesita:
     > * Punto de conexión de Storage
     > * Punto de conexión de Service Bus
     >
-    > Esta configuración es necesaria porque la instancia de Azure Database Migration Service carece de conectividad a internet.
+    > Esta configuración es necesaria porque Azure Database Migration Service no tiene conexión a Internet.
+    >
+    >Si no dispone de conectividad de sitio a sitio entre la red local y Azure, o si el ancho de banda de conectividad de sitio a sitio es limitado, considere la posibilidad de usar Azure Database Migration Service en modo híbrido (versión preliminar). El modo híbrido hace uso de un trabajo de migración local junto con una instancia de Azure Database Migration Service que se ejecuta en la nube. Para crear una instancia de Azure Database Migration Service en el modo híbrido, consulte el artículo [Creación de una instancia de Azure Database Migration Service en modo híbrido mediante Azure Portal](https://aka.ms/dms-hybrid-create).
 
     > [!IMPORTANT]
     > Con respecto a la cuenta de almacenamiento que se usa como parte de la migración, debe:
@@ -73,13 +75,13 @@ Para completar este tutorial, necesita:
 * Si va a usar un dispositivo de firewall delante de las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración, así como archivos a través del puerto SMB 445.
 * Cree una instancia administrada de SQL Database mediante los pasos que se describen en el artículo [Creación de una instancia administrada de Azure SQL Database en Azure Portal](https://aka.ms/sqldbmi).
 * Asegúrese de que los inicios de sesión usados para conectar la instancia de SQL Server de origen y la instancia administrada de destino sean miembros del rol de servidor sysadmin.
-* Especifique un recurso compartido de red SMB que contenga todos los archivos de copia de seguridad de la base de datos completa y los posteriores archivos de copia de seguridad de registros de transacciones que pueda usar Azure Database Migration Service para la migración de la base de datos.
+* Especifique un recurso compartido de red SMB que contenga todos los archivos de copia de seguridad de la base de datos completa y los posteriores archivos de copia de seguridad de registros de transacciones, ya que Azure Database Migration Service puede usarlos para la migración de la base de datos.
 * Asegúrese de que la cuenta de servicio que ejecuta la instancia de SQL Server de origen tiene privilegios de escritura en el recurso compartido de red que haya creado, y que la cuenta del equipo del servidor de origen tiene acceso de lectura y escritura para el mismo recurso compartido.
 * Anote un usuario de Windows (y su contraseña) que tenga privilegios de control total sobre el recurso compartido de red que creó anteriormente. Azure Database Migration Service suplanta la credencial de usuario para cargar los archivos de copia de seguridad en el contenedor de Azure Storage para la operación de restauración.
 * Cree un identificador de aplicación de Azure Active Directory que genere la clave del identificador de aplicación que puede usar Azure Database Migration Service para conectarse a la instancia administrada de Azure Database y al contenedor de Azure Storage. Para más información, consulte el artículo [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
   > [!NOTE]
-  > Azure Database Migration Service requiere el permiso de colaborador sobre la suscripción correspondiente al identificador de aplicación especificado. Trabajamos activamente para disminuir estos requisitos de permisos.
+  > Azure Database Migration Service requiere el permiso de colaborador sobre la suscripción correspondiente al identificador de aplicación especificado. También puede crear roles personalizados que concedan los permisos específicos que Azure Database Migration Service requiere. Para obtener instrucciones paso a paso sobre el uso de roles personalizados, consulte el artículo [Roles personalizados para las migraciones en línea de SQL Server a instancias administradas de SQL Database](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
 
 * Cree o anote el **nivel de rendimiento estándar**, cuenta de almacenamiento de Azure, que permite que el servicio DMS cargue los archivos de copia de seguridad de la base de datos a y los use para migrar las bases de datos.  Asegúrese de crear la cuenta Azure Storage en la misma región en la que se creó la instancia de Azure Database Migration Service.
 

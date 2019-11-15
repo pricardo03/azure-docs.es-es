@@ -1,6 +1,6 @@
 ---
 title: 'Preguntas frecuentes sobre la solución de factoría conectada: Azure | Microsoft Docs'
-description: Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
+description: Este artículo responde a las preguntas más frecuentes sobre el acelerador de soluciones de factoría conectada. Incluye vínculos al repositorio de GitHub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c84452ff71fa34a65b2e56ec753b68bf551c7e35
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447937"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826275"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
 

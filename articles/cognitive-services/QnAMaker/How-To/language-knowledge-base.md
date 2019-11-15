@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 849c919950c57a1df3b0fb76021de6e10254c7b4
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: a818d84bf3df712190ccc6c1721c26933a9fbcdb
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286382"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73793935"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Compatibilidad de idioma del contenido de la base de conocimiento para QnA Maker
 
@@ -38,9 +38,9 @@ La selección del idioma forma parte de los pasos necesarios para crear la prime
 ![Captura de pantalla del portal de QnA Maker, donde se selecciona el idioma de la primera base de conocimiento](../media/language-support/select-language-when-creating-knowledge-base.png)
 
 ## <a name="query-matching-and-relevance"></a>Coincidencia y relevancia de las consultas
-QnA Maker depende de los [analizadores de idioma de Azure Search](https://docs.microsoft.com/rest/api/searchservice/language-support) para proporcionar resultados. 
+QnA Maker depende de los [analizadores de idioma de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/language-support) para proporcionar resultados. 
 
-Aunque las funcionalidades de Azure Search están en el mismo nivel que los idiomas admitidos, QnA Maker tiene un clasificador adicional que está por encima de los resultados de búsqueda de Azure. En este modelo de clasificador, se usan características semánticas y basadas en palabras especiales en los siguientes idiomas. 
+Aunque las funcionalidades de Azure Cognitive Search están en el mismo nivel que los idiomas admitidos, QnA Maker tiene un clasificador adicional que está por encima de los resultados de búsqueda de Azure. En este modelo de clasificador, se usan características semánticas y basadas en palabras especiales en los siguientes idiomas. 
 
 |Idiomas con un clasificador adicional|
 |--|

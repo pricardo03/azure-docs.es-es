@@ -1,7 +1,7 @@
 ---
 title: 'Compatibilidad con idiomas: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Una lista de los idiomas naturales admitidos por características de Computer Vision.
+description: 'En este artículo se proporciona una lista de lenguajes naturales admitidos por las características de Computer Vision: OCR, Reconocer texto y Lectura.'
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 516d21bc69bbc20f924a3bdf39eda7245fc08a28
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a834c68119340d796f87971912a07fc0524a6d21
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882962"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718617"
 ---
 # <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 

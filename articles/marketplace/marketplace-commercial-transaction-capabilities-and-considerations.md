@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
 author: yijenj
 manager: nuno costa
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279738"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823018"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funcionalidades y consideraciones sobre transacciones comerciales de Marketplace
 

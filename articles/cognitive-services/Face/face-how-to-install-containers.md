@@ -1,7 +1,7 @@
 ---
 title: 'Instalación y ejecución de contenedores: FACE API'
 titleSuffix: Azure Cognitive Services
-description: Cómo descargar, instalar y ejecutar contenedores para Face en este tutorial paso a paso.
+description: En este artículo se muestra cómo descargar, instalar y ejecutar contenedores para Face en un tutorial paso a paso.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: f2bf5766dc09b85f276349a5e72f1bc3b8ba23b3
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: b3c064ae2dbc37858ca6fe89742161e0dda1784f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316372"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743275"
 ---
 # <a name="install-and-run-face-containers"></a>Instalación y uso de contenedores de Face
 

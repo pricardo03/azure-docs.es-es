@@ -1,20 +1,21 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Content Moderator para Python | Microsoft Docs'
-description: Introducción a la biblioteca cliente de Content Moderator para Python.
+titleSuffix: Azure Cognitive Services
+description: Obtenga información sobre cómo empezar a usar la biblioteca cliente de Content Moderator de Azure Cognitive Services para Python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 62407467e3c63b1752ee6816325f097ad9a1f09e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3978b4ec302bf4dd2390f2390c967ca6e12e67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755252"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744398"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Content Moderator para Python
 
@@ -295,7 +296,7 @@ Use el código siguiente para eliminar una lista de imágenes determinada.
 
 ## <a name="create-a-review"></a>Creación de una revisión
 
-Puede usar el SDK de Python para Content Moderator para insertar contenido en la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) y que los moderadores humanos puedan revisarlo. Para más información sobre la herramienta de revisión, consulte la [guía conceptual](./review-tool-user-guide/human-in-the-loop.md).
+Puede usar el SDK de Python para Content Moderator para insertar contenido en la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) y que los moderadores humanos puedan revisarlo. Para más información sobre la herramienta de revisión, consulte la [guía conceptual de la herramienta de revisión](./review-tool-user-guide/human-in-the-loop.md).
 
 En el código siguiente se usa la clase [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) para crear una revisión, recuperar su identificador y comprobar sus detalles después de recibir la entrada humana a través del portal web de la herramienta de revisión.
 
@@ -312,7 +313,7 @@ Agregue el código siguiente para crear y publicar una revisión para la direcci
 
 ### <a name="get-review-details"></a>Obtención de detalles de la revisión
 
-Use el código siguiente para comprobar los detalles de una revisión determinada. Después de crear la revisión, puede ir a la herramienta de revisión e interactuar con el contenido. Cuando haya terminado, puede volver a ejecutar este código y se recuperarán los resultados del proceso de revisión.
+Use el código siguiente para comprobar los detalles de una revisión determinada. Después de crear la revisión, puede ir a la herramienta de revisión e interactuar con el contenido. Para obtener información sobre cómo hacerlo, consulte la [guía de procedimientos de revisión](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). Cuando haya terminado, puede volver a ejecutar este código y se recuperarán los resultados del proceso de revisión.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagereview_getdetails)]
 

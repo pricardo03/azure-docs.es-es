@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750259"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685114"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: REST
 
@@ -258,34 +258,36 @@ Consulte [Códigos de error](https://docs.microsoft.com/rest/api/media/jobs/get#
 
 ### <a name="create-a-streaming-locator"></a>Creación de un localizador de streaming
 
-Una vez finalizado el trabajo de codificación, el siguiente paso es poner el vídeo del **recurso** de salida a disposición de los clientes para su reproducción. Puede hacerlo en dos pasos: en primer lugar, cree un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) y, después, cree las direcciones URL de streaming que pueden usar los clientes. 
+Una vez finalizado el trabajo de codificación, el siguiente paso es poner el vídeo del **recurso** de salida a disposición de los clientes para su reproducción. Puede hacerlo en dos pasos: primero, cree un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) y, en segundo lugar, cree las direcciones URL de streaming que pueden usar los clientes. 
 
-El proceso de creación de un objeto **StreamingLocator** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, salvo que configure las horas de inicio y de finalización opcionales. 
+El proceso de creación de un localizador de streaming se denomina publicación. De forma predeterminada, el localizador de streaming es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, salvo que configure las horas de inicio y de finalización opcionales. 
 
-Al crear un objeto [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), debe especificar el objeto **StreamingPolicyName** deseado. En este ejemplo, va a transmitir contenido no cifrado, de modo que se puede usar la directiva de streaming sin cifrar predefinida, "Predefined_ClearStreamingOnly".
+Al crear un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), debe especificar el objeto **StreamingPolicyName** deseado. En este ejemplo, va a transmitir contenido no cifrado, de modo que se puede usar la directiva de streaming sin cifrar predefinida, "Predefined_ClearStreamingOnly".
 
 > [!IMPORTANT]
 > Al utilizar el objeto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizado, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus objetos StreamingLocator siempre que se necesiten las mismas opciones y protocolos de cifrado. 
 
-La cuenta de Media Service tiene una cuota para el número de entradas de **Streaming Policy**. No debe crear un objeto **StreamingPolicy** para cada objeto **StreamingLocator**.
+La cuenta de Media Service tiene una cuota para el número de entradas de **Streaming Policy**. No debe crear un objeto **Streaming Policy** para cada localizador de streaming.
 
-1. En la ventana izquierda de la aplicación Postman, seleccione "Streaming Policies" (Directivas de streaming).
-2. A continuación, seleccione "Create a Streaming Locator" (Crear un localizador de streaming).
+1. En la ventana izquierda de la aplicación Postman, seleccione "Streaming Policies and Locators" (Directivas de streaming y localizadores).
+2. A continuación, seleccione "Create a Streaming Locator (clear)" (Crear un localizador de streaming [sin cifrado]).
 3. Presione **Enviar**.
 
     * Se envía la siguiente operación **PUT**.
 
         ```
-        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
     * La operación tiene el siguiente cuerpo:
 
         ```json
         {
-            "properties":{
-            "assetName": "{{assetName}}",
-            "streamingPolicyName": "{{streamingPolicyName}}"
-            }
+          "properties": {
+            "streamingPolicyName": "Predefined_ClearStreamingOnly",
+            "assetName": "testAsset1",
+            "contentKeys": [],
+            "filters": []
+         }
         }
         ```
 

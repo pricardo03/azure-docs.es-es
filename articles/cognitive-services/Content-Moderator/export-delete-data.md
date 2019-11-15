@@ -1,7 +1,7 @@
 ---
 title: 'Exportación o eliminación de datos de usuario: Content Moderator'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información acerca de cómo exportar o eliminar datos en Content Moderator.
+description: Tiene control total sobre sus datos. Obtenga información acerca de cómo ver, exportar o eliminar datos en Content Moderator.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: b18bc2907c00ed1424db440f09c914faff6a9863
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 81713bf8d424b9f272f6b1bccf3657810160d4cf
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565568"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744791"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Exportación o eliminación de datos de usuario en Content Moderator
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: d52cb4d7b8e29838338baddd45a175661801b19b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 744958fc44a8d10bbc8ca5d44af8c473548ae5ca
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844666"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669160"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas en Azure Monitor
 
@@ -58,7 +58,7 @@ Esta propiedad captura en qué región de Azure se implementa el recurso para el
 Cada punto de datos que se envía a Azure Monitor debe marcarse con una marca de tiempo. Esta marca de tiempo captura la fecha y hora en que se midió o recopiló el valor de la métrica. Azure Monitor acepta datos de métrica con marcas de tiempo de hasta 20 minutos en el pasado y hasta 5 minutos en el futuro. La marca de tiempo debe estar en formato ISO 8601.
 
 ### <a name="namespace"></a>Espacio de nombres
-Los espacios de nombres son una manera de clasificar o agrupar las métricas similares. Mediante el uso de espacios de nombres se puede conseguir el aislamiento entre los grupos de métricas que puedan estar recopilando diferentes conclusiones o indicadores de rendimiento. Por ejemplo, podría tener un espacio de nombres denominado **ContosoMemoryMetrics** que realice el seguimiento de las métricas de uso de memoria que perfile una aplicación. Otro espacio de nombres denominado **ContosoAppTransaction** podría realizar un seguimiento de todas las métricas sobre las transacciones de usuario en la aplicación.
+Los espacios de nombres son una manera de clasificar o agrupar las métricas similares. Mediante el uso de espacios de nombres se puede conseguir el aislamiento entre los grupos de métricas que puedan estar recopilando diferentes conclusiones o indicadores de rendimiento. Por ejemplo, podría tener un espacio de nombres denominado **contosomemorymetrics** que realice el seguimiento de las métricas de uso de memoria que perfile una aplicación. Otro espacio de nombres denominado **contosoapptransaction** podría realizar un seguimiento de todas las métricas sobre las transacciones de usuario en la aplicación.
 
 ### <a name="name"></a>NOMBRE
 **Nombre** es el nombre de la métrica que se está notificando. Normalmente, el nombre es lo suficientemente descriptivo como para ayudar a identificar lo que se está midiendo. Un ejemplo es una métrica que mide el número de bytes de memoria utilizados en una máquina virtual determinada. Podría tener un nombre de métrica como **Bytes de memoria en uso**.
@@ -197,7 +197,7 @@ Durante la versión preliminar pública, la capacidad de publicar métricas pers
 ## <a name="quotas-and-limits"></a>Cuotas y límites
 Azure Monitor impone los siguientes límites de uso a las métricas personalizadas:
 
-|Categoría|Límite|
+|Category|Límite|
 |---|---|
 |Serie temporal activa/suscripciones/región|50.000|
 |Claves de dimensión por métrica|10|

@@ -1,22 +1,22 @@
 ---
-title: Migración de datos de eventos de Azure Event Hubs a SQL Data Warehouse | Microsoft Docs
-description: En este tutorial se muestra cómo capturar datos de una instancia de Event Hubs y migrarlos a SQL Data Warehouse mediante el uso de una función de Azure desencadenada por Event Grid.
+title: 'Tutorial: Migración de datos de eventos a SQL Data Warehouse: Azure Event Hubs'
+description: 'Tutorial: En este tutorial se muestra cómo capturar datos de una instancia de Event Hubs y migrarlos a SQL Data Warehouse mediante el uso de una función de Azure desencadenada por Event Grid.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604300"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718889"
 ---
-# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migración de datos de Event Hubs capturados a SQL Data Warehouse mediante Event Grid y Azure Functions
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migración de datos de Event Hubs capturados a SQL Data Warehouse mediante Event Grid y Azure Functions
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) es la forma más fácil de enviar automáticamente datos en streaming de Event Hubs a Azure Blob Storage o a Azure Data Lake Store. Posteriormente dichos datos se pueden procesar y enviar a otros destinos de almacenamiento, como SQL Data Warehouse o Cosmos DB. En este tutorial aprenderá a capturar datos de una instancia de Event Hubs y migrarlos a SQL Data Warehouse mediante el uso de una función de Azure desencadenada por [Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -68,7 +68,7 @@ Las secciones siguientes proporcionan comandos de CLI de Azure y Azure PowerShel
 
 Estos scripts tardan algún tiempo en crear todos los artefactos de Azure. Espere hasta que el script se complete antes de continuar. Si la implementación no se realiza por alguna razón, elimine el grupo de recursos, corrija el problema notificado y vuelva a ejecutar el comando. 
 
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>CLI de Azure
 Para implementar la plantilla mediante la CLI de Azure, use los siguientes comandos:
 
 ```azurecli-interactive

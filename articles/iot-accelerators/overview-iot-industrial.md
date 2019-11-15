@@ -1,6 +1,6 @@
 ---
 title: Introducción a Azure IoT industrial | Microsoft Docs
-description: Introducción a IoT industrial
+description: En este artículo se proporciona información general de IoT industrial. Se explican los componentes fábrica conectada, conectividad de la planta de producción y seguridad en IIoT.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3c3a54d469d3dcbe04c11aa049906b551d68022f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c5d70e5a8784e88d3f2906d500768735dced1ee0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606195"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828138"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>¿Qué es IoT industrial (IIoT)?
 

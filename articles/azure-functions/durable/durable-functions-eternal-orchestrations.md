@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d96229bb5e3d288915b64e5a7ce29a8651f2a181
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 99f57f2e0b34f2e596ff9cf1a872650228ef0acd
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177372"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614848"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestaciones infinitas en Durable Functions (Azure Functions)
 
@@ -26,7 +26,7 @@ Como se explica en el tema del [historial de orquestación](durable-functions-or
 
 ## <a name="resetting-and-restarting"></a>Restablecimiento y reinicio
 
-En lugar de utilizar bucles infinitos, las funciones de orquestador restablecen su estado mediante una llamada al método [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_). Este método toma un único parámetro serializable con JSON, que se convierte en la nueva entrada para la siguiente generación de función de orquestador.
+En lugar de utilizar bucles infinitos, las funciones de orquestador restablecen su estado mediante una llamada a los métodos `ContinueAsNew` (.NET) o `continueAsNew` (JavaScript) del [enlace de desencadenador de orquestación](durable-functions-bindings.md#orchestration-trigger). Este método toma un único parámetro serializable con JSON, que se convierte en la nueva entrada para la siguiente generación de función de orquestador.
 
 Cuando se llama a `ContinueAsNew`, la instancia pone en cola un mensaje para sí misma antes de cerrarse. El mensaje reinicia la instancia con el nuevo valor de entrada. Se conserva el mismo identificador de instancia, pero el historial de la función de orquestador se trunca eficazmente.
 
@@ -42,7 +42,7 @@ Un caso práctico de orquestaciones infinitas es el del código que se necesita 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     await context.CallActivityAsync("DoCleanup", null);
 
@@ -54,7 +54,10 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+> [!NOTE]
+> El ejemplo de C# anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -74,7 +77,8 @@ module.exports = df.orchestrator(function*(context) {
 La diferencia entre este ejemplo y una función desencadenada por temporizador es que aquí los tiempos del desencadenador de limpieza no se basan en una programación. Por ejemplo, una programación CRON que ejecuta una función cada hora lo hará a la 1:00, 2:00, 3:00, etc. y potencialmente podría encontrarse con problemas de superposición. Sin embargo, en este ejemplo, si la limpieza tarda 30 minutos, se programará a la 1:00, 2:30, 4:00, etc., de forma que no habrá posibilidad alguna de superposición.
 
 ## <a name="starting-an-eternal-orchestration"></a>Inicio de una orquestación infinita
-Use el método [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) para iniciar una orquestación infinita. Esto no es diferente a activar cualquier otra función de orquestación.  
+
+Utilice los métodos `StartNewAsync` (.NET) o `startNew` (JavaScript) para iniciar una orquestación infinita, igual que haría con cualquier otra función de orquestación.  
 
 > [!NOTE]
 > Si debe asegurarse de que se ejecuta una orquestación infinita singleton, es importante mantener el mismo `id` de instancia al iniciar la orquestación. Para más información, consulte el artículo sobre la [administración de instancias](durable-functions-instance-management.md).
@@ -83,7 +87,7 @@ Use el método [StartNewAsync](https://azure.github.io/azure-functions-durable-e
 [FunctionName("Trigger_Eternal_Orchestration")]
 public static async Task<HttpResponseMessage> OrchestrationTrigger(
     [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage request,
-    [OrchestrationClient] DurableOrchestrationClientBase client)
+    [DurableClient] IDurableOrchestrationClient client)
 {
     string instanceId = "StaticId";
     // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
@@ -92,11 +96,14 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 }
 ```
 
+> [!NOTE]
+> El código anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar el atributo `OrchestrationClient` en lugar del atributo `DurableClient`, además de usar el tipo de parámetro `DurableOrchestrationClient` en lugar de `IDurableOrchestrationClient`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+
 ## <a name="exit-from-an-eternal-orchestration"></a>Salir de una orquestación infinita
 
 Si en algún momento fuera necesario completar una función de orquestador, lo único que debe hacer es *no* llamar a `ContinueAsNew` y dejar que la función se cierre.
 
-Si una función de orquestador está en un bucle infinito y debe detenerse, use el método [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) para detenerla. Para más información, consulte el artículo sobre la [administración de instancias](durable-functions-instance-management.md).
+Si una función de orquestador se encuentra en un bucle infinito y debe detenerse, use los métodos `TerminateAsync` (.NET) o `terminate` (JavaScript) del [enlace del cliente de orquestación](durable-functions-bindings.md#orchestration-client) para detenerla. Para más información, consulte el artículo sobre la [administración de instancias](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

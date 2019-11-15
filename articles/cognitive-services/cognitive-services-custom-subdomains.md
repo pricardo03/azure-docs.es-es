@@ -1,7 +1,7 @@
 ---
 title: Subdominios personalizados
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services usa nombres de subdominio personalizados para cada recurso creado a través de Azure Portal, Azure Cloud Shell o la CLI de Azure. A diferencia de los puntos de conexión regionales, que son comunes para todos los clientes de una región específica de Azure, los nombres de subdominio personalizados son únicos en el recurso. Los nombres de subdominio personalizados son necesarios para habilitar características como Azure Active Directory (Azure AD) para la autenticación.
+description: Los nombres de subdominio personalizados para cada recurso se crean a través de Azure Portal, Azure Cloud Shell o la CLI de Azure.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 7153735052f96bef65bf3daaccde4eab3e61b0f9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473013"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647688"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nombres de subdominios personalizados para Cognitive Services
 

@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 49efad50b988da263a715c1aba9d53ad4b4a7121
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678381"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577061"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
 
@@ -180,13 +180,22 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
+A partir del SDK de Java 2.5.0 para Application Insights, puede especificar el nombre del rol en la nube agregando `<RoleName>` al archivo `ApplicationInsights.xml`. Por ejemplo:
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
 Si usa Spring Boot con el iniciador de Spring Boot de Application Insights, el único cambio necesario es establecer el nombre personalizado para la aplicación en el archivo application.properties.
 
 `spring.application.name=<name-of-app>`
 
 El iniciador de Spring Boot asignará de forma automática el nombre de rol en la nube al valor proporcionado para la propiedad spring.application.name.
-
-Para obtener más información sobre la correlación de Java y cómo configurar el nombre de rol en la nube para aplicaciones que no sean de SpringBoot, consulte esta [sección](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) sobre la correlación.
 
 ### <a name="clientbrowser-side-javascript"></a>JavaScript del lado cliente o explorador
 

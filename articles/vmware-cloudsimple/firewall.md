@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 798f95281740213ac23892eb3b54ff780ca18395
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 411b4bb74c21a445f4001c949e1c7811af212453
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772343"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606448"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configuración de tablas de firewall y reglas para las nubes privadas
 
@@ -33,6 +33,9 @@ Las tablas de firewall y las reglas asociadas permiten aplicar restricciones sob
 4. Escriba un nombre para la tabla.
 5. Se muestra una regla predeterminada para la tabla. Haga clic en **Create New Rule** (Crear nueva regla) para crear otra regla. Vea el procedimiento siguiente para más información.
 6. Haga clic en **Done** (Listo) para guardar la tabla de firewall.
+
+> [!IMPORTANT]
+> Puede crear hasta dos tablas de Firewall por cada nube privada.
 
 ## <a name="firewall-rules"></a>Reglas de firewall
 
@@ -61,6 +64,9 @@ Las reglas de firewall determinan cómo trata el firewall determinados tipos de 
     ![Regla de adición de tablas de firewall](media/firewall-rule-create.png)
 
 3. Haga clic en **Done** (Listo) para guardar la regla y agregarla a la lista de reglas de la tabla de firewall.
+
+> [!IMPORTANT]
+> Cada tabla de Firewall puede tener hasta diez reglas de entrada y veinte reglas de salida. Estos límites se pueden incrementar [poniéndose en contacto con soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="attach-vlanssubnets"></a>Asociación de redes VLAN o subredes
 

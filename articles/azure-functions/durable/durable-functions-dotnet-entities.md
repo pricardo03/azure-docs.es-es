@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 9eba76d78c2070f03ed835cdf2bf303ed72b1f7f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a59e5443c80c9372f646edfdae2261157a41acc9
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72801867"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614884"
 ---
-# <a name="developers-guide-to-durable-entities-in-net-preview"></a>Guía del desarrollador de entidades duraderas en .NET (versión preliminar)
+# <a name="developers-guide-to-durable-entities-in-net"></a>Guía del desarrollador de entidades duraderas en .NET
 
 En este artículo, se describen de forma detallada las interfaces disponibles para desarrollar entidades duraderas con .NET, y se incluyen ejemplos y consejos generales. 
 
@@ -130,7 +130,7 @@ La siguiente función http de Azure implementa una operación DELETE mediante co
 [FunctionName("DeleteCounter")]
 public static async Task<HttpResponseMessage> DeleteCounter(
     [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -147,7 +147,7 @@ La siguiente función http de Azure implementa una operación GET mediante conve
 [FunctionName("GetCounter")]
 public static async Task<HttpResponseMessage> GetCounter(
     [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -194,6 +194,7 @@ public interface ICounter
     Task<int> Get();
     void Delete();
 }
+
 public class Counter : ICounter
 {
     ...
@@ -212,7 +213,7 @@ El código de cliente puede usar `SignalEntityAsync<TEntityInterface>` para envi
 [FunctionName("DeleteCounter")]
 public static async Task<HttpResponseMessage> DeleteCounter(
     [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "Counter/{entityKey}")] HttpRequestMessage req,
-    [DurableClient] IDurableClient client,
+    [DurableClient] IDurableEntityClient client,
     string entityKey)
 {
     var entityId = new EntityId("Counter", entityKey);
@@ -451,6 +452,9 @@ public class HttpEntity
 
 > [!NOTE]
 > Para evitar problemas con la serialización, asegúrese de excluir de esta los campos destinados a almacenar los valores insertados.
+
+> [!NOTE]
+> A diferencia de cuando se usa la inserción de constructores en Azure Functions para .NET normal, el método de punto de entrada de las funciones se *debe* declarar `static` para las entidades basadas en clases. Declarar un punto de entrada de función no estático puede producir conflictos entre el inicializador de objetos de Azure Functions normal y el inicializador de objetos de las entidades duraderas.
 
 ## <a name="function-based-syntax"></a>Sintaxis basada en funciones
 

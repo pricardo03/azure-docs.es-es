@@ -1,7 +1,7 @@
 ---
 title: 'Configuración de contenedores: FACE API'
 titleSuffix: Azure Cognitive Services
-description: Opciones de configuración de los contenedores.
+description: El entorno en tiempo de ejecución del contenedor de Face se configura mediante los argumentos del comando `docker run`. Hay configuraciones obligatorias y opcionales.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: a07f088f7f5699a2698c0ea8fb0e853b3d287572
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 78fd2aa977062d2f0d6b981140f3db5b263e4651
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101952"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795035"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar los contenedores de Face en Docker
 
@@ -53,7 +53,7 @@ No olvide agregar la ruta _Face_ al URI de punto de conexión, tal como se muest
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
-|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](face-how-to-install-containers.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
 
 <!-- specific to face only -->
 

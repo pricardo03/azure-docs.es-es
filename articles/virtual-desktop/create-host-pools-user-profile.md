@@ -1,5 +1,5 @@
 ---
-title: 'Creación de un contenedor de perfiles de FSLogix para un grupo host mediante un recurso compartido de archivos basado en máquinas virtuales: Azure'
+title: 'Recurso compartido de contenedores de perfiles de FSLogix para Windows Virtual Desktop: Azure'
 description: Configuración de un contenedor de perfiles de FSLogix para un grupo de hosts de Windows Virtual Desktop mediante un recurso compartido de archivos basado en máquinas virtuales.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 0e7516fc4874e4cbc387f2f494efc6ef745d64f7
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 65d800cc6c1b6818369807ffeae9cd350a34066f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311594"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606985"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos
 

@@ -1,7 +1,7 @@
 ---
 title: Fórmulas para contenedores de Docker
 titleSuffix: Azure Cognitive Services
-description: Use estas fórmulas de contenedor para crear contenedores de Cognitive Services que pueden reutilizarse. Los contenedores pueden crearse con algunos o todos los valores de configuración, de forma que no se necesitan cuando se inicia el contenedor. Una vez que crea esta nueva capa de contenedor (con la configuración) y la ha probado localmente, puede almacenar el contenedor en un registro de contenedor. Cuando se inicia el contenedor, solo necesita los valores de configuración que no están almacenados actualmente en el contenedor.
+description: Obtenga información sobre cómo compilar, probar y almacenar contenedores con algunos o todos los valores de configuración para implementación y reutilización.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: a8162f96051a73b9f6e6a6fe3ece020e0a94f08f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: dbe2e288309b6682041bf3db9fe3d39455359806
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70068820"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647278"
 ---
 # <a name="create-containers-for-reuse"></a>Creación de contenedores para su reutilización
 

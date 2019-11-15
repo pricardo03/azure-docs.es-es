@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de una canalización mediante el Asistente para copia | Microsoft Docs'
+title: 'Tutorial: creación de una canalización con el Asistente para copia '
 description: En este tutorial, creará una canalización de Azure Data Factory con una actividad de copia mediante el Asistente para copia compatible con Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa5e7735d122dcf06b9b9692abb23441752082fa
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3afe58baa083ccbfe075476f9a7a8b36c30ca9c8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140366"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682815"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Creación de una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]

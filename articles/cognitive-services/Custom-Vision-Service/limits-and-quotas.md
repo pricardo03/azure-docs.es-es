@@ -1,7 +1,7 @@
 ---
 title: 'Límites y cuotas: Custom Vision Service'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre los límites y las cuotas para Custom Vision Service.
+description: En este artículo se explican los diferentes tipos de claves de licencia, así como los límites y las cuotas de Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 878e2b03e21c18ef4ee845251e91642037c6c5ff
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e4fc3555d7d880dcbd4f76d8f507300e98c237db
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114645"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718351"
 ---
 # <a name="limits-and-quotas"></a>Límites y cuotas
 

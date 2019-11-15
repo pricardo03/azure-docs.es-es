@@ -1,23 +1,23 @@
 ---
-title: 'Envío y recepción de eventos mediante Node.js: Azure Event Hubs | Microsoft Docs'
-description: En este artículo se ofrece un tutorial para crear una aplicación de Node.js que envía eventos de Azure Event Hubs.
+title: 'Inicio rápido: Envío y recepción de eventos mediante Node.js: Azure Event Hubs'
+description: 'Inicio rápido: En este artículo se ofrece un tutorial para crear una aplicación de Node.js que envía eventos de Azure Event Hubs.'
 services: event-hubs
 author: spelluru
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 04/15/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 3bb222d3197ef37d56767300d71cc350d25a37bd
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: ded2c83bc648e509c8cf00236cdf453b9c61af53
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984478"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720561"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>Envío o recepción de eventos en Event Hubs mediante Node.js
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>Inicio rápido: Envío o recepción de eventos en Event Hubs mediante Node.js
 
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
 

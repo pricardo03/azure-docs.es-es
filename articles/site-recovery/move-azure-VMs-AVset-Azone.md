@@ -1,6 +1,5 @@
 ---
-title: Traslado de máquinas virtuales de Azure IaaS a otra región de Azure como máquinas virtuales ancladas por zona mediante el servicio Azure Site Recovery | Microsoft Docs
-description: Use Azure Site Recovery para trasladar máquinas virtuales de IaaS de Azure a otra región de Azure como máquinas virtuales ancladas por zona.
+title: Traslado de máquinas virtuales a una región de Azure con zonas de disponibilidad mediante Azure Site Recovery
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
@@ -8,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a9e8ddcca727c4c457e4d92a880fb0cafe5ca6f8
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375741"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693189"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Traslado de máquinas virtuales de Azure a zonas de disponibilidad
 Availability Zones de Azure ayuda a proteger las aplicaciones y los datos de errores del centro de datos. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de Availability Zones dentro de una región ayuda a proteger las aplicaciones y los datos frente a los errores del centro de datos. Con la incorporación de Availability Zones, ofrecemos un acuerdo de nivel de servicio (SLA) que garantiza un tiempo de actividad de las máquinas virtuales (VM) del 99,99 %. Availability Zones se admite en regiones exclusivas, tal como se indica en [¿Qué es Availability Zones en Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).

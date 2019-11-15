@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: atsenthi
-ms.openlocfilehash: 6ee7c71a66488e9636752676d68a79fdfaf855cb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cf808bef75a73cef6e8c17045506f29fabf3b52e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599832"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819442"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
-Un clúster de Azure Service Fabric es un recurso que usted posee. Tiene la responsabilidad de proteger los clústeres para impedir que usuarios no autorizados se conecten a ellos. Proteger el clúster es especialmente importante si en él se ejecutan cargas de trabajo de producción. Aunque es posible crear un clúster sin protección, si este expone los puntos de conexión de administración a Internet público, podrían conectarse a él usuarios anónimos. Los clústeres sin protección no se admiten para cargas de trabajo de producción. 
+Un clúster de Azure Service Fabric es un recurso que usted posee. Tiene la responsabilidad de proteger los clústeres para impedir que usuarios no autorizados se conecten a ellos. Proteger el clúster es especialmente importante si en él se ejecutan cargas de trabajo de producción. Es posible crear un clúster sin protección. Sin embargo, si este expone los puntos de conexión de administración a Internet público, podrían conectarse a él usuarios anónimos. Los clústeres sin protección no se admiten para cargas de trabajo de producción. 
 
 Este artículo es una introducción a escenarios de seguridad para los clústeres de Azure e independientes, y las distintas tecnologías que se pueden usar para implementarlos:
 
@@ -57,7 +57,7 @@ La seguridad de cliente a nodo autentica los clientes y ayuda a proteger la comu
 Los clústeres que se ejecutan en Azure y los independientes que se ejecutan en Windows pueden utilizar una [seguridad basada en certificados](https://msdn.microsoft.com/library/ff649801.aspx) o la [seguridad de Windows](https://msdn.microsoft.com/library/ff649396.aspx).
 
 ### <a name="client-to-node-certificate-security"></a>Seguridad basada en certificados de cliente a nodo
-Configure la seguridad basada en certificados de cliente a nodo al crear el clúster, mediante Azure Portal, las plantillas de Resource Manager o una plantilla JSON independiente. Para crear el certificado, especifique un certificado de cliente de administración o de cliente de usuario. Es recomendable que los certificados de cliente de administración y de cliente de usuario que especifique sean diferentes de los certificados principales y secundarios que determine para la [seguridad de nodo a nodo](#node-to-node-security). De forma predeterminada, los certificados de clúster para la seguridad de nodo a nodo se agregan a la lista de certificados de administración de cliente permitidos.
+Configure la seguridad basada en certificados de cliente a nodo al crear el clúster, mediante Azure Portal, las plantillas de Resource Manager o una plantilla JSON independiente. Para crear el certificado, especifique un certificado de cliente de administración o de cliente de usuario. Es recomendable que los certificados de cliente de administración y de cliente de usuario que especifique sean diferentes de los certificados principales y secundarios que determine para la [seguridad de nodo a nodo](#node-to-node-security). Los certificados del clúster tienen los mismos derechos que los certificados de administración de clientes. Sin embargo, solo debe usarlos el clúster y no usuarios administrativos como procedimiento recomendado de seguridad.
 
 Los clientes que se conectan al clúster mediante el certificado de administración tienen acceso completo a las funcionalidades de administración. Los clientes que se conectan al clúster mediante el certificado de cliente de usuario de solo lectura tienen acceso de este tipo a las funcionalidades de administración. Estos certificados se usan para el control de acceso basado en rol (RBAC) que se describe más adelante en este artículo.
 

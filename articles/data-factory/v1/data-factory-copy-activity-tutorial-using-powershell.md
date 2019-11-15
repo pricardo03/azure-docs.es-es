@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de una canalización para mover datos con Azure PowerShell | Microsoft Docs'
+title: 'Tutorial: Creación de una canalización para mover datos con Azure PowerShell '
 description: En este tutorial, creará una canalización de Azure Data Factory con una actividad de copia mediante Azure PowerShell.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 191840b8f49dad4903af362d1651206adda9eef2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140307"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682850"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Creación de una canalización de Data Factory que mueve datos mediante Azure PowerShell
 > [!div class="op_single_selector"]

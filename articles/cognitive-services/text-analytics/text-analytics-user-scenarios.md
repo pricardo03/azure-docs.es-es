@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8d2aed16b5af60c44501e6d72332783a164ff91
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 19421788eea59ea250efbaa656266da49dc3b42f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478385"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742734"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Ejemplos de escenarios de usuario de Text Analytics API
 
@@ -48,4 +48,4 @@ Supervise los comentarios de los usuarios sobre productos en la página de Twitt
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es Text Analytics API?](overview.md)
-* [Envío de una solicitud a Text Analytics API mediante C#](quickstarts/csharp.md)
+* [Envío de una solicitud a Text Analytics API mediante la biblioteca cliente](quickstarts/text-analytics-sdk.md)

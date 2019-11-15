@@ -1,5 +1,5 @@
 ---
-title: 'Guía de procedimientos sobre las notificaciones por correo electrónico del ajuste automático: Azure SQL Database | Microsoft Docs'
+title: Guía paso a paso de notificaciones por correo electrónico para el ajuste automático
 description: Habilite las notificaciones por correo electrónico para la optimización automática de consultas de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: df9390c00c34fce82de8cc17efb5cc3bce2e4e3d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b48c37a6e607d121416ebae4d74e58f39670b79a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569446"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821923"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificaciones por correo electrónico para el ajuste automático
 

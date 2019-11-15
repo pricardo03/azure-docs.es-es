@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos desde Amazon Simple Storage Service mediante Data Factory | Microsoft Docs
+title: Movimiento de datos desde Amazon Simple Storage Service mediante Data Factory
 description: Aprenda a mover datos desde Amazon Simple Storage Service (S3) mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ec44ae7956669ee4e16d2c6ca00794c566272037
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 970e8d2b960c3a4be1c5208d7fa3a21bc05d9e9a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69892008"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683213"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Movimiento de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

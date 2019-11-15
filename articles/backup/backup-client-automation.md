@@ -1,6 +1,6 @@
 ---
 title: Uso de PowerShell para hacer una copia de seguridad de Windows Server en Azure
-description: Obtenga información sobre cómo implementar y administrar Azure Backup mediante PowerShell
+description: En este artículo aprenderá  usar PowerShell para configurar Azure Backup en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.
 ms.reviewer: shivamg
 author: dcurwin
 manager: carmonm
@@ -8,18 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: d65da05ea2b24e3820d9a6fde31b3d4a5c72dbd1
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 78b83eb725da09dc98df05865ba4d41c505f0f4c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656748"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747250"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
 
 En este artículo se muestra cómo usar PowerShell para configurar Azure Backup en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.
 
 ## <a name="install-azure-powershell"></a>Instalar Azure Powershell
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para empezar, [instale la versión más reciente de PowerShell](/powershell/azure/install-az-ps).
@@ -78,7 +79,6 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="installing-the-azure-backup-agent"></a>Instalación del agente de Azure Backup
@@ -100,7 +100,7 @@ Para instalar el agente, ejecute el comando siguiente en una consola de PowerShe
 MARSAgentInstaller.exe /q
 ```
 
-Esto instala el agente con todas las opciones predeterminadas. La instalación está unos minutos en segundo plano. Si no se especifica la opción */nu* , se abrirá la ventana de **Windows Update** al final de la instalación para comprobar si hay actualizaciones. Una vez instalado, el agente se mostrará en la lista de programas instalados.
+Esto instala el agente con todas las opciones predeterminadas. La instalación está unos minutos en segundo plano. Si no se especifica la opción */nu*, se abrirá la ventana de **Windows Update** al final de la instalación para comprobar si hay actualizaciones. Una vez instalado, el agente se mostrará en la lista de programas instalados.
 
 Para ver la lista de programas instalados, vaya a **Panel de Control** > **Programas** > **Programas y características**.
 
@@ -246,7 +246,7 @@ En este momento la directiva está vacía y se necesitan otros cmdlet para defin
 
 ### <a name="configuring-the-backup-schedule"></a>Configuración de la programación de la copia de seguridad
 
-La primera de las tres partes de una directiva es la programación de copia de seguridad, que se crea usando el cmdlet [New-OBSchedule](https://technet.microsoft.com/library/hh770401) . La programación de copia de seguridad define cuándo deben realizarse copias de seguridad. Al crear una programación se deben especificar dos parámetros de entrada:
+La primera de las tres partes de una directiva es la programación de copia de seguridad, que se crea usando el cmdlet [New-OBSchedule](https://technet.microsoft.com/library/hh770401). La programación de copia de seguridad define cuándo deben realizarse copias de seguridad. Al crear una programación se deben especificar dos parámetros de entrada:
 
 * **Días de la semana** en los que se debe ejecutar la copia de seguridad. Puede ejecutar el trabajo de copia de seguridad en solo un día o cada día de la semana, o cualquier combinación intermedia.
 * **Horas del día** a las que se debe ejecutar la copia de seguridad. Puede definir hasta tres horas distintas del día en las que se activará la copia de seguridad.
@@ -266,9 +266,10 @@ Set-OBSchedule -Policy $NewPolicy -Schedule $Schedule
 ```Output
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
+
 ### <a name="configuring-a-retention-policy"></a>Configuración de una directiva de retención
 
-La directiva de retención define cuánto tiempo se conservan los puntos de recuperación de los trabajos de copia de seguridad. Al crear una nueva directiva de retención mediante el cmdlet [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) , puede especificar el número de días que los puntos de recuperación de copia de seguridad deben conservarse con Azure Backup. En el ejemplo siguiente se establece una directiva de retención de 7 días.
+La directiva de retención define cuánto tiempo se conservan los puntos de recuperación de los trabajos de copia de seguridad. Al crear una nueva directiva de retención mediante el cmdlet [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) , puede especificar el número de días que los puntos de recuperación de copia de seguridad deben conservarse con Azure Backup. En el ejemplo siguiente se establece una directiva de retención de siete días.
 
 ```powershell
 $RetentionPolicy = New-OBRetentionPolicy -RetentionDays 7
@@ -300,6 +301,7 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+
 ### <a name="including-and-excluding-files-to-be-backed-up"></a>Incluir y excluir archivos de copia de seguridad
 
 Un objeto `OBFileSpec` define los archivos incluidos y excluidos de una copia de seguridad. Se trata de un conjunto de reglas de ámbito de los archivos y carpetas protegidos de un equipo. Puede tener tantas reglas de inclusión o exclusión de archivos como se necesiten y asociarlas con una directiva. Al crear un nuevo objeto OBFileSpec, puede:
@@ -310,7 +312,7 @@ Un objeto `OBFileSpec` define los archivos incluidos y excluidos de una copia de
 
 Esto último se consigue mediante la marca -NonRecursive del comando New-OBFileSpec.
 
-En el ejemplo siguiente, crearemos copias de seguridad del volumen C: y D: y excluiremos los archivos binarios de sistema operativo de la carpeta de Windows y las carpetas temporales. Para ello, crearemos dos especificaciones de archivos mediante el cmdlet [New-OBFileSpec](https://technet.microsoft.com/library/hh770408) : uno para la inclusión y otro para la exclusión. Una vez que se hayan creado las especificaciones de archivo, se asocian con la directiva mediante el cmdlet [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424) .
+En el ejemplo siguiente, crearemos copias de seguridad del volumen C: y D: y excluiremos los archivos binarios de sistema operativo de la carpeta de Windows y las carpetas temporales. Para ello, crearemos dos especificaciones de archivos mediante el cmdlet [New-OBFileSpec](https://technet.microsoft.com/library/hh770408): uno para la inclusión y otro para la exclusión. Una vez que se hayan creado las especificaciones de archivo, se asocian con la directiva mediante el cmdlet [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424) .
 
 ```powershell
 $Inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
@@ -403,11 +405,13 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+
 ## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Copia de seguridad del estado del sistema de Windows Server en el agente de MABS
 
 En esta sección se describe el comando de PowerShell para configurar el estado del sistema en el agente de MABS.
 
 ### <a name="schedule"></a>Schedule
+
 ```powershell
 $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
 ```
@@ -432,7 +436,7 @@ Get-OBSystemStatePolicy
 
 ### <a name="applying-the-policy"></a>Aplicación de la directiva
 
-Ahora el objeto de la directiva está finalizado y tiene una programación de copia de seguridad asociada, una directiva de retención y una lista de inclusión o exclusión de archivos. Ahora se puede confirmar esta directiva para ser usada por Azure Backup. Antes de aplicar la directiva recién creada, asegúrese de que no haya ninguna directiva de copia de seguridad existente asociada con el servidor mediante el uso del cmdlet [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) . Para eliminar la directiva, se le pedirá confirmación. Para omitir el uso de la confirmación, use la marca `-Confirm:$false` con el cmdlet.
+Ahora el objeto de la directiva está finalizado y tiene una programación de copia de seguridad asociada, una directiva de retención y una lista de inclusión o exclusión de archivos. Ahora se puede confirmar esta directiva para ser usada por Azure Backup. Antes de aplicar la directiva recién creada, asegúrese de que no haya ninguna directiva de copia de seguridad existente asociada con el servidor mediante el uso del cmdlet [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415). Para eliminar la directiva, se le pedirá confirmación. Para omitir el uso de la confirmación, use la marca `-Confirm:$false` con el cmdlet.
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy
@@ -770,7 +774,7 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre Azure Backup para Windows Server o cliente de Windows, consulte
+Para más información sobre Azure Backup para Windows Server o cliente de Windows:
 
 * [Introducción a Azure Backup](backup-introduction-to-azure-backup.md)
 * [Copia de seguridad de servidores Windows](backup-configure-vault.md)

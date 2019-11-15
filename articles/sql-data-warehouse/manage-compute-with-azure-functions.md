@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial: Administración de recursos de proceso con Azure Functions en Azure SQL Data Warehouse| Microsoft Docs'
+title: 'Tutorial: Administración de procesos con Azure Functions'
 description: Cómo usar las funciones de Azure para administrar el proceso del almacenamiento de datos.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 04/27/2018
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61083944"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693024"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Uso de Azure Functions para administrar recursos de proceso en Azure SQL Data Warehouse
 
@@ -92,7 +93,7 @@ Actualmente, las funciones predeterminadas son *DWScaleDownTrigger* y *DWScaleUp
 3. Navegue hasta las pestañas *Integrar* pestañas para cambiar la programación de los respectivos desencadenadores.
 
    > [!NOTE]
-   > La diferencia funcional entre los desencadenadores de escalado y los desencadenadores de pausar y reanudar es el mensaje que se envía a la cola. Para obtener más información, vea [Añadir una nueva función de desencadenador][Add a new trigger function].
+   > La diferencia funcional entre los desencadenadores de escalado y los desencadenadores de pausar y reanudar es el mensaje que se envía a la cola. Para obtener más información, consulte [Agregar una nueva función de desencadenador][Add a new trigger function].
 
 
 ## <a name="add-a-new-trigger-function"></a>Añadir una nueva función de desencadenador

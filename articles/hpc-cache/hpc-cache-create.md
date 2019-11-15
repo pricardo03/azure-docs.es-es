@@ -1,19 +1,19 @@
 ---
-title: Creación de una instancia de Azure HPC Cache (versión preliminar)
-description: Creación de una instancia de Azure HPC Cache
+title: Creación de una instancia de Azure HPC Cache
+description: Cómo crear una instancia de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 7052b88a24ff5353656a71a7bfb044922ae1415c
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 1b9d2d3c46aab2096dd9208e0bea7f7776c0e429
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709981"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582705"
 ---
-# <a name="create-an-azure-hpc-cache-preview"></a>Creación de una instancia de Azure HPC Cache (versión preliminar)
+# <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
 Uso de Azure Portal para crear una memoria caché.
 
@@ -23,7 +23,7 @@ Uso de Azure Portal para crear una memoria caché.
 
 ![captura de pantalla de la página de detalles del proyecto en Azure Portal](media/hpc-cache-create-basics.png)
 
-En **Detalles del proyecto**, seleccione la suscripción y el grupo de recursos que hospedará la caché. Asegúrese de que la suscripción está en la lista de [acceso de la versión preliminar](hpc-cache-prereqs.md#azure-subscription).
+En **Detalles del proyecto**, seleccione la suscripción y el grupo de recursos que hospedará la caché. Asegúrese de que la suscripción se encuentre en la lista de [acceso](hpc-cache-prereqs.md#azure-subscription).
 
 En **Detalles del servicio**, establezca el nombre de la memoria caché y estos otros atributos:
 

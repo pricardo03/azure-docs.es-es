@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de una instancia de Azure SQL Data Warehouse: Azure PowerShell | Microsoft Docs'
+title: 'Inicio rápido: creación de un almacén: Azure PowerShell'
 description: Cree rápidamente un servidor lógico de SQL Database, una regla de firewall de nivel de servidor y una base de datos de almacenamiento de datos con Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f5ee4227b0aeb53be4512dafc91f814468b50c12
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: cfc427b11944cb81d8bc3d12d13668d53be698b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574909"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693106"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Inicio rápido: Creación y consulta de una instancia de Azure SQL Data Warehouse con Azure PowerShell
 
@@ -119,7 +120,7 @@ New-AzSqlDatabase `
 
 Los parámetros obligatorios son:
 
-* **RequestedServiceObjectiveName**: la cantidad de [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) que solicita. Si se aumenta esta cantidad, aumentará el costo de proceso. Para ver una lista de los valores compatibles, consulte los [límites de memoria y simultaneidad](memory-and-concurrency-limits.md).
+* **RequestedServiceObjectiveName**: la cantidad de [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) que solicita. Si se aumenta esta cantidad, aumentará el costo de proceso. Para ver una lista de los valores compatibles, consulte los [límites de memoria y simultaneidad]memory-concurrency-limits.md).
 * **DatabaseName**: el nombre de SQL Data Warehouse que está creando.
 * **ServerName**: el nombre del servidor que se usa para la creación.
 * **ResourceGroupName**: el grupo de recursos que está usando. Para buscar grupos de recursos que estén disponibles en su suscripción, use Get-AzureResource.

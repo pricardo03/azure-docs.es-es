@@ -11,14 +11,17 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d94cc52f547017c7e4698d04583a1a1cde25a174
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: de4565fd8b44a589dbb6c435ecf3e0625ef97b16
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177152"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73613402"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-nodejs"></a>Inicio rápido: Extracción de texto impreso (OCR) mediante la API REST Computer Vision y Node.js
+
+> [!NOTE]
+> Si va a extraer texto en idioma inglés, considere la posibilidad de usar la nueva [operación de lectura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text).
 
 En esta guía de inicio rápido, extraerá texto impreso con el reconocimiento óptico de caracteres (OCR) de una imagen con la API de REST de Computer Vision. Con el método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), puede detectar texto impreso en cualquier imagen y extraer los caracteres reconocidos en una secuencia de caracteres que pueda usar una máquina.
 

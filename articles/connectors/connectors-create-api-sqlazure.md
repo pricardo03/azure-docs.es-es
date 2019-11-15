@@ -10,13 +10,13 @@ ms.reviewer: klam; LADocs
 manager: carmonm
 ms.topic: conceptual
 tags: connectors
-ms.date: 10/14/2019
-ms.openlocfilehash: 6c86ef26bbf7bd9dbce8aa77aef2213b14b57f5f
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.date: 11/08/2019
+ms.openlocfilehash: a6367e5897e9bd548550b099c0bd2e6186845d6d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311953"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826328"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatización de flujos de trabajo en SQL Server o Azure SQL Database mediante Azure Logic Apps
 
@@ -44,7 +44,11 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-* Antes de poder conectar las aplicaciones lógicas a sistemas locales, como SQL Server, debe [configurar una puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md). De ese modo, puede seleccionar la puerta de enlace al crear la conexión de SQL de la aplicación lógica.
+* La [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) instalada en un equipo local y un [recurso de puerta de enlace de datos de Azure creado en Azure Portal](../logic-apps/logic-apps-gateway-connection.md) para estos escenarios:
+
+  * Sus aplicaciones lógicas no se ejecutan en un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+
+  * Sus aplicaciones lógicas *se* ejecutan en un entorno del servicio de integración, pero debe usar la autenticación de Windows para su conexión de SQL Server. En este escenario, use la versión no ISE del conector de SQL Server junto con la puerta de enlace de datos, ya que la versión de ISE no admite la autenticación de Windows.
 
 * La aplicación lógica en la que necesita acceso a la base de datos SQL. Para iniciar la aplicación lógica con un desencadenador de SQL, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -68,7 +72,7 @@ En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenad
 
 1. Establezca las propiedades **Interval** (Intervalo) y **Frequency** (Frecuencia), que especifican la frecuencia con que la aplicación lógica comprueba la tabla.
 
-   Este desencadenador solo devuelve una fila de la tabla seleccionada, nada más. Para realizar otras tareas, agregue otras acciones que realicen las tareas que quiera. Por ejemplo, para ver los datos de esta fila, puede agregar otras acciones que creen un archivo que incluya los campos de la fila devuelta y, luego, que luego envíen alertas por correo electrónico. Para información sobre otras acciones disponibles para este conector, consulte la [página de referencia del conector](/connectors/sql/).
+   Este desencadenador solo devuelve una fila de la tabla seleccionada, nada más. Para realizar otras tareas, agregue otras acciones que realicen las tareas que quiera. Por ejemplo, para ver los datos de esta fila, puede agregar otras acciones que creen un archivo que incluya los campos de la fila devuelta y, luego, que luego envíen alertas por correo electrónico. Para información sobre otras acciones disponibles para este conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/sql/).
 
 1. Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador.
 
@@ -84,7 +88,7 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
 
 1. En el desencadenador o la acción donde quiera agregar la acción de SQL, seleccione **Nuevo paso**.
 
-   ![Selección de "New step" (Nuevo paso)](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
+   ![Adición de un nuevo paso a la aplicación lógica](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
    Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
@@ -92,13 +96,13 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
 
    En este ejemplo se usa la acción **Obtener fila**, que obtiene un único registro.
 
-   ![Búsqueda y selección de la acción "Obtener fila" de SQL](./media/connectors-create-api-sqlazure/select-sql-get-row.png)
+   ![Búsqueda y selección de la acción "Obtener fila" de SQL](./media/connectors-create-api-sqlazure/find-select-sql-get-row-action.png)
 
-   Esta acción solo devuelve una fila de la tabla seleccionada, nada más. Para ver los datos de esta fila, puede agregar otras acciones que creen un archivo que incluya los campos de la fila devuelta y almacenar ese archivo en una cuenta de almacenamiento en la nube. Para información sobre otras acciones disponibles para este conector, consulte la [página de referencia del conector](/connectors/sql/).
+   Esta acción solo devuelve una fila de la tabla seleccionada, nada más. Para ver los datos de esta fila, puede agregar otras acciones que creen un archivo que incluya los campos de la fila devuelta y almacenar ese archivo en una cuenta de almacenamiento en la nube. Para información sobre otras acciones disponibles para este conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/sql/).
 
 1. Si se le pide que cree una conexión, [cree ahora la conexión de SQL](#create-connection). Si la conexión existe, seleccione un **nombre de tabla** y escriba el **identificador de fila** del registro que desee.
 
-   ![Escribir el nombre de la tabla y el identificador de la fila](./media/connectors-create-api-sqlazure/table-row-id.png)
+   ![Escribir el nombre de la tabla y el identificador de la fila](./media/connectors-create-api-sqlazure/specify-table-row-id-property-value.png)
 
 1. Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador.
 
@@ -132,7 +136,7 @@ En ocasiones, tendrá que trabajar con conjuntos de resultados tan grandes que e
 
 ## <a name="connector-specific-details"></a>Detalles específicos del conector
 
-Para información técnica sobre los desencadenadores, las acciones y los límites de este conector, consulte la [página de referencia del conector](/connectors/sql/).
+Para información técnica sobre los desencadenadores, las acciones y los límites de este conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/sql/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

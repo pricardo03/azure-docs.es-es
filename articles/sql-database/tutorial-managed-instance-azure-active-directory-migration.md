@@ -1,20 +1,21 @@
 ---
-title: Migración de los grupos y usuarios de Windows locales de SQL Server a una instancia administrada de Azure SQL Database mediante la sintaxis DDL de T-SQL | Microsoft Docs
+title: Migración de usuarios y grupos de Windows de SQL Server a una instancia administrada mediante T-SQL
 description: Más información acerca de cómo migrar los usuarios y grupos de Windows locales de SQL Server a una instancia administrada
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/22/2019
-ms.openlocfilehash: ca0997010fef40c0927960c04588c031dd85fff8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 10/30/2019
+ms.openlocfilehash: 3ed4e4b1d37a9705378281ca74b53a6b60713d97
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795066"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807170"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Tutorial: Migración de los grupos y usuarios de Windows locales de SQL Server a una instancia administrada de Azure SQL Database mediante la sintaxis DDL de T-SQL
 
@@ -41,6 +42,8 @@ Para completar este tutorial son necesarios los siguientes requisitos previos:
 - Acceso a Active Directory para crear usuarios y grupos.
 - Una instancia de SQL Server ya existente en el entorno local.
 - Una instancia administrada ya existente. Consulte [Quickstart: Creación de una instancia administrada de Azure SQL Database](sql-database-managed-instance-get-started.md).
+  - Para crear inicios de sesión de Azure AD, se debe usar `sysadmin` en una instancia administrada.
+- [Cree un administrador de Azure AD para la instancia administrada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 - Puede conectarse a la instancia administrada dentro de la red. Para más información, consulte los artículos siguientes: 
     - [Conexión de la aplicación a una instancia administrada de Azure SQL Database](sql-database-managed-instance-connect-app.md)
     - [Inicio rápido: Configuración de una conexión de punto a sitio a una Instancia administrada de Azure SQL Database desde el entorno local](sql-database-managed-instance-configure-p2s.md)
@@ -212,9 +215,12 @@ Consulte [Inicio rápido: Restauración de una base de datos en una instancia ad
 
 ## <a name="part-4-migrate-users-to-managed-instance"></a>Parte 4: Migración de usuarios a una instancia administrada
 
+> [!NOTE]
+> La funcionalidad de administrador de Azure AD para instancia administrada después de la creación ha cambiado. Para obtener más información, consulte [Nueva funcionalidad de administrador de Azure AD para MI](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+
 Ejecute el comando ALTER USER para completar el proceso de migración en la instancia administrada.
 
-1. Inicie sesión en la instancia administrada mediante la cuenta de administrador de SQL para la instancia administrada. A continuación, cree el inicio de sesión de Azure AD en la instancia administrada mediante la siguiente sintaxis:
+1. Inicie sesión en la instancia administrada mediante la cuenta de administrador de Azure AD para la instancia administrada. A continuación, cree el inicio de sesión de Azure AD en la instancia administrada mediante la siguiente sintaxis. Para más información, consulte [Tutorial: Seguridad de una instancia administrada de Azure SQL Database mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master 

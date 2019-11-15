@@ -1,5 +1,5 @@
 ---
-title: Compilación de la primera instancia de Data Factory (PowerShell) | Microsoft Docs
+title: Compilación de la primera factoría de datos (PowerShell)
 description: En este tutorial, creará un de ejemplo de canalización de Azure Data Factory mediante Azure PowerShell.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 3e60e31f62d74a22a87c60f70e62bd5148906607
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 0209b004ba54417a26cd41716687d328ec1431cf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140414"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682995"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Compilación de la primera factoría de datos de Azure mediante Azure PowerShell
 > [!div class="op_single_selector"]

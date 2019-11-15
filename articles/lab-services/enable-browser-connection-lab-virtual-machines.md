@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: takamath
-ms.openlocfilehash: 1df671cf6ff71b53c5bb7ba9c23f123e56777356
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 080dd91b2ab6792debfae3a3ccc97b0927015de4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641988"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580147"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Habilitar una conexión del explorador en máquinas virtuales de laboratorio 
 
@@ -26,8 +26,6 @@ DevTest Labs se integra con [Azure Bastion](https://docs.microsoft.com/azure/bas
 
 Como propietario de un laboratorio, puede habilitar el acceso a todas las máquinas virtuales de laboratorio a través de un explorador. No es necesario un cliente, agente o componente de software adicional. Azure Bastion proporciona una conexión RDP/SSH segura e ininterrumpida a las máquinas virtuales directamente en Azure Portal a través de SSL. Cuando se conecta a través de Azure Bastion, las máquinas virtuales no necesitan una dirección IP pública. Para más información, vea [¿Qué es Azure Bastion?](../bastion/bastion-overview.md)
 
-> [!NOTE]
-> La capacidad de habilitar una conexión del explorador en máquinas virtuales de laboratorio está en fase de versión preliminar.
 
 En este artículo se explica cómo habilitar una conexión del explorador en máquinas virtuales de laboratorio.
 
@@ -44,7 +42,8 @@ Para saber cómo conectar el laboratorio con una red virtual configurada de Bast
 1. En la lista de laboratorios, seleccione el *suyo*. 
 
     > [!NOTE]
-    > Azure Bastion se encuentra actualmente en fase de versión preliminar y se limita a las siguientes regiones: Oeste de EE. UU., Este de EE. UU., Oeste de Europa, Centro y Sur de EE. UU., Este de Australia y Este de Japón. Por lo tanto, cree un laboratorio en una de estas regiones si el suyo no está en una de ellas. 
+    > Azure Bastion ya está disponible con carácter general en las regiones siguientes: Oeste de EE. UU., Este de EE. UU., Oeste de Europa, Centro y Sur de EE. UU., Este de Australia y Este de Japón. Por lo tanto, cree un laboratorio en una de estas regiones si el suyo no está en una de ellas. 
+    
 1. Seleccione **Configuración y directivas** en la sección **Configuración** en el menú de la izquierda. 
 1. Seleccione **Redes virtuales**.
 1. Seleccione **Agregar** en la barra de herramientas. 

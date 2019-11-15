@@ -1,6 +1,6 @@
 ---
-title: Uso de colas de Service Bus de Azure con Ruby | Microsoft Docs
-description: Obtenga información acerca de cómo usar las colas de Service Bus en Azure. Ejemplos de código escritos en Ruby.
+title: 'Inicio rápido: Uso de colas de Azure Service Bus con Ruby'
+description: 'Inicio rápido: Obtenga información acerca de cómo usar las colas de Service Bus en Azure. Ejemplos de código escritos en Ruby.'
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -11,17 +11,17 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 48f60b7c07cc16b4d9994d5644069fdcb4881e0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09fdc58254d260b6ffeff958b6bbda50332adfac
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991874"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718759"
 ---
-# <a name="how-to-use-service-bus-queues-with-ruby"></a>Uso de colas de Service Bus con Ruby
+# <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Inicio rápido: Uso de colas de Service Bus con Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 

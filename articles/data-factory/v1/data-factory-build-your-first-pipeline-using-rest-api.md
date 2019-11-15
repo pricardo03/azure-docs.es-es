@@ -1,5 +1,5 @@
 ---
-title: Compilación de la primera instancia de Data Factory (REST) | Microsoft Docs
+title: Compilación de la primera factoría de datos (REST)
 description: En este tutorial se crea un ejemplo de canalización de Azure Data Factory con la API de REST de Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: da62b07b03aea94749f1d0a332d52790a06635ce
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7644bac01784ea795f24b967223b0eb37354ca87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162553"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682971"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Compilación de la primera factoría de datos Azure mediante la API REST de Data Factory
 > [!div class="op_single_selector"]

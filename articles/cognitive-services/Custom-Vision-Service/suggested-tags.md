@@ -1,40 +1,40 @@
 ---
-title: Etiquetado más rápido de imágenes con etiquetas sugeridas
+title: Etiquetado más rápido de imágenes con Smart Labeler
 titleSuffix: Azure Cognitive Services
-description: En esta guía, aprenderá a usar etiquetas sugeridas para etiquetar un gran número de imágenes más rápidamente al entrenar modelos de Custom Vision.
+description: En esta guía, aprenderá a usar Smart Labeler para generar etiquetas sugeridas para las imágenes. Esto le permite etiquetar un gran número de imágenes más rápidamente al entrenar un modelo de Custom Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/29/2019
 ms.author: pafarley
-ms.openlocfilehash: 06735240729fb2bfd21b87f592e143e9ceabb390
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 94ca47e6114e4f8c3485f6072facd07c25e4b96a
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753484"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647753"
 ---
-# <a name="label-images-faster-with-suggested-tags"></a>Etiquetado más rápido de imágenes con etiquetas sugeridas
+# <a name="label-images-faster-with-smart-labeler"></a>Etiquetado más rápido de imágenes con Smart Labeler
 
-En esta guía, aprenderá a usar la característica de etiquetas sugeridas para etiquetar un gran número de imágenes más rápidamente al entrenar modelos de Custom Vision. 
+En esta guía, aprenderá a usar Smart Labeler para generar etiquetas sugeridas para las imágenes. Esto le permite etiquetar un gran número de imágenes más rápidamente al entrenar un modelo de Custom Vision.
 
 Al etiquetar las imágenes para un modelo de Custom Vision, el servicio utiliza la iteración entrenada más reciente del modelo para predecir las etiquetas de las imágenes sin etiquetar. Después, muestra estas predicciones como etiquetas sugeridas según el umbral de confianza seleccionado y la incertidumbre de la predicción. Después puede confirmar o cambiar las sugerencias y acelerar el proceso de etiquetado manual de las imágenes para el entrenamiento.
 
-## <a name="when-to-use-suggested-tags"></a>Cuándo usar las etiquetas sugeridas
+## <a name="when-to-use-smart-labeler"></a>Cuándo usar Smart Labeler
 
 Tenga presentes las siguientes limitaciones:
 
 * Solo debería solicitar etiquetas sugeridas para las imágenes cuyo contenido ya se ha entrenado una vez. No obtenga sugerencias para una nueva etiqueta que acaba de entrenar.
 
 > [!IMPORTANT]
-> La característica de etiquetas sugeridas usa el mismo [modelo de precios](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) que las predicciones normales. La primera vez que desencadene etiquetas sugeridas para un conjunto de imágenes, se le cobrará lo mismo que para las llamadas de predicción. Después, el servicio almacena los resultados de las imágenes seleccionadas en una base de datos durante 30 días y puede acceder a ellas en cualquier momento y de forma gratuita dentro de ese período. Después de 30 días, se le cobrará si solicita de nuevo sus etiquetas sugeridas.
+> Smart Labeler usa el mismo [modelo de precios](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) que las predicciones normales. La primera vez que desencadene etiquetas sugeridas para un conjunto de imágenes, se le cobrará lo mismo que para las llamadas de predicción. Después, el servicio almacena los resultados de las imágenes seleccionadas en una base de datos durante 30 días y puede acceder a ellas en cualquier momento y de forma gratuita dentro de ese período. Después de 30 días, se le cobrará si solicita de nuevo sus etiquetas sugeridas.
 
-## <a name="suggested-tags-workflow"></a>Flujo de trabajo de las etiquetas sugeridas
+## <a name="smart-labeler-workflow"></a>Flujo de trabajo de Smart Labeler
 
-Estos pasos le muestran cómo usar la característica de etiquetas sugeridas:
+Estos pasos le muestran cómo usar Smart Labeler:
 
 1. Cargue todas las imágenes de entrenamiento en el proyecto de Custom Vision.
 1. Etiquete parte del conjunto de datos y elija un número igual de imágenes para cada etiqueta.
@@ -44,7 +44,7 @@ Estos pasos le muestran cómo usar la característica de etiquetas sugeridas:
 1. Una vez completado el entrenamiento, vaya a la vista **Sin etiqueta** y seleccione el botón **Get suggested tags** (Obtener etiquetas sugeridas) en el panel izquierdo.
     > [!div class="mx-imgBorder"]
     > ![El botón de etiquetas sugeridas se muestra en la pestaña de imágenes sin etiquetar.](./media/suggested-tags/suggested-tags-button.png)
-1. Seleccione el conjunto de imágenes para el que desea obtener sugerencias. Solo debe obtener sugerencias de las etiquetas iniciales para una parte de las imágenes sin etiquetar. Obtendrá mejores sugerencias de etiqueta a medida que recorra en iteración este proceso.
+1. En la ventana emergente que aparece, establezca el número de imágenes para las que quiere obtener sugerencias. Solo debe obtener sugerencias de las etiquetas iniciales para una parte de las imágenes sin etiquetar. Obtendrá mejores sugerencias de etiqueta a medida que recorra en iteración este proceso.
 1. Confirme las etiquetas sugeridas y corrija las que no sean correctas.
     > [!TIP]
     > Las imágenes con etiquetas sugeridas se ordenan por su incertidumbre de predicción (los valores más bajos indican una mayor confianza). Puede cambiar el criterio de ordenación con la opción **Sort by uncertainty** (Ordenar por incertidumbre). Si establece el orden en **alto a bajo**, puede corregir primero las predicciones de alta incertidumbre y, después, confirmar rápidamente las incertidumbres bajas.

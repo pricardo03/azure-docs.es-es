@@ -1,5 +1,5 @@
 ---
-title: Introducción a Data Factory, un servicio de integración de datos | Microsoft Docs
+title: Introducción a Data Factory, un servicio de integración de datos
 description: Sepa lo que es Azure Data Factory, un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 2e508839cd343820a36cc715ebde0f47c2ac4ab1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139523"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666796"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

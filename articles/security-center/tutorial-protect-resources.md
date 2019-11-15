@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de Azure Security Center: protección de los recursos con Azure Security Center | Microsoft Docs'
+title: 'Tutorial sobre controles de aplicaciones y acceso: Azure Security Center'
 description: En este tutorial se muestra cómo configurar una directiva de acceso a las máquinas virtuales Just-In-Time y una directiva de control de aplicaciones.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 8cb07f3447e50528a94811f33a2142086f698586
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996326"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686334"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Protección de los recursos con Azure Security Center
 Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a las máquinas virtuales Just-In-Time (JIT) reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a las máquinas virtuales. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
@@ -29,8 +29,6 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Configuración de una directiva de acceso a las máquinas virtuales Just-In-Time
 > * Configuración de una directiva de control de aplicación
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para recorrer todas las características que se tratan en este tutorial, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
@@ -96,7 +94,7 @@ Los controles de aplicación adaptables ayudan a definir un conjunto de aplicaci
 4. Cuando haya terminado de realizar las selecciones, elija **Crear**.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Otras guías de inicio rápido y tutoriales de esta colección se basan en los valores de esta. Si planea continuar trabajando con las guías rápidas y tutoriales posteriores, debe seguir ejecutando el plan de tarifa Estándar y mantener el aprovisionamiento automático habilitado. Si no planea continuar o desea volver al nivel Gratis:
+Otras guías de inicio rápido y tutoriales de esta colección se basan en los valores de esta. Si planea continuar trabajando con las guías rápidas y tutoriales posteriores, siga ejecutando el plan de tarifa Estándar y mantenga el aprovisionamiento automático habilitado. Si no planea continuar o desea volver al nivel Gratis:
 
 1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
 2. Seleccione la suscripción o directiva que desea que vuelva al nivel Gratis. Se abre **Directiva de seguridad**.

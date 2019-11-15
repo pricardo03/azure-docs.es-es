@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de Azure Security Center: respuesta a incidentes relacionados con la seguridad | Microsoft Docs'
+title: 'Tutorial de respuesta a incidentes: Azure Security Center'
 description: 'Tutorial de Azure Security Center: respuesta a incidentes relacionados con la seguridad'
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 11c2543de2b5456d253e7e905065eea14810877a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cd3f99fe82c9a8e5e760aa3be3bed1ad5d9bd5e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200612"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663638"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Respuesta a incidentes de seguridad
 Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado e inteligencia de amenazas para alertarle de cualquier actividad malintencionada. Además, en Security Center se pueden integrar alertas de otros servicios y productos de seguridad, así como crear alertas personalizadas basadas en indicadores u orígenes de inteligencia propios. Una vez que se genera una alerta, es necesario investigarla y tomar las medidas correctoras de inmediato. En este tutorial, aprenderá a:
@@ -66,7 +66,7 @@ Security Center proporciona una vista unificada de todas las alertas de segurida
 
 1. En el menú principal de Security Center, en **DETECCIÓN**, seleccione **Alertas de seguridad**:
 
-   ![Alertas de seguridad](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Alertas de seguridad](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
 2. Para más información acerca de este incidente, en la lista de alertas, haga clic en un incidente de seguridad, que es una colección de alertas. Se abre **Security incident detected** (Incidente de seguridad detectado).
 

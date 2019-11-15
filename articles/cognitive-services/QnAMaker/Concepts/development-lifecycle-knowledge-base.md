@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 52d4efaba25dcede3322586d05fceb4d166f51e3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 1cb5af13bdd309c762337e64ecde8538afc756b0
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973804"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794841"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de una base de conocimiento de QnA Maker
 QnA Maker aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión. 
@@ -47,7 +47,7 @@ Para KB de gran tamaño, use pruebas automatizadas con la [API generateAnswer](.
 ```
 
 ## <a name="publish-the-knowledge-base"></a>Publicación de una base de conocimiento
-Cuando haya terminado de probar la base de conocimiento, puede publicarla. Al publicar, se inserta la versión más reciente de la base de conocimiento probada en un índice de Azure Search dedicado que representa la base de conocimiento **publicada**. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
+Cuando haya terminado de probar la base de conocimiento, puede publicarla. Al publicar, se inserta la versión más reciente de la base de conocimiento probada en un índice de Azure Cognitive Search dedicado que representa la base de conocimiento **publicada**. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
 
 De esta manera, los cambios realizados en la versión de prueba de la base de conocimiento no afectan a la versión publicada que podría estar activa en una aplicación de producción.
 

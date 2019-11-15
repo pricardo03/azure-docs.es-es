@@ -1,6 +1,6 @@
 ---
-title: 'Introducción al cambio de los distintos métodos de información de seguridad (versión preliminar): Azure Active Directory | Microsoft Docs'
-description: Información general acerca de cómo agregar, actualizar y eliminar los métodos de información de seguridad para la comprobación mediante dos factores y autoservicio de restablecimiento de contraseña.
+title: 'Introducción al cambio de información de seguridad (versión preliminar): Azure AD'
+description: Vínculos a artículos sobre cómo agregar, actualizar y eliminar los métodos de información de seguridad para la verificación en dos pasos y el autoservicio de restablecimiento de contraseña.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bcef64c8bf8c2b52e5cc5d954de933d830ba4c1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3b781cd30bc5f63199ef9bff45670fa618e2ca17
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382889"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803818"
 ---
 # <a name="overview-about-changing-your-security-info-preview-methods-and-information"></a>Introducción al cambio de los distintos métodos de información de seguridad (versión preliminar)
 

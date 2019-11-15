@@ -1,7 +1,7 @@
 ---
 title: 'Regiones de publicación y puntos de conexión: LUIS'
 titleSuffix: Azure Cognitive Services
-description: Tres regiones de creación y sus portales admiten todas las regiones de publicación. La región en la que publique la aplicación de LUIS corresponde a la región o ubicación que especifique en Azure Portal al crear una clave de punto de conexión de LUIS para Azure. Al publicar una aplicación, LUIS genera automáticamente una dirección URL de punto de conexión para la región asociada a la clave.
+description: La región especificada en Azure Portal es la misma donde se publicará la aplicación LUIS y se generará una dirección URL de punto de conexión para esta misma región.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: diberry
-ms.openlocfilehash: f859047caf64d27ef63783ecd42f12fc9b79b4fd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fe4436afe56e631ae308b70ae35b1fb4a7c32e11
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933345"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669181"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creación y publicación de regiones y las claves asociadas
 
