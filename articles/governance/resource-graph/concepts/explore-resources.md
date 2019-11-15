@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: b92975e3fe73fb1c882bdfc4338fd8e169728e8b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 58eb5abc9a8857b81ada65c96eb7deaaa5cc5aeb
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387646"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622664"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Exploración de recursos de Azure con el gráfico de recursos
 
@@ -312,6 +312,6 @@ Para ver cómo llevar a cabo estos pasos en una sola consulta con el operador `j
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [lenguaje de consulta](query-language.md)
-- Ver el lenguaje en uso en el artículo de[consultas básicas](../samples/starter.md)
-- Consultar usos avanzados en el artículo de [consultas avanzadas](../samples/advanced.md)
+- Obtenga más información sobre el [lenguaje de consulta](query-language.md).
+- Consulte el lenguaje en uso en[Consultas básicas](../samples/starter.md).
+- Consulte los usos avanzados en [Consultas avanzadas](../samples/advanced.md).

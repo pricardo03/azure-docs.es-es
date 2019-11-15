@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4b4e82acbd3037c70b87731c0661605041090435
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791294"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614511"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Control de versiones en Durable Functions (Azure Functions)
 
@@ -32,7 +32,7 @@ Por ejemplo, supongamos que tenemos la siguiente función de orquestador.
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -43,16 +43,19 @@ Esta sencilla función toma los resultados de **Foo** y los pasa a **Bar**. Supo
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int result = await context.CallActivityAsync<int>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
 
-Este cambio funciona bien en todas las nuevas instancias de la función de orquestador, pero interrumpe todas las instancias en curso. Por ejemplo, considere el caso en el que una instancia de orquestación llama a **Foo**, obtiene un valor booleano y, a continuación, establece puntos de control. Si el cambio de firma se implementa en este momento, se producirá un error en la instancia con los puntos de control inmediatamente después de que se reanude y reproduzca la llamada a `context.CallActivityAsync<int>("Foo")`. Esto se debe a que el resultado de la tabla de historial es `bool`, pero el nuevo código intenta deserializarlo en `int`.
+> [!NOTE]
+> Los ejemplos de C# anteriores tienen como destino Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
-Esta es solo una de las muchas maneras en las que un cambio de firma puede interrumpir las instancias existentes. En general, si un orquestador necesita cambiar la manera en que llama a una función, probablemente el cambio sea problemático.
+Este cambio funciona bien en todas las nuevas instancias de la función de orquestador, pero interrumpe todas las instancias en curso. Por ejemplo, considere el caso en el que una instancia de orquestación llama a una función denominada `Foo`, obtiene un valor booleano y, a continuación, establece puntos de control. Si el cambio de firma se implementa en este momento, se producirá un error en la instancia con los puntos de control inmediatamente después de que se reanude y reproduzca la llamada a `context.CallActivityAsync<int>("Foo")`. Este error se debe a que el resultado de la tabla de historial es `bool`, pero el nuevo código intenta deserializarlo en `int`.
+
+Este ejemplo es solo una de las muchas maneras en las que un cambio de firma puede interrumpir las instancias existentes. En general, si un orquestador necesita cambiar la manera en que llama a una función, probablemente el cambio sea problemático.
 
 ### <a name="changing-orchestrator-logic"></a>Cambiar la lógica del orquestador
 
@@ -62,7 +65,7 @@ Considere la función de orquestador siguiente:
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -73,7 +76,7 @@ Ahora supongamos que desea realizar un cambio en apariencia inofensivo para agre
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     if (result)
@@ -84,6 +87,9 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
     await context.CallActivityAsync("Bar", result);
 }
 ```
+
+> [!NOTE]
+> Los ejemplos de C# anteriores tienen como destino Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 Este cambio agrega una nueva llamada de función a **SendNotification** entre **Foo** y **Bar**. No hay ningún cambio de firma. El problema surge cuando se reanuda una instancia existente desde la llamada a **Bar**. Durante la reproducción, si la llamada original a **Foo** devolvió `true`, la reproducción del orquestador llamará a **SendNotification**, que no está en su historial de ejecución. En consecuencia, se produce un error de Durable Task Framework con la excepción `NonDeterministicOrchestrationException` porque ha encontrado una llamada a **SendNotification** cuando esperaba una llamada a **Bar**. El mismo tipo de problema puede producirse al agregar llamadas a API "durables", incluidas `CreateTimer`, `WaitForExternalEvent`, etc.
 
@@ -99,11 +105,11 @@ Estas son algunas de las estrategias para tratar los desafíos que plantea el co
 
 La manera más sencilla de controlar un cambio importante es dejar que se produzca el error en las instancias de orquestación en curso. Las nuevas instancias ejecutan correctamente el código modificado.
 
-Que esto suponga un problema dependerá de la importancia de sus instancias en curso. Si se encuentra en una fase de desarrollo activo y no le preocupan las instancias en curso, esto podría ser suficiente. Sin embargo, deberá tener en cuenta que su canalización de diagnóstico presentará errores y excepciones. Si desea evitar estos inconvenientes, considere la posibilidad de utilizar otras opciones de control de versiones.
+Que este tipo de error suponga un problema dependerá de la importancia de sus instancias en curso. Si se encuentra en una fase de desarrollo activo y no le preocupan las instancias en curso, esto podría ser suficiente. Aunque deberá tener en cuenta que su canalización de diagnóstico presentará errores y excepciones. Si desea evitar estos inconvenientes, considere la posibilidad de utilizar otras opciones de control de versiones.
 
 ### <a name="stop-all-in-flight-instances"></a>Detener todas las instancias en curso
 
-Otra opción es detener todas las instancias en curso. Esto puede realizarse borrando el contenido de las colas **de control** y **de elementos de trabajo** internas. Las instancias se quedarán definitivamente donde están, pero esto evitará que su telemetría se llene de mensajes de error. Esta opción es la ideal para un desarrollo de prototipos rápido.
+Otra opción es detener todas las instancias en curso. La detención de todas las instancias puede realizarse borrando el contenido de las colas **de control** y **de elementos de trabajo** internas. Las instancias se quedarán definitivamente donde están, pero esto evitará que sus registros se llenen de mensajes de error. Este enfoque es el idóneo para un desarrollo de prototipos rápido.
 
 > [!WARNING]
 > Los detalles de estas colas pueden cambiar con el tiempo, por lo que no debe dependerse de esta técnica para cargas de trabajo de producción.
@@ -114,7 +120,7 @@ El método menos propenso a errores para garantizar que los cambios importantes 
 
 * Implemente todas las implementaciones como funciones completamente nuevas, dejando las funciones existentes tal cual. Esto puede ser complicado, ya que los autores de llamada de las nuevas versiones de función deben actualizarse también siguiendo las mismas directrices.
 * Implemente todas las actualizaciones como una nueva aplicación de función con una cuenta de almacenamiento diferente.
-* Implemente una nueva copia de la aplicación de función con la misma cuenta de almacenamiento, pero con un nombre `taskHub` actualizado. Este es la técnica recomendada.
+* Implemente una nueva copia de la aplicación de función con la misma cuenta de almacenamiento, pero con un nombre `taskHub` actualizado. La técnica recomendada es realizar implementaciones en paralelo.
 
 ### <a name="how-to-change-task-hub-name"></a>Cómo cambiar el nombre de la central de tareas
 
@@ -130,7 +136,7 @@ La central de tareas se puede configurar en el archivo *host.json* de la siguien
 }
 ```
 
-#### <a name="functions-2x"></a>Functions 2.x
+#### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {

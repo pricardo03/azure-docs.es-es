@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 82d12d3f88199a11ec3c53da50b755d90be373d3
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: da47a471ddcf2c083ed127b79e4d3da9713d2ed4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72560586"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719057"
 ---
 Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memoria a CPU que es excelente para servidores de bases de datos relacionales, memorias caché de medianas a grandes y análisis en memoria. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación.
 
 * La serie Ev3 tiene el procesador Intel® Xeon® 8171M de 2,1 GHz (Skylake) o el procesador Intel® Xeon® E5-2673 v4 de 2,3 GHz en una configuración de Hyper-Threading. Gracias a esto, proporciona una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general y la equipara con las máquinas virtuales de propósito general de la mayoría de las demás tecnologías de nube.  Se ha ampliado la memoria (de 7 GiB/vCPU a 8 GiB/vCPU), y los límites de disco y red se han ajustado por núcleo para equipararse con el cambio a hyperthreading.  La serie Ev3 es la continuación de los tamaños de máquina virtual de memoria alta de las familias D/Dv2.
 
-* Los tamaños de la versión preliminar de las series Eav3 y Easv3 utilizan el procesador 7452 EPYC<sup>TM</sup> de AMD de 2,35 Ghz en una configuración de varios subprocesos con una caché L3 de hasta 256 MB, lo que aumenta las opciones para ejecutar la mayoría de las cargas de trabajo optimizadas para memoria.  Las series Eav3 y Easv3 tienen las mismas configuraciones de memoria y disco que las series Ev3 y Esv3.
+* Las series Eav4 y Easv4 utilizan el procesador EPYC<sup>TM</sup> 7452 de 2,35 GHz de AMD en una configuración de varios subprocesos con una caché L3 de hasta 256 MB, lo que aumenta las opciones para ejecutar la mayoría de las cargas de trabajo optimizadas para memoria.  Las series Eav4 y Easv4 tienen las mismas configuraciones de memoria y disco que las series Ev3 y Esv3.
 
 * La serie Mv2 ofrece el mayor número de vCPU (hasta 416 vCPU) y la memoria más grande (hasta 8,19 TiB) de todas las máquinas virtuales en la nube. Es ideal para bases de datos extremadamente grandes u otras aplicaciones que se benefician de un elevado número de vCPU y grandes cantidades de memoria.
 
@@ -35,7 +35,7 @@ Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memori
 
 ACU: 160-190 <sup>1</sup>
 
-Premium Storage:  Compatible
+Premium Storage: Compatible
 
 Almacenamiento en caché de Premium Storage:  Compatible
 
@@ -61,33 +61,37 @@ La serie Ev3 tiene el procesador Intel® Xeon® 8171M de 2,1 GHz (Skylake) o el
 
 <sup>3</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 
-## <a name="easv3-series-preview"></a>Serie Easv3 (versión preliminar)
+## <a name="easv4-series"></a>Serie Easv4
+
+ACU: 230 - 260
 
 Premium Storage: Compatible
 
 Almacenamiento en caché de Premium Storage: Compatible
 
-Los tamaños de la serie Easv3 se basan en el procesador 7452 EPYC<sup>TM</sup> de AMD de 2,35 Ghz que pueden alcanzar Fmax incrementado de 3,35 Ghz y usar el almacenamiento premium. Los tamaños de la serie Easv3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
+Los tamaños de la serie Easv4 se basan en el procesador EPYC<sup>TM</sup> 7452 de AMD de 2,35 Ghz que pueden alcanzar una frecuencia máxima incrementada de 3,35 Ghz y usar SSD Premium. Los tamaños de la serie Easv4 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
-[Suscríbase a la versión preliminar](http://aka.ms/azureamdpreview).
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC / ancho de banda de red esperado (MBps) |
+|-----|-----|-----|-----|-----|-----|-----|-----|
+| Standard_E2as_v4|2|16|32|4|4000/32 (50)|3200/48|2 / 1000 |
+| Standard_E4as_v4|4|32|64|8|8000/64 (100)|6400/96|2 / 2000 |
+| Standard_E8as_v4|8|64|128|16|16000/128 (200)|12800/192|4/4000 |
+| Standard_E16as_v4|16|128|256|32|32 000 / 255 (400)|25600/384|8 / 8000 |
+| Standard_E20as_v4|20|160|320|32|40000 / 320 (500)|32000 / 480|8 / 10 000 |
+| Standard_E32as_v4|32|256|512|32|64 000 / 510 (800)|51200/768|8 / 16000 |
+| Standard_E48as_v4 <sup>**</sup> |48|384|768|32|  | | 
+| Standard_E64as_v4 <sup>**</sup> |64|512|1024|32| | | 
+| Standard_E96as_v4 <sup>**</sup> |96|672|1344|32| | |  
 
-| Size | vCPU | Memoria: GiB | Almacenamiento temporal (SSD): GiB |
-|---|---|---|---|
-| Standard_E2as_v3  | 2  | 16  | 32  |
-| Standard_E4as_v3  | 4  | 32  | 64  |
-| Standard_E8as_v3  | 8  | 64  | 128 |
-| Standard_E16as_v3 | 16 | 128 | 256 |
-| Standard_E32as_v3 | 32 | 256 | 512 |
-| Standard_E48as_v3 | 48 | 384 | 768 |
-| Standard_E64as_v3 | 64 | 432 | 864 |
+<sup>**</sup>  Estos tamaños se encuentran en versión preliminar. Si está interesado en probar estos tamaños más grandes, regístrese en [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## <a name="ev3-series"></a>Serie Ev3 
 
 ACU: 160 - 190 <sup>1</sup>
 
-Premium Storage:  No compatible
+Premium Storage: No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Almacenamiento en caché de Premium Storage: No compatible
 
 La serie Ev3 tiene el procesador Intel® Xeon® 8171M de 2,1 GHz (Skylake) o el procesador Intel® Xeon® E5-2673 v4 de 2,3 GHz (Broadwell) y puede alcanzar 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
@@ -112,25 +116,29 @@ El almacenamiento en disco de datos se factura de forma independiente a las máq
 
 <sup>3</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 
-## <a name="eav3-series-preview"></a>Serie Eav3 (versión preliminar)
+## <a name="eav4-series"></a>Serie Eav4
+
+ACU: 230 - 260
 
 Premium Storage: No compatible
 
 Almacenamiento en caché de Premium Storage: No compatible
 
-Los tamaños de la serie Eav3 se basan en el procesador 7452 EPYC<sup>TM</sup> de AMD de 2,35 Ghz que pueden alcanzar Fmax incrementado de 3,35 Ghz y usar el almacenamiento premium. Los tamaños de la serie Eav3 son ideales para aplicaciones empresariales de uso intensivo de memoria. El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar discos de Premium Storage, utilice los tamaños de la serie Easv3. El precio y los medidores de facturación para los tamaños Easv3 son los mismos que para la serie Eav3.
+Los tamaños de la serie Eav4 se basan en el procesador EPYC<sup>TM</sup> 7452 de AMD de 2,35 Ghz que pueden alcanzar una frecuencia máxima incrementada de 3,35 Ghz y usar SSD Premium. Los tamaños de la serie Eav4 son ideales para aplicaciones empresariales de uso intensivo de memoria. El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar SSD Premium, use los tamaños de la serie Easv4. El precio y los medidores de facturación para los tamaños Easv4 son los mismos que para la serie Eav3.
 
-[Suscríbase a la versión preliminar](http://aka.ms/azureamdpreview).
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Nº máx. de NIC / ancho de banda de red esperado (MBps) |
+| -----|-----|-----|-----|-----|-----|-----|
+| Standard\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 / 1000 |
+| Standard\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 / 2000 |
+| Standard\_E8a\_v4|8|64|200|16|12000 / 187 / 93|4/4000 |
+| Standard\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 / 8000 |
+| Standard\_E20a\_v4|20|160|500|32|30000 / 468 / 234|8 / 10 000 |
+| Standard\_E32a\_v4|32|256|800|32|48000 / 750 / 375|8 / 16000 |
+| Standard\_E48a\_v4 <sup>**</sup> |48|384|1200|32| | |
+| Standard\_E64a\_v4 <sup>**</sup> |64|512|1600|32| | |
+| Standard\_E96a\_v4 <sup>**</sup> |96|672|2400|32| | |
 
-| Size             | vCPU | Memoria: GiB | Almacenamiento temporal (SSD): GiB |
-|------------------|------|-------------|-------------------------|
-| Standard_E2a_v3  | 2    | 16          | 50                      |
-| Standard_E4a_v3  | 4    | 32          | 100                     |
-| Standard_E8a_v3  | 8    | 64          | 200                     |
-| Standard_E16a_v3 | 16   | 128         | 400                     |
-| Standard_E32a_v3 | 32   | 256         | 800                     |
-| Standard_E48a_v3 | 48   | 384         | 1200                    |
-| Standard_E64a_v3 | 64   | 432         | 1600                    |
+<sup>**</sup>  Estos tamaños se encuentran en versión preliminar.  Si está interesado en probar estos tamaños más grandes, regístrese en [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## <a name="mv2-series"></a>Serie Mv2
 
@@ -161,9 +169,9 @@ La serie Mv2 ofrece una plataforma de alto rendimiento y baja latencia que se ej
 
 ACU: 160-180 <sup>1</sup>
 
-Premium Storage:  Compatible
+Premium Storage: Compatible
 
-Almacenamiento en caché de Premium Storage:  Compatible
+Almacenamiento en caché de Premium Storage: Compatible
 
 Los tamaños de la serie M se basan en la CPU Intel(R) Xeon(R) E7-8890 v3 @ 2,50 GHz   
 
@@ -190,7 +198,7 @@ Acelerador de escritura:  [Compatible](https://docs.microsoft.com/azure/virtual-
 
 <sup>1</sup> Las VM de la serie M cuentan con la tecnología Hyper-Threading de Intel®
 
-<sup>2</sup> Si hay más de 64 vCPU, se necesita uno de estos sistemas operativos invitados compatibles: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 y Red Hat Enterprise Linux, CentOS 7.3 u Oracle Linux 7.3 con LIS 4.2.1.
+<sup>2</sup> Más de 64 vCPU requieren uno de estos sistemas operativos invitados compatibles: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 y Red Hat Enterprise Linux, CentOS 7.3 u Oracle Linux 7.3 con LIS 4.2.1.
 
 <sup>3</sup> Tamaños de núcleos restringidos disponibles.
 
@@ -202,9 +210,9 @@ Acelerador de escritura:  [Compatible](https://docs.microsoft.com/azure/virtual-
 
 ACU: 210 - 250 <sup>1</sup>
 
-Premium Storage:  Compatible
+Premium Storage: Compatible
 
-Almacenamiento en caché de Premium Storage:  Compatible
+Almacenamiento en caché de Premium Storage: Compatible
 
 Los tamaños de la serie DSv2 se ejecutan en procesadores Intel® Xeon® 8171M de 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 de 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 de 2,4 GHz (Haswell).
 
@@ -227,9 +235,9 @@ Los tamaños de la serie DSv2 se ejecutan en procesadores Intel® Xeon® 8171M d
 
 ACU: 210 - 250
 
-Premium Storage:  No compatible
+Premium Storage: No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Almacenamiento en caché de Premium Storage: No compatible
 
 Los tamaños de la serie DSv2 se ejecutan en procesadores Intel® Xeon® 8171M de 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 de 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 de 2,4 GHz (Haswell).
 

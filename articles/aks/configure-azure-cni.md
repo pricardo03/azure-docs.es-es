@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: e7c63d3b52a57a952c311937036f0f7da15ebefc
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ab28203a240cf360fb990ac42fdbc2d83864f68b
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299603"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604782"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -71,10 +71,12 @@ El número máximo de pods por nodo en un clúster de AKS es 250. El número má
 
 Puede configurar el número máximo de pods por nodo *solo en tiempo de implementación del clúster*. Si realiza la implementación con la CLI de Azure o con una plantilla de Resource Manager, puede establecer un valor máximo de pods por nodo de hasta 250.
 
+Se exige un valor mínimo para los pods máximos por nodo para garantizar el espacio de los pods del sistema críticos para el estado del clúster. El valor mínimo que se puede establecer para los pods máximos por nodo es diez si y solo si la configuración de cada grupo de nodos tiene espacio para un mínimo de treinta pods. Por ejemplo, si se establece el número máximo de pods por nodo en el mínimo de diez, cada grupo de nodos individual debe tener un mínimo de tres nodos. Este requisito se aplica también a cada nuevo grupo de nodos que se crea, por lo que si se define diez como el número máximo de pods por nodo, cada grupo de nodos que se agregue después debe tener al menos tres nodos.
+
 | Redes | Mínima | Máxima |
 | -- | :--: | :--: |
-| CNI de Azure | 30 | 250 |
-| Kubenet | 30 | 110 |
+| CNI de Azure | 10 | 250 |
+| Kubenet | 10 | 110 |
 
 > [!NOTE]
 > El valor mínimo de la tabla anterior lo aplica estrictamente el servicio AKS. No se puede establecer un valor de maxPods inferior al mínimo que se muestra; de lo contrario, podría impedirse el inicio del clúster.

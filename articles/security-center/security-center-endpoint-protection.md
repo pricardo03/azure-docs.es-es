@@ -1,5 +1,5 @@
 ---
-title: Detección de soluciones de Endpoint Protection y evaluación del mantenimiento en Azure Security Center | Microsoft Docs
+title: Recomendaciones de Endpoint Protection en Azure Security Center
 description: Cómo se detectan las soluciones de Endpoint Protection y cómo se determina que tienen un estado correcto.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: memildin
-ms.openlocfilehash: 8de0caa5db4a7e1d97c7d6c055bcb01fed635821
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202256"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748434"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Valoración y recomendaciones de Endpoint Protection en Azure Security Center
 
@@ -35,23 +35,23 @@ Azure Security Center proporciona evaluaciones de estado de las versiones [admit
 
   * Todas estas propiedades son false:
 
-     **AMServiceEnabled**
+    **AMServiceEnabled**
 
-     **AntispywareEnabled**
+    **AntispywareEnabled**
 
-     **RealTimeProtectionEnabled**
+    **RealTimeProtectionEnabled**
 
-     **BehaviorMonitorEnabled**
+    **BehaviorMonitorEnabled**
 
-     **IoavProtectionEnabled**
+    **IoavProtectionEnabled**
 
-     **OnAccessProtectionEnabled**
+    **OnAccessProtectionEnabled**
 
   * Si una de las siguientes propiedades, o las dos, es mayor o igual que 7.
 
-     **AntispywareSignatureAge**
+    **AntispywareSignatureAge**
 
-     **AntivirusSignatureAge**
+    **AntivirusSignatureAge**
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center Endpoint Protection
 
@@ -61,30 +61,30 @@ Azure Security Center proporciona evaluaciones de estado de las versiones [admit
 
     * Al menos una de las propiedades siguientes es false:
 
-       **AMServiceEnabled**
+            **AMServiceEnabled**
+
+            **AntispywareEnabled**
     
-       **AntispywareEnabled**
+            **RealTimeProtectionEnabled**
     
-       **RealTimeProtectionEnabled**
+            **BehaviorMonitorEnabled**
     
-       **BehaviorMonitorEnabled**
+            **IoavProtectionEnabled**
     
-       **IoavProtectionEnabled**
-    
-       **OnAccessProtectionEnabled**
+            **OnAccessProtectionEnabled**
           
     * Si una de las siguientes actualizaciones de firma, o las dos, es mayor o igual que 7. 
 
-       **AntispywareSignatureAge**
+            **AntispywareSignatureAge**
     
-       **AntivirusSignatureAge**
+            **AntivirusSignatureAge**
 
 ## <a name="trend-micro"></a>Trend Micro
 
 * Security Center recomienda **"Instalar soluciones de Endpoint Protection en la máquina virtual"** si no se satisface ninguna de las siguientes comprobaciones:
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** existe.
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** existe.
-    * El archivo **dsq_query.cmd** se encuentra en la carpeta de instalación.
+    * El archivo **dsa_query.cmd** se encuentra en la carpeta de instalación.
     * La ejecución de **dsa_query.cmd** da como resultado **Component.AM.mode: on - Trend Micro Deep Security Agent detected**.
 
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
@@ -94,7 +94,7 @@ Security Center recomienda **"Instalar soluciones de Endpoint Protection en la m
 
 * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-o
+Or
 
 * **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
@@ -102,7 +102,7 @@ o
 
 Security Center recomienda **"Resolver problemas de estado de protección de puntos de conexión en las máquinas"** si no se satisface ninguna de las siguientes comprobaciones:
 
-* Comprobar que la versión de Symantec es >= 12:  Ubicación del Registro: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
+* Comprobar que la versión de Symantec es >= 12: Ubicación del Registro: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
 * Comprobar el estado de protección en tiempo real: **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
 
@@ -163,22 +163,21 @@ Security Center recomienda **"Instalar soluciones de Endpoint Protection en la m
 
 Security Center recomienda **"Resolver problemas de estado de protección de puntos de conexión en las máquinas"** si no se satisface ninguna de las siguientes comprobaciones:
 
-- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"** , devuelve un valor   
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"** , devuelve un valor
 
-- **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", devuelve un valor   
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", devuelve un valor
 
 - **"/opt/sophos-av/bin/savdstatus --lastupdate"** devuelve lastUpdate, que debe ser <= 7 días 
 
 - - **"/opt/sophos-av/bin/savdstatus -v"** es igual a **"On-access scanning is running"** (se ejecuta el examen en el acceso) 
 
-- **"/opt/sophos-av/bin/savconfig get LiveProtection"** devuelve enabled (habilitado)  
+- **"/opt/sophos-av/bin/savconfig get LiveProtection"** devuelve enabled (habilitado)
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
 ### <a name="troubleshoot"></a>Solución de problemas
 
-Los registros de extensión de Microsoft Antimalware están disponibles en:  
-**%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Or PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
+Los registros de extensión de Microsoft Antimalware están disponibles en **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(o PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
 
 ### <a name="support"></a>Soporte técnico
 

@@ -1,18 +1,18 @@
 ---
 title: Automatización de tareas de Azure Analysis Services con entidades de servicio | Microsoft Docs
-description: Aprenda a crear entidades de servicio para automatizar las tareas de Azure Analysis Services.
+description: Aprenda a crear una entidad de servicio para automatizar las tareas administrativas de Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a590590faa422d47306e697a7c90bb635ea8c6e9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5078fcc1ba5c581aca475025b286d0319d6024a6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146362"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572600"
 ---
 # <a name="automation-with-service-principals"></a>Automatización con entidades de servicio
 

@@ -1,6 +1,7 @@
 ---
-title: Introducción al empaquetado dinámico de Azure Media Services | Microsoft Docs
-description: El artículo proporciona información general sobre el empaquetado dinámico en Azure Media Services.
+title: Empaquetado dinámico en Media Services
+titleSuffix: Azure Media Services
+description: Información general sobre el empaquetado dinámico en Azure Media Services.
 author: Juliako
 manager: femila
 editor: ''
@@ -13,22 +14,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 35fd511f2383a09898bcd7e7a5227b750c36125a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 304a6168ee5a4c60369b541d4a8cc7ac961913b6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595529"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574893"
 ---
-# <a name="dynamic-packaging"></a>Empaquetado dinámico
+# <a name="dynamic-packaging-in-media-services"></a>Empaquetado dinámico en Media Services
 
-Microsoft Azure Media Services se puede usar para codificar muchos formatos de archivos de origen multimedia y entregarlos mediante diferentes protocolos de streaming, con o sin protección de contenido, para que lleguen a todos los dispositivos principales (por ejemplo, dispositivos iOS y Android). Estos clientes entienden distintos protocolos. Por ejemplo, iOS requiere que los flujos se entreguen en formato HTTP Live Streaming (HLS) mientras que los dispositivos Android admiten HLS y MPEG DASH. 
+Microsoft Azure Media Services se puede usar para codificar muchos formatos de archivos de origen multimedia. Los entrega a través de diferentes protocolos de streaming, con o sin protección de contenido, para llegar a todos los dispositivos principales (como dispositivos iOS y Android). Estos clientes entienden los distintos protocolos. Por ejemplo, iOS requiere que los flujos se entreguen en formato HTTP Live Streaming (HLS) mientras que los dispositivos Android admiten HLS y MPEG DASH.
 
-En Media Services, un [punto de conexión de streaming](streaming-endpoint-concept.md) representa un empaquetado dinámico (just-in-time) y el servicio de origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción de cliente, mediante uno de los protocolos de streaming multimedia comunes mencionados en la sección siguiente. El empaquetado dinámico es una característica incluida en todos los puntos de conexión de streaming (estándar o prémium). 
+En Media Services, un [punto de conexión de streaming](streaming-endpoint-concept.md) representa un empaquetado dinámico (just-in-time) y el servicio de origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción de cliente. Usa uno de los protocolos de streaming de multimedia comunes que se mencionan en la sección siguiente. El empaquetado dinámico es una característica incluida en todos los puntos de conexión de streaming (estándar o prémium).
 
 ## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>Para preparar los archivos de origen para su entrega
 
-Para aprovechar el empaquetado dinámico, tiene que [codificar](encoding-concept.md) el archivo intermedio (origen) en un conjunto de archivos MP4 de varias velocidades de bits (archivo multimedia base ISO 14496-12). Tiene que tener un [recurso](assets-concept.md) con los archivos MP4 codificados y archivos de configuración de streaming que el empaquetado dinámico de Media Services necesita. A partir de este conjunto de archivos MP4, puede usar el empaquetado dinámico para proporcionar vídeo mediante los siguientes protocolos de streaming multimedia:
+Para aprovechar el empaquetado dinámico, tiene que [codificar](encoding-concept.md) el archivo intermedio (origen) en un conjunto de archivos MP4 de varias velocidades de bits (archivo multimedia base ISO 14496-12). Tiene que tener un [recurso](assets-concept.md) con los archivos MP4 y de configuración de streaming codificados que el empaquetado dinámico de Media Services necesita. A partir de este conjunto de archivos MP4, puede usar el empaquetado dinámico para proporcionar vídeo mediante los siguientes protocolos de streaming multimedia:
 
 |Protocolo|Ejemplo|
 |---|---|
@@ -46,14 +47,14 @@ Si tiene previsto proteger el contenido mediante el cifrado dinámico de Media S
 
 Para que los vídeos del recurso codificado estén disponibles para que los clientes puedan reproducirlos, tiene que crear un [localizador de streaming](streaming-locators-concept.md) y generar direcciones URL de streaming. Después, según el formato especificado en el manifiesto del cliente de streaming (HLS, MPEG DASH o Smooth Streaming), recibirá la transmisión en el protocolo que haya elegido.
 
-Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Media Services creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. 
+Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Media Services creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente.
 
 ## <a name="on-demand-streaming-workflow"></a>Flujo de trabajo de streaming a petición
 
-A continuación se proporciona un flujo de trabajo común de streaming de Media Services en el que se usa el empaquetado dinámico junto con el codificador estándar en Azure Media Services.
+En los pasos siguientes se muestra un flujo de trabajo común de streaming de Media Services en el que se usa el empaquetado dinámico junto con el codificador estándar en Azure Media Services.
 
-1. Cargue un archivo de entrada como, por ejemplo, un archivo QuickTime/MOV o MXF (para obtener la lista de formatos compatibles, consulte [Formatos de Media Encoder Standard](media-encoder-standard-formats.md)). Esto también se conoce como archivo de origen o intermedio.
-1. [Codifique](#encode-to-adaptive-bitrate-mp4s) el archivo intermedio en un conjunto de archivos MP4 de velocidad de bits adaptable H.264/AAC. 
+1. Cargue un archivo de entrada, como un archivo QuickTime/MOV o MXF. Este archivo también se conoce como archivo de origen o intermedio. Para la lista de formatos compatibles, vea [Formatos de Media Encoder Standard](media-encoder-standard-formats.md).
+1. [Codifique](#encode-to-adaptive-bitrate-mp4s) el archivo intermedio en un conjunto de archivos MP4 de velocidad de bits adaptable H.264/AAC.
 1. Publicar el recurso de salida que contiene el conjunto de MP4 de velocidad de bits adaptable. Publicar mediante la creación de un localizador de streaming.
 1. Generar direcciones URL que tienen como destino diferentes formatos (HLS, MPEG-DASH y Smooth Streaming). El **punto de conexión de streaming** se encarga de atender el manifiesto correcto y las solicitudes de todos estos formatos.
 
@@ -65,9 +66,9 @@ En el siguiente diagrama se muestra el flujo de trabajo para streaming a petici�
 
 Los artículos siguientes muestran ejemplos de [cómo codificar un vídeo con Media Services](encoding-concept.md):
 
-* [Codificación desde una dirección URL de HTTPS con valores preestablecidos integrados](job-input-from-http-how-to.md)
-* [Codificación de un archivo local con valores preestablecidos integrados](job-input-from-local-file-how-to.md)
-* [Compilación de un valor preestablecido personalizado para sus requisitos específicos de escenario o dispositivo](customize-encoder-presets-how-to.md)
+* [Codificación desde una dirección URL de HTTPS con valores preestablecidos integrados](job-input-from-http-how-to.md).
+* [Codificación de un archivo local con valores preestablecidos integrados](job-input-from-local-file-how-to.md).
+* [Compilación de un valor preestablecido personalizado para sus requisitos específicos de escenario o dispositivo](customize-encoder-presets-how-to.md).
 
 Consulte la lista de [códecs y formatos](media-encoder-standard-formats.md) de Media Encoder Standard.
 
@@ -124,10 +125,10 @@ El empaquetado dinámico admite varias pistas de audio con DASH o HLS (versión 
 El empaquetado dinámico no admite archivos que contienen audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (es un códec heredado).
 
 > [!NOTE]
-> El [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) admite la codificación en Dolby Digital Plus, mediante las API heredadas de la versión v2. 
+> El [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) admite la codificación en Dolby Digital Plus, mediante las API heredadas de la versión v2.
 
-## <a name="manifests"></a>Manifiestos 
- 
+## <a name="manifests"></a>Manifiestos
+
 En el empaquetado dinámico de Media Services, los manifiestos de cliente de streaming para HLS, MPEG-DASH y Smooth Streaming, se generan dinámicamente basándose en el selector de formato de la dirección URL.  
 
 Un archivo de manifiesto incluye metadatos de streaming como: el tipo de pista (audio, vídeo o texto), el nombre de la pista, la hora inicial y final, la velocidad de bits (calidades), los idiomas de pista, la ventana de presentación (ventana deslizante de duración fija), el códec de vídeo (FourCC). También indica al reproductor que recupere el siguiente fragmento ofreciendo información acerca de los próximos fragmentos de vídeo reproducibles que están disponibles y su ubicación. Los fragmentos (o segmentos) son "fragmentos" reales de un contenido de vídeo.
@@ -236,7 +237,7 @@ El reproductor puede usar el elemento `Label` para mostrar en su interfaz de usu
 
 ### <a name="signaling-audio-description-tracks"></a>Señalización de pistas de descripción de audio
 
-Puede agregar una pista de narración al vídeo que ayude a los clientes con problemas visuales a seguir la grabación de vídeo escuchando la narración. Es preciso anotar las pistas de audio como descripciones de audio en el manifiesto. Para ello, agregue los parámetros "accessibility" y "role" al archivo .ism. Es responsabilidad suya establecer estos parámetros correctamente para marcar las pistas de audio como descripciones de audio. Por ejemplo, agregue `<param name="accessibility" value="description" />` y `<param name="role" value="alternate"` al archivo .ism para una pista de audio concreta. 
+Puede agregar una pista de narración al vídeo que ayude a los clientes con problemas visuales a seguir la grabación de vídeo escuchando la narración. Es preciso anotar las pistas de audio como descripciones de audio en el manifiesto. Para ello, agregue los parámetros "accessibility" y "role" al archivo .ism. Debe establecer estos parámetros correctamente para señalizar las pistas de audio como descripciones de audio. Por ejemplo, agregue `<param name="accessibility" value="description" />` y `<param name="role" value="alternate"` al archivo .ism para una pista de audio concreta. 
 
 Para más información, consulte el ejemplo de [Señalización de una pista de audio descriptiva ](signal-descriptive-audio-howto.md).
 
@@ -283,4 +284,3 @@ Puede abrir una incidencia de soporte técnico si se desplaza a la [nueva solici
 > Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](media-services-apis-overview.md#sdks) admitidos.
 
 Aprenda cómo [cargar, codificar y realizar streaming de vídeos](stream-files-tutorial-with-api.md).
-

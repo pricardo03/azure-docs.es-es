@@ -8,17 +8,21 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e6e51d2a058f89a04a81800b81f3c316be4eab7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b47604f2c8703ba587e98d68dc30552e5944f562
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302069"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614497"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementación sin tiempo de inactividad con Durable Functions
+
 El [modelo de ejecución confiable](durable-functions-checkpointing-and-replay.md) de Durable Functions requiere que las orquestaciones sean deterministas, lo que constituye un desafío adicional que se debe tener en cuenta al implementar actualizaciones. Cuando una implementación contiene cambios en las signaturas de las funciones de actividad o la lógica del orquestador, las instancias de orquestación en curso producen errores. Esta situación supone especialmente un problema para las instancias de orquestaciones de larga ejecución, que pueden llevar horas o días de trabajo.
 
 Para evitar que se produzcan estos errores, debe retrasar la implementación hasta que se hayan completado todas las instancias de orquestación en ejecución, o asegurarse de que las instancias de orquestación en curso usan las versiones existentes de las funciones. Para más información acerca del control de versiones, consulte [Control de versiones en Durable Functions](durable-functions-versioning.md).
+
+> [!NOTE]
+> En este artículo se ofrecen instrucciones sobre aplicaciones de Functions que tengan como destino Durable Functions 1.x. Todavía no se ha actualizado para tener en cuenta los cambios introducidos en Durable Functions 2.x. Para obtener más información sobre las diferencias entre versiones de extensión, consulte el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 En el gráfico siguiente se comparan las tres estrategias principales para lograr una implementación sin tiempo de inactividad con Durable Functions: 
 
@@ -29,6 +33,7 @@ En el gráfico siguiente se comparan las tres estrategias principales para logra
 | **[Enrutamiento de aplicaciones](#application-routing)** | Un sistema que no tenga períodos de tiempo en los que no se ejecuten orquestaciones como, por ejemplo, aquellos con orquestaciones que duran más de 24 horas u orquestaciones que se superponen con frecuencia. | Controla las nuevas versiones de los sistemas con orquestaciones que se ejecutan continuamente y que tienen cambios importantes. | Requiere un enrutador de aplicación inteligente.<br/>Podría maximizar el número de aplicaciones de funciones que permite la suscripción (el valor predeterminado es 100). |
 
 ## <a name="versioning"></a>Control de versiones
+
 Defina nuevas versiones de las funciones y deje las versiones anteriores en la aplicación de funciones. Como puede ver en el diagrama, la versión de una función forma parte de su nombre. Dado que las versiones anteriores de las funciones se conservan, las instancias de orquestación en curso pueden seguir haciendo referencia a ellas. En cambio, las solicitudes de nuevas instancias de orquestación llaman a la versión más reciente, a la que la función de cliente de orquestación puede hacer referencia desde una configuración de aplicación.
 
 ![Estrategia de control de versiones](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
@@ -62,7 +67,7 @@ En el diagrama siguiente se muestra la configuración descrita de las ranuras de
 
 Los siguientes fragmentos JSON son ejemplos de la configuración de la cadena de conexión en el archivo host.json.
 
-#### <a name="functions-2x"></a>Functions 2.x
+#### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {

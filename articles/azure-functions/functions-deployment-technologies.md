@@ -1,21 +1,19 @@
 ---
 title: Tecnologías de implementación en Azure Functions | Microsoft Docs
 description: Conozca las distintas formas de implementación de código en Azure Functions.
-services: functions
-documentationcenter: .net
 author: ColbyTresness
-manager: dariac
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: ce8287626b390d6eac4a3461d928c24f515f4023
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674960"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576136"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
@@ -31,7 +29,7 @@ Azure Functions admite el desarrollo local multiplataforma y hospedaje en Windo
 
 Cada plan tiene diferentes comportamientos. No todas las tecnologías de implementación están disponibles para todos los tipos de instancia de Azure Functions. En el gráfico siguiente se muestran las tecnologías de implementación que se admiten para cada combinación de sistema operativo y plan de hospedaje:
 
-| Tecnología de implementación | Consumo de Windows | Premium de Windows (versión preliminar) | Dedicado de Windows  | Consumo de Linux | Premium para Linux (versión preliminar) | Dedicado de Linux |
+| Tecnología de implementación | Consumo de Windows | Windows Premium | Dedicado de Windows  | Consumo de Linux | Linux Premium | Dedicado de Linux |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
 | Dirección URL del paquete externo<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Implementación de archivo ZIP |✔|✔|✔|✔|✔|✔|
@@ -86,7 +84,7 @@ Cuando las aplicaciones se compilan de forma remota en Linux, [se ejecutan desde
 
 Las aplicaciones de funciones de Linux que se ejecutan en el plan de consumo no tienen un sitio SCM/Kudu, lo que limita las opciones de implementación. Sin embargo, las aplicaciones de funciones en Linux que se ejecutan en el plan de consumo admiten compilaciones remotas.
 
-##### <a name="dedicated-and-premium-preview-plans"></a>Planes dedicados y Premium (versión preliminar)
+##### <a name="dedicated-and-premium-plans"></a>Planes dedicados y Premium
 
 Las aplicaciones de funciones que se ejecutan en Linux con el [plan dedicado (App Service )](functions-scale.md#app-service-plan) y el [plan Premium](functions-scale.md#premium-plan) también tienen un sitio SCM/Kudu limitado.
 
@@ -183,8 +181,8 @@ En el editor basado en el portal, puede editar directamente los archivos que se 
 
 La siguiente tabla muestra los sistemas operativos y lenguajes que admiten la edición del portal:
 
-| | Consumo de Windows | Premium de Windows (versión preliminar) | Dedicado de Windows | Consumo de Linux | Premium para Linux (versión preliminar)| Dedicado de Linux |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
+| | Consumo de Windows | Windows Premium | Dedicado de Windows | Consumo de Linux | Linux Premium | Dedicado de Linux |
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | Script de C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |

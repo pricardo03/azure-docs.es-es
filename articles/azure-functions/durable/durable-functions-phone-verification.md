@@ -9,18 +9,20 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4d8955517450ce3b4efdf30e2790e4be678dfc7b
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0c1c92dde2d698fb2c92fb3680ab05393a25573d
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735196"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614735"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Las interacciones humanas en Durable Functions: comprobación telefónica de ejemplo
 
 Este ejemplo muestra cómo compilar una orquestación de [Durable Functions](durable-functions-overview.md) con interacción humana. Cada vez que una persona real participa en un proceso automatizado,este debe ser capaz de enviar notificaciones a la persona y de recibir respuestas de forma asincrónica. También debe permitir la posibilidad de que la persona no esté disponible. (Esta última parte es donde los tiempos de espera son relevantes).
 
-En este ejemplo se implementa un sistema de comprobación telefónica por SMS. A menudo se usan estos tipos de flujos al comprobar el número de teléfono de un cliente o para la autenticación multifactor (MFA). Este es un ejemplo eficaz, porque toda la implementación se realiza con un par de pequeñas funciones. No se necesita almacén de datos externo, como una base de datos.
+En este ejemplo se implementa un sistema de comprobación telefónica por SMS. A menudo se usan estos tipos de flujos al comprobar el número de teléfono de un cliente o para la autenticación multifactor (MFA). Es un ejemplo eficaz, porque toda la implementación se realiza con un par de pequeñas funciones. No se necesita almacén de datos externo, como una base de datos.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -28,7 +30,7 @@ En este ejemplo se implementa un sistema de comprobación telefónica por SMS. A
 
 La comprobación telefónica sirve para verificar la identidad de los usuarios finales de la aplicación y que no son responsables de correo basura. La autenticación multifactor es un caso de uso común para proteger las cuentas de usuario de los piratas informáticos. La dificultad de implementar su propia comprobación telefónica consiste en que requiere una **interacción con estado** con una persona. Normalmente, al usuario final se le proporciona código (por ejemplo, un número de 4 dígitos) y debe responder **en un intervalo de tiempo razonable**.
 
-Las instancias normales de Azure Functions no tienen estado (igual que muchos otros puntos de conexión en la nube de otras plataformas), por lo que estos tipos de interacciones implican explícitamente la administración externa del estado en una base de datos u otro almacén persistente. Además, la interacción debe dividirse en varias funciones que se puedan coordinar entre sí. Por ejemplo, necesita al menos una función para determinar un código, almacenarlo en alguna parte y enviarlo al teléfono del usuario. Además, necesita al menos un otra función para recibir una respuesta del usuario y asignarla de algún modo a la llamada de función original para la validación del código. El tiempo de espera también es un aspecto importante para garantizar la seguridad. Este factor puede complicarse bon bastante rapidez.
+Las instancias normales de Azure Functions no tienen estado (igual que muchos otros puntos de conexión en la nube de otras plataformas), por lo que estos tipos de interacciones implican explícitamente la administración externa del estado en una base de datos u otro almacén persistente. Además, la interacción debe dividirse en varias funciones que se puedan coordinar entre sí. Por ejemplo, necesita al menos una función para determinar un código, almacenarlo en alguna parte y enviarlo al teléfono del usuario. Además, necesita al menos un otra función para recibir una respuesta del usuario y asignarla de algún modo a la llamada de función original para la validación del código. El tiempo de espera también es un aspecto importante para garantizar la seguridad. Este factor puede complicarse con bastante rapidez.
 
 Con Durable Functions se reduce enormemente la complejidad de este escenario. Como verá en este ejemplo, una función de orquestador puede administrar la interacción con estado muy fácilmente y sin que intervengan almacenes de datos externos. Dado que las funciones de orquestador son *durables*, estos flujos interactivos también son muy confiables.
 
@@ -57,7 +59,7 @@ Este es el código que implementa la función:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -71,7 +73,7 @@ Una vez iniciada, la función de orquestador hace lo siguiente:
 El usuario recibe un mensaje SMS con un código de cuatro dígitos. Tiene 90 segundos para devolver ese mismo código de 4 dígitos a la instancia de la función de orquestador para completar el proceso de comprobación. Si envía un código incorrecto, tiene otros tres intentos para enviar el correcto (dentro de esos mismos 90 segundos).
 
 > [!NOTE]
-> Puede no resultar obvio al principio, pero esta función de orquestador es totalmente determinista. Esto se debe a que las propiedades `CurrentUtcDateTime` (.NET) y `currentUtcDateTime` (JavaScript) se utilizan para calcular la fecha de expiración del temporizador y devuelven el mismo valor en todas las reproducciones en ese momento en el código del orquestador. Esto es importante para garantizar que se produce el mismo `winner` en todas las llamadas repetidas a `Task.WhenAny` (.NET) o `context.df.Task.any` (JavaScript).
+> Puede no resultar obvio al principio, pero esta función de orquestador es totalmente determinista. Es determinista porque se usan las propiedades `CurrentUtcDateTime` (.NET) y `currentUtcDateTime` (JavaScript) para calcular la fecha de expiración del temporizador y devuelven el mismo valor en todas las reproducciones en ese momento en el código del orquestador. Este comportamiento es importante para garantizar que `winner` es igual en todas las llamadas repetidas a `Task.WhenAny` (.NET) o `context.df.Task.any` (JavaScript).
 
 > [!WARNING]
 > Es importante [cancelar los temporizadores](durable-functions-timers.md) si ya no se necesita que expiren, como en el ejemplo anterior, cuando se acepta una respuesta de desafío.
@@ -88,7 +90,7 @@ Y este es el código que genera el código de desafío de 4 dígitos y envía el
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -110,9 +112,9 @@ Content-Type: application/json
 HTTP/1.1 202 Accepted
 Content-Length: 695
 Content-Type: application/json; charset=utf-8
-Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
-{"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
+{"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
 La función de orquestador recibe el número de teléfono proporcionado e inmediatamente le envía un mensaje SMS con un código de verificación de 4 dígitos generado aleatoriamente, &mdash;por ejemplo, *2168*. A continuación, la función espera respuesta durante 90 segundos.
@@ -120,7 +122,7 @@ La función de orquestador recibe el número de teléfono proporcionado e inmedi
 Para responder con el código, puede usar [`RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript)](durable-functions-instance-management.md) dentro de otra función o invocar el webhook HTTP POST **sendEventUrl** al que se hace referencia en la respuesta 202 anterior y sustituir `{eventName}` por el nombre del evento, `SmsChallengeResponse`:
 
 ```
-POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+POST http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 Content-Length: 4
 Content-Type: application/json
 
@@ -130,7 +132,7 @@ Content-Type: application/json
 Si se envía antes de que expire el temporizador, se completa la orquestación y el campo `output` se establece en `true`, lo cual indica que la comprobación es correcta.
 
 ```
-GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+GET http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
 
 ```
@@ -162,7 +164,7 @@ Esta es la orquestación como archivo único de C# en un proyecto de Visual Stud
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este ejemplo, se han demostrado algunas de las funcionalidades avanzadas de Durable Functions, en particular `WaitForExternalEvent` y `CreateTimer`. Hemos visto cómo estas se combinan con `Task.WaitAny` para implementar un sistema confiable de tiempo de espera, que a menudo resulta útil para interactuar con personas reales. Puede obtener más información acerca de cómo utilizar Durable Functions leyendo una serie de artículos que ofrecen información detallada acerca de temas específicos.
+En este ejemplo, se han demostrado algunas de las funcionalidades avanzadas de Durable Functions, en particular las API `WaitForExternalEvent` y `CreateTimer`. Hemos visto cómo estas se combinan con `Task.WaitAny` para implementar un sistema confiable de tiempo de espera, que a menudo resulta útil para interactuar con personas reales. Puede obtener más información acerca de cómo utilizar Durable Functions leyendo una serie de artículos que ofrecen información detallada acerca de temas específicos.
 
 > [!div class="nextstepaction"]
 > [Ir al primer artículo de la serie](durable-functions-bindings.md)

@@ -1,31 +1,34 @@
 ---
-title: Introducción a las cuentas de usuario en Azure Active Directory B2C | Microsoft Docs
-description: Obtenga información sobre las cuentas de usuario en Azure Active Directory B2C.
+title: Introducción a las cuentas de usuario en Azure Active Directory B2C
+description: Obtenga información sobre los tipos de cuentas de usuario que se pueden usar en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ef4bca3a2b08271b3623a346df6613b5ad16995
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a627b0eebc3aa4a19b0670f899d3032d8df58da4
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063138"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620453"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
 
-En Azure Active Directory B2C (Azure AD B2C), puede usar diferentes tipos de cuentas. Azure Active Directory, Azure Active Directory B2B y Azure Active Directory B2C comparten los tipos de cuentas de usuario que se pueden usar.
+En Azure Active Directory B2C (Azure AD B2C), se pueden crear varios tipos de cuentas. Azure Active Directory, Active Directory B2B y Active Directory B2C comparten los tipos de cuentas de usuario que se pueden usar.
 
 Están disponibles los siguientes tipos de cuentas:
 
 - **Cuenta profesional**: una cuenta profesional puede tener acceso a los recursos en un inquilino y, con un rol de administrador, puede administrar inquilinos.
 - **Cuenta de invitado**: una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure Active Directory que se pueda utilizar para tener acceso a aplicaciones o administrar inquilinos.
-- **Cuenta de consumidor**: una cuenta de consumidor se crea mediante un flujo de usuario de registro en una aplicación Azure AD B2C o el uso de Azure AD Graph API y la usan los usuarios de las aplicaciones registrados con Azure AD B2C.
+- **Cuenta de consumidor**: cuenta que utiliza un usuario de las aplicaciones que se han registrado con Azure AD B2C. Las cuentas de consumidor pueden ser creadas por:
+  - El usuario que pasa por un flujo de usuario de registro en una aplicación de Azure AD B2C
+  - Con Graph API de Azure AD
+  - Uso de Azure Portal
 
 ## <a name="work-account"></a>Cuenta profesional
 
@@ -73,7 +76,7 @@ También puede usar [Microsoft Graph API](https://docs.microsoft.com/graph/api/i
 
 ## <a name="consumer-user"></a>Usuario consumidor
 
-El usuario consumidor puede iniciar sesión en aplicaciones protegidas por Azure AD B2C, pero no puede acceder a recursos de Azure como Azure Portal.  El usuario consumidor puede utilizar una cuenta local o cuentas federadas, como Facebook o Twitter. Una cuenta de consumidor se crea mediante el uso de un [flujo de usuario de registro o de inicio de sesión](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+El usuario consumidor puede iniciar sesión en aplicaciones protegidas por Azure AD B2C, pero no puede acceder a recursos de Azure como Azure Portal. El usuario consumidor puede utilizar una cuenta local o cuentas federadas, como Facebook o Twitter. Una cuenta de consumidor se crea mediante un [flujo de usuario de inicio de sesión o de registro](../active-directory-b2c/active-directory-b2c-reference-policies.md), con la Graph API de Azure AD o mediante Azure Portal.
 
 Puede especificar los datos que se recopilan cuando se crea una cuenta de usuario consumidor mediante el uso de atributos personalizados de usuario. Para obtener más información, vea [Definición de atributos personalizados en Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 
