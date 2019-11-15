@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/15/2019
+ms.date: 11/06/2019
 ms.author: sedusch
-ms.openlocfilehash: 5632ccf6c9b9cb67d169c5b60f1adefd85b576b8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ffa2f937a14aa14750480d1c45498fb4c49fcc30
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791660"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721507"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -124,7 +124,7 @@ Para implementar la plantilla, siga estos pasos:
 1. Cree una red virtual.
 1. Cree un conjunto de disponibilidad.
    - Establezca el dominio máximo de actualización.
-1. Cree un equilibrador de carga (interno).
+1. Cree un equilibrador de carga (interno). Se recomienda que sea un [equilibrador de carga estándar](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
    - Seleccione la red virtual que creó en el paso 2.
 1. Cree la máquina virtual 1.
    - Use una imagen SLES4SAP en la galería de Azure que sea compatible con SAP HANA en el tipo de máquina virtual seleccionado.
@@ -133,64 +133,104 @@ Para implementar la plantilla, siga estos pasos:
    - Use una imagen SLES4SAP en la galería de Azure que sea compatible con SAP HANA en el tipo de máquina virtual seleccionado.
    - Seleccione el conjunto de disponibilidad creado en el paso 3. 
 1. Agregue discos de datos.
-1. Configure el equilibrador de carga. Primero, cree un grupo de direcciones IP de front-end:
+1. Si usa Standard Load Balancer, siga estos pasos de configuración:
+   1. Primero, cree un grupo de direcciones IP de front-end:
+   
+      1. Abra el equilibrador de carga, seleccione **frontend IP pool** (Grupo de direcciones IP de front-end) y haga clic en **Agregar**.
+      1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **hana-front-end**).
+      1. Establezca **Asignación** en **Estática** y escriba la dirección IP (por ejemplo, **10.0.0.13**).
+      1. Seleccione **Aceptar**.
+      1. Una vez creado el nuevo grupo de direcciones IP de front-end, anote la dirección IP del grupo.
+   
+   1. A continuación, cree un grupo de back-end:
+   
+      1. Abra el equilibrador de carga, seleccione **Grupos de back-end** y haga clic en **Agregar**.
+      1. Escriba el nombre del nuevo grupo de back-end (por ejemplo, **hana-backend**).
+      1. Seleccione **Virtual Network**.
+      1. Seleccione **Agregar una máquina virtual**.
+      1. Seleccione **Máquina virtual**.
+      1. Seleccione las máquinas virtuales del clúster de SAP HANA y sus direcciones IP.
+      1. Seleccione **Agregar**.
+   
+   1. A continuación, cree un sondeo de estado:
+   
+      1. Abra el equilibrador de carga, seleccione **Sondeos de estado** y haga clic en **Agregar**.
+      1. Escriba el nombre del sondeo de estado nuevo (por ejemplo **hana-hp**).
+      1. Seleccione **TCP** como protocolo y el puerto 625**03**. Mantenga el valor de **Intervalo** en 5 y el valor de **Umbral incorrecto** en 2.
+      1. Seleccione **Aceptar**.
+   
+   1. A continuación, cree las reglas de equilibrio de carga:
+   
+      1. Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
+      1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **hana-lb**).
+      1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend**, **hana-backend** y **hana-hp**).
+      1. Seleccione **Puertos de alta disponibilidad**.
+      1. Aumente el **tiempo de espera de inactividad** a 30 minutos.
+      1. Asegúrese de **habilitar la dirección IP flotante**.
+      1. Seleccione **Aceptar**.
 
-   1. Abra el equilibrador de carga, seleccione **frontend IP pool** (Grupo de direcciones IP de front-end) y haga clic en **Agregar**.
-   1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **hana-front-end**).
-   1. Establezca **Asignación** en **Estática** y escriba la dirección IP (por ejemplo, **10.0.0.13**).
-   1. Seleccione **Aceptar**.
-   1. Una vez creado el nuevo grupo de direcciones IP de front-end, anote la dirección IP del grupo.
+   > [!Note]
+   > Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Azure Standard Load Balancer interno (sin dirección IP pública), no habrá conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, consulte [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
-1. A continuación, cree un grupo de back-end:
+1. Como alternativa, si el escenario dicta el uso de un equilibrador de carga básico, siga estos pasos de configuración:
+   1. Primero, cree un grupo de direcciones IP de front-end:
+   
+      1. Abra el equilibrador de carga, seleccione **frontend IP pool** (Grupo de direcciones IP de front-end) y haga clic en **Agregar**.
+      1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **hana-front-end**).
+      1. Establezca **Asignación** en **Estática** y escriba la dirección IP (por ejemplo, **10.0.0.13**).
+      1. Seleccione **Aceptar**.
+      1. Una vez creado el nuevo grupo de direcciones IP de front-end, anote la dirección IP del grupo.
+   
+   1. A continuación, cree un grupo de back-end:
+   
+      1. Abra el equilibrador de carga, seleccione **Grupos de back-end** y haga clic en **Agregar**.
+      1. Escriba el nombre del nuevo grupo de back-end (por ejemplo, **hana-backend**).
+      1. Seleccione **Agregar una máquina virtual**.
+      1. Seleccione el conjunto de disponibilidad creado en el paso 3.
+      1. Seleccione las máquinas virtuales del clúster de SAP HANA
+      1. Seleccione **Aceptar**.
+   
+   1. A continuación, cree un sondeo de estado:
+   
+      1. Abra el equilibrador de carga, seleccione **Sondeos de estado** y haga clic en **Agregar**.
+      1. Escriba el nombre del sondeo de estado nuevo (por ejemplo **hana-hp**).
+      1. Seleccione **TCP** como protocolo y el puerto 625**03**. Mantenga el valor de **Intervalo** en 5 y el valor de **Umbral incorrecto** en 2.
+      1. Seleccione **Aceptar**.
+   
+   1. Para SAP HANA 1.0, cree las reglas de equilibrio de carga:
+   
+      1. Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
+      1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**15).
+      1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend**).
+      1. Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3**03**15.
+      1. Aumente el **tiempo de espera de inactividad** a 30 minutos.
+      1. Asegúrese de **habilitar la dirección IP flotante**.
+      1. Seleccione **Aceptar**.
+      1. Repita estos pasos para el puerto 3**03**17.
+   
+   1. Para SAP HANA 2.0, cree reglas de equilibrio de carga para la base de datos del sistema:
+   
+      1. Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
+      1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**13).
+      1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend**).
+      1. Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3**03**13.
+      1. Aumente el **tiempo de espera de inactividad** a 30 minutos.
+      1. Asegúrese de **habilitar la dirección IP flotante**.
+      1. Seleccione **Aceptar**.
+      1. Repita estos pasos para el puerto 3**03**14.
+   
+   1. Para SAP HANA 2.0, primero cree las reglas de equilibrio de carga para la base de datos de inquilino:
+   
+      1. Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
+      1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**40).
+      1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend**).
+      1. Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3**03**40.
+      1. Aumente el **tiempo de espera de inactividad** a 30 minutos.
+      1. Asegúrese de **habilitar la dirección IP flotante**.
+      1. Seleccione **Aceptar**.
+      1. Repita estos pasos para los puertos 3**03**41 y 3**03**42.
 
-   1. Abra el equilibrador de carga, seleccione **Grupos de back-end** y haga clic en **Agregar**.
-   1. Escriba el nombre del nuevo grupo de back-end (por ejemplo, **hana-backend**).
-   1. Seleccione **Agregar una máquina virtual**.
-   1. Seleccione el conjunto de disponibilidad creado en el paso 3.
-   1. Seleccione las máquinas virtuales del clúster de SAP HANA
-   1. Seleccione **Aceptar**.
-
-1. A continuación, cree un sondeo de estado:
-
-   1. Abra el equilibrador de carga, seleccione **Sondeos de estado** y haga clic en **Agregar**.
-   1. Escriba el nombre del sondeo de estado nuevo (por ejemplo **hana-hp**).
-   1. Seleccione **TCP** como protocolo y el puerto 625**03**. Mantenga el valor de **Intervalo** en 5 y el valor de **Umbral incorrecto** en 2.
-   1. Seleccione **Aceptar**.
-
-1. Para SAP HANA 1.0, cree las reglas de equilibrio de carga:
-
-   1. Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
-   1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**15).
-   1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend**).
-   1. Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3**03**15.
-   1. Aumente el **tiempo de espera de inactividad** a 30 minutos.
-   1. Asegúrese de **habilitar la dirección IP flotante**.
-   1. Seleccione **Aceptar**.
-   1. Repita estos pasos para el puerto 3**03**17.
-
-1. Para SAP HANA 2.0, cree reglas de equilibrio de carga para la base de datos del sistema:
-
-   1. Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
-   1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**13).
-   1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend**).
-   1. Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3**03**13.
-   1. Aumente el **tiempo de espera de inactividad** a 30 minutos.
-   1. Asegúrese de **habilitar la dirección IP flotante**.
-   1. Seleccione **Aceptar**.
-   1. Repita estos pasos para el puerto 3**03**14.
-
-1. Para SAP HANA 2.0, primero cree las reglas de equilibrio de carga para la base de datos de inquilino:
-
-   1. Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
-   1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**40).
-   1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend**).
-   1. Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3**03**40.
-   1. Aumente el **tiempo de espera de inactividad** a 30 minutos.
-   1. Asegúrese de **habilitar la dirección IP flotante**.
-   1. Seleccione **Aceptar**.
-   1. Repita estos pasos para los puertos 3**03**41 y 3**03**42.
-
-Para obtener más información sobre los puertos necesarios para SAP HANA, lea el capítulo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Conexiones a las bases de datos de inquilino) de la guía [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de datos de inquilino de SAP HANA) o la [nota de SAP 2388694][2388694].
+   Para obtener más información sobre los puertos necesarios para SAP HANA, lea el capítulo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Conexiones a las bases de datos de inquilino) de la guía [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de datos de inquilino de SAP HANA) o la [nota de SAP 2388694][2388694].
 
 > [!IMPORTANT]
 > No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Consulte [Sondeos de estado de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) para obtener más información.

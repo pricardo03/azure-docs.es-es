@@ -1,5 +1,5 @@
 ---
-title: Novedades de Azure Active Directory en Microsoft 365 Government - Azure Active Directory | Microsoft Docs
+title: Novedades de Azure AD en Microsoft 365 Government | Microsoft Docs
 description: Obtenga información sobre algunos cambios de Azure Active Directory (Azure AD) en la instancia en la nube de Microsoft 365 Government, que podrían afectarle.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b077c7b5efbad2add971d42ff31938b56f6bc33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75e7c6809810a78c81348bd4bbeb808e103f453f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258900"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805283"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novedades de Azure Active Directory en Microsoft 365 Government
 
@@ -70,6 +70,6 @@ Para obtener más información, consulte estos artículos:
 
 - [Azure Government AAD Authority Endpoint Update](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/) (Actualización del punto de conexión de la entidad de AAD de Azure Government)
 
-- [Puntos de conexión de Microsoft Graph en la nube del gobierno de Estados Unidos](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
+- [Puntos de conexión de Microsoft Graph en la nube del gobierno de EE. UU.](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
 - [Office 365 US Government GCC High y DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

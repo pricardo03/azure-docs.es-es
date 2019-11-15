@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: 436ab0a561349185de58c3783f334ea1dce9001d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f9b1af14bd986f1fa6fb5feb398a7f1fdf982f77
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720127"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669094"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -219,7 +219,7 @@ También puede personalizar el comportamiento de la preparación con una o ambas
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: códigos de respuesta HTTP válidos para la operación de preparación. Agregue esta configuración de aplicación con una lista de códigos HTTP separados por comas. Un ejemplo sería `200,202`. Si el código de estado devuelto no está en la lista, las operaciones de preparación e intercambio se detienen. Por defecto, todos los códigos de respuesta son válidos.
 
 > [!NOTE]
-> `<applicationInitialization>` es parte del inicio de cada aplicación, donde estas dos configuraciones de aplicación solo van dirigidas a los intercambios de ranura.
+> El elemento de configuración `<applicationInitialization>` forma parte de cada inicio de la aplicación, mientras que los dos valores de aplicación de comportamiento de preparación solo se aplican a los intercambios de ranura.
 
 Si tiene problemas, consulte [Solución de problemas con los intercambios](#troubleshoot-swaps).
 
@@ -334,7 +334,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-arm-templates"></a>Automatización con las plantillas de ARM
 
-Las [Plantillas ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) son archivos JSON declarativos que se usan para automatizar la implementación y la configuración de los recursos de Azure. Para intercambiar ranuras mediante plantillas de ARM, establecerá dos propiedades en los recursos *Microsoft.Web/sites/slots* y *Microsoft.Web/sites*:
+Las [Plantillas ARM](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) son archivos JSON declarativos que se usan para automatizar la implementación y la configuración de los recursos de Azure. Para intercambiar ranuras mediante plantillas de ARM, establecerá dos propiedades en los recursos *Microsoft.Web/sites/slots* y *Microsoft.Web/sites*:
 
 - `buildVersion`: esta es una propiedad de cadena que representa la versión actual de la aplicación implementada en la ranura. Por ejemplo: "v1", "1.0.0.1" o "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: esta es una propiedad de cadena que especifica qué `buildVersion` debe tener la ranura. Si targetBuildVersion no es igual a la `buildVersion` actual, esto activará la operación de intercambio al encontrar la ranura que tiene la `buildVersion` especificada.

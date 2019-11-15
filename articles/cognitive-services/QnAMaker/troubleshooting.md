@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51d21dca1d8a5223e67cb7ea8489800989cff55c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7e98fd089ce8ec1285232840a40bb42ac5b81446
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026019"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795441"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solución de problemas para QnA Maker
 
@@ -121,7 +121,7 @@ Actualice su instancia de App Service cuando el icono de precaución aparezca ju
 
 ### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>Eliminé mi servicio de Search existente. ¿Cómo lo puedo corregir?
 
-Si elimina un índice de Azure Search, la operación es definitiva y no es posible recuperar el índice. 
+Si elimina un índice de Azure Cognitive Search, la operación es definitiva y no es posible recuperar el índice. 
 
 ### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>Eliminé mi índice `testkb` en el servicio de Search. ¿Cómo lo puedo corregir? 
 
@@ -131,13 +131,13 @@ No se pueden recuperar los datos antiguos. Cree un nuevo recurso de QnA Maker y 
 
 Actualice las claves de punto de conexión si sospecha que han sido objeto de alguna acción fraudulenta.
 
-### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>¿Se puede usar el mismo recurso de Azure Search para bases de conocimiento que emplean varios idiomas?
+### <a name="can-i-use-the-same-azure-cognitive-search-resource-for-knowledge-bases-using-multiple-languages"></a>¿Se puede usar el mismo recurso de Azure Cognitive Search para bases de conocimiento que emplean varios idiomas?
 
 Para usar varios idiomas y varias bases de conocimiento, el usuario tiene que crear un recurso de QnA Maker para cada idioma. De esta manera, se creará un servicio de Azure Search independiente por idioma. La combinación de bases de datos de distintos idiomas en un único servicio de Azure Search dará lugar a una importancia degradada de los resultados.
 
-### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>¿Cómo se puede cambiar el nombre del recurso de Azure Search usado por QnA Maker?
+### <a name="how-can-i-change-the-name-of-the-azure-cognitive-search-resource-used-by-qna-maker"></a>¿Cómo se puede cambiar el nombre del recurso de Azure Cognitive Search usado por QnA Maker?
 
-El nombre del recurso de Azure Search es el nombre del recurso de QnA Maker con algunas letras aleatorias colocadas al final. Esto hace que sea más difícil distinguir entre varios recursos de Search en QnA Maker. Cree un servicio de Azure Search independiente (asígnele el nombre que desee) y conéctelo a su servicio de QnA. Los pasos son similares a los que debe hacer para [actualizar una instancia de Azure Search](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service).
+El nombre del recurso de Azure Cognitive Search es el nombre del recurso de QnA Maker con algunas letras aleatorias colocadas al final. Esto hace que sea más difícil distinguir entre varios recursos de Search en QnA Maker. Cree un servicio de búsqueda independiente (asígnele el nombre que desee) y conéctelo a su servicio de QnA. Los pasos son similares a los que debe hacer para [actualizar una instancia de Azure Search](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service).
 
 ### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>Cuando QnA Maker devuelve `Runtime core is not initialized,`, ¿cómo puedo corregirlo?
 
