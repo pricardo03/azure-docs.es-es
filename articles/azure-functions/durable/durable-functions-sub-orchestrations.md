@@ -7,35 +7,31 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7b5e811daecbb7687abe7a37b75e2730d7830c2c
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: cf160b767ee82701bad4c88d3b83951a3b875296
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983616"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614658"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Suborquestaciones en Durable Functions (Azure Functions)
 
-Además de llamar a funciones de actividad, las funciones de orquestador pueden llamar a otras funciones de orquestador. Por ejemplo, puede crear una orquestación mayor a partir de una biblioteca de funciones de orquestador. También puede ejecutar varias instancias de una función de orquestador en paralelo.
+Además de llamar a funciones de actividad, las funciones de orquestador pueden llamar a otras funciones de orquestador. Por ejemplo, puede crear una orquestación mayor a partir de una biblioteca de funciones de orquestador más pequeñas. También puede ejecutar varias instancias de una función de orquestador en paralelo.
 
-Una función de orquestador puede llamar a otra función de orquestador mediante una llamada a los métodos [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) o [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) en .NET o a los métodos `callSubOrchestrator` o `callSubOrchestratorWithRetry` en JavaScript. En el artículo [Control de errores y compensación](durable-functions-error-handling.md#automatic-retry-on-failure) se ofrece más información sobre los reintentos automáticos.
+Una función de orquestador puede llamar a otra función de orquestador con los métodos `CallSubOrchestratorAsync` o `CallSubOrchestratorWithRetryAsync` en .NET o los métodos `callSubOrchestrator` o `callSubOrchestratorWithRetry` en JavaScript. En el artículo [Control de errores y compensación](durable-functions-error-handling.md#automatic-retry-on-failure) se ofrece más información sobre los reintentos automáticos.
 
 Las funciones de suborquestador se comportan como funciones de actividad desde la perspectiva del llamador. Pueden devolver un valor, producir una excepción y ser esperadas por la función de orquestador primaria. 
-
-> [!NOTE]
-> Actualmente, es necesario proporcionar un valor de argumento `instanceId` a la API de suborquestación en JavaScript.
-
 ## <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra un escenario de IoT ("Internet de las cosas") donde hay varios dispositivos que deben aprovisionarse. Para cada uno de los dispositivos, debe producirse una orquestación concreta, lo que podría asemejarse a lo siguiente:
+En el ejemplo siguiente se muestra un escenario de IoT ("Internet de las cosas") donde hay varios dispositivos que deben aprovisionarse. La siguiente función representa el flujo de trabajo de aprovisionamiento que se hay que ejecutar para cada dispositivo:
 
 ### <a name="c"></a>C#
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string deviceId = context.GetInput<string>();
 
@@ -52,7 +48,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");
@@ -73,7 +69,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Esta función de orquestador puede utilizarse tal cual para un aprovisionamiento de dispositivos único o puede ser parte de una orquestación mayor. En el último caso, la función de orquestador primaria puede programar instancias de `DeviceProvisioningOrchestration` mediante la API `CallSubOrchestratorAsync` (C#) o `callSubOrchestrator` (JavaScript).
+Esta función de orquestador puede utilizarse tal cual para un aprovisionamiento de dispositivos único o puede ser parte de una orquestación mayor. En el último caso, la función de orquestador primaria puede programar instancias de `DeviceProvisioningOrchestration` con la API `CallSubOrchestratorAsync` (.NET) o `callSubOrchestrator` (JavaScript).
 
 El siguiente es un ejemplo que muestra cómo ejecutar varias funciones de orquestador en paralelo.
 
@@ -82,7 +78,7 @@ El siguiente es un ejemplo que muestra cómo ejecutar varias funciones de orques
 ```csharp
 [FunctionName("ProvisionNewDevices")]
 public static async Task ProvisionNewDevices(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string[] deviceIds = await context.CallActivityAsync<string[]>("GetNewDeviceIds");
 
@@ -100,7 +96,10 @@ public static async Task ProvisionNewDevices(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+> [!NOTE]
+> Los ejemplos de C# anteriores corresponden a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 ```javascript
 const df = require("durable-functions");

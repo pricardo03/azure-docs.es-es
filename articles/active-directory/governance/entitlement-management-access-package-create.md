@@ -1,6 +1,6 @@
 ---
-title: 'Creación de un paquete de acceso en la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
-description: Obtenga información sobre cómo crear un paquete de acceso de recursos que quiere compartir en la administración de derechos de Azure Active Directory (versión preliminar).
+title: 'Creación de un nuevo paquete de acceso en la administración de derechos de Azure AD: Azure Active Directory'
+description: Obtenga información sobre cómo crear un paquete de acceso de recursos que quiere compartir en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389516"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602721"
 ---
-# <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Creación de un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
-
-> [!IMPORTANT]
-> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creación de un paquete de acceso en la administración de derechos de Azure AD
 
 Un paquete de acceso le permite realizar una instalación única de los recursos y las directivas que administran automáticamente el acceso durante toda la vida del paquete de acceso. En este artículo se describe cómo crear un paquete de acceso.
 
@@ -68,9 +63,9 @@ Estos son los pasos generales para crear un paquete de acceso.
 
 1. En el menú izquierdo, haga clic en **Paquetes de acceso**.
 
-    ![Administración de derechos en Azure Portal](./media/entitlement-management-shared/elm-access-packages.png)
-
 1. Haga clic en **New access package** (Nuevo paquete acceso).
+   
+    ![Administración de derechos en Azure Portal](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>Aspectos básicos
 
@@ -118,7 +113,7 @@ En la pestaña **Solicitudes**, creará la primera directiva para especificar qu
 
 ![Paquete de acceso: pestaña Solicitudes](./media/entitlement-management-access-package-create/requests.png)
 
-Siga los pasos que se describen en una de las secciones siguientes.
+En función de quién desea que pueda solicitar este paquete de acceso, realice los pasos que se describen en una de las secciones siguientes.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 

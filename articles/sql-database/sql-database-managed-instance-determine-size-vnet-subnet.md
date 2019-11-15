@@ -1,22 +1,22 @@
 ---
-title: Determinación del tamaño de la red virtual y la subred para Instancia administrada de Azure SQL Database | Microsoft Docs
+title: Instancia administrada determina el tamaño de la red virtual y la subred
 description: En este tema se describe cómo calcular el tamaño de la subred en la que se implementarán Instancias administradas de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 7f0ef26343284b7b668e71676114586f4bec8b9e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273555"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825751"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinación del tamaño de la red virtual y la subred para Instancia administrada de Azure SQL Database
 

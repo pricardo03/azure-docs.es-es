@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0d848027d6c754df371b4d87cf01c5b2fdbc8c02
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7fb436ef8d915898bc8f36dd10766e71f63e4a59
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820741"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575565"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configuración de Azure Monitor para las aplicaciones de Python (versión preliminar)
 
@@ -23,8 +23,6 @@ Azure Monitor admite seguimiento distribuido, recopilación de métricas y regis
 
 - Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - Instalación de Python. En este artículo se usa [Python 3.7.0](https://www.python.org/downloads/), aunque es probable que las versiones anteriores funcionen con cambios menores.
-
-
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -55,6 +53,8 @@ Instale los exportadores de Azure Monitor de OpenCensus:
 ```console
 python -m pip install opencensus-ext-azure
 ```
+
+Para una lista completa de los paquetes y las integraciones, consulte [Paquetes de OpenCensus](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus).
 
 > [!NOTE]
 > El comando `python -m pip install opencensus-ext-azure` supone que tiene una variable de entorno `PATH` establecida para la instalación de Python. Si no ha configurado esta variable, deberá proporcionar la ruta de acceso completa del directorio a la ubicación del archivo ejecutable de Python. El resultado es un comando como el siguiente: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
@@ -127,6 +127,10 @@ El SDK emplea tres exportadores de Azure Monitor para enviar distintos tipos de 
     ```
 
 4. Ahora, al ejecutar el script de Python, todavía se le seguirá pidiendo que especifique los valores, pero en el shell solo se imprime el valor. El valor de `SpanData` creado se enviará a Azure Monitor. Puede encontrar los datos del intervalo emitidos en `dependencies`.
+
+5. Para información sobre el muestreo en OpenCensus, eche un vistazo al [muestreo en OpenCensus](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python).
+
+6. Para detalles sobre la correlación de telemetría en los datos de seguimiento, eche un vistazo a la [correlación de telemetría](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python) de OpenCensus.
 
 ### <a name="metrics"></a>Métricas
 
@@ -291,6 +295,8 @@ El SDK emplea tres exportadores de Azure Monitor para enviar distintos tipos de 
     ```
 
 4. El exportador enviará los datos de registro a Azure Monitor. Puede encontrar los datos en `traces`.
+
+5. Para más información sobre cómo enriquecer los registros con los datos de contexto de seguimiento, vea la [integración de registros](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation) de Python para OpenCensus.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Inicio de la supervisión en Azure Portal
 

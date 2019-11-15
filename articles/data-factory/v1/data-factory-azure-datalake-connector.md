@@ -1,5 +1,5 @@
 ---
-title: Copia de datos hacia y desde Azure Data Lake Storage Gen1 | Microsoft Docs
+title: Copia de datos hacia y desde Azure Data Lake Storage Gen1
 description: Aprenda a copiar datos hacia y desde Data Lake Store mediante Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d8637a2711c0301d9e9f409e169ed04fb3d65783
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 4cafc9cf67255d44e5c89947f3da8a7b7b3e4b5f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839543"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683173"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copia de datos hacia y desde Data Lake Storage Gen1 mediante Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

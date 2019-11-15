@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: be639a67f70ab40f8d7dcc0f3793cbbd4a2ec4a3
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e2ea934140322a13f07a90f4246bacd3f9dbe6c9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436812"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721098"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Creación de contenedores con una clave de partición de gran tamaño
 
@@ -72,6 +72,7 @@ Las claves de partición de gran tamaño se admiten con las siguientes versiones
 |Java Sync     |   2.4.0      |
 |Java Async   |  2.5.0        |
 | API DE REST | Una versión superior a `2017-05-03` mediante el uso del encabezado de solicitud`x-ms-version`.|
+| Plantilla de Resource Manager | versión 2 mediante la propiedad `"version":2` dentro del objeto `partitionKey`. |
 
 Actualmente, no se pueden usar contenedores con una clave de partición de gran tamaño dentro de Power BI ni de Azure Logic Apps. Puede usar contenedores sin una clave de partición de gran tamaño desde estas aplicaciones.
 

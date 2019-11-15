@@ -1,64 +1,59 @@
 ---
-title: Eliminación de un almacén de Recovery Services configurado para el servicio Azure Site Recovery
+title: Eliminación de un almacén de Azure Site Recovery
 description: Aprenda a eliminar un almacén de Recovery Services configurado para Azure Site Recovery.
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: a13dee2010688b02fd86fb05900826470a7d7a08
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: fb1e22b0ca1da00bf2665d863b40f19fa1621771
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876039"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721304"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Eliminación de un almacén de Site Recovery Services
 
-Las dependencias pueden evitar la eliminación de un almacén de Azure Site Recovery. Las acciones que hay que llevar a cabo varían en función del escenario de Site Recovery. Para eliminar un almacén de Azure Backup, consulte el artículo sobre la [eliminación de un almacén de Azure Backup](../backup/backup-azure-delete-vault.md).
+En este artículo se describe cómo eliminar un almacén de Recovery Services para Site Recovery. Para eliminar un almacén de Azure Backup, consulte el artículo sobre la [eliminación de un almacén de Azure Backup](../backup/backup-azure-delete-vault.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="delete-a-site-recovery-vault"></a>Eliminación del almacén de Site Recovery 
-Para eliminar el almacén, siga los pasos recomendados para su escenario.
-### <a name="azure-vms-to-azure"></a>Máquinas virtuales de Azure en Azure
 
-1. Siga los pasos descritos en el artículo sobre la [deshabilitación de la protección para VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure) para eliminar todas las máquinas virtuales protegidas.
-2. Elimine el almacén.
+## <a name="before-you-start"></a>Antes de comenzar
 
-### <a name="vmware-vms-to-azure"></a>Máquinas virtuales de VMware en Azure
-
-1. Siga los pasos descritos en el artículo sobre la [deshabilitación de la protección para VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para eliminar todas las máquinas virtuales protegidas.
-
-2. Siga los pasos descritos en [Eliminación de una directiva de aplicación](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) para eliminar todas las directivas de replicación.
-
-3. Siga los pasos descritos en el artículo de [eliminación de un servidor vCenter](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) para eliminar las referencias a vCenter.
-
-4. Siga los pasos descritos en el artículo de [retirada de un servidor de configuración](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server) para eliminar el servidor de configuración.
-
-5. Elimine el almacén.
+Antes de poder eliminar un almacén, debe quitar los servidores registrados y los elementos del almacén. Lo que necesita quitar depende de los escenarios de replicación que haya implementado. 
 
 
-### <a name="hyper-v-vms-with-vmm-to-azure"></a>Máquinas virtuales de Hyper-V (con VMM) en Azure
-1. Siga los pasos descritos en [Deshabilitación de la protección para una máquina virtual de Hyper-V que se replica mediante el escenario de System Center VMM a Azure](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) para eliminar todas las máquinas virtuales protegidas.
+## <a name="delete-a-vault-azure-vm-to-azure"></a>Eliminación de un almacén: máquina virtual de Azure en Azure
 
-2. Desasocie y elimine todas las directivas de replicación examinando su Almacén -> **Infraestructura de Site Recovery** -> **Para System Center VMM** -> **Directivas de replicación**.
+1. Siga [estas instrucciones](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure) para eliminar todas las máquinas virtuales protegidas.
+2. Luego, elimine el almacén.
 
-3.  Siga los pasos descritos en [Quitar servidores y deshabilitar la protección](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server) para eliminar las referencias a los servidores Virtual Machine Manager.
+## <a name="delete-a-vault-vmware-vm-to-azure"></a>Eliminación de un almacén: máquina virtual de VMware en Azure
 
-4.  Elimine el almacén.
+1. Siga [estas instrucciones](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para eliminar todas las máquinas virtuales protegidas.
+2. Siga [estos pasos](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) para eliminar todas las directivas de replicación.
+3. Elimine las referencias a vCenter con [estos pasos](vmware-azure-manage-vcenter.md#delete-a-vcenter-server).
+4. Siga [estas instrucciones](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server) para retirar un servidor de configuración.
+5. Luego, elimine el almacén.
 
-### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>Máquinas virtuales de Hyper-V (sin Virtual Machine Manager) a Azure
-1. Elimine todas las máquinas virtuales protegidas siguiendo los pasos de la sección [Deshabilitación de la protección para una máquina virtual de Hyper-V (Hyper-V a Azure)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure).
 
-2. Desasocie y elimine todas las directivas de replicación examinando su Almacén -> **Infraestructura de Site Recovery** -> **Para Hyper-V Sites** -> **Directivas de replicación**.
+## <a name="delete-a-vault-hyper-v-vm-with-vmm-to-azure"></a>Eliminación de un almacén: máquina virtual de Hyper-V (con VMM) en Azure
 
-3. Siga los pasos del artículo sobre la [anulación del registro de un host de Hyper-V](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) para eliminar las referencias a los servidores Hyper-V.
+1. Siga [estos pasos](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) para eliminar máquinas virtuales de Hyper-V administradas por System Center VMM.
+2. Desasocie y elimine todas las directivas de replicación. Haga esto en el almacén > **Infraestructura de Site Recovery** > **Para System Center VMM** > **Directivas de replicación**.
+3. Siga [estos pasos](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server) para anular el registro de un servidor VMM conectado.
+4. Luego, elimine el almacén.
 
+## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Eliminación de un almacén: máquina virtual de Hyper-V en Azure
+
+1. Siga [estos pasos](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure) para eliminar todas las máquinas virtuales protegidas.
+2. Desasocie y elimine todas las directivas de replicación. Haga esto en el almacén > **Infraestructura de Site Recovery** > **Para sitios de Hyper-V** > **Directivas de replicación**.
+3. Siga [estas instrucciones](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) para anular el registro de un host de Hyper-V.
 4. Elimine el sitio de Hyper-V.
-
-5. Elimine el almacén.
+5. Luego, elimine el almacén.
 
 
 ## <a name="use-powershell-to-force-delete-the-vault"></a>Uso de PowerShell para forzar la eliminación del almacén 

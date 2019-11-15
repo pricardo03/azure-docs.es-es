@@ -1,5 +1,5 @@
 ---
-title: Incorporación de tolerancia a errores en la actividad de copia de Azure Data Factory a través de la omisión de filas incompatibles | Microsoft Docs
+title: Incorporación de tolerancia a errores en la actividad de copia de Azure Data Factory a través de la omisión de filas incompatibles
 description: Obtenga información sobre cómo agregar tolerancia a errores en la actividad de copia de Azure Data Factory a través de la omisión de filas incompatibles durante la copia
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a255b21e8bfd7d78954603e9aa6e5ca39cee95b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84f5cdff72abe210ac1e39234b455e506d52ba5e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60566078"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682953"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Incorporación de tolerancia a errores en la actividad de copia a través de la omisión de filas incompatibles
 

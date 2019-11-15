@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: c456dfec72f98dc4ae06f1d7d5d9fb461182d579
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: e4683547a7c305da3d3a3bc7a7d6a50f21ad46f2
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018980"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614394"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solución de problemas de la copia de seguridad de base de datos de SQL Server con Azure Backup
 
@@ -32,7 +32,6 @@ Para configurar la protección de una base de datos de SQL Server en una máquin
 | severity | DESCRIPCIÓN | Causas posibles | Acción recomendada |
 |---|---|---|---|
 | Advertencia | La configuración actual de esta base de datos no admite determinados tipos de copia de seguridad presentes en la directiva asociada. | <li>Solo se puede realizar una operación de copia de seguridad de bases de datos completa en la base de datos maestra. No es posible realizar una copia de seguridad diferencial ni una copia de seguridad del registro de transacciones. </li> <li>Ninguna base de datos del modelo de recuperación simple admite la copia de seguridad de registros de transacciones.</li> | Modifique la configuración de la base de datos de tal forma que se admitan todos los tipos de copia de seguridad de la directiva. O bien, cambie la directiva actual para incluir solo los tipos de copia de seguridad compatibles. De lo contrario, se omitirán los tipos de copia de seguridad no compatibles durante la copia de seguridad programada o el trabajo de copia de seguridad generará errores en caso de que se trate de una copia de seguridad ad hoc.
-
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -83,7 +82,7 @@ Para configurar la protección de una base de datos de SQL Server en una máquin
 |---|---|---|
 | Se produjo un error en la restauración, ya que no se pudo desconectar. | Al realizar una restauración, la base de datos de destino debe desconectarse. Azure Backup no puede ofrecer estos datos sin conexión. | Utilice los detalles adicionales del menú del error de Azure Portal para reducir las causas principales. Para más información, consulte la [documentación de SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
+### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
@@ -94,7 +93,6 @@ Para configurar la protección de una base de datos de SQL Server en una máquin
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
 | La copia de seguridad de registros usada para la recuperación contiene cambios registrados de forma masiva. No se puede usar para detenerse en un punto arbitrario en el tiempo según las instrucciones de SQL. | Cuando una base de datos está en modo de recuperación de registro masivo, no se pueden recuperar los datos entre una transacción registrada de forma masiva y la siguiente transacción del registro. | Elija un punto diferente en el tiempo para la recuperación. [Más información](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105)).
-
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -130,8 +128,7 @@ La operación se bloquea porque ha alcanzado el límite en el número de operaci
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-La operación está bloqueada porque el almacén ha alcanzado su límite máximo permitido para ese tipo de operaciones en un intervalo de 24 horas. | Este error se generará cuando haya alcanzado el límite máximo permitido para una operación en un intervalo de 24 horas. Normalmente, este error se produce en el caso de operaciones a escala, como modificar una directiva o la protección automática. A diferencia de lo que sucede en el caso de CloudDosAbsoluteLimitReached, no hay mucho que se pueda hacer para resolver este estado; de hecho, el servicio Azure Backup volverá a intentar las operaciones internamente para todos los elementos en cuestión.<br> Por ejemplo:  si tiene un gran número de orígenes de datos protegidos con una directiva e intenta modificar esa directiva, se desencadenará la configuración de los trabajos de protección para cada uno de los elementos protegidos y, en ocasiones, puede alcanzar el límite máximo permitido para tales operaciones al día.| El servicio Azure Backup volverá a intentar esta operación automáticamente después de 24 horas. 
-
+La operación está bloqueada porque el almacén ha alcanzado su límite máximo permitido para ese tipo de operaciones en un intervalo de 24 horas. | Este error se generará cuando haya alcanzado el límite máximo permitido para una operación en un intervalo de 24 horas. Normalmente, este error se produce cuando hay operaciones a escala, como la modificación de una directiva o la protección automática. A diferencia de lo que sucede en el caso de CloudDosAbsoluteLimitReached, no hay mucho que se pueda hacer para resolver este estado; de hecho, el servicio Azure Backup volverá a intentar las operaciones internamente para todos los elementos en cuestión.<br> Por ejemplo:  si tiene un gran número de orígenes de datos protegidos con una directiva e intenta modificar esa directiva, se desencadenará la configuración de los trabajos de protección para cada uno de los elementos protegidos y, en ocasiones, puede alcanzar el límite máximo permitido para tales operaciones al día.| El servicio Azure Backup volverá a intentar esta operación automáticamente después de 24 horas.
 
 ## <a name="re-registration-failures"></a>Errores de repetición del registro
 
@@ -150,14 +147,14 @@ Compruebe uno o varios de los siguientes síntomas antes de desencadenar la oper
 
 Estos síntomas pueden surgir por uno o varios de los siguientes motivos:
 
-* Se ha eliminado o desinstalado una extensión del portal. 
+* Se ha eliminado o desinstalado una extensión del portal.
 * Se ha desinstalado una extensión del **Panel de control** de la máquina virtual en **Desinstalar o cambiar este programa**.
 * Se ha restaurado la máquina virtual retrocediendo en el tiempo a través de la restauración del disco o discos en contexto.
 * Se ha apagado la máquina virtual durante un largo período, por lo que la configuración de la extensión en ella ha caducado.
 * Se ha eliminado la máquina virtual, y se ha creado otra con el mismo nombre y en el mismo grupo de recursos que la máquina virtual eliminada.
 * Uno de los nodos del grupo de disponibilidad no recibió la configuración de copia de seguridad completa. Esto puede ocurrir cuando el grupo de disponibilidad se registra en el almacén o cuando se agrega un nuevo nodo.
 
-En los escenarios anteriores, se recomienda desencadenar una operación de nuevo registro en la máquina virtual. Por ahora, esta opción solo está disponible a través de PowerShell.
+En los escenarios anteriores, se recomienda desencadenar una operación de nuevo registro en la máquina virtual. [Aquí](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) se ofrecen instrucciones sobre cómo realizar esta tarea en PowerShell.
 
 ## <a name="size-limit-for-files"></a>Límite de tamaño para los archivos
 
@@ -188,6 +185,7 @@ Si el tamaño de la cadena del contenido supera los 20 000 bytes, los archivos 
 Puede reemplazar la ruta de acceso del archivo de restauración de destino durante la operación de restauración mediante la colocación de un archivo JSON que contenga la asignación del archivo de base de datos a la ruta de acceso de restauración de destino. Cree un archivo `database_name.json` y colóquelo en la ubicación *C:\Archivos de programa\Azure Workload Backup\bin\plugins\SQL*.
 
 El contenido del archivo debe tener este formato:
+
 ```json
 [
   {
@@ -227,7 +225,6 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
   ```
-
 
 Este archivo se debe colocar antes de desencadenar la operación de restauración.
 

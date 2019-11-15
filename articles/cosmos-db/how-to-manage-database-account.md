@@ -4,14 +4,14 @@ description: Aprenda a administrar cuentas de base de datos en Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: f67487f6da5c9be028703d7890e16ffab0c858c6
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812524"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582632"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Administración de una cuenta de Azure Cosmos
 
@@ -33,13 +33,13 @@ Consulte [Creación de una cuenta de Azure Cosmos DB mediante PowerShell](manag
 
 ### <a id="create-database-account-via-arm-template"></a>Plantilla de Azure Resource Manager
 
-Esta plantilla de Azure Resource Manager creará una cuenta de Azure Cosmos para cualquier API compatible configurada con dos regiones y opciones para seleccionar nivel de coherencia, conmutación automática por error y arquitectura multimaestro. Para implementar esta plantilla, haga clic en Implementar en Azure en la página Léame, [Creación de una cuenta de Azure Cosmos DB](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
+Esta plantilla de Azure Resource Manager creará una cuenta de Azure Cosmos para la API SQL configurada con dos regiones y opciones para seleccionar el nivel de coherencia, la conmutación automática por error y la arquitectura multimaestro. Para implementar esta plantilla, haga clic en Implementar en Azure en la página Léame, [Creación de una cuenta de Azure Cosmos DB](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Incorporación o eliminación de regiones de una cuenta de base de datos
 
 ### <a id="add-remove-regions-via-portal"></a>Azure Portal
 
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com). 
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
 1. Vaya a la cuenta de Azure Cosmos y abra el menú **Replicar datos globalmente**.
 
@@ -113,7 +113,7 @@ Es posible migrar una cuenta desde un maestro único a una arquitectura multimae
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2015-04-08",
+            "apiVersion": "2019-08-01",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -123,11 +123,13 @@ Es posible migrar una cuenta desde un maestro único a una arquitectura multimae
                 [
                     {
                         "locationName": "[parameters('primaryRegion')]",
-                        "failoverPriority": 0
+                        "failoverPriority": 0,
+                        "isZoneRedundant": false
                     },
                     {
                         "locationName": "[parameters('secondaryRegion')]",
-                        "failoverPriority": 1
+                        "failoverPriority": 1,
+                        "isZoneRedundant": false
                     }
                 ],
                 "enableMultipleWriteLocations": true

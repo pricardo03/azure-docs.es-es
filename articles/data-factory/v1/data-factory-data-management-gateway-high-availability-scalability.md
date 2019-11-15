@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidad con Data Management Gateway en Azure Data Factory | Microsoft Docs
+title: Alta disponibilidad con puerta de enlace de administración de datos en Azure Data Factory
 description: Este artículo explica cómo puede escalar horizontalmente una puerta de enlace de administración de datos mediante la adición de más nodos y escalar verticalmente aumentando el número de trabajos simultáneos que se pueden ejecutar en un nodo.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3428019fe23e3f206e763249a18e7774bab149b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60488946"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682697"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 > [!NOTE]

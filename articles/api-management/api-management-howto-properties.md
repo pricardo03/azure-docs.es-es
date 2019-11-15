@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 11/05/2019
 ms.author: apimpm
-ms.openlocfilehash: d71d71c4d289235e5b67a5201c1f7417274b8fca
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d11239aa49a53a90a38f2b5336d36cea6c97e9df
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072322"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824177"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Cómo usar valores con nombre en las directivas de Azure API Management
 
@@ -27,10 +27,10 @@ Cada instancia del servicio de API Management tiene una colección de propiedade
 
 | Atributo      | type            | DESCRIPCIÓN                                                                                                                         |
 | -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `Display name` | string          | Se usa para hacer referencia a la propiedad en las directivas. Una cadena que contenga entre 1 y 256 caracteres. Solo se permiten letras, números, punto y guión. |
+| `Display name` | string          | Se usa para hacer referencia al valor con nombre en las directivas. Una cadena que contenga entre 1 y 256 caracteres. Solo se permiten letras, números, punto y guión. |
 | `Value`        | string          | Valor real. No debe estar vacío ni contener solo espacios en blanco. 4096 caracteres como máximo.                                     |
 | `Secret`       | boolean         | Determina si el valor es secreto y si se debe cifrar.                                                            |
-| `Tags`         | matriz de cadena | Se utiliza para filtrar la lista de propiedades. Hasta 32 etiquetas.                                                                                    |
+| `Tags`         | matriz de cadena | Se usa para filtrar la lista de valores con nombre. Hasta 32 etiquetas.                                                                                    |
 
 ![Valores con nombre](./media/api-management-howto-properties/named-values.png)
 
@@ -42,40 +42,40 @@ Los valores con nombre pueden contener cadenas literales y [expresiones de direc
 | Credential: | ••••••••••••••••••••••     | True   | security      |
 | Expression | @(DateTime.Now.ToString()) | False  |               |
 
-## <a name="to-add-and-edit-a-property"></a>Incorporación y edición de una propiedad
+## <a name="to-add-and-edit-a-named-value"></a>Para agregar y editar un valor con nombre
 
-![Incorporación de una propiedad](./media/api-management-howto-properties/add-property.png)
+![Agregar un valor con nombre](./media/api-management-howto-properties/add-property.png)
 
 1. Seleccione **API** en **API MANAGEMENT**.
 2. Seleccione **Valores con nombre**.
 3. Presione **+Agregar**.
 
-    Los campos Nombre y Valor son necesarios. Si el valor de esta propiedad es un secreto, marque la casilla Este valor es un secreto. Escriba una o varias etiquetas opcionales que le ayuden a organizar los valores con nombre y haga clic en Guardar.
+    Los campos Nombre y Valor son necesarios. Si el valor es un secreto, marque la casilla *Este valor es un secreto*. Escriba una o varias etiquetas opcionales que le ayuden a organizar los valores con nombre y haga clic en Guardar.
 
 4. Haga clic en **Create**(Crear).
 
-Una vez creada la propiedad, es posible editarla haciendo clic en ella. Si cambia el nombre de propiedad, las directivas que hagan referencia a esa propiedad se actualizarán automáticamente para utilizar el nuevo nombre.
+Una vez creado el valor con nombre, es posible editarlo haciendo clic en él. Si cambia el nombre del valor con nombre, las directivas que hagan referencia a ese valor con nombre se actualizarán automáticamente para utilizar el nuevo nombre.
 
-Para obtener información sobre cómo editar una propiedad mediante la API de REST, consulte [Edit a property using the REST API](/rest/api/apimanagement/2019-01-01/property?patch)(Edición de una propiedad mediante la API de REST).
+Para obtener información sobre cómo editar un valor con nombre mediante la API de REST, consulte [Edit a named value using the REST API](/rest/api/apimanagement/2019-01-01/property?patch)(Edición de un valor con nombre mediante la API de REST).
 
-## <a name="to-delete-a-property"></a>Eliminación de una propiedad
+## <a name="to-delete-a-named-value"></a>Para eliminar un valor con nombre
 
-Para eliminar una propiedad, haga clic en **Delete (Eliminar)** junto a la propiedad que se va a eliminar.
+Para eliminar un valor con nombre, haga clic en **Eliminar** junto al valor con nombre que se va a eliminar.
 
 > [!IMPORTANT]
-> Si se hace referencia a la propiedad mediante alguna directiva, podrá eliminarla correctamente hasta que quite la propiedad de todas las directivas que la utilicen.
+> Si se hace referencia al valor con nombre mediante alguna directiva,no podrá eliminarlo correctamente hasta que lo quite de todas las directivas que lo utilicen.
 
-Para obtener información sobre cómo eliminar una propiedad mediante la API de REST, consulte [Delete a property using the REST API](/rest/api/apimanagement/2019-01-01/property/delete)(Eliminación de una propiedad mediante la API de REST).
+Para obtener información sobre cómo eliminar un valor con nombre mediante la API de REST, consulte [Delete a named value using the REST API](/rest/api/apimanagement/2019-01-01/property/delete) (Eliminación de un valor con nombre mediante la API de REST).
 
-## <a name="to-search-and-filter-named-values"></a>Búsqueda y filtrado de valores con nombre
+## <a name="to-search-and-filter-named-values"></a>Para buscar y filtrar valores con nombre
 
-En la pestaña **Valores con nombre** se incluyen las funcionalidades de búsqueda y filtrado que le ayudan a administrar los valores con nombre. Para filtrar la lista de propiedades por el nombre de la propiedad, escriba un término de búsqueda en el cuadro de texto **Search property (Buscar propiedad)** . Para mostrar todos los valores con nombre, borre el cuadro de texto **Search property** (Buscar propiedad) y pulse la tecla Entrar.
+En la pestaña **Valores con nombre** se incluyen las funcionalidades de búsqueda y filtrado que le ayudan a administrar los valores con nombre. Para filtrar la lista de valores con nombre por el nombre, escriba un término de búsqueda en el cuadro de texto **Buscar propiedad** . Para mostrar todos los valores con nombre, borre el cuadro de texto **Search property** (Buscar propiedad) y pulse la tecla Entrar.
 
-Para filtrar la lista de propiedades por valores de etiqueta, escriba una o varias etiquetas en el cuadro de texto **Filtrar por etiquetas** . Para mostrar todos los valores con nombre, borre el cuadro de texto **Filtrar por etiquetas** y pulse la tecla Entrar.
+Para filtrar la lista por etiqueta, escriba una o varias etiquetas en el cuadro de texto **Filtrar por etiquetas** . Para mostrar todos los valores con nombre, borre el cuadro de texto **Filtrar por etiquetas** y pulse la tecla Entrar.
 
-## <a name="to-use-a-property"></a>Uso de una propiedad
+## <a name="to-use-a-named-value"></a>Para usar un valor con nombre
 
-Para utilizar una propiedad en una directiva, coloque el nombre de la propiedad dentro de un par doble de llaves (como `{{ContosoHeader}}`), de la misma forma que se muestra en el ejemplo siguiente:
+Para utilizar un valor con nombre en una directiva, coloque su nombre dentro de un par doble de llaves (como `{{ContosoHeader}}`), de la misma forma que se muestra en el ejemplo siguiente:
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -83,7 +83,7 @@ Para utilizar una propiedad en una directiva, coloque el nombre de la propiedad 
 </set-header>
 ```
 
-En este ejemplo, `ContosoHeader` se utiliza como el nombre de un encabezado en una directiva `set-header`, y `ContosoHeaderValue` se utiliza como valor de ese encabezado. Cuando esta directiva se evalúa durante una solicitud o responde a la pasarela de API Management, `{{ContosoHeader}}` y `{{ContosoHeaderValue}}` se reemplazan por sus respectivos valores de propiedad.
+En este ejemplo, `ContosoHeader` se utiliza como el nombre de un encabezado en una directiva `set-header`, y `ContosoHeaderValue` se utiliza como valor de ese encabezado. Cuando esta directiva se evalúa durante una solicitud o responde a la pasarela de API Management, `{{ContosoHeader}}` y `{{ContosoHeaderValue}}` se reemplazan por sus respectivos valores.
 
 Los valores con nombre se pueden utilizar como atributo completo o como valores de elemento (tal como se muestra en el ejemplo anterior), pero también se pueden insertar o combinar con parte de una expresión de texto literal, como en el ejemplo siguiente: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
@@ -101,11 +101,11 @@ Puede probarlo en el portal para desarrolladores si llama a una operación que t
 
 ![Portal para desarrolladores][api-management-send-results]
 
-Si busca en el [seguimiento de API Inspector](api-management-howto-api-inspector.md) una llamada que incluya las dos directivas de ejemplo anteriores con valores con nombre, verá las dos directivas `set-header` con los valores de propiedad insertados, así como la evaluación de la expresión de directiva para la propiedad que la contiene.
+Si busca en el [seguimiento de API Inspector](api-management-howto-api-inspector.md) una llamada que incluya las dos directivas de ejemplo anteriores con valores con nombre, verá las dos directivas `set-header` con los valores con nombre insertados, así como la evaluación de la expresión de directiva para el valor con nombre que la contiene.
 
 ![Seguimiento de API Inspector][api-management-api-inspector-trace]
 
-Aunque los valores de propiedad pueden contener expresiones de directiva, no pueden contener otros valores con nombre. Si se utiliza texto que contiene una referencia de propiedad para un valor de propiedad, como `Property value text {{MyProperty}}`, esa referencia de propiedad no se reemplazará y se incluirá como parte del valor de la propiedad.
+Aunque los valores con nombre pueden contener expresiones de directiva, no pueden contener otros valores con nombre. En caso de usarse texto que contenga una referencia a valores con nombre para un valor, como `Text: {{MyProperty}}`, dicha referencia no se resolverá ni reemplazará.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

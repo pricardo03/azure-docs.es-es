@@ -1,18 +1,18 @@
 ---
 title: Orígenes de datos admitidos en Azure Analysis Services | Microsoft Docs
-description: Describe los orígenes de datos admitidos para los modelos de datos en Azure Analysis Services.
+description: Describe los orígenes de datos y los conectores admitidos para los modelos de datos tabulares de 1200 y superiores en Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c6043d9e18c364073ad1ea46e26335577e0ec3b2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512444"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572959"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -97,12 +97,12 @@ Cuando se migra un modelo tabular de SQL Server Analysis Services local a Azure 
 
 **Para especificar un proveedor**
 
-1. En SSDT > **Tabular Model Explorer**(Explorador de modelos tabulares) > **Orígenes de datos**, haga clic en una conexión de origen de datos y en **Editar origen de datos**.
+1. En Visual Studio > **Explorador de modelos tabulares** > **Orígenes de datos**, haga clic con el botón derecho en una conexión de origen de datos y luego en **Editar origen de datos**.
 2. En **Editar conexión**, haga clic en **Avanzadas** para abrir la ventana de propiedades avanzadas.
 3. En **Establecer propiedades avanzadas** > **Proveedores**, seleccione el proveedor adecuado.
 
 ## <a name="impersonation"></a>Suplantación
-En algunos casos, puede ser necesario especificar otra cuenta de suplantación. La cuenta de suplantación se puede especificar en Visual Studio (SSDT) o SSMS.
+En algunos casos, puede ser necesario especificar otra cuenta de suplantación. La cuenta de suplantación se puede especificar en Visual Studio o SSMS.
 
 Para orígenes de datos locales:
 

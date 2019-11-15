@@ -1,5 +1,5 @@
 ---
-title: Puntos de conexión de red virtual y reglas para las bases de datos únicas y agrupadas en Azure SQL | Microsoft Docs
+title: Puntos de conexión y reglas de red virtual para bases de datos únicas y agrupadas
 description: Marque una subred como punto de conexión de servicio de red virtual. A continuación, defina el punto de conexión como una regla de red virtual a la ACL de su base de datos de Azure SQL. Su instancia de SQL Database aceptará la comunicación de todas las máquinas virtuales y otros nodos de la subred.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 08/27/2019
-ms.openlocfilehash: 5506f95d532f69286bf29ec8916485bd63ce94da
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f171181aa56287561aba3159f5039f70165dc8ab
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828818"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807509"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usar reglas y puntos de conexión de servicio de red virtual para servidores de bases de datos
 

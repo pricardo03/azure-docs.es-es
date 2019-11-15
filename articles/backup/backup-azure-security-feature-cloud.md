@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: b882b8ee08c38b6313558916ab46f80ce9dd5130
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: f0e4540f3f5ab3fdbb5953cbf100c5fdc2b2542a
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129336"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622002"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Características de seguridad para proteger cargas de trabajo en la nube mediante Azure Backup
 
@@ -26,7 +26,7 @@ Cada vez es mayor la preocupación que generan problemas de seguridad como malwa
 
 ### <a name="supported-regions"></a>Regiones admitidas
 
-La eliminación temporal se admite actualmente en Centro-oeste de EE. UU., Asia Oriental, Centro de Canadá, Este de Canadá, Centro de Francia, Sur de Francia, Centro de Corea del Sur, Sur de Corea del Sur, Sur de Reino Unido, Oeste de Reino Unido, Este de Australia, Sudeste de Australia, Norte de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Sudeste Asiático, Centro-norte de EE. UU., Centro-sur de EE. UU., Este de Japón, Oeste de Japón, Sur de India, Centro de la India, India occidental, Este de EE. UU. 2, Norte de Suiza, Oeste de Suiza y todas las regiones nacionales.
+La eliminación temporal se admite actualmente en Centro-oeste de EE. UU., Asia Oriental, Centro de Canadá, Este de Canadá, Centro de Francia, Sur de Francia, Centro de Corea del Sur, Sur de Corea del Sur, Sur de Reino Unido, Oeste de Reino Unido, Este de Australia, Sudeste de Australia, Norte de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Sudeste Asiático, Centro-norte de EE. UU., Centro-sur de EE. UU., Este de Japón, Oeste de Japón, Sur de India, Centro de la India, India occidental, Este de EE. UU. 2, Norte de Suiza, Oeste de Suiza y todas las regiones nacionales.
 
 ### <a name="soft-delete-for-vms"></a>Eliminación temporal para máquinas virtuales
 
@@ -70,6 +70,29 @@ En este diagrama de flujo se explican los diferentes pasos y estados de un eleme
 
 Para más información, consulte la sección [Preguntas frecuentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) más abajo.
 
+## <a name="disabling-soft-delete"></a>Deshabilitación de la eliminación temporal
+
+La eliminación temporal está habilitada de forma predeterminada en los almacenes recién creados. Si la característica de seguridad eliminación temporal está deshabilitada, los datos de copia de seguridad no se protegerán de eliminaciones accidentales o malintencionadas. Sin la característica de eliminación temporal, todas las eliminaciones de elementos protegidos provocarán la eliminación inmediata, sin la posibilidad de restaurar. Dado que los datos de copia de seguridad en el estado "eliminación temporal" no incurren en ningún costo para el cliente, no se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para eliminar y volver a proteger (por ejemplo, en un entorno de prueba).
+
+### <a name="prerequisites-for-disabling-soft-delete"></a>Requisitos previos para deshabilitar la eliminación temporal
+
+- La habilitación o deshabilitación de la eliminación temporal para almacenes (sin elementos protegidos) solo puede realizarse en Azure Portal. Esto se aplica a:
+  - Almacenes recién creados que no contienen elementos protegidos
+  - Almacenes existentes cuyos elementos protegidos se han eliminado y han expirado (más allá del período de retención fijo de 14 días)
+- Si la característica de eliminación temporal está deshabilitada para el almacén, puede volver a habilitarla, pero no puede revertir la selección y deshabilitarla de nuevo si el almacén contiene elementos protegidos.
+- No se puede deshabilitar la eliminación temporal para almacenes que contienen elementos protegidos o elementos en estado de eliminación temporal. Si tiene que hacerlo, siga estos pasos:
+  - Detenga la protección de los datos eliminados de todos los elementos protegidos.
+  - Espere a que expiren los 14 días de retención de seguridad.
+  - Deshabilite la eliminación temporal.
+
+Para deshabilitar la eliminación temporal, asegúrese de que se cumplen los requisitos previos y luego siga estos pasos:
+
+1. En Azure Portal, vaya a su almacén y luego a **Configuración** -> **Propiedades**.
+2. En el panel Propiedades, seleccione **Configuración de seguridad** -> **Actualizar**.
+3. En el panel Configuración de seguridad, en Eliminación temporal, seleccione **Deshabilitar**.
+
+![Deshabilitación de la eliminación temporal](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
 ## <a name="other-security-features"></a>Otras características de seguridad
 
 ### <a name="storage-side-encryption"></a>Cifrado del lado de almacenamiento
@@ -78,19 +101,19 @@ Azure Storage cifra automáticamente los datos al guardarlos en la nube. Mediant
 
 Dentro de Azure, los datos en tránsito entre Azure Storage y el almacén se protegen mediante HTTPS. Estos datos permanecen en la red troncal de Azure.
 
-Para más información, consulte [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/en-in/azure/storage/common/storage-service-encryption).
+Para más información, consulte [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
 ### <a name="vm-encryption"></a>Cifrado de máquinas virtuales
 
-Puede realizar una copia de seguridad de máquinas virtuales Windows o Linux de Azure con discos cifrados y restaurarlas mediante el servicio Azure Backup. Para obtener instrucciones, consulte [Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+Puede realizar una copia de seguridad de máquinas virtuales Windows o Linux de Azure con discos cifrados y restaurarlas mediante el servicio Azure Backup. Para obtener instrucciones, consulte [Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
 ### <a name="protection-of-azure-backup-recovery-points"></a>Protección de los puntos de recuperación de Azure Backup
 
 Las cuentas de almacenamiento usadas por los almacenes de Recovery Services están aisladas y son inaccesibles para usuarios con fines malintencionados. Solo se permite el acceso mediante operaciones de administración de Azure Backup, como la restauración. Estas operaciones de administración se controlan mediante el control de acceso basado en rol (RBAC).
 
-Para más información, consulte [Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault).
+Para más información, consulte [Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
 
-## <a name="frequently-asked-questions"></a>Preguntas frecuentes
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 ### <a name="soft-delete"></a>Eliminación temporal
 
@@ -101,30 +124,30 @@ No, se crea y habilita de forma predeterminada para todos los almacenes de Recov
 #### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>¿Se puede configurar el número de días durante los que se conservarán los datos en estado de eliminación temporal tras completar la operación de eliminación?
 
 No, este periodo está fijado en 14 días de retención adicional después de la operación de eliminación.
- 
+
 #### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>¿Hay que pagar el costo de esta retención adicional de 14 días?
 
 No, esta retención adicional de 14 días es gratuita como parte de la funcionalidad de eliminación temporal.
- 
+
 #### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>¿Puedo realizar una operación de restauración si los datos están en estado de eliminación temporal?
 
 No, debe recuperar el recurso eliminado temporalmente para poder restaurarlo. La operación de recuperación devolverá el recurso al estado **Detener la protección con conservación de datos**, donde puede realizar la restauración a cualquier momento dado. El recolector de elementos no utilizados permanece en pausa en este estado.
- 
+
 #### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>¿Las instantáneas seguirán el mismo ciclo de vida que los puntos de recuperación en el almacén?
 
 Sí.
- 
+
 #### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>¿Cómo puedo volver a desencadenar las copias de seguridad programadas para un recurso eliminado temporalmente?
 
 La recuperación seguida de la operación de reanudación volverá a proteger el recurso. La operación de reanudación asocia una directiva de copia de seguridad para desencadenar las copias de seguridad programadas con el período de retención seleccionado. Además, el recolector de elementos no utilizados se ejecuta tan pronto como se completa la operación de reanudación. Si desea realizar una restauración desde un punto de recuperación que supere su fecha de expiración, se recomienda hacerlo antes de desencadenar la operación de reanudación.
- 
+
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>¿Puedo eliminar mi almacén si contiene elementos eliminados temporalmente?
 
 No es posible eliminar el almacén de Recovery Services si contiene elementos de copia de seguridad en estado de eliminación temporal. Los elementos eliminados temporalmente se eliminan de forma permanente 14 días después de la operación de eliminación. Solo podrá eliminar el almacén después de que se hayan purgado todos los elementos eliminados temporalmente.  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>¿Puedo eliminar los datos antes del período de eliminación temporal de 14 días posterior a la eliminación?
 
-No. No se puede forzar la eliminación de los elementos eliminados temporalmente; se eliminan automáticamente al cabo de 14 días. Esta característica de seguridad está habilitada para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  Debe esperar 14 días antes de realizar cualquier otra acción en la máquina virtual.  Los elementos eliminados temporalmente no se cobrarán.  Si necesita volver a proteger las máquinas virtuales marcadas para eliminación temporal en un plazo de 14 días en un nuevo almacén, póngase en contacto con el servicio de soporte técnico de Microsoft.
+No. No se puede forzar la eliminación de los elementos eliminados temporalmente; se eliminan automáticamente al cabo de 14 días. Esta característica de seguridad está habilitada para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  Debe esperar 14 días antes de realizar cualquier otra acción en la máquina virtual.  Los elementos eliminados temporalmente no se cobrarán.  Si necesita volver a proteger las máquinas virtuales marcadas para eliminación temporal en un plazo de 14 días en un nuevo almacén, póngase en contacto con Soporte técnico de Microsoft.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>¿Se pueden realizar operaciones de eliminación temporal en PowerShell o la CLI?
 
@@ -136,4 +159,4 @@ No. Actualmente, la eliminación temporal solo es compatible con máquinas virtu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre los [Controles de seguridad para Azure Backup](backup-security-controls.md).
+- Obtenga más información sobre los [Controles de seguridad para Azure Backup](backup-security-controls.md).

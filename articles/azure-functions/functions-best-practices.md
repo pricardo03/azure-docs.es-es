@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad7bdfd3abc4d3b4b672f5471ea826d4cef0f3fc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 87071b8e1102067110baae70c424aa74a5e0702c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596885"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73570824"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
 
@@ -28,7 +28,7 @@ En este artículo se proporcionan instrucciones para mejorar el rendimiento y la
 
 Las funciones grandes de ejecución prolongada pueden causar problemas de tiempo de espera inesperados. Para más información sobre los tiempos de expiración de un plan de hospedaje determinado, consulte [Duración del tiempo de tiempo de expiración de una aplicación de funciones](functions-scale.md#timeout). 
 
-Una función puede ser grande debido a numerosas dependencias de Node.js. La importación de las dependencias también puede provocar mayores tiempos de carga que dan lugar a tiempos de expiración inesperados. Las dependencias se cargan explícita e implícitamente. Un módulo único cargado por el código puede cargar sus propios módulos adicionales. 
+Una función puede llegar a ser grande debido a sus numerosas dependencias de Node.js. La importación de las dependencias también puede provocar mayores tiempos de carga que dan lugar a tiempos de expiración inesperados. Las dependencias se cargan explícita e implícitamente. Un módulo único cargado por el código puede cargar sus propios módulos adicionales. 
 
 Siempre que sea posible, refactorice funciones grandes en conjuntos más pequeños de funciones que trabajen juntos y devuelvan respuestas rápidas. Por ejemplo, un webhook o una función de desencadenador HTTP podría requerir una respuesta de confirmación en un determinado período de tiempo. Es habitual que los webhooks requieran una respuesta inmediata. Puede pasar la carga útil de desencadenador HTTP a una cola para ser procesada por una función de desencadenador de cola. Este enfoque permite aplazar el trabajo real y devolver una respuesta inmediata.
 
@@ -37,7 +37,7 @@ Siempre que sea posible, refactorice funciones grandes en conjuntos más pequeñ
 
 [Durable Functions](durable/durable-functions-overview.md) y [Azure Logic Apps](../logic-apps/logic-apps-overview.md) se han creado para administrar las transiciones de estado y las comunicaciones entre varias funciones.
 
-Si no usa Durable Functions ni Logic Apps para integrar varias funciones, se recomienda usar colas de almacenamiento para la comunicación entre estas.  La razón principal es que las colas de almacenamiento son más baratas y mucho más fáciles de aprovisionar. 
+Si no usa Durable Functions ni Logic Apps para integrar varias funciones, es mejor usar colas de almacenamiento para la comunicación entre funciones. La razón principal es que las colas de almacenamiento son más baratas y mucho más fáciles de aprovisionar que otras opciones de almacenamiento. 
 
 Los mensajes individuales de una cola de almacenamiento tienen un límite de tamaño de 64 KB. Si tiene que pasar mensajes más grandes entre funciones, se podría usar una cola de Azure Service Bus para admitir tamaños de mensaje de hasta 256 KB en el nivel Estándar y hasta 1 MB en el nivel Premium.
 
@@ -57,12 +57,12 @@ Las funciones idempotentes se recomiendan especialmente con desencadenadores de 
 
 Suponga que la función podría encontrarse con una excepción en cualquier momento. Diseñe las funciones con la capacidad de continuar a partir de un punto de error anterior durante la siguiente ejecución. Considere un escenario que requiere las siguientes acciones:
 
-1. Consulta de 10 000 filas en una base de datos.
+1. Consulta de 10 000 filas en una base de datos.
 2. Cree un mensaje de cola para cada una de esas filas para procesar más abajo la línea.
  
 Dependiendo de lo complejo que sea el sistema, es posible que haya servicios de bajada implicados con un comportamiento incorrecto, interrupciones de red, límites de cuota alcanzados, etc. Todo esto puede afectar a su función en cualquier momento. Debe diseñar las funciones para que estén preparadas para ello.
 
-¿Cómo reacciona el código si se produce un error después de insertar 5000 de esos elementos en una cola para su procesamiento? Realice un seguimiento de elementos de un conjunto que ha completado. En caso contrario, podría insertarlos la próxima vez. Esto puede tener un impacto grave en el flujo de trabajo. 
+¿Cómo reacciona el código si se produce un error después de insertar 5000 de esos elementos en una cola para su procesamiento? Realice un seguimiento de elementos de un conjunto que ha completado. En caso contrario, podría insertarlos la próxima vez. Esta doble inserción puede afectar seriamente al flujo de trabajo, por lo que debe [hacer que las funciones sean idempotentes](functions-idempotent.md). 
 
 Si ya se ha procesado un elemento de la cola, permita que la función sea no operativa.
 
@@ -82,13 +82,9 @@ Las funciones dentro de una aplicación de función compartan recursos. Por ejem
 
 Asegúrese de cargar en las aplicaciones de función de producción. La memoria se promedia entre cada función de la aplicación.
 
-Si tiene un ensamblado compartido al que se hace referencia en varias funciones. NET, colóquelo en una carpeta compartida común. Haga referencia al ensamblado con una instrucción similar al ejemplo siguiente si usa scripts de C# (.csx): 
+Si tiene un ensamblado compartido al que se hace referencia en varias funciones. NET, colóquelo en una carpeta compartida común. En caso contrario, podría implementar accidentalmente varias versiones del mismo binario que se comporten de manera diferente entre funciones.
 
-    #r "..\Shared\MyAssembly.dll". 
-
-En caso contrario, es fácil implementar accidentalmente varias versiones de prueba del mismo binario que se comporten de manera diferente entre funciones.
-
-No utilice el registro detallado en el código de producción. Tiene un impacto negativo en el rendimiento.
+No use el registro detallado en el código de producción, ya que afecta negativamente al rendimiento.
 
 ### <a name="use-async-code-but-avoid-blocking-calls"></a>Uso del código asincrónico pero evitar las llamadas de bloqueo
 
@@ -100,19 +96,15 @@ La programación asincrónica es una práctica recomendada. Sin embargo, evite s
 
 Algunos desencadenadores como Event Hubs permiten la recepción de un lote de mensajes en una única invocación.  El procesamiento de mensajes por lotes tiene un rendimiento mucho mejor.  Puede configurar el tamaño de lote máximo en el archivo `host.json` tal como se detalla en la [documentación de referencia sobre host.json](functions-host-json.md)
 
-Para las funciones de C# puede cambiar el tipo a una matriz fuertemente tipada.  Por ejemplo, en lugar de `EventData sensorEvent` la signatura del método podría ser `EventData[] sensorEvent`.  Para otros idiomas debe establecer explícitamente la propiedad de cardinalidad de `function.json` en `many` para habilitar el procesamiento por lotes [tal y como se muestra aquí](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+Para las funciones de C#, puede cambiar el tipo a una matriz fuertemente tipada.  Por ejemplo, en lugar de `EventData sensorEvent` la signatura del método podría ser `EventData[] sensorEvent`.  Para otros idiomas debe establecer explícitamente la propiedad de cardinalidad de `function.json` en `many` para habilitar el procesamiento por lotes [tal y como se muestra aquí](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configuración de los comportamientos de host para controlar mejor la simultaneidad
 
-El archivo `host.json` de la aplicación de función permite la configuración de comportamientos del sistema de tiempo de ejecución y de desencadenadores del host.  Además de los comportamientos del procesamiento por lotes, puede administrar la simultaneidad para varios desencadenadores.  Frecuentemente, el ajustar los valores de estas opciones puede hacer que cada instancia se escale adecuadamente para satisfacer la demanda de las funciones que se invocan.
+El archivo `host.json` de la aplicación de función permite la configuración de comportamientos del sistema de tiempo de ejecución y de desencadenadores del host.  Además de los comportamientos del procesamiento por lotes, puede administrar la simultaneidad para varios desencadenadores. Frecuentemente, el ajustar los valores de estas opciones puede hacer que cada instancia se escale adecuadamente para satisfacer la demanda de las funciones que se invocan.
 
-La configuración de los archivos de los hosts se aplica a todas las funciones de la aplicación, a una *única instancia* de la función. Por ejemplo, si tuviera una aplicación de función con 2 funciones HTTP y un valor de solicitudes simultáneas establecido en 25, una solicitud a cualquiera de los desencadenadores HTTP contaría las 25 solicitudes simultáneas compartidas.  Si esa aplicación de función se escala a 10 instancias, las 2 funciones permitirían eficazmente 250 solicitudes simultáneas (10 instancias * 25 solicitudes simultáneas por cada instancia).
+La configuración del archivo host.json se aplica a todas las funciones de la aplicación, dentro de una *única instancia* de la función. Por ejemplo, si tuviera una aplicación de funciones con dos funciones HTTP y solicitudes [`maxConcurrentRequests`](functions-bindings-http-webhook.md#hostjson-settings) establecidas en 25, una solicitud a cualquiera de los desencadenadores HTTP contaría las 25 solicitudes simultáneas compartidas.  Cuando esa aplicación de funciones se escala a diez instancias, las dos funciones permiten eficazmente 250 solicitudes simultáneas (10 instancias * 25 solicitudes simultáneas por cada instancia). 
 
-**Opciones de host para simultaneidad de HTTP**
-
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
-
-Se pueden encontrar otras opciones de configuración de host [en el documento de configuración de host](functions-host-json.md).
+En el [artículo de configuración de host.json](functions-host-json.md) hay otras opciones de configuración de host.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

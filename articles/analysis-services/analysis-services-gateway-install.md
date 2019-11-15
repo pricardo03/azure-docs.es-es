@@ -1,18 +1,18 @@
 ---
 title: Instalación de la puerta de enlace de datos local para Azure Analysis Services | Microsoft Docs
-description: Aprenda a instalar y configurar una puerta de enlace de datos local.
+description: Aprenda a instalar y configurar una puerta de enlace de datos local para conectarse a orígenes de datos locales desde un servidor de Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 99b5a0ff9cc0fd7fdc3b8a0e453ed287c45e1c60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147130"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572854"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 

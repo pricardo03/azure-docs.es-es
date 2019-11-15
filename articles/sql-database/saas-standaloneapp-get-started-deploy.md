@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de la aplicación SaaS de inquilino único: Azure SQL Database | Microsoft Docs'
+title: Tutorial de la aplicación SaaS de inquilino único
 description: Implemente y explore una aplicación SaaS de inquilino único independiente que usa Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 11/07/2018
-ms.openlocfilehash: 2e6b18e53358cad1bfe89e8c0ae7fbacec24d179
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3afc8aa58551b995070ffaca978c8e7c8454da3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570202"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822131"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementación y dexploración de una aplicación de inquilino único independiente que usa Azure SQL Database
 

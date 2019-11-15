@@ -1,5 +1,5 @@
 ---
-title: Uso de PowerShell para incorporar Azure Security Center y proteger su red | Microsoft Docs
+title: Incorporación a Azure Security Center con PowerShell
 description: Este documento le guía por el proceso de incorporar Azure Security Center mediante cmdlets de PowerShell.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 8e2f7b87efe89166175748cec310f24575b7f102
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b20b3c1e4216fe8065fbc8ac24c7d8097903fc5a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201226"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686367"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatización de la incorporación de Azure Security Center mediante PowerShell
 
@@ -31,13 +31,13 @@ En este artículo se proporciona un script de PowerShell de ejemplo que se puede
 
 En este ejemplo, se habilitará Security Center en una suscripción con el identificador: d07c0080-170c-4c24-861d-9c817742786c y se aplicará la configuración recomendada que proporciona un alto nivel de protección; para ello, se implementará el nivel estándar de Security Center, que ofrece funcionalidades avanzadas de detección y protección contra amenazas:
 
-1. Establezca el [nivel estándar de protección de ASC](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Establezca el [nivel de protección estándar de Security Center](https://azure.microsoft.com/pricing/details/security-center/). 
  
 2. Establezca el área de trabajo de Log Analytics a la que Microsoft Monitoring Agent enviará los datos que recopila de las máquinas virtuales asociada con la suscripción; en este ejemplo, un área de trabajo existente definida por el usuario (myWorkspace).
 
 3. Active el aprovisionamiento de automático de agentes que [implementa Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Establezca el [CISO de la organización como contacto de seguridad de las alertas y eventos destacados de ASC](security-center-provide-security-contact-details.md).
+5. Establezca el [CISO de la organización como contacto de seguridad de las alertas y eventos destacados de Security Center](security-center-provide-security-contact-details.md).
 
 6. Asigne [directivas de seguridad predeterminadas](tutorial-security-policy.md) de Security Center.
 

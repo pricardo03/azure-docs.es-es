@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse (PowerShell) | Microsoft Docs'
+title: 'Inicio rápido: escalado de proceso: PowerShell '
 description: Escale procesos en Azure SQL Data Warehouse en PowerShell. Escale horizontalmente un proceso para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
 services: sql-data-warehouse
 author: Antvgski
@@ -10,12 +10,13 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 37b5f0a989bb76a9a40529cd11944de40a164156
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f4c2087052e4c3b4fac4d27bb4ecdc2ebf8a42f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306222"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692966"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>Inicio rápido: Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse en Azure PowerShell
 

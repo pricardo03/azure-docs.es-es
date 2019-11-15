@@ -4,15 +4,16 @@ description: Información general sobre diversos temas relacionados con la publi
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: pabutler
-ms.openlocfilehash: a89921d4b5ec25bc0c924646d3bd41aecf3e8d9c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 047ffd983cecd9f9bd971ee3f97e15734d14ce66
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67870924"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813272"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Administración de clientes potenciales de Marketplace en la nube
 
@@ -38,9 +39,9 @@ Estas son las instrucciones paso a paso sobre cómo conectar cada uno de los des
 
 **Salesforce**: [haga clic aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) para ver instrucciones sobre cómo configurar la instancia de Salesforce a fin de obtener clientes potenciales. - 
 
-**Tabla de Azure**: [haga clic aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) para ver instrucciones para configurar la cuenta de Azure Storage a fin de obtener clientes potenciales en una tabla de Azure.
+**Tabla de Azure** - [Haga clic aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) para ver instrucciones para configurar la cuenta de Azure Storage a fin de obtener clientes potenciales en una tabla de Azure.
 
-**Punto de conexión HTTPS**: [haga clic aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) para ver instrucciones que le permitan establecer la configuración de su punto de conexión HTTPS para obtener clientes potenciales.
+**Punto de conexión HTTPS** - [Haga clic aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) para ver instrucciones que le permitan establecer la configuración de su punto de conexión HTTPS para obtener clientes potenciales.
 
 Una vez que haya configurado correctamente el destino de clientes potenciales y haya presionado Publicar en su oferta, validaremos la conexión y le enviaremos un cliente potencial de prueba. Si está viendo la oferta antes de publicarla en Internet, también puede probar la conexión de los clientes potenciales tratando de adquirir la oferta en el entorno de versión preliminar. Es importante asegurarse de que la configuración de los clientes potenciales se mantenga actualizada para no perder ninguno de estos clientes; así pues, asegúrese de actualizar estas conexiones siempre que cambie algo por su parte.
 
@@ -147,28 +148,28 @@ Cada cliente potencial tendrá datos que se pasen en campos al destino de client
 
   *Orígenes:* :
 
-    “AzureMarketplace”, 
-    “AzurePortal”, 
-    “TestDrive”,  
-    “SPZA” (acronym for AppSource) 
+    "AzureMarketplace", 
+    "AzurePortal", 
+    "TestDrive",  
+    "SPZA" (acronym for AppSource) 
 
   *Acciones:*
 
-    “INS” – Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
-    “PLT” – Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
+    "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
+    "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
 
-    “DNC” – Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
+    "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
 
-    “Create” – This is inside Azure Portal only and is whenever a customer purchases your offer to their account. 
+    "Create" - This is inside Azure Portal only and is whenever a customer purchases your offer to their account. 
 
-    “StartTestDrive” – This is for Test Drives only and is whenever a customer starts their test drive. 
+    "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
 
 
   *Ofertas:*
 
-    “checkpoint.check-point-r77-10sg-byol”, 
-    “bitnami.openedxcypress”, 
-    “docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a” 
+    "checkpoint.check-point-r77-10sg-byol", 
+    "bitnami.openedxcypress", 
+    "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a" 
 
  
 

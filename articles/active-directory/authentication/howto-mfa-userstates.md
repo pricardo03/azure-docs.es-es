@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ee1d282506b537ed29592ca9008c88a53220d7d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 8a2d22c4a7a8b95f5a200518a3c46fc33f55c66a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554840"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569864"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Exigencia de verificación en dos pasos para un usuario
 
@@ -173,6 +173,9 @@ function Set-MfaState {
 # Disable MFA for all users
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
+
+> [!NOTE]
+> Recientemente hemos cambiado el comportamiento y el script de PowerShell anterior en consecuencia. Anteriormente, el script se guardaba fuera de los métodos de MFA, se deshabilitó MFA y restauraba los métodos. Ahora, ya no es necesario que el comportamiento predeterminado para deshabilitar no borre los métodos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

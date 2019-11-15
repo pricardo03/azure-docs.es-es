@@ -1,5 +1,5 @@
 ---
-title: Copia de datos de Blob Storage en SQL Database - Azure | Microsoft Docs
+title: 'Copia de datos de Blob Storage en SQL Database: Azure'
 description: En este tutorial se muestra cómo usar la actividad de copia en una canalización de Azure Data Factory para copiar datos de Almacenamiento de blobs en Base de datos SQL de Azure.
 services: data-factory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ad114ce3a40e11048d01c6768811089c43cdf1db
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 5a254979e345ae07bef5c8e79006bd0aaa0bf7df
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839387"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682798"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: Copia de datos de Blob Storage en SQL Database mediante Data Factory
 > [!div class="op_single_selector"]

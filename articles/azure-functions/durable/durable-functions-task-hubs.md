@@ -1,20 +1,20 @@
 ---
 title: 'Centrales de tareas en Durable Functions: Azure'
-description: Aprenda qué son las centrales de tareas en la extensión Durable Functions para Azure Functions. Obtenga información acerca de cómo configurar las centrales de tareas.
+description: Aprenda qué son las centrales de tareas en la extensión Durable Functions para Azure Functions. Aprenda a configurar centrales de tareas.
 services: functions
 author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b0a58251530467d788710b0584b15715a207e20f
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: b42294fdcf60add8496116bd1f83bf64f54a5f63
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734323"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614700"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centrales de tareas en Durable Functions (Azure Functions)
 
@@ -33,24 +33,15 @@ Una central de tareas consta de los siguientes recursos de almacenamiento:
 * Una tabla de historial.
 * Una tabla de instancias.
 * Un contenedor de almacenamiento que contiene uno o varios blobs de concesión.
+* Un contenedor de almacenamiento que contiene cargas de mensajes grandes, si procede.
 
-Todos estos recursos se crean automáticamente en la cuenta de Azure Storage predeterminada cuando se ejecutan funciones de orquestador o de actividad o cuando se programa su ejecución. El artículo [Rendimiento y escala](durable-functions-perf-and-scale.md) explica cómo se utilizan estos recursos.
+Todos estos recursos se crean automáticamente en la cuenta de Azure Storage predeterminada cuando se ejecutan funciones de orquestador, de entidad o de actividad o cuando se programa su ejecución. El artículo [Rendimiento y escala](durable-functions-perf-and-scale.md) explica cómo se utilizan estos recursos.
 
 ## <a name="task-hub-names"></a>Nombres de las centrales de tareas
 
 Las centrales de tareas se identifican mediante un nombre que se declara en el archivo *host.json*, como se muestra en el ejemplo siguiente:
 
-### <a name="hostjson-functions-1x"></a>host.json (Functions 1.x)
-
-```json
-{
-  "durableTask": {
-    "hubName": "MyTaskHub"
-  }
-}
-```
-
-### <a name="hostjson-functions-2x"></a>host.json (Functions 2.x)
+### <a name="hostjson-functions-20"></a>host.json (Functions 2.0)
 
 ```json
 {
@@ -63,9 +54,19 @@ Las centrales de tareas se identifican mediante un nombre que se declara en el a
 }
 ```
 
-Las centrales de tareas también se pueden configurar mediante la configuración de la aplicación, tal como se muestra en el siguiente archivo de ejemplo *host.json*:
-
 ### <a name="hostjson-functions-1x"></a>host.json (Functions 1.x)
+
+```json
+{
+  "durableTask": {
+    "hubName": "MyTaskHub"
+  }
+}
+```
+
+Las centrales de tareas también se pueden configurar mediante la configuración de la aplicación, tal como se muestra en el siguiente archivo de ejemplo `host.json`:
+
+### <a name="hostjson-functions-10"></a>host.json (Functions 1.0)
 
 ```json
 {
@@ -75,7 +76,7 @@ Las centrales de tareas también se pueden configurar mediante la configuración
 }
 ```
 
-### <a name="hostjson-functions-2x"></a>host.json (Functions 2.x)
+### <a name="hostjson-functions-20"></a>host.json (Functions 2.0)
 
 ```json
 {
@@ -99,7 +100,7 @@ El nombre de la central de tareas se establecerá en el valor de la configuraci�
 }
 ```
 
-Este es un ejemplo precompilado en C# de cómo escribir una función que usa [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) para trabajar con una central de tareas configurada como configuración de aplicación:
+El siguiente código es un ejemplo precompilado en C# de cómo escribir una función que usa el [enlace del cliente de orquestación](durable-functions-bindings.md#orchestration-client) para trabajar con una central de tareas definida como configuración de la aplicación:
 
 ### <a name="c"></a>C#
 
@@ -107,7 +108,7 @@ Este es un ejemplo precompilado en C# de cómo escribir una función que usa [Or
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
-    [OrchestrationClient(TaskHub = "%MyTaskHub%")] DurableOrchestrationClientBase starter,
+    [OrchestrationClient(TaskHub = "%MyTaskHub%")] IDurableOrchestrationClient starter,
     string functionName,
     ILogger log)
 {
@@ -121,9 +122,13 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+> [!NOTE]
+> El ejemplo de C# anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+
 ### <a name="javascript"></a>JavaScript
 
 La propiedad de la central de tareas del archivo `function.json` se establece mediante la configuración de aplicación:
+
 ```json
 {
     "name": "input",
@@ -133,12 +138,19 @@ La propiedad de la central de tareas del archivo `function.json` se establece me
 }
 ```
 
-Los nombres de la central de tareas deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, el nombre predeterminado es **DurableFunctionsHub**.
+Los nombres de la central de tareas deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, se usará un nombre de central de tareas predeterminado, tal y como se muestra en la tabla siguiente:
+
+| Versión de la extensión de Durable | Nombre de central de tareas predeterminado |
+| - | - |
+| 2.x | Cuando se implementa en Azure, el nombre de la central de tareas se deriva del nombre de la _aplicación de funciones_. Cuando se ejecuta fuera de Azure, el nombre predeterminado de la central de tareas es `TestHubName`. |
+| 1.x | El nombre predeterminado de la central de tareas para todos los entornos es `DurableFunctionsHub`. |
+
+Para obtener más información sobre las diferencias entre versiones de extensión, consulte el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 > [!NOTE]
-> El nombre es lo que diferencia una central de tareas de otra cuando hay varias de ellas en una cuenta de almacenamiento compartido. Si tiene varias aplicaciones de función que comparten una cuenta de almacenamiento, deberá configurar explícitamente nombres diferentes para cada central de tareas en el archivo *host.json*. En caso contrario, las diversas aplicaciones de función competirán entre sí por los mensajes, lo cual podría provocar un comportamiento indefinido.
+> El nombre es lo que diferencia una central de tareas de otra cuando hay varias de ellas en una cuenta de almacenamiento compartido. Si tiene varias aplicaciones de función que comparten una cuenta de almacenamiento, deberá configurar explícitamente nombres diferentes para cada central de tareas en el archivo *host.json*. En caso contrario, las diversas aplicaciones de funciones competirán entre sí por los mensajes, lo cual podría provocar un comportamiento indefinido, como, por ejemplo, orquestaciones que se "atascan" inesperadamente en el estado `Pending` o `Running`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aprenda a controlar las versiones](durable-functions-versioning.md)
+> [Más información sobre cómo administrar el control de versiones de orquestación](durable-functions-versioning.md)

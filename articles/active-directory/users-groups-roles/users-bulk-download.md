@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd0829afca05058892d3a0ceeb50c9955d792dc3
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: d106e803fdef4f054b7e4717ba59a43359d1d68a
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517064"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720289"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Descarga de una lista de usuarios (versión preliminar) en el portal de Azure Active Directory
 
@@ -31,8 +31,9 @@ Para descargar la lista de usuarios del Centro de administración de Azure AD, d
 ## <a name="to-download-a-list-of-users"></a>Para descargar una lista de usuarios
 
 1. [Inicie sesión en la organización de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador de usuarios de la organización.
-1. En Azure AD, seleccione **Usuarios** > **Descargar usuarios**.
-1. En la página **Descargar usuarios**, seleccione **Iniciar** para recibir un archivo .csv que enumera las propiedades de perfil del usuario. Si hay errores, puede descargar y ver el archivo de resultados en la página de resultados de la operación masiva. El archivo contiene el motivo de cada error.
+2. Vaya a Azure Active Directory > Usuarios. A continuación, seleccione los usuarios que desea incluir en la descarga. Para ello, active la casilla en la columna izquierda junto a cada usuario. Nota: En este momento, no hay ninguna manera de seleccionar todos los usuarios para la exportación. Cada una de ellas debe estar seleccionada de manera individual.
+3. En Azure AD, seleccione **Usuarios** > **Descargar usuarios**.
+4. En la página **Descargar usuarios**, seleccione **Iniciar** para recibir un archivo .csv que enumera las propiedades de perfil del usuario. Si hay errores, puede descargar y ver el archivo de resultados en la página de resultados de la operación masiva. El archivo contiene el motivo de cada error.
 
    ![Seleccione dónde quiere la lista de usuarios que quiere descargar.](./media/users-bulk-download/bulk-download.png)
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: ad9bb5c135684c4573195298fb8e55a08208f6b6
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 8c9258f099587ba4dbdfe3a7e46f72cd7a825024
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785817"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603833"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Orígenes de eventos de Azure Event Grid
 
@@ -83,6 +83,18 @@ Suscríbase a eventos de IoT Hub para responder a eventos de telemetría y de di
 | [Esquema del evento](event-schema-iot-hub.md) | Muestra los campos de los eventos de IoT Hub. |
 | [Ordenación de los eventos de dispositivo conectado y dispositivo desconectado](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Muestra cómo ordenar los eventos de estado de conexión del dispositivo. |
 
+## <a name="key-vault-preview"></a>Key Vault (versión preliminar)
+
+La integración de Key Vault con Event Grid se encuentra actualmente en versión preliminar. 
+
+Suscríbase a los eventos de Key Vault para recibir notificaciones cuando un secreto está a punto de expirar, expira o tiene una nueva versión disponible. 
+
+|Título  |DESCRIPCIÓN  |
+|---------|---------|
+| [Supervisión de eventos de Key Vault con Azure Event Grid](../key-vault/event-grid-overview.md) | Información general sobre la integración de Key Vault con Event Grid. |
+| [Tutorial: Creación y supervisión de eventos de Key Vault con Event Grid](../key-vault/event-grid-tutorial.md) | Obtenga información sobre cómo configurar notificaciones de Event Grid para Key Vault. |
+| [Esquema del evento](event-schema-key-vault.md) | Muestra los campos de los eventos de Key Vault. |
+
 ## <a name="media-services"></a>Media Services
 
 Suscríbase a eventos de Media Services para responder a eventos de estado de trabajo.
@@ -147,7 +159,7 @@ Suscríbase a eventos Azure App Configuration para responder a los eventos de mo
 |Título | DESCRIPCIÓN |
 |---------|---------|
 | [Reacción a eventos de Azure App Configuration con Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Información general de la integración de Azure App Configuration con Event Grid. |
-| [Inicio rápido: enrutamiento de eventos de Azure App Configuration a un endpoint web personalizado con la CLI de Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Muestra cómo utilizar la CLI de Azure para enviar eventos de Azure App Configuration a un webhook. |
+| [Inicio rápido: Enrutamiento de eventos de Azure App Configuration a un punto de conexión web personalizado con la CLI de Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Muestra cómo utilizar la CLI de Azure para enviar eventos de Azure App Configuration a un webhook. |
 | [Esquema del evento](event-schema-app-configuration.md) | Muestra los campos de eventos de Azure App Configuration. |
 
 ## <a name="azure-signalr"></a>Azure SignalR
@@ -159,7 +171,14 @@ Suscríbase a eventos de Azure SignalR Service para responder a eventos de conex
 | [Cómo enviar eventos de Azure SignalR Service a Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Muestra cómo enviar eventos de Azure SignalR Service a una aplicación a través de Event Grid. |
 | [Esquema del evento](event-schema-azure-signalr.md) | Muestra campos de eventos de Azure SignalR Service. |
 
+## <a name="azure-machine-learning"></a>Azure Machine Learning
 
+Suscríbase a eventos de área de trabajo de Azure Machine Learning para responder al registro del modelo.
+
+| Título | DESCRIPCIÓN |
+| ----- | ----- |
+| [Consumo de eventos de Azure Machine Learning](../machine-learning/service/concept-event-grid-integration.md) | Información general de la integración de Azure Machine Learning con Event Grid. |
+| [Esquema de eventos de Azure Event Grid para Azure Machine Learning](event-schema-machine-learning.md) | Muestra los campos de los eventos de Azure Machine Learning. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

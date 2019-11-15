@@ -1,19 +1,19 @@
 ---
-title: 'Inicio rápido: Uso de Azure Portal para crear temas de Service Bus y suscripciones a dichos temas | Microsoft Docs'
-description: En este inicio rápido, aprenderá a crear un tema de Service Bus y suscripciones a dicho tema con Azure Portal.
+title: 'Inicio rápido: Uso de Azure Portal para crear suscripciones y temas de Service Bus.'
+description: 'Inicio rápido: En este inicio rápido, aprenderá a crear un tema de Service Bus y suscripciones a dicho tema con Azure Portal.'
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.date: 04/15/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: a392f8b11a7ab1ad72f4da289c54e34b022f1ea6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 6788bf43ef97daf5ef2f823a502c223d718abaac
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990311"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718867"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema
 En este inicio rápido, usará Azure Portal para crear un tema de Service Bus y, después, crear suscripciones a dicho tema. 

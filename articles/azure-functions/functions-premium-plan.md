@@ -1,22 +1,20 @@
 ---
-title: Plan Premium de Azure Functions (versión preliminar) | Microsoft Docs
+title: Plan prémium de Azure Functions
 description: Detalles y opciones de configuración (red virtual, arranques no en frío, duración de ejecución ilimitada, etc) del plan Premium de Azure Functions.
-services: functions
 author: jeffhollan
-manager: jeconnoc
-ms.assetid: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 4/11/2019
+ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 8cda3ce85e6e7e9d5d7787406eb3b9785c1f7724
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755412"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719040"
 ---
-# <a name="azure-functions-premium-plan-preview"></a>Plan Premium de Azure Functions (versión preliminar)
+# <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
 El plan Premium de Azure Functions es una opción de hospedaje de las aplicaciones de funciones. El plan Premium cuenta con características como la conectividad de red virtual, arranques no en frío y hardware Premium.  Pueden implementarse varias aplicaciones de funciones en el mismo plan Premium. Este plan permite configurar el tamaño de la instancia de proceso, el tamaño del plan base y el tamaño del plan máximo.  Para ver una comparación del plan Premium y otros tipos de planes y hospedajes, consulte [Escalado y hospedaje de Azure Functions](functions-scale.md).
 
@@ -59,7 +57,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Las instancias de Azure Functions implementadas en un plan Premium tienen la ventaja de disfrutar de la [nueva integración con red virtual para aplicaciones web](../app-service/web-sites-integrate-with-vnet.md).  Cuando se configura, la aplicación puede comunicarse con los recursos de la red virtual o protegerse mediante puntos de conexión de servicio.  Las restricciones de IP también están disponibles en la aplicación para restringir el tráfico entrante.
 
-Cuando se asigne una subred a la aplicación de funciones en un plan Premium, necesitará una subred con suficientes direcciones IP para cada posible instancia. Aunque el número máximo de instancias puede variar durante la vigencia de la versión preliminar, necesitamos un bloque de IP que tenga al menos 100 direcciones disponibles.
+Cuando se asigne una subred a la aplicación de funciones en un plan Premium, necesitará una subred con suficientes direcciones IP para cada posible instancia. Se requiere un bloque de direcciones IP con al menos 100 direcciones disponibles.
 
 Para más información, consulte este artículo sobre la [integración de una aplicación de funciones con una red virtual](functions-create-vnet.md).
 
@@ -71,11 +69,9 @@ Otras instancias de proceso se agregan automáticamente a la aplicación utiliza
 
 Azure Functions en un plan de consumo que impone un límite de 10 minutos en cada ejecución.  En el plan Premium, la duración de ejecución predeterminada es de 30 minutos para evitar ejecuciones descontroladas. Sin embargo, puede [modificar la configuración de host.json](./functions-host-json.md#functiontimeout) para que sea ilimitada en las aplicaciones del plan Premium.
 
-En la versión preliminar, la duración no puede garantizarse pasados 12 minutos. Para tener más posibilidades de que la ejecución sobrepase los 30 minutos, es mejor que, al escalar la aplicación, no se sobrepase el número mínimo de instancias de trabajo.
-
 ## <a name="plan-and-sku-settings"></a>Configuración del plan y la SKU
 
-Cuando se crea un plan, hay que configurar dos opciones: el número mínimo de instancias (o tamaño de plan) y el límite máximo de ráfaga.  El número mínimo de instancias de un plan Premium es 1, mientras que la ráfaga máxima durante la versión preliminar es 20.  Las instancias mínimas están reservadas y siempre en ejecución.
+Cuando se crea un plan, hay que configurar dos opciones: el número mínimo de instancias (o tamaño de plan) y el límite máximo de ráfaga.  Las instancias mínimas están reservadas y siempre en ejecución.
 
 > [!IMPORTANT]
 > Se le cobrará por cada instancia especificada en el número mínimo de instancias independientemente de si las funciones se ejecutan o no.
@@ -102,15 +98,15 @@ Cuando cree o escale un plan, podrá elegir entre tres tamaños de instancia.  S
 
 ## <a name="regions"></a>Regions
 
-A continuación se muestran las regiones admitidas actualmente en la versión preliminar pública de cada sistema operativo.
+A continuación se muestran las regiones admitidas actualmente para cada SO.
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Centro de Australia| ✔* | |
-|Centro de Australia 2| ✔* | |
+|Centro de Australia| ✔<sup>1</sup> | |
+|Centro de Australia 2| ✔<sup>1</sup> | |
 |Este de Australia| ✔ | |
 |Sudeste de Australia | ✔ | ✔ |
-|Sur de Brasil| ✔** |  |
+|Sur de Brasil| ✔<sup>2</sup> |  |
 |Centro de Canadá| ✔ |  |
 |Centro de EE. UU.| ✔ |  |
 |Asia oriental| ✔ |  |
@@ -130,14 +126,11 @@ A continuación se muestran las regiones admitidas actualmente en la versión pr
 |Europa occidental| ✔ | ✔ |
 |Oeste de la India| ✔ |  |
 |Oeste de EE. UU.| ✔ | ✔ |
+|Oeste de EE. UU. 2| ✔ |  |
 
-\* Escalado horizontal máximo limitado a 20 instancias
+<sup>1</sup>Escalado horizontal máximo limitado a 20 instancias.  
+<sup>2</sup>Escalado horizontal máximo limitado a 60 instancias.
 
-\* Escalado horizontal máximo limitado a 60 instancias
-
-## <a name="known-issues"></a>Problemas conocidos
-
-Puede realizar un seguimiento del estado de los problemas conocidos de la [versión preliminar pública en GitHub](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2247b7678573594c4929bd33747fffb91203f457
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d071ff071c13637b15479d86a699d0b368119196
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561786"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742548"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Asignación de roles de administrador y de no administrador a usuarios con Azure Active Directory
 Si un usuario de su organización necesita permiso para administrar recursos de Azure Active Directory (Azure AD), debe asignar al usuario un rol adecuado en Azure AD, en función de las acciones para las que el usuario necesita permisos.
@@ -35,13 +35,15 @@ También puede asignar roles mediante Privileged Identity Management (PIM). Para
 
 2. Seleccione **Azure Active Directory**, seleccione **Usuarios** y, a continuación, busque y seleccione los usuarios a los que realizará una asignación de roles. Por ejemplo, _Alain Charon_.
 
-3. En la página **Alain Charon - Perfil**, seleccione **Rol de directorio**.
+      ![Página Todos los usuarios, selección del usuario](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
+
+3. En la página **Alain Charon - Perfil**, seleccione **Roles asignados**.
 
     Se muestra la página **Alain Charon - Rol de directorio**.
 
-4. Seleccione **Agregar rol**, seleccione el rol que asignará a Alain (por ejemplo, _Administrador de la aplicación_) y, a continuación, elija **Seleccionar**.
+4. Seleccione **Agregar asignación**, seleccione el rol que asignará a Alain (por ejemplo, _Administrador de la aplicación_) y, a continuación, elija **Seleccionar**.
 
-    ![Página Roles de directorio, se muestra el rol seleccionado](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
+    ![Página Roles asignados, se muestra el rol seleccionado](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
     El rol de administrador de la aplicación se asigna a Alain Charon y se muestra en la página **Alain Charon - Rol de directorio**.
 
@@ -52,9 +54,9 @@ Si necesita quitar la asignación de roles de un usuario, también puede hacerlo
 
 1. Seleccione **Azure Active Directory**, seleccione **Usuarios** y, a continuación, busque y seleccione los usuarios a los que quitará una asignación de roles. Por ejemplo, _Alain Charon_.
 
-2. Seleccione **Rol del directorio**, **Administrador de la aplicación** y, a continuación, seleccione **Quitar rol**.
+2. Seleccione **Roles asignados**, seleccione **Administrador de aplicaciones** y, luego, **Quitar asignación**.
 
-    ![Página Roles de directorio, se muestra el rol seleccionado y la opción para quitarlo](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
+    ![Página Roles asignados, se muestra el rol seleccionado y la opción para quitarlo](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
     El rol de administrador de la aplicación se quita de Alain Charon y ya no se muestra en la página **Alain Charon - Rol de directorio**.
 

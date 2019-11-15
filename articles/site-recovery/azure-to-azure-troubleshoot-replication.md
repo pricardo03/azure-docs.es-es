@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas en curso de la replicación de Azure a Azure en Azure Site Recovery| Microsoft Docs
+title: Solución de problemas de la replicación en curso de máquinas virtuales Azure con Azure Site Recovery
 description: Solución de problemas y errores al replicar máquinas virtuales de Azure para la recuperación ante desastres
 services: site-recovery
 author: asgang
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
 ms.author: asgang
-ms.openlocfilehash: 02f3dff4c9649beeadade942f4b32595f8543c2d
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 7b9da202704b20e5770343f857c044ea19ae696a
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742545"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620881"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Solución de problemas en curso de replicación de máquinas virtuales de Azure en Azure
 

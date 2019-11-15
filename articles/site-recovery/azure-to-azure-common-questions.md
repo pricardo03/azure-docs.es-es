@@ -1,5 +1,5 @@
 ---
-title: Preguntas comunes sobre la recuperación ante desastres de Azure a Azure con Azure Site Recovery
+title: Preguntas comunes sobre la recuperación ante desastres de máquinas virtuales de Azure con Azure Site Recovery
 description: En este artículo se responde a preguntas sobre la recuperación ante desastres de máquinas virtuales de Azure a otra región de Azure mediante Azure Site Recovery.
 author: asgang
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861394"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621069"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres de Azure a Azure
 

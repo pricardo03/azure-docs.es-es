@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos de MySQL mediante Azure Data Factory | Microsoft Docs
+title: Movimiento de datos de MySQL mediante Azure Data Factory
 description: Obtenga información acerca de cómo mover los datos de la base de datos de MySQL mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 20dd86a46ac1b50f5ce20da6ecf9dff251a8c0b0
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 4a7b42b51f49ab0c11aa8af3af6495c60907d230
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839020"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666108"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Movimiento de datos de MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -42,10 +42,10 @@ La puerta de enlace es necesaria incluso si la base de datos MySQL está hospeda
 > Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.
 
 ## <a name="supported-versions-and-installation"></a>Versiones compatibles e instalación
-Para que la puerta de enlace de administración de datos se conecte a la Base de datos MySQL, deberá instalar el [conector MySQL/Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versión entre 6.6.5 y 6.10.7) en el mismo sistema que la puerta de enlace de administración de datos. Este controlador de 32 bits es compatible con la puerta de enlace de administración de datos de 64 bits. Se admite la versión 5.1 de MySQL o versiones posteriores.
+Para que la puerta de enlace de administración de datos se conecte a la Base de datos MySQL, deberá instalar el [conector MySQL/NET para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versión entre 6.6.5 y 6.10.7) en el mismo sistema que la puerta de enlace de administración de datos. Este controlador de 32 bits es compatible con la puerta de enlace de administración de datos de 64 bits. Se admite la versión 5.1 de MySQL o versiones posteriores.
 
 > [!TIP]
-> Si se produce error en "Error de autenticación porque la parte remota cerró la secuencia de transporte.", considere la posibilidad de actualizar el conector MySQL/Net a una versión posterior.
+> Si se produce error en "Error de autenticación porque la parte remota cerró la secuencia de transporte", considere la posibilidad de actualizar el conector MySQL/NET a una versión posterior.
 
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva los datos desde un almacén de datos Cassandra local mediante el uso de diferentes herramientas o API. 
@@ -69,8 +69,8 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesMySql** |Sí |
-| Servidor |Nombre del servidor MySQL. |Sí |
-| Base de datos |Nombre de la base de datos MySQL. |Sí |
+| server |Nombre del servidor MySQL. |Sí |
+| database |Nombre de la base de datos MySQL. |Sí |
 | schema |Nombre del esquema de la base de datos. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la Base de datos MySQL. Los valores posibles son: `Basic`. |Sí |
 | userName |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |Sí |

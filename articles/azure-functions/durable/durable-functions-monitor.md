@@ -9,16 +9,18 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 992e3f7aa53fdd006d29c06113cd30b07a406f3b
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 5cb4602ac0431e09208953122f13b30124ab77f5
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734332"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614746"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Escenario de supervisión en Durable Functions: ejemplo de supervisión meteorológica
 
 El patrón de supervisión hace referencia a un proceso *periódico* flexible de un flujo de trabajo; por ejemplo, realizar un sondeo hasta que se cumplan determinadas condiciones. En este artículo se explica un ejemplo que usa [Durable Functions](durable-functions-overview.md) para implementar la supervisión.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -71,7 +73,7 @@ Este es el código que implementa la función:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -82,7 +84,7 @@ Esta función de orquestador realiza las acciones siguientes:
 3. Llama a **E3_GetIsClear** para determinar si el cielo está despejado en la ubicación solicitada.
 4. Si está despejado, llama a **E3_SendGoodWeatherAlert** para enviar una notificación por SMS al número de teléfono solicitado.
 5. Crea un temporizador duradero para reanudar la orquestación en el siguiente intervalo de sondeo. El ejemplo utiliza un valor modificable por brevedad.
-6. Sigue ejecutándose hasta que [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (C#) o `currentUtcDateTime` (JavaScript) pasan la hora de expiración de la supervisión o se envía una alerta por SMS.
+6. Sigue ejecutándose hasta que `CurrentUtcDateTime` (.NET) o `currentUtcDateTime` (JavaScript) pasan la hora de expiración de la supervisión o se envía una alerta por SMS.
 
 Para ejecutar simultáneamente varias instancias del orquestador, envíe varias funciones **MonitorRequests**. Se puede especificar la ubicación que se va a supervisar, así como el número de teléfono para enviar una alerta por SMS.
 
@@ -107,7 +109,7 @@ Y esta es la implementación. Al igual que los objetos POCO usados para la trans
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -121,7 +123,7 @@ Y este es el código que envía el mensaje SMS:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
@@ -140,10 +142,10 @@ Content-Type: application/json
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={SystemKey}
+Location: https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={SystemKey}
 RetryAfter: 10
 
-{"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
+{"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
 
 Se inicia la instancia de **E3_Monitor** y consulta las condiciones meteorológicas actuales para la ubicación solicitada. Si el tiempo está despejado, llama a una función de actividad para enviar una alerta; de lo contrario, establece un temporizador. Cuando expire el temporizador, se reanudará la orquestación.
@@ -169,7 +171,7 @@ Puede ver los resultados de la actividad de orquestación al examinar los regist
 La orquestación [finalizará](durable-functions-instance-management.md) una vez que se alcance el tiempo de espera o se detecten cielos despejados. También puede usar `TerminateAsync` (.NET) o `terminate` (JavaScript) dentro de otra función, o bien invocar el webhook HTTP POST **terminatePostUri** al que se hace referencia en la respuesta 202 anterior y reemplazar `{text}` por el motivo de la finalización:
 
 ```
-POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
+POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
 ```
 
 ## <a name="visual-studio-sample-code"></a>Código de ejemplo de Visual Studio

@@ -1,18 +1,18 @@
 ---
 title: Copia de seguridad y restauración de bases de datos de Azure Analysis Services | Microsoft Docs
-description: Se describe cómo realizar una copia de seguridad de una base de datos de Azure Analysis Services y restaurarla.
+description: En este artículo se describe cómo realizar copias de seguridad y restaurar metadatos y datos del modelo de una base de datos de Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fde545f3764f5910d00da5a8ce7f0e8c1772c7ea
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3f63ecf560a14248fed6dea53c30a27acdf9a938
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295420"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573445"
 ---
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
 

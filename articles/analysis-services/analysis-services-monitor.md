@@ -1,18 +1,18 @@
 ---
 title: Supervisión de las métricas del servidor de Azure Analysis Services | Microsoft Docs
-description: Aprenda a supervisar las métricas del servidor de Analysis Services en Azure Portal.
+description: Obtenga información sobre cómo Analysis Services usa el Explorador de métricas de Azure, una herramienta gratuita del portal, que permiten supervisar el rendimiento y el estado de los servidores.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a66089d01ed9eabdb78975eb1738b87c99fbf311
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9e6eab38e0f7bd55fa671aa8c1e99693eeb54c84
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294875"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572727"
 ---
 # <a name="monitor-server-metrics"></a>Supervisión de las métricas del servidor
 
@@ -27,7 +27,7 @@ Para realizar diagnósticos más detallados, hacer un seguimiento del rendimient
 
     ![Monitor en Azure Portal](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. En **Métricas disponibles**, seleccione las métricas que desee incluir en el gráfico. 
+2. En **Métrica**, seleccione las métricas que desee incluir en el gráfico. 
 
     ![Gráfico de Monitor](./media/analysis-services-monitor/aas-monitor-chart.png)
 

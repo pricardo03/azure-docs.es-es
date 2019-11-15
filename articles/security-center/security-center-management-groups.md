@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 730ccd7c64ac9ca87fb6da5add130feb3b6ce502
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73b99b9ebcd18e1eb5b670d0809d1f0f6cbf8f9a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201957"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582912"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
 Este artículo le ayuda con la realización de varias acciones que maximizan las ventajas que proporciona Azure Security Center. La realización de estas acciones le permite obtener visibilidad en todas las suscripciones de Azure que están vinculadas al inquilino de Azure Active Directory y administrar de un modo eficaz la posición de seguridad de la organización a escala mediante la aplicación de directivas de seguridad en varias suscripciones de forma agregada.
@@ -168,7 +168,7 @@ Después de asignar los roles de RBAC a los usuarios, el administrador de inquil
 
 
 
-## <a name="adding-subscriptions-to-a-management-groups"></a>Adición de suscripciones a un grupo de administración
+## <a name="adding-subscriptions-to-a-management-group"></a>Incorporación de suscripciones a un grupo de administración
 Puede agregar suscripciones al grupo de administración que ha creado. Estos pasos no son obligatorios para obtener visibilidad en todo el inquilino y administración de directivas globales y de acceso.
 
 1. En **Grupos de administración**, seleccione el grupo de administración al que va a agregar la suscripción.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 2c25069ce5231a1f89027dea69579231f0fe4bcd
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517085"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604727"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -34,9 +34,9 @@ La configuración máxima de pods por nodo es 110 de forma predeterminada si imp
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Recibo el error insufficientSubnetSize al implementar un clúster de AKS con redes avanzadas. ¿Cuál debo hacer?
 
-Si se usa Azure CNI (conexiones de red avanzadas), AKS preasigna las direcciones IP según el criterio de "máximos pods" por nodo configurado. El número de nodos en un clúster de AKS puede ser cualquier valor entre 1 y 110. En función del número máximo de pods configurados por nodo, el tamaño de subred debe ser mayor que el producto del número de nodos y el número máximo de pods por nodo. Esto se describe en la siguiente ecuación básica:
+Si se usa Azure CNI (conexiones de red avanzadas), AKS asigna las direcciones IP según el criterio de "máximos pods" por nodo configurado. En función del número máximo de pods configurados por nodo, el tamaño de subred debe ser mayor que el producto del número de nodos y el número máximo de pods por conjunto de nodos. Esto se describe en la siguiente ecuación:
 
-Tamaño de subred > número de nodos del clúster (teniendo en cuenta los requisitos de escalado futuras) * máx. pods por nodo.
+Tamaño de subred > número de nodos del clúster (teniendo en cuenta los requisitos de escalado futuros) * número máximo de pods por conjunto de nodos.
 
 Para más información, consulte [Planeamiento de direccionamiento IP del clúster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 

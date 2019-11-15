@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278336"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748452"
 ---
 # <a name="service-bus-faq"></a>Preguntas más frecuentes sobre Service Bus
 
@@ -111,6 +111,13 @@ Cualquier transferencia de datos dentro de una determinada región de Azure se p
 
 ### <a name="does-service-bus-charge-for-storage"></a>¿Service Bus cobra por almacenamiento?
 No, Service Bus no cobra por almacenamiento. Sin embargo, hay una cuota que limita la cantidad máxima de datos que pueden persistir por cola/tema. Consulte la siguiente pregunta.
+
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tengo un espacio de nombres estándar de Service Bus. ¿Por qué veo cargos en el grupo de recursos "$system"?
+Azure Service Bus ha actualizado recientemente los componentes de facturación. Debido a esto, si tiene un espacio de nombres estándar de Service Bus, puede ver los elementos de línea del recurso "/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system" del grupo de recursos "$system".
+
+Estos cargos representan el cargo base por suscripción de Azure que ha aprovisionado un espacio de nombres de Service Bus estándar. 
+
+Es importante tener en cuenta que no se trata de cargos nuevos, es decir, que ya existían en el modelo de facturación anterior. El único cambio es que ahora aparecen en "$system". Esto se hace debido a las restricciones en el nuevo sistema de facturación que agrupa los cargos de nivel de suscripción, no asociados a un recurso específico, en el identificador de recurso "$system".
 
 ## <a name="quotas"></a>Cuotas
 

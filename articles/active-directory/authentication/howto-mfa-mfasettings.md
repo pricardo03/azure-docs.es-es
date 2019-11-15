@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf732ec97a57a5bc1d2bcaa39e5fd14a305504d0
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 29ea89af780df72b97fef553cf79b84c4b28da05
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075497"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569872"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -114,6 +114,8 @@ Configure aquí las direcciones de correo electrónico para los usuarios que rec
 
 >[!NOTE]
 >A veces, cuando las llamadas de Multi-Factor Authentication se realizan a través de la red telefónica pública, se enrutan a través de un operador que no admite la característica de identificación de llamadas. Por este motivo, los identificadores de llamada no están garantizados, aunque el sistema de Multi-Factor Authentication los envíe siempre.
+
+En Estados Unidos, si no ha configurado el identificador del autor de la llamada de MFA, las llamadas de voz de Microsoft proceden de los números siguientes: +1 (866) 539 4191, +1 (855) 330 8653 y +1 (877) 668 6536. Si usa filtros de correo no deseado, asegúrese de excluir estos números.
 
 ### <a name="custom-voice-messages"></a>Mensajes de voz personalizados
 
@@ -296,7 +298,7 @@ Si su organización implementa la extensión NPS para proporcionar Multi-Factor 
 
 | Tipo de inquilino de Azure AD | Opciones de características de IP de confianza |
 |:--- |:--- |
-| Administrado |**Intervalos específicos de direcciones IP**: los administradores pueden especificar un intervalo de direcciones IP que puede omitir la verificación en dos pasos para los usuarios que inician sesión desde la intranet de la empresa.|
+| Administrado |**Intervalos específicos de direcciones IP**: los administradores pueden especificar un intervalo de direcciones IP que puede omitir la verificación en dos pasos para los usuarios que inician sesión desde la intranet de la empresa. Se puede configurar un máximo de cincuenta intervalos de direcciones IP de confianza.|
 | Federado |**Todos los usuarios federados**: todos los usuarios federados que inician sesión desde dentro de la organización pueden omitir la verificación en dos pasos. Los usuarios omiten la verificación mediante el uso de una notificación que emiten los servicios de federación de Active Directory (AD FS).<br/>**Intervalos específicos de direcciones IP**: los administradores pueden especificar un intervalo de direcciones IP que puede omitir la verificación en dos pasos para los usuarios que inician sesión desde la intranet de la empresa. |
 
 La omisión de las direcciones IP de confianza solo funciona desde dentro de la intranet de la empresa. Si selecciona la opción **Todos los usuarios federados** y un usuario inicia sesión desde fuera de la intranet de la empresa, el usuario tendrá que autenticarse mediante la verificación en dos pasos. El proceso es el mismo, incluso si el usuario presenta una notificación de AD FS. 
@@ -368,8 +370,8 @@ Cuando los usuarios inscriben sus cuentas en Azure Multi-Factor Authentication, 
 |:--- |:--- |
 | Llamada al teléfono |Hace una llamada de voz automática. El usuario responde a la llamada y pulsa la # del teclado del teléfono para autenticarse. El número de teléfono no se sincroniza con Active Directory local. |
 | Mensaje de texto al teléfono |Envía un mensaje de texto que contiene un código de verificación. Se pide al usuario que escriba el código de verificación en la interfaz de inicio de sesión. Este proceso se llama "SMS unidireccional". SMS bidireccional significa que el usuario debe devolver un mensaje de texto con un código determinado. SMS bidireccional se encuentra en desuso y no se admitirá después del 14 de noviembre de 2018. Los usuarios configurados para usar SMS bidireccional pasarán automáticamente a la verificación de _Llamada telefónica_ en ese momento.|
-| Notificación a través de aplicación móvil |Envía una notificación push a su teléfono o dispositivo registrado. El usuario ve la notificación y selecciona **Comprobar** para completar la comprobación. La aplicación Microsoft Authenticator está disponible para [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Código de verificación de aplicación móvil o token de hardware |La aplicación Microsoft Authenticator genera un nuevo código de verificación de OATH cada 30 segundos. El usuario escribe el código de verificación en la interfaz de inicio de sesión. La aplicación Microsoft Authenticator está disponible para [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Notificación a través de aplicación móvil |Envía una notificación push a su teléfono o dispositivo registrado. El usuario ve la notificación y selecciona **Comprobar** para completar la comprobación. La aplicación Microsoft Authenticator está disponible para [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Código de verificación de aplicación móvil o token de hardware |La aplicación Microsoft Authenticator genera un nuevo código de verificación de OATH cada 30 segundos. El usuario escribe el código de verificación en la interfaz de inicio de sesión. La aplicación Microsoft Authenticator está disponible para [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>Habilitar y deshabilitar los métodos de verificación
 
@@ -387,7 +389,7 @@ Se pueden encontrar detalles adicionales sobre el uso de métodos de autenticaci
 La característica _Recordar Multi-Factor Authentication_ para dispositivos y exploradores que el usuario considera de confianza es gratis para todos los usuarios de Multi-Factor Authentication. Los usuarios pueden omitir las verificaciones posteriores durante un número especificado de días, una vez hayan iniciado sesión correctamente en un dispositivo mediante el uso de Multi-Factor Authentication. Esta característica permite mejorar la facilidad de uso, ya que minimiza el número de veces que un usuario puede realizar la verificación en dos pasos en el mismo dispositivo.
 
 >[!IMPORTANT]
->Si una cuenta o un dispositivo corren peligro, el hecho de recordar Multi-Factor Authentication para los dispositivos de confianza puede afectar a la seguridad. Si una cuenta corporativa se pone en peligro o un dispositivo de confianza es objeto de pérdida o robo, debe [restaurar Multi-Factor Authentication en todos los dispositivos](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
+>Si una cuenta o un dispositivo corren peligro, el hecho de recordar Multi-Factor Authentication para los dispositivos de confianza puede afectar a la seguridad. Si una cuenta corporativa se pone en peligro o un dispositivo de confianza es objeto de pérdida o robo, debe [revocar las sesiones de MFA](howto-mfa-userdevicesettings.md).
 >
 >La acción de restauración revoca el estado de confianza de todos los dispositivos y el usuario debe volver a realizar la verificación en dos pasos. También puede pedir a los usuarios que restauren Multi-Factor Authentication en sus propios dispositivos con las instrucciones que se indican en [Administración de la configuración de la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 

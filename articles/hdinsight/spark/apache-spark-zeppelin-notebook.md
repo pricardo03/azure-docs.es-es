@@ -1,5 +1,5 @@
 ---
-title: Uso de cuadernos de Zeppelin con un clúster Apache Spark en Azure HDInsight
+title: 'Zeppelin Notebooks y clúster de Apache Spark: Azure HDInsight'
 description: Instrucciones paso a paso sobre cómo usar cuadernos de Zeppelin con clústeres Apache Spark en Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/04/2019
-ms.openlocfilehash: 26634e2fe23e0a23540638c4559af6e11eccbe72
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/05/2019
+ms.openlocfilehash: 75811382867b93c778641ece42971018eff39949
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71180738"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664614"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en Azure HDInsight
 
 Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https://zeppelin.apache.org/) que se pueden utilizar para ejecutar trabajos de [Apache Spark](https://spark.apache.org/). En este artículo, aprenderá a usar Zeppelin Notebook en un clúster de HDInsight.
 
-**Requisitos previos:**
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
@@ -40,7 +40,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 
     Especifique un nombre para el cuaderno y haga clic en **Create Note** (Crear nota).
 
-3. Por otro lado, asegúrese de que en el encabezado del cuaderno aparece el estado conectado. Esto estado se indica mediante un punto verde que se encuentra en la esquina superior derecha.
+3. Por otro lado, asegúrese de que en el encabezado del cuaderno aparece el estado conectado. Esto se indica mediante un punto verde que se encuentra en la esquina superior derecha.
 
     ![Estado del cuaderno de Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Estado del cuaderno de Zeppelin")
 
@@ -57,10 +57,10 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 
     // Define a schema
     case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
-   
+
     // Map the values in the .csv file to the schema
     val hvac = hvacText.map(s => s.split(",")).filter(s => s(0) != "Date").map(
-        s => Hvac(s(0), 
+        s => Hvac(s(0),
                 s(1),
                 s(2).toInt,
                 s(3).toInt,
@@ -72,7 +72,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
     hvac.registerTempTable("hvac")
     ```
 
-    Presione **MAYÚS+ENTRAR** o haga clic en el botón **Reproducir** del párrafo para ejecutar el fragmento de código. El estado en la esquina derecha del párrafo debería avanzar de READY (Listo), PENDING (Pendiente) o RUNNING (En ejecución) a FINISHED (Finalizado). El resultado se muestra en la parte inferior del mismo párrafo. La captura de pantalla es similar a la siguiente:
+    Presione **MAYÚS+ENTRAR** o seleccione el botón **Reproducir** del párrafo para ejecutar el fragmento de código. El estado en la esquina derecha del párrafo debería avanzar de READY (Listo), PENDING (Pendiente) o RUNNING (En ejecución) a FINISHED (Finalizado). El resultado se muestra en la parte inferior del mismo párrafo. La captura de pantalla es similar a la siguiente:
 
     ![Creación de una tabla temporal de datos sin procesar](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Crear una tabla temporal de datos sin procesar")
 
@@ -85,7 +85,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 
     ```sql
     %sql
-    select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13" 
+    select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13"
     ```  
 
     La instrucción **%sql** del principio le indica al cuaderno que utilice el intérprete de Livy Scala.
@@ -101,7 +101,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
     select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff from hvac where targettemp > "${Temp = 65,65|75|85}"
     ```
 
-    Pegue este fragmento de código en un nuevo párrafo y presione **MAYÚS + ENTRAR**. A continuación, seleccione **65** en la lista desplegable **Temp**. 
+    Pegue este fragmento de código en un nuevo párrafo y presione **MAYÚS + ENTRAR**. A continuación, seleccione **65** en la lista desplegable **Temp**.
 
 8. Seleccione el icono del **gráfico de barras** para cambiar la visualización.  Seguidamente, seleccione **configuración** y realice los siguientes cambios:
 
@@ -112,15 +112,8 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 
      ![Ejecución de una instrucción Spark SQL mediante el cuaderno 2](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Ejecución de una instrucción Spark SQL mediante el cuaderno 2")
 
-9. Reinicie el intérprete de Livy para salir de la aplicación. Para ello, abra la configuración del intérprete haciendo clic en el nombre del usuario conectado que encontrará en la esquina superior derecha y después en **Interpreter** (Intérprete).  
-
-    ![Inicio del intérprete](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Salida de Hive")
-
-10. Desplácese hasta **livy** y seleccione la opción para **reiniciar**.  Seleccione **Aceptar** cuando se le solicite.
-
-    ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete Zeppelin")
-
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Uso de paquetes externos con el cuaderno
+
 Puede configurar el cuaderno de Zeppelin Notebook en un clúster Apache Spark de HDInsight si quiere usar paquetes externos que haya aportado la comunidad y que no estén incluidos en el clúster. Puede buscar el [repositorio de Maven](https://search.maven.org/) para obtener una lista completa de los paquetes que están disponibles. También puede obtener una lista de paquetes disponibles de otras fuentes. Por ejemplo, dispone de la lista completa de los paquetes externos aportados por la comunidad en [Spark Packages](https://spark-packages.org/)(Paquetes Spark).
 
 En este artículo, aprenderá a utilizar el paquete [spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) con el cuaderno de Jupyter Notebook.
@@ -129,29 +122,30 @@ En este artículo, aprenderá a utilizar el paquete [spark csv](https://search.m
 
     ![Inicio del intérprete](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Salida de Hive")
 
-2. Desplácese hasta **livy** y seleccione la opción de **editar**.
+2. Desplácese hasta **livy2** y seleccione la opción de **editar**.
 
     ![Modificación de la configuración del intérprete 1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Modificación de la configuración del intérprete 1")
 
-3. Agregue una nueva clave denominada `livy.spark.jars.packages` y establezca su valor con el formato `group:id:version`. Por ejemplo, si desea usar el paquete [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), debe establecer el valor de la clave en `com.databricks:spark-csv_2.10:1.4.0`.
+3. Vaya a la clave `livy.spark.jars.packages` y establezca su valor en el formato `group:id:version`. Por ejemplo, si desea usar el paquete [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), debe establecer el valor de la clave en `com.databricks:spark-csv_2.10:1.4.0`.
 
     ![Modificación de la configuración del intérprete 2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Modificación de la configuración del intérprete 2")
 
-    Haga clic en **Save** (Guardar) y reinicie el intérprete de Livy.
+    Seleccione **Guardar** y luego **Aceptar** para reiniciar el intérprete de Livy.
 
 4. Si desea saber cómo acceder al valor de la clave especificada anteriormente, siga estos pasos.
-   
+
     a. Busque el paquete en el repositorio de Maven. En este artículo, hemos utilizado [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
-   
+
     b. En el repositorio, recopile los valores de **GroupId**, **ArtifactId** y **Version**.
-   
+
     ![Uso de paquetes externos con cuadernos de Jupyter Notebook](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Uso de paquetes externos con cuadernos de Jupyter Notebook")
-   
+
     c. Concatene los tres valores separados por dos puntos ( **:** ).
-   
+
         com.databricks:spark-csv_2.10:1.4.0
 
 ## <a name="where-are-the-zeppelin-notebooks-saved"></a>¿Dónde se guardan los cuadernos de Zeppelin Notebook?
+
 Los cuadernos de Zeppelin Notebook se guardan en los nodos principales del clúster. Por tanto, si se elimina el clúster, también se eliminarán los cuadernos. Si desea guardar los cuadernos para utilizarlos más adelante en otros clústeres, debe exportarlos cuando haya terminado de ejecutar los trabajos. Para exportar un cuaderno, haga clic en el icono **Export** (Exportar), tal y como se muestra en la imagen siguiente.
 
 ![Descarga del cuaderno](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Descarga del cuaderno")
@@ -159,6 +153,7 @@ Los cuadernos de Zeppelin Notebook se guardan en los nodos principales del clús
 De este modo, el cuaderno se guarda como un archivo JSON en la ubicación de descarga.
 
 ## <a name="livy-session-management"></a>Administración de sesiones de Livy
+
 Cuando ejecute el primer párrafo de código del cuaderno de Zeppelin Notebook, se creará una nueva sesión de Livy en el clúster Spark de HDInsight. Esta sesión se compartirá con todos los cuadernos de Zeppelin Notebook que cree en el futuro. Si, por alguna razón, termina la sesión de Livy (por ejemplo, se reinicia el clúster), no podrá ejecutar trabajos desde el cuaderno de Zeppelin Notebook.
 
 En este caso, debe seguir los pasos que se indican a continuación para poder ejecutar trabajos desde un cuaderno de Zeppelin Notebook.  
@@ -167,26 +162,30 @@ En este caso, debe seguir los pasos que se indican a continuación para poder ej
 
     ![Inicio del intérprete](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Salida de Hive")
 
-2. Desplácese hasta **livy** y seleccione la opción para **reiniciar**.
+2. Desplácese hasta **livy2** y seleccione la opción para **reiniciar**.
 
     ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete Zeppelin")
 
 3. Ejecute una celda de código desde el cuaderno de Zeppelin Notebook existente. Esto creará una nueva sesión de Livy en el clúster de HDInsight.
 
 ## <a name="seealso"></a>Consulte también
+
 * [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
+
 * [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
 * [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
+
 * [Crear una aplicación independiente con Scala](apache-spark-create-standalone-application.md)
 * [Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
+
 * [Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones de Apache Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Apache Spark de forma remota)
 * [Kernels disponible para Jupyter Notebook en clústeres Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
@@ -194,14 +193,6 @@ En este caso, debe seguir los pasos que se indican a continuación para poder ej
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Administración de recursos
+
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](apache-spark-job-debugging.md)
-
-[hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[azure-create-storageaccount]:../../storage/common/storage-create-storage-account.md 

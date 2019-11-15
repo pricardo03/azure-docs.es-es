@@ -3,20 +3,19 @@ title: 'Guía de inicio rápido: Exploración del entorno de demostración de la
 description: Inicio rápido para comprender el entorno de demostración de la versión preliminar de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 09/23/2019
-ms.openlocfilehash: 633eb00b479c6d2e2bf233b42aff7d393b110fd2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 10/24/2019
+ms.openlocfilehash: 25d6d1aa1cf7db0f448ec22ed7b5c84d840af3f5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258417"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579644"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Inicio rápido: Exploración del entorno de demostración de la versión preliminar de Azure Time Series Insights
 
@@ -41,14 +40,14 @@ El explorador de Time Series Insights (versión preliminar) muestra datos histó
 
 1. En **Contoso Plant 1**, examine la turbina eólica **W7**.  
 
-   1. Cambie el intervalo de la vista a **1/1/17 20:00 to 3/10/17 20:00 (UTC)** .
+   1. Cambie el intervalo de la vista a **1/1/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)** .
    1. Para seleccionar el sensor, elija **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Luego, revise los valores que se muestran.
 
       [![W7 en Contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
 1. Recientemente, Contoso encontró un incendio en el **aerogenerador número 7**. Las opiniones sobre lo que ha provocado el fuego varían. En Time Series Insights, podemos ver que el sensor de alerta de incendio se activó durante el incendio.
 
-   1. Cambie el intervalo de la vista a **3/9/17 20:00 to 3/10/17 20:00 (UTC)** .
+   1. Cambie el intervalo de la vista a **3/9/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)** .
    1. Seleccione **Safety System** > **FireAlert**.
 
       [![Contoso tuvo un incendio en la turbina eólica W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
@@ -62,7 +61,7 @@ El explorador de Time Series Insights (versión preliminar) muestra datos histó
 
 1. Se dieron advertencias de presión del aceite y advertencias activas justo antes del incendio. Expanda la serie temporal mostrada para ver otras señales que evidencien la causa del incendio. Ambos sensores fluctuaron sistemáticamente con el tiempo. Las fluctuaciones indican un patrón persistente y preocupante.
 
-    * Cambie el intervalo de la vista a **2/24/17 20:00 to 3/10/17 20:00 (UTC)** .
+    * Cambie el intervalo de la vista a **2/24/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)** .
 
       [![Sensores de presión del aceite y sensores de advertencia también activos](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
@@ -72,22 +71,22 @@ El explorador de Time Series Insights (versión preliminar) muestra datos histó
 
       [![Búsqueda de patrones históricos](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Con Time Series Insights y los datos de telemetría de los sensores, hemos descubierto una tendencia problemática a largo plazo oculta en los datos históricos. Con estas nuevas conclusiones, se puede:
+Con Time Series Insights y los datos de telemetría de los sensores, hemos descubierto una tendencia a largo plazo oculta en los datos históricos. Con estas nuevas conclusiones, se puede:
 
 * Explicar lo que realmente sucedió.
 * Corregir el problema.
-* Poner en marcha sistemas de notificación de alertas superiores.
+* Poner en marcha mejores sistemas de notificación de alertas.
 
 ## <a name="root-cause-analysis"></a>Análisis de la causa raíz
 
 1. Algunos escenarios requieren un análisis sofisticado para revelar pistas sutiles en los datos. Seleccione el generador **W6** en la fecha **6/25**.
 
-    1. Cambie el intervalo de la vista a **6/1/17 20:00 to 7/1/17 20:00 (UTC)** .
+    1. Cambie el intervalo de la vista a **6/1/17 20:00:00.00 to 7/1/17 20:00:00.00 (UTC)** .
     1. Seleccione **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning**.
 
        [![Cambio del intervalo de la vista y selección de W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-1. La advertencia indica un problema con la tensión de salida del generador. La potencia de salida general del generador se mueve dentro de los parámetros normales en el intervalo actual. Al aumentar nuestro intervalo, surge otro patrón. Se evidencia una caída definitiva.
+1. La advertencia indica un problema con la tensión del generador. La potencia de salida general del generador se encuentra dentro de los parámetros normales en el intervalo actual. Al aumentar nuestro intervalo, vemos otro patrón. Se evidencia una caída.
 
     1. Elimine el sensor **VoltageActuatorSwitchWarning**.
     1. Seleccione **Generator System** > **ActivePower**.
@@ -118,7 +117,7 @@ Con Time Series Insights y los datos de telemetría de los sensores, hemos descu
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Ahora que ha completado el tutorial, limpie los recursos que ha creado:
+Ahora que ha completado el inicio rápido, limpie los recursos que ha creado:
 
 1. En el menú de la izquierda de [Azure Portal](https://portal.azure.com), seleccione **Todos los recursos** y busque el grupo de recursos de Azure Time Series Insights.
 1. Seleccione **Eliminar** para eliminar todo el grupo de recursos (y todos los recursos que contiene), o quite los recursos de uno en uno.
@@ -130,7 +129,7 @@ Está listo para crear su propio entorno de Time Series Insights: Para comenzar:
 > [!div class="nextstepaction"]
 > [Planeamiento de un entorno en versión preliminar de Time Series Insights](time-series-insights-update-plan.md)
 
-Aprenda a trabajar con la demostración y sus características:
+Aprenda a usar la demostración y sus características:
 
 > [!div class="nextstepaction"]
 > [Explorador de Time Series Insights (versión preliminar)](time-series-insights-update-explorer.md)

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 54743b191b0334c92c63f374d38870a7dbfd9a38
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273860"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749622"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
 Se puede crear un recurso de imagen administrado a partir de una máquina virtual (VM) generalizada que se almacena como un disco administrado o como un disco no administrado en una cuenta de almacenamiento. A partir de ese momento, la imagen se puede utilizar para crear varias máquinas virtuales. Para obtener información sobre cómo se facturan las imágenes administradas, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalización de VM con Windows mediante Sysprep
 
@@ -56,6 +56,17 @@ Para generalizar la máquina virtual de Windows, siga estos pasos:
 
 6. Cuando Sysprep finaliza, apaga la máquina virtual. No reinicie la VM.
 
+> [!TIP]
+> **Opcional** Use [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para optimizar la imagen y reducir el tiempo de arranque de la máquina virtual.
+>
+> Para optimizar la imagen, monte el disco duro virtual; para ello, haga doble clic en él en el Explorador de Windows y, a continuación, ejecute DISM con el parámetro `/optimize-image`.
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> D: es la ruta de acceso del VHD montado.
+>
+> La ejecución de `DISM /optimize-image` debe ser la última modificación que realice en el disco duro virtual. Si realiza cambios en el disco duro virtual antes de la implementación, tendrá que volver a ejecutar `DISM /optimize-image`.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Creación de una imagen administrada en el portal 
 
@@ -83,7 +94,7 @@ Para generalizar la máquina virtual de Windows, siga estos pasos:
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>Creación de una imagen de una VM mediante PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 Crear una imagen directamente desde la VM garantiza que la imagen incluya todos los discos asociados a la VM, incluido el disco del SO y todos los discos de datos. En este ejemplo se muestra cómo crear una imagen administrada a partir de una máquina virtual que utiliza discos administrados.
 

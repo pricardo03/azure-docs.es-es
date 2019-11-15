@@ -1,5 +1,5 @@
 ---
-title: Cmdlets de PowerShell para Azure SQL Data Warehouse
+title: Cmdlets de PowerShell
 description: Busque los principales cmdlets de PowerShell para Azure SQL Data Warehouse, incluidos aquellos para pausar y reanudar una base de datos.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,15 +10,16 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 095e66c6c5f75a27b1f0231dfe8cabfd4d741d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b36a64bb82449ace7acc1de0b3c2bc7c5efebe70
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205173"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685561"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Cmdlets de PowerShell y API de REST para SQL Data Warehouse
-Muchas tareas de administración de SQL Data Warehouse se pueden administrar mediante los cmdlets de Azure PowerShell o las API de REST.  A continuación se muestran algunos ejemplos de cómo usar comandos de PowerShell para automatizar tareas comunes en SQL Data Warehouse.  Para ver algunos buenos ejemplos de REST, consulte el artículo [Administración de la potencia de proceso en SQL Data Warehouse de Azure (REST)][Manage scalability with REST].
+Muchas tareas de administración de SQL Data Warehouse se pueden administrar mediante los cmdlets de Azure PowerShell o las API de REST.  A continuación se muestran algunos ejemplos de cómo usar comandos de PowerShell para automatizar tareas comunes en SQL Data Warehouse.  Para ver algunos buenos ejemplos de REST, consulte el artículo [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)][Manage scalability with REST].
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -85,7 +86,7 @@ Para obtener más ejemplos de PowerShell, consulte:
 * [Creación de SQL Data Warehouse con PowerShell][Create a SQL Data Warehouse using PowerShell]
 * [Restauración de base de datos][Database restore]
 
-Para conocer otras tareas que se pueden automatizar con PowerShell, consulte [Cmdlets de Azure SQL Database][Azure SQL Database Cmdlets]. Tenga en cuenta que no todos los cmdlets de Azure SQL Database se admiten para Azure SQL Data Warehouse.  Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Operaciones para Azure SQL Database][Operations for Azure SQL Database].
+Para conocer otras tareas que se pueden automatizar con PowerShell, consulte [Cmdlets de Azure SQL Database][Azure SQL Database Cmdlets]. Tenga en cuenta que no todos los cmdlets de Azure SQL Database se admiten para Azure SQL Data Warehouse.  Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Operaciones para Azure SQL Database][Operations for Azure SQL Database].
 
 <!--Image references-->
 

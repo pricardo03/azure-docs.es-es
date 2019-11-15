@@ -4,28 +4,35 @@ description: Use las plantillas de Azure Resource Manager para crear y configura
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: b4d121e0628512f7bbd6aedc0a9067b31d46d0ed
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 5babcadee02da0ba3e112f75e8b4d1aed5f3339f
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814974"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721079"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de API de Azure Cosmos DB SQL (Core) con plantillas de Azure Resource Manager
 
+En este artículo se explica cómo realizar diferentes operaciones para automatizar la administración de las cuentas, las bases de datos y los contenedores de Azure Cosmos DB con plantillas de Azure Resource Manager. Este artículo solo tiene ejemplos de cuentas de API de SQL; para buscar ejemplos de otras cuentas de tipo de API, consulte los artículos sobre el uso de plantillas de Resource Manager con la API de Azure Cosmos DB para [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md) y [Table](manage-table-with-resource-manager.md).
+
+Creación y administración de cuentas de Cosmos DB, bases de datos y contenedores de MongoDB, Gremlin, Cassandra y Table API.
+
 ## Cree una cuenta, una base de datos y un contenedor de Azure Cosmos <a id="create-resource"></a>
 
-Cree recursos de Azure Cosmos DB con una plantilla de Azure Resource Manager. Esta plantilla creará una cuenta de Azure Cosmos con dos contenedores que compartirán el rendimiento de 400 RU/s en el nivel de base de datos. Copie la plantilla y realice la implementación tal y como se muestra a continuación o visite [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) (Galería de inicio rápido de Azure) y realice la implementación desde Azure Portal. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
+Cree recursos de Azure Cosmos DB con una plantilla de Azure Resource Manager. Esta plantilla creará una cuenta de Azure Cosmos con dos contenedores que comparten un rendimiento de 400 RU/s en el nivel de base de datos y un contenedor único con un rendimiento dedicado de 400 RU/s. Copie la plantilla y realice la implementación tal y como se muestra a continuación o visite [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) (Galería de inicio rápido de Azure) y realice la implementación desde Azure Portal. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
 
 > [!NOTE]
 >
-> - Actualmente no se pueden implementar funciones definidas por el usuario (UDF), procedimientos almacenados ni desencadenadores mediante el uso de plantillas de Resource Manager.
 > - No puede agregar ni quitar ubicaciones en una cuenta de Azure Cosmos a la vez que modifica otras propiedades. Estas acciones deben realizarse como operaciones independientes.
-> - Los nombres de las cuentas deben estar en minúsculas y deben tener 31 caracteres o menos.
+> - Los nombres de las cuentas deben estar en minúsculas y deben tener 44 caracteres o menos.
+> - Para actualizar las RU/s, vuelva a enviar la plantilla con los valores de propiedad de rendimiento actualizados.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
+
+> [!NOTE]
+> Para crear un contenedor con una clave de partición de gran tamaño, incluya la propiedad `"version":2` en el objeto `partitionKey` de la plantilla anterior.
 
 ### <a name="deploy-via-powershell"></a>Implementación mediante PowerShell
 
@@ -39,8 +46,11 @@ $location = Read-Host -Prompt "Enter the location (i.e. westus2)"
 $primaryRegion = Read-Host -Prompt "Enter the primary region (i.e. westus2)"
 $secondaryRegion = Read-Host -Prompt "Enter the secondary region (i.e. eastus2)"
 $databaseName = Read-Host -Prompt "Enter the database name"
-$container1Name = Read-Host -Prompt "Enter the first container name"
-$container2Name = Read-Host -Prompt "Enter the second container name"
+$sharedThroughput = Read-Host -Prompt "Enter the shared database throughput (i.e. 400)"
+$sharedContainer1Name = Read-Host -Prompt "Enter the first shared container name"
+$sharedContainer2Name = Read-Host -Prompt "Enter the second shared container name"
+$dedicatedContainer1Name = Read-Host -Prompt "Enter the dedicated container name"
+$dedicatedThroughput = Read-Host -Prompt "Enter the dedicated container throughput (i.e. 400)"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
@@ -51,10 +61,13 @@ New-AzResourceGroupDeployment `
     -primaryRegion $primaryRegion `
     -secondaryRegion $secondaryRegion `
     -databaseName $databaseName `
-    -container1Name $container1Name `
-    -container2Name $container2Name
+    -sharedThroughput $ $sharedThroughput `
+    -sharedContainer1Name $sharedContainer1Name `
+    -sharedContainer2Name $sharedContainer2Name `
+    -dedicatedContainer1Name $dedicatedContainer1Name `
+    -dedicatedThroughput $dedicatedThroughput
 
- (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
+ (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
 Si decide usar una versión instalada localmente de PowerShell de forma local en lugar de en el shell de Azure Cloud, debe [instalar](/powershell/azure/install-az-ps) el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión.
@@ -70,99 +83,86 @@ read -p 'Enter the account name: ' accountName
 read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
 read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
 read -p 'Enter the database name: ' databaseName
-read -p 'Enter the first container name: ' container1Name
-read -p 'Enter the second container name: ' container2Name
+read -p 'Enter the shared database throughput: sharedThroughput
+read -p 'Enter the first shared container name: ' sharedContainer1Name
+read -p 'Enter the second shared container name: ' sharedContainer2Name
+read -p 'Enter the dedicated container name: ' dedicatedContainer1Name
+read -p 'Enter the dedicated container throughput: dedicatedThroughput
 
 az group create --name $resourceGroupName --location $location
 az group deployment create --resource-group $resourceGroupName \
    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql/azuredeploy.json \
-   --parameters accountName=$accountName primaryRegion=$primaryRegion secondaryRegion=$secondaryRegion databaseName=$databaseName \
-   container1Name=$container1Name container2Name=$container2Name
+   --parameters accountName=$accountName \
+   primaryRegion=$primaryRegion \
+   secondaryRegion=$secondaryRegion \
+   databaseName=$databaseName \
+   sharedThroughput=$sharedThroughput \
+   sharedContainer1Name=$sharedContainer1Name \
+   sharedContainer2Name=$sharedContainer2Name \
+   dedicatedContainer1Name=$dedicatedContainer1Name \
+   dedicatedThroughput=$dedicatedThroughput
 
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
 El comando `az cosmosdb show` muestra la cuenta de Azure Cosmos recién creada después de que se haya aprovisionado. Si decide usar una versión de la CLI de Azure instalada localmente en lugar de usar CloudShell, consulte el artículo [Interfaz de la línea de comandos (CLI) de Azure](/cli/azure/).
 
-## Actualizar el rendimiento (RU/s) de una base de datos <a id="database-ru-update"></a>
+## Creación de un contenedor de Azure Cosmos DB con funcionalidad del lado servidor <a id="create-sproc"></a>
 
-La siguiente plantilla actualizará el rendimiento de una base de datos. Copie la plantilla y realice la implementación tal y como se muestra a continuación o visite [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-database-ru-update/) (Galería de inicio rápido de Azure) y realice la implementación desde Azure Portal. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
+Cree un contenedor de Azure Cosmos DB con un procedimiento almacenado, un desencadenador y una función definida por el usuario mediante una plantilla de Azure Resource Manager. Copie la plantilla y realice la implementación tal y como se muestra a continuación o visite [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) (Galería de inicio rápido de Azure) y realice la implementación desde Azure Portal. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
 
-[!code-json[cosmosdb-sql-database-ru-update](~/quickstart-templates/101-cosmosdb-sql-database-ru-update/azuredeploy.json)]
+[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
 
-### <a name="deploy-database-template-via-powershell"></a>Implementar la plantilla de base de datos mediante PowerShell
-
-Para implementar la plantilla de Resource Manager mediante PowerShell, **copie** el script y seleccione **Probar** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$accountName = Read-Host -Prompt "Enter the account name"
-$databaseName = Read-Host -Prompt "Enter the database name"
-$throughput = Read-Host -Prompt "Enter new throughput for database"
-
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-database-ru-update/azuredeploy.json" `
-    -accountName $accountName `
-    -databaseName $databaseName `
-    -throughput $throughput
-```
-
-### <a name="deploy-database-template-via-azure-cli"></a>Implementar la plantilla de base de datos mediante la CLI de Azure
-
-Para implementar la plantilla de Resource Manager mediante la CLI de Azure, seleccione **Probar** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
-
-```azurecli-interactive
-read -p 'Enter the Resource Group name: ' resourceGroupName
-read -p 'Enter the account name: ' accountName
-read -p 'Enter the database name: ' databaseName
-read -p 'Enter the new throughput: ' throughput
-
-az group deployment create --resource-group $resourceGroupName \
-   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-database-ru-update/azuredeploy.json \
-   --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
-```
-
-## Actualizar el rendimiento (RU/s) en un contenedor <a id="container-ru-update"></a>
-
-La siguiente plantilla actualizará el rendimiento de un contenedor. Copie la plantilla y realice la implementación tal y como se muestra a continuación o visite [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-ru-update/) (Galería de inicio rápido de Azure) y realice la implementación desde Azure Portal. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
-
-[!code-json[cosmosdb-sql-container-ru-update](~/quickstart-templates/101-cosmosdb-sql-container-ru-update/azuredeploy.json)]
-
-### <a name="deploy-container-template-via-powershell"></a>Implementar la plantilla de contenedor mediante PowerShell
+### <a name="deploy-stored-procedure-template-via-powershell"></a>Implementación de la plantilla de procedimiento almacenado a través de PowerShell
 
 Para implementar la plantilla de Resource Manager mediante PowerShell, **copie** el script y seleccione **Probar** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
 
 ```azurepowershell-interactive
+
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $accountName = Read-Host -Prompt "Enter the account name"
+$location = Read-Host -Prompt "Enter the location (i.e. westus2)"
+$primaryRegion = Read-Host -Prompt "Enter the primary region (i.e. westus2)"
+$secondaryRegion = Read-Host -Prompt "Enter the secondary region (i.e. eastus2)"
 $databaseName = Read-Host -Prompt "Enter the database name"
 $containerName = Read-Host -Prompt "Enter the container name"
-$throughput = Read-Host -Prompt "Enter new throughput for container"
 
+New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-ru-update/azuredeploy.json" `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json" `
     -accountName $accountName `
+    -location $location `
+    -primaryRegion $primaryRegion `
+    -secondaryRegion $secondaryRegion `
     -databaseName $databaseName `
-    -containerName $containerName `
-    -throughput $throughput
+    -containerName $containerName
+
+ (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-### <a name="deploy-container-template-via-azure-cli"></a>Implementar la plantilla de contenedor mediante la CLI de Azure
+Si decide usar una versión instalada localmente de PowerShell de forma local en lugar de en el shell de Azure Cloud, debe [instalar](/powershell/azure/install-az-ps) el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión.
+
+### <a name="deploy-stored-procedure-template-via-azure-cli"></a>Implementación de la plantilla de procedimiento almacenado a través de la CLI de Azure
 
 Para implementar la plantilla de Resource Manager mediante la CLI de Azure, seleccione **Probar** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the location (i.e. westus2): ' location
 read -p 'Enter the account name: ' accountName
+read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
+read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
 read -p 'Enter the database name: ' databaseName
 read -p 'Enter the container name: ' containerName
-read -p 'Enter the new throughput: ' throughput
 
+az group create --name $resourceGroupName --location $location
 az group deployment create --resource-group $resourceGroupName \
-   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-ru-update/azuredeploy.json \
-   --parameters accountName=$accountName databaseName=$databaseName containerName=$containerName throughput=$throughput
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json \
+   --parameters accountName=$accountName primaryRegion=$primaryRegion secondaryRegion=$secondaryRegion databaseName=$databaseName \
+   containerName=$containerName
+
+az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

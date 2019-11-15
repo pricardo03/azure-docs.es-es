@@ -1,20 +1,20 @@
 ---
-title: Envío de eventos de almacenamiento de blobs a un punto de conexión web desde el portal | Microsoft Docs
-description: Use Azure Event Grid y Azure Portal para crear una cuenta de Blob Storage y suscribirse a sus eventos. Envíe los eventos a un webhook.
+title: 'Inicio rápido: Envío de eventos de almacenamiento de blobs a un punto de conexión web desde el portal'
+description: 'Inicio rápido: Use Azure Event Grid y Azure Portal para crear una cuenta de Blob Storage y suscribirse a sus eventos. Envíe los eventos a un webhook.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 07/11/2019
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: a11e04a92375f5b52849257124344673301739e5
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 9ecffc25461a909d47329d536d1c19724b3c22ac
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839148"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718073"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Inicio rápido: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con Azure Portal
 

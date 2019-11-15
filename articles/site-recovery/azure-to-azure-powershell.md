@@ -1,5 +1,5 @@
 ---
-title: 'Azure Site Recovery: Configuración y prueba de la recuperación ante desastres en máquinas virtuales de Azure mediante Azure PowerShell | Microsoft Docs'
+title: Recuperación ante desastres en máquinas virtuales de Azure con Azure PowerShell y Azure Site Recovery
 description: Aprenda a configurar la recuperación ante desastres en máquinas virtuales de Azure con Azure Site Recovery mediante Azure PowerShell.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: fe74080387f76b858f60c5285a98c9b67f051449
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: aa91725daf36113334849dd15dd01b6ce6ed4389
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671884"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621087"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configuración de la recuperación ante desastres en máquinas virtuales de Azure mediante Azure PowerShell
 

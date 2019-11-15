@@ -1,5 +1,5 @@
 ---
-title: Administración de recursos de proceso en Azure SQL Data Warehouse | Microsoft Docs
+title: Administración de recursos de proceso
 description: Conozca las funcionalidades de escalado horizontal del rendimiento en Azure SQL Data Warehouse. Puede escalar horizontalmente mediante el ajuste de las DWU o detener el almacén de datos para reducir los costos.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f0935ccc4c4274bfab0c589ef158d4ea0bef455c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f93996d834ab805f2228543a833c4ce601042dc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575331"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692617"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Administración de proceso en Azure SQL Data Warehouse
 Aprenda sobre la administración de recursos de proceso en Azure SQL Data Warehouse. Para reducir los costos detenga el almacén de datos o escálelo para satisfacer las demandas de rendimiento. 

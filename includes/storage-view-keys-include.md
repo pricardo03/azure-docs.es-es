@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 06/20/2019
+ms.date: 11/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 0e8f1453687f7424c6b651dc324e66e84dd8d29f
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e3b3d944508a4261b78def0b3bee13f7395a8bf0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302522"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749002"
 ---
 Para ver y copiar la cadena de conexión o las claves de acceso de la cuenta de almacenamiento desde Azure Portal:
 
@@ -24,3 +24,5 @@ Para ver y copiar la cadena de conexión o las claves de acceso de la cuenta de 
 5. Como alternativa, puede copiar la cadena de conexión completa. Busque el valor de **Cadena de conexión** en **key1**y haga clic en el botón **Copiar** para copiar la cadena de conexión.
 
     ![Captura de pantalla que muestra cómo ver las claves de acceso en Azure Portal](media/storage-view-keys-include/portal-connection-string.png)
+
+Puede utilizar cualquiera de las dos claves para acceder a Azure Storage, pero en general es recomendable usar la primera clave y reservar el uso de la segunda clave para cuando se roten las claves.

@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 0156ab3acd2f4c629b0263356f61c22e62b424d1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d77269c1e965d5bca1e32b756ef26e2c694e5c81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792316"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747856"
 ---
-**Requisitos del servidor de proceso/configuración**
+**Requisitos del servidor de procesos y configuración**
 
 
 ## <a name="hardware-requirements"></a>Requisitos de hardware
@@ -38,7 +38,7 @@ Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
 Configuración regional del sistema operativo | Español (es-es)
 Roles de Windows Server | No habilite estos roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Directivas de grupo | No habilite estas directivas de grupo: <br> - Impedir el acceso al símbolo del sistema. <br> - Impedir el acceso a herramientas de edición del Registro. <br> - Confiar en la lógica de datos adjuntos de archivos. <br> - Activar la ejecución de scripts. <br> [Más información](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - Ningún sitio web predeterminado debe existir previamente <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente <br>- Habilitar la [autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
+IIS | - Ningún sitio web predeterminado debe existir previamente. <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente. <br>- Habilitar la [autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx). <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx).
 | 
 
 ## <a name="network-requirements"></a>Requisitos de red
@@ -58,7 +58,7 @@ https:\//management.azure.com | Se usa para las operaciones de administración d
 *.services.visualstudio.com | Se usa con fines de telemetría (es opcional)
 time.nist.gov | Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
 time.windows.com | Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | La configuración de OVF necesita acceder a estas direcciones URL. Azure Active Directory las usa para la administración de identidades y control de acceso
+| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | La configuración de OVF necesita acceder a estas direcciones URL. Azure Active Directory las usa para la administración de identidades y control de acceso.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para completar la descarga de MySQL. </br> En algunas regiones, la descarga podría redirigirse a la dirección URL de la red CDN. Asegúrese de que la dirección URL de la red CDN también esté en la lista blanca, si es necesario.
 |
 
@@ -67,7 +67,7 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 **Componente** | **Requisito** 
 --- | ---
 VMware vSphere PowerCLI | Se debe instalar [PowerCLI versión 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) si el servidor de configuración se ejecuta en una máquina virtual de VMware.
-MYSQL | Se debe instalar MySQL. Lo puede instalar manualmente o Site Recovery puede instalarlo. (Para más información, vaya a la [definición de configuración](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings))
+MySQL | Se debe instalar MySQL. Lo puede instalar manualmente o Azure Site Recovery puede instalarlo. Para obtener más información, consulte [Definición de la configuración de la API](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings).
 
 ## <a name="sizing-and-capacity-requirements"></a>Requisitos de capacidad y tamaño
 
@@ -76,7 +76,7 @@ En la tabla siguiente se resumen los requisitos de capacidad del servidor de con
 
 **CPU** | **Memoria** | **Disco de caché** | **Frecuencia de cambio de datos** | **Máquinas replicadas**
 --- | --- | --- | --- | ---
-8 vCPU<br/><br/> 2 sockets * 4 núcleos \@ 2,5 GHz | 16 GB | < 300 GB | 500 GB o menos | < 100 máquinas
-12 vCPU<br/><br/> 2 socks * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | De 100 a 150 máquinas
-16 vCPU<br/><br/> 2 socks * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1 - 2 TB | De 150 a 200 máquinas
+8 vCPU<br/><br/> 2 sockets * 4 núcleos \@ 2,5 GHz | 16 GB | < 300 GB | 500 GB o menos | <100 máquinas
+12 vCPU<br/><br/> 2 socks * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB a 1 TB | De 100 a 150 máquinas
+16 vCPU<br/><br/> 2 socks * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | De 1 a 2 TB | De 150 a 200 máquinas
 

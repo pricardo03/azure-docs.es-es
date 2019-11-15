@@ -1,5 +1,5 @@
 ---
-title: Optimización de transacciones para Azure SQL Data Warehouse | Microsoft Docs
+title: Optimización de transacciones
 description: Aprenda a optimizar el rendimiento del código transaccional en Azure SQL Data Warehouse al tiempo que minimiza el riesgo de que se produzcan reversiones extensas.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2299c526dd63eb8e8772661ee8fae66153fc36c3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b8b8be9467ade870e57355be91b0de329b0f6217
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479671"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692863"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimización de transacciones en Azure SQL Data Warehouse
 Aprenda a optimizar el rendimiento del código transaccional en Azure SQL Data Warehouse al tiempo que minimiza el riesgo de que se produzcan reversiones extensas.
@@ -67,7 +68,7 @@ CTAS e INSERT...SELECT son dos operaciones de carga masiva. Sin embargo, ambas s
 
 | Índice principal | Escenario de carga | Modo de registro |
 | --- | --- | --- |
-| Montón |Cualquiera |**Mínimo** |
+| Montón |Any |**Mínimo** |
 | Índice agrupado |Tabla de destino vacía |**Mínimo** |
 | Índice agrupado |Las filas cargadas no se superponen a páginas existentes en el destino |**Mínimo** |
 | Índice agrupado |Las filas cargadas se superponen a páginas existentes en el destino |Completo |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 41a626ba602ad33f22c3ea4acc39dd4f3438cbd0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: eb4f607672c39d45b7791ccaeeb6f7cff9393cb9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935517"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571013"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Instalación y uso de la extensión de Azure IoT para la CLI de Azure
 
@@ -131,21 +131,21 @@ Sin el parámetro `--repo-login`, este comando usa el repositorio del modelo pú
 Invocar un comando:
 
 ```cmd/sh
-az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --command-name {CommandName} --command-payload {CommandPayload or FilePath}
+az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --cn {CommandName} --command-payload {CommandPayload or FilePath}
 ```
 
-#### <a name="telemetry"></a>Telemetría
+#### <a name="digital-twin-events"></a>Eventos gemelos digitales
 
-Supervisar toda la telemetría de IoT Plug and Play desde un dispositivo e interfaz específicos que vayan al punto de conexión del centro de eventos **$Default**:
+Supervise todos los eventos gemelos digitales de IoT Plug and Play desde un dispositivo e interfaz específicos que vayan al grupo de consumidores del centro de eventos **$Default**:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID}
 ```
 
-Supervisar toda la telemetría de IoT Plug and Play desde un dispositivo e interfaz específicos que vayan a un grupo de consumidores específico:
+Supervise todos los eventos gemelos digitales de IoT Plug and Play desde un dispositivo e interfaz específicos que vayan a un grupo de consumidores concreto:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString} --consumer-group {YourConsumerGroup}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --consumer-group {YourConsumerGroup}
 ```
 
 ### <a name="manage-interfaces-in-a-model-repository"></a>Administración de interfaces en un repositorio de modelos

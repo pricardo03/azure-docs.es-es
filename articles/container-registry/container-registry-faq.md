@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: cfa8efe0b73811474b1e50a7d2fb1e9abe9045c6
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 88c4b2065576bd5bdcb29a266bd564c60b0e537c
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286511"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622702"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -448,6 +448,8 @@ Configure el proxy de Docker para la salida del comando anterior y el puerto 888
 
 - [¿Cómo se realizan las cancelaciones por lotes?](#how-do-i-batch-cancel-runs)
 - [¿Cómo se puede incluir la carpeta .git en el comando az acr build?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [¿Las tareas admiten GitLab como desencadenadores de origen?](#does-tasks-support-gitlab-for-source-triggers)
+- [¿Qué servicio de administración de repositorios de Git admiten las tareas?](#what-git-repository-management-service-does-tasks-support)
 
 ### <a name="how-do-i-batch-cancel-runs"></a>¿Cómo se realizan las cancelaciones por lotes?
 
@@ -462,11 +464,30 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 Si se pasa una carpeta de origen local al comando `az acr build`, la carpeta `.git` se excluye del paquete cargado de forma predeterminada. Puede crear un archivo `.dockerignore` con la siguiente configuración. Indica al comando que restaure todos los archivos bajo `.git` en el paquete cargado. 
 
-```
+```sh
 !.git/**
 ```
 
 Esta configuración también se aplica al comando `az acr run`.
+
+### <a name="does-tasks-support-gitlab-for-source-triggers"></a>¿Las tareas admiten GitLab como desencadenadores de origen?
+
+Actualmente no se admite GitLab como desencadenadores de origen.
+
+### <a name="what-git-repository-management-service-does-tasks-support"></a>¿Qué servicio de administración de repositorios de Git admiten las tareas?
+
+| Servicio Git | Contexto de origen | Compilación manual | Compilación automática a través de desencadenador de confirmación |
+|---|---|---|---|
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Sí | Sí |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Sí | Sí |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Sí | Sin |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Sí | Sin |
+
+## <a name="run-error-message-troubleshooting"></a>Solución de problemas de mensajes de error de ejecución
+
+| Mensaje de error | Guía de solución de problemas |
+|---|---|
+|No se configuró ningún acceso para la máquina virtual; por lo tanto, no se encontró ninguna suscripción|Esto puede ocurrir si usa `az login --identity` en la tarea ACR. Se trata de un error transitorio y se produce cuando la asignación de roles de la identidad administrada no se ha propagado. Esperar unos segundos antes de volver a intentarlo.|
 
 ## <a name="cicd-integration"></a>Integración de CI/CD
 

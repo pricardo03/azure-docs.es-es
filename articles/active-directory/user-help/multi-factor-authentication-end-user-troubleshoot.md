@@ -1,5 +1,5 @@
 ---
-title: 'Solución de problemas comunes de verificación en dos fases: Azure Active Directory | Microsoft Docs'
+title: Solución de problemas comunes de verificación en dos fases - Azure AD
 description: Más información sobre las posibles soluciones a algunos de los problemas más comunes de verificación en dos fases.
 services: active-directory
 author: eross-msft
@@ -9,16 +9,16 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/28/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178ce07db24976d7df590d353603da67b68122e8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: f8d226d61f4b67541a6991fef3a435b4cfff500f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616117"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805304"
 ---
 # <a name="troubleshoot-common-two-factor-verification-problems"></a>Solución de problemas comunes de verificación en dos fases
 
@@ -63,6 +63,8 @@ No recibir el código de verificación es un problema habitual que suele estar r
 - **Asegúrese de que tiene el dispositivo tiene cobertura y conexión a Internet.** Asegúrese de que llegan llamadas telefónicas y mensajes de texto al dispositivo móvil. Pida a un amigo que le llame y le envíe un mensaje de texto para asegurarse de que recibe ambos. Si no es así, primero asegúrese de que el dispositivo móvil esté encendido. Si el dispositivo está encendido pero aún así no recibe la llamada o el mensaje de texto, lo más probable es que haya un problema con la red y que tenga que comunicarse con el proveedor. Si suele experimentar problemas relacionados con la cobertura, le recomendamos que instale y use la [aplicación Microsoft Authenticator](user-help-auth-app-download-install.md) en su dispositivo móvil. Esta aplicación puede generar códigos de seguridad aleatorios para iniciar sesión, sin necesidad de una conexión a Internet ni de cobertura del móvil.
 
 - **Desactive la opción No molestar.** Asegúrese de que no ha activado la característica **No molestar** del dispositivo móvil. Si esta característica está activada, no permite que reciba notificaciones en su dispositivo móvil. Consulte el manual del dispositivo móvil para obtener instrucciones sobre cómo desactivar esta característica.
+
+- **Desbloquee números de teléfono** En Estados Unidos, si no ha configurado el identificador del autor de la llamada de MFA, las llamadas de voz de Microsoft proceden de los números siguientes: +1 (866) 539 4191, +1 (855) 330 8653 y +1 (877) 668 6536.
 
 - **Compruebe la configuración relacionada con la batería.** Esto puede parecer extraño de entrada, pero si ha configurado la optimización de la batería para que impida que las aplicaciones menos usadas permanezcan activas en segundo plano, lo más probable es que esto haya afectado al sistema de notificaciones. Para intentar solucionar este problema, desactive la optimización de batería para las aplicaciones de autenticación y mensajería, e intente iniciar sesión de nuevo en su cuenta.
 

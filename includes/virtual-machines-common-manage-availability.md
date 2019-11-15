@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0879cb33a0796e19724bd143e57780d6ce27bfcf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c884d3c7102fc47f6efad86d9fe3704afd0edcf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657871"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73591392"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Información sobre los reinicios de máquinas virtuales: mantenimiento frente a tiempo de inactividad
 Hay tres escenarios que pueden afectar a la máquina virtual de Azure: mantenimiento de hardware no planeado, tiempo de inactividad inesperado y mantenimiento planeado.
@@ -72,6 +72,13 @@ Si actualmente está usando máquinas virtuales con discos no administrados, es 
 > El número de dominios de error para conjuntos de disponibilidad administrados varía según la región, entre dos y tres por región. En la tabla siguiente se muestra el número por región.
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+
+> Nota: En determinadas circunstancias, podría ocurrir que dos máquinas virtuales del mismo AvailabilitySet compartan el mismo FaultDomain. Para confirmarlo, vaya a su AvailabilitySet y compruebe la columna "Dominio de error".
+> Este comportamiento se puede observar cuando se produjo la siguiente secuencia al implementar las máquinas virtuales:
+> - Implementar la primera máquina virtual
+> - Detener o desasignar la primera máquina virtual
+> - Implementar la segunda máquina virtual en estas circunstancias, el disco del sistema operativo de la segunda máquina virtual puede crearse en el mismo dominio de error que la primera máquina virtual, por lo que la segunda máquina virtual también aterrizará en el mismo FaultDomain. 
+> Para evitar este problema, se recomienda no detener ni desasignar la máquina virtual entre sus implementaciones.
 
 Si tiene previsto usar máquinas virtuales con discos no administrados, siga los procedimientos recomendados que aparecen a continuación para las cuentas de almacenamiento donde se almacenan los discos duros virtuales (VHD) de las máquinas virtuales como [blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

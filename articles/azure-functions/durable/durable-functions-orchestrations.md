@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 82c4a27ac2491e668c1d99e2a14b870e82ec5665
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 4e11070f4e766f83b0e7ead7757c675de3fef33f
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935423"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614771"
 ---
 # <a name="durable-orchestrations"></a>Orquestaciones de Durable Functions
 
@@ -64,7 +64,7 @@ El comportamiento del origen de eventos de Durable Task Framework está estrecha
 ```csharp
 [FunctionName("E1_HelloSequence")]
 public static async Task<List<string>> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var outputs = new List<string>();
 
@@ -133,7 +133,7 @@ Notas sobre los valores de las columnas:
 
 * **PartitionKey**: contiene el identificador de instancia de la orquestación.
 * **EventType**: representa el tipo de evento. Puede ser uno de los siguientes tipos:
-  * **OrchestrationStarted**: la función de orquestador se reanuda desde una instrucción await o se ejecuta por primera vez. La columna `Timestamp` se usa para rellenar el valor determinista para la API [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime).
+  * **OrchestrationStarted**: la función de orquestador se reanuda desde una instrucción await o se ejecuta por primera vez. La columna `Timestamp` se usa para rellenar el valor determinista para las API `CurrentUtcDateTime` (.NET) y `currentUtcDateTime` (JavaScript).
   * **ExecutionStarted**: la función de orquestador comenzó a ejecutarse por primera vez. Este evento también contiene la entrada de función en la columna `Input`.
   * **TaskScheduled**: se programó una función de actividad. El nombre de la función de actividad se captura en la columna `Name`.
   * **TaskCompleted**: función de actividad completada. El resultado de la función está en la columna `Result`.
@@ -186,7 +186,7 @@ Las funciones de orquestador también pueden agregar directivas de reintento a l
 
 Para más información y ejemplos, vea el artículo [Control de errores](durable-functions-error-handling.md).
 
-### <a name="critical-sections"></a>Secciones críticas
+### <a name="critical-sections-durable-functions-2x"></a>Secciones críticas (Durable Functions 2.x)
 
 Las instancias de orquestación tienen un único subproceso, por lo que no es necesario preocuparse por las condiciones de carrera *dentro* de una orquestación. Sin embargo, se pueden producir condiciones de carrera cuando las orquestaciones interactúan con sistemas externos. Para mitigar las condiciones de carrera al interactuar con sistemas externos, las funciones de orquestador pueden definir *secciones críticas* con un método `LockAsync` de .NET.
 
@@ -212,7 +212,7 @@ La característica de sección crítica también es útil para coordinar los cam
 > [!NOTE]
 > Las secciones críticas están disponibles en Durable Functions 2.0 y versiones posteriores. Actualmente, solo las orquestaciones de .NET implementan esta característica.
 
-### <a name="calling-http-endpoints"></a>Llamada a puntos de conexión HTTP
+### <a name="calling-http-endpoints-durable-functions-2x"></a>Llamada a puntos de conexión HTTP (Durable Functions 2.x)
 
 No se permite la E/S de las funciones de orquestador, según se describe en las [restricciones de código de las funciones de orquestador](durable-functions-code-constraints.md). La solución alternativa habitual para esta limitación es ajustar cualquier código que necesite realizar operaciones de E/S en una función de actividad. Las orquestaciones que interactúan con sistemas externos usan con frecuencia funciones de actividad para realizar llamadas HTTP y devolver el resultado a la orquestación.
 
@@ -236,10 +236,22 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const url = context.df.getInput();
+    var res = yield context.df.callHttp("GET", url);
+    if (res.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
 Para más información y ejemplos detallados, consulte el artículo [Características de HTTP](durable-functions-http-features.md).
 
 > [!NOTE]
-> La llamada a puntos de conexión HTTP directamente desde las funciones de orquestador está disponible en Durable Functions 2.0 y versiones posteriores. Actualmente, solo las orquestaciones de .NET implementan esta característica.
+> La llamada a puntos de conexión HTTP directamente desde las funciones de orquestador está disponible en Durable Functions 2.0 y versiones posteriores.
 
 ### <a name="passing-multiple-parameters"></a>Paso de varios parámetros
 
@@ -250,7 +262,7 @@ El ejemplo siguiente utiliza las nuevas características de [ValueTuples](https:
 ```csharp
 [FunctionName("GetCourseRecommendations")]
 public static async Task<object> RunOrchestrator(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string major = "ComputerScience";
     int universityYear = context.GetInput<int>();
@@ -262,7 +274,7 @@ public static async Task<object> RunOrchestrator(
 }
 
 [FunctionName("CourseRecommendations")]
-public static async Task<object> Mapper([ActivityTrigger] DurableActivityContext inputs)
+public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContext inputs)
 {
     // parse input for student's major and year in university
     (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();

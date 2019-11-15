@@ -1,10 +1,10 @@
 ---
-title: Error de arranque de Azure Virtual Machines
+title: Arranque de máquinas virtuales Linux en Rescate de GRUB
 description: La máquina virtual no puede arrancar porque ha entrado en una consola de rescate.
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
-manager: ''
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 9995b9049378a0ab4f3450ec577d034598d171e9
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 29242b802dbbff4218506422293082a495c4d21e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984840"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685135"
 ---
-# <a name="vm-boot-error"></a>Error al arrancar la máquina virtual
+# <a name="linux-vm-boots-to-grub-rescue"></a>Arranque de máquinas virtuales Linux en Rescate de GRUB
 
 Hemos detectado que la máquina virtual ha entrado en una consola de rescate. Este problema se produce cuando se han realizado cambios recientemente en el kernel de una máquina virtual Linux (por ejemplo, una actualización del kernel) y la máquina virtual ya no se inicia correctamente porque durante el proceso de arranque se producen errores en el kernel. Durante el proceso de arranque, cuando el cargador de arranque intenta localizar el kernel de Linux y le cede el control de arranque, si se produce un error al realizar esta cesión, la máquina virtual entra en una consola de rescate.
 

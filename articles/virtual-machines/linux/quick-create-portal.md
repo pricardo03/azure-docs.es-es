@@ -7,20 +7,19 @@ author: cynthn
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 8/20/2019
+ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c05eb59c42700394f755f226405f16a47edc73c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dbe8e43122fb7fa00129dec0d9961bd70e5a784
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091543"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693329"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de una máquina virtual Linux en Azure Portal
 
@@ -50,15 +49,14 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) si aún no lo ha hech
 
 ## <a name="create-virtual-machine"></a>Crear máquina virtual
 
-1. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-
-1. En **Popular**, seleccione **Ubuntu Server 18.04 LTS**.
-
-1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y luego elija **Crear nuevo** en **Grupo de recursos**. Escriba *myResourceGroup* para el nombre del grupo de recursos y luego elija **Aceptar**. 
+1. Escriba **máquinas virtuales** en la búsqueda.
+1. En **Servicios**, seleccione **Máquinas virtuales**.
+1. En la página **Máquinas virtuales**, seleccione **Agregar**. Se abrirá la página **Creación de una máquina virtual**.
+1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y luego elija **Crear nuevo** grupo de recursos. Escriba *myResourceGroup* para el nombre.*. 
 
     ![Crear un nuevo grupo de recursos para la máquina virtual](./media/quick-create-portal/project-details.png)
 
-1. En **Detalles de instancia**, escriba *myVM* en **Nombre de máquina virtual** y elija *Este de EE. UU.* como **Región**. Deje los demás valores predeterminados.
+1. En **Detalles de instancia**, escriba *myVM* en **Nombre de máquina virtual**, elija *Este de EE. UU.* como **Región** y, luego, *Ubuntu 18.04 LTS* como **Imagen**. Deje los demás valores predeterminados.
 
     ![Sección Detalles de instancia](./media/quick-create-portal/instance-details.png)
 

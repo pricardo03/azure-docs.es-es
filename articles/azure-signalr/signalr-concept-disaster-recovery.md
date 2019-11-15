@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: eb70e65db4a086afc60e91cadf55a8844b102591
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61402156"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747650"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resistencia y recuperación ante desastres
 
@@ -51,11 +51,11 @@ Esto se puede hacer de dos maneras:
 
 ### <a name="through-config"></a>Mediante configuración
 
-Debe saber cómo configurar la cadena de conexión de servicio de SignalR a través de variables de entorno/configuración de aplicaciones/web.cofig, mediante una entrada de configuración llamada `Azure:SignalR:ConnectionString`.
+Ya debe saber cómo configurar la cadena de conexión de SignalR Service mediante variables de entorno o configuración de aplicaciones o web.cofig, mediante una entrada de configuración denominada `Azure:SignalR:ConnectionString`.
 Si tiene varios puntos de conexión, puede establecerlos en varias entradas de configuración, cada una de ellas con el siguiente formato:
 
 ```
-Azure:SignalR:Connection:<name>:<role>
+Azure:SignalR:ConnectionString:<name>:<role>
 ```
 
 Aquí, `<name>` es el nombre del punto de conexión y `<role>`, su rol (principal o secundario).
@@ -87,6 +87,11 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
         new ServiceEndpoint("<connection_string2>", EndpointType.Secondary, "region2"),
     };
 ```
+
+Puede configurar varias instancias principales o secundarias. Si hay varias instancias principales o secundarias, la negociación devolverá un punto de conexión en el orden siguiente:
+
+1. Si hay al menos una instancia principal en línea, devuelve una instancia en línea principal aleatoria.
+2. Si todas las instancias principales están inactivas, devuelva una instancia en línea secundaria aleatoria.
 
 ## <a name="failover-sequence-and-best-practice"></a>Secuencia de conmutación por error y procedimiento recomendado
 

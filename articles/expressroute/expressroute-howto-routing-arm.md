@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e2f38671910be2c7300f39fcbca32e8a1ccd9891
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 813263442bc82254d0cb5ea9e9f7e8a265de5b4a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64716136"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748201"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute mediante PowerShell
 
@@ -46,7 +46,7 @@ Puede configurar una, dos o las tres configuraciones entre pares (Azure privado,
 
 ### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -120,6 +120,13 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
    * Opcional:
      * Cliente ASN: Si se anuncian prefijos que no están registrados en el número de AS de configuración entre pares, puede especificar el número de AS en el que están registrados.
      * Un hash MD5, en caso de que haya decidido usarlo.
+
+> [!IMPORTANT]
+> Microsoft comprueba si los prefijos públicos anunciados y ASN del mismo nivel (o ASN de cliente) especificados se le han asignado en el registro de enrutamiento de Internet. Si obtiene los prefijos públicos de otra entidad y la asignación no se registra con el registro de enrutamiento, la validación automática no se completará y requerirá la validación manual. Si se produce un error en la validación automática, verá "AdvertisedPublicPrefixesState" como "Se necesita validación" en la salida del comando "Get-AzExpressRouteCircuitPeeringConfig" (vea "Obtención de detalles del emparejamiento de Microsoft"). 
+> 
+> Si ve el mensaje "Se necesita validación", recopile los documentos que muestren los prefijos públicos asignados a la organización por la entidad que aparece como propietaria de los prefijos en el registro de enrutamiento, y envíe estos documentos para su validación manual. Abra una incidencia de soporte técnico como se muestra a continuación. 
+> 
+>
 
    Use el ejemplo siguiente para configurar el emparejamiento de Microsoft para el circuito:
 

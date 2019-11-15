@@ -1,18 +1,18 @@
 ---
 title: Administración de almacenes y servidores de Azure Recovery Services
-description: Administración de trabajos y alertas en un almacén de Azure Recovery Services.
+description: En este artículo se explica cómo usar el panel de información general del almacén de Recovery Services para supervisar y administrar los almacenes de Recovery Services.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a86af57f49b91615cc453946b0b5d51d22f2d163
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954761"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747446"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Supervisión y administración de almacenes de Recovery Services
 
@@ -23,7 +23,6 @@ En este artículo se explica cómo usar el panel de **información general** del
 Los requisitos previos de este artículo son: una suscripción de Azure, un almacén de Recovery Services y que haya al menos un elemento de copia de seguridad configurado para el almacén.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
 
 ## <a name="open-a-recovery-services-vault"></a>Apertura de un almacén de Recovery Services
 
@@ -259,7 +258,6 @@ El icono Almacenamiento de copia de seguridad del panel muestra el almacenamient
 * Uso de almacenamiento LRS en la nube asociado con el almacén
 * Uso de almacenamiento GRS en la nube asociado con el almacén
 
-
 ## <a name="troubleshooting-monitoring-issues"></a>Solución de problemas de supervisión
 
 **Problema:** los trabajos y las alertas del agente de Azure Backup no aparecen en el portal.
@@ -275,6 +273,7 @@ El icono Almacenamiento de copia de seguridad del panel muestra el almacenamient
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
 * Para obtener más información sobre Azure Backup, consulte [Información general de Azure Backup](backup-introduction-to-azure-backup.md)
 * Visite el [Foro de Azure Backup](https://go.microsoft.com/fwlink/p/?LinkId=290933)

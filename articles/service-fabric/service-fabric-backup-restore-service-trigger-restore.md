@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff705eabde111b5ebac1e2d714e3ece221c36e90
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413729"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819309"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauración de una copia de seguridad en Azure Service Fabric
 
@@ -199,7 +199,18 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 Puede realizar un seguimiento del progreso de una restauración con TrackRestoreProgress.
 
-### <a name="data-restore-for-data-corruptiondata-loss"></a>Restauración de datos ante _daños dañados_/_pérdida de datos_
+### <a name="using-service-fabric-explorer"></a>Uso de Service Fabric Explorer
+Puede desencadenar una restauración desde Service Fabric Explorer. Asegúrese de que se ha habilitado Modo avanzado en la configuración de Service Fabric Explorer.
+1. Seleccione las particiones deseadas y haga clic en Acciones. 
+2. Seleccione Trigger Partition Restore (Desencadenar restauración de particiones) y rellene la información para Azure:
+
+    ![Trigger Partition Restore (Desencadenar restauración de particiones)][2]
+
+    o el recurso compartido de archivos:
+
+    ![Recurso compartido de archivos Trigger Partition Restore (Desencadenar restauración de particiones)][3]
+
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Restauración de datos ante _daños dañados_/_pérdida de datos_
 
 En el caso de _pérdida de datos_ o _datos dañados_, las particiones en copia de seguridad de las particiones del servicio de confianza con estado y Reliable Actors se pueden restaurar a cualquiera de las copias de seguridad elegidas.
 
@@ -324,3 +335,6 @@ Puede configurar las particiones del servicio de confianza con estado y Reliable
 ## <a name="next-steps"></a>Pasos siguientes
 - [Información sobre la configuración de la copia de seguridad periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Referencia de la API REST de restauración de copias de seguridad](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+
+[2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
+[3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

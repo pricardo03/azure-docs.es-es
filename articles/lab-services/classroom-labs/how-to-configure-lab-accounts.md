@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: ba469c038f04a31a57e798b97b5120bec573feae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9faf7de25b8bf227dd4c7f3588972f98f7493439
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65414037"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583923"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configuración de cuentas de laboratorio en Azure Lab Services 
 En Azure Lab Services, una cuenta de laboratorio es un contenedor para tipos de laboratorios administrados, como los laboratorios de clase. Los administradores configuran una cuenta de laboratorio con Azure Lab Services y proporcionan acceso a los propietarios del laboratorio que pueden crear laboratorios en la cuenta. En este artículo se describe cómo crear o eliminar una cuenta de laboratorio y cómo ver todas las cuentas de laboratorio.
@@ -76,6 +76,9 @@ Para proporcionar a los educadores el permiso para crear laboratorios para sus c
 
     ![Incorporación del creador de laboratorio](../media/tutorial-setup-lab-account/add-lab-creator.png)
 
+    > [!NOTE]
+    > Si va a agregar un usuario que no es de la cuenta de Microsoft como creador de laboratorio, consulte la sección [Incorporación de un usuario que no es de una cuenta de Microsoft como creador de laboratorio](#add-a-non-microsoft-account-user-as-a-lab-creator). 
+
 ## <a name="specify-marketplace-images-available-to-lab-creators"></a>Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios
 Como propietario de una cuenta de laboratorio, puede especificar las imágenes de Marketplace que los creadores de laboratorios pueden usar para este fin en la cuenta de laboratorio. 
 
@@ -99,7 +102,36 @@ Como propietario de una cuenta de laboratorio, puede especificar las imágenes d
     1. Seleccione **... (puntos suspensivos)**  en la última columna y seleccione **Enable image** (Habilitar imagen). 
     2. Seleccione una o más imágenes en la lista seleccionando las casillas que hay antes de los nombres de imagen en la lista y seleccione **Enable selected images** (Habilitar imágenes seleccionadas). 
 
+## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>Incorporación de un usuario que no es de una cuenta de Microsoft como creador de laboratorio
+Para agregar un usuario como creador de laboratorio, se usan sus cuentas de correo electrónico. Se pueden usar los siguientes tipos de cuentas de correo electrónico:
 
+- Una cuenta de correo electrónico proporcionada por la instancia de Azure Active Directory (AAD) de Office 365 de la universidad. 
+- Una cuenta de correo electrónico de Microsoft, como `@outlook.com`, `@hotmail.com`, `@msn.com` o `@live.com`.
+- Una cuenta de correo electrónico que no sea de Microsoft, como las proporcionadas por Yahoo o Google. No obstante, estos tipos de cuentas se deben vincular a una cuenta de Microsoft.
+- Una cuenta de GitHub. Esta cuenta se debe vincular a una cuenta de Microsoft.
+
+### <a name="using-a-non-microsoft-email-account"></a>Uso de una cuenta de correo electrónico que no sea de Microsoft
+Los creadores e instructores de laboratorio pueden usar cuentas de correo electrónico que no sean de Microsoft para registrarse e iniciar sesión en un laboratorio de clase.  Sin embargo, el inicio de sesión en el portal de los servicios de laboratorio exige que los instructores creen primero una cuenta de Microsoft que esté vinculada a su dirección de correo electrónico que no es de Microsoft.
+
+Es posible que muchos instructores ya tengan una cuenta de Microsoft vinculada a sus direcciones de correo electrónico que no son de Microsoft. Por ejemplo, los instructores ya tienen una cuenta de Microsoft si han usado su dirección de correo electrónico con otros productos o servicios de Microsoft, como Office, Skype, OneDrive o Windows.  
+
+Cuando los instructores inicien sesión en el portal de servicios de laboratorio, se les pedirá su dirección de correo electrónico y contraseña. Si el instructor intenta iniciar sesión con una cuenta que no es de Microsoft y que no tiene una cuenta de Microsoft vinculada, recibe el mensaje de error siguiente: 
+
+![Mensaje de error](../media/how-to-configure-student-usage/cant-find-account.png)
+
+Para suscribirse a una cuenta de Microsoft, los instructores deben ir a [http://signup.live.com](http://signup.live.com).  
+
+
+### <a name="using-a-github-account"></a>Uso de una cuenta de GitHub
+Los instructores también pueden usar una cuenta de GitHub existente para registrarse e iniciar sesión en un laboratorio de clase. Si el instructor ya tiene una cuenta de Microsoft vinculada a su cuenta de GitHub, puede iniciar sesión y proporcionar su contraseña como se muestra en la sección anterior. Si aún no ha vinculado su cuenta de GitHub a una cuenta de Microsoft, debe seleccionar **Opciones de inicio de sesión**:
+
+![Vínculo de opciones de inicio de sesión](../media/how-to-configure-student-usage/signin-options.png)
+
+En la página **Opciones de inicio de sesión**, seleccione **Iniciar sesión con GitHub**.
+
+![Vínculo de inicio de sesión con GitHub](../media/how-to-configure-student-usage/signin-github.png)
+
+Por último, se le pide que cree una cuenta de Microsoft que esté vinculada a su cuenta de GitHub. Sucede automáticamente cuando el instructor selecciona **Siguiente**.  Luego el instructor inicia sesión inmediatamente y se conecta al laboratorio de clase.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -4,14 +4,14 @@ description: Aprenda las características y ventajas de Azure Spring Cloud para 
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: overview
-ms.date: 10/04/2019
+ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c58e6b2a0c0de8295df65b44fbdeaeb2d4461948
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 9709d7edb7c48ccfdb551d0e837a098289a5097a
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166531"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721270"
 ---
 # <a name="what-is-azure-spring-cloud"></a>¿Qué es Azure Spring Cloud?
 
@@ -19,8 +19,7 @@ Azure Spring Cloud facilita la implementación de aplicaciones de microservicio 
 
 Al formar parte del ecosistema de Azure, Azure Spring Cloud facilita el enlace con otros servicios de Azure, como almacenamiento, bases de datos, supervisión, etc.
 
-Azure Spring Cloud se encuentra actualmente en versión preliminar.  Para acceder a este servicio mientras se encuentre en versión preliminar [rellene este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-).
+Azure Spring Cloud se ofrece actualmente como versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.  Para más información sobre el soporte técnico durante las versiones preliminares, revise las [preguntas frecuentes](https://azure.microsoft.com/support/faq/) o envíe una [solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) para obtener más información.
 
 Para empezar, complete el inicio rápido de Spring Cloud mediante la [CLI de Azure](spring-cloud-quickstart-launch-app-cli.md), [Azure Portal](spring-cloud-quickstart-launch-app-portal.md) o [ Maven](spring-cloud-quickstart-launch-app-maven.md).
 

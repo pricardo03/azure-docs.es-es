@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 14615d596c1b673a234ccef541fecfbfce9d5f27
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752146"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622601"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph mediante Azure Resource Graph Explorer
 
@@ -120,9 +120,9 @@ Si quiere quitar los paneles de ejemplo de Resource Graph del entorno de Azure P
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtener más información sobre el [lenguaje de consulta](./concepts/query-language.md)
-- Obtener información sobre cómo [explorar recursos](./concepts/explore-resources.md)
-- Ejecución de la primera consulta con la [CLI de Azure](first-query-azurecli.md)
-- Ver ejemplos de [consultas de nivel principiante](./samples/starter.md)
-- Ver ejemplos de [consultas de nivel avanzado](./samples/advanced.md)
-- Comentarios sobre [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)
+- Obtenga más información sobre el [lenguaje de consulta](./concepts/query-language.md).
+- Obtenga más información sobre cómo [explorar recursos](./concepts/explore-resources.md).
+- Ejecute la primera consulta con la [CLI de Azure](first-query-azurecli.md).
+- Consulte ejemplos de [consultas de inicio](./samples/starter.md).
+- Vea ejemplos de [consultas avanzadas](./samples/advanced.md).
+- Proporcione comentarios sobre [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

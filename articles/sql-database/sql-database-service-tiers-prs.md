@@ -1,5 +1,5 @@
 ---
-title: Retirada de nivel de servicio de Azure SQL Database Premium RS | Microsoft Docs
+title: Retirada de nivel de servicio RS Premium
 description: El nivel de servicio Premium RS se está retirando y el soporte técnico para dicho nivel está finalizando (consulte las opciones de migración).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/07/2019
-ms.openlocfilehash: d2637618ea9e2a0a0d0369eddce01fae073be221
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f00ecd19877ba6236bde5de73d450967abc1fe15
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566634"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821041"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>El nivel de servicio Premium RS de Azure SQL Database (versión preliminar) se está retirando: opciones de migración
 

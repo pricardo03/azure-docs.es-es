@@ -1,5 +1,5 @@
 ---
-title: 'Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure | Microsoft Docs'
+title: 'Continuidad empresarial y recuperación ante desastres: regiones emparejadas de Azure'
 description: Conozca más sobre el emparejamiento de regiones de Azure para asegurarse de que las aplicaciones sean resistentes durante los errores del centro de datos.
 author: rayne-wiselman
 manager: carmon
@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: b71048412f5715fd1b8ef3edf742716916672bd5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514464"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718748"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 
@@ -42,7 +42,7 @@ Figura 1: Parejas regionales de Azure
 | India |Oeste de la India |Sur de la India |
 | Japón |Este de Japón |Oeste de Japón |
 | Corea |Corea Central |Corea del Sur |
-| Norteamérica |Este de EE. UU |Oeste de EE. UU. |
+| Norteamérica |East US |Oeste de EE. UU. |
 | Norteamérica |Este de EE. UU. 2 |Centro de EE. UU. |
 | Norteamérica |Centro-Norte de EE. UU |Centro-Sur de EE. UU |
 | Norteamérica |Oeste de EE. UU. 2 |Centro occidental de EE.UU. 
@@ -75,7 +75,7 @@ Ilustración 2: Pareja regional de Azure hipotética
 ## <a name="cross-region-activities"></a>Actividades entre regiones
 Como se indica en la ilustración 2.
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (Iaas)** : debe aprovisionar recursos de procesos adicionales de antemano para asegurarse de que haya recursos disponibles en otra región durante un desastre. Para obtener más información, consulte [Guía técnica sobre resistencia en Azure](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (Iaas)** : debe aprovisionar recursos de procesos adicionales de antemano para asegurarse de que haya recursos disponibles en otra región durante un desastre. Para obtener más información, consulte [Guía técnica sobre resistencia en Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md).
 
 ![Storage](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage**: si utiliza discos administrados, obtenga información sobre las [copias de seguridad entre regiones](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) con Azure Backup y la [replicación de máquinas virtuales](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) de una región a otra con Azure Site Recovery. Si está usando cuentas de almacenamiento, el almacenamiento con redundancia geográfica (GRS) se configura de manera predeterminada cuando se crea una cuenta de Azure Storage. Con GRS, los datos se replican automáticamente tres veces dentro de la región primaria y tres veces en la región emparejada. Para obtener más información, consulte [Opciones de redundancia de Azure Storage](storage/common/storage-redundancy.md).
 
