@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c82cad30fcc2aa80eea52ab13f60fc0c4da33cd1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55ba5a193e15ac4e8bd83ac046deeac1f12d61d0
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471328"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961951"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
@@ -401,7 +401,7 @@ $routeProvider.when("/Home", {
 }).otherwise({ redirectTo: "/Home" });
 ```
 
-El nuevo cambio se agrega a la asignación `revolve` que invoca a `/.auth/me` y establece el token de acceso. Esto garantiza que tiene el token de acceso antes de crear una instancia del controlador `todoListCtrl`. De este modo, todas las llamadas API por el controlador incluyen el token.
+El nuevo cambio se agrega a la asignación `resolve` que invoca a `/.auth/me` y establece el token de acceso. Esto garantiza que tiene el token de acceso antes de crear una instancia del controlador `todoListCtrl`. De este modo, todas las llamadas API por el controlador incluyen el token.
 
 ### <a name="deploy-updates-and-test"></a>Implementación de actualizaciones y prueba
 

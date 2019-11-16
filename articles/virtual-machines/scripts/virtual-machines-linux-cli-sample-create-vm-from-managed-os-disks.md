@@ -1,5 +1,5 @@
 ---
-title: 'Script de CLI de Azure de ejemplo: creación de una máquina virtual conectando un disco administrado como disco del SO | Microsoft Docs'
+title: 'Script de CLI de Azure de ejemplo: creación de una máquina virtual conectando un disco administrado como disco del SO'
 description: 'Script de CLI de Azure de ejemplo: creación de una máquina virtual conectando un disco administrado como disco del SO'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 3ec3d152864ab8caf9f0c68966b6d4f8fd9e64dd
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 05263df1327eff49d0c9ec84316447ba563695ca
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695243"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039157"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Creación de una máquina virtual con un disco del SO administrado mediante la CLI
 

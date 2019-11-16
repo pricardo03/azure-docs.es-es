@@ -1,6 +1,5 @@
 ---
-title: 'Tutorial: Acceso a blobs de almacenamiento mediante un dominio personalizado de Azure CDN través de HTTPS | Microsoft Docs'
-description: ''
+title: Acceso a blobs de almacenamiento mediante un dominio personalizado de Azure CDN a través de HTTPS
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e3b10760b95662570c8a6e802a57e1073e2faa0a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 341383c232718349f091a9c92207bb27cf87cc48
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593381"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083013"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: Acceso a blobs de almacenamiento mediante un dominio personalizado de Azure CDN a través de HTTPS
 

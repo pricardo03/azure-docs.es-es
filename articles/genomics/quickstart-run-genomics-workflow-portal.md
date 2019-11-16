@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: 47043b9f4416ec61cf25ea92504c0c653b7d5408
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: eab5714cb43816c617190fc394f6156ab08ff51d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819211"
+ms.locfileid: "73838722"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Inicio rápido: Ejecución de un flujo de trabajo mediante el servicio Microsoft Genomics
 
@@ -39,8 +39,8 @@ Configure la cuenta de Genomics con la siguiente información, como se muestra e
  |**Configuración**          |  **Valor sugerido**  | **Descripción del campo** |
  |:-------------       |:-------------         |:----------            |
  |Subscription         | Nombre de la suscripción|Esta es la unidad de facturación para los servicios de Azure. Para más información sobre su suscripción, consulte el artículo [Suscripciones](https://account.azure.com/Subscriptions). |      
- |Grupos de recursos       | MyResourceGroup       |  Los grupos de recursos le permiten agrupar varios recursos de Azure (cuenta de almacenamiento o cuenta genómica, entre otros) en un único grupo para una administración sencilla. Para más información, consulte [Grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
- |Nombre de cuenta         | MyGenomicsAccount     |Elija un identificador de cuenta único. Para ver los nombres válidos, consulte [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
+ |Grupos de recursos       | MyResourceGroup       |  Los grupos de recursos le permiten agrupar varios recursos de Azure (cuenta de almacenamiento o cuenta genómica, entre otros) en un único grupo para una administración sencilla. Para más información, consulte [Grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
+ |Nombre de cuenta         | MyGenomicsAccount     |Elija un identificador de cuenta único. Para ver los nombres válidos, consulte [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
  |Location                   | Oeste de EE. UU. 2                    |    El servicio está disponible en Oeste de EE. UU. 2, Europa Occidental y Sudeste Asiático. |
 
 
@@ -118,8 +118,8 @@ Configure la cuenta de Storage con la siguiente información, como se muestra en
  |**Configuración**          |  **Valor sugerido**  | **Descripción del campo** |
  |:-------------------------       |:-------------         |:----------            |
  |Subscription         | Su suscripción de Azure |Para más información acerca la suscripción, consulte [Suscripciones](https://account.azure.com/Subscriptions). |      
- |Grupos de recursos       | MyResourceGroup       |  Puede seleccionar el mismo grupo de recursos que la cuenta de Genomics. Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
- |Nombre de la cuenta de almacenamiento         | MyStorageAccount     |Elija un identificador de cuenta único. Para ver los nombres válidos, consulte [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
+ |Grupos de recursos       | MyResourceGroup       |  Puede seleccionar el mismo grupo de recursos que la cuenta de Genomics. Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
+ |Nombre de la cuenta de almacenamiento         | MyStorageAccount     |Elija un identificador de cuenta único. Para ver los nombres válidos, consulte [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
  |Location                  | Oeste de EE. UU. 2                  | Utilice la misma ubicación que la ubicación de su cuenta de Genomics para reducir los cargos de salida y la latencia.  | 
  |Rendimiento                  | Estándar                   | El valor predeterminado es Estándar. Para obtener más detalles sobre las cuentas de almacenamiento estándar y premium, consulte [Introducción a Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction).    |
  |Tipo de cuenta       | Almacenamiento de blobs       |  El almacenamiento de blobs puede ser de dos a cinco veces más rápido que el uso general para cargas y descargas. |

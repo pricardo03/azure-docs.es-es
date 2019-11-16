@@ -1,17 +1,14 @@
 ---
 title: Asignación de controles del ejemplo de plano técnico Canada Federal PBMM
 description: Asignación de controles de los ejemplos de plano técnico Canada Federal PBMM. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: e74d3328e1ed41a7184569d30cc46ae7cd29a5ba
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0be73497de36ac3c11637b80a492ab0a8558206d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163516"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039706"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de Canada Federal PBMM
 

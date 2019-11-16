@@ -1,7 +1,7 @@
 ---
 title: Punto de conexión de Bing Entity Search API
 titleSuffix: Azure Cognitive Services
-description: Más información sobre el punto de conexión de Bing Entity Search API y envío de solicitudes a este.
+description: Bing Entity Search API incluye un punto de conexión que devuelve las entidades desde la Web basándose en una consulta. Estos resultados de búsqueda se devuelven en formato JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 9d08091d0ea6869d13e294e60454f85a84f672ad
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e7f5af42d0bb0079746cc9e64b621adfebd565d1
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424043"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072664"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Punto de conexión de Bing Entity Search API
 

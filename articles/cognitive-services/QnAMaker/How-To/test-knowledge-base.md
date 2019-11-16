@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 11/14/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 64b4b9a4ad5ceb0b3c33ae022b34daeafda93a62
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c139d3a740067e3cecaff90d3171d7b0cb3d52c7
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491203"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091750"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Prueba de una base de conocimiento en QnA Maker
 
@@ -83,7 +83,7 @@ Use la herramienta de pruebas por lotes cuando quiera:
 * determinar la mejor respuesta y la puntuación de un conjunto de preguntas
 * validar la respuesta esperada para el conjunto de preguntas
 
-Las pruebas por lotes se proporcionan con la herramienta de pruebas por lotes. Esta herramienta está disponible como [ejecutable comprimido](https://qnamakerstore.blob.core.windows.net/qnamakerdata/batchtesting/bt.zip) para descarga o como [código fuente de C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
+Las pruebas por lotes se proporcionan con la herramienta de pruebas por lotes. Esta herramienta está disponible como [ejecutable comprimido](https://aka.ms/qnamakerbatchtestingtool) para descarga o como [código fuente de C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
 
 La [documentación de referencia sobre la herramienta](../reference-tsv-format-batch-testing.md) incluye:
 

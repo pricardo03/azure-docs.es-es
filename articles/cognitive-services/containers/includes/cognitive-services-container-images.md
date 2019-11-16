@@ -6,14 +6,14 @@ manager: nitinme
 description: Dos tablas que representan los registros de contenedor, los repositorios y los nombres de imagen de todas las ofertas de Cognitive Service.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: dapine
-ms.openlocfilehash: c2e1707c6d757b2bf568f413ce2ab9f7a28ab6e4
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ae11fe785237a02652af1f16aaba1f1bac5ecd62
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604433"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961907"
 ---
 ### <a name="container-repositories-and-images"></a>Repositorios e imágenes de contenedor
 
@@ -44,5 +44,3 @@ La versión preliminar del registro de contenedor hospeda todos los contenedores
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=cstt) | Conversión de voz a texto personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=tts) | Texto a voz | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Conversión de texto a voz personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
-| [Translator Text](../../translator/how-to-install-containers.md) | Translator Text | `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` |
-

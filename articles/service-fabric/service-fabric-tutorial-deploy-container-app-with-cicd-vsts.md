@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a2dc6aeb7dc2a62c543a58c322c23c9661c6940a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68598896"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832742"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementación de una aplicación de contenedor con CI/CD en un clúster de Service Fabric
 
@@ -147,7 +147,7 @@ Habilite un desencadenador de implementación continua para que se cree automát
 
 Seleccione **+Versión** -> **Crear versión** -> **Crear** para crear manualmente una versión. El progreso de la versión se puede supervisar en la pestaña **Versiones**.
 
-Compruebe que la implementación se haya efectuado correctamente y que la aplicación se está ejecutando en el clúster.  Abra un explorador web y vaya a [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observe que la versión de la aplicación de este ejemplo es "1.0.0.20170616.3".
+Compruebe que la implementación se haya efectuado correctamente y que la aplicación se está ejecutando en el clúster.  Abra un explorador web y vaya a `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observe que la versión de la aplicación de este ejemplo es "1.0.0.20170616.3".
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Confirmar e insertar cambios y desencadenar una versión
 
@@ -167,7 +167,7 @@ La inserción de los cambios en Azure DevOps desencadena automáticamente una co
 
 Para comprobar el progreso de la compilación, vaya a la pestaña **Compilaciones** de **Team Explorer** en Visual Studio.  Cuando haya comprobado que la compilación se ejecuta correctamente, defina una definición de versión que implemente la aplicación en un clúster.
 
-Compruebe que la implementación se haya efectuado correctamente y que la aplicación se está ejecutando en el clúster.  Abra un explorador web y vaya a [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observe que la versión de la aplicación de este ejemplo es "1.0.0.20170815.3".
+Compruebe que la implementación se haya efectuado correctamente y que la aplicación se está ejecutando en el clúster.  Abra un explorador web y vaya a `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observe que la versión de la aplicación de este ejemplo es "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 

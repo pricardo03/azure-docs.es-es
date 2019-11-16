@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747484"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091088"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Copia de seguridad y restauración de recursos compartidos de archivos de Azure
 
@@ -195,13 +195,13 @@ Para reanudar la protección del recurso compartido de archivos, vaya al element
 
    ![Selección del trabajo para supervisar](./media/backup-file-shares/resume-backup-job.png)
 
-### <a name="delete-backup-data"></a>Eliminar datos de copia de seguridad
+### <a name="delete-backup-data"></a>Eliminación de datos de copia de seguridad
 
 Puede eliminar la copia de seguridad de un recurso compartido de archivos durante la detención del trabajo de copia de seguridad, o en cualquier momento después de haber detenido la protección. Incluso puede resultar útil esperar días o semanas antes de eliminar los puntos de recuperación. A diferencia de la restauración de puntos de recuperación, cuando se eliminan datos de copia de seguridad, no se pueden elegir los puntos de recuperación específicos que se van a eliminar. Si elige eliminar los datos de copia de seguridad, se eliminarán todos los puntos de recuperación asociados con el elemento.
 
 En el siguiente procedimiento se da por sentado que se ha detenido el trabajo de copia de seguridad de la máquina virtual. Una vez que se detiene el trabajo de copia de seguridad, están disponibles las opciones Resume backup (Reanudar copia de seguridad) y Delete Backup Data (Eliminar datos de copia de seguridad) en el panel de elementos de copia de seguridad. Haga clic en Delete Backup Data (Eliminar datos de copia de seguridad) y escriba el nombre del recurso compartido de archivos para confirmar la eliminación. Opcionalmente, añada una razón para eliminar o un comentario.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre los recursos compartidos de archivos de Azure, consulte
 

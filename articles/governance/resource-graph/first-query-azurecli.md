@@ -1,17 +1,14 @@
 ---
 title: Ejecución de la primera consulta con la CLI de Azure
 description: Este artículo le guiará por los pasos para habilitar la extensión Resource Graph para la CLI de Azure y ejecutar la primera consulta.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 0136b101de870ce669e89e67679719e233343330
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: b74e4314a7755bb067831f955ca02d62485abe4f
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622581"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958964"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con la CLI de Azure
 
@@ -95,5 +92,5 @@ az extension remove -n resource-graph
 - Ejecute la primera consulta mediante [Azure Portal](first-query-portal.md).
 - Ejecute la primera consulta con [Azure PowerShell](first-query-powershell.md).
 - Consulte ejemplos de [consultas de inicio](./samples/starter.md).
-- Vea ejemplos de [consultas avanzadas](./samples/advanced.md).
-- Proporcione comentarios sobre [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+- Consulte ejemplos de [consultas avanzadas](./samples/advanced.md).
+- Proporcione comentarios en [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

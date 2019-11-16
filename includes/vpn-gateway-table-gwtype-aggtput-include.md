@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17499fad64c8ae313f7a544015a04cc20e8bbabe
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cba54c65a314919b5509e1de029ad05f8722baa2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495682"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075464"
 ---
 |**Generación<br>de<br>VPN Gateway** |**SKU**   | **Túneles<br>S2S/entre redes virtuales** | Conexiones **P2S<br> SSTP** | Conexiones **P2S<br> IKEv2/OpenVPN** | **Pruebas comparativas de rendimiento<br>agregado** | **BGP** | **Con redundancia de zona** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -46,7 +46,7 @@ ms.locfileid: "73495682"
 
 * En un único túnel, se puede lograr un rendimiento máximo de 1 Gbps. Las pruebas comparativas de rendimiento agregado de la tabla anterior se basan en las mediciones de varios túneles agregados a través de una sola puerta de enlace. El banco de pruebas de rendimiento agregado para una puerta de enlace de VPN es la combinación de S2S + P2S. **Si tiene una gran cantidad de conexiones P2S, puede afectar negativamente a una conexión S2S debido a las limitaciones del rendimiento.** Las pruebas comparativas de rendimiento agregado no es un rendimiento garantizado debido a las condiciones del tráfico de Internet y a los comportamientos de las aplicaciones.
 
-* Para ayudar a nuestros clientes a comprender el rendimiento relativo de las SKU mediante distintos algoritmos, usamos las herramientas iPerf y CTSTraffic disponibles públicamente para medir los rendimientos. En la tabla siguiente se enumeran los resultados de las pruebas de rendimiento de las SKU de VpnGw de la generación 1. Como puede ver, el mejor rendimiento se obtiene cuando usamos el algoritmo GCMAES256 para el cifrado y la integridad IPsec. Obtuvimos un rendimiento medio al usar AES256 para el cifrado IPsec y SHA256 para la integridad. Cuando usamos DES3 para el cifrado IPsec y SHA256 para la integridad, obtuvimos el rendimiento más bajo.
+Para ayudar a nuestros clientes a comprender el rendimiento relativo de las SKU mediante distintos algoritmos, usamos las herramientas iPerf y CTSTraffic disponibles públicamente para medir los rendimientos. En la tabla siguiente se enumeran los resultados de las pruebas de rendimiento de las SKU de VpnGw de la generación 1. Como puede ver, el mejor rendimiento se obtiene cuando usamos el algoritmo GCMAES256 para el cifrado y la integridad IPsec. Obtuvimos un rendimiento medio al usar AES256 para el cifrado IPsec y SHA256 para la integridad. Cuando usamos DES3 para el cifrado IPsec y SHA256 para la integridad, obtuvimos el rendimiento más bajo.
 
 |**Generación**|**SKU**   | **Algoritmos<br>usados** | **Rendimiento<br>observado** | **Paquetes por segundo<br>observados** |
 |---           |---       | ---                 | ---            | ---                    |

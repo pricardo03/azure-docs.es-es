@@ -1,17 +1,14 @@
 ---
 title: 'Ejemplo: Aplicar una etiqueta y su valor predeterminado'
 description: Esta definición de directiva de ejemplo asocia un nombre de etiqueta especificado y un valor si no se proporciona la etiqueta.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
-ms.openlocfilehash: 03c5c1de3713d2d7a2b2914b7b9bff9fa8b01320
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 0e5bb38b65f4c302fc5a2c4a0a0d3c2da0082a30
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977589"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74071485"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Ejemplo: Aplicar una etiqueta y su valor predeterminado
 

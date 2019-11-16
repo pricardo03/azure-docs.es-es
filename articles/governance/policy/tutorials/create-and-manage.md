@@ -1,17 +1,14 @@
 ---
 title: Creación y administración de directivas para aplicar el cumplimiento
 description: Use Azure Policy para aplicar estándares, satisfacer los requisitos de cumplimiento normativo y auditar requisitos, controlar los costos, mantener la seguridad y consistencia en el rendimiento e imponer principios de diseño para toda la empresa.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
-ms.service: azure-policy
-ms.openlocfilehash: d01a28e1b4cbd9b2dacef8059d46ea72e789094d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abbe4334767a48cf6444ce5aa7822cc8a79f9f69
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490435"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959543"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Creación y administración de directivas para aplicar el cumplimiento
 

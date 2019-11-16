@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 1c16368990148406fbacdde2981c10fab0b2d405
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969658"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888907"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB con DevOps Projects
 
@@ -169,6 +169,6 @@ Puede modificar estas canalizaciones de compilación y de versión para satisfac
 > * Confirmación de los cambios en Git y su implementación automática en Azure
 > * Limpieza de recursos
 
-Para obtener más información y conocer los pasos siguientes, vea [Definición de la canalización de implementación continua (CD) de varias fases](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts).
+Para obtener más información y conocer los pasos siguientes, vea [Definición de la canalización de implementación continua (CD) de varias fases](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts).
 
 

@@ -1,17 +1,14 @@
 ---
 title: Asignación de controles del ejemplo de plano técnico de servicios compartidos ISO 27001
 description: Asignación de controles del ejemplo de plano técnico de servicios compartidos ISO 27001. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: c43b2d2cf1eac4e8254fee78e8979bb163b3a9a4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e3bba30ddffe85a067d091a328ae4cc4de7258df
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162068"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037370"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Asignación de control del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 

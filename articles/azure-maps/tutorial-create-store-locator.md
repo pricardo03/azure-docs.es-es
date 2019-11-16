@@ -1,22 +1,22 @@
 ---
-title: Creación de un localizador de almacén mediante Azure Maps | Microsoft Docs
-description: Cree un localizador de almacén mediante Azure Maps.
+title: 'Tutorial: Creación de un localizador de almacén mediante Azure Maps'
+description: 'Tutorial: Cree un localizador de almacén mediante Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/15/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bf30e805a06222bf8c74429df54565073d7d919b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933067"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107090"
 ---
-# <a name="create-a-store-locator-by-using-azure-maps"></a>Creación de un localizador de almacén mediante Azure Maps
+# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Creación de un localizador de almacén mediante Azure Maps
 
 Este tutorial le guía por el proceso de creación de un localizador de almacén sencillo mediante Azure Maps. Los localizadores de almacén son comunes. Muchos de los conceptos que se usan en este tipo de aplicación son aplicables a muchos otros tipos de aplicaciones. Para la mayoría de las empresas que venden directamente a los consumidores, es imprescindible ofrecer a los clientes un localizador de almacén. En este tutorial, aprenderá a:
     

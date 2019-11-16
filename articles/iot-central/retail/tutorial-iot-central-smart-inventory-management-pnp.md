@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 8360db3e31899dc7ca0a2b502d0036358f0858d6
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d72636265ff3ac654faba91d1420b502b35d3192
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615227"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888996"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: implementación y recorrido de la plantilla de aplicación de administración inteligente
 
@@ -109,4 +109,4 @@ Si no va a seguir usando esta aplicación, elimine la plantilla de la aplicació
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre el [concepto de administración inteligente del inventario](./architecture-smart-inventory-management-pnp.md).
 * Más información sobre otras [plantillas de venta minorista de IoT Central](./overview-iot-central-retail-pnp.md).
-* Para obtener más información acerca de IoT Central, consulte [Introducción a IoT Central](../core/overview-iot-central-pnp.md).
+* Para obtener más información acerca de IoT Central, consulte [Introducción a IoT Central](../preview/overview-iot-central.md).
