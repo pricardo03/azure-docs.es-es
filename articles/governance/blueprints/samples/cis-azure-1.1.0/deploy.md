@@ -1,17 +1,14 @@
 ---
 title: 'Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark: pasos de implementación'
 description: Pasos de implementación para el ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark, incluidos los detalles de los parámetros del artefacto de plano técnico.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/14/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 2c270d228d806c5715819ea380f2c5f9967fbd38
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e33a7788d9d7a13cb7f8df3f6663bf009b685169
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585841"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038370"
 ---
 # <a name="deploy-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Implementación del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark
 

@@ -1,7 +1,7 @@
 ---
 title: 'Cambiar el tamaño y recortar miniaturas de Bing: Bing Web Search API'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo cambiar el tamaño y recortar las miniaturas que proporcionan las API de Bing Search.
+description: Algunas respuestas de las API de Bing Search incluyen URL a imágenes en miniatura que muestra Bing, que puede cambiar de tamaño y recortar, y que pueden contener parámetros de consulta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
-ms.openlocfilehash: ecc6eb86e7115143fa63b44f9191b1fe8d3703b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 630b86f55a537d109c851cb585cfccc34d229f83
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881795"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110644"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Cambio de tamaño y recorte de miniaturas
 

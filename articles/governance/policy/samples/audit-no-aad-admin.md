@@ -1,17 +1,14 @@
 ---
 title: 'Ejemplo: Auditar si no hay administrador de Azure AD'
 description: Esta definición de directiva de ejemplo audita cuándo no hay administrador de Azure Active Directory asignado al servidor SQL.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 35f4497b3797b65aa7d4eff232e43d6af52dedae
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: fa4a9b5512f0f10a801cf8566febddea0fc4df99
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977391"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076386"
 ---
 # <a name="sample---audit-no-azure-active-directory-administrator"></a>Ejemplo: auditar cuándo no hay administrador de Azure Active Directory
 

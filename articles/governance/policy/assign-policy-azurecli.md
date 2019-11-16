@@ -1,17 +1,14 @@
 ---
 title: Creación de una directiva para auditar recursos con la CLI de Azure
 description: Use la CLI de Azure para crear una asignación de Azure Policy para identificar recursos no compatibles.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 01/23/2019
 ms.topic: quickstart
-ms.service: azure-policy
-ms.openlocfilehash: a7e65e304039c266f92f8068b796323197058cc1
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 589038bb2b5e96c252e19fc0552d4f9ac19dc83a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255940"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960223"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante la CLI de Azure
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: b9bcaf4b7497e8beba377eb7e47a44a6eb061299
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d662ad59722658ed888aa732c1f45afdf48f850c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178005"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889203"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Tutorial: Creación de una canalización de datos integral para obtener información de ventas
 
@@ -124,7 +124,7 @@ La contraseña predeterminada para el acceso SSH a los clústeres es `Thisisapas
 
 ### <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-Azure Data Factory es una herramienta que ayuda a automatizar las canalizaciones de Azure. No es la única forma de realizar estas tareas, pero es una excelente manera de automatizar los procesos. Consulte la [documentación de Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/) para más información sobre Azure Data Factory. 
+Azure Data Factory es una herramienta que ayuda a automatizar las canalizaciones de Azure. No es la única forma de realizar estas tareas, pero es una excelente manera de automatizar los procesos. Consulte la [documentación de Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para más información sobre Azure Data Factory. 
 
 Esta factoría de datos tendrá una canalización con dos actividades: 
 

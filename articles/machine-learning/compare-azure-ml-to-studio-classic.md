@@ -8,23 +8,23 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 721f730aa78be39b91f7d8368655dbbd5878903b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 00a2268442f94822064f86d95b14160d67e1516c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716679"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084755"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>Diferencias entre Azure Machine Learning y ML Studio (clásico)
 
 En este artículo se comparan las características, las funcionalidades y la interfaz de Azure Machine Learning con ML Studio (clásico). 
 
 ## <a name="about-ml-studio-classic"></a>Acerca de ML Studio (clásico)
-[ML Studio (clásico)](/studio/what-is-ml-studio.md) es un área de trabajo visual colaborativa de arrastrar y colocar, en la que se pueden crear, probar e implementar soluciones de aprendizaje automático sin necesidad de escribir código. Utiliza algoritmos de aprendizaje automático y módulos de control de datos pregenerados y preconfigurados así como una plataforma de procesamiento propietario.
+[ML Studio (clásico)](studio/what-is-ml-studio.md) es un área de trabajo visual colaborativa de arrastrar y colocar, en la que se pueden crear, probar e implementar soluciones de aprendizaje automático sin necesidad de escribir código. Utiliza algoritmos de aprendizaje automático y módulos de control de datos pregenerados y preconfigurados así como una plataforma de procesamiento propietario.
 
 ## <a name="about-azure-machine-learning"></a>Acerca de Azure Machine Learning
 
-Mientras, [Azure Machine Learning](/service/overview-what-is-azure-ml.md) proporciona una interfaz web denominada diseñador (versión preliminar) **y** varios SDK y CLI para preparar rápidamente los datos, entrenar e implementar los modelos de aprendizaje automático. Con Azure Machine Learning se obtiene escalado, compatibilidad con varias plataformas, características avanzadas de aprendizaje automático, como el aprendizaje automático automatizado y la compatibilidad con canalizaciones.
+Mientras, [Azure Machine Learning](service/overview-what-is-azure-ml.md) proporciona una interfaz web denominada diseñador (versión preliminar) **y** varios SDK y CLI para preparar rápidamente los datos, entrenar e implementar los modelos de aprendizaje automático. Con Azure Machine Learning se obtiene escalado, compatibilidad con varias plataformas, características avanzadas de aprendizaje automático, como el aprendizaje automático automatizado y la compatibilidad con canalizaciones.
 
 El diseñador de Azure Machine Learning proporciona una experiencia de arrastrar y colocar similar a Studio (clásico). Sin embargo, a diferencia de la plataforma de proceso propietaria de Studio (clásico), el diseñador utiliza sus propios recursos de proceso, es escalable y está totalmente integrado en Azure Machine Learning.  
 

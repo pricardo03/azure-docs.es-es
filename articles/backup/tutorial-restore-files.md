@@ -8,39 +8,41 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: b150dc8e0688b27fdc677bf23a75389c493f1325
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 8d23eb5c177464642ffcafec8877fd2649c0d4f7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210196"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073986"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restauración de archivos en una máquina virtual de Azure
+
 Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda una máquina virtual o archivos individuales. En este artículo se detalla cómo restaurar archivos individuales. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Enumerar y seleccionar puntos de recuperación
 > * Conectar un punto de recuperación a una máquina virtual
 > * Restaurar archivos desde un punto de recuperación
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.18 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
-
+Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.18 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Para este tutorial se necesita una máquina virtual Linux protegida con Azure Backup. Para simular un proceso de recuperación y la eliminación accidental de archivos, elimine una página desde un servidor web. Si necesita una máquina virtual Linux que ejecute un servidor web y esté protegida con Azure Backup, consulte [Copia de seguridad de una máquina virtual en Azure con la CLI](quick-backup-vm-cli.md).
 
-
 ## <a name="backup-overview"></a>Introducción a Backup
+
 Cuando Azure inicia una copia de seguridad, la extensión de copia de seguridad en la máquina virtual toma una instantánea de un momento dado. La extensión de copia de seguridad se instala en la máquina virtual cuando se solicita la primera copia de seguridad. Azure Backup también puede tomar una instantánea del almacenamiento subyacente si la máquina virtual no se está ejecutando cuando se realiza la copia de seguridad.
 
 De forma predeterminada, Azure Backup toma una copia de seguridad coherente del sistema de archivos. Después de que el servicio Azure Backup tome la instantánea, los datos se transfieren al almacén de Recovery Services. Para que el proceso resulte más eficaz, Azure Backup identifica y transfiere únicamente los bloques de datos que han cambiado desde la última copia de seguridad.
 
 Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea un punto de recuperación.
 
-
 ## <a name="delete-a-file-from-a-vm"></a>Eliminación de un archivo de una máquina virtual
+
 Si elimina un archivo o realiza cambios en un archivo accidentalmente, puede restaurar archivos individuales desde un punto de recuperación. Este proceso permite examinar los archivos de los que se ha realizado una copia de seguridad en un punto de recuperación y restaurar solo los archivos necesarios. En este ejemplo, se elimina un archivo de un servidor web para demostrar el proceso de recuperación de nivel de archivo.
 
 1. Para conectarse a su máquina virtual, obtenga su dirección IP con [az vm show](/cli/azure/vm?view=azure-cli-latest#az-vm-show):
@@ -75,8 +77,8 @@ Si elimina un archivo o realiza cambios en un archivo accidentalmente, puede res
     exit
     ```
 
-
 ## <a name="generate-file-recovery-script"></a>Generar un script de recuperación de archivos
+
 Para restaurar sus archivos, Azure Backup proporciona un script que se ejecuta en la máquina virtual y que conecta el punto de recuperación como una unidad local. Puede examinar esta unidad local, restaurar archivos en la propia máquina virtual y, a continuación, desconectar el punto de recuperación. Azure Backup continúa realizando la copia seguridad de los datos de acuerdo con la directiva de retención y programación asignada.
 
 1. Para enumerar los puntos de recuperación de la máquina virtual, use [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). En este ejemplo, se selecciona el punto de recuperación más reciente de la máquina virtual denominada *myVM* que está protegida en *myRecoveryServicesVault*:
@@ -116,8 +118,8 @@ Para restaurar sus archivos, Azure Backup proporciona un script que se ejecuta e
     scp myVM_we_1571974050985163527.sh 52.174.241.110:
     ```
 
-
 ## <a name="restore-file-to-your-vm"></a>Restaurar archivos en la máquina virtual
+
 Con el script de recuperación copiado en la máquina virtual, ahora puede conectar el punto de recuperación y restaurar archivos.
 
 1. Conéctese a la máquina virtual mediante SSH. Reemplace *publicIpAddress* por la dirección IP pública de la máquina virtual, como se indica a continuación:
@@ -146,19 +148,19 @@ Con el script de recuperación copiado en la máquina virtual, ahora puede conec
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     Please enter the password as shown on the portal to securely connect to the recovery point. : c068a041ce12465
-    
+
     Connecting to recovery point using ISCSI service...
-    
+
     Connection succeeded!
-    
+
     Please wait while we attach volumes of the recovery point to this machine...
-    
+
     ************ Volumes of the recovery point and their mount paths on this machine ************
-    
+
     Sr.No.  |  Disk  |  Volume  |  MountPath
-    
+
     1)  | /dev/sdc  |  /dev/sdc1  |  /home/azureuser/myVM-20170919213536/Volume1
-    
+
     ************ Open File Explorer to browse for files. ************
     ```
 
@@ -168,20 +170,20 @@ Con el script de recuperación copiado en la máquina virtual, ahora puede conec
     sudo cp /home/azureuser/myVM-20170919213536/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
 
-6. En el explorador web, actualice la página web. El sitio web se vuelve a cargar ahora correctamente, tal como se muestra en el ejemplo siguiente:
+5. En el explorador web, actualice la página web. El sitio web se vuelve a cargar ahora correctamente, tal como se muestra en el ejemplo siguiente:
 
     ![el sitio web de NGINX se carga ahora correctamente](./media/tutorial-restore-files/nginx-restored.png)
 
-7. Cierre la sesión de SSH de la máquina virtual de la manera siguiente:
+6. Cierre la sesión de SSH de la máquina virtual de la manera siguiente:
 
     ```bash
     exit
     ```
 
-8. Desmonte el punto de recuperación de su máquina virtual con [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp). En el ejemplo siguiente se desmonta el punto de recuperación de la máquina virtual denominada *myVM* en *myRecoveryServicesVault*.
+7. Desmonte el punto de recuperación de su máquina virtual con [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp). En el ejemplo siguiente se desmonta el punto de recuperación de la máquina virtual denominada *myVM* en *myRecoveryServicesVault*.
 
     Reemplace *myRecoveryPointName* por el nombre del punto de recuperación que obtuvo en los comandos anteriores:
-    
+
     ```azurecli-interactive
     az backup restore files unmount-rp \
         --resource-group myResourceGroup \
@@ -192,9 +194,11 @@ Con el script de recuperación copiado en la máquina virtual, ahora puede conec
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este tutorial, conectó un punto de recuperación a una máquina virtual y restauró los archivos de un servidor web. Ha aprendido a:
 
 > [!div class="checklist"]
+>
 > * Enumerar y seleccionar puntos de recuperación
 > * Conectar un punto de recuperación a una máquina virtual
 > * Restaurar archivos desde un punto de recuperación
@@ -203,4 +207,3 @@ Avance al siguiente tutorial para obtener información acerca de cómo realizar 
 
 > [!div class="nextstepaction"]
 > [Hacer copias de seguridad de Windows Server en Azure](tutorial-backup-windows-server-to-azure.md)
-

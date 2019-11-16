@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 5ababe9eb1f680378e882970df2d0b008287a7c4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6aa721ee6cf6680518a28d050c22d8649f0f531f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241710"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833165"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Inicio rápido: Implementación de la plantilla de solución de Ansible para Azure en CentOS
 
@@ -59,7 +59,7 @@ La plantilla de solución de Ansible para Azure está diseñada para configurar 
        - [Discos administrados y Premium Storage de alto rendimiento para máquinas virtuales](/azure/virtual-machines/windows/premium-storage)
        - [Discos administrados SSD estándar para cargas de trabajo de máquinas virtuales de Azure](/azure/virtual-machines/windows/disks-standard-ssd)
    - **Public IP Address** (Dirección IP pública): especifique esta opción si desea comunicarse con la máquina virtual desde fuera de ella. El valor predeterminado es una nueva dirección IP pública que tiene el nombre `ansible-pip`. Para especificar una dirección IP diferente, seleccione la flecha y especifique los atributos (tales como nombre, SKU y asignación) de esa dirección IP. 
-   - **Domain name label** (Etiqueta de nombre de dominio): escriba el nombre de dominio público de la máquina virtual. El nombre debe ser único y cumplir con los requisitos de nomenclatura. Para más información sobre cómo especificar un nombre para la máquina virtual, consulte [Convenciones de nomenclatura para los recursos de Azure](/azure/architecture/best-practices/naming-conventions).
+   - **Domain name label** (Etiqueta de nombre de dominio): escriba el nombre de dominio público de la máquina virtual. El nombre debe ser único y cumplir con los requisitos de nomenclatura. Para más información sobre cómo especificar un nombre para la máquina virtual, consulte [Convenciones de nomenclatura para los recursos de Azure](/azure/architecture/best-practices/resource-naming).
    - **Ansible versión** (Versión de Ansible): especifique un número de versión o el valor `latest` para implementar la versión más reciente. Seleccione el icono de información junto a **Ansible versión** (Versión de Ansible) para obtener más información sobre las versiones disponibles.
 
      ![Pestaña de Azure Portal con la configuración adicional de Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)

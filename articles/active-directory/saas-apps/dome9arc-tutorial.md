@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f0669a474c24647e71eae8b5e0e0830b7c0bef
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b46ac34db21576c7e2de2271a468e3e782ff6aa9
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533098"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885346"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Check Point CloudGuard Dome9 Arc
 
@@ -107,7 +107,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | memberof | user.assignedroles |
 
     >[!NOTE]
-    >Haga clic [aquí](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/apptio-tutorial) para aprender a crear roles en Azure AD.
+    >Haga clic [aquí](https://docs.microsoft.com/azure/active-directory/saas-apps/apptio-tutorial) para aprender a crear roles en Azure AD.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 

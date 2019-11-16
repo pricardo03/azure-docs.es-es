@@ -1,5 +1,5 @@
 ---
-title: 'Comprobaciones de cumplimiento normativo: Azure Security Center'
+title: 'Tutorial: Comprobaciones de cumplimiento normativo: Azure Security Center'
 description: 'Tutorial: Aprenda a mejorar el cumplimiento de reglamentaciones mediante Azure Security Center.'
 services: security-center
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: c448697339948b30d73e88c183211e7a1154fe77
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 01c0f1199ab8c376fe5bb5e864f81a2730879ed1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686444"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112317"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Mejora del cumplimiento normativo
 ---

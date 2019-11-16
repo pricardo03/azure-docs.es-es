@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 28a75158b161e680f857b986bcb754f1f99e8fab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 90ef1be4366205b1f655a0b93619a897d6d1f25d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825317"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929490"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para JavaScript
 
@@ -351,7 +351,7 @@ En esta guía de inicio rápido, ha aprendido a cargar, descargar y enumerar blo
 Para ver las aplicaciones de ejemplo de Blob Storage, siga estos pasos:
 
 > [!div class="nextstepaction"]
-> [Ejemplos de Azure Blob Storage v12 para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Ejemplos de Azure Blob Storage v12 para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 * Para más información, consulte el [SDK de Azure para JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/README.md).
 * Para ver tutoriales, ejemplos, guías de inicio rápido y otra documentación, visite [Documentación de Azure SDK para JavaScript](/azure/javascript/).

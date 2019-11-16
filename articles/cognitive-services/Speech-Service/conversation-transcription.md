@@ -1,7 +1,7 @@
 ---
 title: 'Qué es la transcripción de conversaciones (versión preliminar): servicio Voz'
 titleSuffix: Azure Cognitive Services
-description: La transcripción de conversaciones es una solución de conversión de voz a texto que combina el reconocimiento de voz, la identificación del hablante y la atribución de oraciones a cada hablante (lo que también se conoce como diarización) para proporcionar la transcripción asincrónica o en tiempo real de cualquier conversación. La transcripción de conversaciones crea conversaciones inclusivas para todo el mundo, por ejemplo, para participantes sordos y con dificultades auditivas.
+description: La transcripción de conversaciones es una solución de conversión de voz a texto que combina el reconocimiento de voz, la identificación del hablante y la atribución de oraciones a cada hablante (lo que también se conoce como diarización) para proporcionar la transcripción asincrónica o en tiempo real de cualquier conversación.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f4b7591d5ddb138db0abbdb673cadc6afd71f315
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0c15b053028bd707159a632c98faaea8b9954a9b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608012"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075843"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>¿Qué es la transcripción de conversaciones (versión preliminar)?
 

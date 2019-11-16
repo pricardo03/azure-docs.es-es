@@ -10,12 +10,12 @@ keywords: azure automation, DSC, powershell, desired state configuration, update
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 57dbfa0c2063c2059955294ccc1337bb76b72614
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7a2e9d39629e4fdb349652c9c48d0084d051f9f8
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606099"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122845"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>¿Qué es Azure Arc para servidores?
 
@@ -132,7 +132,7 @@ Los datos de registro que recopila [Microsoft Monitoring Agent (MMA)](https://do
 
 - En las máquinas que ya tienen Microsoft Monitoring Agent instalado, la **funcionalidad** de Azure Arc se habilita a través de los paquetes de administración actualizados.
 - Se necesita [Microsoft Monitoring Agent versión 10.20.18011 o superior](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version) para la integración de Azure Arc para servidores.
-- Al consultar los datos de registro en [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#log-queries), el esquema de datos devuelto contendrá la propiedad **ResourceId** híbrida con el formato `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
+- Al consultar los datos de registro en [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), el esquema de datos devuelto contendrá la propiedad **ResourceId** híbrida con el formato `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
 
 Para más información, consulte [Introducción a los análisis de registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 

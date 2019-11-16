@@ -1,17 +1,14 @@
 ---
 title: 'Ejemplo: Aplicar el patrón de coincidencia de etiqueta'
 description: Esta definición de directiva de ejemplo requiere que los recursos cumplan el patrón de coincidencia para el valor de etiqueta.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 9af0000d61c358450cf7fc51dca667af8cf903a7
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: e56d5d401f525f94bce4567204a7f18074fb1a90
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980511"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076290"
 ---
 # <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>Ejemplo: aplicación de un patrón de coincidencia de etiqueta para los valores de etiqueta
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0f3a486edb0c650a4a14e5e60b4459f758a64d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 88b4df909e2c56f1a60e0f3c737b05ae4c27ca4a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499938"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123248"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Creación de un panel de proveedor de Power BI
 
@@ -91,7 +91,7 @@ Al final de este paso, el diseñador de la aplicación lógica debe tener el sig
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Transmisión de datos a Power BI desde la aplicación lógica
 El siguiente paso consiste en analizar los datos procedentes del centro de eventos para transmitirlos a los conjuntos de datos de Power BI que ha creado previamente.
 
-1. Antes de poder hacerlo, debe comprender la carga JSON que se envía desde el dispositivo al centro de eventos. Para hacerlo, examine este [esquema de ejemplo](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp#telemetry) y modifíquelo para que coincida con su esquema o utilice el [explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) para inspeccionar los mensajes. Si usa las aplicaciones de supervisión continua de pacientes, los mensajes tendrán el siguiente aspecto:
+1. Antes de poder hacerlo, debe comprender la carga JSON que se envía desde el dispositivo al centro de eventos. Para hacerlo, examine este [esquema de ejemplo](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data#telemetry) y modifíquelo para que coincida con su esquema o utilice el [explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) para inspeccionar los mensajes. Si usa las aplicaciones de supervisión continua de pacientes, los mensajes tendrán el siguiente aspecto:
 
 **Telemetría del dispositivo Smart Vitals Patch**
 

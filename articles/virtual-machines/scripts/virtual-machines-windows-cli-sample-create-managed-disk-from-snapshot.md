@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: creación de un disco administrado a partir de una instantánea | Microsoft Docs'
+title: 'Ejemplo de script de la CLI de Azure: creación de un disco administrado a partir de una instantánea'
 description: 'Ejemplo de script de la CLI de Azure: creación de un disco administrado a partir de una instantánea'
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 8178f05b83b6128717790cc348865c32ea77d59b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5060dc81196acec65001910751498fbd8513936e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249701"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039976"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Creación de un disco administrado a partir de una instantánea con CLI
 

@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: 4e09a476398134d92b4492c68ed4ebebc468f272
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: f68bf989202c209f89ea273fee8d7610a49415ed
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796192"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075751"
 ---
 # <a name="configure-speech-service-containers"></a>Configuración de contenedores del servicio de Voz
 
 Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para aprovechar las sólidas capacidades de la nube y la localidad del perímetro. Los cuatro contenedores de voz compatibles ahora son **conversión de voz a texto**, **conversión de voz a texto personalizada**, **conversión de texto a voz** y **conversión de texto a voz personalizada**.
 
-El entorno en tiempo de ejecución del contenedor de **Speech** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
+El entorno en tiempo de ejecución del contenedor de **Speech** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación.
 
 ## <a name="configuration-settings"></a>Valores de configuración
 
@@ -36,7 +36,7 @@ La opción de configuración `ApiKey` especifica la clave de recurso de Azure us
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: Administración de recursos de **Speech** en **Claves**
+- Azure Portal: Administración de recursos de **Speech** en **Claves**
 
 ## <a name="applicationinsights-setting"></a>Opción de configuración ApplicationInsights
 
@@ -48,11 +48,11 @@ La configuración `Billing` especifica el URI de punto de conexión del recurso 
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: Información general de **Speech**, con la etiqueta `Endpoint`
+- Azure Portal: Información general de **Speech**, con la etiqueta `Endpoint`
 
-|Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
-|--|------|-----------|-------------|
-|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](speech-container-howto.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
+| Obligatorio | NOMBRE | Tipo de datos | DESCRIPCIÓN |
+| -------- | ---- | --------- | ----------- |
+| Sí | `Billing` | Cadena | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](speech-container-howto.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -67,7 +67,7 @@ Este valor se puede encontrar en el siguiente lugar:
 [!INCLUDE [Container shared HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Opción de configuración Logging
- 
+
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
 ## <a name="mount-settings"></a>Configuración de montaje
@@ -76,12 +76,12 @@ Utilice montajes de enlace para leer y escribir datos hacia y desde el contenedo
 
 Los contenedores de Voz estándar no usan montajes de entrada o salida para almacenar datos de entrenamiento o servicio. Sin embargo, los contenedores de Voz personalizados dependen de los montajes de volumen.
 
-La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](speech-container-howto.md#the-host-computer) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host. 
+La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](speech-container-howto.md#the-host-computer) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host.
 
-|Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
-|-------|------|-----------|-------------|
-|No permitida| `Input` | Cadena | Los contenedores de Voz estándar no usan esto. Los contenedores de Voz personalizados usan los [montajes de volumen](#volume-mount-settings). |
-|Opcional| `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+| Opcional | NOMBRE | Tipo de datos | DESCRIPCIÓN |
+| -------- | ---- | --------- | ----------- |
+| No permitida | `Input` | Cadena | Los contenedores de Voz estándar no usan esto. Los contenedores de Voz personalizados usan los [montajes de volumen](#volume-mount-settings).                                                                                    |
+| Opcional | `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Configuración de montaje de volumen
 
@@ -91,8 +91,8 @@ Los modelos personalizados se descargan la primera vez que se ingesta un nuevo m
 
 La configuración de montaje de volumen consta de tres campos `:` de colores separados:
 
-1. El primer campo es el nombre del volumen en la máquina host, por ejemplo, *C:\input*.
-2. El segundo campo es el directorio del contenedor, por ejemplo */usr/local/models*.
+1. El primer campo es el nombre del volumen en la máquina host, por ejemplo, _C:\input_.
+2. El segundo campo es el directorio del contenedor, por ejemplo _/usr/local/models_.
 3. El tercer campo (opcional) es una lista de opciones separada por comas. Para más información, consulte el [uso de los volúmenes](https://docs.docker.com/storage/volumes/).
 
 ### <a name="volume-mount-example"></a>Ejemplo de montaje de volumen
@@ -101,36 +101,36 @@ La configuración de montaje de volumen consta de tres campos `:` de colores sep
 -v C:\input:/usr/local/models
 ```
 
-Este comando monta el directorio *C:\input* de la máquina host en el directorio */usr/local/models* de los contenedores.
+Este comando monta el directorio _C:\input_ de la máquina host en el directorio _/usr/local/models_ de los contenedores.
 
 > [!IMPORTANT]
 > La configuración del montaje de volumen solo se aplica a los contenedores **Conversión de voz a texto personalizada** y **Conversión de texto a voz personalizada**. Los contenedores **Conversión de voz a texto** y **Conversión de texto a voz** estándar no usan los montajes de volumen.
 
-## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
+## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run
 
-Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo escribir y usar comandos `docker run`.  Una vez que se está ejecutando, el contenedor continúa ejecutándose hasta que lo [detenga](speech-container-howto.md#stop-the-container).
+Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo escribir y usar comandos `docker run`. Una vez que se está ejecutando, el contenedor continúa ejecutándose hasta que lo [detenga](speech-container-howto.md#stop-the-container).
 
-* **Carácter de continuación de línea**: Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa (`\`) como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. 
-* **Orden de los argumentos**: No cambie el orden de los argumentos a menos que esté familiarizado con los contenedores de Docker.
+- **Carácter de continuación de línea**: Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa (`\`) como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host.
+- **Orden de los argumentos**: No cambie el orden de los argumentos a menos que esté familiarizado con los contenedores de Docker.
 
 Reemplace {_argument_name_} por sus propios valores:
 
 | Marcador de posición | Valor | Formato o ejemplo |
-|-------------|-------|---|
-| **{CLAVE_API}** | La clave del punto de conexión del recurso `Speech` en la página Claves de `Speech` de Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{URI_PUNTODECONEXIÓN}** | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Speech`.| Consulte el apartado de [recopilación de los parámetros necesarios](speech-container-howto.md#gathering-required-parameters) para ejemplos explícitos. |
+| ----------- | ----- | ----------------- |
+| **{CLAVE_API}** | La clave del punto de conexión del recurso `Speech` en la página Claves de `Speech` de Azure.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
+| **{URI_PUNTODECONEXIÓN}** | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Speech`. | Consulte el apartado de [recopilación de los parámetros necesarios](speech-container-howto.md#gathering-required-parameters) para ejemplos explícitos. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](#billing-configuration-setting).
-> El valor de ApiKey es la **clave** de la página de claves de recursos de Azure Speech. 
+> Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará. Para obtener más información, vea [Facturación](#billing-configuration-setting).
+> El valor de ApiKey es la **clave** de la página de claves de recursos de Azure Speech.
 
 ## <a name="speech-container-docker-examples"></a>Ejemplos de Docker del contenedor de Speech
 
-En los siguientes ejemplos de Docker encontrará el contenedor de Speech. 
+En los siguientes ejemplos de Docker encontrará el contenedor de Speech.
 
-# <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
+## <a name="speech-to-texttabstt"></a>[Voz a texto](#tab/stt)
 
 ### <a name="basic-example-for-speech-to-text"></a>Ejemplo básico de Conversión de voz a texto
 
@@ -153,7 +153,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-# <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
+## <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
 ### <a name="basic-example-for-custom-speech-to-text"></a>Ejemplo básico de Conversión de voz a texto personalizada
 
@@ -180,7 +180,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-# <a name="text-to-speechtabtss"></a>[Texto a voz](#tab/tss)
+## <a name="text-to-speechtabtss"></a>[Texto a voz](#tab/tss)
 
 ### <a name="basic-example-for-text-to-speech"></a>Ejemplo básico de Conversión de texto a voz
 
@@ -203,7 +203,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-# <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
+## <a name="custom-text-to-speechtabctts"></a>[Conversión de texto a voz personalizada](#tab/ctts)
 
 ### <a name="basic-example-for-custom-text-to-speech"></a>Ejemplo básico de Conversión e texto a voz personalizada
 
@@ -230,8 +230,8 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-***
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Instalación y ejecución de contenedores](speech-container-howto.md)
+- Consulte [Instalación y ejecución de contenedores](speech-container-howto.md)

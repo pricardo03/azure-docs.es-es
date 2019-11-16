@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 40543f55dc0cb56f6bc575f926456faf2d0ae5a3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c82edde98242ffe130c2022c428c86de80e3b034
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719207"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111769"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Inicio rápido: Uso de los temas y las suscripciones de Service Bus con Node.js y el paquete azure-sb
 > [!div class="op_multi_selector" title1="Lenguaje de programación" title2="Paquete Node.js"]
@@ -150,7 +150,7 @@ Las suscripciones a temas también se crean con el objeto **ServiceBusService**.
 > [!NOTE]
 > De forma predeterminada, las suscripciones son permanentes hasta que se eliminan, o hasta que se elimina el tema al que están asociadas. Si una aplicación contiene lógica para crear una suscripción, en primer lugar debe comprobar si esta existe, para lo que se utiliza el método `getSubscription`.
 >
-> Para que las suscripciones se eliminen automáticamente, establezca la [propiedad AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
+> Para que las suscripciones se eliminen automáticamente, establezca la [propiedad AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creación de una suscripción con el filtro predeterminado (MatchAll)
 El filtro **MatchAll** es el filtro predeterminado utilizado cuando se crea una suscripción. Si se usa el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada AllMessages que usa el filtro predeterminado **MatchAll**.
@@ -314,7 +314,7 @@ También hay un tiempo de espera asociado con un mensaje bloqueado dentro de la 
 En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método `deleteMessage`, el mensaje se vuelve a entregar a la aplicación cuando esta se reinicie. Este comportamiento se suele denominar *Al menos un procesamiento*. Es decir, cada mensaje se procesa al menos una vez, aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces debería agregar lógica a la aplicación para solucionar la entrega de mensajes duplicados. Puede usar la propiedad **MessageId** del mensaje, que permanece constante en todos los intentos de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminación de temas y suscripciones
-Los temas y las suscripciones son permanentes salvo que la [propiedad AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) esté establecida, por lo que deben eliminarse explícitamente a través de [Azure Portal][Azure portal] o mediante programación.
+Los temas y las suscripciones son permanentes salvo que la [propiedad AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) esté establecida, por lo que deben eliminarse explícitamente a través de [Azure Portal][Azure portal] o mediante programación.
 En el ejemplo siguiente se muestra cómo eliminar el tema denominado `MyTopic`:
 
 ```javascript

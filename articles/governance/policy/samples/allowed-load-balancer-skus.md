@@ -1,17 +1,14 @@
 ---
 title: 'Ejemplo: SKU permitidas de Load Balancer'
 description: Esta definición de directiva de ejemplo requiere que los equilibradores de carga usen una SKU aprobada.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 1436432cde8d2d33a393ad017423abea48f787b2
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: f3872ffc2fc75445f4f51573474fc359227b431b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980650"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076436"
 ---
 # <a name="sample---allowed-load-balancer-skus"></a>Ejemplo: SKU permitidas de Load Balancer
 

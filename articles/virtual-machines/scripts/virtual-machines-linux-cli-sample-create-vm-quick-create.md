@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: creación rápida de una máquina virtual Linux | Microsoft Docs'
+title: 'Ejemplo de script de la CLI de Azure: creación rápida de una máquina virtual Linux'
 description: 'Ejemplo de script de la CLI de Azure: creación rápida de una máquina virtual Linux'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fb7280c842b4f2fc4e763fadd9bea077fc5eeeb9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 918a2724580e5c20de6f83d03dbd8e9593e84e2e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709495"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037713"
 ---
-# <a name="create-a-virtual-machine"></a>de una máquina virtual
+# <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
 Este script crea una máquina virtual de Azure con un sistema operativo Ubuntu y recursos de red relacionados. Después de ejecutar el script, puede acceder a la máquina virtual a través de SSH.
 

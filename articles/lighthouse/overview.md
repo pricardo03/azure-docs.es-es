@@ -3,16 +3,16 @@ title: ¿Qué es Azure Lighthouse?
 description: Azure Lighthouse permite a los proveedores de servicios ofrecer servicios administrados para sus clientes con mayor automatización y eficacia a escala.
 author: JnHs
 ms.author: jenhayes
-ms.date: 08/22/2019
+ms.date: 11/11/2019
 ms.topic: overview
 ms.service: lighthouse
 manager: carmonm
-ms.openlocfilehash: 05fa16504e25a6bf0f6aa1c0a348284abba6e1ed
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: ae8194e6d5764769019ac803a52cd54497a618c1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011905"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929584"
 ---
 # <a name="what-is-azure-lighthouse"></a>¿Qué es Azure Lighthouse?
 
@@ -39,9 +39,6 @@ Azure Lighthouse incluye varias maneras de ayudar a simplificar la administraci�
 - **Plantillas de Azure Resource Manager**: realice tareas de administración más fácilmente, incluida la incorporación de clientes para la administración de recursos delegados de Azure. Para obtener más información, consulte nuestro [repositorio de ejemplos](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) y [Onboard a customer to Azure delegated resource management](how-to/onboard-customer.md) (Incorporar a un cliente en la administración de recursos delegados de Azure).
 - **Ofertas de servicios administrados en Azure Marketplace**: ofrezca sus servicios a los clientes mediante ofertas privadas o públicas, y pídales que se incorporen automáticamente a la administración de recursos delegados de Azure, como alternativa a la incorporación mediante plantillas de Azure Resource Manager. Para obtener más información, consulte [Managed services offers in Azure Marketplace](./concepts/managed-services-offers.md) (Ofertas de servicios administrados en Azure Marketplace).
 - **Azure Managed Applications** Empaquete y envíe aplicaciones que resulten fáciles de implementar y usar para los clientes en sus propias suscripciones. La aplicación se implementa en un grupo de recursos al que se tiene acceso desde el inquilino, lo que le permite administrar el servicio como parte de la experiencia general de Azure Lighthouse. Para obtener más información, consulte [Introducción a las aplicaciones administradas de Azure](https://docs.microsoft.com/azure/managed-applications/overview).
-
-> [!NOTE]
-> Las funcionalidades descritas más arriba están disponibles actualmente en nubes públicas. Para más información sobre la disponibilidad regional de servicios individuales, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

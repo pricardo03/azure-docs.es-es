@@ -1,17 +1,14 @@
 ---
 title: Ejecución de la primera consulta con Azure Resource Graph Explorer
 description: Este artículo le guía por los pasos para ejecutar la primera consulta desde Azure Portal mediante Azure Resource Graph Explorer.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 14615d596c1b673a234ccef541fecfbfce9d5f27
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 9cb8fdfcc68e2ef8e19a8fce2545d2939ac13e06
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622601"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958823"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph mediante Azure Resource Graph Explorer
 
@@ -124,5 +121,5 @@ Si quiere quitar los paneles de ejemplo de Resource Graph del entorno de Azure P
 - Obtenga más información sobre cómo [explorar recursos](./concepts/explore-resources.md).
 - Ejecute la primera consulta con la [CLI de Azure](first-query-azurecli.md).
 - Consulte ejemplos de [consultas de inicio](./samples/starter.md).
-- Vea ejemplos de [consultas avanzadas](./samples/advanced.md).
-- Proporcione comentarios sobre [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+- Consulte ejemplos de [consultas avanzadas](./samples/advanced.md).
+- Proporcione comentarios en [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

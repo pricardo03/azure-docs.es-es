@@ -8,17 +8,19 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: ddbf2e5349a77a45155fafd07da5489d0073b093
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4dcf1e8a0ba9fd7c1e8d02ee8c8307dc63d9e231
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876393"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074679"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restauración de un disco y creación de una máquina virtual recuperada en Azure
+
 Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda una máquina virtual o archivos individuales. En este artículo se explica cómo restaurar una máquina virtual completa mediante la CLI. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Enumerar y seleccionar puntos de recuperación
 > * Restaurar un disco desde un punto de recuperación
 > * Crear una máquina virtual a partir del disco restaurado
@@ -27,23 +29,23 @@ Para información sobre cómo usar PowerShell para restaurar un disco y crear un
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.18 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
-
+Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.18 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Para este tutorial se necesita una máquina virtual Linux protegida con Azure Backup. Para simular un proceso de recuperación y eliminación de máquina virtual accidental, cree una máquina virtual desde un disco en un punto de recuperación. Si necesita una máquina virtual Linux que esté protegida con Azure Backup, consulte [Copia de seguridad de una máquina virtual en Azure con la CLI](quick-backup-vm-cli.md).
 
-
 ## <a name="backup-overview"></a>Introducción a Backup
+
 Cuando Azure inicia una copia de seguridad, la extensión de copia de seguridad en la máquina virtual toma una instantánea de un momento dado. La extensión de copia de seguridad se instala en la máquina virtual cuando se solicita la primera copia de seguridad. Azure Backup también puede tomar una instantánea del almacenamiento subyacente si la máquina virtual no se está ejecutando cuando se realiza la copia de seguridad.
 
 De forma predeterminada, Azure Backup toma una copia de seguridad coherente del sistema de archivos. Después de que el servicio Azure Backup tome la instantánea, los datos se transfieren al almacén de Recovery Services. Para que el proceso resulte más eficaz, Azure Backup identifica y transfiere únicamente los bloques de datos que han cambiado desde la última copia de seguridad.
 
 Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea un punto de recuperación.
 
-
 ## <a name="list-available-recovery-points"></a>Lista de puntos de recuperación disponibles
-Para restaurar un disco, debe seleccionar un punto de recuperación como el origen de los datos de recuperación. Dado que la directiva predeterminada crea un punto de recuperación cada día y lo mantiene durante 30 días, puede mantener un conjunto de puntos de recuperación que le permita seleccionar un punto concreto a tiempo para la recuperación. 
+
+Para restaurar un disco, debe seleccionar un punto de recuperación como el origen de los datos de recuperación. Dado que la directiva predeterminada crea un punto de recuperación cada día y lo mantiene durante 30 días, puede mantener un conjunto de puntos de recuperación que le permita seleccionar un punto concreto a tiempo para la recuperación.
 
 Para ver una lista de los puntos de recuperación disponibles, use [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). El punto de recuperación **name** se usa para recuperar discos. En este tutorial, queremos usar el punto de recuperación más reciente disponible. El parámetro `--query [0].name` selecciona el nombre del punto de recuperación más reciente de la siguiente manera:
 
@@ -57,8 +59,8 @@ az backup recoverypoint list \
     --output tsv
 ```
 
-
 ## <a name="restore-a-vm-disk"></a>Restaurar un disco de máquina virtual
+
 Para restaurar el disco desde el punto de recuperación, cree primero una cuenta de almacenamiento de Azure. Esta cuenta de almacenamiento se usa para almacenar el disco restaurado. En pasos adicionales, el disco restaurado se usa para crear una máquina virtual.
 
 1. Para crear una cuenta de almacenamiento, use [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). El nombre de la cuenta de almacenamiento debe estar en minúsculas y ser único globalmente. Reemplace *mystorageaccount* por su propio nombre único:
@@ -82,11 +84,11 @@ Para restaurar el disco desde el punto de recuperación, cree primero una cuenta
         --rp-name myRecoveryPointName
     ```
 
-
 ## <a name="monitor-the-restore-job"></a>Supervisión del trabajo de restauración
+
 Para supervisar el estado de un trabajo de restauración, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
-```azurecli-interactive 
+```azurecli-interactive
 az backup job list \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
@@ -105,12 +107,12 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 
 Cuando *Estado* del trabajo de restauración indica *Completado*, el disco se ha restaurado en la cuenta de almacenamiento.
 
-
 ## <a name="convert-the-restored-disk-to-a-managed-disk"></a>Convertir el disco restaurado en un disco administrado
+
 El trabajo de restauración crea un disco no administrado. Para crear una máquina virtual desde el disco, debe convertirse primero en un disco administrado.
 
 1. Obtenga la información de conexión de la cuenta de almacenamiento con [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string). Reemplace *mystorageaccount* por el nombre de la cuenta de almacenamiento de la siguiente manera:
-    
+
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
         --resource-group myResourceGroup \
@@ -143,8 +145,8 @@ El trabajo de restauración crea un disco no administrado. Para crear una máqui
         --name mystorageaccount
     ```
 
-
 ## <a name="create-a-vm-from-the-restored-disk"></a>Crear una máquina virtual a partir del disco restaurado
+
 El último paso es crear una máquina virtual desde el disco administrado.
 
 1. Cree una máquina virtual desde el disco administrado con [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create) como se indica a continuación:
@@ -163,11 +165,12 @@ El último paso es crear una máquina virtual desde el disco administrado.
     az vm list --resource-group myResourceGroup --output table
     ```
 
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este tutorial, ha restaurado un disco desde un punto de recuperación y, a continuación, ha creado una máquina virtual desde el disco. Ha aprendido a:
 
 > [!div class="checklist"]
+>
 > * Enumerar y seleccionar puntos de recuperación
 > * Restaurar un disco desde un punto de recuperación
 > * Crear una máquina virtual a partir del disco restaurado
@@ -176,4 +179,3 @@ Avance hasta el siguiente tutorial para obtener información acerca de cómo res
 
 > [!div class="nextstepaction"]
 > [Restauración de archivos en una máquina virtual de Azure](tutorial-restore-files.md)
-

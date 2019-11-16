@@ -1,17 +1,14 @@
 ---
 title: 'Ejemplo: Auditoría de las aplicaciones que faltan en las máquinas virtuales Linux'
 description: Este ejemplo de iniciativa y definiciones de configuración de invitado de directiva audita si las aplicaciones especificadas no están instaladas dentro de máquinas virtuales Linux.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 05/02/2019
-ms.author: dacoulte
-ms.openlocfilehash: 5f4d4f4c1102c4409d891bb20b54788dc8ed40ee
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 0789b7f408c1f3eea000bfb2fc21ddf5feff790c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255749"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076223"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Ejemplo: Auditar si las aplicaciones especificadas no están instaladas en máquinas virtuales Linux.
 
@@ -81,23 +78,23 @@ La definición de directiva **deployIfNotExists** define las imágenes de Azure 
 |-|-|-|
 |OpenLogic |CentOS\* |Todos excepto 6\* |
 |Redhat |RHEL |Todos excepto 6\* |
-|Redhat |osa | Todo |
+|Redhat |osa | All |
 |credativ |Debian | Todos excepto 7\* |
 |Suse |SLES\* |Todos excepto 11\* |
 |Canonical| UbuntuServer |Todos excepto 12\* |
-|microsoft-dsvm |linux-data-science-vm-ubuntu |Todo |
-|microsoft-dsvm |azureml |Todo |
+|microsoft-dsvm |linux-data-science-vm-ubuntu |All |
+|microsoft-dsvm |azureml |All |
 |cloudera |cloudera-centos-os |Todos excepto 6\* |
-|cloudera |cloudera-altus-centos-os |Todo |
-|microsoft-ads |linux\* |Todo |
-|microsoft-aks |Todo |Todo |
-|AzureDatabricks |Todo |Todo |
-|qubole-inc |Todo |Todo |
-|datastax |Todo |Todo |
-|couchbase |Todo |Todo |
-|scalegrid |Todo |Todo |
-|checkpoint |Todo |Todo |
-|paloaltonetworks |Todo |Todo |
+|cloudera |cloudera-altus-centos-os |All |
+|microsoft-ads |linux\* |All |
+|microsoft-aks |All |All |
+|AzureDatabricks |All |All |
+|qubole-inc |All |All |
+|datastax |All |All |
+|couchbase |All |All |
+|scalegrid |All |All |
+|checkpoint |All |All |
+|paloaltonetworks |All |All |
 
 La parte **deployment** de la regla pasa el parámetro _installedApplication_ al agente de configuración de invitado en la máquina virtual. Esta configuración permite que el agente realice las validaciones y notifique el cumplimiento a través de la definición de directiva **audit**.
 

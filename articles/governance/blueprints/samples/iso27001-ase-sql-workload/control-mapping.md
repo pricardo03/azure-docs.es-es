@@ -1,17 +1,14 @@
 ---
 title: Asignación de controles del ejemplo de plano técnico de cargas de trabajo de ASE/SQL ISO 27001
 description: Asignación de controles del ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001 para Azure Policy y RBAC.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: f615bfbc5de96cab7c5d8433c78bd25225bb113e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: ff27f0d2076fc86454f547aaa67a112ed3c30f73
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163479"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032181"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico para cargas de trabajo de ASE y SQL compatibles con ISO 27001
 

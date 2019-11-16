@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: bcd1fff61e1612cc3361548527e5ed13affa3ba5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 72ab2717cea479de6150f435398f164c7c9d5937
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509279"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092263"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Tutorial: Entrenamiento e implementación del primer modelo en R con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -167,7 +167,7 @@ En este tutorial se ajusta un modelo de regresión logística a los datos cargad
 En el mismo directorio que este tutorial se ha incluido un script de entrenamiento llamado `accidents.R`. **Dentro del script de entrenamiento**, tenga en cuenta los siguientes detalles que se han creado para aprovechar el servicio Azure Machine Learning para el entrenamiento:
 
 * El script de entrenamiento toma un argumento `-d` para buscar el directorio que contiene los datos de entrenamiento. Al definir y enviar el trabajo más adelante, apunte al almacén de datos de este argumento. Azure Machine Learning montará la carpeta de almacenamiento en el clúster remoto para el trabajo de entrenamiento.
-* El script de entrenamiento registra la precisión final como métrica del registro de ejecución en Azure Machine Learning mediante `log_metric_to_run()`. El SDK de Azure Machine Learning proporciona un conjunto de API de registro para el registro de varias métricas durante las ejecuciones de entrenamiento. Estas métricas se registran y se conservan en el registro de ejecución del experimento. A continuación, se puede acceder a las métricas en cualquier momento o visualizarlas en la página de detalles de la ejecución de [Azure Machine Learning Studio](http://ml.azure.com). Consulte la [referencia](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para ver el conjunto completo de métodos de registro `log_*()`.
+* El script de entrenamiento registra la precisión final como métrica del registro de ejecución en Azure Machine Learning mediante `log_metric_to_run()`. El SDK de Azure Machine Learning proporciona un conjunto de API de registro para el registro de varias métricas durante las ejecuciones de entrenamiento. Estas métricas se registran y se conservan en el registro de ejecución del experimento. A continuación, se puede acceder a las métricas en cualquier momento o visualizarlas en la página de detalles de la ejecución de [Azure Machine Learning Studio](https://ml.azure.com). Consulte la [referencia](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para ver el conjunto completo de métodos de registro `log_*()`.
 * El script de entrenamiento guarda el modelo en un directorio denominado **outputs**. La carpeta `./outputs` recibe un tratamiento especial por parte de Azure Machine Learning. Durante el entrenamiento, los archivos escritos en `./outputs` se cargan automáticamente en el registro de ejecución mediante Azure Machine Learning y se conservan como artefactos. Al guardar el modelo entrenado en `./outputs`, podrá acceder al archivo del modelo y recuperarlo incluso después de que la ejecución haya finalizado y ya no tenga acceso a su entorno de entrenamiento remoto.
 
 ### <a name="create-an-estimator"></a>Crear un estimador
@@ -269,7 +269,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>Implementación como servicio web
 
-Con el modelo puede predecir el riesgo de muerte en una colisión. Use Azure Machine Learning para implementar el modelo como servicio de predicción. Ahora ya está listo para implementar el servicio web en [Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/) (ACI).
+Con el modelo puede predecir el riesgo de muerte en una colisión. Use Azure Machine Learning para implementar el modelo como servicio de predicción. Ahora ya está listo para implementar el servicio web en [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
 
 ### <a name="register-the-model"></a>Registro del modelo
 
@@ -353,17 +353,17 @@ aci_service$scoring_uri
 Elimine los recursos cuando ya no los necesite. No elimine ningún recurso que tenga previsto seguir usando. 
 
 Elimine el servicio web:
-```{r delete_service, eval=FALSE}
+```R
 delete_webservice(aci_service)
 ```
 
 Elimine el modelo registrado:
-```{r delete_model, eval=FALSE}
+```R
 delete_model(model)
 ```
 
 Elimine el clúster de proceso:
-```{r delete_compute, eval=FALSE}
+```R
 delete_compute(compute)
 ```
 

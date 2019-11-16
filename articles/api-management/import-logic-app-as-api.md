@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 57965b0326171f37d33aeae02080c8887c3acf23
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072072"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108396"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importación de una aplicación lógica como API
 
@@ -59,7 +59,7 @@ En este artículo, aprenderá a:
 
 7. Seleccione **Crear**.
 
-## <a name="test-the-imported-api-in-the-azure-portal"></a>Prueba de la API importada en Azure Portal
+## <a name="test-the-api-in-the-azure-portal"></a>Prueba de la API en Azure Portal
 
 Se puede llamar a las operaciones directamente desde Azure Portal, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.
 
@@ -72,22 +72,6 @@ Se puede llamar a las operaciones directamente desde Azure Portal, lo que propor
 4. Presione **Enviar**.
 
     Back-end responde con **200 Aceptar** y algunos datos.
-
-## <a name="call-operation"></a>Llamada a una operación desde el portal para desarrolladores
-
-También se pueden llamar a las operaciones desde **portal para desarrolladores** para probar las API.
-
-1. Seleccione la API que creó en el paso "Importación y publicación de una API de back-end".
-2. Presione **Portal para desarrolladores**.
-
-    Se abre el sitio "Portal para desarrolladores".
-
-3. Seleccione la **API** que ha creado.
-4. Haga clic en la operación que desea probar.
-5. Presione **Try it** (Probarlo).
-6. Presione **Enviar**.
-
-    Después de invocar una operación, el portal para desarrolladores mostrará el **estado de respuesta**, los **encabezados de respuesta** y el **contenido de respuesta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 9dc26e50e1c0f43e816e422f0fee91a246ea04a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e91a475c7fd7f207c8b38d3da8abe7affd668b2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487604"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013494"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entidades y su finalidad en LUIS
 
@@ -91,11 +91,11 @@ Elija la entidad en función de cómo se deben extraer los datos y cómo se debe
 
 |Tipo de entidad|Propósito|
 |--|--|
-|[**Con aprendizaje automático**](#composite-entity)|Agrupación primaria de entidades, independientemente del tipo de entidad. Las entidades con aprendizaje automático aprenden del contexto de la expresión. Esto hace que la variación de la colocación de las expresiones en el ejemplo sea importante. |
-|[**Lista**](#list-entity)|Lista de elementos y sus sinónimos extraída con **coincidencia de texto exacta**.|
-|[**Pattern.any**](#patternany-entity)|Entidad cuyo final es difícil de determinar. |
-|[**Creada previamente**](#prebuilt-entity)|Ya entrenado para extraer un tipo específico de datos, como la dirección URL o el correo electrónico. Algunas de estas entidades precompiladas se definen en el proyecto de código abierto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si su referencia cultural o entidad específica no se admite actualmente, colabore en el proyecto.|
-|[**Expresión regular**](#regular-expression-entity)|Usa una expresión regular para la **coincidencia de texto exacta**.|
+|[**Con aprendizaje automático**](tutorial-machine-learned-entity.md)|Agrupación primaria de entidades, independientemente del tipo de entidad. Las entidades con aprendizaje automático aprenden del contexto de la expresión. Esto hace que la variación de la colocación de las expresiones en el ejemplo sea importante. |
+|[**Lista**](reference-entity-list.md)|Lista de elementos y sus sinónimos extraída con **coincidencia de texto exacta**.|
+|[**Pattern.any**](reference-entity-pattern-any.md)|Entidad cuyo final es difícil de determinar. |
+|[**Creada previamente**](luis-reference-prebuilt-entities.md)|Ya entrenado para extraer un tipo específico de datos, como la dirección URL o el correo electrónico. Algunas de estas entidades precompiladas se definen en el proyecto de código abierto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si su referencia cultural o entidad específica no se admite actualmente, colabore en el proyecto.|
+|[**Expresión regular**](reference-entity-regular-expression.md)|Usa una expresión regular para la **coincidencia de texto exacta**.|
 
 ### <a name="entity-role-defines-context"></a>El rol de la entidad define el contexto.
 

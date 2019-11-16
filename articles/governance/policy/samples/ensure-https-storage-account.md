@@ -1,17 +1,14 @@
 ---
 title: 'Ejemplo: Protección del tráfico HTTPS para las cuentas de almacenamiento'
 description: Esta definición de directiva de ejemplo requiere que las cuentas de almacenamiento usen el tráfico HTTPS.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 41e752d3b88a7b36dbe7d9200ad6de42ab9d563f
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: c61ccecb72d568ff3a1f4bfce542a2cbbf7d8330
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255754"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076236"
 ---
 # <a name="sample---ensure-https-traffic-only-for-storage-account"></a>Ejemplo: Proteger el tráfico HTTPS solo para una cuenta de almacenamiento
 
