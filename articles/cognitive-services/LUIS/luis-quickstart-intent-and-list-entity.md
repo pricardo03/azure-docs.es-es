@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 9531e86e63fa8d944aa216fddd0c8215b73038a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a8021885bf51ab6d44bc8576b9fdd69f1bdd270a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492712"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953697"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obtener datos coincidentes con el texto exacto de una expresión
 
@@ -49,7 +49,7 @@ Una entidad de lista es una buena opción para este tipo de datos cuando:
 
 * Los valores de los datos son un conjunto conocido.
 * El conjunto no excede los [límites](luis-boundaries.md) máximos de LUIS para este tipo de entidad.
-* El texto de la expresión es una coincidencia exacta con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de las coincidencias exactas de texto. La lematización, los plurales y otras variaciones no se resuelven solo con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional. 
+* El texto de la expresión es una coincidencia exacta con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de las coincidencias exactas de texto. La lematización, los plurales y otras variaciones no se resuelven solo con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional. 
 
 ## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 

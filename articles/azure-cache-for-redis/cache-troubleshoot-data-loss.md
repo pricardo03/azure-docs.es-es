@@ -1,25 +1,17 @@
 ---
-title: Solución de problemas de pérdida de datos en Azure Cache for Redis | Microsoft Docs
+title: Solución de problemas de pérdida de datos en Azure Cache for Redis
 description: Más información sobre cómo resolver problemas de pérdida de datos con Azure Cache for Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yegu
-ms.openlocfilehash: 8165ce3195c12af52cfee2fff598d9417697f4cb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 77493675de0a654d3bb510f7cda22a2abbca0aa2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806555"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121492"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Solución de problemas de pérdida de datos en Azure Cache for Redis
 

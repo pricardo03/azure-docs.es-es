@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66e583a75f7103a7cccf560d537e440ba47cae5a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c016ce349acdfff6145286d9fc07e08db4ed9516
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596339"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882809"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -75,7 +75,7 @@ Como primer paso del planeamiento, debe revisar el entorno y determinar si neces
 
 Actualmente, no se admite la unión a Azure AD híbrido si el entorno consta de un solo bosque AD que sincroniza datos de identidad con más de un inquilino de Azure AD.
 
-Si su entorno usa la infraestructura de escritorio virtual (VDI), consulte [Identidad del dispositivo y virtualización del escritorio](https://docs.microsoft.com/en-us/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+Si su entorno usa la infraestructura de escritorio virtual (VDI), consulte [Identidad del dispositivo y virtualización del escritorio](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
 La unión a Azure AD híbrido es compatible con TPM 2.0 compatible con FIPS y no se admite en TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante de TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico. A partir de la versión 10 1903 de Windows, los TPM 1,2 no se usan para la unión de Azure AD híbrida y los dispositivos que tengan esos TPM se considerarán como si no tuvieran un TPM.
 
@@ -124,7 +124,7 @@ Un entorno federado debe tener un proveedor de identidades que admita los requis
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Tanto **adfs/services/trust/2005/windowstransport** como **adfs/services/trust/13/windowstransport** se deben habilitar como puntos de conexión accesibles desde la intranet y NO deben exponerse como accesible desde Proxy de aplicación web. Para más información sobre cómo deshabilitar los puntos de conexión de Windows de WS-Trust, consulte [Deshabilitar los puntos de conexión de Windows de WS-Trust en el proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Para ver qué puntos de conexión están habilitados, vaya a **Servicio** > **Puntos de conexión** en la consola de administración de AD FS.
+> Tanto **adfs/services/trust/2005/windowstransport** como **adfs/services/trust/13/windowstransport** se deben habilitar como puntos de conexión accesibles desde la intranet y NO deben exponerse como accesible desde Proxy de aplicación web. Para más información sobre cómo deshabilitar los puntos de conexión de Windows de WS-Trust, consulte [Deshabilitar los puntos de conexión de Windows de WS-Trust en el proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Para ver qué puntos de conexión están habilitados, vaya a **Servicio** > **Puntos de conexión** en la consola de administración de AD FS.
 
 > [!NOTE]
 > Azure AD no admite tarjetas inteligentes ni certificados en dominios administrados.

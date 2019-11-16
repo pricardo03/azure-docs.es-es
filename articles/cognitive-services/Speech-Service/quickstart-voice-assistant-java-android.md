@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 1de9283e1ad609a1f81d7e8a6d8171cc8052e3ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506215"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111798"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Inicio rápido: Creación de un asistente de voz de Java en Android con el SDK de Voz
 
@@ -30,9 +30,9 @@ Esta aplicación se basa en el paquete de Maven de Speech SDK y en Android Stud
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una clave de suscripción de Azure para los servicios de Voz. [Obtenga una gratis](get-started.md) o créela en [Azure Portal](https://portal.azure.com).
-* Un bot creado previamente y configurado con el [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-* [Android Studio](https://developer.android.com/studio/) v3.3 o versiones posteriores
+- Una clave de suscripción de Azure para los servicios de Voz. [Obtenga una gratis](get-started.md) o créela en [Azure Portal](https://portal.azure.com).
+- Un bot creado previamente y configurado con el [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Android Studio](https://developer.android.com/studio/) v3.3 o versiones posteriores
 
     > [!NOTE]
     > Consulte [la lista de regiones admitidas para los asistentes de voz ](regions.md#voice-assistants) y asegúrese de que sus recursos se implementan en una de esas regiones.
@@ -96,9 +96,9 @@ A continuación, reemplace el contenido de `activity_main.xml` por el código si
 
 Este XML define una interfaz de usuario sencilla para interactuar con el bot.
 
-* El elemento `button` inicia una interacción e invoca al método `onBotButtonClicked` cuando se hace clic.
-* El elemento `recoText` mostrará los resultados de la conversión de voz a texto cuando hable al bot.
-* El elemento `activityText` mostrará la carga de JSON para la actividad de Bot Framework más reciente desde el bot.
+- El elemento `button` inicia una interacción e invoca al método `onBotButtonClicked` cuando se hace clic.
+- El elemento `recoText` mostrará los resultados de la conversión de voz a texto cuando hable al bot.
+- El elemento `activityText` mostrará la carga de JSON para la actividad de Bot Framework más reciente desde el bot.
 
 El texto y la representación gráfica de la interfaz de usuario ahora deben tener este aspecto:
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: cab67a9a50d8e9d91897c170ef2cb0884f169c64
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5cdd65d5509d8f46f095d91c509a1fda288517c4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606672"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132439"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
 
@@ -38,7 +38,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | Aplicación de revisiones de MySQL     | Automático  | Administrado por los clientes |
 | Alta disponibilidad | El modelo de alta disponibilidad se basa en los mecanismos de conmutación por error integrados cuando se produce una interrupción en el nivel de nodo. En tales casos, el servicio crea automáticamente una nueva instancia y asocia el almacenamiento a esta instancia. | Los clientes pueden diseñar, implementar, probar y mantener una alta disponibilidad. Entre las funcionalidades se incluyen los clústeres de conmutación por error Always On, la replicación de grupos Always On, el trasvase de registros o la replicación transaccional.|
 | Redundancia de zona | Actualmente no se admite | Las máquinas virtuales de Azure se pueden configurar para que se ejecuten en distintas zonas de disponibilidad. En el caso de una solución local, los clientes deben crear, administrar y mantener su propio centro de datos secundario.|
-| Escenarios híbridos | Con [Replicación de datos de entrada](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication) puede sincronizar datos de una instancia externa de MySQL Server con el servicio Azure Database for MySQL. El servidor externo puede ser local, de máquinas virtuales o un servicio de base de datos hospedado por otros proveedores de nube.<br/><br/> Con la característica de [réplica de lectura](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) puede replicar los datos de un servidor maestro de Azure Database for MySQL en hasta cinco servidores de solo lectura. Las réplicas están dentro de la misma región de Azure o en varias regiones. Las réplicas de solo lectura se actualizan de forma asincrónica mediante la tecnología de replicación binlog.| Administrado por los clientes
+| Escenarios híbridos | Con [Replicación de datos de entrada](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication) puede sincronizar datos de una instancia externa de MySQL Server con el servicio Azure Database for MySQL. El servidor externo puede ser local, de máquinas virtuales o un servicio de base de datos hospedado por otros proveedores de nube.<br/><br/> Con la característica de [réplica de lectura](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) puede replicar los datos de un servidor maestro de Azure Database for MySQL en hasta cinco servidores de solo lectura. Las réplicas están dentro de la misma región de Azure o en varias regiones. Las réplicas de solo lectura se actualizan de forma asincrónica mediante la tecnología de replicación binlog.| Administrado por los clientes
 | Copia de seguridad y restauración | Crea automáticamente [copias de seguridad del servidor](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) y las almacena en el almacenamiento con redundancia local o con redundancia geográfica configurado por el usuario. El servicio realiza copias de seguridad completas, diferenciales y del registro de transacciones. | Administrado por los clientes |
 | Supervisión de las operaciones de base de datos | Ofrece a los clientes la capacidad de [definir alertas](https://docs.microsoft.com/azure/mysql/concepts-monitoring) en la operación de base de datos y realizar acciones al alcanzar los umbrales. | Administrado por los clientes |
 | Protección contra amenazas avanzada | Proporciona [Advanced Threat Protection](https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal). Esta protección detecta actividades anómalas que indiquen intentos inusuales y potencialmente perjudiciales de acceder a sus bases de datos o aprovechar sus vulnerabilidades. | Los clientes deben compilar esta protección por sí mismos.

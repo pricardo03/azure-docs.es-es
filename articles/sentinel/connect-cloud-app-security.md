@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 95e38cee8f6995e09dbbb2194cd5a9d0ebc301c1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32e7e79465b68caca9a636019f65b9f08284fc72
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498665"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928212"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conectar datos de Microsoft Cloud App Security 
 
@@ -30,7 +30,7 @@ Se pueden transmitir registros desde [Cloud App Security](https://docs.microsoft
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un usuario que sea administrador global o que tenga permisos de administrador de seguridad
-- Para transmitir registros de Cloud Discovery a Azure Sentinel, [habilite Azure Sentinel como SIEM en Microsoft Cloud App Security](aka.ms. https://aka.ms/AzureSentinelMCAS).
+- Para transmitir registros de Cloud Discovery a Azure Sentinel, [habilite Azure Sentinel como SIEM en Microsoft Cloud App Security](https://aka.ms/AzureSentinelMCAS).
 
 > [!IMPORTANT]
 > La ingesta de registros de Cloud Discovery se encuentra actualmente en versión preliminar pública.

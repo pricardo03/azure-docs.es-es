@@ -1,6 +1,6 @@
 ---
 title: 'Uso de la API de Video Indexer para personalizar un modelo de persona: Azure'
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: En este artículo se muestra cómo personalizar un modelo de persona con la API de Video Indexer.
 services: media-services
 author: anikaz
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 6c4980536eddd0226fac422ae17ddb717e34630d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44f97e3d9af9daac8d62ae42be76bd73dedbd453
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799471"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838261"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalización de un modelo de persona con la API de Video Indexer
 

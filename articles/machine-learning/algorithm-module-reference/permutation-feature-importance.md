@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a1c3bec4b32a9d3450e307f42958bb19263c3d7a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ddd631b809d4a0635107069f48281db4c0a2e7e0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717160"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837552"
 ---
 # <a name="permutation-feature-importance"></a>Importancia de la característica de permutación
 
@@ -24,7 +24,7 @@ En este módulo, los valores de las características se ordenan aleatoriamente, 
 
 Las puntuaciones que devuelve el módulo representan el *cambio* en el rendimiento de un modelo formado, después de la permutación. Las características importantes suelen ser más sensibles al proceso orden aleatorio y, por tanto, se obtendrán mayores puntuaciones de importancia. 
 
-En este artículo se proporciona información general sobre la característica de permutación, su base teórica y sus aplicaciones en aprendizaje automático: [Permutation Feature Importance](http://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx) (Importancia de la característica de permutación).  
+En este artículo se proporciona información general sobre la característica de permutación, su base teórica y sus aplicaciones en aprendizaje automático: [Permutation Feature Importance](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx) (Importancia de la característica de permutación).  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>Cómo usar la Importancia de la característica de permutación
 

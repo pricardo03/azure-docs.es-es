@@ -3,24 +3,20 @@ title: 'Ejemplo de script de la CLI de Azure: filtrar el tráfico de red de VM |
 description: 'Ejemplo de script de la CLI de Azure: filtrar el tráfico de red de VM entrante y saliente.'
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: timlt
-ms.openlocfilehash: 5f33490a360089a301b28479b7707d4b62c7dd83
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: kumud
+ms.openlocfilehash: e91e59e8e8acbf76ed35cff6b2f654103bb763b5
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875472"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888569"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Filtrar el tráfico de red de VM entrante y saliente
 

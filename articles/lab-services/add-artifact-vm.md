@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27fec279582d845972b87ac635c87c16c239924e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60304290"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901326"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Incorporación de un artefacto a una máquina virtual
 Al crear una máquina virtual, puede agregar artefactos existentes a esta. Estos artefactos pueden provenir del [repositorio de Git de DevTest Labs público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o de su propio repositorio de Git. En este artículo se muestra cómo agregar artefactos en Azure Portal y mediante Azure PowerShell. 
@@ -90,7 +90,7 @@ param
 Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
  
 # Get the lab resource group name
-$resourceGroupName = (Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
+$resourceGroupName = (Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
 if ($resourceGroupName -eq $null) { throw "Unable to find lab $DevTestLabName in subscription $SubscriptionId." }
 
 # Get the internal repo name

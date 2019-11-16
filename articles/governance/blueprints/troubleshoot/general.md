@@ -1,17 +1,14 @@
 ---
 title: Solución de errores comunes
 description: Aprenda a solucionar problemas de creación, asignación y eliminación de planos técnicos.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
-ms.service: blueprints
-ms.openlocfilehash: b99e94bfdcbf12e82a094f14995b6b93aa3354ed
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b6f1d6c40f7268e90f09457e680a3ef33996c341
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978221"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960289"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solución de problemas de errores con instancias de Azure Blueprint
 

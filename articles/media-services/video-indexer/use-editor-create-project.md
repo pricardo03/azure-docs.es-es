@@ -1,6 +1,6 @@
 ---
 title: Utilizar el editor de Video Indexer para crear proyectos
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: En este tema se muestra cómo usar el editor de Video Indexer para crear proyectos.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518153"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839163"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Utilizar el editor de Video Indexer para crear proyectos
 
@@ -55,7 +55,7 @@ En este artículo se muestra cómo crear un proyecto desde cero y también cómo
 
     Puede filtrar aún más los resultados seleccionando **Filter results** (Filtrar resultados). Puede filtrar los vídeos para que se muestren los que contengan una determinada persona o para especificar que solo quiere ver los resultados de vídeos que estén en un idioma determinado o que sean de un propietario concreto. <br/> También puede especificar el ámbito de la consulta. Por ejemplo, si desea buscar “GitHub” en el reconocimiento óptico de caracteres, seleccione **Solo texto visual**.
 
-    ![Filtrar](./media/video-indexer-view-edit/visual-text.png)
+    ![Filter](./media/video-indexer-view-edit/visual-text.png)
 
     Puede agregar varios filtros a la consulta. Use los botones **+** / **-** para agregar o quitar filtros. Use **Clear filters** (Borrar filtros) para quitar todos los filtros.
 1. Para agregar vídeos, selecciónelos y después seleccione **Add** (Agregar).

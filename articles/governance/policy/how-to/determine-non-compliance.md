@@ -1,17 +1,14 @@
 ---
 title: Determinación de las causas de incumplimiento
 description: Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Descubra qué es lo que provoca que no sea compatible.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 556a8029b9b5f831ac3ace7ed0fcc474fb2e262e
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6f113080ab84fe7d159766e6543ff61b28f4ead2
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978108"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959612"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 

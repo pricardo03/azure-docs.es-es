@@ -11,22 +11,22 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 3589310ff93aca3cec735d6b2f1609ee3d1d2e68
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825777"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132298"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Instrucciones generales para trabajar con aplicaciones SaaS de ejemplo de vales de Wingtip
 
-Este artículo contiene las instrucciones generales para ejecutar la aplicación SaaS de ejemplo Wingtip Tickets, que usa Azure SQL Database. 
+Este artículo contiene las instrucciones generales para ejecutar la aplicación SaaS de ejemplo Wingtip Tickets, que usa Azure SQL Database.
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Descargar y desbloquear los scripts SaaS de vales de Wingtip
 
 Es posible que Windows bloquee el contenido ejecutable (scripts, archivos DLL) cuando se descarguen y extraigan archivos ZIP desde un origen externo. Al extraer los scripts de un archivo ZIP, **siga los pasos siguientes para desbloquear el archivo .zip antes de extraerlo**. Esto garantiza que se puedan ejecutar los scripts.
 
-1. Navegue al repositorio de GitHub de SaaS de vales de Wingtip y busque el patrón de inquilino de base de datos que quiere explorar: 
+1. Navegue al repositorio de GitHub de SaaS de vales de Wingtip y busque el patrón de inquilino de base de datos que quiere explorar:
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
@@ -42,13 +42,13 @@ Los scripts se encuentran en la carpeta *..\\Learning Modules* (módulos de apre
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Trabajar con los scripts de PowerShell de vales de Wingtip
 
-Para sacar el máximo partido del ejemplo debe profundizar en los scripts proporcionados. Use puntos de interrupción y recorra los scripts a medida que se ejecutan, y examine los detalles de cómo se implementan los distintos patrones de SaaS. Para recorrer con facilidad los scripts proporcionados y los módulos para entenderlos mejor, se recomienda usar [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
+Para sacar el máximo partido del ejemplo debe profundizar en los scripts proporcionados. Use puntos de interrupción y recorra los scripts a medida que se ejecutan, y examine los detalles de cómo se implementan los distintos patrones de SaaS. Para recorrer con facilidad los scripts proporcionados y los módulos para entenderlos mejor, se recomienda usar [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise).
 
 ### <a name="update-the-configuration-file-for-your-deployment"></a>Actualizar el archivo de configuración para la implementación
 
 Edite el archivo **UserConfig.psm1** con el valor de usuario y grupo de recursos que se estableció durante la implementación:
 
-1. Abra *PowerShell ISE* y cargue ...\\Learning Modules\\*UserConfig.psm1* 
+1. Abra *PowerShell ISE* y cargue ...\\Learning Modules\\*UserConfig.psm1*
 2. Actualice *ResourceGroupName* y *Name* con los valores específicos para la implementación (solo en las líneas 10 y 11).
 3. Guarde los cambios.
 
@@ -76,7 +76,7 @@ Sugerencias para explorar y recorrer los scripts de PowerShell:
 
 Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectarse y examinar las bases de datos y los servidores de la aplicación.
 
-Inicialmente, la implementación tiene inquilinos y servidores de SQL Database del catálogo a los que conectarse. La denominación de los servidores depende del patrón de inquilino de base de datos (vea a continuación para obtener información específica). 
+Inicialmente, la implementación tiene inquilinos y servidores de SQL Database del catálogo a los que conectarse. La denominación de los servidores depende del patrón de inquilino de base de datos (vea a continuación para obtener información específica).
 
    - **Aplicación independiente:** servidores para cada inquilino (p. ej. *servidor contosoconcerthall-&lt;Usuario&gt;* ) y *catalog-sa-&lt;Usuario&gt;*
    - **Base de datos por inquilino: servidores** *tenants1-dpt-&lt;Usuario&gt;* y *catalog-dpt-&lt;Usuario&gt;*
@@ -86,19 +86,19 @@ Para garantizar una conexión de demostración correcta, todos los servidores ti
 
 
 1. Abra *SSMS* y conéctese a los inquilinos. El nombre del servidor depende del patrón de inquilino de base de datos que seleccionó (vea a continuación para obtener información específica).
-    - **Aplicación independiente:** servidores de inquilinos individuales (p. ej. *contosoconcerthall-&lt;Usuario&gt;.database.windows.net*) 
+    - **Aplicación independiente:** servidores de inquilinos individuales (p. ej. *contosoconcerthall-&lt;Usuario&gt;.database.windows.net*)
     - **Base de datos por inquilino:** *tenants1-dpt-&lt;Usuario&gt;.database.windows.net*
-    - **Base de datos de varios inquilinos:** *tenants1-mt-&lt;Usuario&gt;.database.windows.net* 
+    - **Base de datos de varios inquilinos:** *tenants1-mt-&lt;Usuario&gt;.database.windows.net*
 2. Haga clic en **Conectar** > **Motor de base de datos...** :
 
    ![Servidor de catálogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
 3. Las credenciales de demostración son: Inicio de sesión = *developer* y contraseña = *P\@ssword1*
 
-    En la imagen siguiente se muestra el inicio de sesión para el patrón *Base de datos por inquilino*. 
+    En la imagen siguiente se muestra el inicio de sesión para el patrón *Base de datos por inquilino*.
     ![conexión](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
-    
-   
+
+
 
 4. Repita los pasos 2 y 3 y conéctese al servidor del catálogo (consulte a continuación si hay nombres de servidores específicos basados en el patrón de inquilino de base de datos seleccionado).
     - **Aplicación independiente:** *catalog-sa-&lt;Usuario&gt;.database.windows.net*

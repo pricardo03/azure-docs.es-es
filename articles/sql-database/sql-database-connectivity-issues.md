@@ -12,13 +12,13 @@ author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/14/2019
-ms.openlocfilehash: a943ade4bfc46083fe84274640d979928357a492
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826810"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082488"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabajo con problemas de conexión de SQL Database y errores transitorios
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar l
 
 Un error transitorio tiene una causa subyacente que pronto se solucionará automáticamente. Una causa ocasional de errores transitorios se produce cuando el sistema de Azure rápidamente desplaza recursos de hardware para equilibrar mejor la carga de varias cargas de trabajo. La mayoría de estos eventos de reconfiguración se completan en menos de 60 segundos. Durante este período de tiempo de reconfiguración, es posible que tenga problemas de conexión con SQL Database. Las aplicaciones que se conectan SQL Database deberían crearse de modo que contemplen esos errores transitorios. Para controlarlos, implemente una lógica de reintento en el código en lugar de mostrarlas a los usuarios como errores de aplicación.
 
-Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException**. Compare la propiedad **Number** con la lista de errores transitorios que se encuentra cerca de la parte superior del artículo [Códigos de error para las aplicaciones cliente de SQL Database](sql-database-develop-error-messages.md).
+Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException**. 
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 73aa641fc4bb01ef3d06820ecd18b61197ab81e7
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 3d748e1625f27be27b7f403fbab3e213b16c4dd6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695500"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890175"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migración de trabajos de Azure Scheduler to Azure Logic Apps
 
@@ -198,7 +198,7 @@ Para más información acerca del control de excepciones, consulte [Detección y
 <a name="retire-date"></a>
 
 **P.** : ¿Cuándo se va a retirar Azure Scheduler? <br>
-**R.** : La retirada completa de Azure Scheduler está programada para el 31 de diciembre de 2019. Para conocer los pasos importantes que se deben realizar antes de esta fecha y una escala de tiempo detallada, consulte el artículo sobre [ampliación de la fecha de retirada de Scheduler al 31 de diciembre de 2019](https://azure.microsoft.com/en-us/updates/extending-retirement-date-of-scheduler/). Para más información sobre las actualizaciones generales, consulte [Actualizaciones de Azure: Scheduler](https://azure.microsoft.com/updates/?product=scheduler).
+**R.** : La retirada completa de Azure Scheduler está programada para el 31 de diciembre de 2019. Para conocer los pasos importantes que se deben realizar antes de esta fecha y una escala de tiempo detallada, consulte el artículo sobre [ampliación de la fecha de retirada de Scheduler al 31 de diciembre de 2019](https://azure.microsoft.com/updates/extending-retirement-date-of-scheduler/). Para más información sobre las actualizaciones generales, consulte [Actualizaciones de Azure: Scheduler](https://azure.microsoft.com/updates/?product=scheduler).
 
 **P.** : ¿Qué ocurrirá con mis colecciones de trabajos y mis trabajos cuando se retire el servicio? <br>
 **R.** : Todas las colecciones de trabajos y los trabajos de Scheduler dejan de ejecutarse y se eliminan del sistema.

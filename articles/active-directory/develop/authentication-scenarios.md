@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab2180c54f07ff5009e2c57d8522f2eb0b81aad
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c0a73f5257bf763633052aab89f92ea0e5d5c000
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718372"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927113"
 ---
 # <a name="authentication-basics"></a>Conceptos básicos sobre autenticación
 
@@ -74,7 +74,7 @@ La validación del token depende de la aplicación para la que se generó el tok
 
 Los tokens solo son válidos durante un período de tiempo limitado. Normalmente, el STS proporciona un par de tokens: un token de acceso para acceder a la aplicación o al recurso protegido, y un token de actualización que se usa para actualizar el token de acceso cuando está a punto de vencer. 
 
-Los tokens de acceso se pasan a una API web en el encabezado de `Authenticate` como un token de portador. Una aplicación puede proporcionar un token de actualización al STS y, si el acceso del usuario a la aplicación no se ha revocado, recibirá un nuevo token de acceso y un nuevo token de actualización. Así es cómo se administran los casos cuando alguien abandona la empresa. Cuando el STS recibe el token de actualización, si el usuario ya no está autorizado, no emitirá otro token de acceso válido.
+Los tokens de acceso se pasan a una API web en el encabezado de `Authorization` como un token de portador. Una aplicación puede proporcionar un token de actualización al STS y, si el acceso del usuario a la aplicación no se ha revocado, recibirá un nuevo token de acceso y un nuevo token de actualización. Así es cómo se administran los casos cuando alguien abandona la empresa. Cuando el STS recibe el token de actualización, si el usuario ya no está autorizado, no emitirá otro token de acceso válido.
 
 ## <a name="application-model"></a>Modelo de aplicación
 

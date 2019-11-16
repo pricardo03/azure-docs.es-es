@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: vinigam
-ms.openlocfilehash: 831e75ba2d3f6af62496d437da3d1413dc612594
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686557"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907143"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -95,13 +95,17 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 * Centro occidental de EE.UU.
 * East US
 * Este de EE. UU. 2
+* Centro-Norte de EE. UU
 * Centro-Sur de EE. UU
+* Centro de EE. UU.
 * Oeste de EE. UU.
 * Oeste de EE. UU. 2
 * Centro de EE. UU.
 * Centro de Francia
-* Europa del Norte
 * Europa occidental
+* Europa del Norte
+* Sur de Brasil
+* Oeste de Reino Unido
 * Sur de Reino Unido 2
 * Este de Australia
 * Sudeste de Australia

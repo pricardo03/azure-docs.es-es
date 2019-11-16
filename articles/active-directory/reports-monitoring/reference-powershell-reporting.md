@@ -3,7 +3,7 @@ title: Cmdlets de Azure AD PowerShell para informes | Microsoft Docs
 description: Referencia de los cmdlets de Azure AD PowerShell para informes
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 07/12/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d34204b936a608158a0ca3e8af2264059ffc6aa
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f962cd9bc8c975ccaef90f61f20eea4cf1e4935e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136553"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014333"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets de Azure AD PowerShell para informes
 
 > [!NOTE] 
-> En la actualidad, estos cmdlets de Powershell solo funcionan con el módulo de la [versión preliminar de Azure AD](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing). Tenga en cuenta que no se recomienda utilizar el módulo de la versión preliminar para producción. 
+> En la actualidad, estos cmdlets de Powershell solo funcionan con el módulo de la [versión preliminar de Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing). Tenga en cuenta que no se recomienda utilizar el módulo de la versión preliminar para producción. 
 
 Con los informes de Azure Active Directory (Azure AD), puede obtener detalles sobre las actividades de todas las operaciones de escritura en su dirección (registros de auditoría) y los datos de autenticación (registros de inicio de sesión). Aunque la información está disponible mediante MS Graph API, ahora puede recuperar los mismos datos usando los cmdlets de PowerShell de Azure AD para la generación de informes.
 
@@ -43,7 +43,7 @@ Puede acceder a los registros de auditoría con el cmdlet "Get-AzureADAuditDirec
 | Escenario                      | Comando de PowerShell |
 | :--                           | :--                |
 | Nombre para mostrar de la aplicación      | Get-AzureADAuditDirectoryLogs -Filter "initiatedBy/app/displayName eq 'Azure AD Cloud Sync'" |
-| Categoría                      | Get-AzureADAuditDirectoryLogs -Filter "category eq 'Application Management'" |
+| Category                      | Get-AzureADAuditDirectoryLogs -Filter "category eq 'Application Management'" |
 | Fecha y hora de la actividad            | Get-AzureADAuditDirectoryLogs -Filter "activityDateTime gt 2019-04-18" |
 | Todo lo anterior              | Get-AzureADAuditDirectoryLogs -Filter "initiatedBy/app/displayName eq 'Azure AD Cloud Sync' and category eq 'Application Management' and activityDateTime gt 2019-04-18"|
 

@@ -7,14 +7,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
-ms.openlocfilehash: 3be3a2e3355793a8d0b4fcaf0e7f62668f78f0c8
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 2850fab3a5639673008a7433db48911ced832401
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954873"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091117"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Traslado del almacenamiento a largo plazo de la cinta a la nube de Azure
+
 Los clientes de Microsoft Azure Backup y System Center Data Protection Manager pueden:
 
 * Realizar copias de seguridad de datos en las programaciones que mejor se adapten a las necesidades de su organización.
@@ -24,6 +25,7 @@ Los clientes de Microsoft Azure Backup y System Center Data Protection Manager p
 Este artículo explica cómo los clientes pueden habilitar las directivas de copia de seguridad y retención. Los clientes que utilicen las cintas para abordar sus necesidades de retención a largo plazo ahora tienen una alternativa viable y eficaz con la disponibilidad de esta característica. La característica está habilitada en la versión más reciente de Azure Backup (que está disponible [aquí](https://aka.ms/azurebackup_agent)). Debe actualizarse a los clientes System Center DPM, como mínimo, DPM 2012 R2 UR5 para usar DPM con el servicio de Azure Backup.
 
 ## <a name="what-is-the-backup-schedule"></a>¿Cuál es la programación de copia de seguridad?
+
 La programación de copia de seguridad indica la frecuencia de la operación de copia de seguridad. Por ejemplo, la configuración de la pantalla siguiente indica que las copias de seguridad se tomarán diariamente a las 18:00 h y a medianoche.
 
 ![Programación diaria](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
@@ -33,6 +35,7 @@ Los clientes también pueden programar una copia de seguridad semanal. Por ejemp
 ![Programación semanal](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)
 
 ## <a name="what-is-the-retention-policy"></a>¿Qué es la directa de retención?
+
 La directiva de retención especifica el tiempo durante el que debe almacenarse la copia de seguridad. En vez de especificar solo una "directiva" para todos los puntos de copia de seguridad, los clientes pueden especificar directivas de retención diferentes en función de cuándo se realizó la copia de seguridad. Por ejemplo, un punto de copia de seguridad diario (que sirve como punto de recuperación operativo) podría conservarse durante 90 días. El punto de copia de seguridad realizado al final de cada trimestre con fines de auditoría se conserva durante un período prolongado.
 
 ![Directiva de retención](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
@@ -40,6 +43,7 @@ La directiva de retención especifica el tiempo durante el que debe almacenarse 
 El número total de "puntos de retención" especificado en esta directiva es de 90 (puntos diarios) + 40 (uno cada trimestre durante 10 años) = 130.
 
 ## <a name="example--putting-both-together"></a>Ejemplo: reunir ambos
+
 ![Pantalla de ejemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Directiva de retención diaria**: Lasas copias de seguridad realizadas diariamente se almacenan durante siete días.
@@ -61,11 +65,13 @@ El número total de puntos de recuperación es 56.
 >
 
 ## <a name="advanced-configuration"></a>Configuración avanzada
+
 Al hacer clic en **Modificar** en la pantalla anterior, los clientes tienen más flexibilidad para especificar programaciones de retención.
 
 ![Modificar](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para obtener más información sobre Azure Backup, vea
 
 * [Introducción a Azure Backup](backup-introduction-to-azure-backup.md)

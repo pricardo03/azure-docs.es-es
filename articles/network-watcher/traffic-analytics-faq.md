@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: b232df010190a95d12d5a57f076a4c1bf336cea4
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026580"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907102"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -91,19 +91,22 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
 - Este de Japón
 - Oeste de Japón
 - Gobierno de EE. UU. - Virginia
+- Este de China 2
 
 El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 - Centro de Canadá
 - Centro occidental de EE.UU.
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
-- Centro-Sur de EE. UU
-- Centro de EE. UU.
 - East US
 - Este de EE. UU. 2
+- Centro-Norte de EE. UU
+- Centro-Sur de EE. UU
+- Centro de EE. UU.
+- Oeste de EE. UU.
+- Oeste de EE. UU. 2
 - Centro de Francia
 - Europa occidental
 - Europa del Norte
+- Oeste de Reino Unido
 - Sur de Reino Unido 2
 - Este de Australia
 - Sudeste de Australia
@@ -113,6 +116,7 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 - India Central
 - Este de Japón
 - Gobierno de EE. UU. - Virginia
+- Este de China 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>¿Los grupos de seguridad de red en los que he habilitado los registros de flujo pueden estar en otras regiones que no sean las de mi área de trabajo?
 

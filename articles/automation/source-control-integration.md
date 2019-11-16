@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 52fcd0d928ecbce5c617ff6a27175fccb8fd96f6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990237"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886523"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 
@@ -177,7 +177,7 @@ Si varias personas editan runbooks en el repositorio de control de código fuent
 
 Actualmente no hay ninguna manera de actualizar el token de acceso en el control de código fuente desde el portal. Una vez que el token de acceso personal ha expirado o se ha revocado, puede actualizar el control de código fuente con un nuevo token de acceso de las siguientes maneras:
 
-* A través de la [API REST](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* A través de la [API REST](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
 * Mediante el cmdlet [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol).
 
 ## <a name="next-steps"></a>Pasos siguientes

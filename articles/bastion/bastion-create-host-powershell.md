@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5fea9c9a99250c8abe26f953b1c6632b561a6013
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6cae6d258da2ddf0c3bfaade65ae74f1201b67b7
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511889"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121064"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Creación de un host Azure Bastion con Azure PowerShell
 
@@ -39,7 +39,7 @@ Esta sección le ayuda a crear un nuevo recurso Azure Bastion con Azure PowerShe
 2. Cree una dirección IP pública para Azure Bastion. La IP pública es la dirección IP pública del recurso de Bastion en la que se accederá a RDP/SSH (a través del puerto 443). La dirección debe estar en la misma región que el recurso de Bastion que está creando.
 
    ```azurepowershell-interactive
-   $publicip = New-AzPublicIpAddress -ResourceGroupName "myBastionRG" -name "myPublicIP" -location "westeurope" -AllocationMethod Dynamic -Sku Standard
+   $publicip = New-AzPublicIpAddress -ResourceGroupName "myBastionRG" -name "myPublicIP" -location "westeurope" -AllocationMethod Static -Sku Standard
    ```
 
 3. Cree un nuevo recurso Azure Bastion en AzureBastionSubnet de su red virtual. El recurso de Bastion tardará aproximadamente cinco minutos en crearse e implementarse.

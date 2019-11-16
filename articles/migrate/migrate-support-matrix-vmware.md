@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 2a8a19dfd2cdc7a64a5ea90b96808963b19f73bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4b07252aed2205917f6b43e3e09a2877663e5bab
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498654"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838912"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de VMware
 
@@ -112,7 +112,7 @@ dc.services.visualstudio.com | Cargar los registros de aplicaciones que se usan 
 *.servicebus.windows.net | Comunicación entre el dispositivo y el servicio Azure Migrate.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Conectarse a las direcciones URL del servicio Azure Migrate.
 \* .blob.core.windows.net | Cargar los datos en las cuentas de almacenamiento.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Se usa para las actualizaciones del dispositivo de Azure Migrate.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Se usa para las actualizaciones del dispositivo de Azure Migrate.
 
 ## <a name="assessment-port-requirements"></a>Evaluación: requisitos de puertos
 
@@ -215,7 +215,7 @@ dc.services.visualstudio.com | Cargar los registros de aplicaciones que se usan 
 *.servicebus.windows.net | Comunicación entre el dispositivo y el servicio Azure Migrate.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Conectarse a las direcciones URL del servicio Azure Migrate.
 \* .blob.core.windows.net | Cargar los datos en las cuentas de almacenamiento.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Se usa para las actualizaciones del dispositivo de Azure Migrate.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Se usa para las actualizaciones del dispositivo de Azure Migrate.
 
 
 ## <a name="agentless-migration-port-requirements"></a>Migración sin agente: requisitos de puerto

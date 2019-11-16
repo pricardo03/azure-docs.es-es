@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: ee9594e7aa3b55f7eb6fc7ba41783708555bd15e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d33c5f75234ad7165a9062ecc3bb2a00d502f8c3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510573"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075287"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Aprovisionamiento de una puerta de enlace autohospedada en Azure API Management
 
@@ -39,6 +39,7 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
 3. Escribe el **Nombre** y la **Región** de la puerta de enlace.
 > [!TIP]
 > La **Región** especifica la ubicación prevista de los nodos de puerta de enlace que se asociarán a este recurso de puerta de enlace. Es semánticamente equivalente a una propiedad similar asociada a cualquier recurso de Azure, pero se le puede asignar un valor de cadena arbitrario.
+
 4. Opcionalmente, puede escribir una **Descripción** del recurso de puerta de enlace.
 5. Opcionalmente, puede seleccionar **+** en **API** para asociar una o más API a este recurso de puerta de enlace.
 > [!TIP]
@@ -46,6 +47,7 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
 
 > [!IMPORTANT]
 > De forma predeterminada, ninguna de las API existentes se asociará con el nuevo recurso de puerta de enlace. Por lo tanto, los intentos de invocarlas a través de la nueva puerta de enlace producirán la respuesta `404 Resource Not Found`.
+
 6. Haga clic en **Agregar**.
 
 Ahora el recurso de puerta de enlace se ha aprovisionado en su instancia de API Management. Puede continuar con la implementación de la puerta de enlace.

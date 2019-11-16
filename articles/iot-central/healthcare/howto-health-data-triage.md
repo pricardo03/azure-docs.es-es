@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 88b4df909e2c56f1a60e0f3c737b05ae4c27ca4a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 40e850bcbd177b15c91e57ec369c6b04963ffb84
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123248"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132280"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Creación de un panel de proveedor de Power BI
 
@@ -51,7 +51,7 @@ En este tutorial, aprenderá a:
 * Una cuenta del servicio Power BI. Si aún no tiene una, puede [crear una cuenta de evaluación gratuita para el servicio Power BI](https://app.powerbi.com/). Si no ha usado Power BI antes, puede resultarle útil consultar [Introducción a Power BI](https://docs.microsoft.com/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Configuración de una exportación continua de datos a Azure Event Hubs
-En primer lugar, debe configurar una exportación continua de datos desde la plantilla de la aplicación de Azure IoT Central al centro de eventos de Azure de su suscripción. Para ello, siga los pasos de este tutorial de Azure IoT Central para la [Exportación a Event Hubs](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp). Solo tendrá que exportar los datos de telemetría para los fines de este tutorial.
+En primer lugar, debe configurar una exportación continua de datos desde la plantilla de la aplicación de Azure IoT Central al centro de eventos de Azure de su suscripción. Para ello, siga los pasos de este tutorial de Azure IoT Central para la [Exportación a Event Hubs](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data). Solo tendrá que exportar los datos de telemetría para los fines de este tutorial.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Creación de un conjunto de datos de streaming de Power BI
 

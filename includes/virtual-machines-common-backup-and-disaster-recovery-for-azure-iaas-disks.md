@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ca55d49721f9c22f35ba79e819efa354a660d92a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302351"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012523"
 ---
-# <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Copia de seguridad y recuperación ante desastres para discos IaaS de Azure
-
 En este artículo se explica cómo planear la copia de seguridad y recuperación ante desastres (DR) de discos y máquinas virtuales (VM) IaaS en Azure. En este documento se tratan los discos administrados y los no administrados.
 
 En primer lugar, hablaremos de las funcionalidades de tolerancia a errores integradas en la plataforma Azure que permite protegerse contra errores locales. Luego, analizaremos los escenarios de desastre que las funcionalidades integradas no cubren completamente. También se muestran varios ejemplos de escenarios de carga de trabajo a los que se pueden aplicar distintas consideraciones sobre copia de seguridad y recuperación ante desastres. Luego se revisan las soluciones posibles para la recuperación ante desastres de discos IaaS.

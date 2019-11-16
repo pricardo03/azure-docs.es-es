@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: cf4274931d83b51afb4a8ada7d1c9040ccce3c14
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7003e5b8574d2caa05bfe66e500b93db0c1cdcfa
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606846"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891637"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenedores de perfiles de FSLogix y archivos de Azure
 
@@ -78,7 +78,7 @@ Desde su adquisición, Microsoft comenzó a reemplazar las soluciones de perfile
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Integración de Azure Files con Azure Active Directory Domain Service
 
-El rendimiento y las características de los contenedores de perfiles de FSLogix aprovechan las ventajas de la nube. El 7 de agosto de 2019, Microsoft Azure Files anunció la disponibilidad general de la autenticación de [Azure files con Azure Active Directory Domain Services (AD DS)](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview). Al resolver tanto la sobrecarga administrativa como la de costos, Azure Files con autenticación de Azure AD DS es una solución premium para perfiles de usuario en el nuevo servicio Windows Virtual Desktop.
+El rendimiento y las características de los contenedores de perfiles de FSLogix aprovechan las ventajas de la nube. El 7 de agosto de 2019, Microsoft Azure Files anunció la disponibilidad general de la autenticación de [Azure files con Azure Active Directory Domain Services (AD DS)](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview). Al resolver tanto la sobrecarga administrativa como la de costos, Azure Files con autenticación de Azure AD DS es una solución premium para perfiles de usuario en el nuevo servicio Windows Virtual Desktop.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Procedimientos recomendados para Windows Virtual Desktop
 

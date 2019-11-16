@@ -8,14 +8,13 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186299"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014545"
 ---
-# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Copias de seguridad de discos de máquinas virtuales de Azure no administrados con instantáneas incrementales
 ## <a name="overview"></a>Información general
 Azure Storage permite realizar instantáneas de blobs. Dichas instantáneas capturan el estado del blob en el preciso momento en el que se realicen. En este artículo, se describe un escenario para mantener copias de seguridad de discos de máquinas virtuales por medio de instantáneas. Podrá utilizar esta metodología cuando opte por no usar el servicio de recuperación y copia de seguridad de Azure y quiera crear una estrategia de copias de seguridad personalizada para los discos de sus máquinas virtuales.
 

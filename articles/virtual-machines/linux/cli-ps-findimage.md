@@ -1,5 +1,5 @@
 ---
-title: Selección de imágenes de máquina virtual Linux con la CLI de Azure | Microsoft Docs
+title: Selección de imágenes de máquinas virtuales con la CLI de Azure
 description: Obtenga información sobre cómo usar la CLI de Azure para determinar el publicador, la oferta, la SKU y la versión para imágenes de VM de Marketplace.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bbe98c4ad3a1b737b9df0d2ea53d53875f26ba54
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: e4dd51640c4eeda2ec99c14812a534ee506faeda
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668364"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036862"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Búsqueda de imágenes de maquina virtual Linux en Azure Marketplace con la CLI de Azure
 

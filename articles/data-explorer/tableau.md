@@ -3,16 +3,16 @@ title: Use la conexión de conectividad abierta de bases de datos (ODBC) a Azure
 description: En este artículo, aprenderá a usar una conexión de conectividad abierta de bases de datos (ODBC) a Azure Data Explorer para visualizar datos con Tableau.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: a0948ae35a5c23768df117979db819861ac64529
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dd8fbd761a3442536919e17bae5465adf6b945f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66499090"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023861"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-tableau"></a>Visualización de datos de Azure Data Explorer en Tableau
 

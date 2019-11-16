@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: f01758c70e52f96fcd22a94e9b83f910cbf200c9
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b5a037eaf310aa28c76d831dc9fe56eefaddbe56
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035865"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123467"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autorización del acceso a Azure Event Hubs
 Cada vez que se publican o consumen eventos o datos de un centro de eventos, el cliente intenta obtener acceso a recursos de Event Hubs. Todas las solicitudes a un recurso seguro deben estar autorizadas para que el servicio pueda garantizar que el cliente tenga los permisos necesarios para publicar o consumir los datos. 
@@ -28,7 +28,7 @@ Consulte los siguientes artículos para más información sobre la autenticació
 - [Autenticación de solicitudes para Azure Event Hubs mediante Azure Active Directory](authenticate-application.md)
 - [Autorización del acceso a recursos de Event Hubs mediante Azure Active Directory](authorize-access-azure-active-directory.md)
 
-## <a name="share-access-signatures"></a>Firmas de acceso compartido 
+## <a name="shared-access-signatures"></a>Firmas de acceso compartido 
 Las firmas de acceso compartido (SAS) para recursos de Event Hubs proporcionan un acceso delegado limitado a recursos de Event Hubs. Agregar restricciones al período de validez de la firma o a los permisos que concede proporciona flexibilidad para administrar los recursos. Para más información, consulte [Autenticación de firmas de acceso compartido (SAS)](authenticate-shared-access-signature.md). 
 
 La autorización de usuarios o aplicaciones mediante un token de OAuth 2.0 devuelto por Azure AD proporciona una seguridad superior y facilidad de uso sobre las firmas de acceso compartido (SAS). Con Azure AD, no hay necesidad de almacenar tokens de acceso con su código y arriesgarse a posibles puntos vulnerables de seguridad. Aunque puede seguir usando firmas de acceso compartido (SAS) para conceder acceso específico a los recursos de Event Hubs, Azure AD ofrece funcionalidades similares sin necesidad de administrar tokens de SAS ni preocuparse sobre cómo revocar una SAS en peligro. 

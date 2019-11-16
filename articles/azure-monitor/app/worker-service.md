@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cijothomas
 ms.author: cithomas
 ms.date: 09/15/2019
-ms.openlocfilehash: ccc7218575638c7ede2c56a99e41dd68cbd475c0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5f812d5fe1b25358a0bf09ebf879569ae29b33f3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899227"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131890"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para las aplicaciones de servicio de trabajo (aplicaciones sin HTTP)
 
@@ -360,7 +360,7 @@ Configuraciones que se suelen usar en `ApplicationInsightsServiceOptions`
 |EnableHeartbeat | Habilitar o deshabilitar la característica de latidos, que periódicamente (cada 15 minutos de forma predeterminada) envía una métrica personalizada denominada "HeartBeatState" con información sobre el entorno de ejecución, por ejemplo, la versión de .NET, información del entorno de Azure, si procede, etc. | true
 |AddAutoCollectedMetricExtractor | Habilitar o deshabilitar el extractor de AutoCollectedMetrics, que es un elemento TelemetryProcessor que envía métricas previamente agregadas sobre las solicitudes o dependencias antes de que tenga lugar el muestreo. | true
 
-Consulte los [valores configurables en `ApplicationInsightsServiceOptions` ](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) para obtener la lista más actualizada.
+Consulte los [valores configurables en `ApplicationInsightsServiceOptions` ](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) para obtener la lista más actualizada.
 
 ### <a name="sampling"></a>muestreo
 
@@ -368,7 +368,7 @@ El SDK de Application Insights para el servicio de trabajo admite el muestreo ad
 
 ### <a name="adding-telemetryinitializers"></a>Adición de TelemetryInitializers
 
-Use [inicializadores de telemetría](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) cuando quiera definir propiedades para que se envíen con toda la telemetría.
+Use [inicializadores de telemetría](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) cuando quiera definir propiedades para que se envíen con toda la telemetría.
 
 Agregue cualquier `TelemetryInitializer` nuevo al contenedor `DependencyInjection` y el SDK lo agregará automáticamente a `TelemetryConfiguration`.
 
@@ -406,7 +406,7 @@ Los inicializadores de telemetría están presentes de forma predeterminada. Par
 
 ### <a name="adding-telemetry-processors"></a>Adición de procesadores de telemetría
 
-Puede agregar procesadores de telemetría personalizados a `TelemetryConfiguration` mediante el método de extensión `AddApplicationInsightsTelemetryProcessor` en `IServiceCollection`. Puede usar los procesadores de telemetría en [escenarios de filtrado avanzado](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) para permitir un control más directo sobre lo que se incluirá o excluirá de la telemetría que envía al servicio Application Insights. Use el ejemplo siguiente.
+Puede agregar procesadores de telemetría personalizados a `TelemetryConfiguration` mediante el método de extensión `AddApplicationInsightsTelemetryProcessor` en `IServiceCollection`. Puede usar los procesadores de telemetría en [escenarios de filtrado avanzado](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer) para permitir un control más directo sobre lo que se incluirá o excluirá de la telemetría que envía al servicio Application Insights. Use el ejemplo siguiente.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)

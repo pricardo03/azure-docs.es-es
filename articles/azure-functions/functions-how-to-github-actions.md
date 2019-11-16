@@ -7,19 +7,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 483ac9380fa8d58f294112cb6c80e0393fa01589
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 681d7a5eab3306a4067ea49bcf8a038e8627f60e
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028966"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091378"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega continua con Acciones de GitHub
 
 [Acciones de GitHub](https://github.com/features/actions) le permite definir un flujo de trabajo para crear e implementar automáticamente su código de funciones en la aplicación de funciones de Azure. 
-
-> [!IMPORTANT]  
-> Acciones de GitHub está actualmente en versión beta. Primero debe [registrarse para unirse a la versión preliminar](https://github.com/features/actions) mediante su cuenta de GitHub.
 
 En Acciones de GitHub, un [flujo de trabajo](https://help.github.com/articles/about-github-actions#workflow) es un proceso automatizado que define en su repositorio de GitHub. Este proceso indica a GitHub cómo crear e implementar su proyecto de aplicación de funciones en GitHub. 
 
@@ -33,6 +30,9 @@ Para un flujo de trabajo de Azure Functions, el archivo tiene tres secciones:
 | **Compilar** | <ol><li>Configure el entorno.</li><li>Compile la aplicación de función.</li></ol> |
 | **Implementación** | <ol><li>Implemente la aplicación de función.</li></ol>|
 
+> [!NOTE]
+> No es necesario crear una entidad de servicio si decide usar el perfil de publicación para la autenticación.
+
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
 Puede crear una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com) en Azure Portal o seleccionando el botón **Pruébelo**.
@@ -42,9 +42,6 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 ```
 
 En este ejemplo, reemplace los marcadores de posición del recurso por su identificador de suscripción, grupo de recursos y nombre de la aplicación de función. La salida son las credenciales de asignación de roles que proporcionan acceso a su aplicación de funciones. Copie este objeto JSON, el cual puede usar para autenticarse desde GitHub.
-
-> [!NOTE]
-> No es necesario crear una entidad de servicio si decide usar el perfil de publicación para la autenticación.
 
 > [!IMPORTANT]
 > Siempre es recomendable conceder acceso mínimo. Es por ello que el ámbito del ejemplo anterior se limita a la aplicación de funciones específica y no a todo el grupo de recursos.
@@ -218,7 +215,7 @@ En el siguiente ejemplo se usa la versión 1 de la `functions-action`:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver un flujo de trabajo completo .yaml, consulte uno de los archivos del [repositorio de ejemplos de flujo de trabajo de Acciones de GitHub de Azure](https://github.com/Azure/actions-workflow-samples) con `functionapp` en el nombre. Puede usar estos ejemplos como punto de partida para su flujo de trabajo.
+Para ver un flujo de trabajo completo .yaml, consulte uno de los archivos del [repositorio de ejemplos de flujo de trabajo de Acciones de GitHub de Azure](https://aka.ms/functions-actions-samples) con `functionapp` en el nombre. Puede usar estos ejemplos como punto de partida para su flujo de trabajo.
 
 > [!div class="nextstepaction"]
 > [Más información sobre Acciones de GitHub](https://help.github.com/en/articles/about-github-actions)

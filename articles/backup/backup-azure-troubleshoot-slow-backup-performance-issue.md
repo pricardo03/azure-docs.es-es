@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 16a8eb4eea4e5e1e3bb49049c49d73adb99eef55
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: c56ddf04b98cc2b38e023714fcb0ffc5452236f2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688630"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074911"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas en Azure Backup
+
 Este artículo proporciona una guía para la solución de problemas que le ayudará a diagnosticar la causa de un rendimiento lento en la copia de seguridad de archivos y carpetas cuando se usa Azure Backup. Si se utiliza el agente de Azure Backup para hacer copia de seguridad de los archivos, el proceso puede tardar más de lo esperado. Este problema puede deberse a uno o a varios de los siguientes motivos:
 
 * [Hay cuellos de botella que afectan al rendimiento del equipo en el que se realiza la copia de seguridad](#cause1)
@@ -32,6 +33,7 @@ También recomendamos encarecidamente que revise el artículo [P+F de servicio d
 <a id="cause1"></a>
 
 ## <a name="cause-performance-bottlenecks-on-the-computer"></a>Causa: Cuellos de botella que afectan al rendimiento del equipo.
+
 Los cuellos de botella del equipo en el que se realiza la copia de seguridad pueden provocar retrasos. Por ejemplo, la capacidad del equipo para leer o escribir en el disco, o el ancho de banda disponible para enviar datos a través de la red pueden provocar cuellos de botella.
 
 Windows proporciona una herramienta integrada que se denomina [Monitor de rendimiento de](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) para detectar cuellos de botella.
@@ -56,6 +58,7 @@ Estos son algunos contadores de rendimiento e intervalos que pueden resultar út
 <a id="cause2"></a>
 
 ## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Causa: Otro proceso o software antivirus que interfiere con Azure Backup
+
 Se han detectado varios ejemplos en los que otros procesos del sistema de Windows han afectado negativamente al rendimiento del proceso del agente de Azure Backup. Por ejemplo, si utiliza el agente de Azure Backup y otro programa para realizar copias de seguridad de los datos o si se ejecuta un software antivirus que tiene bloqueados los archivos de los que se va a realizar la copia de seguridad, estos bloqueos de varios archivos podrían causar una contención. En esta situación, se podría producir un error en la copia de seguridad o el trabajo podría tardar más de lo esperado.
 
 La mejor recomendación en este escenario consiste en desactivar el otro programa de copia de seguridad para ver si cambia el tiempo de copia de seguridad del agente de Azure Backup. Normalmente, para evitar que unos trabajos de copia de seguridad afecten a otros es suficiente asegurarse de que no se ejecuta varios trabajos al mismo tiempo.
@@ -69,11 +72,13 @@ En el caso de los programas antivirus, se recomienda que excluya los siguientes 
 <a id="cause3"></a>
 
 ## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Causa: El agente de copia de seguridad que se ejecuta en una máquina virtual de Azure
+
 Si el agente de Copia de seguridad se ejecuta en una máquina virtual, el rendimiento será peor que si lo hace en una máquina física. Esto se debe a limitaciones de IOPS.  Sin embargo, el rendimiento se puede optimizar mediante el cambio de las unidades de datos de las que se realiza la copia de seguridad a Azure Premium Storage. Estamos trabajando para solucionar este problema y dicha solución estará disponible en futuras versiones.
 
 <a id="cause4"></a>
 
 ## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Causa: Se realiza una copia de seguridad de un número elevado (varios millones) de archivos.
+
 El movimiento de un gran volumen de datos tarda más tiempo en realizarse el de un volumen más pequeño. En algunos casos, el tiempo que tarda en realizarse una copia de seguridad está relacionado no solo con el tamaño de los datos, sino también con el número de archivos o carpetas. Esto sucede especialmente cuando se realizan copias de seguridad de millones de archivos pequeños (que tienen entre unos pocos bytes y unos pocos kilobytes).
 
 Este comportamiento se produce porque mientras se realiza la copia de seguridad de los datos y su movimiento a Azure, Azure está catalogando los archivos. En algunos casos poco frecuentes, la operación de catálogo puede tardar más tiempo del esperado.

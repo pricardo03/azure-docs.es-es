@@ -1,5 +1,5 @@
 ---
-title: Servicio de metadatos de instancia de Azure | Microsoft Docs
+title: Servicio de metadatos de instancia de Azure
 description: Interfaz RESTful para obtener información sobre proceso, red y próximos eventos de mantenimiento de la máquina virtual Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 658830e37a453075100cd3aaf132bb1d3aedfaea
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 4e411d986ffe88c0cf498262688afd2ecc71e51c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240392"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038523"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -343,7 +343,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 Datos | DESCRIPCIÓN | Versión de introducción
 -----|-------------|-----------------------
-attested | Consulte [Datos atestiguados](#attested-data) | 01 de octubre de 2018
+attested | Consulte [Datos atestiguados](#attested-data) | 2018-10-01
 identity | Identidades administradas de recursos de Azure. Consulte [Obtener un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 instance | Vea [API de instancia](#instance-api). | 2017-04-02
 scheduledevents | Consulte [Scheduled Events](scheduled-events.md). | 2017-08-01
@@ -356,7 +356,7 @@ scheduledevents | Consulte [Scheduled Events](scheduled-events.md). | 2017-08-01
 
 Datos | DESCRIPCIÓN | Versión de introducción
 -----|-------------|-----------------------
-azEnvironment | Entorno de Azure donde se está ejecutando la máquina virtual | 01 de octubre de 2018
+azEnvironment | Entorno de Azure donde se está ejecutando la máquina virtual | 2018-10-01
 customData | Vea [Datos personalizados](#custom-data). | 01-02-2019
 location | La región de Azure donde se ejecuta la máquina virtual | 2017-04-02
 Nombre | Nombre de la máquina virtual | 2017-04-02
@@ -366,7 +366,7 @@ placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-sca
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) que contiene el nombre, el producto y el editor de una máquina virtual si es una imagen de Azure Marketplace | 2018-04-02
 platformUpdateDomain |  El [dominio de actualización](manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
 platformFaultDomain | El [dominio de error](manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
-provider | Proveedor de la máquina virtual | 01 de octubre de 2018
+provider | Proveedor de la máquina virtual | 2018-10-01
 publicKeys | [Colección de claves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) asignada a la máquina virtual y rutas de acceso | 2018-04-02
 publisher | Publicador de la imagen de VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para su máquina virtual | 2017-08-01

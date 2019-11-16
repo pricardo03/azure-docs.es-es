@@ -4,15 +4,13 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08/29/2019
-ms.openlocfilehash: 75eebdf1e7628bc9c38305b7f11d4fc69af031b9
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 29cf947d1e9d26460dc34a6417e76b68bb75e9dc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391791"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005487"
 ---
-# <a name="save-costs-with-azure-reserved-vm-instances"></a>Ahorro de costos con Azure Reserved VM Instances
-
 Cuando haga "commit" a una instancia reservada de VM de Azure, puede ahorrar dinero. El descuento de la reserva se aplica automáticamente el número de máquinas virtuales en ejecución que coincidan con el ámbito y los atributos de la reserva. No es necesario asignar una reserva a una máquina virtual para obtener los descuentos. Una compra de instancia reservada cubre solo la parte de proceso del uso de la máquina virtual. En el caso de las máquinas virtuales Windows, el medidor de uso se divide en dos medidores independientes. Hay un medidor de proceso, que es el mismo que el medidor de Linux, y un medidor de IP de Windows. Los cargos que verá al hacer la compra son solo por los costos de proceso. Los cargos no incluyen los costos de software de Windows. Para obtener más información sobre los costos de software, consulte los [costos de software no incluidos en Azure Reserved Virtual Machine Instances](../articles/billing/billing-reserved-instance-windows-software-costs.md).
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>Determinación del tamaño adecuado de una máquina virtual antes de su adquisición

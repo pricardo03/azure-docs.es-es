@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 166ff5f8866fca955cbe99c5896eb509f52261f6
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 225f26ac2133f45fe7eba9e39d64d0cfe9e20766
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219550"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885298"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
@@ -917,7 +917,7 @@ La directiva `trace` agrega un seguimiento personalizado a la salida de la inspe
 
 * La directiva agrega un seguimiento personalizado a la salida de la [inspección de la API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) cuando se desencadena el seguimiento, es decir, cuando el encabezado de solicitud `Ocp-Apim-Trace` está presente y establecido en true y el encabezado de solicitud `Ocp-Apim-Subscription-Key` está presente y contiene una clave válida que permite el seguimiento. 
 * La directiva crea una telemetría [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) en Application Insights cuando está habilitada la integración de [Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) y el nivel de `severity` especificado en la directiva es mayor o igual que el nivel de `verbosity` especificado en la configuración de diagnóstico. 
-* La directiva agrega una propiedad en la entrada del registro cuando se habilitan los [registros de diagnóstico](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) y el nivel de gravedad especificado en la directiva es o igual o mayor que el nivel de detalle especificado en la configuración de diagnóstico.  
+* La directiva agrega una propiedad en la entrada del registro cuando se habilitan los [registros de diagnóstico](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) y el nivel de gravedad especificado en la directiva es o igual o mayor que el nivel de detalle especificado en la configuración de diagnóstico.  
 
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
@@ -946,7 +946,7 @@ La directiva `trace` agrega un seguimiento personalizado a la salida de la inspe
 | ------- | ------------- | -------- |
 | trace   | Elemento raíz. | Sí      |
 | message | Cadena o expresión que se va a registrar. | Sí |
-| metadata | Agrega una propiedad personalizada a la telemetría [Trace](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-trace-telemetry) de Application Insights. | Sin |
+| metadata | Agrega una propiedad personalizada a la telemetría [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) de Application Insights. | Sin |
 
 ### <a name="attributes"></a>Atributos
 

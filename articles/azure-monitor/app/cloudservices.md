@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: d77bbe355b3f6a2666f46246d1d12cfb2e43e559
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 860694a750ae313f04aceab924429dcf08ecbb66
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677578"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887537"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 [Application Insights][start] puede supervisar las [aplicaciones de Azure Cloud Service](https://azure.microsoft.com/services/cloud-services/) para comprobar la disponibilidad, el rendimiento, los errores y el uso al combinar datos de los SDK de Application Insights con datos de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de los servicios en la nube. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
@@ -57,7 +57,7 @@ Cada recurso pertenece a un grupo de recursos. Los grupos de recursos se usan pa
 ### <a name="resources-for-components"></a>Recursos para componentes
 Le recomendamos que cree un recurso independiente para cada componente de la aplicación. Es decir, crear un recurso para cada rol web y rol de trabajo. Puede analizar cada componente por separado, pero crear un [panel](../../azure-monitor/app/overview-dashboard.md) que reúna los gráficos de clave de todos los componentes, de modo que pueda compararlos y supervisarlos conjuntamente de un solo vistazo. 
 
-Un enfoque alternativo consiste en enviar la telemetría de más de un rol al mismo recurso, pero [agregar una propiedad de dimensión para cada elemento de telemetría](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) que identifique su rol de origen. En este enfoque, los gráficos de métricas, como las excepciones, normalmente muestran una agregación de las cuentas de diferentes roles, pero puede segmentar el gráfico por el identificador de rol cuando sea necesario. También se pueden filtrar las búsquedas por la misma dimensión. Esta alternativa hace un poco más fácil el poder ver todo al mismo tiempo, pero también puede causar confusión entre los roles.
+Un enfoque alternativo consiste en enviar la telemetría de más de un rol al mismo recurso, pero [agregar una propiedad de dimensión para cada elemento de telemetría](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) que identifique su rol de origen. En este enfoque, los gráficos de métricas, como las excepciones, normalmente muestran una agregación de las cuentas de diferentes roles, pero puede segmentar el gráfico por el identificador de rol cuando sea necesario. También se pueden filtrar las búsquedas por la misma dimensión. Esta alternativa hace un poco más fácil el poder ver todo al mismo tiempo, pero también puede causar confusión entre los roles.
 
 La telemetría del explorador suele incluirse en el mismo recurso que su rol web de lado servidor.
 

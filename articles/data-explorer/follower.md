@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: a46cf78d902ec8391d7dc3667a6d66daa78927ab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2306b6cbdd347e3be9921b196ae06385ef5ca90a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828387"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083193"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Uso de la base de datos del seguidor para adjuntar bases de datos en Azure Data Explorer
 
@@ -242,7 +242,7 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### <a name="manage-principals"></a>Administración de entidades de seguridad
 
-Al adjuntar una base de datos, especifique el valor del **tipo de modificación de las entidades de seguridad predeterminadas**. El valor predeterminado es mantener la colección de bases de datos del responsable de [entidades de seguridad autorizadas](/azure/kusto/management/access-control/index.md#authorization).
+Al adjuntar una base de datos, especifique el valor del **tipo de modificación de las entidades de seguridad predeterminadas**. El valor predeterminado es mantener la colección de bases de datos del responsable de [entidades de seguridad autorizadas](/azure/kusto/management/access-control/index#authorization).
 
 |**Variante** |**Descripción**  |
 |---------|---------|
@@ -250,7 +250,7 @@ Al adjuntar una base de datos, especifique el valor del **tipo de modificación 
 |**Sustituya**   |    No se heredan las entidades de seguridad de la base de datos original. Se deben crear nuevas entidades de seguridad para la base de datos adjunta. Se debe agregar al menos una entidad de seguridad para bloquear la herencia de la entidad de seguridad.     |
 |**None**   |   Las entidades de seguridad de bases de datos adjuntas incluyen solo las entidades de seguridad de la base de datos original sin entidades de seguridad adicionales.      |
 
-Para obtener más información sobre el uso de comandos de control para configurar las entidades de seguridad autorizadas, vea [Comandos de control para administrar el clúster de un seguidor](/azure/kusto/management/cluster-follower.md).
+Para obtener más información sobre el uso de comandos de control para configurar las entidades de seguridad autorizadas, vea [Comandos de control para administrar el clúster de un seguidor](/azure/kusto/management/cluster-follower).
 
 ### <a name="manage-permissions"></a>Administración de permisos
 
@@ -258,7 +258,7 @@ La administración de los permisos de bases de datos de solo lectura es igual qu
 
 ### <a name="configure-caching-policy"></a>Configuración de la directiva de almacenamiento en caché
 
-El administrador de la base de datos del seguidor puede modificar la [directiva de almacenamiento en caché](/azure/kusto/management/cache-policy) de la base de datos adjunta o de cualquiera de sus tablas en el clúster de hospedaje. El procedimiento predeterminado es mantener la colección de bases de datos del responsable de las directivas de almacenamiento en caché de nivel de tabla y base de datos. Por ejemplo, puede tener una directiva de almacenamiento en caché de 30 días en la base de datos del responsable para realizar informes mensuales y una directiva de almacenamiento en caché de tres días en la base de datos del seguidor para consultar solo los datos recientes si necesita solucionar problemas. Para obtener más información sobre el uso de comandos de control para configurar la directiva de almacenamiento en caché en la tabla o la base de datos del seguidor, vea [Comandos de control para administrar el clúster de un seguidor](/azure/kusto/management/cluster-follower.md).
+El administrador de la base de datos del seguidor puede modificar la [directiva de almacenamiento en caché](/azure/kusto/management/cache-policy) de la base de datos adjunta o de cualquiera de sus tablas en el clúster de hospedaje. El procedimiento predeterminado es mantener la colección de bases de datos del responsable de las directivas de almacenamiento en caché de nivel de tabla y base de datos. Por ejemplo, puede tener una directiva de almacenamiento en caché de 30 días en la base de datos del responsable para realizar informes mensuales y una directiva de almacenamiento en caché de tres días en la base de datos del seguidor para consultar solo los datos recientes si necesita solucionar problemas. Para obtener más información sobre el uso de comandos de control para configurar la directiva de almacenamiento en caché en la tabla o la base de datos del seguidor, vea [Comandos de control para administrar el clúster de un seguidor](/azure/kusto/management/cluster-follower).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -270,4 +270,4 @@ El administrador de la base de datos del seguidor puede modificar la [directiva 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre la configuración del clúster del seguidor, consulte [Comandos de control para administrar el clúster de un seguidor](/azure/kusto/management/cluster-follower.md).
+* Para obtener información sobre la configuración del clúster del seguidor, consulte [Comandos de control para administrar el clúster de un seguidor](/azure/kusto/management/cluster-follower).

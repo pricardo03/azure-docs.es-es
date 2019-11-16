@@ -1,5 +1,5 @@
 ---
-title: Extensión de Linux de instantánea de máquina virtual para Azure Backup | Microsoft Docs
+title: Extensión de Linux de instantánea de máquina virtual para Azure Backup
 description: Realice una copia de seguridad coherente con la aplicación de la máquina virtual desde Azure Backup mediante la extensión de instantánea de máquina virtual
 services: backup, virtual-machines-linux
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: e0e959647231fb87c023dcb5c4c48a205259de74
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 186468119fb5b630b56a91b38026f202b98630d6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705845"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072923"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Extensión de Linux de instantánea de máquina virtual para Azure Backup
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 903fd2309949036b62fb4975596fb645c021d06d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 847c56faae61483813286c46190764327e287783
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535036"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887250"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métricas basadas en registros de Application Insights
 
@@ -225,7 +225,7 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Solicitudes con error (requests/failed)
 
-Recuento de solicitudes de servidor de las que se ha realizado un seguimiento y que se marcaron como *errores*. De forma predeterminada, el SDK de Application Insights marca automáticamente cada solicitud de servidor que devolvió el código de respuesta HTTP 5xx o 4xx como una solicitud con error. Para personalizar esta lógica, puede modificar la propiedad *success* del elemento de telemetría de la solicitud en un [inicializador de telemetría personalizado](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Recuento de solicitudes de servidor de las que se ha realizado un seguimiento y que se marcaron como *errores*. De forma predeterminada, el SDK de Application Insights marca automáticamente cada solicitud de servidor que devolvió el código de respuesta HTTP 5xx o 4xx como una solicitud con error. Para personalizar esta lógica, puede modificar la propiedad *success* del elemento de telemetría de la solicitud en un [inicializador de telemetría personalizado](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Unidad de medida|Agregaciones compatibles|Dimensiones previamente agregadas|Notas|
 |---|---|---|---|

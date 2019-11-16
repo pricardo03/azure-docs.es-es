@@ -1,5 +1,5 @@
 ---
-title: Extensión de máquina virtual de Azure Monitor para Windows | Microsoft Docs
+title: Extensión de máquina virtual de Azure Monitor para Windows
 description: Implemente el agente de Log Analytics en la máquina virtual Windows con una extensión de máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
 ms.author: akjosh
-ms.openlocfilehash: fe8bafcb63c1a27b905bdc339c07d30c9f0a5982
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: c9fd62e57d131fb21e657c53914f9cd5349107ec
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168916"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073677"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Azure Monitor para Windows
 

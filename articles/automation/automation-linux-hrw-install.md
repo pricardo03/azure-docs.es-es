@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 360fa750da054f9b126a8694f3dd2ce4b0b417b7
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 8e497d18e39a199f34ff76b11b0e6c2c213f35fb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240304"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129854"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -54,7 +54,7 @@ Estos son los requisitos mínimos de Hybrid Runbook Worker en Linux:
 |Python ctypes | Python 2.x es obligatorio |
 |PAM | Módulos de autenticación conectables|
 | **Paquete opcional** | **Descripción** | **Versión mínima**|
-| PowerShell Core | Para ejecutar runbooks de PowerShell, PowerShell debe estar instalado; consulte [Instalación de PowerShell Core en Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) para más información sobre cómo instalarlo.  | 6.0.0 |
+| PowerShell Core | Para ejecutar runbooks de PowerShell, PowerShell debe estar instalado; consulte [Instalación de PowerShell Core en Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para más información sobre cómo instalarlo.  | 6.0.0 |
 
 ### <a name="installation"></a>Instalación
 
@@ -106,7 +106,7 @@ Los siguientes tipos de runbook funcionan en instancias de Hybrid Worker Linux:
 * PowerShell
 
   > [!NOTE]
-  > Los runbooks de PowerShell requieren que PowerShell Core esté instalado en el equipo Linux. Consulte [Instalación de PowerShell Core en Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) para obtener información sobre cómo instalarlo.
+  > Los runbooks de PowerShell requieren que PowerShell Core esté instalado en el equipo Linux. Consulte [Instalación de PowerShell Core en Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para obtener información sobre cómo instalarlo.
 
 Los siguientes tipos de runbook no funcionan en instancias de Hybrid Worker en Linux:
 

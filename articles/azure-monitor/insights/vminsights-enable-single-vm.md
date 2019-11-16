@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/09/2019
-ms.openlocfilehash: 1182f48d2d05c90cc90b1832f9305001dd2d1211
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/14/2019
+ms.openlocfilehash: 3ab3164db7702566e62b2eedf2a9a03e9f7fb55c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553820"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109131"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>Habilitación de Azure Monitor para VM (versión preliminar) con fines de evaluación
 
@@ -33,7 +33,7 @@ Para habilitar la supervisión de la VM de Azure:
 
 1. En la página **Insights (versión preliminar)** , seleccione **Probar ahora**.
 
-    ![Habilitar Azure Monitor para VM para una máquina virtual](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Habilitar Azure Monitor para VM para una máquina virtual](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 1. En la página **Azure Monitor Insights Onboarding** (Incorporación a Insights de Azure Monitor), si tiene un área de trabajo de Log Analytics existente en la misma suscripción, selecciónela en la lista desplegable.  
 
@@ -62,7 +62,7 @@ Para habilitar la supervisión del conjunto de escalado de máquinas virtuales d
 
     La lista preselecciona el área de trabajo y la ubicación predeterminadas en las que se implementa la VM en la suscripción. 
 
-    ![Habilitación de Azure Monitor para VM para un conjunto de escalado de máquinas virtuales](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
+    ![Habilitación de Azure Monitor para VM para un conjunto de escalado de máquinas virtuales](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal.png)
 
     >[!NOTE]
     >Para crear un área de trabajo de Log Analytics nueva para almacenar los datos de supervisión del conjunto de escalado de máquinas virtuales, vea [Creación de un área de trabajo de Log Analytics en Azure Portal](../learn/quick-create-workspace.md). El área de trabajo de Log Analytics debe pertenecer a una de las [regiones admitidas](vminsights-enable-overview.md#log-analytics).
@@ -78,6 +78,5 @@ Ahora que ha habilitado la supervisión para la VM o el conjunto de escalado de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre cómo usar la característica de mantenimiento, consulte [Descripción del mantenimiento de las máquinas virtuales de Azure](vminsights-health.md). 
 * Para ver las dependencias de las aplicaciones detectadas, consulte [Use la característica de asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](vminsights-maps.md). 
 * Para identificar los cuellos de botella, el uso general y el rendimiento de la máquina virtual, vea [Cómo representar el rendimiento en gráficos con Azure Monitor para VM (versión preliminar)](vminsights-performance.md).

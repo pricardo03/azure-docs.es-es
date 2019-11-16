@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 9bc01e0e703ea9f98d877be39011dcca7c7b284a
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 4fc0654aab1c68888e86dc95de658bc69a01e02d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521422"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123979"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center-preview"></a>Integración de Azure Kubernetes Services con Security Center (versión preliminar)
 Azure Kubernetes Service (AKS) es un servicio que administra Microsoft y que le permite desarrollar, implementar y administrar las aplicaciones en contenedores. 
@@ -41,7 +41,7 @@ Si usa de forma conjunta estos dos servicios, obtendrá lo siguiente:
 
 * **Sistema de protección del entorno**: Security Center supervisa constantemente la configuración de los clústeres de Kubernetes y genera recomendaciones de seguridad que reflejan los estándares del sector.
 
-* **Protección en tiempo de ejecución**: gracias al análisis continuo de los siguientes orígenes de AKS, Security Center le alerta de las amenazas y actividades malintencionadas que se detectan en el host *y* el nivel de clúster de AKS (para obtener más información, consulte [Azure Container Service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-container-service-)):
+* **Protección en tiempo de ejecución**: gracias al análisis continuo de los siguientes orígenes de AKS, Security Center le alerta de las amenazas y actividades malintencionadas que se detectan en el host *y* el nivel de clúster de AKS (para obtener más información, consulte [Azure Container Service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)):
     * Eventos de seguridad sin procesar, como datos de red y creación de procesos
     * Registro de auditoría de Kubernetes
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: ca9b4b337eed54f02f42cad53d22387eace6b76c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694710"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124015"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -58,7 +58,7 @@ Si no tiene ningún rol que conceda permisos para la capa de administración, el
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>¿Qué sucede si no puedo obtener los permisos de la capa de administración que necesito de mi administrador?
 
-Actualmente no tenemos una solución relacionada con RBAC para este problema. Como alternativa, puede solicitar un URI de SAS para que se [adjunte al recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+Actualmente no tenemos una solución relacionada con RBAC para este problema. Como alternativa, puede solicitar un URI de SAS para que se [adjunte al recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error: certificado autofirmado en la cadena de certificados (y errores similares)
 

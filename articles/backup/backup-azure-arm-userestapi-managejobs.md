@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: c0ce79c68b9d9cf11ea20c2d6469f4240fb38a95
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5fe0255a8f304061dc970907c651261832fee614
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747544"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929100"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Seguimiento de los trabajos de copia de seguridad y restauración mediante API REST
 
@@ -44,7 +44,7 @@ El trabajo de copia de seguridad de las máquinas virtuales de Azure se identifi
 ## <a name="tracking-the-job"></a>Seguimiento del trabajo
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2017-07-01
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
 El `{jobName}` es el "jobId" mencionado anteriormente. La respuesta es siempre 200 (OK) y el campo "status" indica el estado actual del trabajo. Una vez pasa a "Completed" o "CompletedWithWarnings", la sección "extendedInfo" revela más detalles sobre el trabajo.

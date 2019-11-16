@@ -3,16 +3,16 @@ title: Procedimientos recomendados para usar Power BI para consultar y visualiz
 description: En este artículo, aprenderá los procedimientos recomendados para usar Power BI para consultar y visualizar los datos de Azure Data Explorer.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 39fab02ebc3a80e0aae34a86a1a6b7f3f46c96f3
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: db1d530c9cab77ae612c83a0d4f52478fb9ee270
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286751"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024030"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Procedimientos recomendados para usar Power BI para consultar y visualizar datos de Azure Data Explorer
 

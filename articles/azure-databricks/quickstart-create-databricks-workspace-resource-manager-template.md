@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 3af9c5e728bd119ce6c5546c8dc6556967cd1eda
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 83dc18424bc8606eff9a735b76cdaa09e381d588
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606104"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129362"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Guía de inicio rápido: Ejecución de un trabajo de Spark en Azure Databricks con una plantilla de Azure Resource Manager
 
@@ -81,7 +81,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante una p
 
    Seleccione **Create cluster** (Crear clúster). Una vez que el clúster se está ejecutando, puede asociarle notebooks y ejecutar trabajos de Spark.
 
-Para obtener más información sobre la creación de clústeres, consulte [Create a Spark cluster in Azure Databricks](/azure/databricks/user-guide/clusters/create) (Creación de un clúster de Spark en Azure Databricks).
+Para obtener más información sobre la creación de clústeres, consulte [Create a Spark cluster in Azure Databricks](/azure/databricks/clusters/create) (Creación de un clúster de Spark en Azure Databricks).
 
 ## <a name="run-a-spark-sql-job"></a>Ejecución de un trabajo de Spark SQL
 
@@ -126,7 +126,7 @@ Realice las tareas siguientes para crear un cuaderno en Databricks, configúrelo
      Para obtener instrucciones acerca de cómo recuperar la clave de la cuenta de almacenamiento, consulte [Administración de claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys).
 
    > [!NOTE]
-   > También puede usar Azure Data Lake Store con un clúster de Spark en Azure Databricks. Para obtener instrucciones, consulte [Use Data Lake Store with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html) (Uso de Data Lake Store con Azure Databricks).
+   > También puede usar Azure Data Lake Store con un clúster de Spark en Azure Databricks. Para obtener instrucciones, consulte [Use Data Lake Store with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) (Uso de Data Lake Store con Azure Databricks).
 
 4. Ejecute una instrucción SQL para crear una tabla temporal con datos desde el archivo de datos JSON de ejemplo, **small_radio_json.json**. En el siguiente fragmento de código, reemplace los valores del marcador de posición con el nombre del contenedor y el nombre de la cuenta de almacenamiento. Pegue el fragmento de código en una celda vacía del notebook y, después, presione MAYÚS + ENTRAR. En el fragmento de código, `path` indica la ubicación del archivo JSON de ejemplo que cargó en su cuenta de Azure Storage.
 
@@ -186,7 +186,7 @@ Si no finaliza manualmente el clúster, este se detendrá automáticamente si se
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, creó un clúster de Spark en Azure Databricks y ejecutó un trabajo de Spark utilizando los datos de Azure Storage. También puede mirar [Spark data sources](/azure/databricks/data/data-sources/index.html) (Orígenes de datos de Spark) para aprender a importar datos desde otros orígenes de datos en Azure Databricks. También puede ver la plantilla de Resource Manager para [crear un área de trabajo de Azure Databricks con dirección VNET personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). Para la sintaxis y las propiedades de JSON que se usan en una plantilla, consulte la referencia de la plantilla [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces).
+En este artículo, creó un clúster de Spark en Azure Databricks y ejecutó un trabajo de Spark utilizando los datos de Azure Storage. También puede mirar [Spark data sources](/azure/databricks/data/data-sources/index) (Orígenes de datos de Spark) para aprender a importar datos desde otros orígenes de datos en Azure Databricks. También puede ver la plantilla de Resource Manager para [crear un área de trabajo de Azure Databricks con dirección VNET personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). Para la sintaxis y las propiedades de JSON que se usan en una plantilla, consulte la referencia de la plantilla [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces).
 
 Vaya al siguiente artículo para aprender cómo realizar una operación ETL (extraer, transformar y cargar datos) mediante Azure Databricks.
 

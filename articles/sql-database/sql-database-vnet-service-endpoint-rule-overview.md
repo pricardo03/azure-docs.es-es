@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 08/27/2019
-ms.openlocfilehash: f171181aa56287561aba3159f5039f70165dc8ab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: faf3573178693ec806000eb89ce7a975955d61b9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807509"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084133"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usar reglas y puntos de conexión de servicio de red virtual para servidores de bases de datos
 
@@ -203,8 +203,6 @@ El error de conexión 40914 se relaciona con *reglas de red virtual*, tal y como
 
 *Resolución de errores:* escriba la dirección IP del cliente como una regla de IP. Para ello, use el panel Firewall de Azure Portal.
 
-Se puede encontrar información de una lista de varios mensajes de error de SQL Database [aquí][sql-database-develop-error-messages-419g].
-
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Se puede crear una regla de red virtual en el portal
@@ -302,8 +300,6 @@ La característica de la regla de red virtual de Azure SQL Database empezó a es
 [rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
-
-[sql-database-develop-error-messages-419g]: sql-database-develop-error-messages.md
 
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]: sql-database-vnet-service-endpoint-rule-powershell.md
 

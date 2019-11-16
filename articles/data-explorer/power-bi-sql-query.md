@@ -3,16 +3,16 @@ title: Visualización de datos desde Azure Data Explorer con una consulta de SQL
 description: 'En este artículo, aprenderá a usar una de las tres opciones de visualización de datos de Power BI: una consulta SQL en un clúster de Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 5378a49ba5a4f3770ec9d9b3f723c063b4ef1a61
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: e4e7858a54f3002a511269a2519135d5ac24ed68
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806431"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024084"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Visualización de datos desde Azure Data Explorer con una consulta de SQL en Power BI
 

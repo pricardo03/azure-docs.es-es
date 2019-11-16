@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7fb436ef8d915898bc8f36dd10766e71f63e4a59
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca34a92dc69cb500efb55f575420d47607cd1a46
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575565"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132215"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configuración de Azure Monitor para las aplicaciones de Python (versión preliminar)
 
@@ -109,7 +109,6 @@ El SDK emplea tres exportadores de Azure Monitor para enviar distintos tipos de 
     tracer = Tracer(
         exporter=AzureExporter(
             connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'),
-        ),
         sampler=ProbabilitySampler(1.0),
     )
 
@@ -215,7 +214,7 @@ El SDK emplea tres exportadores de Azure Monitor para enviar distintos tipos de 
     # TODO: replace the all-zero GUID with your instrumentation key.
     exporter = metrics_exporter.new_metrics_exporter(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+
     view_manager.register_exporter(exporter)
 
     def prompt():
@@ -297,30 +296,6 @@ El SDK emplea tres exportadores de Azure Monitor para enviar distintos tipos de 
 4. El exportador enviará los datos de registro a Azure Monitor. Puede encontrar los datos en `traces`.
 
 5. Para más información sobre cómo enriquecer los registros con los datos de contexto de seguimiento, vea la [integración de registros](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation) de Python para OpenCensus.
-
-## <a name="start-monitoring-in-the-azure-portal"></a>Inicio de la supervisión en Azure Portal
-
-1. Ya puede volver a abrir el panel de **información general** de Application Insights en Azure Portal para ver los detalles de la aplicación en ejecución. Seleccione **Live Metrics Stream**.
-
-   ![Captura de pantalla del panel de información general con "Live Metrics Stream" seleccionado en el cuadro rojo.](./media/opencensus-python/0005-overview-live-metrics-stream.png)
-
-2. Vuelva al panel **Información general**. Seleccione **Mapa de la aplicación** para ver un diseño visual de las relaciones de dependencia y el tiempo de las llamadas entre los componentes de la aplicación.
-
-   ![Captura de pantalla del mapa de aplicación básico](./media/opencensus-python/0007-application-map.png)
-
-   Puesto que solo estábamos realizando el seguimiento de una llamada de método, el mapa de aplicación no nos interesa. No obstante, puede escalarlo para visualizar muchas más aplicaciones distribuidas:
-
-   ![Mapa de aplicación](media/opencensus-python/application-map.png)
-
-3. Seleccione **Investigar el rendimiento** para realizar un análisis detallado del rendimiento y determinar la causa de un rendimiento lento.
-
-   ![Captura de pantalla de los detalles de rendimiento](./media/opencensus-python/0008-performance.png)
-
-4. Para iniciar la experiencia completo de los detalles de la transacción, seleccione **Ejemplos** y, a continuación, elija alguno de los ejemplos que aparecen en el panel derecho. 
-
-   Aunque nuestra aplicación de ejemplo solo nos mostrará un único evento, una aplicación más compleja podría permitirle explorar la transacción completa hasta el nivel de la pila de llamadas de un evento individual.
-
-   ![Captura de pantalla de la interfaz de transacción completa](./media/opencensus-python/0009-end-to-end-transaction.png)
 
 ## <a name="view-your-data-with-queries"></a>Visualización de los datos con consultas
 

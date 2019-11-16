@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 64c99c6e7e33be5856e67db0500bf48123cdcf09
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: cf78712515ab91c66161d04dac0df601c5dcb625
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614480"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082781"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -381,26 +381,6 @@ El desencadenador de Service Bus proporciona varias [propiedades de metadatos](.
 > Actualmente, el desencadenador de Service Bus que funciona con las suscripciones y las colas habilitadas para la sesión está en versión preliminar. Realice un seguimiento de [este elemento](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) para comprobar si hay actualizaciones relacionadas con él. 
 
 Consulte los [ejemplos de código](#trigger---example) que utilizan estas propiedades más arriba en este artículo.
-
-## <a name="trigger---hostjson-properties"></a>Desencadenador: propiedades de host.json
-
-El archivo [host.json](functions-host-json.md#servicebus) contiene opciones de configuración que controlan el comportamiento de desencadenador de Service Bus.
-
-```json
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "maxAutoRenewDuration": "00:05:00"
-    }
-}
-```
-
-|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
-|---------|---------|---------|
-|maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes. Para indicar al entorno de ejecución que procese solo los mensajes de una única cola o tema, establezca `maxConcurrentCalls` en 1. |
-|prefetchCount|N/D|Valor predeterminado de PrefetchCount que utilizará el receptor de mensajes subyacente.|
-|maxAutoRenewDuration|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.|
 
 ## <a name="output"></a>Output
 

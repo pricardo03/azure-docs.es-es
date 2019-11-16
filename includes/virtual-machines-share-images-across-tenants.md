@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cf05468af17a4fafa7c81c7ad8bc89b3306a54af
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286169"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903700"
 ---
-Las galerías de imágenes compartidas le permiten compartir las imágenes mediante RBAC. Puede utilizar RBAC para compartir imágenes dentro de su inquilino e incluso con personas de fuera de él. Pero si quiere compartir las imágenes fuera de su inquilino de Azure, a escala, debe crear un registro de aplicación para facilitar el uso compartido.  Usar un registro de aplicación puede habilitar escenarios de uso compartidos más complejos, como por ejemplo: 
+Pero si quiere compartir las imágenes fuera de su inquilino de Azure, a escala, debe crear un registro de aplicación para facilitar el uso compartido.  Usar un registro de aplicación puede habilitar escenarios de uso compartidos más complejos, como por ejemplo: 
 
 * Administración de imágenes compartidas cuando una compañía adquiere otra y la infraestructura de Azure se distribuye entre inquilinos independientes. 
 * Los asociados de Azure administran la infraestructura de Azure en nombre de sus clientes. La personalización de imágenes se realiza en el inquilino de los asociados, pero las implementaciones de infraestructura se realizarán en el inquilino del cliente. 

@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: b455849c889c463fbda305e690f998d58fab0d8f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ed2e0cf8cc8cd841d8779462d62ba4852774a3a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511529"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083907"
 ---
 # <a name="associate-a-waf-policy-with-an-existing-application-gateway"></a>Asociar una directiva de WAF de Application Gateway existente
 
@@ -53,4 +53,4 @@ Puedes usar Azure PowerShell para [crear una directiva de WAF](create-waf-policy
    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información sobre las Reglas personalizadas.](/configure-waf-custom-rules.md)
+[Más información sobre las Reglas personalizadas.](configure-waf-custom-rules.md)

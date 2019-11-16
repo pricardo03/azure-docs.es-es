@@ -1,5 +1,5 @@
 ---
-title: 'Control del comportamiento de almacenamiento en caché de Azure CDN con cadenas de consulta: nivel premium | Microsoft Docs'
+title: 'Control del comportamiento del almacenamiento en caché de Azure CDN con cadenas de consulta: nivel premium'
 description: El almacenamiento en caché de las cadenas de consulta de Azure CDN controla el modo en que los archivos se almacenan en caché cuando una solicitud web contiene cadenas de consulta. En este artículo se describe el almacenamiento en caché de cadenas de consulta en productos de Azure CDN premium de Verizon.
 services: cdn
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
-ms.openlocfilehash: 2bea8aa06daef5d119b4cbfc4853a2d6ab07ddb7
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 365c52840d281c0f48d17aacc358e4cce513e3b4
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593513"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083091"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con cadenas de consulta: nivel premium
 > [!div class="op_single_selector"]

@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595198"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889783"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar) en Azure Storage
 
@@ -47,8 +47,8 @@ Otras opciones de redundancia de Azure Storage incluyen el almacenamiento con re
 
 Es importante diseñar la aplicación para lograr alta disponibilidad desde el principio. Consulte estos recursos de Azure para instrucciones sobre cómo diseñar la aplicación y planificar la recuperación ante desastres:
 
-* [Diseño de aplicaciones resistentes de Azure](https://docs.microsoft.com/azure/architecture/resiliency/): información general de los conceptos clave para diseñar aplicaciones altamente disponibles en Azure.
-* [Lista de comprobación de disponibilidad](https://docs.microsoft.com/azure/architecture/checklist/availability): lista de comprobación para verificar que la aplicación implementa los mejores procedimientos recomendados para lograr alta disponibilidad.
+* [Diseño de aplicaciones resistentes de Azure](/azure/architecture/checklist/resiliency-per-service): información general de los conceptos clave para diseñar aplicaciones altamente disponibles en Azure.
+* [Lista de comprobación de disponibilidad](/azure/architecture/checklist/resiliency-per-service): lista de comprobación para verificar que la aplicación implementa los mejores procedimientos recomendados para lograr alta disponibilidad.
 * [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md): instrucciones de diseño para compilar aplicaciones para aprovechar RA-GRS.
 * [Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage](../blobs/storage-create-geo-redundant-storage.md): tutorial que muestra cómo compilar una aplicación altamente disponible que cambia entre puntos de conexión de manera automática a medida que se simulan errores y recuperaciones. 
 

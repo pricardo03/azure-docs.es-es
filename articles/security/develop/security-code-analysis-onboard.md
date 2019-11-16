@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8936bc21af951cbabb90188b6a31d610caf80395
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: aaf59de2425e0725958847477f1043a5b7fac68a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241770"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839360"
 ---
 # <a name="onboarding-and-installing"></a>Incorporación e instalación
 
@@ -51,7 +51,7 @@ Requisitos previos para empezar a trabajar con Análisis de código de seguridad
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Instalación de la extensión Análisis de código de seguridad de Microsoft
 
-1. Después de compartir la extensión con la organización de Azure DevOps, vaya a la página de la organización de Azure DevOps. Una dirección URL de ejemplo para esta página es http://dev.azure.com/contoso.
+1. Después de compartir la extensión con la organización de Azure DevOps, vaya a la página de la organización de Azure DevOps. Una dirección URL de ejemplo para esta página es `https://dev.azure.com/contoso`.
 1. Seleccione el icono de la bolsa de la compra que se encuentra en la esquina superior derecha junto a su nombre y haga clic en **Administrar extensiones**.
 1. Seleccione la extensión Análisis de código de seguridad de Microsoft y abra el asistente de la interfaz de usuario de Azure DevOps para comenzar la instalación.
 1. En la lista desplegable, elija la organización de Azure DevOps en la que va a instalar la extensión.

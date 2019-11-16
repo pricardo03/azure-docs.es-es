@@ -1,5 +1,5 @@
 ---
-title: Habilitación de la virtualización anidada en Azure Virtual Machines | Microsoft Docs
+title: Habilitación de la virtualización anidada en Azure Virtual Machines
 description: Habilitación de la virtualización anidada en Azure Virtual Machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 16f5bed5a2342bb1d120d0d3dc853e0bc44376dc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720212"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033120"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Habilitación de la virtualización anidada en una máquina virtual de Azure
 

@@ -1,17 +1,14 @@
 ---
 title: Creación de directivas mediante programación
 description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 01/31/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 047e9cab8d7776fc3b5353aebc571e28ad780ae8
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 581f7e5cc2fa20f1ff284e32351e495349fdfad2
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977949"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959415"
 ---
 # <a name="programmatically-create-policies"></a>Creación de directivas mediante programación
 

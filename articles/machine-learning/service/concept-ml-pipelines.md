@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 11/04/2019
-ms.openlocfilehash: f1b061e92ce0650da4d5b95643eb6e9df917e3b8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 11/06/2019
+ms.openlocfilehash: 21aa869d53a35ee974fb2f852b9be9b10eb929b0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671543"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112404"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>¿Qué son las canalizaciones de Azure Machine Learning?
 
@@ -85,7 +85,7 @@ Las canalizaciones solucionan este problema. Azure Machine Learning organiza aut
 
 Además, si así lo desea, puede reutilizar la salida de un paso. Si especifica la reutilización como una posibilidad y no hay dependencias ascendentes que desencadenen el recálculo, el servicio de canalización usará una versión almacenada en caché de los resultados del paso. Esta reutilización puede disminuir considerablemente el tiempo de desarrollo. Si tiene una tarea de preparación de datos compleja, es probable que la vuelva a ejecutar más a menudo que lo estrictamente necesario. Las canalizaciones le permiten liberarse de esa preocupación: si es necesario, se ejecutará el paso. Si no lo es, no lo hará.
 
-Todo este análisis, orquestación y activación de dependencia se administran mediante Azure Machine Learning cuando se crea una instancia de un objeto [Pipeline ](https://docs.microsoft.com/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)?view=azure-ml-py), se pasa a un `Experiment` y se llama a `submit()`. 
+Todo este análisis, orquestación y activación de dependencia se administran mediante Azure Machine Learning cuando se crea una instancia de un objeto [Pipeline ](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)?view=azure-ml-py), se pasa a un `Experiment` y se llama a `submit()`. 
 
 ### <a name="coordinating-the-steps-involved"></a>Coordinación de los pasos implicados
 
@@ -107,7 +107,7 @@ Al crear y ejecutar un objeto `Pipeline`, se producen los siguientes pasos de al
 
 ## <a name="building-pipelines-with-the-python-sdk"></a>Creación de canalizaciones con el SDK de Python
 
-En el [SDK de Python para Azure Machine Learning ](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), una canalización es un objeto de Python definido en el módulo de `azureml.pipeline.core`. Un objeto [Pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) contiene una secuencia ordenada de uno o varios objetos [PipelineStep](https://docs.microsoft.com/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py). La clase `PipelineStep` es abstracta y los pasos reales serán de subclases como [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py) o [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). La clase [ModuleStep ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py) contiene una secuencia reutilizable de pasos que se pueden compartir entre las canalizaciones. Un `Pipeline` se ejecuta como parte de un `Experiment`.
+En el [SDK de Python para Azure Machine Learning ](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), una canalización es un objeto de Python definido en el módulo de `azureml.pipeline.core`. Un objeto [Pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) contiene una secuencia ordenada de uno o varios objetos [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py). La clase `PipelineStep` es abstracta y los pasos reales serán de subclases como [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py) o [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). La clase [ModuleStep ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py) contiene una secuencia reutilizable de pasos que se pueden compartir entre las canalizaciones. Un `Pipeline` se ejecuta como parte de un `Experiment`.
 
 Una canalización de Azure ML está asociada a un área de trabajo de Azure Machine Learning y un paso de la canalización está asociado a un destino de proceso disponible dentro de esa área de trabajo. Para más información, consulte [Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) o [¿Qué son los destinos de proceso en Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target)
 

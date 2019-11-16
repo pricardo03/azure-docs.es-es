@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: f0bc66260a0eaa66e71241148591146fa38d4120
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 202267d4fffc7c6f0d99cd2a6ef3bbee82947a81
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821786"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132399"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migración del certificado de una base de datos protegida por TDE a Instancia administrada de Azure SQL Database
 
@@ -41,7 +41,7 @@ Para ver una opción alternativa que emplea el servicio totalmente administrado 
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
 - Tener instalada la herramienta de la línea de comandos [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) en el servidor local o en otro equipo con acceso al certificado exportado como un archivo. La herramienta Pvk2Pfx forma parte del [kit de controladores de Windows para empresa](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), un entorno de línea de comandos autocontenido independiente.
-- Tener instalado [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell), versión 5.0 o superior.
+- Tener instalado [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell), versión 5.0 o superior.
 - Tener [instalado y actualizado](https://docs.microsoft.com/powershell/azure/install-az-ps) el módulo de Azure PowerShell.
 - [Módulo Az.Sql](https://www.powershellgallery.com/packages/Az.Sql).
   Ejecute los siguientes comandos de PowerShell para instalar o actualizar el módulo de PowerShell:

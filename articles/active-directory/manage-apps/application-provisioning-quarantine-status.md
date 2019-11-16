@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 704e217cd7ddea988b6a9812627aba8c8468fb73
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e3ad689fb57c51d0deb698a723b93e6175bdbb5c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955416"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882891"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Aprovisionamiento de aplicaciones en el estado de cuarentena
 
@@ -69,6 +69,6 @@ Una vez resuelto el problema, reinicie el trabajo de aprovisionamiento. Algunos 
 
 - Use Azure Portal para reiniciar el trabajo de aprovisionamiento. En la página **Provisioning** (Aprovisionamiento) de la aplicación en **Settings** (Configuración), seleccione **Clear state and restart synchronization** (Borrar estado y reinicie la sincronización) y establezca el **estado de aprovisionamiento** en **On** (Activado). Esta acción reinicia completamente el servicio de aprovisionamiento, que puede tardar algún tiempo. Se volverá a ejecutar un ciclo inicial completo, que borrará los elementos en custodia, quitará la aplicación de la cuarentena y borrará las marcas de agua.
 
-- Use Microsoft Graph para [reiniciar el trabajo de aprovisionamiento](https://docs.microsoft.com/en-us/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Así tendrá control total sobre lo que reinicie. Puede optar por borrar los elementos en custodia (para reiniciar el contador de custodia que se acumula en el estado de cuarentena), borrar la cuarentena (para quitar la aplicación de la cuarentena) o borrar las marcas de agua. Use la siguiente solicitud:
+- Use Microsoft Graph para [reiniciar el trabajo de aprovisionamiento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Así tendrá control total sobre lo que reinicie. Puede optar por borrar los elementos en custodia (para reiniciar el contador de custodia que se acumula en el estado de cuarentena), borrar la cuarentena (para quitar la aplicación de la cuarentena) o borrar las marcas de agua. Use la siguiente solicitud:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`

@@ -1,6 +1,6 @@
 ---
 title: Administración del ciclo de vida de aplicación
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Aplicación de procedimientos recomendados de administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: d5e2ee72c30933305356cd2a7792d1972fa938da
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2dd401918edc0b2d08390b1012efbf44fe2be1e9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684744"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839415"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio (clásico)
 Azure Machine Learning Studio (clásico) es una herramienta para desarrollar experimentos de aprendizaje automático que se aplican en la plataforma de nube de Azure. Es como IDE de Visual Studio y servicio en la nube escalable combinados en una sola plataforma. Se pueden incorporar procedimiento estándar de administración del ciclo de vida de las aplicaciones (ALM) (desde el control de versiones de diversos recursos hasta la ejecución e implementación automatizadas) a la versión clásica de Azure Machine Learning Studio. En este artículo se analizan algunas de las opciones y enfoques.

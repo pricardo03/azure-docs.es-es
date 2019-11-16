@@ -1,5 +1,5 @@
 ---
-title: Descripción de uso de máquinas virtuales de Azure | Microsoft Docs
+title: Descripción de uso de máquinas virtuales de Azure
 description: Descripción de los detalles de uso de máquinas virtuales
 services: virtual-machines
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: ae974be462a688d7b740fb9ca28e1186e7512326
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fe3c8a3b5d63c67813a5098742392d5658e5c204
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273800"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034231"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Descripción de uso de máquinas virtuales de Azure
 Mediante el análisis de los datos de uso de Azure, es posible obtener información importante sobre el consumo, es decir, información que puede permitirle mejorar la asignación y administración de los costos en toda la organización. En este documento se profundiza en los detalles de consumo de Azure Compute. Para más detalles sobre el uso general de Azure, navegue a [Descripción de la factura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).

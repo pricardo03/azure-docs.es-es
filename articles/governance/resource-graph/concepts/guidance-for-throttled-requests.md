@@ -1,17 +1,14 @@
 ---
 title: Guía para solicitudes limitadas
 description: Aprenda a crear mejores consultas para evitar la limitación de solicitudes a Azure Resource Graph.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.service: resource-graph
-ms.openlocfilehash: 2dea1c160b07ac08075dad3a1ca1f6fc753e3481
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 651a5daa9e7e19a5dc157ba0cfa17da2c8abe3db
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622649"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038322"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Guía de solicitudes limitadas en Azure Resource Graph
 
@@ -218,11 +215,11 @@ Dado que Azure Resource Graph devuelve 1000 entradas como máximo en una respues
   Cuando se usa la CLI de Azure o Azure PowerShell, las consultas a Azure Resource Graph se paginan automáticamente para capturar 5000 entradas como máximo. Los resultados de la consulta devuelven una lista combinada de las entradas de todas las llamadas paginadas. En este caso, según el número de entradas en el resultado de la consulta, una sola consulta paginada puede consumir más de una cuota de consulta. Por ejemplo, en el ejemplo siguiente, una única ejecución de la consulta puede consumir hasta cinco cuotas de consulta:
 
   ```azurecli-interactive
-  az graph query -q 'Resources | project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' --first 5000
   ```
 
   ```azurepowershell-interactive
-  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## <a name="still-get-throttled"></a>¿Todavía se ve limitado?

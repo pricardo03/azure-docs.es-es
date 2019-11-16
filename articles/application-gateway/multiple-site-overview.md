@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 1/17/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61184fc7415de3c142b460710cceefed61a25af3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715859"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835336"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedaje de varios sitios de Application Gateway
 
@@ -23,9 +23,9 @@ El hospedaje de varios sitios permite configurar más de una aplicación web en 
 > [!IMPORTANT]
 > Las reglas se procesan en el orden en que aparecen en el portal. Es muy recomendable configurar a los agentes de escucha multisitio antes de configurar un agente de escucha básico.  De esta forma se asegura de que el tráfico se enruta al back-end adecuado. Si un agente de escucha básico aparece en primer lugar y coincide con una solicitud entrante, lo procesa ese agente de escucha.
 
-Las solicitudes para http://contoso.com se enrutan a ContosoServerPool y para http://fabrikam.com se enrutan a FabrikamServerPool.
+Las solicitudes para `http://contoso.com` se enrutan a ContosoServerPool y para `http://fabrikam.com` se enrutan a FabrikamServerPool.
 
-De forma similar, dos subdominios del mismo dominio primario pueden hospedarse en la misma implementación de puerta de enlace de aplicaciones. Ejemplos del uso de subdominios podrían incluir http://blog.contoso.com y http://app.contoso.com hospedados en una única implementación de la puerta de enlace de aplicaciones.
+De forma similar, dos subdominios del mismo dominio primario pueden hospedarse en la misma implementación de puerta de enlace de aplicaciones. Ejemplos del uso de subdominios podrían incluir `http://blog.contoso.com` y `http://app.contoso.com` hospedados en una única implementación de la puerta de enlace de aplicaciones.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Encabezados de host e Indicación de nombre de servidor (SNI)
 

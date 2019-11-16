@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b7e50fdc02ab47c50cecb95073f1b51393db898
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202981"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885645"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Protección de la seguridad en hosts de máquina virtual de AKS 
 
@@ -30,7 +30,7 @@ El objetivo del sistema operativo del host con protección de la seguridad es re
 
 * AKS proporciona de forma predeterminada un sistema operativo de host optimizado para la seguridad. Actualmente no hay ninguna opción para seleccionar otro sistema operativo. 
 
-* Azure aplica revisiones diarias (lo que incluye revisiones de seguridad) a los hosts de máquina virtual de AKS. Algunas de estas revisiones requerirán que se reinicie el equipo, pero otras no. Usted es el responsable de programar los reinicios del host de máquina virtual de AKS cuando sea necesario. Para obtener instrucciones sobre cómo automatizar la aplicación de parches de AKS, consulte el artículo acerca de la [aplicación de parches a los nodos de AKS](https://docs.microsoft.com/en-us/azure/aks/node-updates-kured).
+* Azure aplica revisiones diarias (lo que incluye revisiones de seguridad) a los hosts de máquina virtual de AKS. Algunas de estas revisiones requerirán que se reinicie el equipo, pero otras no. Usted es el responsable de programar los reinicios del host de máquina virtual de AKS cuando sea necesario. Para obtener instrucciones sobre cómo automatizar la aplicación de parches de AKS, consulte el artículo acerca de la [aplicación de parches a los nodos de AKS](https://docs.microsoft.com/azure/aks/node-updates-kured).
 
 A continuación, encontrará un resumen del trabajo de protección de imágenes que se implementa en AKS-Engine para producir el sistema operativo de host optimizado para la seguridad. El trabajo se implementó [en este proyecto de GitHub](https://github.com/Azure/aks-engine/projects/7).  
 

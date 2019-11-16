@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: spelluru
-ms.openlocfilehash: d1dd059f1a6f9ce96b27d4fe1f214978dfc06a8f
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: a4ba4206c01e492f2ae980c5806de1e72c7051c3
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816003"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931151"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Uso de identidades administradas de Azure para implementar entornos en un laboratorio 
 Como propietario de un laboratorio, puede usar una identidad administrada para implementar entornos en un laboratorio. Esta característica es útil en escenarios en los que el entorno contiene o incluye referencias a recursos de Azure, como almacenes de claves, galerías de imágenes compartidas y redes que son externas al grupo de recursos del entorno. Permite la creación de entornos de espacio aislado que no se limitan al grupo de recursos de dicho entorno.
@@ -67,6 +67,10 @@ Para cambiar la identidad administrada por el usuario asignada al laboratorio, p
                 "[userAssignedIdentityResourceId]":{}
             }
         }
+        "properties":{
+            "identityUsageType":"Environment"
+                     }
+          
     }
     ```
  
@@ -83,6 +87,9 @@ Para cambiar la identidad administrada por el usuario asignada al laboratorio, p
                 "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sampleuseridentity":{}
             }
         }
+        "properties":{
+            "identityUsageType":"Environment"
+                     }
     }
     ```
  

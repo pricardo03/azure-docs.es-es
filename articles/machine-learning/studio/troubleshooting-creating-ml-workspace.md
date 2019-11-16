@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas en un área de trabajo
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: En esta guía se proporcionan soluciones para solventar algunos de los desafíos más comunes al configurar áreas de trabajo de la versión clásica de Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 2f305f74a4bbf15fdda9a8801e73bda70fab6deb
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 88f4e1edae84892892d1a8a9e76499d71d551abf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622105"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838035"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>Guía de solución de problemas: creación y conexión a un área de trabajo de Azure Machine Learning Studio (clásico)
 En esta guía se proporcionan soluciones para solventar algunos de los desafíos más comunes al configurar áreas de trabajo de Azure Machine Learning Studio (clásico).

@@ -1,5 +1,5 @@
 ---
-title: 'Requisitos previos de ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Requisitos previos'
 description: Esta página proporciona una lista de requisitos que deben cumplirse para poder solicitar un circuito ExpressRoute de Azure. Incluye una lista de comprobación.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 4ef1a768356078c160b798c1a96412adda0330f6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a72eba9bde0745e66bdf8e7efd8eaec7d6a0b186
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123291"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083367"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Requisitos previos y lista de comprobación de ExpressRoute
 Para conectarse a Microsoft Cloud Services con ExpressRoute, debe comprobar que se han cumplido los requisitos enumerados en las secciones siguientes.

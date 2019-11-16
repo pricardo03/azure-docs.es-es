@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 8e8e4524034f0a296045691309b065f8547bdaa0
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: efd294910531509d736dbda274406bd7c801c124
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797237"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931212"
 ---
 # <a name="references"></a>Referencias
 
@@ -85,7 +85,7 @@ La dirección URL del servicio de API es la dirección URL del centro de datos h
 
 La siguiente solicitud de ejemplo se usa para obtener la lista de dispositivos:
 
-```
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -93,7 +93,7 @@ La mayoría de llamadas GET, POST y PUT requieren un cuerpo de la solicitud JSON
 
 La siguiente solicitud de ejemplo se usa para crear un dispositivo (esta contiene un código JSON de entrada con el cuerpo de la solicitud).
 
-```json
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -108,7 +108,6 @@ Por ejemplo, al consultar la lista de dispositivos (llamada GET en /dispositivo)
 
 Las API del centro de datos de FarmBeats de Azure devuelven los errores HTTP estándar. Los códigos de error más comunes son los siguientes:
 
-
  |Código de error             | DESCRIPCIÓN |
  |---                    | --- |
  |200                    | Correcto |
@@ -121,29 +120,29 @@ Las API del centro de datos de FarmBeats de Azure devuelven los errores HTTP est
 
 Además de los errores HTTP estándar, las API del centro de datos de FarmBeats de Azure también devuelven errores internos en el siguiente formato:
 
-```
-{
-  "message": "<More information on the error>",
-  "status": "<error code>”,
-  "code": "<InternalErrorCode>",
-  "moreInfo": "<Details of the error>"
-}
+```json
+    {
+      "message": "<More information on the error>",
+      "status": "<error code>”,
+      "code": "<InternalErrorCode>",
+      "moreInfo": "<Details of the error>"
+    }
 ```
 
 Ejemplo: Al crear una granja, no se ha especificado un campo obligatorio "Name" en la carga de entrada. El mensaje de error resultante sería el siguiente:
 
-```
-{
-  "message": "Model validation failed",
-  "status": 400,
-  "code": "ModelValidationFailed",
-  "moreInfo": "[\"The Name field is required.\"]"
-}
-```
+ ```json    
+    {
+      "message": "Model validation failed",
+      "status": 400,
+      "code": "ModelValidationFailed",
+      "moreInfo": "[\"The Name field is required.\"]"
+    }
+  ```
 
 ## <a name="adding-users-or-app-registrations-to-azure-active-directory"></a>Incorporación de usuarios o registros de aplicaciones a Azure Active Directory
 
- Se puede acceder a las API de FarmBeats de Azure mediante un usuario o un registro de aplicación en Azure Active Directory. Para crear un registro de aplicación en la instancia de Azure Active Directory, siga estos pasos:  
+Se puede acceder a las API de FarmBeats de Azure mediante un usuario o un registro de aplicación en Azure Active Directory. Para crear un registro de aplicación en la instancia de Azure Active Directory, siga estos pasos:  
 
 1. Vaya a [Azure Portal](https://portal.azure.com) **Azure Active Directory, Registros de aplicaciones**, > **Nuevo registro**. También puede usar una cuenta existente.
 2. Para una cuenta nueva, asegúrese de completar lo siguiente:

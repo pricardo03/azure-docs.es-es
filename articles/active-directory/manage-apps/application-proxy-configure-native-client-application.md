@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cdc46ea3a45d04e6e837d0b7ad52ed8bf565cd2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2cbee6bfcca3ddb356abe9dceab2fca07c152b07
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702422"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961811"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Habilitación de las aplicaciones cliente nativas para interactuar con el proxy de aplicaciones
 
@@ -70,7 +70,7 @@ Ahora que ha registrado su aplicación nativa, puede darle acceso a otras aplica
 1. Seleccione **Agregar un permiso**. Aparece la página **Solicitud de permisos de API**.
 1. En el valor **Seleccionar una API**, elija **API usadas en mi organización**. Aparece una lista que contiene las aplicaciones del directorio que exponen las API.
 1. Escriba en el cuadro de búsqueda o desplácese para buscar el proxy de aplicación que publicó en [Paso 1: Publique su aplicación de proxy](#step-1-publish-your-proxy-application) y, a continuación, seleccione el proxy de aplicación.
-1. En el encabezado **¿Qué tipo de permiso necesita la aplicación web?** , seleccione el tipo de permiso. Si su aplicación nativa necesita acceder a la API de proxy de aplicación como el usuario que inició sesión, elija **Permisos delegados**. Si su aplicación nativa se ejecuta como un servicio en segundo plano o demonio sin un usuario con sesión iniciada, elija **Permisos de aplicación**.
+1. En el encabezado **¿Qué tipo de permiso necesita la aplicación web?** , seleccione el tipo de permiso. Si su aplicación nativa necesita acceder a la API de proxy de aplicación como el usuario que inició sesión, elija **Permisos delegados**.
 1. En el encabezado **Seleccionar permisos**, seleccione el permiso deseado y seleccione **Agregar permisos**. La página **Permisos de API** de su aplicación nativa ahora muestra el proxy de aplicación y el permiso de API que ha agregado.
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>Paso 4: Editar la biblioteca de autenticación de Active Directory

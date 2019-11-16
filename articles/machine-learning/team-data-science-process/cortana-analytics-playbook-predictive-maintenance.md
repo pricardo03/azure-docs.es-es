@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec87146c721222702073eae067a259aa9848d0f7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573769"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048983"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
 
@@ -279,7 +279,7 @@ Aquí la pregunta es: "¿Cuál es la vida útil restante (RUL) del equipamiento?
 
 ![Ilustración 4. Etiquetado de la regresión](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png) Ilustración 4. Etiquetado de la regresión
 
-Para la regresión, el etiquetado se hace haciendo referencia a un punto de error. No se puede calcular sin saber cuánto tiempo ha sobrevivido el recurso antes de un error. Por tanto, y a diferencia de la clasificación binaria, los recursos sin errores en los datos no se pueden usar para el modelado. Este problema se aborda mejor con otra técnica estadística llamada [Análisis de supervivencia](https://en.wikipedia.org/wiki/Survival_analysis). Pero pueden surgir complicaciones al aplicar esta técnica a casos de uso de mantenimiento predictivo que implican datos variables en el tiempo a intervalos frecuentes. Para más información sobre Análisis de supervivencia, consulte [este documento de una página](https://www.cscu.cornell.edu/news/statnews/stnews78.pdf).
+Para la regresión, el etiquetado se hace haciendo referencia a un punto de error. No se puede calcular sin saber cuánto tiempo ha sobrevivido el recurso antes de un error. Por tanto, y a diferencia de la clasificación binaria, los recursos sin errores en los datos no se pueden usar para el modelado. Este problema se aborda mejor con otra técnica estadística llamada [Análisis de supervivencia](https://en.wikipedia.org/wiki/Survival_analysis). Pero pueden surgir complicaciones al aplicar esta técnica a casos de uso de mantenimiento predictivo que implican datos variables en el tiempo a intervalos frecuentes. Para más información sobre Análisis de supervivencia, consulte [este documento de una página](https://www.cscu.cornell.edu/news/news.php/stnews78.pdf).
 
 ### <a name="multi-class-classification-for-predictive-maintenance"></a>Clasificación multiclase para mantenimiento predictivo
 Las técnicas de clasificación multiclase se pueden usar en las soluciones de mantenimiento predictivo en dos escenarios:

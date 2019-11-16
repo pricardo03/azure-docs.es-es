@@ -1,6 +1,6 @@
 ---
 title: Administración de áreas de trabajo
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Administración del acceso a las áreas de trabajo de Azure Machine Learning Studio (clásico) e implementación y administración de servicios web de la API de Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 0ec619e765dde39f6d4c24cdadaab8bff4729f79
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f4a153a69f3475418873fbac04dea7d932c14373
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684760"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839453"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Administración de un área de trabajo de Azure Machine Learning Studio (clásico)
 

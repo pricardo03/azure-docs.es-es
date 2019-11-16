@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: cd5b45093be6d7cc8745013f18c897251f89f454
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6ec8f8835e925663fc6ac21a6eb1df09d6927109
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822205"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132111"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Aprenda a aprovisionar y registrar nuevos inquilinos en el catálogo
 
@@ -25,7 +25,7 @@ En este tutorial, aprenderá a aprovisionar y a catalogar patrones de SaaS. Tamb
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> 
+>
 > * Aprovisionar un nuevo inquilino único
 > * Aprovisionar un lote de inquilinos adicionales
 
@@ -39,17 +39,17 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 En una aplicación SaaS multiinquilino con copia de seguridad en base de datos, es importante saber dónde se almacena la información de cada inquilino. En el patrón de catálogo de SaaS, una base de datos de catálogos se usa para mantener la asignación entre cada inquilino y la base de datos en la que se almacenan sus datos. Este patrón se aplica cada vez que los datos de inquilino se distribuyen entre varias bases de datos.
 
-Cada inquilino se identifica como una clave en el catálogo que se asigna a la ubicación de su base de datos. En la aplicación de Wingtip Tickets, la clave se forma a partir de un hash del nombre del inquilino. Este esquema permite que la aplicación construya la clave a partir del nombre de inquilino que se incluye en la dirección URL de la aplicación. También se pueden usar otros esquemas de claves de inquilino.  
+Cada inquilino se identifica como una clave en el catálogo que se asigna a la ubicación de su base de datos. En la aplicación de Wingtip Tickets, la clave se forma a partir de un hash del nombre del inquilino. Este esquema permite que la aplicación construya la clave a partir del nombre de inquilino que se incluye en la dirección URL de la aplicación. También se pueden usar otros esquemas de claves de inquilino.
 
 El catálogo permite cambiar el nombre o la ubicación de la base de datos con un mínimo impacto en la aplicación. En un modelo de base de datos multiinquilino, esta funcionalidad también permite mover a un inquilino entre bases de datos. El catálogo también puede usarse para indicar si un inquilino o base de datos está sin conexión debido a operaciones de mantenimiento u otras acciones. Esta funcionalidad se trata en el [tutorial Restauración de un solo inquilino](saas-dbpertenant-restore-single-tenant.md).
 
-El catálogo también puede almacenar un inquilino adicional o metadatos de la base de datos, como la versión del esquema, el plan de servicio o los SLA que se ofrecen a los inquilinos. El catálogo puede almacenar información adicional que permite la administración de aplicaciones, soporte técnico al cliente o DevOps. 
+El catálogo también puede almacenar un inquilino adicional o metadatos de la base de datos, como la versión del esquema, el plan de servicio o los SLA que se ofrecen a los inquilinos. El catálogo puede almacenar información adicional que permite la administración de aplicaciones, soporte técnico al cliente o DevOps.
 
-Además de la aplicación de SaaS, el catálogo puede habilitar herramientas de base de datos. En el ejemplo de Wingtip Tickets SaaS Database Per Tenant, el catálogo se usa para habilitar consultas entre inquilinos, que se detalla en el [tutorial de notificaciones ad hoc](saas-tenancy-cross-tenant-reporting.md). La administración de trabajos entre bases de datos se describe en los tutoriales sobre [administración de esquemas](saas-tenancy-schema-management.md) y [análisis de inquilinos](saas-tenancy-tenant-analytics.md). 
+Además de la aplicación de SaaS, el catálogo puede habilitar herramientas de base de datos. En el ejemplo de Wingtip Tickets SaaS Database Per Tenant, el catálogo se usa para habilitar consultas entre inquilinos, que se detalla en el [tutorial de notificaciones ad hoc](saas-tenancy-cross-tenant-reporting.md). La administración de trabajos entre bases de datos se describe en los tutoriales sobre [administración de esquemas](saas-tenancy-schema-management.md) y [análisis de inquilinos](saas-tenancy-tenant-analytics.md).
 
-En los ejemplos de SaaS de Wingtip Tickets, el catálogo se implementa mediante las características de administración de particiones de la [biblioteca de cliente de Elastic Database (EDCL)](sql-database-elastic-database-client-library.md). La EDCL está disponible en Java y .NET Framework. La EDCL permite que una aplicación pueda crear, administrar y usar un mapa de particiones con copia de seguridad en base de datos. 
+En los ejemplos de SaaS de Wingtip Tickets, el catálogo se implementa mediante las características de administración de particiones de la [biblioteca de cliente de Elastic Database (EDCL)](sql-database-elastic-database-client-library.md). La EDCL está disponible en Java y .NET Framework. La EDCL permite que una aplicación pueda crear, administrar y usar un mapa de particiones con copia de seguridad en base de datos.
 
-Un mapa de particiones contiene una lista de particiones (bases de datos) y la asignación entre las claves (inquilinos) y las particiones. Las funciones de EDCL se usan durante el aprovisionamiento de inquilinos para crear las entradas en el mapa de particiones. Las aplicaciones las utilizan en tiempo de ejecución para conectarse a la base de datos correcta. La EDCL almacena en caché la información de conexión para minimizar el tráfico en la base de datos de catálogo y acelerar la aplicación. 
+Un mapa de particiones contiene una lista de particiones (bases de datos) y la asignación entre las claves (inquilinos) y las particiones. Las funciones de EDCL se usan durante el aprovisionamiento de inquilinos para crear las entradas en el mapa de particiones. Las aplicaciones las utilizan en tiempo de ejecución para conectarse a la base de datos correcta. La EDCL almacena en caché la información de conexión para minimizar el tráfico en la base de datos de catálogo y acelerar la aplicación.
 
 > [!IMPORTANT]
 > Los datos de asignación son accesibles en la base de datos de catálogo, pero *no los edite*. Para editar datos de asignación, utilice únicamente las API de la biblioteca de cliente de Elastic Database. No se admite la manipulación directa de los datos de asignación, que entraña el riesgo de dañar el catálogo.
@@ -57,15 +57,15 @@ Un mapa de particiones contiene una lista de particiones (bases de datos) y la a
 
 ## <a name="introduction-to-the-saas-provisioning-pattern"></a>Introducción al patrón de aprovisionamiento de SaaS
 
-Cuando agrega un nuevo inquilino a una aplicación SaaS que usa el modelo de base de datos de un solo inquilino, debe aprovisionar una nueva base de datos de inquilino. La base de datos debe crearse en la ubicación adecuada y el nivel de servicio. También se debe inicializar con el esquema apropiado y los datos de referencia. Y debe registrarse en el catálogo en la clave de inquilino correspondiente. 
+Cuando agrega un nuevo inquilino a una aplicación SaaS que usa el modelo de base de datos de un solo inquilino, debe aprovisionar una nueva base de datos de inquilino. La base de datos debe crearse en la ubicación adecuada y el nivel de servicio. También se debe inicializar con el esquema apropiado y los datos de referencia. Y debe registrarse en el catálogo en la clave de inquilino correspondiente.
 
-Se pueden usar diferentes métodos de aprovisionamiento de la base de datos. Puede ejecutar scripts de SQL, implementar un bacpac o copiar una base de datos de la plantilla. 
+Se pueden usar diferentes métodos de aprovisionamiento de la base de datos. Puede ejecutar scripts de SQL, implementar un bacpac o copiar una base de datos de la plantilla.
 
-El aprovisionamiento de la base de datos debe formar parte de su estrategia de administración del esquema. Debe asegurarse de que las nuevas bases de datos se aprovisionan con el esquema más reciente. Este requisito se explora en el [tutorial de administración de esquemas](saas-tenancy-schema-management.md). 
+El aprovisionamiento de la base de datos debe formar parte de su estrategia de administración del esquema. Debe asegurarse de que las nuevas bases de datos se aprovisionan con el esquema más reciente. Este requisito se explora en el [tutorial de administración de esquemas](saas-tenancy-schema-management.md).
 
-La aplicación Wingtip Tickets de base de datos por inquilino aprovisiona nuevos inquilinos mediante la copia de una base de datos de plantilla denominada _basetenantdb_, que se implementa en el servidor de catálogo. El aprovisionamiento se puede integrar en la aplicación como parte de la experiencia de registro. También puede admitirse sin conexión mediante el uso de scripts. En este tutorial se describe el aprovisionamiento con PowerShell. 
+La aplicación Wingtip Tickets de base de datos por inquilino aprovisiona nuevos inquilinos mediante la copia de una base de datos de plantilla denominada _basetenantdb_, que se implementa en el servidor de catálogo. El aprovisionamiento se puede integrar en la aplicación como parte de la experiencia de registro. También puede admitirse sin conexión mediante el uso de scripts. En este tutorial se describe el aprovisionamiento con PowerShell.
 
-Los scripts de aprovisionamiento copian la base de datos _basetenantdb_  para crear una nueva base de datos de inquilinos en un grupo elástico. La base de datos de inquilinos se crea en el servidor de inquilinos asignado al alias DNS _newtenant_. Este alias conserva una referencia al servidor que se usa para aprovisionar nuevos inquilinos y se actualiza para señalar un servidor de recuperación de inquilinos en los tutoriales de recuperación ante desastres ([recuperación ante desastres mediante restauración geográfica](saas-dbpertenant-dr-geo-restore.md), [recuperación ante desastres mediante replicación geográfica](saas-dbpertenant-dr-geo-replication.md)). Los scripts inicializan entonces la base de datos con información específica del inquilino y la registran en el mapa de particiones del catálogo. Las bases de datos de inquilinos reciben nombres basados en el nombre del inquilino. Este esquema de nomenclatura no es una parte fundamental del patrón. El catálogo asigna la clave de inquilino al nombre de la base de datos, de modo que se puede utilizar cualquier convención de nomenclatura. 
+Los scripts de aprovisionamiento copian la base de datos _basetenantdb_  para crear una nueva base de datos de inquilinos en un grupo elástico. La base de datos de inquilinos se crea en el servidor de inquilinos asignado al alias DNS _newtenant_. Este alias conserva una referencia al servidor que se usa para aprovisionar nuevos inquilinos y se actualiza para señalar un servidor de recuperación de inquilinos en los tutoriales de recuperación ante desastres ([recuperación ante desastres mediante restauración geográfica](saas-dbpertenant-dr-geo-restore.md), [recuperación ante desastres mediante replicación geográfica](saas-dbpertenant-dr-geo-replication.md)). Los scripts inicializan entonces la base de datos con información específica del inquilino y la registran en el mapa de particiones del catálogo. Las bases de datos de inquilinos reciben nombres basados en el nombre del inquilino. Este esquema de nomenclatura no es una parte fundamental del patrón. El catálogo asigna la clave de inquilino al nombre de la base de datos, de modo que se puede utilizar cualquier convención de nomenclatura.
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip Tickets SaaS Database Per Tenant
@@ -95,7 +95,7 @@ Para entender cómo la aplicación Wingtip Tickets implementa el aprovisionamien
 
 
 
-Seguimiento de la ejecución del script mediante el uso de las opciones de menú **Depurar**. Presione F10 y F11 para omitir o acceder a las funciones llamadas. Para obtener más información sobre cómo depurar scripts de PowerShell, consulte [Sugerencias para trabajar con scripts de PowerShell y depurarlos](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Seguimiento de la ejecución del script mediante el uso de las opciones de menú **Depurar**. Presione F10 y F11 para omitir o acceder a las funciones llamadas. Para obtener más información sobre cómo depurar scripts de PowerShell, consulte [Sugerencias para trabajar con scripts de PowerShell y depurarlos](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 
 No es necesario seguir explícitamente este flujo de trabajo. En él se explica cómo depurar el script.
@@ -156,7 +156,7 @@ Otros patrones de aprovisionamiento que no se incluyen en este tutorial:
 
 **Aprovisionamiento previo de bases de datos.** : El patrón del aprovisionamiento previo aprovecha el hecho de que las bases de datos de un grupo elástico no suponen costos adicionales. La facturación es para el grupo elástico, no para las bases de datos. Las bases de datos inactivas no consumen recursos. Al aprovisionar previamente bases de datos en un grupo y asignarlas posteriormente cuando sea necesario, puede reducirse el tiempo de agregar inquilinos. El número de bases de datos previamente aprovisionadas puede ajustarse según sea necesario para mantener un búfer adecuado para la velocidad de aprovisionamiento prevista.
 
-**Aprovisionamiento automático**: en este patrón se usa un servicio de aprovisionamiento dedicado para aprovisionar servidores, grupos y bases de datos automáticamente según sea necesario. Si lo desea, puede incluir bases de datos de aprovisionamiento previo en grupos elásticos. Si se retiran y eliminan bases de datos, los huecos que dejan en los grupos elásticos pueden ocuparse aprovisionando el servicio. Este servicio puede ser simple o complejo, como controlar el aprovisionamiento en varias regiones geográficas y configurarse automáticamente la replicación geográfica para la recuperación ante desastres. 
+**Aprovisionamiento automático**: en este patrón se usa un servicio de aprovisionamiento dedicado para aprovisionar servidores, grupos y bases de datos automáticamente según sea necesario. Si lo desea, puede incluir bases de datos de aprovisionamiento previo en grupos elásticos. Si se retiran y eliminan bases de datos, los huecos que dejan en los grupos elásticos pueden ocuparse aprovisionando el servicio. Este servicio puede ser simple o complejo, como controlar el aprovisionamiento en varias regiones geográficas y configurarse automáticamente la replicación geográfica para la recuperación ante desastres.
 
 Con el patrón de aprovisionamiento automático, un script o aplicación cliente envía una solicitud de aprovisionamiento a una cola para que un servicio de aprovisionamiento la procese. A continuación, sondea el servicio para determinar la finalización. Si se utiliza el aprovisionamiento previo, las solicitudes se administran rápidamente. El servicio proporciona una base de datos de sustitución en segundo plano.
 
@@ -166,7 +166,7 @@ Con el patrón de aprovisionamiento automático, un script o aplicación cliente
 En este tutorial, ha aprendido cómo:
 
 > [!div class="checklist"]
-> 
+>
 > * Aprovisionar un nuevo inquilino único
 > * Aprovisionar un lote de inquilinos adicionales
 > * Acceder a los detalles de cómo aprovisionar inquilinos y registrarlos en el catálogo.
@@ -177,4 +177,4 @@ Pruebe el [Tutorial de supervisión del rendimiento](saas-dbpertenant-performanc
 
 * [Tutoriales adicionales que se basan en el patrón de base de datos por inquilino de la aplicación SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md)
-* [Depuración de scripts en Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+* [Depuración de scripts en Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

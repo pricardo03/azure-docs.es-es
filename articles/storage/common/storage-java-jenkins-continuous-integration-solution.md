@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: dc62696700a5c34c28f5f8c4f347dbb4c5183cab
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986542"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839124"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Uso de Azure Storage con una solución de integración continua Jenkins
 
@@ -110,7 +110,7 @@ Con fines didácticos, primero tiene que crear un trabajo que creará varios arc
     4. Seleccione **Contenedores**.
     5. Seleccione el contenedor llamado **myjob**, que es la versión en minúscula del nombre del trabajo asignado cuando ha creado el trabajo de Jenkins. Los nombres de los contenedores y los nombres de los blobs se guardan en minúscula en el almacenamiento de Azure y, además, distinguen mayúsculas de minúsculas. En la lista de blobs del contenedor llamado **myjob**, deben aparecer **hello.txt** y **date.txt**. Copie la URL de cualquiera de estos elementos y ábrala en el explorador. A continuación, verá el archivo de texto cargado como un artefacto de compilación.
 
-Solo se puede crear una acción posterior a la compilación que cargue artefactos en el almacenamiento de blobs de Azure por cada trabajo. La acción única posterior a la compilación para cargar artefactos en Azure Blob Storage permite especificar diferentes archivos (comodines incluidos) y rutas de acceso a los archivos en **Lista de artefactos para cargar** usando el punto y coma como separador. Por ejemplo, si su proceso de compilación Jenkins produce archivos JAR y TXT en la carpeta **build** (compilar) del área de trabajo, y desea cargar ambos en Azure Blob Storage, use el siguiente valor para la opción **List of Artifacts to upload** (Lista de artefactos para cargar): `build/\*.jar;build/\*.txt`. También puede usar sintaxis de dos puntos dobles para especificar una ruta de acceso dentro del nombre del blob. Por ejemplo, si desea que los archivos JAR se carguen mediante archivos **binaries** (binarios) en la ruta de acceso del blob y que los TXT lo hagan usando **notices** (notificaciones) en esta misma ruta, utilice el siguiente valor para la opción **List of Artifacts to upload** (Lista de artefactos para cargar): `build/\*.jar::binaries;build/\*.txt::notices`.
+Solo se puede crear una acción posterior a la compilación que cargue artefactos en el almacenamiento de blobs de Azure por cada trabajo. La acción única posterior a la compilación para cargar artefactos en Azure Blob Storage puede especificar diferentes archivos (comodines incluidos) y rutas de acceso a los archivos en **List of Artifacts to upload** (Lista de artefactos para cargar) usando punto y coma como separador. Por ejemplo, si su proceso de compilación Jenkins produce archivos JAR y TXT en la carpeta **build** (compilar) del área de trabajo, y desea cargar ambos en Azure Blob Storage, use el siguiente valor para la opción **List of Artifacts to upload** (Lista de artefactos para cargar): `build/\*.jar;build/\*.txt`. También puede usar sintaxis de dos puntos dobles para especificar una ruta de acceso dentro del nombre del blob. Por ejemplo, si desea que los archivos JAR se carguen mediante archivos **binaries** (binarios) en la ruta de acceso del blob y que los TXT lo hagan usando **notices** (notificaciones) en esta misma ruta, utilice el siguiente valor para la opción **List of Artifacts to upload** (Lista de artefactos para cargar): `build/\*.jar::binaries;build/\*.txt::notices`.
 
 ## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>Creación de un paso de compilación que descarga del almacenamiento de blobs de Azure
 Los pasos siguientes ilustran cómo configurar un paso de compilación para descargar elementos de Azure Blob Storage, lo que resulta útil si desea incluir elementos en la compilación. Un ejemplo del uso de este patrón son los archivos JAR que puede querer conservar en Azure Blob Storage.
@@ -148,7 +148,7 @@ Si detecta algún error con los complementos de Jenkins, envíe un problema en [
 ## <a name="next-steps"></a>Pasos siguientes
 * [Presentación de Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * [SDK de Azure Storage para Java](https://github.com/azure/azure-storage-java)
-* [Referencia del SDK de cliente de Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
+* [Referencia del SDK de cliente de Azure Storage](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [API de REST de servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog del equipo de Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/)
 

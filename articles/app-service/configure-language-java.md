@@ -14,12 +14,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 75632d4fcdbf27f70b1b84f08f7295212dbac6a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ad9ee8a21390126f20da4037a438a2655b8b5d47
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471097"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012255"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Windows para Azure App Service
 
@@ -40,10 +40,6 @@ No implemente el archivo .war mediante FTP. La herramienta FTP está diseñada p
 ## <a name="logging-and-debugging-apps"></a>Registro y depuración de aplicaciones
 
 Encontrará informes de rendimiento, visualizaciones de tráfico y comprobaciones de mantenimiento de cada aplicación a través de Azure Portal. Para más información, consulte [Introducción a los diagnósticos de Azure App Service](overview-diagnostics.md).
-
-### <a name="ssh-console-access"></a>Acceso a la consola SSH
-
-[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ### <a name="stream-diagnostic-logs"></a>Transmisión de registros de diagnóstico
 

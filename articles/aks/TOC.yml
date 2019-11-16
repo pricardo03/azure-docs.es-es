@@ -216,6 +216,8 @@
         - name: Uso del acceso basado en rol de Kubernetes con integración de Azure AD
           href: azure-ad-rbac.md
           maintainContext: true
+        - name: Rotación de certificados
+          href: certificate-rotation.md
     - name: Supervisión y registro
       items:
         - name: Azure Monitor para contenedores

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3c451d1bd77fa1cec85a9d42b5d4d3d819b2d19a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: e61949dc739230382fab4cfaad53a6cb449de79a
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210351"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091621"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
@@ -37,6 +37,7 @@ Los almacenes de Recovery Services se basan en el modelo de Azure Resource Manag
 - **Restauración instantánea para máquinas virtuales de IaaS**: con los almacenes de Recovery Services, puede restaurar archivos y carpetas desde una máquina virtual de IaaS sin tener que restaurar toda la máquina virtual, lo que permite unos tiempos de restauración más rápidos. La restauración instantánea para máquinas virtuales de IaaS está disponible tanto para máquinas virtuales Windows como Linux. [Más información](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Administración de almacenes de Recovery Services en el portal
+
 La creación y administración de almacenes de Recovery Services en Azure Portal es fácil porque el servicio Backup está integrado en otros servicios de Azure. Esta integración significa que se puede crear o administrar un almacén de Recovery Services *en el contexto del servicio de destino*. Por ejemplo, para ver los puntos de recuperación de una máquina virtual, selecciónela y haga clic en **Copia de seguridad** en el menú Operaciones.
 
 ![Máquinas virtuales de detalles de almacén de Recovery Services](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
@@ -55,25 +56,28 @@ Las secciones siguientes contienen vínculos a artículos que explican cómo usa
 > El almacén de Recovery Services no se puede crear con el mismo nombre si se ha eliminado en las últimas 24 horas. Utilice un nombre de recurso diferente, elija un grupo de recursos distinto o inténtelo de nuevo después de 24 horas.
 
 ### <a name="back-up-data"></a>Copia de seguridad de datos
+
 - [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-first-look-arm.md)
 - [Copia de seguridad de Windows Server o Windows Workstation](backup-try-azure-backup-in-10-mins.md)
 - [Preparación para la copia de seguridad de cargas de trabajo de DPM en Azure](backup-azure-dpm-introduction.md)
 - [Preparación para la copia de seguridad de cargas de trabajo mediante Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 
 ### <a name="manage-recovery-points"></a>Administración de puntos de recuperación
+
 - [Administrar copias de seguridad de máquina virtual de Azure](backup-azure-manage-vms.md)
 - [Administración de archivos y carpetas](backup-azure-manage-windows-server.md)
 
 ### <a name="restore-data-from-the-vault"></a>Restauración de datos desde el almacén
+
 - [Recuperación de archivos de máquinas virtuales de Azure](backup-azure-restore-files-from-vm.md)
 - [Restauración de máquinas virtuales de Azure](backup-azure-arm-restore-vms.md)
 
 ### <a name="secure-the-vault"></a>Seguridad del almacén
+
 - [Seguridad de los datos de copia de seguridad en la nube en los almacenes de Recovery Services](backup-azure-security-feature.md)
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 Use los artículos siguientes para realizar estos pasos:</br>
 [Copia de seguridad de una máquina virtual de IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Copia de seguridad de Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>

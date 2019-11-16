@@ -1,5 +1,5 @@
 ---
-title: Extensión de máquina virtual de Azure Monitor Dependency para Windows | Microsoft Docs
+title: Extensión de máquina virtual de Azure Monitor Dependency para Windows
 description: Implemente Dependency Agent de Azure Monitor en la máquina virtual Windows con una extensión de máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: b2a86ffab0286559cfcce89252c889c530f00871
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 858aba2a45a6b8cf133e6f94bac45e721535ab25
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750119"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073264"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Azure Monitor Dependency para Windows
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: bfb44a44967c474da319c574307c7c289b28648e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 294fd39bfa78219df4bb0134aa744dd7515ff0f2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807820"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092144"
 ---
 # <a name="azure-sql-database-features"></a>Características de Azure SQL Database
 
@@ -124,7 +124,7 @@ La plataforma de Azure proporciona una serie de funcionalidades de PaaS que se a
 | Retención de copias de seguridad | Sí. 7 días (predeterminado), máximo 35 días. | Sí. 7 días (predeterminado), máximo 35 días. |
 | [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Sí | Sí |
 | Acceso al sistema de archivos | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para acceder y cargar datos de Azure Blob Storage como alternativa. | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para acceder y cargar datos de Azure Blob Storage como alternativa. |
-| [Restauración geográfica](sql-database-recovery-using-backups.md#geo-restore) | Sí, todos los niveles de servicio que no sean de hiperescala. | Sí, mediante [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
+| [Restauración geográfica](sql-database-recovery-using-backups.md#geo-restore) | Sí, todos los niveles de servicio que no sean de hiperescala. | Sí, todos los niveles de servicio que no sean de hiperescala. |
 | [Arquitectura de hiperescala](sql-database-service-tier-hyperscale.md) | Sí | Sin |
 | [Retención de copia de seguridad a largo plazo (LTR)](sql-database-long-term-retention.md) | Sí, las copias de seguridad realizadas automáticamente se conservan 10 años. | Todavía no. Use [copias de seguridad manuales](sql-database-managed-instance-transact-sql-information.md#backup) `COPY_ONLY` como solución temporal. |
 | Pausar o reanudar | Sí, en el [modelo sin servidor](sql-database-serverless.md) | Sin | 

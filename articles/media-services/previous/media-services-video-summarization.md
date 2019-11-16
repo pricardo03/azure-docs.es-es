@@ -15,15 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: e7a99ffdd42c02e5a18dc14c4774b428232b8293
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: da397c180b6ccaf91084a0ec22210c7bcc88a5dc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015997"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084797"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo  
+ 
 ## <a name="overview"></a>Información general
+
 El procesador de multimedia (PM) **Miniaturas de vídeo multimedia de Azure** le permite crear un resumen de un vídeo útil para aquellos clientes que solo quieren ver un resumen de un vídeo largo. Por ejemplo, es posible que los clientes quieran ver un breve "vídeo de resumen" al mantener el mouse sobre una miniatura. Al ajustar los parámetros de **Miniaturas de vídeo multimedia de Azure** mediante un valor predeterminado de configuración, puede usar la eficaz tecnología de detección de tomas y concatenación del PM para generar de forma algorítmica un subclip descriptivo.  
 
 El PM **Miniatura de vídeo multimedia de Azure** está actualmente en versión preliminar.

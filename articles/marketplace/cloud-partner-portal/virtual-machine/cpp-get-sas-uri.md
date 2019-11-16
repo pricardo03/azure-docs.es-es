@@ -8,16 +8,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: dda074d81857247a922eb7a179b33aa2593e5bf8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cb6f1772c7c6f9abd268a8cb58550b253f095dbf
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824468"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132447"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtención del URI de firma de acceso compartido para la imagen de máquina virtual
 
-Durante el proceso de publicación, debe proporcionar un identificador uniforme de recursos (URI) para cada disco duro virtual (VHD) asociado con las SKU. Microsoft necesita tener acceso a estos VHD durante el proceso de certificación. En este artículo se explica cómo generar un URI de firma de acceso compartido (SAS) para cada disco duro virtual. Tendrá que escribir este URI en la pestaña **SKU** en Cloud Partner Portal. 
+Durante el proceso de publicación, debe proporcionar un identificador uniforme de recursos (URI) para cada disco duro virtual (VHD) asociado con las SKU. Microsoft necesita tener acceso a estos VHD durante el proceso de certificación. En este artículo se explica cómo generar un URI de firma de acceso compartido (SAS) para cada disco duro virtual. Tendrá que escribir este URI en la pestaña **SKU** en Cloud Partner Portal.
 
 Al generar los URI de SAS para los discos duros virtuales, debe cumplir los requisitos siguientes:
 
@@ -38,35 +38,35 @@ La dirección URL de SAS se puede generar de dos maneras comunes con las herrami
 
 Siga estos pasos para generar un URI de SAS con la CLI de Azure.
 
-1. Descargue e instale la [CLI de Microsoft Azure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Hay versiones disponibles para Windows, macOS y varias distribuciones de Linux. 
+1. Descargue e instale la [CLI de Microsoft Azure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Hay versiones disponibles para Windows, macOS y varias distribuciones de Linux.
 2. Cree un archivo de PowerShell (con la extensión de archivo `.ps1`), copie el código siguiente y luego guárdelo localmente.
 
    ``` powershell
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
-    
+
 3. Modifique el archivo para proporcionar los valores de parámetro siguientes.  Las fechas se deben proporcionar en formato de fecha y hora UTC, por ejemplo `2016-10-25T00:00:00Z`.
    - `<account-name>`: nombre de la cuenta de Azure Storage.
    - `<account-key>`: clave de la cuenta de Azure Storage.
    - `<vhd-name>`: nombre del disco duro virtual.
-   - `<start-date>`: fecha de inicio del permiso para acceder al disco duro virtual. Proporcione una fecha un día antes de la fecha actual. 
-   - `<expiry-date>`: fecha de expiración del permiso para acceder al disco duro virtual.  Proporcione una fecha al menos tres semanas después de la fecha actual. 
- 
+   - `<start-date>`: fecha de inicio del permiso para acceder al disco duro virtual. Proporcione una fecha un día antes de la fecha actual.
+   - `<expiry-date>`: fecha de expiración del permiso para acceder al disco duro virtual.  Proporcione una fecha al menos tres semanas después de la fecha actual.
+
    En el ejemplo siguiente se muestran los valores de parámetro adecuados (en el momento de redactar este artículo).
 
    ``` powershell
        az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
    ```
- 
+
 4. Guarde los cambios en este script de PowerShell.
 5. Ejecute este script con privilegios administrativos, para generar un *cadena de conexión SAS* para el acceso de nivel de contenedor.  Puede usar dos enfoques básicos:
    - Ejecutar el script desde la consola.  Por ejemplo, en Windows, haga clic con el botón derecho en el script y seleccione **Ejecutar como administrador**.
-   - Ejecutar el script desde un editor de scripts de PowerShell, como [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), con privilegios administrativos. 
-     A continuación se muestra la generación de una cadena de conexión de SAS desde este editor. 
+   - Ejecutar el script desde un editor de scripts de PowerShell, como [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise), con privilegios administrativos.
+     A continuación se muestra la generación de una cadena de conexión de SAS desde este editor.
 
      ![Generación de URI de SAS en PowerShell ISE](./media/publishvm_032.png)
 
-6. Copie la cadena de conexión SAS resultante y guárdela en un archivo de texto en una ubicación segura.  Modificará esta cadena para agregarle la información de ubicación de los discos duros virtuales asociados para crear el URI de SAS final. 
+6. Copie la cadena de conexión SAS resultante y guárdela en un archivo de texto en una ubicación segura.  Modificará esta cadena para agregarle la información de ubicación de los discos duros virtuales asociados para crear el URI de SAS final.
 7. En Azure Portal, desplácese hasta el almacenamiento de blobs que contiene el disco duro virtual asociado con el URI recién generado.
 8. Copie el valor de dirección URL del **Punto de conexión de Blob service**, como se muestra a continuación.
 
@@ -91,19 +91,19 @@ Siga estos pasos para generar un URI de SAS con el Explorador de Microsoft Azure
 2. Abra el explorador y, en la barra de menús de la izquierda, haga clic en el icono **Agregar cuenta**.  Se mostrará el cuadro de diálogo **Connect to Azure Storage** (Conectar con Azure Storage).
 3. Seleccione **Add an Azure Account** (Agregar una cuenta de Azure) y haga clic en **Iniciar sesión**.  Siga los pasos necesarios para iniciar sesión en la cuenta de Azure.
 4. En el panel **Explorador** de la izquierda, vaya a **Cuentas de almacenamiento** y expanda este nodo.
-5. Haga clic con el botón derecho en el disco duro virtual y seleccione **Get Share Access Signature** (Obtener la firma de acceso compartido) en el menú contextual. 
+5. Haga clic con el botón derecho en el disco duro virtual y seleccione **Get Share Access Signature** (Obtener la firma de acceso compartido) en el menú contextual.
 
     ![Obtención del elemento SAS en el Explorador de Azure](./media/publishvm_034.png)
 
 6. Se mostrará el cuadro de diálogo **Firma de acceso compartido**. Escriba valores para los campos siguientes:
    - **Fecha de inicio**: fecha de inicio del permiso para acceder al disco duro virtual. Proporcione una fecha que sea un día antes de la fecha actual.
    - **Fecha de expiración**: fecha de expiración del permiso para acceder al disco duro virtual.  Proporcione una fecha al menos tres semanas después de la fecha actual.
-   - **Permisos**: seleccione los permisos `Read` y `List`. 
+   - **Permisos**: seleccione los permisos `Read` y `List`.
 
      ![Cuadro de diálogo SAS en el Explorador de Azure](./media/publishvm_035.png)
 
-7. Haga clic en **Crear** para crear el URI de SAS asociado a este disco duro virtual.  Ahora, en el cuadro de diálogo se muestran los detalles sobre esta operación. 
-8. Copie el valor **URL** y guárdelo en un archivo de texto en una ubicación segura. 
+7. Haga clic en **Crear** para crear el URI de SAS asociado a este disco duro virtual.  Ahora, en el cuadro de diálogo se muestran los detalles sobre esta operación.
+8. Copie el valor **URL** y guárdelo en un archivo de texto en una ubicación segura.
 
     ![Creación del URI de SAS en el Explorador de Azure](./media/publishvm_036.png)
 

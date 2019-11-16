@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 30895af3e973fd5c9ae0de559df440f18cec1563
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330845"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013147"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
@@ -70,7 +70,7 @@ Si los usuarios necesitan tener acceso a determinadas aplicaciones LOB, se recom
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurar un contenedor de perfiles de usuario (FSLogix)
 
-Para incluir el contenedor de FSLogix como parte de la imagen, siga las instrucciones en [Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Puede probar la funcionalidad del contenedor de FSLogix con [este inicio rápido](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
+Para incluir el contenedor de FSLogix como parte de la imagen, siga las instrucciones en [Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Puede probar la funcionalidad del contenedor de FSLogix con [este inicio rápido](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial).
 
 ### <a name="configure-windows-defender"></a>Configurar Windows Defender
 
@@ -101,28 +101,6 @@ Ejecute este comando para especificar un diseño de la pantalla Inicio en equipo
 
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
-```
-
-### <a name="configure-session-timeout-policies"></a>Configurar directivas de tiempo de espera de sesión
-
-Se pueden aplicar directivas de sesión remota en el nivel de la directiva de grupo, ya que todas las máquinas virtuales de un grupo de hosts forman parte del mismo grupo de seguridad.
-
-Para configurar directivas de sesión remota:
-
-1. Vaya a **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Host de sesión de Escritorio remoto** > **Límites de tiempo de sesión**.
-2. En el panel del lado derecho, seleccione la directiva **Establecer el límite de tiempo para las sesiones activas, pero en inactividad, de Servicios de Escritorio remoto**.
-3. Cuando aparezca la ventana modal, cambie la opción de directiva de **No configurada** a **Habilitada** para activar la directiva.
-4. En el menú desplegable situado debajo de la opción de directiva, establezca el período de tiempo en **3 horas**.
-
-También puede configurar directivas de sesión remota manualmente, ejecutando los siguientes comandos:
-
-```batch
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### <a name="set-up-time-zone-redirection"></a>Configurar la redirección de zona horaria

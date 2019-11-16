@@ -3,7 +3,7 @@ title: Informes de actividad de auditoría en el portal de Azure Active Director
 description: Introducción a los informes de actividad de auditoría en el portal de Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 07/17/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b30b6463ed3d58ec1565f3c49f98388ad09ed4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 8883e3ade7e5d52f3a62346bf8be51ac36042f82
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186293"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008535"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
-Con los informes de Azure Active Directory (Azure AD), puede obtener la información que necesita para determinar cómo funciona el entorno.
+Con los informes de Azure Active Directory (Azure AD), puede obtener toda la información que necesita para determinar cómo funciona el entorno.
 
 Esta arquitectura de informes consta de los siguientes componentes:
 
@@ -42,7 +42,6 @@ En este artículo se proporciona información general del informe de auditoría.
 ## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 
 * Los usuarios con los roles **Administrador de seguridad**, **Lector de seguridad**, **Lector de informes** o **Administrador global**
-* Además, todos los usuarios (no administradores) pueden ver sus propias actividades de auditoría
 
 ## <a name="audit-logs"></a>Registros de auditoría
 
@@ -79,7 +78,7 @@ Seleccione un elemento de la vista de lista para obtener información más detal
 Puede filtrar los datos de auditoría por los siguientes campos:
 
 - Servicio
-- Categoría
+- Category
 - Actividad
 - Status
 - Destino
@@ -90,7 +89,7 @@ Puede filtrar los datos de auditoría por los siguientes campos:
 
 El filtro **Service** (Servicio) le permite seleccionar los siguientes servicios de una lista desplegable:
 
-- Todo
+- All
 - Revisiones de acceso
 - Account Provisioning (Aprovisionamiento de cuentas) 
 - Inicio de sesión único de aplicaciones
@@ -108,7 +107,7 @@ El filtro **Service** (Servicio) le permite seleccionar los siguientes servicios
 
 El filtro **Category** (Categoría) le permite seleccionar uno de los filtros siguientes:
 
-- Todo
+- All
 - AdministrativeUnit
 - ApplicationManagement
 - Authentication
@@ -131,7 +130,7 @@ Puede obtener la lista de todas las actividades de auditoría mediante Graph API
 
 El filtro **Status** (Estado) le permite filtrar en función del estado de una operación de auditoría. El estado puede ser uno de los siguientes:
 
-- Todo
+- All
 - Correcto
 - Error
 

@@ -1,5 +1,6 @@
 ---
 title: Ejecución de scripts de Python
+titleSuffix: ML Studio (classic) - Azure
 description: Obtenga información sobre cómo usar el módulo Ejecutar script de Python para usar código Python en servicios web y experimentos de Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: dea8fd7971f0572350306ea11ee1f9d897438d11
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6079f904002f00a39d3ee9d70dedd9d261e2825f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684883"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837636"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Ejecución de scripts de Python en Azure Machine Learning Studio (clásico)
 

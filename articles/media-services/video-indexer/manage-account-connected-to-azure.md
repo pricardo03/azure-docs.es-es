@@ -1,6 +1,6 @@
 ---
 title: Administración de una cuenta de Video Indexer
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: En este artículo se muestra cómo administrar una cuenta de Video Indexer conectada a Azure.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8221cdcf7afe82ee969f645d7f459c69519711d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799519"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838987"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Administración de una cuenta de Video Indexer conectada a Azure
 

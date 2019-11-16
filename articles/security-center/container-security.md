@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 41332a76c3c4e8228e6827e1553d73da3a85fc09
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: fb8f5f2adf497a12b4ed54b381a2dbf85e160b8e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521538"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123956"
 ---
 # <a name="container-security-in-security-center"></a>Seguridad de los contenedores en Security Center
 
@@ -59,7 +59,7 @@ Para obtener detalles sobre las recomendaciones de Security Center, consulte [Pr
 
 Security Center proporciona detección de amenazas en tiempo real para los entornos en contenedores y genera alertas de actividades sospechosas. Puede usar esta información para corregir problemas de seguridad y mejorar la seguridad de los contenedores rápidamente.
 
-Detectamos amenazas en el nivel de clúster del host y AKS. Para obtener información detallada, consulte [Azure Container Service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-container-service-).
+Detectamos amenazas en el nivel de clúster del host y AKS. Para obtener información detallada, consulte [Azure Container Service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 
 ## <a name="to-view-the-security-posture-of-your-container-related-resources"></a>Para ver la postura de seguridad de los recursos relacionados con los contenedores

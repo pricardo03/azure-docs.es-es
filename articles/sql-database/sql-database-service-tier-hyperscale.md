@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 3a448147390ff2dd6a8049e8338a4cbf2bd94ce3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c71fb8a7e18439817023874146e22c29a5af3b12
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821117"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123692"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -114,7 +114,7 @@ Con la capacidad de aumentar o disminuir rápidamente los nodos de ejecución ad
 
 Puede crearse una base de datos de Hiperescala mediante [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Las bases de datos de Hiperescala solo están disponibles con el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
-El siguiente comando de Transact-SQL crea una base de datos de Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `CREATE DATABASE`. Consulte los [límites de recursos](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier-for-provisioned-compute) para obtener una lista de los objetivos de servicio válidos.
+El siguiente comando de Transact-SQL crea una base de datos de Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `CREATE DATABASE`. Consulte los [límites de recursos](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen5) para obtener una lista de los objetivos de servicio válidos.
 
 ```sql
 -- Create a HyperScale Database

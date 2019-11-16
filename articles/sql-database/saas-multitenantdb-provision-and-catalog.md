@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
-ms.openlocfilehash: cae0b2730a9426b183dc330a18a76122ac87cc66
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4ea18ee23d845b2d16209b23de14dc3cd70aaa59
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817939"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133153"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionamiento y catalogación de nuevos inquilinos en una aplicación SaaS con una base de datos de Azure SQL multiinquilino con particiones
 
@@ -63,11 +63,11 @@ El catálogo también puede indicar si un inquilino está sin conexión debido a
 - El nivel de servicio o la edición de una base de datos.
 - La versión del esquema de base de datos.
 - El nombre del inquilino y su SLA (Acuerdo de Nivel de Servicio).
-- Información para permitir la administración de aplicaciones, el soporte técnico al cliente o los procesos de DevOps.  
+- Información para permitir la administración de aplicaciones, el soporte técnico al cliente o los procesos de DevOps.
 
-El catálogo también se puede usar para habilitar la generación de informes entre inquilinos, la administración de esquemas y la extracción de datos con fines de análisis. 
+El catálogo también se puede usar para habilitar la generación de informes entre inquilinos, la administración de esquemas y la extracción de datos con fines de análisis.
 
-### <a name="elastic-database-client-library"></a>Biblioteca de cliente de Elastic Database 
+### <a name="elastic-database-client-library"></a>Biblioteca de cliente de Elastic Database
 
 En Wingtip, el catálogo se implementa en la base de datos *tenantcatalog*. La base de datos *tenantcatalog* se crea mediante las características de administración de particiones de la [biblioteca de cliente de Elastic Database (EDCL)](sql-database-elastic-database-client-library.md). La biblioteca permite que una aplicación pueda crear, administrar y usar un *mapa de particiones* que se almacena en una base de datos. Un mapa de particiones crea referencias cruzadas de la clave de inquilino con su partición, es decir, su base de datos con particiones.
 
@@ -108,7 +108,7 @@ Los scripts de aprovisionamiento de inquilinos de este tutorial admiten los sigu
 - Aprovisionamiento de un inquilino en una base de datos existente compartida con otros inquilinos.
 - Aprovisionamiento de un inquilino en su propia base de datos.
 
-Luego, los datos de inquilino se inicializan y registran en el mapa de particiones del catálogo. En la aplicación de ejemplo, las bases de datos que contienen varios inquilinos reciben un nombre genérico, como *tenants1* o *tenants2*. Las bases de datos que contienen un único inquilino reciben el nombre del inquilino. Las convenciones de nomenclatura específicas que se usan en el ejemplo no son una parte fundamental del patrón, porque el uso de un catálogo permite asignar cualquier nombre a la base de datos.  
+Luego, los datos de inquilino se inicializan y registran en el mapa de particiones del catálogo. En la aplicación de ejemplo, las bases de datos que contienen varios inquilinos reciben un nombre genérico, como *tenants1* o *tenants2*. Las bases de datos que contienen un único inquilino reciben el nombre del inquilino. Las convenciones de nomenclatura específicas que se usan en el ejemplo no son una parte fundamental del patrón, porque el uso de un catálogo permite asignar cualquier nombre a la base de datos.
 
 <a name="goto_1_tutorial"/>
 
@@ -132,7 +132,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 - Obtenga los scripts y el código fuente de Wingtip:
     - Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB).
-    - Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts de Wingtip. 
+    - Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts de Wingtip.
 
 ## <a name="provision-a-tenant-into-a-database-shared-with-other-tenants"></a>Aprovisionamiento de un inquilino en una base de datos *compartida* con otros inquilinos
 
@@ -144,8 +144,8 @@ A continuación se muestran los elementos clave del flujo de trabajo de aprovisi
 
 - **Cálculo de la nueva clave de inquilino**: Para crear la clave de inquilino a partir del nombre del inquilino se utiliza una función hash.
 - **Comprobación de si ya existe la clave de inquilino**: El catálogo se comprueba para garantizar que todavía no se registró la clave.
-- **Inicialización del inquilino en la base de datos de inquilino predeterminada**: La base de datos de inquilino se actualiza para agregar la información del inquilino nuevo.  
-- **Registro del inquilino en el catálogo**: la asignación entre la clave de inquilino nueva y la base de datos tenants1 existente se agrega al catálogo. 
+- **Inicialización del inquilino en la base de datos de inquilino predeterminada**: La base de datos de inquilino se actualiza para agregar la información del inquilino nuevo.
+- **Registro del inquilino en el catálogo**: la asignación entre la clave de inquilino nueva y la base de datos tenants1 existente se agrega al catálogo.
 - **Incorporación del nombre del inquilino a una tabla de extensión de catálogo**: El nombre de la ubicación se agrega a la tabla Inquilinos del catálogo.  Esta adición muestra cómo la base de datos de catálogo puede ampliarse para admitir datos adicionales específicos de la aplicación.
 - **Apertura de la página Eventos para el inquilino nuevo**: La página de eventos de *Bushwillow Blues* se abre en el explorador.
 
@@ -172,7 +172,7 @@ Para comprender cómo la aplicación Wingtip implementa el aprovisionamiento de 
 
 5. Siga paso a paso la ejecución del script mediante las opciones del menú **Depurar**, **F10** y **F11**, para omitir las funciones llamadas o acceder a ellas.
 
-Para obtener más información sobre cómo depurar scripts de PowerShell, consulte [Sugerencias para trabajar con scripts de PowerShell y depurarlos](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Para obtener más información sobre cómo depurar scripts de PowerShell, consulte [Sugerencias para trabajar con scripts de PowerShell y depurarlos](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>Aprovisionamiento de un inquilino en su *propia* base de datos
 
@@ -184,7 +184,7 @@ A continuación se muestran los elementos clave del flujo de trabajo que recorre
 - **Comprobación de si ya existe la clave de inquilino**: El catálogo se comprueba para garantizar que todavía no se registró la clave.
 - **Creación de una base de datos de inquilino nueva**: La base de datos se crea al copiar la base de datos *basetenantdb* con una plantilla de Resource Manager.  El nombre de la base de datos nueva se basa en el nombre del inquilino.
 - **Incorporación de la base de datos al catálogo**: La base de datos de inquilino nueva se registra como una partición en el catálogo.
-- **Inicialización del inquilino en la base de datos de inquilino predeterminada**: La base de datos de inquilino se actualiza para agregar la información del inquilino nuevo.  
+- **Inicialización del inquilino en la base de datos de inquilino predeterminada**: La base de datos de inquilino se actualiza para agregar la información del inquilino nuevo.
 - **Registro del inquilino en el catálogo**: la asignación entre la clave de inquilino nueva y la base de datos *sequoiasoccer* existente se agrega al catálogo.
 - **El nombre del inquilino se agrega al catálogo**: El nombre de la ubicación se agrega a la tabla de extensión Inquilinos del catálogo.
 - **Apertura de la página Eventos para el inquilino nuevo**: La página de eventos de *Sequoia Soccer* se abre en el explorador.
@@ -217,7 +217,7 @@ Este ejercicio aprovisiona un lote de 17 inquilinos. Se recomienda que aprovisio
 
 2. Presione **F5** y ejecute el script.
 
-### <a name="verify-the-deployed-set-of-tenants"></a>Comprobación del conjunto de inquilinos implementado 
+### <a name="verify-the-deployed-set-of-tenants"></a>Comprobación del conjunto de inquilinos implementado
 
 En esta fase, se tiene una combinación de inquilinos implementados en una base de datos compartida y los inquilinos implementados en sus propias bases de datos. Se puede usar Azure Portal para inspeccionar las bases de datos creadas. En [Azure Portal](https://portal.azure.com), abra el servidor **tenants1-mt-\<USER\>** mediante la navegación a la lista de servidores SQL Server.  La lista de **bases de datos SQL** debe incluir la base **tenants1** compartida y las bases de datos de los inquilinos que están en su propia base de datos:
 
@@ -227,7 +227,7 @@ Mientras Azure Portal muestra las bases de datos de inquilino, no le permite ver
 
 #### <a name="using-wingtip-tickets-events-hub-page"></a>Uso de la página del centro de eventos de Wingtip Tickets
 
-Abra la página del centro de eventos en el explorador (http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
+Abra la página del centro de eventos en el explorador (http:events.wingtip-mt.\<USER\>.trafficmanager.net)
 
 #### <a name="using-catalog-database"></a>Uso de la base de datos de catálogo
 
@@ -245,7 +245,7 @@ La lista completa de inquilinos y su base de datos correspondiente están dispon
 3. Haga clic con el botón derecho en la vista *TenantsExtended* y elija **Select Top 1000 Rows** (Seleccionar las 1000 primeras filas). Observe la asignación entre el nombre de inquilino y la base de datos para los distintos inquilinos.
 
     ![Vista ExtendedTenants en SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
-      
+
 ## <a name="other-provisioning-patterns"></a>Otros patrones de aprovisionamiento
 
 En esta sección se describen otros patrones interesantes de aprovisionamiento.
@@ -264,7 +264,7 @@ Este tipo de servicio automatizado puede ser simple o complejo. Por ejemplo, la 
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md)
-- [Cómo depurar scripts en ISE de Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [Cómo depurar scripts en ISE de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

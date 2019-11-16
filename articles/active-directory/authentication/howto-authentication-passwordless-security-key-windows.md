@@ -1,5 +1,5 @@
 ---
-title: 'Habilitación del inicio de sesión con clave de seguridad sin contraseña para Azure AD (versión preliminar): Azure Active Directory'
+title: Habilitar el inicio de sesión con clave de seguridad sin contraseña para Azure AD (versión preliminar) - Azure Active Directory
 description: Habilitación del inicio de sesión con clave de seguridad sin contraseña para Azure AD mediante claves de seguridad FIDO2 (versión preliminar)
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b57fe9241a6a29e6f5ce12b7a1412455df4a001
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7b3aa2add128cfc11a638fe6c7e03cfb25189afc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603470"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081557"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Habilitación del inicio de sesión con clave de seguridad sin contraseña en dispositivos Windows 10 (versión preliminar)
 
@@ -88,7 +88,7 @@ Para dirigirse a grupos de dispositivos específicos a fin de habilitar el prove
 
 ### <a name="enable-with-a-provisioning-package"></a>Habilitación con un paquete de aprovisionamiento
 
-En el caso de los dispositivos no administrados por Intune, se puede instalar un paquete de aprovisionamiento para habilitar la funcionalidad. La aplicación Diseñador de configuración de Windows puede instalarse desde [Microsoft Store](https://www.microsoft.com/store/apps/9nblggh4tx22).
+En el caso de los dispositivos no administrados por Intune, se puede instalar un paquete de aprovisionamiento para habilitar la funcionalidad. La aplicación Diseñador de configuración de Windows puede instalarse desde [Microsoft Store](https://www.microsoft.com/en-us/p/windows-configuration-designer/9nblggh4tx22).
 
 1. Inicie el Diseñador de configuración de Windows.
 1. Seleccione **Archivo** > **Nuevo proyecto**.
@@ -124,7 +124,7 @@ En el ejemplo siguiente, el usuario Bala Sandhu ya ha aprovisionado su clave de 
 
 ## <a name="troubleshooting-and-feedback"></a>Solución de problemas y comentarios
 
-Si quiere compartir comentarios o detectar incidencias mientras usa la versión preliminar de esta característica, compártalos mediante la aplicación Centro de opiniones sobre Windows.
+Si quiere compartir comentarios o detectar problemas mientras usa la versión preliminar de esta característica, compártalos mediante la aplicación Centro de opiniones sobre Windows.
 
 1. Abra el **Centro de opiniones** y asegúrese de que ha iniciado sesión.
 1. Envíe los comentarios bajo la categorización siguiente:

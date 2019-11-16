@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: 747fe891bf4d6bd042e689107cd87680795eb82b
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3ac4db3a2d98e761183360c268d23efcc313cf09
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959330"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048497"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Escenarios de zonas privadas de Azure DNS
 
@@ -31,7 +31,7 @@ Este escenario es el caso más común donde es necesario asociar una zona privad
 
 En el diagrama siguiente se muestra una versión sencilla de este escenario donde solo hay dos redes virtuales: A y B. A se ha designado como red virtual de registro y B como red virtual de resolución. Lo que se pretende es que ambas redes virtuales compartan una zona común: contoso.com. Cuando se crea la zona y las redes virtuales de resolución y registro están vinculadas a ella, Azure anota automáticamente los registros DNS de las máquinas virtuales (VNETA-VM1 y VNETA-VM2) de la red virtual A. También puede agregar manualmente registros DNS a la zona de las máquinas virtuales de la red virtual de resolución B. Con esta configuración, observará el comportamiento siguiente en las consultas DNS de reenvío e inversas:
 * Una consulta DNS desde VNETB-VM1 en la red virtual de resolución B, de VNETA-VM1.contoso.com, recibirá una respuesta DNS que contiene la dirección IP privada de VNETA-VM1.
-* Una consulta DNS inversa (PTR) desde VNETB-VM2 en la red virtual de resolución B, de 10.1.0.1, recibirá una respuesta DNS que contiene el FQDN VNETB-VM1.contoso.com. El motivo es que el ámbito de las consultas DNS inversas es la misma red virtual. 
+* Una consulta DNS inversa (PTR) desde VNETB-VM2 en la red virtual de resolución B, de 10.1.0.1, recibirá una respuesta DNS que contiene el FQDN VNETB-VM1.contoso.com.  
 * Una consulta DNS inversa (PTR) desde VNETB-VM3 en la red virtual de resolución B, de 10.0.0.1, recibirá NXDOMAIN. El motivo es que el ámbito de las consultas DNS inversas es únicamente la misma red virtual. 
 
 

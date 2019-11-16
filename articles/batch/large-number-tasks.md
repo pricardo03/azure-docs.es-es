@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 1322b8eb14205ff29e109fae82466270f7507781
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fc47b18dd51bbaa48d950515cccfe618d9e58426
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094018"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132755"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envío de un gran número de tareas a un trabajo de Batch
 
@@ -37,7 +37,7 @@ El tamaño máximo de la colección de tareas que se puede agregar en una sola l
 
     * [API DE REST](/rest/api/batchservice/task/addcollection)
     * [API de Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
-    * [API de Node.js](/javascript/api/azure-batch/task?view=azure-node-latest)
+    * [API de Node.js](/javascript/api/@azure/batch/task?view=azure-node-latest)
 
   Al usar estas API, deberá proporcionar la lógica para dividir el número de tareas y que se cumpla el límite de la colección, y para controlar los errores y los reintentos en caso de error al incorporar tareas. Si la colección es demasiado grande para agregar tareas, la solicitud genera un error y será necesario intentarlo después de nuevo con menos tareas.
 

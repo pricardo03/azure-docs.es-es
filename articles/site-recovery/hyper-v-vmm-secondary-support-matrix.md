@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686170"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132954"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
 
@@ -20,9 +20,6 @@ En este artículo se resume lo que se admite cuando usa el servicio [Azure Site 
 
 > [!NOTE]
 > Solo puede replicar en un sitio secundario si los hosts de Hyper-V se administran en nubes de VMM.
-
-> [!WARNING]
-> Tenga en cuenta que la compatibilidad con ASR para usar la configuración de SCVMM pronto estará en desuso y, por lo tanto, le recomendamos que lea los detalles del [desuso](scvmm-site-recovery-deprecation.md) antes de continuar.
 
 
 ## <a name="host-servers"></a>Servidores host

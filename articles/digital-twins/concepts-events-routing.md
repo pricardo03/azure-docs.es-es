@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 217a1d94a4a5235fc5886f34986ffcb3aef60873
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: f2479d9f3e278d23d62275b667f78d1fd70dd151
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949267"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889702"
 ---
 # <a name="routing-events-and-messages"></a>Enrutamiento de eventos y mensajes
 
@@ -31,7 +31,9 @@ Los usuarios pueden especificar uno o varios puntos de conexión de salida para 
 
 [![Enrutamiento de eventos de Azure Digital Twins](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
-El enrutamiento a Event Hubs se realiza en el orden de envío de los mensajes de telemetría. Por esto, llegan al punto de conexión en el mismo orden de recepción. Event Grid y Service Bus no garantizan que los puntos de conexión reciban los eventos en el mismo orden en que se produjeron. Sin embargo, el esquema del evento incluye una marca de tiempo que se puede utilizar para identificar el orden después de que los eventos lleguen al punto de conexión.
+El enrutamiento a Event Hubs se realiza en el orden de envío de los mensajes de telemetría. Por esto, llegan al punto de conexión en el mismo orden de recepción. 
+
+Event Grid y Service Bus no garantizan que los puntos de conexión reciban los eventos en el mismo orden en que se produjeron. Sin embargo, el esquema del evento incluye una marca de tiempo que se puede utilizar para identificar el orden después de que los eventos lleguen al punto de conexión.
 
 ## <a name="route-implementation"></a>Implementación de rutas
 

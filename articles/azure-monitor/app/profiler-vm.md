@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
-ms.date: 08/06/2018
+ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 44f45c53a12c7ac73c3de3f2734f024cb9bc6dd5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fa1179e55a4826450d30351be0a905efb059780b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900002"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031012"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Generación de perfiles de aplicaciones web en ejecución en una máquina virtual o un conjunto de escalado de máquinas virtuales de Azure mediante Application Insights Profiler
 
@@ -89,15 +89,15 @@ Todavía no tenemos forma de establecer el receptor de Application Insights Prof
 
     ![Comprobación de la instalación de la extensión WAD.][wadextension]
 
-1. Busque la extensión de diagnóstico de VM para su máquina virtual. Expanda el grupo de recursos, Microsoft.Compute virtualMachines, el nombre de la máquina virtual y las extensiones.  
+2. Busque la extensión de diagnóstico de VM para su máquina virtual. Vaya a [https://resources.azure.com](https://resources.azure.com). Expanda el grupo de recursos, Microsoft.Compute virtualMachines, el nombre de la máquina virtual y las extensiones.  
 
     ![Vaya a la configuración de WAD en Azure Resource Explorer.][azureresourceexplorer]
 
-1. Agregue el receptor de Application Insights Profiler al nodo SinksConfig en WadCfg. Si todavía no tiene una sección SinksConfig, es posible que tenga que agregar una. Asegúrese de especificar la iKey de Application Insights correspondiente en la configuración. Deberá cambiar el modo de los exploradores a Lectura/escritura en la esquina superior derecha y presionar el botón "Editar" azul.
+3. Agregue el receptor de Application Insights Profiler al nodo SinksConfig en WadCfg. Si todavía no tiene una sección SinksConfig, es posible que tenga que agregar una. Asegúrese de especificar la iKey de Application Insights correspondiente en la configuración. Deberá cambiar el modo de los exploradores a Lectura/escritura en la esquina superior derecha y presionar el botón "Editar" azul.
 
     ![Incorporación del receptor de Application Insights Profiler][resourceexplorersinksconfig]
 
-1. Cuando haya terminado de editar la configuración, presione "Put". Si la operación Put se realiza correctamente, aparecerá una marca verde en medio de la pantalla.
+4. Cuando haya terminado de editar la configuración, presione "Put". Si la operación Put se realiza correctamente, aparecerá una marca verde en medio de la pantalla.
 
     ![Envío de una solicitud Put para aplicar los cambios][resourceexplorerput]
 

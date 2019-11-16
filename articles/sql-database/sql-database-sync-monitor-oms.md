@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 031482fc0b87e095fcb19046564e15642050f261
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0ed0bd3544fff89c8230267e3d6d8826c5ae3c7c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820798"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114607"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Supervisión de SQL Data Sync con registros de Azure Monitor 
 
@@ -137,7 +137,7 @@ Haga lo siguiente para crear una alerta que usa registros de Azure Monitor. Com
 
 2.  Crear una consulta para seleccionar los errores y las advertencias por grupo de sincronización dentro del intervalo seleccionado. Por ejemplo:
 
-    `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
+    `DataSyncLog_CL | where LogLevel_s != "Success" | summarize AggregatedValue = count() by bin(TimeGenerated,60m),SyncGroupName_s`
 
 3.  Después de ejecutar la consulta, seleccione la campana que reza **Alerta**.
 

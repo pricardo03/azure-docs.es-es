@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 40fb44857126c3562e01585c3131afec87f01e42
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 7064496b89143f467ea63fe38233724a7b0af96d
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430069"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131022"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Azure Storage
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Este ejercicio requiere la versión 0.7 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
 
-Para este ejercicio, puede escribir los comandos en una ventana de PowerShell regular o puede usar [Windows PowerShell ISE](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) y escribir los comandos en un editor y, después, probar uno o varios comandos a la vez mientras revisa los ejemplos. Puede resaltar las filas que desea ejecutar y hacer clic en Ejecutar seleccionado para ejecutar solo esos comandos.
+Para este ejercicio, puede escribir los comandos en una ventana de PowerShell regular o puede usar [Windows PowerShell ISE](/powershell/scripting/components/ise/exploring-the-windows-powershell-ise) y escribir los comandos en un editor y, después, probar uno o varios comandos a la vez mientras revisa los ejemplos. Puede resaltar las filas que desea ejecutar y hacer clic en Ejecutar seleccionado para ejecutar solo esos comandos.
 
 Para más información sobre las cuentas de almacenamiento, vea [Introducción a Microsoft Azure Storage](storage-introduction.md) y [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md).
 
@@ -185,7 +185,7 @@ En el artículo se explica cómo administrar esta configuración con los siguien
 * [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
 * [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
-## <a name="use-storage-analytics"></a>Usar Storage Analytics  
+## <a name="use-storage-analytics"></a>Usar Storage Analytics
 
 [Azure Storage Analytics](storage-analytics.md) consta de [métricas de Storage Analytics](/rest/api/storageservices/about-storage-analytics-metrics) y [registros de Storage Analytics](/rest/api/storageservices/about-storage-analytics-logging).
 
@@ -252,4 +252,4 @@ En este artículo también se proporcionan referencias a otros artículos como, 
 
 * [Cmdlets de PowerShell para el plano de control de Azure Storage](/powershell/module/az.storage/)
 * [Cmdlets de PowerShell para el plano de datos de Azure Storage](/powershell/module/azure.storage/)
-* [Referencia de Windows PowerShell](/powershell/scripting/developer/windows-powershell)
+* [Referencia de Windows PowerShell](/powershell/scripting/overview)

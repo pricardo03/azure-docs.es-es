@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 2b1d3167828f2c2c49bb22580222fbd0e54d31d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 53d7cb125f59491190aadb07755954ade78356fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813186"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075519"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análisis para Marketplace comercial en el Centro de partners
 
-Obtenga información sobre cómo obtener acceso a los informes de análisis del Centro de partners de Microsoft para supervisar las ventas, evaluar el rendimiento y optimizar sus ofertas de Marketplace. En tanto que partner, puede supervisar los anuncios de sus ofertas mediante la visualización de datos y los gráficos de información compatibles con el Centro de partners,así como buscar formas de maximizar las ventas. Las herramientas de análisis mejorado le permiten actuar en los resultados del rendimiento y mantener mejores relaciones con sus clientes y distribuidores. 
+Obtenga información sobre cómo obtener acceso a los informes de análisis del Centro de partners de Microsoft para supervisar las ventas, evaluar el rendimiento y optimizar sus ofertas de Marketplace. En tanto que partner, puede supervisar los anuncios de sus ofertas mediante la visualización de datos y los gráficos de información compatibles con el Centro de partners,así como buscar formas de maximizar las ventas. Las herramientas de análisis mejorado le permiten actuar en los resultados del rendimiento y mantener mejores relaciones con sus clientes y distribuidores.
 
 Para obtener acceso a las herramientas de análisis del Centro de partners, abra el panel **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** bajo Marketplace comercial.
 
@@ -141,7 +141,7 @@ El gráfico **Pedidos por tipo de licencia de Marketplace** muestra un recuento 
 - **Facturado a través de Azure**: Microsoft factura a los clientes en su nombre cuando decide [vender su oferta a través de Microsoft](./create-new-saas-offer.md#sell-through-microsoft) con este tipo de licencia. Los tipos de pago incluyen el pago por uso con tarjeta de crédito o la facturación de Enterprise.
 - **Traiga su propia licencia**: Microsoft no factura a los clientes por su uso de este tipo de oferta de Marketplace. Aparece como **[Obtener ahora (gratis)](./create-new-saas-offer.md#get-it-now-free)** en Marketplace.
 - **Gratis**: Microsoft no factura a los clientes por su uso de este tipo de oferta de Marketplace. Aparece como **[Evaluación gratuita](./create-new-saas-offer.md##free-trial-listing)** en Marketplace.
-- **Microsoft como revendedor**: Representa las ofertas vendidas por los distribuidores de Microsoft como parte del **[programa Proveedor de soluciones en la nube (CSP)](./create-new-saas-offer.md#csp-program-opt-in)** .
+- **Microsoft como revendedor**: Representa las ofertas vendidas por los distribuidores de Microsoft como parte del **[programa Proveedor de soluciones en la nube (CSP)](./create-new-saas-offer.md)** .
 
 ![Pedidos por tipo de licencia de Analizar del Centro de partners](./media/analyze-license-type.png)
 

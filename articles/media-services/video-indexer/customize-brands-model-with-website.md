@@ -1,6 +1,6 @@
 ---
 title: 'Uso del sitio web de Video Indexer para personalizar un modelo de marcas: Azure'
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: En este artículo se muestra cómo personalizar un modelo de marcas con el sitio web de Video Indexer.
 services: media-services
 author: anikaz
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 721fde63aeae8704761b3c21f489dcad77cb89e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4b2f7a8b43c1723beb0dd8da82814f74cd7b135
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799613"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838342"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalización de un modelo de marcas con el sitio web de Video Indexer
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: ffe0d3a85006bbaad53e471a10b10fb1bbea89b1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7ea4762684a41e06687adcca91b13872a0c9f740
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664451"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73897558"
 ---
 En este artículo proporciona una visión general de las características de disponibilidad de las máquinas virtuales (VM) de Azure.
 
@@ -82,5 +82,5 @@ Las máquinas virtuales dentro de un conjunto de disponibilidad también se dist
 ![Conjuntos de disponibilidad](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ya puede empezar a usar estas características de disponibilidad y redundancia para crear un entorno de Azure. Para información sobre los procedimientos recomendados, consulte [Lista de comprobación de disponibilidad](../articles/best-practices-availability-checklist.md).
+Ya puede empezar a usar estas características de disponibilidad y redundancia para crear un entorno de Azure. Para información sobre los procedimientos recomendados, consulte [Lista de comprobación de disponibilidad](/azure/architecture/checklist/resiliency-per-service).
 

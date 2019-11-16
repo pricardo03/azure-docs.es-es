@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 9743f25d89bed4e54b3deed815d1cf29030caff6
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955408"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832209"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 
@@ -95,7 +95,7 @@ El método PrincipalsAllowedToDelegateToAccount se usa cuando los servidores del
 Si los servidores del conector y la cuenta de servicio de la aplicación web se encuentran en el mismo dominio, puede usar los usuarios y equipos de Active Directory para configurar las opciones de delegación en cada una de las cuentas de equipo del conector, para que así puedan delegar en el SPN de destino.
 
 Si los servidores del conector y la cuenta de servicio de la aplicación web están en dominios diferentes, se usará la delegación basada en recursos. Los permisos de delegación se configuran en el servidor web de destino y la cuenta de servicio de la aplicación web. Tenga en cuenta que este método de delegación restringida es relativamente nuevo. El método se presentó en Windows Server 2012, que admite la delegación entre dominios al permitir que el propietario del recurso (servicio web) controle el equipo y las cuentas de servicio que pueden delegar contenido en él. No hay ninguna interfaz de usuario que le ayude con esta configuración, por lo que tendrá que usar PowerShell.
-Para obtener más información, consulte [Información sobre la delegación restringida de Kerberos con Application Proxy](http://aka.ms/kcdpaper).
+Para obtener más información, consulte [Información sobre la delegación restringida de Kerberos con Application Proxy](https://aka.ms/kcdpaper).
 
 ## <a name="pass-through-authentication"></a>Autenticación de paso a través
 

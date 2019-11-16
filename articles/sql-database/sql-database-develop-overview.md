@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-ms.date: 02/07/2019
-ms.openlocfilehash: af657d28bc3052ebefe25ea54891b8d3555692c9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825832"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082449"
 ---
 # <a name="sql-database-application-development-overview"></a>Introducción al desarrollo de aplicaciones en SQL Database
 
@@ -48,7 +48,7 @@ Evite las transacciones de larga ejecución, ya que cualquier error de conexión
 
 ## <a name="resiliency"></a>Resistencia
 
-Azure SQL Database es un servicio en la nube del que puede esperar errores transitorios que se producen en la infraestructura subyacente o en la comunicación entre las entidades de la nube. Aunque Azure SQL Database es resistente a los errores transitorios de infraestructura, estos pueden afectar a la conectividad. Cuando se produce un error transitorio al establecer una conexión con SQL Database, el código debe [reintentar la llamada](sql-database-connectivity-issues.md). Recomendamos que en la lógica de reintento se haga uso de la lógica de interrupción, de este modo no se sobrecargará la SQL Database con los reintentos de varios clientes a la vez. La lógica de reintento depende de los [códigos de error para las aplicaciones cliente de SQL Database](sql-database-develop-error-messages.md).
+Azure SQL Database es un servicio en la nube del que puede esperar errores transitorios que se producen en la infraestructura subyacente o en la comunicación entre las entidades de la nube. Aunque Azure SQL Database es resistente a los errores transitorios de infraestructura, estos pueden afectar a la conectividad. Cuando se produce un error transitorio al establecer una conexión con SQL Database, el código debe [reintentar la llamada](sql-database-connectivity-issues.md). Recomendamos que en la lógica de reintento se haga uso de la lógica de interrupción, de este modo no se sobrecargará la SQL Database con los reintentos de varios clientes a la vez. La lógica de reintento depende de los [códigos de error para las aplicaciones cliente de SQL Database](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md).
 
 Para más información sobre cómo prepararse para los eventos de mantenimiento planeado en su base de datos de Azure SQL, consulte [Planeación de los eventos de mantenimiento en Azure SQL Database](sql-database-planned-maintenance.md).
 
