@@ -1,23 +1,18 @@
 ---
-title: 'Documentación sobre Azure Cache for Redis: tutoriales y referencia de API | Microsoft Docs'
+title: 'Documentación sobre Azure Cache for Redis: tutoriales y referencia de API'
 description: Aprenda a usar Azure Cache for Redis, un agente de mensajería y memoria caché de datos segura que proporciona a las aplicaciones un acceso rápido a los datos. Tutoriales, referencias de API y mucho más.
-services: cache
 author: yegu-ms
-manager: jubbard
 layout: LandingPage
-ms.assetid: ''
 ms.service: cache
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: c5de77f3862f3ca315c586e1ec1cbfc7b5b453a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02d28874d18debc73054ad47fe1604e21dd44d85
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829945"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122547"
 ---
 # <a name="azure-cache-for-redis-documentation"></a>Documentación de Azure Cache for Redis
 
@@ -217,7 +212,7 @@ Aprenda a usar Azure Cache for Redis, un agente de mensajería y memoria caché 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Languages</h3>
+                        <h3>Lenguajes</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.redis.rediscache">Java</a></p>
                         <p><a href="https://redis.io/clients">Clientes de Redis</a></p>

@@ -7,17 +7,17 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Creación de una aplicación ASP.NET
+    - name: Aplicación ASP.NET
       href: cache-web-app-howto.md
-    - name: Creación de una aplicación .NET
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Creación de una aplicación .NET Core
+    - name: Aplicación .NET Core
       href: cache-dotnet-core-quickstart.md
-    - name: Creación de una aplicación Node.js
-      href: cache-nodejs-get-started.md
-    - name: Creación de una aplicación Java
+    - name: Aplicación .NET
+      href: cache-dotnet-how-to-use-azure-redis-cache.md
+    - name: Aplicación Java
       href: cache-java-get-started.md
-    - name: Creación de una aplicación de Python
+    - name: Aplicación Node.js
+      href: cache-nodejs-get-started.md
+    - name: Aplicación Python
       href: cache-python-get-started.md
 - name: Tutoriales
   items:
@@ -33,10 +33,10 @@
       href: cli-samples.md
 - name: Conceptos
   items:
-    - name: Procedimientos recomendados
-      href: cache-best-practices.md
     - name: Conmutación por error y aplicación de revisiones
       href: cache-failover.md
+    - name: Procedimientos recomendados
+      href: cache-best-practices.md
     - name: Procedimientos arquitectónicos recomendados para el almacenamiento en caché
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: Guías de procedimientos
@@ -45,12 +45,14 @@
       items:
         - name: Elegir un nivel de caché
           href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
+        - name: Distribuir la memoria caché mediante agrupación en clústeres
+          href: cache-how-to-premium-clustering.md
         - name: Conservar la memoria caché con la persistencia de datos de Redis
           href: cache-how-to-premium-persistence.md
         - name: Proteger la memoria caché con una red virtual
           href: cache-how-to-premium-vnet.md
-        - name: Distribuir la memoria caché mediante agrupación en clústeres
-          href: cache-how-to-premium-clustering.md
+        - name: Configuración de la replicación geográfica
+          href: cache-how-to-geo-replication.md
         - name: Migrar desde Managed Cache Service
           href: cache-migrate-to-redis.md
     - name: Automatizar
@@ -79,8 +81,6 @@
       items:
         - name: Configuración en Azure Portal
           href: cache-configure.md
-        - name: Configuración de la replicación geográfica
-          href: cache-how-to-geo-replication.md
         - name: Importar y exportar datos
           href: cache-how-to-import-export-data.md
         - name: Reboot

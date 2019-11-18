@@ -361,8 +361,8 @@
               href: hyper-v-azure-failback.md
         - name: administración
           items:
-            - name: Desuso de la recuperación ante desastres entre sitios propiedad del cliente
-              href: site-to-site-deprecation.md
+            - name: Desuso del cifrado de datos de Site Recovery
+              href: encryption-feature-deprecation.md
             - name: Actualización de los servidores de Windows Server configurados con Site Recovery
               href: upgrade-2012R2-to-2016.md
             - name: Quitar servidores y deshabilitar la protección

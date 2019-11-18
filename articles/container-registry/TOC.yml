@@ -1,147 +1,178 @@
-- name: Azure Container Registry
+- name: Documentación de Azure Container Registry
   href: ./index.yml
-- name: Información general
-  items:
-    - name: Acerca de Container Registry
-      href: container-registry-intro.md
-- name: Guías de inicio rápido
+- name: Registros de contenedor
   expanded: true
   items:
-    - name: 'Creación de un registro de contenedor: CLI'
-      href: container-registry-get-started-azure-cli.md
-    - name: 'Creación de un registro de contenedor: Portal'
-      href: container-registry-get-started-portal.md
-    - name: 'Creación de un registro de contenedor: PowerShell'
-      href: container-registry-get-started-powershell.md
-    - name: 'Compilación y ejecución de imagen: CLI'
-      href: container-registry-quickstart-task-cli.md
-    - name: 'Envío de eventos a Event Grid: CLI'
-      href: container-registry-event-grid-quickstart.md
-- name: Tutoriales
-  items:
-    - name: Compilación de imágenes de contenedor
+    - name: Información general
+      expanded: false
       items:
-        - name: 1 - Compilación de imágenes en Azure
-          href: container-registry-tutorial-quick-task.md
-        - name: 2a - Compilación automática al confirmar el código
-          href: container-registry-tutorial-build-task.md
-        - name: 2b - Tarea de varios pasos al confirmar el código
-          href: container-registry-tutorial-multistep-task.md
-        - name: 3 - Compilaciones de actualización de imagen base
-          href: container-registry-tutorial-base-image-update.md
-    - name: Replicación geográfica de un registro
+        - name: Acerca de Container Registry
+          href: container-registry-intro.md
+    - name: Guías de inicio rápido
+      expanded: true
       items:
-        - name: 1 - Preparación del registro del contenedor
-          href: container-registry-tutorial-prepare-registry.md
-        - name: 2 - Implementación de la aplicación web
-          href: container-registry-tutorial-deploy-app.md
-        - name: 3 - Actualización de la aplicación web
-          href: container-registry-tutorial-deploy-update.md
-- name: Conceptos
-  items:
-    - name: SKU de Container Registry y límites
-      href: container-registry-skus.md
-    - name: 'Registros, repositorios e imágenes'
-      href: container-registry-concepts.md
-    - name: Almacenamiento de imágenes
-      href: container-registry-storage.md
-    - name: Formatos de contenido
-      href: container-registry-image-formats.md
-    - name: Imágenes de etiqueta y versión
-      href: container-registry-image-tag-version.md
-    - name: Replicación geográfica
-      href: container-registry-geo-replication.md
-    - name: Procedimientos recomendados del registro
-      href: container-registry-best-practices.md
-- name: Guías de procedimientos
-  items:
-    - name: Operaciones de registro
+        - name: Creación de un registro de contenedor (CLI)
+          href: container-registry-get-started-azure-cli.md
+        - name: Creación de un registro de contenedor (Portal)
+          href: container-registry-get-started-portal.md
+        - name: Creación de un registro de contenedor (PowerShell)
+          href: container-registry-get-started-powershell.md
+        - name: 'Envío de eventos a Event Grid: CLI'
+          href: container-registry-event-grid-quickstart.md
+    - name: Tutoriales
+      expanded: false
       items:
-        - name: Inserción y extracción de una imagen
-          href: container-registry-get-started-docker-cli.md
-        - name: Inserción y extracción de un artefacto de OCI
-          href: container-registry-oci-artifacts.md
-        - name: Visualización de repositorios
-          href: container-registry-repositories.md
-        - name: Importación de imágenes de contenedor
-          href: container-registry-import-images.md
-        - name: Bloqueo de imágenes de contenedor
-          href: container-registry-image-lock.md
-        - name: Eliminación de imágenes de contenedor
+        - name: Replicación geográfica de un registro
           items:
-            - name: 'Eliminación de los datos de imagen: CLI'
-              href: container-registry-delete.md
-            - name: Directiva de retención para manifiestos sin etiquetar (versión preliminar)
-              href: container-registry-retention-policy.md
-            - name: Purga automática de etiquetas y manifiestos (versión preliminar)
-              href: container-registry-auto-purge.md
-        - name: Uso de webhooks de ACR
-          href: container-registry-webhook.md
-        - name: Repositorios de gráficos de Helm (versión preliminar)
-          href: container-registry-helm-repos.md
-    - name: Seguridad y autenticación
+            - name: 1 - Preparación del registro del contenedor
+              href: container-registry-tutorial-prepare-registry.md
+            - name: 2 - Implementación de la aplicación web
+              href: container-registry-tutorial-deploy-app.md
+            - name: 3 - Actualización de la aplicación web
+              href: container-registry-tutorial-deploy-update.md
+    - name: Conceptos
+      expanded: false
       items:
-        - name: Limitación de acceso con red virtual (versión preliminar)
-          href: container-registry-vnet.md
-        - name: Acceso detrás de un firewall
-          href: container-registry-firewall-access-rules.md
-        - name: Authentication
+        - name: SKU de Container Registry y límites
+          href: container-registry-skus.md
+        - name: 'Registros, repositorios e imágenes'
+          href: container-registry-concepts.md
+        - name: Almacenamiento de imágenes
+          href: container-registry-storage.md
+        - name: Formatos de contenido
+          href: container-registry-image-formats.md
+        - name: Imágenes de etiqueta y versión
+          href: container-registry-image-tag-version.md
+        - name: Replicación geográfica
+          href: container-registry-geo-replication.md
+        - name: Procedimientos recomendados del registro
+          href: container-registry-best-practices.md
+    - name: Guías de procedimientos
+      expanded: false
+      items:
+        - name: Operaciones de registro
           items:
-            - name: Información general sobre la autenticación
-              href: container-registry-authentication.md
-            - name: Autenticación de entidad de servicio
-              href: container-registry-auth-service-principal.md
-            - name: Autenticación de identidad administrada
-              href: container-registry-authentication-managed-identity.md
-            - name: Autenticación desde Azure Container Instances
-              href: container-registry-auth-aci.md
-            - name: Autenticación desde Azure Kubernetes Service (AKS)
-              href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
-        - name: Control de acceso basado en rol
-          href: container-registry-roles.md
-        - name: Permisos cuyo ámbito son los repositorios (versión preliminar)
-          href: container-registry-repository-scoped-permissions.md
-        - name: Confianza de contenido
-          href: container-registry-content-trust.md
-        - name: Digitalización de imágenes con Security Center (versión preliminar)
-          href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
-    - name: ACR Tasks
+            - name: Inserción y extracción de una imagen
+              href: container-registry-get-started-docker-cli.md
+            - name: Inserción y extracción de un artefacto de OCI
+              href: container-registry-oci-artifacts.md
+            - name: Visualización de repositorios
+              href: container-registry-repositories.md
+            - name: Importación de imágenes de contenedor
+              href: container-registry-import-images.md
+            - name: Bloqueo de imágenes de contenedor
+              href: container-registry-image-lock.md
+            - name: Eliminación de imágenes de contenedor
+              items:
+                - name: 'Eliminación de los datos de imagen: CLI'
+                  href: container-registry-delete.md
+                - name: Directiva de retención para manifiestos sin etiquetar (versión preliminar)
+                  href: container-registry-retention-policy.md
+                - name: Purga automática de etiquetas y manifiestos (versión preliminar)
+                  href: container-registry-auto-purge.md
+            - name: Uso de webhooks de ACR
+              href: container-registry-webhook.md
+            - name: Repositorios de gráficos de Helm (versión preliminar)
+              href: container-registry-helm-repos.md
+        - name: Seguridad y autenticación
+          items:
+            - name: Limitación de acceso con red virtual (versión preliminar)
+              href: container-registry-vnet.md
+            - name: Acceso detrás de un firewall
+              href: container-registry-firewall-access-rules.md
+            - name: Authentication
+              items:
+                - name: Información general sobre la autenticación
+                  href: container-registry-authentication.md
+                - name: Autenticación de entidad de servicio
+                  href: container-registry-auth-service-principal.md
+                - name: Autenticación de identidad administrada
+                  href: container-registry-authentication-managed-identity.md
+                - name: Autenticación desde Azure Container Instances
+                  href: container-registry-auth-aci.md
+                - name: Autenticación desde Azure Kubernetes Service (AKS)
+                  href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+            - name: Control de acceso basado en rol
+              href: container-registry-roles.md
+            - name: Permisos cuyo ámbito son los repositorios (versión preliminar)
+              href: container-registry-repository-scoped-permissions.md
+            - name: Confianza de contenido
+              href: container-registry-content-trust.md
+            - name: Digitalización de imágenes con Security Center (versión preliminar)
+              href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+        - name: Registros y otros servicios de Azure
+          expanded: false
+          items:
+            - name: Azure Container Instances
+              href: ../container-instances/container-instances-tutorial-prepare-app.md
+            - name: Azure Kubernetes Service (AKS)
+              href: ../aks/tutorial-kubernetes-prepare-app.md
+            - name: Service Fabric
+              href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+        - name: Supervisión
+          expanded: false
+          items:
+            - name: Registros de diagnóstico y auditoría (versión preliminar)
+              href: container-registry-diagnostics-audit-logs.md
+        - name: Solución de problemas
+          expanded: false
+          items:
+            - name: Detección de problemas comunes
+              href: container-registry-check-health.md
+            - name: Preguntas más frecuentes
+              href: container-registry-faq.md
+- name: Tareas
+  expanded: true
+  items:
+    - name: Información general
+      expanded: false
       items:
-        - name: Introducción a ACR Tasks
+        - name: Acerca de ACR Tasks
           href: container-registry-tasks-overview.md
-        - name: Tareas programadas
-          href: container-registry-tasks-scheduled.md
+    - name: Guías de inicio rápido
+      expanded: true
+      items:
+        - name: 'Compilación, inserción y ejecución de una imagen (CLI)'
+          href: container-registry-quickstart-task-cli.md
+    - name: Tutoriales
+      expanded: false
+      items:
+        - name: Automatización de compilaciones de imágenes de contenedor
+          items:
+            - name: Compilación a partir del contexto de origen
+              href: container-registry-tutorial-quick-task.md
+            - name: Compilación al confirmar el código
+              href: container-registry-tutorial-build-task.md
+            - name: Tarea con varios pasos al confirmar el código
+              href: container-registry-tutorial-multistep-task.md
+            - name: Compilación al actualizar una imagen base
+              href: container-registry-tutorial-base-image-update.md
+            - name: Programación de una tarea
+              href: container-registry-tasks-scheduled.md
+    - name: Ejemplos
+      expanded: false
+      items:
+        - name: YAML y Dockerfiles
+          href: container-registry-tasks-samples.md
+    - name: Conceptos
+      items:
         - name: Tareas de varios pasos
           href: container-registry-tasks-multi-step.md
-        - name: Creación de imágenes con Buildpacks (versión preliminar)
-          href: container-registry-tasks-pack-build.md
+    - name: Guías de procedimientos
+      expanded: false
+      items:
         - name: Acceso a recursos protegidos con identidades administradas
           items:
-            - name: Habilitar una identidad administrada en una tarea
+            - name: Habilitación de la identidad administrada en una tarea
               href: container-registry-tasks-authentication-managed-identity.md
-            - name: Autenticación entre registros desde una tarea
+            - name: Autenticación entre registros
               href: container-registry-tasks-cross-registry-authentication.md
-            - name: Autenticación externa mediante un almacén de claves
+            - name: Autenticación externa mediante Key Vault
               href: container-registry-tasks-authentication-key-vault.md
-    - name: Registros y otros servicios de Azure
-      items:
-        - name: Azure Container Instances
-          href: ../container-instances/container-instances-tutorial-prepare-app.md
-        - name: Azure Kubernetes Service (AKS)
-          href: ../aks/tutorial-kubernetes-prepare-app.md
-        - name: Service Fabric
-          href: ../service-fabric/service-fabric-tutorial-create-container-images.md
-    - name: Supervisión
-      items:
-        - name: Registros de diagnóstico y auditoría (versión preliminar)
-          href: container-registry-diagnostics-audit-logs.md
-    - name: Solución de problemas
-      items:
-        - name: Detección de problemas comunes
-          href: container-registry-check-health.md
-        - name: Preguntas más frecuentes
-          href: container-registry-faq.md
+        - name: Creación de imágenes con Buildpacks (versión preliminar)
+          href: container-registry-tasks-pack-build.md
 - name: Referencia
+  expanded: false
   items:
     - name: Azure CLI
       href: /cli/azure/acr
@@ -159,19 +190,15 @@
       href: /javascript/api/overview/azure/container-registry
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.containerregistry/registries
-    - name: YAML de ACR Tasks
-      href: container-registry-tasks-reference-yaml.md
     - name: Esquema de Webhook
       href: container-registry-webhook-reference.md
     - name: Esquema de Event Grid
       href: ../event-grid/event-schema-container-registry.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
     - name: Errores de comprobación de estado
       href: container-registry-health-error-reference.md
-      maintainContext: true
 - name: Recursos
+  expanded: false
   items:
-    - name: Creación de aptitudes con Microsoft Learn
-      href: /learn/browse/?products=azure-container-registry
     - name: Disponibilidad en regiones
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Precios

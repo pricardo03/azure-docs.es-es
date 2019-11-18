@@ -70,10 +70,10 @@
               href: end-user-experiences.md
     - name: Aprovisionamiento de aplicaciones (SCIM)
       items:
-        - name: Aprovisionamiento automático de aplicaciones habilitadas con SCIM
-          href: use-scim-to-provision-users-and-groups.md
         - name: Planeamiento de una implementación del aprovisionamiento automático de usuarios
           href: plan-auto-user-provisioning.md
+        - name: Aprovisionamiento manual y automático
+          href: application-provisioning-config-how-to.md
     - name: Application Proxy para aplicaciones locales
       items:
         - name: Proxy de aplicación
@@ -227,28 +227,40 @@
                   href: access-panel-troubleshoot-self-service-access.md
     - name: Aprovisionamiento de aplicaciones (SCIM)
       items:
-        - name: Configurar aprovisionamiento de usuarios
+        - name: Configuración del aprovisionamiento de aplicaciones
           items:
-            - name: Aprovisionamiento manual y automático
-              href: application-provisioning-config-how-to.md
             - name: Configuración del aprovisionamiento automático de usuarios
               href: configure-automatic-user-provisioning-portal.md
+            - name: Uso de SCIM de aprovisionamiento automático
+              href: use-scim-to-provision-users-and-groups.md
             - name: Personalización de asignaciones de atributos
               href: Customize-application-attributes.md
+            - name: Escritura de expresiones para la asignación de atributos
+              href: functions-for-customizing-application-data.md
             - name: Asignación de ámbito a los usuarios o grupos que se van a aprovisionar
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Omisión de la eliminación de los usuarios fuera del ámbito
               href: skip-out-of-scope-deletions.md
             - name: Supervisión del rendimiento y estado del aprovisionamiento
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
-            - name: Notificación del aprovisionamiento automático de usuarios
+            - name: Generación de informes acerca del aprovisionamiento de aplicaciones
               href: check-status-user-account-provisioning.md
             - name: Exportación e importación de la configuración
               href: export-import-provisioning-configuration.md
+            - name: Automatización de la configuración mediante MS Graph
+              href: application-provisioning-configure-api.md
         - name: Solución de problemas de aprovisionamiento de usuarios
           items:
-            - name: Solución de problemas de aprovisionamiento de usuarios
+            - name: Solución de problemas de aprovisionamiento de aplicaciones
               href: application-provisioning-config-problem.md
+            - name: Estado de cuarentena
+              href: application-provisioning-quarantine-status.md
+            - name: Registros de aprovisionamiento
+              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
+            - name: 'Sincronización de un atributo para la asignación: aplicación de la galería'
+              href: user-provisioning-sync-attributes-for-mapping.md
+            - name: 'Tarda horas: aplicación de la galería'
+              href: application-provisioning-when-will-provisioning-finish.md
             - name: Incidencia de autorización (no se pueden guardar las credenciales de administrador)
               href: application-provisioning-config-problem-storage-limit.md
             - name: Los usuarios no están aprovisionados
