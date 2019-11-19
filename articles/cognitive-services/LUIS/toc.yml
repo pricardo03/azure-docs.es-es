@@ -173,6 +173,9 @@
           href: howto-add-prebuilt-models.md
         - name: Etiquetado de entidad en expresión
           href: label-entity-example-utterance.md
+        - name: Adición de Descriptor
+          displayName: 'synonym, interchange, phrase list, descriptor'
+          href: luis-how-to-add-features.md
         - name: Con API REST
           items:
             - name: Compilar la aplicación mediante programación con Node.js
@@ -190,9 +193,6 @@
         - name: Usar el panel
           displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
           href: luis-how-to-use-dashboard.md
-        - name: Adición de Descriptor
-          displayName: 'synonym, interchange, phrase list, descriptor'
-          href: luis-how-to-add-features.md
         - name: Revisar las expresiones de punto de conexión
           displayName: active learning
           href: luis-how-to-review-endpoint-utterances.md
