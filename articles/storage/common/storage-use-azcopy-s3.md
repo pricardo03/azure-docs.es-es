@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 73eed48bd34a8c8d81a66872888ebf5481074648
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: b984d194c75924451a52250490b1a5590b996974
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274107"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821382"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Copia de datos desde cubos de Amazon S3 mediante AzCopy
 
@@ -52,6 +52,9 @@ AzCopy usa la API [Put Block From URL](https://docs.microsoft.com/rest/api/stora
 
 > [!IMPORTANT]
 > Esta funcionalidad actualmente está en su versión preliminar. Si decide quitar datos de los cubos S3 después de una operación de copia, asegúrese de comprobar que los datos se hayan copiado correctamente a la cuenta de almacenamiento antes de quitarlos.
+
+> [!TIP]
+> En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 ### <a name="copy-an-object"></a>Copia de un objeto
 

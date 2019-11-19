@@ -137,8 +137,6 @@
       href: functions-networking-options.md
     - name: Direcciones IP
       href: ip-addresses.md
-    - name: Funciones de Kubernetes
-      href: functions-kubernetes-keda.md
 - name: Guías de procedimientos
   items:
     - name: Desarrollo
@@ -228,6 +226,9 @@
           href: deployment-zip-push.md
         - name: Ejecución desde el paquete
           href: run-functions-from-deployment-package.md
+        - name: Funciones de Kubernetes
+          href: functions-kubernetes-keda.md
+          displayName: keda
         - name: Automatización de la implementación de recursos
           href: functions-infrastructure-as-code.md
         - name: Funciones locales

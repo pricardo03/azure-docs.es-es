@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e4b073a63b5b6bec565aed67bcaec7ed014261b
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: d305f3354e7b1af6d43f31f0dd5fe9f54ef3e66f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807870"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242283"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
 
@@ -114,7 +114,7 @@ Permita el acceso a las siguientes direcciones URL:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicación entre el conector y el servicio en la nube del proxy de aplicación |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure utiliza estas direcciones URL para verificar los certificados. |
-| login.windows.net<br>login.microsoftonline.com | El conector utiliza estas direcciones URL durante el proceso de registro. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | El conector utiliza estas direcciones URL durante el proceso de registro. |
 
 Si el firewall o proxy le permite configurar listas de DNS permitidos, puede permitir conexiones a \*.msappproxy.net y \*.servicebus.windows.net. Si no, deberá permitir el acceso a los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Los intervalos IP se actualizan cada semana.
 

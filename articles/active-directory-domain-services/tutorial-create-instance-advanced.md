@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2ed488f5f4380c44772d63d208e2c7a68934aca8
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7bafcb1508cdb01c4fe27a9d02db63c4f00efd74
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757651"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172581"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de una instancia de Azure Active Directory Domain Services con opciones de configuración avanzada
 
@@ -88,7 +88,11 @@ También se aplican las siguientes restricciones de nombre DNS:
 Complete los campos de la ventana *Datos básicos* de Azure Portal para crear una instancia de Azure AD DS:
 
 1. Escriba un **nombre de dominio DNS** para el dominio administrado, teniendo en cuenta los puntos anteriores.
-1. Elija la **ubicación** de Azure en que se debe crear el dominio administrado.
+1. Elija la **ubicación** de Azure en que se debe crear el dominio administrado. Si elige una región que admite zonas de disponibilidad, los recursos de Azure AD DS se distribuyen entre las zonas para conseguir redundancia adicional.
+
+    Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas.
+
+    No es necesario realizar ninguna configuración para que Azure AD DS se distribuya entre zonas. La plataforma Azure controla automáticamente la distribución en zonas de los recursos. Para más información y consulta de la disponibilidad en las regiones, consulte [¿Qué son las zonas de disponibilidad en Azure?][availability-zones]
 
     ![Configuración de las opciones básicas de una instancia de Azure AD Domain Services](./media/tutorial-create-instance-advanced/basics-window.png)
 
@@ -167,7 +171,7 @@ En la página **Resumen** del asistente, revise la configuración del dominio ad
 
     ![Estado de Domain Services una vez aprovisionado correctamente](./media/tutorial-create-instance-advanced/successfully-provisioned.png)
 
-Durante el proceso de aprovisionamiento, Azure AD DS crea dos aplicaciones empresariales, *Domain Controller Services* y *AzureActiveDirectoryDomainControllerServices* en su directorio. Estas aplicaciones empresariales se necesitan para dar servicio al dominio administrado. Es imprescindible que estas aplicaciones no se eliminen en ningún momento.
+El dominio administrado se asocia al inquilino de Azure AD. Durante el proceso de aprovisionamiento, Azure AD DS crea dos aplicaciones empresariales, *Domain Controller Services* y *AzureActiveDirectoryDomainControllerServices* en el inquilino de Azure AD. Estas aplicaciones empresariales se necesitan para dar servicio al dominio administrado. No las elimine.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Actualización de la configuración DNS para Azure Virtual Network
 
@@ -238,6 +242,7 @@ Para ver este dominio administrado en acción, cree una máquina virtual y únal
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

@@ -561,7 +561,7 @@ Para obtener más información sobre la experiencia de información de seguridad
 
 3. En el **los usuarios pueden usar las característica en vista previa para registrar y administrar la información de seguridad: área** mejorada, seleccione **Seleccionado**, y luego elija un grupo de usuarios o elija **Todos** para activar esta función para todos los usuarios del inquilino.
 
-4. En el ** Los usuarios pueden usar las características de vista previa para registrar y administrar el área de información ** de seguridad **, seleccione **Ninguno**.
+4. En el **Los usuarios pueden usar las características de vista previa para registrar y administrar el área de información **de seguridad**,** seleccione **Ninguno**.
 
 5. Guarde la configuración.
 
