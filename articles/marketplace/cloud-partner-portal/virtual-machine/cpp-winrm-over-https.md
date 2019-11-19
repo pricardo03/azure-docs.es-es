@@ -8,18 +8,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pabutler
-ms.openlocfilehash: 6e159bd9b57b26c99afd590d6a9f2153dba2a205
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e39f83b2ed715afbfff69770c151cfc4d527105d
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808423"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132262"
 ---
 # <a name="windows-remote-management-over-https"></a>Administración remota de Windows a través de HTTPS
 
-En esta sección se explica cómo configurar una VM basada en Windows hospedada en Azure para que pueda administrarse e implementarse de forma remota con PowerShell.  Para habilitar la comunicación remota de PowerShell, la VM de destino debe exponer un punto de conexión HTTPS de Administración remota de Windows (WinRM).  Para más información sobre la comunicación remota de PowerShell, consulte [Running Remote Commands](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6) (Ejecución de comandos remotos).  Para más información sobre WinRM, consulte [Administración remota de Windows](https://docs.microsoft.com/windows/desktop/WinRM/portal).
+En esta sección se explica cómo configurar una VM basada en Windows hospedada en Azure para que pueda administrarse e implementarse de forma remota con PowerShell.  Para habilitar la comunicación remota de PowerShell, la VM de destino debe exponer un punto de conexión HTTPS de Administración remota de Windows (WinRM).  Para más información sobre la comunicación remota de PowerShell, consulte [Running Remote Commands](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands) (Ejecución de comandos remotos).  Para más información sobre WinRM, consulte [Administración remota de Windows](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 
-Si crea una VM usando uno de los enfoques "clásicos" de Azure —el portal de Azure Service Manager o [Azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)) en desuso, se configura automáticamente con un punto de conexión de WinRM.  Sin embargo, si crea una VM mediante cualquiera de los siguientes enfoques "modernos" de Azure, la VM *no* se configurará para WinRM a través de HTTPS.  
+Si crea una VM usando uno de los enfoques "clásicos" de Azure —el portal de Azure Service Manager o [Azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)) en desuso, se configura automáticamente con un punto de conexión de WinRM.  Sin embargo, si crea una VM mediante cualquiera de los siguientes enfoques "modernos" de Azure, la VM *no* se configurará para WinRM a través de HTTPS.
 
 - Mediante [Azure Portal](https://portal.azure.com/), normalmente a partir de una base aprobada, tal como se describe en la sección [Creación de un disco duro virtual compatible con Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Mediante las plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
@@ -34,9 +34,9 @@ En cambio, normalmente las VM Linux se administran de manera remota mediante la 
 
 El punto de conexión de WinRM para una VM basada en Windows puede configurarse durante dos fases distintas de su desarrollo:
 
-- Durante la creación, durante la implementación de una VM en un disco duro virtual existente.  Este es el enfoque preferido para las ofertas nuevas.  Este enfoque requiere la creación de un certificado de Azure, mediante plantillas de Azure Resource Manager proporcionadas, y ejecutar scripts de PowerShell personalizados. 
-- Después de la implementación, en una VM existente hospedada en Azure.  Use este enfoque si ya tiene una solución de VM implementada en Azure y tiene que habilitar la Administración remota de Windows para ella.  Este enfoque requiere cambios manuales en Azure Portal y la ejecución de un script en la VM de destino. 
+- Durante la creación, durante la implementación de una VM en un disco duro virtual existente.  Este es el enfoque preferido para las ofertas nuevas.  Este enfoque requiere la creación de un certificado de Azure, mediante plantillas de Azure Resource Manager proporcionadas, y ejecutar scripts de PowerShell personalizados.
+- Después de la implementación, en una VM existente hospedada en Azure.  Use este enfoque si ya tiene una solución de VM implementada en Azure y tiene que habilitar la Administración remota de Windows para ella.  Este enfoque requiere cambios manuales en Azure Portal y la ejecución de un script en la VM de destino.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si va a crear una nueva VM, puede habilitar WinRM durante la [implementación de la VM desde sus VHD](./cpp-deploy-vm-vhd.md).  En caso contrario, WinRM se puede habilitar en una VM existente.  
+Si va a crear una nueva VM, puede habilitar WinRM durante la [implementación de la VM desde sus VHD](./cpp-deploy-vm-vhd.md).  En caso contrario, WinRM se puede habilitar en una VM existente.

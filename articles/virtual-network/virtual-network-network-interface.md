@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 102490335e91c95b53b5a6d37a00809d34d31e90
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 809e40f6616e8ab022a31d8dd29d4a5386c5e844
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168580"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838424"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
@@ -49,7 +49,7 @@ Al crear una máquina virtual desde Azure Portal, este crea una interfaz de red 
 
     |Configuración|¿Necesario?|Detalles|
     |---|---|---|
-    |NOMBRE|Sí|El nombre debe ser único dentro del grupo de recursos que seleccione. Con el tiempo, probablemente tendrá varias interfaces de red en la suscripción de Azure. Para recibir sugerencias sobre la creación de convenciones de nomenclatura para facilitar la administración de varias interfaces de red, consulte [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming). El nombre no se puede cambiar una vez creada la interfaz de red.|
+    |NOMBRE|Sí|El nombre debe ser único dentro del grupo de recursos que seleccione. Con el tiempo, probablemente tendrá varias interfaces de red en la suscripción de Azure. Para recibir sugerencias sobre la creación de convenciones de nomenclatura para facilitar la administración de varias interfaces de red, consulte [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). El nombre no se puede cambiar una vez creada la interfaz de red.|
     |Virtual network|Sí|Seleccione la red virtual para la interfaz de red. Solo se puede asignar una interfaz de red a una red virtual que exista en la misma suscripción y ubicación que la interfaz de red. Una vez creada la interfaz de red, no se puede cambiar la red virtual a la que está asignada. La máquina virtual que se agrega a la interfaz de red también debe existir en la misma ubicación y suscripción que la interfaz de red.|
     |Subnet|Sí|Seleccione una subred dentro de la red virtual que seleccionó. Puede cambiar la subred a la que está asignada la interfaz de red después de crearla.|
     |Asignación de la dirección IP privada|Sí| En esta configuración, va a elegir el método de asignación para la dirección IPv4. Elija entre los siguientes métodos de asignación: **Dinámica:** al seleccionar esta opción, Azure asigna automáticamente la siguiente dirección disponible del espacio de direcciones de la subred seleccionada. **Estática:** al seleccionar esta opción, debe asignar manualmente una dirección IP disponible del espacio de direcciones de la subred seleccionada. Las direcciones estática y dinámica no cambian hasta que usted realice algún cambio elimine la interfaz de red. Una vez creada la interfaz de red, puede cambiar el método de asignación. El servidor DHCP de Azure asigna esta dirección a la interfaz de red en el sistema operativo de la máquina virtual.|

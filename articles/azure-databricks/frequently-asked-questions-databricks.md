@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 0436a0898f27d3059069ce2df1fdfb143a98f325
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3febdbc8f55f6ccd65eba97de984a9a38ddf214e
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601801"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129323"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Preguntas más frecuentes sobre Azure Databricks
 
@@ -34,7 +34,7 @@ Siga estos pasos:
 1. Asigne los permisos necesarios a la entidad de servicio en Data Lake Storage.
 1. Para acceder a un archivo en Data Lake Storage, use las credenciales de la entidad de servicio en Notebook.
 
-Para más información, consulte [Use Azure Data Lake Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake.html) (Uso de Azure Data Lake Storage con Azure Databricks).
+Para más información, consulte [Use Azure Data Lake Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake) (Uso de Azure Data Lake Storage con Azure Databricks).
 
 ## <a name="fix-common-problems"></a>Corrección de problemas comunes
 

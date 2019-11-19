@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 90f69371457bbfe37789b12971343f738ff35e8e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e873980ce7aab1c5454a28e88df24bdb189c4860
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639718"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074844"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar copia de seguridad al crear una máquina virtual de Azure
 
@@ -52,11 +52,8 @@ Si aún no ha iniciado sesión en su cuenta, hágalo en [Azure Portal](https://p
 
       ![Directiva de copia de seguridad predeterminada](./media/backup-during-vm-creation/daily-policy.png)
 
-
 > [!NOTE]
-> El servicio Azure Backup crea un grupo de recursos independiente (distinto del grupo de recursos de la VM) para almacenar la instantánea con el formato de nomenclatura **AzureBackupRG_geografía_número** (ejemplo: AzureBackupRG_northeurope_1). Los datos de este grupo de recursos se conservarán durante el intervalo de días especificado en la sección *Conservar las instantáneas de recuperación instantánea* de la directiva de copia de seguridad de la máquina virtual de Azure.  Si se aplica un bloqueo a este grupo de recursos, pueden producirse errores de copia de seguridad.<br>
-Este grupo de recursos también debe excluirse de todas las restricciones de nombre o etiqueta, ya que una directiva de restricción podría bloquear la creación de colecciones de puntos de recursos en el grupo, lo que provocaría errores de copia de seguridad.
-
+> El servicio Azure Backup crea un grupo de recursos independiente (distinto del grupo de recursos de la VM) para almacenar la instantánea con el formato de nomenclatura **AzureBackupRG_geografía_número** (ejemplo: AzureBackupRG_northeurope_1). Los datos de este grupo de recursos se conservarán durante el intervalo de días especificado en la sección *Conservar las instantáneas de recuperación instantánea* de la directiva de copia de seguridad de la máquina virtual de Azure.  Si se aplica un bloqueo a este grupo de recursos, pueden producirse errores de copia de seguridad. <br> Este grupo de recursos también debe excluirse de todas las restricciones de nombre o etiqueta, ya que una directiva de restricción podría bloquear la creación de colecciones de puntos de recursos en el grupo, lo que provocaría errores de copia de seguridad.
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Iniciar una copia de seguridad después de crear la VM
 
@@ -72,8 +69,6 @@ Una vez creada la VM, haga lo siguiente:
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Uso de una plantilla de Resource Manager para implementar una VM protegida
 
 En los pasos anteriores se explica cómo usar Azure Portal para crear una máquina virtual y protegerla en un almacén de Recovery Services. Para implementar una o varias VM rápidamente y protegerlas en un almacén de Azure Recovery Services, consulte la plantilla [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/) (Implementar una VM Windows y habilitar la copia de seguridad).
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

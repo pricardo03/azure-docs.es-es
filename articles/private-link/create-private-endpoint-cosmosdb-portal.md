@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sngun
-ms.openlocfilehash: 80a0a3440a7fb5d056d1d76fb9d82931721b6e16
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32595e561736b5f22f109d0caff1f3990300d2bc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510709"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007328"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conexión privada a una cuenta de Azure Cosmos con Azure Private Link
 
@@ -99,7 +99,7 @@ Cree una [cuenta de Azure Cosmos SQL API](../cosmos-db/create-cosmosdb-resour
 
 ## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>Creación de un punto de conexión privado para la cuenta de Azure Cosmos
 
-Cree un vínculo privado para su cuenta de Azure Cosmos, tal como se describe en la sección [Creación de un vínculo privado con Azure Portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) del artículo vinculado.
+Cree un vínculo privado para su cuenta de Azure Cosmos, tal como se describe en la sección [Creación de un vínculo privado con Azure Portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) del artículo vinculado.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conexión a una máquina virtual desde Internet
 

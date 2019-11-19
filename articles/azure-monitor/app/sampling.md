@@ -8,12 +8,12 @@ author: cijothomas
 ms.author: cithomas
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: 82c0855e3ea3b6a89c1b20569971b0dc6b3d449c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c124e6c433f83212c0db815a2fd06cfcfdf86253
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899856"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884709"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -534,7 +534,7 @@ Siga las instrucciones de [este artículo](https://docs.microsoft.com/azure/azur
 
 *Hay ciertos eventos excepcionales que siempre quiero ver. ¿Cómo se consigue que el módulo de muestreo los reconozca?*
 
-* La mejor forma de lograrlo es escribir un objeto [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) personalizado, que establece `SamplingPercentage` en 100 en el elemento de telemetría que desee retener, tal como se muestra a continuación. Cuando se garantiza que los inicializadores se ejecutan antes que los procesadores de telemetría (incluido el muestreo), se tiene la seguridad de que todas las técnicas de muestreo omitirán este elemento de cualquier consideración de muestreo.
+* La mejor forma de lograrlo es escribir un objeto [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) personalizado, que establece `SamplingPercentage` en 100 en el elemento de telemetría que desee retener, tal como se muestra a continuación. Cuando se garantiza que los inicializadores se ejecutan antes que los procesadores de telemetría (incluido el muestreo), se tiene la seguridad de que todas las técnicas de muestreo omitirán este elemento de cualquier consideración de muestreo.
 
 ```csharp
      public class MyTelemetryInitializer : ITelemetryInitializer

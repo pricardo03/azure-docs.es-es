@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: e0490913029efc17d12139378369646c286a276c
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: e5988bf1955502d89cc31bcc30672de983a399ec
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145718"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083339"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Uso de Caffe en Azure HDInsight Spark para el aprendizaje profundo distribuido
 
@@ -21,7 +21,7 @@ ms.locfileid: "71145718"
 
 El aprendizaje profundo afecta a muchos sectores empresariales, desde la atención sanitaria, al transporte o a la fabricación, entre otros. Las empresas empiezan a usar el aprendizaje profundo para solucionar problemas difíciles, como la [clasificación de imágenes](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), el [reconocimiento de voz](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), el reconocimiento de objetos y la traducción automática.
 
-Hay [muchos marcos populares](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), entre los que se incluyen [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, etc. [Caffe](https://caffe.berkeleyvision.org/) es uno de los marcos de redes neuronales no simbólicos más conocidos y se usa ampliamente en muchas áreas, entre las que se incluye la visión de equipos. Además, [CaffeOnSpark](https://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combina Caffe con Apache Spark, en cuyo caso el aprendizaje profundo se puede usar fácilmente en un clúster de Hadoop existente. Puede usar el aprendizaje profundo junto con las canalizaciones de Spark ETL para reducir la complejidad del sistema y la latencia para el aprendizaje de la solución completa.
+Hay [muchos marcos populares](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), entre los que se incluyen [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, etc. [Caffe](https://caffe.berkeleyvision.org/) es uno de los marcos de redes neuronales no simbólicos más conocidos y se usa ampliamente en muchas áreas, entre las que se incluye la visión de equipos. Además, [CaffeOnSpark](https://github.com/yahoo/CaffeOnSpark) combina Caffe con Apache Spark, en cuyo caso el aprendizaje profundo se puede usar fácilmente en un clúster de Hadoop existente. Puede usar el aprendizaje profundo junto con las canalizaciones de Spark ETL para reducir la complejidad del sistema y la latencia para el aprendizaje de la solución completa.
 
 [HDInsight](https://azure.microsoft.com/services/hdinsight/) es una oferta de Apache Hadoop en la nube que proporciona clústeres de análisis de código abierto optimizados para Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka y ML Services. HDInsight está respaldado por un contrato de nivel de servicio del 99,9%. Cada una de estas tecnologías de macrodatos, así como las aplicaciones de fabricantes de software independientes, se pueden implementar fácilmente como clústeres administrados, con seguridad y supervisión para empresas.
 

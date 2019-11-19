@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 43ad6558b685d3959562be720f7494b3d2a7334e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c118a74e273e153746240465692b1c712bd25f47
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499425"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953618"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: Extracción de datos de forma libre con una entidad Pattern.any
 
@@ -138,7 +138,7 @@ La entidad Pattern.any extrae entidades de diferente longitud. Solo funciona en 
 
 ## <a name="using-an-explicit-list"></a>Uso de una lista explícita
 
-Si descubre que el patrón, cuando incluye una entidad Pattern.any, extrae entidades de forma incorrecta, use una [lista explícita](luis-concept-patterns.md#explicit-lists) para corregir este problema.
+Si descubre que el patrón, cuando incluye una entidad Pattern.any, extrae entidades de forma incorrecta, use una [lista explícita](reference-pattern-syntax.md#explicit-lists) para corregir este problema.
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

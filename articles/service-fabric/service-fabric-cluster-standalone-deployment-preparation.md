@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: dad37af030c456f9ba2cd814fa92a7811dce6aa1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 8b9f659098e563a3dc0692530ad798a5c763551f
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130325"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133404"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster independiente de Service Fabric
 
@@ -67,7 +67,7 @@ Estas son algunas especificaciones recomendadas para cada máquina que se va a a
 * Conectividad a una o varias redes seguras para todas las máquinas
 * SO Windows Server instalado (versiones válidas: 2012 R2, 2016, 1709 o 1803). La versión 6.4.654.9590 de Service Fabric y posteriores también admiten el servidor 2019 y 1809.
 * [.NET Framework 4.5.1 o posterior](https://www.microsoft.com/download/details.aspx?id=40773) (instalación completa)
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
 * El [servicio RemoteRegistry](https://technet.microsoft.com/library/cc754820) se debe estar ejecutando en todas las máquinas
 * La unidad de instalación de Service Fabric debe ser del sistema de archivos NTFS.
 
@@ -99,7 +99,7 @@ Cuando un administrador de clústeres configura un clúster independiente de Ser
 1. El usuario que crea el clúster debe tener privilegios de seguridad de nivel de administrador en todas las máquinas que se enumeran como nodos en el archivo de configuración del clúster.
 2. La máquina desde la que se crea el clúster, así como la máquina de cada nodo del clúster debe cumplir estos requisitos:
    * Tener desinstalado el SDK de Service Fabric
-   * tener desinstalado el entorno de tiempo de ejecución de Service Fabric 
+   * tener desinstalado el entorno de tiempo de ejecución de Service Fabric
    * Tener habilitado el servicio Firewall de Windows (mpssvc)
    * Tener habilitado el servicio Remote Registry (registro remoto)
    * Tener habilitado el uso compartido de archivos (SMB)
@@ -137,7 +137,7 @@ Cuando un administrador de clústeres configura un clúster independiente de Ser
 | FileStoreService.exe |
 
 ## <a name="validate-environment-using-testconfiguration-script"></a>Validación del entorno mediante el script TestConfiguration
-El script TestConfiguration.ps1 se puede encontrar en el paquete independiente. Se usa como Analizador de procedimientos recomendados para validar algunos de los criterios anteriores y debe usarse como una comprobación de integridad para validar si un clúster puede implementarse en un entorno determinado. Si se produce cualquier error, consulte la lista que aparece en [Configuración del entorno](service-fabric-cluster-standalone-deployment-preparation.md) para solucionar el problema. 
+El script TestConfiguration.ps1 se puede encontrar en el paquete independiente. Se usa como Analizador de procedimientos recomendados para validar algunos de los criterios anteriores y debe usarse como una comprobación de integridad para validar si un clúster puede implementarse en un entorno determinado. Si se produce cualquier error, consulte la lista que aparece en [Configuración del entorno](service-fabric-cluster-standalone-deployment-preparation.md) para solucionar el problema.
 
 Este script puede ejecutarse en cualquier máquina que tenga acceso de administrador a todas las máquinas que se muestran como nodos en el archivo de configuración del clúster. La máquina donde se ejecuta este script no tiene que formar parte del clúster.
 
@@ -160,12 +160,12 @@ FabricInstallable          : True
 Passed                     : True
 ```
 
-Actualmente, este módulo de prueba de configuración no valida la configuración de seguridad, así que se debe realizar de forma independiente.  
+Actualmente, este módulo de prueba de configuración no valida la configuración de seguridad, así que se debe realizar de forma independiente.
 
 > [!NOTE]
-> Continuamente realizamos mejoras para conseguir que este módulo sea más robusto; por tanto, si cree que hay algún caso incorrecto o que falta que no está contemplado en TestConfiguration, comuníquenoslo a través de nuestros [canales de soporte técnico](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).   
-> 
-> 
+> Continuamente realizamos mejoras para conseguir que este módulo sea más robusto; por tanto, si cree que hay algún caso incorrecto o que falta que no está contemplado en TestConfiguration, comuníquenoslo a través de nuestros [canales de soporte técnico](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+>
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de un clúster independiente con Windows Server](service-fabric-cluster-creation-for-windows-server.md)

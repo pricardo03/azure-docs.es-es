@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ea1d4020aa9be23b4839690ae0b386d35bce8a23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9b22e6b806f76189134ec63c83d48f48bf95587
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66498895"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889759"
 ---
 # <a name="disaster-recovery-guidance-for-azure-data-lake-analytics"></a>Guía de recuperación ante desastres para Azure Data Lake Analytics
 
@@ -23,7 +23,7 @@ Azure Data Lake Analytics es un servicio de trabajos de análisis a petición qu
 
 Al usar Azure Data Lake Analytics, es fundamental preparar su propio plan de recuperación ante desastres. Este artículo es una guía para crear un plan de recuperación ante desastres. Aquí tiene algunos recursos adicionales que pueden ayudarle a crear su propio plan:
 - [Recuperación ante desastres y errores para aplicaciones de Azure](/azure/architecture/reliability/disaster-recovery)
-- [Guía técnica sobre resistencia en Azure](/azure/architecture/reliability)
+- [Guía técnica sobre resistencia en Azure](/azure/architecture/checklist/resiliency-per-service)
 
 ## <a name="best-practices-and-scenario-guidance"></a>Procedimientos recomendados y guía de escenarios
 

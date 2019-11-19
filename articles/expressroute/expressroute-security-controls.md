@@ -1,20 +1,18 @@
 ---
-title: Controles de seguridad para los servicios de Azure ExpressRoute
+title: 'Azure ExpressRoute: Controles de seguridad'
 description: Lista de comprobación de controles de seguridad para evaluar Azure ExpressRoute
 services: expressroute
 ms.service: expressroute
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ab73ba6dd4b78d3cd0be5f4c7f7a502e5c58e08
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a288b44c07bc2df8529f07264dcee648f3af379a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886277"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079928"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Controles de seguridad para los servicios de Azure ExpressRoute
 

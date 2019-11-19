@@ -3,7 +3,7 @@ title: Referencia de la actividad de auditoría de Azure Active Directory (Azure
 description: Obtenga una visión general de las actividades de auditoría que se pueden registrar en los registros de auditoría de Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/24/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa60a7737b7781a21e23516d139332f10bdf448
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 843f12d14120a7becdc1e8b15bfcc65948602c44
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306009"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007747"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
 
@@ -103,9 +103,9 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Administración de directorios|Eliminación de Oauth2PermissionGrant|
 |Administración de directorios|Eliminación de la asignación de roles de aplicación de la entidad de servicio|
 |Administración de directorios|Eliminación de propietario de la aplicación|
-|Recurso|Eliminación de propietario de la entidad de servicio|
-|Recurso|Eliminación de directiva de entidad de servicio|
-|Recurso|Quitar entidad de servicio|
+|Resource|Eliminación de propietario de la entidad de servicio|
+|Resource|Eliminación de directiva de entidad de servicio|
+|Resource|Quitar entidad de servicio|
 
 
 ## <a name="automated-password-rollover"></a>Automated Password Rollover (Sustitución automática de contraseña)
@@ -269,79 +269,79 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Clave|Se ha eliminado el directorio|
 |Otros|Se ha eliminado el directorio de forma permanente|
 |Otros|Directorio programado para eliminación|
-|Recurso|Promoción de la compañía al asociado|
-|Recurso|Purgar propiedades de administración de derechos|
-|Recurso|Eliminación de asociado de la compañía|
-|Recurso|Eliminación de dominio sin comprobar|
-|Recurso|Eliminación de dominio comprobado|
-|Recurso|Establecer información sobre la compañía|
-|Recurso|Establecimiento de la característica DirSync|
-|Recurso|Establecimiento de la marca DirSyncEnabled|
-|Recurso|Establecer asociación|
-|Recurso|Establecimiento de umbral de eliminación accidental|
-|Recurso|Establecimiento de la ubicación de datos permitida de empresa|
-|Recurso|Establecimiento de característica de empresa multinacional habilitada|
-|Recurso|Establecimiento de característica de directorio en inquilino|
-|Recurso|Establecer la autenticación de dominio|
-|Recurso|Establecer la configuración de la federación en el dominio|
-|Recurso|Establecimiento de directiva de contraseñas|
-|Recurso|Establecimiento de propiedades de administración de derechos|
-|Recurso|Actualización de compañía|
-|Recurso|Actualización de configuración de compañía|
-|Recurso|Actualizar dominio|
-|Recurso|Comprobar dominio|
-|Recurso|Comprobar dominio verificado por correo electrónico|
-|Recurso|Incorporación|
-|Recurso|Actualización de la configuración de alertas|
-|Recurso|Actualización de la configuración de la ingesta semanal|
-|Recurso|Deshabilitar la reescritura de contraseñas para el directorio|
-|Recurso|Habilitar la reescritura de contraseñas para el directorio|
-|Recurso|Adición de la asignación de roles de aplicación al grupo|
-|Recurso|Agregar grupo|
-|Recurso|Agregar miembro a grupo|
-|Recurso|Incorporación de un propietario a un grupo|
-|Recurso|Creación de configuración de grupo|
-|Recurso|Eliminar grupo|
-|Recurso|Eliminación de la configuración de grupo|
-|Recurso|Finalización de la aplicación de licencias basadas en grupos a los usuarios|
-|Recurso|Eliminación permanente de grupo|
-|Recurso|Eliminación de la asignación de roles de aplicación de grupo|
-|Recurso|Quitar miembro de grupo|
-|Recurso|Eliminación de propietario del grupo|
-|Recurso|Restauración de grupo|
-|Recurso|Establecimiento de licencia de grupo|
-|Recurso|Establecer grupo que va a administrar el usuario.|
-|Recurso|Empezar a aplicar licencias basadas en grupo a los usuarios|
-|Recurso|Desencadenamiento del nuevo cálculo de licencias de grupo|
-|Recurso|Actualizar grupo|
-|Recurso|Actualización de la configuración de grupo|
-|Recurso|Agregar miembro|
-|Recurso|Crear grupo|
-|Recurso|Eliminar grupo|
-|Recurso|Quitar miembro|
-|Recurso|Actualizar grupo|
-|Recurso|Aprobación de una solicitud pendiente para unirse a un grupo|
-|Recurso|Cancelación de una solicitud pendiente para unirse a un grupo|
-|Recurso|Creación de directiva de administración del ciclo de vida|
-|Recurso|Eliminación de una solicitud pendiente para unirse a un grupo|
-|Recurso|Rechazo de una solicitud pendiente para unirse a un grupo|
-|Recurso|Renovación de grupo|
-|Recurso|Solicitud de unión a un grupo|
-|Recurso|Establecimiento de propiedades de grupo dinámico|
-|Recurso|Actualización de directiva de administración del ciclo de vida|
-|Recurso|Incorporación de una clave basada en un secreto ASCII a un contenedor de claves CPIM|
-|Recurso|Incorporación de una clave a un contenedor de claves CPIM|
-|Recurso|Eliminación de un contenedor de claves CPIM|
-|Recurso|Eliminación de un contenedor de claves|
-|Recurso|Obtención de metadatos de clave activos del contenedor de claves en JWK|
-|Recurso|Obtención de metadatos del contenedor de claves|
-|Recurso|Obtiene un contenedor de claves CPIM en formato jwk|
-|Recurso|Obtiene una lista de contenedores de claves del inquilino|
-|Recurso|Restauración de una copia de seguridad del contenedor de claves CPIM|
-|Recurso|Guardar un contenedor de claves|
-|Recurso|Carga de una clave cifrada CPIM|
-|Recurso|Emisión de un código de autorización para la aplicación|
-|Recurso|Emisión de un id_token para la aplicación|
+|Resource|Promoción de la compañía al asociado|
+|Resource|Purgar propiedades de administración de derechos|
+|Resource|Eliminación de asociado de la compañía|
+|Resource|Eliminación de dominio sin comprobar|
+|Resource|Eliminación de dominio comprobado|
+|Resource|Establecer información sobre la compañía|
+|Resource|Establecimiento de la característica DirSync|
+|Resource|Establecimiento de la marca DirSyncEnabled|
+|Resource|Establecer asociación|
+|Resource|Establecimiento de umbral de eliminación accidental|
+|Resource|Establecimiento de la ubicación de datos permitida de empresa|
+|Resource|Establecimiento de característica de empresa multinacional habilitada|
+|Resource|Establecimiento de característica de directorio en inquilino|
+|Resource|Establecer la autenticación de dominio|
+|Resource|Establecer la configuración de la federación en el dominio|
+|Resource|Establecimiento de directiva de contraseñas|
+|Resource|Establecimiento de propiedades de administración de derechos|
+|Resource|Actualización de compañía|
+|Resource|Actualización de configuración de compañía|
+|Resource|Actualizar dominio|
+|Resource|Comprobar dominio|
+|Resource|Comprobar dominio verificado por correo electrónico|
+|Resource|Incorporación|
+|Resource|Actualización de la configuración de alertas|
+|Resource|Actualización de la configuración de la ingesta semanal|
+|Resource|Deshabilitar la reescritura de contraseñas para el directorio|
+|Resource|Habilitar la reescritura de contraseñas para el directorio|
+|Resource|Adición de la asignación de roles de aplicación al grupo|
+|Resource|Agregar grupo|
+|Resource|Agregar miembro a grupo|
+|Resource|Incorporación de un propietario a un grupo|
+|Resource|Creación de configuración de grupo|
+|Resource|Eliminar grupo|
+|Resource|Eliminación de la configuración de grupo|
+|Resource|Finalización de la aplicación de licencias basadas en grupos a los usuarios|
+|Resource|Eliminación permanente de grupo|
+|Resource|Eliminación de la asignación de roles de aplicación de grupo|
+|Resource|Quitar miembro de grupo|
+|Resource|Eliminación de propietario del grupo|
+|Resource|Restauración de grupo|
+|Resource|Establecimiento de licencia de grupo|
+|Resource|Establecer grupo que va a administrar el usuario.|
+|Resource|Empezar a aplicar licencias basadas en grupo a los usuarios|
+|Resource|Desencadenamiento del nuevo cálculo de licencias de grupo|
+|Resource|Actualizar grupo|
+|Resource|Actualización de la configuración de grupo|
+|Resource|Agregar miembro|
+|Resource|Crear grupo|
+|Resource|Eliminar grupo|
+|Resource|Quitar miembro|
+|Resource|Actualizar grupo|
+|Resource|Aprobación de una solicitud pendiente para unirse a un grupo|
+|Resource|Cancelación de una solicitud pendiente para unirse a un grupo|
+|Resource|Creación de directiva de administración del ciclo de vida|
+|Resource|Eliminación de una solicitud pendiente para unirse a un grupo|
+|Resource|Rechazo de una solicitud pendiente para unirse a un grupo|
+|Resource|Renovación de grupo|
+|Resource|Solicitud de unión a un grupo|
+|Resource|Establecimiento de propiedades de grupo dinámico|
+|Resource|Actualización de directiva de administración del ciclo de vida|
+|Resource|Incorporación de una clave basada en un secreto ASCII a un contenedor de claves CPIM|
+|Resource|Incorporación de una clave a un contenedor de claves CPIM|
+|Resource|Eliminación de un contenedor de claves CPIM|
+|Resource|Eliminación de un contenedor de claves|
+|Resource|Obtención de metadatos de clave activos del contenedor de claves en JWK|
+|Resource|Obtención de metadatos del contenedor de claves|
+|Resource|Obtiene un contenedor de claves CPIM en formato jwk|
+|Resource|Obtiene una lista de contenedores de claves del inquilino|
+|Resource|Restauración de una copia de seguridad del contenedor de claves CPIM|
+|Resource|Guardar un contenedor de claves|
+|Resource|Carga de una clave cifrada CPIM|
+|Resource|Emisión de un código de autorización para la aplicación|
+|Resource|Emisión de un id_token para la aplicación|
 
 
 ## <a name="core-directory"></a>Core Directory (Directorio principal)
@@ -440,18 +440,18 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Administración de directivas|GetIEFPolicies|
 |Administración de directivas|GetIdentityProviders|
 |Administración de directivas|GetTrustFrameworkPolicy|
-|Recurso|MigrateTenantMetadata|
-|Recurso|Traslado de recursos|
-|Recurso|Revisión de IdentityProvider|
-|Recurso|PutTrustFrameworkPolicy|
-|Recurso|PutTrustFrameworkpolicy|
-|Recurso|Eliminación de un recorrido del usuario|
-|Recurso|Actualización de IDP personalizado|
-|Recurso|Actualización de IDP|
-|Recurso|Actualización de IDP local|
-|Recurso|Actualización de un recurso del directorio B2C|
-|Recurso|Actualización de directiva|
-|Recurso|Actualización del estado de la suscripción|
+|Resource|MigrateTenantMetadata|
+|Resource|Traslado de recursos|
+|Resource|Revisión de IdentityProvider|
+|Resource|PutTrustFrameworkPolicy|
+|Resource|PutTrustFrameworkpolicy|
+|Resource|Eliminación de un recorrido del usuario|
+|Resource|Actualización de IDP personalizado|
+|Resource|Actualización de IDP|
+|Resource|Actualización de IDP local|
+|Resource|Actualización de un recurso del directorio B2C|
+|Resource|Actualización de directiva|
+|Resource|Actualización del estado de la suscripción|
 |Administración de roles|Actualización de atributo de usuario|
 |Administración de roles|Validación de los recursos en movimiento|
 |Administración de roles|Incorporación de un dispositivo|

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: a455607b1459ebc9e37b1df70b454feea76d1f2f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822774"
+ms.locfileid: "73839042"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guía de inicio rápido: Configurar una máquina virtual de Azure para la conexión a una Instancia administrada de Azure SQL Database
 
@@ -46,7 +46,7 @@ En los pasos siguientes se crea una nueva subred en la red virtual de Instancia 
 
    | Configuración| Valor sugerido | Descripción |
    | ---------------- | ----------------- | ----------- |
-   | **Nombre** | Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
+   | **Nombre** | Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    | **Intervalo de direcciones (bloque CIDR)** | Un intervalo válido | El valor predeterminado es adecuado para este inicio rápido.|
    | **Grupo de seguridad de red** | None | El valor predeterminado es adecuado para este inicio rápido.|
    | **Tabla de rutas** | None | El valor predeterminado es adecuado para este inicio rápido.|
@@ -78,8 +78,8 @@ La forma más fácil de crear una máquina virtual cliente con todas las herrami
    | **Suscripción** | Una suscripción válida | Debe ser una suscripción en la que tiene permiso para crear recursos. |
    | **Grupo de recursos** |Grupo de recursos que especificó en el inicio rápido [Crear Instancia administrada](sql-database-managed-instance-get-started.md).|Este grupo de recursos debe ser el grupo de recursos donde existe la red virtual.|
    | **Ubicación** | Ubicación del grupo de recursos | Este valor se rellena según el grupo de recursos seleccionado. |
-   | **Nombre de la máquina virtual**  | Cualquier nombre válido | Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
-   |**Nombre de usuario administrador**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.<br>Use este nombre de usuario cada vez que [se conecte a la máquina virtual](#connect-to-virtual-machine).|
+   | **Nombre de la máquina virtual**  | Cualquier nombre válido | Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming).|
+   |**Nombre de usuario administrador**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.<br>Use este nombre de usuario cada vez que [se conecte a la máquina virtual](#connect-to-virtual-machine).|
    |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Use esta contraseña cada vez que [se conecte a la máquina virtual](#connect-to-virtual-machine).|
    | **Tamaño de máquina virtual** | Cualquier tamaño válido | El valor predeterminado de esta plantilla de **Standard_B2s** es suficiente para esta guía de inicio rápido. |
    | **Ubicación**|[resourceGroup().location].| No cambie este valor. |

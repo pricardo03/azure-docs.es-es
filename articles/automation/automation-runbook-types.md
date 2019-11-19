@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e655e286c3aebe28bcb09c8723516c2ff52ad20e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6c29015e2fd327d74183d5fbbd6214152507e517
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850355"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886780"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
 
@@ -119,4 +119,4 @@ Tenga en cuenta las siguientes consideraciones adicionales al determinar qué ti
 * Para más información sobre la creación de runbooks de gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
 * Para comprender las diferencias entre PowerShell y los flujos de trabajo de PowerShell para runbooks, consulte [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 * Para más información sobre cómo crear o importar un Runbook, vea [Crear o importar un Runbook](manage-runbooks.md)
-* Para más información sobre PowerShell, incluidos los módulos de referencia de lenguaje y aprendizaje, consulte la [documentación de PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Para más información sobre PowerShell, incluidos los módulos de referencia de lenguaje y aprendizaje, consulte la [documentación de PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

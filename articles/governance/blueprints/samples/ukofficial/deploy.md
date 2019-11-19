@@ -1,18 +1,14 @@
 ---
 title: Ejemplos de planos técnicos de UK OFFICIAL y UK NHS (Pasos de la implementación)
 description: Pasos de implementación de los ejemplos de plano técnico de UK OFFICIAL y UK NHS, incluidos los detalles de los parámetros del artefacto de plano técnico.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 1898820276d1906a49a95bc513a6689fce177f7d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1905e5fee894575d5ee85ce1bffb536813d34287
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162939"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037745"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Implementación de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS
 

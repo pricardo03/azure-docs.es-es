@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: bdcd7cbd24ca7023070585df46aa8cea7bdc70eb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7716fba7a16b393143ffb9c97e7203e15bc07d82
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747291"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012938"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
@@ -124,7 +124,7 @@ Para editar la configuración de replicación de almacenamiento:
 
 ## <a name="download-azure-backup-server-installer"></a>Descarga del instalador de Azure Backup Server
 
-Hay dos formas de descargar el instalador de Azure Backup Server. Puede descargar el instalador de Azure Backup Server del [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55269). También puede descargarlo mientras configura un almacén de Recovery Services. Los pasos siguientes lo guiarán por el proceso de descarga del instalador desde Azure Portal mientras configura un almacén de Recovery Services.
+Hay dos formas de descargar el instalador de Azure Backup Server. Puede descargar el instalador de Azure Backup Server del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=55269). También puede descargarlo mientras configura un almacén de Recovery Services. Los pasos siguientes lo guiarán por el proceso de descarga del instalador desde Azure Portal mientras configura un almacén de Recovery Services.
 
 1. En la máquina virtual de Azure Stack, [inicie sesión en su suscripción de Azure en Azure Portal](https://portal.azure.com/).
 2. En el menú de la izquierda, seleccione **Todos los servicios**.

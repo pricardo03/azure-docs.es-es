@@ -1,6 +1,6 @@
 ---
 title: Creación de puntos de conexión de servicio web
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Cree puntos de conexión de servicio web en Azure Machine Learning Studio (clásico). Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: ca7061171eb68b7473f3bf72423e481f6c5dfee1
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 891f680485ec3ee65c0bef102eb7f52cea0611c6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619569"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839645"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Creación de puntos de conexión para los servicios web de Azure Machine Learning Studio (clásico) implementados
 

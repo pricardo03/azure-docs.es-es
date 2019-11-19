@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3cd612200dc33fe37036146b00f52073403ecc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 929479f2816ef979edb26ba5aa00cf449c49b70a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852036"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73942168"
 ---
 # <a name="supported-account-types"></a>Tipos de cuenta admitidos
 
@@ -41,7 +41,7 @@ En la nube pública de Microsoft Azure, la mayoría de los tipos de aplicaciones
   - Con su cuenta Microsoft personal o profesional o educativa.
   - Con solo una cuenta personal de Microsoft.
     > [!NOTE]
-    > Actualmente, la plataforma de identidad de Microsoft admite cuentas personales de Microsoft solo al registrar una aplicación para **cuentas personales de Microsoft o profesionales o educativas**, y luego limita el inicio de sesión en el código de la aplicación especificando una autoridad de Azure AD, al compilar la aplicación, como `https://login.onmicrosoftonline.com/consumers`.
+    > Actualmente, la plataforma de identidad de Microsoft admite cuentas personales de Microsoft solo al registrar una aplicación para **cuentas personales de Microsoft o profesionales o educativas**, y luego limita el inicio de sesión en el código de la aplicación especificando una autoridad de Azure AD, al compilar la aplicación, como `https://login.microsoftonline.com/consumers`.
 
 - Si está escribiendo una aplicación de empresa a consumidores, también puede iniciar la sesión de los usuarios con sus identidades sociales, por medio de Azure AD B2C.
 

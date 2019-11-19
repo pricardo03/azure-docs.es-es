@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 4480819a08ef9a7a4ad7257f75a94c5d10a3d312
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 23e638b1d678e6ecf19c23220828185eb0e25a00
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858561"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891456"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imágenes de máquinas virtuales de Oracle y su implementación en Microsoft Azure
 
@@ -79,7 +79,7 @@ Estas funcionalidades son posibles porque Azure NetApp Files está basado en sis
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licencias para Oracle Database y software en Azure
 Microsoft Azure es un entorno de nube autorizado para ejecutar Oracle Database. La tabla de factores de núcleos de Oracle no se aplica al conceder licencias a las bases de datos de Oracle en la nube. En su lugar, al usar las máquinas virtuales con la tecnología Hyper-Threading habilitada para las bases de datos de la edición Enterprise, cuente dos vCPU como equivalentes a una licencia de procesador de Oracle si el hyperthreading está habilitado (como se indica en el documento de directiva). Puede consultar los detalles de la directiva [aquí](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Las bases de datos de Oracle suelen requerir una mayor cantidad de memoria y E/S. Por esta razón, se recomienda usar [máquinas virtuales optimizadas para memoria](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory) para estas cargas de trabajo. Para optimizar aún más las cargas de trabajo, se recomiendan las [CPU virtuales principales restringidas](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/constrained-vcpu) para las cargas de trabajo Oracle DB que requieran gran cantidad de memoria, almacenamiento y ancho de banda de E/S, pero no un gran número de núcleos.
+Las bases de datos de Oracle suelen requerir una mayor cantidad de memoria y E/S. Por esta razón, se recomienda usar [máquinas virtuales optimizadas para memoria](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) para estas cargas de trabajo. Para optimizar aún más las cargas de trabajo, se recomiendan las [CPU virtuales principales restringidas](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) para las cargas de trabajo Oracle DB que requieran gran cantidad de memoria, almacenamiento y ancho de banda de E/S, pero no un gran número de núcleos.
 
 Al migrar el software y las cargas de trabajo de Oracle del entorno local a Microsoft Azure, Oracle ofrece movilidad de licencias como se indica en las [preguntas más frecuentes sobre Oracle en Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html).
 

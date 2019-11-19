@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e1a754747ae5c0fb7c50653f4881b67a81e011ef
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 629ba904d055977fe70f749a46fbbec71be71b79
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645664"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083648"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Supervisión de la carga de trabajo mediante DMV
 En este artículo se describe cómo usar vistas de administración dinámica (DMV) para supervisar la carga de trabajo. Esto incluye la investigación de la ejecución de consultas en Azure SQL Data Warehouse.
@@ -63,7 +63,7 @@ ORDER BY total_elapsed_time DESC;
 
 En los resultados de la consulta anterior, **fíjese en el id. de solicitud** de la consulta que quiere investigar.
 
-Las consultas en estado **suspendido** se pueden poner en cola si hay un gran número de consultas activas en ejecución. Estas consultas también aparecen en la consulta [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) con un tipo de UserConcurrencyResourceType. Para información sobre los límites de simultaneidad, consulte [Niveles de rendimiento](performance-tiers.md) o [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md). Las consultas también pueden esperar por otros motivos, como los bloqueos de objetos.  Si la consulta está esperando un recurso, consulte la sección [Supervisión de consultas en espera][Investigating queries waiting for resources] más adelante en este artículo.
+Las consultas en estado **suspendido** se pueden poner en cola si hay un gran número de consultas activas en ejecución. Estas consultas también aparecen en la consulta [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) con un tipo de UserConcurrencyResourceType. Para información sobre los límites de simultaneidad, consulte [Niveles de rendimiento](/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu#performance-tiers-and-data-warehouse-units) o [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md). Las consultas también pueden esperar por otros motivos, como los bloqueos de objetos.  Si la consulta está esperando un recurso, consulte la sección [Supervisión de consultas en espera][Investigating queries waiting for resources] más adelante en este artículo.
 
 Para simplificar la búsqueda de una consulta en la tabla [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql), use [LABEL][LABEL] para asignar un comentario a la consulta que se pueda buscar en la vista sys.dm_pdw_exec_requests.
 

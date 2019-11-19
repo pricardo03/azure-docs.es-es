@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 1059dd463529f4c357038225f2f9ef11d0092802
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679600"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953945"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Windows Virtual Desktop
 
@@ -34,9 +34,6 @@ Windows Virtual Desktop admite la representación y la codificación de la acele
 * Windows Server 2016 o posterior
 
 También debe configurar un grupo de aplicaciones o usar el grupo de aplicaciones de escritorio predeterminado (denominado "Grupo de aplicaciones de escritorio") que se crea automáticamente cuando se crea un nuevo grupo host. Para obtener instrucciones, consulte: [Tutorial: Administración de grupos de aplicaciones para Windows Virtual Desktop](/azure/virtual-desktop/manage-app-groups).
-
->[!NOTE]
->Windows Virtual Desktop solo admite el tipo de grupo de aplicaciones "Escritorio" para los grupos de hosts con la GPU habilitada. No se admiten los grupos de aplicaciones del tipo "RemoteApp" para los grupos host habilitados para GPU.
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Instalación de los controladores de gráficos admitidos en la máquina virtual
 

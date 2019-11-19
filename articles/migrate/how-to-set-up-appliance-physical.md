@@ -4,18 +4,21 @@ description: Describe cómo configurar un dispositivo para la evaluación de ser
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 11/11/2019
 ms.author: raynew
-ms.openlocfilehash: ddd659e8cbcb54a36868848d0c6327f294d531b1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a3212e4dac6856a5fd032c731d877453965584ae
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510221"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907164"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configuración de un dispositivo para servidores físicos
 
 En este artículo se describe cómo configurar el dispositivo de Azure Migrate si está evaluando los servidores físicos con Azure Migrate: Server Assessment.
+
+> [!NOTE]
+> Si aquí se mencionan características que aún no aparecen en el portal de Azure Migrate, espere. Aparecerán aproximadamente la semana siguiente.
 
 El dispositivo de Azure Migrate es un dispositivo ligero que Azure Migrate Server Assessment usa para lo siguiente:
 

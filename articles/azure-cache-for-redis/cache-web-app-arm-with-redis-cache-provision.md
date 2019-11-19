@@ -2,23 +2,17 @@
 title: Aprovisionamiento de una aplicación web con Azure Cache for Redis
 description: Use una plantilla de Azure Resource Manager para implementar una aplicación web con Azure Cache for Redis.
 services: app-service
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: b28ed58159545bca10ec89375b82b9c97ae38630
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8e15d51062993bc6e9913d49d3fe67c1a8b9cd03
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098237"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122639"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Creación de una aplicación web y Azure Cache for Redis mediante una plantilla
 

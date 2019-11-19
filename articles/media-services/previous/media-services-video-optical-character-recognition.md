@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11f897852ce820e666d7403f42735b2ee3bdd73b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825615"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084821"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Uso de Análisis multimedia de Azure para convertir el contenido de texto de archivos de vídeo en texto digital  
+
 ## <a name="overview"></a>Información general
 Si necesita extraer el contenido de texto de los archivos de vídeo y generar un texto digital que se pueda editar y en el que se pueda buscar, utilice OCR (reconocimiento óptico de caracteres) de Análisis multimedia de Azure. Este procesador multimedia de Azure detecta contenido de texto en los archivos de vídeo y genera archivos de texto para su uso. El OCR le permite automatizar la extracción de metadatos significativos a partir de la señal de vídeo de los elementos multimedia.
 
@@ -105,7 +106,7 @@ La salida contiene los siguientes atributos:
 
 | Elemento | DESCRIPCIÓN |
 | --- | --- |
-| Escala de tiempo |"Tics" por segundo del vídeo |
+| Timescale |"Tics" por segundo del vídeo |
 | Offset |Diferencia de tiempo para las marcas de tiempo En la versión 1.0 de las API de vídeo, será siempre 0. |
 | Framerate |Fotogramas por segundo del vídeo |
 | width |Ancho del vídeo en píxeles |

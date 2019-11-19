@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: d9b7a433dd7392e83719f09815f736dbd85f9c7f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0a28292ac95dca7b46d9f82c32b9881c18d74b87
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582903"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123532"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Supervisión de Azure Machine Learning
 
@@ -38,7 +38,7 @@ Para comprender los costos asociados a Azure Monitor, consulte [Uso y costos est
 
 ## <a name="monitoring-data-from-azure-machine-learning"></a>Supervisión de datos de Azure Machine Learning
 
-Azure Machine Learning recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos de recursos de Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). Consulte [Referencia de datos de supervisión de Azure Machine Learning](monitor-resource-reference.md) para obtener una referencia detallada de los registros y las métricas creados por Azure Machine Learning.
+Azure Machine Learning recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos de recursos de Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). Consulte [Referencia de datos de supervisión de Azure Machine Learning](monitor-resource-reference.md) para obtener una referencia detallada de los registros y las métricas creados por Azure Machine Learning.
 
 ## <a name="analyzing-metric-data"></a>Analizar datos de métricas
 

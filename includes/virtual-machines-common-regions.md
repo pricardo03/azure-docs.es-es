@@ -8,14 +8,13 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 6cd721fdd7841df279bbe24cab1057ea5e16e0e2
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 4b2dcf8f156f231041d7636d103eea59816ec65f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850713"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008439"
 ---
-# <a name="regions-for-virtual-machines-in-azure"></a>Regiones para las máquinas virtuales de Azure
 Es importante saber cómo y donde operan las máquinas virtuales (VM) en Azure, así como las opciones para maximizar el rendimiento, la disponibilidad y la redundancia. Este artículo proporciona una visión general de las características de disponibilidad y redundancia de Azure.
 
 
@@ -45,7 +44,7 @@ Entre los ejemplos de pares de región se incluyen:
 
 | Principal | Secundario |
 |:--- |:--- |
-| Oeste de EE. UU. |Este de EE. UU |
+| Oeste de EE. UU. |East US |
 | Europa del Norte |Europa occidental |
 | Sudeste asiático |Asia oriental |
 

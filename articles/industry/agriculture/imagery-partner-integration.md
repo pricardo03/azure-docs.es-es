@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c76fd151bf70bfff6eed3b45a673f94777e59467
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 788ffd9e7036996f6ac1bc7fcbc33137aca40ee2
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797301"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132027"
 ---
 # <a name="imagery-partner-integration"></a>Integración de asociados de imágenes
 
@@ -42,7 +42,7 @@ Las API contienen documentación técnica de Swagger. Consulte [Swagger](https:/
 
 ## <a name="authentication"></a>Authentication
 
-FarmBeats aprovecha la autenticación de [Active Directory]((https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)) de Microsoft Azure. Azure App Service proporciona compatibilidad integrada con la autenticación y la autorización. 
+FarmBeats aprovecha la autenticación de [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) de Microsoft Azure. Azure App Service proporciona compatibilidad integrada con la autenticación y la autorización. 
 
 Para más información al respecto, consulte [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
 
@@ -97,7 +97,7 @@ También se pueden incluir parámetros de consulta en las llamadas GET para filt
 
 La siguiente solicitud de ejemplo se usa para obtener la lista de dispositivos:
 
-```
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
@@ -108,7 +108,7 @@ La mayoría de las llamadas GET, POST y PUT requieren un cuerpo de solicitud JSO
 La siguiente solicitud de ejemplo se usa para crear un dispositivo (contiene un código JSON de entrada con el cuerpo de la solicitud).
 
 
-```json
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
 "accept: application/json" -H  
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d
@@ -326,6 +326,7 @@ A continuación se indican los valores definidos por el sistema:
   ]
 }
 ```
+
 Se trata de una configuración de una sola vez, y el ámbito de este nuevo tipo de escena se limita a la suscripción en la que se implementa el proyecto de FarmBeats.
 
 Ejemplo: Para agregar SceneSource: "SlantRange", use PUT en el identificador de /ExtendedType con la clave: Carga de entrada de "SceneSource":

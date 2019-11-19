@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 242cdcc07821151503dc6765f820187c0c3dfc53
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2c2994c310369a0a6fe26ccc2c1e2e5de6680349
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515568"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084692"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -39,7 +39,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 1. Seleccione **+ Crear un recurso** > **Redes** > **Red virtual**.
 2. Escriba o seleccione valores para las siguientes opciones y seleccione **Crear**:
-   - **Nombre**: tiene que ser único en el [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) dentro del que seleccione crear la red virtual. No se puede cambiar el nombre una vez creada la red virtual. Puede crear varias redes virtuales con el tiempo. Vea [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming) para obtener sugerencias de nombres. El uso de una convención de nomenclatura puede facilitar la administración de varias redes virtuales.
+   - **Nombre**: tiene que ser único en el [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) dentro del que seleccione crear la red virtual. No se puede cambiar el nombre una vez creada la red virtual. Puede crear varias redes virtuales con el tiempo. Vea [Convenciones de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources) para obtener sugerencias de nombres. El uso de una convención de nomenclatura puede facilitar la administración de varias redes virtuales.
    - **Espacio de direcciones**: el espacio de direcciones de una red virtual se compone de uno o varios intervalos de direcciones no superpuestos que se especifican en la notación CIDR. El rango de direcciones que defina puede ser público o privado (RFC 1918). Tanto si se define el rango de direcciones como público o como privado, el rango de direcciones es accesible solo desde dentro de la red virtual, desde redes virtuales conectadas entre sí y desde las redes locales que se hayan conectado a la red virtual. No se pueden agregar los siguientes rangos de direcciones:
      - 224.0.0.0/4 (multidifusión)
      - 255.255.255.255/32 (difusión)

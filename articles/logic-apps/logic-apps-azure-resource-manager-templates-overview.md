@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: f2c6676284e8ed58f1626ab824aa7a7c9c456a31
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: bc61e39a02d16827521758ca8248488e46c109b5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494461"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838094"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Información general: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -326,7 +326,7 @@ Estos son los atributos que son específicos de la definición de recursos de la
 |-----------|----------|------|-------------|
 | `state` | Sí | Cadena | El estado de la aplicación lógica en la implementación, en que `Enabled` significa que la aplicación lógica está activa y `Disabled` significa que la aplicación lógica está inactiva. Por ejemplo, si no está listo para que la aplicación lógica pase a estar activa, pero quiere implementar una versión de borrador, puede usar la opción `Disabled`. |
 | `integrationAccount` | Sin | Object | Si la aplicación lógica usa una cuenta de integración, que almacena artefactos para escenarios negocio a negocio (B2B), este objeto incluye el atributo `id`, que especifica el identificador de la cuenta de integración. |
-| `definition` | Sí | Object | La definición de flujo de trabajo subyacente de la aplicación lógica, que es el mismo objeto que aparece en la vista de código y se describe detalladamente en el tema [Referencia de esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md). En esta definición de flujo de trabajo, el objeto `parameters` declara los parámetros de los valores que se van a usar en el tiempo de ejecución de la aplicación lógica. Para obtener más información, consulte [Definición y parámetros del flujo de trabajo](#workflow-definition-parameters). <p><p>Para ver los atributos de la definición de flujo de trabajo de la aplicación lógica, cambie de la "vista de diseño" a la "vista de código" en Azure Portal o Visual Studio, o mediante una herramienta como [Azure Resource Explorer](http://resources.azure.com). |
+| `definition` | Sí | Object | La definición de flujo de trabajo subyacente de la aplicación lógica, que es el mismo objeto que aparece en la vista de código y se describe detalladamente en el tema [Referencia de esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md). En esta definición de flujo de trabajo, el objeto `parameters` declara los parámetros de los valores que se van a usar en el tiempo de ejecución de la aplicación lógica. Para obtener más información, consulte [Definición y parámetros del flujo de trabajo](#workflow-definition-parameters). <p><p>Para ver los atributos de la definición de flujo de trabajo de la aplicación lógica, cambie de la "vista de diseño" a la "vista de código" en Azure Portal o Visual Studio, o mediante una herramienta como [Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | Sin | Object | [Valores del parámetro de definición de flujo de trabajo](#workflow-definition-parameters) que se usarán en el tiempo de ejecución de la aplicación lógica. Las definiciones de los parámetros de estos valores se muestran dentro del [objeto de parámetros de la definición de flujo de trabajo](#workflow-definition-parameters). Además, si la aplicación lógica usa [conectores administrados](../connectors/apis-list.md) para acceder a otros servicios y sistemas, este objeto incluye un objeto `$connections` que establece los valores de conexión que se usarán en tiempo de ejecución. |
 | `accessControl` | Sin | Object | Se usa para especificar los atributos de seguridad de la aplicación lógica, por ejemplo, para restringir el acceso IP a los desencadenadores de solicitud o ejecutar entradas y salidas del historial. Para obtener más información, consulte [Protección del acceso a las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||

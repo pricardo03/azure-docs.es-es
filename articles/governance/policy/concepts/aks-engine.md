@@ -1,17 +1,14 @@
 ---
 title: Información sobre Azure Policy para AKS Engine
 description: Obtenga información sobre cómo Azure Policy usa CustomResourceDefinitions y Open Policy Agent desde Gatekeeper v3 para administrar clústeres con AKS Engine.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 71f3f26b9ea7f24d674c911e18c785b0798a072c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 904575680b62233ad5ec7422abbf66cf57dc4e11
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510069"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072057"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Explicación de Azure Policy para AKS Engine
 
@@ -159,7 +156,7 @@ El complemento se registra con Azure Policy para detectar cambios en las asignac
 > [!NOTE]
 > Aunque es posible que un _administrador de clústeres_ tenga permiso para realizar cambios en las restricciones y las plantillas de restricciones, no se recomienda ni se admite para realizar cambios en las restricciones ni en las plantillas de restricciones creadas por Azure Policy. Cualquier cambio manual realizado se pierde durante el ciclo de actualización.
 
-Cada 5 minutos, el complemento solicita un examen completo del clúster. Después de recopilar los detalles del examen completo y las evaluaciones en tiempo real que realiza el equipo selector sobre los intentos de cambios en el clúster, el complemento proporciona los resultados a Azure Policy para los agregue en los [detalles de cumplimiento](../how-to/get-compliance-data.md) como cualquier otra asignación de Azure Policy. Solo los resultados de las asignaciones de directivas activas se devuelven durante el ciclo de auditoría. Los resultados de la auditoría también pueden verse como infracciones enumeradas en el campo de estado de la restricción errónea.
+Cada 5 minutos, el complemento solicita un examen completo del clúster. Después de recopilar los detalles del examen completo y las evaluaciones en tiempo real que realiza Gatekeeper sobre los intentos de cambios en el clúster, el complemento proporciona los resultados a Azure Policy para los agregue en los [detalles de cumplimiento](../how-to/get-compliance-data.md) como cualquier otra asignación de Azure Policy. Solo los resultados de las asignaciones de directivas activas se devuelven durante el ciclo de auditoría. Los resultados de la auditoría también pueden verse como infracciones enumeradas en el campo de estado de la restricción errónea.
 
 ## <a name="policy-language"></a>Idioma de directiva
 
@@ -262,7 +259,7 @@ El complemento de Azure Policy para Kubernetes recopila datos de diagnóstico de
 
 - Mantener el complemento de Azure Policy actualizado.
 - Mantener la seguridad, la confiabilidad y el rendimiento del complemento de Azure Policy.
-- Mejorar el complemento de Azure Policy mediante el análisis agregado del uso del complemento.
+- Mejorar el complemento de Azure Policy mediante el análisis agregado del uso del complemento
 
 La información recopilada por el complemento no son datos personales. Actualmente se recopilan los detalles siguientes:
 
@@ -270,8 +267,8 @@ La información recopilada por el complemento no son datos personales. Actualmen
 - Tipo de clúster
 - Región del clúster
 - Grupo de recursos del clúster
-- Id. de recurso del clúster
-- Id. de suscripción del clúster
+- Identificador de recurso del clúster
+- Identificador de suscripción del clúster
 - Sistema operativo del clúster (ejemplo: Linux)
 - Ciudad del clúster (ejemplo: Seattle)
 - Estado o provincia del clúster (ejemplo: Washington)

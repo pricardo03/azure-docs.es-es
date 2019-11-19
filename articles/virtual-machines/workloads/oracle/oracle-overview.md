@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: d8fed68d9b830df359f8129d55f1b9911f69e8f1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802262"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891458"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Introducción a las aplicaciones y soluciones de Oracle en Azure
 
@@ -54,9 +54,9 @@ Ejecute aplicaciones empresariales en Azure en sistemas operativos compatibles c
 
 ## <a name="backup-oracle-workloads"></a>Copia de seguridad de cargas de trabajo de Oracle
 
-* Copia de seguridad de máquinas virtuales de Oracle mediante [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-overview)
+* Copia de seguridad de máquinas virtuales de Oracle mediante [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)
 
-* Realice una copia de seguridad de su instancia de Oracle Database con Oracle RMAN y, opcionalmente, use [Azure Blob Fuse](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) para montar una [cuenta de Azure Blob Storage de gran redundancia](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) y escriba sus copias de seguridad de RMAN en ella para aumentar la resistencia.
+* Realice una copia de seguridad de su instancia de Oracle Database con Oracle RMAN y, opcionalmente, use [Azure Blob Fuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) para montar una [cuenta de Azure Blob Storage de gran redundancia](https://docs.microsoft.com/azure/storage/common/storage-redundancy) y escriba sus copias de seguridad de RMAN en ella para aumentar la resistencia.
 
 ## <a name="integration-of-azure-with-oci-preview"></a>Integración de Azure con OCI (versión preliminar)
 
