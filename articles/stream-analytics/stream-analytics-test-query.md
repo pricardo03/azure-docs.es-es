@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c67d511f6c94c8b9af034835e149875304e2235
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918981"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891748"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Probar un trabajo en Azure Stream Analytics con datos de ejemplo
 
-En Azure Stream Analytics, puede probar la consulta sin iniciar o detener el trabajo. Puede probar consultas en los datos entrantes del receptor de entrada o en los datos de ejemplo cargados desde un archivo local en Azure Portal. También puede probar las consultas de forma local desde los datos de ejemplo locales o los datos en directo en [Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing) y [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run). 
+En Azure Stream Analytics, puede probar la consulta sin iniciar o detener el trabajo. Puede probar consultas en los datos entrantes del receptor de entrada o en los datos de ejemplo cargados desde un archivo local en Azure Portal. También puede probar las consultas de forma local desde los datos de ejemplo locales o los datos en directo en [Visual Studio](stream-analytics-live-data-local-testing.md) y [Visual Studio Code](vscode-local-run.md). 
 
 ## <a name="sample-incoming-data-from-input"></a>Datos entrantes de ejemplo de entrada
 

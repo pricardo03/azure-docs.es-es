@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70ee0af0b39e80aa90d143303b3c522fbb3cc780
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962916"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839218"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Almacenamiento en caché con Azure Front Door Service
 En el documento siguiente se especifica el comportamiento de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché.
@@ -82,7 +82,7 @@ Si una solicitud admite la compresión gzip y Brotli, la compresión Brotli tien
 Cuando una solicitud de un recurso especifica la compresión gzip y la solicitud genera un error de caché, Front Door realiza la compresión del recurso directamente en el servidor POP. Después, el archivo comprimido se envía desde la caché. El elemento resultante se devuelve con transfer-encoding: chunked.
 
 ## <a name="query-string-behavior"></a>Comportamiento de las cadenas de consulta
-Front Door permite controlar cómo se almacenan los archivos en caché para una solicitud web que contiene una cadena de consulta. En una solicitud web con una cadena de consulta, esta última es la parte de la solicitud que hay después del signo de interrogación (?). Una cadena de consulta puede contener uno o más pares clave-valor, en los cuales el nombre de campo y su valor están separados por un signo igual (=). Los pares clave-valor están separados entre ellos por una Y comercial (&). Por ejemplo, http://www.contoso.com/content.mov?field1=value1&field2=value2. Si hay más de un par clave-valor en una cadena de consulta de una solicitud, no importa el orden en el que se especifiquen.
+Front Door permite controlar cómo se almacenan los archivos en caché para una solicitud web que contiene una cadena de consulta. En una solicitud web con una cadena de consulta, esta última es la parte de la solicitud que hay después del signo de interrogación (?). Una cadena de consulta puede contener uno o más pares clave-valor, en los cuales el nombre de campo y su valor están separados por un signo igual (=). Los pares clave-valor están separados entre ellos por una Y comercial (&). Por ejemplo, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Si hay más de un par clave-valor en una cadena de consulta de una solicitud, no importa el orden en el que se especifiquen.
 - **Pasar por alto las cadenas de consulta**: modo predeterminado. En este modo, Front Door pasa las cadenas de consulta del solicitante al back-end en la primera solicitud y almacena en la memoria caché el recurso. Todas las solicitudes posteriores del recurso que se ofrecen desde el entorno Front Door omiten las cadenas de consulta hasta que expira el recurso en caché.
 
 - **Almacenar en caché todas las URL únicas**: en este modo, cada solicitud con un URL único, incluida la cadena de consulta, se trata como un recurso único con su propia memoria caché. Por ejemplo, la respuesta desde el back-end a una solicitud de `www.example.ashx?q=test1` se almacena en caché en el entorno Front Door y se devuelve en los sucesivos almacenamientos en caché con la misma cadena de consulta. Se almacena en caché una solicitud de `www.example.ashx?q=test2` como un recurso independiente con su propia configuración de período de vida.
@@ -110,7 +110,7 @@ Los encabezados de respuesta Cache-Control que indican que la respuesta no se al
 ## <a name="request-headers"></a>Encabezados de solicitud
 
 Los siguientes encabezados de solicitud no se reenviarán a un back-end cuando se use el almacenamiento en caché.
-- Autorización
+- Authorization
 - Content-Length
 - Transfer-Encoding
 

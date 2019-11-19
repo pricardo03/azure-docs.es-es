@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 03783424544588a4bc147b232d41b103fb2e5b3e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827561"
+ms.locfileid: "73838076"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -208,7 +208,7 @@ Asegúrese de concatenar las cadenas de parámetro/variable (\'contosovm\') con 
 
 Por ejemplo, la mayoría de los nombres de recursos no pueden empezar con un dígito, pero la función de cadena única puede devolver una cadena que empiece con un dígito. Por lo tanto, si se utiliza el resultado de cadena única sin procesar, las implementaciones no se realizarán. 
 
-Puede encontrar información adicional sobre las reglas y restricciones de nomenclatura de recursos en [este artículo](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
+Puede encontrar información adicional sobre las reglas y restricciones de nomenclatura de recursos en [este artículo](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### <a name="deployment-location"></a>Ubicación de implementación
 

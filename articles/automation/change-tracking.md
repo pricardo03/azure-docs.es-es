@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a1395c89b047bb120c7f7e2d2d9bb9b4d2b0c50
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 0fc0aeab4e9603995130392e3560325ccaba1ffc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959960"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886801"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -80,7 +80,7 @@ Azure Security Center ha agregado Supervisión de la integridad de los archivos 
 Si ya ha habilitado FIM y quiere probar la solución Change Tracking completa, debe seguir los pasos a continuación. Este proceso no quita los valores de configuración.
 
 > [!NOTE]
-> Habilitar la solución Change Tracking completa puede generar cargos adicionales, para más información, consulte [Precios de Automation](https://azure.microsoft.com/en-us/pricing/details/automation/).
+> Habilitar la solución Change Tracking completa puede generar cargos adicionales, para más información, consulte [Precios de Automation](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Para quitar la solución de supervisión, desplácese hasta el área de trabajo y búsquela en la [Lista de soluciones de supervisión instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Haga clic en el nombre de la solución para abrir su página de resumen y haga clic en Eliminar, según se detalla en [Eliminación de una solución de supervisión](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
