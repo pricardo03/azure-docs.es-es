@@ -21,7 +21,7 @@
           href: end-to-end-csharp.md
         - name: Python
           href: end-to-end-python.md
-    - name: Ingesta de datos sin usar código
+    - name: Ingesta y consulta de datos de supervisión
       href: ingest-data-no-code.md
     - name: Visualización de datos en Power BI
       href: visualize-power-bi.md

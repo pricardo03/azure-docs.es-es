@@ -331,6 +331,14 @@
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
         - name: Definiciones de directiva
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+    - name: SDK de Azure para Python
+      items:
+        - name: Directiva
+          href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
+        - name: Cliente de directiva
+          href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
+        - name: Información de directiva
+          href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
     - name: REST
       items:
         - name: Eventos

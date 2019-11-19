@@ -3,8 +3,8 @@ documentType: LandingData
 title: Documentación de Azure SignalR
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
-  title: 'Documentación de servicio de Azure SignalR: tutoriales y referencia de API'
-  meta.description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on ASP.NET Core SignalR which is an open source library that simplifies adding real-time web functionality to applications.
+  title: 'Documentación: Azure SignalR Service'
+  description: Compile y escale aplicaciones web fácilmente en los modos con o sin servidor. Se basa en WebSocket y admite una amplia gama de lenguajes y plataformas.
   services: azure-signalr
   author: v-chmccl
   manager: wesmc
@@ -76,7 +76,7 @@ sections:
         items:
           - title: Línea de comandos
             html: <p><a href="signalr-reference-cli.md">CLI de Azure</a></p>
-          - title: Languages
+          - title: Lenguajes
             html: |
               <p><a href="https://docs.microsoft.com/aspnet/core">SDK de servidor de ASP.NET Core</a></p> <p><a href="/azure/azure-functions/functions-bindings-signalr-service">Enlaces de Azure Functions</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">Cliente de JavaScript</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">Cliente de .NET Standard</a></p> <p><a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Cliente de Java</a></p>
           - title: REST

@@ -30,7 +30,7 @@ En este ejemplo, también se supone que la rama 1 del Oeste de Europa está cone
 
 ![diagrama](./media/effective-routes-virtual-hub/diagram.png)
 
-## <a name="view">Vista de las rutas eficaces</a>
+## <a name="view"></a>Vista de las rutas eficaces
 
 Al seleccionar "Ver rutas eficaces" en el portal, se genera el resultado que se muestra en la [tabla de rutas del centro de conectividad](#routetable) para el Este de EE. UU.
 

@@ -27,6 +27,8 @@
           href: custom-event-quickstart-powershell.md
         - name: Portal
           href: custom-event-quickstart-portal.md
+    - name: "Azure\_Functions como controlador de eventos"
+      href: custom-event-to-function.md
     - name: Almacenamiento en cola como controlador de eventos
       href: custom-event-to-queue-storage.md
     - name: Event Hubs como controlador de eventos
@@ -111,6 +113,8 @@
       href: post-to-custom-topic.md
     - name: Recepción de eventos en un punto de conexión de HTTP
       href: receive-events.md
+    - name: "Protección de webhook con\_AAD"
+      href: secure-webhook-delivery.md
     - name: Mensajes fallidos y reintentos
       href: manage-event-delivery.md
     - name: Filtrado de eventos
