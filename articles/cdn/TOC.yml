@@ -1,8 +1,8 @@
-- name: Documentación de CDN
+- name: Documentación de Content Delivery Network
   href: index.yml
 - name: Información general
   items:
-    - name: ¿Qué es Azure CDN?
+    - name: "¿Qué es Azure Content Delivery Network (Azure\_CDN)?"
       href: cdn-overview.md
     - name: Comparación de características de producto
       href: cdn-features.md
@@ -12,7 +12,7 @@
       href: cdn-create-new-endpoint.md
     - name: Integración de una cuenta de almacenamiento
       href: cdn-create-a-storage-account-with-cdn.md
-    - name: Creación de un perfil con una plantilla de Azure Resource Manager
+    - name: Creación de un perfil de ASE mediante el uso de una plantilla de Azure Resource Manager
       href: create-profile-resource-manager-template.md
 - name: Tutoriales
   items:
@@ -40,9 +40,9 @@
       href: cdn-china-delivery.md
     - name: Compatibilidad con HTTP/2
       href: cdn-http2.md
-    - name: Recuperación de la lista POP de Verizon
+    - name: Recuperación de una lista POP de Verizon
       href: cdn-pop-list-api.md
-    - name: Migración de Verizon estándar a Verizon premium
+    - name: Migración de Verizon Estándar a Verizon Premium
       href: cdn-migrate.md
     - name: Protección contra DDOS
       href: cdn-ddos.md
@@ -61,15 +61,15 @@
       items:
         - name: Creación de un extremo
           href: cdn-create-endpoint-how-to.md
-        - name: Administración con Azure PowerShell
+        - name: Administración mediante Azure PowerShell
           href: cdn-manage-powershell.md
-        - name: Restricción del acceso por países y regiones
+        - name: Restricción del acceso por país o región
           href: cdn-restrict-access-by-country.md
         - name: Mejora del rendimiento mediante la compresión de archivos
           href: cdn-improve-performance.md
         - name: Control del comportamiento del almacenamiento en caché
           items:
-            - name: Control del comportamiento del almacenamiento en caché con reglas de almacenamiento en caché
+            - name: Control del comportamiento del almacenamiento en caché mediante reglas de almacenamiento en caché
               href: cdn-caching-rules.md
             - name: Almacenamiento en caché de contenido mediante cadenas de consulta
               items:
@@ -79,9 +79,9 @@
                   href: cdn-query-string-premium.md
             - name: Purga de recursos en caché
               href: cdn-purge-endpoint.md
-            - name: Precarga de recursos en caché
+            - name: Precarga de recursos almacenados en la caché
               href: cdn-preload-endpoint.md
-        - name: Configuración del período de vida
+        - name: Configuración del período de vida (TTL)
           items:
             - name: Contenido web de Azure
               href: cdn-manage-expiration-of-cloud-service-content.md
@@ -89,13 +89,13 @@
               href: cdn-manage-expiration-of-blob-content.md
         - name: Autenticación de token
           href: cdn-token-auth.md
-        - name: Soporte técnico del almacenamiento de SAS
+        - name: Compatibilidad del almacenamiento mediante firma de acceso compartido
           href: cdn-sas-storage-support.md
         - name: Uso compartido de recursos entre orígenes
           href: cdn-cors.md
         - name: Supervisión de recursos
           href: cdn-resource-health.md
-        - name: Invalidar el comportamiento con reglas
+        - name: Uso de reglas para reemplazar el comportamiento
           href: cdn-verizon-premium-rules-engine.md
         - name: Uso de Traffic Manager
           href: cdn-traffic-manager.md
@@ -110,7 +110,7 @@
               href: cdn-analyze-usage-patterns.md
             - name: Informes personalizados de Verizon
               href: cdn-verizon-custom-reports.md
-        - name: Herramientas de análisis de Verizon para Azure CDN premium
+        - name: Herramientas de análisis de Verizon Premium para Azure CDN
           items:
             - name: Generar informes HTTP avanzados
               href: cdn-advanced-http-reports.md
@@ -136,10 +136,10 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: Referencia
   items:
-    - name: Referencia del motor de reglas estándar de Microsoft
+    - name: Referencia del motor de reglas estándar
       href: cdn-standard-rules-engine-reference.md
       items:
-        - name: Condiciones de coincidencia del motor de reglas estándar
+        - name: Condiciones para la coincidencia en el motor de reglas estándar
           href: cdn-standard-rules-engine-match-conditions.md
         - name: Acciones del motor de reglas estándar
           href: cdn-standard-rules-engine-actions.md
@@ -177,7 +177,7 @@
           href: cdn-pop-locations.md
         - name: Ubicaciones POP de abreviatura
           href: cdn-pop-abbreviations.md
-    - name: Descripción de la facturación de Azure CDN
+    - name: Facturación de Azure Content Delivery Network
       href: cdn-billing.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
