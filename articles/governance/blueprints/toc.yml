@@ -71,6 +71,9 @@
         - name: Asignación de controles
           displayName: 'standards, irs, 1075'
           href: ./samples/irs-1075/control-mapping.md
+        - name: Pasos de implementación
+          displayName: 'standards, irs, 1075'
+          href: ./samples/irs-1075/deploy.md
     - name: ISO 27001
       items:
         - name: Información general
