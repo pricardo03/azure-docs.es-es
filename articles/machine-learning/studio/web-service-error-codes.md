@@ -51,7 +51,7 @@ Esta clase de errores significa que un argumento proporcionado en alguna parte n
 | InvalidBlobExtension | La referencia de blob {0} tiene una extensión de archivo no válida o no está presente. Las extensiones de archivo admitidas para este tipo de salida son: "{1}". |
 | InvalidInputNames | Nombres de entrada de servicio no válidos especificados en la solicitud: {0}. Asigne los datos de entrada a las entradas de servicio correctas e inténtelo de nuevo. |
 | InvalidOutputOverrideName | Nombre de invalidación de salida no válida: {0}. El servicio no tiene un nodo de salida con este nombre. Pase un nombre de nodo de salida correcto para invalidar (se aplica distinción entre mayúsculas y minúsculas). |
-| InvalidQueryParameter | Parámetro de consulta no válido '{0}'. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/]({1}) |
+| InvalidQueryParameter | Parámetro de consulta no válido '{0}'. {1} |
 | MissingInputBlobInformation | Falta información de Azure Storage Blob. Proporcione una cadena de conexión y una ruta de acceso relativa o URI válidos e inténtelo de nuevo. |
 | MissingJobId | No se proporcionó un identificador de trabajo. Se devolvió un identificador de trabajo cuando un trabajo se envió por primera vez. Compruebe que el identificador de trabajo es correcto e inténtelo de nuevo. |
 | MissingKeys | No hay claves proporcionadas o no se proporcionó una clave primaria o secundaria. |
