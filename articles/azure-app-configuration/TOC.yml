@@ -18,7 +18,7 @@
         - name: .NET Framework
           href: quickstart-dotnet-app.md
         - name: Azure Functions en .NET Core
-          href: quickstart-azure-function-csharp.md
+          href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
     - name: Administración de características
@@ -37,6 +37,8 @@
       href: enable-dynamic-configuration-dotnet-core.md
     - name: Habilitación de la configuración dinámica en .NET Framework
       href: enable-dynamic-configuration-dotnet.md
+    - name: Habilitación de la configuración dinámica en Azure Functions
+      href: enable-dynamic-configuration-azure-functions-csharp.md
     - name: Uso de marcas de características en una aplicación de .NET Core
       href: use-feature-flags-dotnet-core.md
     - name: Uso de marcas de características en una aplicación de Spring Boot
@@ -67,7 +69,7 @@
           href: concept-disaster-recovery.md
 - name: Guías de procedimientos
   items:
-    - name: Integración con Azure Managed Service Identity
+    - name: Integración con Identidad administrada de Azure
       href: howto-integrate-azure-managed-service-identity.md
     - name: Importación o exportación de datos de configuración
       href: howto-import-export-data.md

@@ -798,12 +798,14 @@
               items:
                 - name: Habilitar información general de la supervisión
                   href: insights/container-insights-onboard.md
-                - name: Habilitar para nuevo clúster
+                - name: Habilitación para un clúster de AKS nuevo
                   href: insights/container-insights-enable-new-cluster.md
-                - name: Habilitar para un clúster ya existente
+                - name: Habilitación para un clúster de AKS existente
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: Habilitar para un clúster híbrido
                   href: insights/container-insights-hybrid-setup.md
+                - name: Habilitación para Red Hat OpenShift en Azure
+                  href: insights/container-insights-azure-redhat-setup.md
                 - name: Asignaciones de regiones
                   href: insights/container-insights-region-mapping.md
             - name: Supervisión del rendimiento

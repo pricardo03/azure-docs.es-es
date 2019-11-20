@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentación de Azure Site Recovery
-summary: Azure Site Recovery se usa para la recuperación ante desastres de máquinas y cargas de trabajo locales en Azure y las máquinas virtuales de Azure VM en una región de Azure secundaria. Con la replicación a Azure en vigor, puede orquestar la conmutación por error cuando se produzcan interrupciones y seguir accediendo a las cargas de trabajo y aplicaciones en Azure. Cuando la ubicación principal vuelva a estar disponible, puede realizar la conmutación por recuperación, en caso de que sea necesario.
+summary: Uso de Azure Site Recovery para la recuperación ante desastres de cargas de trabajo locales y máquinas virtuales de Azure.
 metadata:
   title: Documentación de Azure Site Recovery
-  description: Azure Site Recovery se usa para la recuperación ante desastres de máquinas y cargas de trabajo locales en Azure y las máquinas virtuales de Azure VM en una región de Azure secundaria. Con la replicación a Azure en vigor, puede orquestar la conmutación por error cuando se produzcan interrupciones y seguir accediendo a las cargas de trabajo y aplicaciones en Azure. Cuando la ubicación principal vuelva a estar disponible, puede realizar la conmutación por recuperación, en caso de que sea necesario.
+  description: Configure la recuperación ante desastres en Azure para cargas de trabajo locales y máquinas virtuales de Azure.
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
-  ms.openlocfilehash: 0d4405e447c7624e4d6cc714209ffc86451a74bd
-  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.date: 11/19/2019
+  ms.openlocfilehash: ccbc4c92a6d0db9d5baf8a226ba79405a2b824ff
+  ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/07/2019
-  ms.locfileid: "72001095"
+  ms.lasthandoff: 11/19/2019
+  ms.locfileid: "74186583"
 landingContent:
 - title: Acerca de Site Recovery
   linkLists:

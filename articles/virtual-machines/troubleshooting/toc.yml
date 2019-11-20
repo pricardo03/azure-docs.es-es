@@ -125,6 +125,8 @@
       href: serial-console-power-options.md
     - name: Errores comunes de la consola serie
       href: serial-console-errors.md
+    - name: Configuración proactiva de GRUB en Serial Console
+      href: serial-console-grub-proactive-configuration.md
 - name: Errores al eliminar los recursos de almacenamiento
   href: storage-resource-deletion-errors.md
 - name: Errores al eliminar recursos de almacenamiento clásicos
