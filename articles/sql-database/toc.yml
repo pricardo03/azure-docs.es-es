@@ -112,14 +112,6 @@
               items:
                 - name: Introducción a la auditoría de SQL Database
                   href: sql-database-auditing.md
-        - name: Seguridad de las redes
-          items:
-            - name: Puntos de conexión de Virtual Network
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: 'Puntos de conexión de Virtual Network: PowerShell'
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
-            - name: Private Link
-              href: sql-database-private-endpoint-overview.md
         - name: Administración de la seguridad
           items:
             - name: Advanced Data Security
@@ -136,14 +128,22 @@
               href: sql-database-feature-restrictions.md
         - name: Seguridad de base de datos única
           items:
+            - name: Controles de acceso a la red
+              href: sql-database-networkaccess-overview.md
+            - name: Firewall basado en IP
+              href: sql-database-firewall-configure.md
+            - name: Reglas de firewall de red virtual
+              items:
+                - name: Puntos de conexión de red virtual
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: 'Puntos de conexión de red virtual: PowerShell'
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Private Link
+              href: sql-database-private-endpoint-overview.md
             - name: Formato de los registros de auditoría
               href: sql-database-audit-log-format.md
             - name: Acceso condicional
               href: sql-database-conditional-access.md
-            - name: Reglas de firewall de IP en el nivel de servidor
-              items:
-                - name: Creación y administración
-                  href: sql-database-firewall-configure.md
         - name: Seguridad de la Instancia administrada
           items:
             - name: Protección de puntos de conexión públicos

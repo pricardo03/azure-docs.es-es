@@ -38,6 +38,8 @@
           href: class-type-shell-scripting-linux.md
         - name: Piratería ética
           href: class-type-ethical-hacking.md
+        - name: Administración de bases de datos
+          href: class-type-database-management.md
     - name: Creación y configuración de cuentas de laboratorio (propietario de la cuenta de laboratorio)
       items:
         - name: Creación y administración de cuentas de laboratorio

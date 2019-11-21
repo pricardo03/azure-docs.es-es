@@ -355,7 +355,7 @@
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: Uso de paquetes externos con Jupyter mediante instrucciones mágicas
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-                - name: Uso de paquetes externos con Jupyter mediante una acción de script
+                - name: Administración segura del entorno de Python en Azure HDInsight mediante la acción de scripts
                   href: ./spark/apache-spark-python-package-installation.md
                 - name: Uso de Apache Zeppelin Notebooks
                   href: ./spark/apache-spark-zeppelin-notebook.md

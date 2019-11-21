@@ -23,6 +23,8 @@
       href: tutorial-configure-password-hash-sync.md
     - name: Creación de un dominio administrado avanzado
       href: tutorial-create-instance-advanced.md
+    - name: Creación de una confianza de bosque (versión preliminar)
+      href: tutorial-create-forest-trust.md
 - name: Ejemplos
   items:
     - name: Creación de un dominio administrado mediante Azure PowerShell
@@ -33,6 +35,12 @@
       href: administration-concepts.md
     - name: Escenarios habituales de implementación
       href: scenarios.md
+    - name: Bosques y confianzas
+      items:
+        - name: Bosques de recursos
+          href: concepts-resource-forest.md
+        - name: Confianzas de bosque
+          href: concepts-forest-trust.md
     - name: Cómo funciona la sincronización de Azure AD DS
       href: synchronization.md
     - name: Funcionamiento de la sincronización de hash de contraseñas

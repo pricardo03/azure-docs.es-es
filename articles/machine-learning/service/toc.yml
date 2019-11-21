@@ -193,7 +193,7 @@
             - name: Predicción de retrasos en los vuelos
               displayName: 'classification, studio'
               href: how-to-designer-sample-classification-flight-delay.md
-            - name: Prueba de clasificación
+            - name: Clasificación del texto
               displayName: 'classification, studio'
               href: how-to-designer-sample-text-classification.md
         - name: Uso de estimadores para ML
