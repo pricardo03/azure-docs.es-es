@@ -69,6 +69,8 @@
       href: ddos-protection-overview.md
     - name: Extensión de subred
       href: subnet-extension.md
+    - name: Delegación de subred
+      href: subnet-delegation-overview.md
     - name: Interoperabilidad de conectividad de back-end
       items:
         - name: Preparación y configuración de la prueba
