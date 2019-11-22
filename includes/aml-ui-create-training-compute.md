@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/09/2019
-ms.openlocfilehash: f7cdfb8b9edbce5ef2b094cf6a603904d39a7404
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ee90e0c99234497b072bbee0b92d76129baea48
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493630"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929649"
 ---
-Una canalización se ejecuta en un destino de proceso que es un recurso de proceso asociado al área de trabajo. Una vez creado un destino de proceso, puede volver a utilizarlo para futuras ejecuciones.
+Una canalización se ejecuta en un destino de proceso que es un recurso de proceso asociado al área de trabajo. Después de crear un destino de proceso, puede volver a usarlo para futuras ejecuciones.
 
 1. Seleccione **Ejecutar** en la parte superior del lienzo para ejecutar la canalización.
 
@@ -25,9 +25,9 @@ Una canalización se ejecuta en un destino de proceso que es un recurso de proce
     Si ya tiene un destino de proceso disponible, puede seleccionarlo para ejecutar esta canalización.
 
     > [!NOTE]
-    > En el diseñador solo se pueden ejecutar experimentos en destinos de proceso de Machine Learning. Otros destinos de proceso no aparecerán.
+    > El diseñador solo puede ejecutar experimentos en destino de proceso de Azure Machine Learning. Otros destinos de proceso no aparecerán.
 
-1. Proporcione un nombre para el recurso de proceso.
+1. Escriba un nombre para el recurso de proceso.
 
 1. Seleccione **Guardar**.
 
@@ -35,18 +35,18 @@ Una canalización se ejecuta en un destino de proceso que es un recurso de proce
 
 1. Seleccione **Run** (Ejecutar).
 
-1. En el cuadro de diálogo **Set up pipeline run** (Configurar ejecución de canalización), seleccione **+ Nuevo experimento** para el **Experimento**.
+1. En el cuadro de diálogo **Configurar ejecución de canalización**, seleccione **+ Nuevo experimento** para **Experimento**.
 
     > [!NOTE]
     > Los experimentos agrupan ejecuciones de canalización. Si ejecuta una canalización varias veces, puede seleccionar el mismo experimento para ejecuciones sucesivas.
 
-    * Escriba un **Nombre de experimento descriptivo**
+    1. Escriba un nombre descriptivo para **Nombre del experimento**.
 
-    * Seleccione **Ejecutar**.
+    1. Seleccione **Run** (Ejecutar).
     
     Puede ver el estado y los detalles de la ejecución en la parte superior derecha del lienzo.
 
     > [!NOTE]
-    > Se tardan 5 minutos aproximadamente en crear un recurso de proceso. Una vez creado el recurso, puede volver a usarlo y eliminar este tiempo de espera en futuras ejecuciones.
+    > La creación de un recurso de proceso tarda aproximadamente cinco minutos. Una vez creado el recurso, puede volver a usarlo y eliminar este tiempo de espera en futuras ejecuciones.
     >
-    > El recurso de proceso realizará el escalado automático a 0 nodos cuando esté inactivo para ahorrar costos.  Cuando lo vuelva a usar después de un retraso, puede que experimente de nuevo unos 5 minutos de tiempo de espera mientras se realiza el escalado vertical nuevamente.
+    > El recurso de proceso se escala automáticamente a cero nodos cuando está inactivo para ahorrar costes. Cuando se vuelve a usar después de un retraso, es posible que experimente aproximadamente cinco minutos de tiempo de espera mientras se escala la copia de seguridad.

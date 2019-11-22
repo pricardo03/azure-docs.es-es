@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: creación de una máquina virtual Windows con Azure PowerShell | Microsoft Docs'
+title: 'Guía de inicio rápido: creación de una máquina virtual Windows con Azure PowerShell'
 description: En esta guía de inicio rápido, aprenderá a usar Azure PowerShell para crear una máquina virtual Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0a8e6ab04cbb1c5a3ef9be299a08380912aad7ef
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 607ad17af42b88737d8ca4ebc379504d9b0b40df
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088793"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073455"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Inicio rápido: Creación de una máquina virtual Windows en Azure con PowerShell
 
@@ -107,7 +107,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, implementará una máquina virtual sencilla, abrirá un puerto de red para el tráfico web e instalará un servidor web básico. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
+En esta guía de inicio rápido, ha implementado una máquina virtual sencilla, ha abierto un puerto de red para el tráfico web y ha instalado un servidor web básico. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de máquinas virtuales Windows de Azure](./tutorial-manage-vm.md)

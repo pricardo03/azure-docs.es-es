@@ -1,5 +1,5 @@
 ---
-title: Qué es Privileged Identity Management Azure Active Directory | Microsoft Docs
+title: Qué es Privileged Identity Management -Azure AD | Microsoft Docs
 description: Ofrece una introducción a Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 04/09/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ae9429920a4d3a6bac8830d6add2782276850d7
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 578f45a7bc870874319a8238c7c8c50bf7a37998
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595359"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023020"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
@@ -104,6 +104,6 @@ Para más información sobre las licencias para usuarios, consulte [License requ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [License requirements to use Privileged Identity Management](subscription-requirements.md) (Requisitos de licencia para usar Privileged Identity Management)
+- [Requisitos de licencia para usar Privileged Identity Management](subscription-requirements.md)
 - [Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-- [Implementación de Privileged Identity Management](pim-deployment-plan.md)
+- [Implementación de Privileged Identity Management](pim-deployment-plan.md)

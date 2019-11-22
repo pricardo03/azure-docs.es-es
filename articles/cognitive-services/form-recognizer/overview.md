@@ -1,7 +1,7 @@
 ---
 title: ¿Qué es Form Recognizer?
 titleSuffix: Azure Cognitive Services
-description: Aprenda a utilizar Form Recognizer para analizar datos de formularios y tablas.
+description: El Azure Cognitive Services Form Recognizer le permite identificar y extraer pares clave-valor y datos de tabla de documentos de formulario.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 86e0494ded84e9711b2283ae5fad77ff626cf792
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594545"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904480"
 ---
 # <a name="what-is-form-recognizer"></a>¿Qué es Form Recognizer?
 
@@ -77,7 +77,7 @@ Use las siguientes API para entrenar y extraer datos estructurados de los formul
 
 Explore la [documentación de referencia de API REST](https://aka.ms/form-recognizer/api) para más información. 
 
-## <a name="data-privacy-and-security"></a>Seguridad y privacidad de los datos
+## <a name="data-privacy-and-security"></a>Seguridad y privacidad de datos
 
 El servicio se ofrece como [versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de un servicio de Azure bajo los [términos de los servicios en línea](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Al igual que sucede con todas las instancias de Cognitive Services, los desarrolladores que usan el servicio Form Recognizer deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Para más información, consulte la [página de Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) en Microsoft Trust Center.
 

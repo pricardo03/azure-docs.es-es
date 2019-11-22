@@ -1,17 +1,14 @@
 ---
 title: Ejemplos de consultas de inicio
 description: Use Azure Resource Graph para ejecutar consultas de inicio, como el recuento de recursos, el pedido de recursos o las consultas por una etiqueta específica.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 7eef353f45d0387a45fbf8180bc49cae7975dfa9
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: ca7fc2ba3e952f93f85c677eb8a8a7322901c7d0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622498"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076115"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de inicio de Resource Graph
 
@@ -253,7 +250,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 ---
 
 > [!NOTE]
-> Tenga en cuenta que mientras `=~` permite el uso de búsqueda de coincidencias sin distinguir mayúsculas de minúsculas, el uso de las propiedades (como **properties.storageProfile.osDisk.osType**) en la consulta distingue mayúsculas de minúsculas. Si la propiedad no tiene las mayúsculas o minúsculas correctas, puede devolver un valor, pero la agrupación o resumen sería incorrecto.
+> Tenga en cuenta que mientras `=~` permite el uso de búsqueda de coincidencias sin distinguir mayúsculas de minúsculas, el uso de las propiedades (como **properties.storageProfile.osDisk.osType**) en la consulta distingue mayúsculas de minúsculas. Si la propiedad es el caso incorrecto, se devuelve un valor Null o incorrecto y la agrupación o el resumen serían incorrectos.
 
 ## <a name="a-nameshow-storage-show-resources-that-contain-storage"></a><a name="show-storage" />Show resources that contain storage
 

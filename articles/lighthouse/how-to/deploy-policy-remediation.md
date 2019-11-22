@@ -1,22 +1,18 @@
 ---
 title: Implementación de una directiva que se pueda corregir
 description: Obtenga información sobre cómo incorporar un cliente a la administración de recursos delegados de Azure, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
 ms.date: 10/11/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 3bc85d202b9ba230130716aad34ce233037a3346
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 662daeb305856fb36bfb84f98e80bedf48b22756
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301961"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132476"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementación de una directiva que se pueda corregir en una suscripción delegada
 
-Azure Lighthouse permite a los proveedores de servicios crear y editar definiciones de directivas en una suscripción delegada. Sin embargo, para implementar directivas que usen una [tarea de corrección](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (es decir, directivas con[deployIfNotExists ](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) o el efecto [Modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)), deberá crear una [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) en el inquilino del cliente. Azure Policy puede usar esta identidad administrada para implementar la plantilla dentro de la directiva. Para habilitar este escenario hay varios pasos obligatorios, tanto al incorporar el cliente para la administración de recursos delegados de Azure como al implementar la propia directiva.
+[Azure Lighthouse](../overview.md) permite a los proveedores de servicios crear y editar definiciones de directivas en una suscripción delegada. Sin embargo, para implementar directivas que usen una [tarea de corrección](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (es decir, directivas con[deployIfNotExists ](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) o el efecto [Modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)), deberá crear una [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) en el inquilino del cliente. Azure Policy puede usar esta identidad administrada para implementar la plantilla dentro de la directiva. Para habilitar este escenario hay varios pasos obligatorios, tanto al incorporar el cliente para la administración de recursos delegados de Azure como al implementar la propia directiva.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Creación de un usuario que pueda asignar roles a una identidad administrada en el inquilino del cliente
 

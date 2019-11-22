@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un servicio Azure Cognitive Search en el portal'
+title: 'Inicio rápido: Creación de un servicio de búsqueda en el portal'
 titleSuffix: Azure Cognitive Search
 description: Aprovisione un recurso de Azure Cognitive Search en Azure Portal. Elija grupos de recursos, regiones, SKU o planes de tarifa.
 manager: nitinme
@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 21f55805e0486d987922a1aa160f2938f3a50155
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 75a7cce55627a981d0d0b0f23a119fac6de920ef
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792435"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112117"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Inicio rápido: Creación de un servicio Azure Cognitive Search en el portal
 
 Azure Cognitive Search es un recurso independiente que se usa para agregar una experiencia de búsqueda a las aplicaciones personalizadas. Aunque Azure Cognitive Search se integra fácilmente con otros servicios de Azure, también se puede usar como un componente independiente, o bien integrarlo con aplicaciones de servidores de red o con software que se ejecuta en otras plataformas en la nube.
 
-En este artículo, aprenderá a crear un recurso de Azure Cognitive Search en [Azure Portal](https://portal.azure.com/).
+En este artículo, aprenderá a crear un recurso en [Azure Portal](https://portal.azure.com/).
 
 [![GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -37,11 +37,11 @@ Como alternativa, [active las ventajas de suscriptor de MSDN](https://azure.micr
 2. Haga clic en el signo más ("+ Crear recurso") en la esquina superior izquierda.
 3. Escriba "Azure Cognitive Search" en la barra de búsqueda o vaya al recurso a través de **Web** > **Azure Cognitive Search**.
 
-![Ir a un recurso de Azure Cognitive Search](./media/search-create-service-portal/find-search3.png "Ruta de desplazamiento a Azure Cognitive Search")
+![Creación de un recurso en el portal](./media/search-create-service-portal/find-search3.png "Creación de un recurso en el portal")
 
-## <a name="select-a-subscription"></a>Selección de una suscripción
+## <a name="choose-a-subscription"></a>Elija una suscripción
 
-Si tiene más de una suscripción, elija una que también tenga servicios de almacenamiento de datos o archivos. Azure Cognitive Search puede detectar automáticamente Azure Table y Blob Storage, SQL Database y Azure Cosmos DB para indexarlos mediante [*indexadores*](search-indexer-overview.md), pero solo para servicios de la misma suscripción.
+El primer paso es establecer el identificador de suscripción y el grupo de recursos. Si tiene más de una suscripción, elija una que también tenga servicios de almacenamiento de datos o archivos. Azure Cognitive Search puede detectar automáticamente Azure Table y Blob Storage, SQL Database y Azure Cosmos DB para indexarlos mediante [*indexadores*](search-indexer-overview.md), pero solo para servicios de la misma suscripción.
 
 ## <a name="set-a-resource-group"></a>Configuración de un grupo de recursos
 
@@ -49,12 +49,14 @@ Se necesita un grupo de recursos y es útil para administrar todos los aspectos 
 
 Si no combina recursos para formar un solo grupo o si los grupos de recursos existentes se rellenan con los recursos usados en soluciones no relacionadas, cree un grupo de recursos solo para su recurso de Azure Cognitive Search. 
 
-Cuando use el servicio, puede realizar un seguimiento de todos los costos actuales y previstos (como se muestra en la captura de pantalla), o bien puede desplazarse para ver los cargos de los recursos individuales.
+![Creación de un nuevo grupo de recursos](./media/search-create-service-portal/new-resource-group.png "Creación de un nuevo grupo de recursos")
+
+Con el tiempo, puede realizar un seguimiento de todos los costos actuales y previstos (como se muestra en la captura de pantalla), o bien puede desplazarse para ver los cargos de los recursos individuales. En la captura de pantalla siguiente se muestra el tipo de información de costos que puede esperar ver al combinar varios recursos en un grupo.
 
 ![Administración de costos en el nivel del grupo de recursos](./media/search-create-service-portal/resource-group-cost-management.png "Administración de costos en el nivel del grupo de recursos")
 
 > [!TIP]
-> Al eliminar un grupo de recursos también se eliminan los servicios que contiene. En el caso de proyectos de prototipo que usan muchos servicios, si se ponen todos ellos en el mismo grupo de recursos, la limpieza resulta más fácil después de que el proyecto ha finalizado.
+> Los grupos de recursos simplifican la limpieza porque, al eliminar un grupo, también se eliminan los servicios que contiene. En el caso de proyectos de prototipo que usan muchos servicios, si se ponen todos ellos en el mismo grupo de recursos, la limpieza resulta más fácil después de que el proyecto ha finalizado.
 
 ## <a name="name-the-service"></a>Asignación de un nombre al servicio
 
@@ -77,7 +79,7 @@ Al ser un servicio de Azure, Azure Cognitive Search se puede hospedar en centros
 
 Para minimizar o evitar los cargos por uso de ancho de banda, seleccione la misma ubicación para varios servicios. Por ejemplo, si indexa los datos que proporciona otro servicio de Azure (Azure Storage, Azure Cosmos DB o Azure SQL Database), al crear el servicio Azure Cognitive Search en la misma región, evitará los cargos por uso de ancho de banda (no se producen cargos por datos de salida cuando los servicios se encuentran en la misma región).
 
-Además, si usa los enriquecimientos de IA de búsqueda cognitiva, cree el servicio en la misma región que el recurso de Cognitive Services. *La coubicación de Azure Cognitive Search y Cognitive Services en la misma región es un requisito para el enriquecimiento con inteligencia artificial*.
+Además, si usa los enriquecimientos de IA, cree el servicio en la misma región que Cognitive Services. *La coubicación de Azure Cognitive Search y Cognitive Services en la misma región es un requisito para el enriquecimiento con inteligencia artificial*.
 
 > [!Note]
 > Los nuevos servicios no están disponibles actualmente en India central. En el caso de los servicios que ya están en India central, puede escalar verticalmente sin restricciones, y el servicio se admite completamente en dicha región. La restricción en esta región es temporal y se limita solo a los nuevos servicios. Se eliminará esta nota cuando ya no se aplique la restricción.
@@ -104,9 +106,9 @@ El servicio se implementa en cuestión de minutos, lo cual puede supervisar medi
 
 Excepto en el caso de que use el portal, para acceder mediante programación al nuevo servicio, tendrá que especificar el punto de conexión de la dirección URL y una clave de API de autenticación.
 
-1. En la página de información general del servicio, busque y copie el punto de conexión de dirección URL en el lado derecho de la página.
+1. En la página **Información general**, busque y copie el punto de conexión de dirección URL en el lado derecho de la página.
 
-2. En el panel de navegación izquierdo, seleccione **Claves** y, luego, copie una de las claves de administrador (son equivalentes). Las claves de API de administrador son necesarias para crear, actualizar y eliminar objetos en el servicio.
+2. En la página **Claves**, copie una de las claves de administración (son equivalentes). Las claves de API de administrador son necesarias para crear, actualizar y eliminar objetos en el servicio. Por el contrario, las claves de consulta proporcionan acceso de lectura al contenido del índice.
 
    ![Página de información general del servicio con punto de conexión de dirección URL](./media/search-create-service-portal/get-url-key.png "Punto de conexión de dirección URL y otros detalles del servicio")
 
@@ -151,7 +153,7 @@ No se requiere un segundo servicio para lograr alta disponibilidad. La alta disp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de aprovisionar un servicio de Azure Cognitive Search, puede continuar en el portal para crear el primer índice.
+Después de aprovisionar un servicio, puede continuar en el portal para crear el primer índice.
 
 > [!div class="nextstepaction"]
 > [Inicio rápido: Creación de un índice de Azure Cognitive Search en el portal](search-get-started-portal.md)

@@ -4,21 +4,21 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 0c381cc6e2e2957c946207491c666667821184ad
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3ead267ee11cba65e20f3df2fb76d9138a080bfb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186781"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850486"
 ---
-| Categoría | Almacén de datos | Se admite como origen | Se admite como receptor |
+| Category | Almacén de datos | Se admite como origen | Se admite como receptor |
 |:--- |:--- |:--- |:--- |
 | **Las tablas de Azure** |[Almacenamiento de blobs de Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Cosmos DB (API de SQL)](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/v1/data-factory-azure-datalake-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/v1/data-factory-azure-sql-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/v1/data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
-| &nbsp; |[Índice de Azure Search](../articles/data-factory/v1/data-factory-azure-search-connector.md) | |✓ |
+| &nbsp; |[Índice de Azure Cognitive Search](../articles/data-factory/v1/data-factory-azure-search-connector.md) | |✓ |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/v1/data-factory-azure-table-connector.md) |✓ |✓ |
 | **Bases de datos** |[Amazon Redshift](../articles/data-factory/v1/data-factory-amazon-redshift-connector.md) |✓ | |
 | &nbsp; |[DB2](../articles/data-factory/v1/data-factory-onprem-db2-connector.md)* |✓ | |

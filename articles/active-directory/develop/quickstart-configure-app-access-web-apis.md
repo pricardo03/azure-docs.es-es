@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b0649f23403363ca4ab4101a2d5cf7a42d505b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: afa757020ff6de3be23403b78fd9a12c2de97016
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473689"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106614"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web
 
@@ -171,13 +171,40 @@ Para agregar una credencial a la aplicación web:
 Para agregar permisos para tener acceso a las API de recursos desde el cliente:
 
 1. Desde la página **Introducción** de la aplicación, seleccione **Permisos de API**.
-1. Seleccione el botón **Agregar un permiso**.
+1. En la sección **Permisos configurados**, seleccione el botón **Agregar un permiso**.
 1. De forma predeterminada, la vista le permite seleccionar en las **API de Microsoft**. Seleccione la sección de las API que le interesa:
     * **API de Microsoft**: le permite seleccionar los permisos para las API de Microsoft, como Microsoft Graph.
     * **API usadas en mi organización**: le permite seleccionar los permisos para las API que se han expuesto por la organización o para las API con las que se ha integrado la organización.
     * **Mis API**: le permite seleccionar los permisos para las API que ha expuesto.
 1. Una vez que haya seleccionado las API, verá la página **Solicitud de permisos de API**. Si la API expone permisos delegados y de aplicación, seleccione el tipo de permiso que necesita la aplicación.
 1. Cuando termine, seleccione **Agregar permisos**. Volverá a la página **Permisos de API**, donde los permisos se han guardado y agregado a la tabla.
+
+## <a name="understanding-api-permissions-and-admin-consent-ui"></a>Descripción de los permisos de API y la UI de consentimiento del administrador
+
+### <a name="configured-permissions"></a>Permisos configurados
+
+En esta sección se muestran los permisos que se han configurado explícitamente en el objeto de aplicación (los permisos que forman parte de la lista de acceso a recursos necesarios de la aplicación). Puede agregar o quitar permisos de esta tabla. Como administrador, en esta sección también puede conceder o revocar el consentimiento del administrador para un conjunto de permisos de una API o permisos individuales.
+
+### <a name="other-permissions-granted"></a>Otros permisos concedidos
+
+Si la aplicación está registrada en un inquilino, es posible que vea una sección adicional titulada **Other permissions granted for Tenant** (Otros permisos concedidos para el inquilino). En esta sección se muestran los permisos que se han concedido para el inquilino, pero que no se han configurado explícitamente en el objeto de aplicación (por ejemplo, los permisos que se solicitaron y concedieron dinámicamente). Esta sección solo aparece si hay al menos un permiso que se aplique.
+
+Puede agregar un conjunto de permisos de API o permisos individuales que aparecen en esta sección a la sección **Permisos configurados**. Como administrador, en esta sección también puede revocar el consentimiento del administrador para API o permisos individuales.
+
+### <a name="admin-consent-button"></a>Botón Consentimiento del administrador
+
+Si la aplicación está registrada en un inquilino, verá un botón **Grant admin consent for Tenant** (Conceder consentimiento del administración al inquilino). Se deshabilitará si no es administrador o si no se han configurado permisos para la aplicación.
+Este botón permite a un administrador conceder fácilmente el consentimiento del administrador a los permisos configurados para la aplicación. Al hacer clic en el botón de consentimiento del administrador, se abre una nueva ventana con una petición de consentimiento que muestra todos los permisos configurados.
+
+> [!NOTE]
+> Hay un retraso entre que se configuran los permisos para la aplicación y que aparecen en la petición de consentimiento. Si no ve todos los permisos configurados en la petición de consentimiento, ciérrela y vuelva a iniciarla.
+
+Si tiene permisos que se han concedido, pero no configurado, al hacer clic en el botón de consentimiento del administrador, se le pedirá que decida cómo administrar estos permisos. Puede agregarlos a los permisos configurados o puede quitarlos.
+
+La petición de consentimiento da la opción de **Aceptar** o **Cancelar**. Si selecciona **Aceptar**, se concede el consentimiento del administrador. Si selecciona **Cancelar**, no se concede el consentimiento del administrador, y verá un error que indica que se ha rechazado el consentimiento.
+
+> [!NOTE]
+> Hay un retraso entre que se concede el consentimiento del administrador (seleccionar **Aceptar** en la petición de consentimiento) y el estado del consentimiento del administrador se ve reflejado en la interfaz de usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

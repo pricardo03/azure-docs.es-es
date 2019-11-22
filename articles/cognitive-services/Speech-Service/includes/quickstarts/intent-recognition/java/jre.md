@@ -11,18 +11,19 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 441c938e9ab74eafecaf0f9188c0884696eccfae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2aa8311c9284d9aff3c50fcec30bc8ab9df6b11b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506119"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125604"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
+>
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha creado una aplicación de LUIS y ha obtenido una clave de punto de conexión](../../../../quickstarts/create-luis.md)
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=jre)
@@ -48,7 +49,7 @@ En este ejemplo se usa el método `FromSubscription()` para compilar la clase `S
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-## <a name="initialize-a-intentrecognizer"></a>Inicialización de un objeto IntentRecognizer
+## <a name="initialize-an-intentrecognizer"></a>Inicialización de IntentRecognizer
 
 Ahora, vamos a crear un objeto `IntentRecognizer`. Inserte este código justo debajo de la configuración de Voz.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=30)]
@@ -60,7 +61,7 @@ Ahora debe asociar un objeto `LanguageUnderstandingModel` con el reconocedor de 
 
 ## <a name="recognize-an-intent"></a>Reconocimiento de una intención
 
-En el objeto `IntentRecognizer`, va a llamar al método `recognizeOnceAsync()`. Este método permite al servicio Voz saber que solo se va a enviar una frase para el reconocimiento y que, una vez que se identifica la frase, se detendrá el reconocimiento de voz.
+En el objeto `IntentRecognizer`, va a llamar al método `recognizeOnceAsync()`. Este método permite que el servicio Voz sepa que solo va a enviar una frase para el reconocimiento y que, una vez que se identifica la frase, se detendrá el reconocimiento de voz.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=41)]
 
@@ -76,7 +77,8 @@ Es importante liberar los recursos de voz cuando haya terminado de usarlos. Inse
 
 ## <a name="check-your-code"></a>Comprobación del código
 
-En este momento, el código debe tener esta apariencia: (Se han agregado algunos comentarios a esta versión) [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
+En este momento, el código debe tener esta apariencia:  
+(Se han agregado algunos comentarios a esta versión) [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
 
 ## <a name="build-and-run-your-app"></a>Compilación y ejecución de la aplicación
 

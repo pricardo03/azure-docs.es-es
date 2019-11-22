@@ -1,37 +1,42 @@
 ---
-title: Incorporación en Azure Sentinel | Microsoft Docs
-description: Aprenda a recopilar datos en Azure Sentinel.
+title: 'Inicio rápido: Incorporación en Azure Sentinel'
+description: Obtenga información sobre cómo recopilar datos en Azure Sentinel siguiendo este documento de inicio rápido.
 services: sentinel
-documentationcenter: na
 author: rkarlin
-manager: rkarlin
-editor: ''
+ms.author: rkarlin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: quickstart
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 7f042cfe10bd8ca57d9a2dae511a13a82f053a67
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 182dec35d515966ae883aca405cf3a95b6f1f72c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316810"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133089"
 ---
-# <a name="on-board-azure-sentinel"></a>Incorporación de Azure Sentinel
+# <a name="quickstart-on-board-azure-sentinel"></a>Inicio rápido: Incorporación de Azure Sentinel
 
-
-
-En este tutorial rápido, aprenderá cómo incorporarse a Azure Sentinel. 
+En este tutorial de inicio rápido, aprenderá cómo incorporar Azure Sentinel. 
 
 Para incorporarse a Azure Sentinel, primero debe habilitarlo y, después, conectar sus orígenes de datos. Azure Sentinel llega con varios conectores para soluciones de Microsoft que están disponibles inmediatamente y proporcionan integración en tiempo real; por ejemplo, para soluciones de Microsoft Threat Protection y orígenes de Microsoft 365, como Office 365, Azure AD, Azure ATP y Microsoft Cloud App Security, entre muchos otros. Además, hay conectores integrados al amplio ecosistema de seguridad para soluciones que no son de Microsoft. También puede usar el formato de evento común, Syslog o las API de REST para conectar los orígenes de datos con Azure Sentinel.  
 
 Después de conectar los orígenes de datos, puede elegir de una galería de libros creados de forma experta que exponen información basada en los datos. Estos libros se pueden personalizar fácilmente en función de sus necesidades.
 
+>[!NOTE] 
+> [Los precios de Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) se basan en la cantidad de datos ingeridos en el área de trabajo asociada de Log Analytics de Azure Monitor. Algunos de los siguientes conectores de datos no se cobran por ingesta; sin embargo, si existirían cargos asociados al generar algún tipo de alerta con los datos ingeridos almacenados en área de trabajo de Log Analytics, lo que se cobrará según los [precios de Log Analytics de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). 
+  > - Actividad de Azure (registros de actividad para las operaciones de Azure)
+  > - Azure Active Directory Identity Protection (para inquilinos con licencias de AAD P2)
+  > - Azure Information Protection
+  > - Azure Advanced Threat Protection (alertas)
+  > - Azure Security Center (alertas)
+  > - Microsoft Cloud App Security (solo alertas)
+  > - Protection contra amenazas avanzada de Microsoft Defender (alertas de agente de supervisión)
+  > - Office 365 (registros de Exchange y SharePoint)
+>
+> Los registros de auditoría de Azure AD/Office365 no son gratuitos y se ofrecen como nivel Premium; por lo tanto, la ingesta de estos datos se cobra por GB. 
+  
 
 ## <a name="global-prerequisites"></a>Requisitos previos globales
 

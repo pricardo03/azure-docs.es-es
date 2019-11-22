@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: fadbcf04f1cd474cf2d23963e88016d240272263
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: c20159d0583e18d0f5e71152fdb600d03db43224
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71279894"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "74002763"
 ---
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -26,7 +26,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
 1. Haga clic en **Crear un recurso** de la esquina superior izquierda de Azure Portal.
 2. En la página **Nuevo**, seleccione **Bases de datos** y, en la página **Bases de datos**, seleccione **Azure Database for PostgreSQL**.
-3. Para la opción de implementación, haga clic en el botón **Crear** en **Hyperscale (Citus) server group - PREVIEW** (Grupo de servidores Hiperescala (Citus): VERSIÓN PRELIMINAR).
+3. En la opción de implementación, haga clic en el botón **Crear** en el grupo de servidores de **Hiperescala (Citus).**
 4. Rellene el formulario del nuevo servidor con la siguiente información:
    - Grupo de recursos: haga clic en el vínculo **Crear nuevo** que está debajo de este cuadro de texto para este campo. Escriba un nombre como **myresourcegroup**.
    - Nombre del grupo de servidores: escriba un nombre exclusivo para el nuevo grupo de servidores, que también se usará para un subdominio de servidor.

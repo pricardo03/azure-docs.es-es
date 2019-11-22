@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un índice de búsqueda en C# mediante el SDK de .NET'
+title: 'Inicio rápido: Creación de un índice de búsqueda en C# mediante .NET'
 titleSuffix: Azure Cognitive Search
 description: Se explica cómo crear un índice, cargar datos y ejecutar consultas mediante C# y el SDK de .NET de Azure Cognitive Search.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: cb52ebc4cfdb6f62e9e68bf007cadc20cd565fad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 45d24286a511ff60db33e149627932b0768c543b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792818"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112031"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en C# mediante el SDK de .NET
 > [!div class="op_single_selector"]

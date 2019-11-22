@@ -1,5 +1,5 @@
 ---
-title: Introducción al restablecimiento de las contraseñas profesionales o educativas propias en Azure Active Directory | Microsoft Docs
+title: 'Restablecer la información general de la contraseña profesional o educativa: Azure AD'
 description: Una lista de vínculos a artículos acerca de cómo registrar y restablecer contraseñas profesionales o educativas sin ayuda del administrador.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15fbc526822f3b6659bc190ee67c6c17ff96b067
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 57d14ac3cbce6880604ad44b6aa71998ed061c10
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160608"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028502"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>Introducción al restablecimiento de las contraseñas profesionales o educativas propias
 
@@ -34,5 +34,5 @@ Para obtener información detallada e instrucciones acerca de cómo registrar un
 
 |Artículo |DESCRIPCIÓN |
 |------|------------|
-| [Registro para el autoservicio de restablecimiento de contraseña](active-directory-passwords-reset-register.md) ] Instrucciones para comprobar los métodos de autenticación y cómo registrarse en el autoservicio de restablecimiento de contraseña para que pueda restablecer su propia contraseña.|
-| [Restablecer la contraseña](active-directory-passwords-update-your-own-password.md) ] Instrucciones para restablecer o desbloquear la contraseña de una cuenta profesional o educativa.|
+| [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md) | Instrucciones para comprobar los métodos de autenticación y cómo registrarse en el autoservicio de restablecimiento de contraseña para que pueda restablecer la contraseña. |
+| [Restablecimiento de la contraseña](active-directory-passwords-update-your-own-password.md) | Instrucciones para restablecer o desbloquear la contraseña de una cuenta profesional o educativa. |

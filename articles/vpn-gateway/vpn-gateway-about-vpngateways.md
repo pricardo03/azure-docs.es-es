@@ -1,19 +1,19 @@
 ---
-title: Azure VPN Gateway | Microsoft Docs
+title: Acerca de Azure VPN Gateway
 description: Conozca más información sobre lo que es una instancia de VPN Gateway y las formas en que puede utilizarla para conectarse a redes virtuales de Azure. Aquí están incluidas la directiva IPsec o IKE de sitio a sitio entre implementaciones locales y soluciones de red virtual a red virtual, así como VPN de punto a sitio.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/31/2019
+ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 82e9003036f67ecd3b3ecd7d8ab6cd434fcfc438
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58a92536510d2f434154169cbefff60487a422fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495701"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075436"
 ---
 # <a name="what-is-vpn-gateway"></a>¿Qué es VPN Gateway?
 
@@ -53,7 +53,10 @@ La tabla siguiente puede ayudarle a decidir la mejor opción de conectividad par
 
 ## <a name="gwsku"></a>SKU de puerta de enlace
 
-Al crear una puerta de enlace de red virtual, hay que especificar la SKU de la puerta de enlace que desea usar. Seleccione las SKU que cumplan sus requisitos en función de los tipos de cargas de trabajo, rendimientos, características y Acuerdos de Nivel de Servicio. Para más información acerca de las SKU de puerta de enlace, incluidas las características admitidas, los pasos de producción, desarrollo-prueba y configuración, consulte el artículo [Configuración de VPN Gateway: SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para más información sobre las SKU heredadas, consulte [Trabajo con SKU heredadas](vpn-gateway-about-skus-legacy.md).
+Al crear una puerta de enlace de red virtual, hay que especificar la SKU de la puerta de enlace que desea usar. Seleccione las SKU que cumplan sus requisitos en función de los tipos de cargas de trabajo, rendimientos, características y Acuerdos de Nivel de Servicio.
+
+* Para más información acerca de las SKU de puerta de enlace, incluidas las características admitidas, los pasos de producción, desarrollo-prueba y configuración, consulte el artículo [Configuración de VPN Gateway: SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+* Para más información sobre las SKU heredadas, consulte [Trabajo con SKU heredadas](vpn-gateway-about-skus-legacy.md).
 
 ### <a name="benchmark"></a>SKU de puerta de enlace por túnel, conexión y rendimiento
 
@@ -92,7 +95,6 @@ Este tipo de conexión es una variación de la conexión de sitio a sitio. Puede
 Una conexión de puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión segura a la red virtual desde un equipo cliente individual. Se establece una conexión de punto a sitio al iniciarla desde el equipo cliente. Esta solución resulta útil para los teletrabajadores que deseen conectarse a redes virtuales de Azure desde una ubicación remota, por ejemplo, desde casa o un congreso. La conexión VPN de punto a sitio también es una solución útil en comparación con la conexión VPN de sitio a sitio cuando solo necesitan conectarse a la red virtual algunos clientes.
 
 A diferencia de las conexiones S2S, las conexiones P2S no necesitan una dirección IP pública local ni dispositivos VPN. Se pueden usar conexiones P2S con conexiones S2S a través de la misma instancia de VPN Gateway, siempre que todos los requisitos de configuración para ambas conexiones sean compatibles. Para más información sobre las conexiones de punto a sitio, consulte [Acerca de las conexiones VPN de punto a sitio](point-to-site-about.md).
-
 
 ![Ejemplo de conexión de punto a sitio de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 

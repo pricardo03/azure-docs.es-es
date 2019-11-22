@@ -1,5 +1,5 @@
 ---
-title: Creación de un conjunto de aptitudes cognitivo en Azure Portal
+title: 'Inicio rápido: Creación de un conjunto de aptitudes en Azure Portal'
 titleSuffix: Azure Cognitive Search
 description: Use el Asistente para la importación de datos para agregar aptitudes cognitivas a una canalización de indexación. Las aptitudes cognitivas incluyen el reconocimiento óptico de caracteres (OCR) y el procesamiento de lenguaje natural.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 14d2751f55f3df26277b1210b9201eed61409c6b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2280b718fe949384bb67b1b606ab143ddca8e077
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792075"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113356"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de aptitudes cognitivas de Azure Cognitive Search en Azure Portal
 
@@ -25,9 +25,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-services-and-load-data"></a>Creación de servicios y carga de datos
 
-En este inicio rápido se usa Azure Cognitive Search, Azure Blob Storage y [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para lo relacionado con inteligencia artificial. 
+En este inicio rápido, se usa Azure Cognitive Search, Azure Blob Storage y [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para la inteligencia artificial. 
 
-Dado que la carga de trabajo es tan pequeña, Cognitive Services se utiliza en segundo plano para proporcionar un procesamiento gratuito de hasta 20 transacciones cada día cuando se invoca desde Azure Cognitive Search. Siempre que use los datos de ejemplo que se proporcionan, puede omitir la creación o asociación de un recurso de Cognitive Services.
+Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano para proporcionar el procesamiento gratuito de hasta 20 transacciones al día, cuando se invoca desde Azure Cognitive Search. Siempre que use los datos de ejemplo que se proporcionan, puede omitir la creación o asociación de un recurso de Cognitive Services.
 
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) que están formados por un pequeño conjunto de archivos de diferentes tipos. Descomprima los archivos.
 
@@ -45,7 +45,7 @@ Dado que la carga de trabajo es tan pequeña, Cognitive Services se utiliza en s
 
 <!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. In many tutorials, especially those that use the REST API, you will need a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
 
-Ahora ya está listo para continuar con el Asistente para la importación de datos.
+Ahora ya está preparado para continuar con el Asistente para la importación de datos.
 
 ## <a name="run-the-import-data-wizard"></a>Ejecutar el Asistente para la importación de datos
 

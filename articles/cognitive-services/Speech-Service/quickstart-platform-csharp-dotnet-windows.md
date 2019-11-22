@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Configuración de la plataforma del SDK de Voz para .NET Framework (Windows): servicio Voz'
+title: 'Inicio rápido: Configuración de la plataforma del SDK de Voz para .NET Framework en Windows: servicio Voz'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía para configurar la plataforma para usar C# en .NET Framework para Windows con el SDK de servicios voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: e6447df56ebbb3d88ace22645ba9bb18be4c9558
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: efd4339f55f2b5454e3ad9853b9c8d833763ea86
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504439"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111007"
 ---
 # <a name="quickstart-speech-sdk-for-net-framework-windows-platform-setup"></a>Inicio rápido: Configuración de la plataforma del SDK de Voz para .NET Framework (Windows)
 

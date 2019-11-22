@@ -1,19 +1,20 @@
 ---
-title: 'Guía de inicio rápido: dirigir el tráfico web con Azure Application Gateway: Azure Portal | Microsoft Docs'
+title: 'Inicio rápido: Tráfico web directo mediante el portal'
+titleSuffix: Azure Application Gateway
 description: Obtenga información sobre cómo utilizar Azure Portal para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 565620f477382ff81f854336dbee7bdb1ad06f01
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f5a20f80ea8eafa73cbef394dcfdde75087326b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469717"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074574"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure Portal
 
@@ -65,7 +66,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
 
 1. En la pestaña **Front-end**, compruebe que **Tipo de dirección IP de front-end** esté establecido en **Pública**. <br>Puede configurar la dirección IP de front-end para que sea pública o privada, según el caso de uso. En este ejemplo, elegimos una IP de front-end pública.
    > [!NOTE]
-   > Para la SKU de Application Gateway v2, solo puede elegir la configuración IP de front-end **pública**. La configuración de IP de front-end privada no está habilitada actualmente para este SKU v2.
+   > Para la SKU de Application Gateway v2, solo puede elegir la configuración IP de front-end **pública**. Actualmente solo la configuración IP de front-end privada no está habilitada para esta SKU de V2. Puede tener una configuración de IP de front-end pública y privada.
 
 2. Elija **Crear nuevo** para la **Dirección IP pública** y escriba *myAGPublicIPAddress* para el nombre de dirección IP pública y seleccione **Aceptar**. 
 

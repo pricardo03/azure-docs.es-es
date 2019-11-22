@@ -11,18 +11,19 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b26b5edeaac1f6305ed2db920c711f906eb10384
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 76b7c9436b8d1d466a69df7e5427991df0a9c63e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506023"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125607"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
+>
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha creado una aplicación de LUIS y ha obtenido una clave de punto de conexión](../../../../quickstarts/create-luis.md)
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=windows)
@@ -32,7 +33,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 El primer paso es asegurarse de que tiene el proyecto abierto en Visual Studio.
 
-1. Inicie Visual Studio 2019.
+1. Inicie Visual Studio 2019.
 2. Cargue el proyecto y abra `helloworld.cpp`.
 
 ## <a name="start-with-some-boilerplate-code"></a>Inicio con código reutilizable
@@ -51,7 +52,7 @@ En este ejemplo se usa el método `FromSubscription()` para compilar la clase `S
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
 
-## <a name="initialize-a-intentrecognizer"></a>Inicialización de un objeto IntentRecognizer
+## <a name="initialize-an-intentrecognizer"></a>Inicialización de IntentRecognizer
 
 Ahora, vamos a crear un objeto `IntentRecognizer`. Inserte este código en el método `recognizeIntent()`, justo debajo de la configuración de Voz.
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=28)]
@@ -63,8 +64,8 @@ Ahora debe asociar un objeto `LanguageUnderstandingModel` con el reconocedor de 
 
 ## <a name="recognize-an-intent"></a>Reconocimiento de una intención
 
-En el objeto `IntentRecognizer`, va a llamar al método `RecognizeOnceAsync()`. Este método permite al servicio Voz saber que solo se va a enviar una frase para el reconocimiento y que, una vez que se identifica la frase, se detendrá el reconocimiento de voz.
-For similicity we'll wait on the future returned to complete.
+En el objeto `IntentRecognizer`, va a llamar al método `RecognizeOnceAsync()`. Este método permite que el servicio Voz sepa que solo va a enviar una frase para el reconocimiento y que, una vez que se identifica la frase, se detendrá el reconocimiento de voz.
+Por motivos de simplicidad, esperaremos a que se complete la devolución futura.
 
 Dentro de la instrucción using, agregue este código: [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=44)]
 
@@ -76,7 +77,8 @@ Dentro de la instrucción using, debajo de `RecognizeOnceAsync()`, agregue este 
 
 ## <a name="check-your-code"></a>Comprobación del código
 
-En este momento, el código debe tener esta apariencia: (Se han agregado algunos comentarios a esta versión) [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
+En este momento, el código debe tener esta apariencia:  
+(Se han agregado algunos comentarios a esta versión) [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
 
 ## <a name="build-and-run-your-app"></a>Compilación y ejecución de la aplicación
 

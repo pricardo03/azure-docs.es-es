@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de una máquina virtual Windows en la CLI de Azure | Microsoft Docs'
+title: 'Guía de inicio rápido: creación de una máquina virtual Windows mediante la CLI de Azure'
 description: En este inicio rápido aprenderá a usar la CLI de Azure para crear una máquina virtual Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e6709a6efff80df01d7504db8b39f8ff5c2c5e49
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a3ad81091fa93993f71c6d65175e50f6ee216757
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088854"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073467"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Inicio rápido: Creación de una máquina virtual Windows con la CLI de Azure
 
@@ -117,7 +117,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, implementará una máquina virtual sencilla, abrirá un puerto de red para el tráfico web e instalará un servidor web básico. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
+En esta guía de inicio rápido, ha implementado una máquina virtual sencilla, ha abierto un puerto de red para el tráfico web y ha instalado un servidor web básico. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de máquinas virtuales Windows de Azure](./tutorial-manage-vm.md)

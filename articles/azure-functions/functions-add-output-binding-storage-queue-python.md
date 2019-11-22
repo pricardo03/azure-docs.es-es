@@ -7,12 +7,12 @@ ms.date: 10/02/2019
 ms.topic: quickstart
 ms.service: azure-functions
 manager: gwallace
-ms.openlocfilehash: 2307a296453247a5deee082aadb474f3641cce88
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: da3fb604bfb65f67e50d56a4520620cabc292b93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329731"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082817"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adición de un enlace de cola de Azure Storage a la función de Python
 
@@ -91,7 +91,7 @@ Puede [examinar el mensaje de la cola de almacenamiento](#query-the-storage-queu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha actualizado la función desencadenada por HTTP para escribir datos en una cola de almacenamiento. Para más información sobre el desarrollo de Azure Functions con Python, consulte la [Guía de Azure Functions para desarrolladores de Python](functions-reference-python.md) y [Desencadenadores y enlaces en Azure Functions](functions-triggers-bindings.md). Para obtener ejemplos de proyectos de función completos en Python, consulte los ejemplos de [funciones de Python](/samples/browse/?products=azure-functions&languages=python). 
+Ha actualizado la función desencadenada por HTTP para escribir datos en una cola de almacenamiento. Para más información sobre el desarrollo de Azure Functions con Python, consulte la [Guía de Azure Functions para desarrolladores de Python](functions-reference-python.md) y [Desencadenadores y enlaces en Azure Functions](functions-triggers-bindings.md). Para obtener ejemplos de proyectos de función completos en Python, consulte los ejemplos de [funciones de Python](/samples/browse/?products=azure-functions&languages=python). Para obtener más información sobre los precios, consulte la [página de precios de Functions](https://azure.microsoft.com/pricing/details/functions/) y el artículo [Estimación de los costos según el plan de consumo](functions-consumption-costs.md).
 
 A continuación, debe habilitar la supervisión de Application Insights para su aplicación de función:
 

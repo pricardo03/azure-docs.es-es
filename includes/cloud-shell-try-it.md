@@ -4,16 +4,16 @@ ms.service: azure
 ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
-ms.openlocfilehash: fdb4ddc43c1fcde55da8186bd2c09b709eb41374
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: c52e626a8f87ed38ce6684f0ef011de6fef9e0af
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "71055240"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078717"
 ---
 ## <a name="use-azure-cloud-shell"></a>Uso de Azure Cloud Shell
 
-En Azure se hospeda Azure Cloud Shell, un entorno de shell interactivo que puede utilizar mediante el explorador. Cloud Shell le permite usar `bash` o `PowerShell` para trabajar con servicios de Azure. Puede usar los comandos preinstalados de Cloud Shell para ejecutar el código de este artículo sin tener que instalar nada en su entorno local.
+En Azure se hospeda Azure Cloud Shell, un entorno de shell interactivo que puede utilizar mediante el explorador. Puede usar Bash o PowerShell con Cloud Shell para trabajar con los servicios de Azure. Puede usar los comandos preinstalados de Cloud Shell para ejecutar el código de este artículo sin tener que instalar nada en su entorno local.
 
 Para iniciar Azure Cloud Shell:
 
@@ -29,6 +29,6 @@ Para ejecutar el código de este artículo en Azure Cloud Shell:
 
 1. Seleccione el botón **Copiar** de un bloque de código para copiar el código.
 
-1. Pegue el código en la sesión de Cloud Shell con **Ctrl**+**Mayús**+**V** en Windows y Linux, o **Cmd**+**Mayús**+**V** en macOS.
+1. Pegue el código en la sesión de Cloud Shell; para ello, seleccione **Ctrl**+**Shift**+**V** en Windows y Linux, o bien seleccione **Cmd**+**Shift**+**V** en macOS.
 
-1. Presione **ENTRAR** para ejecutar el código.
+1. Seleccione **Entrar** para ejecutar el código.

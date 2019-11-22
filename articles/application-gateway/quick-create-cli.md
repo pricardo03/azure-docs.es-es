@@ -1,19 +1,20 @@
 ---
-title: 'Guía de inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure | Microsoft Docs'
+title: 'Inicio rápido: Tráfico web directo mediante CLI'
+titleSuffix: Azure Application Gateway
 description: Aprenda a usar la CLI de Azure para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd68f4a565c28f1dbac7e94442a8f8231af01328
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: de1f30d949509ab48999d0080ccc4df74321ce01
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314907"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075202"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure
 

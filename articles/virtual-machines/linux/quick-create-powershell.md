@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de una máquina virtual Linux con Azure PowerShell | Microsoft Docs'
+title: 'Guía de inicio rápido: creación de una máquina virtual Linux con Azure PowerShell'
 description: En esta guía de inicio rápido, aprenderá a usar Azure PowerShell para crear una máquina virtual Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 88d028f48b75238e2123d939a832e3fa70fc0056
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1e336ad05d70341365b63d806b249740113724d3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300867"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035205"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Inicio rápido: Creación de una máquina virtual Linux en Azure con PowerShell
 

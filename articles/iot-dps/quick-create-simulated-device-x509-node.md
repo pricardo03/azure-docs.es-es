@@ -1,23 +1,23 @@
 ---
-title: Aprovisionamiento de un dispositivo X.509 simulado para Azure IoT Hub mediante Node.js | Microsoft Docs
+title: 'Inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado para Azure IoT Hub mediante Node.js'
 description: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos para Node.js para Azure IoT Hub Device Provisioning Service. Esta guía de inicio rápido utiliza inscripciones individuales.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/09/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: e0f7fa544efcdd20e9ed567c6de55a8b1aecfe41
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: e28f0c19918cb29ca6850b1957a403af5aafb1a4
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126518"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904792"
 ---
-# <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Node.js para el servicio IoT Hub Device Provisioning
+# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Inicio rápido: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Node.js para el servicio IoT Hub Device Provisioning
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Estos pasos muestran cómo crear una entrada de inscripción en el servicio Device Provisioning, simular un dispositivo X.509 en la máquina de desarrollo, conectar el dispositivo simulado con el servicio Device Provisioning y registrar el dispositivo en el centro de IoT mediante el [SDK del dispositivo de Node-js de Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-node).
@@ -96,7 +96,7 @@ Usará código de ejemplo del [SDK para Node.js de Azure IoT](https://github.com
 
 El [SDK de dispositivo de Node.js de Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-node) proporciona una manera sencilla de simular un dispositivo. Para más información, consulte los [Conceptos de dispositivos](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
-1. En Azure Portal, seleccione la hoja **Información general** para su servicio Device Provisioning y anote los valores del **_punto de conexión de dispositivo global_** y del **_ámbito de identificador_**.
+1. En Azure Portal, seleccione la hoja **Información general** para su servicio Device Provisioning y anote los valores del **_punto de conexión de dispositivo global_** y del **_ámbito de identificador_** .
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
 

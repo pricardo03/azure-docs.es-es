@@ -1,6 +1,6 @@
 ---
-title: Creación un módulo gemelo de seguridad para Azure Security Center para IoT | Microsoft Docs
-description: Aprenda a crear un módulo gemelo de Azure Security Center para IoT para usarlo con Azure Security Center para IoT.
+title: 'Inicio rápido: Creación de un módulo de seguridad gemelo para Azure Security Center para IoT'
+description: En esta guía de inicio rápido, aprenderá a crear un módulo gemelo de Azure Security Center para IoT para su uso con Azure Security Center para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 92bf79aa5ae55bad16d68a26dc13d292285a4d46
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b362130c2b717f813a6332f81a3c8179bea4166a
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597076"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904160"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Inicio rápido: Creación de un módulo gemelo de azureiotsecurity
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 268cac453ed68903c73b597ffeff2569c13e9db7
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 741c6c1f937988dcce41603417a1bc7dc95091cb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747085"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073975"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Copia de seguridad de una máquina virtual en Azure con PowerShell
 
@@ -106,18 +106,18 @@ Habilite la copia de seguridad de la manera siguiente:
 
 ## <a name="start-a-backup-job"></a>Inicio de un trabajo de copia de seguridad
 
-Las copias de seguridad se ejecutan según la programación especificada en la directiva de copia de seguridad. También puede ejecutar una copia de seguridad ad hoc:
+Las copias de seguridad se ejecutan según la programación especificada en la directiva de copia de seguridad. También puede ejecutar una copia de seguridad a petición:
 
 - El trabajo de copia de seguridad inicial crea un punto de recuperación completo.
 - Después de la configuración inicial, cada trabajo de copia de seguridad crea puntos de recuperación incrementales.
 - Los puntos de recuperación incremental ahorran tiempo y espacio de almacenamiento, ya que solo transfieren los cambios realizados desde la última copia de seguridad.
 
-Para ejecutar una copia de seguridad ad hoc, utilice [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+Para ejecutar una copia de seguridad a petición, use el[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
 - Puede especificar un contenedor en el almacén que contenga los datos de copia de seguridad con [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Cada máquina virtual de la que se va a realizar una copia se trata como un elemento. Para iniciar un trabajo de copia de seguridad, obtenga información sobre la máquina virtual con [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
-Ejecute un trabajo de copia de seguridad ad hoc de la siguiente manera:
+Ejecute un trabajo de copia de seguridad a petición de la siguiente manera:
 
 1. Especifique el contenedor, obtenga información de la máquina virtual y ejecute la copia de seguridad.
 

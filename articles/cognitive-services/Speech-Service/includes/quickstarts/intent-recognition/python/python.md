@@ -11,18 +11,19 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 8916cb0438f0005d3ff9f720cf1b5a5653eeac77
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4efa535118d075addf78b2e9be6a645c458d6bb4
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506167"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125606"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
+>
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha creado una aplicación de LUIS y ha obtenido una clave de punto de conexión](../../../../quickstarts/create-luis.md)
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md)
@@ -48,7 +49,7 @@ En este ejemplo se crea el objeto `SpeechConfig` mediante la clave y la región 
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
-## <a name="initialize-a-intentrecognizer"></a>Inicialización de un objeto IntentRecognizer
+## <a name="initialize-an-intentrecognizer"></a>Inicialización de IntentRecognizer
 
 Ahora, vamos a crear un objeto `IntentRecognizer`. Inserte este código justo debajo de la configuración de Voz.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=15)]
@@ -60,7 +61,7 @@ Ahora debe asociar un objeto `LanguageUnderstandingModel` con el reconocedor de 
 
 ## <a name="recognize-an-intent"></a>Reconocimiento de una intención
 
-En el objeto `IntentRecognizer`, va a llamar al método `recognize_once()`. Este método permite al servicio Voz saber que solo se va a enviar una frase para el reconocimiento y que, una vez que se identifica la frase, se detendrá el reconocimiento de voz.
+En el objeto `IntentRecognizer`, va a llamar al método `recognize_once()`. Este método permite que el servicio Voz sepa que solo va a enviar una frase para el reconocimiento y que, una vez que se identifica la frase, se detendrá el reconocimiento de voz.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=35)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>Visualización de los resultados (o errores) del reconocimiento
@@ -71,7 +72,8 @@ Dentro de la instrucción using, debajo de la llamada a `recognize_once()`, agre
 
 ## <a name="check-your-code"></a>Comprobación del código
 
-En este momento, el código debe tener esta apariencia: (Se han agregado algunos comentarios a esta versión) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-47)]
+En este momento, el código debe tener esta apariencia:  
+(Se han agregado algunos comentarios a esta versión) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-47)]
 
 ## <a name="build-and-run-your-app"></a>Compilación y ejecución de la aplicación
 

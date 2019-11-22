@@ -1,22 +1,22 @@
 ---
-title: Configuración del servicio Device Provisioning mediante la CLI de Azure | Microsoft Docs
+title: 'Inicio rápido: Configuración de un Servicio de aprovisionamiento de dispositivos con CLI de Azure'
 description: 'Guía de inicio rápido de Azure: configuración del servicio Azure IoT Hub Device Provisioning mediante la CLI de Azure'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 02/26/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3062fb640985498ba35e23f6310828a2bd59bfed
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ef40d0df630fc369705a1365aa8d95317aa54cb3
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "60363723"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904703"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Configuración del servicio Azure IoT Hub Device Provisioning con la CLI de Azure
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Inicio rápido: Configuración del servicio Azure IoT Hub Device Provisioning con la CLI de Azure
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido detalla cómo usar la CLI de Azure para crear una instancia de IoT Hub y una instancia del servicio IoT Hub Device Provisioning y para vincular los dos servicios entre sí. 
 
@@ -137,4 +137,3 @@ En esta guía de inicio rápido, ha implementado un centro de IoT y una instanci
 
 > [!div class="nextstepaction"]
 > [Guía de inicio rápido para crear el dispositivo simulado](./quick-create-simulated-device.md)
-

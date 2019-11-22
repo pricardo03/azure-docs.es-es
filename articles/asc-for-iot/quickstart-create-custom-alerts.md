@@ -1,6 +1,6 @@
 ---
-title: Creación de alertas personalizadas para Azure Security Center para IoT | Microsoft Docs
-description: Cree y asigne alertas de dispositivos personalizadas para Azure Security Center for IoT.
+title: 'Inicio rápido: Creación de alertas personalizadas para Azure Security Center para IoT'
+description: En esta guía de inicio rápido, cree y asigne alertas de dispositivo personalizadas para Azure Security Center para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: ed10cbf89f878f8d27b43476d26ac93dd373ed66
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eca5d69efb04cf8210b0b2aa502bcee5cd4f5264
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597012"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904137"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Inicio rápido: Creación de alertas personalizadas
 

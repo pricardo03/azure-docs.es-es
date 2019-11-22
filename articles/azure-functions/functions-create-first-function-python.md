@@ -3,42 +3,44 @@ title: Creación de una función de Python desencadenada mediante HTTP en Azure
 description: Aprenda a crear su primera función de Python en Azure mediante Azure Functions Core Tools y la CLI de Azure.
 author: ggailey777
 ms.author: glenga
-ms.date: 09/11/2019
+ms.date: 11/07/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: 791348088d909785b36934c3b9a2ae00fc0acbb7
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 61465177c98a31a739946097ca615382175df3d4
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622046"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082766"
 ---
-# <a name="create-an-http-triggered-python-function-in-azure"></a>Creación de una función de Python desencadenada mediante HTTP en Azure
+# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Inicio rápido: Creación de una función de Python desencadenada mediante HTTP en Azure
 
-En este artículo se explica cómo usar las herramientas de línea de comandos para crear un proyecto de Python que se ejecuta en Azure Functions. También puede crear una función que desencadena una solicitud HTTP. Por último, publique el proyecto para que se ejecute como una [función sin servidor](functions-scale.md#consumption-plan) en Azure.
+En este artículo se explica cómo usar las herramientas de línea de comandos para crear un proyecto de Python que se ejecuta en Azure Functions. También puede crear una función que desencadena una solicitud HTTP. Después de la ejecución local, publique el proyecto para que se ejecute como una [función sin servidor](functions-scale.md#consumption-plan) en Azure. 
 
 Este artículo es el primero de dos artículos de inicio rápido de Python para Azure Functions. Después de completar este inicio rápido, puede [agregar el enlace de salida de la cola de Azure Storage](functions-add-output-binding-storage-queue-python.md) a la función.
+
+También hay una [versión basada en Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01) de este artículo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, debe hacer lo siguiente:
 
-+ Instale [Python 3.6.8](https://www.python.org/downloads/). Esta versión de Python se comprueba con Functions. La versión 3.7 y posteriores aún no se admiten.
++ Instale [Python 3.7.4](https://www.python.org/downloads/). Esta versión de Python se comprueba con Functions. Python 3.8 y versiones posteriores aún no se admiten.
 
-+ Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versión 2.7.1575 u otra posterior.
++ Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versión 2.7.1846 u otra posterior.
 
-+ Instale la versión 2.x de la [CLI de Azure](/cli/azure/install-azure-cli) u otra posterior.
++ Instale la [CLI de Azure](/cli/azure/install-azure-cli) versión 2.0.76 u otra posterior.
 
 + Tener una suscripción de Azure activa.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-and-activate-a-virtual-environment-optional"></a>Creación y activación de un entorno virtual (opcional)
+## <a name="create-and-activate-a-virtual-environment"></a>Creación y activación de un entorno virtual
 
-Debe usar un entorno de Python 3.6.x para desarrollar localmente funciones de Python. Ejecute los comandos siguientes para crear y activar un entorno virtual denominado `.venv`.
+Debe usar un entorno de Python 3.7 para desarrollar localmente funciones de Python. Ejecute los comandos siguientes para crear y activar un entorno virtual denominado `.venv`.
 
 > [!NOTE]
 > Si Python no instaló venv en la distribución de Linux, puede instalarlo con el siguiente comando:
@@ -63,43 +65,26 @@ Ahora que ha activado el entorno virtual, ejecute los comandos restantes en él.
 
 ## <a name="create-a-local-functions-project"></a>Creación de un proyecto local de Functions
 
-Un proyecto de Functions es el equivalente a una aplicación de funciones en Azure. Puede tener varias funciones que comparten la misma configuración local y de host.
+Un proyecto de Functions Puede tener varias funciones que comparten la misma configuración local y de host.
 
-1. En el entorno virtual, ejecute el comando siguiente:
+En el entorno virtual, ejecute los comandos siguientes:
 
-    ```console
-    func init MyFunctionProj
-    ```
+```console
+func init MyFunctionProj --python
+cd MyFunctionProj
+```
 
-1. Seleccione **python** como el tiempo de ejecución de trabajo.
-
-    El comando crea una carpeta _MyFunctionProj_. Contiene estos tres archivos:
-
-    * *local.settings.json*: se usa para almacenar las cadenas de conexión y la configuración de la aplicación cuando la ejecución se realiza a nivel local. Este archivo no se publica en Azure.
-    * *requirements. txt*: contiene la lista de paquetes que el sistema instalará en la publicación en Azure.
-    * *host.json*: contiene las opciones de configuración global que afectan a todas las funciones de una aplicación de funciones. Este archivo se publica en Azure.
-
-1. Vaya a la nueva carpeta *MyFunctionProj*:
-
-    ```console
-    cd MyFunctionProj
-    ```
+El comando `func init` crea una carpeta _MyFunctionProj_. El proyecto de Python de esta carpeta todavía no tiene ninguna función. Las agregará a continuación.
 
 ## <a name="create-a-function"></a>Creación de una función
 
-Adición de una función al nuevo proyecto.
+Para agregar una función a su proyecto, ejecute el siguiente comando:
 
-1. Para agregar una función a su proyecto, ejecute el siguiente comando:
+```console
+func new --name HttpTrigger --template "HTTP trigger"
+```
 
-    ```console
-    func new
-    ```
-
-1. Use la flecha hacia abajo para seleccionar la plantilla **HTTP trigger**.
-
-1. Cuando se le pida un nombre de función, escriba *HttpTrigger* y, a continuación, presione Entrar.
-
-Estos comandos crean una subcarpeta llamada _HttpTrigger_. Contiene los archivos siguientes:
+Este comando crea una subcarpeta denominada _HttpTrigger_, que contiene los archivos siguientes:
 
 * *function.json*: archivo de configuración que define la función, el desencadenador y otros enlaces. Tenga en cuenta que, en este archivo, el valor de `scriptFile` apunta al archivo que contiene la función, mientras que la matriz `bindings` define el desencadenador de invocación y los enlaces.
 
@@ -109,57 +94,32 @@ Estos comandos crean una subcarpeta llamada _HttpTrigger_. Contiene los archivos
 
     El objeto devuelto, definido como `$return` en *function.json*, es una instancia de la [clase azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Para más información, vea [Enlaces y desencadenadores HTTP de Azure Functions](functions-bindings-http-webhook.md).
 
+Ahora puede ejecutar la nueva función en el equipo local.
+
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
 
-La función se ejecuta localmente mediante el entorno de ejecución de Azure Functions.
+Este comando inicia la aplicación de funciones mediante el tiempo de ejecución de Azure Functions (func.exe):
 
-1. Este comando inicia la aplicación de funciones:
+```console
+func host start
+```
 
-    ```console
-    func host start
-    ```
+Debería ver la siguiente información escrita en el resultado:
 
-    Cuando se inicia el host de Azure Functions, escribe una salida similar a la siguiente. Se trunca aquí para que pueda leerlo mejor:
+```output
+Http Functions:
 
-    ```output
-    
-                      %%%%%%
-                     %%%%%%
-                @   %%%%%%    @
-              @@   %%%%%%      @@
-           @@@    %%%%%%%%%%%    @@@
-         @@      %%%%%%%%%%        @@
-           @@         %%%%       @@
-             @@      %%%       @@
-               @@    %%      @@
-                    %%
-                    %
-    
-    ...
-    
-    Content root path: C:\functions\MyFunctionProj
-    Now listening on: http://0.0.0.0:7071
-    Application started. Press Ctrl+C to shut down.
-    
-    ...
-    
-    Http Functions:
-    
-            HttpTrigger: http://localhost:7071/api/HttpTrigger
-    
-    [8/27/2018 10:38:27 PM] Host started (29486ms)
-    [8/27/2018 10:38:27 PM] Job host started
-    ```
+        HttpTrigger: http://localhost:7071/api/HttpTrigger    
+```
 
-1. Copie la dirección URL de la función `HttpTrigger` que aparece en la salida en entorno de ejecución y péguela en la barra de direcciones del explorador.
+Copie la dirección URL de la función `HttpTrigger` que aparece en el resultado y péguela en la barra de direcciones del explorador. Agregue la cadena de consulta `?name=<yourname>` a esta dirección URL y ejecute la solicitud. La captura de pantalla siguiente muestra la respuesta a la solicitud GET devuelta que la función local devuelve al explorador:
 
-1. Agregue la cadena de consulta `?name=<yourname>` a esta dirección URL y ejecute la solicitud. La captura de pantalla siguiente muestra la respuesta a la solicitud GET devuelta que la función local devuelve al explorador:
+![Comprobación local en el explorador](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-    ![Comprobación local en el explorador](./media/functions-create-first-function-python/function-test-local-browser.png)
+Use CTRL+C para cerrar la ejecución de la aplicación de funciones.
 
-1. Seleccione Ctrl+C para cerrar la aplicación de funciones.
-
-Ahora que ejecutó localmente la función, puede crear la aplicación de función y otros recursos necesarios en Azure.
+Ahora que ha ejecutado la función localmente, puede implementar el código de función en Azure.  
+Para poder implementar la aplicación, deberá crear algunos recursos de Azure.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -167,7 +127,7 @@ Ahora que ejecutó localmente la función, puede crear la aplicación de funció
 
 ## <a name="create-a-function-app-in-azure"></a>Creación de una aplicación de función en Azure
 
-Una aplicación de función proporciona un entorno para la ejecución del código de su función. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos.
+Una aplicación de función proporciona un entorno para la ejecución del código de su función. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos. 
 
 Ejecute el siguiente comando. Reemplace `<APP_NAME>` por un nombre único de aplicación de funciones. Reemplace `<STORAGE_NAME>` por el nombre de la cuenta de almacenamiento. `<APP_NAME>` también es el dominio DNS predeterminado de la aplicación de función. Este nombre debe ser único entre todas las aplicaciones de Azure.
 
@@ -176,11 +136,11 @@ Ejecute el siguiente comando. Reemplace `<APP_NAME>` por un nombre único de apl
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --os-type Linux \
---consumption-plan-location westeurope  --runtime python \
+--consumption-plan-location westeurope  --runtime python --runtime-version 3.7 \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
 
-El comando anterior también aprovisiona una instancia asociada de Azure Application Insights en el mismo grupo de recursos. Puede usar esta instancia para supervisar la aplicación de funciones y ver los registros.
+El comando anterior crea una aplicación de funciones que ejecuta Python 3.7.4. También aprovisiona una instancia asociada de Azure Application Insights en el mismo grupo de recursos. Puede usar esta instancia para supervisar la aplicación de funciones y ver los registros. 
 
 Ahora ya está listo para publicar el proyecto de funciones local en la aplicación de función en Azure.
 
@@ -192,7 +152,7 @@ Después de crear la aplicación de funciones en Azure, puede usar el comando [f
 func azure functionapp publish <APP_NAME> --build remote
 ```
 
-La opción `--build remote` compila el proyecto de Python de forma remota en Azure desde los archivos del paquete de implementación. 
+La opción `--build remote` compila el proyecto de Python de forma remota en Azure a partir de los archivos del paquete de implementación, lo que se recomienda. 
 
 Verá una salida similar al del mensaje siguiente. Se trunca aquí para que pueda leerlo mejor:
 

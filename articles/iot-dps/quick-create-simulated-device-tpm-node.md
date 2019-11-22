@@ -1,22 +1,22 @@
 ---
-title: Aprovisionamiento de un dispositivo de TPM simulado para Azure IoT Hub mediante Node.js | Microsoft Docs
+title: 'Inicio rápido: Aprovisionamiento de un dispositivo de TPM simulado para Azure IoT Hub mediante Node.js'
 description: 'Guía de inicio rápido de Azure: Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos para Node.js para Azure IoT Hub Device Provisioning Service. En esta guía de inicio rápido se utilizan inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/09/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ef0a3d251679d7dd6760f1f928cbf0f0daf3db01
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1495b8b62f775fcc8ae68fe08d9736beb72d67c6
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099144"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903527"
 ---
-# <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos Python para el servicio IoT Hub Device Provisioning
+# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Inicio rápido: Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos Python para el servicio IoT Hub Device Provisioning
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
@@ -156,7 +156,7 @@ En este artículo se mostrarán las inscripciones individuales.
 
 ## <a name="register-the-device"></a>Registro del dispositivo
 
-1. En Azure Portal, seleccione la hoja **Información general** del servicio Device Provisioning y anote los valores de **_Punto de conexión global del dispositivo_** y **_Ámbito de id_**.
+1. En Azure Portal, seleccione la hoja **Información general** del servicio Device Provisioning y anote los valores de **_Punto de conexión global del dispositivo_** y **_Ámbito de id_** .
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 

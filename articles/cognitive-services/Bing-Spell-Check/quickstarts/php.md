@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y PHP'
 titleSuffix: Azure Cognitive Services
-description: Introducción al uso de Bing Spell Check API para la revisión ortográfica y gramatical
+description: Esta sencilla aplicación de PHP envía una solicitud a la API Bing Spell Check y devuelve una lista de correcciones sugeridas.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 15a550321c28703c7bb4d8155ffeb7791eafedc6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 4437297c99e346209cf1f7a8973ea0f6f81894af
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423487"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110792"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y PHP
 
-Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de Python envía una solicitud a la API y devuelve una lista de correcciones sugeridas. Si bien esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de PHP envía una solicitud a la API y devuelve una lista de correcciones sugeridas. Si bien esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

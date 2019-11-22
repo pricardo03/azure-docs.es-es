@@ -1,18 +1,14 @@
 ---
 title: Visualización y administración de proveedores de servicios
 description: Los clientes pueden usar la página proveedores de servicios en Azure Portal para ver información acerca de los proveedores de servicios, ofertas de proveedores de servicios y recursos delegados.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 11/15/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 0a7d39d95e35e30a16ce11db5b942024b6890438
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: baa5a77b481779ab511ff473aacda5d40e0d771c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286593"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132183"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualización y administración de proveedores de servicios
 
@@ -50,6 +46,12 @@ Para delegar suscripciones o grupos de recursos:
 Un cliente puede agregar una nueva oferta del proveedor de servicios desde la página **Ofertas del proveedor**. Para ello, debe seleccionar **Agregar oferta**. El proveedor de servicios debe haber publicado una oferta para este cliente. Después, el cliente puede seleccionar esa oferta en la pantalla **Ofertas privadas** y, a continuación, seleccionar **Crear**.
 
 Si el cliente quiere quitar una oferta del proveedor de servicios, puede seleccionar el icono de la papelera en la fila de esa oferta. Después de confirmar la eliminación, ese proveedor de servicios ya no tendrá acceso a los recursos del cliente que anteriormente se delegaron para esa oferta.
+
+## <a name="update-service-provider-offers"></a>Actualización de las ofertas de proveedores de servicios
+
+Una vez que un cliente ha agregado una oferta, un proveedor de servicios puede publicar una versión actualizada de la misma oferta en Azure Marketplace. Por ejemplo, puede querer agregar una nueva definición de roles. Si se ha publicado una nueva versión de la oferta, la página **Provider offers** (Ofertas del proveedor) mostrará un icono de "actualización" en la fila de esa oferta. El cliente puede seleccionar este icono para ver las diferencias entre la versión actual de la oferta y la nueva. 
+
+Después de revisar los cambios, el cliente puede optar por actualizar a la nueva versión. Una vez que lo haga, las autorizaciones y otras opciones especificadas en la nueva versión se aplicarán a todas las suscripciones o grupos de recursos que se hayan delegado para esa oferta.
 
 ## <a name="view-delegations"></a>Ver delegaciones
 

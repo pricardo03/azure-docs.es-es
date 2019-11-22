@@ -1,18 +1,19 @@
 ---
-title: 'Inicio rápido: Creación de una zona y un registro Azure DNS mediante Azure Portal'
+title: 'Inicio rápido: Creación de un registro y una zona DNS: Azure Portal'
+titleSuffix: Azure DNS
 description: Utilice esta guía de inicio rápido paso a paso para aprender a crear una zona Azure DNS y registrarla con Azure Portal.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: feb46114b3cf1b04e6a181f84bcdc41c17f1c0ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: cb81b0ec2b5283ba242dd7c2dd549c330e230f0a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119078"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082918"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Inicio rápido: Creación de una zona y un registro Azure DNS mediante Azure Portal
 
@@ -88,7 +89,7 @@ Ahora que tiene una zona DNS de prueba, con un registro "A" de prueba, puede pro
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Por ejemplo: 
+   Por ejemplo:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

@@ -1,25 +1,22 @@
 ---
-title: Costos de software de las reservas para Azure | Microsoft Docs
+title: Costos de software de las reservas para Azure
 description: Descubra qué medidores de software no están incluidos en los costos de instancia reservada de máquina virtual de Azure.
-services: billing
-documentationcenter: ''
 author: yashar
 manager: yashar
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 11/14/2019
 ms.author: banders
-ms.openlocfilehash: e74765ec09fb9cd2d219ceb3d784b4030c83e028
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 82a3dfa9534d58d425b15a433a69a224235e027f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719653"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111541"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Los costos de software no se incluyen en Azure Reserved Virtual Machine Instances.
 
@@ -64,7 +61,7 @@ Los descuentos de la instancia reservada de máquina virtual y de la capacidad r
 |dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|Licencia para 64 vCPU de Cloud Services|
 |7a803026-244c-4659-834c-11e6b2d6b76f|Licencia para 80 vCPU de Cloud Services|
 
-## <a name="rates-for-azure-meters"></a>Tarifas de medidores de Azure
+## <a name="get-rates-for-azure-meters"></a>Obtener las tarifas de medidores de Azure
 
 El costo de cada uno de estos medidores se puede consultar a través de la API RateCard de Azure. Para obtener información sobre las tasas de un medidor de Azure, consulte [Información de precios y metadatos de los recursos usados en una suscripción de Azure](/previous-versions/azure/reference/mt219004(v=azure.100)).
 

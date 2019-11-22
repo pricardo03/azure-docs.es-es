@@ -1,5 +1,5 @@
 ---
-title: Información general de la verificación en dos fases y la cuenta profesional o educativa de Azure Active Directory | Microsoft Docs
+title: Comprobación de seguridad y su cuenta profesional o educativa - Azure AD
 description: Obtenga información sobre cómo configurar los métodos de comprobación de seguridad para usar la verificación en dos fases con su cuenta profesional o educativa.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.date: 08/05/2019
 ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e8cda4b04a4555ed7747bb9444c2a5ec2e266573
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615996"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028467"
 ---
-# <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>Información general de la verificación en dos fases y la cuenta profesional o educativa
+# <a name="two-factor-verification-and-your-work-or-school-account"></a>Comprobación en dos fases y la cuenta profesional o educativa
 
 Ha recibido un correo electrónico de alguien del departamento de TI o de su jefe que le informa de que la organización ha agregado una comprobación de seguridad adicional a su cuenta. ¿Qué significa? Significa que su organización está llevando a cabo pasos adicionales para asegurarse de que usted es quien pretende al iniciar sesión. Esta comprobación adicional, también conocida como verificación en dos fases, se realiza a través de una combinación de su nombre de usuario, la contraseña y un dispositivo móvil o teléfono.
 

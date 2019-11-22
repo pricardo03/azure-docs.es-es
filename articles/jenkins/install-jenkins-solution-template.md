@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 6bc0d8a1e938f2b8a97cab486d4679bfc445f6fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 531199303f7b00083bcd7139ac00ac36bde5c583
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004079"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837515"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Creación de un servidor de Jenkins en una máquina virtual Linux de Azure desde Azure Portal
 
@@ -33,7 +33,7 @@ Jenkins admite un modelo en el cual el servidor de Jenkins delega el trabajo a u
 
 ## <a name="connect-to-jenkins"></a>Conexión a Jenkins
 
-Navegue a la máquina virtual (por ejemplo, http://jenkins2517454.eastus.cloudapp.azure.com/) en el explorador web. No se puede acceder a la consola de Jenkins a través de una HTTP no segura. Por ello, se proporcionan instrucciones en la página para acceder a la consola de forma segura desde su equipo mediante un túnel SSH.
+Navegue a la máquina virtual (por ejemplo, `http://jenkins2517454.eastus.cloudapp.azure.com/`) en el explorador web. No se puede acceder a la consola de Jenkins a través de una HTTP no segura. Por ello, se proporcionan instrucciones en la página para acceder a la consola de forma segura desde su equipo mediante un túnel SSH.
 
 ![Desbloquear jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 

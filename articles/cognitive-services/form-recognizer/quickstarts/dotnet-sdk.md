@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Form Recognizer para .NET | Microsoft Docs'
-description: Introducción a la biblioteca cliente de Form Recognizer para .NET.
+description: Empiece con la Biblioteca cliente de Form Recognizer para .NET para entrenar, extraer, analizar y obtener resultados de datos estructurados.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: 74bb062713eac44310edcc8d1cdaed605e964681
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 6d360939a0196d7e5dc651ecf9a01ef5cbd2f689
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264443"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904605"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Form Recognizer para .NET
 
@@ -43,7 +43,7 @@ Utilice la biblioteca cliente de Form Recognizer para .NET para:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-Después de obtener una clave de la suscripción de evaluación o el recurso, [cree una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para ella denominada `FORM_RECOGNIZER_KEY`.
+Después de obtener una clave de la suscripción de prueba o del recurso, [cree las variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave y el punto de conexión, denominados `FORM_RECOGNIZER_KEY` y `FORM_RECOGNIZER_ENDPOINT`, respectivamente.
 
 ### <a name="create-a-new-c-application"></a>Creación de una aplicación de C#
 
@@ -120,7 +120,6 @@ Estos fragmentos de código muestran cómo realizar las siguientes tareas con la
 
 Antes de definir métodos, agregue las siguientes definiciones de variable a la parte superior de la clase **Program**. También tendrá que rellenar manualmente algunas de las variables. 
 
-* Puede encontrar el valor del punto de conexión de servicio en la sección **Información general** de Azure Portal. 
 * Para recuperar la dirección URL de SAS para los datos de entrenamiento, abra el Explorador de Microsoft Azure Storage, haga clic con el botón derecho en el contenedor y seleccione **Obtener firma de acceso compartido**. Asegúrese de que los permisos de **lectura** y **enumeración** están marcados y haga clic en **Create** (Crear). A continuación, copie el valor en la sección **URL**. Debe tener el formato `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Si necesita un formulario de ejemplo para analizarlo, puede usar uno de los archivos de la carpeta **Prueba** del [ conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). En esta guía solo se usan formularios en PDF.
 

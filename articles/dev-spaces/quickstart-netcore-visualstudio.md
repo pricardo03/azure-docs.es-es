@@ -5,19 +5,19 @@ author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.author: zarhoads
-ms.date: 03/22/2019
+ms.date: 11/13/2019
 ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, malla de servicio, enrutamiento de malla de servicio, kubectl, k8s
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 41dea16f7938d391f8cdf03e1a731e8082f74b26
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 5a7ab993c58730594a0c4e10572939d3dccbdf02
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695485"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091824"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>Inicio rápido: Depuración e iteración con Visual Studio y .NET Core en Kubernetes con Azure Dev Spaces
 
@@ -52,7 +52,7 @@ Debe crear un clúster de AKS en una [región admitida][supported-regions]. Para
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces en el clúster de AKS
 
-Vaya a su clúster de AKS en Azure Portal y haga clic en *Dev Spaces*. Cambie *Enable Dev Spaces* (Habilitar Dev Spaces) a *Sí* y haga clic en *Guardar*.
+Vaya a su clúster de AKS en Azure Portal y haga clic en *Dev Spaces*. Cambie *Use Dev Spaces* (Usar Dev Spaces) a *Sí* y haga clic en *Guardar*.
 
 ![Habilitar Dev Spaces en Azure Portal](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
 
@@ -60,11 +60,11 @@ Vaya a su clúster de AKS en Azure Portal y haga clic en *Dev Spaces*. Cambie *E
 
 1. Abra Visual Studio.
 1. Crear un nuevo proyecto.
-1. Elija *Aplicación web ASP.NET Core* y asigne al proyecto el nombre *webfrontend*.
-1. Haga clic en *OK*.
+1. Elija *Aplicación Web ASP.NET Core* y haga clic en *Siguiente*.
+1. Asigne el nombre *webfrontend* al proyecto y haga clic en *Crear*.
 1. Cuando se le solicite, elija *Aplicación web (Modelo-Vista-Controlador)* para la plantilla.
-1. Seleccione *.NET Core* y *ASP.NET Core 2.0* en la parte superior.
-1. Haga clic en *OK*.
+1. Seleccione *.NET Core* y *ASP.NET Core 2.1* en la parte superior.
+1. Haga clic en *Create*(Crear).
 
 ## <a name="connect-your-project-to-your-dev-space"></a>Conexión del proyecto al espacio de desarrollo
 
@@ -93,12 +93,12 @@ Built container image in 39s
 Waiting for container...
 36s
 
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 'http' is available at http://default.webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-En el ejemplo anterior, la dirección URL pública es http://webfrontend.1234567890abcdef1234.eus.azds.io/. Vaya a la dirección URL pública del servicio e interactúe con él mientras se ejecuta en el espacio de desarrollo.
+En el ejemplo anterior, la dirección URL pública es http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. Vaya a la dirección URL pública del servicio e interactúe con él mientras se ejecuta en el espacio de desarrollo.
 
 Es posible que este proceso haya deshabilitado el acceso público a su servicio. Para permitir el acceso público, puede actualizar el [valor de entrada en *values.yaml*][ingress-update].
 

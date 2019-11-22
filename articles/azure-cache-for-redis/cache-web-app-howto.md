@@ -1,26 +1,18 @@
 ---
-title: Creación de una aplicación web de ASP.NET con Azure Redis Cache | Microsoft Docs
+title: Creación de una aplicación web de ASP.NET con Azure Cache for Redis
 description: En este inicio rápido, aprenderá a crear una aplicación web de ASP.NET con Azure Redis Cache.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7cca9d020d5e999bda2c494853295957da5cca1a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326496"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122586"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Inicio rápido: Uso de Azure Redis Cache con una aplicación web de ASP.NET 
 

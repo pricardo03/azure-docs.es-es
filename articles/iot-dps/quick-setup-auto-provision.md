@@ -1,22 +1,22 @@
 ---
-title: Configuración del aprovisionamiento de dispositivos en Azure Portal | Microsoft Docs
+title: 'Inicio rápido: Configurar el Aprovisionamiento de dispositivos en el Azure Portal'
 description: 'Guía de inicio rápido de Azure: configuración del servicio Azure IoT Hub Device Provisioning en Azure Portal'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/12/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0b16c6da0066ac4e919c1bef031d3206a359aae6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 504e027095d839efcbfb535c0e1ecc8c6cfbad26
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818126"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903442"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Inicio rápido: Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal
 
 Estos pasos le enseñan a configurar los recursos de nube de Azure en el portal para el aprovisionamiento de los dispositivos. Este artículo incluye los pasos para crear un centro de IoT y un nuevo servicio Azure IoT Hub Device Provisioning, y para vincular los dos servicios. 
 

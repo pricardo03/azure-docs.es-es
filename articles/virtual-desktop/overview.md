@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 058cf516fd8d10cef1e1c93e5493f8c19bdc679d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4db9e1e812390f173da89a508c1dbc6782f4454f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607480"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74119998"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
@@ -73,12 +73,10 @@ Está previsto agregar compatibilidad con los siguientes sistemas operativos, as
 Su infraestructura necesita cumplir los siguientes requisitos para ser compatible con Windows Virtual Desktop:
 
 * Una instancia de [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
-* Una instancia de Windows Server Active Directory sincronizada con Azure Active Directory. Para habilitar dicha instancia, use:
-  * Azure AD Connect
-  * Azure AD Domain Services
-     >[!NOTE]
-     >Si usa Azure AD Domain Services, el origen de los usuarios debe ser Azure Active Directory. En este momento no se admite el uso de Azure AD Domain Services con usuarios cuyo origen sea Windows Server AD.
-* Una suscripción a Azure, que contenga una red virtual que conste de la instancia de Windows Server Active Directory o esté conectada a ella.
+* Una instancia de Windows Server Active Directory sincronizada con Azure Active Directory. Puede configurarla con uno de los siguientes elementos:
+  * Azure AD Connect (para organizaciones híbridas)
+  * Azure AD Domain Services (para organizaciones híbridas o de nube)
+* Una suscripción a Azure que contenga una red virtual que conste de la instancia de Windows Server Active Directory o esté conectada a ella
   
 Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cumplir estos requisitos:
 
@@ -100,7 +98,7 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben ten
 >[!NOTE]
 >Es esencial abrir estas direcciones URL para una implementación confiable de Windows Virtual Desktop. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio. Estas direcciones URL solo se corresponden con sitios y recursos de Windows Virtual Desktop y no incluyen direcciones URL para otros servicios como Azure AD.
 
-Windows Virtual Desktop consta de los escritorios y las aplicaciones de Windows que entrega a los usuarios y de la solución de administración, que Microsoft hospeda en Azure como un servicio. Se pueden implementar escritorios y aplicaciones en máquinas virtuales de cualquier región de Azure, y la solución de administración y los datos de estas máquinas virtuales residirán en Estados Unidos (región Este de EE. UU. 2). Esto puede dar lugar a la transferencia de datos a Estados Unidos.
+Windows Virtual Desktop consta de los escritorios y las aplicaciones de Windows que entrega a los usuarios y de la solución de administración, que Microsoft hospeda en Azure como un servicio. Se pueden implementar escritorios y aplicaciones en máquinas virtuales (VM) de cualquier región de Azure, y la solución de administración y los datos de estas VM residirán en Estados Unidos. Esto puede dar lugar a la transferencia de datos a Estados Unidos.
 
 Para obtener un rendimiento óptimo, asegúrese de que la red cumple los requisitos siguientes:
 
@@ -117,14 +115,16 @@ Los clientes de Escritorio remoto siguientes admiten Windows Virtual Desktop:
 
 ## <a name="supported-virtual-machine-os-images"></a>Imágenes de SO de máquinas virtuales admitidas
 
-Windows Virtual Desktop admite las imágenes de SO siguiente:
+Windows Virtual Desktop admite las imágenes de SO x64 siguientes:
 
-* Sesión múltiple de Windows 10 Enterprise
-* Windows 10 Enterprise
+* Sesión múltiple de Windows 10 Enterprise, versión 1809 o superior
+* Windows 10 Enterprise, versión 1809 o superior
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
+
+Windows Virtual Desktop no admite imágenes de sistema operativo x86 (32 bits).
 
 Las opciones de automatización y de implementación disponibles dependen del sistema operativo y la versión que elija, tal como se muestra en la tabla siguiente: 
 

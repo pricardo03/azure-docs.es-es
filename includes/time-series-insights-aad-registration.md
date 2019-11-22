@@ -8,25 +8,17 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 09/24/2019
-ms.openlocfilehash: 7e67b9e1c611d14b78db53f8662fb4e1f493a8df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.date: 11/14/2019
+ms.openlocfilehash: fa6921f8c4309f17cbd63e242a5416e7e81bb6c3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990198"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133451"
 ---
-> [!IMPORTANT]
-> * La nueva hoja **Azure Active Directory** > **Registros de aplicaciones** sustituye a la hoja heredada **Azure Active Directory** > **Registros de aplicaciones (heredada)** desde mayo de 2019.
-> * Los registros de aplicaciones creados o mostrados en la hoja heredada aparecerán automáticamente en la nueva hoja.
-> * Para información completa sobre la migración a la nueva experiencia de registro de aplicaciones de Azure, lea la [Guía de aprendizaje: registros de aplicaciones en Azure Portal](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide) y el [Inicio rápido de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
-
 1. En [Azure Portal](https://ms.portal.azure.com/), seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
 
    [![Nuevo registro de aplicaciones en Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
-
-   > [!TIP]
-   > El nuevo panel de registro de aplicaciones de Azure Active Directory le permite filtrar las aplicaciones mostradas mediante la selección de **Aplicaciones propias**.
 
     La aplicación se mostrará aquí después de registrarla.
 
@@ -47,7 +39,7 @@ ms.locfileid: "72990198"
         * Si se trata de aplicaciones hospedadas en un entorno de desarrollo local, seleccione **Cliente público (móvil y escritorio)** . Asegúrese de establecer el **tipo de cliente predeterminado** en Sí.
         * Si son aplicaciones de página única hospedadas en Azure App Service, seleccione **Web**.
 
-    1. Marque **Tokens de id.** para habilitar el flujo de concesión implícita.
+    1. Marque **Tokens de acceso** o **Tokens de id.** para habilitar el flujo de concesión implícita.
 
    [![Creación de un secreto de cliente](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 

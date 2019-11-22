@@ -1,23 +1,23 @@
 ---
-title: Inscripción de un dispositivo de TPM al servicio Azure Device Provisioning con Python | Microsoft Docs
+title: 'Inicio rápido: Inscripción de un dispositivo de TPM al servicio Azure Device Provisioning mediante Python'
 description: 'Guía de inicio rápido de Azure: Inscripción de un dispositivo de TPM en Azure IoT Hub Device Provisioning Service con el SDK del servicio de aprovisionamiento para Python. En esta guía de inicio rápido se utilizan inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/26/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 6e38d5f3a959d363347c8b266b7bbaf165f34937
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 49e7961200a2ab523997350fffa6606d65f60c8c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249071"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903399"
 ---
-# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Inscripción de un dispositivo de TPM al servicio IoT Hub Device Provisioning con el SDK del servicio de aprovisionamiento de Python
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Inicio rápido: Inscripción de un dispositivo de TPM al servicio IoT Hub Device Provisioning con el SDK del servicio de aprovisionamiento de Python
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 En estos pasos se muestra cómo crear una inscripción individual para un dispositivo de TPM mediante programación en el servicio Azure IoT Hub Device Provisioning con el [SDK del servicio de aprovisionamiento de Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) y una aplicación de Python de ejemplo. Aunque el SDK del servicio de Python funciona en máquinas Windows y Linux, este artículo usa una máquina de desarrollo Windows para guiarle por el proceso de inscripción.

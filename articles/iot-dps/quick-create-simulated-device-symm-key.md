@@ -1,20 +1,20 @@
 ---
-title: 'Inicio rápido: uso de una clave simétrica para el aprovisionamiento de un dispositivo simulado para Azure IoT Hub mediante C | Microsoft Docs'
+title: 'Inicio rápido: Cómo usar una clave simétrica para aprovisionar un dispositivo simulado para Azure IoT Hub con C'
 description: En esta guía de inicio rápido usará el SDK de dispositivos C para crear un dispositivo simulado que utiliza la clave simétrica con el Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 31e71e942d7bd3f7a9739eeb83bd3ed250bb2c61
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a5016587240dfcc0813b7f1e23cd574e82bb935
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65909021"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904856"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guía de inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas
 

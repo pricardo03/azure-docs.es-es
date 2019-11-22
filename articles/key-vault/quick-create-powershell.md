@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido de Azure: Establecimiento y recuperación de un secreto de Key Vault mediante PowerShell | Microsoft Docs'
-description: ''
+title: 'Inicio rápido: Establecer y recuperar un secreto de Key Vault mediante PowerShell'
+description: En esta guía de inicio rápido, aprenderá a crear, recuperar y eliminar secretos desde un almacén de claves de Azure mediante PowerShell
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/03/2019
+ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5753384d12d31016dff7a33175899835c8bd1fec
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2d33d04bfaaccf3e7bcaefc7eec98b04a5ffc2e8
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259257"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901446"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell
 

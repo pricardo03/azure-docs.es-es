@@ -1,22 +1,22 @@
 ---
-title: Configuración de Device Provisioning con una plantilla de Azure Resource Manager | Microsoft Docs
+title: 'Inicio rápido: Configuración del aprovisionamiento de dispositivos con una plantilla de Azure Resource Manager'
 description: 'Guía de inicio rápido de Azure: configuración del servicio Azure IoT Hub Device Provisioning con una plantilla'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 06/18/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3360bfa7eed15f72fb78f698e837d887e9c8aa85
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: fdc75424c5c99e80c13ac086229da93411e3ce83
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126484"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903384"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configuración del servicio IoT Hub Device Provisioning con una plantilla de Azure Resource Manager
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Inicio rápido: Configuración del servicio IoT Hub Device Provisioning con una plantilla de Azure Resource Manager
 
 Puede utilizar [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar mediante programación los recursos de nube de Azure necesarios para aprovisionar los dispositivos. Estos pasos muestran cómo crear una instancia de IoT Hub, una nueva instancia del servicio IoT Hub Device Provisioning y vincular los dos servicios mediante una plantilla de Azure Resource Manager. Esta guía de inicio rápido usa la [CLI de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para realizar los pasos de programación necesarios para crear un grupo de recursos e implementar la plantilla, pero puede usar fácilmente [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby u otros lenguajes de programación para realizar estos pasos e implementar la plantilla. 
 
@@ -51,7 +51,7 @@ Inicie sesión en la cuenta de Azure y seleccione su suscripción.
     az account set --subscription {your subscription name or id}
     ```
 
-3. Cuando se crean recursos de nube de Azure como centros de IoT y servicios de aprovisionamiento, se crean en un grupo de recursos. Use un grupo de recursos existente o ejecute el comando [siguiente para crear un grupo de recursos][lnk-az-resource-command]:
+3. Cuando se crean recursos de nube de Azure como centros de IoT y servicios de aprovisionamiento, se crean en un grupo de recursos. Use un grupo de recursos existente o ejecute el [comando siguiente para crear un grupo de recursos][lnk-az-resource-command]:
     
     ```azurecli
      az group create --name {your resource group name} --location westus
@@ -321,7 +321,7 @@ Utilice los siguientes comandos de la CLI de Azure para implementar las plantill
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no piensa continuar, puede usar la CLI de Azure para [eliminar un recurso individual][lnk-az-resource-command], como una instancia de IoT Hub o un servicio de aprovisionamiento, o para eliminar un grupo de recursos y todos sus recursos.
+Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no tiene previsto continuar, puede usar la CLI de Azure para [eliminar un recurso individual][lnk-az-resource-command], como un centro de IoT o un servicio de aprovisionamiento, o para eliminar un grupo de recursos y todos sus recursos.
 
 Para eliminar el servicio de aprovisionamiento, ejecute el siguiente comando:
 

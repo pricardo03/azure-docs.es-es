@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 11/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91ec337a3237e1bde54b42463d97a803f113c7c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 064af4f54f3d3069c7e04a66cc7248dbfaa7ba0b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813133"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008550"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Inicio rápido: Incorporación de usuarios invitados a su directorio en Azure Portal
 
@@ -46,9 +46,13 @@ Para completar el escenario de este tutorial, necesita:
 
     ![Captura de pantalla que muestra dónde se selecciona la opción Nuevo usuario invitado](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
-5.  En **Nombre de usuario**, escriba la dirección de correo electrónico del usuario externo. En **Incluir un mensaje personal en la invitación**, escriba un mensaje de bienvenida. 
+5. En la página **Nuevo usuario**, seleccione **Invitar usuario** y, después, agregue la información del usuario invitado. 
 
-    ![Captura de pantalla que muestra dónde se escribe el mensaje de invitación](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+   - **Nombre**. Nombre y apellidos del nuevo usuario.
+   - **Dirección de correo (obligatorio)** . La dirección de correo del usuario invitado.
+   - **Mensaje personal (opcional)** Incluye un mensaje de bienvenida personal al usuario invitado.
+   - **Grupos**: Puede agregar al usuario invitado a uno o varios de los grupos existentes, o puede hacerlo después.
+   - **Rol del directorio**: Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. 
 
 6. Seleccione **Invitar** para enviar automáticamente la invitación al usuario invitado. Aparece una notificación en la esquina superior derecha con el mensaje **Usuario invitado correctamente**. 
 7.  Después de enviar la invitación, la cuenta de usuario se agrega automáticamente al directorio como invitado.

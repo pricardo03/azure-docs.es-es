@@ -1,7 +1,7 @@
 ---
-title: Análisis de opinión mediante la API REST de Text Analytics de Azure Cognitive Services
+title: Realización de análisis de opiniones con Text Analytics API de REST
 titleSuffix: Azure Cognitive Services
-description: Aprenda a detectar sentimiento mediante la API REST de Text Analytics.
+description: En este artículo se muestra cómo detectar opiniones en texto con la API de REST de Azure Cognitive Services Text Analytics.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: d246b14a5bd6e60a7b6facae73c68d7449e2e097
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f7a62d1d2b695726421ba990d0f118eb3ae199da
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494444"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031459"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Ejemplo: Detección de sentimiento con Text Analytics
 
@@ -36,7 +36,7 @@ El análisis de las opiniones se realiza en todo el documento, en lugar de extra
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Versión preliminar pública de la versión 3 de Análisis de sentimiento
 
-La [siguiente versión de Análisis de sentimiento](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) ahora está disponible en versión preliminar pública. Dicha versión incluye importantes mejoras significativas en la precisión y el detalle de la categorización del texto y la puntuación de la API.
+La [siguiente versión de Análisis de sentimiento](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) ahora está disponible en versión preliminar pública. Dicha versión incluye importantes mejoras significativas en la precisión y el detalle de la categorización del texto y la puntuación de la API.
 
 > [!NOTE]
 > * El formato de las solicitudes de la versión 3 de Análisis de sentimiento y los [límites de datos](../overview.md#data-limits) son los mismos que en la versión anterior.

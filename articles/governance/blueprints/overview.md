@@ -1,17 +1,14 @@
 ---
 title: Introducción a Azure Blueprint
 description: Conozca el modo en que el servicio Azure Blueprints permite crear, definir e implementar artefactos en el entorno de Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/26/2019
 ms.topic: overview
-ms.service: blueprints
-ms.openlocfilehash: 86f58594ce1af91b19f70cbdb1114a90180e3b4f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: dadb7568a720d23f58d23896e84b3155ed2f12f4
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981707"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048283"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Introducción al servicio Azure Blueprints
 
@@ -54,7 +51,7 @@ Un plano técnico se compone de _artefactos_. Los planos técnicos actualmente a
 |Resource  | Opciones de la jerarquía| DESCRIPCIÓN  |
 |---------|---------|---------|
 |Grupos de recursos | Subscription | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Azure Resource Manager. |
-|Plantilla del Administrador de recursos de Azure | Suscripción, grupo de recursos | Las plantillas se utilizan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |
+|Plantilla del Administrador de recursos de Azure | Suscripción, grupo de recursos | Las plantillas, incluidas las plantillas anidadas y vinculadas, se usan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |
 |Asignación de directiva | Suscripción, grupo de recursos | Permite la asignación de una directiva o iniciativa a la suscripción a la que está asignado el plano técnico. La directiva o iniciativa debe estar dentro del ámbito de la ubicación de la definición del plano técnico. Si la directiva o iniciativa tiene parámetros, estos se asignan en la creación del plano técnico o durante su asignación. |
 |Asignación de roles | Suscripción, grupo de recursos | Agregue un grupo o usuario existente a un rol integrado para asegurarse de que las personas adecuadas siempre tienen derechos de acceso a los recursos. Las asignaciones de roles se pueden definir para toda la suscripción o anidarse para un grupo de recursos específico incluido en el plano técnico. |
 
@@ -117,7 +114,7 @@ Están disponibles los siguientes roles integrados:
 Si estos roles integrados no satisfacen sus necesidades de seguridad, considere la posibilidad de crear un [rol personalizado](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Si usa una identidad administrada asignada por el sistema, la entidad de servicio para Azure Blueprints requiere el rol **Propietario** en la suscripción asignada con el fin de habilitar la implementación. Si usa el portal, este rol se le concede automáticamente y se revoca para la implementación. Si usa la API REST, este rol se debe conceder manualmente, pero se sigue revocando de forma automática una vez finalizada la implementación. Si usa una identidad administrada asignada por el usuario, solo el usuario que crea la asignación de plano técnico necesita permisos de **propietario**.
+> Si usa una identidad administrada asignada por el sistema, la entidad de servicio para Azure Blueprints requiere el rol **Propietario** en la suscripción asignada con el fin de habilitar la implementación. Si usa el portal, este rol se le concede automáticamente y se revoca para la implementación. Si usa la API REST, este rol se debe conceder manualmente, pero se sigue revocando de forma automática una vez finalizada la implementación. Si usa una identidad administrada asignada por el usuario, solo el usuario que crea la asignación de planos necesita el permiso `Microsoft.Blueprint/blueprintAssignments/write`, que se incluye en los roles integrados **Propietario** y **Operador de planos**.
 
 ## <a name="naming-limits"></a>Límites de nomenclatura
 

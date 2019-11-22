@@ -1,7 +1,7 @@
 ---
 title: ¿Qué es la API de Lector inmersivo?
 titleSuffix: Azure Cognitive Services
-description: Información sobre la API de Lector inmersivo
+description: La API de Lector inmersivo es una herramienta que se puede usar para dar cabida a personas con diferencias de aprendizaje o para ayudar a los nuevos lectores y estudiantes de idiomas.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: f84804fbad07357706e786fc449fce9e42a5ec4a
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 3e6889cd5d26b88cedd6b110510cb89777252f54
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688328"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904362"
 ---
 # <a name="what-is-immersive-reader"></a>¿Qué es Lector inmersivo?
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 1db46e8562006e1b60e4f51ca88220aeca5fb2a8
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687041"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129689"
 ---
 # <a name="what-is-azure-app-configuration"></a>¿Qué es Azure App Configuration?
 
@@ -30,7 +30,7 @@ App Configuration se encuentra actualmente en versión preliminar pública. Es d
 
 Las aplicaciones basadas en la nube a menudo se ejecutan en varias máquinas virtuales o contenedores de varias regiones y emplean varios servicios externos. Crear una aplicación distribuida de este tipo que sea sólida y escalable constituye un reto.
 
-Varias metodologías de programación ayudan a los desarrolladores a abordar el aumento en la complejidad de la creación de estas aplicaciones. Por ejemplo, la aplicación 12-factor describe muchos patrones arquitectónicos bien comprobados y procedimientos recomendados para usarlos con aplicaciones en la nube. Una de las recomendaciones principales de esta guía es separar la configuración del código. En este caso, la configuración de una aplicación se debería mantener de forma externa a su archivo ejecutable y leerse desde su entorno de ejecución o desde un origen externo.
+Varias metodologías de programación ayudan a los desarrolladores a abordar el aumento en la complejidad de la creación de estas aplicaciones. Por ejemplo, en [The Twelve-Factor App](https://12factor.net/) se describen muchos patrones arquitectónicos bien comprobados y procedimientos recomendados para usarlos con aplicaciones en la nube. Una de las recomendaciones principales de esta guía es separar la configuración del código. En este caso, la configuración de una aplicación se debería mantener de forma externa a su archivo ejecutable y leerse desde su entorno de ejecución o desde un origen externo.
 
 Aunque todas las aplicaciones pueden usar App Configuration, los siguientes ejemplos son los tipos de aplicaciones que mejor aprovechan su uso:
 

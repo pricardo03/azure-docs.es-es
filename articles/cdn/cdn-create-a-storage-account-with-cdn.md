@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Integración de una cuenta de Azure Storage con Azure CDN | Microsoft Docs'
+title: 'Inicio rápido: Integración de una cuenta de Azure Storage en Azure CDN'
 description: Aprenda a usar Azure Content Delivery Network (CDN) para ofrecer contenido con un ancho de banda alto mediante el almacenamiento en caché de blobs de Azure Storage.
 services: cdn
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: d8e1c3f845af6edf274aa95797523ace07cf820c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 729ae34d90fd2415fc44fc75391950f18fee6fc0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594028"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083067"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Inicio rápido: Integración de una cuenta de una instancia de Azure Storage con Azure CDN
 En esta guía de inicio rápido, habilitará [Azure Content Delivery Network (CDN)](cdn-overview.md) para almacenar en caché el contenido de Azure Storage. Azure CDN ofrece a los desarrolladores una solución global para entregar contenido con alto ancho de banda. Es posible almacenar en caché blobs y contenido estático de instancias de proceso en nodos físicos en los Estados Unidos, Europa, Asia, Australia y Sudamérica.

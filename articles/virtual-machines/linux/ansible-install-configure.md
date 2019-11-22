@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Instalación de Ansible en máquinas virtuales Linux en Azure | Microsoft Docs'
+title: 'Inicio rápido: Instalación de Ansible en máquinas virtuales Linux en Azure'
 description: En este inicio rápido, aprenderá a instalar Ansible y a configurarlo para administrar recursos de Azure en Ubuntu, CentOS y SLES.
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d3302d999dd70a83be18ce610b9c3d44992c865c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a1ea5814ffd201456a2751b37b77f3062cac789a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671837"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037067"
 ---
 # <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>Inicio rápido: Instalación de Ansible en máquinas virtuales Linux en Azure
 

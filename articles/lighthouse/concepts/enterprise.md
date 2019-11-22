@@ -1,22 +1,18 @@
 ---
 title: Azure Lighthouse en escenarios empresariales
 description: Las funcionalidades de Azure Lighthouse se pueden usar para simplificar la administración entre inquilinos en empresas que utilizan varios inquilinos de Azure AD.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 09/25/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: fbd87cc801824729025feb7aefa411ac38048949
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ae2241048e6ae481e319154beedab74c23c91163
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266682"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132502"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse en escenarios empresariales
 
-El escenario más común de Azure Lighthouse es un proveedor de servicios que administra recursos en los inquilinos de Azure Active Directory de sus clientes (Azure AD). Sin embargo, las funcionalidades de Azure Lighthouse también se pueden usar para simplificar la administración entre inquilinos en empresas que usan varios inquilinos de Azure AD.
+El escenario más común de [Azure Lighthouse](../overview.md) es un proveedor de servicios que administra recursos en los inquilinos de Azure Active Directory (Azure AD) de sus clientes. Sin embargo, las funcionalidades de Azure Lighthouse también se pueden usar para simplificar la administración entre inquilinos en empresas que usan varios inquilinos de Azure AD.
 
 ## <a name="single-vs-multiple-tenants"></a>Un solo inquilino frente a varios inquilinos
 
@@ -28,7 +24,7 @@ No obstante, hay situaciones en las que puede ser necesario que una organizació
 
 Si se centralizan las operaciones de administración que afectan a varios inquilinos, es preciso determinar qué inquilino incluirá a los usuarios que realizan operaciones de administración para los restantes inquilinos. En otras palabras, es preciso determinar qué inquilino será el que administre los otros inquilinos.
 
-Por ejemplo, suponga que una organización tiene un único inquilino, al que llamaremos <bpt id="p1">*</bpt>Inquilino A<ept id="p1">*</ept>. Posteriormente, la organización adquiere dos inquilinos adicionales, *Inquilino B* e *Inquilino C* y, por motivos empresariales, ambos deben mantenerse como inquilinos independientes.
+Por ejemplo, suponga que su organización tiene un solo inquilino, al que denominaremos *Inquilino A*. Posteriormente, la organización adquiere dos inquilinos adicionales, *Inquilino B* e *Inquilino C* y, por motivos empresariales, ambos deben mantenerse como inquilinos independientes.
 
 Su organización quiere usar las mismas definiciones de directiva, prácticas de copia de seguridad y procesos de seguridad en todos los inquilinos. Dado que ya tiene usuarios (incluidos los grupos de usuarios y las entidades de servicio) que son responsables de realizar estas tareas en el Inquilino A, puede incorporar todas las suscripciones en el Inquilino B y el Inquilino C, con el fin de que los mismos usuarios del Inquilino A puedan realizar esas tareas.
 
