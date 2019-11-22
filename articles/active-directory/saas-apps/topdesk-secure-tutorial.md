@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 8e06ee33-18f9-4c05-9168-e6b162079d88
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcf9c8ea62610b6e4eb4ad642107df81ae712054
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 3125f5b9075a69289bd6a44d62c3d06d5e6d910d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950400"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Integración de Azure Active Directory con TOPdesk - Secure
 
@@ -138,7 +139,7 @@ Para configurar el inicio de sesión único de Azure AD con TOPdesk - Secure, re
 
 3. Haga clic en **Login Settings**(Configuración de inicio de sesión).
 
-    ![Configuración de inicio de sesión](./media/topdesk-secure-tutorial/ic790599.png "Configuración de inicio de sesión")
+    ![Login Settings (Configuración de inicio de sesión)](./media/topdesk-secure-tutorial/ic790599.png "Login Settings")
 
 4. Expanda el menú **Login Settings** (Configuración de inicio de sesión) y luego haga clic en **General**.
 
@@ -146,19 +147,19 @@ Para configurar el inicio de sesión único de Azure AD con TOPdesk - Secure, re
 
 5. En la sección **Secure** (Seguro) de la sección de configuración **SAML login** (Inicio de sesión SAML), realice los pasos siguientes:
 
-    ![Configuración técnica](./media/topdesk-secure-tutorial/ic790855.png "Configuración técnica")
+    ![Technical Settings (Configuración técnica)](./media/topdesk-secure-tutorial/ic790855.png "Configuración técnica")
 
     a. Haga clic en **Download** (Descargar) para descargar el archivo de metadatos público y luego guárdelo localmente en el equipo.
 
     b. Abra el archivo de metadatos y luego busque el nodo **AssertionConsumerService** .
 
-    ![Servicio de consumidor de aserciones](./media/topdesk-secure-tutorial/ic790856.png "Servicio de consumidor de aserciones")
+    ![Servicio del consumidor de aserción](./media/topdesk-secure-tutorial/ic790856.png "Servicio del consumidor de aserción")
 
     c. Copia el valor de **AssertionConsumerService**, péguelo en el cuadro de texto Dirección URL de respuesta de la sección **Dominio y direcciones URL de TOPdesk - Secure**.
 
 6. Lleve a cabo los siguientes pasos para crear un archivo de certificado:
 
-    ![Certificado](./media/topdesk-secure-tutorial/ic790606.png "Certificado")
+    ![Certificate](./media/topdesk-secure-tutorial/ic790606.png "Certificate")
 
     a. Abra el archivo de metadatos descargado de Azure Portal.
 
@@ -170,11 +171,11 @@ Para configurar el inicio de sesión único de Azure AD con TOPdesk - Secure, re
 
 7. En la sección **Public** (Público), haga clic en **Add** (Agregar).
 
-    ![Agregar](./media/topdesk-secure-tutorial/ic790607.png "Agregar")
+    ![Add (Agregar)](./media/topdesk-secure-tutorial/ic790607.png "Sumar")
 
 8. En la página de diálogo del **SAML configuration assistant** (Asistente de configuración de SAML), realice los siguientes pasos:
 
-    ![Asistente para configuración de SAML](./media/topdesk-secure-tutorial/ic790608.png "Asistente de configuración de SAML")
+    ![SAML Configuration Assistant (Asistente de configuración de SAML)](./media/topdesk-secure-tutorial/ic790608.png "SAML configuration assistant")
 
     a. Para cargar el archivo de metadatos descargado de Azure Portal, en **Federation Metadata** (Metadatos de federación) haga clic en **Browse** (Examinar).
 
@@ -252,11 +253,11 @@ En el caso de TOPdesk - Secure, el aprovisionamiento es una tarea manual.
 
 2. En el menú de la parte superior, haga clic en **TOPdesk \> New \> Support Files \> Operator** (TOPdesk > Nuevo > Archivos de soporte > Operador).
 
-    ![Operador](./media/topdesk-secure-tutorial/ic790610.png "Operador")
+    ![Operador](./media/topdesk-secure-tutorial/ic790610.png "Operator")
 
 3. En el cuadro de diálogo **Nuevo operador** , realice los pasos siguientes:
 
-    ![New operador](./media/topdesk-secure-tutorial/ic790611.png "Nuevo operador")
+    ![New Operator (Nuevo operador)](./media/topdesk-secure-tutorial/ic790611.png "Nuevo operador")
 
     a. Haga clic en la pestaña **General**.
 

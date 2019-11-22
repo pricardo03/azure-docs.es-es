@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e4449ac3519757bb9670d2d7fec53cb5f3ce152
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 66d8e13a4e042146ef2b99728e41e14f1dcb3435
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948294"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885373"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con G Suite
 
@@ -250,7 +250,9 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
 ### <a name="create-g-suite-test-user"></a>Creación de un usuario de prueba de G Suite
 
-El objetivo de esta sección es crear un usuario de prueba llamado B.Simon en el software G Suite. G Suite admite el aprovisionamiento automático, que está habilitado de manera predeterminada. El usuario no tiene que hacer nada en esta sección. Si el usuario aún no existe en el software G Suite, se crea uno al intentar acceder.
+El objetivo de esta sección es [crear un usuario en G Suite](https://support.google.com/a/answer/33310?hl=en) llamado B.Simon. Una vez creado manualmente el usuario en G Suite, este podrá iniciar sesión con sus credenciales de inicio de sesión de Office 365.
+
+G Suite también admite el aprovisionamiento automático de usuarios. Para configurar el aprovisionamiento automático de usuarios, primero debe [configurar G Suite para el aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 
 > [!NOTE]
 > Asegúrese de que el usuario ya existe en G Suite si el aprovisionamiento en Azure AD no se ha activado antes de probar el inicio de sesión único.

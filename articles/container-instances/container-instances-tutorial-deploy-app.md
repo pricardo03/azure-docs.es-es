@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f2890948dd15fa972104e4ef11001e83a2abd4f8
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325625"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846596"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementación de una aplicación de contenedor en Azure Container Instances
 
@@ -37,7 +37,9 @@ En esta sección, se utiliza la CLI de Azure para implementar la imagen integrad
 
 ### <a name="get-registry-credentials"></a>Obtención de las credenciales del registro
 
-Al implementar una imagen que se hospeda en un registro de contenedor privado como el que se creó en el [segundo tutorial](container-instances-tutorial-prepare-acr.md), debe proporcionar las credenciales de acceso al registro. Como se muestra en [Authenticate with Azure Container Registry from Azure Container Instances](../container-registry/container-registry-auth-aci.md) (Autenticación con Azure Container Registry de Azure Container Instances), un procedimiento recomendado para muchos escenarios es crear y configurar una entidad de servicio de Azure Active Directory con permisos *pull* en el registro. En ese artículo encontrará scripts de ejemplo para crear una entidad de servicio con los permisos necesarios. Tome nota del identificador y de la contraseña de la entidad de servicio. Use estas credenciales al implementar el contenedor.
+Al implementar una imagen que se hospeda en una instancia privada de Azure Container Registry como la que se creó en el [segundo tutorial](container-instances-tutorial-prepare-acr.md), debe proporcionar las credenciales de acceso al registro. 
+
+En muchos escenarios, uno de los procedimientos recomendados es crear y configurar una entidad de servicio de Azure Active Directory con permisos de *extracción* en el registro. Consulte [Autenticación con Azure Container Registry desde Azure Container Instances](../container-registry/container-registry-auth-aci.md) para obtener scripts de ejemplo con el fin de crear una entidad de servicio con los permisos necesarios. Anote el *identificador* y la *contraseña de la entidad de servicio*. Usará estas credenciales para acceder al registro al implementar el contenedor.
 
 También necesita el nombre completo del servidor de inicio de sesión del registro de contenedor (reemplace `<acrName>` por el nombre del registro):
 

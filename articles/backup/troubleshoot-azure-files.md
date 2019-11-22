@@ -7,18 +7,21 @@ ms.author: dacurwin
 ms.date: 08/20/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 1182c7d4ac9a103e752a8cd0c392c5e57f1eebd0
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c589cba1386433e13318dabbd2873f789ee42df3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637579"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091507"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solución de problemas en las copias de seguridad de recursos compartidos de archivos de Azure
+
 Puede solucionar los problemas y errores que aparezcan al usar la copia de seguridad de recursos compartidos de archivos de Azure con la información que encontrará en las tablas siguientes.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitaciones de la copia de seguridad de recursos compartidos de archivos de Azure en la versión preliminar
+
 La copia de seguridad de los recursos compartidos de archivos de Azure está en versión preliminar. Los recursos compartidos de archivos de Azure se admiten en cuentas de almacenamiento de uso general v1 y uso general v2. No se admiten los siguientes escenarios de copia de seguridad para los recursos compartidos de archivos de Azure:
+
 - No hay ninguna CLI disponible para proteger Azure Files mediante Azure Backup.
 - El número máximo de copias de seguridad programadas al día es una.
 - El número máximo de copias de seguridad a petición al día es cuatro.
@@ -29,6 +32,7 @@ La copia de seguridad de los recursos compartidos de archivos de Azure está en 
 La copia de seguridad de recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) solo se encuentra disponible actualmente en las regiones de Centro de EE. UU. (CUS), Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Europa del Norte (NE), Sudeste Asiático (SEA), Europa Occidental (WE) y Oeste de EE. UU. 2 (WUS2).
 
 ## <a name="configuring-backup"></a>Configuración de la copia de seguridad
+
 La tabla siguiente es para configurar la copia de seguridad:
 
 | mensajes de error | Sugerencias de solución alternativa o resolución |
@@ -40,8 +44,7 @@ La tabla siguiente es para configurar la copia de seguridad:
 | Error en la configuración de copia de seguridad del recurso compartido de archivos (o en la configuración de la directiva de protección). | <ul><li>Vuelva a intentar la operación para ver si el problema persiste. <li> Asegúrese de que el recurso compartido de archivos que quiere proteger no se ha eliminado. <li> Si está intentando proteger varios recursos compartidos de archivos a la vez, y algunos de ellos generan error, reintente la configuración de la copia de seguridad en los recursos compartidos de archivos que han dado error. |
 | No se puede eliminar el almacén de Recovery Services después de desproteger un recurso compartido de archivos. | En Azure Portal, abra su Almacén > **Infraestructura de Backup** > **Cuentas de almacenamiento** y haga clic en **Anular el registro** para quitar la cuenta de almacenamiento del almacén de Recovery Services.|
 
-
-## <a name="error-messages-for-backup-or-restore-job-failures"></a>Mensajes de error de copia de seguridad o restauración de trabajos
+## <a name="error-messages-for-backup-or-restore-job-failures"></a>Mensajes de error de trabajos de copia de seguridad o restauración
 
 | mensajes de error | Sugerencias de solución alternativa o resolución |
 | -------------- | ----------------------------- |
@@ -59,15 +62,16 @@ La tabla siguiente es para configurar la copia de seguridad:
 | La operación de restauración produjo un error porque, a su vez, se produjo un error al realizar las operaciones previas de restauración en los recursos del servicio de sincronización de archivos asociados con el recurso compartido de archivos de destino. | Vuelva a intentarlo un tiempo después y si el problema persiste, póngase en contacto con el soporte técnico de Microsoft. |
 | Uno o varios archivos no se pudieron recuperar correctamente. Para más información, consulte la lista de archivos que han dado error en la ruta de acceso anterior. | <ul> <li> Las causas de los errores de recuperación se muestran en el archivo (la ruta de acceso se proporciona en los detalles del trabajo). Solucione los errores y vuelva a intentar la operación de restauración solo de los archivos con error. <li> Las causas comunes de errores de restauración de archivos son: <br/> -Asegúrese de que los archivos con error no están actualmente en uso. <br/> -Existe un directorio con el mismo nombre que el archivo de error en el directorio principal. |
 
-
 ## <a name="modify-policy"></a>Modificación de directivas
+
 | mensajes de error | Sugerencias de solución alternativa o resolución |
 | ------------------ | ----------------------------- |
 | Hay otra operación de protección de configuración en curso para este elemento. | Espere a que termine la operación de modificación de directivas anterior y vuelva a intentarlo al cabo de un tiempo.|
 | Hay otra operación en curso en el elemento seleccionado. | Espere a que la otra operación en curso termine y vuelva a intentarlo al cabo de un tiempo. |
 
+## <a name="next-steps"></a>Pasos siguientes
 
-## <a name="see-also"></a>Otras referencias
-Para información adicional acerca de la copia de seguridad de los recursos compartidos de archivos de Azure, consulte:
+Para más información sobre la copia de seguridad de recursos compartidos de archivos de Azure, consulte:
+
 - [Copia de seguridad de recursos compartidos de archivos de Azure](backup-azure-files.md)
 - [Preguntas frecuentes acerca de la copia de seguridad de recursos compartidos de archivos de Azure](backup-azure-files-faq.md)

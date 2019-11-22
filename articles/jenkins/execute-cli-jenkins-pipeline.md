@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 6/7/2017
-ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2019
+ms.openlocfilehash: 3da18bf50c82a32a9cec70555ac0d051e7660184
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162210"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882134"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementación en Azure App Service con Jenkins y la CLI de Azure
 Para implementar una aplicación web de Java en Azure, puede utilizar la CLI de Azure en [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). En este tutorial, creará una canalización de CI/CD en una máquina virtual de Azure, y aprenderá los siguientes temas:
@@ -31,13 +31,13 @@ Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-and-configure-jenkins-instance"></a>Creación y configuración de una instancia de Jenkins
-Si aún no tiene un servidor maestro de Jenkins, comience con la [Solution Template](install-jenkins-solution-template.md) (Plantilla de la solución), que incluye el complemento [Azure Credentials](https://plugins.jenkins.io/azure-credentials) (Credenciales de Azure) necesario de forma predeterminada. 
+Si aún no tiene un servidor maestro de Jenkins, comience con [Solution Template](install-jenkins-solution-template.md) (Plantilla de la solución), que incluye el complemento [Azure Credentials](https://plugins.jenkins.io/azure-credentials) (Credenciales de Azure) necesario de forma predeterminada. 
 
-El complemento Azure Credential permite almacenar las credenciales de la entidad de servicio de Microsoft Azure en Jenkins. En la versión 1.2, hemos agregado la compatibilidad para que Jenkins Pipeline pueda obtener las credenciales de Azure. 
+El complemento Azure Credentials permite almacenar las credenciales de la entidad de servicio de Microsoft Azure en Jenkins. En la versión 1.2, hemos agregado la compatibilidad para que Jenkins Pipeline pueda obtener las credenciales de Azure. 
 
 Compruebe que dispone de la versión 1.2 o posterior:
 * En el panel de Jenkins, haga clic en **Manage Jenkins -> Plugin Manager ->** (Administrar Jenkins -> Administrador de complementos) y busque **Azure Credential** (Credencial de Azure). 
-* Actualice el complemento si la versión es anterior a la 1.2.
+* Actualice el complemento si la versión es anterior a la 1.2.
 
 Java JDK y Maven también son necesarios en el servidor maestro Jenkins. Para la instalación, inicie sesión en el servidor maestro de Jenkins con SSH y ejecute los siguientes comandos:
 ```bash

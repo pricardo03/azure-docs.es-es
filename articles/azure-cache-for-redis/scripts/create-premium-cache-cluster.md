@@ -1,26 +1,19 @@
 ---
-title: 'Ejemplo de script de CLI de Azure: creación de Azure Cache for Redis Premium con agrupación en clústeres | Microsoft Docs'
+title: 'Ejemplo de script de la CLI de Azure: Creación de Azure Cache for Redis Premium con agrupación en clústeres'
 description: 'Ejemplo de script de CLI de Azure: Creación de Azure Cache for Redis de nivel Premium con agrupación en clústeres'
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 tags: azure-service-management
-ms.assetid: 07bcceae-2521-4fe3-b88f-ed833104ddd2
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+ms.topic: sample
 ms.date: 08/30/2017
 ms.author: yegu
-ms.openlocfilehash: 18538cf713d2938b0b595c9d4664c39c6ada5231
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1813bf7112969436012627147b94f656537029d5
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130456"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122491"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Creación de una instancia de Azure Cache for Redis de nivel Premium con agrupación en clústeres
 

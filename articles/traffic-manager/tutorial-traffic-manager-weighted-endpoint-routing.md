@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Enrutamiento del tráfico a puntos de conexión ponderados con Azure Traffic Manager'
+title: 'Tutorial: Enrutamiento del tráfico a puntos de conexión ponderados (Azure Traffic Manager)'
 description: En este artículo tutorial se describe cómo enrutar el tráfico a puntos de conexión ponderados con Traffic Manager.
 services: traffic-manager
 author: asudbring
@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: allensu
-ms.openlocfilehash: f9e2b6f6a45279c52e19a63509c57fb34e739330
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 45ece08599722e04c4e6799fa5c3589cba1fca42
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258373"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037911"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Control del enrutamiento del tráfico con puntos de conexión ponderados mediante Traffic Manager
 
@@ -142,7 +142,7 @@ Cree un perfil de Traffic Manager basado en el método de enrutamiento **Pondera
     | NOMBRE                   | Escriba un nombre único en la zona trafficmanager.net. Se produce el nombre DNS trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento **Ponderado**.                                       |
     | Subscription            | Seleccione su suscripción.                          |
-    | Grupos de recursos          | Seleccione **Usar existente** y después seleccione **myResourceGroupTM1**. |
+    | Resource group          | Seleccione **Usar existente** y después seleccione **myResourceGroupTM1**. |
     |        |   |
 
     ![Crear un perfil de Traffic Manager](./media/tutorial-traffic-manager-weighted-endpoint-routing/create-traffic-manager-profile.png)
@@ -157,7 +157,7 @@ Agregue las dos máquinas virtuales que ejecutan los servidores IIS, myIISVMEast
 
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | Type                    | Escriba el punto de conexión de Azure.                                   |
+    | type                    | Escriba el punto de conexión de Azure.                                   |
     | NOMBRE           | Escriba **myEastUSEndpoint**.                                        |
     | Tipo de recurso de destino           | Seleccione **Dirección IP pública**.                          |
     | Recurso de destino          | Elija una dirección IP pública para mostrar la lista de recursos con direcciones IP públicas en la misma suscripción. En **Recurso**, seleccione la dirección IP pública denominada **myIISVMEastUS-ip**. Se trata de la dirección IP pública de la máquina virtual del servidor IIS en la región Este de EE. UU.|

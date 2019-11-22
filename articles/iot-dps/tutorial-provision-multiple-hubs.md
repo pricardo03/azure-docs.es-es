@@ -1,22 +1,22 @@
 ---
-title: Uso del servicio Azure IoT Hub Device Provisioning para aprovisionar dispositivos en instancias de IoT Hub con equilibrio de carga | Microsoft Docs
-description: Aprovisionamiento automático de dispositivos mediante el servicio Device Provisioning en instancias de IoT Hub con equilibrio de carga en Azure Portal
+title: 'Tutorial: Uso del servicio Azure IoT Hub Device Provisioning para aprovisionar dispositivos en instancias de IoT Hub con equilibrio de carga'
+description: 'Tutorial: Aprovisionamiento automático de dispositivos mediante el servicio Device Provisioning en instancias de IoT Hub con equilibrio de carga en Azure Portal'
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8ed1b128fc2663cfc09c40f001bd0b14663a728e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6cd5dcb1fd96ac0fda75bf89dcf7259695cf971d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486015"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112782"
 ---
-# <a name="provision-devices-across-load-balanced-iot-hubs"></a>Aprovisionamiento de dispositivos en instancias de IoT Hub con equilibrio de carga
+# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Aprovisionamiento de dispositivos en instancias de IoT Hub con equilibrio de carga
 
 En este tutorial se muestra cómo aprovisionar dispositivos para varias instancias de IoT Hub con equilibrio de carga mediante el servicio Device Provisioning. En este tutorial, aprenderá a:
 

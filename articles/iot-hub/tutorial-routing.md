@@ -1,5 +1,5 @@
 ---
-title: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante la CLI de Azure y Azure Portal | Microsoft Docs
+title: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante la CLI de Azure
 description: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante la CLI de Azure y Azure Portal
 author: robinsh
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 5019951ca9628bc3beb849bdb2b148b575bc8618
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535124"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084381"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de la CLI de Azure y Azure Portal para configurar el enrutamiento de mensajes de IoT Hub
 
@@ -26,11 +26,13 @@ ms.locfileid: "69535124"
 
 En este tutorial se usa la CLI de Azure para crear los recursos de base y, después, [Azure Portal](https://portal.azure.com), para mostrar cómo se configura el enrutamiento de mensajes y se instala el dispositivo virtual para las pruebas.
 
-Hay varios nombres de recurso que deben ser únicos globalmente, como el nombre de IoT Hub y el nombre de la cuenta de almacenamiento. Para facilitar esta tarea, se anexan los nombres de los recursos con un valor alfanumérico aleatorio denominado *randomValue*. El valor RandomValue se genera una vez en la parte superior del script y se anexa a los nombres de los recursos según sea necesario en el script. Si no desea que sea aleatorio, puede establecerlo en una cadena vacía o en un valor específico.
-
 Copie y pegue el siguiente script en Cloud Shell y presione Entrar. El script se ejecuta de línea en línea. Con esto creará los recursos de base para este tutorial, incluida la cuenta de almacenamiento, la instancia de IoT Hub, el espacio de nombres de Service Bus y la cola de Service Bus.
 
-Nota de depuración: Este script usa el símbolo de continuación (la barra diagonal inversa, `\`) para que el script se lea mejor. Si tiene problemas al ejecutar el script, asegúrese de que no hay ningún espacio después de cualquiera de las barras diagonales inversas.
+Hay varios nombres de recurso que deben ser únicos globalmente, como el nombre de IoT Hub y el nombre de la cuenta de almacenamiento. Para facilitar esta tarea, se anexan los nombres de los recursos con un valor alfanumérico aleatorio denominado *randomValue*. El valor RandomValue se genera una vez en la parte superior del script y se anexa a los nombres de los recursos según sea necesario en el script. Si no desea que sea aleatorio, puede establecerlo en una cadena vacía o en un valor específico.
+
+> [!TIP]
+> Una sugerencia de depuración: este script usa el símbolo de continuación (la barra diagonal inversa, `\`) para que el script se lea mejor. Si tiene problemas al ejecutar el script, asegúrese de que la sesión de Cloud Shell esté ejecutando `bash` y de que no hay ningún espacio después de cualquiera de las barras diagonales inversas.
+>
 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 

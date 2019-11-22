@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 81db1a7dc01b3d60ee6384f2026ed5ce692ff140
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666087"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837416"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Incorporación de un dominio personalizado a un punto de conexión de Azure CDN
 En este tutorial se muestra cómo agregar un dominio personalizado a un punto de conexión de Azure Content Delivery Network (CDN). Si se usa un punto de conexión de CDN para entregar contenido, se necesita un dominio personalizado si se desea que el nombre de dominio propio esté visible en la dirección URL de la red CDN. El hecho de tener un nombre de dominio visible puede ser cómodo para sus clientes y útil con fines de personalización de marca. 
@@ -66,7 +66,7 @@ Para crear un registro CNAME con el subdominio cdnverify:
 
 3. Cree una entrada de registro CNAME para el dominio personalizado y rellene los campos como se muestra en la tabla siguiente (los nombres de campo pueden variar):
 
-    | Origen                    | type  | Destino                     |
+    | Source                    | type  | Destination                     |
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
@@ -145,7 +145,7 @@ Después de haber completado el registro del dominio personalizado, compruebe qu
  
 1. Asegúrese de que tiene contenido público almacenado en caché en el punto de conexión. Por ejemplo, si su punto de conexión de CDN está asociado a una cuenta de almacenamiento, Azure CDN almacenará el contenido en la caché, en un contenedor público. Para probar el dominio personalizado, compruebe que el contenedor está establecido para permitir acceso público y que contiene al menos un archivo.
 
-2. En el explorador, vaya a la dirección del archivo usando el dominio personalizado. Por ejemplo, si el dominio personalizado es www.contoso.com, la dirección URL al archivo almacenado en la caché sería similar a la siguiente: http:\//www.contoso.com/my-public-container/my-file.jpg. Compruebe que el resultado es igual que al acceder directamente al punto de conexión de la red CDN en *&lt;nombre de host del punto de conexión&gt;* .azureedge.net.
+2. En el explorador, vaya a la dirección del archivo usando el dominio personalizado. Por ejemplo, si el dominio personalizado es `www.contoso.com`, la dirección URL al archivo almacenado en caché debe ser similar a la siguiente: `http://www.contoso.com/my-public-container/my-file.jpg`. Compruebe que el resultado es igual que al acceder directamente al punto de conexión de la red CDN en *&lt;nombre de host del punto de conexión&gt;* .azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Asignación de un dominio personalizado permanente
@@ -160,7 +160,7 @@ Para crear un registro CNAME para un dominio personalizado:
 
 3. Cree una entrada de registro CNAME para el dominio personalizado y rellene los campos como se muestra en la tabla siguiente (los nombres de campo pueden variar):
 
-    | Origen          | type  | Destino           |
+    | Source          | type  | Destination           |
     |-----------------|-------|-----------------------|
     | <www.contoso.com> | CNAME | contoso.azureedge.net |
 

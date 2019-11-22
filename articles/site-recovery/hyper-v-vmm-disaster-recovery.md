@@ -1,19 +1,19 @@
 ---
-title: Configuración de la recuperación ante desastres para máquinas virtuales de Hyper-V entre los sitios locales con Azure Site Recovery
+title: Configuración de la recuperación ante desastres de Hyper-V en un sitio secundario con Azure Site Recovery
 description: Obtenga información sobre cómo configurar la recuperación ante desastres para máquinas virtuales de Hyper-V entre los sitios locales con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: a2eb8bf10454ee01953ddd37025f0c0048d00a0a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8d89c7eda845f0e5ed9bc8ccc7b6b3812ba275f9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813749"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132993"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configuración de la recuperación ante desastres para máquinas virtuales de Hyper-V en el sitio local secundario
 
@@ -28,6 +28,7 @@ En este artículo se muestra cómo configurar la recuperación ante desastres en
 > * Configuración de la asignación de red 
 > * Creación de una directiva de replicación
 > * Habilitación de la replicación para una máquina virtual
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 

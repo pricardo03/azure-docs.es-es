@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: Exportación o copia del disco duro virtual de un disco administrado en una cuenta de almacenamiento de una región diferente | Microsoft Docs'
+title: 'Ejemplo de script de Azure PowerShell: exportación o copia del disco duro virtual de un disco administrado en una cuenta de almacenamiento de otra región'
 description: 'Ejemplo de script de Azure PowerShell: Exportación o copia del disco duro virtual de un disco administrado en una cuenta de almacenamiento de la misma región u otra diferente'
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: abf32d857285de841fb12fb6f9d281afba5b2539
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 51da00a1e64c93275db893a252bc3d9a24951a9d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750001"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040231"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>Exportación o copia del disco duro virtual de un disco administrado en una cuenta de almacenamiento de una región diferente con PowerShell
 

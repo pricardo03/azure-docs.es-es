@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: e1534a562c81fc92fdf0c21452458c51b10f0bc9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a2bec6401ae3ac53f46e92e9be38abf57a92163d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074236"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108100"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importación de API de SOAP y conversión en REST
 
@@ -61,7 +61,7 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
     * **Sin límite**   
 10. Seleccione **Crear**.
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Prueba de la nueva API APIM en Azure Portal
+## <a name="test-the-new-api-in-the-azure-portal"></a>Prueba de la nueva API en Azure Portal
 
 Se puede llamar a las operaciones directamente desde Azure Portal, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.  
 
@@ -73,21 +73,6 @@ Se puede llamar a las operaciones directamente desde Azure Portal, lo que propor
 1. Presione **Enviar**.
 
     Back-end responde con **200 Aceptar** y algunos datos.
-
-## <a name="call-operation"></a>Llamada a una operación desde el portal para desarrolladores
-
-También se pueden llamar a las operaciones desde **portal para desarrolladores** para probar las API. 
-
-1. Seleccione la API que creó en el paso "Importación y publicación de una API de back-end".
-2. Presione **Portal para desarrolladores**.
-
-    Se abre el sitio "Portal para desarrolladores".
-3. Seleccione la **API** que ha creado.
-4. Haga clic en la operación que desea probar.
-5. Presione **Try it** (Probarlo).
-6. Presione **Enviar**.
-    
-    Después de invocar una operación, el portal para desarrolladores mostrará el **estado de respuesta**, los **encabezados de respuesta** y el **contenido de respuesta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

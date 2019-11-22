@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 12b8d6dff571c074d1f1422f75e33a8b12761bd9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 48c8390eff52466d11f781447c448d04ba567f31
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572151"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907127"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adición de un certificado SSL en Azure App Service
 
@@ -68,6 +68,10 @@ El certificado administrado de App Service gratuito es una solución inmediata p
 - No admite certificados comodín.
 - No admite dominios desnudos.
 - No se puede exportar.
+
+> [!NOTE]
+> El certificado gratuito lo emite DigiCert. En algunos dominios de nivel superior debe permitir explícitamente DigiCert como emisor de certificados mediante la creación de un [registro de dominio de CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) con el valor `0 issue digicert.com`.
+> 
 
 Para crear un certificado administrado de App Service gratuito:
 
@@ -344,7 +348,7 @@ az keyvault secret download \
     --encoding base64
 ```
 
-El archivo *appservicecertificate.pfx* descargado es un archivo PKCS12 sin procesar que contiene los certificados tanto público como privado. Siempre que se le pida, la contraseña de importación y la frase de contraseña de PEM son una cadena vacía.
+El archivo *appservicecertificate.pfx* descargado es un archivo PKCS12 sin procesar que contiene los certificados tanto público como privado. En cada solicitud, use una cadena vacía para la contraseña de importación y la frase de contraseña PEM.
 
 ### <a name="delete-certificate"></a>Eliminar certificado 
 

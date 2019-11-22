@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de una canalización de desarrollo en Azure con Jenkins | Microsoft Docs'
+title: 'Tutorial: Creación de una canalización de desarrollo en Azure con Jenkins'
 description: En este tutorial, aprenderá a crear una máquina virtual Jenkins en Azure que se extrae de GitHub en cada confirmación de código y que crea un nuevo contenedor de Docker para ejecutar la aplicación.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 875285b6a168d9aa9820d660d9c366a36545d319
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6b755ac015095e537134f1ff5c076c23a432ec91
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299414"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034479"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Creación de una infraestructura de desarrollo en una máquina virtual Linux en Azure con Jenkins, GitHub y Docker
 

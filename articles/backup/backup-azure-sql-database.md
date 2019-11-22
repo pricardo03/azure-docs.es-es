@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 202d608e5d994cabd3d7e2e9a0887c8aab75af31
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e5d24c35fd2fafc27f2339af5b1c92875b0138d9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437820"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162206"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
@@ -45,20 +45,10 @@ Antes de empezar, compruebe lo siguiente:
 **Soporte técnico** | **Detalles**
 --- | ---
 **Implementaciones admitidas** | Se admiten máquinas virtuales de Azure de SQL Marketplace y que no son de Marketplace (SQL Server instalado manualmente).
-**Zonas geográficas admitidas** | Sudeste de Australia (ASE), Este de Australia (AE), Centro de Australia (AC) y Centro de Australia 2 (AC) <br> Sur de Brasil (BRS)<br> Centro de Canadá (CNC) y Este de Canadá (CE)<br> Asia Suroriental (SEA) y Asia Oriental (EA) <br> Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Centro-oeste de EE. UU. (WCUS), Oeste de EE. UU. (WUS); Oeste de EE. UU. 2 (WUS 2) Centro-norte de EE. UU. (NCUS) Centro de EE. UU. (CUS) Centro-sur de EE. UU. (SCUS) <br> Centro de la India (INC), India del Sur (INS), Oeste de la India <br> Este de Japón (JPE) y Oeste de Japón (JPW) <br> Centro de Corea del Sur (KRC), Sur de Corea del Sur (KRS) <br> Norte de Europa (NE) y Oeste de Europa <br> Sur de Reino Unido (UKS) y Oeste de Reino Unido (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD (centro), US DoD (este) <br> Norte de Alemania, Centro-oeste de Alemania <br> Norte de Suiza, Oeste de Suiza
-**Sistemas operativos compatibles** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux no se admite actualmente.
-**Versiones admitidas de SQL Server** | SQL Server 2017 como se detalla [aquí](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 y SP como se detalla [aquí](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
-**Versiones de .NET compatibles** | .NET Framework 4.5.2, y versiones posteriores, instaladas en la máquina virtual
-
-### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Compatibilidad con SQL Server 2008 y SQL Server 2008 R2
-
-Recientemente, Azure Backup anunció compatibilidad con los [servidores EOS SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support): SQL Server 2008 y SQL Server 2008 R2. Actualmente, solución está disponible en versión preliminar para EOS SQL Server y admite la configuración siguiente:
-
-1. SQL Server 2008 y SQL Server 2008 R2 que se ejecutan en Windows 2008 R2 SP1
-2. .NET Framework 4.5.2 y versiones posteriores debe estar instalado en la VM
-3. No se admite la copia de seguridad de bases de datos FCI y reflejadas
-
-No se cobrará a los usuarios por esta característica hasta que esté disponible de manera general. Todas las demás [consideraciones y limitaciones de características](#feature-consideration-and-limitations) se aplican a estas versiones también. Consulte los [requisitos previos](backup-sql-server-database-azure-vms.md#prerequisites) antes de configurar la protección en los servidores SQL Server 2008 y SQL Server 2008 R2.
+**Zonas geográficas admitidas** | Sudeste de Australia (ASE), Este de Australia (AE), Centro de Australia (AC) y Centro de Australia 2 (AC) <br> Sur de Brasil (BRS)<br> Centro de Canadá (CNC) y Este de Canadá (CE)<br> Asia Suroriental (SEA) y Asia Oriental (EA) <br> Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Centro-oeste de EE. UU. (WCUS), Oeste de EE. UU. (WUS); Oeste de EE. UU. 2 (WUS 2) Centro-norte de EE. UU. (NCUS) Centro de EE. UU. (CUS) Centro-sur de EE. UU. (SCUS) <br> Centro de la India (INC), India del Sur (INS), Oeste de la India <br> Este de Japón (JPE) y Oeste de Japón (JPW) <br> Centro de Corea del Sur (KRC), Sur de Corea del Sur (KRS) <br> Norte de Europa (NE) y Oeste de Europa <br> Sur de Reino Unido (UKS) y Oeste de Reino Unido (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD (centro), US DoD (este) <br> Norte de Alemania, Centro-oeste de Alemania <br> Norte de Suiza, Oeste de Suiza <br> Centro de Francia <br> Este de China, Norte de China, Norte de China 2 y Este de China 2
+**Sistemas operativos compatibles** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux no se admite actualmente.
+**Versiones admitidas de SQL Server** | SQL Server 2019, SQL Server 2017 tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 y los SP tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Versiones de .NET compatibles** | .NET Framework 4.5.2 o posterior instalado en la máquina virtual
 
 ## <a name="feature-consideration-and-limitations"></a>Consideraciones y limitaciones de las características
 
@@ -94,7 +84,7 @@ En función de las preferencias relativas a la copia de seguridad y de los tipos
     --- | ---
     Completo | Principal
     Diferencial | Principal
-    Registro |  Principal
+    Log |  Principal
     Solo copia completa |  Principal
 
 * **Preferencias de copia de seguridad: solo secundaria**
@@ -103,7 +93,7 @@ En función de las preferencias relativas a la copia de seguridad y de los tipos
 --- | ---
 Completo | Principal
 Diferencial | Principal
-Registro |  Secundario
+Log |  Secundario
 Solo copia completa |  Secundario
 
 * **Preferencias de copia de seguridad: secundaria**
@@ -112,7 +102,7 @@ Solo copia completa |  Secundario
 --- | ---
 Completo | Principal
 Diferencial | Principal
-Registro |  Secundario
+Log |  Secundario
 Solo copia completa |  Secundario
 
 * **Sin preferencias para copia de seguridad**
@@ -121,7 +111,7 @@ Solo copia completa |  Secundario
 --- | ---
 Completo | Principal
 Diferencial | Principal
-Registro |  Secundario
+Log |  Secundario
 Solo copia completa |  Secundario
 
 ## <a name="set-vm-permissions"></a>Establecer permisos de máquina virtual

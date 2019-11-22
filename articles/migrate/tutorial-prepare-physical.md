@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: df425f723aa6a5e261ed6dcd15abfe87b367ad68
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 176dfdabeee6299bba0eb17085be25ced3e97993
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747976"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091914"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparación de la evaluación y migración de servidores físicos a Azure
 
@@ -99,25 +99,25 @@ Para preparar la valoración de los servidores físicos, tiene que comprobar su 
 
 ### <a name="verify-physical-server-settings"></a>Comprobación de la configuración de los servidores físicos
 
-1. Compruebe los [requisitos de los servidores físicos](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) para la valoración de los servidores.
-2. Asegúrese de que los [puertos necesarios](migrate-support-matrix-hyper-v.md#assessment-port-requirements) están abiertos en los servidores físicos.
+1. Compruebe los [requisitos de los servidores físicos](migrate-support-matrix-physical.md#assessment-physical-server-requirements) para la valoración de los servidores.
+2. Asegúrese de que los [puertos necesarios](migrate-support-matrix-physical.md#assessment-port-requirements) están abiertos en los servidores físicos.
 
 
 ### <a name="verify-appliance-settings"></a>Comprobación de la configuración del dispositivo
 
 Antes de configurar el dispositivo de Azure Migrate y comenzar la evaluación en el siguiente tutorial, prepare la implementación del dispositivo.
 
-1. [Compruebe](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) los requisitos del dispositivo.
-2. [Revise](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) las direcciones URL de Azure a las que tendrá acceso el dispositivo.
+1. [Compruebe](migrate-support-matrix-physical.md#assessment-appliance-requirements) los requisitos del dispositivo.
+2. [Revise](migrate-support-matrix-physical.md#assessment-appliance-url-access) las direcciones URL de Azure a las que tendrá acceso el dispositivo.
 3. Revise los datos que el dispositivo va a recopilar durante la detección y la evaluación.
-4. [Tenga en cuenta](migrate-support-matrix-hyper-v.md#assessment-port-requirements) los requisitos de acceso a puertos del dispositivo.
+4. [Tenga en cuenta](migrate-support-matrix-physical.md#assessment-port-requirements) los requisitos de acceso a puertos del dispositivo.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>Configuración de una cuenta para la detección de servidores físicos
 
 Azure Migrate necesita permisos para detectar los servidores en el entorno local.
 
-- **Windows:** configure una cuenta de usuario local en todos los servidores de Windows que desee incluir en la detección. Es necesario agregar la cuenta de usuario a los grupos siguientes: - Usuarios de Escritorio remoto       - Usuarios de Monitor de rendimiento       - Usuarios de Registro de rendimiento
+- **Windows:** configure una cuenta de usuario local en todos los servidores de Windows que desee incluir en la detección. Es necesario agregar la cuenta de usuario a los grupos siguientes: - Usuarios de administración remota       - Usuarios de Monitor de rendimiento       - Usuarios de Registro de rendimiento
 - **Linux:** necesita una cuenta raíz en los servidores Linux que desee detectar.
 
 

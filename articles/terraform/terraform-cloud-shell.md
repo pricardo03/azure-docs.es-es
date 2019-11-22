@@ -1,37 +1,35 @@
 ---
-title: Configuración de Azure Cloud Shell para Terraform
+title: 'Tutorial: Configuración de Azure Cloud Shell para Terraform'
 description: Use Terraform con Azure Cloud Shell para simplificar la autenticación y la configuración de plantillas.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, conjunto de escalado, máquina virtual, red, almacenamiento, módulos
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: e0a59697a3e4da97cf082c4c771fe93ad33b6035
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 1259d5004bd547e33f65571333b6d0721d1253c0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173545"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078724"
 ---
-# <a name="terraform-cloud-shell-development"></a>Desarrollo de Cloud Shell de Terraform 
+# <a name="tutorial-configure-azure-cloud-shell-for-terraform"></a>Tutorial: Configuración de Azure Cloud Shell para Terraform
 
-Terraform funciona a la perfección desde una línea de comandos Bash como un terminal macOS o Bash en Windows o Linux. Ejecutar las configuraciones de Terraform en la experiencia Bash de [Azure Cloud Shell](/azure/cloud-shell/overview) tiene algunas ventajas exclusivas que aceleran el ciclo de desarrollo.
-
-En este artículo de conceptos se describen las características de Cloud Shell que le ayudan a escribir scripts de Terraform que se implementan en Azure.
+Terraform funciona bien desde una línea de comandos de Bash en macOS, Windows o Linux. La ejecución de las configuraciones de Terraform en la experiencia Bash de [Azure Cloud Shell](/azure/cloud-shell/overview) tiene algunas ventajas exclusivas. En este tutorial se muestra cómo escribir scripts de Terraform que se implementan en Azure mediante Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="automatic-credential-configuration"></a>Configuración automática de credenciales
 
-Terraform se instala y está disponible inmediatamente en Cloud Shell. Los scripts de Terraform se autentican con Azure cuando se inicia sesión en Cloud Shell para administrar la infraestructura sin ninguna configuración adicional. La autenticación omite la necesidad de crear manualmente una entidad de servicio de Active Directory y de configurar las variables de proveedor de Terraform de Azure.
+Terraform se instala y está disponible inmediatamente en Cloud Shell. Los scripts de Terraform se autentican en Azure cuando se ha iniciado sesión en Cloud Shell para administrar la infraestructura sin configuración adicional. La autenticación automática omite dos procesos manuales:
+- Creación de una entidad de servicio de Azure Active Directory
+- Configuración de las variables de proveedor de Azure Terraform
 
 
-## <a name="using-modules-and-providers"></a>Uso de módulos y proveedores
+## <a name="use-modules-and-providers"></a>Uso de módulos y proveedores
 
-Los módulos de Terraform de Azure requieren credenciales para acceder a los recursos de la suscripción de Azure y modificarlos. Cuando trabaje en Cloud Shell, agregue el código siguiente a sus scripts para usar módulos de Terraform de Azure en Cloud Shell:
+Los módulos de Azure Terraform requieren credenciales para acceder a los recursos de Azure y modificarlos. Para usar los módulos de Terraform en Cloud Shell, agregue el código siguiente:
+
 
 ```hcl
 # Configure the Microsoft Azure Provider
@@ -39,16 +37,16 @@ provider "azurerm" {
 }
 ```
 
-Cloud Shell pasa los valores necesarios para el proveedor `azurerm` a través de variables de entorno cuando se usa alguno de los comandos de la CLI de `terraform`.
+Cloud Shell pasa los valores necesarios al proveedor de `azurerm` a través de las variables de entorno cuando se usa cualquiera de los comandos de la CLI de `terraform`.
 
 ## <a name="other-cloud-shell-developer-tools"></a>Otras herramientas de desarrollo de Cloud Shell
 
-Los archivos y los estados de shell se conservan en Azure Storage entre sesiones de Cloud Shell. Use [Explorador de Azure Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer) para copiar y cargar archivos a Cloud Shell desde el equipo local.
+Los archivos y los estados de shell se conservan en Azure Storage entre sesiones de Cloud Shell. Use el [Explorador de Azure Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer) para copiar y cargar archivos a Cloud Shell desde un equipo local.
 
-La CLI de Azure está disponible en Cloud Shell y es una fantástica herramienta para probar las configuraciones y comprobar el trabajo después de completarse una acción `terraform apply` o `terraform destroy`.
+La CLI de Azure está disponible en Cloud Shell y es una fantástica herramienta para probar las configuraciones y comprobar el trabajo después de que se completan `terraform apply` o `terraform destroy`.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Crear un pequeño clúster de VM mediante el registro de módulo](terraform-create-vm-cluster-module.md)
-[Crear un pequeño clúster de VM mediante HCL personalizado](terraform-create-vm-cluster-with-infrastructure.md)
+> [!div class="nextstepaction"]
+> [Creación de un pequeño clúster de VM mediante el registro de módulos](terraform-create-vm-cluster-module.md)

@@ -1,18 +1,18 @@
 ---
-title: 'Stream Analytics en el área perimetral: Azure IoT Edge | Microsoft Docs'
+title: 'Tutorial: Stream Analytics en el área perimetral: Azure IoT Edge'
 description: En este tutorial, va a implementar Azure Stream Analytics como un módulo en un dispositivo de Iot Edge.
 author: kgremban
 ms.author: kgremban
-ms.date: 08/07/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0128574ff0ef9db1c5a4326e3ebce25fbba0c2e7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fcb272a6161ecae99f969fbf6689944ea85a1384
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845120"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114012"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implementación de Azure Stream Analytics como un módulo de IoT Edge
 

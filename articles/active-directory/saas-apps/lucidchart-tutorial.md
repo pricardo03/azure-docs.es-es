@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1068d364-11f3-43b5-bd6d-26f00ecd5baa
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e12b5984eb2fe4e54ffec7d6b4a2a6da202c70e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dc91d51d49ac1a317b88835e4d2e51773216020
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097803"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>Tutorial: Integración de Azure Active Directory con Lucidchart
 
@@ -128,11 +129,11 @@ Para configurar el inicio de sesión único de Azure AD con Lucidchart, siga est
 
 2. En el menú de la parte superior, haga clic en **Equipo**.
 
-    ![Equipo](./media/lucidchart-tutorial/ic791190.png "Equipo")
+    ![Team (Equipo)](./media/lucidchart-tutorial/ic791190.png "Team")
 
 3. Haga clic en **Applications \> (Aplicaciones) Manage SAML** (Administrar SAML).
 
-    ![Administrar SAML](./media/lucidchart-tutorial/ic791191.png "Administrar SAML")
+    ![Manage SAML (Administrar SAML)](./media/lucidchart-tutorial/ic791191.png "Administrar SAML")
 
 4. En la página de diálogo **Configuración de la autenticación SAML** , realice los pasos siguientes:
 
@@ -142,15 +143,15 @@ Para configurar el inicio de sesión único de Azure AD con Lucidchart, siga est
 
     b. En el cuadro de texto **Dominio**, escriba el dominio y, después, haga clic en **Cambiar certificado**.
 
-    ![Cambiar certificado](./media/lucidchart-tutorial/ic791193.png "Cambiar certificado")
+    ![Cambiar certificado](./media/lucidchart-tutorial/ic791193.png "Change Certificate (Cambiar certificado)")
 
     c. Abra el archivo de metadatos descargado, copie el contenido y luego péguelo en el cuadro de texto **Cargar metadatos** .
 
-    ![Cargar metadatos](./media/lucidchart-tutorial/ic791194.png "Cargar metadatos")
+    ![Cargar metadatos](./media/lucidchart-tutorial/ic791194.png "Upload Metadata (Cargar metadatos)")
 
     d. Seleccione **Automatically Add new users to the team** (Agregar nuevo usuario al equipo automáticamente) y, después, haga clic en **Save changes** (Guardar los cambios).
 
-    ![Guardar cambios](./media/lucidchart-tutorial/ic791195.png "Guardar cambios")
+    ![Save Changes](./media/lucidchart-tutorial/ic791195.png "Guardar cambios")
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

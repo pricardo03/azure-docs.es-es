@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fdd1aeea20160bb1a9f91de934bd9268a179648a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: c098b67ab2782fa3cf29b5b19aa198f899ba69c0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529229"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890611"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desarrollo de un módulo de IoT Edge en C para dispositivos Windows
 
@@ -134,7 +134,7 @@ El código de módulo predeterminado recibe mensajes en una cola de entrada y lo
       )
       ```
 
-   3. Agregue **my_parson** a la lista de bibliotecas de la sección **target_link_libraries** del archivo CMakeLists.txt.
+   3. Agregue `my_parson` a la lista de bibliotecas de la sección **target_link_libraries** del archivo CMakeLists.txt.
 
    4. Guarde el archivo **CMakeLists.txt**.
 
@@ -174,6 +174,14 @@ El código de módulo predeterminado recibe mensajes en una cola de entrada y lo
 4. Busque la función `InputQueue1Callback` y reemplace toda la función por el código siguiente. Esta función implementa el filtro de mensajería real. Cuando se recibe un mensaje, el filtro comprueba si la temperatura notificada supera el umbral. Si es así, se reenvía el mensaje mediante su cola de salida. De lo contrario, se omite el mensaje. 
 
     ```c
+    static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
+    {
+        unsigned char *ret = (unsigned char *)malloc(len + 1);
+        memcpy(ret, buffer, len);
+        ret[len] = '\0';
+        return ret;
+    }
+
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
         IOTHUBMESSAGE_DISPOSITION_RESULT result;
@@ -183,7 +191,10 @@ El código de módulo predeterminado recibe mensajes en una cola de entrada y lo
         unsigned const char* messageBody;
         size_t contentSize;
 
-        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) != IOTHUB_MESSAGE_OK)
+        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) == IOTHUB_MESSAGE_OK)
+        {
+            messageBody = bytearray_to_str(messageBody, contentSize);
+        } else
         {
             messageBody = "<null>";
         }

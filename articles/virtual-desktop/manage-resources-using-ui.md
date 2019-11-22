@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300904"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904906"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implementación de una herramienta de administración
 
@@ -103,9 +103,14 @@ Siga estas instrucciones para iniciar la herramienta:
 1. Seleccione el recurso de Azure App Services con el nombre proporcionado en la plantilla (por ejemplo, Apr3UX) y vaya a la dirección URL asociada a él. Por ejemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Inicie sesión con sus credenciales de Windows Virtual Desktop.
 3. Cuando se le pida que elija un grupo de inquilinos, seleccione **Default Tenant Group** (grupo de inquilinos predeterminado) en la lista desplegable.
+4. Al seleccionar Default Tenant Group (Grupo de inquilinos predeterminado), debería aparecer un menú en el lado derecho de la ventana. En este menú, busque el nombre del grupo de inquilinos y selecciónelo.
 
 > [!NOTE]
 > Si tiene un grupo de inquilinos personalizado, escriba el nombre manualmente en lugar de elegirlo en la lista desplegable.
+
+## <a name="report-issues"></a>Informar de problemas
+
+Si surge algún problema con la herramienta de administración, o con cualquier otra herramienta de Windows Virtual Desktop, siga las instrucciones que encontrará en el artículo sobre [plantillas de ARM para Servicios de Escritorio remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) para notificarlo en GitHub.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Máquinas virtuales de Load Balancer en distintas zonas de disponibilidad: Azure Portal'
+title: 'Tutorial: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad: Azure Portal'
 titlesuffix: Azure Load Balancer
 description: En este tutorial, se explica cómo crear un equilibrador de carga estándar mediante un front-end con redundancia de zona para equilibrar la carga de las máquinas virtuales en distintas zonas de disponibilidad mediante Azure Portal.
 services: load-balancer
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 5b024321a18c6dec4f56a7cbc12c5a8fa748f903
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 2079ec95b582ed724583112f7af4865af66eef9d
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273475"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048868"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Load Balancer Estándar mediante Azure Portal
 
@@ -137,7 +137,7 @@ Cree máquinas virtuales en distintas zonas (zona 1, zona 2 y zona 3) de la regi
 5. Haga clic en **Deshabilitado** para deshabilitar los diagnósticos de arranque.
 6. Haga clic en **Aceptar**, revise la configuración en la página de resumen y haga clic en **Crear**.
   
-   ![de una máquina virtual](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
+   ![Creación de una máquina virtual](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
 7. Cree una segunda máquina virtual llamada *VM2* en la Zona 2 y una tercera máquina virtual en la Zona 3, con *myVnet* como la red virtual, *myBackendSubnet* como la subred y **myNetworkSecurityGroup* como el grupo de seguridad de red mediante los pasos del 1 al 6.
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9e3c999de1804684e77a6224330b2d7077046964
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69543012"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052170"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 
@@ -44,7 +44,7 @@ En primer lugar, Microsoft cancela la reserva existente y reembolsa la cantidad 
 
 ### <a name="enterprise-agreement-customers"></a>Clientes con contrato Enterprise
 
-Se agrega el dinero al compromiso monetario para los cambios y devoluciones en caso de que se utilizara alguno en la compra original. Todas las facturas por encima del límite en relación con las compras originales se reabren y se vuelven a evaluar para asegurarse de que se utiliza el compromiso monetario. Si el término de compromiso monetario que se compró con la reserva ya no está activo, se agregará crédito al término de compromiso monetario de su contrato Entreprise actual.
+Se agrega el dinero al compromiso monetario para los cambios y devoluciones en caso de que se utilizara alguno en la compra original. Todas las facturas por encima del límite en relación con las compras originales se reabren y se vuelven a evaluar para asegurarse de que se utiliza el compromiso monetario. Si el término de compromiso monetario que se compró con la reserva ya no está activo, se agregará crédito al término de compromiso monetario de su contrato Entreprise actual. El crédito es válido durante 90 días a partir de la fecha de reembolso. El crédito no utilizado expira una vez transcurridos los 90 días.
 
 Si la compra original se realizó como un uso por encima del límite, Microsoft emite una nota de crédito.
 

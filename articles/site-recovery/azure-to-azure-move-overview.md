@@ -1,34 +1,23 @@
 ---
-title: Traslado de máquinas virtuales de Azure IaaS a otra región de Azure mediante el servicio Azure Site Recovery | Microsoft Docs
-description: Use Azure Site Recovery para mover máquinas virtuales de IaaS de Azure de una región de Azure a otra.
-services: site-recovery
+title: Traslado de máquinas virtuales de Azure a otra región con Azure Site Recovery
+description: Use Azure Site Recovery para mover máquinas virtuales de Azure de una región de Azure a otra.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078013"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091935"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
+# <a name="moving-azure-vms-to-another-azure-region"></a>Traslado de máquinas virtuales de Azure a otra región de Azure
 
-Azure crece junto con la base de clientes y agrega compatibilidad para nuevas regiones al ritmo en aumento de la demanda. Mensualmente también se agregan funcionalidades a los servicios. Quizá desee trasladar las máquinas virtuales a una región diferente o a zonas de disponibilidad para aumentar la disponibilidad.
+En este artículo se proporciona información general sobre los motivos y los pasos necesarios para mover máquinas virtuales de Azure a otra región de Azure mediante [Azure Site Recovery](site-recovery-overview.md). 
 
-En este tutorial se describen distintos escenarios para trasladar las máquinas virtuales. También se describe cómo configurar la arquitectura de la región de destino para lograr una mayor disponibilidad. 
-
-En este tutorial, aprenderá lo siguiente:
-
-> [!div class="checklist"]
-> 
-> * Razones para trasladar las máquinas virtuales
-> * Arquitecturas típicas
-> * Traslado de máquinas virtuales tal cual están a una región de destino
-> * Traslado de máquinas virtuales para aumentar la disponibilidad
 
 ## <a name="reasons-to-move-azure-vms"></a>Razones para trasladar máquinas virtuales de Azure
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Análisis de eventos desde la configuración de Azure Digital Twins | Microsoft Docs'
+title: 'Tutorial: Análisis de eventos de la configuración de Azure Digital Twins'
 description: Siga los pasos de este tutorial para aprender a visualizar y analizar eventos de los espacios de Azure Digital Twins con Azure Time Series Insights.
 services: digital-twins
 ms.author: alinast
@@ -8,15 +8,15 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: af776372026bf9affcda03fa9188b854ebedfc73
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949802"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107685"
 ---
-# <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualización y análisis de eventos de los espacios de Azure Digital Twins mediante Time Series Insights
+# <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Tutorial: Visualización y análisis de eventos de Azure Digital Twins mediante Time Series Insights
 
 Después de implementar la instancia de Azure Digital Twins, aprovisionar los espacios e implementar una función personalizada para supervisar condiciones concretas, puede visualizar los eventos y los datos procedentes de los espacios para buscar tendencias y anomalías.
 

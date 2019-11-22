@@ -10,12 +10,12 @@ ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b67e7bf0b6b79d2ae29c2ba8ed7c337f152faebc
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128687"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092076"
 ---
 ::: zone target="chromeless"
 
@@ -133,15 +133,29 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 
 ### <a name="in-singaporetabin-singapore"></a>[En Singapur](#tab/in-singapore)
 
-1. Imprima la etiqueta de envío y póngala en la caja. Si la etiqueta se daña o se pierde:
+1. Imprima la etiqueta de envío y colóquela en la caja. Si la etiqueta se daña o se pierde:
     - Vaya a **Información general > Descargar la etiqueta de envío** y obtenga una etiqueta de envío de devolución.
     - Pegue la etiqueta en el dispositivo. Asegúrese de que la etiqueta está visible.
 
-2. Para solicitar la recogida:
-    - Llame a la línea directa de **SingPost**, en el número **6845 6485**, en horario de oficina (de 9 a 17 horas de lunes a viernes).  
-    - Indique *Microsoft Azure pickup* y el número de solicitud de servicio (número de seguimiento en la etiqueta de envío de la devolución) para concertar la recogida. 
-    - Recibirá una confirmación verbal para la organización de la recogida. 
-    - Si el mensajero no realiza la recogida, llame a **SingPost** en el **6845 6485** para concertar otra cita. 
+2. Para solicitar la recogida, envíe un correo electrónico al servicio de atención al cliente de SingPost mediante la siguiente plantilla con el número de seguimiento (el número de seguimiento se puede encontrar en la etiqueta de retorno que se encuentra en el paquete entregado).
+
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - XZ00001234567 
+    Body: 
+     a. Requestor name
+     b. Requestor contact number
+     c. Requestor collection address
+     d. Preferred collection date
+    ```
+
+   > [!NOTE]
+   > Para las solicitudes de reserva recibidas en un día laborable:
+   > - Antes de las 15:00 p.m., la recogida se realizará el siguiente día laborable entre las 9:00 a.m. y las 13:00 p. m.
+   > - Después de las 15:00 p.m., la recogida se realizará el siguiente día laborable entre las 14:00 p.m. y las 18:00 p. m.
+
+   Si surge algún problema, póngase en contacto con Data Box Operations Asia a la siguiente dirección de correo electrónico, adbo@microsoft.com. Especifique el nombre del trabajo en el encabezado del asunto y el problema que ha aparecido.
+
 3. Realice la entrega al mensajero. 
 
 

@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b14b060cc37f94e51ceb902f8b4158120d4d02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 233ddde25645cbdd9073011eeec2a20e42c8e9a8
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105296"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157410"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integración de Azure Active Directory con ClickTime
 
@@ -136,7 +137,7 @@ Para configurar el inicio de sesión único de Azure AD con ClickTime, siga esto
 
 1. En la sección de configuración **Preferencias de inicio de sesión único** , siga estos pasos:
    
-    ![Configuración de seguridad](./media/clicktime-tutorial/tic777280.png "Configuración de seguridad")
+    ![Security Settings (Configuración de seguridad)](./media/clicktime-tutorial/tic777280.png "Configuración de seguridad")
    
     a.  Seleccione **Allow** sign-in using Single Sign-On (SSO) with **Azure AD** [Permitir inicio de sesión mediante inicio de sesión único (SSO) con Azure AD].
    
@@ -211,15 +212,15 @@ En el caso de ClickTime, el aprovisionamiento es una tarea manual.
 
 1. En la barra de herramientas de la parte superior, haga clic en **Compañía** y, luego, en **Contactos**.
    
-    ![Personas](./media/clicktime-tutorial/tic777282.png "Personas")
+    ![Contactos](./media/clicktime-tutorial/tic777282.png "Personas")
 
 1. Haga clic en **Add Person**(Agregar persona).
    
-    ![Agregar persona](./media/clicktime-tutorial/tic777283.png "Agregar persona")
+    ![Add Person (Agregar persona)](./media/clicktime-tutorial/tic777283.png "Agregar persona")
 
 1. En la sección New Person (Nueva persona), lleve a cabo estos pasos:
    
-    ![Personas](./media/clicktime-tutorial/tic777284.png "Personas")
+    ![Contactos](./media/clicktime-tutorial/tic777284.png "Personas")
    
     a.  En el cuadro de texto de **nombre completo**, escriba el nombre completo de un usuario, por ejemplo, **Britta Simon**. 
   

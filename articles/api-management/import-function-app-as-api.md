@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 7e9215d7250628ed9177e097d127a1554a1f0ea0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073348"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107848"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importación de una instancia de Azure Function App como API en Azure API Management
 
@@ -142,7 +142,7 @@ Vaya a la instancia de Azure API Management y seleccione **Valores con nombre** 
 
 ![Agregar desde Function App](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> Prueba de la nueva API Management en Azure Portal
+## <a name="test-in-azure-portal"></a> Prueba de la nueva API en Azure Portal
 
 Puede llamar a operaciones directamente desde Azure Portal. Mediante Azure Portal es una manera cómoda de ver y probar las operaciones de una API.  
 
@@ -157,26 +157,6 @@ Puede llamar a operaciones directamente desde Azure Portal. Mediante Azure Porta
 4. Seleccione **Enviar**.
 
     El back-end responde con **200 Aceptar** y algunos datos.
-
-## <a name="test-in-developer-portal"></a>Llamada a una operación desde el portal para desarrolladores
-
-También puede llamar a las operaciones desde el portal para desarrolladores para probar las API. 
-
-1. Seleccione la API que ha creado en el paso Importación y publicación de una API de back-end.
-
-2. Seleccione **Portal para desarrolladores**.
-
-    Se abre el sitio del portal para desarrolladores.
-
-3. Seleccione la **API** que ha creado.
-
-4. Seleccione la operación que desea probar.
-
-5. Seleccione **Pruébelo**.
-
-6. Seleccione **Enviar**.
-    
-    Después de invocar una operación, el portal para desarrolladores mostrará el **estado de respuesta**, los **encabezados de respuesta** y el **contenido de respuesta**.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

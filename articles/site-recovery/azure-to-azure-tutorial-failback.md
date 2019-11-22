@@ -1,19 +1,19 @@
 ---
-title: Conmutación por recuperación de las máquinas virtuales de Azure replicadas en una región secundaria de Azure para la recuperación ante desastres con el servicio Azure Site Recovery.
-description: Aprenda cómo recuperar por conmutación máquinas virtuales de Azure con el servicio Azure Site Recovery.
+title: Conmutación por recuperación de máquinas virtuales de Azure en una región primaria con el servicio Azure Site Recovery.
+description: Describe como realizar una conmutación por recuperación de máquinas virtuales de Azure en la región primaria con el servicio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c8be547790452774992b9226ca8010532263aaff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814519"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091342"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Conmutación por recuperación de una máquina virtual de Azure entre regiones de Azure
 
@@ -56,6 +56,9 @@ Una vez que las máquinas virtuales vuelven a estar protegidas, puede conmutar p
 8. La máquina virtual debe mostrarse como conmutada por error y conmutada por recuperación.
 
     ![Máquina virtual en regiones primarias y secundarias](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+
+> [!NOTE]
+> En el caso de las máquinas que ejecutan la extensión de Site Recovery versión 9.28.x.x y posteriores [paquete acumulativo de actualizaciones 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery), Site Recovery limpia las máquinas de la región de recuperación ante desastres secundaria una vez completada la conmutación por recuperación y se vuelven a proteger las máquinas virtuales. No hay necesidad de eliminar manualmente las máquinas virtuales y NIC de la región secundaria. Si deshabilita la replicación por completo después de la conmutación por recuperación, Site Recovery limpiará los discos de la región de recuperación ante desastres además de las máquinas virtuales y las NIC.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

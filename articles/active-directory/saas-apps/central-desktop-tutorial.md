@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58fcd21c7e6e3f2336d3e809584451dc38f6276b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fda8e928b530001faeae34c364dfed91d7620f0a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105734"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157517"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integración de Azure Active Directory con Central Desktop
 
@@ -140,11 +141,11 @@ Para configurar el inicio de sesión único de Azure AD con Central Desktop, sig
 
 2. Vaya a **Configuración**. Seleccione **Avanzado** y, a continuación, seleccione **Inicio de sesión único**.
 
-    ![Programa de instalación: avanzado](./media/central-desktop-tutorial/ic769563.png "Programa de instalación: avanzado")
+    ![Setup - Advanced (Configuración - Avanzado)](./media/central-desktop-tutorial/ic769563.png "Programa de instalación: avanzado")
 
 3. En la página **Configuración de inicio de sesión único**, siga estos pasos:
 
-    ![Configuración de inicio de sesión único ](./media/central-desktop-tutorial/ic769564.png "Configuración de inicio de sesión único")
+    ![Single sign-on settings (Configuración de inicio de sesión único)](./media/central-desktop-tutorial/ic769564.png "Configuración de inicio de sesión único")
 
     a. Seleccione **Enable SAML v2 Single Sign On**(Habilitar inicio de sesión único de SAML).
 
@@ -156,7 +157,7 @@ Para configurar el inicio de sesión único de Azure AD con Central Desktop, sig
 
 4. En la sección **Message Signature Verification Method** (Método de autenticación de firma de mensaje), realice los pasos siguientes:
 
-    ![Método de autenticación de firma de mensaje](./media/central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
+    ![Message Signature Verification Method (Método de autenticación de firma de mensaje)](./media/central-desktop-tutorial/ic769565.png "Método de autenticación de firma de mensaje")
     
     a. Seleccione **Certificado**.
 
@@ -232,15 +233,15 @@ Para que los usuarios de Azure AD puedan iniciar sesión, deben aprovisionarse e
 
 2. Seleccione **People** (Personas) y **Add Internal Members** (Agregar miembros internos).
 
-    ![Personas](./media/central-desktop-tutorial/ic781051.png "Personas")
+    ![Contactos](./media/central-desktop-tutorial/ic781051.png "Personas")
 
 3. En el cuadro de texto **Email Address of New Members** (Dirección de correo electrónico de nuevos miembros), escriba una cuenta de Azure AD que quiera aprovisionar y luego haga clic en **Siguiente**.
 
-    ![Dirección de correo electrónico de nuevos miembros](./media/central-desktop-tutorial/ic781052.png "Dirección de correo electrónico de nuevos miembros")
+    ![Email Address of New Members (Dirección de correo electrónico de nuevos miembros)](./media/central-desktop-tutorial/ic781052.png "Email Address of New Members (Dirección de correo electrónico de nuevos miembros)")
 
 4. Seleccione **Add Internal Members** (Agregar miembros internos).
 
-    ![Agregar miembros internos](./media/central-desktop-tutorial/ic781053.png "Agregar miembros internos")
+    ![Add internal members (Agregar miembros internos)](./media/central-desktop-tutorial/ic781053.png "Add internal members (Agregar miembros internos)")
   
    > [!NOTE]
    > Los usuarios que se agregan reciben un correo electrónico que incluye un vínculo de confirmación para activar sus cuentas.

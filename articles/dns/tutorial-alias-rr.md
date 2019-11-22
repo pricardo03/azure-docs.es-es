@@ -1,18 +1,19 @@
 ---
-title: 'Tutorial: Creación de un registro de alias de Azure DNS para hacer referencia a un registro de recursos en la zona.'
+title: 'Tutorial: Creación de un registro de alias para hacer referencia a un registro de recursos de una zona'
+titleSuffix: Azure DNS
 description: Este tutorial muestra cómo configurar un registro de alias de Azure DNS para hacer referencia a un registro de recursos dentro de la zona.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 3b4ee688d6a5606ab6008b459fcf6331c24afaae
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: allensu
+ms.openlocfilehash: 59ffe9781d97880044da5eedbdf84181bf1b2fa1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091647"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082893"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Tutorial: Creación de un registro de alias para hacer referencia a un registro de recursos de zona
 
@@ -30,10 +31,10 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 Debe tener un nombre de dominio disponible que pueda hospedar en Azure DNS para realizar las pruebas. Debe tener control total de este dominio. El control total incluye la capacidad de establecer los registros de nombre de servidor (NS) para el dominio.
 
-Para que obtener instrucciones para hospedar el dominio en Azure DNS, consulte [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
+Para obtener instrucciones sobre cómo hospedar el dominio en Azure DNS, vea [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
 
 
-## <a name="create-an-alias-record"></a>Creación de un registro de alias
+## <a name="create-an-alias-record"></a>Crear un registro de alias
 
 Cree un registro de alias que apunta a un registro de recursos en la zona.
 
@@ -57,7 +58,7 @@ Cree un registro de alias que apunta a un registro de recursos en la zona.
 ## <a name="test-the-alias-record"></a>Probar el registro de alias
 
 1. Inicie su herramienta nslookup favorita. Una opción es ir a [ https://network-tools.com/nslook ](https://network-tools.com/nslook).
-2. Establezca el tipo de consulta para los registros A y busque **test.\<su nombre de dominio\>**. La respuesta es **10.10.10.10**.
+2. Establezca el tipo de consulta para los registros A y busque **test.\<su nombre de dominio\>** . La respuesta es **10.10.10.10**.
 3. En Azure Portal, cambie el registro A **server** a **10.11.11.11**.
 4. Espere unos minutos y, después, utilice de nuevo nslookup para el registro **test**. La respuesta es **10.11.11.11**.
 

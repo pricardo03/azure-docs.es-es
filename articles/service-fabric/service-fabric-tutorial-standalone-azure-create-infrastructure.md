@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: v-vasuke
 ms.custom: mvc
-ms.openlocfilehash: d9db71a1b64ea6bf2dc73500160ce8e5e6022ef6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c9dd9cf0f0fb6d20d6837b07ab46d376e379ca25
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385032"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177730"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Creación de la infraestructura de una máquina virtual de Azure para hospedar un clúster de Service Fabric
 
@@ -90,18 +90,12 @@ Inicie dos **máquinas virtuales** más y asegúrese de mantener la misma config
  
 4. Abra el archivo RDP y, cuando se le solicite, escriba el nombre de usuario y la contraseña que proporcionó en la configuración de la máquina virtual.
 
-5. Cuando esté conectado a una instancia, debe asegurarse de que el registro remoto se encuentre en ejecución, habilitar SMB y abrir los puertos necesarios para SMB y el registro remoto.
-
-   Para habilitar SMB, use este comando de PowerShell:
-
-   ```powershell
-   netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
-   ```
+5. Cuando esté conectado a una instancia, debe asegurarse de que el registro remoto se encuentre en ejecución y abrir los puertos necesarios.
 
 6. Para abrir los puertos en el firewall, este es el comando de PowerShell:
 
    ```powershell
-   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
+   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
    ```
 
 7. Repita este proceso para las demás instancias, y no olvide anotar las direcciones IP privadas.
@@ -117,15 +111,6 @@ Inicie dos **máquinas virtuales** más y asegúrese de mantener la misma config
    ```
 
    Si la salida es similar a `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repetida cuatro veces, la conexión entre las instancias funciona.
-
-3. Ahora, asegúrese de que el recurso compartido de SMB funciona con el comando siguiente:
-
-   ```
-   net use * \\172.31.20.163\c$
-   ```
-
-   Debe devolver `Drive Z: is now connected to \\172.31.20.163\c$.` como salida.
-
 
    Ahora las instancias están configuradas correctamente para Service Fabric.
 

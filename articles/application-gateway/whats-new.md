@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 5ae7aa2dfbab5ff62f9ce56bc3a790294e369529
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: b2e7b9f28c84b769fe64be82f91418cc2a7d634f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686821"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044368"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Novedades de Azure Application Gateway
 
@@ -27,6 +27,7 @@ Azure Application Gateway se actualiza de forma continuada. Para mantenerse al d
 
 |Característica  |DESCRIPCIÓN  |Fecha de adición  |
 |---------|---------|---------|
+|Mejoras de sondeo |Con las mejoras de sondeo personalizadas de la SKU de Application Gateway v2, hemos simplificado la [configuración del sondeo](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), facilitado las [pruebas de mantenimiento de back-end a petición](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) y agregado [más información de diagnóstico](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) para ayudarle a solucionar los problemas de mantenimiento de back-end.  |Octubre de 2019 |
 |Más métricas |Hemos agregado las siguientes métricas nuevas para ayudarle a supervisar la SKU de Application Gateway v2: [Métricas relacionadas con el control de tiempo](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), estado de respuesta de back-end, bytes recibidos, bytes enviados, protocolo TLS de cliente y unidades de proceso actuales. Consulte las [Métricas compatibles con la SKU de Application Gateway V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Agosto de 2019 |
 |Reglas personalizadas del firewall de aplicaciones web |Application Gateway WAF_v2 ya admite la creación de reglas personalizadas. Consulte [Reglas personalizadas de Application Gateway](custom-waf-rules-overview.md). |Junio de 2019 |
 |Escalado automático, redundancia de zona, disponibilidad general del soporte técnico de VIP estática |Disponibilidad general de SKU v2 que admite el escalado automático, la redundancia de zona, la mejora del rendimiento, las VIP estáticas, Key Vault y la reescritura de encabezados. Vea la [documentación sobre el escalado automático de Application Gateway](application-gateway-autoscaling-zone-redundant.md). |Abril de 2019 |

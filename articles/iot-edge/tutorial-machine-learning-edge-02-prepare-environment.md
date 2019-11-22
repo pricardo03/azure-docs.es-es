@@ -1,19 +1,19 @@
 ---
-title: 'Configuración del entorno: Machine Learning en Azure IoT Edge | Microsoft Docs'
-description: Prepare el entorno para desarrollar e implementar módulos de aprendizaje automático en el perímetro.
+title: 'Tutorial: Configuración del entorno: Machine Learning en Azure IoT Edge'
+description: 'Tutorial: Prepare el entorno para desarrollar e implementar módulos de aprendizaje automático en el perímetro.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1db94e683a0dfb3b60b12bc5ac205c766d405d0a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2ea4248ebaedd318e4112e41169f72bc80b1120f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299838"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114075"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configuración de un entorno de aprendizaje automático en IoT Edge
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Supervisión de máquinas virtuales Windows en Azure | Microsoft Docs'
+title: 'Tutorial: Supervisión de máquinas virtuales Windows en Azure'
 description: En este tutorial aprenderá a supervisar el rendimiento y los componentes de la aplicación detectados que se ejecutan en las máquinas virtuales Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: a2f4083841c801db3edf1b2838b8d3271b700731
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 9e807927a10399b02c2c89359c2ffffaf87ba57b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679341"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112490"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de una máquina virtual Windows en Azure
 
@@ -91,7 +91,7 @@ Para habilitar la supervisión de la máquina virtual de Azure con Azure Monitor
 
 3. En la página **Insights (versión preliminar)** , seleccione **Probar ahora**.
 
-    ![Habilitar Azure Monitor para VM para una máquina virtual](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Habilitar Azure Monitor para VM para una máquina virtual](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. En la página **Azure Monitor Insights Onboarding** (Incorporación a Insights de Azure Monitor), si tiene un área de trabajo de Log Analytics existente en la misma suscripción, selecciónela en la lista desplegable.  
 

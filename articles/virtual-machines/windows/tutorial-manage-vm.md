@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación y administración de máquinas virtuales Windows con Azure PowerShell | Microsoft Docs'
+title: 'Tutorial: Creación y administración de máquinas virtuales Windows con Azure PowerShell'
 description: En este tutorial, aprenderá a usar Azure PowerShell para crear y administrar máquinas virtuales Windows en Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c60cd335e9d280d59fd872d1d0724f2eabd3afb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c48d5e514d854568043d001a22411b6a67f79e6a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101588"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067809"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Creación y administración de máquinas virtuales Windows con Azure PowerShell
 
@@ -31,7 +31,7 @@ Las máquinas virtuales de Azure proporcionan un entorno informático completame
 > * Seleccionar y usar imágenes de máquinas virtuales
 > * Ver y usar tamaños de una máquina virtual específicos
 > * Cambiar el tamaño de una máquina virtual
-> * Ver y entender el estado de las máquinas virtuales
+> * Ver y entender el estado de las máquinas virtuales.
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 

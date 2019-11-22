@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de Python: Llamada a Cognitive Services en una canalización de enriquecimiento con inteligencia artificial'
+title: 'Tutorial: Creación de un conjunto de aptitudes en Python mediante las API REST'
 titleSuffix: Azure Cognitive Search
 description: Siga paso a paso un ejemplo de extracción de datos, lenguaje natural y procesamiento de inteligencia artificial de imágenes en Azure Cognitive Search mediante un cuaderno de Jupyter Python. Los datos extraídos se indexan y se puede acceder fácilmente a ellos mediante consultas.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bb36ae551c48fc53756933e78ff0212f8ec1cdeb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790204"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113685"
 ---
-# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-enrichment-pipeline"></a>Tutorial de Python: Llamada a Cognitive Services API en una canalización de enriquecimiento de Azure Cognitive Search
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Tutorial: Creación de una canalización de enriquecimiento de inteligencia artificial mediante REST y Python
 
 En este tutorial, aprenderá la mecánica para programar el enriquecimiento de datos en Azure Cognitive Search mediante *aptitudes cognitivas*. Las aptitudes tienen el respaldo de las funcionalidades del procesamiento de lenguaje natural (NLP) y del análisis de imágenes de Cognitive Services. A través de la composición y configuración del conjunto de aptitudes puede extraer texto y representaciones de texto de un archivo con una imagen o con un documento digitalizado. También puede detectar el idioma, las entidades, las frases clave, etc. El resultado es un contenido adicional enriquecido en un índice de búsqueda, creado con enriquecimientos por inteligencia artificial en una canalización de indexación. 
 
@@ -34,7 +34,7 @@ La salida es un índice que permite búsquedas de texto completo en Azure Cognit
 Este tutorial se ejecuta en el servicio Gratis, pero el número de transacciones gratuitas está limitado a 20 documentos por día. Si desea ejecutar este tutorial más de una vez en el mismo día, use un conjunto de archivos más pequeño para que pueda realizar más ejecuciones.
 
 > [!NOTE]
-> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Se acumulan cargos cuando se llama a las API de Cognitive Services y en la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
+> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
 > La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial sobre configuración de dispositivos en una solución de supervisión remota en Azure | Microsoft Docs
+title: 'Configuración de dispositivos en la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este tutorial se muestra cómo configurar los dispositivos conectados al acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d23b7c8fa10127094fec67535333ae169f0f38f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e4236952bd41c4955e337813ff6d706263b8ef47
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183397"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890897"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configuración de dispositivos conectados a la solución de supervisión
 

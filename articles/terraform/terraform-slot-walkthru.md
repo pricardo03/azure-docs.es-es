@@ -1,26 +1,23 @@
 ---
-title: Terraform con espacios de implementación del proveedor de Azure
+title: 'Tutorial: Aprovisionamiento de una infraestructura con espacios de implementación de Azure mediante Terraform'
 description: Tutorial sobre el uso de Terraform con espacios de implementación del proveedor de Azure
-services: terraform
-ms.service: azure
-keywords: terraform, devops, máquina virtual, Azure, ranuras de implementación
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: ec2ed1da46df2793a241c9c89d168a6c5d462b9d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 11/07/2019
+ms.openlocfilehash: 0bfd10325f1a62e74f0d3573f052d114069491a3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169827"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838059"
 ---
-# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Aprovisionamiento de una infraestructura con espacios de implementación de Azure con Terraform
+# <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Tutorial: Aprovisionamiento de infraestructuras con espacios de implementación de Azure mediante Terraform
 
 Puede usar [espacios de implementación de Azure](/azure/app-service/deploy-staging-slots) para cambiar de una versión de la aplicación a otra. Esa capacidad ayuda a minimizar el impacto de las implementaciones rotas. 
 
-Este artículo muestra un ejemplo del uso de las ranuras de implementación, en el que se le guía a través de la implementación de dos aplicaciones mediante GitHub y Azure. Una aplicación se hospeda en un espacio de producción. La segunda aplicación se hospeda en un espacio de ensayo. (los nombres "producción" y "ensayo" son arbitrarios y pueden ser cualesquiera otros que desee que representen el escenario). Una vez configurados los espacios de implementación, puede usar Terraform para cambiar de uno a otro según sea necesario.
+Este artículo muestra un ejemplo del uso de las ranuras de implementación, en el que se le guía a través de la implementación de dos aplicaciones mediante GitHub y Azure. Una aplicación se hospeda en un espacio de producción. La segunda aplicación se hospeda en un espacio de ensayo. Los nombres "producción" y "ensayo" son arbitrarios; pueden adaptarse a lo que resulte adecuado para su escenario. Una vez configurados los espacios de implementación, usará Terraform para cambiar de uno a otro según sea necesario.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -64,13 +61,11 @@ Este artículo muestra un ejemplo del uso de las ranuras de implementación, en 
     cd deploy
     ```
 
-1. Mediante el [editor vi](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), cree un archivo llamado `deploy.tf`. Este archivo contendrá la [configuración de Terraform](https://www.terraform.io/docs/configuration/index.html).
+1. En Cloud Shell, cree un archivo denominado `deploy.tf`.
 
     ```bash
-    vi deploy.tf
+    code deploy.tf
     ```
-
-1. Seleccione la tecla I para acceder al modo de inserción.
 
 1. Pegue el siguiente código en el editor:
 
@@ -85,8 +80,8 @@ Este artículo muestra un ejemplo del uso de las ranuras de implementación, en 
 
     resource "azurerm_app_service_plan" "slotDemo" {
         name                = "slotAppServicePlan"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
         sku {
             tier = "Standard"
             size = "S1"
@@ -95,27 +90,21 @@ Este artículo muestra un ejemplo del uso de las ranuras de implementación, en 
 
     resource "azurerm_app_service" "slotDemo" {
         name                = "slotAppService"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
     }
 
     resource "azurerm_app_service_slot" "slotDemo" {
         name                = "slotAppServiceSlotOne"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
-        app_service_name    = "${azurerm_app_service.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
+        app_service_name    = azurerm_app_service.slotDemo.name
     }
     ```
 
-1. Seleccione la tecla Esc para salir del modo de inserción.
-
-1. Guarde el archivo y salga del editor vi, para lo que debe escribir el siguiente comando:
-
-    ```bash
-    :wq
-    ```
+1. Guarde el archivo ( **&lt;Ctrl > S**) y salga del editor ( **&lt;Ctrl > Q**).
 
 1. Ahora que ha creado el archivo, verifique el contenido.
 
@@ -207,7 +196,7 @@ Una vez bifurcado el repositorio del proyecto de prueba, siga estos pasos para c
 
 1. En la pestaña **Opción de implementación**, haga clic en **Aceptar**.
 
-Ya ha implementado el espacio de producción. Para implementar la zona de ensayo, realice todos los pasos anteriores de esta sección con únicamente las modificaciones siguientes:
+En este punto, ya ha implementado el espacio de producción. Para implementar el espacio de ensayo, lleve a cabo los pasos anteriores con las siguientes modificaciones:
 
 - En el paso 3, seleccione el recurso **slotAppServiceSlotOne**.
 
@@ -219,8 +208,6 @@ Ya ha implementado el espacio de producción. Para implementar la zona de ensayo
 
 En las secciones anteriores, se configuraron dos espacios (**slotAppService** y **slotAppServiceSlotOne**), con el fin de poder realizar implementaciones desde distintas bifurcaciones de GitHub. Vamos a realizar una versión preliminar de las aplicaciones web para validar que se han implementado correctamente.
 
-Realice dos veces los siguientes pasos. En el paso 3, se selecciona **slotAppService** la primera vez, mientras que la segunda, se debe seleccionar **slotAppServiceSlotOne**.
-
 1. En el menú principal de Azure Portal, seleccione **Grupos de recursos**.
 
 1. Seleccione **slotDemoResourceGroup**.
@@ -231,18 +218,15 @@ Realice dos veces los siguientes pasos. En el paso 3, se selecciona **slotAppSer
 
     ![Seleccione la dirección URL en la pestaña de información general para representar la aplicación](./media/terraform-slot-walkthru/resource-url.png)
 
-> [!NOTE]
-> Azure puede tardar varios minutos en crear e implementar el sitio desde GitHub.
->
->
+1. En función de la aplicación seleccionada, verá los siguientes resultados:
+    - Aplicación web **slotAppService**: página azul con el título **Slot Demo App 1**. 
+    - Aplicación web **slotAppServiceSlotOne**: página verde con el título **Slot Demo App 2**.
 
-En el caso de la aplicación web **slotAppService**, verá una página azul con el título **Slot Demo App 1**. En el caso de la aplicación web **slotAppServiceSlotOne**, verá una página verde con el título **Slot Demo App 2**.
-
-![Obtener una versión preliminar de las aplicaciones para probar si se han implementado correctamente](./media/terraform-slot-walkthru/app-preview.png)
+    ![Obtener una versión preliminar de las aplicaciones para probar si se han implementado correctamente](./media/terraform-slot-walkthru/app-preview.png)
 
 ## <a name="swap-the-two-deployment-slots"></a>Intercambio de las dos ranuras de implementación
 
-Para probar el intercambio de las dos ranuras de implementación, siga estos pasos:
+Para probar el cambio entre los dos espacios de implementación, siga estos pasos:
  
 1. Cambie a la pestaña del explorador en la que se ejecuta **slotAppService** (la aplicación con la página azul). 
 
@@ -256,13 +240,11 @@ Para probar el intercambio de las dos ranuras de implementación, siga estos pas
     cd clouddrive/swap
     ```
 
-1. Mediante el editor vi, cree un archivo llamado `swap.tf`.
+1. En Cloud Shell, cree un archivo denominado `swap.tf`.
 
     ```bash
-    vi swap.tf
+    code swap.tf
     ```
-
-1. Seleccione la tecla I para acceder al modo de inserción.
 
 1. Pegue el siguiente código en el editor:
 
@@ -278,13 +260,7 @@ Para probar el intercambio de las dos ranuras de implementación, siga estos pas
     }
     ```
 
-1. Seleccione la tecla Esc para salir del modo de inserción.
-
-1. Guarde el archivo y salga del editor vi, para lo que debe escribir el siguiente comando:
-
-    ```bash
-    :wq
-    ```
+1. Guarde el archivo ( **&lt;Ctrl > S**) y salga del editor ( **&lt;Ctrl > Q**).
 
 1. Inicialice Terraform.
 
@@ -304,7 +280,7 @@ Para probar el intercambio de las dos ranuras de implementación, siga estos pas
     terraform apply
     ```
 
-1. Cuando Terraform haya acabado de intercambiar los espacios, vuelva al explorador que representa la aplicación web **slotAppService** y actualice la página. 
+1. Después de que Terraform haya cambiado los espacios, vuelva al explorador. Actualice la página. 
 
 La aplicación web del espacio de ensayo **slotAppServiceSlotOne** se ha intercambiado por el espacio de producción y ahora se representa en verde. 
 
@@ -317,3 +293,8 @@ terraform apply
 ```
 
 Tras el intercambio de la aplicación, se ve la configuración original.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"] 
+> [Más información sobre el uso de Terraform en Azure](/azure/terraform)

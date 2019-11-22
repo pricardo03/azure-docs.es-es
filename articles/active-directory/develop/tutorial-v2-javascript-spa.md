@@ -1,5 +1,6 @@
 ---
-title: Configuración guiada de una aplicación de página única de JavaScript en Azure AD v2.0 | Microsoft Docs
+title: Configuración guiada de una aplicación de página única de JavaScript en Azure AD v2.0
+titleSuffix: Microsoft identity platform
 description: Cómo pueden llamar las aplicaciones SPA de JavaScript a una API que requiera tokens de acceso mediante el punto de conexión de Azure Active Directory v2.0
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61790954393923bbf330ad3a534d1d33d1a44bbc
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: fc03e6f1610fe6cef9ce72c981f6f800da8a9951
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983477"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802534"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript
 
@@ -263,7 +264,7 @@ Agregue el siguiente código al archivo `index.html`, dentro de las etiquetas `<
 
 Cuando un usuario selecciona el botón **Iniciar sesión** por primera vez, el método `signIn` llama a `loginPopup` para iniciar la sesión del usuario. Este método hace que se abra una ventana emergente con el *punto de conexión de la Plataforma de identidad de Microsoft* para pedir y validar las credenciales del usuario. Después de iniciar sesión correctamente, el usuario se redirige de nuevo a la página *index.html* original. `msal.js` recibe y procesa un token, y la información contenida en él se almacena en caché. Este token se conoce como el *token de identificador* y contiene información básica sobre el usuario, como su nombre. Si piensa utilizar los datos proporcionados por este token para algún propósito, debe asegurarse de que el servidor backend lo valide para garantizar que el token se emitió a un usuario válido para la aplicación.
 
-La instancia de SPA generada por esta guía llama a `acquireTokenSilent` o a `acquireTokenPopup` para adquirir un *token de acceso* que se usa para consultar la información del perfil de usuario a Microsoft Graph API. Si necesita obtener un ejemplo que valide el token de identificador, eche un vistazo a [esta](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "aplicación de ejemplo en GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2") en GitHub. En el ejemplo se usa ASP.NET Web API para la validación de tokens.
+La instancia de SPA generada por esta guía llama a `acquireTokenSilent` o a `acquireTokenPopup` para adquirir un *token de acceso* que se usa para consultar la información del perfil de usuario a Microsoft Graph API. Si necesita un ejemplo que valide el token de identificador, eche un vistazo a [esta](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Ejemplo active-directory-javascript-singlepageapp-dotnet-webapi-v2 de GitHub") aplicación de ejemplo en GitHub. En el ejemplo se usa ASP.NET Web API para la validación de tokens.
 
 #### <a name="getting-a-user-token-interactively"></a>Obtención de un token de usuario interactivamente
 

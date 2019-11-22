@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9cb5d3ae02cb0d4a6e293207a736dced56ed8538
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: be6eb6f13d7abf80537d155472a4072f7d08c06c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747459"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091600"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
@@ -127,9 +127,9 @@ La copia de seguridad de los recursos compartidos de archivos de Azure ofrece la
 
 Cuando se aplica una nueva directiva en los recursos compartidos de archivos, se siguen las opciones de programación y retención de la nueva directiva. Si se amplía la retención, los puntos de recuperación existentes se marcarán para mantenerlos de acuerdo con la nueva directiva. Si se reduce la retención, se marcan para eliminarse, y se eliminan, en el siguiente trabajo de limpieza.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
 
-Esta información es solo sobre la copia de seguridad de archivos de Azure. Para más información sobre otras áreas de Azure Backup, consulte algunas de estas otras preguntas frecuentes acerca de las copias de seguridad:
+Para más información sobre otras áreas de Azure Backup, consulte algunas de estas otras preguntas frecuentes sobre la copia de seguridad:
 
 - [Preguntas más frecuentes sobre el almacén de Recovery Services](backup-azure-backup-faq.md)
 - [Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure](backup-azure-vm-backup-faq.md)

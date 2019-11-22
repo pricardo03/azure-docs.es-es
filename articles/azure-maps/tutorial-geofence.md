@@ -1,22 +1,22 @@
 ---
-title: Creación de una geovalla con Azure Maps | Microsoft Docs
-description: Configure una geovalla con Azure Maps.
+title: 'Tutorial: Creación de una geoárea mediante Azure Maps'
+description: 'Tutorial: Configure una geovalla con Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694925"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107100"
 ---
-# <a name="set-up-a-geofence-by-using-azure-maps"></a>Configuración de una geovalla con Azure Maps
+# <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
 Este tutorial le guía por los pasos básicos para configurar la geovalla con Azure Maps. El escenario que tratamos en este tutorial es ayudar a los administradores de sitios de construcción a supervisar los equipos potencialmente peligrosos que se mueven más allá de las áreas de construcción designadas. Un sitio de construcción implica regulaciones y equipos costosos. Por lo general requiere que el equipo permanezca dentro del sitio de construcción y no salga sin permiso.
 

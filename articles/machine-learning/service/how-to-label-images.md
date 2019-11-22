@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: af12361ed11d0a16e5a5d0cfe5989bb3918ce154
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9cbebb905ba39dabaf905be2fa741702bd1a0088
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585591"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838942"
 ---
 # <a name="how-to-tag-images-in-a-labeling-project"></a>Cómo etiquetar imágenes en un proyecto de etiquetado
 
-Una vez que el administrador del proyecto haya creado un proyecto de etiquetado en Azure Machine Learning Studio, puede usar la herramienta de etiquetado para preparar rápidamente los datos para un proyecto de aprendizaje automático. 
+Una vez que el administrador del proyecto haya creado un proyecto de etiquetado en Azure Machine Learning, puede usar la herramienta de etiquetado para preparar rápidamente los datos para un proyecto de aprendizaje automático. 
 
 > [!div class="checklist"]
 > * Cómo acceder a proyectos de etiquetado

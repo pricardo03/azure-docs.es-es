@@ -1,6 +1,6 @@
 ---
-title: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante Azure PowerShell | Microsoft Docs
-description: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante Azure PowerShell
+title: Configuración del enrutamiento de mensajes para Azure IoT Hub con Azure PowerShell
+description: Configure el enrutamiento de mensajes para Azure IoT Hub mediante Azure PowerShell. En función de las propiedades del mensaje, se enruta a una cuenta de almacenamiento o a una cola de Service Bus.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 2c0e66bfe5ec332d25b93305cb2ac8d172ca130d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 68338c56419316e561bb072c1a0555e89d3de85b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535133"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084440"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de Azure PowerShell para configurar el enrutamiento de mensajes de IoT Hub
 
@@ -34,13 +34,13 @@ Empiece por crear los recursos con PowerShell.
 
 ### <a name="use-powershell-to-create-your-base-resources"></a>Uso de PowerShell para crear los recursos de base
 
+Copie y pegue el siguiente script en Cloud Shell y presione Entrar. El script se ejecuta de línea en línea. Con esta primera sección del script creará los recursos de base para este tutorial, incluida la cuenta de almacenamiento, la instancia de IoT Hub, el espacio de nombres de Service Bus y la cola de Service Bus. Conforme avance en el tutorial, copie cada bloque de script y péguelo en Cloud Shell para ejecutarlo.
+
 Hay varios nombres de recurso que deben ser únicos globalmente, como el nombre de IoT Hub y el nombre de la cuenta de almacenamiento. Para facilitar esta tarea, se anexan los nombres de los recursos con un valor alfanumérico aleatorio denominado *randomValue*. El valor RandomValue se genera una vez en la parte superior del script y se anexa a los nombres de los recursos según sea necesario en el script. Si no desea que sea aleatorio, puede establecerlo en una cadena vacía o en un valor específico. 
 
 > [!IMPORTANT]
 > Las variables que se establecen en el script inicial también las usa el script de enrutamiento, por lo que debe ejecutar todo el script en la misma sesión de Cloud Shell. Si abre una nueva sesión para ejecutar el script para configurar el enrutamiento, a varias de las variables les faltarán valores. 
 >
-
-Copie y pegue el siguiente script en Cloud Shell y presione Entrar. El script se ejecuta de línea en línea. Con esta primera sección del script creará los recursos de base para este tutorial, incluida la cuenta de almacenamiento, la instancia de IoT Hub, el espacio de nombres de Service Bus y la cola de Service Bus. Conforme avance en el tutorial, copie cada bloque de script y péguelo en Cloud Shell para ejecutarlo.
 
 ```azurepowershell-interactive
 # This command retrieves the subscription id of the current Azure account.
@@ -140,7 +140,7 @@ En primer lugar, configure el punto de conexión para la cuenta de almacenamient
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-Se establecen estas variables:
+Estas son las variables utilizadas por el script que se debe establecer en la sesión de Cloud Shell:
 
 **resourceGroup**: este campo aparece dos veces, configure ambos para el grupo de recursos.
 
@@ -232,7 +232,7 @@ $sbqkey = Get-AzServiceBusKey `
     -Name "sbauthrule"
 ```
 
-Ahora, configure el punto de conexión de enrutamiento y la ruta de mensajes para la cola de Service Bus. Se establecen estas variables:
+Ahora, configure el punto de conexión de enrutamiento y la ruta de mensajes para la cola de Service Bus. Estas son las variables utilizadas por el script que se debe establecer en la sesión de Cloud Shell:
 
 **endpointName**: este campo es el nombre que identifica el punto de conexión. 
 

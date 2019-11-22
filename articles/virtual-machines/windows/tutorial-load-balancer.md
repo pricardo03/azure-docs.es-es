@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Equilibrio de carga de máquinas virtuales Windows en Azure | Microsoft Docs'
+title: 'Tutorial: Equilibrio de carga de máquinas virtuales Windows en Azure'
 description: En este tutorial, aprenderá a usar Azure PowerShell para crear un equilibrador de carga para una aplicación segura y de alta disponibilidad entre tres máquinas virtuales Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe202712f5e269950b64046453867bd23d18a9ab
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 05a796d7bbe08f8e560c6545f3ed37c0f54b9cf9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100225"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067860"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Tutorial: Equilibrio de carga de máquinas virtuales Windows en Azure para crear una aplicación de alta disponibilidad con Azure PowerShell
 El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribuir las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, aprenderá sobre los distintos componentes de Azure Load Balancer que distribuyen el tráfico y proporcionan una alta disponibilidad. Aprenderá a:

@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13ab9752391519f38e843b9d625164e655348d28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89ea2c45e16dfeb63801f70fa4480c0d865a890f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091796"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integración de Azure Active Directory con SAP Cloud Platform
 
@@ -156,11 +157,11 @@ Para configurar el inicio de sesión único de Azure AD con SAP Cloud Platform, 
 
 2. Haga clic en la pestaña **Trust** (Confianza).
    
-    ![Confianza](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Confianza")
+    ![Trust (Confianza)](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Trust")
 
 3. En la sección Trust Management (Administración de confianza), en **Local Service Provider** (Proveedor de servicios local), realice los pasos siguientes:
 
-    ![Administración de confianza](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Administración de confianza")
+    ![Trust Management (Administración de confianza)](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Administración de confianza")
    
     a. Haga clic en **Editar**.
 
@@ -178,7 +179,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP Cloud Platform, 
 
 4. Después de guardar la configuración de **Local Service Provider** (Proveedor de servicios local), realice lo siguiente para obtener la dirección URL de respuesta:
    
-    ![Obtención de metadatos](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Obtención de metadatos")
+    ![Get Metadata (Obtener metadatos)](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Get Metadata")
 
     a. Para descargar el archivo de metadatos de SAP Cloud Platform, haga clic en **Get Metadata** (Obtener metadatos).
 
@@ -188,7 +189,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP Cloud Platform, 
 
 5. Haga clic en la pestaña **Trusted Identity Provider** (Proveedor de identidades de confianza) y en **Add Trusted Identity Provider** (Agregar proveedor de identidad de confianza).
    
-    ![Administración de confianza](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Administración de confianza")
+    ![Trust Management (Administración de confianza)](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Administración de confianza")
    
     >[!NOTE]
     >Para administrar la lista de proveedores de identidades de confianza, deberá haber elegido el tipo de configuración personalizada en la sección del proveedor de servicios local. Para el tipo de configuración predeterminado, tendrá una confianza implícita y no editable para el servicio de id. de SAP. Para Ninguno, no tiene ninguna configuración de confianza.
@@ -197,7 +198,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP Cloud Platform, 
 
 6. Haga clic en la pestaña **General** y en **Browse** (Examinar) para cargar el archivo de metadatos descargados.
     
-    ![Administración de confianza](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Administración de confianza")
+    ![Trust Management (Administración de confianza)](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Administración de confianza")
     
     >[!NOTE]
     >Después de cargar el archivo de metadatos, los valores de **Dirección URL de inicio de sesión único**, **Dirección URL de cierre de sesión único** y **Certificado de firma** se rellenan automáticamente.
@@ -296,7 +297,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en SAP Cloud Platform
 
 2. Lleve a cabo los siguientes pasos:
    
-    ![Autorizaciones](./media/sap-hana-cloud-platform-tutorial/ic790805.png "Autorizaciones")
+    ![Authorizations (Autorizaciones)](./media/sap-hana-cloud-platform-tutorial/ic790805.png "Autorizaciones")
    
     a. Haga clic en **Authorization**(Autorización).
 

@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a34c688b7d8e12dac1d76b3e03fb1b50583c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f792798e724387b6917c23d1bde0c2c68fa8a270
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106258"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integración de Azure Active Directory con Bime
 
@@ -136,7 +137,7 @@ Para configurar el inicio de sesión único de Azure AD con Bime, realice los pa
 
 2. En la barra de herramientas, haga clic en **Admin** y, luego, en **Account** (Cuenta).
   
-    ![Administración](./media/bime-tutorial/ic775558.png "Administración")
+    ![Administrador](./media/bime-tutorial/ic775558.png "Administración")
 
 3. En la página de configuración de la cuenta, realice los siguientes pasos:
   
@@ -211,7 +212,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Bime, tienen que a
 
 2. En la barra de herramientas, haga clic en **Admin** y, luego, en **Users** (Usuarios).
 
-    ![Administración](./media/bime-tutorial/ic775561.png "Administración")
+    ![Administrador](./media/bime-tutorial/ic775561.png "Administración")
 
 3. En **Users List** (Lista de usuarios), haga clic en **Agregar nuevo usuario** (+).
 
@@ -219,7 +220,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Bime, tienen que a
 
 4. En la página de diálogo **User Details** (Detalles del usuario), siga estos pasos:
 
-    ![Detalles del usuario](./media/bime-tutorial/ic775563.png "Detalles del usuario")
+    ![User Details (Detalles del usuario)](./media/bime-tutorial/ic775563.png "Detalles del usuario")
 
     a. En el cuadro de texto **Nombre**, escriba el nombre de usuario, en este caso **Britta**.
 

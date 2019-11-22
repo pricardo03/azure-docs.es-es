@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d96d1addf1028c2651ed837f3dab66f12d5d5fcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab998b6d9aec663123f0bd2428e4c6f1767f1846
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105862"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158740"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutorial: Integración de Azure Active Directory con Canvas
 
@@ -136,15 +137,15 @@ Para configurar el inicio de sesión único de Azure AD con Canvas, siga estos p
 
 2. Vaya a **Cursos \> Cuentas administradas \> Microsoft**.
 
-    ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
+    ![Lienzo](./media/canvas-lms-tutorial/ic775990.png "Lienzo")
 
 3. En el panel de navegación izquierdo, seleccione **Authentication** (Autenticación) y, después, haga clic en **Add New SAML Config** (Agregar nueva configuración de SAML).
 
-    ![Autenticación](./media/canvas-lms-tutorial/ic775991.png "Autenticación")
+    ![Autenticación](./media/canvas-lms-tutorial/ic775991.png "Authentication")
 
 4. En la página Curent Integration (integración actual) realice los siguientes pasos:
 
-    ![Integración actual](./media/canvas-lms-tutorial/ic775992.png "Integración actual")
+    ![Current Integration (Integración actual)](./media/canvas-lms-tutorial/ic775992.png "Integración actual")
 
     a. En el cuadro de texto **IdP Entity ID** (Identificador de la entidad de IdP), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
@@ -223,7 +224,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Canvas, tienen que
 
 2. Vaya a **Cursos \> Cuentas administradas \> Microsoft**.
 
-   ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
+   ![Lienzo](./media/canvas-lms-tutorial/ic775990.png "Lienzo")
 
 3. Haga clic en **Usuarios**.
 

@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8389ba4c-f5f8-4ede-b2f4-32eae844ceb0
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97e44b11f756f198724d37b3cef49f3ad94699df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1faf1c1fcdefb0c93d36c195f0cf44626a555f44
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101027"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Tutorial: Integración de Azure Active Directory con Huddle
 
@@ -224,11 +225,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Huddle, deben apro
 
 3. Haga clic en **Contactos\>Invitar a contactos**.
 
-    ![Personas](./media/huddle-tutorial/ic787838.png "Personas")
+    ![Contactos](./media/huddle-tutorial/ic787838.png "Personas")
 
 4. En la sección **Crear nueva invitación** , lleve a cabo estos pasos:
   
-    ![Nueva invitación](./media/huddle-tutorial/ic787839.png "Nueva invitación")
+    ![New Invitation (Nueva invitación)](./media/huddle-tutorial/ic787839.png "Nueva invitación")
   
     a. En la lista **Choose a team to invite people to join** (Elegir un equipo al que invitar a unirse a los contactos), seleccione **equipo**.
 

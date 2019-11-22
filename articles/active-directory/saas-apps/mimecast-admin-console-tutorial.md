@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9edadd6462052f82f92c05c1678f845ece856cfb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097338"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Tutorial: Integración de Azure Active Directory con Mimecast Admin Console
 
@@ -135,19 +136,19 @@ Para configurar el inicio de sesión único de Azure AD con Mimecast Admin Cons
 
 2. Vaya a **Servicios\>Aplicación**.
 
-    ![Servicios](./media/mimecast-admin-console-tutorial/ic794998.png "Servicios")
+    ![Servicios](./media/mimecast-admin-console-tutorial/ic794998.png "Services")
 
 3. Haga clic en **Authentication Profiles**(Perfiles de autenticación).
 
-    ![Authentication Profiles (Perfiles de autenticación)](./media/mimecast-admin-console-tutorial/ic794999.png "Authentication Profiles (Perfiles de autenticación)")
+    ![Authentication Profiles (Perfiles de autenticación)](./media/mimecast-admin-console-tutorial/ic794999.png "Authentication Profiles")
     
 4. Haga clic en **New Authentication Profile**(Nuevo perfil de autenticación).
 
-    ![New Authentication Profiles (Nuevos perfiles de autenticación)](./media/mimecast-admin-console-tutorial/ic795000.png "Authentication Profiles (Nuevos perfiles de autenticación)")
+    ![New Authentication Profile (Nuevo perfil de autenticación)](./media/mimecast-admin-console-tutorial/ic795000.png "Nuevos perfiles de autenticación")
 
 5. En la sección **Authentication Profile** (Perfil de autenticación), realice estos pasos:
 
-    ![Authentication Profile (Perfil de autenticación)](./media/mimecast-admin-console-tutorial/ic795015.png "Authentication Profile (Perfil de autenticación)")
+    ![Authentication Profile (Perfil de autenticación)](./media/mimecast-admin-console-tutorial/ic795015.png "Authentication Profile")
     
     a. En el cuadro de texto **Description** (Descripción), escriba un nombre para la configuración.
     
@@ -233,19 +234,19 @@ Para permitir que los usuarios de Azure AD inicien sesión en Mimecast Admin Con
 
 2. Vaya a **Directorios\> Interno**.
    
-    ![Directories (Directorios)](./media/mimecast-admin-console-tutorial/ic795003.png "Directories (Directorios)")
+    ![Directorios](./media/mimecast-admin-console-tutorial/ic795003.png "Directorios")
 
 3. Haga clic en **Register New Domain**(Registrar nuevo dominio).
    
-    ![Register New Domain (Registrar nuevo dominio)](./media/mimecast-admin-console-tutorial/ic795004.png "Register New Domain (Registrar nuevo dominio)")
+    ![Register New Domain (Registrar nuevo dominio)](./media/mimecast-admin-console-tutorial/ic795004.png "Register New Domain")
 
 4. Una vez creado el nuevo dominio, haga clic en **New Address**(Nueva dirección).
    
-    ![New Address (Nueva dirección)](./media/mimecast-admin-console-tutorial/ic795005.png "New Address (Nueva dirección)")
+    ![New Address (Nueva dirección)](./media/mimecast-admin-console-tutorial/ic795005.png "New Address")
 
 5. En el cuadro de diálogo Nueva dirección, realice estos pasos:
    
-    ![Guardar](./media/mimecast-admin-console-tutorial/ic795006.png "Guardar")
+    ![Guardar](./media/mimecast-admin-console-tutorial/ic795006.png "Save")
    
     a. Escriba los datos de una cuenta de Azure AD válida que desee aprovisionar en los cuadros de texto correspondientes: **Email Address** (Dirección de correo electrónico), **Global Name** (Nombre global), **Password** (Contraseña) y **Confirm Password** (Confirmar contraseña).
 

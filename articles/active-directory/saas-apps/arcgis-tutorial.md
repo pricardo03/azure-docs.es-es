@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: a9e132a4-29e7-48bf-beb9-4148e617c8a9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db56cd7551ef8179aeff575fdd1f2578cbee74ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4afd7697272775b8d5558d9c091eeea0d2b9adf
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106705"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutorial: Integración de Azure Active Directory con ArcGIS Online
 
@@ -128,7 +129,7 @@ Para configurar el inicio de sesión único de Azure AD con ArcGIS Online, siga 
 
 2. Haga clic en **EDITAR CONFIGURACIÓN**.
 
-    ![Editar configuración](./media/arcgis-tutorial/ic784742.png "Editar configuración")
+    ![Edit Settings](./media/arcgis-tutorial/ic784742.png "Edit Settings") (Editar configuración)
 
 3. Haga clic en **Seguridad**.
 
@@ -140,7 +141,7 @@ Para configurar el inicio de sesión único de Azure AD con ArcGIS Online, siga 
 
 5. En la sección **Configurar proveedor de identidades** , realice los pasos siguientes:
 
-    ![Set Identity Provider (Establecer proveedor de identidades)](./media/arcgis-tutorial/ic784745.png "Set Identity Provider (Establecer proveedor de identidades)")
+    ![Set Identity Provider (Establecer proveedor de identidades)](./media/arcgis-tutorial/ic784745.png "Establecer proveedor de identidades")
 
     a. En el cuadro de texto **Nombre**, escriba el nombre de la organización.
 
@@ -212,22 +213,22 @@ En el caso de ArcGIS Online, el aprovisionamiento es una tarea manual.
 
 2. Haga clic en **INVITAR A MIEMBROS**.
    
-    ![Invitar a miembros](./media/arcgis-tutorial/ic784747.png "Invitar a miembros")
+    ![Invite Members (Invitar a miembros)](./media/arcgis-tutorial/ic784747.png "Invitar a miembros")
 
 3. Seleccione **Agregar miembros automáticamente sin enviar un correo electrónico** y luego haga clic en **SIGUIENTE**.
    
-    ![Agregar miembros automáticamente](./media/arcgis-tutorial/ic784748.png "Agregar miembros automáticamente")
+    ![Add Members Automatically (Agregar miembros automáticamente)](./media/arcgis-tutorial/ic784748.png "Agregar miembros automáticamente")
 
 4. En la página de diálogo **Miembros** , realice los pasos siguientes:
    
-     ![Agregar y revisar](./media/arcgis-tutorial/ic784749.png "Agregar y revisar")
+     ![Add and review (Agregar y revisar)](./media/arcgis-tutorial/ic784749.png "Agregar y revisar")
     
      a. Escriba los valores de **correo electrónico**, **nombre** y **apellido** de una cuenta de AAD válida que desea aprovisionar.
   
      b. Haga clic en **AGREGAR Y REVISAR**.
 5. Revise los datos que ha escrito y luego haga clic en **AGREGAR MIEMBROS**.
    
-    ![Agregar miembros](./media/arcgis-tutorial/ic784750.png "Agregar miembros")
+    ![Add members (Agregar miembros)](./media/arcgis-tutorial/ic784750.png "Agregar miembro")
         
     > [!NOTE]
     > El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.

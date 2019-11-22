@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bdf91993-aaaa-4598-89b7-77ef8ca065d5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 97e38c62da74444f1f229f12e42d98e75a6e5073
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e7498411e68b83f8c05d50f52f73f97df9f797
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097197"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160593"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Tutorial: Integración de Azure Active Directory con Mindflash
 
@@ -190,13 +191,13 @@ Para permitir que los usuarios de Azure AD inicien sesión en Mindflash, deben a
 
 1. Vaya a **Administrar usuarios**.
    
-    ![Administración de usuarios](./media/mindflash-tutorial/ic787140.png "Administración de usuarios")
+    ![Administración de usuarios](./media/mindflash-tutorial/ic787140.png "Administrar usuarios")
 
 1. Haga clic en **Agregar usuarios** y luego en **Nuevo**.
 
 1. En la sección **Agregar usuarios nuevos**, lleve a cabo los siguientes pasos para la cuenta de Azure AD válida que desea aprovisionar:
    
-    ![Agregar nuevos usuarios](./media/mindflash-tutorial/ic787141.png "Agregar nuevos usuarios")
+    ![Add New Users (Agregar nuevos usuarios)](./media/mindflash-tutorial/ic787141.png "Agregar nuevos usuarios")
    
     a. En el cuadro de texto **First name** (Nombre), escriba el **nombre** del usuario, en este caso **Britta**.
 

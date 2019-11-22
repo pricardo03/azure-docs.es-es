@@ -1,21 +1,18 @@
 ---
 title: 'Ejemplo: Almacenes de claves sin puntos de conexión de red virtual'
 description: Esta definición de directiva de ejemplo audita los almacenes de Key Vault para detectar instancias que no tienen ningún punto de conexión de servicio de red virtual.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
-ms.openlocfilehash: 7bcbcdf68b3c8f882a1e0fbb9953fea575f96556
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 078a781ca96df421d52179f5e8d25650def8a2f3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255730"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076200"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Ejemplo: almacenes de Key Vault sin ningún punto de conexión de red virtual
 
-Esta directiva audita almacenes de Key Vault que no tienen ningún punto de conexión de red virtual. Utilice esta opción para aplicar los requisitos de seguridad. Para más información, consulte [Puntos de conexión de servicio de Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md).
+En este ejemplo de cómo [integrar Key Vault con Azure Policy](../../../key-vault/azure-policy.md) se realiza una auditoría de los almacenes de claves que no tienen puntos de conexión de red virtual. Utilice esta opción para aplicar los requisitos de seguridad. Para más información, consulte [Puntos de conexión de servicio de Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md).
 
 Puede implementar esta directiva de ejemplo mediante:
 
@@ -187,4 +184,5 @@ Hay varias herramientas que se pueden usar para interactuar con la API REST de R
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte otros [ejemplos de directivas de Azure](index.md)
+- Aprenda a [integrar Azure Key Vault con Azure Policy](../../../key-vault/azure-policy.md).
 - Consulte la [Estructura de definición de Azure Policy](../concepts/definition-structure.md)

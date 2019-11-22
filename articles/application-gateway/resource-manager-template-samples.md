@@ -1,19 +1,19 @@
 ---
 title: Plantillas del Administrador de recursos de Azure
 titleSuffix: Azure Application Gateway
-description: Plantillas de Azure Resource Manager para Azure Application Gateway
+description: En este artículo se incluyen vínculos a ejemplos de plantilla de Resource Manager para que pueda implementar rápidamente Azure Application Gateway configurado de varias maneras.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: sample
-ms.date: 11/14/2019
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 7353601ac6b624b2adf216d17638fe7b6198eec4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f2ab25b8514032f134e8c901066dc8f5fcffd13b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074502"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129829"
 ---
 # <a name="azure-resource-manager-templates-for-azure-application-gateway"></a>Plantillas de Azure Resource Manager para Azure Application Gateway
 

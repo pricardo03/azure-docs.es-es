@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 10/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed1f1b6973d96fdc0bce560877720adfc5e33081
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: f2fea3bca40d8a5783448e68ea89c3b238a0104d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170889"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074033"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Amazon Web Services (AWS)
 
@@ -81,7 +81,6 @@ Para configurar la integración de Amazon Web Services (AWS) en Azure AD, es pre
 1. En la sección **Agregar desde la galería**, escriba **Amazon Web Services (AWS)** en el cuadro de búsqueda.
 1. Seleccione **Amazon Web Services (AWS)** en el panel de resultados y, luego, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-amazon-web-services-aws"></a>Configuración y prueba del inicio de sesión único de Azure AD para Amazon Web Services (AWS)
 
 Configure y pruebe el inicio de sesión único de Azure AD con Amazon Web Services (AWS) mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Amazon Web Services (AWS).
@@ -93,6 +92,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Amazon Web
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Amazon Web Services (AWS)](#configure-amazon-web-services-aws-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
     1. **[Creación de un usuario de prueba de Amazon Web Services (AWS)](#create-amazon-web-services-aws-test-user)** , para tener un homólogo de B.Simon en Amazon Web Services (AWS) que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Configuración del aprovisionamiento de roles en Amazon Web Services (AWS)](#how-to-configure-role-provisioning-in-amazon-web-services-aws)**
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -312,11 +312,13 @@ En esta sección, concederá acceso a B.Simon a Amazon Web Services (AWS) para q
 
     c. Seleccione **Cerrar**.
 
-21. En el portal de administración de Azure AD, en la aplicación AWS, vaya a **Aprovisionamiento**.
+### <a name="how-to-configure-role-provisioning-in-amazon-web-services-aws"></a>Configuración del aprovisionamiento de roles en Amazon Web Services (AWS)
+
+1. En el portal de administración de Azure AD, en la aplicación AWS, vaya a **Aprovisionamiento**.
 
     ![Captura de pantalla de la aplicación AWS, con la opción Aprovisionamiento resaltada](./media/amazon-web-service-tutorial/provisioning.png)
 
-22. Escriba la clave de acceso y la clave secreta en los campos **Secreto de cliente** y **Token secreto** respectivamente.
+2. Escriba la clave de acceso y la clave secreta en los campos **Secreto de cliente** y **Token secreto** respectivamente.
 
     ![Captura de pantalla del cuadro de diálogo Credenciales de administrador](./media/amazon-web-service-tutorial/provisioning1.png)
 
@@ -328,7 +330,7 @@ En esta sección, concederá acceso a B.Simon a Amazon Web Services (AWS) para q
 
     d. Seleccione **Guardar** para guardar la configuración.
 
-23. En la sección **Configuración**, en **Estado de aprovisionamiento**, seleccione **Activado**. Después, seleccione **Guardar**.
+3. En la sección **Configuración**, en **Estado de aprovisionamiento**, seleccione **Activado**. Después, seleccione **Guardar**.
 
     ![Captura de pantalla de la sección Configuración, con la opción Activado resaltada](./media/amazon-web-service-tutorial/provisioning2.png)
 

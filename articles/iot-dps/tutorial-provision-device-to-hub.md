@@ -1,24 +1,24 @@
 ---
-title: Aprovisionamiento de un dispositivo mediante el servicio Azure IoT Hub Device Provisioning | Microsoft Docs
-description: Aprovisionar el dispositivo en una única instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
+title: 'Tutorial: Aprovisionamiento de un dispositivo mediante el servicio Azure IoT Hub Device Provisioning'
+description: 'Tutorial: Aprovisionar el dispositivo en una única instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/12/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9ff134b0747e78773c95fac7ceab4cddd61c601d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: be0b926b6beae2cb339ca232d2b792f50834d801
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227021"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112043"
 ---
-# <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Aprovisionamiento del dispositivo en una instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
+# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Aprovisionamiento del dispositivo en una instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
 
-En el tutorial anterior, aprendió a configurar un dispositivo para conectarse al servicio Device Provisioning. En este tutorial, aprenderá a usar este servicio para aprovisionar el dispositivo en una única instancia de IoT Hub mediante el aprovisionamiento automático y las **_listas de inscripción_**. En este tutorial se muestra cómo realizar las siguientes acciones:
+En el tutorial anterior, aprendió a configurar un dispositivo para conectarse al servicio Device Provisioning. En este tutorial, aprenderá a usar este servicio para aprovisionar el dispositivo en una única instancia de IoT Hub mediante el aprovisionamiento automático y las **_listas de inscripción_** . En este tutorial se muestra cómo realizar las siguientes acciones:
 
 > [!div class="checklist"]
 > * Inscribir el dispositivo

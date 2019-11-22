@@ -1,6 +1,6 @@
 ---
-title: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante la CLI de Azure | Microsoft Docs
-description: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante la CLI de Azure
+title: Configuración del enrutamiento de mensajes para Azure IoT Hub mediante la CLI de Azure
+description: Configure el enrutamiento de mensajes para Azure IoT Hub mediante la CLI de Azure. En función de las propiedades del mensaje, se enruta a una cuenta de almacenamiento o a una cola de Service Bus.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 103a18389a2b956f20b61ce45d045fb9a11c4356
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 340ea35bc3ed0c889a1a851da47f7e955116e103
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984708"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084462"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de la CLI de Azure para configurar el enrutamiento de mensajes de IoT Hub
 
@@ -30,17 +30,17 @@ Si desea ver el script terminado, descargue los [ejemplos de C# de Azure IoT](ht
 
 ## <a name="use-the-azure-cli-to-create-your-resources"></a>Uso de la CLI de Azure para crear los recursos
 
+Copie y pegue el siguiente script en Cloud Shell y presione Entrar. El script se ejecuta de línea en línea. Con esta primera sección del script creará los recursos de base para este tutorial, incluida la cuenta de almacenamiento, la instancia de IoT Hub, el espacio de nombres de Service Bus y la cola de Service Bus. Conforme avance en el resto del tutorial, copie cada bloque de script y péguelo en Cloud Shell para ejecutarlo.
+
+> [!TIP]
+> Una sugerencia de depuración: este script usa el símbolo de continuación (la barra diagonal inversa, `\`) para que el script se lea mejor. Si tiene problemas al ejecutar el script, asegúrese de que la sesión de Cloud Shell esté ejecutando `bash` y de que no hay ningún espacio después de cualquiera de las barras diagonales inversas.
+> 
+
 Hay varios nombres de recurso que deben ser únicos globalmente, como el nombre de IoT Hub y el nombre de la cuenta de almacenamiento. Para facilitar esta tarea, se anexan los nombres de los recursos con un valor alfanumérico aleatorio denominado *randomValue*. El valor RandomValue se genera una vez en la parte superior del script y se anexa a los nombres de los recursos según sea necesario en el script. Si no desea que sea aleatorio, puede establecerlo en una cadena vacía o en un valor específico. 
 
 > [!IMPORTANT]
 > Las variables que se establecen en el script inicial también las usa el script de enrutamiento, por lo que debe ejecutar todo el script en la misma sesión de Cloud Shell. Si abre una nueva sesión para ejecutar el script para configurar el enrutamiento, a varias de las variables les faltarán valores.
 >
-
-Copie y pegue el siguiente script en Cloud Shell y presione Entrar. El script se ejecuta de línea en línea. Con esta primera sección del script creará los recursos de base para este tutorial, incluida la cuenta de almacenamiento, la instancia de IoT Hub, el espacio de nombres de Service Bus y la cola de Service Bus. Conforme avance en el resto del tutorial, copie cada bloque de script y péguelo en Cloud Shell para ejecutarlo.
-
-> [!TIP]
-> Una sugerencia de depuración: este script usa el símbolo de continuación (la barra diagonal inversa, `\`) para que el script se lea mejor. Si tiene problemas al ejecutar el script, asegúrese de que no hay ningún espacio después de cualquiera de las barras diagonales inversas.
-> 
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account. 
@@ -155,7 +155,7 @@ Para crear un punto de conexión de enrutamiento, use [az iot hub routing-endpoi
 
 En primer lugar, configure el punto de conexión para la cuenta de almacenamiento y, después, configure la ruta. 
 
-Se establecen estas variables:
+Estas son las variables utilizadas por el script que se debe establecer en la sesión de Cloud Shell:
 
 **storageConnectionString**: Este valor se recupera de la cuenta de almacenamiento configurada en el script anterior. El enrutamiento de mensajes lo utiliza para acceder a la cuenta de almacenamiento.
 
@@ -257,7 +257,7 @@ sbqConnectionString=$(az servicebus queue authorization-rule keys list \
 echo "service bus queue connection string = " $sbqConnectionString
 ```
 
-Ahora, configure el punto de conexión de enrutamiento y la ruta de mensajes para la cola de Service Bus. Se establecen estas variables:
+Ahora, configure el punto de conexión de enrutamiento y la ruta de mensajes para la cola de Service Bus. Estas son las variables utilizadas por el script que se debe establecer en la sesión de Cloud Shell:
 
 **endpointName**: este campo es el nombre que identifica el punto de conexión. 
 

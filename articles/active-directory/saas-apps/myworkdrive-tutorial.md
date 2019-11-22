@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 03998d214c1fb977741976eca7b878d0c6b577aa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160394"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074078"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Tutorial: Integración de MyWorkDrive con Azure Active Directory
 
@@ -100,9 +100,17 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 ### <a name="configure-myworkdrive-sso"></a>Configuración del inicio de sesión único en MyWorkDrive
 
-1. En otra ventana del explorador web, inicie sesión en MyWorkDrive como administrador de seguridad.
+1. Para automatizar la configuración en MyWorkDrive, debe instalar **My Apps Secure Sign-in browser extension** (Extensión del explorador de inicio de sesión seguro de Aplicaciones). Para ello, haga clic en **Install the extension** (Instalar la extensión).
 
-2. En el servidor de MyWorkDrive en el panel de administración, haga clic en **ENTERPRISE** y realice los pasos siguientes:
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Setup MyWorkDrive** (Configurar MyWorkDrive) para ir a la aplicación. En ella, escriba las credenciales de administrador para iniciar sesión en MyWorkDrive. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 y 4.
+
+    ![Configuración](common/setup-sso.png)
+
+1. Si desea configurar MyWorkDrive manualmente, en otra ventana del explorador web, inicie sesión en la aplicación como administrador de seguridad.
+
+1. En el servidor de MyWorkDrive en el panel de administración, haga clic en **ENTERPRISE** y realice los pasos siguientes:
 
     ![El administrador](./media/myworkdrive-tutorial/tutorial_myworkdrive_admin.png)
 

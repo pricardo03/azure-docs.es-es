@@ -1,19 +1,19 @@
 ---
-title: 'Envío de datos de dispositivo mediante una puerta de enlace transparente: Machine Learning en Azure IoT Edge | Microsoft Docs'
-description: Use la máquina de desarrollo como dispositivo de IoT Edge simulado para enviar datos al centro de IoT a través de un dispositivo configurado como puerta de enlace transparente.
+title: 'Tutorial: Envío de datos de dispositivo mediante una puerta de enlace transparente: Machine Learning en Azure IoT Edge'
+description: 'Tutorial: Use la máquina de desarrollo como dispositivo de IoT Edge simulado para enviar datos al centro de IoT a través de un dispositivo configurado como puerta de enlace transparente.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 224afe19e50e52c56c223ff1a52f9989943ce712
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1a1974a9d9e635bad4094e38c2c194ff49993611
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163109"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113946"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Envío de datos mediante una puerta de enlace transparente
 

@@ -1,12 +1,10 @@
 ---
-title: 'Ejemplo de la CLI: Máquinas virtuales de Load Balancer en una zona: Azure | Microsoft Docs'
+title: 'Equilibrio de carga de máquinas virtuales en una zona: CLI de Azure'
 description: En este ejemplo de script de la CLI de Azure se muestra cómo equilibrar la carga del tráfico a las máquinas virtuales dentro de una zona de disponibilidad específica
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
+manager: kumudD
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
@@ -16,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
-ms.openlocfilehash: 29671283a1ef2906e03685a59d62ccc13c1307fe
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c99e232243e95d3aa0a85e09c2534973114e28ea
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273730"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068757"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Ejemplo de script de la CLI de Azure: Equilibrio de carga del tráfico a las máquinas virtuales para lograr una alta disponibilidad
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Ejemplo de script de la CLI de Azure: Equilibrio de carga del tráfico a las máquinas virtuales de una zona de disponibilidad específica
 
 En este ejemplo de script de la CLI de Azure se crea todo lo necesario para ejecutar varias máquinas virtuales Ubuntu configuradas con valores de alta disponibilidad y equilibrio de carga dentro de una zona de disponibilidad específica. Después de ejecutar el script, tendrá tres máquinas virtuales en una única zona de disponibilidad dentro de una región que son accesibles mediante Azure Standard Load Balancer. 
 

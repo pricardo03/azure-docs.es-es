@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 8761f5ca-c57c-4a7e-bf14-ac0421bd3b5e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0730dd89a61b046f73e7e39c8226e66700b3494
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af5021d3a8bed48003f38f01c3d61eac4bdd96b0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101644"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159206"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integración de Azure Active Directory con GitHub
 
@@ -228,21 +229,21 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 2. Haga clic en **Contactos**.
 
-    ![Personas](./media/github-tutorial/tutorial_github_config_github_08.png "Personas")
+    ![Contactos](./media/github-tutorial/tutorial_github_config_github_08.png "Personas")
 
 3. Haga clic en **Invitar a miembros**.
 
-    ![Invitación de usuarios](./media/github-tutorial/tutorial_github_config_github_09.png "Invitación de usuarios")
+    ![Invite Users (Invitar a usuarios)](./media/github-tutorial/tutorial_github_config_github_09.png "Invitar a usuarios")
 
 4. En la página de diálogo **Invitar a miembros**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de la cuenta de Britta Simon.
 
-    ![Invitar a personas](./media/github-tutorial/tutorial_github_config_github_10.png "Invitar a personas")
+    ![Invite People (Invitar a personas)](./media/github-tutorial/tutorial_github_config_github_10.png "Invitar a contactos")
 
     b. Haga clic en **Enviar invitación**.
 
-    ![Invitar a personas](./media/github-tutorial/tutorial_github_config_github_11.png "Invitar a personas")
+    ![Invite People (Invitar a personas)](./media/github-tutorial/tutorial_github_config_github_11.png "Invitar a contactos")
 
     > [!NOTE]
     > El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.

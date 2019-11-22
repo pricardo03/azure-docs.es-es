@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Inserción de una imagen de contenedor actualizada en implementaciones de aplicaciones de Azure regionales'
-description: Inserte una imagen de Docker en Azure Container Registry con replicación geográfica y, luego, vea los cambios implementados automáticamente en aplicaciones web que se ejecutan en varias regiones. Tercera parte de una serie de tres partes.
+title: 'Tutorial: Inserción de actualizaciones en Azure Container Registry con replicación geográfica'
+description: Inserte una imagen de Docker actualizada en la instancia de Azure Container Registry con replicación geográfica y, luego, vea que los cambios se implementan automáticamente en aplicaciones web que se ejecutan en varias regiones. Tercera parte de una serie de tres partes.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e01fdc41d0cc2e65951bd92378eb59f0fd35816a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: adf6348e3b4c5fa728a0289ccd5bd3f289872108
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310428"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931373"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: Inserción de una imagen de contenedor actualizada en un registro de contenedor con replicación geográfica para implementaciones de aplicaciones web regionales
 

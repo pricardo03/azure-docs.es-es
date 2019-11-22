@@ -1,18 +1,19 @@
 ---
-title: 'Tutorial: crear un registro de alias de Azure DNS para admitir nombres de dominio de vértice con Traffic Manager'
+title: 'Tutorial: Creación de un registro de alias para admitir nombres Apex de dominio: Traffic Manager'
+titleSuffix: Azure DNS
 description: Este tutorial muestra cómo configurar un registro de alias de Azure DNS para admitir el uso de su nombre de dominio apex con Traffic Manager.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: allensu
+ms.openlocfilehash: 3834b782be054611de67b782b7fcd0c46cbf3a19
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530967"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082253"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configuración de un registro de alias para admitir nombres de dominio de Apex con Traffic Manager 
 
@@ -70,7 +71,7 @@ Instale IIS en **Web-01** y **Web 02**.
 
 1. Conéctese a **Web-01** e inicie sesión.
 2. En el panel **Administrador del servidor**, seleccione **Agregar roles y características**.
-3. Seleccione **Siguiente** tres veces. En la página **Roles de servidor**, seleccione **Servidor web (IIS)**.
+3. Seleccione **Siguiente** tres veces. En la página **Roles de servidor**, seleccione **Servidor web (IIS)** .
 4. Seleccione **Agregar características** y, a continuación, seleccione **Siguiente**.
 5. Seleccione **Siguiente** cuatro veces. A continuación, seleccione **Instalar**. Este procedimiento tarda unos minutos en finalizar.
 6. Cuando finalice la instalación, seleccione **Cerrar**.

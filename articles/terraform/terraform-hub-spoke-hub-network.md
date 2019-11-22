@@ -1,32 +1,29 @@
 ---
-title: Creación de una red virtual del concentrador con Terraform en Azure
-description: Tutorial que muestra cómo crear una red virtual del concentrador en Azure que sirva como punto de conexión común entre otras redes
-services: terraform
-ms.service: azure
-keywords: terraform, hub-and-spoke, redes, redes híbridas, devops, máquina virtual, azure, emparejamiento VNet, hub-spoke, hub.
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+title: 'Tutorial: Creación de una red virtual del centro de conectividad en Azure mediante Terraform'
+description: Tutorial que muestra cómo crear una red virtual del centro de conectividad en Azure que actúe como punto de conexión común entre otras redes
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 12538c0348efc1621d3f8f6ee0cb93d73c712898
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 25c4d6fa881f7ec6c96dd5ea7c935544374bc57d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173429"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077697"
 ---
-# <a name="tutorial-create-a-hub-virtual-network-with-terraform-in-azure"></a>Tutorial: Creación de una red virtual del concentrador con Terraform en Azure
+# <a name="tutorial-create-a-hub-virtual-network-in-azure-by-using-terraform"></a>Tutorial: Creación de una red virtual de centro de conectividad en Azure mediante Terraform
 
-La red virtual del concentrador sirve como el punto de conectividad central a la red local. La red virtual hospeda los servicios compartidos que consumen las cargas de trabajo hospedadas en las redes virtuales de radio. Para la demostración, no se implementarán servicios compartidos en este tutorial.
+La red virtual del centro de conectividad sirve como punto central de conectividad con la red local. La red virtual hospeda los servicios compartidos que consumen las cargas de trabajo hospedadas en las redes virtuales de radio. Para la demostración, no se implementarán servicios compartidos en este tutorial.
 
 En este tutorial se describen las tareas siguientes:
 
 > [!div class="checklist"]
-> * Uso de HCL (HashiCorp Language) para implementar la red virtual del concentrador en topología en estrella tipo hub-and-spoke
-> * Uso de Terraform para crear una máquina virtual de JumpBox de concentrador
-> * Uso de Terraform para crear una puerta de enlace de red privada virtual de concentrador
-> * Use Terraform para crear conexiones de puerta de enlace locales y de concentrador
+> * Use el lenguaje de configuración de HashiCorp (HCL) para implementar la red virtual del centro de conectividad en una topología en estrella tipo hub-and-spoke.
+> * Uso de Terraform para crear una máquina virtual de Jumpbox del centro de conectividad.
+> * Uso de Terraform para crear una puerta de enlace de red privada virtual del centro de conectividad.
+> * Use Terraform para crear conexiones de puerta de enlace locales y del centro de conectividad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,8 +34,8 @@ En este tutorial se describen las tareas siguientes:
 
 La red de concentrador consta de estos componentes:
 
-- Red virtual de concentrador
-- Puerta de enlace de red virtual de concentrador
+- Una red virtual del centro de conectividad
+- Una puerta de enlace de red virtual del centro de conectividad
 - Conexiones de puerta de enlace de concentrador 
 
 Los recursos se definen en el archivo de configuración de Terraform siguientes:
@@ -55,15 +52,15 @@ Los recursos se definen en el archivo de configuración de Terraform siguientes:
     cd clouddrive
     ```
 
-1. Cambie los directorios al nuevo directorio:
+1. Cambie al nuevo directorio.
 
     ```bash
     cd hub-spoke
     ```
 
-## <a name="declare-the-hub-vnet"></a>Declaración de la red virtual de concentrador
+## <a name="declare-the-hub-virtual-network"></a>Declaración de la red virtual de un centro de conectividad
 
-Cree el archivo de configuración de Terraform que declara la red virtual de concentrador.
+Cree el archivo de configuración de Terraform que declara la red virtual del centro de conectividad.
 
 1. En Cloud Shell, cree un archivo denominado `hub-vnet.tf`.
 
@@ -82,14 +79,14 @@ Cree el archivo de configuración de Terraform que declara la red virtual de con
     }
 
     resource "azurerm_resource_group" "hub-vnet-rg" {
-      name     = "${local.hub-resource-group}"
-      location = "${local.hub-location}"
+      name     = local.hub-resource-group
+      location = local.hub-location
     }
 
     resource "azurerm_virtual_network" "hub-vnet" {
       name                = "${local.prefix-hub}-vnet"
-      location            = "${azurerm_resource_group.hub-vnet-rg.location}"
-      resource_group_name = "${azurerm_resource_group.hub-vnet-rg.name}"
+      location            = azurerm_resource_group.hub-vnet-rg.location
+      resource_group_name = azurerm_resource_group.hub-vnet-rg.name
       address_space       = ["10.0.0.0/16"]
 
       tags {
@@ -99,49 +96,49 @@ Cree el archivo de configuración de Terraform que declara la red virtual de con
 
     resource "azurerm_subnet" "hub-gateway-subnet" {
       name                 = "GatewaySubnet"
-      resource_group_name  = "${azurerm_resource_group.hub-vnet-rg.name}"
-      virtual_network_name = "${azurerm_virtual_network.hub-vnet.name}"
+      resource_group_name  = azurerm_resource_group.hub-vnet-rg.name
+      virtual_network_name = azurerm_virtual_network.hub-vnet.name
       address_prefix       = "10.0.255.224/27"
     }
 
     resource "azurerm_subnet" "hub-mgmt" {
       name                 = "mgmt"
-      resource_group_name  = "${azurerm_resource_group.hub-vnet-rg.name}"
-      virtual_network_name = "${azurerm_virtual_network.hub-vnet.name}"
+      resource_group_name  = azurerm_resource_group.hub-vnet-rg.name
+      virtual_network_name = azurerm_virtual_network.hub-vnet.name
       address_prefix       = "10.0.0.64/27"
     }
 
     resource "azurerm_subnet" "hub-dmz" {
       name                 = "dmz"
-      resource_group_name  = "${azurerm_resource_group.hub-vnet-rg.name}"
-      virtual_network_name = "${azurerm_virtual_network.hub-vnet.name}"
+      resource_group_name  = azurerm_resource_group.hub-vnet-rg.name
+      virtual_network_name = azurerm_virtual_network.hub-vnet.name
       address_prefix       = "10.0.0.32/27"
     }
 
     resource "azurerm_network_interface" "hub-nic" {
       name                 = "${local.prefix-hub}-nic"
-      location             = "${azurerm_resource_group.hub-vnet-rg.location}"
-      resource_group_name  = "${azurerm_resource_group.hub-vnet-rg.name}"
+      location             = azurerm_resource_group.hub-vnet-rg.location
+      resource_group_name  = azurerm_resource_group.hub-vnet-rg.name
       enable_ip_forwarding = true
 
       ip_configuration {
-        name                          = "${local.prefix-hub}"
-        subnet_id                     = "${azurerm_subnet.hub-mgmt.id}"
+        name                          = local.prefix-hub
+        subnet_id                     = azurerm_subnet.hub-mgmt.id
         private_ip_address_allocation = "Dynamic"
       }
 
       tags {
-        environment = "${local.prefix-hub}"
+        environment = local.prefix-hub
       }
     }
 
     #Virtual Machine
     resource "azurerm_virtual_machine" "hub-vm" {
       name                  = "${local.prefix-hub}-vm"
-      location              = "${azurerm_resource_group.hub-vnet-rg.location}"
-      resource_group_name   = "${azurerm_resource_group.hub-vnet-rg.name}"
-      network_interface_ids = ["${azurerm_network_interface.hub-nic.id}"]
-      vm_size               = "${var.vmsize}"
+      location              = azurerm_resource_group.hub-vnet-rg.location
+      resource_group_name   = azurerm_resource_group.hub-vnet-rg.name
+      network_interface_ids = [azurerm_network_interface.hub-nic.id]
+      vm_size               = var.vmsize
 
       storage_image_reference {
         publisher = "Canonical"
@@ -159,8 +156,8 @@ Cree el archivo de configuración de Terraform que declara la red virtual de con
 
       os_profile {
         computer_name  = "${local.prefix-hub}-vm"
-        admin_username = "${var.username}"
-        admin_password = "${var.password}"
+        admin_username = var.username
+        admin_password = var.password
       }
 
       os_profile_linux_config {
@@ -168,23 +165,23 @@ Cree el archivo de configuración de Terraform que declara la red virtual de con
       }
 
       tags {
-        environment = "${local.prefix-hub}"
+        environment = local.prefix-hub
       }
     }
 
     # Virtual Network Gateway
     resource "azurerm_public_ip" "hub-vpn-gateway1-pip" {
       name                = "hub-vpn-gateway1-pip"
-      location            = "${azurerm_resource_group.hub-vnet-rg.location}"
-      resource_group_name = "${azurerm_resource_group.hub-vnet-rg.name}"
+      location            = azurerm_resource_group.hub-vnet-rg.location
+      resource_group_name = azurerm_resource_group.hub-vnet-rg.name
 
       allocation_method = "Dynamic"
     }
 
     resource "azurerm_virtual_network_gateway" "hub-vnet-gateway" {
       name                = "hub-vpn-gateway1"
-      location            = "${azurerm_resource_group.hub-vnet-rg.location}"
-      resource_group_name = "${azurerm_resource_group.hub-vnet-rg.name}"
+      location            = azurerm_resource_group.hub-vnet-rg.location
+      resource_group_name = azurerm_resource_group.hub-vnet-rg.name
 
       type     = "Vpn"
       vpn_type = "RouteBased"
@@ -195,43 +192,43 @@ Cree el archivo de configuración de Terraform que declara la red virtual de con
 
       ip_configuration {
         name                          = "vnetGatewayConfig"
-        public_ip_address_id          = "${azurerm_public_ip.hub-vpn-gateway1-pip.id}"
+        public_ip_address_id          = azurerm_public_ip.hub-vpn-gateway1-pip.id
         private_ip_address_allocation = "Dynamic"
-        subnet_id                     = "${azurerm_subnet.hub-gateway-subnet.id}"
+        subnet_id                     = azurerm_subnet.hub-gateway-subnet.id
       }
       depends_on = ["azurerm_public_ip.hub-vpn-gateway1-pip"]
     }
 
     resource "azurerm_virtual_network_gateway_connection" "hub-onprem-conn" {
       name                = "hub-onprem-conn"
-      location            = "${azurerm_resource_group.hub-vnet-rg.location}"
-      resource_group_name = "${azurerm_resource_group.hub-vnet-rg.name}"
+      location            = azurerm_resource_group.hub-vnet-rg.location
+      resource_group_name = azurerm_resource_group.hub-vnet-rg.name
 
       type           = "Vnet2Vnet"
       routing_weight = 1
 
-      virtual_network_gateway_id      = "${azurerm_virtual_network_gateway.hub-vnet-gateway.id}"
-      peer_virtual_network_gateway_id = "${azurerm_virtual_network_gateway.onprem-vpn-gateway.id}"
+      virtual_network_gateway_id      = azurerm_virtual_network_gateway.hub-vnet-gateway.id
+      peer_virtual_network_gateway_id = azurerm_virtual_network_gateway.onprem-vpn-gateway.id
 
-      shared_key = "${local.shared-key}"
+      shared_key = local.shared-key
     }
 
     resource "azurerm_virtual_network_gateway_connection" "onprem-hub-conn" {
       name                = "onprem-hub-conn"
-      location            = "${azurerm_resource_group.onprem-vnet-rg.location}"
-      resource_group_name = "${azurerm_resource_group.onprem-vnet-rg.name}"
+      location            = azurerm_resource_group.onprem-vnet-rg.location
+      resource_group_name = azurerm_resource_group.onprem-vnet-rg.name
       type                            = "Vnet2Vnet"
       routing_weight = 1
-      virtual_network_gateway_id      = "${azurerm_virtual_network_gateway.onprem-vpn-gateway.id}"
-      peer_virtual_network_gateway_id = "${azurerm_virtual_network_gateway.hub-vnet-gateway.id}"
+      virtual_network_gateway_id      = azurerm_virtual_network_gateway.onprem-vpn-gateway.id
+      peer_virtual_network_gateway_id = azurerm_virtual_network_gateway.hub-vnet-gateway.id
 
-      shared_key = "${local.shared-key}"
+      shared_key = local.shared-key
     }
     ```
     
-1. Guarde el archivo y salga del editor.
+3. Guarde el archivo y salga del editor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"] 
-> [Create a hub virtual network appliance with Terraform in Azure](./terraform-hub-spoke-hub-nva.md) (Creación de un dispositivo de red virtual de concentrador con Terraform en Azure)
+> [Creación de un dispositivo de red virtual de centro de conectividad con Terraform en Azure](./terraform-hub-spoke-hub-nva.md)

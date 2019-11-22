@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: e7c3ccb553010b84a30ccdad875ea0362112d830
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69618795"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172336"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Creación de una máquina virtual de administración para configurar y administrar un dominio administrado de Azure Active Directory Domain Services
 
@@ -101,10 +101,10 @@ Los dominios administrados de Azure AD DS se administran mediante las mismas h
 
 Para instalar las herramientas de administración de Active Directory en la máquina virtual unida al dominio, siga los pasos a continuación:
 
-1. **Administrador del servidor** debería abrirse de forma predeterminada al iniciar sesión en la máquina virtual. Si no es así, en el menú **Inicio**, seleccione **Administrador del servidor**.
+1. Si **Administrador del servidor** no se abre de forma predeterminada al iniciar sesión en la máquina virtual, seleccione el menú **Inicio** y, a continuación, elija **Administrador del servidor**.
 1. En el *Panel de información* de la ventana **Administrador del servidor**, seleccione **Agregar roles y características**.
 1. En la página **Antes de comenzar** del *Asistente para agregar roles y características*, seleccione **Siguiente**.
-1. En *Tipo de instalación*, deje la opción **Instalación basada en características o en roles** activada y seleccione **Siguiente**.
+1. En *Tipo de instalación*, deje activada la opción **Instalación basada en características o en roles** y seleccione **Siguiente**.
 1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, por ejemplo *mivm.contoso.com*, y seleccione **Siguiente**.
 1. En la página **Roles de servidor**, haga clic en **Siguiente**.
 1. En la página **Características**, expanda el nodo **Herramientas de administración remota del servidor** y el nodo **Herramientas de administración de roles**.
@@ -131,13 +131,15 @@ Con las herramientas administrativas instaladas, vamos a ver cómo usarlas para 
 
 1. Para ver los usuarios y los grupos que pertenecen al dominio administrado de Azure AD DS, seleccione el contenedor **Usuarios de AADDC**. Las cuentas de usuario y los grupos de su inquilino de Azure AD se enumeran en este contenedor.
 
-    En la salida de ejemplo siguiente, se muestra en este contenedor una cuenta de usuario denominada *contosoadmin* y un grupo para los *administradores de AAD DC*.
+    En la salida de ejemplo siguiente, se muestran en este contenedor una cuenta de usuario denominada *Contoso Admin* y un grupo para los *administradores de AAD DC*.
 
     ![Visualización de la lista de usuarios de dominio de Azure AD DS en el Centro de administración de Active Directory](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. Para ver los equipos que se unen al dominio administrado de Azure AD DS, seleccione el contenedor **Equipos de AADDC**. Se muestra una entrada para la máquina virtual actual, por ejemplo *miVM*. Las cuentas de equipo de todos los equipos unidos al dominio administrado de Azure AD DS se almacenan en este contenedor *Equipos de AADDC*.
 
-Están disponibles acciones comunes del Centro de administración de Active Directory como son el restablecimiento de la contraseña de una cuenta de usuario o la administración de la pertenencia a grupos. También puede usar el *módulo de Active Directory para Windows PowerShell*, instalado como parte de las herramientas administrativas, para administrar acciones comunes en el dominio administrado de Azure AD DS.
+Están disponibles acciones comunes del Centro de administración de Active Directory como son el restablecimiento de la contraseña de una cuenta de usuario o la administración de la pertenencia a grupos. Estas acciones solo funcionan para los usuarios y grupos creados directamente en el dominio administrado de Azure AD DS. La información de identidad solo sincroniza *desde* Azure AD a Azure AD DS. No se realiza ninguna escritura de Azure AD DS a Azure AD. No se pueden cambiar las contraseñas ni la pertenencia a grupos administrados de los usuarios sincronizados desde Azure AD y volver a sincronizar estos cambios.
+
+También puede usar el *módulo de Active Directory para Windows PowerShell*, instalado como parte de las herramientas administrativas, para administrar acciones comunes en el dominio administrado de Azure AD DS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

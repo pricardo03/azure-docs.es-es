@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466660a1e064ef41eb330b36107dbdcb1d097498
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e5ee40f6fcd77465b67a7c409493027fefa48ca9
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477320"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062927"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory
 
@@ -43,24 +43,26 @@ Para probar los pasos de este tutorial, se recomienda usar un entorno que no sea
 Para agregar una aplicación de la galería a su inquilino de Azure AD:
 
 1. En [Azure Portal](https://portal.azure.com), en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
-1. En el panel **Azure Active Directory**, seleccione **Aplicaciones empresariales**.
-1. Se abre el panel **Todas las aplicaciones**, en el que se ve una muestra aleatoria de las aplicaciones que hay en su inquilino de Azure AD. Seleccione **Nueva aplicación** en la parte superior del panel **Todas las aplicaciones** para agregar una aplicación de la galería al inquilino.
+
+2. En el panel **Azure Active Directory**, seleccione **Aplicaciones empresariales**. Se abre el panel **Todas las aplicaciones**, en el que se ve una muestra aleatoria de las aplicaciones que hay en su inquilino de Azure AD.
+
+3. Para agregar una aplicación de la galería al inquilino, seleccione **Nueva aplicación**. 
 
     ![Selección de Nueva aplicación para agregar una aplicación de la galería al inquilino](media/add-application-portal/new-application.png)
 
-1. En el panel **Categorías**, verá iconos en el área **Aplicaciones destacadas** que son una muestra aleatoria de las aplicaciones de la galería. Para ver más aplicaciones, puede seleccionar **Mostrar más** pero no recomendamos buscar de esta manera porque hay miles de aplicaciones en la galería.
+ 4. Cambie a la nueva experiencia de versión preliminar de la galería: En el banner situado en la parte superior de la **página para agregar una aplicación**, seleccione el vínculo que indica **Haga clic aquí para probar la nueva y mejorada experiencia de la galería de aplicaciones.** .
 
-    ![Búsqueda de una aplicación por nombre o categoría](media/add-application-portal/categories.png)
+5. Se abre el panel **Examinar la Galería de Azure AD (versión preliminar)** , que muestra iconos para plataformas en la nube, aplicaciones locales y aplicaciones destacadas. Observe que las aplicaciones que aparecen en la sección **Aplicaciones destacadas** incluyen iconos que indican si admiten el inicio de sesión único federado (SSO) y el aprovisionamiento.
 
-1. Para buscar una aplicación, en **Agregar desde la galería**, escriba el nombre de la aplicación que desea agregar. Seleccione la aplicación en los resultados y, después, **Agregar**. El ejemplo siguiente muestra el formulario **Agregar aplicación** que aparece después de buscar github.com.
+    ![Búsqueda de una aplicación por nombre o categoría](media/add-application-portal/browse-gallery.png)
 
-    ![Se muestra cómo agregar una aplicación de la galería.](media/add-application-portal/add-an-application.png)
+6. Puede buscar en la galería la aplicación que quiere agregar o escribir su nombre en el cuadro de búsqueda para localizarla. Después, seleccione la aplicación en los resultados. En el formulario, puede editar el nombre de la aplicación para que se ajuste a las necesidades de su organización. En este ejemplo, hemos cambiado el nombre por **GitHub-test**.
 
-1. En el formulario específico de la aplicación, puede cambiar la información de la propiedad. Por ejemplo, puede editar el nombre de la aplicación para que coincida con las necesidades de su organización. Este ejemplo usa el nombre **GitHub-test**.
-1. Cuando haya terminado de realizar cambios en las propiedades, seleccione **Agregar**.
-1. Aparece una página de introducción con las opciones para configurar la aplicación para su organización.
+    ![Se muestra cómo agregar una aplicación de la galería.](media/add-application-portal/create-application.png)
 
-Ha terminado de agregar la aplicación. Puede tomarse un descanso. Las secciones siguientes muestran cómo cambiar el logotipo y modificar otras propiedades de la aplicación.
+7. Seleccione **Crear**. Aparece una página de introducción con las opciones para configurar la aplicación para su organización.
+
+Ha terminado de agregar la aplicación. Las secciones siguientes muestran cómo cambiar el logotipo y modificar otras propiedades de la aplicación.
 
 ## <a name="find-your-azure-ad-tenant-application"></a>Búsqueda de su aplicación de inquilino de Azure AD
 
@@ -81,17 +83,17 @@ Ahora que ha encontrado la aplicación, puede abrirla y configurar sus propiedad
 Para editar las propiedades de la aplicación:
 
 1. Seleccione la aplicación para abrirla.
-1. Seleccione **Propiedades** para abrir el panel de propiedades para editarlas.
+2. Seleccione **Propiedades** para abrir el panel de propiedades para editarlas.
 
     ![Muestra la pantalla de propiedades y las propiedades de la aplicación editables.](media/add-application-portal/edit-properties.png)
 
-1. Dedique un momento para conocer las opciones de inicio de sesión. Las opciones determinan la forma en que los usuarios que están asignados, o no, a la aplicación pueden iniciar sesión en ella. Y las opciones también determinan si los usuarios pueden ver la aplicación en el panel de acceso.
+3. Dedique un momento para conocer las opciones de inicio de sesión. Las opciones determinan la forma en que los usuarios que están asignados, o no, a la aplicación pueden iniciar sesión en ella. Y las opciones también determinan si los usuarios pueden ver la aplicación en el panel de acceso.
 
-    - **Enabled for users to sign-in** (Habilitado para que los usuarios inicien sesión) determina si los usuarios asignados a la aplicación pueden iniciar sesión.
-    - **Asignación de usuarios necesaria** determina si los usuarios que no están asignados a la aplicación pueden iniciar sesión.
-    - **Visible to user** (Visible para el usuario) determina si los usuarios asignados a una aplicación pueden verlo en el panel de acceso y el iniciador de Office 365.
+    - La opción **¿Habilitado para que los usuarios inicien sesión?** determina si los usuarios asignados a la aplicación pueden iniciar sesión.
+    - La opción **¿Asignación de usuarios?** determina si los usuarios que no están asignados a la aplicación pueden iniciar sesión.
+    - La opción **¿Es visible para los usuarios?** determina si los usuarios asignados a una aplicación pueden verla en el panel de acceso y el iniciador de O365.
 
-1. Use las siguientes tablas para ayudarle a elegir las opciones que más se ajusten a sus necesidades.
+4. Use las siguientes tablas para ayudarle a elegir las opciones que más se ajusten a sus necesidades.
 
    - Comportamiento para los usuarios **asignados**:
 
@@ -131,9 +133,12 @@ Para usar un logotipo personalizado:
 1. Puesto que ya ha encontrado la aplicación, selecciónela.
 1. Seleccione **Propiedades** en el panel izquierdo.
 1. Cargue el logotipo.
-1. Cuando haya terminado, seleccione **Guardar**.
+1. Cuando haya terminado, seleccione **Guardar**. 
 
     ![Muestra cómo cambiar el logotipo desde la página Propiedades de la aplicación.](media/add-application-portal/change-logo.png)
+
+   > [!NOTE]
+   > La miniatura que se muestra en este panel de **Propiedades** no se actualiza inmediatamente. Puede cerrar y volver a abrir las propiedades para ver el icono actualizado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

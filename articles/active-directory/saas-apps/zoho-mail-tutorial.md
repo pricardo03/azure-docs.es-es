@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 9874e1f3-ade5-42e7-a700-e08b3731236a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c2599a2ddd09cbaf869bf4d9e21a8032855cce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8fc58b9cdec1a68dd12b7f70f7521a024f358ce
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086163"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161056"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Tutorial: Integración de Azure Active Directory con Zoho
 
@@ -130,15 +131,15 @@ Para configurar el inicio de sesión único de Azure AD con Zoho, realice los pa
 
 2. Vaya al **Panel de control**.
    
-    ![Panel de control](./media/zoho-mail-tutorial/ic789607.png "Panel de control")
+    ![Control Panel (Panel de control)](./media/zoho-mail-tutorial/ic789607.png "Panel de control")
 
 3. Haga clic en la pestaña **Autenticación SAML** .
    
-    ![Autenticación SAML](./media/zoho-mail-tutorial/ic789608.png "Autenticación SAML")
+    ![SAML Authentication (Autenticación SAML)](./media/zoho-mail-tutorial/ic789608.png "Autenticación SAML")
 
 4. En la sección **Detalles de la autenticación SAML** , realice los pasos siguientes:
    
-    ![Detalles de la autenticación SAML](./media/zoho-mail-tutorial/ic789609.png "Detalles de la autenticación SAML")
+    ![SAML Authentication Details (Detalles de la autenticación SAML)](./media/zoho-mail-tutorial/ic789609.png "Detalles de la autenticación SAML")
    
     a. En el cuadro de texto **URL de inicio de sesión**, pegue la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
    

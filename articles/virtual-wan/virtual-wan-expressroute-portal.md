@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Virtual WAN para crear conexiones de ExpressRoute con Azure y entornos locales | Microsoft Docs
+title: 'Azure Virtual WAN: creación de conexiones de ExpressRoute'
 description: En este tutorial, aprenderá a usar Azure Virtual WAN para crear conexiones de ExpressRoute con Azure y con entornos locales.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 8ad86280eab3041667bf9d1713ae2b4bc82a4c9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a394f93c5cc606c26ffa1cc64bf1d61617b05b8
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491463"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014924"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 
 Antes de comenzar con la configuración, compruebe que se cumplen los criterios siguientes:
 
-* Tiene una red virtual a la que desea conectarse. Compruebe que ninguna de las subredes de sus redes locales se superpone a las redes virtuales a las que desea conectarse. Para crear una red virtual en Azure Portal consulte este [Inicio rápido](../virtual-network/quick-create-portal.md).
+* Tiene una red virtual a la que quiere conectarse. Compruebe que ninguna de las subredes de sus redes locales se superpone a las redes virtuales a las que quiere conectarse. Para crear una red virtual en Azure Portal consulte este [Inicio rápido](../virtual-network/quick-create-portal.md).
 
 * Su red virtual no tiene ninguna puerta de enlace de red virtual. Si la red virtual tiene alguna puerta de enlace (ya sea VPN o ExpressRoute), tiene que quitarla. Esta configuración requiere que las redes virtuales estén conectadas a la puerta de enlace del centro de conectividad de Virtual WAN.
 

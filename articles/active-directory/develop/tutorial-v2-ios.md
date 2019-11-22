@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2474f86c0f293b98ab7bc9faec8ff8519a25e96b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0e3892a03ffe097a51f294e698168f00e1359f92
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309371"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960665"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Inicio de sesión de los usuarios y llamada a Microsoft Graph desde una aplicación para iOS o macOS
 
@@ -137,15 +137,15 @@ Después agregue el siguiente código a `ViewController.swift`, antes de `viewDi
 let kClientID = "Your_Application_Id_Here"
 
 // Additional variables for Auth and Graph API
-let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
-let kScopes: [String] = ["https://graph.microsoft.com/user.read"]
-let kAuthority = "https://login.microsoftonline.com/common"
+let kGraphURI = "https://graph.microsoft.com/v1.0/me/" // the Microsoft Graph endpoint
+let kScopes: [String] = ["https://graph.microsoft.com/user.read"] // request permission to read the profile of the signed-in user
+let kAuthority = "https://login.microsoftonline.com/common" // this authority allows a personal Microsoft account and a work or school account in any organization’s Azure AD tenant to sign in
 var accessToken = String()
 var applicationContext : MSALPublicClientApplication?
-var webViewParamaters : MSALWebviewParameters?
+var webViewParameters : MSALWebviewParameters?
 ```
 
-Modifique el valor asignado a `kClientID`para que sea el identificador de la aplicación. Este valor forma parte de los datos de Configuración de MSAL que guardó al principio de este tutorial para registrar la aplicación en Azure Portal.
+El único valor que debe modificar arriba es el asignado a `kClientID` como [Identificador de aplicación](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). Este valor forma parte de los datos de Configuración de MSAL que guardó al principio de este tutorial para registrar la aplicación en Azure Portal.
 
 ## <a name="for-ios-only-configure-url-schemes"></a>Solo para iOS, configure los esquemas de dirección URL.
 
@@ -322,7 +322,7 @@ Agregue lo siguiente después del método `initMSAL` a la clase `ViewController`
 
 ```swift
 func initWebViewParams() {
-        self.webViewParamaters = MSALWebviewParameters(parentViewController: self)
+        self.webViewParameters = MSALWebviewParameters(parentViewController: self)
     }
 ```
 
@@ -330,8 +330,8 @@ func initWebViewParams() {
 
 ```swift
 func initWebViewParams() {
-        self.webViewParamaters = MSALWebviewParameters()
-        self.webViewParamaters?.webviewType = .wkWebView
+        self.webViewParameters = MSALWebviewParameters()
+        self.webViewParameters?.webviewType = .wkWebView
     }
 ```
 
@@ -425,7 +425,7 @@ Agregue el siguiente código a la clase `ViewController` .
 func acquireTokenInteractively() {
         
     guard let applicationContext = self.applicationContext else { return }
-    guard let webViewParameters = self.webViewParamaters else { return }
+    guard let webViewParameters = self.webViewParameters else { return }
         
     // #1
     let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: webViewParameters)
@@ -577,7 +577,7 @@ De forma predeterminada, MSAL almacena en caché los tokens de la aplicación en
 Para habilitar el almacenamiento en caché de tokens:
 1. Asegúrese de que la aplicación está firmada correctamente.
 2. Vaya a la configuración del proyecto de Xcode > **Pestaña Capabilities** (Funcionalidades) > **Enable Keychain Sharing** (Habilitar uso compartido de la cadena de claves)
-3. Haga clic en **+** y en **Keychain Groups** (Grupos de llaveros), escriba el valor siguiente: 3.a Para iOS, escriba `com.microsoft.adalcache` 3.b Para macOS, escriba `com.microsoft.identity.universalstorage`.
+3. Haga clic en **+** y, en **Keychain Groups** (Grupos de llaveros), escriba el valor siguiente: 3.a Para iOS, escriba `com.microsoft.adalcache` 3.b Para macOS, escriba `com.microsoft.identity.universalstorage`.
 
 ### <a name="add-helper-methods"></a>Adición de métodos auxiliares
 Agregue los siguientes métodos auxiliares a la clase `ViewController` para completar el ejemplo.

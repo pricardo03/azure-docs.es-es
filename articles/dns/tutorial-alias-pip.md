@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Creación de un registro de alias de Azure DNS para hacer referencia a una dirección IP pública de Azure.'
+title: 'Tutorial: Creación de un registro de alias de Azure DNS para hacer referencia a una dirección IP pública de Azure'
 description: En este tutorial se muestra cómo configurar un registro de alias de Azure DNS para hacer referencia a una dirección IP pública de Azure.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 7dcbfdaf00b0e628541cfd1a3b79df8cf8334ed3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: allensu
+ms.openlocfilehash: 81dfbe5f46116d263c4a04d6178437a2c8bc1185
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536885"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072128"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutorial: Configuración de un registro de alias para hacer referencia a una dirección IP pública de Azure 
 
@@ -56,7 +56,7 @@ Instale IIS en **Web-01**.
 
 1. Conéctese a **Web-01** e inicie sesión.
 2. En el panel **Administrador del servidor**, seleccione **Agregar roles y características**.
-3. Seleccione **Siguiente** tres veces. En la página **Roles de servidor**, seleccione **Servidor web (IIS)**.
+3. Seleccione **Siguiente** tres veces. En la página **Roles de servidor**, seleccione **Servidor web (IIS)** .
 4. Seleccione **Agregar características** y, a continuación, seleccione **Siguiente**.
 5. Seleccione **Siguiente** cuatro veces y, a continuación, seleccione **Instalar**. Este procedimiento tarda unos minutos en finalizar.
 6. Cuando finalice la instalación, seleccione **Cerrar**.

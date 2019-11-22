@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/06/2019
-ms.openlocfilehash: 31b2322bdf7b7c03ae8974d57ee1b44c2f6137b9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: cce7562c74577f6fd545bcaed3ee3e0968fd40b4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607526"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132883"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Escalado de una aplicación en Azure Spring Cloud
 
@@ -31,11 +31,13 @@ Para completar este tutorial, necesita:
 
 1. Vaya a la página de **Introducción a Azure Spring Cloud**.
 
+1. Seleccione el grupo de recursos que contiene el servicio.
+
 1. Vaya a la pestaña **Aplicaciones** del encabezado **Configuración** del menú del lado izquierdo.
 
 1. Seleccione la aplicación que desea escalar. En este ejemplo se escalará la aplicación denominada "account-service". Esto le llevará a la página **Introducción** de la aplicación.
 
-1. Vaya a la pestaña **Escalar** del encabezado **Configuración** del menú del lado izquierdo. Debería ver un formulario con líneas para cada uno de los atributos de escalado que hemos mencionado anteriormente.
+1. Vaya a la pestaña **Escalar** del encabezado **Configuración** del menú del lado izquierdo. Debería ver las opciones de los atributos de escalado que se muestran en la sección siguiente.
 
 ## <a name="scale-your-application"></a>Escalado de la aplicación
 
@@ -45,9 +47,11 @@ Puede modificar los atributos de escalado, pero tenga en cuenta lo siguiente.
 
 * **Memoria/GB**: la cantidad máxima de memoria permitida es 8 GB por instancia de aplicación.  La cantidad total de memoria de una aplicación será el valor establecido aquí multiplicado por el número de instancias de la aplicación.
 
-* **Recuento de instancias**: Puede escalar horizontalmente hasta 20 instancias en el nivel estándar. Este valor cambia el número de instancias independientes en ejecución de la aplicación de microservicios.
+* **Recuento de instancias de aplicaciones**: Puede escalar horizontalmente hasta 20 instancias en el nivel estándar. Este valor cambia el número de instancias independientes en ejecución de la aplicación de microservicios.
 
-Asegúrese de hacer clic en el botón **Guardar** para aplicar la configuración de escalado.
+Asegúrese de hacer clic en el botón **Guardar** para aplicar la configuración del escalado.
+
+![Escalado de servicios en Azure Portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
 Tras unos segundos se mostrarán los cambios realizados en la página **Introducción** con más detalles disponibles en la pestaña**Instancias de la aplicación**. El escalado no requiere cambios en el código ni la reimplementación.
 

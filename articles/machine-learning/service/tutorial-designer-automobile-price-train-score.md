@@ -9,35 +9,35 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 3df1a0430983b52d8a791acabbd03efe19055697
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0ffe85b6e005d2dc8fe077a5a08d8b0f11c73589
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721773"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929640"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 En este tutorial de dos partes aprenderá a usar el diseñador de Azure Machine Learning para desarrollar e implementar una solución de análisis predictivo que prediga el precio de cualquier automóvil. 
 
-En la parte uno, configurará el entorno, arrastrará y colocará los módulos en un lienzo interactivo y los conectaremos todos para crear una canalización de Machine Learning.
+En la primera parte, configurará el entorno, arrastrará los módulos a un lienzo interactivo y los conectará entre sí para crear una canalización de Azure Machine Learning.
 
 En la primera parte del tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de una canalización
-> * Importar datos
-> * Preparación de los datos
-> * Entrenar un modelo de Machine Learning
-> * Evaluar un modelo de Machine Learning
+> * Crear una canalización.
+> * Importar datos.
+> * Preparar los datos.
+> * Entrenar un modelo de Machine Learning.
+> * Evaluar un modelo de Machine Learning.
 
 En la [segunda parte](tutorial-designer-automobile-price-deploy.md) del tutorial aprenderá a implementar el modelo predictivo como punto de conexión de inferencia en tiempo real para predecir el precio de cualquier automóvil en función de las especificaciones técnicas que envíe. 
 
-> [!Note]
+> [!NOTE]
 >Está disponible una versión completa de este tutorial como una canalización de ejemplo.
 >
->Para encontrarla, vaya al **diseñador del área de trabajo**. En la sección **Nueva canalización**, seleccione **Sample 1 - Regression: Automobile Price Prediction (Basic)** (Ejemplo 1 - Regresión: predicción del precio de automóviles [básica])
+>Para encontrarla, vaya al diseñador del área de trabajo. En la sección **Nueva canalización**, seleccione **Sample 1 - Regression: Automobile Price Prediction (Basic)** (Ejemplo 1 - Regresión: predicción del precio de automóviles [básica])
 
 ## <a name="create-a-new-pipeline"></a>Creación de una canalización
 
@@ -45,7 +45,7 @@ Las canalizaciones de Azure Machine Learning organizan varios pasos de aprendiza
 
 ### <a name="create-a-new-workspace"></a>Crear un área de trabajo
 
-Si tiene un área de trabajo de Azure Machine Learning con una **edición Enterprise**, [vaya a la siguiente sección](#create-the-pipeline).
+Si tiene un área de trabajo de Azure Machine Learning con una edición Enterprise, [vaya a la siguiente sección](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
@@ -53,13 +53,13 @@ Si tiene un área de trabajo de Azure Machine Learning con una **edición Enterp
 
 1. Inicie sesión en [ml.azure.com](https://ml.azure.com) y seleccione el área de trabajo con la que quiere trabajar.
 
-1. Seleccione **Designer** (Diseñador).
+1. Seleccione **Diseñador**.
 
     ![Captura de pantalla del área de trabajo visual que muestra cómo acceder al diseñador](./media/ui-tutorial-automobile-price-train-score/launch-visual-interface.png)
 
 1. Seleccione **Easy-to-use prebuilt modules** (Módulos precompilados fáciles de usar).
 
-1. Seleccione el nombre predeterminado de la canalización, **"Pipeline-Created-on..."** (Canalización: fecha de creación) en la parte superior del lienzo y cámbielo por algo significativo. Por ejemplo, **"Automobile price prediction"** (Predicción del precio de automóviles). No es necesario que el nombre sea único.
+1. Seleccione el nombre predeterminado de la canalización, **Pipeline-Created-on** (Canalización: fecha de creación) en la parte superior del lienzo. Cambie el nombre a algo significativo. Por ejemplo, *Automobile price prediction* (Predicción del precio de automóviles). No es necesario que el nombre sea único.
 
 ## <a name="import-data"></a>Importar datos
 
@@ -77,7 +77,7 @@ Puede visualizar los datos para comprender el conjunto de datos que va a usar.
 
 1. Seleccione el módulo **Automobile price data (RAW)** .
 
-1. En el panel **Properties** (Propiedades) a la derecha del lienzo, seleccione **Outputs** (Salidas).
+1. En el panel de propiedades a la derecha del lienzo, seleccione **Outputs** (Salidas).
 
 1. Seleccione el icono de gráfico para visualizar los datos.
 
@@ -95,7 +95,7 @@ Los conjuntos de datos suelen necesitar algún procesamiento previo antes del an
 
 Al entrenar un modelo, hay que hacer algo con los datos que faltan. En este conjunto de datos, faltan muchos valores en la columna **normalized-losses**, por lo que excluiremos toda esa columna del modelo.
 
-1. Escriba **Select** (Seleccionar) en el cuadro de búsqueda de la parte superior de la paleta para buscar el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos).
+1. Escriba **Select** en el cuadro de búsqueda de la parte superior de la paleta para buscar el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos).
 
 1. Haga clic y arrastre el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos) al lienzo. Coloque el módulo bajo el módulo del conjunto de datos.
 
@@ -109,13 +109,13 @@ Al entrenar un modelo, hay que hacer algo con los datos que faltan. En este conj
 
 1. Seleccione el módulo **Select Columns in Dataset**.
 
-1. En el panel **Properties** (Propiedades) a la derecha del lienzo, seleccione **Parameters** > **Edit column** (Parámetros > Editar columna).
+1. En el panel de propiedades a la derecha del lienzo, seleccione **Parameters** > **Edit column** (Parámetros > Editar columna).
 
 1. Seleccione el signo **+** para agregar una nueva regla.
 
 1. En el menú desplegable, seleccione **Exclude** (Excluir) y **Column names** (Nombres de columna).
     
-1. Escriba **normalized-losses** en el cuadro de texto.
+1. Escriba *normalized-losses* en el cuadro de texto.
 
 1. En la esquina inferior derecha, seleccione **Save** (Guardar) para cerrar el selector de columnas.
 
@@ -125,26 +125,26 @@ Al entrenar un modelo, hay que hacer algo con los datos que faltan. En este conj
 
 1. Seleccione el módulo **Select Columns in Dataset**. 
 
-1. En el panel **Properties** (Propiedades), seleccione **Parameters** > **Comment** (Parámetros > Comentario) y escriba "Exclude normalized losses" (Excluir pérdidas normalizadas).
+1. En el panel de propiedades, seleccione **Parameters** > **Comment** (Parámetros > Comentario) y escriba *Exclude normalized losses* (Excluir pérdidas normalizadas).
 
 ### <a name="clean-missing-data"></a>Limpiar datos que faltan
 
-Después de quitar la columna **normalized-losses**, aún faltan valores en el conjunto de datos. Puede quitar el resto de los datos que faltan mediante el módulo **Clean Missing Data** (Limpiar valores que faltan).
+Después de quitar la columna **normalized-losses**, aún faltan valores en el conjunto de datos. Puede quitar el resto de los datos que faltan mediante el módulo **Clean Missing Data** (Limpiar datos que faltan).
 
 > [!TIP]
 > Un requisito previo para usar la mayoría de los módulos del diseñador es limpiar los valores que faltan.
 
-1. Escriba **Clean** (Limpiar) en el cuadro de búsqueda para encontrar el módulo **Clean Missing Data** (Limpiar datos que faltan).
+1. Escriba **Clean** en el cuadro de búsqueda para encontrar el módulo **Clean Missing Data** (Limpiar datos que faltan).
 
-1. Arrastre el módulo **Clean Missing Data** (Limpiar valores que faltan) al lienzo de la canalización y conéctelo con el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos). 
+1. Arrastre el módulo **Clean Missing Data** (Limpiar datos que faltan) al lienzo de la canalización. Conéctelo al módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos). 
 
-1. En el panel Propiedades, seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza).
+1. En el panel de propiedades, seleccione **Remove entire row** (Quitar toda la fila) en **Cleaning mode** (Modo de limpieza).
 
-1. En el cuadro **Comment** (Comentario) del panel Properties (Propiedades), escriba "Remove missing value rows" (Quitar filas de valores que faltan).  
+1. En el cuadro **Comment** (Comentario) del panel de propiedades, escriba *Remove missing value rows* (Quitar filas de valores que faltan). 
 
     La canalización debe parecerse a esta:
     
-    ![select-column](./media/ui-tutorial-automobile-price-train-score/pipeline-clean.png)
+    ![Selección de columna](./media/ui-tutorial-automobile-price-train-score/pipeline-clean.png)
 
 ## <a name="train-a-machine-learning-model"></a>Entrenar un modelo de Machine Learning
 
@@ -152,23 +152,23 @@ Ahora que se han procesado los datos, puede entrenar un modelo predictivo.
 
 ### <a name="select-an-algorithm"></a>Selección de un algoritmo
 
-**Clasificación** y **regresión** son dos tipos de algoritmos de aprendizaje automático supervisado. **Clasificación** predice una respuesta a partir de un conjunto definido de categorías, como el color (rojo, azul o verde). **Regresión** se usa para predecir un número.
+*Clasificación* y *regresión* son dos tipos de algoritmos de aprendizaje automático supervisado. La clasificación predice una respuesta a partir de un conjunto definido de categorías, como el color —rojo, azul o verde—. La regresión se usa para predecir un número.
 
-Como lo que desea es predecir un precio, que es un número, puede usar un algoritmo de regresión. En este ejemplo, va a usar un modelo de regresión lineal.
+Como lo que se desea es predecir un precio, que es un número, se puede usar un algoritmo de regresión. En este ejemplo, va a usar un modelo de regresión lineal.
 
 ### <a name="split-the-data"></a>División de los datos
 
 Divida los datos en dos conjuntos de datos independientes, para entrenar el modelo y para probarlo.
 
-1. Escriba **split data** (dividir datos) en el cuadro de búsqueda para buscar el módulo **Split Data** (Dividir datos). Conéctelo al puerto izquierdo del módulo **Clean Missing Data** (Limpiar datos que faltan).
+1. Escriba **split data** en el cuadro de búsqueda para buscar el módulo **Split Data** (Dividir datos). Conéctelo al puerto izquierdo del módulo **Clean Missing Data**(Limpiar datos que faltan).
 
 1. Seleccione el módulo **Split Data** (Dividir datos).
 
-1. En el panel Properties (Propiedades), establezca el valor de **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) en 0,7.
+1. En el panel de propiedades, establezca el valor de **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) en 0,7.
 
     De este modo divide los datos: el 70 % para entrenar el modelo y el 30 % para probarlo.
 
-1. En el cuadro **Comment** (Comentario) del panel Properties (Propiedades), escriba "Split the dataset into training set (0.7) and test set (0.3)" (Dividir el conjunto de datos en conjunto de entrenamiento [0,7] y conjunto de pruebas [0,3]).
+1. En el cuadro **Comment** (Comentario) del panel de propiedades, escriba *Split the dataset into training set (0.7) and test set (0.3)* (Dividir el conjunto de datos en conjunto de entrenamiento [0,7] y conjunto de pruebas [0,3]).
 
 ### <a name="train-the-model"></a>Entrenamiento del modelo
 
@@ -178,7 +178,7 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
 1. Expanda **Machine Learning Algorithms** (Algoritmos de aprendizaje automático).
     
-    Se muestran varias categorías de módulos que se pueden usar para inicializar algoritmos de aprendizaje.
+    Esta opción muestra varias categorías de módulos que se pueden usar para inicializar algoritmos de aprendizaje.
 
 1. Seleccione **Regression** > **Linear Regression** (Regresión > Regresión lineal) y arrástrelo al lienzo de la canalización.
 
@@ -192,11 +192,11 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
 1. Seleccione el módulo **Train Model** (Entrenar modelo).
 
-1. En el panel Properties (Propiedades), seleccione **Edit column** (Editar columna).
+1. En el panel de propiedades, seleccione **Edit column** (Editar columna).
 
 1. En el cuadro de diálogo **Label column** (Columna de etiqueta), expanda el menú desplegable y seleccione **Column names** (Nombres de columna). 
 
-1. En el cuadro de texto, escriba **price**. El precio es el valor que el modelo va a predecir.
+1. En el cuadro de texto, escriba *price*. El precio es el valor que el modelo va a predecir.
 
     La canalización debe ser parecida a esta:
 
@@ -204,13 +204,13 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
 ## <a name="evaluate-a-machine-learning-model"></a>Evaluar un modelo de Machine Learning
 
-Ahora que ha entrenado el modelo con el 70 % de los datos, puede usarlo para puntuar el otro 30 % y ver si el modelo funciona correctamente.
+Después de entrenar el modelo con el 70 % de los datos, puede usarlo para puntuar el otro 30 % y ver si el modelo funciona correctamente.
 
-1. Escriba **score model** en el cuadro de búsqueda para encontrar el módulo **Score Model** (Puntuar modelo) y arrástrelo al lienzo de la canalización. 
+1. Escriba *score model* en el cuadro de búsqueda para encontrar el módulo **Score Model** (Puntuar modelo). Arrastre el módulo al lienzo de la canalización. 
 
 1. Conecte la salida del módulo **Train Model** (Entrenar modelo) al puerto de entrada izquierdo de **Score Model** (Entrenar modelo). Conecte la salida de los datos de prueba (puerto derecho) del módulo **Split Data** al puerto de entrada derecho de **Score Model**.
 
-1. Escriba **evaluate** en el cuadro de búsqueda para encontrar el módulo **Evaluate Model** (Evaluar modelo) y arrástrelo al lienzo de la canalización. 
+1. Escriba *evaluate* en el cuadro de búsqueda para buscar el módulo **Evaluate Model** (Evaluar modelo). Arrastre el módulo al lienzo de la canalización. 
 
 1. Conecte la salida del módulo **Score Model** (Puntuar modelo) a la entrada izquierda de **Evaluate Model** (Evaluar modelo). 
 
@@ -228,23 +228,23 @@ Una vez finalizada la ejecución, puede ver los resultados de la ejecución de l
 
 1. Seleccione el módulo **Score Model** (Puntuar modelo) para ver su salida.
 
-1. En el panel **Properties** (Propiedades), seleccione **Outputs** > **Visualize** (Salidas > Visualizar).
+1. En el panel de propiedades, seleccione **Outputs** > **Visualize** (Salidas > Visualizar).
 
     Aquí puede ver los precios previstos y los precios reales de los datos de prueba.
 
-    ![Captura de pantalla de la visualización de salida en que aparece la columna "Scored Label" (Etiqueta puntuada)](./media/ui-tutorial-automobile-price-train-score/score-result.png)
+    ![Captura de pantalla de la visualización de salida en la que aparece la columna Scored Label (Etiqueta puntuada) resaltada](./media/ui-tutorial-automobile-price-train-score/score-result.png)
 
 1. Seleccione el módulo **Evaluate Model** (Evaluar modelo) para ver su salida.
 
-1. En el panel **Properties** (Propiedades), seleccione **Output** > **Visualize** (Salida > Visualizar).
+1. En el panel de propiedades, seleccione **Output** > **Visualize** (Salida > Visualizar).
 
 Se muestran las siguientes estadísticas de su modelo:
 
-* **Desviación media (MAE)** : la media de errores absolutos (un error es la diferencia entre el valor previsto y el valor real).
+* **Desviación media (MAE)** : la media de errores absolutos. Un error es la diferencia entre el valor previsto y el valor real.
 * **Error cuadrático medio (RMSE)** : la raíz cuadrada de la media de errores al cuadrado de las predicciones realizadas sobre el conjunto de datos de prueba.
 * **Error absoluto relativo**: la media de errores absolutos en relación con la diferencia absoluta entre los valores reales y la media de todos los valores reales.
 * **Error al cuadrado relativo**: la media de errores al cuadrado en relación con la diferencia al cuadrado entre los valores reales y la media de todos los valores reales.
-* **Coeficiente de determinación**: también se conoce como valor R cuadrado y es una métrica estadística que indica cómo se ajusta un modelo a los datos.
+* **Coeficiente de determinación**: conocido también como valor R cuadrado, es una métrica estadística que indica en qué medida se ajusta un modelo a los datos.
 
 Para cada una de las estadísticas de errores, cuanto menor sea el valor, mejor. Un valor inferior indica que las predicciones están más próximas a los valores reales. En el coeficiente de determinación, cuanto más próximo es su valor a uno (1,0), mejores son las predicciones.
 

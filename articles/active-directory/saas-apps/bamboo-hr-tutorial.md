@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f826b5d2-9c64-47df-bbbf-0adf9eb0fa71
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bc3de858102c02d49a7cefeef15de7e1c82220e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfa7934472b512e2c884ab3f9a06728a8fb18b12
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106465"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Tutorial: Integración de Azure Active Directory con BambooHR
 
@@ -142,7 +143,7 @@ Para configurar el inicio de sesión único de Azure AD con BambooHR, realice lo
 
 3. En el panel **SAML Single Sign-On** (Inicio de sesión único de SAML), haga lo siguiente:
    
-    ![El panel SAML Single Sign-O](./media/bamboo-hr-tutorial/IC796692.png "SAML Single Sign-On")
+    ![Panel de inicio de sesión único de SAML](./media/bamboo-hr-tutorial/IC796692.png "Inicio de sesión único SAML")
    
     a. En el cuadro **SSO Login URL** (URL de inicio de sesión de SSO), pegue la **dirección URL de inicio de sesión** que copió de Azure Portal en el paso 6.
       
@@ -209,7 +210,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en BambooHR, configú
 
 2. En la barra de herramientas en la parte superior, seleccione **Configuración**.
    
-    ![El botón Configuración](./media/bamboo-hr-tutorial/IC796694.png "Configuración")
+    ![Botón de configuración](./media/bamboo-hr-tutorial/IC796694.png "Configuración")
 
 3. Seleccione **Información general**.
 

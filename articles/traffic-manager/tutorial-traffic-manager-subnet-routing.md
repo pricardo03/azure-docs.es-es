@@ -1,5 +1,5 @@
 ---
-title: Configuración del método de enrutamiento de tráfico de subred con Azure Traffic Manager
+title: 'Tutorial: Configuración del enrutamiento del tráfico de subred (Azure Traffic Manager)'
 description: En este artículo se explica cómo configurar Traffic Manager para enrutar el tráfico de las subredes de usuario a puntos de conexión concretos.
 services: traffic-manager
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: allensu
-ms.openlocfilehash: da2d4816f3f7a99ac2d213d72d7e801cf630e165
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: c2fbb4a85347c8ee68376069474add865cc06c43
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304948"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048823"
 ---
-# <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
+# <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 
 En este artículo se describe cómo configurar el método de enrutamiento del tráfico en una subred. El método de enrutamiento de tráfico de **subred** permite asignar un conjunto de intervalos de direcciones IP a puntos de conexión específicos y cuando Traffic Manager recibe una solicitud, inspecciona la dirección IP de origen de la solicitud y devuelve el punto de conexión asociado a ella.
 
@@ -157,7 +157,7 @@ Cree un perfil de Traffic Manager que le permita devolver puntos de conexión es
     | NOMBRE                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento **Subred**.                                       |
     | Subscription            | Seleccione su suscripción.                          |
-    | Grupos de recursos          | Haga clic en **Existente** y escriba *myResourceGroupTM1*. |
+    | Resource group          | Haga clic en **Existente** y escriba *myResourceGroupTM1*. |
     | |                              |
     |
 
@@ -173,7 +173,7 @@ Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*myII
 
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | Type                    | Punto de conexión de Azure                                   |
+    | type                    | Punto de conexión de Azure                                   |
     | NOMBRE           | myInternalWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Dirección IP pública                          |
     | Recurso de destino          | **Elija una dirección IP pública** para mostrar la lista de recursos con direcciones IP públicas en la misma suscripción. En **Recurso**, seleccione la dirección IP pública denominada *myIISVMEastUS-ip*. Se trata de la dirección IP pública de la máquina virtual del servidor IIS en la región Este de EE. UU.|

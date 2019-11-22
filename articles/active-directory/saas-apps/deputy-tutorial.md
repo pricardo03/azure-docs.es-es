@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8b61bc01e729472c140253f8f936b6ec0dd1b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0b52a56f51e4dcf5f27eddcd68ff17973df21c0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104247"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integración de Azure Active Directory con Deputy
 
@@ -254,15 +255,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en Deputy, deben apro
 
 2. En la parte superior del panel de navegación, haga clic en **Contactos**.
    
-    ![Personas](./media/deputy-tutorial/tutorial_deputy_001.png "Personas")
+    ![Contactos](./media/deputy-tutorial/tutorial_deputy_001.png "Personas")
 
 3. Haga clic en el botón **Agregar personas** y en **Agregar una sola persona**.
    
-    ![Agregar personas](./media/deputy-tutorial/tutorial_deputy_002.png "Agregar personas")
+    ![Add People (Agregar personas)](./media/deputy-tutorial/tutorial_deputy_002.png "Agregar personas")
 
 4. Realice los pasos siguientes y haga clic en **Guardar e invitar**.
    
-    ![Nuevo usuario](./media/deputy-tutorial/tutorial_deputy_003.png "nuevo usuario")
+    ![New User](./media/deputy-tutorial/tutorial_deputy_003.png "Nuevo usuario") (Usuario nuevo)
 
     a. En el cuadro de texto **Nombre**, escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
    

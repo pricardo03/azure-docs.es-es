@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b93d9ee65850749e79714b632584f1977ca88c81
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ff46ec437de671d5804eeb31a5d1fb0284a8946
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639980"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123526"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Evaluación de las máquinas virtuales de Hyper-V con Azure Migrate Server Assessment
 
@@ -223,7 +223,7 @@ Conéctese desde el dispositivo a los hosts o clústeres de Hyper-V e inicie la 
     - Puede agregar un clúster, incluso si hay problemas con hosts específicos del clúster.
 4. Después de la validación, haga clic en **Guardar e iniciar la detección** para iniciar el proceso de detección.
 
-De esta forma comienza la detección. Los metadatos de las VM detectadas tardan unos 15 minutos en aparecer en Azure Portal.
+De esta forma comienza la detección. Los metadatos de los servidores detectados tardan alrededor de 1.5 minutos por host en aparecer en Azure Portal. 
 
 ### <a name="verify-vms-in-the-portal"></a>Comprobación de VM en el portal
 

@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de script de CLI de Azure: creación de dos máquinas virtuales con un NSG interno y externo | Microsoft Docs'
+title: 'Ejemplo de script de la CLI de Azure: creación de dos máquinas virtuales con un grupo de seguridad de red interno y externo'
 description: 'Ejemplo de script de CLI de Azure: creación de dos máquinas virtuales con un NSG interno y externo'
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: cc2b7182b0e9191b830ffc32bcc479cc06c1718a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: eb851b672a3cc9748d1aa5fbe27e4a7fac9d020e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708251"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039930"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>Protección del tráfico de red entre máquinas virtuales
 

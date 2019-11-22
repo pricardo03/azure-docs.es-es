@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1be70d3eb74d3a8f0eddb1e5c22e4234987276b3
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073684"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176819"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicación de varias versiones de la API 
 
@@ -94,11 +94,10 @@ Para que quienes realizan las llamadas vean la versión nueva, debe agregarse a 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Examinar el portal para desarrolladores para ver la versión
 
 1. Seleccione **Portal para desarrolladores** en el menú superior.
-2. Seleccione **API** y observe que **Demo Conference API** muestra las versiones **Original** y **v1**.
-3. Seleccione **v1**.
-4. Fíjese en la **Dirección URL de la solicitud** de la primera operación de la lista. Refleja que la ruta de acceso de la dirección URL de la API incluye **v1**.
-
-    ![Menú contextual de la API: agregar versión](media/api-management-getstarted-publish-versions/developer_portal.png)
+2. Seleccione **API** y haga clic en **Demo Conference API**.
+3. Debe ver una lista desplegable con varias versiones junto al nombre de la API.
+4. Seleccione **v1**.
+5. Fíjese en la **Dirección URL de la solicitud** de la primera operación de la lista. Refleja que la ruta de acceso de la dirección URL de la API incluye **v1**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

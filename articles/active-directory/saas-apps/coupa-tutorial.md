@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b4db749d1191179b3f4f1d9bb13d77925697f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 031a88bb8a8832fbe7acb124436cce6aaeb02e21
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104544"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159315"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integración de Azure Active Directory con Coupa
 
@@ -146,11 +147,11 @@ Para configurar el inicio de sesión único de Azure AD con Coupa, realice los p
 
 2. Vaya a **Configuración \> Control de seguridad**.
 
-    ![Controles de seguridad](./media/coupa-tutorial/ic791900.png "Controles de seguridad")
+    ![Security Controls (Controles de seguridad)](./media/coupa-tutorial/ic791900.png "Controles de seguridad")
 
 3. En la sección **Iniciar sesión con credenciales de Coupa** , realice los pasos siguientes:
 
-    ![Metadatos SP de Coupa](./media/coupa-tutorial/ic791901.png "Metadatos SP de Coupa")
+    ![Coupa SP metadata (Metadatos de SP de Coupa)](./media/coupa-tutorial/ic791901.png "Metadatos de SP Coupa")
 
     a. Seleccione **Iniciar sesión con SAML**.
 
@@ -225,11 +226,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Coupa, tienen que 
 
 3. Haga clic en **Create**(Crear).
 
-    ![Creación de usuarios](./media/coupa-tutorial/ic791909.png "Creación de usuarios")
+    ![Creación de usuarios](./media/coupa-tutorial/ic791909.png "Crear usuarios")
 
 4. En la sección **Creación de usuario** , lleve a cabo estos pasos:
 
-    ![Detalles del usuario](./media/coupa-tutorial/ic791910.png "Detalles del usuario")
+    ![User Details (Detalles del usuario)](./media/coupa-tutorial/ic791910.png "Detalles del usuario")
 
     a. En los cuadros de texto relacionados, escriba los atributos **Nombre de usuario**, **Nombre**, **Apellidos**, **Id. de inicio de sesión único**, **Correo electrónico** de una cuenta válida de Azure Active Directory que quiera aprovisionar.
 

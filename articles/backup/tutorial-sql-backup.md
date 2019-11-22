@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 28a804a57a4113b22efd5274ad00b3a216b700aa
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 96a9940826570bd687fdef5726bdc103139f9902
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747038"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074653"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure
 
@@ -23,7 +23,7 @@ En este tutorial se muestra cómo hacer una copia de seguridad de una base de da
 > * Crear y configurar un almacén.
 > * Detectar bases de datos y configurar copias de seguridad.
 > * Configurar la protección automática de las bases de datos.
-> * Ejecute una copia de seguridad ad-hoc.
+> * Ejecutar una copia de seguridad a petición.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -215,7 +215,7 @@ Para crear una directiva de copia de seguridad:
 
 14. Después de completar las modificaciones en la directiva de copia de seguridad, seleccione **Aceptar**.
 
-## <a name="run-an-ad-hoc-backup"></a>Ejecute una copia de seguridad ad-hoc.
+## <a name="run-an-on-demand-backup"></a>Ejecución de una copia de seguridad a petición
 
 1. En el almacén de Recovery Services, elija los elementos de copia de seguridad.
 2. Haga clic en "SQL en la máquina virtual de Azure".
@@ -233,7 +233,7 @@ En este tutorial se usa Azure Portal para las siguientes acciones:
 > * Crear y configurar un almacén.
 > * Detectar bases de datos y configurar copias de seguridad.
 > * Configurar la protección automática de las bases de datos.
-> * Ejecute una copia de seguridad ad-hoc.
+> * Ejecutar una copia de seguridad a petición.
 
 Continúe con el tutorial siguiente para restaurar una máquina virtual de Azure desde el disco.
 

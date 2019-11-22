@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfafa1157619e151f97fcf9c8a410a0644354b80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 259635613855e4d7687cf569c94bbd3dd04027fe
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097395"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integración de Azure Active Directory con Mimecast Personal Portal
 
@@ -158,11 +159,11 @@ Para configurar el inicio de sesión único de Azure AD con Mimecast Personal Po
 
 2. Vaya a **Servicios \> Aplicaciones**.
    
-    ![Aplicaciones](./media/mimecast-personal-portal-tutorial/ic794998.png "Aplicaciones")
+    ![Aplicaciones](./media/mimecast-personal-portal-tutorial/ic794998.png "APLICACIONES")
 
 3. Haga clic en **Authentication Profiles**(Perfiles de autenticación).
    
-    ![Authentication Profiles (Perfiles de autenticación)](./media/mimecast-personal-portal-tutorial/ic794999.png "Authentication Profiles (Perfiles de autenticación)")
+    ![Authentication Profiles (Perfiles de autenticación)](./media/mimecast-personal-portal-tutorial/ic794999.png "Authentication Profiles")
 
 4. Haga clic en **New Authentication Profile**(Nuevo perfil de autenticación).
    
@@ -170,7 +171,7 @@ Para configurar el inicio de sesión único de Azure AD con Mimecast Personal Po
 
 5. En la sección **Authentication Profile** (Perfil de autenticación), realice estos pasos:
    
-    ![Authentication Profile (Perfil de autenticación)](./media/mimecast-personal-portal-tutorial/ic795001.png "Authentication Profile (Perfil de autenticación)")
+    ![Authentication Profile (Perfil de autenticación)](./media/mimecast-personal-portal-tutorial/ic795001.png "Authentication Profile")
    
     a. En el cuadro de texto **Description** (Descripción), escriba un nombre para la configuración.
    
@@ -253,19 +254,19 @@ Deberá registrar un dominio para poder crear los usuarios.
 
 2. Vaya a **Directorios\> Interno**.
    
-    ![Directories (Directorios)](./media/mimecast-personal-portal-tutorial/ic795003.png "Directories (Directorios)")
+    ![Directorios](./media/mimecast-personal-portal-tutorial/ic795003.png "Directorios")
 
 3. Haga clic en **Register New Domain**(Registrar nuevo dominio).
    
-    ![Register New Domain (Registrar nuevo dominio)](./media/mimecast-personal-portal-tutorial/ic795004.png "Register New Domain (Registrar nuevo dominio)")
+    ![Register New Domain (Registrar nuevo dominio)](./media/mimecast-personal-portal-tutorial/ic795004.png "Register New Domain")
 
 4. Una vez creado el nuevo dominio, haga clic en **New Address**(Nueva dirección).
    
-    ![New Address (Nueva dirección)](./media/mimecast-personal-portal-tutorial/ic795005.png "New Address (Nueva dirección)")
+    ![New Address (Nueva dirección)](./media/mimecast-personal-portal-tutorial/ic795005.png "New Address")
 
 5. En el cuadro de diálogo de dirección nueva, lleve a cabo los pasos siguientes para la cuenta de Azure AD válida que desea aprovisionar:
    
-    ![Guardar](./media/mimecast-personal-portal-tutorial/ic795006.png "Guardar")
+    ![Guardar](./media/mimecast-personal-portal-tutorial/ic795006.png "Save")
    
     a. En el cuadro de texto **Email Address** (Dirección de correo electrónico), escriba la **dirección de correo electrónico** del usuario, en este caso **BrittaSimon\@contoso.com**.
     

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Configuración de máquinas virtuales Linux en Azure con Ansible | Microsoft Docs'
+title: 'Inicio rápido: Configuración de máquinas virtuales Linux en Azure mediante Ansible'
 description: En este inicio rápido, aprenderá a crear una máquina virtual Linux en Azure mediante Ansible.
 keywords: ansible, azure, devops, máquina virtual
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 32d4486138f21bd99c3d75ee72ae5dd0df667e41
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 325b581910bc343f57a2da00ab3ed6e447c1e9e3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668645"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037092"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Inicio rápido: Configuración de máquinas virtuales Linux en Azure con Ansible
 
@@ -115,7 +115,7 @@ En la siguiente sección, el cuaderno de Ansible de ejemplo crea una tarjeta de 
     security_group: myNetworkSecurityGroup
 ```
 
-## <a name="create-a-virtual-machine"></a>de una máquina virtual
+## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
 El último paso es crear una máquina virtual que usa todos los recursos que ha creado en las secciones anteriores de este artículo. 
 

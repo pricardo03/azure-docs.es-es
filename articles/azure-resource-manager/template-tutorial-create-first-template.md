@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager'
-description: Describe los pasos para crear su primera plantilla de Azure Resource Manager. Obtendrá información sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
+title: 'Tutorial: Creación e implementación de una plantilla de Azure Resource Manager'
+description: Creación de la primera plantilla de Azure Resource Manager En este tutorial, aprenderá sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
 author: mumian
 manager: carmonmills
 ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e84c3bfa5a5f43ec652f12d70718ab63bd7a19e5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 463f9a54648a9e6950f839bd856ccf42bc66dca0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029537"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074365"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager
 
-Este tutorial es una introducción a las plantillas de Resource Manager. Muestra cómo crear una plantilla de inicio e implementarla en Azure. Obtendrá información sobre la estructura de la plantilla y las herramientas que necesitará para trabajar con plantillas. Se tarda unos **12 minutos** en realizar este tutorial, pero el tiempo real variará en función del número de herramientas que necesite instalar.
+Este tutorial es una introducción a las plantillas de Azure Resource Manager. Muestra cómo crear una plantilla de inicio e implementarla en Azure. Obtendrá información sobre la estructura de la plantilla y las herramientas que necesitará para trabajar con plantillas. Se tarda unos **12 minutos** en realizar este tutorial, pero el tiempo real variará en función del número de herramientas que necesite instalar.
 
 Este tutorial es el primero de una serie. A medida que avance por la serie, modificará la plantilla inicial paso a paso hasta que haya explorado todas las partes principales de una plantilla de Resource Manager. Estos elementos son los bloques de creación de plantillas mucho más complejas. Esperamos que el final de la serie tenga seguridad para crear sus propias plantillas y esté listo para automatizar las implementaciones con plantillas.
 

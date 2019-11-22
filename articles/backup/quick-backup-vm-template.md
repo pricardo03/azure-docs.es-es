@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/14/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 7075e127192635c08aa2da2b4798dea6d6abb13b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5f027926a7b90ac99b04456ad3635466a6e27655
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639413"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968791"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Copia de seguridad de una máquina virtual en Azure con la plantilla de Resource Manager
 
@@ -58,7 +58,7 @@ Para supervisar el trabajo de copia de seguridad, consulte [Supervisión del tra
 
 Si ya no necesita realizar copias de seguridad de la máquina virtual, puede limpiarla.
 
-- Si desea restaurar la máquina virtual, omita el paso de limpieza.
+- Para intentar restaurar la VM, omita el paso de limpieza.
 - Si ha usado una máquina virtual existente, puede omitir el último cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para dejar tanto el grupo de recursos como la máquina virtual en su lugar.
 
 Deshabilite la protección, elimine los puntos de restauración y el almacén. A continuación, elimine el grupo de recursos y los recursos de máquina virtual asociados como se indica a continuación:

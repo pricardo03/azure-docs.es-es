@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 1053541e192668a7b572d97c141c2fe8fc16ac5c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bb4fc076d01c1108278cea0cebba958b4ea94660
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757365"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044049"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Inicio rápido: Cómo familiarizarse con Content Moderator
 
@@ -68,6 +68,6 @@ O bien continúe con los pasos siguientes para empezar a usar las API de moderac
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo usar las API de moderación en su aplicación.
-- Implementación de la moderación de imágenes. Use la [consola de API](try-image-api.md) o use el [inicio rápido de C#](image-moderation-quickstart-dotnet.md) para examinar imágenes y detectar posible contenido explícito y para adultos mediante etiquetas, puntuaciones de confianza y otra información extraída.
-- Implementación de la moderación de texto. Use la [consola de API](try-text-api.md) o el [inicio rápido de C#](text-moderation-quickstart-dotnet.md) para examinar el contenido de texto con el fin de buscar posibles palabras soeces, clasificación de texto no deseado asistida por máquina (versión preliminar) y datos personales.
+- Implementación de la moderación de imágenes. Use la [consola de API](try-image-api.md) o siga el [inicio rápido del SDK de .NET](dotnet-sdk-quickstart.md) para examinar imágenes y detectar posible contenido explícito y para adultos mediante etiquetas, puntuaciones de confianza y otra información extraída.
+- Implementación de la moderación de texto. Use la [consola de API](try-text-api.md) o el [inicio rápido del SDK de .NET](dotnet-sdk-quickstart.md) para examinar el contenido de texto con el fin de buscar posibles palabras soeces, clasificación de texto no deseado asistida por máquina (versión preliminar) y datos personales.
 - Implementación de la moderación de vídeo. Consulte la [guía de procedimientos de moderación en vídeo para C#](video-moderation-api.md) para buscar vídeos y detectar posible contenido para adultos y subido de tono. 

@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 78ec1766-4f79-4f16-9a66-d5584c4b6151
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 274477deb37006ba5fee6a92438e1763a4f36294
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd5a52ea47d7166c6f197b233d1a10ff063ff7c5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101605"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: Integración de Azure Active Directory con Greenhouse
 
@@ -197,11 +198,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Greenhouse, deben 
 
 3. Haga clic en **Nuevos usuarios**.
    
-    ![Nuevo usuario](./media/greenhouse-tutorial/ic790792.png "nuevo usuario")
+    ![New User](./media/greenhouse-tutorial/ic790792.png "Nuevo usuario") (Usuario nuevo)
 
 4. En la sección **Agregar nuevo usuario** , lleve a cabo estos pasos:
    
-    ![Adición de un nuevo usuario](./media/greenhouse-tutorial/ic790793.png "Adición de un nuevo usuario")
+    ![Add New User (Agregar nuevo usuario)](./media/greenhouse-tutorial/ic790793.png "Agregar nuevo usuario")
 
     a. En el cuadro de texto **Especificar correos electrónicos de usuarios** , escriba la dirección de correo electrónico de la cuenta válida de Azure Active Directory que quiera aprovisionar.
 

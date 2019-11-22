@@ -1,22 +1,22 @@
 ---
-title: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python) | Microsoft Docs
-description: Enrutamiento de vehículos eléctricos mediante las API de enrutamiento de Azure Maps y Azure Notebooks.
+title: 'Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)'
+description: 'Tutorial: Enrutamiento de vehículos eléctricos mediante las API de enrutamiento de Azure Maps y Azure Notebooks.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/01/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9cc7fc1ba8c7f55700505ea8fca0dea4f836e333
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243297"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109609"
 ---
-# <a name="route-electric-vehicles-by-using-azure-notebooks-python"></a>Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
+# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
 
 Azure Maps es una cartera de API de servicios geoespaciales que se integran de forma nativa en Azure. Con estas API, los desarrolladores, las empresas y los ISV pueden crear aplicaciones con reconocimiento de ubicación y soluciones de seguimiento de recursos, IoT, movilidad y logística. 
 
@@ -41,7 +41,7 @@ Para realizar este tutorial, primero debe crear una cuenta de Azure Maps y obten
 
 Para crear una suscripción de cuenta de Azure Maps en el plan de tarifa S1, siga las instrucciones de [Administración de la cuenta de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
 
-Para obtener la clave de suscripción principal de la cuenta, siga las instrucciones de [Búsqueda de puntos de interés cercanos con Azure Maps](./tutorial-search-location.md#getkey).
+Para obtener la clave de suscripción principal de su cuenta, siga las instrucciones que se indican en [Creación de una cuenta y obtención de la clave](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
 
 ## <a name="create-an-azure-notebook"></a>Creación de un cuaderno de Azure
 
@@ -281,7 +281,7 @@ display(Image(poiRangeMap))
 
 Una vez que ha determinado todas las estaciones de carga posibles en el intervalo de alcance, querrá saber cuál es la estación a la que se puede llegar en la mínima cantidad de tiempo. 
 
-El siguiente script llama a [Matrix Routing API](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview) de Azure Maps, que devuelve el tiempo de desplazamiento y la distancia a cada estación de carga para la ubicación del vehículo especificado. El script de la siguiente celda analiza la respuesta para obtener la ubicación de la estación de carga más cercana dentro del alcance en función del tiempo.
+El siguiente script llama a [Matrix Routing API](https://docs.microsoft.com/rest/api/maps/route/postroutematrix) de Azure Maps, que devuelve el tiempo de desplazamiento y la distancia a cada estación de carga para la ubicación del vehículo especificado. El script de la siguiente celda analiza la respuesta para obtener la ubicación de la estación de carga más cercana dentro del alcance en función del tiempo.
 
 Ejecute el script de la siguiente celda para encontrar la estación de carga más cercana dentro del alcance en la mínima cantidad de tiempo:
 
@@ -395,7 +395,7 @@ Para explorar las API de Azure Maps que se usan en este tutorial, consulte:
 * [Post Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
 * [Data Upload](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 * [Render - Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Post Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)
+* [Post Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
 Para obtener una lista completa de las API REST de Azure Maps, consulte [API REST de Azure Maps](https://docs.microsoft.com/azure/azure-maps/#reference).

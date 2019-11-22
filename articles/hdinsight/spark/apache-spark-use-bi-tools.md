@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Análisis de datos de Apache Spark mediante Power BI en Azure HDInsight '
+title: 'Tutorial: Análisis de los datos de Apache Spark en Azure HDInsight con Power BI'
 description: 'Tutorial: Uso de Microsoft Power BI para visualizar datos de Apache Spark almacenados en clústeres de HDInsight'
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: fe7560f68690233d7a333724274a259d693123d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: c2d6a5acba304d7421b000cab2ee5cee5b85e5ce
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035695"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241362"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Análisis de datos de Apache Spark mediante Power BI en HDInsight
 
@@ -78,11 +78,11 @@ Los primeros pasos para trabajar con Spark pasan por conectarse al clúster de P
 
 2. En la pestaña **Inicio**, vaya a **Obtener datos** > **Más...** .
 
-    ![Obtención de datos en Power BI Desktop desde HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Obtención de datos en Power BI desde Apache Spark BI")
+    ![Obtención de datos en Power BI Desktop desde HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Obtención de datos en Power BI desde Apache Spark BI")
 
 3. Escriba `Spark` en el cuadro de búsqueda, seleccione **Azure HDInsight Spark** y, luego, seleccione **Conectar**.
 
-    ![Obtención de datos en Power BI desde Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Obtención de datos en Power BI desde Apache Spark BI")
+    ![Obtención de datos en Power BI desde Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Obtención de datos en Power BI desde Apache Spark BI")
 
 4. Escriba la dirección URL del clúster (en el formulario `mysparkcluster.azurehdinsight.net`) en el cuadro de texto **Servidor**.
 
@@ -104,21 +104,21 @@ Los primeros pasos para trabajar con Spark pasan por conectarse al clúster de P
 
     2. Arrastre el campo **BuildingID** a **Eje** y arrastre los campos **ActualTemp** y **TargetTemp** a **Valor**.
 
-        ![agregar columnas de valores](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "add value columns")
+        ![Incorporación de columnas de valor](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Incorporación de columnas de valor")
 
         El diagrama tiene el siguiente aspecto:
 
-        ![suma de gráficos de área](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "area graph sum")
+        ![Suma en gráfico de áreas](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Suma en gráfico de áreas")
 
         De manera predeterminada, la visualización muestra la suma de **ActualTemp** y **TargetTemp**. Seleccione la flecha abajo junto a **ActualTemp** y **TragetTemp** en el panel Visualizaciones; puede ver que **Suma** se ha seleccionado.
 
     3. Seleccione las flechas abajo junto a **ActualTemp** y **TragetTemp** en el panel Visualizaciones, seleccione **Media** para obtener un promedio de temperaturas reales y objetivo para cada edificio.
 
-        ![media de valores](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "average of values")
+        ![Media de valores](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "Media de valores")
 
         La visualización de datos debe parecerse a la que se muestra en la captura de pantalla. Mueva el cursor sobre la visualización para obtener información sobre herramientas con datos relevantes.
 
-        ![gráfico de área](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "area graph")
+        ![Gráfico de áreas](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Gráfico de áreas")
 
 9. Vaya a **Archivo** > **Guardar**, escriba el nombre `BuildingTemperature` para el archivo y, a continuación, seleccione **Guardar**.
 
@@ -130,31 +130,31 @@ El servicio Power BI le permite compartir informes y paneles a través de su org
 
 1. Desde la pestaña **Inicio**, haga clic en **Publicar**.
 
-    ![Publicar en Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publicar en Power BI Desktop")
+    ![Publicar desde Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publicar desde Power BI Desktop")
 
 1. Seleccione el área de trabajo en la que publicar el conjunto de datos y el informe, y haga clic en **Seleccionar**. En la siguiente imagen, está seleccionado el valor predeterminado **Mi área de trabajo**.
 
-    ![Seleccionar el área de trabajo en la que va a publicar el conjunto de datos y el informe](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Seleccionar el área de trabajo en la que va a publicar el conjunto de datos y el informe") 
+    ![Selección del área de trabajo donde se va a publicar el conjunto de datos y el informe](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Selección del área de trabajo donde se va a publicar el conjunto de datos y el informe") 
 
 1. Después de que la publicación se haya realizado correctamente, haga clic en **Abrir 'BuildingTemperature.pbix' en Power BI**.
 
-    ![Publicación correcta; haga clic para introducir las credenciales](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publicación correcta; haga clic para introducir las credenciales") 
+    ![Publicación correcta, clic para escribir las credenciales](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publicación correcta, clic para escribir las credenciales") 
 
 1. En el servicio Power BI, haga clic en **Escribir credenciales**.
 
-    ![Escribir credenciales en el servicio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Escribir credenciales en el servicio Power BI")
+    ![Introducción de credenciales en el servicio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Introducción de credenciales en el servicio Power BI")
 
 1. Haga clic en **Editar credenciales**.
 
-    ![Editar credenciales en el servicio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Editar credenciales en el servicio Power BI")
+    ![Edición de credenciales en el servicio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Edición de credenciales en el servicio Power BI")
 
 1. Escriba la información de la cuenta de inicio de sesión de HDInsight y haga clic en **Conectar**. El nombre de cuenta predeterminado es *admin*.
 
-    ![Iniciar sesión en el clúster de Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Iniciar sesión en el clúster de Spark")
+    ![Inicio de sesión en el clúster de Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Inicio de sesión en el clúster de Spark")
 
 1. En el panel izquierdo, vaya a **Áreas de trabajo** > **Mi área de trabajo** > **INFORMES** y haga clic en **BuildingTemperature**.
 
-    ![Informe que aparece en el panel izquierdo, debajo de Informes](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Informe que aparece en el panel izquierdo, debajo de Informes")
+    ![Informe incluido en los informes del panel izquierdo](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Informe incluido en los informes del panel izquierdo")
 
     También verá **BuildingTemperature** en el panel izquierdo, debajo de **CONJUNTOS DE DATOS**.
 
@@ -162,11 +162,11 @@ El servicio Power BI le permite compartir informes y paneles a través de su org
 
 1. Mantenga el cursor sobre la visualización y haga clic en el icono de anclaje en la esquina superior derecha.
 
-    ![Informe del servicio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Informe del servicio Power BI")
+    ![Informe en el servicio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Informe en el servicio Power BI")
 
 1. Seleccione "Nuevo panel", escriba el nombre `Building temperature` y después haga clic en **Anclar**.
 
-    ![Anclar al nuevo panel](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Anclar al nuevo panel")
+    ![Anclaje al nuevo panel](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Anclaje al nuevo panel")
 
 1. En el informe, haga clic en **Ir al panel**.
 

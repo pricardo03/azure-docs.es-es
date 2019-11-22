@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 6a1ae2966e8d5535a5fd9aeffb5ddc3a788f85ee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bae762b4603b2f5f80447a16671fed4e37e62b95
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072103"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108542"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importación y publicación de la primera API 
 
@@ -75,7 +75,7 @@ Esta sección explica cómo importar y publicar una API de back-end de Especific
 > [!TIP]
 > Si surgen problemas con la importación de su propia definición de API, [consulte la lista de problemas y restricciones conocidos](api-management-api-import-restrictions.md).
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Prueba de la nueva API APIM en Azure Portal
+## <a name="test-the-new-api-in-the-azure-portal"></a>Prueba de la nueva API en Azure Portal
 
 ![Prueba del mapa de API](./media/api-management-get-started/01-import-first-api-01.png)
 
@@ -88,23 +88,6 @@ Se puede llamar a las operaciones directamente desde Azure Portal, lo que propor
 
     Back-end responde con **200 Aceptar** y algunos datos.
 
-## <a name="call-operation"></a>Llamada a una operación desde el portal para desarrolladores
-
-También se pueden llamar a las operaciones desde el **portal para desarrolladores** para probar las API.
-
-1. Desplácese hasta el **portal para desarrolladores**.
-
-    ![Portal para desarrolladores](./media/api-management-get-started/developer-portal.png)
-
-2. Seleccione **API**, haga clic en **Demo Conference API** y, después, en **GetSpeakers**.
-
-    En la página se muestran los campos de los parámetros de consulta, que, en este caso, no tiene ninguno, y los encabezados. Uno de los encabezados es "Ocp-Apim-Suscripción-Key", para la clave de suscripción del producto que está asociado a esta API. Si ha creado la instancia APIM, ya es administrador, por lo que la clave se rellena automáticamente.
-
-3. Presione **Try it** (Probarlo).
-4. Presione **Enviar**.
-
-    Después de invocar una operación, el portal para desarrolladores muestra las respuestas.  
-
 ## <a name="next-steps"> </a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
@@ -112,7 +95,6 @@ En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
 > * Importación de la primera API
 > * Prueba de la API en Azure Portal
-> * Pruebe la API en el Portal para desarrolladores
 
 Avance hasta el siguiente tutorial:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementación de LEMP en una máquina virtual Linux en Azure | Microsoft Docs'
+title: 'Tutorial: implementación de LEMP en una máquina virtual Linux en Azure'
 description: En este tutorial, aprenderá a instalar la pila LEMP en una máquina virtual Linux en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 06a009978d85f2ba0f10030aeb1344a1b84bf3c3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1de2e70ccafbbde49e764437bfe8ce94602747b6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299372"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034449"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalación de un servidor web LEMP en una máquina virtual Linux en Azure
 

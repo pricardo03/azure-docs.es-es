@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8c2101d4-1779-4b36-8464-5c1ff780da18
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 2/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 808564f291328450b17db8eb7ea299c194c66400
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e53f3adbf7f9909d3590a0bc34dadc49d498291d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103533"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157299"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Tutorial: Integración de Azure Active Directory con Egnyte
 
@@ -142,7 +143,7 @@ Para configurar el inicio de sesión único de Azure AD con Egnyte, realice los 
 
 5. En la sección **Autenticación de inicio de sesión único** , siga estos pasos:
 
-    ![Autenticación de inicio de sesión único](./media/egnyte-tutorial/ic787822.png "Autenticación de inicio de sesión único")   
+    ![Single Sign On Authentication (Autenticación de inicio de sesión único)](./media/egnyte-tutorial/ic787822.png "Autenticación de inicio de sesión único")   
     
     a. En **Autenticación de inicio de sesión único**, seleccione **SAML 2.0**.
    
@@ -227,7 +228,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Egnyte, deben apro
 
 4. En la sección **Nuevo usuario avanzado**, lleve a cabo estos pasos:
     
-    ![Nuevo usuario estándar](./media/egnyte-tutorial/ic787825.png "Nuevo usuario estándar")   
+    ![New Standard User (Nuevo usuario estándar)](./media/egnyte-tutorial/ic787825.png "Nuevo usuario estándar")   
 
     a. En el cuadro de texto **Email** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **Brittasimon\@contoso.com**.
 

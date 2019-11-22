@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2c7d200b-9242-44a5-ac8a-ab3214a78e41
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c9925e11325c87598f90af1b677246eca805e6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe4f730826f99a5cd0ce15d0763ea28d3ff0a7f9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101705"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Tutorial: Integración de Azure Active Directory con Gigya
 
@@ -131,11 +132,11 @@ Para configurar el inicio de sesión único de Azure AD con Gigya, realice los p
 
 2. Vaya **Settings \> SAML Login** (Configuración > Inicio de sesión de SAML), y luego haga clic en el botón **Add** (Agregar).
    
-    ![Inicio de sesión SAML](./media/gigya-tutorial/ic789532.png "Inicio de sesión SAML")
+    ![SAML Login (Inicio de sesión de SAML)](./media/gigya-tutorial/ic789532.png "Inicio de sesión SAML")
 
 3. En la sección **Inicio de sesión de SAML** , realice los pasos siguientes:
    
-    ![Configuración de SAML](./media/gigya-tutorial/ic789533.png "Configuración de SAML")
+    ![SAML Configuration (Configuración de SAML)](./media/gigya-tutorial/ic789533.png "Configuración de SAML")
    
     a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
    
@@ -210,11 +211,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Gigya, deben aprov
 
 2. Vaya a **Admin \> Manage Users** (Administrador > Administrar usuarios) y, a continuación, haga clic en **Invite Users** (Invitar a usuarios).
    
-    ![Administración de usuarios](./media/gigya-tutorial/ic789535.png "Administración de usuarios")
+    ![Administración de usuarios](./media/gigya-tutorial/ic789535.png "Administrar usuarios")
 
 3. En el cuadro de diálogo Invite Users (Invitar a usuarios), realice los pasos siguientes:
    
-    ![Invitar a usuarios](./media/gigya-tutorial/ic789536.png "Invitar a usuarios")
+    ![Invite Users (Invitar a usuarios)](./media/gigya-tutorial/ic789536.png "Invitar a usuarios")
    
     a. En el cuadro de texto **Correo electrónico** , escriba el alias de correo electrónico de la cuenta válida de Azure Active Directory que quiera aprovisionar.
     

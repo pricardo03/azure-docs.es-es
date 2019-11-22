@@ -7,18 +7,18 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 76f995901814c90ff9fd78585c98d56b3478e8b4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ca3486610d6cf71ba315e407b58a2a2551ad6ee1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612771"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837482"
 ---
 # <a name="get-labels-for-data"></a>Obtención de etiquetas para los datos
 
 El etiquetado de grandes cantidades de datos a menudo ha resultado un dolor de cabeza en los proyectos de aprendizaje automático. Los proyectos de Machine Learning con un componente de Computer Vision (como la clasificación de imágenes o la detección de objetos) normalmente requieren miles de imágenes y sus etiquetas correspondientes. 
  
-Azure Machine Learning Studio le proporciona una ubicación central para crear, administrar y supervisar proyectos de etiquetado. Los proyectos de etiquetado ayudan a coordinar los datos, las etiquetas y los miembros del equipo, lo que le permite administrar de forma más eficaz las tareas de etiquetado. Actualmente, las tareas admitidas son la clasificación de imágenes (de varias etiquetas y de varias clases) y la identificación de objetos mediante cuadros de límite.
+Azure Machine Learning le proporciona una ubicación central para crear, administrar y supervisar proyectos de etiquetado. Los proyectos de etiquetado ayudan a coordinar los datos, las etiquetas y los miembros del equipo, lo que le permite administrar de forma más eficaz las tareas de etiquetado. Actualmente, las tareas admitidas son la clasificación de imágenes (de varias etiquetas y de varias clases) y la identificación de objetos mediante cuadros de límite.
 
 Azure realiza un seguimiento del progreso y mantiene la cola de tareas de etiquetado incompletas. Los etiquetadores no requieren una cuenta de Azure para participar. Una vez que se haya autenticado con su cuenta de Microsoft (MSA) o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), pueden realizar todas las tareas de etiquetado para las que tengan tiempo. Pueden asignar y cambiar etiquetas mediante métodos abreviados de teclado. 
 
@@ -43,7 +43,7 @@ En este artículo, aprenderá a:
 
 ## <a name="create-a-labeling-project"></a>Crear un proyecto de etiquetado
 
-Los proyectos de etiquetado se administran desde [Azure Machine Learning Studio](https://ml.azure.com/). La página **Proyectos de etiquetado** permite administrar proyectos, equipos y personas. Un proyecto tiene uno o varios equipos asignados y un equipo tiene una o más personas asignadas a él. 
+Los proyectos de etiquetado se administran desde [Azure Machine Learning](https://ml.azure.com/). La página **Proyectos de etiquetado** permite administrar proyectos, equipos y personas. Un proyecto tiene uno o varios equipos asignados y un equipo tiene una o más personas asignadas a él. 
 
 Si los datos ya están almacenados en el almacenamiento de blobs de Azure, debe hacer que estén disponibles como un almacén de datos antes de crear el proyecto de etiquetado. Para obtener más información, consulte [Creación y registro de almacenes de datos](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores). 
 
@@ -149,7 +149,7 @@ Puede etiquetar los datos directamente desde la página **Detalles del proyecto*
 
 En cualquier momento, puede exportar los datos de etiquetas para realizar experimentos de aprendizaje automático. Las etiquetas de imagen se pueden exportar en [formato COCO](http://cocodataset.org/#format-data) o como un conjunto de datos de Azure Machine Learning. Encontrará el botón **Exportar** en la página **Detalles del proyecto** del proyecto de etiquetado.
 
-El archivo COCO se crea en el almacén de blobs predeterminado del área de trabajo de Azure Machine Learning en una carpeta dentro de **export/coco**. Puede acceder al conjunto de datos exportado de Azure Machine Learning en la sección **Conjuntos de datos** de Studio. La página de detalles del conjunto de datos también proporciona código de ejemplo para acceder a las etiquetas desde Python.
+El archivo COCO se crea en el almacén de blobs predeterminado del área de trabajo de Azure Machine Learning en una carpeta dentro de **export/coco**. Puede acceder al conjunto de datos exportado de Azure Machine Learning en la sección **Conjuntos de datos** de Azure Machine Learning. La página de detalles del conjunto de datos también proporciona código de ejemplo para acceder a las etiquetas desde Python.
 
 ![Conjunto de datos exportado](media/how-to-create-labeling-projects/exported-dataset.png)
 

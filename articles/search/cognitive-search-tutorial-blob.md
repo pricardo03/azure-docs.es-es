@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de REST: Creación de una canalización de enriquecimiento de inteligencia artificial para extraer texto y estructura de blobs JSON'
+title: 'Tutorial: Extracción de texto y estructura de blobs JSON'
 titleSuffix: Azure Cognitive Search
 description: Recorra un ejemplo de extracción de texto y de procesamiento de lenguaje natural por el contenido de blobs JSON mediante Postman y las API REST de Azure Cognitive Search.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790191"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113662"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>Tutorial: Adición de una estructura a "contenido no estructurado" con enriquecimiento de inteligencia artificial
+# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Tutorial: Extracción de texto y estructura de blobs JSON en Azure mediante API REST (Azure Cognitive Search)
 
-Si tiene contenido de imagen o texto no estructurado, una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) puede ayudarle a extraer información y crear contenido útil para escenarios de búsqueda de texto completo o minería de conocimiento. Aunque una canalización puede procesar archivos de imagen (JPG, PNG y TIFF), este tutorial se centra en el contenido basado en palabras y se aplica la detección de idioma y el análisis de texto para crear campos e información que puede aprovechar en consultas, facetas y filtros.
+Si tiene contenido de imagen o texto no estructurado en Azure Blob Storage, una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) puede ayudarle a extraer información y crear contenido útil para escenarios de búsqueda de texto completo o minería de conocimiento. Aunque una canalización puede procesar archivos de imagen (JPG, PNG y TIFF), este tutorial se centra en el contenido basado en palabras y se aplica la detección de idioma y el análisis de texto para crear campos e información que puede aprovechar en consultas, facetas y filtros.
 
 > [!div class="checklist"]
 > * Comience con documentos completos (texto no estructurado) como PDF, MD, DOCX y PPTX en Azure Blob Storage.
@@ -509,7 +509,7 @@ Por último, ha aprendido cómo probar los resultados y restablecer el sistema p
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contiene el servicio Azure Cognitive Search y el servicio Azure Blob. Si decide colocar ambos servicios en el mismo grupo, elimine el grupo de recursos para eliminar de manera permanente todo lo que contiene, incluyendo los servicios y cualquier contenido almacenado que haya creado para este tutorial. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio.
+La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contenga el servicio de Azure Cognitive Search y Azure Blob service. Si decide colocar ambos servicios en el mismo grupo, elimine el grupo de recursos para eliminar de manera permanente todo lo que contiene, incluyendo los servicios y cualquier contenido almacenado que haya creado para este tutorial. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

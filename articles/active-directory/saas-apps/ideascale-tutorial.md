@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e16dda6b-fdf9-43cc-9bbb-a523f085a8af
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a312e0ca70ef3a37b43f1ffb68a974a8aedaf982
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9307bbe58afc45468f222f5b510585d528de532a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100792"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: Integración de Azure Active Directory con IdeaScale
 
@@ -137,19 +138,19 @@ Para configurar el inicio de sesión único de Azure AD con IdeaScale, realice l
 
 2. Vaya a **Configuración de la comunidad**.
 
-    ![Configuración de la Comunidad](./media/ideascale-tutorial/ic790847.png "Configuración de la Comunidad")
+    ![Community Settings (Configuración de la comunidad)](./media/ideascale-tutorial/ic790847.png "Configuración de la comunidad")
 
 3. Vaya a **Security \> Single Signon Settings** (Seguridad > Configuración de inicio de sesión único).
 
-    ![Configuración de inicio de sesión único](./media/ideascale-tutorial/ic790848.png "Configuración de inicio de sesión único")
+    ![Single Signon Settings (Configuración de inicio de sesión único)](./media/ideascale-tutorial/ic790848.png "Configuración de inicio de sesión único")
 
 4. En **Single-Signon Type** (Tipo de inicio de sesión único), seleccione **SAML 2.0**.
 
-    ![Tipo de inicio de sesión único](./media/ideascale-tutorial/ic790849.png "Tipo de inicio de sesión único")
+    ![Single Signon Type (Tipo de inicio de sesión único)](./media/ideascale-tutorial/ic790849.png "Tipo de inicio de sesión único")
 
 5. En el cuadro de diálogo **Configuración de inicio de sesión único** , siga estos pasos:
 
-    ![Configuración de inicio de sesión único](./media/ideascale-tutorial/ic790850.png "Configuración de inicio de sesión único")
+    ![Single Signon Settings (Configuración de inicio de sesión único)](./media/ideascale-tutorial/ic790850.png "Configuración de inicio de sesión único")
 
     a. En el cuadro de texto **SAML IdP Entity ID** (Identificador de la entidad de IdP de SAML), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
@@ -220,17 +221,17 @@ Para permitir que los usuarios de Azure AD inicien sesión en IdeaScale, deben a
 
 2. Vaya a **Configuración de la comunidad**.
 
-    ![Configuración de la Comunidad](./media/ideascale-tutorial/ic790847.png "Configuración de la Comunidad")
+    ![Community Settings (Configuración de la comunidad)](./media/ideascale-tutorial/ic790847.png "Configuración de la comunidad")
 
 3. Vaya a **Basic Settings \> Member Management** (Configuración básica > Administración de miembros).
 
 4. Haga clic en **Agregar miembro**.
 
-    ![Administración de miembros](./media/ideascale-tutorial/ic790852.png "Administración de miembros")
+    ![Member Management (Administración de miembros)](./media/ideascale-tutorial/ic790852.png "Administración de miembros")
 
 5. En la sección Add New Member (Agregar nuevo miembro), lleve a cabo estos pasos:
 
-    ![Agregar nuevo miembro](./media/ideascale-tutorial/ic790853.png "Agregar nuevo miembro")
+    ![Add New Member (Agregar nuevo miembro)](./media/ideascale-tutorial/ic790853.png "Agregar nuevo miembro")
 
     a. En el cuadro de texto **Direcciones de correo electrónico**, escriba la dirección de correo electrónico de la cuenta de Azure AD válida que quiera aprovisionar.
 

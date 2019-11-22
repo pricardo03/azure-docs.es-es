@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Creación de una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal'
+title: 'Tutorial: Hospedaje de varios sitios web mediante Azure Portal'
+titleSuffix: Azure Application Gateway
 description: En este tutorial, aprenderá a crear una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal.
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: victorh
-ms.openlocfilehash: 73a313a6244971b65ba89fb7b676610d88acabfa
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498448"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075150"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Creación y configuración de una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal
 
@@ -147,7 +148,7 @@ Para agregar destinos de back-end, puede:
 2. Instalar IIS en las máquinas virtuales para comprobar que la puerta de enlace de aplicaciones se ha creado correctamente.
 3. Agregar los servidores back-end a los grupos de back-end.
 
-### <a name="create-a-virtual-machine"></a>de una máquina virtual
+### <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
 1. En Azure Portal, seleccione **Crear un recurso**. Aparece la ventana **Nuevo**.
 2. Haga clic en **Compute** y, a continuación, seleccione **Windows Server 2016 Datacenter** en la lista **Popular**. Aparecerá la página **Creación de una máquina virtual**.<br>Application Gateway puede enrutar el tráfico a cualquier tipo de máquina virtual que se use en el grupo de back-end. En este ejemplo se usa un Windows Server 2016 Datacenter.
@@ -219,7 +220,7 @@ Después de crear la puerta de enlace de aplicaciones con la dirección IP públ
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-1. Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, http://www.contoso.com.
+1. Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, `http://www.contoso.com`.
 
     ![Prueba del sitio de contoso en la puerta de enlace de aplicaciones](./media/create-multiple-sites-portal/application-gateway-iistest.png)
 

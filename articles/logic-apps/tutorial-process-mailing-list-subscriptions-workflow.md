@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: fb92e882607575e99ae800bd9c6d7c36b5d89d8e
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f720e22542533d17fc7ab581f8ba8d9c03a89570
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034541"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025579"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutorial: Creación de flujos de trabajo automatizados basados en aprobación mediante Azure Logic Apps
 
@@ -41,7 +41,7 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 * Una suscripción de Azure. Si no tiene ninguna suscripción, [suscríbase a una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
-* Una cuenta de MailChimp y una lista denominada "test-members-ML" en la que la aplicación lógica pueda agregar direcciones de correo electrónico para los miembros aprobados. Si no tiene una cuenta, [regístrese para obtener una cuenta gratuita](https://login.mailchimp.com/signup/) y aprenda a [crear una lista de MailChimp](https://us17.admin.mailchimp.com/lists/#).
+* Una cuenta de MailChimp que contenga una lista denominada "test-members-ML" en la que la aplicación lógica pueda agregar direcciones de correo electrónico para los miembros aprobados. Si no tiene una cuenta, [regístrese para obtener una cuenta gratuita](https://login.mailchimp.com/signup/) y aprenda a [crear una lista de MailChimp](https://us17.admin.mailchimp.com/lists/#).
 
 * Una cuenta de correo electrónico de Office 365 Outlook o Outlook.com, que admita flujos de trabajo de aprobación. Este artículo utiliza Office 365 Outlook. Si utiliza una cuenta de correo electrónico diferente, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta.
 

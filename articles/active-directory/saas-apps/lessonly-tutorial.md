@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b038eca3d4e6beb6b1d226a4a7b1e20bfe3bb55a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: fa22b46dabcc5c8b2db5997ffc9b2f2480846d6f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121424"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074634"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Lesson.ly
 
@@ -65,10 +65,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con Lesson.ly median
 Para configurar y probar el inicio de sesión único de Azure AD con Lesson.ly, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Lesson.ly](#configure-lessonly-sso)** , para configurar los valores del inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Lesson.ly](#create-lessonly-test-user)** , para tener un homólogo de B.Simon en Lesson.ly que esté vinculado a la representación del usuario en Azure AD.
+    * **[Creación de un usuario de prueba de Lesson.ly](#create-lessonly-test-user)** , para tener un homólogo de B.Simon en Lesson.ly que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -92,6 +92,19 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de Lessonly.com](mailto:support@lessonly.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+
+1. La aplicación Lesson.ly espera las aserciones de SAML en un formato específico, lo cual requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
+
+    ![imagen](common/default-attributes.png)
+
+1. Además de lo anterior, la aplicación Lesson.ly espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
+
+    | NOMBRE | Atributo de origen|
+    | ---------------  | ----------------|
+    | urn:oid:2.5.4.42 | user.givenname |
+    | urn:oid:2.5.4.4  | user.surname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 | user.objectid |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -137,7 +150,7 @@ Para configurar el inicio de sesión único en **Lesson.ly**, es preciso enviar 
 
 ### <a name="create-lessonly-test-user"></a>Creación de un usuario de prueba de Lesson.ly
 
-El objetivo de esta sección es crear un usuario llamado a Britta Simon en Lessonly.com. Lessonly.com admite el aprovisionamiento Just-In-Time, que está habilitado de manera predeterminada.
+El objetivo de esta sección es crear un usuario llamado a B.Simon en Lessonly.com. Lessonly.com admite el aprovisionamiento Just-In-Time, que está habilitado de manera predeterminada.
 
 No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Lessonly.com se creará un nuevo usuario, en caso de que no exista.
 

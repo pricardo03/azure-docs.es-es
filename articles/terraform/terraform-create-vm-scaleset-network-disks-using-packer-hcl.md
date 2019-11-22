@@ -1,42 +1,39 @@
 ---
-title: Uso de Terraform para crear un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada de Packer
+title: 'Tutorial: Creación de un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada de Packer mediante Terraform'
 description: Use Terraform para configurar y controlar las versiones de un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada generada por Packer (junto con una red virtual y discos asociados administrados).
-services: terraform
-ms.service: azure
-keywords: terraform, devops, conjunto de escalado, máquina virtual, red, almacenamiento, módulos, imágenes personalizadas, packer
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 6feeab9b48715a8fe1f6c6fe11ae90b6be71a57a
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 11/07/2019
+ms.openlocfilehash: 7d2813a51e63d86b56712bb6d07efc2f65ec65a0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173489"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077827"
 ---
-# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Uso de Terraform para crear un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada de Packer
+# <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Tutorial: Tutorial: Creación de un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada de Packer mediante Terraform
 
-En este tutorial, usará [Terraform](https://www.terraform.io/) para crear e implementar un [conjunto de escalado de máquinas virtuales de Azure](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) creado con una imagen personalizada que se generó mediante [Packer](https://www.packer.io/intro/index.html) con discos administrados que usan el [lenguaje de configuración de HashiCorp](https://www.terraform.io/docs/configuration/syntax.html) (HCL).  
+En este tutorial, se usa [Terraform](https://www.terraform.io/) para crear e implementar un [conjunto de escalado de máquinas virtuales de Azure](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) creado con una imagen personalizada generada mediante [Packer](https://www.packer.io/intro/index.html) con discos administrados que usan el [lenguaje de configuración de HashiCorp](https://www.terraform.io/docs/configuration/syntax.html) (HCL). 
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configurar la implementación de Terraform
-> * Usar variables y salidas para la implementación de Terraform 
-> * Crear e implementar una infraestructura de red
-> * Crear una imagen de máquina virtual personalizada mediante Packer
-> * Crear e implementar un conjunto de escalado de máquinas virtuales mediante la imagen personalizada
-> * Crear e implementar un Jumpbox 
+> * Configurar una implementación de Terraform.
+> * Usar variables y salidas para la implementación de Terraform.
+> * Crear e implementar una infraestructura de red.
+> * Crear una imagen de máquina virtual personalizada mediante Packer.
+> * Crear e implementar un conjunto de escalado de máquinas virtuales mediante la imagen personalizada.
+> * Crear e implementar Jumpbox.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="before-you-begin"></a>Antes de empezar
-> * [Instale Terraform y configure el acceso a Azure](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure).
-> * [Cree un par de claves SSH](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) si aún no tiene uno.
-> * [Instale Packer](https://www.packer.io/docs/install/index.html) si aún no lo tiene instalado en su máquina local.
+## <a name="prerequisites"></a>Requisitos previos
 
+- **Terraform**: [Instalación de Terraform y configuración del acceso a Azure](/azure/virtual-machines/linux/terraform-install-configure).
+- **Par de claves SSH**: [Creación de un par de claves SSH](/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Packer**:  [Instalación de Packer](https://www.packer.io/docs/install/index.html).
 
 ## <a name="create-the-file-structure"></a>Creación de la estructura de archivos
 
@@ -50,7 +47,7 @@ Cree tres nuevos archivos en un directorio vacío con los nombres siguientes:
 
 En este paso, se definen las variables que personalizan los recursos creados por Terraform.
 
-Edite el archivo `variables.tf`, copie el código siguiente y, a continuación, guarde los cambios.
+Edite el archivo `variables.tf`, copie el código siguiente y, después, guarde los cambios.
 
 ```hcl
 variable "location" {
@@ -66,26 +63,26 @@ variable "resource_group_name" {
 ```
 
 > [!NOTE]
-> El valor predeterminado de la variable resource_group_name no está establecido, defina su propio valor.
+> El valor predeterminado de la variable resource_group_name no está establecido. Defina su propio valor.
 
 Guarde el archivo.
 
-Al implementar la plantilla de Terraform, querrá obtener el nombre de dominio completo que se utiliza para acceder a la aplicación. Use el tipo de recurso `output` de Terraform y obtenga la propiedad `fqdn` del recurso. 
+Al implementar la plantilla de Terraform, desea obtener el nombre de dominio completo que se utiliza para acceder a la aplicación. Use el tipo de recurso `output` de Terraform y obtenga la propiedad `fqdn` del recurso. 
 
 Edite el archivo `output.tf` y copie el código siguiente para exponer el nombre de dominio completo para las máquinas virtuales. 
 
 ```hcl 
 output "vmss_public_ip" {
-    value = "${azurerm_public_ip.vmss.fqdn}"
+    value = azurerm_public_ip.vmss.fqdn
 }
 ```
 
 ## <a name="define-the-network-infrastructure-in-a-template"></a>Definición de la infraestructura de red en una plantilla 
 
 En este paso, se crea la siguiente infraestructura de red en un nuevo grupo de recursos de Azure: 
-  - Una red virtual con el espacio de direcciones de 10.0.0.0/16 
-  - Una subred con el espacio de direcciones de 10.0.2.0/24
-  - Dos direcciones IP públicas. Una la usa el equilibrador de carga del conjunto de escalado de máquinas virtuales y la otra se usa para conectarse al Jumpbox de SSH.
+  - Una red virtual con el espacio de direcciones de 10.0.0.0/16.
+  - Una subred con el espacio de direcciones de 10.0.2.0/24.
+  - Dos direcciones IP públicas. Una la usa el equilibrador de carga del conjunto de escalado de máquinas virtuales. La otra se usa para conectarse a la Jumpbox de SSH.
 
 También necesitará un grupo de recursos donde se creen todos los recursos. 
 
@@ -94,8 +91,8 @@ Edite y copie el código siguiente en el archivo `vmss.tf`:
 ```hcl
 
 resource "azurerm_resource_group" "vmss" {
-  name     = "${var.resource_group_name}"
-  location = "${var.location}"
+  name     = var.resource_group_name
+  location = var.location
 
   tags {
     environment = "codelab"
@@ -105,8 +102,8 @@ resource "azurerm_resource_group" "vmss" {
 resource "azurerm_virtual_network" "vmss" {
   name                = "vmss-vnet"
   address_space       = ["10.0.0.0/16"]
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.vmss.name
 
   tags {
     environment = "codelab"
@@ -115,17 +112,17 @@ resource "azurerm_virtual_network" "vmss" {
 
 resource "azurerm_subnet" "vmss" {
   name                 = "vmss-subnet"
-  resource_group_name  = "${azurerm_resource_group.vmss.name}"
-  virtual_network_name = "${azurerm_virtual_network.vmss.name}"
+  resource_group_name  = azurerm_resource_group.vmss.name
+  virtual_network_name = azurerm_virtual_network.vmss.name
   address_prefix       = "10.0.2.0/24"
 }
 
 resource "azurerm_public_ip" "vmss" {
   name                         = "vmss-public-ip"
-  location                     = "${var.location}"
-  resource_group_name          = "${azurerm_resource_group.vmss.name}"
+  location                     = var.location
+  resource_group_name          = azurerm_resource_group.vmss.name
   allocation_method            = "static"
-  domain_name_label            = "${azurerm_resource_group.vmss.name}"
+  domain_name_label            = azurerm_resource_group.vmss.name
 
   tags {
     environment = "codelab"
@@ -135,7 +132,7 @@ resource "azurerm_public_ip" "vmss" {
 ``` 
 
 > [!NOTE]
-> Conviene etiquetar los recursos que se van a implementar en Azure para facilitar su identificación en el futuro.
+> Etiquete los recursos que se van a implementar en Azure para facilitar su identificación en el futuro.
 
 ## <a name="create-the-network-infrastructure"></a>Creación de la infraestructura de red
 
@@ -145,7 +142,7 @@ Inicialice el entorno de Terraform mediante la ejecución del siguiente comando 
 terraform init 
 ```
  
-Los complementos del proveedor se descargan del registro de Terraform en la carpeta `.terraform` situada en el directorio donde se ejecutó el comando.
+Los complementos del proveedor se descargan del registro de Terraform en la carpeta `.terraform` del directorio en que ejecutó el comando.
 
 Ejecute el siguiente comando para implementar la infraestructura de Azure.
 
@@ -162,25 +159,25 @@ El grupo de recursos contiene los siguientes recursos:
 ![Recursos de red de Terraform del conjunto de escalado de máquinas virtuales](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-rg.png)
 
 
-## <a name="create-an-azure-image-using-packer"></a>Creación de una imagen de Azure mediante Packer
-Cree una imagen de Linux personalizada mediante los pasos que se describen en el tutorial [Uso de Packer para crear imágenes de máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/build-image-with-packer).
+## <a name="create-an-azure-image-by-using-packer"></a>Creación de una imagen de Azure mediante Packer
+Cree una imagen de Linux personalizada mediante los pasos del tutorial [Uso de Packer para crear imágenes de máquinas virtuales Linux en Azure](/azure/virtual-machines/linux/build-image-with-packer).
  
-Siga el tutorial para crear una imagen de Ubuntu desaprovisionada con NGINX instalado.
+Siga el tutorial para crear una imagen de Ubuntu desaprovisionada con Nginx instalado.
 
-![Una vez que cree la imagen de Packer, tendrá una imagen.](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/packerimagecreated.png)
+![Después de crear la imagen de Packer, tendrá una imagen](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/packerimagecreated.png)
 
 > [!NOTE]
-> Para los fines de este tutorial, en la imagen de Packer, se ejecuta un comando para instalar nginx. También puede ejecutar su propio script durante la creación.
+> Para este tutorial, en la imagen de Packer se ejecuta un comando para instalar Nginx. También puede ejecutar su propio script durante la creación.
 
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>Edición de la infraestructura para agregar el conjunto de escalado de máquinas virtuales
 
 En este paso, creará los siguientes recursos en la red que se implementó anteriormente:
-- Un equilibrador de carga de Azure para dar servicio a la aplicación y asociarla a la dirección IP pública que se implementó antes.
-- Un equilibrador de carga de Azure y reglas para dar servicio a la aplicación y asociarla a la dirección IP pública configurada anteriormente.
-- Un grupo de direcciones de back-end de Azure, que se asignará al equilibrador de carga.
+- Un equilibrador de carga de Azure que preste servicio a la aplicación. Conéctelo a la dirección IP pública que se ha implementado anteriormente.
+- Un equilibrador de carga de Azure y reglas que presten servicio a la aplicación. Conéctelo a la dirección IP pública que se ha configurado anteriormente.
+- Un grupo de direcciones de back-end de Azure. Asígnelo al equilibrador de carga.
 - Un puerto de sondeo de mantenimiento que usa la aplicación y que se configura en el equilibrador de carga.
-- Un conjunto de escalado de máquinas virtuales situado detrás del equilibrador de carga, que se ejecuta en la red virtual implementada anteriormente.
-- Se debe tener instalado [Nginx](https://nginx.org/) en los nodos del conjunto de escalado de máquinas virtuales a partir de la imagen personalizada.
+- Un conjunto de escalado de máquinas virtuales que se encuentra detrás del equilibrador de carga y se ejecuta en la red virtual que se implementó anteriormente.
+- [Nginx](https://nginx.org/) en los nodos del conjunto de escalado de máquinas virtuales instalado a partir de la imagen personalizada.
 
 
 Agregue el siguiente código al final del archivo `vmss.tf`:
@@ -189,12 +186,12 @@ Agregue el siguiente código al final del archivo `vmss.tf`:
 
 resource "azurerm_lb" "vmss" {
   name                = "vmss-lb"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.vmss.name
 
   frontend_ip_configuration {
     name                 = "PublicIPAddress"
-    public_ip_address_id = "${azurerm_public_ip.vmss.id}"
+    public_ip_address_id = azurerm_public_ip.vmss.id
   }
 
   tags {
@@ -203,28 +200,28 @@ resource "azurerm_lb" "vmss" {
 }
 
 resource "azurerm_lb_backend_address_pool" "bpepool" {
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
-  loadbalancer_id     = "${azurerm_lb.vmss.id}"
+  resource_group_name = azurerm_resource_group.vmss.name
+  loadbalancer_id     = azurerm_lb.vmss.id
   name                = "BackEndAddressPool"
 }
 
 resource "azurerm_lb_probe" "vmss" {
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
-  loadbalancer_id     = "${azurerm_lb.vmss.id}"
+  resource_group_name = azurerm_resource_group.vmss.name
+  loadbalancer_id     = azurerm_lb.vmss.id
   name                = "ssh-running-probe"
-  port                = "${var.application_port}"
+  port                = var.application_port
 }
 
 resource "azurerm_lb_rule" "lbnatrule" {
-  resource_group_name            = "${azurerm_resource_group.vmss.name}"
-  loadbalancer_id                = "${azurerm_lb.vmss.id}"
+  resource_group_name            = azurerm_resource_group.vmss.name
+  loadbalancer_id                = azurerm_lb.vmss.id
   name                           = "http"
   protocol                       = "Tcp"
-  frontend_port                  = "${var.application_port}"
-  backend_port                   = "${var.application_port}"
-  backend_address_pool_id        = "${azurerm_lb_backend_address_pool.bpepool.id}"
+  frontend_port                  = var.application_port
+  backend_port                   = var.application_port
+  backend_address_pool_id        = azurerm_lb_backend_address_pool.bpepool.id
   frontend_ip_configuration_name = "PublicIPAddress"
-  probe_id                       = "${azurerm_lb_probe.vmss.id}"
+  probe_id                       = azurerm_lb_probe.vmss.id
 }
 
 data "azurerm_resource_group" "image" {
@@ -233,13 +230,13 @@ data "azurerm_resource_group" "image" {
 
 data "azurerm_image" "image" {
   name                = "myPackerImage"
-  resource_group_name = "${data.azurerm_resource_group.image.name}"
+  resource_group_name = data.azurerm_resource_group.image.name
 }
 
 resource "azurerm_virtual_machine_scale_set" "vmss" {
   name                = "vmscaleset"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.vmss.name
   upgrade_policy_mode = "Manual"
 
   sku {
@@ -249,7 +246,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
   }
 
   storage_profile_image_reference {
-    id="${data.azurerm_image.image.id}"
+    id=data.azurerm_image.image.id
   }
 
   storage_profile_os_disk {
@@ -277,7 +274,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
     ssh_keys {
       path     = "/home/azureuser/.ssh/authorized_keys"
-      key_data = "${file("~/.ssh/id_rsa.pub")}"
+      key_data = file("~/.ssh/id_rsa.pub")
     }
   }
 
@@ -287,8 +284,8 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
     ip_configuration {
       name                                   = "IPConfiguration"
-      subnet_id                              = "${azurerm_subnet.vmss.id}"
-      load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+      subnet_id                              = azurerm_subnet.vmss.id
+      load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.bpepool.id]
       primary = true
     }
   }
@@ -353,8 +350,8 @@ Agregue el siguiente código al final del archivo `vmss.tf`:
 ```hcl 
 resource "azurerm_public_ip" "jumpbox" {
   name                         = "jumpbox-public-ip"
-  location                     = "${var.location}"
-  resource_group_name          = "${azurerm_resource_group.vmss.name}"
+  location                     = var.location
+  resource_group_name          = azurerm_resource_group.vmss.name
   allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}-ssh"
 
@@ -365,14 +362,14 @@ resource "azurerm_public_ip" "jumpbox" {
 
 resource "azurerm_network_interface" "jumpbox" {
   name                = "jumpbox-nic"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.vmss.name}"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.vmss.name
 
   ip_configuration {
     name                          = "IPConfiguration"
-    subnet_id                     = "${azurerm_subnet.vmss.id}"
+    subnet_id                     = azurerm_subnet.vmss.id
     private_ip_address_allocation = "dynamic"
-    public_ip_address_id          = "${azurerm_public_ip.jumpbox.id}"
+    public_ip_address_id          = azurerm_public_ip.jumpbox.id
   }
 
   tags {
@@ -382,9 +379,9 @@ resource "azurerm_network_interface" "jumpbox" {
 
 resource "azurerm_virtual_machine" "jumpbox" {
   name                  = "jumpbox"
-  location              = "${var.location}"
-  resource_group_name   = "${azurerm_resource_group.vmss.name}"
-  network_interface_ids = ["${azurerm_network_interface.jumpbox.id}"]
+  location              = var.location
+  resource_group_name   = azurerm_resource_group.vmss.name
+  network_interface_ids = [azurerm_network_interface.jumpbox.id]
   vm_size               = "Standard_DS1_v2"
 
   storage_image_reference {
@@ -412,7 +409,7 @@ resource "azurerm_virtual_machine" "jumpbox" {
 
     ssh_keys {
       path     = "/home/azureuser/.ssh/authorized_keys"
-      key_data = "${file("~/.ssh/id_rsa.pub")}"
+      key_data = file("~/.ssh/id_rsa.pub")
     }
   }
 
@@ -422,11 +419,11 @@ resource "azurerm_virtual_machine" "jumpbox" {
 }
 ```
 
-Edite `outputs.tf` para agregar el código siguiente que muestra el nombre de host del Jumpbox cuando finalice la implementación:
+Edite `outputs.tf` para agregar el código siguiente, que muestra el nombre de host del Jumpbox al finalizar la implementación:
 
 ```
 output "jumpbox_public_ip" {
-    value = "${azurerm_public_ip.jumpbox.fqdn}"
+    value = azurerm_public_ip.jumpbox.fqdn
 }
 ```
 
@@ -438,12 +435,12 @@ Implemente el Jumpbox.
 terraform apply 
 ```
 
-Una vez completada la implementación, el contenido del grupo de recursos se parecerá a la imagen siguiente:
+Después de que se haya completado la implementación, el contenido del grupo de recursos se parecerá a la imagen siguiente:
 
 ![Grupo de recursos del conjunto de escalado de máquinas virtuales de Terraform](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-create-vmss-step8.png)
 
 > [!NOTE]
-> El inicio de sesión con una contraseña está deshabilitado en el Jumpbox y en el conjunto de escalado de máquinas virtuales que ha implementado. Inicie sesión con SSH para tener acceso a las máquinas virtuales.
+> El inicio de sesión con contraseña está deshabilitado en el Jumpbox y en el conjunto de escalado de máquinas virtuales que ha implementado. Inicie sesión con SSH para acceder a las máquinas virtuales.
 
 ## <a name="clean-up-the-environment"></a>Limpieza del entorno
 
@@ -453,16 +450,9 @@ Los siguientes comandos eliminan los recursos creados en este tutorial:
 terraform destroy
 ```
 
-Escriba `yes` cuando se le pida confirmación para eliminar los recursos. El proceso de destrucción puede tardar unos minutos en finalizar.
+Escriba *sí* cuando se le pida que confirme la eliminación de los recursos. El proceso de destrucción puede tardar unos minutos en finalizar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha implementado un conjunto de escalado de máquinas virtuales y un Jumpbox en Azure mediante Terraform. Ha aprendido a:
-
-> [!div class="checklist"]
-> * Inicializar la implementación de Terraform
-> * Usar variables y salidas para la implementación de Terraform 
-> * Crear e implementar una infraestructura de red
-> * Crear una imagen de máquina virtual personalizada mediante Packer
-> * Crear e implementar un conjunto de escalado de máquinas virtuales mediante la imagen personalizada
-> * Crear e implementar un Jumpbox 
+> [!div class="nextstepaction"] 
+> [Más información sobre el uso de Terraform en Azure](/azure/terraform)

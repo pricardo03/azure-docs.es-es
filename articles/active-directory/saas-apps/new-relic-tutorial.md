@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 664824772d9c04e5d02d7a38cda58ad4ede8baaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd75cc392bb30d15b665190eef8fbea39d692ee3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096267"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160330"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Tutorial: Integración de Azure Active Directory con New Relic
 
@@ -128,7 +129,7 @@ Para configurar el inicio de sesión único de Azure AD con New Relic, realice l
 
 2. En el menú de la parte superior, haga clic en **Configuración de cuenta**.
    
-    ![Configuración de la cuenta](./media/new-relic-tutorial/ic797036.png "configuración de la cuenta")
+    ![Account Settings (Configuración de cuenta)](./media/new-relic-tutorial/ic797036.png "Configuración de cuenta")
 
 3. Haga clic en la pestaña **Seguridad y autenticación** y, luego, haga clic en la pestaña **Inicio de sesión único**.
    
@@ -207,11 +208,11 @@ Para permitir que los usuarios de Azure Active Directory inicien sesión en New 
 
 2. En el menú de la parte superior, haga clic en **Configuración de cuenta**.
    
-    ![Configuración de la cuenta](./media/new-relic-tutorial/ic797040.png "configuración de la cuenta")
+    ![Account Settings (Configuración de cuenta)](./media/new-relic-tutorial/ic797040.png "Configuración de cuenta")
 
 3. En el panel **Cuenta** que se encuentra en el lado izquierdo, haga clic en **Resumen** y, luego, haga clic en **Agregar usuario**.
    
-    ![Configuración de la cuenta](./media/new-relic-tutorial/ic797041.png "configuración de la cuenta")
+    ![Account Settings (Configuración de cuenta)](./media/new-relic-tutorial/ic797041.png "Configuración de cuenta")
 
 4. En el cuadro de diálogo **Usuarios activos** , realice los pasos siguientes:
    

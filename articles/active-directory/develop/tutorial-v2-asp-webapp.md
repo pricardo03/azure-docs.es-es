@@ -1,5 +1,6 @@
 ---
-title: Introducción al servidor web ASP.NET de Azure AD v2.0 | Microsoft Docs
+title: Introducción al servidor web ASP.NET de Azure AD v2.0
+titleSuffix: Microsoft identity platform
 description: Implementación del inicio de sesión de Microsoft en una solución ASP.NET mediante una aplicación basada en un explorador web tradicional y el estándar OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1ce7197a195b37787d1a43a44efd8438154e9f9
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: b66d2a9a958afd536dcffeca211a3fc56cf09ef8
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113644"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803723"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
@@ -269,7 +270,7 @@ En Visual Studio, cree otra vista para agregar el botón de inicio de sesión y
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Más información
-> Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para más botones de inicio de sesión, vaya a [Directrices de personalización de marca](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+> Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para más botones de inicio de sesión, vaya a [Directrices de personalización de marca](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "BDirectrices de personalización de marca).
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Agregar un controlador para mostrar las notificaciones del usuario
@@ -410,7 +411,7 @@ Cuando esté listo para realizar la prueba, use una cuenta de Azure AD (profesi
 >  > - El desarrollador de aplicaciones agrega todos los permisos adicionales que requieran **consentimiento del administrador**.
 >  > - O bien se configura el inquilino (en **Aplicaciones empresariales -> Configuración de usuario**), donde los usuarios no pueden dar el consentimiento a las aplicaciones que accedan a los datos de la empresa en su nombre.
 >
-> Para más información, consulte [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent).
+> Para más información, consulte [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
 <!--end-collapse-->
 
 #### <a name="view-application-results"></a>Visualización de los resultados de la aplicación

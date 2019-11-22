@@ -1,5 +1,5 @@
 ---
-title: Tutorial sobre la supervisión de los dispositivos IoT desde una solución de Azure | Microsoft Docs
+title: 'Supervisión de dispositivos en la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este tutorial aprenderá a supervisar los dispositivos de IoT mediante el acelerador de solución de supervisión remota.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d6d850fa8f896809318be77529e10abddaf6ea9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 400a71b11fde210b889d938041e88c5ebe73c1dc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58173828"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890864"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Tutorial: Supervisión de los dispositivos IoT
 

@@ -1,19 +1,19 @@
 ---
-title: Creación de una aplicación de análisis de medidores inteligentes con IoT Central | Microsoft Docs
-description: Aprenda a crear una aplicación de supervisión de medidores inteligentes mediante plantillas de aplicación de Azure IoT Central.
+title: 'Tutorial: Creación de una aplicación de análisis de medidores inteligentes con IoT Central'
+description: 'Tutorial: Aprenda a crear una aplicación de supervisión de medidores inteligentes mediante plantillas de aplicación de Azure IoT Central.'
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c7bb35e7de6400a0fad13845a3faa38ad21b6de7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a73f4d75811a384eb822d1f8594a22506509d560
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581254"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112544"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Creación y recorrido de la plantilla de aplicación de supervisión de medidores inteligentes 
 
