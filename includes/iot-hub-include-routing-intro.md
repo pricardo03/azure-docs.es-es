@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d0accd01926743d64fa4911dfe56806537170c2d
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 863989f8e2cb90fe5ec0921ea6e080b61fc1b4ae
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66271556"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808848"
 ---
 [El enrutamiento de mensajes](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) permite enviar datos de telemetría desde dispositivos de IoT a puntos de conexión integrados compatibles con el centro de eventos o puntos de conexión personalizados como Blob Storage, colas de Service Bus, temas de Service Bus y Event Hubs. Para configurar el enrutamiento de mensajes personalizado, cree [consultas de enrutamiento](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) para personalizar la ruta que coincide con una condición determinada. Una vez configurado, los datos entrantes se enrutan automáticamente a los puntos de conexión mediante IoT Hub. Si un mensaje no coincide con ninguna de las consultas de enrutamientos definidas, se enruta al punto de conexión predeterminado.
 
@@ -23,7 +23,7 @@ Para completar las dos partes de este tutorial, realice las siguientes tareas:
 
 **Parte I: Creación de recursos, configuración del enrutamiento de mensajes**
 > [!div class="checklist"]
-> * Cree los recursos: una instancia de IoT Hub, una cuenta de almacenamiento, una cola de Service Bus y un dispositivo simulado. Esto puede hacerse mediante el portal, la CLI de Azure, Azure PowerShell o una plantilla de Azure Resource Manager.
+> * Cree los recursos: una instancia de IoT Hub, una cuenta de almacenamiento, una cola de Service Bus y un dispositivo simulado. Esto puede hacerse mediante Azure Portal, la CLI de Azure, una plantilla de Azure Resource Manager o Azure PowerShell.
 > * Configure los puntos de conexión y las rutas de los mensajes en IoT Hub para la cuenta de almacenamiento y la cola de Service Bus.
 
 **Parte II: Envío de mensajes al centro, visualización de los resultados del enrutamiento**
@@ -38,13 +38,13 @@ Para completar las dos partes de este tutorial, realice las siguientes tareas:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Para la parte I de este tutorial:
+* Para la primera parte de este tutorial:
   - Debe tener una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-* Para la parte II de este tutorial:
+* Para la segunda parte de este tutorial:
   - Debe haber completado la parte I de este tutorial y seguir disponiendo de los recursos.
   - Instale [Visual Studio](https://www.visualstudio.com/).
-  - Una cuenta de Power BI para realizar el análisis del flujo del punto de conexión predeterminado. ([pruebe Power BI de manera gratuita](https://app.powerbi.com/signupredirect?pbi_source=web)).
-  - Una cuenta de Office 365 para enviar notificaciones por correo electrónico.
+  - Debe tener acceso a una cuenta de Power BI para realizar el análisis del flujo del punto de conexión predeterminado. ([pruebe Power BI de manera gratuita](https://app.powerbi.com/signupredirect?pbi_source=web)).
+  - Debe tener una cuenta de Office 365 para enviar notificaciones por correo electrónico.
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]

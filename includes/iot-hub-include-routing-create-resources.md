@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 710bb8cba7fbbe4bc9b9fdc52b0767c96f97fe72
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c97c8231265cf87f52333a56d21d6fb13180c554
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186934"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808860"
 ---
 ## <a name="create-base-resources"></a>Creación de recursos de base
 
-Antes de configurar el enrutamiento de mensajes, deberá crear una instancia de IoT Hub, una cuenta de almacenamiento y una cola de Service Bus. Estos recursos pueden crearse mediante uno de los cuatro artículos que están disponibles para la parte 1 de este tutorial: la CLI de Azure, Azure PowerShell, Azure Portal o una plantilla de Azure Resource Manager.
+Antes de configurar el enrutamiento de mensajes, deberá crear una instancia de IoT Hub, una cuenta de almacenamiento y una cola de Service Bus. Estos recursos pueden crearse mediante uno de los cuatro artículos que están disponibles para la parte 1 de este tutorial: Azure Portal, una plantilla de Azure Resource Manager, la CLI de Azure o Azure PowerShell.
 
 Use el mismo grupo de recursos y la misma ubicación para todos los recursos. Al final, puede quitar todos los elementos en un solo paso mediante la eliminación del grupo de recursos.
 
-En las secciones siguientes se describen los pasos que se deben realizar.
+A continuación se muestra un resumen de los pasos que se deben realizar en las secciones siguientes: 
 
 1. Cree un [grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md).
 

@@ -5,18 +5,14 @@ services: cosmos-db
 author: MarkMcGeeAtAquent
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/06/2018
+ms.date: 10/07/2019
 ms.author: mimig
 ms.custom: include file
-ms.openlocfilehash: 5d779694ac107931b610f9d91a24dd715669aecd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: be3637870edc4900059f02392536194a910e9e41
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67186065"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72818622"
 ---
-Puede trabajar con tablas mediante Azure Table Storage o Azure Cosmos DB. Para más información acerca de las diferencias entre los servicios, lea [Ofertas de Table](../articles/cosmos-db/table-introduction.md#table-offerings). Debe crear una cuenta para el servicio que se va a utilizar. 
-
-
-
-
+Puede trabajar con tablas mediante Azure Table Storage o Azure Cosmos DB. Para más información acerca de las diferencias entre los servicios, consulte [Ofertas de Table](../articles/cosmos-db/table-introduction.md#table-offerings). Debe crear una cuenta para el servicio que se va a utilizar.

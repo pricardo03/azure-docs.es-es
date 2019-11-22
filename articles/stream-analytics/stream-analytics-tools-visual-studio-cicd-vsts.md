@@ -1,5 +1,5 @@
 ---
-title: Implementación de un trabajo de Azure Stream Analytics con CI/CD mediante Azure DevOps
+title: Implementación de trabajos de Azure Stream Analytics con CI/CD y Azure DevOps
 description: En este artículo se describe cómo implementar un trabajo de Stream Analytics con CI/CD mediante Azure DevOps Services.
 services: stream-analytics
 author: su-jie
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e05e4eab8bd3c307334b62df00dc03e56ce60ad
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727594"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925081"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implementación de un trabajo de Azure Stream Analytics con CI/CD mediante Azure Pipelines
 En este tutorial se describe cómo configurar la integración y la implementación continuas de un trabajo de Azure Stream Analytics mediante Azure Pipelines. 

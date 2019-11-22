@@ -1,34 +1,23 @@
 ---
 title: Introducción a las consultas de registro en Azure Monitor | Microsoft Docs
 description: En este artículo se proporciona un tutorial de introducción a la escritura de consultas de registro en Azure Monitor.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: tutorial
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 6eb066e04cfa561a4fa443b8c8f9582e286a4d7b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 10/24/2019
+ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076754"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933039"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor
 
-
-> [!NOTE]
-> Antes de realizar este tutorial, debe completar [Introducción a Log Analytics de Azure Monitor](get-started-portal.md).
-
 > [!NOTE]
 > Puede trabajar en este ejercicio en su propio entorno si va a recopilar datos de al menos una máquina virtual. Si no es así, use nuestro [entorno de demostración](https://portal.loganalytics.io/demo), que incluye gran cantidad de datos de ejemplo.
-
 
 En este tutorial aprenderá a escribir consultas de registro en Azure Monitor. Le mostrará cómo:
 
@@ -42,6 +31,10 @@ En este tutorial aprenderá a escribir consultas de registro en Azure Monitor. L
 
 Para obtener un tutorial sobre el uso de Log Analytics en Azure Portal, consulte [Introducción a Log Analytics de Azure Monitor](get-started-portal.md).<br>
 Para más información sobre las consultas de registro en Azure Monitor, consulte [Introducción a las consultas de registro en Azure Monitor](log-query-overview.md).
+
+Siga con una versión en vídeo de este tutorial:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>Escribir una nueva consulta
 Las consultas pueden comenzar por un nombre de tabla o el comando *search*. Debe empezar por un nombre de tabla, ya que define un ámbito claro para la consulta y mejora el rendimiento de las consultas y la pertinencia de los resultados.

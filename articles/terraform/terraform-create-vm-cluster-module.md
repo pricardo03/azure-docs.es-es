@@ -1,22 +1,19 @@
 ---
-title: Uso de módulos de Terraform para crear un clúster de VM en Azure
+title: 'Tutorial: Creación de un clúster de VM de Azure con Terraform mediante el registro de módulos'
 description: Aprenda a usar módulos de Terraform para crear un clúster de máquinas virtuales Windows en Azure
-services: terraform
-ms.service: azure
-keywords: terraform, devops, máquina virtual, redes, módulos
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 6279b5c9022b448aea9b33a94fc1b2b35b6d23de
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: ba99f9cdc20448398b339041aeab41fb75495e5d
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169857"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969491"
 ---
-# <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Creación de un clúster de VM con Terraform mediante el registro de módulos
+# <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Tutorial: Creación de un clúster de VM de Azure con Terraform mediante el registro de módulos
 
 En este artículo se describe el proceso para crear un clúster de VM con el [módulo de proceso de Azure](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2) de Terraform. En este tutorial, aprenderá a: 
 
@@ -63,7 +60,7 @@ module mycompute {
     remote_port = "3389"
     nb_instances = 2
     public_ip_dns = ["unique_dns_name"]
-    vnet_subnet_id = "${module.network.vnet_subnets[0]}"
+    vnet_subnet_id = module.network.vnet_subnets[0]
 }
 
 module "network" {
@@ -73,15 +70,15 @@ module "network" {
 }
 
 output "vm_public_name" {
-    value = "${module.mycompute.public_ip_dns_name}"
+    value = module.mycompute.public_ip_dns_name
 }
 
 output "vm_public_ip" {
-    value = "${module.mycompute.public_ip_address}"
+    value = module.mycompute.public_ip_address
 }
 
 output "vm_private_ips" {
-    value = "${module.mycompute.network_interface_private_ip}"
+    value = module.mycompute.network_interface_private_ip
 }
 ```
 
@@ -104,5 +101,5 @@ Ejecute `terraform apply` para aprovisionar las VM en Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Examinar la lista de [módulos Terraform de Azure](https://registry.terraform.io/modules/Azure)
-- Crear un [conjunto de escalado de máquinas virtuales con Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+> [!div class="nextstepaction"] 
+> [Examinar la lista de módulos Terraform de Azure](https://registry.terraform.io/modules/Azure)

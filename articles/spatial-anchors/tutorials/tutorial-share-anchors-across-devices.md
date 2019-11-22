@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 734e1d08413867a438270660fa97bb8c5737e087
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e8a60d5d90b684698d6fcb612278bcae6d4ed08e
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "67135394"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882298"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Tutorial: Uso compartido de Azure Spatial Anchors entre sesiones y dispositivos
 
@@ -38,15 +38,55 @@ Es importante destacar que, aunque se va a usar Unity y una aplicación web de A
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="download-the-unity-sample-project"></a>Descarga del proyecto de Unity de ejemplo
+## <a name="download-the-sample-project"></a>Descarga del proyecto de ejemplo
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 ## <a name="deploy-your-sharing-anchors-service"></a>Implementación del uso compartido del servicio de delimitadores
 
+## <a name="visual-studiotabvs"></a>[Visual Studio](#tab/VS)
+
 Abra Visual Studio y abra el proyecto en la carpeta `Sharing\SharingServiceSample`.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
+
+## <a name="visual-studio-codetabvsc"></a>[Visual Studio Code](#tab/VSC)
+
+Tendrá que crear un grupo de recursos y un plan de App Service antes de implementar el servicio en VS Code.
+
+### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+
+Vaya a <a href="https://portal.azure.com/" target="_blank">Azure Portal</a> e inicie sesión con su suscripción de Azure.
+
+### <a name="create-a-resource-group"></a>Crear un grupo de recursos
+
+[!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
+
+Junto a **Grupo de recursos**, seleccione **Nuevo**.
+
+Asigne el nombre **myResourceGroup** al grupo de recursos y seleccione **Aceptar**.
+
+### <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
+
+[!INCLUDE [app-service-plan](../../../includes/app-service-plan.md)]
+
+Junto a **Plan de hospedaje**, seleccione **Nuevo**.
+
+En el cuadro de diálogo **Configurar un plan de hospedaje**, use estos valores:
+
+| Configuración | Valor sugerido | DESCRIPCIÓN |
+|-|-|-|
+|Plan de servicio de aplicación| MySharingServicePlan | Nombre del plan de App Service. |
+| Location | Oeste de EE. UU. | El centro de datos donde se hospeda la aplicación web. |
+| Size | Gratuito | El [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) que determina las características de hospedaje. |
+
+Seleccione **Aceptar**.
+
+Abra Visual Studio Code y abra el proyecto en la carpeta `Sharing\SharingServiceSample`. Siga <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">este tutorial</a> para implementar el servicio de uso compartido mediante Visual Studio Code. Puede seguir los pasos a partir de la sección "Abrirlo con Visual Studio Code". No cree otro proyecto de MVC, tal como se explicó en el paso anterior, porque ya tiene el proyecto que debe implementarse y publicarse: SharingServiceSample.
+
+---
+
+## <a name="deploy-the-sample-app"></a>Implementación de la aplicación de ejemplo
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
@@ -56,7 +96,8 @@ Abra Visual Studio y abra el proyecto en la carpeta `Sharing\SharingServiceSampl
 
 En este tutorial, ha implementado una aplicación web de ASP.NET Core en Azure y ha configurado e implementado una aplicación de Unity. Ha creado delimitadores espaciales con la aplicación y los ha compartido con otros dispositivos mediante la aplicación web de ASP.NET Core.
 
-Para más información sobre cómo mejorar una aplicación web de ASP.NET Core para que use Azure Cosmos DB a fin de almacenar los delimitadores de anclaje espacial, continúe con el tutorial siguiente. Azure Cosmos DB le dará persistencia a la aplicación web de ASP.NET Core. Si lo hace, permitirá que la aplicación cree un delimitador hoy y que días más tarde regrese y pueda encontrarlo de nuevo, con el identificador de delimitador almacenado en la aplicación web.
+Puede mejorar una aplicación web de ASP.NET Core para que use Azure Cosmos DB a fin de hacer persistir el almacenamiento de los delimitadores de anclaje espacial compartidos. Al agregar compatibilidad con Azure Cosmos DB, permitirá que la aplicación web de ASP.NET Core cree un delimitador hoy y, cuando regrese días más tarde, pueda encontrarlo de nuevo mediante el identificador de delimitador almacenado en la aplicación web.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Uso de Azure Cosmos DB para almacenar delimitadores](./tutorial-use-cosmos-db-to-store-anchors.md)
+> [Uso de Azure Cosmos DB para almacenar delimitadores](./tutorial-use-cosmos-db-to-store-anchors.md)
+

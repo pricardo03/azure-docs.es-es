@@ -40,6 +40,8 @@
           href: class-type-ethical-hacking.md
         - name: Administración de bases de datos
           href: class-type-database-management.md
+        - name: Cuadernos de Python y Jupyter Notebook
+          href: class-type-jupyter-notebook.md
     - name: Creación y configuración de cuentas de laboratorio (propietario de la cuenta de laboratorio)
       items:
         - name: Creación y administración de cuentas de laboratorio

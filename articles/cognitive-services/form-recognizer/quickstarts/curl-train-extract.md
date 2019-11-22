@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 0b357a36afc44ceac8ed2c951e0f25901be9d93d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 098dc5e2ab7d4b9533f58e03557db533eaa49a90
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264365"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931277"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de los datos del formulario mediante la API de REST con cURL
 
@@ -38,7 +38,7 @@ En primer lugar, se necesitará un conjunto de datos de entrenamiento de un blob
 
 Para entrenar un modelo de Form Recognizer con los documentos del contenedor de blobs de Azure, llame a la API **Train** mediante la ejecución del siguiente comando de cURL. Antes de ejecutar el comando, realice estos cambios:
 
-1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo con la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
+1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
 1. Reemplace `<subscription key>` con la clave de suscripción que copió en el paso anterior.
 1. Reemplace `<SAS URL>` por la dirección URL de la firma de acceso compartido (SAS) del contenedor de almacenamiento de blobs de Azure. Para recuperar la dirección URL de SAS, abra el Explorador de Microsoft Azure Storage, haga clic con el botón derecho en el contenedor y seleccione **Get shared access signature** (Obtener firma de acceso compartido). Asegúrese de que los permisos de **lectura** y **enumeración** están marcados y haga clic en **Create** (Crear). A continuación, copie el valor en la sección **URL**. Debe tener el formato `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
@@ -93,7 +93,7 @@ Tome nota del valor de `"modelId"`. Lo necesitará en los pasos siguientes.
 
 A continuación, analizará un documento y extraerá de él tanto los pares clave-valor como las tablas. Llame a la API **Model - Analyze** mediante la ejecución del siguiente comando de cURL. Antes de ejecutar el comando, realice estos cambios:
 
-1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo de la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
+1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo de la suscripción de Form Recognizer.
 1. Reemplace `<modelID>` por el identificador de modelo que recibió en la sección anterior.
 1. Reemplace `<path to your form>` por la ruta de acceso de archivo del formulario (por ejemplo, C:\temp\file.pdf). En este inicio rápido puede usar los archivos de la carpeta **Prueba** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Reemplace `<file type>` por el tipo de archivo. Tipos admitidos: `application/pdf`, `image/jpeg`, `image/png`.

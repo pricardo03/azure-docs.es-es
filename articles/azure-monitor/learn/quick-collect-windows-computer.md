@@ -1,5 +1,5 @@
 ---
-title: Recopilación de datos de un equipo Windows híbrido con Azure Monitor | Microsoft Docs
+title: Recopilación de datos de un equipo Windows híbrido con Azure Monitor
 description: En este inicio rápido, aprenderá a implementar el agente de Log Analytics para equipos Windows que se ejecutan fuera de Azure y a habilitar la recopilación de datos con registros de Azure Monitor.
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 1b8888c2c8aaedce181d19c015206323ccf2b0ba
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 26919a64313df823dddad5dcfca6de5d08dcd993
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677265"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199030"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Recopilación de datos de un equipo Windows en un entorno híbrido con Azure Monitor
 

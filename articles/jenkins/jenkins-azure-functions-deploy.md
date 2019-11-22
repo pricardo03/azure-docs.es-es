@@ -7,15 +7,15 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 02/23/2019
-ms.openlocfilehash: 1ee5a8d5f55422c9f8a0f20f3c6eb039f080dc2d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 10/23/2019
+ms.openlocfilehash: 58267c607b0c4f2eaaf242c8e0752451f8c04c9a
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815739"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882035"
 ---
-# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Implementación en Azure Functions con el complemento para Azure Functions de Jenkins
+# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Implementación en Azure Functions con el complemento para Azure Functions de Jenkins
 
 [Azure Functions](/azure/azure-functions/) es un servicio de proceso sin servidor. Con Azure Functions, puede ejecutar código a petición sin aprovisionar ni administrar infraestructura. En este tutorial se muestra cómo implementar una función de Java en Azure Functions mediante el complemento para Azure Functions.
 
@@ -76,7 +76,7 @@ En los siguientes pasos se explica cómo preparar el servidor Jenkins:
 
 1. En el panel de Jenkins, instale los siguientes complementos:
 
-    - Complemento para Azure Functions
+    - Complemento de Azure Functions
     - Complemento EnvInject
 
 1. Jenkins necesita una entidad de servicio de Azure para la autenticación y el acceso a los recursos de Azure. Consulte el artículo de [Implementación en Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md) para instrucciones paso a paso.

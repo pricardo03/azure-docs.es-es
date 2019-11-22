@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb27e24e9b53b734a24304a63c8fd91d5e94f5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 788c1292b844088f171479b40fc566ff5cfc8a57
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107326"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73154028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integración de Azure Active Directory con Adobe Sign
 
@@ -151,13 +152,13 @@ Para configurar el inicio de sesión único de Azure AD con Adobe Sign, realice 
 
 1. En el menú SAML, seleccione **Configuración de cuenta** > **Configuración de SAML**.
    
-    ![Captura de pantalla de Configuración de SAML de Adobe Sign](./media/adobe-echosign-tutorial/ic789520.png "Cuenta")
+    ![Captura de pantalla de la página Adobe Sign SAML Settings (Configuración de SAML de Adobe Sign)](./media/adobe-echosign-tutorial/ic789520.png "Cuenta")
 
 1. En la sección **SAML Settings** (Configuración de SAML), realice los pasos siguientes:
   
-   ![Captura de pantalla de Configuración de SAML](./media/adobe-echosign-tutorial/ic789521.png "Configuración de SAML")
+   ![Captura de pantalla de SAML Settings (Configuración de SAML)](./media/adobe-echosign-tutorial/ic789521.png "Configuración de SAML")
    
-   ![Captura de pantalla de Configuración de SAML](./media/adobe-echosign-tutorial/ic789522.png "Configuración de SAML")
+   ![Captura de pantalla de SAML Settings (Configuración de SAML)](./media/adobe-echosign-tutorial/ic789522.png "Configuración de SAML")
 
    a. En **SAML Mode** (Modo de SAML), seleccione **SAML Mandatory** (SAML obligatorio).
    
@@ -237,11 +238,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Adobe Sign, tienen
 
 2. En el menú de la parte superior, seleccione **Account** (Cuenta). A continuación, en el panel izquierdo, seleccione **Users & Groups** (Usuarios y grupos) > **Create a new user** (Crear un usuario nuevo).
    
-    ![Captura de pantalla del sitio empresarial de Adobe Sign, con Account (Cuenta), Users &Groups (Usuarios y grupos) y Create a new user (Crear nuevo usuario) resaltados](./media/adobe-echosign-tutorial/ic789524.png "Cuenta")
+    ![Captura de pantalla del sitio empresarial de Adobe Sign, con Account (Cuenta), Users & Groups (Usuarios y grupos) y Create a new user (Crear nuevo usuario) resaltados](./media/adobe-echosign-tutorial/ic789524.png "Cuenta")
    
 3. En la sección **Create New User** (Crear nuevo usuario), lleve a cabo estos pasos:
    
-    ![Captura de pantalla de la sección Crear nuevo usuario](./media/adobe-echosign-tutorial/ic789525.png "Crear usuario")
+    ![Captura de pantalla de la sección Create New User (Crear nuevo usuario)](./media/adobe-echosign-tutorial/ic789525.png "Crear usuario")
    
     a. Escriba en los campos de texto pertinentes los datos de **Email Address** (Dirección de correo electrónico), **Name** (Nombre) y **Last Name** (Apellidos) de la cuenta de correo válida de Azure AD que desea aprovisionar.
    

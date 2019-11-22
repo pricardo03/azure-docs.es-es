@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: badd674030ec014f2e70050c3c45599a26b17882
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: c533949cf0ce69ddc5237dd893dd75e43447c4a9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073828"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931582"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Inicio rápido: Extracción de datos de recibos con API REST Form Recognizer con cURL
 
@@ -36,7 +36,7 @@ Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 
 Para empezar a analizar un recibo, llame a **Analyze Receipt** API con el comando cURL siguiente. Antes de ejecutar el comando, realice estos cambios:
 
-1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo con la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
+1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
 1. Reemplace `<your receipt URL>` por la dirección URL de una imagen del recibo.
 1. Reemplace `<subscription key>` con la clave de suscripción que copió en el paso anterior.
 

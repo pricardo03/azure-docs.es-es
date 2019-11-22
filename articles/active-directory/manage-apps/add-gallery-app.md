@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bdf275bbafa9c46cfc4577ac2843da0be74c7ef
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477279"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062547"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Adición de una aplicación de la galería a la organización de Azure AD
 
@@ -34,27 +34,30 @@ Azure Active Directory (Azure AD) dispone de una galería que contiene miles 
 
 1. En el panel **Azure Active Directory**, seleccione **Aplicaciones empresariales**.
 
-    ![Apertura de las aplicaciones empresariales](media/add-application-portal/open-enterprise-apps.png)
+    ![Apertura de las aplicaciones empresariales](media/add-gallery-app/open-enterprise-apps.png)
 
-1. Seleccione **Nueva aplicación**.
 
-    ![Nueva aplicación](media/add-application-portal/new-application.png)
+3. Para agregar una aplicación de la galería al inquilino, seleccione **Nueva aplicación**.
 
-1. En **Agregar desde la galería**, en el cuadro de búsqueda, escriba el nombre del aplicación que quiere agregar. 
+    ![Selección de Nueva aplicación para agregar una aplicación de la galería al inquilino](media/add-gallery-app/new-application.png)
 
-    ![Buscar por nombre o categoría](media/add-application-portal/categories.png)
+ 4. Cambie a la nueva experiencia de versión preliminar de la galería: En el banner situado en la parte superior de la **página para agregar una aplicación**, seleccione el vínculo que indica **Haga clic aquí para probar la nueva y mejorada experiencia de la galería de aplicaciones.** .
 
-1. Seleccione la aplicación en los resultados.
+5. Se abre el panel **Examinar la Galería de Azure AD**, que muestra iconos para plataformas en la nube, aplicaciones locales y aplicaciones destacadas. Observe que las aplicaciones que aparecen en la sección **Aplicaciones destacadas** incluyen iconos que indican si admiten el inicio de sesión único federado (SSO) y el aprovisionamiento.
 
-1. (Opcional) En el formulario específico de la aplicación, puede editar el nombre de la aplicación para que se ajuste a las necesidades de su organización.
+    ![Búsqueda de una aplicación por nombre o categoría](media/add-gallery-app/browse-gallery.png)
 
-1. Seleccione **Agregar**. Se abre la página **Información general** de la aplicación.
+6. Busque en la galería la aplicación que desea agregar o escriba su nombre en el cuadro de búsqueda para localizarla. Después, seleccione la aplicación en los resultados. (Opcional) En el formulario, puede editar el nombre de la aplicación para que coincida con las necesidades de su organización.
+
+    ![Se muestra cómo agregar una aplicación de la galería.](media/add-gallery-app/create-application.png)
+
+7. Seleccione **Crear**. Aparece una página de introducción con las opciones para configurar la aplicación para su organización.
 
 ## <a name="configure-user-sign-in-properties"></a>Configuración de las propiedades de inicio de sesión de usuario
 
 1. Seleccione **Propiedades** para abrir el panel de propiedades para editarlas.
 
-    ![Panel Editar propiedades](media/add-application-portal/edit-properties.png)
+    ![Panel Editar propiedades](media/add-gallery-app/edit-properties.png)
 
 1. Establezca las siguientes opciones para determinar cómo los usuarios que están asignados o no asignados a la aplicación pueden iniciar sesión en la aplicación y si un usuario puede ver la aplicación en el panel de acceso.
 
@@ -94,7 +97,7 @@ Azure Active Directory (Azure AD) dispone de una galería que contiene miles 
 
 1. Para usar un logotipo personalizado, cree uno de 215 x 215 píxeles y guárdelo en formato PNG. A continuación, vaya a su logotipo y cárguelo.
 
-    ![Cambio del logotipo](media/add-application-portal/change-logo.png)
+    ![Cambio del logotipo](media/add-gallery-app/change-logo.png)
 
 1. Cuando haya terminado, seleccione **Guardar**.
 

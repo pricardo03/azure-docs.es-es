@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ffad0656169c49268eac6aa4a107f3445cba614
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: fd218c61114c1e15009ace5a9a9bd7a536996e86
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599728"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968669"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Contentful
 
@@ -48,7 +48,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Contentful admite el aprovisionamiento de usuarios **Just-In-Time**
 
 > [!NOTE]
-> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+> El identificador de esta aplicación es un valor de cadena fijo. Solo se puede configurar una instancia en un inquilino.
 
 ## <a name="adding-contentful-from-the-gallery"></a>Incorporación de Contentful desde la galería
 
@@ -59,7 +59,7 @@ Para configurar la integración de Contentful en Azure AD, deberá agregar Cont
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Contentful** en el cuadro de búsqueda.
-1. Seleccione **Contentful** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
+1. Seleccione **Contentful** en los resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-contentful"></a>Configuración y prueba del inicio de sesión único de Azure AD para Contentful
 
@@ -84,24 +84,24 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://be.contentful.com/sso/<organization_id>/consume`
+    - En el cuadro de texto **URL de respuesta**, copie la dirección URL de ACS (servicio de consumidor de aserciones) de la página de configuración de inicio de sesión único en Contentful. Tendrá el siguiente aspecto: `https://be.contentful.com/sso/<organization_id>/consume`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://be.contentful.com/sso/<organization_id>/login`
+    - En el cuadro de texto **URL de inicio de sesión**, copie la misma dirección URL de ACS (servicio de consumidor de aserciones). Tendrá el siguiente aspecto: `https://be.contentful.com/sso/<organization_id>/login`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de cliente de Contentful](mailto:support@contentful.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL de respuesta real y la dirección URL de inicio de sesión; para ello, copie la dirección URL de ACS (servicio de consumidor de aserciones) de la página de configuración del inicio de sesión único en Contentful.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (sin procesar)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
-    ![Vínculo de descarga del certificado](common/certificateraw.png)
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Set up Contentful** (Configurar Contentful), copie las direcciones URL que necesite.
+1. En la sección **Configurar Contentful**, copie la dirección URL de inicio de sesión para configurar el inicio de sesión único de Contentful.
 
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+    ![Copiar direcciones URL de configuración](media/contentful-tutorial/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -129,13 +129,22 @@ En esta sección va a permitir que B.Simon acceda a Contentful mediante el inici
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la página.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la página.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-contentful-sso"></a>Configuración del inicio de sesión único en Contentful
 
-Para configurar el inicio de sesión único en **Contentful**, es preciso enviar el **certificado (sin procesar)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Contentful](mailto:support@contentful.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Siga estos pasos para configurar el inicio de sesión único en **Contentful**.
+
+1. En [Contentful](https://app.contentful.com), vaya a la página de configuración del inicio de sesión único en **Organization Settings** (Configuración de la organización).
+1. Haga clic en **Set up SSO** (Configurar inicio de sesión único).
+1. Copie y pegue la dirección URL de inicio de sesión de la sección **Configurar Contentful** en Azure AD.
+1. Copie y pegue el certificado del archivo de certificado Base64 que descargó de Azure AD.
+1. Configure un nombre de inicio de sesión único para el inicio de sesión iniciado por SP.
+1. Haga clic en **Enable SSO** (Habilitar SSO).
+
+Si esto no funciona, póngase en contacto con el [equipo de soporte técnico de Contentful](mailto:support@contentful.com).
 
 ### <a name="create-contentful-test-user"></a>Creación de un usuario de prueba en Contentful
 
@@ -149,9 +158,9 @@ Al hacer clic en el icono de Contentful en el panel de acceso, debería iniciar 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

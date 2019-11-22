@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9904ba14e8d5a518807eda371ba655963b33bd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71d2fe97a4af07f48038ffd88de648247b56bb80
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091008"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Integración de Azure Active Directory con Citrix ShareFile
 
@@ -151,7 +152,7 @@ Para configurar el inicio de sesión único de Azure AD con Citrix ShareFile, re
 
 3. En el panel de navegación izquierdo, haga clic en **Configurar inicio de sesión único**.
    
-    ![Administración de cuentas](./media/sharefile-tutorial/ic773627.png "Administración de cuentas")
+    ![Account Administration (Administración de cuentas)](./media/sharefile-tutorial/ic773627.png "Administración de cuentas")
 
 4. En la página del cuadro de diálogo **Configuración de inicio de sesión único/SAML 2.0** en **Configuración básica**, realice los pasos siguientes:
    
@@ -230,11 +231,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Citrix ShareFile, 
 
 2. Haga clic en **Manage Users \> (Administrar usuarios) Manage Users Home \> (Administrar página de inicio de usuarios) + Create Employee** (Crear empleado).
    
-    ![Crear empleado](./media/sharefile-tutorial/IC781050.png "Crear empleado")
+    ![Create Employee (Crear empleado)](./media/sharefile-tutorial/IC781050.png "Crear empleado")
 
 3. En la sección **Basic Information** (Información básica), siga los siguientes pasos:
    
-    ![Información básica](./media/sharefile-tutorial/IC799951.png "Información básica")
+    ![Basic Information (Información básica)](./media/sharefile-tutorial/IC799951.png "Información básica")
    
     a. En el cuadro de texto **Email Address** (Dirección de correo electrónico), escriba la dirección de correo electrónico de Britta Simon, como **brittasimon\@contoso.com**.
    

@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: d89150f43205a4b38612008033ab5649acd9af5b
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 10/23/2019
+ms.openlocfilehash: 6d520518e7180f69ee7293523dd40c8158dcfb99
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241574"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990673"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Tutorial: Configuración de inventarios dinámicos de los recursos de Azure con Ansible
 
@@ -71,11 +71,20 @@ Ansible puede utilizarse para extraer información de inventario de varios oríg
 
 Puede [usar etiquetas para organizar los recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) por categorías definidas por el usuario. 
 
+### <a name="using-ansible-version--28"></a>Uso de versiones de Ansible anteriores a 2.8
 Escriba el comando [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) siguiente para etiquetar la máquina virtual `ansible-inventory-test-vm1` con la clave `nginx`:
 
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
+
+### <a name="using-ansible-version--28"></a>Uso de versiones de Ansible anteriores o iguales a 2.8
+Escriba el comando [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) siguiente para etiquetar la máquina virtual `ansible-inventory-test-vm1` con la clave `Ansible=nginx`:
+
+```azurecli-interactive
+az resource tag --tags Ansible=nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+```
+
 ## <a name="generate-a-dynamic-inventory"></a>Generación de un inventario dinámico
 
 Una vez definidas y etiquetadas las máquinas virtuales, es el momento de generar el inventario dinámico.
@@ -124,10 +133,14 @@ A partir de la versión 2.8, Ansible proporciona un [complemento de inventario 
 1. El complemento de inventario requiere un archivo de configuración. El archivo de configuración debe terminar con `azure_rm` y tener la extensión `yml` o `yaml`. Para este ejemplo del tutorial, guarde el siguiente cuaderno de estrategias como `myazure_rm.yml`:
 
     ```yml
-    plugin: azure_rm
-    include_vm_resource_groups:
-    - ansible-inventory-test-rg
-    auth_source: auto
+        plugin: azure_rm
+        include_vm_resource_groups:
+        - ansible-inventory-test-rg
+        auth_source: auto
+    
+        keyed_groups:
+        - prefix: tag
+          key: tags
     ```
 
 1. Ejecute el siguiente comando para hacer ping a las máquinas virtuales del grupo de recursos:
@@ -142,7 +155,7 @@ A partir de la versión 2.8, Ansible proporciona un [complemento de inventario 
     Failed to connect to the host via ssh: Host key verification failed.
     ```
     
-    Si recibe el error "host-key verification" (comprobación de la clave de host), agregue la siguiente línea al archivo de configuración de Ansible. El archivo de configuración de Ansible se encuentra en `/etc/ansible/ansible.cfg`.
+    Si recibe el error "host-key verification" (comprobación de la clave de host), agregue la siguiente línea al archivo de configuración de Ansible. El archivo de configuración de Ansible se encuentra en `/etc/ansible/ansible.cfg` o en `~/.ansible.cfg`.
 
     ```bash
     host_key_checking = False
@@ -156,33 +169,49 @@ A partir de la versión 2.8, Ansible proporciona un [complemento de inventario 
     ```
 
 ## <a name="enable-the-vm-tag"></a>Habilitación de la etiqueta de la máquina virtual
-Una vez que ha establecido una etiqueta, debe "habilitarla". Una manera de habilitar una etiqueta es exportarla a una variable de entorno llamada `AZURE_TAGS` mediante el comando `export`:
 
-```azurecli-interactive
-export AZURE_TAGS=nginx
-```
+### <a name="if-youre-using-ansible--28"></a>Si usa versiones de Ansible anteriores a 2.8:
 
-- Si usa versiones de Ansible anteriores a 2.8, ejecute el siguiente comando:
+- Una vez que ha establecido una etiqueta, debe "habilitarla". Una manera de habilitar una etiqueta es exportarla a una variable de entorno llamada `AZURE_TAGS` mediante el comando `export`:
+
+    ```azurecli-interactive
+    export AZURE_TAGS=nginx
+    ```
+    
+- Ejecute el siguiente comando:
 
     ```bash
     ansible -i azure_rm.py ansible-inventory-test-rg -m ping
     ```
+    
+    Ahora verá solo una máquina virtual (aquella cuya etiqueta coincida con el valor exportado a la variable de entorno `AZURE_TAGS`):
 
-- Si usa Ansible 2.8 o versiones posteriores, ejecute el siguiente comando:
-  
-    ```bash
-    ansible all -m ping -i ./myazure_rm.yml
+    ```Output
+       ansible-inventory-test-vm1 | SUCCESS => {
+        "changed": false,
+        "failed": false,
+        "ping": "pong"
+    }
     ```
 
-Ahora verá solo una máquina virtual (aquella cuya etiqueta coincida con el valor exportado a la variable de entorno `AZURE_TAGS`):
+### <a name="if-youre-using-ansible---28"></a>Si usa la versión 2.8 de Ansible o versiones anteriores:
 
-```Output
-ansible-inventory-test-vm1 | SUCCESS => {
-    "changed": false,
-    "failed": false,
-    "ping": "pong"
-}
-```
+- Ejecute el comando `ansible-inventory -i myazure_rm.yml --graph` para obtener la siguiente salida:
+
+    ```Output
+        @all:
+          |--@tag_Ansible_nginx:
+          |  |--ansible-inventory-test-vm1_9e2f
+          |--@ungrouped:
+          |  |--ansible-inventory-test-vm2_7ba9
+    ```
+
+- También puede ejecutar el siguiente comando para probar la conexión a la máquina virtual de Nginx:
+  
+    ```bash
+    ansible -i ./myazure_rm.yml -m ping tag_Ansible_nginx
+    ```
+
 
 ## <a name="set-up-nginx-on-the-tagged-vm"></a>Configuración de Nginx en la máquina virtual etiquetada
 
@@ -197,19 +226,19 @@ El objetivo de las etiquetas es permitir que se pueda trabajar de forma rápida 
 1. Pegue el siguiente código de ejemplo en el editor:
 
     ```yml
-    ---
-    - name: Install and start Nginx on an Azure virtual machine
-      hosts: all
-      become: yes
-      tasks:
-      - name: install nginx
-        apt: pkg=nginx state=installed
-        notify:
-        - start nginx
-
-      handlers:
-        - name: start nginx
-          service: name=nginx state=started
+        ---
+        - name: Install and start Nginx on an Azure virtual machine
+          hosts: all
+          become: yes
+          tasks:
+          - name: install nginx
+            apt: pkg=nginx state=installed
+            notify:
+            - start nginx
+    
+          handlers:
+            - name: start nginx
+              service: name=nginx state=started
     ```
 
 1. Guarde el archivo y salga del editor.
@@ -218,15 +247,15 @@ El objetivo de las etiquetas es permitir que se pueda trabajar de forma rápida 
 
    - Ansible versiones anteriores a 2.8:
 
-    ```bash
-    ansible-playbook -i azure_rm.py nginx.yml
-    ```
+     ```bash
+     ansible-playbook -i azure_rm.py nginx.yml
+     ```
 
    - Ansible 2.8 y versiones posteriores:
 
-    ```bash
-     ansible-playbook  -i ./myazure_rm.yml  nginx.yml
-    ```
+     ```bash
+     ansible-playbook  -i ./myazure_rm.yml  nginx.yml --limit=tag_Ansible_nginx
+     ```
 
 1. Tras ejecutar el cuaderno de estrategias, debería ver resultados similares a los siguientes:
 

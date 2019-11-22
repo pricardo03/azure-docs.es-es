@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1db69cfbf86cf9f33b84273b9e4da6696897467d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 0ba96dd2fcfb995afa6e3b1302a2c8b075abfd90
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377307"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968688"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Dynatrace
 
@@ -48,7 +48,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Dynatrace admite el aprovisionamiento de usuarios **Just-In-Time**
 
 > [!NOTE]
-> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+> El identificador de esta aplicación es un valor de cadena fijo. Solo se puede configurar una instancia en un inquilino.
 
 ## <a name="adding-dynatrace-from-the-gallery"></a>Adición de Dynatrace desde la galería
 
@@ -68,10 +68,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con Dynatrace median
 Para configurar y probar el inicio de sesión único de Azure AD con Dynatrace, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Dynatrace](#configure-dynatrace-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
-    1. **[Creación de usuario de prueba de Dynatrace](#create-dynatrace-test-user)** , para tener un homólogo de B.Simon en Dynatrace que esté vinculado a su representación en Azure AD.
+    * **[Creación de usuario de prueba de Dynatrace](#create-dynatrace-test-user)** , para tener un homólogo de B.Simon en Dynatrace que esté vinculado a su representación en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -84,15 +84,25 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección  **Configuración básica de SAML** , la aplicación está preconfigurada en el modo iniciado por  **IDP**  y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón  **Guardar** .
+1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada en el modo iniciado por **IDP** y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+1. Haga clic en **Establecer direcciones URL adicionales** y lleve a cabo el siguiente paso para configurar la aplicación en modo iniciado por **SP**:
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://sso.dynatrace.com/`
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. En la página **Configuración del inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación**. Seleccione **Descargar** para descargar el certificado y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
+
+1. En la sección **Certificado de firma de SAML**, seleccione el botón **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**. Complete los siguientes pasos:
+
+    ![Edición del certificado de firma de SAML](common/edit-certificate.png)
+
+    a. El valor de **Opción de firma** se rellena previamente. Revise la configuración en función de su organización.
+
+    b. Haga clic en **Save**(Guardar).
+
+    ![Opción de firma de Communifire](./media/dynatrace-tutorial/tutorial-dynatrace-signing-option.png)
 
 1. En la sección **Configurar Dynatrace**, copie las direcciones URL adecuadas según sus necesidades.
 
@@ -120,7 +130,7 @@ En esta sección va a permitir que B.Simon acceda a Dynatrace mediante el inicio
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
@@ -134,21 +144,20 @@ Para configurar el inicio de sesión único en **Dynatrace**, es preciso enviar 
 
 ### <a name="create-dynatrace-test-user"></a>Creación de un usuario de prueba de Dynatrace
 
-En esta sección, se crea un usuario llamado Britta Simon en Dynatrace. Dynatrace admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si aún no existe aún un usuario en Dynatrace, se crea uno después de la autenticación.
+En esta sección, se crea un usuario llamado B.Simon en Dynatrace. Dynatrace admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si aún no existe aún un usuario en Dynatrace, se crea uno después de la autenticación.
 
-## <a name="test-sso"></a>Prueba de SSO 
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Dynatrace en el panel de acceso, debería iniciar sesión automáticamente en la versión de Dynatrace para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Dynatrace en el Panel de acceso, debería iniciar sesión automáticamente en la cuenta de Dynatrace para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Pruebe Dynatrace con Azure AD](https://aad.portal.azure.com/)
-

@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c2a3e5aa-7b5a-4fe4-9285-45dbe6e8efcc
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ed903e71a019d0bdb1b62503913bd696e9d8a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add43f081ca6059651725cd6f817d4cce127b74b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102040"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73155763"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Integración de Azure Active Directory con FreshDesk
 
@@ -245,7 +246,7 @@ En el caso de FreshDesk, el aprovisionamiento es una tarea manual.
 
 2. En el menú de la parte superior, haga clic en **Administrador**.
 
-    ![Administración](./media/freshdesk-tutorial/IC776772.png "Administración")
+    ![Administrador](./media/freshdesk-tutorial/IC776772.png "Administración")
 
 3. En la pestaña **Configuración general**, haga clic en **Agentes**.
   
@@ -253,11 +254,11 @@ En el caso de FreshDesk, el aprovisionamiento es una tarea manual.
 
 4. Haga clic en **Nuevo agente**.
 
-    ![Nuevo agente](./media/freshdesk-tutorial/IC776774.png "Nuevo agente")
+    ![New Agent (Nuevo agente)](./media/freshdesk-tutorial/IC776774.png "Nuevo agente")
 
 5. En el cuadro de diálogo Agent Information (Información de agente), realice los pasos siguientes:
 
-    ![Información sobre agentes](./media/freshdesk-tutorial/IC776775.png "Información sobre agentes")
+    ![Agent Information (Información de agente)](./media/freshdesk-tutorial/IC776775.png "Información de agente")
 
     a. En el cuadro de texto **Email** (Correo electrónico), escriba la dirección de correo electrónico de la cuenta de Azure AD que quiera aprovisionar.
 

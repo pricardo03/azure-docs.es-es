@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/15/2019
+ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597253"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052198"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines
 
@@ -223,7 +223,7 @@ Para crear una canalización con un paso para implementar una plantilla:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Abra el grupo de recursos. El nombre es lo que especificaste en el archivo YAML de la canalización.  Verás que se ha creado una cuenta de almacenamiento.  El nombre de la cuenta de almacenamiento comienza con **store**.
 1. Selecciona el nombre de la cuenta de almacenamiento para abrirla.
-1. Seleccione **Propiedades**. Ten en cuenta que la **SKU** es **Standard_LRS**.
+1. Seleccione **Propiedades**. Observe que el valor de **Replicación** es **Almacenamiento con redundancia local (LRS)** .
 
     ![Verificación del portal para Azure Resource Manager Azure DevOps Azure Pipelines](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 
@@ -250,7 +250,7 @@ Al actualizar la plantilla e insertar los cambios en el repositorio remoto, la c
 
     Con la actualización de la rama maestra del repositorio remoto, la canalización se activa de nuevo.
 
-Para verificar los cambios, puedes comprobar la SKU de la cuenta de almacenamiento.  Consulta [Verify the deployment](#verify-the-deployment) (Verificar la implementación).
+Para verificar los cambios, puede comprobar la propiedad de replicación de la cuenta de almacenamiento.  Consulta [Verify the deployment](#verify-the-deployment) (Verificar la implementación).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

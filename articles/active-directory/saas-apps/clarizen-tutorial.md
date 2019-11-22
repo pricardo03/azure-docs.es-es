@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88f42a849d5c483feb9325072fd65769839672e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b34e6087f3a6e7f3cc0f46c53d4fe903838d210
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105376"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158606"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integración de Azure Active Directory con Clarizen
 
@@ -136,11 +137,11 @@ Para configurar el inicio de sesión único en Azure AD con Clarizen, realice lo
 
 1. Haga clic en la pestaña **Global Settings** (Configuración global). A continuación, junto a **Federated Authentication** (Autenticación federada), haga clic en **edit** (Editar).
 
-    ![Pestaña "Global Settings"](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings")
+    ![Pestaña Global Settings (Configuración global)](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings (Configuración global)")
 
 1. En el cuadro de diálogo **Federated Authentication** (Autenticación federada), realice los pasos siguientes:
 
-    ![Cuadro de diálogo "Federated Authentication"](./media/clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")
+    ![Cuadro de diálogo "Federated Authentication" (Autenticación federada)](./media/clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")
 
     a. Seleccione **Habilitar autenticación federada**.
 
@@ -217,15 +218,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en Clarizen, debe apr
 
 2. Haga clic en **Contactos**.
 
-    ![Clic en "People"](./media/clarizen-tutorial/create_aaduser_001.png "People")
+    ![Clic en "People" (Personas)](./media/clarizen-tutorial/create_aaduser_001.png "Personas")
 
 3. Haga clic en **Invitar a usuario**.
 
-    ![Botón "Invite User"](./media/clarizen-tutorial/create_aaduser_002.png "Invite Users")
+    ![Botón "Invite user" (Invitar a usuario)](./media/clarizen-tutorial/create_aaduser_002.png "Invitar a usuarios")
 
 1. En el cuadro de diálogo **Invite People** (Invitar a personas), siga estos pasos:
 
-    ![Cuadro de diálogo "Invite People"](./media/clarizen-tutorial/create_aaduser_003.png "Invite People")
+    ![Cuadro de diálogo "Invite People" (Invitar a personas)](./media/clarizen-tutorial/create_aaduser_003.png "Invitar a contactos")
 
     a. En el cuadro **Email** (Correo electrónico), escriba la dirección de correo electrónico de la cuenta de Britta Simon.
 

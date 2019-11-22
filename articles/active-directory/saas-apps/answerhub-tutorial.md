@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccf3894daf71be0defe4271a08ec5e8d963e0d34
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a124832bd42a0a144ebc6000b818fb825aa422ef
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227497"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152993"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integración de Azure Active Directory con AnswerHub
 
@@ -144,7 +145,7 @@ En esta sección puede configurar el inicio de sesión único de AnswerHub.
 
 4. En la pestaña **IDP Config**, complete estas tareas:
 
-    ![Pestaña Users & Groups (Usuarios y grupos)](./media/answerhub-tutorial/ic785172.png "SAML Setup (Configuración de SAML)")  
+    ![Pestaña Users & Groups (Usuarios y grupos)](./media/answerhub-tutorial/ic785172.png "Configuración de SAML")  
   
     a. En el cuadro **IDP Login URL** (URL de inicio de sesión de IDP), pegue la **dirección URL de inicio de sesión** que copió de Azure Portal.
   
@@ -156,7 +157,7 @@ En esta sección puede configurar el inicio de sesión único de AnswerHub.
 
 5. En la sección **Claves y certificados** sección, siga estos pasos:
 
-    ![Sección Claves y certificados](./media/answerhub-tutorial/ic785173.png "Claves y certificados")  
+    ![Sección Keys and Certificates (Claves y certificados)](./media/answerhub-tutorial/ic785173.png "Claves y certificados")  
 
     a. En el Bloc de notas, abra el certificado codificado en Base 64 que descargó de Azure Portal, copie el contenido y, a continuación, péguelo en el cuadro **IDP Public Key (x509 Format)** [Clave pública de IDP (formato x509)].
   
@@ -235,7 +236,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en AnswerHub, deberá
 
 4. En el panel izquierdo, en la sección **Manage Users** (Administrar usuarios), seleccione **Create or import users** (Crear o importar usuarios) y, a continuación, seleccione **Users & Groups** (Usuarios y grupos).
 
-   ![Pestaña Users & Groups (Usuarios y grupos)](./media/answerhub-tutorial/ic785175.png "Users & Groups (Usuarios y grupos)")
+   ![Pestaña Users & Groups (Usuarios y grupos)](./media/answerhub-tutorial/ic785175.png "Usuarios y grupos")
 
 5. En los cuadros correspondientes, escriba la **dirección de correo electrónico**, el **nombre de usuario** y la **contraseña** de una cuenta de Azure AD válida que desee agregar y seleccione **Save** (Guardar).
 

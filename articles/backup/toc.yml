@@ -28,6 +28,8 @@
       href: tutorial-restore-files.md
     - name: Copia de seguridad de SQL Server en una máquina virtual de Azure
       href: tutorial-sql-backup.md
+    - name: Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
+      href: tutorial-backup-sap-hana-db.md
     - name: Copia de seguridad de recursos compartidos de Azure Files
       href: tutorial-backup-azure-files.md
     - name: Copia de seguridad de Windows Server
@@ -52,6 +54,8 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Matriz de compatibilidad del agente de MARS
           href: backup-support-matrix-mars-agent.md
+        - name: Matriz de compatibilidad de SAP HANA
+          href: sap-hana-backup-support-matrix.md
     - name: Seguridad
       items:
         - name: Control de acceso basado en roles
@@ -74,6 +78,8 @@
           href: backup-azure-files-faq.md
         - name: Preguntas más frecuentes sobre la copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
           href: faq-backup-sql-server.md
+        - name: Preguntas más frecuentes sobre la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
+          href: sap-hana-faq-backup-azure-vm.md
         - name: Preguntas más frecuentes sobre Azure Backup Server y DPM
           href: backup-azure-dpm-azure-server-faq.md
         - name: Preguntas más frecuentes sobre las alertas de supervisión de Azure Backup
@@ -228,8 +234,14 @@
           href: restore-sql-database-azure-vm.md
         - name: Administración de bases de datos de SQL Server con copia de seguridad
           href: manage-monitor-sql-database-backup.md
-    - name: Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
-      href: backup-azure-sap-hana-database.md
+    - name: Bases de datos de SAP HANA en máquinas virtuales de Azure
+      items:
+        - name: Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
+          href: backup-azure-sap-hana-database.md
+        - name: Restauración de bases de datos de SAP HANA en máquinas virtuales de Azure
+          href: sap-hana-db-restore.md
+        - name: Administración de bases de datos de SAP HANA con copia de seguridad
+          href: sap-hana-db-manage.md
     - name: Windows Server
       items:
         - name: Copia de seguridad de carpetas y archivos de Windows Server

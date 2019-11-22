@@ -62,6 +62,8 @@
       href: customize-rdp-properties.md
     - name: Implementación de la herramienta de diagnósticos
       href: deploy-diagnostics.md
+    - name: Configuración de la asociación de aplicaciones en formato .MSIX
+      href: app-attach.md
 - name: Conceptos
   items:
     - name: Entorno de Windows Virtual Desktop

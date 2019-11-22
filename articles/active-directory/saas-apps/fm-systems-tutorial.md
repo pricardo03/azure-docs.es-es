@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f78c58c5-6e98-458b-8991-78624a245665
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 62e800a5ac1e1e001e5d4ef328a80c554d007182
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7f5e003a058cd94e6e4a4440c512217c387fda3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102348"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Tutorial: Integración de Azure Active Directory con FM:Systems
 
@@ -183,15 +184,15 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 2. Vaya a **System Administration \> Manage Security \> Users \> User list** (Administración del sistema > Administrar seguridad > Usuarios > Lista de usuarios).
    
-    ![Administración del sistema](./media/fm-systems-tutorial/ic795905.png "Administración del sistema")
+    ![System Administration (Administración del sistema)](./media/fm-systems-tutorial/ic795905.png "Administración del sistema")
 
 3. Haga clic en **Crear nuevo usuario**.
    
-    ![Creación de nuevos usuarios](./media/fm-systems-tutorial/ic795906.png "Creación de nuevos usuarios")
+    ![Create New User (Crear nuevo usuario)](./media/fm-systems-tutorial/ic795906.png "Crear nuevo usuario")
 
 4. En la sección **Crear usuario** , lleve a cabo estos pasos:
    
-    ![Creación de usuarios](./media/fm-systems-tutorial/ic795907.png "Creación de usuarios")
+    ![Crear usuario](./media/fm-systems-tutorial/ic795907.png "Crear usuario")
    
     a. Escriba el valor de **UserName** (Nombre de usuario), **Password** (Contraseña), **Confirm Password** (Confirmar contraseña), **E-mail** (Correo electrónico) y **Employee ID** (Id. de empleado) de una cuenta de Azure Active Directory válida que desee aprovisionar en los cuadros de texto relacionados.
    

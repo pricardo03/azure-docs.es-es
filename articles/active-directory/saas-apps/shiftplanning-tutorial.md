@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6bd02bcd52808af43c2254304c56fee76903c73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a144bec0a610a5a47e8a9bf3ff6a5de05b239ed
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090958"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159979"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: Integración de Azure Active Directory con Humanity
 
@@ -132,7 +133,7 @@ Para configurar el inicio de sesión único de Azure AD con Humanity, realice lo
 
 2. En el menú de la parte superior, haga clic en **Administrador**.
 
-    ![Administración](./media/shiftplanning-tutorial/iC786619.png "Administración")
+    ![Administrador](./media/shiftplanning-tutorial/iC786619.png "Administración")
 3. En **Integración**, haga clic en **Inicio de sesión único**.
 
     ![Inicio de sesión único](./media/shiftplanning-tutorial/iC786620.png "Inicio de sesión único")
@@ -214,19 +215,19 @@ Para permitir que los usuarios de Azure AD inicien sesión en Humanity, deben ap
 
 2. Haga clic en **Administrador**.
 
-    ![Administración](./media/shiftplanning-tutorial/iC786619.png "Administración")
+    ![Administrador](./media/shiftplanning-tutorial/iC786619.png "Administración")
 
 3. Haga clic en **Personal**.
 
-    ![Personal](./media/shiftplanning-tutorial/ic786623.png "Personal")
+    ![personal](./media/shiftplanning-tutorial/ic786623.png "Personal")
 
 4. En **Acciones**, haga clic en **Agregar empleados**.
 
-    ![Agregar empleados](./media/shiftplanning-tutorial/iC786624.png "Agregar empleados")
+    ![Add Employees (Agregar empleados)](./media/shiftplanning-tutorial/iC786624.png "Agregar empleados")
 
 5. En la sección **Agregar empleados** , lleve a cabo estos pasos:
 
-    ![Guardar empleados](./media/shiftplanning-tutorial/iC786625.png "Guardar empleados")
+    ![Save Employees (Guardar empleados)](./media/shiftplanning-tutorial/iC786625.png "Guardar empleados")
 
     a. Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **Nombre**, **Apellidos** y **Correo electrónico**.
 

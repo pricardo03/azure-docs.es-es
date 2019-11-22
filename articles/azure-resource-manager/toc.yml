@@ -177,15 +177,35 @@
           displayName: DevOps
     - name: Exportación de la plantilla
       href: export-template-portal.md
-    - name: Move
+    - name: Traslado (regiones)
       items:
-        - name: Traslado de recursos
+        - name: Traslado entre regiones
+          href: resource-group-move-region.md
+        - name: Servicios admitidos
+          href: region-move-support.md
+        - name: Services
+          items:
+            - name: Máquinas virtuales de Azure
+              href: ../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Azure Storage
+              href: ../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Azure SQL
+              href: ../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Virtual network
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Grupo de seguridad de red (NSG)
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Direcciones IP públicas
+              href: ../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
+    - name: Traslado (grupos de recursos y suscripciones)
+      items:
+        - name: Desplazamiento por grupos de recursos y suscripciones
           href: resource-group-move-resources.md
-        - name: Compatibilidad de recursos
+        - name: Servicios admitidos
           href: move-support-resources.md
         - name: Solución de problemas de traslado
           href: troubleshoot-move.md
-        - name: Guía de traslado de servicios
+        - name: Services
           items:
             - name: App Service
               href: ./move-limitations/app-service-move-limitations.md
@@ -218,7 +238,7 @@
             - name: Uso de Azure PowerShell
               displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
               href: manage-resource-groups-powershell.md
-        - name: Administración de recursos
+        - name: Administrar recursos
           items:
             - name: Uso de Azure Portal
               displayName: 'open,delete,deploy,move,lock,tag,monitor'

@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f0db4fb0-7eec-48c2-9c7a-beab1ab49bc2
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 714e67bc7cf9e9c928eb4fd0764619041c9c1424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 741efbae84e18c811beb6c0579c1949c5ddf619c
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092591"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: Integración de Azure Active Directory con Samanage
 
@@ -132,7 +133,7 @@ Para configurar el inicio de sesión único de Azure AD con Samanage, siga estos
 
 2. Haga clic en **Dashboard** (Panel) y seleccione **Setup** (Configuración) en el panel de navegación izquierdo.
    
-    ![Panel](./media/samanage-tutorial/tutorial_samanage_001.png "Panel")
+    ![Panel](./media/samanage-tutorial/tutorial_samanage_001.png "panel")
 
 3. Haga clic en **Inicio de sesión único**.
    
@@ -140,7 +141,7 @@ Para configurar el inicio de sesión único de Azure AD con Samanage, siga estos
 
 4. Navegue hasta la sección **Login using SAML** (Iniciar sesión con SAML), realice los pasos siguientes:
    
-    ![Inicio de sesión con SAML](./media/samanage-tutorial/tutorial_samanage_003.png "Inicio de sesión con SAML")
+    ![Login using SAML (Iniciar sesión con SAML)](./media/samanage-tutorial/tutorial_samanage_003.png "Login using SAML")
  
     a. Haga clic en **Enable Single Sign-On with SAML**(Habilitar inicio de sesión único con SAML).  
  
@@ -220,7 +221,7 @@ En el caso de Samanage, el aprovisionamiento es una tarea manual.
 
 2. Haga clic en **Dashboard** (Panel) y seleccione **Setup** (Configuración) en el panel de navegación izquierdo.
    
-    ![Instalación](./media/samanage-tutorial/tutorial_samanage_001.png "Instalación")
+    ![Configuración](./media/samanage-tutorial/tutorial_samanage_001.png "Configuración")
 
 3. Haga clic en la pestaña **Usuarios** .
    
@@ -228,11 +229,11 @@ En el caso de Samanage, el aprovisionamiento es una tarea manual.
 
 4. Haga clic en **Nuevo usuario**.
    
-    ![Nuevo usuario](./media/samanage-tutorial/tutorial_samanage_007.png "nuevo usuario")
+    ![New User](./media/samanage-tutorial/tutorial_samanage_007.png "Nuevo usuario") (Usuario nuevo)
 
 5. Escriba el **nombre** y la **dirección de correo electrónico** de la cuenta de Azure Active Directory que desea aprovisionar y haga clic en **Create user** (Crear usuario).
    
-    ![Creación de usuarios](./media/samanage-tutorial/tutorial_samanage_008.png "Creación de usuarios")
+    ![Crear usuario](./media/samanage-tutorial/tutorial_samanage_008.png "Crear usuario")
    
    >[!NOTE]
    >El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active. Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Samanage que proporcione Samanage para aprovisionar cuentas de usuario de Azure Active Directory.

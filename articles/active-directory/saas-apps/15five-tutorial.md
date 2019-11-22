@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2fb301c2-7d7a-4046-8ee1-7dc9e7684806
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 219af24aceea9291e34a9854d230b5dc6bd85fdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0753a061b698adb3c79ccde6856799c8928cd9f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107570"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73154896"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Tutorial: Integración de Azure Active Directory con 15Five
 
@@ -191,15 +192,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en 15Five, es necesar
 
 2. Vaya a **Administrar compañía**.
 
-    ![Administrar compañía](./media/15five-tutorial/ic784675.png "Administrar compañía")
+    ![Manage Company (Administrar compañía)](./media/15five-tutorial/ic784675.png "Administrar compañía")
 
 3. Vaya a **Contactos \> Agregar contactos**.
 
-    ![Personas](./media/15five-tutorial/ic784676.png "Personas")
+    ![Contactos](./media/15five-tutorial/ic784676.png "Personas")
 
 4. En la sección **Agregar una nueva persona**, lleve a cabo estos pasos:
 
-    ![Agregar nueva persona](./media/15five-tutorial/ic784677.png "Agregar nueva persona")
+    ![Add New Person (Agregar nueva persona)](./media/15five-tutorial/ic784677.png "Add New Person (Agregar nueva persona)")
 
     a. Especifique **First Name** (Nombre), **Last Name** (Apellido), **Title** (Título), **Email address** (dirección de correo electrónico) de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
 

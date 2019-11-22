@@ -4,14 +4,35 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 1007533df077c58d9e4d57f9e86b035730ea917f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: ec8fb6efab126dcf5556a9abfdf58d1fd69d4212
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69903847"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882291"
 ---
-## <a name="set-up-your-device-in-unity"></a>Configuración del dispositivo en Unity
+## <a name="androidtabandroid"></a>[Android](#tab/Android)
+
+El ejemplo de Android de Java admite el uso compartido entre dispositivos.
+Abra el archivo `SharedActivity.java` de la carpeta de ejemplos en Android Studio. Escriba la dirección URL que obtuvo en el paso anterior (de la implementación de Azure de la aplicación web de ASP.NET) como valor de `SharingAnchorsServiceUrl` en el archivo `SharedActivity.java`. Reemplace `index.html` en la dirección URL por `api/anchors`. Debería ser parecido a este: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="iostabios"></a>[iOS](#tab/iOS)
+
+El ejemplo de iOS de Objective-C admite el uso compartido entre dispositivos.
+Abra el archivo `SharedDemoViewController.m` de la carpeta de ejemplos. Escriba la dirección URL que obtuvo en el paso anterior (de la implementación de Azure de la aplicación web de ASP.NET) como valor de `SharingAnchorsServiceUrl` en el archivo `SharedActivity.java`. Reemplace `index.html` en la dirección URL por `api/anchors`. Debería ser parecido a este: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="xamarintabxamarin"></a>[Xamarin](#tab/Xamarin)
+
+Los ejemplos de Xamarin Android e iOS admiten el uso compartido entre dispositivos.
+Abra el archivo `AccountDetails.cs` de la carpeta de ejemplos. Escriba la dirección URL que obtuvo en el paso anterior (de la implementación de Azure de la aplicación web de ASP.NET) como valor de `AnchorSharingServiceUrl` en el archivo `SharedActivity.java`. Reemplace `index.html` en la dirección URL por `api/anchors`. Debería ser parecido a este: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="unitytabunity"></a>[Unity](#tab/Unity)
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
@@ -45,10 +66,7 @@ En **Scenes In Build** (Escenas en compilación), asegúrese de que haya una mar
 
 Asegúrese de que **Export Project** (Exportar proyecto) no tiene una marca de verificación. Seleccione **Build And Run** (Compilar y ejecutar). Se le pedirá que guarde el archivo `.apk`. Puede elegir cualquier nombre.
 
-Una vez que se inicia la aplicación, en el cuadro de diálogo **Choose A Demo** (Elegir una demostración), use las flechas izquierda y derecha para seleccionar la opción **LocalShare** y pulse **Go!** (Ir). Siga las instrucciones de la aplicación. Puede seleccionar **Create & Share Anchor** (Crear y compartir delimitador) o **Locate Shared Anchor** (Buscar delimitador anclado).
-
-El primer escenario permite crear un delimitador que se puede encontrar más adelante tanto en el mismo dispositivo como en otro.
-Si ya ha ejecutado la aplicación en el mismo dispositivo o en otro, el segundo escenario permite buscar delimitadores compartidos previamente. Después de elegir el escenario, la aplicación le guiará con instrucciones adicionales. Por ejemplo, se le pedirá mover el dispositivo para recopilar información del entorno. Más adelante, colocará un delimitador en el mundo, esperará para guardarlo y así sucesivamente.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ### <a name="deploy-to-an-ios-device"></a>Implementación en un dispositivo iOS
 
@@ -58,9 +76,6 @@ En **Scenes In Build** (Escenas en compilación), asegúrese de que haya una mar
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Una vez que se inicia la aplicación, en el cuadro de diálogo **Choose A Demo** (Elegir una demostración), use las flechas izquierda y derecha para seleccionar la opción **LocalShare** y pulse **Go!** (Ir). Siga las instrucciones de la aplicación. Puede seleccionar **Create & Share Anchor** (Crear y compartir delimitador) o **Locate Shared Anchor** (Buscar delimitador anclado).
-
-El primer escenario permite crear un delimitador que se puede encontrar más adelante tanto en el mismo dispositivo como en otro.
-Si ya ha ejecutado la aplicación en el mismo dispositivo o en otro, el segundo escenario permite buscar delimitadores compartidos previamente. Después de elegir el escenario, la aplicación le guiará con instrucciones adicionales. Por ejemplo, se le pedirá mover el dispositivo para recopilar información del entorno. Más adelante, colocará un delimitador en el mundo, esperará para guardarlo y así sucesivamente.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 En Xcode, seleccione **Stop** (Detener) para detener la aplicación.

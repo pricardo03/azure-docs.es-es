@@ -279,7 +279,7 @@
       href: ./concepts/guest-configuration.md
 - name: Guías de procedimientos
   items:
-    - name: Extensión de Azure Policy para VSCode
+    - name: "Extensión de Azure Policy para VS\_Code"
       displayName: visual studio code
       href: ./how-to/extension-for-vscode.md
     - name: Creación de directivas mediante programación
