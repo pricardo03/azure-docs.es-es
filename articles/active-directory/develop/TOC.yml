@@ -289,6 +289,8 @@
               items:
                 - name: Compatibilidad con ADFS en MSAL.NET
                   href: msal-net-adfs-support.md
+                - name: Compatibilidad con ADFS en MSAL para Java
+                  href: msal-java-adfs-support.md
             - name: Integración con Azure AD B2C
               items:
                 - name: Android
