@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de Fundación CAF (introducción)
-description: Introducción y arquitectura del ejemplo de plano técnico de fundamentos de CAF.
+description: Introducción y arquitectura del ejemplo de plano técnico de una base de Cloud Adoption Framework (CAF) para Azure.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: a353f92be995412702a93219c8fb1af967368beb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2943d3327fe6ea3c935694118aaa995b8e96ace6
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038502"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404795"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Introducción al ejemplo de plano técnico de fundamentos de Microsoft Cloud Adoption Framework para Azure
 
@@ -30,7 +30,7 @@ Esta implementación incorpora varios servicios de Azure que se usan para propor
   - Los recursos anexados al grupo de recursos con la etiqueta CostCenter
   - La región de Azure permitida para recursos y grupos de recursos
   - Las SKU de la cuenta de almacenamiento permitida (se eligen durante la implementación)
-  - Las SKU de las máquinas virtuales de Azure permitidas (se eligen durante la implementación)
+  - SKU de máquinas virtuales de Azure permitidas (se eligen durante la implementación)
   - La implementación de Network Watch requerida 
   - El cifrado de transferencia segura de la cuenta de almacenamiento de Azure requerido
   - Tipos de recursos denegados (se elige durante la implementación)  
@@ -50,7 +50,7 @@ Para más información, consulte el paso de [preparación a Microsoft Cloud Adop
 Ya ha revisado la información general y la arquitectura del ejemplo de plano técnico de fundamentos de CAF.
 
 > [!div class="nextstepaction"]
->  [Plano técnico de fundamentos de CAF: Pasos de implementación](./deploy.md)
+> [Plano técnico de fundamentos de CAF: Pasos de implementación](./deploy.md)
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 

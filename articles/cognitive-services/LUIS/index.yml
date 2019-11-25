@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentación de Language Understanding (LUIS)
-summary: Aprenda a usar el servicio Language Understanding para permitir que la aplicación entienda lo que una persona quiere en sus propias palabras.
+summary: Obtenga información sobre la forma en que Language Understanding permite que las aplicaciones entiendan lo que una persona quiere en sus propias palabras.
 metadata:
   ms.topic: landing-page
-  ms.date: 09/19/2019
+  ms.date: 11/22/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -11,13 +11,13 @@ metadata:
   services: cognitive-services
   title: Documentación de Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
-  description: Aprenda a usar el servicio Language Understanding para permitir que la aplicación entienda lo que una persona quiere en sus propias palabras. LUIS utiliza el aprendizaje automático para permitir a los desarrolladores crear aplicaciones que pueden recibir las aportaciones de los usuarios en lenguaje natural y extraer significado de las mismas.
-  ms.openlocfilehash: 70249b540e53ab8182a25f81d7401697b2b888c1
-  ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+  description: El servicio Language Understanding permite que las aplicaciones entiendan lo que una persona quiere en sus propias palabras. LUIS utiliza el aprendizaje automático para permitir a los desarrolladores crear aplicaciones que pueden recibir las aportaciones de los usuarios en lenguaje natural y extraer significado de las mismas.
+  ms.openlocfilehash: 14386a08b92814b16fb007e4dd01cb4bb5238c0a
+  ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71155033"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74406148"
 landingContent:
 - title: Acerca de Language Understanding (LUIS)
   linkLists:
@@ -25,16 +25,18 @@ landingContent:
     links:
     - text: ¿Qué es Language Understanding?
       url: what-is-luis.md
-    - text: Novedades
-      url: whats-new.md
     - text: Portal de LUIS
       url: https://www.luis.ai
   - linkListType: concept
     links:
     - text: Planeamiento de la aplicación
       url: luis-how-plan-your-app.md
-    - text: Ciclo de creación de la aplicación
+    - text: Diseño de aplicaciones iterativo
       url: luis-concept-app-iteration.md
+  - linkListType: whats-new
+    links:
+    - text: Novedades
+      url: whats-new.md
   - linkListType: video
     links:
     - text: 'Gira de eventos de inteligencia artificial: LUIS'
@@ -47,9 +49,9 @@ landingContent:
       url: luis-concept-intent.md
     - text: Entidades
       url: luis-concept-entity-types.md
-    - text: Un buen ejemplo de expresión
+    - text: Grabaciones de voz
       url: luis-concept-utterance.md
-    - text: Características de las listas de frases
+    - text: Características de lista de frases
       url: luis-concept-feature.md
   - linkListType: quickstart
     links:
@@ -89,15 +91,15 @@ landingContent:
       url: sdk-python-quickstart-authoring-app.md#train-the-app
   - linkListType: how-to-guide
     links:
-    - text: Control de versiones de la aplicación
+    - text: Versión de la aplicación
       url: luis-how-to-manage-versions.md
-    - text: Pruebas interactivas
+    - text: Realización de pruebas interactivas
       url: luis-interactive-test.md
-    - text: Pruebas por lotes
+    - text: Realización de pruebas por lotes
       url: luis-how-to-batch-test.md
     - text: Entrenamiento de la aplicación
       url: luis-how-to-train.md
-    - text: Publicación para usar el punto de conexión de la predicción
+    - text: Publicación de punto de conexión de predicción
       url: luis-how-to-publish-app.md
 - title: Obtención de la predicción a partir del punto de conexión
   linkLists:
@@ -123,7 +125,7 @@ landingContent:
     links:
     - text: Recursos para el desarrollador
       url: developer-reference-resource.md
-    - text: Límites de aplicaciones
+    - text: Limitaciones de la aplicación
       url: luis-boundaries.md
     - text: Entidades precompiladas
       url: luis-reference-prebuilt-entities.md
